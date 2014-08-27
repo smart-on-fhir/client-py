@@ -1,0 +1,15 @@
+Credits
+=======
+
+“fhirclient” is written and maintained by the SMART Platforms Team / Boston Children's Hospital.
+
+
+Contributors
+------------
+
+The following wonderful people contributed directly or indirectly to this project:
+
+- `Josh Mandel <https://github.com/jmandel>`_
+- `Nikolai Schwertner <https://github.com/nschwertner>`_
+
+Please add yourself here alphabetically when you submit your first pull request.

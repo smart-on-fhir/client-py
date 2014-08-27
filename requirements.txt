@@ -1,0 +1,4 @@
+pip>=1.4
+setuptools>=0.9
+wheel>=0.21
+bumpversion>=0.3
