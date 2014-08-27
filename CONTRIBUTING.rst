@@ -36,7 +36,7 @@ https://groups.google.com/forum/#!forum/smart-on-fhir
 .. _`PEP 257`: http://www.python.org/dev/peps/pep-0257/
 .. _`good commit messages`: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
 .. _`Code of Conduct`: http://www.python.org/psf/codeofconduct/
-.. _changelog: https://github.com/smart-on-fhir/fhirclient/blob/master/HISTORY.rst
-.. _AUTHORS.rst: https://github.com/smart-on-fhir/fhirclient/blob/master/AUTHORS.rst
+.. _changelog: https://github.com/smart-on-fhir/client-py/blob/master/HISTORY.rst
+.. _AUTHORS.rst: https://github.com/smart-on-fhir/client-py/blob/master/AUTHORS.rst
 .. _procedures: http://twistedmatrix.com/trac/wiki/CompatibilityPolicy
 .. _`freenode`: http://freenode.net

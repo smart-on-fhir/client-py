@@ -32,7 +32,7 @@ setup(
     long_description=(read('README.rst') + '\n\n' +
                       read('HISTORY.rst') + '\n\n' +
                       read('AUTHORS.rst')),
-    url='https://github.com/smart-on-fhir/fhirclient/',
+    url='https://github.com/smart-on-fhir/client-py/',
     license="APACHE2",
     author="SMART Platforms Team",
     author_email='support@smartplatforms.org',
