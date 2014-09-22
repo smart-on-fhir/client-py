@@ -2,7 +2,12 @@
 
 import requests
 import urllib
-import urlparse
+try:                                # Python 2.x
+    import urlparse
+    from urllib import urlencode
+except Exception as e:              # Python 3
+    import urllib.parse as urlparse
+    from urllib.parse import urlencode
 
 
 class FHIRServer(object):
@@ -15,11 +20,6 @@ class FHIRServer(object):
         self.authorize_uri = None
         self._auth_url = None
         self.token_uri = None
-        self.access_token = None
-        self.refresh_token = None
-        self.patient_id = None
-        """ The currently active patient. """
-        
         self._metadata = None
         if state is not None:
             self.from_state(state)
@@ -66,53 +66,23 @@ class FHIRServer(object):
                 args = urlparse.parse_qs(parts[3])
                 args.update(params)
                 params = args
-            parts[3] = urllib.urlencode(params, doseq=True)
+            parts[3] = urlencode(params, doseq=True)
             self._auth_url = urlparse.urlunsplit(parts)
         return self._auth_url
     
-    def handle_callback(self, url):
-        """ Handle OAuth2 callback URL.
+    def exchange_code(self, params):
+        """ Exchange the code received from the OAuth provider for an access
+        token by POST-ing the given params (which must include the code).
+        
+        :returns: Decoded JSON response
         """
-        if url is None:
-            raise Exception("No callback URL received")
-        try:
-            args = urlparse.parse_qs(urlparse.urlsplit(url)[3])
-        except Exception as e:
-            raise Exception("Invalid callback URL: {}".format(e))
+        headers = {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+        }
+        req = requests.post(self.token_uri, data=params)
+        req.raise_for_status()
         
-        err = self.extract_oauth_error(args)
-        if err is not None:
-            raise Exception(err)
-        
-        print("All good", args)
-    
-    def extract_oauth_error(self, args):
-        """ Check if an argument dictionary contains OAuth error information.
-        """
-        # "error_description" is optional, we prefer it if it's present
-        if 'error_description' in args:
-            return args['error_description'][0].replace('+', ' ')
-        
-        # the "error" response is required if there are errors, look for it
-        if 'error' in args:
-            err_code = args['error'][0]
-            if 'invalid_request' == err_code:
-                return "The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed."
-            if 'unauthorized_client' == err_code:
-                return "The client is not authorized to request an access token using this method."
-            if 'access_denied' == err_code:
-                return "The resource owner or authorization server denied the request."
-            if 'unsupported_response_type' == err_code:
-                return "The authorization server does not support obtaining an access token using this method."
-            if 'invalid_scope' == err_code:
-                return "The requested scope is invalid, unknown, or malformed."
-            if 'server_error' == err_code:
-                return "The authorization server encountered an unexpected condition that prevented it from fulfilling the request."
-            if 'temporarily_unavailable' == err_code:
-                return "The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
-            return "Authorization error: {}.".format(err_code)
-        
-        return None
+        return req.json()
     
     
     # MARK: Requests
@@ -121,7 +91,7 @@ class FHIRServer(object):
         """ Perform a request against the server's base with the given path.
         
         :param str path: The path to append to `base_uri`
-        :param auth: The authorization to use
+        :param auth: The authorization to use (NOT IMPLEMENTED)
         """
         assert self.base_uri and path
         url = urlparse.urljoin(self.base_uri, path)
@@ -145,10 +115,7 @@ class FHIRServer(object):
             'authorize_uri': self.authorize_uri,
             'auth_url': self._auth_url,
             'token_uri': self.token_uri,
-            'access_token': self.access_token,
-            'refresh_token': self.refresh_token,
-            'patient_id': self.patient_id,
-            'metadata': self._metadata,
+            # 'metadata': self._metadata,       # don't save to state, not currently needed and it's BIG
         }
     
     def from_state(self, state):
@@ -160,8 +127,5 @@ class FHIRServer(object):
         self.authorize_uri = state.get('authorize_uri') or self.authorize_uri
         self._auth_url = state.get('auth_url') or self._auth_url
         self.token_uri = state.get('token_uri') or self.token_uri
-        self.access_token = state.get('access_token') or self.access_token
-        self.refresh_token = state.get('refresh_token') or self.refresh_token
-        self.patient_id = state.get('patient_id') or self.patient_id
         self._metadata = state.get('metadata') or self._metadata
     

@@ -3,17 +3,16 @@
 import logging
 from fhirclient import client
 
-from flask import Flask, request, render_template, session, jsonify, abort
+from flask import Flask, request, redirect, session, jsonify, abort
 from flask.sessions import SessionInterface
 from beaker.middleware import SessionMiddleware
 
 
+app_secret_key = 'aeimoalk7o'
 smart_defaults = {
 	'app_id': 'my_web_app',
 	'api_base': 'https://fhir-api.smartplatforms.org',
-	'redirect': 'http://localhost:8000/fhir-app/',
-	'scope': 'launch/patient user/*.* patient/*.read openid profile',
-	'launch_token': 1288992,
+	'redirect_uri': 'http://localhost:8000/fhir-app/',
 }
 
 
@@ -38,6 +37,7 @@ class BeakerSessionInterface(SessionInterface):
 # app setup
 
 app = Flask(__name__)
+app.secret_key = app_secret_key
 
 def _get_smart():
 	state = session.get('state')
@@ -45,11 +45,15 @@ def _get_smart():
 		return client.FHIRClient(state=state)
 	return client.FHIRClient(settings=smart_defaults)
 
+def _save_smart(client):
+	session['state'] = client.state
+
 def _logout():
-	del session['state']
+	if 'state' in session:
+		del session['state']
 
 
-# routes
+# views
 
 @app.route('/')
 @app.route('/index.html')
@@ -57,7 +61,13 @@ def index():
 	""" The app's main page.
 	"""
 	smart = _get_smart()
-	return """<h1>Hello</h1><p>Please <a href="{}">authorize</a>.</p>""".format(smart.authorize_url)
+	body = "<h1>Hello</h1>"
+	if smart.ready:
+		body += """<p>You are authorized and ready to make API requests.</p><p><a href="/logout">Logout</a></p>"""
+	else:
+		body += """<p>Please <a href="{}">authorize</a>.</p>""".format(smart.authorize_url)
+	_save_smart(smart)		# calling `authorize_url` sets a new state, need to save client information. Automate?
+	return body
 
 
 @app.route('/fhir-app/')
@@ -67,16 +77,16 @@ def callback():
 	smart = _get_smart()
 	try:
 		smart.handle_callback(request.url)
+		_save_smart(smart)
 	except Exception as e:
-		return "<h1>Authorization Error</h1><p>{}</p>".format(e)
-	
-	return 'ok'
+		return """<h1>Authorization Error</h1><p>{}</p><p><a href="/">Start over</a></p>""".format(e)
+	return redirect('/')
 
 
 @app.route('/logout')
 def logout():
-	self._logout()
-	return "Bye"
+	_logout()
+	return redirect('/')
 
 
 # start the app
