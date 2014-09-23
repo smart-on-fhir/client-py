@@ -27,6 +27,27 @@ class FHIRAuth(object):
             self.from_state(state)
     
     
+    # MARK: Signing/Authorizing Request Headers
+    
+    def can_sign_headers(self):
+        return True if self.access_token is not None else False
+    
+    def signed_headers(self, headers):
+        """ Returns updated HTTP request headers, if possible, raises if there
+        is no access_token.
+        """
+        if not self.can_sign_headers():
+            raise Exception("Cannot sign headers since I have no access token")
+        
+        if headers is None:
+            headers = {}
+        headers['Authorization'] = "Bearer {}".format(self.access_token)
+        
+        return headers
+    
+    
+    # MARK: OAuth2 Flow
+    
     def authorize_params(self):
         """ The URL parameters to use when reuqesting a token code.
         """

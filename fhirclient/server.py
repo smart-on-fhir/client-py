@@ -2,6 +2,7 @@
 
 import requests
 import urllib
+import logging
 try:                                # Python 2.x
     import urlparse
     from urllib import urlencode
@@ -15,6 +16,7 @@ class FHIRServer(object):
     """
     
     def __init__(self, base_uri=None, state=None):
+        self.auth = None
         self.base_uri = base_uri
         self.registration_uri = None
         self.authorize_uri = None
@@ -36,7 +38,8 @@ class FHIRServer(object):
         """ Returns the server's metadata, retrieving it if necessary.
         """
         if self._metadata is None:
-            meta = self.requestJSON('metadata')
+            logging.info('Fetching metadata')
+            meta = self.requestJSON('metadata', nosign=True)
             try:
                 extensions = meta['rest'][0]['security']['extension']
             except Exception as e:
@@ -84,19 +87,25 @@ class FHIRServer(object):
         
         return req.json()
     
+    def did_authorize(self, auth):
+        self.auth = auth
+    
     
     # MARK: Requests
     
-    def requestJSON(self, path, auth=None):
+    def requestJSON(self, path, nosign=False):
         """ Perform a request against the server's base with the given path.
         
         :param str path: The path to append to `base_uri`
-        :param auth: The authorization to use (NOT IMPLEMENTED)
+        :param bool nosign: If set to True, the request will not be signed
         """
         assert self.base_uri and path
         url = urlparse.urljoin(self.base_uri, path)
+        
         headers = {'Accept': 'application/json'}
-        # TODO: sign if `auth` is not None
+        if not nosign and self.auth is not None and self.auth.can_sign_headers():
+            headers = self.auth.signed_headers(headers)
+        
         req = requests.get(url, headers=headers)
         req.raise_for_status()
         

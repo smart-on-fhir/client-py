@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#
 #   TO DO
 #    [ ] dynamic handlers for the various FHIR REST call variants and arguments (a la JS client)
 #    [ ] add in Pascal's parser for FHIR profiles
@@ -12,6 +14,7 @@ sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 import requests
 from server import FHIRServer
 from auth import FHIRAuth
+from models.Patient import Patient
 
 __version__ = '0.0.1'
 __author__ = 'SMART Platforms Team'
@@ -37,15 +40,14 @@ class FHIRClient(object):
         self.app_id = None
         self.server = None
         self.auth = None
+        self._patient = None
         
         # init from state
         if state is not None:
             self.from_state(state)
         
         # init from settings dict
-        elif settings is None:
-            raise Exception("Must either supply settings or a state upon client initialization")
-        else:
+        elif settings is not None:
             try:
                 self.app_id = settings['app_id']
                 self.server = FHIRServer(base_uri=settings['api_base'])
@@ -59,6 +61,8 @@ class FHIRClient(object):
             
             except Exception as e:
                 raise Exception("Incomplete initialization, need all of these: app_id, redirect_uri and api_base, have: {}  Error was: {}".format(settings.keys(), e))
+        else:
+            raise Exception("Must either supply settings or a state upon client initialization")
     
     
     # MARK: Authorization
@@ -87,6 +91,21 @@ class FHIRClient(object):
         req_body = self.auth.code_exchange_params(code)
         ret_params = self.server.exchange_code(req_body)
         self.auth.handle_code_exchange(ret_params)
+        self.server.did_authorize(self.auth)
+    
+    
+    # MARK: Current Patient
+    
+    @property
+    def patient_id(self):
+        return self.auth.patient_id
+    
+    @property
+    def patient(self):
+        if self._patient is None:
+            ret = Patient.read(self.patient_id, self.server)
+            self._patient = Patient(jsondict=ret)
+        return self._patient
     
     
     # MARK: State
@@ -104,42 +123,6 @@ class FHIRClient(object):
         self.app_id = state.get('app_id') or self.app_id
         self.server = FHIRServer(state=state.get('server'))
         self.auth = FHIRAuth(self.app_id, state=state.get('auth'))
+        if self.auth.access_token is not None:
+            self.server.did_authorize(self.auth)
     
-    @property
-    def patient_id(self):
-        return self.auth.patient_id
-    
-    
-    # TO DO: generate this convenience method on the fly
-    def Patient (self):
-        p = self._settings['provider']
-        url = p['api_base'] + "/Patient/" + self.patient_id
-
-        # TODO: There may be a better way to specify non-basic authorization header in requests
-        headers = {
-            'Authorization': ' '.join((p['access_token_type'], p['access_token'])),
-            'Accept': 'application/json'
-        }
-
-        r = requests.get(url, headers=headers)
-        return r.json()
-       
-    def get(self, type):
-        p = self._settings['provider']
-        url = p['api_base'] + "/" + type + "/_search?patient:Patient=" + p['pid']
-
-        # TODO: There may be a better way to specify non-basic authorization header in requests
-        headers = {
-            'Authorization': ' '.join((p['access_token_type'], p['access_token'])),
-            'Accept': 'application/json'
-        }
-
-        r = requests.get(url, headers=headers)
-        dt = r.json()
-        res = []
-        try:
-            for e in dt['entry']:
-                res.append(e['content'])
-        except:
-            pass
-        return res
