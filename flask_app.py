@@ -63,7 +63,7 @@ def index():
 	smart = _get_smart()
 	body = "<h1>Hello</h1>"
 	if smart.ready:
-		name = smart.human_name(smart.patient.name[0] if len(smart.patient.name) > 0 else None)
+		name = smart.human_name(smart.patient.name[0] if smart.patient and smart.patient.name and len(smart.patient.name) > 0 else None)
 		body += """<p>You are authorized and ready to make API requests for <em>{}</em>.</p><p><a href="/logout">Logout</a></p>""".format(name)
 	else:
 		body += """<p>Please <a href="{}">authorize</a>.</p>""".format(smart.authorize_url)

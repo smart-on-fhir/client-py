@@ -11,6 +11,13 @@ except Exception as e:              # Python 3
     from urllib.parse import urlencode
 
 
+class UnauthorizedException(Exception):
+    """ Indicating a 401 response.
+    """
+    def __init__(self, response):
+        self.response = response
+
+
 class FHIRServer(object):
     """ Handles talking to a FHIR server.
     """
@@ -20,7 +27,6 @@ class FHIRServer(object):
         self.base_uri = base_uri
         self.registration_uri = None
         self.authorize_uri = None
-        self._auth_url = None
         self.token_uri = None
         self._metadata = None
         if state is not None:
@@ -60,18 +66,18 @@ class FHIRServer(object):
     # MARK: Authorization
     
     def authorize_url(self, params):
-        if self._auth_url is None:
+        if self.authorize_uri is None:
             self.get_metadata()
-            
-            # the authorize uri may have params, make sure to not lose them
-            parts = list(urlparse.urlsplit(self.authorize_uri))
-            if len(parts[3]) > 0:
-                args = urlparse.parse_qs(parts[3])
-                args.update(params)
-                params = args
-            parts[3] = urlencode(params, doseq=True)
-            self._auth_url = urlparse.urlunsplit(parts)
-        return self._auth_url
+        
+        # the authorize uri may have params, make sure to not lose them
+        parts = list(urlparse.urlsplit(self.authorize_uri))
+        if len(parts[3]) > 0:
+            args = urlparse.parse_qs(parts[3])
+            args.update(params)
+            params = args
+        parts[3] = urlencode(params, doseq=True)
+        
+        return urlparse.urlunsplit(parts)
     
     def exchange_code(self, params):
         """ Exchange the code received from the OAuth provider for an access
@@ -106,10 +112,14 @@ class FHIRServer(object):
         if not nosign and self.auth is not None and self.auth.can_sign_headers():
             headers = self.auth.signed_headers(headers)
         
-        req = requests.get(url, headers=headers)
-        req.raise_for_status()
+        # perform the request but intercept 401 responses, raising our own Exception
+        res = requests.get(url, headers=headers)
+        if 401 == res.status_code:
+            raise UnauthorizedException(res)
+        else:
+            res.raise_for_status()
         
-        return req.json()
+        return res.json()
     
     
     # MARK: State Handling
@@ -122,7 +132,6 @@ class FHIRServer(object):
             'base_uri': self.base_uri,
             'registration_uri': self.registration_uri,
             'authorize_uri': self.authorize_uri,
-            'auth_url': self._auth_url,
             'token_uri': self.token_uri,
             # 'metadata': self._metadata,       # don't save to state, not currently needed and it's BIG
         }
@@ -134,7 +143,6 @@ class FHIRServer(object):
         self.base_uri = state.get('base_uri') or self.base_uri
         self.registration_uri = state.get('registration_uri') or self.registration_uri
         self.authorize_uri = state.get('authorize_uri') or self.authorize_uri
-        self._auth_url = state.get('auth_url') or self._auth_url
         self.token_uri = state.get('token_uri') or self.token_uri
         self._metadata = state.get('metadata') or self._metadata
     

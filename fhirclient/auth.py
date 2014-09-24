@@ -26,6 +26,15 @@ class FHIRAuth(object):
         if state is not None:
             self.from_state(state)
     
+    @property
+    def ready(self):
+        return True if self.access_token else False
+    
+    def reset(self):
+        self.patient_id = None
+        self.access_token = None
+        self.auth_state = None
+    
     
     # MARK: Signing/Authorizing Request Headers
     

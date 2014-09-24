@@ -12,7 +12,7 @@ import os.path
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
 import requests
-from server import FHIRServer
+from server import FHIRServer, UnauthorizedException
 from auth import FHIRAuth
 from models.Patient import Patient
 
@@ -72,7 +72,7 @@ class FHIRClient(object):
         """ Returns True if the client is ready to make API calls (i.e. there
         is an access token).
         """
-        return True if self.auth.access_token is not None else False
+        return self.auth.ready
     
     @property
     def authorize_url(self):
@@ -91,7 +91,14 @@ class FHIRClient(object):
         req_body = self.auth.code_exchange_params(code)
         ret_params = self.server.exchange_code(req_body)
         self.auth.handle_code_exchange(ret_params)
-        self.server.did_authorize(self.auth)
+        self._authorized(True)
+    
+    def _authorized(self, flag):
+        if flag:
+            self.server.did_authorize(self.auth)
+        else:
+            self.server.did_authorize(None)
+            self.auth.reset()
     
     
     # MARK: Current Patient
@@ -103,7 +110,11 @@ class FHIRClient(object):
     @property
     def patient(self):
         if self._patient is None:
-            self._patient = Patient.read(self.patient_id, self.server)
+            try:
+                self._patient = Patient.read(self.patient_id, self.server)
+            except UnauthorizedException as e:
+                self._authorized(False)
+         
         return self._patient
     
     def human_name(self, human_name_instance):
