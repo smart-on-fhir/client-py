@@ -63,7 +63,8 @@ def index():
 	smart = _get_smart()
 	body = "<h1>Hello</h1>"
 	if smart.ready:
-		body += """<p>You are authorized and ready to make API requests.</p><p><a href="/logout">Logout</a></p>"""
+		name = smart.human_name(smart.patient.name[0] if len(smart.patient.name) > 0 else None)
+		body += """<p>You are authorized and ready to make API requests for <em>{}</em>.</p><p><a href="/logout">Logout</a></p>""".format(name)
 	else:
 		body += """<p>Please <a href="{}">authorize</a>.</p>""".format(smart.authorize_url)
 	_save_smart(smart)		# calling `authorize_url` sets a new state, need to save client information. Automate?

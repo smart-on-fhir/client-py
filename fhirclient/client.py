@@ -103,9 +103,21 @@ class FHIRClient(object):
     @property
     def patient(self):
         if self._patient is None:
-            ret = Patient.read(self.patient_id, self.server)
-            self._patient = Patient(jsondict=ret)
+            self._patient = Patient.read(self.patient_id, self.server)
         return self._patient
+    
+    def human_name(self, human_name_instance):
+        """ Formats a `HumanName` instance into a string.
+        """
+        if human_name_instance is None:
+            return 'Unknown'
+        
+        parts = []
+        for n in [human_name_instance.prefix, human_name_instance.given, human_name_instance.family, human_name_instance.suffix]:
+            if n is not None:
+                parts.extend(n)
+        
+        return ' '.join(parts)
     
     
     # MARK: State

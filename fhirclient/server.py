@@ -31,15 +31,15 @@ class FHIRServer(object):
     
     @property
     def metadata(self):
-        self.getMetadataIfNeeded()
+        self.get_metadata()
         return self._metadata
     
-    def getMetadataIfNeeded(self):
-        """ Returns the server's metadata, retrieving it if necessary.
+    def get_metadata(self, if_needed=True):
+        """ Returns the server's metadata, retrieving it if needed.
         """
-        if self._metadata is None:
+        if self._metadata is None or not if_needed:
             logging.info('Fetching metadata')
-            meta = self.requestJSON('metadata', nosign=True)
+            meta = self.request_json('metadata', nosign=True)
             try:
                 extensions = meta['rest'][0]['security']['extension']
             except Exception as e:
@@ -61,7 +61,7 @@ class FHIRServer(object):
     
     def authorize_url(self, params):
         if self._auth_url is None:
-            self.getMetadataIfNeeded()
+            self.get_metadata()
             
             # the authorize uri may have params, make sure to not lose them
             parts = list(urlparse.urlsplit(self.authorize_uri))
@@ -93,7 +93,7 @@ class FHIRServer(object):
     
     # MARK: Requests
     
-    def requestJSON(self, path, nosign=False):
+    def request_json(self, path, nosign=False):
         """ Perform a request against the server's base with the given path.
         
         :param str path: The path to append to `base_uri`
