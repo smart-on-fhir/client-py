@@ -7,11 +7,11 @@ specification_url = 'http://hl7.org/documentcenter/public/standards/FHIR/fhir-sp
 
 # classes/resources
 write_resources = True
-tpl_resource_source = 'Python/template-resource.py'     	# the template to use as source
+tpl_resource_source = 'Python/template-resource.py'         # the template to use as source
 tpl_resource_target_ptrn = '../fhirclient/models/{}.py'     # where to write the generated class files to, with one placeholder for the class name
 resource_base_target = '../fhirclient/models/'              # resource target directory, likely the same as `tpl_resource_target_ptrn` without the filename pattern
 resource_default_base = 'FHIRElement'                   # the default superclass to use
-resource_baseclasses = [                                # all these files should be copied to `resource_base_target` as well
+resource_baseclasses = [                                # all these files should be copied to `resource_base_target`
     'Python/FHIRElement.py',
     'Python/FHIRResource.py',
     'Python/FHIRDate.py',
@@ -23,9 +23,10 @@ tpl_factory_source = 'Python/template-elementfactory.py'
 tpl_factory_target = '../models/FHIRElement+Factory.py'
 
 # search parameters
-write_searchparams = False
+write_searchparams = True
+search_generate_camelcase = False
 tpl_searchparams_source = 'Python/template-searchparams.py'
-tpl_searchparams_target = '../models/FHIRSearchParam+Params.py'
+tpl_searchparams_target = '../fhirclient/models/FHIRSearchParam.py'
 
 # unit tests
 write_unittests = True
