@@ -4,3 +4,6 @@ __pycache__
 # virtualenv
 /env
 
+# IDE files
+*.sublime-*
+
