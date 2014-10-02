@@ -8,30 +8,81 @@ except Exception as e:              # Python 3
 
 
 class FHIRAuth(object):
-    """ Handles authorization flow and state, written for OAuth2 code flows.
+    """ Superclass to handle authorization flow and state.
     """
+    auth_type = 'none'
+    auth_classes = {}
     
-    def __init__(self, app_id, scope=None, redirect_uri=None, state=None):
+    @classmethod
+    def register(cls, auth_type):
+        assert auth_type
+        if auth_type not in FHIRAuth.auth_classes:
+            FHIRAuth.auth_classes[auth_type] = cls
+        elif FHIRAuth.auth_classes[auth_type] != cls:
+            raise Exception('Class {} is already registered for authorization type "{}"'.format(FHIRAuth.auth_classes[auth_type], auth_type))
+    
+    @classmethod
+    def create(cls, auth_type, app_id, **kwargs):
+        assert auth_type
+        if auth_type in FHIRAuth.auth_classes:
+            klass = FHIRAuth.auth_classes[auth_type]
+            return klass(app_id, **kwargs)
+        raise Exception('No class registered for authorization type "{}"'.format(auth_type))
+    
+    
+    def __init__(self, app_id, state=None):
         self.app_id = app_id
-        self.scope = scope
-        self.redirect_uri = redirect_uri
         
         self.patient_id = None
         """ The currently active patient. """
+        
+        if state is not None:
+            self.from_state(state)
+    
+    def auth_type(cls):
+        return self.__class__.auth_type
+    
+    @property
+    def ready(self):
+        return True
+    
+    def reset(self):
+        self.patient_id = None
+    
+    @property
+    def state(self):
+        return {
+            'patient_id': self.patient_id,
+        }
+    
+    def from_state(self, state):
+        """ Update ivars from given state information.
+        """
+        assert state
+        self.patient_id = state.get('patient_id') or self.patient_id
+
+    
+class FHIROAuth2Auth(FHIRAuth):
+    """ OAuth2 handling class for FHIR servers.
+    """
+    auth_type = 'oauth2'
+    
+    def __init__(self, app_id, scope=None, redirect_uri=None, state=None):
+        self.scope = scope
+        self.redirect_uri = redirect_uri
         
         self.auth_state = None
         self.access_token = None
         self.refresh_token = None
         
-        if state is not None:
-            self.from_state(state)
+        super(FHIROAuth2Auth, self).__init__(app_id, state=state)
     
     @property
     def ready(self):
         return True if self.access_token else False
     
     def reset(self):
-        self.patient_id = None
+        super(FHIROAuth2Auth, self).reset()
         self.access_token = None
         self.auth_state = None
     
@@ -137,14 +188,13 @@ class FHIRAuth(object):
     def from_state(self, state):
         """ Update ivars from given state information.
         """
-        assert state
+        super(FHIROAuth2Auth, self).from_state(state)
         self.scope = state.get('scope') or self.scope
         self.redirect_uri = state.get('redirect_uri') or self.redirect_uri
         self.auth_state = state.get('auth_state') or self.auth_state
         
         self.access_token = state.get('access_token') or self.access_token
         self.refresh_token = state.get('refresh_token') or self.refresh_token
-        self.patient_id = state.get('patient_id') or self.patient_id
     
 
     # MARK: Utilities    
@@ -177,3 +227,6 @@ class FHIRAuth(object):
         
         return None
     
+
+# register classes
+FHIROAuth2Auth.register('oauth2')

@@ -33,6 +33,7 @@ class FHIRClient(object):
     
         - `app_id`: Your app/client-id, e.g. 'my_web_app'
         - `api_base`: The SMART service to connect to, e.g. 'https://fhir-api.smartplatforms.org'
+        - `auth_type`: The authorization type, supports "oauth2", defaults to "oauth2" if omitted
         - `redirect_uri`: The callback/redirect URL for your app, e.g. 'http://localhost:8000/fhir-app/' when testing locally
     """
     
@@ -48,19 +49,18 @@ class FHIRClient(object):
         
         # init from settings dict
         elif settings is not None:
-            try:
-                self.app_id = settings['app_id']
-                self.server = FHIRServer(base_uri=settings['api_base'])
-                
-                scope = scope_default
-                if 'launch_token' in settings:
-                    scope = ' launch:'.join([scope, settings['launch_token']])
-                else:
-                    scope = ' '.join([scope_nolaunch, scope])
-                self.auth = FHIRAuth(app_id=self.app_id, scope=scope, redirect_uri=settings['redirect_uri'])
+            self.app_id = settings['app_id']
+            self.server = FHIRServer(base_uri=settings['api_base'])
             
-            except Exception as e:
-                raise Exception("Incomplete initialization, need all of these: app_id, redirect_uri and api_base, have: {}  Error was: {}".format(settings.keys(), e))
+            scope = scope_default
+            if 'launch_token' in settings:
+                scope = ' launch:'.join([scope, settings['launch_token']])
+            else:
+                scope = ' '.join([scope_nolaunch, scope])
+            
+            auth_type = settings.get('auth_type')
+            redirect = settings.get('redirect_uri')
+            self.auth = self._auth_for_type(auth_type, scope=scope, redirect_uri=redirect)
         else:
             raise Exception("Must either supply settings or a state upon client initialization")
     
@@ -68,11 +68,20 @@ class FHIRClient(object):
     # MARK: Authorization
     
     @property
+    def auth_type(self):
+        return self.auth.auth_type if self.auth else None
+    
+    def _auth_for_type(self, auth_type, **kwargs):
+        if auth_type is None:
+            auth_type = 'oauth2'
+        return FHIRAuth.create(auth_type, app_id=self.app_id, **kwargs)
+    
+    @property
     def ready(self):
-        """ Returns True if the client is ready to make API calls (i.e. there
+        """ Returns True if the client is ready to make API calls (e.g. there
         is an access token).
         """
-        return self.auth.ready
+        return self.auth.ready if self.auth else False
     
     @property
     def authorize_url(self):
@@ -138,6 +147,7 @@ class FHIRClient(object):
         return {
             'app_id': self.app_id,
             'server': self.server.state,
+            'auth_type': self.auth_type,
             'auth': self.auth.state,
         }
     
@@ -145,7 +155,7 @@ class FHIRClient(object):
         assert state
         self.app_id = state.get('app_id') or self.app_id
         self.server = FHIRServer(state=state.get('server'))
-        self.auth = FHIRAuth(self.app_id, state=state.get('auth'))
-        if self.auth.access_token is not None:
+        self.auth = self._auth_for_type(state.get('auth_type'), state=state.get('auth'))
+        if self.auth is not None and self.auth.access_token is not None:
             self.server.did_authorize(self.auth)
     
