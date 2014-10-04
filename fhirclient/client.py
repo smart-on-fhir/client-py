@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 import requests
 from server import FHIRServer, UnauthorizedException
 from auth import FHIRAuth
-from models.Patient import Patient
+from fhirclient.models.Patient import Patient
 
 __version__ = '0.0.1'
 __author__ = 'SMART Platforms Team'
@@ -137,7 +137,7 @@ class FHIRClient(object):
             if n is not None:
                 parts.extend(n)
         
-        return ' '.join(parts)
+        return ' '.join(parts) if len(parts) > 0 else 'Unnamed'
     
     
     # MARK: State

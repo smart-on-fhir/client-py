@@ -15,6 +15,7 @@ resource_baseclasses = [                                # all these files should
     'Python/FHIRElement.py',
     'Python/FHIRResource.py',
     'Python/FHIRDate.py',
+    'Python/FHIRSearch.py',
 ]
 
 # factory methods
@@ -26,7 +27,7 @@ tpl_factory_target = '../models/FHIRElement+Factory.py'
 write_searchparams = True
 search_generate_camelcase = False
 tpl_searchparams_source = 'Python/template-searchparams.py'
-tpl_searchparams_target = '../fhirclient/models/FHIRSearchParam.py'
+tpl_searchparams_target = '../fhirclient/models/FHIRSearchElement.py'
 
 # unit tests
 write_unittests = True
