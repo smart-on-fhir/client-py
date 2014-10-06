@@ -12,7 +12,7 @@ import os.path
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
 import requests
-from server import FHIRServer, UnauthorizedException
+from server import FHIRServer, FHIRUnauthorizedException
 from auth import FHIRAuth
 from fhirclient.models.Patient import Patient
 
@@ -33,7 +33,7 @@ class FHIRClient(object):
     
         - `app_id`: Your app/client-id, e.g. 'my_web_app'
         - `api_base`: The SMART service to connect to, e.g. 'https://fhir-api.smartplatforms.org'
-        - `auth_type`: The authorization type, supports "oauth2", defaults to "oauth2" if omitted
+        - `auth_type`: The authorization type, supports "oauth2". Defaults to "oauth2" if omitted
         - `redirect_uri`: The callback/redirect URL for your app, e.g. 'http://localhost:8000/fhir-app/' when testing locally
     """
     
@@ -100,9 +100,10 @@ class FHIRClient(object):
         req_body = self.auth.code_exchange_params(code)
         ret_params = self.server.exchange_code(req_body)
         self.auth.handle_code_exchange(ret_params)
-        self._authorized(True)
+        self._set_authorized(True)
     
-    def _authorized(self, flag):
+    def _set_authorized(self, flag):
+        """ Internal method used to sync server and auth. """
         if flag:
             self.server.did_authorize(self.auth)
         else:
@@ -121,8 +122,8 @@ class FHIRClient(object):
         if self._patient is None:
             try:
                 self._patient = Patient.read(self.patient_id, self.server)
-            except UnauthorizedException as e:
-                self._authorized(False)
+            except FHIRUnauthorizedException as e:
+                self._set_authorized(False)
          
         return self._patient
     

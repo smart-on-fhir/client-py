@@ -11,7 +11,7 @@ except Exception as e:              # Python 3
     from urllib.parse import urlencode
 
 
-class UnauthorizedException(Exception):
+class FHIRUnauthorizedException(Exception):
     """ Indicating a 401 response.
     """
     def __init__(self, response):
@@ -115,7 +115,7 @@ class FHIRServer(object):
         # perform the request but intercept 401 responses, raising our own Exception
         res = requests.get(url, headers=headers)
         if 401 == res.status_code:
-            raise UnauthorizedException(res)
+            raise FHIRUnauthorizedException(res)
         else:
             res.raise_for_status()
         

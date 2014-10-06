@@ -2,6 +2,7 @@
 
 import logging
 from fhirclient import client
+from fhirclient.models.MedicationPrescription import MedicationPrescription
 
 from flask import Flask, request, redirect, session, jsonify, abort
 from flask.sessions import SessionInterface
@@ -52,6 +53,16 @@ def _logout():
 	if 'state' in session:
 		del session['state']
 
+def _get_prescriptions(smart):
+	return MedicationPrescription.where().patient(smart.patient_id).perform(smart.server)
+
+def _med_name(prescription):
+	if prescription.medication and prescription.medication.name:
+		return prescription.medication.name
+	if prescription.text and prescription.text.div:
+		return prescription.text.div
+	return "Unnamed Medication(TM)"
+
 
 # views
 
@@ -62,9 +73,19 @@ def index():
 	"""
 	smart = _get_smart()
 	body = "<h1>Hello</h1>"
-	if smart.ready:
-		name = smart.human_name(smart.patient.name[0] if smart.patient and smart.patient.name and len(smart.patient.name) > 0 else None)
-		body += """<p>You are authorized and ready to make API requests for <em>{}</em>.</p><p><a href="/logout">Logout</a></p>""".format(name)
+	
+	if smart.ready and smart.patient is not None:		# "ready" may be true but the access token may have expired, making smart.patient = None
+		name = smart.human_name(smart.patient.name[0] if smart.patient.name and len(smart.patient.name) > 0 else 'Unknown')
+		gender = smart.patient.gender.coding[0].code if smart.patient.gender.coding and len(smart.patient.gender.coding) > 0 else None
+		
+		# generate simple body text
+		body += "<p>You are authorized and ready to make API requests for <em>{}</em>.</p>".format(name)
+		pres = _get_prescriptions(smart)
+		if pres is not None:
+			body += "<p>{} prescriptions: <ul><li>{}</li></ul></p>".format("His" if 'M' == gender else "Her", '</li><li>'.join([_med_name(m) for m in pres]))
+		else:
+			body += "<p>(There are no prescriptions for {})</p>".format("him" if 'M' == gender else "her")
+		body += """<p><a href="/logout">Logout</a></p>""".format(name)
 	else:
 		body += """<p>Please <a href="{}">authorize</a>.</p>""".format(smart.authorize_url)
 	_save_smart(smart)		# calling `authorize_url` sets a new state, need to save client information. Automate?
