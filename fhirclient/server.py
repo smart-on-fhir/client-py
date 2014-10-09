@@ -5,10 +5,8 @@ import urllib
 import logging
 try:                                # Python 2.x
     import urlparse
-    from urllib import urlencode
 except Exception as e:              # Python 3
     import urllib.parse as urlparse
-    from urllib.parse import urlencode
 
 
 class FHIRUnauthorizedException(Exception):
@@ -25,9 +23,9 @@ class FHIRServer(object):
     def __init__(self, base_uri=None, state=None):
         self.auth = None
         self.base_uri = base_uri
-        self.registration_uri = None
-        self.authorize_uri = None
-        self.token_uri = None
+        self._registration_uri = None
+        self._authorize_uri = None
+        self._token_uri = None
         self._metadata = None
         if state is not None:
             self.from_state(state)
@@ -54,44 +52,28 @@ class FHIRServer(object):
             # extract extensions from metadata: OAuth2 endpoint URIs
             for e in extensions:
                 if e['url'] == "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register":
-                    self.registration_uri = e['valueUri']
+                    self._registration_uri = e['valueUri']
                 elif e['url'] == "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize":
-                    self.authorize_uri = e['valueUri']
+                    self._authorize_uri = e['valueUri']
                 elif e['url'] == "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token":
-                    self.token_uri = e['valueUri']
+                    self._token_uri = e['valueUri']
 
             self._metadata = meta
     
     
     # MARK: Authorization
     
-    def authorize_url(self, params):
-        if self.authorize_uri is None:
+    @property
+    def authorize_uri(self):
+        if self._authorize_uri is None:
             self.get_metadata()
-        
-        # the authorize uri may have params, make sure to not lose them
-        parts = list(urlparse.urlsplit(self.authorize_uri))
-        if len(parts[3]) > 0:
-            args = urlparse.parse_qs(parts[3])
-            args.update(params)
-            params = args
-        parts[3] = urlencode(params, doseq=True)
-        
-        return urlparse.urlunsplit(parts)
+        return self._authorize_uri
     
-    def exchange_code(self, params):
-        """ Exchange the code received from the OAuth provider for an access
-        token by POST-ing the given params (which must include the code).
-        
-        :returns: Decoded JSON response
-        """
-        headers = {
-            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-        }
-        req = requests.post(self.token_uri, data=params)
-        req.raise_for_status()
-        
-        return req.json()
+    @property
+    def token_uri(self):
+        if self._token_uri is None:
+            self.get_metadata()
+        return self._token_uri
     
     def did_authorize(self, auth):
         self.auth = auth
@@ -121,6 +103,20 @@ class FHIRServer(object):
         
         return res.json()
     
+    def post_as_form(self, url, formdata):
+        """ Performs a POST request with form-data, expecting to receive JSON.
+        
+        :returns: Decoded JSON response
+        """
+        headers = {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+            'Accept': 'application/json',
+        }
+        req = requests.post(url, data=formdata)
+        req.raise_for_status()
+        
+        return req.json()
+    
     
     # MARK: State Handling
     
@@ -130,9 +126,9 @@ class FHIRServer(object):
         """
         return {
             'base_uri': self.base_uri,
-            'registration_uri': self.registration_uri,
-            'authorize_uri': self.authorize_uri,
-            'token_uri': self.token_uri,
+            'registration_uri': self._registration_uri,
+            'authorize_uri': self._authorize_uri,
+            'token_uri': self._token_uri,
             # 'metadata': self._metadata,       # don't save to state, not currently needed and it's BIG
         }
     
@@ -141,8 +137,8 @@ class FHIRServer(object):
         """
         assert state
         self.base_uri = state.get('base_uri') or self.base_uri
-        self.registration_uri = state.get('registration_uri') or self.registration_uri
-        self.authorize_uri = state.get('authorize_uri') or self.authorize_uri
-        self.token_uri = state.get('token_uri') or self.token_uri
+        self._registration_uri = state.get('registration_uri') or self._registration_uri
+        self._authorize_uri = state.get('authorize_uri') or self._authorize_uri
+        self._token_uri = state.get('token_uri') or self._token_uri
         self._metadata = state.get('metadata') or self._metadata
     

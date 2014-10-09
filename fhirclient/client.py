@@ -81,26 +81,28 @@ class FHIRClient(object):
         """ Returns True if the client is ready to make API calls (e.g. there
         is an access token).
         """
-        return self.auth.ready if self.auth else False
+        return self.auth.ready if self.auth is not None else False
     
     @property
     def authorize_url(self):
         """ The URL to use to receive an authorization token.
         """
-        auth_params = self.auth.authorize_params()
-        return self.server.authorize_url(auth_params)
+        return self.auth.authorize_url(self.server) if self.auth is not None else None
     
     def handle_callback(self, url):
         """ You can call this to have the client automatically handle the
-        callback after the user has logged in.
+        auth callback after the user has logged in.
         
         :param str url: The complete callback URL
         """
-        code = self.auth.handle_callback(url)
-        req_body = self.auth.code_exchange_params(code)
-        ret_params = self.server.exchange_code(req_body)
-        self.auth.handle_code_exchange(ret_params)
+        self.auth.handle_callback(url, self.server)
         self._set_authorized(True)
+    
+    def reauthorize(self):
+        """ Try to reauthorize with the server; handled by our `auth` instance.
+        """
+        return self.auth.reauthorize() if self.auth is not None else False
+    
     
     def _set_authorized(self, flag):
         """ Internal method used to sync server and auth. """
@@ -123,7 +125,11 @@ class FHIRClient(object):
             try:
                 self._patient = Patient.read(self.patient_id, self.server)
             except FHIRUnauthorizedException as e:
-                self._set_authorized(False)
+                if self.reauthorize():
+                    print("DID REAUTHORIZE SUCCESSFULLY")
+                    self._patient = Patient.read(self.patient_id, self.server)
+                else:
+                    self._set_authorized(False)
          
         return self._patient
     

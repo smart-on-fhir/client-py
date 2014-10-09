@@ -3,8 +3,10 @@
 import uuid
 try:                                # Python 2.x
     import urlparse
+    from urllib import urlencode
 except Exception as e:              # Python 3
     import urllib.parse as urlparse
+    from urllib.parse import urlencode
 
 
 class FHIRAuth(object):
@@ -15,6 +17,8 @@ class FHIRAuth(object):
     
     @classmethod
     def register(cls, auth_type):
+        """ Register this class to handle authorization types of the given
+        type. """
         assert auth_type
         if auth_type not in FHIRAuth.auth_classes:
             FHIRAuth.auth_classes[auth_type] = cls
@@ -23,6 +27,8 @@ class FHIRAuth(object):
     
     @classmethod
     def create(cls, auth_type, app_id, **kwargs):
+        """ Factory method to create the correct subclass for the given
+        authorization type. """
         assert auth_type
         if auth_type in FHIRAuth.auth_classes:
             klass = FHIRAuth.auth_classes[auth_type]
@@ -44,10 +50,27 @@ class FHIRAuth(object):
     
     @property
     def ready(self):
+        """ Indicates whether the authorization part is ready to make
+        resource requests. """
+        return True
+    
+    def authorize_url(self, server):
+        """ Return the authorize URL to use against the given server. The
+        server must have a `metadata` dict property. """
+        return None
+    
+    def reauthorize(self, server):
+        """ Perform a re-authorization of some form.
+        
+        :returns: A bool indicating reauthorization success
+        """
         return True
     
     def reset(self):
         self.patient_id = None
+    
+    
+    # MARK: State
     
     @property
     def state(self):
@@ -108,6 +131,19 @@ class FHIROAuth2Auth(FHIRAuth):
     
     # MARK: OAuth2 Flow
     
+    def authorize_url(self, server):
+        auth_params = self.authorize_params()
+        
+        # the authorize uri may have params, make sure to not lose them
+        parts = list(urlparse.urlsplit(server.authorize_uri))
+        if len(parts[3]) > 0:
+            args = urlparse.parse_qs(parts[3])
+            args.update(auth_params)
+            auth_params = args
+        parts[3] = urlencode(auth_params, doseq=True)
+        
+        return urlparse.urlunsplit(parts)
+    
     def authorize_params(self):
         """ The URL parameters to use when reuqesting a token code.
         """
@@ -122,20 +158,24 @@ class FHIROAuth2Auth(FHIRAuth):
             'redirect_uri': self.redirect_uri,
         }
     
-    def handle_callback(self, url):
+    def handle_callback(self, url, server):
         """ Verify OAuth2 callback URL and exchange the code, if everything
         goes well, for an access token.
         
         :param str url: The callback/redirect URL to handle
+        :param server: The FHIR server to handle the callback against
         :returns: The code that can be exchanged for an access token
         """
         if url is None:
             raise Exception("No callback URL received")
+        if server is None:
+            raise Exception("I need a server against which to handle the callback")
         try:
             args = dict(urlparse.parse_qsl(urlparse.urlsplit(url)[3]))
         except Exception as e:
             raise Exception("Invalid callback URL: {}".format(e))
         
+        # verify response
         err = self.extract_oauth_error(args)
         if err is not None:
             raise Exception(err)
@@ -148,7 +188,9 @@ class FHIROAuth2Auth(FHIRAuth):
         if code is None:
             raise Exception("Did not receive a code, only have: {}".format(', '.join(args.keys())))
         
-        return code
+        # exchange code for token
+        exchange = self.code_exchange_params(code)
+        self.request_access_token(server, exchange)
     
     def code_exchange_params(self, code):
         """ These parameters are used by the server to exchange the given code
@@ -163,13 +205,43 @@ class FHIROAuth2Auth(FHIRAuth):
             'scope': self.scope,
         }
     
-    def handle_code_exchange(self, params):
-        """ Handles the response from a token exchange call.
+    def request_access_token(self, server, params):
+        """ Requests an access token from the given server via a form POST
+        request, remembers the token (and patient id if there is one) or
+        raises an Exception.
         """
-        self.access_token = params.get('access_token')
+        ret_params = server.post_as_form(server.token_uri, params)
+        self.access_token = ret_params.get('access_token')
         if self.access_token is None:
             raise Exception("No access token received")
-        self.patient_id = params.get('patient')
+        if 'patient' in ret_params:
+            self.patient_id = ret_params['patient']
+    
+    
+    # MARK: Reauthorization
+    
+    def reauthorize(self, server):
+        """ Perform reauthorization.
+        """
+        if self.refresh_token is None:
+            return False
+        
+        reauth = self.reauthorize_params()
+        self.request_access_token(server, reauth)
+        return True
+    
+    def reauthorize_params(self):
+        """ Parameters to be used in a reauthorize request.
+        """
+        if self.refresh_token is None:
+            raise Exception("Cannot produce reauthorize parameters without refresh token")
+        return {
+            'client_id': self.app_id,
+            #'client_secret': None,             # we don't use it
+            'grant_type': 'refresh_token',
+            'refresh_token': self.refresh_token,
+            #'scope': self.scope,               # not needed, cannot be changed anyway
+        }
     
     
     # MARK: State
