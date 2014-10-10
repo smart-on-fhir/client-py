@@ -101,7 +101,7 @@ class FHIRClient(object):
     def reauthorize(self):
         """ Try to reauthorize with the server; handled by our `auth` instance.
         """
-        return self.auth.reauthorize() if self.auth is not None else False
+        return self.auth.reauthorize(self.server) if self.auth is not None else False
     
     
     def _set_authorized(self, flag):
@@ -126,7 +126,6 @@ class FHIRClient(object):
                 self._patient = Patient.read(self.patient_id, self.server)
             except FHIRUnauthorizedException as e:
                 if self.reauthorize():
-                    print("DID REAUTHORIZE SUCCESSFULLY")
                     self._patient = Patient.read(self.patient_id, self.server)
                 else:
                     self._set_authorized(False)

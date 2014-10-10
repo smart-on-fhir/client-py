@@ -214,6 +214,7 @@ class FHIROAuth2Auth(FHIRAuth):
         self.access_token = ret_params.get('access_token')
         if self.access_token is None:
             raise Exception("No access token received")
+        self.refresh_token = ret_params.get('refresh_token')
         if 'patient' in ret_params:
             self.patient_id = ret_params['patient']
     
