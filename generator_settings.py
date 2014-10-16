@@ -14,6 +14,8 @@ resource_default_base = 'FHIRElement'                   # the default superclass
 resource_baseclasses = [                                # all these files should be copied to `resource_base_target`
     'Python/FHIRElement.py',
     'Python/FHIRResource.py',
+    'Python/FHIRContainedResource.py',
+    'Python/FHIRReference.py',
     'Python/FHIRDate.py',
     'Python/FHIRSearch.py',
 ]
