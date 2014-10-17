@@ -57,8 +57,10 @@ def _get_prescriptions(smart):
 	return MedicationPrescription.where().patient(smart.patient_id).perform(smart.server)
 
 def _med_name(prescription):
-	if prescription.medication and prescription.medication.name:
-		return prescription.medication.name
+	if prescription.medication and prescription.medication.resolved and prescription.medication.resolved.name:
+		return prescription.medication.resolved.name
+	if prescription.medication and prescription.medication.display:
+		return prescription.medication.display
 	if prescription.text and prescription.text.div:
 		return prescription.text.div
 	return "Unnamed Medication(TM)"
