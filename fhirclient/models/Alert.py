@@ -14,16 +14,16 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Practitioner
+import codeableconcept
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import practitioner
 
 
-class Alert(FHIRResource.FHIRResource):
+class Alert(fhirresource.FHIRResource):
     """ Key information to flag to healthcare providers.
     
     Scope and Usage The Alert resource provides a single interface for managing
@@ -82,17 +82,17 @@ class Alert(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Alert, self).update_with_json(jsondict)
         if 'author' in jsondict:
-            self.author = FHIRReference.FHIRReference.with_json_and_owner(jsondict['author'], self, Practitioner.Practitioner)
+            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'category' in jsondict:
-            self.category = CodeableConcept.CodeableConcept.with_json(jsondict['category'])
+            self.category = codeableconcept.CodeableConcept.with_json(jsondict['category'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'note' in jsondict:
             self.note = jsondict['note']
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 

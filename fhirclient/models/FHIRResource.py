@@ -4,12 +4,12 @@
 #  Base class for FHIR resources.
 #  2014, SMART Platforms.
 
-import FHIRElement
-import FHIRSearch
-import FHIRSearchElement
+import fhirelement
+import fhirsearch
+import fhirsearchelement
 
 
-class FHIRResource(FHIRElement.FHIRElement):
+class FHIRResource(fhirelement.FHIRElement):
     """ Extends the FHIRElement base class with server talking capabilities.
     """
     resource_name = 'Resource'
@@ -41,7 +41,11 @@ class FHIRResource(FHIRElement.FHIRElement):
         :param FHIRServer server: An instance of a FHIR server or compatible class
         :returns: An instance of the receiver class
         """
-        assert rem_id and server
+        if not rem_id:
+            raise Exception("Cannot read resource without remote id")
+        if server is None:
+            raise Exception("Cannot read resource without server instance")
+        
         path = '{}/{}'.format(cls.resource_name, rem_id)
         ret = server.request_json(path)
         
@@ -69,7 +73,7 @@ class FHIRResource(FHIRElement.FHIRElement):
         :returns: A FHIRSearch or FHIRSearchElement instance
         """
         if struct is None and self._remote_id is not None:
-            p = FHIRSearchElement.FHIRSearchElement('_id')        # TODO: currently the subject of the first search element is ignored, make this work
+            p = fhirsearchelement.FHIRSearchElement('_id')        # TODO: currently the subject of the first search element is ignored, make this work
             p.reference = self._remote_id
             p.resource_type = self.__class__
             return p
@@ -91,9 +95,9 @@ class FHIRResource(FHIRElement.FHIRElement):
         :returns: A FHIRSearch or FHIRSearchElement instance
         """
         if struct is not None:
-            return FHIRSearch.FHIRSearch(cls.resource_name, struct)
+            return fhirsearch.FHIRSearch(cls, struct)
         
-        p = FHIRSearchElement.FHIRSearchElement(None)
+        p = fhirsearchelement.FHIRSearchElement(None)
         p.resource_type = cls
         return p
     

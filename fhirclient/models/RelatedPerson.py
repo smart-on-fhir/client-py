@@ -14,19 +14,19 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Address
-import Attachment
-import CodeableConcept
-import Contact
-import FHIRReference
-import FHIRResource
-import HumanName
-import Identifier
-import Narrative
-import Patient
+import address
+import attachment
+import codeableconcept
+import contact
+import fhirreference
+import fhirresource
+import humanname
+import identifier
+import narrative
+import patient
 
 
-class RelatedPerson(FHIRResource.FHIRResource):
+class RelatedPerson(fhirresource.FHIRResource):
     """ An person that is related to a patient, but who is not a direct target of
     care.
     
@@ -93,21 +93,21 @@ class RelatedPerson(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(RelatedPerson, self).update_with_json(jsondict)
         if 'address' in jsondict:
-            self.address = Address.Address.with_json(jsondict['address'])
+            self.address = address.Address.with_json(jsondict['address'])
         if 'gender' in jsondict:
-            self.gender = CodeableConcept.CodeableConcept.with_json(jsondict['gender'])
+            self.gender = codeableconcept.CodeableConcept.with_json(jsondict['gender'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'name' in jsondict:
-            self.name = HumanName.HumanName.with_json(jsondict['name'])
+            self.name = humanname.HumanName.with_json(jsondict['name'])
         if 'patient' in jsondict:
-            self.patient = FHIRReference.FHIRReference.with_json_and_owner(jsondict['patient'], self, Patient.Patient)
+            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
         if 'photo' in jsondict:
-            self.photo = Attachment.Attachment.with_json(jsondict['photo'])
+            self.photo = attachment.Attachment.with_json(jsondict['photo'])
         if 'relationship' in jsondict:
-            self.relationship = CodeableConcept.CodeableConcept.with_json(jsondict['relationship'])
+            self.relationship = codeableconcept.CodeableConcept.with_json(jsondict['relationship'])
         if 'telecom' in jsondict:
-            self.telecom = Contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json(jsondict['telecom'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 

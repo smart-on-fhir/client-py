@@ -14,19 +14,19 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import Device
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Observation
-import Patient
+import codeableconcept
+import device
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import observation
+import patient
 
 
-class DeviceObservationReport(FHIRResource.FHIRResource):
+class DeviceObservationReport(fhirresource.FHIRResource):
     """ Describes the data produced by a device at a point in time.
     
     Scope and Usage This resource carries a set of data from a device that is
@@ -78,20 +78,20 @@ class DeviceObservationReport(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(DeviceObservationReport, self).update_with_json(jsondict)
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'instant' in jsondict:
-            self.instant = FHIRDate.FHIRDate.with_json(jsondict['instant'])
+            self.instant = fhirdate.FHIRDate.with_json(jsondict['instant'])
         if 'source' in jsondict:
-            self.source = FHIRReference.FHIRReference.with_json_and_owner(jsondict['source'], self, Device.Device)
+            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, device.Device)
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'virtualDevice' in jsondict:
             self.virtualDevice = DeviceObservationReportVirtualDevice.with_json(jsondict['virtualDevice'])
 
 
-class DeviceObservationReportVirtualDevice(FHIRElement.FHIRElement):
+class DeviceObservationReportVirtualDevice(fhirelement.FHIRElement):
     """ A medical-related subsystem of a medical device.
     """
     
@@ -114,10 +114,10 @@ class DeviceObservationReportVirtualDevice(FHIRElement.FHIRElement):
         if 'channel' in jsondict:
             self.channel = DeviceObservationReportVirtualDeviceChannel.with_json(jsondict['channel'])
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
 
 
-class DeviceObservationReportVirtualDeviceChannel(FHIRElement.FHIRElement):
+class DeviceObservationReportVirtualDeviceChannel(fhirelement.FHIRElement):
     """ Groups related data items.
     
     Groups together physiological measurement data and derived data.
@@ -140,12 +140,12 @@ class DeviceObservationReportVirtualDeviceChannel(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(DeviceObservationReportVirtualDeviceChannel, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'metric' in jsondict:
             self.metric = DeviceObservationReportVirtualDeviceChannelMetric.with_json(jsondict['metric'])
 
 
-class DeviceObservationReportVirtualDeviceChannelMetric(FHIRElement.FHIRElement):
+class DeviceObservationReportVirtualDeviceChannelMetric(fhirelement.FHIRElement):
     """ Piece of data reported by device.
     
     A piece of measured or derived data that is reported by the machine.
@@ -164,5 +164,5 @@ class DeviceObservationReportVirtualDeviceChannelMetric(FHIRElement.FHIRElement)
     def update_with_json(self, jsondict):
         super(DeviceObservationReportVirtualDeviceChannelMetric, self).update_with_json(jsondict)
         if 'observation' in jsondict:
-            self.observation = FHIRReference.FHIRReference.with_json_and_owner(jsondict['observation'], self, Observation.Observation)
+            self.observation = fhirreference.FHIRReference.with_json_and_owner(jsondict['observation'], self, observation.Observation)
 

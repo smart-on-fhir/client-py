@@ -14,11 +14,11 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
-import Period
+import fhirelement
+import period
 
 
-class Contact(FHIRElement.FHIRElement):
+class Contact(fhirelement.FHIRElement):
     """ Technology mediated contact details (phone, fax, email, etc).
     """
     
@@ -49,7 +49,7 @@ class Contact(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(Contact, self).update_with_json(jsondict)
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
         if 'system' in jsondict:
             self.system = jsondict['system']
         if 'use' in jsondict:

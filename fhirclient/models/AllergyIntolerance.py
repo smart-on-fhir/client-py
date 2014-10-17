@@ -14,19 +14,19 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import AdverseReaction
-import FHIRDate
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Observation
-import Patient
-import Practitioner
-import Substance
+import adversereaction
+import fhirdate
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import observation
+import patient
+import practitioner
+import substance
 
 
-class AllergyIntolerance(FHIRResource.FHIRResource):
+class AllergyIntolerance(fhirresource.FHIRResource):
     """ Drug, food, environmental and others.
     
     Scope and Usage Allergy/Intolerance resources are used to provide
@@ -120,23 +120,23 @@ class AllergyIntolerance(FHIRResource.FHIRResource):
         if 'criticality' in jsondict:
             self.criticality = jsondict['criticality']
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'reaction' in jsondict:
-            self.reaction = FHIRReference.FHIRReference.with_json_and_owner(jsondict['reaction'], self, AdverseReaction.AdverseReaction)
+            self.reaction = fhirreference.FHIRReference.with_json_and_owner(jsondict['reaction'], self, adversereaction.AdverseReaction)
         if 'recordedDate' in jsondict:
-            self.recordedDate = FHIRDate.FHIRDate.with_json(jsondict['recordedDate'])
+            self.recordedDate = fhirdate.FHIRDate.with_json(jsondict['recordedDate'])
         if 'recorder' in jsondict:
-            self.recorder = FHIRReference.FHIRReference.with_json_and_owner(jsondict['recorder'], self, Practitioner.Practitioner)
+            self.recorder = fhirreference.FHIRReference.with_json_and_owner(jsondict['recorder'], self, practitioner.Practitioner)
         if 'sensitivityTest' in jsondict:
-            self.sensitivityTest = FHIRReference.FHIRReference.with_json_and_owner(jsondict['sensitivityTest'], self, Observation.Observation)
+            self.sensitivityTest = fhirreference.FHIRReference.with_json_and_owner(jsondict['sensitivityTest'], self, observation.Observation)
         if 'sensitivityType' in jsondict:
             self.sensitivityType = jsondict['sensitivityType']
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'substance' in jsondict:
-            self.substance = FHIRReference.FHIRReference.with_json_and_owner(jsondict['substance'], self, Substance.Substance)
+            self.substance = fhirreference.FHIRReference.with_json_and_owner(jsondict['substance'], self, substance.Substance)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 

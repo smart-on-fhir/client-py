@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from Substance import Substance
-from FHIRDate import FHIRDate
+from substance import Substance
+from fhirdate import FHIRDate
 
 
 class SubstanceTests(unittest.TestCase):

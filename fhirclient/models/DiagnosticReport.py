@@ -14,25 +14,25 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Attachment
-import CodeableConcept
-import DiagnosticOrder
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import ImagingStudy
-import Media
-import Narrative
-import Observation
-import Patient
-import Period
-import Practitioner
-import Specimen
+import attachment
+import codeableconcept
+import diagnosticorder
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import imagingstudy
+import media
+import narrative
+import observation
+import patient
+import period
+import practitioner
+import specimen
 
 
-class DiagnosticReport(FHIRResource.FHIRResource):
+class DiagnosticReport(fhirresource.FHIRResource):
     """ A Diagnostic report - a combination of request information, atomic results,
     images, interpretation, as well as formatted reports.
     
@@ -141,44 +141,44 @@ class DiagnosticReport(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(DiagnosticReport, self).update_with_json(jsondict)
         if 'codedDiagnosis' in jsondict:
-            self.codedDiagnosis = CodeableConcept.CodeableConcept.with_json(jsondict['codedDiagnosis'])
+            self.codedDiagnosis = codeableconcept.CodeableConcept.with_json(jsondict['codedDiagnosis'])
         if 'conclusion' in jsondict:
             self.conclusion = jsondict['conclusion']
         if 'diagnosticDateTime' in jsondict:
-            self.diagnosticDateTime = FHIRDate.FHIRDate.with_json(jsondict['diagnosticDateTime'])
+            self.diagnosticDateTime = fhirdate.FHIRDate.with_json(jsondict['diagnosticDateTime'])
         if 'diagnosticPeriod' in jsondict:
-            self.diagnosticPeriod = Period.Period.with_json(jsondict['diagnosticPeriod'])
+            self.diagnosticPeriod = period.Period.with_json(jsondict['diagnosticPeriod'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'image' in jsondict:
             self.image = DiagnosticReportImage.with_json(jsondict['image'])
         if 'imagingStudy' in jsondict:
-            self.imagingStudy = FHIRReference.FHIRReference.with_json_and_owner(jsondict['imagingStudy'], self, ImagingStudy.ImagingStudy)
+            self.imagingStudy = fhirreference.FHIRReference.with_json_and_owner(jsondict['imagingStudy'], self, imagingstudy.ImagingStudy)
         if 'issued' in jsondict:
-            self.issued = FHIRDate.FHIRDate.with_json(jsondict['issued'])
+            self.issued = fhirdate.FHIRDate.with_json(jsondict['issued'])
         if 'name' in jsondict:
-            self.name = CodeableConcept.CodeableConcept.with_json(jsondict['name'])
+            self.name = codeableconcept.CodeableConcept.with_json(jsondict['name'])
         if 'performer' in jsondict:
-            self.performer = FHIRReference.FHIRReference.with_json_and_owner(jsondict['performer'], self, Practitioner.Practitioner)
+            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self, practitioner.Practitioner)
         if 'presentedForm' in jsondict:
-            self.presentedForm = Attachment.Attachment.with_json(jsondict['presentedForm'])
+            self.presentedForm = attachment.Attachment.with_json(jsondict['presentedForm'])
         if 'requestDetail' in jsondict:
-            self.requestDetail = FHIRReference.FHIRReference.with_json_and_owner(jsondict['requestDetail'], self, DiagnosticOrder.DiagnosticOrder)
+            self.requestDetail = fhirreference.FHIRReference.with_json_and_owner(jsondict['requestDetail'], self, diagnosticorder.DiagnosticOrder)
         if 'result' in jsondict:
-            self.result = FHIRReference.FHIRReference.with_json_and_owner(jsondict['result'], self, Observation.Observation)
+            self.result = fhirreference.FHIRReference.with_json_and_owner(jsondict['result'], self, observation.Observation)
         if 'serviceCategory' in jsondict:
-            self.serviceCategory = CodeableConcept.CodeableConcept.with_json(jsondict['serviceCategory'])
+            self.serviceCategory = codeableconcept.CodeableConcept.with_json(jsondict['serviceCategory'])
         if 'specimen' in jsondict:
-            self.specimen = FHIRReference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, Specimen.Specimen)
+            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, specimen.Specimen)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class DiagnosticReportImage(FHIRElement.FHIRElement):
+class DiagnosticReportImage(fhirelement.FHIRElement):
     """ Key images associated with this report.
     
     A list of key images associated with this report. The images are generally
@@ -205,5 +205,5 @@ class DiagnosticReportImage(FHIRElement.FHIRElement):
         if 'comment' in jsondict:
             self.comment = jsondict['comment']
         if 'link' in jsondict:
-            self.link = FHIRReference.FHIRReference.with_json_and_owner(jsondict['link'], self, Media.Media)
+            self.link = fhirreference.FHIRReference.with_json_and_owner(jsondict['link'], self, media.Media)
 

@@ -14,19 +14,19 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import Contact
-import FHIRDate
-import FHIRReference
-import FHIRResource
-import Identifier
-import Location
-import Narrative
-import Organization
-import Patient
+import codeableconcept
+import contact
+import fhirdate
+import fhirreference
+import fhirresource
+import identifier
+import location
+import narrative
+import organization
+import patient
 
 
-class Device(FHIRResource.FHIRResource):
+class Device(fhirresource.FHIRResource):
     """ An instance of a manufactured thing that is used in the provision of
     healthcare.
     
@@ -109,13 +109,13 @@ class Device(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Device, self).update_with_json(jsondict)
         if 'contact' in jsondict:
-            self.contact = Contact.Contact.with_json(jsondict['contact'])
+            self.contact = contact.Contact.with_json(jsondict['contact'])
         if 'expiry' in jsondict:
-            self.expiry = FHIRDate.FHIRDate.with_json(jsondict['expiry'])
+            self.expiry = fhirdate.FHIRDate.with_json(jsondict['expiry'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'location' in jsondict:
-            self.location = FHIRReference.FHIRReference.with_json_and_owner(jsondict['location'], self, Location.Location)
+            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
         if 'lotNumber' in jsondict:
             self.lotNumber = jsondict['lotNumber']
         if 'manufacturer' in jsondict:
@@ -123,13 +123,13 @@ class Device(FHIRResource.FHIRResource):
         if 'model' in jsondict:
             self.model = jsondict['model']
         if 'owner' in jsondict:
-            self.owner = FHIRReference.FHIRReference.with_json_and_owner(jsondict['owner'], self, Organization.Organization)
+            self.owner = fhirreference.FHIRReference.with_json_and_owner(jsondict['owner'], self, organization.Organization)
         if 'patient' in jsondict:
-            self.patient = FHIRReference.FHIRReference.with_json_and_owner(jsondict['patient'], self, Patient.Patient)
+            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
         if 'udi' in jsondict:
             self.udi = jsondict['udi']
         if 'url' in jsondict:

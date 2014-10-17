@@ -4,7 +4,7 @@
 #  Base class for all FHIR elements.
 
 import logging
-import FHIRContainedResource
+import fhircontainedresource
 
 
 class FHIRElement(object):
@@ -30,7 +30,7 @@ class FHIRElement(object):
         if 'contained' in jsondict:
             self.contained = self.contained or {}
             for js in jsondict['contained']:         # "contained" should be an array
-                res = FHIRContainedResource.FHIRContainedResource(jsondict=js)
+                res = fhircontainedresource.FHIRContainedResource(jsondict=js)
                 if res.id:
                     self.contained[res.id] = res
                 else:

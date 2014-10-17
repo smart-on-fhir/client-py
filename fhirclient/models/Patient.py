@@ -14,21 +14,21 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Address
-import Attachment
-import CodeableConcept
-import Contact
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import HumanName
-import Identifier
-import Narrative
-import Organization
+import address
+import attachment
+import codeableconcept
+import contact
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import humanname
+import identifier
+import narrative
+import organization
 
 
-class Patient(FHIRResource.FHIRResource):
+class Patient(fhirresource.FHIRResource):
     """ Information about a person or animal receiving health care services.
     
     Scope and Usage This Resource covers data about persons and animals
@@ -145,46 +145,46 @@ class Patient(FHIRResource.FHIRResource):
         if 'active' in jsondict:
             self.active = jsondict['active']
         if 'address' in jsondict:
-            self.address = Address.Address.with_json(jsondict['address'])
+            self.address = address.Address.with_json(jsondict['address'])
         if 'animal' in jsondict:
             self.animal = PatientAnimal.with_json(jsondict['animal'])
         if 'birthDate' in jsondict:
-            self.birthDate = FHIRDate.FHIRDate.with_json(jsondict['birthDate'])
+            self.birthDate = fhirdate.FHIRDate.with_json(jsondict['birthDate'])
         if 'careProvider' in jsondict:
-            self.careProvider = FHIRReference.FHIRReference.with_json_and_owner(jsondict['careProvider'], self, Organization.Organization)
+            self.careProvider = fhirreference.FHIRReference.with_json_and_owner(jsondict['careProvider'], self, organization.Organization)
         if 'communication' in jsondict:
-            self.communication = CodeableConcept.CodeableConcept.with_json(jsondict['communication'])
+            self.communication = codeableconcept.CodeableConcept.with_json(jsondict['communication'])
         if 'contact' in jsondict:
             self.contact = PatientContact.with_json(jsondict['contact'])
         if 'deceasedBoolean' in jsondict:
             self.deceasedBoolean = jsondict['deceasedBoolean']
         if 'deceasedDateTime' in jsondict:
-            self.deceasedDateTime = FHIRDate.FHIRDate.with_json(jsondict['deceasedDateTime'])
+            self.deceasedDateTime = fhirdate.FHIRDate.with_json(jsondict['deceasedDateTime'])
         if 'gender' in jsondict:
-            self.gender = CodeableConcept.CodeableConcept.with_json(jsondict['gender'])
+            self.gender = codeableconcept.CodeableConcept.with_json(jsondict['gender'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'link' in jsondict:
             self.link = PatientLink.with_json(jsondict['link'])
         if 'managingOrganization' in jsondict:
-            self.managingOrganization = FHIRReference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self, Organization.Organization)
+            self.managingOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self, organization.Organization)
         if 'maritalStatus' in jsondict:
-            self.maritalStatus = CodeableConcept.CodeableConcept.with_json(jsondict['maritalStatus'])
+            self.maritalStatus = codeableconcept.CodeableConcept.with_json(jsondict['maritalStatus'])
         if 'multipleBirthBoolean' in jsondict:
             self.multipleBirthBoolean = jsondict['multipleBirthBoolean']
         if 'multipleBirthInteger' in jsondict:
             self.multipleBirthInteger = jsondict['multipleBirthInteger']
         if 'name' in jsondict:
-            self.name = HumanName.HumanName.with_json(jsondict['name'])
+            self.name = humanname.HumanName.with_json(jsondict['name'])
         if 'photo' in jsondict:
-            self.photo = Attachment.Attachment.with_json(jsondict['photo'])
+            self.photo = attachment.Attachment.with_json(jsondict['photo'])
         if 'telecom' in jsondict:
-            self.telecom = Contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json(jsondict['telecom'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class PatientContact(FHIRElement.FHIRElement):
+class PatientContact(fhirelement.FHIRElement):
     """ A contact party (e.g. guardian, partner, friend) for the patient.
     """
     
@@ -221,20 +221,20 @@ class PatientContact(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(PatientContact, self).update_with_json(jsondict)
         if 'address' in jsondict:
-            self.address = Address.Address.with_json(jsondict['address'])
+            self.address = address.Address.with_json(jsondict['address'])
         if 'gender' in jsondict:
-            self.gender = CodeableConcept.CodeableConcept.with_json(jsondict['gender'])
+            self.gender = codeableconcept.CodeableConcept.with_json(jsondict['gender'])
         if 'name' in jsondict:
-            self.name = HumanName.HumanName.with_json(jsondict['name'])
+            self.name = humanname.HumanName.with_json(jsondict['name'])
         if 'organization' in jsondict:
-            self.organization = FHIRReference.FHIRReference.with_json_and_owner(jsondict['organization'], self, Organization.Organization)
+            self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self, organization.Organization)
         if 'relationship' in jsondict:
-            self.relationship = CodeableConcept.CodeableConcept.with_json(jsondict['relationship'])
+            self.relationship = codeableconcept.CodeableConcept.with_json(jsondict['relationship'])
         if 'telecom' in jsondict:
-            self.telecom = Contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json(jsondict['telecom'])
 
 
-class PatientAnimal(FHIRElement.FHIRElement):
+class PatientAnimal(fhirelement.FHIRElement):
     """ If this patient is an animal (non-human).
     
     This element has a value if the patient is an animal.
@@ -261,14 +261,14 @@ class PatientAnimal(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(PatientAnimal, self).update_with_json(jsondict)
         if 'breed' in jsondict:
-            self.breed = CodeableConcept.CodeableConcept.with_json(jsondict['breed'])
+            self.breed = codeableconcept.CodeableConcept.with_json(jsondict['breed'])
         if 'genderStatus' in jsondict:
-            self.genderStatus = CodeableConcept.CodeableConcept.with_json(jsondict['genderStatus'])
+            self.genderStatus = codeableconcept.CodeableConcept.with_json(jsondict['genderStatus'])
         if 'species' in jsondict:
-            self.species = CodeableConcept.CodeableConcept.with_json(jsondict['species'])
+            self.species = codeableconcept.CodeableConcept.with_json(jsondict['species'])
 
 
-class PatientLink(FHIRElement.FHIRElement):
+class PatientLink(fhirelement.FHIRElement):
     """ Link to another patient resource that concerns the same actual person.
     """
     
@@ -289,7 +289,7 @@ class PatientLink(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(PatientLink, self).update_with_json(jsondict)
         if 'other' in jsondict:
-            self.other = FHIRReference.FHIRReference.with_json_and_owner(jsondict['other'], self, Patient)
+            self.other = fhirreference.FHIRReference.with_json_and_owner(jsondict['other'], self, Patient)
         if 'type' in jsondict:
             self.type = jsondict['type']
 

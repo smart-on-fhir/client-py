@@ -4,10 +4,10 @@
 #  Subclassing FHIR's resource reference to add resolving capabilities
 
 import logging
-import ResourceReference
+import resourcereference
 
 
-class FHIRReference(ResourceReference.ResourceReference):
+class FHIRReference(resourcereference.ResourceReference):
     """ Subclassing FHIR's resource reference to add resolving capabilities.
     """
     

@@ -14,18 +14,18 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import Coding
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Location
-import Narrative
-import Period
+import codeableconcept
+import coding
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import location
+import narrative
+import period
 
 
-class Provenance(FHIRResource.FHIRResource):
+class Provenance(fhirresource.FHIRResource):
     """ Who, What, When for a set of resources.
     
     Scope and Usage The provenance resource tracks information about activity
@@ -102,22 +102,22 @@ class Provenance(FHIRResource.FHIRResource):
         if 'integritySignature' in jsondict:
             self.integritySignature = jsondict['integritySignature']
         if 'location' in jsondict:
-            self.location = FHIRReference.FHIRReference.with_json_and_owner(jsondict['location'], self, Location.Location)
+            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
         if 'policy' in jsondict:
             self.policy = jsondict['policy']
         if 'reason' in jsondict:
-            self.reason = CodeableConcept.CodeableConcept.with_json(jsondict['reason'])
+            self.reason = codeableconcept.CodeableConcept.with_json(jsondict['reason'])
         if 'recorded' in jsondict:
-            self.recorded = FHIRDate.FHIRDate.with_json(jsondict['recorded'])
+            self.recorded = fhirdate.FHIRDate.with_json(jsondict['recorded'])
         if 'target' in jsondict:
-            self.target = FHIRReference.FHIRReference.with_json_and_owner(jsondict['target'], self, FHIRResource.FHIRResource)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, fhirresource.FHIRResource)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class ProvenanceAgent(FHIRElement.FHIRElement):
+class ProvenanceAgent(fhirelement.FHIRElement):
     """ Person, organization, records, etc. involved in creating resource.
     
     An agent takes a role in an activity such that the agent can be assigned
@@ -155,12 +155,12 @@ class ProvenanceAgent(FHIRElement.FHIRElement):
         if 'reference' in jsondict:
             self.reference = jsondict['reference']
         if 'role' in jsondict:
-            self.role = Coding.Coding.with_json(jsondict['role'])
+            self.role = coding.Coding.with_json(jsondict['role'])
         if 'type' in jsondict:
-            self.type = Coding.Coding.with_json(jsondict['type'])
+            self.type = coding.Coding.with_json(jsondict['type'])
 
 
-class ProvenanceEntity(FHIRElement.FHIRElement):
+class ProvenanceEntity(fhirelement.FHIRElement):
     """ An entity used in this activity.
     """
     
@@ -201,10 +201,10 @@ class ProvenanceEntity(FHIRElement.FHIRElement):
         if 'role' in jsondict:
             self.role = jsondict['role']
         if 'type' in jsondict:
-            self.type = Coding.Coding.with_json(jsondict['type'])
+            self.type = coding.Coding.with_json(jsondict['type'])
 
 
-class ProvenanceEntityAgent(FHIRElement.FHIRElement):
+class ProvenanceEntityAgent(fhirelement.FHIRElement):
     """ Entity is attributed to this agent.
     
     The entity is attributed to an agent to express the agent's responsibility

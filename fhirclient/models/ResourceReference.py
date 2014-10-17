@@ -14,10 +14,10 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
+import fhirelement
 
 
-class ResourceReference(FHIRElement.FHIRElement):
+class ResourceReference(fhirelement.FHIRElement):
     """ A reference from one resource to another.
     """
     

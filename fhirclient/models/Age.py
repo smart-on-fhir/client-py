@@ -14,10 +14,10 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Quantity
+import quantity
 
 
-class Age(Quantity.Quantity):
+class Age(quantity.Quantity):
     """ Profile for Age on Quantity.
     
     Basic Profile for Age on Quantity for validation support

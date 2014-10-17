@@ -14,18 +14,18 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import Coding
-import Contact
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Narrative
-import Profile
+import codeableconcept
+import coding
+import contact
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import narrative
+import profile
 
 
-class Conformance(FHIRResource.FHIRResource):
+class Conformance(fhirresource.FHIRResource):
     """ A conformance statement.
     
     Scope and Usage Conformance statements are used in one of three ways:
@@ -170,7 +170,7 @@ class Conformance(FHIRResource.FHIRResource):
         if 'acceptUnknown' in jsondict:
             self.acceptUnknown = jsondict['acceptUnknown']
         if 'date' in jsondict:
-            self.date = FHIRDate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'document' in jsondict:
@@ -190,7 +190,7 @@ class Conformance(FHIRResource.FHIRResource):
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'profile' in jsondict:
-            self.profile = FHIRReference.FHIRReference.with_json_and_owner(jsondict['profile'], self, Profile.Profile)
+            self.profile = fhirreference.FHIRReference.with_json_and_owner(jsondict['profile'], self, profile.Profile)
         if 'publisher' in jsondict:
             self.publisher = jsondict['publisher']
         if 'rest' in jsondict:
@@ -200,14 +200,14 @@ class Conformance(FHIRResource.FHIRResource):
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'telecom' in jsondict:
-            self.telecom = Contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json(jsondict['telecom'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'version' in jsondict:
             self.version = jsondict['version']
 
 
-class ConformanceSoftware(FHIRElement.FHIRElement):
+class ConformanceSoftware(fhirelement.FHIRElement):
     """ Software that is covered by this conformance statement.
     
     Software that is covered by this conformance statement.  It is used when
@@ -238,12 +238,12 @@ class ConformanceSoftware(FHIRElement.FHIRElement):
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'releaseDate' in jsondict:
-            self.releaseDate = FHIRDate.FHIRDate.with_json(jsondict['releaseDate'])
+            self.releaseDate = fhirdate.FHIRDate.with_json(jsondict['releaseDate'])
         if 'version' in jsondict:
             self.version = jsondict['version']
 
 
-class ConformanceImplementation(FHIRElement.FHIRElement):
+class ConformanceImplementation(fhirelement.FHIRElement):
     """ If this describes a specific instance.
     
     Identifies a specific implementation instance that is described by the
@@ -273,7 +273,7 @@ class ConformanceImplementation(FHIRElement.FHIRElement):
             self.url = jsondict['url']
 
 
-class ConformanceRest(FHIRElement.FHIRElement):
+class ConformanceRest(fhirelement.FHIRElement):
     """ If the endpoint is a RESTful one.
     
     A definition of the restful capabilities of the solution, if any.
@@ -331,7 +331,7 @@ class ConformanceRest(FHIRElement.FHIRElement):
             self.security = ConformanceRestSecurity.with_json(jsondict['security'])
 
 
-class ConformanceRestSecurity(FHIRElement.FHIRElement):
+class ConformanceRestSecurity(fhirelement.FHIRElement):
     """ Information about security of implementation.
     """
     
@@ -366,10 +366,10 @@ class ConformanceRestSecurity(FHIRElement.FHIRElement):
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'service' in jsondict:
-            self.service = CodeableConcept.CodeableConcept.with_json(jsondict['service'])
+            self.service = codeableconcept.CodeableConcept.with_json(jsondict['service'])
 
 
-class ConformanceRestSecurityCertificate(FHIRElement.FHIRElement):
+class ConformanceRestSecurityCertificate(fhirelement.FHIRElement):
     """ Certificates associated with security profiles.
     """
     
@@ -395,7 +395,7 @@ class ConformanceRestSecurityCertificate(FHIRElement.FHIRElement):
             self.type = jsondict['type']
 
 
-class ConformanceRestResource(FHIRElement.FHIRElement):
+class ConformanceRestResource(fhirelement.FHIRElement):
     """ Resource served on the REST interface.
     
     A specification of the restful capabilities of the solution for a specific
@@ -441,7 +441,7 @@ class ConformanceRestResource(FHIRElement.FHIRElement):
         if 'operation' in jsondict:
             self.operation = ConformanceRestResourceOperation.with_json(jsondict['operation'])
         if 'profile' in jsondict:
-            self.profile = FHIRReference.FHIRReference.with_json_and_owner(jsondict['profile'], self, Profile.Profile)
+            self.profile = fhirreference.FHIRReference.with_json_and_owner(jsondict['profile'], self, profile.Profile)
         if 'readHistory' in jsondict:
             self.readHistory = jsondict['readHistory']
         if 'searchInclude' in jsondict:
@@ -454,7 +454,7 @@ class ConformanceRestResource(FHIRElement.FHIRElement):
             self.updateCreate = jsondict['updateCreate']
 
 
-class ConformanceRestResourceOperation(FHIRElement.FHIRElement):
+class ConformanceRestResourceOperation(fhirelement.FHIRElement):
     """ What operations are supported?.
     
     Identifies a restful operation supported by the solution.
@@ -483,7 +483,7 @@ class ConformanceRestResourceOperation(FHIRElement.FHIRElement):
             self.documentation = jsondict['documentation']
 
 
-class ConformanceRestResourceSearchParam(FHIRElement.FHIRElement):
+class ConformanceRestResourceSearchParam(fhirelement.FHIRElement):
     """ Additional search params defined.
     
     Additional search parameters for implementations to support and/or make use
@@ -536,7 +536,7 @@ class ConformanceRestResourceSearchParam(FHIRElement.FHIRElement):
             self.type = jsondict['type']
 
 
-class ConformanceRestOperation(FHIRElement.FHIRElement):
+class ConformanceRestOperation(fhirelement.FHIRElement):
     """ What operations are supported?.
     
     A specification of restful operations supported by the system.
@@ -564,7 +564,7 @@ class ConformanceRestOperation(FHIRElement.FHIRElement):
             self.documentation = jsondict['documentation']
 
 
-class ConformanceRestQuery(FHIRElement.FHIRElement):
+class ConformanceRestQuery(fhirelement.FHIRElement):
     """ Definition of a named query.
     
     Definition of a named query and its parameters and their meaning.
@@ -604,7 +604,7 @@ class ConformanceRestQuery(FHIRElement.FHIRElement):
             self.parameter = ConformanceRestQueryParameter.with_json(jsondict['parameter'])
 
 
-class ConformanceRestQueryParameter(FHIRElement.FHIRElement):
+class ConformanceRestQueryParameter(fhirelement.FHIRElement):
     """ Parameter for the named query.
     
     Identifies which of the parameters for the named query are supported.
@@ -617,7 +617,7 @@ class ConformanceRestQueryParameter(FHIRElement.FHIRElement):
         super(ConformanceRestQueryParameter, self).__init__(jsondict)
 
 
-class ConformanceMessaging(FHIRElement.FHIRElement):
+class ConformanceMessaging(fhirelement.FHIRElement):
     """ If messaging is supported.
     
     A description of the messaging capabilities of the solution.
@@ -657,7 +657,7 @@ class ConformanceMessaging(FHIRElement.FHIRElement):
             self.reliableCache = jsondict['reliableCache']
 
 
-class ConformanceMessagingEvent(FHIRElement.FHIRElement):
+class ConformanceMessagingEvent(fhirelement.FHIRElement):
     """ Declare support for this event.
     
     A description of the solution's support for an event at this end point.
@@ -706,7 +706,7 @@ class ConformanceMessagingEvent(FHIRElement.FHIRElement):
         if 'category' in jsondict:
             self.category = jsondict['category']
         if 'code' in jsondict:
-            self.code = Coding.Coding.with_json(jsondict['code'])
+            self.code = coding.Coding.with_json(jsondict['code'])
         if 'documentation' in jsondict:
             self.documentation = jsondict['documentation']
         if 'focus' in jsondict:
@@ -714,14 +714,14 @@ class ConformanceMessagingEvent(FHIRElement.FHIRElement):
         if 'mode' in jsondict:
             self.mode = jsondict['mode']
         if 'protocol' in jsondict:
-            self.protocol = Coding.Coding.with_json(jsondict['protocol'])
+            self.protocol = coding.Coding.with_json(jsondict['protocol'])
         if 'request' in jsondict:
-            self.request = FHIRReference.FHIRReference.with_json_and_owner(jsondict['request'], self, Profile.Profile)
+            self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self, profile.Profile)
         if 'response' in jsondict:
-            self.response = FHIRReference.FHIRReference.with_json_and_owner(jsondict['response'], self, Profile.Profile)
+            self.response = fhirreference.FHIRReference.with_json_and_owner(jsondict['response'], self, profile.Profile)
 
 
-class ConformanceDocument(FHIRElement.FHIRElement):
+class ConformanceDocument(fhirelement.FHIRElement):
     """ Document definition.
     
     A document definition.
@@ -752,5 +752,5 @@ class ConformanceDocument(FHIRElement.FHIRElement):
         if 'mode' in jsondict:
             self.mode = jsondict['mode']
         if 'profile' in jsondict:
-            self.profile = FHIRReference.FHIRReference.with_json_and_owner(jsondict['profile'], self, Profile.Profile)
+            self.profile = fhirreference.FHIRReference.with_json_and_owner(jsondict['profile'], self, profile.Profile)
 

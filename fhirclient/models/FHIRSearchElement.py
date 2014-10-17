@@ -4,7 +4,7 @@
 #  Construct server search parameters.
 #  2014, SMART Platforms.
 
-import FHIRSearch
+import fhirsearch
 
 
 class FHIRSearchElement(object):
@@ -87,15 +87,15 @@ class FHIRSearchElement(object):
         """
         if self.subject:
             if self.missing is not None:
-                return FHIRSearch.FHIRSearchParam('{}:missing'.format(self.subject), 'true' if self.missing else 'false')
+                return fhirsearch.FHIRSearchParam('{}:missing'.format(self.subject), 'true' if self.missing else 'false')
             
             if self.string and self.string_exact:
-                return FHIRSearch.FHIRSearchParam('{}:exact'.format(self.subject), self.param_value())
+                return fhirsearch.FHIRSearchParam('{}:exact'.format(self.subject), self.param_value())
             
             if self.token and self.token_as_text:
-                return FHIRSearch.FHIRSearchParam('{}:text'.format(self.subject), self.param_value())
+                return fhirsearch.FHIRSearchParam('{}:text'.format(self.subject), self.param_value())
             
-        return FHIRSearch.FHIRSearchParam(self.subject, self.param_value())
+        return fhirsearch.FHIRSearchParam(self.subject, self.param_value())
     
     def param_value(self):
         """ The value of the parameter. """
@@ -130,7 +130,7 @@ class FHIRSearchElement(object):
         if not prev.resource_type:
             raise Exception("The first search parameter needs to have \"resource_type\" set")
         
-        srch = FHIRSearch.FHIRSearch(prev.resource_type)
+        srch = fhirsearch.FHIRSearch(prev.resource_type)
         srch.params = params
         return srch
     
@@ -4537,7 +4537,7 @@ class FHIRSearchElement(object):
 
 # some tests, to be removed after development phase
 if '__main__' == __name__:
-    from Patient import Patient
+    from patient import Patient
     print('1 '+Patient.where().name("Willis").name_exact("Bruce").construct())
     print('= Patient?name=Willis&name:exact=Bruce')
     print('')

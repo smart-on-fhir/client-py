@@ -14,10 +14,10 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Quantity
+import quantity
 
 
-class Count(Quantity.Quantity):
+class Count(quantity.Quantity):
     """ Profile for Count on Quantity.
     
     Basic Profile for Count on Quantity for validation support

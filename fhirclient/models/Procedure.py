@@ -14,21 +14,21 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import AdverseReaction
-import CodeableConcept
-import DiagnosticReport
-import Encounter
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Period
-import Practitioner
+import adversereaction
+import codeableconcept
+import diagnosticreport
+import encounter
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import period
+import practitioner
 
 
-class Procedure(FHIRResource.FHIRResource):
+class Procedure(fhirresource.FHIRResource):
     """ An action that is performed on a patient.
     
     Scope and Usage This resource is used to record the details of procedures
@@ -116,19 +116,19 @@ class Procedure(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Procedure, self).update_with_json(jsondict)
         if 'bodySite' in jsondict:
-            self.bodySite = CodeableConcept.CodeableConcept.with_json(jsondict['bodySite'])
+            self.bodySite = codeableconcept.CodeableConcept.with_json(jsondict['bodySite'])
         if 'complication' in jsondict:
-            self.complication = CodeableConcept.CodeableConcept.with_json(jsondict['complication'])
+            self.complication = codeableconcept.CodeableConcept.with_json(jsondict['complication'])
         if 'date' in jsondict:
-            self.date = Period.Period.with_json(jsondict['date'])
+            self.date = period.Period.with_json(jsondict['date'])
         if 'encounter' in jsondict:
-            self.encounter = FHIRReference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, Encounter.Encounter)
+            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
         if 'followUp' in jsondict:
             self.followUp = jsondict['followUp']
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'indication' in jsondict:
-            self.indication = CodeableConcept.CodeableConcept.with_json(jsondict['indication'])
+            self.indication = codeableconcept.CodeableConcept.with_json(jsondict['indication'])
         if 'notes' in jsondict:
             self.notes = jsondict['notes']
         if 'outcome' in jsondict:
@@ -138,16 +138,16 @@ class Procedure(FHIRResource.FHIRResource):
         if 'relatedItem' in jsondict:
             self.relatedItem = ProcedureRelatedItem.with_json(jsondict['relatedItem'])
         if 'report' in jsondict:
-            self.report = FHIRReference.FHIRReference.with_json_and_owner(jsondict['report'], self, DiagnosticReport.DiagnosticReport)
+            self.report = fhirreference.FHIRReference.with_json_and_owner(jsondict['report'], self, diagnosticreport.DiagnosticReport)
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 
 
-class ProcedurePerformer(FHIRElement.FHIRElement):
+class ProcedurePerformer(fhirelement.FHIRElement):
     """ The people who performed the procedure.
     
     Limited to 'real' people rather than equipment.
@@ -170,12 +170,12 @@ class ProcedurePerformer(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ProcedurePerformer, self).update_with_json(jsondict)
         if 'person' in jsondict:
-            self.person = FHIRReference.FHIRReference.with_json_and_owner(jsondict['person'], self, Practitioner.Practitioner)
+            self.person = fhirreference.FHIRReference.with_json_and_owner(jsondict['person'], self, practitioner.Practitioner)
         if 'role' in jsondict:
-            self.role = CodeableConcept.CodeableConcept.with_json(jsondict['role'])
+            self.role = codeableconcept.CodeableConcept.with_json(jsondict['role'])
 
 
-class ProcedureRelatedItem(FHIRElement.FHIRElement):
+class ProcedureRelatedItem(fhirelement.FHIRElement):
     """ A procedure that is related to this one.
     
     Procedures may be related to other items such as procedures or medications.
@@ -199,7 +199,7 @@ class ProcedureRelatedItem(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ProcedureRelatedItem, self).update_with_json(jsondict)
         if 'target' in jsondict:
-            self.target = FHIRReference.FHIRReference.with_json_and_owner(jsondict['target'], self, AdverseReaction.AdverseReaction)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, adversereaction.AdverseReaction)
         if 'type' in jsondict:
             self.type = jsondict['type']
 

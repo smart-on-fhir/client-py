@@ -14,18 +14,18 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Practitioner
+import codeableconcept
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import practitioner
 
 
-class List(FHIRResource.FHIRResource):
+class List(fhirresource.FHIRResource):
     """ Information summarized from a list of other resources.
     
     Scope and Usage List resources are used in many places, including
@@ -83,28 +83,28 @@ class List(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(List, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'date' in jsondict:
-            self.date = FHIRDate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
         if 'emptyReason' in jsondict:
-            self.emptyReason = CodeableConcept.CodeableConcept.with_json(jsondict['emptyReason'])
+            self.emptyReason = codeableconcept.CodeableConcept.with_json(jsondict['emptyReason'])
         if 'entry' in jsondict:
             self.entry = ListEntry.with_json(jsondict['entry'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'mode' in jsondict:
             self.mode = jsondict['mode']
         if 'ordered' in jsondict:
             self.ordered = jsondict['ordered']
         if 'source' in jsondict:
-            self.source = FHIRReference.FHIRReference.with_json_and_owner(jsondict['source'], self, Practitioner.Practitioner)
+            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, practitioner.Practitioner)
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class ListEntry(FHIRElement.FHIRElement):
+class ListEntry(fhirelement.FHIRElement):
     """ Entries in the list.
     
     Entries in this list.
@@ -135,11 +135,11 @@ class ListEntry(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ListEntry, self).update_with_json(jsondict)
         if 'date' in jsondict:
-            self.date = FHIRDate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
         if 'deleted' in jsondict:
             self.deleted = jsondict['deleted']
         if 'flag' in jsondict:
-            self.flag = CodeableConcept.CodeableConcept.with_json(jsondict['flag'])
+            self.flag = codeableconcept.CodeableConcept.with_json(jsondict['flag'])
         if 'item' in jsondict:
-            self.item = FHIRReference.FHIRReference.with_json_and_owner(jsondict['item'], self, FHIRResource.FHIRResource)
+            self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self, fhirresource.FHIRResource)
 

@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from Device import Device
-from FHIRDate import FHIRDate
+from device import Device
+from fhirdate import FHIRDate
 
 
 class DeviceTests(unittest.TestCase):

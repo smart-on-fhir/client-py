@@ -14,20 +14,20 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Age
-import CodeableConcept
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Period
-import Range
+import age
+import codeableconcept
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import period
+import range
 
 
-class FamilyHistory(FHIRResource.FHIRResource):
+class FamilyHistory(fhirresource.FHIRResource):
     """ Information about patient's relatives, relevant for patient.
     
     Scope and Usage This resource records significant health events and
@@ -76,18 +76,18 @@ class FamilyHistory(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(FamilyHistory, self).update_with_json(jsondict)
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'note' in jsondict:
             self.note = jsondict['note']
         if 'relation' in jsondict:
             self.relation = FamilyHistoryRelation.with_json(jsondict['relation'])
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class FamilyHistoryRelation(FHIRElement.FHIRElement):
+class FamilyHistoryRelation(fhirelement.FHIRElement):
     """ Relative described by history.
     
     The related person. Each FamilyHistory resource contains the entire family
@@ -151,21 +151,21 @@ class FamilyHistoryRelation(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(FamilyHistoryRelation, self).update_with_json(jsondict)
         if 'bornDate' in jsondict:
-            self.bornDate = FHIRDate.FHIRDate.with_json(jsondict['bornDate'])
+            self.bornDate = fhirdate.FHIRDate.with_json(jsondict['bornDate'])
         if 'bornPeriod' in jsondict:
-            self.bornPeriod = Period.Period.with_json(jsondict['bornPeriod'])
+            self.bornPeriod = period.Period.with_json(jsondict['bornPeriod'])
         if 'bornString' in jsondict:
             self.bornString = jsondict['bornString']
         if 'condition' in jsondict:
             self.condition = FamilyHistoryRelationCondition.with_json(jsondict['condition'])
         if 'deceasedAge' in jsondict:
-            self.deceasedAge = Age.Age.with_json(jsondict['deceasedAge'])
+            self.deceasedAge = age.Age.with_json(jsondict['deceasedAge'])
         if 'deceasedBoolean' in jsondict:
             self.deceasedBoolean = jsondict['deceasedBoolean']
         if 'deceasedDate' in jsondict:
-            self.deceasedDate = FHIRDate.FHIRDate.with_json(jsondict['deceasedDate'])
+            self.deceasedDate = fhirdate.FHIRDate.with_json(jsondict['deceasedDate'])
         if 'deceasedRange' in jsondict:
-            self.deceasedRange = Range.Range.with_json(jsondict['deceasedRange'])
+            self.deceasedRange = range.Range.with_json(jsondict['deceasedRange'])
         if 'deceasedString' in jsondict:
             self.deceasedString = jsondict['deceasedString']
         if 'name' in jsondict:
@@ -173,10 +173,10 @@ class FamilyHistoryRelation(FHIRElement.FHIRElement):
         if 'note' in jsondict:
             self.note = jsondict['note']
         if 'relationship' in jsondict:
-            self.relationship = CodeableConcept.CodeableConcept.with_json(jsondict['relationship'])
+            self.relationship = codeableconcept.CodeableConcept.with_json(jsondict['relationship'])
 
 
-class FamilyHistoryRelationCondition(FHIRElement.FHIRElement):
+class FamilyHistoryRelationCondition(fhirelement.FHIRElement):
     """ Condition that the related person had.
     
     The significant Conditions (or condition) that the family member had. This
@@ -220,13 +220,13 @@ class FamilyHistoryRelationCondition(FHIRElement.FHIRElement):
         if 'note' in jsondict:
             self.note = jsondict['note']
         if 'onsetAge' in jsondict:
-            self.onsetAge = Age.Age.with_json(jsondict['onsetAge'])
+            self.onsetAge = age.Age.with_json(jsondict['onsetAge'])
         if 'onsetRange' in jsondict:
-            self.onsetRange = Range.Range.with_json(jsondict['onsetRange'])
+            self.onsetRange = range.Range.with_json(jsondict['onsetRange'])
         if 'onsetString' in jsondict:
             self.onsetString = jsondict['onsetString']
         if 'outcome' in jsondict:
-            self.outcome = CodeableConcept.CodeableConcept.with_json(jsondict['outcome'])
+            self.outcome = codeableconcept.CodeableConcept.with_json(jsondict['outcome'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 

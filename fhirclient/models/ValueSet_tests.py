@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from ValueSet import ValueSet
-from FHIRDate import FHIRDate
+from valueset import ValueSet
+from fhirdate import FHIRDate
 
 
 class ValueSetTests(unittest.TestCase):

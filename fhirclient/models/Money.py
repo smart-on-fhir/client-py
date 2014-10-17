@@ -14,10 +14,10 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Quantity
+import quantity
 
 
-class Money(Quantity.Quantity):
+class Money(quantity.Quantity):
     """ Profile for Money on Quantity.
     
     Basic Profile for Money on Quantity for validation support

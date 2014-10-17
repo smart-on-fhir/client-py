@@ -14,15 +14,15 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Contact
-import FHIRDate
-import FHIRElement
-import FHIRResource
-import Identifier
-import Narrative
+import contact
+import fhirdate
+import fhirelement
+import fhirresource
+import identifier
+import narrative
 
 
-class ValueSet(FHIRResource.FHIRResource):
+class ValueSet(fhirresource.FHIRResource):
     """ A set of codes drawn from one or more code systems.
     
     Scope and Usage Value sets may be constructed in one of two ways:
@@ -112,7 +112,7 @@ class ValueSet(FHIRResource.FHIRResource):
         if 'copyright' in jsondict:
             self.copyright = jsondict['copyright']
         if 'date' in jsondict:
-            self.date = FHIRDate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
         if 'define' in jsondict:
             self.define = ValueSetDefine.with_json(jsondict['define'])
         if 'description' in jsondict:
@@ -132,14 +132,14 @@ class ValueSet(FHIRResource.FHIRResource):
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'telecom' in jsondict:
-            self.telecom = Contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json(jsondict['telecom'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'version' in jsondict:
             self.version = jsondict['version']
 
 
-class ValueSetDefine(FHIRElement.FHIRElement):
+class ValueSetDefine(fhirelement.FHIRElement):
     """ When value set defines its own codes.
     """
     
@@ -177,7 +177,7 @@ class ValueSetDefine(FHIRElement.FHIRElement):
             self.version = jsondict['version']
 
 
-class ValueSetDefineConcept(FHIRElement.FHIRElement):
+class ValueSetDefineConcept(fhirelement.FHIRElement):
     """ Concepts in the code system.
     """
     
@@ -221,7 +221,7 @@ class ValueSetDefineConcept(FHIRElement.FHIRElement):
             self.display = jsondict['display']
 
 
-class ValueSetDefineConceptConcept(FHIRElement.FHIRElement):
+class ValueSetDefineConceptConcept(fhirelement.FHIRElement):
     """ Child Concepts (is-a / contains).
     """
     
@@ -232,7 +232,7 @@ class ValueSetDefineConceptConcept(FHIRElement.FHIRElement):
         super(ValueSetDefineConceptConcept, self).__init__(jsondict)
 
 
-class ValueSetCompose(FHIRElement.FHIRElement):
+class ValueSetCompose(fhirelement.FHIRElement):
     """ When value set includes codes from elsewhere.
     """
     
@@ -264,7 +264,7 @@ class ValueSetCompose(FHIRElement.FHIRElement):
             self.include = ValueSetComposeInclude.with_json(jsondict['include'])
 
 
-class ValueSetComposeInclude(FHIRElement.FHIRElement):
+class ValueSetComposeInclude(fhirelement.FHIRElement):
     """ Include one or more codes from a code system.
     """
     
@@ -302,7 +302,7 @@ class ValueSetComposeInclude(FHIRElement.FHIRElement):
             self.version = jsondict['version']
 
 
-class ValueSetComposeIncludeFilter(FHIRElement.FHIRElement):
+class ValueSetComposeIncludeFilter(fhirelement.FHIRElement):
     """ Select codes/concepts by their properties (including relationships).
     
     Select concepts by specify a matching criteria based on the properties
@@ -338,7 +338,7 @@ class ValueSetComposeIncludeFilter(FHIRElement.FHIRElement):
             self.value = jsondict['value']
 
 
-class ValueSetComposeExclude(FHIRElement.FHIRElement):
+class ValueSetComposeExclude(fhirelement.FHIRElement):
     """ Explicitly exclude codes.
     
     Exclude one or more codes from the value set.
@@ -351,7 +351,7 @@ class ValueSetComposeExclude(FHIRElement.FHIRElement):
         super(ValueSetComposeExclude, self).__init__(jsondict)
 
 
-class ValueSetExpansion(FHIRElement.FHIRElement):
+class ValueSetExpansion(fhirelement.FHIRElement):
     """ When value set is an expansion.
     """
     
@@ -378,12 +378,12 @@ class ValueSetExpansion(FHIRElement.FHIRElement):
         if 'contains' in jsondict:
             self.contains = ValueSetExpansionContains.with_json(jsondict['contains'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'timestamp' in jsondict:
-            self.timestamp = FHIRDate.FHIRDate.with_json(jsondict['timestamp'])
+            self.timestamp = fhirdate.FHIRDate.with_json(jsondict['timestamp'])
 
 
-class ValueSetExpansionContains(FHIRElement.FHIRElement):
+class ValueSetExpansionContains(fhirelement.FHIRElement):
     """ Codes in the value set.
     """
     
@@ -421,7 +421,7 @@ class ValueSetExpansionContains(FHIRElement.FHIRElement):
             self.system = jsondict['system']
 
 
-class ValueSetExpansionContainsContains(FHIRElement.FHIRElement):
+class ValueSetExpansionContainsContains(fhirelement.FHIRElement):
     """ Codes contained in this concept.
     """
     

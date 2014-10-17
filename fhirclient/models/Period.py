@@ -14,11 +14,11 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRDate
-import FHIRElement
+import fhirdate
+import fhirelement
 
 
-class Period(FHIRElement.FHIRElement):
+class Period(fhirelement.FHIRElement):
     """ Time range defined by start and end date/time.
     """
     
@@ -41,7 +41,7 @@ class Period(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(Period, self).update_with_json(jsondict)
         if 'end' in jsondict:
-            self.end = FHIRDate.FHIRDate.with_json(jsondict['end'])
+            self.end = fhirdate.FHIRDate.with_json(jsondict['end'])
         if 'start' in jsondict:
-            self.start = FHIRDate.FHIRDate.with_json(jsondict['start'])
+            self.start = fhirdate.FHIRDate.with_json(jsondict['start'])
 

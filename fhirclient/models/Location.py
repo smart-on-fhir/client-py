@@ -14,18 +14,18 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Address
-import CodeableConcept
-import Contact
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Organization
+import address
+import codeableconcept
+import contact
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import organization
 
 
-class Location(FHIRResource.FHIRResource):
+class Location(fhirresource.FHIRResource):
     """ Details and position information for a physical place.
     
     Scope and Usage A Location includes both incidental locations (a place
@@ -108,34 +108,34 @@ class Location(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Location, self).update_with_json(jsondict)
         if 'address' in jsondict:
-            self.address = Address.Address.with_json(jsondict['address'])
+            self.address = address.Address.with_json(jsondict['address'])
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'managingOrganization' in jsondict:
-            self.managingOrganization = FHIRReference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self, Organization.Organization)
+            self.managingOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self, organization.Organization)
         if 'mode' in jsondict:
             self.mode = jsondict['mode']
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'partOf' in jsondict:
-            self.partOf = FHIRReference.FHIRReference.with_json_and_owner(jsondict['partOf'], self, Location)
+            self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self, Location)
         if 'physicalType' in jsondict:
-            self.physicalType = CodeableConcept.CodeableConcept.with_json(jsondict['physicalType'])
+            self.physicalType = codeableconcept.CodeableConcept.with_json(jsondict['physicalType'])
         if 'position' in jsondict:
             self.position = LocationPosition.with_json(jsondict['position'])
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'telecom' in jsondict:
-            self.telecom = Contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json(jsondict['telecom'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 
 
-class LocationPosition(FHIRElement.FHIRElement):
+class LocationPosition(fhirelement.FHIRElement):
     """ The absolute geographic location.
     
     The absolute geographic location of the Location, expressed in a KML

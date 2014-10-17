@@ -14,16 +14,16 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRDate
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Practitioner
+import codeableconcept
+import fhirdate
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import practitioner
 
 
-class Other(FHIRResource.FHIRResource):
+class Other(fhirresource.FHIRResource):
     """ Resource for non-supported content.
     
     Scope and Usage Other is a special type of resource. Unlike all other
@@ -91,15 +91,15 @@ class Other(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Other, self).update_with_json(jsondict)
         if 'author' in jsondict:
-            self.author = FHIRReference.FHIRReference.with_json_and_owner(jsondict['author'], self, Practitioner.Practitioner)
+            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'created' in jsondict:
-            self.created = FHIRDate.FHIRDate.with_json(jsondict['created'])
+            self.created = fhirdate.FHIRDate.with_json(jsondict['created'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, FHIRResource.FHIRResource)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, fhirresource.FHIRResource)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 

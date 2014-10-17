@@ -14,11 +14,11 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
-import Quantity
+import fhirelement
+import quantity
 
 
-class Range(FHIRElement.FHIRElement):
+class Range(fhirelement.FHIRElement):
     """ Set of values bounded by low and high.
     """
     
@@ -41,7 +41,7 @@ class Range(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(Range, self).update_with_json(jsondict)
         if 'high' in jsondict:
-            self.high = Quantity.Quantity.with_json(jsondict['high'])
+            self.high = quantity.Quantity.with_json(jsondict['high'])
         if 'low' in jsondict:
-            self.low = Quantity.Quantity.with_json(jsondict['low'])
+            self.low = quantity.Quantity.with_json(jsondict['low'])
 

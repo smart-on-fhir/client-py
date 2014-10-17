@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from SecurityEvent import SecurityEvent
-from FHIRDate import FHIRDate
+from securityevent import SecurityEvent
+from fhirdate import FHIRDate
 
 
 class SecurityEventTests(unittest.TestCase):

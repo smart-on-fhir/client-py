@@ -14,20 +14,20 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Organization
-import Patient
-import Period
-import Practitioner
+import codeableconcept
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import organization
+import patient
+import period
+import practitioner
 
 
-class DocumentReference(FHIRResource.FHIRResource):
+class DocumentReference(fhirresource.FHIRResource):
     """ XDSDocumentEntry.
     """
     
@@ -147,35 +147,35 @@ class DocumentReference(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(DocumentReference, self).update_with_json(jsondict)
         if 'authenticator' in jsondict:
-            self.authenticator = FHIRReference.FHIRReference.with_json_and_owner(jsondict['authenticator'], self, Practitioner.Practitioner)
+            self.authenticator = fhirreference.FHIRReference.with_json_and_owner(jsondict['authenticator'], self, practitioner.Practitioner)
         if 'author' in jsondict:
-            self.author = FHIRReference.FHIRReference.with_json_and_owner(jsondict['author'], self, Practitioner.Practitioner)
+            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'confidentiality' in jsondict:
-            self.confidentiality = CodeableConcept.CodeableConcept.with_json(jsondict['confidentiality'])
+            self.confidentiality = codeableconcept.CodeableConcept.with_json(jsondict['confidentiality'])
         if 'context' in jsondict:
             self.context = DocumentReferenceContext.with_json(jsondict['context'])
         if 'created' in jsondict:
-            self.created = FHIRDate.FHIRDate.with_json(jsondict['created'])
+            self.created = fhirdate.FHIRDate.with_json(jsondict['created'])
         if 'custodian' in jsondict:
-            self.custodian = FHIRReference.FHIRReference.with_json_and_owner(jsondict['custodian'], self, Organization.Organization)
+            self.custodian = fhirreference.FHIRReference.with_json_and_owner(jsondict['custodian'], self, organization.Organization)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'docStatus' in jsondict:
-            self.docStatus = CodeableConcept.CodeableConcept.with_json(jsondict['docStatus'])
+            self.docStatus = codeableconcept.CodeableConcept.with_json(jsondict['docStatus'])
         if 'format' in jsondict:
-            self.format = CodeableConcept.CodeableConcept.with_json(jsondict['format'])
+            self.format = codeableconcept.CodeableConcept.with_json(jsondict['format'])
         if 'hash' in jsondict:
             self.hash = jsondict['hash']
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'indexed' in jsondict:
-            self.indexed = FHIRDate.FHIRDate.with_json(jsondict['indexed'])
+            self.indexed = fhirdate.FHIRDate.with_json(jsondict['indexed'])
         if 'klass' in jsondict:
-            self.klass = CodeableConcept.CodeableConcept.with_json(jsondict['klass'])
+            self.klass = codeableconcept.CodeableConcept.with_json(jsondict['klass'])
         if 'location' in jsondict:
             self.location = jsondict['location']
         if 'masterIdentifier' in jsondict:
-            self.masterIdentifier = Identifier.Identifier.with_json(jsondict['masterIdentifier'])
+            self.masterIdentifier = identifier.Identifier.with_json(jsondict['masterIdentifier'])
         if 'mimeType' in jsondict:
             self.mimeType = jsondict['mimeType']
         if 'policyManager' in jsondict:
@@ -191,16 +191,16 @@ class DocumentReference(FHIRResource.FHIRResource):
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 
 
-class DocumentReferenceRelatesTo(FHIRElement.FHIRElement):
+class DocumentReferenceRelatesTo(fhirelement.FHIRElement):
     """ Relationships that this document has with other document references that
     already exist.
     
@@ -227,10 +227,10 @@ class DocumentReferenceRelatesTo(FHIRElement.FHIRElement):
         if 'code' in jsondict:
             self.code = jsondict['code']
         if 'target' in jsondict:
-            self.target = FHIRReference.FHIRReference.with_json_and_owner(jsondict['target'], self, DocumentReference)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, DocumentReference)
 
 
-class DocumentReferenceService(FHIRElement.FHIRElement):
+class DocumentReferenceService(fhirelement.FHIRElement):
     """ can be determined from repository location + parameters.
     
     If access is not fully described by location.
@@ -261,10 +261,10 @@ class DocumentReferenceService(FHIRElement.FHIRElement):
         if 'parameter' in jsondict:
             self.parameter = DocumentReferenceServiceParameter.with_json(jsondict['parameter'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 
 
-class DocumentReferenceServiceParameter(FHIRElement.FHIRElement):
+class DocumentReferenceServiceParameter(fhirelement.FHIRElement):
     """ Service call parameters.
     
     A list of named parameters that is used in the service call.
@@ -292,7 +292,7 @@ class DocumentReferenceServiceParameter(FHIRElement.FHIRElement):
             self.value = jsondict['value']
 
 
-class DocumentReferenceContext(FHIRElement.FHIRElement):
+class DocumentReferenceContext(fhirelement.FHIRElement):
     """ event codes, service Start & Stop time, and facility type.
     
     Clinical context of document - eventCodeList, serviceStart & Stop time, and
@@ -321,9 +321,9 @@ class DocumentReferenceContext(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(DocumentReferenceContext, self).update_with_json(jsondict)
         if 'event' in jsondict:
-            self.event = CodeableConcept.CodeableConcept.with_json(jsondict['event'])
+            self.event = codeableconcept.CodeableConcept.with_json(jsondict['event'])
         if 'facilityType' in jsondict:
-            self.facilityType = CodeableConcept.CodeableConcept.with_json(jsondict['facilityType'])
+            self.facilityType = codeableconcept.CodeableConcept.with_json(jsondict['facilityType'])
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
 

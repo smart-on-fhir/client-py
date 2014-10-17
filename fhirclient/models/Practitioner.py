@@ -14,23 +14,23 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Address
-import Attachment
-import CodeableConcept
-import Contact
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import HumanName
-import Identifier
-import Location
-import Narrative
-import Organization
-import Period
+import address
+import attachment
+import codeableconcept
+import contact
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import humanname
+import identifier
+import location
+import narrative
+import organization
+import period
 
 
-class Practitioner(FHIRResource.FHIRResource):
+class Practitioner(fhirresource.FHIRResource):
     """ A person with a  formal responsibility in the provisioning of healthcare or
     related services.
     
@@ -122,38 +122,38 @@ class Practitioner(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Practitioner, self).update_with_json(jsondict)
         if 'address' in jsondict:
-            self.address = Address.Address.with_json(jsondict['address'])
+            self.address = address.Address.with_json(jsondict['address'])
         if 'birthDate' in jsondict:
-            self.birthDate = FHIRDate.FHIRDate.with_json(jsondict['birthDate'])
+            self.birthDate = fhirdate.FHIRDate.with_json(jsondict['birthDate'])
         if 'communication' in jsondict:
-            self.communication = CodeableConcept.CodeableConcept.with_json(jsondict['communication'])
+            self.communication = codeableconcept.CodeableConcept.with_json(jsondict['communication'])
         if 'gender' in jsondict:
-            self.gender = CodeableConcept.CodeableConcept.with_json(jsondict['gender'])
+            self.gender = codeableconcept.CodeableConcept.with_json(jsondict['gender'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'location' in jsondict:
-            self.location = FHIRReference.FHIRReference.with_json_and_owner(jsondict['location'], self, Location.Location)
+            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
         if 'name' in jsondict:
-            self.name = HumanName.HumanName.with_json(jsondict['name'])
+            self.name = humanname.HumanName.with_json(jsondict['name'])
         if 'organization' in jsondict:
-            self.organization = FHIRReference.FHIRReference.with_json_and_owner(jsondict['organization'], self, Organization.Organization)
+            self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self, organization.Organization)
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
         if 'photo' in jsondict:
-            self.photo = Attachment.Attachment.with_json(jsondict['photo'])
+            self.photo = attachment.Attachment.with_json(jsondict['photo'])
         if 'qualification' in jsondict:
             self.qualification = PractitionerQualification.with_json(jsondict['qualification'])
         if 'role' in jsondict:
-            self.role = CodeableConcept.CodeableConcept.with_json(jsondict['role'])
+            self.role = codeableconcept.CodeableConcept.with_json(jsondict['role'])
         if 'specialty' in jsondict:
-            self.specialty = CodeableConcept.CodeableConcept.with_json(jsondict['specialty'])
+            self.specialty = codeableconcept.CodeableConcept.with_json(jsondict['specialty'])
         if 'telecom' in jsondict:
-            self.telecom = Contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json(jsondict['telecom'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class PractitionerQualification(FHIRElement.FHIRElement):
+class PractitionerQualification(fhirelement.FHIRElement):
     """ Qualifications obtained by training and certification.
     """
     
@@ -178,9 +178,9 @@ class PractitionerQualification(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(PractitionerQualification, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'issuer' in jsondict:
-            self.issuer = FHIRReference.FHIRReference.with_json_and_owner(jsondict['issuer'], self, Organization.Organization)
+            self.issuer = fhirreference.FHIRReference.with_json_and_owner(jsondict['issuer'], self, organization.Organization)
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
 

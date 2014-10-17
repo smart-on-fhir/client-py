@@ -14,25 +14,25 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Attachment
-import CodeableConcept
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Period
-import Practitioner
-import Quantity
-import Range
-import Ratio
-import SampledData
-import Specimen
+import attachment
+import codeableconcept
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import period
+import practitioner
+import quantity
+import range
+import ratio
+import sampleddata
+import specimen
 
 
-class Observation(FHIRResource.FHIRResource):
+class Observation(fhirresource.FHIRResource):
     """ Measurements and simple assertions.
     
     Scope and Usage Observations are a central element in healthcare, used to
@@ -162,25 +162,25 @@ class Observation(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Observation, self).update_with_json(jsondict)
         if 'appliesDateTime' in jsondict:
-            self.appliesDateTime = FHIRDate.FHIRDate.with_json(jsondict['appliesDateTime'])
+            self.appliesDateTime = fhirdate.FHIRDate.with_json(jsondict['appliesDateTime'])
         if 'appliesPeriod' in jsondict:
-            self.appliesPeriod = Period.Period.with_json(jsondict['appliesPeriod'])
+            self.appliesPeriod = period.Period.with_json(jsondict['appliesPeriod'])
         if 'bodySite' in jsondict:
-            self.bodySite = CodeableConcept.CodeableConcept.with_json(jsondict['bodySite'])
+            self.bodySite = codeableconcept.CodeableConcept.with_json(jsondict['bodySite'])
         if 'comments' in jsondict:
             self.comments = jsondict['comments']
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'interpretation' in jsondict:
-            self.interpretation = CodeableConcept.CodeableConcept.with_json(jsondict['interpretation'])
+            self.interpretation = codeableconcept.CodeableConcept.with_json(jsondict['interpretation'])
         if 'issued' in jsondict:
-            self.issued = FHIRDate.FHIRDate.with_json(jsondict['issued'])
+            self.issued = fhirdate.FHIRDate.with_json(jsondict['issued'])
         if 'method' in jsondict:
-            self.method = CodeableConcept.CodeableConcept.with_json(jsondict['method'])
+            self.method = codeableconcept.CodeableConcept.with_json(jsondict['method'])
         if 'name' in jsondict:
-            self.name = CodeableConcept.CodeableConcept.with_json(jsondict['name'])
+            self.name = codeableconcept.CodeableConcept.with_json(jsondict['name'])
         if 'performer' in jsondict:
-            self.performer = FHIRReference.FHIRReference.with_json_and_owner(jsondict['performer'], self, Practitioner.Practitioner)
+            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self, practitioner.Practitioner)
         if 'referenceRange' in jsondict:
             self.referenceRange = ObservationReferenceRange.with_json(jsondict['referenceRange'])
         if 'related' in jsondict:
@@ -188,30 +188,30 @@ class Observation(FHIRResource.FHIRResource):
         if 'reliability' in jsondict:
             self.reliability = jsondict['reliability']
         if 'specimen' in jsondict:
-            self.specimen = FHIRReference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, Specimen.Specimen)
+            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, specimen.Specimen)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'valueAttachment' in jsondict:
-            self.valueAttachment = Attachment.Attachment.with_json(jsondict['valueAttachment'])
+            self.valueAttachment = attachment.Attachment.with_json(jsondict['valueAttachment'])
         if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = CodeableConcept.CodeableConcept.with_json(jsondict['valueCodeableConcept'])
+            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['valueCodeableConcept'])
         if 'valuePeriod' in jsondict:
-            self.valuePeriod = Period.Period.with_json(jsondict['valuePeriod'])
+            self.valuePeriod = period.Period.with_json(jsondict['valuePeriod'])
         if 'valueQuantity' in jsondict:
-            self.valueQuantity = Quantity.Quantity.with_json(jsondict['valueQuantity'])
+            self.valueQuantity = quantity.Quantity.with_json(jsondict['valueQuantity'])
         if 'valueRatio' in jsondict:
-            self.valueRatio = Ratio.Ratio.with_json(jsondict['valueRatio'])
+            self.valueRatio = ratio.Ratio.with_json(jsondict['valueRatio'])
         if 'valueSampledData' in jsondict:
-            self.valueSampledData = SampledData.SampledData.with_json(jsondict['valueSampledData'])
+            self.valueSampledData = sampleddata.SampledData.with_json(jsondict['valueSampledData'])
         if 'valueString' in jsondict:
             self.valueString = jsondict['valueString']
 
 
-class ObservationReferenceRange(FHIRElement.FHIRElement):
+class ObservationReferenceRange(fhirelement.FHIRElement):
     """ Provides guide for interpretation.
     
     Guidance on how to interpret the value by comparison to a normal or
@@ -243,16 +243,16 @@ class ObservationReferenceRange(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ObservationReferenceRange, self).update_with_json(jsondict)
         if 'age' in jsondict:
-            self.age = Range.Range.with_json(jsondict['age'])
+            self.age = range.Range.with_json(jsondict['age'])
         if 'high' in jsondict:
-            self.high = Quantity.Quantity.with_json(jsondict['high'])
+            self.high = quantity.Quantity.with_json(jsondict['high'])
         if 'low' in jsondict:
-            self.low = Quantity.Quantity.with_json(jsondict['low'])
+            self.low = quantity.Quantity.with_json(jsondict['low'])
         if 'meaning' in jsondict:
-            self.meaning = CodeableConcept.CodeableConcept.with_json(jsondict['meaning'])
+            self.meaning = codeableconcept.CodeableConcept.with_json(jsondict['meaning'])
 
 
-class ObservationRelated(FHIRElement.FHIRElement):
+class ObservationRelated(fhirelement.FHIRElement):
     """ Observations related to this observation.
     
     Related observations - either components, or previous observations, or
@@ -277,7 +277,7 @@ class ObservationRelated(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ObservationRelated, self).update_with_json(jsondict)
         if 'target' in jsondict:
-            self.target = FHIRReference.FHIRReference.with_json_and_owner(jsondict['target'], self, Observation)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, Observation)
         if 'type' in jsondict:
             self.type = jsondict['type']
 

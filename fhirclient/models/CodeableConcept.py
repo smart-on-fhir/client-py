@@ -14,11 +14,11 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Coding
-import FHIRElement
+import coding
+import fhirelement
 
 
-class CodeableConcept(FHIRElement.FHIRElement):
+class CodeableConcept(fhirelement.FHIRElement):
     """ Concept - reference to a terminology or just  text.
     """
     
@@ -41,7 +41,7 @@ class CodeableConcept(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(CodeableConcept, self).update_with_json(jsondict)
         if 'coding' in jsondict:
-            self.coding = Coding.Coding.with_json(jsondict['coding'])
+            self.coding = coding.Coding.with_json(jsondict['coding'])
         if 'text' in jsondict:
             self.text = jsondict['text']
 

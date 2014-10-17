@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from AllergyIntolerance import AllergyIntolerance
-from FHIRDate import FHIRDate
+from allergyintolerance import AllergyIntolerance
+from fhirdate import FHIRDate
 
 
 class AllergyIntoleranceTests(unittest.TestCase):

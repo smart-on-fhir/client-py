@@ -14,11 +14,11 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
-import Quantity
+import fhirelement
+import quantity
 
 
-class SampledData(FHIRElement.FHIRElement):
+class SampledData(fhirelement.FHIRElement):
     """ A series of measurements taken by a device.
     """
     
@@ -69,7 +69,7 @@ class SampledData(FHIRElement.FHIRElement):
         if 'lowerLimit' in jsondict:
             self.lowerLimit = jsondict['lowerLimit']
         if 'origin' in jsondict:
-            self.origin = Quantity.Quantity.with_json(jsondict['origin'])
+            self.origin = quantity.Quantity.with_json(jsondict['origin'])
         if 'period' in jsondict:
             self.period = jsondict['period']
         if 'upperLimit' in jsondict:

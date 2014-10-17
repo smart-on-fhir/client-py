@@ -14,13 +14,13 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Coding
-import FHIRElement
-import FHIRResource
-import Narrative
+import coding
+import fhirelement
+import fhirresource
+import narrative
 
 
-class OperationOutcome(FHIRResource.FHIRResource):
+class OperationOutcome(fhirresource.FHIRResource):
     """ Information about the success/failure of an action.
     
     Scope and Usage Operation Outcomes are sets of error, warning and
@@ -59,10 +59,10 @@ class OperationOutcome(FHIRResource.FHIRResource):
         if 'issue' in jsondict:
             self.issue = OperationOutcomeIssue.with_json(jsondict['issue'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class OperationOutcomeIssue(FHIRElement.FHIRElement):
+class OperationOutcomeIssue(fhirelement.FHIRElement):
     """ A single issue associated with the action.
     
     An error, warning or information message that results from a system action.
@@ -99,5 +99,5 @@ class OperationOutcomeIssue(FHIRElement.FHIRElement):
         if 'severity' in jsondict:
             self.severity = jsondict['severity']
         if 'type' in jsondict:
-            self.type = Coding.Coding.with_json(jsondict['type'])
+            self.type = coding.Coding.with_json(jsondict['type'])
 

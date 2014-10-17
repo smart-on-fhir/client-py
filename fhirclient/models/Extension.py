@@ -14,10 +14,10 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
+import fhirelement
 
 
-class Extension(FHIRElement.FHIRElement):
+class Extension(fhirelement.FHIRElement):
     """ Optional Extensions Element - found in all resources..
     """
     
@@ -42,5 +42,5 @@ class Extension(FHIRElement.FHIRElement):
         if 'url' in jsondict:
             self.url = jsondict['url']
         if 'value' in jsondict:
-            self.value = FHIRElement.FHIRElement.with_json(jsondict['value'])
+            self.value = fhirelement.FHIRElement.with_json(jsondict['value'])
 

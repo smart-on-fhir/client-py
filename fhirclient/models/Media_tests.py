@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from Media import Media
-from FHIRDate import FHIRDate
+from media import Media
+from fhirdate import FHIRDate
 
 
 class MediaTests(unittest.TestCase):

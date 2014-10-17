@@ -14,10 +14,10 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
+import fhirelement
 
 
-class Attachment(FHIRElement.FHIRElement):
+class Attachment(fhirelement.FHIRElement):
     """ Content in a format defined elsewhere.
     """
     

@@ -14,13 +14,13 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
-import FHIRReference
-import Organization
-import Period
+import fhirelement
+import fhirreference
+import organization
+import period
 
 
-class Identifier(FHIRElement.FHIRElement):
+class Identifier(fhirelement.FHIRElement):
     """ An identifier intended for computation.
     """
     
@@ -59,11 +59,11 @@ class Identifier(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(Identifier, self).update_with_json(jsondict)
         if 'assigner' in jsondict:
-            self.assigner = FHIRReference.FHIRReference.with_json_and_owner(jsondict['assigner'], self, Organization.Organization)
+            self.assigner = fhirreference.FHIRReference.with_json_and_owner(jsondict['assigner'], self, organization.Organization)
         if 'label' in jsondict:
             self.label = jsondict['label']
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
         if 'system' in jsondict:
             self.system = jsondict['system']
         if 'use' in jsondict:

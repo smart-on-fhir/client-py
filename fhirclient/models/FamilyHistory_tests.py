@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from FamilyHistory import FamilyHistory
-from FHIRDate import FHIRDate
+from familyhistory import FamilyHistory
+from fhirdate import FHIRDate
 
 
 class FamilyHistoryTests(unittest.TestCase):

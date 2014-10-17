@@ -14,19 +14,19 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Address
-import CodeableConcept
-import Contact
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import HumanName
-import Identifier
-import Location
-import Narrative
+import address
+import codeableconcept
+import contact
+import fhirelement
+import fhirreference
+import fhirresource
+import humanname
+import identifier
+import location
+import narrative
 
 
-class Organization(FHIRResource.FHIRResource):
+class Organization(fhirresource.FHIRResource):
     """ A grouping of people or organizations with a common purpose.
     
     Scope and Usage This resource may be used in a shared registry of contact
@@ -90,26 +90,26 @@ class Organization(FHIRResource.FHIRResource):
         if 'active' in jsondict:
             self.active = jsondict['active']
         if 'address' in jsondict:
-            self.address = Address.Address.with_json(jsondict['address'])
+            self.address = address.Address.with_json(jsondict['address'])
         if 'contact' in jsondict:
             self.contact = OrganizationContact.with_json(jsondict['contact'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'location' in jsondict:
-            self.location = FHIRReference.FHIRReference.with_json_and_owner(jsondict['location'], self, Location.Location)
+            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'partOf' in jsondict:
-            self.partOf = FHIRReference.FHIRReference.with_json_and_owner(jsondict['partOf'], self, Organization)
+            self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self, Organization)
         if 'telecom' in jsondict:
-            self.telecom = Contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json(jsondict['telecom'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 
 
-class OrganizationContact(FHIRElement.FHIRElement):
+class OrganizationContact(fhirelement.FHIRElement):
     """ Contact for the organization for a certain purpose.
     """
     
@@ -142,13 +142,13 @@ class OrganizationContact(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(OrganizationContact, self).update_with_json(jsondict)
         if 'address' in jsondict:
-            self.address = Address.Address.with_json(jsondict['address'])
+            self.address = address.Address.with_json(jsondict['address'])
         if 'gender' in jsondict:
-            self.gender = CodeableConcept.CodeableConcept.with_json(jsondict['gender'])
+            self.gender = codeableconcept.CodeableConcept.with_json(jsondict['gender'])
         if 'name' in jsondict:
-            self.name = HumanName.HumanName.with_json(jsondict['name'])
+            self.name = humanname.HumanName.with_json(jsondict['name'])
         if 'purpose' in jsondict:
-            self.purpose = CodeableConcept.CodeableConcept.with_json(jsondict['purpose'])
+            self.purpose = codeableconcept.CodeableConcept.with_json(jsondict['purpose'])
         if 'telecom' in jsondict:
-            self.telecom = Contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json(jsondict['telecom'])
 

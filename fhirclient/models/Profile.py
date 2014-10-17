@@ -14,17 +14,17 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Coding
-import Contact
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Narrative
-import ValueSet
+import coding
+import contact
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import narrative
+import valueset
 
 
-class Profile(FHIRResource.FHIRResource):
+class Profile(fhirresource.FHIRResource):
     """ Resource Profile.
     
     Scope and Usage This specification describes a set of base resources that
@@ -132,9 +132,9 @@ class Profile(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Profile, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = Coding.Coding.with_json(jsondict['code'])
+            self.code = coding.Coding.with_json(jsondict['code'])
         if 'date' in jsondict:
-            self.date = FHIRDate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'experimental' in jsondict:
@@ -160,14 +160,14 @@ class Profile(FHIRResource.FHIRResource):
         if 'structure' in jsondict:
             self.structure = ProfileStructure.with_json(jsondict['structure'])
         if 'telecom' in jsondict:
-            self.telecom = Contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json(jsondict['telecom'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'version' in jsondict:
             self.version = jsondict['version']
 
 
-class ProfileMapping(FHIRElement.FHIRElement):
+class ProfileMapping(fhirelement.FHIRElement):
     """ External specification that the content is mapped to.
     
     An external specification that the content is mapped to.
@@ -207,7 +207,7 @@ class ProfileMapping(FHIRElement.FHIRElement):
             self.uri = jsondict['uri']
 
 
-class ProfileStructure(FHIRElement.FHIRElement):
+class ProfileStructure(fhirelement.FHIRElement):
     """ A constraint on a resource or a data type.
     
     A constraint statement about what contents a resource or data type may
@@ -260,7 +260,7 @@ class ProfileStructure(FHIRElement.FHIRElement):
             self.type = jsondict['type']
 
 
-class ProfileStructureElement(FHIRElement.FHIRElement):
+class ProfileStructureElement(fhirelement.FHIRElement):
     """ Definition of elements in the resource (if no profile).
     
     Captures constraints on each element within the resource.
@@ -306,7 +306,7 @@ class ProfileStructureElement(FHIRElement.FHIRElement):
             self.slicing = ProfileStructureElementSlicing.with_json(jsondict['slicing'])
 
 
-class ProfileStructureElementSlicing(FHIRElement.FHIRElement):
+class ProfileStructureElementSlicing(fhirelement.FHIRElement):
     """ This element is sliced - slices follow.
     
     Indicates that the element is sliced into a set of alternative definitions
@@ -344,7 +344,7 @@ class ProfileStructureElementSlicing(FHIRElement.FHIRElement):
             self.rules = jsondict['rules']
 
 
-class ProfileStructureElementDefinition(FHIRElement.FHIRElement):
+class ProfileStructureElementDefinition(fhirelement.FHIRElement):
     """ More specific definition of the element.
     
     Definition of the content of the element to provide a more specific
@@ -440,7 +440,7 @@ class ProfileStructureElementDefinition(FHIRElement.FHIRElement):
         if 'constraint' in jsondict:
             self.constraint = ProfileStructureElementDefinitionConstraint.with_json(jsondict['constraint'])
         if 'example' in jsondict:
-            self.example = FHIRElement.FHIRElement.with_json(jsondict['example'])
+            self.example = fhirelement.FHIRElement.with_json(jsondict['example'])
         if 'formal' in jsondict:
             self.formal = jsondict['formal']
         if 'isModifier' in jsondict:
@@ -466,10 +466,10 @@ class ProfileStructureElementDefinition(FHIRElement.FHIRElement):
         if 'type' in jsondict:
             self.type = ProfileStructureElementDefinitionType.with_json(jsondict['type'])
         if 'value' in jsondict:
-            self.value = FHIRElement.FHIRElement.with_json(jsondict['value'])
+            self.value = fhirelement.FHIRElement.with_json(jsondict['value'])
 
 
-class ProfileStructureElementDefinitionType(FHIRElement.FHIRElement):
+class ProfileStructureElementDefinitionType(fhirelement.FHIRElement):
     """ Data type and Profile for this element.
     
     The data type or resource that the value of this element is permitted to
@@ -504,7 +504,7 @@ class ProfileStructureElementDefinitionType(FHIRElement.FHIRElement):
             self.profile = jsondict['profile']
 
 
-class ProfileStructureElementDefinitionConstraint(FHIRElement.FHIRElement):
+class ProfileStructureElementDefinitionConstraint(fhirelement.FHIRElement):
     """ Condition that must evaluate to true.
     
     Formal constraints such as co-occurrence and other constraints that can be
@@ -551,7 +551,7 @@ class ProfileStructureElementDefinitionConstraint(FHIRElement.FHIRElement):
             self.xpath = jsondict['xpath']
 
 
-class ProfileStructureElementDefinitionBinding(FHIRElement.FHIRElement):
+class ProfileStructureElementDefinitionBinding(fhirelement.FHIRElement):
     """ ValueSet details if this is coded.
     
     Binds to a value set if this element is coded (code, Coding,
@@ -599,12 +599,12 @@ class ProfileStructureElementDefinitionBinding(FHIRElement.FHIRElement):
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'referenceResource' in jsondict:
-            self.referenceResource = FHIRReference.FHIRReference.with_json_and_owner(jsondict['referenceResource'], self, ValueSet.ValueSet)
+            self.referenceResource = fhirreference.FHIRReference.with_json_and_owner(jsondict['referenceResource'], self, valueset.ValueSet)
         if 'referenceUri' in jsondict:
             self.referenceUri = jsondict['referenceUri']
 
 
-class ProfileStructureElementDefinitionMapping(FHIRElement.FHIRElement):
+class ProfileStructureElementDefinitionMapping(fhirelement.FHIRElement):
     """ Map element to another set of definitions.
     
     Identifies a concept from an external specification that roughly
@@ -633,7 +633,7 @@ class ProfileStructureElementDefinitionMapping(FHIRElement.FHIRElement):
             self.map = jsondict['map']
 
 
-class ProfileStructureSearchParam(FHIRElement.FHIRElement):
+class ProfileStructureSearchParam(fhirelement.FHIRElement):
     """ Search params defined.
     
     Additional search parameters for implementations to support and/or make use
@@ -680,7 +680,7 @@ class ProfileStructureSearchParam(FHIRElement.FHIRElement):
             self.xpath = jsondict['xpath']
 
 
-class ProfileExtensionDefn(FHIRElement.FHIRElement):
+class ProfileExtensionDefn(fhirelement.FHIRElement):
     """ Definition of an extension.
     
     An extension defined as part of the profile.
@@ -726,7 +726,7 @@ class ProfileExtensionDefn(FHIRElement.FHIRElement):
             self.display = jsondict['display']
 
 
-class ProfileExtensionDefnDefinition(FHIRElement.FHIRElement):
+class ProfileExtensionDefnDefinition(fhirelement.FHIRElement):
     """ Definition of the extension and its content.
     """
     
@@ -737,7 +737,7 @@ class ProfileExtensionDefnDefinition(FHIRElement.FHIRElement):
         super(ProfileExtensionDefnDefinition, self).__init__(jsondict)
 
 
-class ProfileQuery(FHIRElement.FHIRElement):
+class ProfileQuery(fhirelement.FHIRElement):
     """ Definition of a named query.
     
     Definition of a named query and its parameters and their meaning.
@@ -771,7 +771,7 @@ class ProfileQuery(FHIRElement.FHIRElement):
             self.parameter = ProfileQueryParameter.with_json(jsondict['parameter'])
 
 
-class ProfileQueryParameter(FHIRElement.FHIRElement):
+class ProfileQueryParameter(fhirelement.FHIRElement):
     """ Parameter for the named query.
     
     A parameter of a named query.

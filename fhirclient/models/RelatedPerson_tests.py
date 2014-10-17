@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from RelatedPerson import RelatedPerson
-from FHIRDate import FHIRDate
+from relatedperson import RelatedPerson
+from fhirdate import FHIRDate
 
 
 class RelatedPersonTests(unittest.TestCase):

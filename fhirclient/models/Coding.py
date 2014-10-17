@@ -14,12 +14,12 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
-import FHIRReference
-import ValueSet
+import fhirelement
+import fhirreference
+import valueset
 
 
-class Coding(FHIRElement.FHIRElement):
+class Coding(fhirelement.FHIRElement):
     """ A reference to a code defined by a terminology system.
     """
     
@@ -66,7 +66,7 @@ class Coding(FHIRElement.FHIRElement):
         if 'system' in jsondict:
             self.system = jsondict['system']
         if 'valueSet' in jsondict:
-            self.valueSet = FHIRReference.FHIRReference.with_json_and_owner(jsondict['valueSet'], self, ValueSet.ValueSet)
+            self.valueSet = fhirreference.FHIRReference.with_json_and_owner(jsondict['valueSet'], self, valueset.ValueSet)
         if 'version' in jsondict:
             self.version = jsondict['version']
 

@@ -9,12 +9,14 @@
 
 import sys
 import os.path
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+abspath = os.path.abspath(os.path.dirname(__file__))
+if abspath not in sys.path:
+    sys.path.insert(0, abspath)
 
 import requests
 from server import FHIRServer, FHIRUnauthorizedException
 from auth import FHIRAuth
-from fhirclient.models.Patient import Patient
+import models.patient as patient
 
 __version__ = '0.0.1'
 __author__ = 'SMART Platforms Team'
@@ -123,10 +125,10 @@ class FHIRClient(object):
     def patient(self):
         if self._patient is None:
             try:
-                self._patient = Patient.read(self.patient_id, self.server)
+                self._patient = patient.Patient.read(self.patient_id, self.server)
             except FHIRUnauthorizedException as e:
                 if self.reauthorize():
-                    self._patient = Patient.read(self.patient_id, self.server)
+                    self._patient = patient.Patient.read(self.patient_id, self.server)
                 else:
                     self._set_authorized(False)
          

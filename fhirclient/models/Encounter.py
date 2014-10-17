@@ -14,21 +14,21 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import Duration
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Location
-import Narrative
-import Organization
-import Patient
-import Period
-import Practitioner
+import codeableconcept
+import duration
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import location
+import narrative
+import organization
+import patient
+import period
+import practitioner
 
 
-class Encounter(FHIRResource.FHIRResource):
+class Encounter(fhirresource.FHIRResource):
     """ An interaction during which services are provided to the patient.
     
     Scope and Usage A patient encounter is further characterized by the setting
@@ -139,38 +139,38 @@ class Encounter(FHIRResource.FHIRResource):
         if 'hospitalization' in jsondict:
             self.hospitalization = EncounterHospitalization.with_json(jsondict['hospitalization'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'indication' in jsondict:
-            self.indication = FHIRReference.FHIRReference.with_json_and_owner(jsondict['indication'], self, FHIRResource.FHIRResource)
+            self.indication = fhirreference.FHIRReference.with_json_and_owner(jsondict['indication'], self, fhirresource.FHIRResource)
         if 'klass' in jsondict:
             self.klass = jsondict['klass']
         if 'length' in jsondict:
-            self.length = Duration.Duration.with_json(jsondict['length'])
+            self.length = duration.Duration.with_json(jsondict['length'])
         if 'location' in jsondict:
             self.location = EncounterLocation.with_json(jsondict['location'])
         if 'partOf' in jsondict:
-            self.partOf = FHIRReference.FHIRReference.with_json_and_owner(jsondict['partOf'], self, Encounter)
+            self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self, Encounter)
         if 'participant' in jsondict:
             self.participant = EncounterParticipant.with_json(jsondict['participant'])
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
         if 'priority' in jsondict:
-            self.priority = CodeableConcept.CodeableConcept.with_json(jsondict['priority'])
+            self.priority = codeableconcept.CodeableConcept.with_json(jsondict['priority'])
         if 'reason' in jsondict:
-            self.reason = CodeableConcept.CodeableConcept.with_json(jsondict['reason'])
+            self.reason = codeableconcept.CodeableConcept.with_json(jsondict['reason'])
         if 'serviceProvider' in jsondict:
-            self.serviceProvider = FHIRReference.FHIRReference.with_json_and_owner(jsondict['serviceProvider'], self, Organization.Organization)
+            self.serviceProvider = fhirreference.FHIRReference.with_json_and_owner(jsondict['serviceProvider'], self, organization.Organization)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 
 
-class EncounterParticipant(FHIRElement.FHIRElement):
+class EncounterParticipant(fhirelement.FHIRElement):
     """ List of participants involved in the encounter.
     
     The main practitioner responsible for providing the service.
@@ -193,12 +193,12 @@ class EncounterParticipant(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(EncounterParticipant, self).update_with_json(jsondict)
         if 'individual' in jsondict:
-            self.individual = FHIRReference.FHIRReference.with_json_and_owner(jsondict['individual'], self, Practitioner.Practitioner)
+            self.individual = fhirreference.FHIRReference.with_json_and_owner(jsondict['individual'], self, practitioner.Practitioner)
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 
 
-class EncounterHospitalization(FHIRElement.FHIRElement):
+class EncounterHospitalization(fhirelement.FHIRElement):
     """ Details about an admission to a clinic.
     """
     
@@ -262,30 +262,30 @@ class EncounterHospitalization(FHIRElement.FHIRElement):
         if 'accomodation' in jsondict:
             self.accomodation = EncounterHospitalizationAccomodation.with_json(jsondict['accomodation'])
         if 'admitSource' in jsondict:
-            self.admitSource = CodeableConcept.CodeableConcept.with_json(jsondict['admitSource'])
+            self.admitSource = codeableconcept.CodeableConcept.with_json(jsondict['admitSource'])
         if 'destination' in jsondict:
-            self.destination = FHIRReference.FHIRReference.with_json_and_owner(jsondict['destination'], self, Location.Location)
+            self.destination = fhirreference.FHIRReference.with_json_and_owner(jsondict['destination'], self, location.Location)
         if 'diet' in jsondict:
-            self.diet = CodeableConcept.CodeableConcept.with_json(jsondict['diet'])
+            self.diet = codeableconcept.CodeableConcept.with_json(jsondict['diet'])
         if 'dischargeDiagnosis' in jsondict:
-            self.dischargeDiagnosis = FHIRReference.FHIRReference.with_json_and_owner(jsondict['dischargeDiagnosis'], self, FHIRResource.FHIRResource)
+            self.dischargeDiagnosis = fhirreference.FHIRReference.with_json_and_owner(jsondict['dischargeDiagnosis'], self, fhirresource.FHIRResource)
         if 'dischargeDisposition' in jsondict:
-            self.dischargeDisposition = CodeableConcept.CodeableConcept.with_json(jsondict['dischargeDisposition'])
+            self.dischargeDisposition = codeableconcept.CodeableConcept.with_json(jsondict['dischargeDisposition'])
         if 'origin' in jsondict:
-            self.origin = FHIRReference.FHIRReference.with_json_and_owner(jsondict['origin'], self, Location.Location)
+            self.origin = fhirreference.FHIRReference.with_json_and_owner(jsondict['origin'], self, location.Location)
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
         if 'preAdmissionIdentifier' in jsondict:
-            self.preAdmissionIdentifier = Identifier.Identifier.with_json(jsondict['preAdmissionIdentifier'])
+            self.preAdmissionIdentifier = identifier.Identifier.with_json(jsondict['preAdmissionIdentifier'])
         if 'reAdmission' in jsondict:
             self.reAdmission = jsondict['reAdmission']
         if 'specialArrangement' in jsondict:
-            self.specialArrangement = CodeableConcept.CodeableConcept.with_json(jsondict['specialArrangement'])
+            self.specialArrangement = codeableconcept.CodeableConcept.with_json(jsondict['specialArrangement'])
         if 'specialCourtesy' in jsondict:
-            self.specialCourtesy = CodeableConcept.CodeableConcept.with_json(jsondict['specialCourtesy'])
+            self.specialCourtesy = codeableconcept.CodeableConcept.with_json(jsondict['specialCourtesy'])
 
 
-class EncounterHospitalizationAccomodation(FHIRElement.FHIRElement):
+class EncounterHospitalizationAccomodation(fhirelement.FHIRElement):
     """ Where the patient stays during this encounter.
     """
     
@@ -306,12 +306,12 @@ class EncounterHospitalizationAccomodation(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(EncounterHospitalizationAccomodation, self).update_with_json(jsondict)
         if 'bed' in jsondict:
-            self.bed = FHIRReference.FHIRReference.with_json_and_owner(jsondict['bed'], self, Location.Location)
+            self.bed = fhirreference.FHIRReference.with_json_and_owner(jsondict['bed'], self, location.Location)
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
 
 
-class EncounterLocation(FHIRElement.FHIRElement):
+class EncounterLocation(fhirelement.FHIRElement):
     """ List of locations the patient has been at.
     
     List of locations at which the patient has been.
@@ -334,7 +334,7 @@ class EncounterLocation(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(EncounterLocation, self).update_with_json(jsondict)
         if 'location' in jsondict:
-            self.location = FHIRReference.FHIRReference.with_json_and_owner(jsondict['location'], self, Location.Location)
+            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
 

@@ -14,20 +14,20 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Immunization
-import Narrative
-import Observation
-import Organization
-import Patient
+import codeableconcept
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import immunization
+import narrative
+import observation
+import organization
+import patient
 
 
-class ImmunizationRecommendation(FHIRResource.FHIRResource):
+class ImmunizationRecommendation(fhirresource.FHIRResource):
     """ Immunization profile.
     
     Scope and Usage The ImmunizationRecommendation resource is intended to
@@ -70,16 +70,16 @@ class ImmunizationRecommendation(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(ImmunizationRecommendation, self).update_with_json(jsondict)
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'recommendation' in jsondict:
             self.recommendation = ImmunizationRecommendationRecommendation.with_json(jsondict['recommendation'])
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class ImmunizationRecommendationRecommendation(FHIRElement.FHIRElement):
+class ImmunizationRecommendationRecommendation(fhirelement.FHIRElement):
     """ Vaccine administration recommendations.
     """
     
@@ -124,24 +124,24 @@ class ImmunizationRecommendationRecommendation(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ImmunizationRecommendationRecommendation, self).update_with_json(jsondict)
         if 'date' in jsondict:
-            self.date = FHIRDate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
         if 'dateCriterion' in jsondict:
             self.dateCriterion = ImmunizationRecommendationRecommendationDateCriterion.with_json(jsondict['dateCriterion'])
         if 'doseNumber' in jsondict:
             self.doseNumber = jsondict['doseNumber']
         if 'forecastStatus' in jsondict:
-            self.forecastStatus = CodeableConcept.CodeableConcept.with_json(jsondict['forecastStatus'])
+            self.forecastStatus = codeableconcept.CodeableConcept.with_json(jsondict['forecastStatus'])
         if 'protocol' in jsondict:
             self.protocol = ImmunizationRecommendationRecommendationProtocol.with_json(jsondict['protocol'])
         if 'supportingImmunization' in jsondict:
-            self.supportingImmunization = FHIRReference.FHIRReference.with_json_and_owner(jsondict['supportingImmunization'], self, Immunization.Immunization)
+            self.supportingImmunization = fhirreference.FHIRReference.with_json_and_owner(jsondict['supportingImmunization'], self, immunization.Immunization)
         if 'supportingPatientInformation' in jsondict:
-            self.supportingPatientInformation = FHIRReference.FHIRReference.with_json_and_owner(jsondict['supportingPatientInformation'], self, Observation.Observation)
+            self.supportingPatientInformation = fhirreference.FHIRReference.with_json_and_owner(jsondict['supportingPatientInformation'], self, observation.Observation)
         if 'vaccineType' in jsondict:
-            self.vaccineType = CodeableConcept.CodeableConcept.with_json(jsondict['vaccineType'])
+            self.vaccineType = codeableconcept.CodeableConcept.with_json(jsondict['vaccineType'])
 
 
-class ImmunizationRecommendationRecommendationDateCriterion(FHIRElement.FHIRElement):
+class ImmunizationRecommendationRecommendationDateCriterion(fhirelement.FHIRElement):
     """ Dates governing proposed immunization.
     
     Vaccine date recommendations - e.g. earliest date to administer, latest
@@ -165,12 +165,12 @@ class ImmunizationRecommendationRecommendationDateCriterion(FHIRElement.FHIRElem
     def update_with_json(self, jsondict):
         super(ImmunizationRecommendationRecommendationDateCriterion, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'value' in jsondict:
-            self.value = FHIRDate.FHIRDate.with_json(jsondict['value'])
+            self.value = fhirdate.FHIRDate.with_json(jsondict['value'])
 
 
-class ImmunizationRecommendationRecommendationProtocol(FHIRElement.FHIRElement):
+class ImmunizationRecommendationRecommendationProtocol(fhirelement.FHIRElement):
     """ Protocol used by recommendation.
     
     Contains information about the protocol under which the vaccine was
@@ -202,7 +202,7 @@ class ImmunizationRecommendationRecommendationProtocol(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ImmunizationRecommendationRecommendationProtocol, self).update_with_json(jsondict)
         if 'authority' in jsondict:
-            self.authority = FHIRReference.FHIRReference.with_json_and_owner(jsondict['authority'], self, Organization.Organization)
+            self.authority = fhirreference.FHIRReference.with_json_and_owner(jsondict['authority'], self, organization.Organization)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'doseSequence' in jsondict:

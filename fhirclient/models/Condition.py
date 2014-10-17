@@ -14,20 +14,20 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Age
-import CodeableConcept
-import Encounter
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Practitioner
+import age
+import codeableconcept
+import encounter
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import practitioner
 
 
-class Condition(FHIRResource.FHIRResource):
+class Condition(fhirresource.FHIRResource):
     """ Detailed information about conditions, problems or diagnoses.
     
     Scope and Usage This resource is used to record detailed information about
@@ -150,50 +150,50 @@ class Condition(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Condition, self).update_with_json(jsondict)
         if 'abatementAge' in jsondict:
-            self.abatementAge = Age.Age.with_json(jsondict['abatementAge'])
+            self.abatementAge = age.Age.with_json(jsondict['abatementAge'])
         if 'abatementBoolean' in jsondict:
             self.abatementBoolean = jsondict['abatementBoolean']
         if 'abatementDate' in jsondict:
-            self.abatementDate = FHIRDate.FHIRDate.with_json(jsondict['abatementDate'])
+            self.abatementDate = fhirdate.FHIRDate.with_json(jsondict['abatementDate'])
         if 'asserter' in jsondict:
-            self.asserter = FHIRReference.FHIRReference.with_json_and_owner(jsondict['asserter'], self, Practitioner.Practitioner)
+            self.asserter = fhirreference.FHIRReference.with_json_and_owner(jsondict['asserter'], self, practitioner.Practitioner)
         if 'category' in jsondict:
-            self.category = CodeableConcept.CodeableConcept.with_json(jsondict['category'])
+            self.category = codeableconcept.CodeableConcept.with_json(jsondict['category'])
         if 'certainty' in jsondict:
-            self.certainty = CodeableConcept.CodeableConcept.with_json(jsondict['certainty'])
+            self.certainty = codeableconcept.CodeableConcept.with_json(jsondict['certainty'])
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'dateAsserted' in jsondict:
-            self.dateAsserted = FHIRDate.FHIRDate.with_json(jsondict['dateAsserted'])
+            self.dateAsserted = fhirdate.FHIRDate.with_json(jsondict['dateAsserted'])
         if 'encounter' in jsondict:
-            self.encounter = FHIRReference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, Encounter.Encounter)
+            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
         if 'evidence' in jsondict:
             self.evidence = ConditionEvidence.with_json(jsondict['evidence'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'location' in jsondict:
             self.location = ConditionLocation.with_json(jsondict['location'])
         if 'notes' in jsondict:
             self.notes = jsondict['notes']
         if 'onsetAge' in jsondict:
-            self.onsetAge = Age.Age.with_json(jsondict['onsetAge'])
+            self.onsetAge = age.Age.with_json(jsondict['onsetAge'])
         if 'onsetDate' in jsondict:
-            self.onsetDate = FHIRDate.FHIRDate.with_json(jsondict['onsetDate'])
+            self.onsetDate = fhirdate.FHIRDate.with_json(jsondict['onsetDate'])
         if 'relatedItem' in jsondict:
             self.relatedItem = ConditionRelatedItem.with_json(jsondict['relatedItem'])
         if 'severity' in jsondict:
-            self.severity = CodeableConcept.CodeableConcept.with_json(jsondict['severity'])
+            self.severity = codeableconcept.CodeableConcept.with_json(jsondict['severity'])
         if 'stage' in jsondict:
             self.stage = ConditionStage.with_json(jsondict['stage'])
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class ConditionStage(FHIRElement.FHIRElement):
+class ConditionStage(fhirelement.FHIRElement):
     """ Stage/grade, usually assessed formally.
     
     Clinical stage or grade of a condition. May include formal severity
@@ -217,12 +217,12 @@ class ConditionStage(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ConditionStage, self).update_with_json(jsondict)
         if 'assessment' in jsondict:
-            self.assessment = FHIRReference.FHIRReference.with_json_and_owner(jsondict['assessment'], self, FHIRResource.FHIRResource)
+            self.assessment = fhirreference.FHIRReference.with_json_and_owner(jsondict['assessment'], self, fhirresource.FHIRResource)
         if 'summary' in jsondict:
-            self.summary = CodeableConcept.CodeableConcept.with_json(jsondict['summary'])
+            self.summary = codeableconcept.CodeableConcept.with_json(jsondict['summary'])
 
 
-class ConditionEvidence(FHIRElement.FHIRElement):
+class ConditionEvidence(fhirelement.FHIRElement):
     """ Supporting evidence.
     
     Supporting Evidence / manifestations that are the basis on which this
@@ -246,12 +246,12 @@ class ConditionEvidence(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ConditionEvidence, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'detail' in jsondict:
-            self.detail = FHIRReference.FHIRReference.with_json_and_owner(jsondict['detail'], self, FHIRResource.FHIRResource)
+            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self, fhirresource.FHIRResource)
 
 
-class ConditionLocation(FHIRElement.FHIRElement):
+class ConditionLocation(fhirelement.FHIRElement):
     """ Anatomical location, if relevant.
     
     The anatomical location where this condition manifests itself.
@@ -274,12 +274,12 @@ class ConditionLocation(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ConditionLocation, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'detail' in jsondict:
             self.detail = jsondict['detail']
 
 
-class ConditionRelatedItem(FHIRElement.FHIRElement):
+class ConditionRelatedItem(fhirelement.FHIRElement):
     """ Causes or precedents for this Condition.
     
     Further conditions, problems, diagnoses, procedures or events that are
@@ -308,9 +308,9 @@ class ConditionRelatedItem(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ConditionRelatedItem, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'target' in jsondict:
-            self.target = FHIRReference.FHIRReference.with_json_and_owner(jsondict['target'], self, Condition)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, Condition)
         if 'type' in jsondict:
             self.type = jsondict['type']
 

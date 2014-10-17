@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from Condition import Condition
-from FHIRDate import FHIRDate
+from condition import Condition
+from fhirdate import FHIRDate
 
 
 class ConditionTests(unittest.TestCase):

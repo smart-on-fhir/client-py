@@ -14,19 +14,19 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Coding
-import DiagnosticOrder
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Practitioner
+import coding
+import diagnosticorder
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import practitioner
 
 
-class ImagingStudy(FHIRResource.FHIRResource):
+class ImagingStudy(fhirresource.FHIRResource):
     """ A set of images produced in single study (one or more series of references
     images).
     
@@ -128,19 +128,19 @@ class ImagingStudy(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(ImagingStudy, self).update_with_json(jsondict)
         if 'accessionNo' in jsondict:
-            self.accessionNo = Identifier.Identifier.with_json(jsondict['accessionNo'])
+            self.accessionNo = identifier.Identifier.with_json(jsondict['accessionNo'])
         if 'availability' in jsondict:
             self.availability = jsondict['availability']
         if 'clinicalInformation' in jsondict:
             self.clinicalInformation = jsondict['clinicalInformation']
         if 'dateTime' in jsondict:
-            self.dateTime = FHIRDate.FHIRDate.with_json(jsondict['dateTime'])
+            self.dateTime = fhirdate.FHIRDate.with_json(jsondict['dateTime'])
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'interpreter' in jsondict:
-            self.interpreter = FHIRReference.FHIRReference.with_json_and_owner(jsondict['interpreter'], self, Practitioner.Practitioner)
+            self.interpreter = fhirreference.FHIRReference.with_json_and_owner(jsondict['interpreter'], self, practitioner.Practitioner)
         if 'modality' in jsondict:
             self.modality = jsondict['modality']
         if 'numberOfInstances' in jsondict:
@@ -148,24 +148,24 @@ class ImagingStudy(FHIRResource.FHIRResource):
         if 'numberOfSeries' in jsondict:
             self.numberOfSeries = jsondict['numberOfSeries']
         if 'order' in jsondict:
-            self.order = FHIRReference.FHIRReference.with_json_and_owner(jsondict['order'], self, DiagnosticOrder.DiagnosticOrder)
+            self.order = fhirreference.FHIRReference.with_json_and_owner(jsondict['order'], self, diagnosticorder.DiagnosticOrder)
         if 'procedure' in jsondict:
-            self.procedure = Coding.Coding.with_json(jsondict['procedure'])
+            self.procedure = coding.Coding.with_json(jsondict['procedure'])
         if 'referrer' in jsondict:
-            self.referrer = FHIRReference.FHIRReference.with_json_and_owner(jsondict['referrer'], self, Practitioner.Practitioner)
+            self.referrer = fhirreference.FHIRReference.with_json_and_owner(jsondict['referrer'], self, practitioner.Practitioner)
         if 'series' in jsondict:
             self.series = ImagingStudySeries.with_json(jsondict['series'])
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'uid' in jsondict:
             self.uid = jsondict['uid']
         if 'url' in jsondict:
             self.url = jsondict['url']
 
 
-class ImagingStudySeries(FHIRElement.FHIRElement):
+class ImagingStudySeries(fhirelement.FHIRElement):
     """ Each study has one or more series of instances.
     
     Each study has one or more series of image instances.
@@ -222,9 +222,9 @@ class ImagingStudySeries(FHIRElement.FHIRElement):
         if 'availability' in jsondict:
             self.availability = jsondict['availability']
         if 'bodySite' in jsondict:
-            self.bodySite = Coding.Coding.with_json(jsondict['bodySite'])
+            self.bodySite = coding.Coding.with_json(jsondict['bodySite'])
         if 'dateTime' in jsondict:
-            self.dateTime = FHIRDate.FHIRDate.with_json(jsondict['dateTime'])
+            self.dateTime = fhirdate.FHIRDate.with_json(jsondict['dateTime'])
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'instance' in jsondict:
@@ -241,7 +241,7 @@ class ImagingStudySeries(FHIRElement.FHIRElement):
             self.url = jsondict['url']
 
 
-class ImagingStudySeriesInstance(FHIRElement.FHIRElement):
+class ImagingStudySeriesInstance(fhirelement.FHIRElement):
     """ A single instance taken from a patient (image or other).
     
     A single image taken from a patient.
@@ -286,7 +286,7 @@ class ImagingStudySeriesInstance(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ImagingStudySeriesInstance, self).update_with_json(jsondict)
         if 'attachment' in jsondict:
-            self.attachment = FHIRReference.FHIRReference.with_json_and_owner(jsondict['attachment'], self, FHIRResource.FHIRResource)
+            self.attachment = fhirreference.FHIRReference.with_json_and_owner(jsondict['attachment'], self, fhirresource.FHIRResource)
         if 'number' in jsondict:
             self.number = jsondict['number']
         if 'sopclass' in jsondict:

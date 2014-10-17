@@ -14,11 +14,11 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
-import Period
+import fhirelement
+import period
 
 
-class Address(FHIRElement.FHIRElement):
+class Address(fhirelement.FHIRElement):
     """ A postal address.
     """
     
@@ -71,7 +71,7 @@ class Address(FHIRElement.FHIRElement):
         if 'line' in jsondict:
             self.line = jsondict['line']
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
         if 'state' in jsondict:
             self.state = jsondict['state']
         if 'text' in jsondict:

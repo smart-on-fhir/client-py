@@ -14,18 +14,18 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Quantity
-import Range
+import codeableconcept
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import quantity
+import range
 
 
-class Group(FHIRResource.FHIRResource):
+class Group(fhirresource.FHIRResource):
     """ Group of multiple entities.
     
     Scope and Usage Use Cases The group resource is used in one of two ways:
@@ -94,22 +94,22 @@ class Group(FHIRResource.FHIRResource):
         if 'characteristic' in jsondict:
             self.characteristic = GroupCharacteristic.with_json(jsondict['characteristic'])
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'member' in jsondict:
-            self.member = FHIRReference.FHIRReference.with_json_and_owner(jsondict['member'], self, Patient.Patient)
+            self.member = fhirreference.FHIRReference.with_json_and_owner(jsondict['member'], self, patient.Patient)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'quantity' in jsondict:
             self.quantity = jsondict['quantity']
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'type' in jsondict:
             self.type = jsondict['type']
 
 
-class GroupCharacteristic(FHIRElement.FHIRElement):
+class GroupCharacteristic(fhirelement.FHIRElement):
     """ Trait of group members.
     
     Identifies the traits shared by members of the group.
@@ -148,15 +148,15 @@ class GroupCharacteristic(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(GroupCharacteristic, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'exclude' in jsondict:
             self.exclude = jsondict['exclude']
         if 'valueBoolean' in jsondict:
             self.valueBoolean = jsondict['valueBoolean']
         if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = CodeableConcept.CodeableConcept.with_json(jsondict['valueCodeableConcept'])
+            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['valueCodeableConcept'])
         if 'valueQuantity' in jsondict:
-            self.valueQuantity = Quantity.Quantity.with_json(jsondict['valueQuantity'])
+            self.valueQuantity = quantity.Quantity.with_json(jsondict['valueQuantity'])
         if 'valueRange' in jsondict:
-            self.valueRange = Range.Range.with_json(jsondict['valueRange'])
+            self.valueRange = range.Range.with_json(jsondict['valueRange'])
 

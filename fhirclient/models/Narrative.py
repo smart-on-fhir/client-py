@@ -14,10 +14,10 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
+import fhirelement
 
 
-class Narrative(FHIRElement.FHIRElement):
+class Narrative(fhirelement.FHIRElement):
     """ A human-readable formatted text, including images.
     """
     

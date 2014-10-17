@@ -255,7 +255,7 @@ FHIRSearchParamHandler.announce_handler(FHIRSearchParamTypeHandler)
 
 
 if '__main__' == __name__:
-    from Patient import Patient
+    from patient import Patient
     print('1 '+FHIRSearch(Patient, {'name': 'Willis'}).construct())
     print('1 '+Patient.where({'name': 'Willis'}).construct())
     print('1 '+Patient.where().name('Willis').construct())

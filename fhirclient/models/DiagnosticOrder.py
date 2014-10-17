@@ -14,20 +14,20 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import Encounter
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Practitioner
-import Specimen
+import codeableconcept
+import encounter
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import practitioner
+import specimen
 
 
-class DiagnosticOrder(FHIRResource.FHIRResource):
+class DiagnosticOrder(fhirresource.FHIRResource):
     """ A request for a diagnostic service.
     
     Scope and Usage A Diagnostic Order is a record of a request for a set of
@@ -110,28 +110,28 @@ class DiagnosticOrder(FHIRResource.FHIRResource):
         if 'clinicalNotes' in jsondict:
             self.clinicalNotes = jsondict['clinicalNotes']
         if 'encounter' in jsondict:
-            self.encounter = FHIRReference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, Encounter.Encounter)
+            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
         if 'event' in jsondict:
             self.event = DiagnosticOrderEvent.with_json(jsondict['event'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'item' in jsondict:
             self.item = DiagnosticOrderItem.with_json(jsondict['item'])
         if 'orderer' in jsondict:
-            self.orderer = FHIRReference.FHIRReference.with_json_and_owner(jsondict['orderer'], self, Practitioner.Practitioner)
+            self.orderer = fhirreference.FHIRReference.with_json_and_owner(jsondict['orderer'], self, practitioner.Practitioner)
         if 'priority' in jsondict:
             self.priority = jsondict['priority']
         if 'specimen' in jsondict:
-            self.specimen = FHIRReference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, Specimen.Specimen)
+            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, specimen.Specimen)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class DiagnosticOrderEvent(FHIRElement.FHIRElement):
+class DiagnosticOrderEvent(fhirelement.FHIRElement):
     """ A list of events of interest in the lifecycle.
     
     A summary of the events of interest that have occurred as the request is
@@ -165,16 +165,16 @@ class DiagnosticOrderEvent(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(DiagnosticOrderEvent, self).update_with_json(jsondict)
         if 'actor' in jsondict:
-            self.actor = FHIRReference.FHIRReference.with_json_and_owner(jsondict['actor'], self, Practitioner.Practitioner)
+            self.actor = fhirreference.FHIRReference.with_json_and_owner(jsondict['actor'], self, practitioner.Practitioner)
         if 'dateTime' in jsondict:
-            self.dateTime = FHIRDate.FHIRDate.with_json(jsondict['dateTime'])
+            self.dateTime = fhirdate.FHIRDate.with_json(jsondict['dateTime'])
         if 'description' in jsondict:
-            self.description = CodeableConcept.CodeableConcept.with_json(jsondict['description'])
+            self.description = codeableconcept.CodeableConcept.with_json(jsondict['description'])
         if 'status' in jsondict:
             self.status = jsondict['status']
 
 
-class DiagnosticOrderItem(FHIRElement.FHIRElement):
+class DiagnosticOrderItem(fhirelement.FHIRElement):
     """ The items the orderer requested.
     
     The specific diagnostic investigations that are requested as part of this
@@ -212,18 +212,18 @@ class DiagnosticOrderItem(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(DiagnosticOrderItem, self).update_with_json(jsondict)
         if 'bodySite' in jsondict:
-            self.bodySite = CodeableConcept.CodeableConcept.with_json(jsondict['bodySite'])
+            self.bodySite = codeableconcept.CodeableConcept.with_json(jsondict['bodySite'])
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'event' in jsondict:
             self.event = DiagnosticOrderItemEvent.with_json(jsondict['event'])
         if 'specimen' in jsondict:
-            self.specimen = FHIRReference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, Specimen.Specimen)
+            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, specimen.Specimen)
         if 'status' in jsondict:
             self.status = jsondict['status']
 
 
-class DiagnosticOrderItemEvent(FHIRElement.FHIRElement):
+class DiagnosticOrderItemEvent(fhirelement.FHIRElement):
     """ Events specific to this item.
     
     A summary of the events of interest that have occurred as this item of the

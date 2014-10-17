@@ -14,10 +14,10 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Quantity
+import quantity
 
 
-class Distance(Quantity.Quantity):
+class Distance(quantity.Quantity):
     """ Profile for Distance on Quantity.
     
     Basic Profile for Distance on Quantity for validation support

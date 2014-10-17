@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from DiagnosticReport import DiagnosticReport
-from FHIRDate import FHIRDate
+from diagnosticreport import DiagnosticReport
+from fhirdate import FHIRDate
 
 
 class DiagnosticReportTests(unittest.TestCase):

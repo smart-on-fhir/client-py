@@ -14,18 +14,18 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import Coding
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Practitioner
+import codeableconcept
+import coding
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import practitioner
 
 
-class SecurityEvent(FHIRResource.FHIRResource):
+class SecurityEvent(fhirresource.FHIRResource):
     """ Event record kept for security purposes.
     
     Scope and Usage The security event is based on the ATNA Audit record
@@ -78,10 +78,10 @@ class SecurityEvent(FHIRResource.FHIRResource):
         if 'source' in jsondict:
             self.source = SecurityEventSource.with_json(jsondict['source'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class SecurityEventEvent(FHIRElement.FHIRElement):
+class SecurityEventEvent(fhirelement.FHIRElement):
     """ What was done.
     
     Identifies the name, action type, time, and disposition of the audited
@@ -123,18 +123,18 @@ class SecurityEventEvent(FHIRElement.FHIRElement):
         if 'action' in jsondict:
             self.action = jsondict['action']
         if 'dateTime' in jsondict:
-            self.dateTime = FHIRDate.FHIRDate.with_json(jsondict['dateTime'])
+            self.dateTime = fhirdate.FHIRDate.with_json(jsondict['dateTime'])
         if 'outcome' in jsondict:
             self.outcome = jsondict['outcome']
         if 'outcomeDesc' in jsondict:
             self.outcomeDesc = jsondict['outcomeDesc']
         if 'subtype' in jsondict:
-            self.subtype = CodeableConcept.CodeableConcept.with_json(jsondict['subtype'])
+            self.subtype = codeableconcept.CodeableConcept.with_json(jsondict['subtype'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 
 
-class SecurityEventParticipant(FHIRElement.FHIRElement):
+class SecurityEventParticipant(fhirelement.FHIRElement):
     """ A person, a hardware device or software process.
     """
     
@@ -181,22 +181,22 @@ class SecurityEventParticipant(FHIRElement.FHIRElement):
         if 'altId' in jsondict:
             self.altId = jsondict['altId']
         if 'media' in jsondict:
-            self.media = Coding.Coding.with_json(jsondict['media'])
+            self.media = coding.Coding.with_json(jsondict['media'])
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'network' in jsondict:
             self.network = SecurityEventParticipantNetwork.with_json(jsondict['network'])
         if 'reference' in jsondict:
-            self.reference = FHIRReference.FHIRReference.with_json_and_owner(jsondict['reference'], self, Practitioner.Practitioner)
+            self.reference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reference'], self, practitioner.Practitioner)
         if 'requestor' in jsondict:
             self.requestor = jsondict['requestor']
         if 'role' in jsondict:
-            self.role = CodeableConcept.CodeableConcept.with_json(jsondict['role'])
+            self.role = codeableconcept.CodeableConcept.with_json(jsondict['role'])
         if 'userId' in jsondict:
             self.userId = jsondict['userId']
 
 
-class SecurityEventParticipantNetwork(FHIRElement.FHIRElement):
+class SecurityEventParticipantNetwork(fhirelement.FHIRElement):
     """ Logical network location for application activity.
     
     Logical network location for application activity, if the activity has a
@@ -225,7 +225,7 @@ class SecurityEventParticipantNetwork(FHIRElement.FHIRElement):
             self.type = jsondict['type']
 
 
-class SecurityEventSource(FHIRElement.FHIRElement):
+class SecurityEventSource(fhirelement.FHIRElement):
     """ Application systems and processes.
     """
     
@@ -254,10 +254,10 @@ class SecurityEventSource(FHIRElement.FHIRElement):
         if 'site' in jsondict:
             self.site = jsondict['site']
         if 'type' in jsondict:
-            self.type = Coding.Coding.with_json(jsondict['type'])
+            self.type = coding.Coding.with_json(jsondict['type'])
 
 
-class SecurityEventObject(FHIRElement.FHIRElement):
+class SecurityEventObject(fhirelement.FHIRElement):
     """ Specific instances of data or objects that have been accessed.
     """
     
@@ -314,7 +314,7 @@ class SecurityEventObject(FHIRElement.FHIRElement):
         if 'detail' in jsondict:
             self.detail = SecurityEventObjectDetail.with_json(jsondict['detail'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'lifecycle' in jsondict:
             self.lifecycle = jsondict['lifecycle']
         if 'name' in jsondict:
@@ -322,16 +322,16 @@ class SecurityEventObject(FHIRElement.FHIRElement):
         if 'query' in jsondict:
             self.query = jsondict['query']
         if 'reference' in jsondict:
-            self.reference = FHIRReference.FHIRReference.with_json_and_owner(jsondict['reference'], self, FHIRResource.FHIRResource)
+            self.reference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reference'], self, fhirresource.FHIRResource)
         if 'role' in jsondict:
             self.role = jsondict['role']
         if 'sensitivity' in jsondict:
-            self.sensitivity = CodeableConcept.CodeableConcept.with_json(jsondict['sensitivity'])
+            self.sensitivity = codeableconcept.CodeableConcept.with_json(jsondict['sensitivity'])
         if 'type' in jsondict:
             self.type = jsondict['type']
 
 
-class SecurityEventObjectDetail(FHIRElement.FHIRElement):
+class SecurityEventObjectDetail(fhirelement.FHIRElement):
     """ Additional Information about the Object.
     """
     

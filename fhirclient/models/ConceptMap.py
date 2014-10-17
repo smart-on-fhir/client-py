@@ -14,16 +14,16 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Contact
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Narrative
-import ValueSet
+import contact
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import narrative
+import valueset
 
 
-class ConceptMap(FHIRResource.FHIRResource):
+class ConceptMap(fhirresource.FHIRResource):
     """ A statement of relationships from one set of concepts to one or more other
     concept systems.
     
@@ -104,7 +104,7 @@ class ConceptMap(FHIRResource.FHIRResource):
         if 'copyright' in jsondict:
             self.copyright = jsondict['copyright']
         if 'date' in jsondict:
-            self.date = FHIRDate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'experimental' in jsondict:
@@ -116,20 +116,20 @@ class ConceptMap(FHIRResource.FHIRResource):
         if 'publisher' in jsondict:
             self.publisher = jsondict['publisher']
         if 'source' in jsondict:
-            self.source = FHIRReference.FHIRReference.with_json_and_owner(jsondict['source'], self, ValueSet.ValueSet)
+            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, valueset.ValueSet)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'target' in jsondict:
-            self.target = FHIRReference.FHIRReference.with_json_and_owner(jsondict['target'], self, ValueSet.ValueSet)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, valueset.ValueSet)
         if 'telecom' in jsondict:
-            self.telecom = Contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json(jsondict['telecom'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'version' in jsondict:
             self.version = jsondict['version']
 
 
-class ConceptMapConcept(FHIRElement.FHIRElement):
+class ConceptMapConcept(fhirelement.FHIRElement):
     """ Mappings for a concept from the source valueset.
     """
     
@@ -167,7 +167,7 @@ class ConceptMapConcept(FHIRElement.FHIRElement):
             self.system = jsondict['system']
 
 
-class ConceptMapConceptDependsOn(FHIRElement.FHIRElement):
+class ConceptMapConceptDependsOn(fhirelement.FHIRElement):
     """ Other concepts required for this mapping (from context).
     
     A set of additional dependencies for this mapping to hold. This mapping is
@@ -203,7 +203,7 @@ class ConceptMapConceptDependsOn(FHIRElement.FHIRElement):
             self.system = jsondict['system']
 
 
-class ConceptMapConceptMap(FHIRElement.FHIRElement):
+class ConceptMapConceptMap(fhirelement.FHIRElement):
     """ A concept from the target value set that this concept maps to.
     """
     
@@ -248,7 +248,7 @@ class ConceptMapConceptMap(FHIRElement.FHIRElement):
             self.system = jsondict['system']
 
 
-class ConceptMapConceptMapProduct(FHIRElement.FHIRElement):
+class ConceptMapConceptMapProduct(fhirelement.FHIRElement):
     """ Other concepts that this mapping also produces.
     
     A set of additional outcomes from this mapping to other value sets. To

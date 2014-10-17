@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from Location import Location
-from FHIRDate import FHIRDate
+from location import Location
+from fhirdate import FHIRDate
 
 
 class LocationTests(unittest.TestCase):

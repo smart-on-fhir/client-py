@@ -14,20 +14,20 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Organization
-import Patient
-import Practitioner
-import Schedule
+import codeableconcept
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import organization
+import patient
+import practitioner
+import schedule
 
 
-class Order(FHIRResource.FHIRResource):
+class Order(fhirresource.FHIRResource):
     """ A request to perform an action.
     
     Scope and Usage An order resource describes a request that an action be
@@ -104,30 +104,30 @@ class Order(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Order, self).update_with_json(jsondict)
         if 'authority' in jsondict:
-            self.authority = FHIRReference.FHIRReference.with_json_and_owner(jsondict['authority'], self, FHIRResource.FHIRResource)
+            self.authority = fhirreference.FHIRReference.with_json_and_owner(jsondict['authority'], self, fhirresource.FHIRResource)
         if 'date' in jsondict:
-            self.date = FHIRDate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
         if 'detail' in jsondict:
-            self.detail = FHIRReference.FHIRReference.with_json_and_owner(jsondict['detail'], self, FHIRResource.FHIRResource)
+            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self, fhirresource.FHIRResource)
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'reasonCodeableConcept' in jsondict:
-            self.reasonCodeableConcept = CodeableConcept.CodeableConcept.with_json(jsondict['reasonCodeableConcept'])
+            self.reasonCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['reasonCodeableConcept'])
         if 'reasonResource' in jsondict:
-            self.reasonResource = FHIRReference.FHIRReference.with_json_and_owner(jsondict['reasonResource'], self, FHIRResource.FHIRResource)
+            self.reasonResource = fhirreference.FHIRReference.with_json_and_owner(jsondict['reasonResource'], self, fhirresource.FHIRResource)
         if 'source' in jsondict:
-            self.source = FHIRReference.FHIRReference.with_json_and_owner(jsondict['source'], self, Practitioner.Practitioner)
+            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, practitioner.Practitioner)
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'target' in jsondict:
-            self.target = FHIRReference.FHIRReference.with_json_and_owner(jsondict['target'], self, Organization.Organization)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, organization.Organization)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'when' in jsondict:
             self.when = OrderWhen.with_json(jsondict['when'])
 
 
-class OrderWhen(FHIRElement.FHIRElement):
+class OrderWhen(fhirelement.FHIRElement):
     """ When order should be fulfilled.
     """
     
@@ -149,7 +149,7 @@ class OrderWhen(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(OrderWhen, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'schedule' in jsondict:
-            self.schedule = Schedule.Schedule.with_json(jsondict['schedule'])
+            self.schedule = schedule.Schedule.with_json(jsondict['schedule'])
 

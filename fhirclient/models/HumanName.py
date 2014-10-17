@@ -14,11 +14,11 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
-import Period
+import fhirelement
+import period
 
 
-class HumanName(FHIRElement.FHIRElement):
+class HumanName(fhirelement.FHIRElement):
     """ Name of a human - parts and usage.
     """
     
@@ -65,7 +65,7 @@ class HumanName(FHIRElement.FHIRElement):
         if 'given' in jsondict:
             self.given = jsondict['given']
         if 'period' in jsondict:
-            self.period = Period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json(jsondict['period'])
         if 'prefix' in jsondict:
             self.prefix = jsondict['prefix']
         if 'suffix' in jsondict:

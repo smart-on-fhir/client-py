@@ -14,18 +14,18 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Attachment
-import CodeableConcept
-import FHIRDate
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Practitioner
+import attachment
+import codeableconcept
+import fhirdate
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import practitioner
 
 
-class Media(FHIRResource.FHIRResource):
+class Media(fhirresource.FHIRResource):
     """ A photo, video, or audio recording acquired or used in healthcare. The
     actual content may be inline or provided by direct reference.
     
@@ -119,9 +119,9 @@ class Media(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Media, self).update_with_json(jsondict)
         if 'content' in jsondict:
-            self.content = Attachment.Attachment.with_json(jsondict['content'])
+            self.content = attachment.Attachment.with_json(jsondict['content'])
         if 'dateTime' in jsondict:
-            self.dateTime = FHIRDate.FHIRDate.with_json(jsondict['dateTime'])
+            self.dateTime = fhirdate.FHIRDate.with_json(jsondict['dateTime'])
         if 'deviceName' in jsondict:
             self.deviceName = jsondict['deviceName']
         if 'frames' in jsondict:
@@ -129,21 +129,21 @@ class Media(FHIRResource.FHIRResource):
         if 'height' in jsondict:
             self.height = jsondict['height']
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'length' in jsondict:
             self.length = jsondict['length']
         if 'operator' in jsondict:
-            self.operator = FHIRReference.FHIRReference.with_json_and_owner(jsondict['operator'], self, Practitioner.Practitioner)
+            self.operator = fhirreference.FHIRReference.with_json_and_owner(jsondict['operator'], self, practitioner.Practitioner)
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'subtype' in jsondict:
-            self.subtype = CodeableConcept.CodeableConcept.with_json(jsondict['subtype'])
+            self.subtype = codeableconcept.CodeableConcept.with_json(jsondict['subtype'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'type' in jsondict:
             self.type = jsondict['type']
         if 'view' in jsondict:
-            self.view = CodeableConcept.CodeableConcept.with_json(jsondict['view'])
+            self.view = codeableconcept.CodeableConcept.with_json(jsondict['view'])
         if 'width' in jsondict:
             self.width = jsondict['width']
 

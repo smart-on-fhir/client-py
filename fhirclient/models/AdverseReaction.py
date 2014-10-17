@@ -14,19 +14,19 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Practitioner
-import Substance
+import codeableconcept
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import practitioner
+import substance
 
 
-class AdverseReaction(FHIRResource.FHIRResource):
+class AdverseReaction(fhirresource.FHIRResource):
     """ Specific reactions to a substance.
     
     Scope and Usage Adverse Reaction resources are used to provide information
@@ -79,24 +79,24 @@ class AdverseReaction(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(AdverseReaction, self).update_with_json(jsondict)
         if 'date' in jsondict:
-            self.date = FHIRDate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
         if 'didNotOccurFlag' in jsondict:
             self.didNotOccurFlag = jsondict['didNotOccurFlag']
         if 'exposure' in jsondict:
             self.exposure = AdverseReactionExposure.with_json(jsondict['exposure'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'recorder' in jsondict:
-            self.recorder = FHIRReference.FHIRReference.with_json_and_owner(jsondict['recorder'], self, Practitioner.Practitioner)
+            self.recorder = fhirreference.FHIRReference.with_json_and_owner(jsondict['recorder'], self, practitioner.Practitioner)
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'symptom' in jsondict:
             self.symptom = AdverseReactionSymptom.with_json(jsondict['symptom'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class AdverseReactionSymptom(FHIRElement.FHIRElement):
+class AdverseReactionSymptom(fhirelement.FHIRElement):
     """ What was reaction?.
     
     The signs and symptoms that were observed as part of the reaction.
@@ -119,12 +119,12 @@ class AdverseReactionSymptom(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(AdverseReactionSymptom, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'severity' in jsondict:
             self.severity = jsondict['severity']
 
 
-class AdverseReactionExposure(FHIRElement.FHIRElement):
+class AdverseReactionExposure(fhirelement.FHIRElement):
     """ Suspected substance.
     
     An exposure to a substance that preceded a reaction occurrence.
@@ -157,9 +157,9 @@ class AdverseReactionExposure(FHIRElement.FHIRElement):
         if 'causalityExpectation' in jsondict:
             self.causalityExpectation = jsondict['causalityExpectation']
         if 'date' in jsondict:
-            self.date = FHIRDate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
         if 'substance' in jsondict:
-            self.substance = FHIRReference.FHIRReference.with_json_and_owner(jsondict['substance'], self, Substance.Substance)
+            self.substance = fhirreference.FHIRReference.with_json_and_owner(jsondict['substance'], self, substance.Substance)
         if 'type' in jsondict:
             self.type = jsondict['type']
 

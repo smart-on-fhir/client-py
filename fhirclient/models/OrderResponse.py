@@ -14,17 +14,17 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRDate
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Order
-import Practitioner
+import codeableconcept
+import fhirdate
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import order
+import practitioner
 
 
-class OrderResponse(FHIRResource.FHIRResource):
+class OrderResponse(fhirresource.FHIRResource):
     """ A response to an order.
     
     Scope and Usage The response to an order indicates the outcome of
@@ -88,23 +88,23 @@ class OrderResponse(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(OrderResponse, self).update_with_json(jsondict)
         if 'authorityCodeableConcept' in jsondict:
-            self.authorityCodeableConcept = CodeableConcept.CodeableConcept.with_json(jsondict['authorityCodeableConcept'])
+            self.authorityCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['authorityCodeableConcept'])
         if 'authorityResource' in jsondict:
-            self.authorityResource = FHIRReference.FHIRReference.with_json_and_owner(jsondict['authorityResource'], self, FHIRResource.FHIRResource)
+            self.authorityResource = fhirreference.FHIRReference.with_json_and_owner(jsondict['authorityResource'], self, fhirresource.FHIRResource)
         if 'code' in jsondict:
             self.code = jsondict['code']
         if 'date' in jsondict:
-            self.date = FHIRDate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'fulfillment' in jsondict:
-            self.fulfillment = FHIRReference.FHIRReference.with_json_and_owner(jsondict['fulfillment'], self, FHIRResource.FHIRResource)
+            self.fulfillment = fhirreference.FHIRReference.with_json_and_owner(jsondict['fulfillment'], self, fhirresource.FHIRResource)
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'request' in jsondict:
-            self.request = FHIRReference.FHIRReference.with_json_and_owner(jsondict['request'], self, Order.Order)
+            self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self, order.Order)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'who' in jsondict:
-            self.who = FHIRReference.FHIRReference.with_json_and_owner(jsondict['who'], self, Practitioner.Practitioner)
+            self.who = fhirreference.FHIRReference.with_json_and_owner(jsondict['who'], self, practitioner.Practitioner)
 

@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from ConceptMap import ConceptMap
-from FHIRDate import FHIRDate
+from conceptmap import ConceptMap
+from fhirdate import FHIRDate
 
 
 class ConceptMapTests(unittest.TestCase):

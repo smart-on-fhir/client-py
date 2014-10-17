@@ -14,20 +14,20 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import Coding
-import Contact
-import Device
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Narrative
-import OperationOutcome
-import Practitioner
+import codeableconcept
+import coding
+import contact
+import device
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import narrative
+import operationoutcome
+import practitioner
 
 
-class MessageHeader(FHIRResource.FHIRResource):
+class MessageHeader(fhirresource.FHIRResource):
     """ A resource that describes a message that is exchanged between systems.
     
     Scope and Usage The MessageHeader resource is defined in order to support
@@ -105,34 +105,34 @@ class MessageHeader(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(MessageHeader, self).update_with_json(jsondict)
         if 'author' in jsondict:
-            self.author = FHIRReference.FHIRReference.with_json_and_owner(jsondict['author'], self, Practitioner.Practitioner)
+            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'data' in jsondict:
-            self.data = FHIRReference.FHIRReference.with_json_and_owner(jsondict['data'], self, FHIRResource.FHIRResource)
+            self.data = fhirreference.FHIRReference.with_json_and_owner(jsondict['data'], self, fhirresource.FHIRResource)
         if 'destination' in jsondict:
             self.destination = MessageHeaderDestination.with_json(jsondict['destination'])
         if 'enterer' in jsondict:
-            self.enterer = FHIRReference.FHIRReference.with_json_and_owner(jsondict['enterer'], self, Practitioner.Practitioner)
+            self.enterer = fhirreference.FHIRReference.with_json_and_owner(jsondict['enterer'], self, practitioner.Practitioner)
         if 'event' in jsondict:
-            self.event = Coding.Coding.with_json(jsondict['event'])
+            self.event = coding.Coding.with_json(jsondict['event'])
         if 'identifier' in jsondict:
             self.identifier = jsondict['identifier']
         if 'reason' in jsondict:
-            self.reason = CodeableConcept.CodeableConcept.with_json(jsondict['reason'])
+            self.reason = codeableconcept.CodeableConcept.with_json(jsondict['reason'])
         if 'receiver' in jsondict:
-            self.receiver = FHIRReference.FHIRReference.with_json_and_owner(jsondict['receiver'], self, Practitioner.Practitioner)
+            self.receiver = fhirreference.FHIRReference.with_json_and_owner(jsondict['receiver'], self, practitioner.Practitioner)
         if 'response' in jsondict:
             self.response = MessageHeaderResponse.with_json(jsondict['response'])
         if 'responsible' in jsondict:
-            self.responsible = FHIRReference.FHIRReference.with_json_and_owner(jsondict['responsible'], self, Practitioner.Practitioner)
+            self.responsible = fhirreference.FHIRReference.with_json_and_owner(jsondict['responsible'], self, practitioner.Practitioner)
         if 'source' in jsondict:
             self.source = MessageHeaderSource.with_json(jsondict['source'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'timestamp' in jsondict:
-            self.timestamp = FHIRDate.FHIRDate.with_json(jsondict['timestamp'])
+            self.timestamp = fhirdate.FHIRDate.with_json(jsondict['timestamp'])
 
 
-class MessageHeaderResponse(FHIRElement.FHIRElement):
+class MessageHeaderResponse(fhirelement.FHIRElement):
     """ If this is a reply to prior message.
     
     Information about the message that this message is a response to.  Only
@@ -162,12 +162,12 @@ class MessageHeaderResponse(FHIRElement.FHIRElement):
         if 'code' in jsondict:
             self.code = jsondict['code']
         if 'details' in jsondict:
-            self.details = FHIRReference.FHIRReference.with_json_and_owner(jsondict['details'], self, OperationOutcome.OperationOutcome)
+            self.details = fhirreference.FHIRReference.with_json_and_owner(jsondict['details'], self, operationoutcome.OperationOutcome)
         if 'identifier' in jsondict:
             self.identifier = jsondict['identifier']
 
 
-class MessageHeaderSource(FHIRElement.FHIRElement):
+class MessageHeaderSource(fhirelement.FHIRElement):
     """ Message Source Application.
     
     The source application from which this message originated.
@@ -202,7 +202,7 @@ class MessageHeaderSource(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MessageHeaderSource, self).update_with_json(jsondict)
         if 'contact' in jsondict:
-            self.contact = Contact.Contact.with_json(jsondict['contact'])
+            self.contact = contact.Contact.with_json(jsondict['contact'])
         if 'endpoint' in jsondict:
             self.endpoint = jsondict['endpoint']
         if 'name' in jsondict:
@@ -213,7 +213,7 @@ class MessageHeaderSource(FHIRElement.FHIRElement):
             self.version = jsondict['version']
 
 
-class MessageHeaderDestination(FHIRElement.FHIRElement):
+class MessageHeaderDestination(fhirelement.FHIRElement):
     """ Message Destination Application(s).
     
     The destination application which the message is intended for.
@@ -244,5 +244,5 @@ class MessageHeaderDestination(FHIRElement.FHIRElement):
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'target' in jsondict:
-            self.target = FHIRReference.FHIRReference.with_json_and_owner(jsondict['target'], self, Device.Device)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, device.Device)
 

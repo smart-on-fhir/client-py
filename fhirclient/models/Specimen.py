@@ -14,21 +14,21 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Period
-import Practitioner
-import Quantity
-import Substance
+import codeableconcept
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import period
+import practitioner
+import quantity
+import substance
 
 
-class Specimen(FHIRResource.FHIRResource):
+class Specimen(fhirresource.FHIRResource):
     """ Sample for analysis.
     
     Scope and Usage Any material sample:
@@ -98,28 +98,28 @@ class Specimen(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Specimen, self).update_with_json(jsondict)
         if 'accessionIdentifier' in jsondict:
-            self.accessionIdentifier = Identifier.Identifier.with_json(jsondict['accessionIdentifier'])
+            self.accessionIdentifier = identifier.Identifier.with_json(jsondict['accessionIdentifier'])
         if 'collection' in jsondict:
             self.collection = SpecimenCollection.with_json(jsondict['collection'])
         if 'container' in jsondict:
             self.container = SpecimenContainer.with_json(jsondict['container'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'receivedTime' in jsondict:
-            self.receivedTime = FHIRDate.FHIRDate.with_json(jsondict['receivedTime'])
+            self.receivedTime = fhirdate.FHIRDate.with_json(jsondict['receivedTime'])
         if 'source' in jsondict:
             self.source = SpecimenSource.with_json(jsondict['source'])
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'treatment' in jsondict:
             self.treatment = SpecimenTreatment.with_json(jsondict['treatment'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 
 
-class SpecimenSource(FHIRElement.FHIRElement):
+class SpecimenSource(fhirelement.FHIRElement):
     """ Parent of specimen.
     
     Parent specimen from which the focal specimen was a component.
@@ -144,10 +144,10 @@ class SpecimenSource(FHIRElement.FHIRElement):
         if 'relationship' in jsondict:
             self.relationship = jsondict['relationship']
         if 'target' in jsondict:
-            self.target = FHIRReference.FHIRReference.with_json_and_owner(jsondict['target'], self, Specimen)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, Specimen)
 
 
-class SpecimenCollection(FHIRElement.FHIRElement):
+class SpecimenCollection(fhirelement.FHIRElement):
     """ Collection details.
     
     Details concerning the specimen collection.
@@ -190,22 +190,22 @@ class SpecimenCollection(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(SpecimenCollection, self).update_with_json(jsondict)
         if 'collectedDateTime' in jsondict:
-            self.collectedDateTime = FHIRDate.FHIRDate.with_json(jsondict['collectedDateTime'])
+            self.collectedDateTime = fhirdate.FHIRDate.with_json(jsondict['collectedDateTime'])
         if 'collectedPeriod' in jsondict:
-            self.collectedPeriod = Period.Period.with_json(jsondict['collectedPeriod'])
+            self.collectedPeriod = period.Period.with_json(jsondict['collectedPeriod'])
         if 'collector' in jsondict:
-            self.collector = FHIRReference.FHIRReference.with_json_and_owner(jsondict['collector'], self, Practitioner.Practitioner)
+            self.collector = fhirreference.FHIRReference.with_json_and_owner(jsondict['collector'], self, practitioner.Practitioner)
         if 'comment' in jsondict:
             self.comment = jsondict['comment']
         if 'method' in jsondict:
-            self.method = CodeableConcept.CodeableConcept.with_json(jsondict['method'])
+            self.method = codeableconcept.CodeableConcept.with_json(jsondict['method'])
         if 'quantity' in jsondict:
-            self.quantity = Quantity.Quantity.with_json(jsondict['quantity'])
+            self.quantity = quantity.Quantity.with_json(jsondict['quantity'])
         if 'sourceSite' in jsondict:
-            self.sourceSite = CodeableConcept.CodeableConcept.with_json(jsondict['sourceSite'])
+            self.sourceSite = codeableconcept.CodeableConcept.with_json(jsondict['sourceSite'])
 
 
-class SpecimenTreatment(FHIRElement.FHIRElement):
+class SpecimenTreatment(fhirelement.FHIRElement):
     """ Treatment and processing step details.
     
     Details concerning treatment and processing steps for the specimen.
@@ -232,14 +232,14 @@ class SpecimenTreatment(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(SpecimenTreatment, self).update_with_json(jsondict)
         if 'additive' in jsondict:
-            self.additive = FHIRReference.FHIRReference.with_json_and_owner(jsondict['additive'], self, Substance.Substance)
+            self.additive = fhirreference.FHIRReference.with_json_and_owner(jsondict['additive'], self, substance.Substance)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'procedure' in jsondict:
-            self.procedure = CodeableConcept.CodeableConcept.with_json(jsondict['procedure'])
+            self.procedure = codeableconcept.CodeableConcept.with_json(jsondict['procedure'])
 
 
-class SpecimenContainer(FHIRElement.FHIRElement):
+class SpecimenContainer(fhirelement.FHIRElement):
     """ Direct container of specimen (tube/slide, etc).
     
     The container holding the specimen.  The recursive nature of containers;
@@ -279,15 +279,15 @@ class SpecimenContainer(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(SpecimenContainer, self).update_with_json(jsondict)
         if 'additive' in jsondict:
-            self.additive = FHIRReference.FHIRReference.with_json_and_owner(jsondict['additive'], self, Substance.Substance)
+            self.additive = fhirreference.FHIRReference.with_json_and_owner(jsondict['additive'], self, substance.Substance)
         if 'capacity' in jsondict:
-            self.capacity = Quantity.Quantity.with_json(jsondict['capacity'])
+            self.capacity = quantity.Quantity.with_json(jsondict['capacity'])
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'specimenQuantity' in jsondict:
-            self.specimenQuantity = Quantity.Quantity.with_json(jsondict['specimenQuantity'])
+            self.specimenQuantity = quantity.Quantity.with_json(jsondict['specimenQuantity'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 

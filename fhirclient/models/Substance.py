@@ -14,18 +14,18 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Quantity
-import Ratio
+import codeableconcept
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import quantity
+import ratio
 
 
-class Substance(FHIRResource.FHIRResource):
+class Substance(fhirresource.FHIRResource):
     """ A homogeneous material with a definite composition.
     
     Scope and Usage This resource allows for a material to be represented. The
@@ -75,12 +75,12 @@ class Substance(FHIRResource.FHIRResource):
         if 'instance' in jsondict:
             self.instance = SubstanceInstance.with_json(jsondict['instance'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 
 
-class SubstanceInstance(FHIRElement.FHIRElement):
+class SubstanceInstance(fhirelement.FHIRElement):
     """ If this describes a specific package/container of the substance.
     
     Substance may be used to describe a kind of substance, or a specific
@@ -108,14 +108,14 @@ class SubstanceInstance(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(SubstanceInstance, self).update_with_json(jsondict)
         if 'expiry' in jsondict:
-            self.expiry = FHIRDate.FHIRDate.with_json(jsondict['expiry'])
+            self.expiry = fhirdate.FHIRDate.with_json(jsondict['expiry'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'quantity' in jsondict:
-            self.quantity = Quantity.Quantity.with_json(jsondict['quantity'])
+            self.quantity = quantity.Quantity.with_json(jsondict['quantity'])
 
 
-class SubstanceIngredient(FHIRElement.FHIRElement):
+class SubstanceIngredient(fhirelement.FHIRElement):
     """ Composition information about the substance.
     
     A substance can be composed of other substances.
@@ -138,7 +138,7 @@ class SubstanceIngredient(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(SubstanceIngredient, self).update_with_json(jsondict)
         if 'quantity' in jsondict:
-            self.quantity = Ratio.Ratio.with_json(jsondict['quantity'])
+            self.quantity = ratio.Ratio.with_json(jsondict['quantity'])
         if 'substance' in jsondict:
-            self.substance = FHIRReference.FHIRReference.with_json_and_owner(jsondict['substance'], self, Substance)
+            self.substance = fhirreference.FHIRReference.with_json_and_owner(jsondict['substance'], self, Substance)
 

@@ -14,11 +14,11 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
-import Quantity
+import fhirelement
+import quantity
 
 
-class Ratio(FHIRElement.FHIRElement):
+class Ratio(fhirelement.FHIRElement):
     """ A ratio of two Quantity values - a numerator and a denominator.
     """
     
@@ -41,7 +41,7 @@ class Ratio(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(Ratio, self).update_with_json(jsondict)
         if 'denominator' in jsondict:
-            self.denominator = Quantity.Quantity.with_json(jsondict['denominator'])
+            self.denominator = quantity.Quantity.with_json(jsondict['denominator'])
         if 'numerator' in jsondict:
-            self.numerator = Quantity.Quantity.with_json(jsondict['numerator'])
+            self.numerator = quantity.Quantity.with_json(jsondict['numerator'])
 

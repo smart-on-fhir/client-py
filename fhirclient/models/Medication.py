@@ -14,18 +14,18 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Narrative
-import Organization
-import Quantity
-import Ratio
-import Substance
+import codeableconcept
+import fhirelement
+import fhirreference
+import fhirresource
+import narrative
+import organization
+import quantity
+import ratio
+import substance
 
 
-class Medication(FHIRResource.FHIRResource):
+class Medication(fhirresource.FHIRResource):
     """ Definition of a Medication.
     
     Scope and Usage Representing Medication in the majority of healthcare
@@ -103,13 +103,13 @@ class Medication(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Medication, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = CodeableConcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
         if 'isBrand' in jsondict:
             self.isBrand = jsondict['isBrand']
         if 'kind' in jsondict:
             self.kind = jsondict['kind']
         if 'manufacturer' in jsondict:
-            self.manufacturer = FHIRReference.FHIRReference.with_json_and_owner(jsondict['manufacturer'], self, Organization.Organization)
+            self.manufacturer = fhirreference.FHIRReference.with_json_and_owner(jsondict['manufacturer'], self, organization.Organization)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'package' in jsondict:
@@ -117,10 +117,10 @@ class Medication(FHIRResource.FHIRResource):
         if 'product' in jsondict:
             self.product = MedicationProduct.with_json(jsondict['product'])
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class MedicationProduct(FHIRElement.FHIRElement):
+class MedicationProduct(fhirelement.FHIRElement):
     """ Administrable medication details.
     
     Information that only applies to products (not packages).
@@ -143,12 +143,12 @@ class MedicationProduct(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MedicationProduct, self).update_with_json(jsondict)
         if 'form' in jsondict:
-            self.form = CodeableConcept.CodeableConcept.with_json(jsondict['form'])
+            self.form = codeableconcept.CodeableConcept.with_json(jsondict['form'])
         if 'ingredient' in jsondict:
             self.ingredient = MedicationProductIngredient.with_json(jsondict['ingredient'])
 
 
-class MedicationProductIngredient(FHIRElement.FHIRElement):
+class MedicationProductIngredient(fhirelement.FHIRElement):
     """ Active or inactive ingredient.
     
     Identifies a particular constituent of interest in the product.
@@ -171,12 +171,12 @@ class MedicationProductIngredient(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MedicationProductIngredient, self).update_with_json(jsondict)
         if 'amount' in jsondict:
-            self.amount = Ratio.Ratio.with_json(jsondict['amount'])
+            self.amount = ratio.Ratio.with_json(jsondict['amount'])
         if 'item' in jsondict:
-            self.item = FHIRReference.FHIRReference.with_json_and_owner(jsondict['item'], self, Substance.Substance)
+            self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self, substance.Substance)
 
 
-class MedicationPackage(FHIRElement.FHIRElement):
+class MedicationPackage(fhirelement.FHIRElement):
     """ Details about packaged medications.
     
     Information that only applies to packages (not products).
@@ -199,12 +199,12 @@ class MedicationPackage(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MedicationPackage, self).update_with_json(jsondict)
         if 'container' in jsondict:
-            self.container = CodeableConcept.CodeableConcept.with_json(jsondict['container'])
+            self.container = codeableconcept.CodeableConcept.with_json(jsondict['container'])
         if 'content' in jsondict:
             self.content = MedicationPackageContent.with_json(jsondict['content'])
 
 
-class MedicationPackageContent(FHIRElement.FHIRElement):
+class MedicationPackageContent(fhirelement.FHIRElement):
     """ What is  in the package?.
     
     A set of components that go to make up the described item.
@@ -227,7 +227,7 @@ class MedicationPackageContent(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MedicationPackageContent, self).update_with_json(jsondict)
         if 'amount' in jsondict:
-            self.amount = Quantity.Quantity.with_json(jsondict['amount'])
+            self.amount = quantity.Quantity.with_json(jsondict['amount'])
         if 'item' in jsondict:
-            self.item = FHIRReference.FHIRReference.with_json_and_owner(jsondict['item'], self, Medication)
+            self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self, Medication)
 

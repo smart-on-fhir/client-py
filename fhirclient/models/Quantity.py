@@ -14,10 +14,10 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRElement
+import fhirelement
 
 
-class Quantity(FHIRElement.FHIRElement):
+class Quantity(fhirelement.FHIRElement):
     """ A measured or measurable amount.
     """
     

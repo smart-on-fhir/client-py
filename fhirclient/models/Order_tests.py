@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from Order import Order
-from FHIRDate import FHIRDate
+from order import Order
+from fhirdate import FHIRDate
 
 
 class OrderTests(unittest.TestCase):

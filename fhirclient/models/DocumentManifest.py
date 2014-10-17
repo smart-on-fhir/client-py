@@ -14,18 +14,18 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import DocumentReference
-import FHIRDate
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Practitioner
+import codeableconcept
+import documentreference
+import fhirdate
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import practitioner
 
 
-class DocumentManifest(FHIRResource.FHIRResource):
+class DocumentManifest(fhirresource.FHIRResource):
     """ A manifest that defines a set of documents.
     
     Scope and Usage A document manifest gathers a set of Document Reference
@@ -103,31 +103,31 @@ class DocumentManifest(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(DocumentManifest, self).update_with_json(jsondict)
         if 'author' in jsondict:
-            self.author = FHIRReference.FHIRReference.with_json_and_owner(jsondict['author'], self, Practitioner.Practitioner)
+            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'confidentiality' in jsondict:
-            self.confidentiality = CodeableConcept.CodeableConcept.with_json(jsondict['confidentiality'])
+            self.confidentiality = codeableconcept.CodeableConcept.with_json(jsondict['confidentiality'])
         if 'content' in jsondict:
-            self.content = FHIRReference.FHIRReference.with_json_and_owner(jsondict['content'], self, DocumentReference.DocumentReference)
+            self.content = fhirreference.FHIRReference.with_json_and_owner(jsondict['content'], self, documentreference.DocumentReference)
         if 'created' in jsondict:
-            self.created = FHIRDate.FHIRDate.with_json(jsondict['created'])
+            self.created = fhirdate.FHIRDate.with_json(jsondict['created'])
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'masterIdentifier' in jsondict:
-            self.masterIdentifier = Identifier.Identifier.with_json(jsondict['masterIdentifier'])
+            self.masterIdentifier = identifier.Identifier.with_json(jsondict['masterIdentifier'])
         if 'recipient' in jsondict:
-            self.recipient = FHIRReference.FHIRReference.with_json_and_owner(jsondict['recipient'], self, Patient.Patient)
+            self.recipient = fhirreference.FHIRReference.with_json_and_owner(jsondict['recipient'], self, patient.Patient)
         if 'source' in jsondict:
             self.source = jsondict['source']
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'supercedes' in jsondict:
-            self.supercedes = FHIRReference.FHIRReference.with_json_and_owner(jsondict['supercedes'], self, DocumentManifest)
+            self.supercedes = fhirreference.FHIRReference.with_json_and_owner(jsondict['supercedes'], self, DocumentManifest)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
         if 'type' in jsondict:
-            self.type = CodeableConcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
 

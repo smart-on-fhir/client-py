@@ -14,21 +14,21 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import CodeableConcept
-import Coding
-import Encounter
-import FHIRDate
-import FHIRElement
-import FHIRReference
-import FHIRResource
-import Identifier
-import Narrative
-import Patient
-import Practitioner
-import ValueSet
+import codeableconcept
+import coding
+import encounter
+import fhirdate
+import fhirelement
+import fhirreference
+import fhirresource
+import identifier
+import narrative
+import patient
+import practitioner
+import valueset
 
 
-class Questionnaire(FHIRResource.FHIRResource):
+class Questionnaire(fhirresource.FHIRResource):
     """ A structured set of questions and their answers.
     
     Scope and Usage The Questionnaire may be a single list of questions, or can
@@ -108,28 +108,28 @@ class Questionnaire(FHIRResource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Questionnaire, self).update_with_json(jsondict)
         if 'author' in jsondict:
-            self.author = FHIRReference.FHIRReference.with_json_and_owner(jsondict['author'], self, Practitioner.Practitioner)
+            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'authored' in jsondict:
-            self.authored = FHIRDate.FHIRDate.with_json(jsondict['authored'])
+            self.authored = fhirdate.FHIRDate.with_json(jsondict['authored'])
         if 'encounter' in jsondict:
-            self.encounter = FHIRReference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, Encounter.Encounter)
+            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
         if 'group' in jsondict:
             self.group = QuestionnaireGroup.with_json(jsondict['group'])
         if 'identifier' in jsondict:
-            self.identifier = Identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
         if 'name' in jsondict:
-            self.name = CodeableConcept.CodeableConcept.with_json(jsondict['name'])
+            self.name = codeableconcept.CodeableConcept.with_json(jsondict['name'])
         if 'source' in jsondict:
-            self.source = FHIRReference.FHIRReference.with_json_and_owner(jsondict['source'], self, Patient.Patient)
+            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, patient.Patient)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, Patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = Narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json(jsondict['text'])
 
 
-class QuestionnaireGroup(FHIRElement.FHIRElement):
+class QuestionnaireGroup(fhirelement.FHIRElement):
     """ Grouped questions.
     
     A group of questions to a possibly similarly grouped set of questions in
@@ -173,16 +173,16 @@ class QuestionnaireGroup(FHIRElement.FHIRElement):
         if 'header' in jsondict:
             self.header = jsondict['header']
         if 'name' in jsondict:
-            self.name = CodeableConcept.CodeableConcept.with_json(jsondict['name'])
+            self.name = codeableconcept.CodeableConcept.with_json(jsondict['name'])
         if 'question' in jsondict:
             self.question = QuestionnaireGroupQuestion.with_json(jsondict['question'])
         if 'subject' in jsondict:
-            self.subject = FHIRReference.FHIRReference.with_json_and_owner(jsondict['subject'], self, FHIRResource.FHIRResource)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, fhirresource.FHIRResource)
         if 'text' in jsondict:
             self.text = jsondict['text']
 
 
-class QuestionnaireGroupGroup(FHIRElement.FHIRElement):
+class QuestionnaireGroupGroup(fhirelement.FHIRElement):
     """ Nested questionnaire group.
     
     A sub-group within a group. The ordering of groups within this group is
@@ -196,7 +196,7 @@ class QuestionnaireGroupGroup(FHIRElement.FHIRElement):
         super(QuestionnaireGroupGroup, self).__init__(jsondict)
 
 
-class QuestionnaireGroupQuestion(FHIRElement.FHIRElement):
+class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
     """ Questions in this group.
     
     Set of questions within this group. The order of questions within the group
@@ -270,34 +270,34 @@ class QuestionnaireGroupQuestion(FHIRElement.FHIRElement):
         if 'answerBoolean' in jsondict:
             self.answerBoolean = jsondict['answerBoolean']
         if 'answerDate' in jsondict:
-            self.answerDate = FHIRDate.FHIRDate.with_json(jsondict['answerDate'])
+            self.answerDate = fhirdate.FHIRDate.with_json(jsondict['answerDate'])
         if 'answerDateTime' in jsondict:
-            self.answerDateTime = FHIRDate.FHIRDate.with_json(jsondict['answerDateTime'])
+            self.answerDateTime = fhirdate.FHIRDate.with_json(jsondict['answerDateTime'])
         if 'answerDecimal' in jsondict:
             self.answerDecimal = jsondict['answerDecimal']
         if 'answerInstant' in jsondict:
-            self.answerInstant = FHIRDate.FHIRDate.with_json(jsondict['answerInstant'])
+            self.answerInstant = fhirdate.FHIRDate.with_json(jsondict['answerInstant'])
         if 'answerInteger' in jsondict:
             self.answerInteger = jsondict['answerInteger']
         if 'answerString' in jsondict:
             self.answerString = jsondict['answerString']
         if 'choice' in jsondict:
-            self.choice = Coding.Coding.with_json(jsondict['choice'])
+            self.choice = coding.Coding.with_json(jsondict['choice'])
         if 'data' in jsondict:
-            self.data = FHIRElement.FHIRElement.with_json(jsondict['data'])
+            self.data = fhirelement.FHIRElement.with_json(jsondict['data'])
         if 'group' in jsondict:
             self.group = QuestionnaireGroupQuestionGroup.with_json(jsondict['group'])
         if 'name' in jsondict:
-            self.name = CodeableConcept.CodeableConcept.with_json(jsondict['name'])
+            self.name = codeableconcept.CodeableConcept.with_json(jsondict['name'])
         if 'options' in jsondict:
-            self.options = FHIRReference.FHIRReference.with_json_and_owner(jsondict['options'], self, ValueSet.ValueSet)
+            self.options = fhirreference.FHIRReference.with_json_and_owner(jsondict['options'], self, valueset.ValueSet)
         if 'remarks' in jsondict:
             self.remarks = jsondict['remarks']
         if 'text' in jsondict:
             self.text = jsondict['text']
 
 
-class QuestionnaireGroupQuestionGroup(FHIRElement.FHIRElement):
+class QuestionnaireGroupQuestionGroup(fhirelement.FHIRElement):
     """ Nested questionnaire group.
     
     Nested group, containing nested question for this question. The order of

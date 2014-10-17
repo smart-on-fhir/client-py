@@ -8,8 +8,8 @@
 import io
 import unittest
 import json
-from Medication import Medication
-from FHIRDate import FHIRDate
+from medication import Medication
+from fhirdate import FHIRDate
 
 
 class MedicationTests(unittest.TestCase):

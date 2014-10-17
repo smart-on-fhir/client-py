@@ -14,12 +14,12 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import FHIRDate
-import FHIRElement
-import Period
+import fhirdate
+import fhirelement
+import period
 
 
-class Schedule(FHIRElement.FHIRElement):
+class Schedule(fhirelement.FHIRElement):
     """ A schedule that specifies an event that may occur multiple times.
     """
     
@@ -42,12 +42,12 @@ class Schedule(FHIRElement.FHIRElement):
     def update_with_json(self, jsondict):
         super(Schedule, self).update_with_json(jsondict)
         if 'event' in jsondict:
-            self.event = Period.Period.with_json(jsondict['event'])
+            self.event = period.Period.with_json(jsondict['event'])
         if 'repeat' in jsondict:
             self.repeat = ScheduleRepeat.with_json(jsondict['repeat'])
 
 
-class ScheduleRepeat(FHIRElement.FHIRElement):
+class ScheduleRepeat(fhirelement.FHIRElement):
     """ Only if there is none or one event.
     
     Identifies a repeating pattern to the intended time periods.
@@ -91,7 +91,7 @@ class ScheduleRepeat(FHIRElement.FHIRElement):
         if 'duration' in jsondict:
             self.duration = jsondict['duration']
         if 'end' in jsondict:
-            self.end = FHIRDate.FHIRDate.with_json(jsondict['end'])
+            self.end = fhirdate.FHIRDate.with_json(jsondict['end'])
         if 'frequency' in jsondict:
             self.frequency = jsondict['frequency']
         if 'units' in jsondict:

@@ -14,10 +14,10 @@ if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
 
-import Quantity
+import quantity
 
 
-class Duration(Quantity.Quantity):
+class Duration(quantity.Quantity):
     """ Profile for Duration on Quantity.
     
     Basic Profile for Duration on Quantity for validation support
