@@ -123,7 +123,7 @@ class FHIRClient(object):
     
     @property
     def patient(self):
-        if self._patient is None:
+        if self._patient is None and self.ready:
             try:
                 self._patient = patient.Patient.read(self.patient_id, self.server)
             except FHIRUnauthorizedException as e:
