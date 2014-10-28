@@ -43,6 +43,7 @@ class FHIRClient(object):
         self.app_id = None
         self.server = None
         self.auth = None
+        self.launch_context = None
         self._patient = None
         
         # init from state
@@ -97,13 +98,19 @@ class FHIRClient(object):
         
         :param str url: The complete callback URL
         """
-        self.auth.handle_callback(url, self.server)
+        self.launch_context = self.auth.handle_callback(url, self.server)
         self._set_authorized(True)
     
     def reauthorize(self):
         """ Try to reauthorize with the server; handled by our `auth` instance.
+        
+        :returns: A bool indicating reauthorization success
         """
-        return self.auth.reauthorize(self.server) if self.auth is not None else False
+        ctx = self.auth.reauthorize(self.server) if self.auth is not None else None
+        if ctx is not None:
+            self.launch_context = ctx
+            return True
+        return False
     
     
     def _set_authorized(self, flag):
@@ -157,11 +164,13 @@ class FHIRClient(object):
             'server': self.server.state,
             'auth_type': self.auth_type,
             'auth': self.auth.state,
+            'launch_context': self.launch_context,
         }
     
     def from_state(self, state):
         assert state
         self.app_id = state.get('app_id') or self.app_id
+        self.launch_context = state.get('launch_context') or self.launch_context
         self.server = FHIRServer(state=state.get('server'))
         self.auth = self._auth_for_type(state.get('auth_type'), state=state.get('auth'))
         if self.auth is not None and self.auth.access_token is not None:

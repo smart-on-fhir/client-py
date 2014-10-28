@@ -42,7 +42,7 @@ class FHIRServer(object):
         """ Returns the server's metadata, retrieving it if needed.
         """
         if self._metadata is None or not if_needed:
-            logging.info('Fetching metadata')
+            logging.info('Fetching metadata from {}'.format(self.base_uri))
             meta = self.request_json('metadata', nosign=True)
             try:
                 extensions = meta['rest'][0]['security']['extension']

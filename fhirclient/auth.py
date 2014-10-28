@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import uuid
+import logging
 try:                                # Python 2.x
     import urlparse
     from urllib import urlencode
@@ -59,12 +60,16 @@ class FHIRAuth(object):
         server must have a `metadata` dict property. """
         return None
     
+    def handle_callback(self, url, server):
+        """ Return the launch context. """
+        raise Exception("{} cannot handle callback URL".format(self))
+    
     def reauthorize(self, server):
         """ Perform a re-authorization of some form.
         
-        :returns: A bool indicating reauthorization success
+        :returns: The launch context dictionary or None on failure
         """
-        return True
+        return None
     
     def reset(self):
         self.patient_id = None
@@ -164,8 +169,9 @@ class FHIROAuth2Auth(FHIRAuth):
         
         :param str url: The callback/redirect URL to handle
         :param server: The FHIR server to handle the callback against
-        :returns: The code that can be exchanged for an access token
+        :returns: The launch context dictionary
         """
+        logging.debug("Handling callback URL")
         if url is None:
             raise Exception("No callback URL received")
         if server is None:
@@ -190,7 +196,7 @@ class FHIROAuth2Auth(FHIRAuth):
         
         # exchange code for token
         exchange = self.code_exchange_params(code)
-        self.request_access_token(server, exchange)
+        return self.request_access_token(server, exchange)
     
     def code_exchange_params(self, code):
         """ These parameters are used by the server to exchange the given code
@@ -202,34 +208,48 @@ class FHIROAuth2Auth(FHIRAuth):
             'grant_type': 'authorization_code',
             'redirect_uri': self.redirect_uri,
             'state': self.auth_state,
-            'scope': self.scope,
+            # 'scope': self.scope,          # don't use, will return 400 when using launch:xxx scope
         }
     
     def request_access_token(self, server, params):
         """ Requests an access token from the given server via a form POST
         request, remembers the token (and patient id if there is one) or
         raises an Exception.
+        
+        :returns: A dictionary with launch params
         """
+        logging.debug("Requesting access token from {}".format(server.token_uri))
         ret_params = server.post_as_form(server.token_uri, params)
+        
         self.access_token = ret_params.get('access_token')
         if self.access_token is None:
             raise Exception("No access token received")
+        del ret_params['access_token']
+        if 'expires_in' in ret_params:
+            del ret_params['expires_in']
+        
         self.refresh_token = ret_params.get('refresh_token')
+        if self.refresh_token is not None:
+            del ret_params['refresh_token']
+        
         if 'patient' in ret_params:
             self.patient_id = ret_params['patient']
+        
+        return ret_params
     
     
     # MARK: Reauthorization
     
     def reauthorize(self, server):
         """ Perform reauthorization.
+        
+        :returns: The launch context dictionary, or None on failure
         """
         if self.refresh_token is None:
-            return False
+            return None
         
         reauth = self.reauthorize_params()
-        self.request_access_token(server, reauth)
-        return True
+        return self.request_access_token(server, reauth)
     
     def reauthorize_params(self):
         """ Parameters to be used in a reauthorize request.
