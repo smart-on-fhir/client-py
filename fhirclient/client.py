@@ -154,6 +154,20 @@ class FHIRClient(object):
         
         return ' '.join(parts) if len(parts) > 0 else 'Unnamed'
     
+    def string_gender(self, gender_concept):
+        """ Takes a `CodeableConcept` instance and returns either 'male',
+        'female' or None.
+        
+        TODO: inspect coding system of the concepts and decide more thoroughly
+        """
+        if gender_concept is not None \
+            and gender_concept.coding is not None \
+            and len(gender_concept.coding) > 0:
+            
+            if gender_concept.coding[0].code: # and 'http://hl7.org/fhir/v3/AdministrativeGender' == gender_concept.coding[0].system:
+                return 'male' if 'M' == gender_concept.coding[0].code else 'female'
+        return None
+    
     
     # MARK: State
     
