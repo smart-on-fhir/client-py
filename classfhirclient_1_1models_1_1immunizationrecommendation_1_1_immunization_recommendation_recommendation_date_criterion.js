@@ -1,0 +1,7 @@
+var classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation_date_criterion =
+[
+    [ "__init__", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation_date_criterion.html#a0ec48cfb8705c2b0cc72ac7856a117a5", null ],
+    [ "update_with_json", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation_date_criterion.html#a99e9d013cc42c20f6d615e0520244704", null ],
+    [ "code", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation_date_criterion.html#abc24920adb5d4f86943170795cdb22fc", null ],
+    [ "value", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation_date_criterion.html#acb831a5315740de6b70730f11d74bb63", null ]
+];

@@ -1,0 +1,7 @@
+var namespacefhirclient_1_1models_1_1medicationdispense =
+[
+    [ "MedicationDispense", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense" ],
+    [ "MedicationDispenseDispense", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_dispense.html", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_dispense" ],
+    [ "MedicationDispenseDispenseDosage", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_dispense_dosage.html", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_dispense_dosage" ],
+    [ "MedicationDispenseSubstitution", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_substitution.html", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_substitution" ]
+];
