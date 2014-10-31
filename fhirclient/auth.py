@@ -150,7 +150,7 @@ class FHIROAuth2Auth(FHIRAuth):
         return urlparse.urlunsplit(parts)
     
     def authorize_params(self):
-        """ The URL parameters to use when reuqesting a token code.
+        """ The URL parameters to use when requesting a token code.
         """
         if self.auth_state is None:
             self.auth_state = str(uuid.uuid4())[:8]

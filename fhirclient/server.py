@@ -40,10 +40,11 @@ class FHIRServer(object):
         self.get_conformance()
         return self._conformance
     
-    def get_conformance(self, if_needed=True):
-        """ Returns the server's conformance statement, retrieving it if needed.
+    def get_conformance(self, force=False):
+        """ Returns the server's conformance statement, retrieving it if needed
+        or forced.
         """
-        if self._conformance is None or not if_needed:
+        if self._conformance is None or force:
             logging.info('Fetching conformance statement from {}'.format(self.base_uri))
             conf = conformance.Conformance.read_from('metadata', self)
             try:
