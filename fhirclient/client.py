@@ -1,167 +1,185 @@
-#   TO DO
-#    [ ] dynamic handlers for the various FHIR REST call variants and arguments (a la JS client)
-#    [ ] add in Pascal's parser for FHIR profiles
-#    [ ] ability to dynamically register the app if not present in the auth server
-#    [ ] exception handlers and assert unit testing
-#    [ ] documentation and tutorial
+# -*- coding: utf-8 -*-
 
-import urllib
-import urlparse
+import sys
+import os.path
+abspath = os.path.abspath(os.path.dirname(__file__))
+if abspath not in sys.path:
+    sys.path.insert(0, abspath)
+
 import requests
-from uuid import uuid4
-from generate_api import augment
+from server import FHIRServer, FHIRUnauthorizedException
+from auth import FHIRAuth
+import models.patient as patient
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 __author__ = 'SMART Platforms Team'
 __license__ = 'APACHE2'
 __copyright__ = "Copyright 2014 Boston Children's Hospital"
 
-class FHIRClient():
+scope_default = 'user/*.* patient/*.read openid profile'
+scope_nolaunch = 'launch/patient'
 
-    def __init__(self, state=None, app_id=None, app_url=None, api_base=None,
-                 scope=None, launch_token=None, security_mode=None, secret=''):
 
-        if state:
-            self._settings = state
+class FHIRClient(object):
+    """ Instances of this class handle authorizing and talking to SMART on FHIR
+    servers.
+    
+    The settings dictionary supports:
+    
+        - `app_id`: Your app/client-id, e.g. 'my_web_app'
+        - `api_base`: The SMART service to connect to, e.g. 'https://fhir-api.smartplatforms.org'
+        - `auth_type`: The authorization type, supports "oauth2". Defaults to "oauth2" if omitted
+        - `redirect_uri`: The callback/redirect URL for your app, e.g. 'http://localhost:8000/fhir-app/' when testing locally
+    """
+    
+    def __init__(self, settings=None, state=None):
+        self.app_id = None
+        self.server = None
+        self.auth = None
+        self.launch_context = None
+        self._patient = None
+        
+        # init from state
+        if state is not None:
+            self.from_state(state)
+        
+        # init from settings dict
+        elif settings is not None:
+            self.app_id = settings['app_id']
+            self.server = FHIRServer(base_uri=settings['api_base'])
+            
+            scope = scope_default
+            if 'launch_token' in settings:
+                scope = ' launch:'.join([scope, settings['launch_token']])
+            else:
+                scope = ' '.join([scope_nolaunch, scope])
+            
+            auth_type = settings.get('auth_type')
+            redirect = settings.get('redirect_uri')
+            self.auth = self._auth_for_type(auth_type, scope=scope, redirect_uri=redirect)
         else:
-            assert app_id and app_url and api_base and scope and launch_token
-            
-            self._settings = {
-                'client': {
-                    'app_id': app_id,
-                    'app_url': app_url,
-                    'scope': ' '.join(( scope, ':'.join(( 'launch',launch_token)) )),
-                    'uuid': str(uuid4())
-                }, 
-                'provider': {
-                    'oauth2': {
-                      'registration_uri': None,
-                      'authorize_uri': None,
-                      'token_uri': None
-                    },
-                    'api_base': api_base,
-                    'authorize_url': '',
-                    'security_mode': security_mode,
-                    'access_token_type': '',
-                    'access_token': '',
-                    'pid': '',
-                    'types': []
-                }
-            }
-            
-            self._loadProvider()
-
-        self._secret = secret
-            
-        types = self._settings['provider']['types']
-        augment(self, types)
-        
-    def _loadProvider (self):
-        c = self._settings['client']
-        p = self._settings['provider']
-
-        headers = {'Accept': 'application/json'}
-        url = p['api_base'] + '/metadata'
-        r = requests.get(url, headers=headers)
-        result = r.json()
-        
-        for r in result['rest'][0]['resource']:
-            if r['type'] != 'Patient':    # TO DO: get rid of this
-                p['types'].append(r['type'])
-        
-        extensions = result['rest'][0]['security']['extension']
-        
-        for e in extensions:
-            if e['url'] == "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register":
-                p['oauth2']['registration_uri'] = e['valueUri']
-            elif e['url'] == "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize":
-                p['oauth2']['authorize_uri'] = e['valueUri']
-            elif e['url'] == "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token":
-                p['oauth2']['token_uri'] = e['valueUri']
-
-        if p['security_mode'] and p['security_mode'] == 'oauth':
-            url = p['oauth2']['authorize_uri']
-            params = {
-                'client_id': c['app_id'],
-                'response_type': "code",
-                'scope': c['scope'],
-                'redirect_uri': c['app_url']
-            }
-            
-            url_parts = list(urlparse.urlparse(url))
-            query = dict(urlparse.parse_qsl(url_parts[4]))
-            query.update(params)
-            url_parts[4] = urllib.urlencode(query)
-            p['authorize_url'] = urlparse.urlunparse(url_parts)
-
+            raise Exception("Must either supply settings or a state upon client initialization")
+    
+    
+    # MARK: Authorization
+    
+    @property
+    def auth_type(self):
+        return self.auth.auth_type if self.auth else None
+    
+    def _auth_for_type(self, auth_type, **kwargs):
+        if auth_type is None:
+            auth_type = 'oauth2'
+        return FHIRAuth.create(auth_type, app_id=self.app_id, **kwargs)
+    
+    @property
+    def ready(self):
+        """ Returns True if the client is ready to make API calls (e.g. there
+        is an access token).
+        """
+        return self.auth.ready if self.auth is not None else False
+    
     @property
     def authorize_url(self):
-        c = self._settings['client']
-        p = self._settings['provider']
-        auth_url = p['authorize_url']
-        if auth_url:
-            return auth_url
+        """ The URL to use to receive an authorization token.
+        """
+        return self.auth.authorize_url(self.server) if self.auth is not None else None
+    
+    def handle_callback(self, url):
+        """ You can call this to have the client automatically handle the
+        auth callback after the user has logged in.
+        
+        :param str url: The complete callback URL
+        """
+        self.launch_context = self.auth.handle_callback(url, self.server)
+        self._set_authorized(True)
+    
+    def reauthorize(self):
+        """ Try to reauthorize with the server; handled by our `auth` instance.
+        
+        :returns: A bool indicating reauthorization success
+        """
+        ctx = self.auth.reauthorize(self.server) if self.auth is not None else None
+        if ctx is not None:
+            self.launch_context = ctx
+            return True
+        return False
+    
+    
+    def _set_authorized(self, flag):
+        """ Internal method used to sync server and auth. """
+        if flag:
+            self.server.did_authorize(self.auth)
         else:
-            return  c['app_url']
-        
-    @property
-    def state(self):
-        return self._settings
-        
+            self.server.did_authorize(None)
+            self.auth.reset()
+    
+    
+    # MARK: Current Patient
+    
     @property
     def patient_id(self):
-        return self._settings['provider']['pid']
+        return self.auth.patient_id
+    
+    @property
+    def patient(self):
+        if self._patient is None and self.ready:
+            try:
+                self._patient = patient.Patient.read(self.patient_id, self.server)
+            except FHIRUnauthorizedException as e:
+                if self.reauthorize():
+                    self._patient = patient.Patient.read(self.patient_id, self.server)
+                else:
+                    self._set_authorized(False)
+         
+        return self._patient
+    
+    def human_name(self, human_name_instance):
+        """ Formats a `HumanName` instance into a string.
+        """
+        if human_name_instance is None:
+            return 'Unknown'
         
+        parts = []
+        for n in [human_name_instance.prefix, human_name_instance.given, human_name_instance.family, human_name_instance.suffix]:
+            if n is not None:
+                parts.extend(n)
         
-    def update_access_token (self, authorization_code):
-        c = self._settings['client']
-        p = self._settings['provider']
-        url = p['oauth2']['token_uri']
-        auth = (c['app_id'], self._secret)
-        params = {
-          'code': authorization_code,
-          'grant_type': 'authorization_code',
-          'redirect_uri': c['app_url'],
-          'client_id': c['app_id']
-        }
+        return ' '.join(parts) if len(parts) > 0 else 'Unnamed'
+    
+    def string_gender(self, gender_concept):
+        """ Takes a `CodeableConcept` instance and returns either 'male',
+        'female' or None.
         
-        r = requests.get(url, params=params, auth=auth)
-        res = r.json()
-
-        p['access_token_type'] = res['token_type']
-        p['access_token'] = res['access_token']
-        p['pid'] = res['patient']
-
-    # TO DO: generate this convenience method on the fly
-    def Patient (self):
-        p = self._settings['provider']
-        url = p['api_base'] + "/Patient/" + self.patient_id
-
-        # TODO: There may be a better way to specify non-basic authorization header in requests
-        headers = {
-            'Authorization': ' '.join((p['access_token_type'], p['access_token'])),
-            'Accept': 'application/json'
+        TODO: inspect coding system of the concepts and decide more thoroughly
+        """
+        if gender_concept is not None \
+            and gender_concept.coding is not None \
+            and len(gender_concept.coding) > 0:
+            
+            if gender_concept.coding[0].code: # and 'http://hl7.org/fhir/v3/AdministrativeGender' == gender_concept.coding[0].system:
+                return 'male' if 'M' == gender_concept.coding[0].code else 'female'
+        return None
+    
+    
+    # MARK: State
+    
+    @property
+    def state(self):
+        return {
+            'app_id': self.app_id,
+            'server': self.server.state,
+            'auth_type': self.auth_type,
+            'auth': self.auth.state,
+            'launch_context': self.launch_context,
         }
-
-        r = requests.get(url, headers=headers)
-        return r.json()
-       
-    def get(self, type):
-        p = self._settings['provider']
-        url = p['api_base'] + "/" + type + "/_search?patient:Patient=" + p['pid']
-
-        # TODO: There may be a better way to specify non-basic authorization header in requests
-        headers = {
-            'Authorization': ' '.join((p['access_token_type'], p['access_token'])),
-            'Accept': 'application/json'
-        }
-
-        r = requests.get(url, headers=headers)
-        dt = r.json()
-        res = []
-        try:
-            for e in dt['entry']:
-                res.append(e['content'])
-        except:
-            pass
-        return res
+    
+    def from_state(self, state):
+        assert state
+        self.app_id = state.get('app_id') or self.app_id
+        self.launch_context = state.get('launch_context') or self.launch_context
+        self.server = FHIRServer(state=state.get('server'))
+        self.auth = self._auth_for_type(state.get('auth_type'), state=state.get('auth'))
+        if self.auth is not None and self.auth.access_token is not None:
+            self.server.did_authorize(self.auth)
+    

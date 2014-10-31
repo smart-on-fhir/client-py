@@ -1,0 +1,85 @@
+/* Style overrides for our docs. */
+
+body, table, div, p, dl {
+	font: 12pt/15pt "Open Sans", Calibri, Candara, Arial, sans-serif;
+}
+
+pre, pre.fragment {
+	font-size: 11pt;
+}
+
+hr {
+	margin-top: 2em; padding-top: 1em;
+	border-top: 1px solid #B9B9B9;
+}
+
+/* Header */
+#titlearea {
+	padding: 0.5em 1em;
+	color: white;
+	border: none;
+	background: #6bb1d3;
+}
+#projectname {
+	font: inherit; font-size: 2em;
+}
+#MSearchBox {
+	right: 1em; top: 2em;
+}
+#MSearchField {
+	font: inherit;
+}
+
+/* Sidebar */
+#nav-tree .selected {
+	text-shadow: none;
+	background: #6bb1d3;
+}
+#nav-tree .label {
+	font: inherit;
+}
+.ui-resizable-e {
+	background: #6bb1d3;
+}
+
+/* Main */
+div.header {
+	background-image: none;
+}
+div.ah {
+	margin: 0; padding: 0;
+	color: black; font-size: 1.2em;
+	border: none;
+	background: transparent;
+	box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none;
+}
+
+h2.groupheader {
+	padding: inherit;
+	border: none;
+}
+.memproto {
+	background: #F8FBFD;
+	text-shadow: none;
+	box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none;
+}
+.memdoc {
+	border-top: 1px solid #B9B9B9;
+	background: white;
+	box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none;
+}
+span.mlabel {
+	font-size: 0.85em;
+	border: none;
+}
+
+/* Footer */
+.navpath ul {
+	padding: 1.5em 0;
+	color: white; font-size: small;
+	border: none;
+	background: #230a39;
+}
+.navpath li.navelem a, .navpath li.footer {
+	color: white; font: inherit; font-size: inherit; text-shadow: none;
+}
