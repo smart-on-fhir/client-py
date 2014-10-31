@@ -1,6 +1,9 @@
 *.pyc
 __pycache__
 
+# docs
+/docs
+
 # virtualenv
 /env
 
