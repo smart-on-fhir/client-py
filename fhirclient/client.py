@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-#
-#   TO DO
-#    [ ] dynamic handlers for the various FHIR REST call variants and arguments (a la JS client)
-#    [ ] add in Pascal's parser for FHIR profiles
-#    [ ] ability to dynamically register the app if not present in the auth server
-#    [ ] exception handlers and assert unit testing
-#    [ ] documentation and tutorial
 
 import sys
 import os.path

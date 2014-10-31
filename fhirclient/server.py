@@ -8,6 +8,8 @@ try:                                # Python 2.x
 except Exception as e:              # Python 3
     import urllib.parse as urlparse
 
+from models import conformance
+
 
 class FHIRUnauthorizedException(Exception):
     """ Indicating a 401 response.
@@ -26,39 +28,39 @@ class FHIRServer(object):
         self._registration_uri = None
         self._authorize_uri = None
         self._token_uri = None
-        self._metadata = None
+        self._conformance = None
         if state is not None:
             self.from_state(state)
     
     
-    # MARK: Metadata
+    # MARK: Server Conformance Statement
     
     @property
-    def metadata(self):
-        self.get_metadata()
-        return self._metadata
+    def conformance(self):
+        self.get_conformance()
+        return self._conformance
     
-    def get_metadata(self, if_needed=True):
-        """ Returns the server's metadata, retrieving it if needed.
+    def get_conformance(self, if_needed=True):
+        """ Returns the server's conformance statement, retrieving it if needed.
         """
-        if self._metadata is None or not if_needed:
-            logging.info('Fetching metadata from {}'.format(self.base_uri))
-            meta = self.request_json('metadata', nosign=True)
+        if self._conformance is None or not if_needed:
+            logging.info('Fetching conformance statement from {}'.format(self.base_uri))
+            conf = conformance.Conformance.read_from('metadata', self)
             try:
-                extensions = meta['rest'][0]['security']['extension']
+                extensions = conf.rest[0].security.extension
             except Exception as e:
-                raise Exception("Invalid server metadata: {}\n{}".format(e, meta))
+                raise Exception("Invalid SMART server conformance: {}\n{}".format(e, conf))
             
-            # extract extensions from metadata: OAuth2 endpoint URIs
+            # extract extensions from conformance: OAuth2 endpoint URIs
             for e in extensions:
-                if e['url'] == "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register":
-                    self._registration_uri = e['valueUri']
-                elif e['url'] == "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize":
-                    self._authorize_uri = e['valueUri']
-                elif e['url'] == "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token":
-                    self._token_uri = e['valueUri']
+                if "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register" == e.url:
+                    self._registration_uri = e.valueUri
+                elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize" == e.url:
+                    self._authorize_uri = e.valueUri
+                elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token" == e.url:
+                    self._token_uri = e.valueUri
 
-            self._metadata = meta
+            self._conformance = conf
     
     
     # MARK: Authorization
@@ -66,13 +68,13 @@ class FHIRServer(object):
     @property
     def authorize_uri(self):
         if self._authorize_uri is None:
-            self.get_metadata()
+            self.get_conformance()
         return self._authorize_uri
     
     @property
     def token_uri(self):
         if self._token_uri is None:
-            self.get_metadata()
+            self.get_conformance()
         return self._token_uri
     
     def did_authorize(self, auth):
@@ -129,7 +131,6 @@ class FHIRServer(object):
             'registration_uri': self._registration_uri,
             'authorize_uri': self._authorize_uri,
             'token_uri': self._token_uri,
-            # 'metadata': self._metadata,       # don't save to state, not currently needed and it's BIG
         }
     
     def from_state(self, state):
@@ -140,5 +141,4 @@ class FHIRServer(object):
         self._registration_uri = state.get('registration_uri') or self._registration_uri
         self._authorize_uri = state.get('authorize_uri') or self._authorize_uri
         self._token_uri = state.get('token_uri') or self._token_uri
-        self._metadata = state.get('metadata') or self._metadata
     

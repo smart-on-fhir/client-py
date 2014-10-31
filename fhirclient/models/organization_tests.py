@@ -1,0 +1,238 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  Generated from FHIR 0.0.82.2943 (xds-profile.profile.json) on 2014-10-31.
+#  2014, SMART Platforms.
+
+
+import io
+import unittest
+import json
+from organization import Organization
+from fhirdate import FHIRDate
+
+
+class OrganizationTests(unittest.TestCase):
+    def instantiate_from(self, filename):
+        with io.open(filename, 'r', encoding='utf-8') as handle:
+            js = json.load(handle)
+        instance = Organization(js)
+        self.assertIsNotNone(instance, "Must have instantiated a test instance")
+        return instance
+    
+    def testOrganization1(self):
+        inst = self.instantiate_from("../../fhir-parser/downloads/site/organization-example-f001-burgers.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+    
+        self.assertEqual(inst.address[0].city, "Den Burg")
+        self.assertEqual(inst.address[0].country, "NLD")
+        self.assertEqual(inst.address[0].line[0], "Galapagosweg 91")
+        self.assertEqual(inst.address[0].use, "work")
+        self.assertEqual(inst.address[0].zip, "9105 PZ")
+        self.assertEqual(inst.address[1].city, "Den Burg")
+        self.assertEqual(inst.address[1].country, "NLD")
+        self.assertEqual(inst.address[1].line[0], "PO Box 2311")
+        self.assertEqual(inst.address[1].use, "work")
+        self.assertEqual(inst.address[1].zip, "9100 AA")
+        self.assertEqual(inst.contact[0].purpose.coding[0].code, "PRESS")
+        self.assertEqual(inst.contact[0].purpose.coding[0].system, "http://hl7.org/fhir/contactentity-type")
+        self.assertEqual(inst.contact[0].telecom[0].system, "phone")
+        self.assertEqual(inst.contact[0].telecom[0].value, "022-655 2334")
+        self.assertEqual(inst.contact[1].purpose.coding[0].code, "PATINF")
+        self.assertEqual(inst.contact[1].purpose.coding[0].system, "http://hl7.org/fhir/contactentity-type")
+        self.assertEqual(inst.contact[1].telecom[0].system, "phone")
+        self.assertEqual(inst.contact[1].telecom[0].value, "022-655 2335")
+        self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.528.1")
+        self.assertEqual(inst.identifier[0].use, "official")
+        self.assertEqual(inst.identifier[0].value, "91654")
+        self.assertEqual(inst.identifier[1].system, "urn:oid:2.16.840.1.113883.2.4.6.1")
+        self.assertEqual(inst.identifier[1].use, "usual")
+        self.assertEqual(inst.identifier[1].value, "17-0112278")
+        self.assertEqual(inst.name, "Burgers University Medical Center")
+        self.assertEqual(inst.telecom[0].system, "phone")
+        self.assertEqual(inst.telecom[0].use, "work")
+        self.assertEqual(inst.telecom[0].value, "022-655 2300")
+        self.assertEqual(inst.text.div, "<div>\n      <p>\n        <b>Generated Narrative</b>\n      </p>\n      <p>\n        <b>identifier</b>: 91654 (official), 17-0112278 (usual)\n      </p>\n      <p>\n        <b>name</b>: Burgers University Medical Center\n      </p>\n      <p>\n        <b>type</b>: \n        <span title=\"Codes: {urn:oid:2.16.840.1.113883.2.4.15.1060 V6}, {http://hl7.org/fhir/organization-type prov}\">University Medical Hospital</span>\n      </p>\n      <p>\n        <b>telecom</b>: ph: 022-655 2300(work)\n      </p>\n      <p>\n        <b>address</b>: \n      </p>\n      <ul>\n        <li>Galapagosweg 91 Den Burg 9105 PZ NLD (work)</li>\n        <li>PO Box 2311 Den Burg 9100 AA NLD (work)</li>\n      </ul>\n      <h3>Contacts</h3>\n      <table class=\"grid\">\n        <tr>\n          <td>\n            <b>Purpose</b>\n          </td>\n          <td>\n            <b>Name</b>\n          </td>\n          <td>\n            <b>Telecom</b>\n          </td>\n          <td>\n            <b>Address</b>\n          </td>\n          <td>\n            <b>Gender</b>\n          </td>\n        </tr>\n        <tr>\n          <td>\n            <span title=\"Codes: {http://hl7.org/fhir/contactentity-type PRESS}\">Press</span>\n          </td>\n          <td> </td>\n          <td>ph: 022-655 2334</td>\n          <td> </td>\n          <td> </td>\n        </tr>\n        <tr>\n          <td>\n            <span title=\"Codes: {http://hl7.org/fhir/contactentity-type PATINF}\">Patient</span>\n          </td>\n          <td> </td>\n          <td>ph: 022-655 2335</td>\n          <td> </td>\n          <td> </td>\n        </tr>\n      </table>\n    </div>")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "V6")
+        self.assertEqual(inst.type.coding[0].display, "University Medical Hospital")
+        self.assertEqual(inst.type.coding[0].system, "urn:oid:2.16.840.1.113883.2.4.15.1060")
+        self.assertEqual(inst.type.coding[1].code, "prov")
+        self.assertEqual(inst.type.coding[1].display, "Healthcare Provider")
+        self.assertEqual(inst.type.coding[1].system, "http://hl7.org/fhir/organization-type")
+    
+    def testOrganization2(self):
+        inst = self.instantiate_from("../../fhir-parser/downloads/site/organization-example-f002-burgers-card.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+    
+        self.assertFalse(inst.active)
+        self.assertEqual(inst.address[0].line[0], "South Wing, floor 2")
+        self.assertEqual(inst.contact[0].address.line[0], "South Wing, floor 2")
+        self.assertEqual(inst.contact[0].name.text, "mevr. D. de Haan")
+        self.assertEqual(inst.contact[0].purpose.coding[0].code, "ADMIN")
+        self.assertEqual(inst.contact[0].purpose.coding[0].system, "http://hl7.org/fhir/contactentity-type")
+        self.assertEqual(inst.contact[0].telecom[0].system, "phone")
+        self.assertEqual(inst.contact[0].telecom[0].value, "022-655 2321")
+        self.assertEqual(inst.contact[0].telecom[1].system, "email")
+        self.assertEqual(inst.contact[0].telecom[1].value, "cardio@burgersumc.nl")
+        self.assertEqual(inst.contact[0].telecom[2].system, "fax")
+        self.assertEqual(inst.contact[0].telecom[2].value, "022-655 2322")
+        self.assertEqual(inst.name, "Burgers UMC Cardiology unit")
+        self.assertEqual(inst.partOf.reference, "Organization/f001")
+        self.assertEqual(inst.telecom[0].system, "phone")
+        self.assertEqual(inst.telecom[0].value, "022-655 2320")
+        self.assertEqual(inst.text.div, "<div>\n      <p>\n        <b>Generated Narrative</b>\n      </p>\n      <p>\n        <b>name</b>: Burgers UMC Cardiology unit\n      </p>\n      <p>\n        <b>type</b>: \n        <span title=\"Codes: {http://hl7.org/fhir/organization-type dept}\">Hospital Department</span>\n      </p>\n      <p>\n        <b>telecom</b>: ph: 022-655 2320\n      </p>\n      <p>\n        <b>address</b>: South Wing, floor 2 \n      </p>\n      <p>\n        <b>partOf</b>: \n        <a href=\"organization-example-f001-burgers.html\">91654 (official), 17-0112278 (usual); name: Burgers University Medical Center; University Medical Hospital</a>\n      </p>\n      <h3>Contacts</h3>\n      <table class=\"grid\">\n        <tr>\n          <td>\n            <b>Purpose</b>\n          </td>\n          <td>\n            <b>Name</b>\n          </td>\n          <td>\n            <b>Telecom</b>\n          </td>\n          <td>\n            <b>Address</b>\n          </td>\n          <td>\n            <b>Gender</b>\n          </td>\n        </tr>\n        <tr>\n          <td>\n            <span title=\"Codes: {http://hl7.org/fhir/contactentity-type ADMIN}\">Administrative</span>\n          </td>\n          <td>mevr. D. de Haan</td>\n          <td>ph: 022-655 2321</td>\n          <td>South Wing, floor 2 </td>\n          <td> </td>\n        </tr>\n      </table>\n      <p>\n        <b>active</b>: false\n      </p>\n    </div>")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "dept")
+        self.assertEqual(inst.type.coding[0].display, "Hospital Department")
+        self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/organization-type")
+    
+    def testOrganization3(self):
+        inst = self.instantiate_from("../../fhir-parser/downloads/site/organization-example-f003-burgers-ENT.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+    
+        self.assertFalse(inst.active)
+        self.assertEqual(inst.address[0].line[0], "West Wing, floor 5")
+        self.assertEqual(inst.contact[0].address.line[0], "West Wing, floor 5")
+        self.assertEqual(inst.contact[0].name.text, "mr. F. de Hond")
+        self.assertEqual(inst.contact[0].purpose.coding[0].code, "ADMIN")
+        self.assertEqual(inst.contact[0].purpose.coding[0].system, "http://hl7.org/fhir/contactentity-type")
+        self.assertEqual(inst.contact[0].telecom[0].system, "phone")
+        self.assertEqual(inst.contact[0].telecom[0].value, "022-655 7654")
+        self.assertEqual(inst.contact[0].telecom[1].system, "email")
+        self.assertEqual(inst.contact[0].telecom[1].value, "KNO@burgersumc.nl")
+        self.assertEqual(inst.contact[0].telecom[2].system, "fax")
+        self.assertEqual(inst.contact[0].telecom[2].value, "022-655 0998")
+        self.assertEqual(inst.name, "Burgers UMC Ear,Nose,Throat unit")
+        self.assertEqual(inst.partOf.reference, "Organization/f001")
+        self.assertEqual(inst.telecom[0].system, "phone")
+        self.assertEqual(inst.telecom[0].value, "022-655 6780")
+        self.assertEqual(inst.text.div, "<div>\n      <p>\n        <b>Generated Narrative</b>\n      </p>\n      <p>\n        <b>name</b>: Burgers UMC Ear,Nose,Throat unit\n      </p>\n      <p>\n        <b>type</b>: \n        <span title=\"Codes: {http://hl7.org/fhir/organization-type dept}\">Hospital Department</span>\n      </p>\n      <p>\n        <b>telecom</b>: ph: 022-655 6780\n      </p>\n      <p>\n        <b>address</b>: West Wing, floor 5 \n      </p>\n      <p>\n        <b>partOf</b>: \n        <a href=\"organization-example-f001-burgers.html\">91654 (official), 17-0112278 (usual); name: Burgers University Medical Center; University Medical Hospital</a>\n      </p>\n      <h3>Contacts</h3>\n      <table class=\"grid\">\n        <tr>\n          <td>\n            <b>Purpose</b>\n          </td>\n          <td>\n            <b>Name</b>\n          </td>\n          <td>\n            <b>Telecom</b>\n          </td>\n          <td>\n            <b>Address</b>\n          </td>\n          <td>\n            <b>Gender</b>\n          </td>\n        </tr>\n        <tr>\n          <td>\n            <span title=\"Codes: {http://hl7.org/fhir/contactentity-type ADMIN}\">Administrative</span>\n          </td>\n          <td>mr. F. de Hond</td>\n          <td>ph: 022-655 7654</td>\n          <td>West Wing, floor 5 </td>\n          <td> </td>\n        </tr>\n      </table>\n      <p>\n        <b>active</b>: false\n      </p>\n    </div>")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "dept")
+        self.assertEqual(inst.type.coding[0].display, "Hospital Department")
+        self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/organization-type")
+    
+    def testOrganization4(self):
+        inst = self.instantiate_from("../../fhir-parser/downloads/site/organization-example-f201-aumc.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+    
+        self.assertTrue(inst.active)
+        self.assertEqual(inst.address[0].city, "Den Helder")
+        self.assertEqual(inst.address[0].country, "NLD")
+        self.assertEqual(inst.address[0].line[0], "Walvisbaai 3")
+        self.assertEqual(inst.address[0].use, "work")
+        self.assertEqual(inst.address[0].zip, "2333ZA")
+        self.assertEqual(inst.contact[0].address.city, "Den helder")
+        self.assertEqual(inst.contact[0].address.country, "NLD")
+        self.assertEqual(inst.contact[0].address.line[0], "Walvisbaai 3")
+        self.assertEqual(inst.contact[0].address.line[1], "Gebouw 2")
+        self.assertEqual(inst.contact[0].address.zip, "2333ZA")
+        self.assertEqual(inst.contact[0].name.family[0], "Brand")
+        self.assertEqual(inst.contact[0].name.given[0], "Ronald")
+        self.assertEqual(inst.contact[0].name.prefix[0], "Prof.Dr.")
+        self.assertEqual(inst.contact[0].name.text, "Professor Brand")
+        self.assertEqual(inst.contact[0].name.use, "official")
+        self.assertEqual(inst.contact[0].telecom[0].system, "phone")
+        self.assertEqual(inst.contact[0].telecom[0].use, "work")
+        self.assertEqual(inst.contact[0].telecom[0].value, "+31715269702")
+        self.assertEqual(inst.identifier[0].label, "Zorginstelling naam")
+        self.assertEqual(inst.identifier[0].system, "http://www.zorgkaartnederland.nl/")
+        self.assertEqual(inst.identifier[0].use, "official")
+        self.assertEqual(inst.identifier[0].value, "Artis University Medical Center")
+        self.assertEqual(inst.name, "Artis University Medical Center (AUMC)")
+        self.assertEqual(inst.telecom[0].system, "phone")
+        self.assertEqual(inst.telecom[0].use, "work")
+        self.assertEqual(inst.telecom[0].value, "+31715269111")
+        self.assertEqual(inst.text.div, "<div>\n      <p>\n        <b>Generated Narrative</b>\n      </p>\n      <p>\n        <b>identifier</b>: Zorginstelling naam = Artis University Medical Center (official)\n      </p>\n      <p>\n        <b>name</b>: Artis University Medical Center (AUMC)\n      </p>\n      <p>\n        <b>type</b>: \n        <span title=\"Codes: {http://snomed.info/sct 405608006}, {urn:oid:2.16.840.1.113883.2.4.15.1060 V6}, {http://hl7.org/fhir/organization-type prov}\">Academic Medical Center</span>\n      </p>\n      <p>\n        <b>telecom</b>: ph: +31715269111(work)\n      </p>\n      <p>\n        <b>address</b>: Walvisbaai 3 Den Helder 2333ZA NLD (work)\n      </p>\n      <h3>Contacts</h3>\n      <table class=\"grid\">\n        <tr>\n          <td>\n            <b>Purpose</b>\n          </td>\n          <td>\n            <b>Name</b>\n          </td>\n          <td>\n            <b>Telecom</b>\n          </td>\n          <td>\n            <b>Address</b>\n          </td>\n          <td>\n            <b>Gender</b>\n          </td>\n        </tr>\n        <tr>\n          <td> </td>\n          <td>Professor Brand(official)</td>\n          <td>ph: +31715269702(work)</td>\n          <td>Walvisbaai 3 Gebouw 2 Den helder 2333ZA NLD </td>\n          <td> </td>\n        </tr>\n      </table>\n      <p>\n        <b>active</b>: true\n      </p>\n    </div>")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "405608006")
+        self.assertEqual(inst.type.coding[0].display, "Academic Medical Center")
+        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.type.coding[1].code, "V6")
+        self.assertEqual(inst.type.coding[1].display, "University Medical Hospital")
+        self.assertEqual(inst.type.coding[1].system, "urn:oid:2.16.840.1.113883.2.4.15.1060")
+        self.assertEqual(inst.type.coding[2].code, "prov")
+        self.assertEqual(inst.type.coding[2].display, "Healthcare Provider")
+        self.assertEqual(inst.type.coding[2].system, "http://hl7.org/fhir/organization-type")
+    
+    def testOrganization5(self):
+        inst = self.instantiate_from("../../fhir-parser/downloads/site/organization-example-f203-bumc.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+    
+        self.assertTrue(inst.active)
+        self.assertEqual(inst.address[0].city, "Blijdorp")
+        self.assertEqual(inst.address[0].country, "NLD")
+        self.assertEqual(inst.address[0].line[0], "apenrots 230")
+        self.assertEqual(inst.address[0].use, "work")
+        self.assertEqual(inst.address[0].zip, "3056BE")
+        self.assertEqual(inst.identifier[0].label, "Zorginstelling naam")
+        self.assertEqual(inst.identifier[0].system, "http://www.zorgkaartnederland.nl/")
+        self.assertEqual(inst.identifier[0].use, "official")
+        self.assertEqual(inst.identifier[0].value, "Blijdorp MC")
+        self.assertEqual(inst.name, "Blijdorp Medisch Centrum (BUMC)")
+        self.assertEqual(inst.telecom[0].system, "phone")
+        self.assertEqual(inst.telecom[0].use, "work")
+        self.assertEqual(inst.telecom[0].value, "+31107040704")
+        self.assertEqual(inst.text.div, "<div>\n      <p>\n        <b>Generated Narrative</b>\n      </p>\n      <p>\n        <b>identifier</b>: Zorginstelling naam = Blijdorp MC (official)\n      </p>\n      <p>\n        <b>name</b>: Blijdorp Medisch Centrum (BUMC)\n      </p>\n      <p>\n        <b>type</b>: \n        <span title=\"Codes: {http://snomed.info/sct 405608006}, {http://hl7.org/fhir/organization-type prov}\">Academic Medical Center</span>\n      </p>\n      <p>\n        <b>telecom</b>: ph: +31107040704(work)\n      </p>\n      <p>\n        <b>address</b>: apenrots 230 Blijdorp 3056BE NLD (work)\n      </p>\n      <p>\n        <b>active</b>: true\n      </p>\n    </div>")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "405608006")
+        self.assertEqual(inst.type.coding[0].display, "Academic Medical Center")
+        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.type.coding[1].code, "prov")
+        self.assertEqual(inst.type.coding[1].system, "http://hl7.org/fhir/organization-type")
+    
+    def testOrganization6(self):
+        inst = self.instantiate_from("../../fhir-parser/downloads/site/organization-example-gastro.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+    
+        self.assertEqual(inst.identifier[0].system, "http://www.acme.org.au/units")
+        self.assertEqual(inst.identifier[0].value, "Gastro")
+        self.assertEqual(inst.name, "Gastroenterology")
+        self.assertEqual(inst.partOf.display, "ACME Healthcare, Inc")
+        self.assertEqual(inst.partOf.reference, "Organization/1")
+        self.assertEqual(inst.telecom[0].system, "phone")
+        self.assertEqual(inst.telecom[0].use, "mobile")
+        self.assertEqual(inst.telecom[0].value, "+1 555 234 3523")
+        self.assertEqual(inst.telecom[1].system, "email")
+        self.assertEqual(inst.telecom[1].use, "work")
+        self.assertEqual(inst.telecom[1].value, "gastro@acme.org")
+        self.assertEqual(inst.text.div, "<div>\n      <p>Gastroenterology @ Acme Hospital. ph: +1 555 234 3523, email: <a href=\"mailto:gastro@acme.org\">gastro@acme.org</a></p>\n    </div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testOrganization7(self):
+        inst = self.instantiate_from("../../fhir-parser/downloads/site/organization-example-good-health-care.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+    
+        self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
+        self.assertEqual(inst.identifier[0].value, "2.16.840.1.113883.19.5")
+        self.assertEqual(inst.name, "Good Health Clinic")
+        self.assertEqual(inst.text.div, "<div>\n      <p>Good Health Clinic</p>\n    </div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testOrganization8(self):
+        inst = self.instantiate_from("../../fhir-parser/downloads/site/organization-example-insurer.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+    
+        self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.840.1.113883.3.19.2.3")
+        self.assertEqual(inst.identifier[0].value, "666666")
+        self.assertEqual(inst.name, "XYZ Insurance")
+        self.assertEqual(inst.text.div, "<div>\n      <p>XYZ Insurance</p>\n    </div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testOrganization9(self):
+        inst = self.instantiate_from("../../fhir-parser/downloads/site/organization-example-lab.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+    
+        self.assertEqual(inst.identifier[0].system, "http://www.acme.org.au/units")
+        self.assertEqual(inst.identifier[0].value, "ClinLab")
+        self.assertEqual(inst.name, "Clinical Lab")
+        self.assertEqual(inst.telecom[0].system, "phone")
+        self.assertEqual(inst.telecom[0].use, "work")
+        self.assertEqual(inst.telecom[0].value, "+1 555 234 1234")
+        self.assertEqual(inst.telecom[1].system, "email")
+        self.assertEqual(inst.telecom[1].use, "work")
+        self.assertEqual(inst.telecom[1].value, "contact@labs.acme.org")
+        self.assertEqual(inst.text.div, "<div>\n      <p>Clinical Laboratory @ Acme Hospital. ph: +1 555 234 1234, email: <a href=\"mailto:contact@labs.acme.org\">contact@labs.acme.org</a></p>\n    </div>")
+        self.assertEqual(inst.text.status, "generated")
+
