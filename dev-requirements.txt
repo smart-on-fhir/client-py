@@ -1,4 +1,0 @@
-pretend
-pyopenssl
-pytest
-pytest-cov

@@ -9,7 +9,8 @@ Contributors
 
 The following wonderful people contributed directly or indirectly to this project:
 
-- `Josh Mandel <https://github.com/jmandel>`_
-- `Nikolai Schwertner <https://github.com/nschwertner>`_
+- Josh Mandel <https://github.com/jmandel>
+- Nikolai Schwertner <https://github.com/nschwertner>
+- Pascal Pfiffner <https://github.com/p2>
 
 Please add yourself here alphabetically when you submit your first pull request.
