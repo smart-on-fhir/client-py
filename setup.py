@@ -29,9 +29,8 @@ setup(
     name='fhirclient',
     version=find_version("fhirclient/client.py"),
     description='A flexible client for FHIR servers supporting the SMART on FHIR protocol',
-    long_description=(read('README.rst') + '\n\n' +
-                      read('HISTORY.rst') + '\n\n' +
-                      read('AUTHORS.rst')),
+    long_description=(read('README.md') + '\n\n' +
+                      read('AUTHORS.md')),
     url='https://github.com/smart-on-fhir/client-py/',
     license="APACHE2",
     author="SMART Platforms Team",
