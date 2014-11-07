@@ -4,7 +4,7 @@ import logging
 from fhirclient import client
 from fhirclient.models.medicationprescription import MedicationPrescription
 
-from flask import Flask, request, redirect, session, jsonify, abort
+from flask import Flask, request, redirect, session
 
 # app setup
 smart_defaults = {
@@ -15,14 +15,15 @@ smart_defaults = {
 
 app = Flask(__name__)
 
+def _save_state(state):
+    session['state'] = state
+
 def _get_smart():
     state = session.get('state')
     if state:
-        return client.FHIRClient(state=state)
-    return client.FHIRClient(settings=smart_defaults)
-
-def _save_smart(client):
-    session['state'] = client.state
+        return client.FHIRClient(state=state, save_func=_save_state)
+    else:
+        return client.FHIRClient(settings=smart_defaults, save_func=_save_state)
 
 def _logout():
     if 'state' in session:
@@ -65,7 +66,6 @@ def index():
         body += """<p><a href="/logout">Logout</a></p>""".format(name)
     else:
         body += """<p>Please <a href="{}">authorize</a>.</p>""".format(smart.authorize_url)
-    _save_smart(smart)      # calling `authorize_url` sets a new state, need to save client information. Automate?
     return body
 
 
@@ -76,7 +76,6 @@ def callback():
     smart = _get_smart()
     try:
         smart.handle_callback(request.url)
-        _save_smart(smart)
     except Exception as e:
         return """<h1>Authorization Error</h1><p>{}</p><p><a href="/">Start over</a></p>""".format(e)
     return redirect('/')

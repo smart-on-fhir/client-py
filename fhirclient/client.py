@@ -6,7 +6,6 @@ abspath = os.path.abspath(os.path.dirname(__file__))
 if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
-import requests
 from server import FHIRServer, FHIRUnauthorizedException
 from auth import FHIRAuth
 import models.patient as patient
@@ -18,7 +17,6 @@ __copyright__ = "Copyright 2014 Boston Children's Hospital"
 
 scope_default = 'user/*.* patient/*.read openid profile'
 scope_nolaunch = 'launch/patient'
-
 
 class FHIRClient(object):
     """ Instances of this class handle authorizing and talking to SMART on FHIR
@@ -32,7 +30,7 @@ class FHIRClient(object):
         - `redirect_uri`: The callback/redirect URL for your app, e.g. 'http://localhost:8000/fhir-app/' when testing locally
     """
     
-    def __init__(self, settings=None, state=None):
+    def __init__(self, settings=None, state=None, save_func=lambda x:x):
         self.app_id = None
         self.server = None
         self.auth = None
@@ -60,6 +58,8 @@ class FHIRClient(object):
         else:
             raise Exception("Must either supply settings or a state upon client initialization")
     
+        self._save_func = save_func
+        self.save_state()
     
     # MARK: Authorization
     
@@ -83,7 +83,9 @@ class FHIRClient(object):
     def authorize_url(self):
         """ The URL to use to receive an authorization token.
         """
-        return self.auth.authorize_url(self.server) if self.auth is not None else None
+        auth_url = self.auth.authorize_url(self.server) if self.auth is not None else None
+        self.save_state()
+        return auth_url
     
     def handle_callback(self, url):
         """ You can call this to have the client automatically handle the
@@ -93,7 +95,8 @@ class FHIRClient(object):
         """
         self.launch_context = self.auth.handle_callback(url, self.server)
         self._set_authorized(True)
-    
+        self.save_state()
+ 
     def reauthorize(self):
         """ Try to reauthorize with the server; handled by our `auth` instance.
         
@@ -183,3 +186,5 @@ class FHIRClient(object):
         if self.auth is not None and self.auth.access_token is not None:
             self.server.did_authorize(self.auth)
     
+    def save_state (self):
+        self._save_func(self.state)
