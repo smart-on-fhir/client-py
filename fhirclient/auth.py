@@ -17,27 +17,26 @@ class FHIRAuth(object):
     auth_classes = {}
     
     @classmethod
-    def register(cls, auth_type):
+    def register(cls):
         """ Register this class to handle authorization types of the given
         type. """
-        assert auth_type
-        if auth_type not in FHIRAuth.auth_classes:
-            FHIRAuth.auth_classes[auth_type] = cls
-        elif FHIRAuth.auth_classes[auth_type] != cls:
-            raise Exception('Class {} is already registered for authorization type "{}"'.format(FHIRAuth.auth_classes[auth_type], auth_type))
+        if not cls.auth_type:
+            raise Exception('Class {} does not specify the auth_type it supports'.format(cls))
+        if cls.auth_type not in FHIRAuth.auth_classes:
+            FHIRAuth.auth_classes[cls.auth_type] = cls
+        elif FHIRAuth.auth_classes[cls.auth_type] != cls:
+            raise Exception('Class {} is already registered for authorization type "{}"'.format(FHIRAuth.auth_classes[cls.auth_type], cls.auth_type))
     
     @classmethod
     def create(cls, auth_type, app_id, **kwargs):
         """ Factory method to create the correct subclass for the given
         authorization type. """
-        assert auth_type
-        if auth_type == 'none':
-            return FHIRAuth(app_id, **kwargs)
-        elif auth_type in FHIRAuth.auth_classes:
+        if not auth_type:
+            auth_type = 'none'
+        if auth_type in FHIRAuth.auth_classes:
             klass = FHIRAuth.auth_classes[auth_type]
-            return klass(app_id, **kwargs)
-        else:
-            raise Exception('No class registered for authorization type "{}"'.format(auth_type))
+            return klass(app_id=app_id, **kwargs)
+        raise Exception('No class registered for authorization type "{}"'.format(auth_type))
     
     def __init__(self, app_id, state=None, patient_id=None):
         self.app_id = app_id
@@ -48,14 +47,17 @@ class FHIRAuth(object):
         if state is not None:
             self.from_state(state)
     
-    def auth_type(cls):
-        return self.__class__.auth_type
-    
     @property
     def ready(self):
         """ Indicates whether the authorization part is ready to make
         resource requests. """
         return True
+    
+    def reset(self):
+        self.patient_id = None
+    
+    def can_sign_headers(self):
+        return False
     
     def authorize_url(self, server):
         """ Return the authorize URL to use against the given server. The
@@ -73,16 +75,13 @@ class FHIRAuth(object):
         """
         return None
     
-    def reset(self):
-        self.patient_id = None
-    
     
     # MARK: State
     
     @property
     def state(self):
         return {
-            'patient_id': self.patient_id
+            'patient_id': self.patient_id,
         }
     
     def from_state(self, state):
@@ -324,4 +323,5 @@ class FHIROAuth2Auth(FHIRAuth):
     
 
 # register classes
-FHIROAuth2Auth.register('oauth2')
+FHIRAuth.register()
+FHIROAuth2Auth.register()

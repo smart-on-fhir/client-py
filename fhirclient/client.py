@@ -56,9 +56,9 @@ class FHIRClient(object):
             redirect = settings.get('redirect_uri')
             patient_id = settings.get('patient_id')
             if patient_id:
-                self.auth = self._auth_for_type(auth_type, patient_id=patient_id)
+                self.auth = FHIRAuth.create(auth_type, app_id=self.app_id, patient_id=patient_id)
             else:
-                self.auth = self._auth_for_type(auth_type, scope=scope, redirect_uri=redirect)
+                self.auth = FHIRAuth.create(auth_type, app_id=self.app_id, scope=scope, redirect_uri=redirect)
         else:
             raise Exception("Must either supply settings or a state upon client initialization")
     
@@ -70,11 +70,6 @@ class FHIRClient(object):
     @property
     def auth_type(self):
         return self.auth.auth_type if self.auth else None
-    
-    def _auth_for_type(self, auth_type, **kwargs):
-        if auth_type is None:
-            auth_type = 'oauth2'
-        return FHIRAuth.create(auth_type, app_id=self.app_id, **kwargs)
     
     @property
     def ready(self):
@@ -186,8 +181,8 @@ class FHIRClient(object):
         self.app_id = state.get('app_id') or self.app_id
         self.launch_context = state.get('launch_context') or self.launch_context
         self.server = FHIRServer(state=state.get('server'))
-        self.auth = self._auth_for_type(state.get('auth_type'), state=state.get('auth'))
-        if self.auth is not None and self.auth.access_token is not None:
+        self.auth = FHIRAuth.create(state.get('auth_type'), app_id=self.app_id, state=state.get('auth'))
+        if self.auth is not None and self.auth.ready is not None:
             self.server.did_authorize(self.auth)
     
     def save_state (self):

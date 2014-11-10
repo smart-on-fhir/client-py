@@ -9,6 +9,7 @@ from flask import Flask, request, redirect, session
 # app setup
 smart_defaults = {
     'app_id': 'my_web_app',
+    'auth_type': 'oauth2',
     'api_base': 'https://fhir-api.smartplatforms.org',
     'redirect_uri': 'http://localhost:8000/fhir-app/',
 }
