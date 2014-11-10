@@ -26,7 +26,7 @@ class FHIRClient(object):
     
         - `app_id`: Your app/client-id, e.g. 'my_web_app'
         - `api_base`: The SMART service to connect to, e.g. 'https://fhir-api.smartplatforms.org'
-        - `auth_type`: The authorization type, supports "oauth2". Defaults to "oauth2" if omitted
+        - `auth_type`: The authorization type, supports "oauth2" and "none". Defaults to "oauth2" if omitted
         - `redirect_uri`: The callback/redirect URL for your app, e.g. 'http://localhost:8000/fhir-app/' when testing locally
     """
     
@@ -54,7 +54,11 @@ class FHIRClient(object):
             
             auth_type = settings.get('auth_type')
             redirect = settings.get('redirect_uri')
-            self.auth = self._auth_for_type(auth_type, scope=scope, redirect_uri=redirect)
+            patient_id = settings.get('patient_id')
+            if patient_id:
+                self.auth = self._auth_for_type(auth_type, patient_id=patient_id)
+            else:
+                self.auth = self._auth_for_type(auth_type, scope=scope, redirect_uri=redirect)
         else:
             raise Exception("Must either supply settings or a state upon client initialization")
     

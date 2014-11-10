@@ -31,16 +31,18 @@ class FHIRAuth(object):
         """ Factory method to create the correct subclass for the given
         authorization type. """
         assert auth_type
-        if auth_type in FHIRAuth.auth_classes:
+        if auth_type == 'none':
+            return FHIRAuth(app_id, **kwargs)
+        elif auth_type in FHIRAuth.auth_classes:
             klass = FHIRAuth.auth_classes[auth_type]
             return klass(app_id, **kwargs)
-        raise Exception('No class registered for authorization type "{}"'.format(auth_type))
+        else:
+            raise Exception('No class registered for authorization type "{}"'.format(auth_type))
     
-    
-    def __init__(self, app_id, state=None):
+    def __init__(self, app_id, state=None, patient_id=None):
         self.app_id = app_id
         
-        self.patient_id = None
+        self.patient_id = patient_id
         """ The currently active patient. """
         
         if state is not None:
@@ -80,7 +82,7 @@ class FHIRAuth(object):
     @property
     def state(self):
         return {
-            'patient_id': self.patient_id,
+            'patient_id': self.patient_id
         }
     
     def from_state(self, state):
