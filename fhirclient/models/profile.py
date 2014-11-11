@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (profile.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (profile.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -133,37 +133,37 @@ class Profile(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Profile, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = coding.Coding.with_json(jsondict['code'])
+            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'experimental' in jsondict:
             self.experimental = jsondict['experimental']
         if 'extensionDefn' in jsondict:
-            self.extensionDefn = ProfileExtensionDefn.with_json(jsondict['extensionDefn'])
+            self.extensionDefn = ProfileExtensionDefn.with_json_and_owner(jsondict['extensionDefn'], self)
         if 'fhirVersion' in jsondict:
             self.fhirVersion = jsondict['fhirVersion']
         if 'identifier' in jsondict:
             self.identifier = jsondict['identifier']
         if 'mapping' in jsondict:
-            self.mapping = ProfileMapping.with_json(jsondict['mapping'])
+            self.mapping = ProfileMapping.with_json_and_owner(jsondict['mapping'], self)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'publisher' in jsondict:
             self.publisher = jsondict['publisher']
         if 'query' in jsondict:
-            self.query = ProfileQuery.with_json(jsondict['query'])
+            self.query = ProfileQuery.with_json_and_owner(jsondict['query'], self)
         if 'requirements' in jsondict:
             self.requirements = jsondict['requirements']
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'structure' in jsondict:
-            self.structure = ProfileStructure.with_json(jsondict['structure'])
+            self.structure = ProfileStructure.with_json_and_owner(jsondict['structure'], self)
         if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'version' in jsondict:
             self.version = jsondict['version']
 
@@ -248,7 +248,7 @@ class ProfileStructure(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ProfileStructure, self).update_with_json(jsondict)
         if 'element' in jsondict:
-            self.element = ProfileStructureElement.with_json(jsondict['element'])
+            self.element = ProfileStructureElement.with_json_and_owner(jsondict['element'], self)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'publish' in jsondict:
@@ -256,7 +256,7 @@ class ProfileStructure(fhirelement.FHIRElement):
         if 'purpose' in jsondict:
             self.purpose = jsondict['purpose']
         if 'searchParam' in jsondict:
-            self.searchParam = ProfileStructureSearchParam.with_json(jsondict['searchParam'])
+            self.searchParam = ProfileStructureSearchParam.with_json_and_owner(jsondict['searchParam'], self)
         if 'type' in jsondict:
             self.type = jsondict['type']
 
@@ -296,7 +296,7 @@ class ProfileStructureElement(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ProfileStructureElement, self).update_with_json(jsondict)
         if 'definition' in jsondict:
-            self.definition = ProfileStructureElementDefinition.with_json(jsondict['definition'])
+            self.definition = ProfileStructureElementDefinition.with_json_and_owner(jsondict['definition'], self)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'path' in jsondict:
@@ -304,7 +304,7 @@ class ProfileStructureElement(fhirelement.FHIRElement):
         if 'representation' in jsondict:
             self.representation = jsondict['representation']
         if 'slicing' in jsondict:
-            self.slicing = ProfileStructureElementSlicing.with_json(jsondict['slicing'])
+            self.slicing = ProfileStructureElementSlicing.with_json_and_owner(jsondict['slicing'], self)
 
 
 class ProfileStructureElementSlicing(fhirelement.FHIRElement):
@@ -609,17 +609,17 @@ class ProfileStructureElementDefinition(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ProfileStructureElementDefinition, self).update_with_json(jsondict)
         if 'binding' in jsondict:
-            self.binding = ProfileStructureElementDefinitionBinding.with_json(jsondict['binding'])
+            self.binding = ProfileStructureElementDefinitionBinding.with_json_and_owner(jsondict['binding'], self)
         if 'comments' in jsondict:
             self.comments = jsondict['comments']
         if 'condition' in jsondict:
             self.condition = jsondict['condition']
         if 'constraint' in jsondict:
-            self.constraint = ProfileStructureElementDefinitionConstraint.with_json(jsondict['constraint'])
+            self.constraint = ProfileStructureElementDefinitionConstraint.with_json_and_owner(jsondict['constraint'], self)
         if 'exampleAddress' in jsondict:
-            self.exampleAddress = address.Address.with_json(jsondict['exampleAddress'])
+            self.exampleAddress = address.Address.with_json_and_owner(jsondict['exampleAddress'], self)
         if 'exampleAttachment' in jsondict:
-            self.exampleAttachment = attachment.Attachment.with_json(jsondict['exampleAttachment'])
+            self.exampleAttachment = attachment.Attachment.with_json_and_owner(jsondict['exampleAttachment'], self)
         if 'exampleBase64Binary' in jsondict:
             self.exampleBase64Binary = jsondict['exampleBase64Binary']
         if 'exampleBoolean' in jsondict:
@@ -627,37 +627,37 @@ class ProfileStructureElementDefinition(fhirelement.FHIRElement):
         if 'exampleCode' in jsondict:
             self.exampleCode = jsondict['exampleCode']
         if 'exampleCodeableConcept' in jsondict:
-            self.exampleCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['exampleCodeableConcept'])
+            self.exampleCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['exampleCodeableConcept'], self)
         if 'exampleCoding' in jsondict:
-            self.exampleCoding = coding.Coding.with_json(jsondict['exampleCoding'])
+            self.exampleCoding = coding.Coding.with_json_and_owner(jsondict['exampleCoding'], self)
         if 'exampleContact' in jsondict:
-            self.exampleContact = contact.Contact.with_json(jsondict['exampleContact'])
+            self.exampleContact = contact.Contact.with_json_and_owner(jsondict['exampleContact'], self)
         if 'exampleDate' in jsondict:
-            self.exampleDate = fhirdate.FHIRDate.with_json(jsondict['exampleDate'])
+            self.exampleDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['exampleDate'], self)
         if 'exampleDateTime' in jsondict:
-            self.exampleDateTime = fhirdate.FHIRDate.with_json(jsondict['exampleDateTime'])
+            self.exampleDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['exampleDateTime'], self)
         if 'exampleDecimal' in jsondict:
             self.exampleDecimal = jsondict['exampleDecimal']
         if 'exampleHumanName' in jsondict:
-            self.exampleHumanName = humanname.HumanName.with_json(jsondict['exampleHumanName'])
+            self.exampleHumanName = humanname.HumanName.with_json_and_owner(jsondict['exampleHumanName'], self)
         if 'exampleIdentifier' in jsondict:
-            self.exampleIdentifier = identifier.Identifier.with_json(jsondict['exampleIdentifier'])
+            self.exampleIdentifier = identifier.Identifier.with_json_and_owner(jsondict['exampleIdentifier'], self)
         if 'exampleInstant' in jsondict:
-            self.exampleInstant = fhirdate.FHIRDate.with_json(jsondict['exampleInstant'])
+            self.exampleInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['exampleInstant'], self)
         if 'exampleInteger' in jsondict:
             self.exampleInteger = jsondict['exampleInteger']
         if 'examplePeriod' in jsondict:
-            self.examplePeriod = period.Period.with_json(jsondict['examplePeriod'])
+            self.examplePeriod = period.Period.with_json_and_owner(jsondict['examplePeriod'], self)
         if 'exampleQuantity' in jsondict:
-            self.exampleQuantity = quantity.Quantity.with_json(jsondict['exampleQuantity'])
+            self.exampleQuantity = quantity.Quantity.with_json_and_owner(jsondict['exampleQuantity'], self)
         if 'exampleRange' in jsondict:
-            self.exampleRange = range.Range.with_json(jsondict['exampleRange'])
+            self.exampleRange = range.Range.with_json_and_owner(jsondict['exampleRange'], self)
         if 'exampleRatio' in jsondict:
-            self.exampleRatio = ratio.Ratio.with_json(jsondict['exampleRatio'])
+            self.exampleRatio = ratio.Ratio.with_json_and_owner(jsondict['exampleRatio'], self)
         if 'exampleResource' in jsondict:
-            self.exampleResource = fhirresource.FHIRResource.with_json(jsondict['exampleResource'])
+            self.exampleResource = fhirresource.FHIRResource.with_json_and_owner(jsondict['exampleResource'], self)
         if 'exampleSchedule' in jsondict:
-            self.exampleSchedule = schedule.Schedule.with_json(jsondict['exampleSchedule'])
+            self.exampleSchedule = schedule.Schedule.with_json_and_owner(jsondict['exampleSchedule'], self)
         if 'exampleString' in jsondict:
             self.exampleString = jsondict['exampleString']
         if 'exampleUri' in jsondict:
@@ -667,7 +667,7 @@ class ProfileStructureElementDefinition(fhirelement.FHIRElement):
         if 'isModifier' in jsondict:
             self.isModifier = jsondict['isModifier']
         if 'mapping' in jsondict:
-            self.mapping = ProfileStructureElementDefinitionMapping.with_json(jsondict['mapping'])
+            self.mapping = ProfileStructureElementDefinitionMapping.with_json_and_owner(jsondict['mapping'], self)
         if 'max' in jsondict:
             self.max = jsondict['max']
         if 'maxLength' in jsondict:
@@ -685,11 +685,11 @@ class ProfileStructureElementDefinition(fhirelement.FHIRElement):
         if 'synonym' in jsondict:
             self.synonym = jsondict['synonym']
         if 'type' in jsondict:
-            self.type = ProfileStructureElementDefinitionType.with_json(jsondict['type'])
+            self.type = ProfileStructureElementDefinitionType.with_json_and_owner(jsondict['type'], self)
         if 'valueAddress' in jsondict:
-            self.valueAddress = address.Address.with_json(jsondict['valueAddress'])
+            self.valueAddress = address.Address.with_json_and_owner(jsondict['valueAddress'], self)
         if 'valueAttachment' in jsondict:
-            self.valueAttachment = attachment.Attachment.with_json(jsondict['valueAttachment'])
+            self.valueAttachment = attachment.Attachment.with_json_and_owner(jsondict['valueAttachment'], self)
         if 'valueBase64Binary' in jsondict:
             self.valueBase64Binary = jsondict['valueBase64Binary']
         if 'valueBoolean' in jsondict:
@@ -697,37 +697,37 @@ class ProfileStructureElementDefinition(fhirelement.FHIRElement):
         if 'valueCode' in jsondict:
             self.valueCode = jsondict['valueCode']
         if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['valueCodeableConcept'])
+            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
         if 'valueCoding' in jsondict:
-            self.valueCoding = coding.Coding.with_json(jsondict['valueCoding'])
+            self.valueCoding = coding.Coding.with_json_and_owner(jsondict['valueCoding'], self)
         if 'valueContact' in jsondict:
-            self.valueContact = contact.Contact.with_json(jsondict['valueContact'])
+            self.valueContact = contact.Contact.with_json_and_owner(jsondict['valueContact'], self)
         if 'valueDate' in jsondict:
-            self.valueDate = fhirdate.FHIRDate.with_json(jsondict['valueDate'])
+            self.valueDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDate'], self)
         if 'valueDateTime' in jsondict:
-            self.valueDateTime = fhirdate.FHIRDate.with_json(jsondict['valueDateTime'])
+            self.valueDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDateTime'], self)
         if 'valueDecimal' in jsondict:
             self.valueDecimal = jsondict['valueDecimal']
         if 'valueHumanName' in jsondict:
-            self.valueHumanName = humanname.HumanName.with_json(jsondict['valueHumanName'])
+            self.valueHumanName = humanname.HumanName.with_json_and_owner(jsondict['valueHumanName'], self)
         if 'valueIdentifier' in jsondict:
-            self.valueIdentifier = identifier.Identifier.with_json(jsondict['valueIdentifier'])
+            self.valueIdentifier = identifier.Identifier.with_json_and_owner(jsondict['valueIdentifier'], self)
         if 'valueInstant' in jsondict:
-            self.valueInstant = fhirdate.FHIRDate.with_json(jsondict['valueInstant'])
+            self.valueInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueInstant'], self)
         if 'valueInteger' in jsondict:
             self.valueInteger = jsondict['valueInteger']
         if 'valuePeriod' in jsondict:
-            self.valuePeriod = period.Period.with_json(jsondict['valuePeriod'])
+            self.valuePeriod = period.Period.with_json_and_owner(jsondict['valuePeriod'], self)
         if 'valueQuantity' in jsondict:
-            self.valueQuantity = quantity.Quantity.with_json(jsondict['valueQuantity'])
+            self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
         if 'valueRange' in jsondict:
-            self.valueRange = range.Range.with_json(jsondict['valueRange'])
+            self.valueRange = range.Range.with_json_and_owner(jsondict['valueRange'], self)
         if 'valueRatio' in jsondict:
-            self.valueRatio = ratio.Ratio.with_json(jsondict['valueRatio'])
+            self.valueRatio = ratio.Ratio.with_json_and_owner(jsondict['valueRatio'], self)
         if 'valueResource' in jsondict:
-            self.valueResource = fhirresource.FHIRResource.with_json(jsondict['valueResource'])
+            self.valueResource = fhirresource.FHIRResource.with_json_and_owner(jsondict['valueResource'], self)
         if 'valueSchedule' in jsondict:
-            self.valueSchedule = schedule.Schedule.with_json(jsondict['valueSchedule'])
+            self.valueSchedule = schedule.Schedule.with_json_and_owner(jsondict['valueSchedule'], self)
         if 'valueString' in jsondict:
             self.valueString = jsondict['valueString']
         if 'valueUri' in jsondict:
@@ -986,7 +986,7 @@ class ProfileExtensionDefn(fhirelement.FHIRElement):
         if 'contextType' in jsondict:
             self.contextType = jsondict['contextType']
         if 'definition' in jsondict:
-            self.definition = ProfileExtensionDefnDefinition.with_json(jsondict['definition'])
+            self.definition = ProfileExtensionDefnDefinition.with_json_and_owner(jsondict['definition'], self)
         if 'display' in jsondict:
             self.display = jsondict['display']
 
@@ -1033,7 +1033,7 @@ class ProfileQuery(fhirelement.FHIRElement):
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'parameter' in jsondict:
-            self.parameter = ProfileQueryParameter.with_json(jsondict['parameter'])
+            self.parameter = ProfileQueryParameter.with_json_and_owner(jsondict['parameter'], self)
 
 
 class ProfileQueryParameter(fhirelement.FHIRElement):

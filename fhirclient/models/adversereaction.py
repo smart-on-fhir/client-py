@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (adversereaction.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (adversereaction.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -70,21 +70,21 @@ class AdverseReaction(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(AdverseReaction, self).update_with_json(jsondict)
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'didNotOccurFlag' in jsondict:
             self.didNotOccurFlag = jsondict['didNotOccurFlag']
         if 'exposure' in jsondict:
-            self.exposure = AdverseReactionExposure.with_json(jsondict['exposure'])
+            self.exposure = AdverseReactionExposure.with_json_and_owner(jsondict['exposure'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'recorder' in jsondict:
             self.recorder = fhirreference.FHIRReference.with_json_and_owner(jsondict['recorder'], self, practitioner.Practitioner)
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'symptom' in jsondict:
-            self.symptom = AdverseReactionSymptom.with_json(jsondict['symptom'])
+            self.symptom = AdverseReactionSymptom.with_json_and_owner(jsondict['symptom'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class AdverseReactionSymptom(fhirelement.FHIRElement):
@@ -110,7 +110,7 @@ class AdverseReactionSymptom(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(AdverseReactionSymptom, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'severity' in jsondict:
             self.severity = jsondict['severity']
 
@@ -148,7 +148,7 @@ class AdverseReactionExposure(fhirelement.FHIRElement):
         if 'causalityExpectation' in jsondict:
             self.causalityExpectation = jsondict['causalityExpectation']
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'substance' in jsondict:
             self.substance = fhirreference.FHIRReference.with_json_and_owner(jsondict['substance'], self, substance.Substance)
         if 'type' in jsondict:

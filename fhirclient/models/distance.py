@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Distance.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (type-Distance.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 

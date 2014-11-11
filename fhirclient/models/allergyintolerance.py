@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (allergyintolerance.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (allergyintolerance.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -111,11 +111,11 @@ class AllergyIntolerance(fhirresource.FHIRResource):
         if 'criticality' in jsondict:
             self.criticality = jsondict['criticality']
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'reaction' in jsondict:
             self.reaction = fhirreference.FHIRReference.with_json_and_owner(jsondict['reaction'], self, adversereaction.AdverseReaction)
         if 'recordedDate' in jsondict:
-            self.recordedDate = fhirdate.FHIRDate.with_json(jsondict['recordedDate'])
+            self.recordedDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['recordedDate'], self)
         if 'recorder' in jsondict:
             self.recorder = fhirreference.FHIRReference.with_json_and_owner(jsondict['recorder'], self, practitioner.Practitioner)
         if 'sensitivityTest' in jsondict:
@@ -129,5 +129,5 @@ class AllergyIntolerance(fhirresource.FHIRResource):
         if 'substance' in jsondict:
             self.substance = fhirreference.FHIRReference.with_json_and_owner(jsondict['substance'], self, substance.Substance)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 

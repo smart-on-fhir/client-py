@@ -14,7 +14,12 @@ class FHIRElement(object):
         self.extension = None
         self.modifierExtension = None
         self.contained = None
+        
         self._resolved = None
+        """ Dictionary of resolved resources. """
+        
+        self._owner = None
+        """ Points to the parent resource, if there is one. """
         
         if jsondict is not None:
             self.update_with_json(jsondict)
@@ -56,27 +61,55 @@ class FHIRElement(object):
             arr.append(cls(jsondict))
         return arr
     
+    @classmethod
+    def with_json_and_owner(cls, jsonobj, owner):
+        """ Instantiates by forwarding to `with_json()`, then remembers the
+        "owner" of the instantiated elements. The "owner" is the resource
+        containing the receiver and is used to resolve contained resources.
+        
+        :param dict jsonobj: Decoded JSON dictionary
+        :param FHIRElement owner: The owning parent
+        :returns: An instance or a list of instances created from JSON data
+        """
+        instance = cls.with_json(jsonobj)
+        if list == type(instance):
+            for inst in instance:
+                inst._owner = owner
+        else:
+            instance._owner = owner
+        
+        return instance
+    
     
     # MARK: Handling References
     
     def containedReference(self, refid):
         """ Returns the contained reference with the given id, if it exists.
         """
-        return self.contained.get(refid) if self.contained is not None else None
+        if self.contained and refid in self.contained:
+            return self.contained[refid]
+        return self._owner.containedReference(refid) if self._owner is not None else None
     
     def resolvedReference(self, refid):
         """ Returns the resolved reference with the given id, if it has been
         resolved already.
         """
-        return self._resolved[refid] if self._resolved is not None else None
+        if self._resolved and refid in self._resolved:
+            return self._resolved[refid]
+        return self._owner.resolvedReference(refid) if self._owner is not None else None
     
     def didResolveReference(self, refid, resolved):
         """ Called by FHIRResource when it resolves a reference. Stores the
-        resolved reference into the `_resolved` dictionary.
+        resolved reference into the `_resolved` dictionary of the topmost
+        owner.
         """
-        if self._resolved is not None:
+        if self._owner is not None:
+            self._owner.didResolveReference(refid, resolved)
+        elif self._resolved is not None:
+            print("DID RESOLVE")
             self._resolved[refid] = resolved
         else:
+            print("DID RESOLVE")
             self._resolved = {refid: resolved}
     
 

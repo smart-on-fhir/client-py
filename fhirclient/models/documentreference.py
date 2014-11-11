@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (xds-profile.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (xds-profile.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -142,31 +142,31 @@ class DocumentReference(fhirresource.FHIRResource):
         if 'author' in jsondict:
             self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'confidentiality' in jsondict:
-            self.confidentiality = codeableconcept.CodeableConcept.with_json(jsondict['confidentiality'])
+            self.confidentiality = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['confidentiality'], self)
         if 'context' in jsondict:
-            self.context = DocumentReferenceContext.with_json(jsondict['context'])
+            self.context = DocumentReferenceContext.with_json_and_owner(jsondict['context'], self)
         if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json(jsondict['created'])
+            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
         if 'custodian' in jsondict:
             self.custodian = fhirreference.FHIRReference.with_json_and_owner(jsondict['custodian'], self, organization.Organization)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'docStatus' in jsondict:
-            self.docStatus = codeableconcept.CodeableConcept.with_json(jsondict['docStatus'])
+            self.docStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['docStatus'], self)
         if 'format' in jsondict:
-            self.format = codeableconcept.CodeableConcept.with_json(jsondict['format'])
+            self.format = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['format'], self)
         if 'hash' in jsondict:
             self.hash = jsondict['hash']
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'indexed' in jsondict:
-            self.indexed = fhirdate.FHIRDate.with_json(jsondict['indexed'])
+            self.indexed = fhirdate.FHIRDate.with_json_and_owner(jsondict['indexed'], self)
         if 'klass' in jsondict:
-            self.klass = codeableconcept.CodeableConcept.with_json(jsondict['klass'])
+            self.klass = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['klass'], self)
         if 'location' in jsondict:
             self.location = jsondict['location']
         if 'masterIdentifier' in jsondict:
-            self.masterIdentifier = identifier.Identifier.with_json(jsondict['masterIdentifier'])
+            self.masterIdentifier = identifier.Identifier.with_json_and_owner(jsondict['masterIdentifier'], self)
         if 'mimeType' in jsondict:
             self.mimeType = jsondict['mimeType']
         if 'policyManager' in jsondict:
@@ -174,9 +174,9 @@ class DocumentReference(fhirresource.FHIRResource):
         if 'primaryLanguage' in jsondict:
             self.primaryLanguage = jsondict['primaryLanguage']
         if 'relatesTo' in jsondict:
-            self.relatesTo = DocumentReferenceRelatesTo.with_json(jsondict['relatesTo'])
+            self.relatesTo = DocumentReferenceRelatesTo.with_json_and_owner(jsondict['relatesTo'], self)
         if 'service' in jsondict:
-            self.service = DocumentReferenceService.with_json(jsondict['service'])
+            self.service = DocumentReferenceService.with_json_and_owner(jsondict['service'], self)
         if 'size' in jsondict:
             self.size = jsondict['size']
         if 'status' in jsondict:
@@ -184,11 +184,11 @@ class DocumentReference(fhirresource.FHIRResource):
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
 class DocumentReferenceRelatesTo(fhirelement.FHIRElement):
@@ -250,9 +250,9 @@ class DocumentReferenceService(fhirelement.FHIRElement):
         if 'address' in jsondict:
             self.address = jsondict['address']
         if 'parameter' in jsondict:
-            self.parameter = DocumentReferenceServiceParameter.with_json(jsondict['parameter'])
+            self.parameter = DocumentReferenceServiceParameter.with_json_and_owner(jsondict['parameter'], self)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
 class DocumentReferenceServiceParameter(fhirelement.FHIRElement):
@@ -312,9 +312,9 @@ class DocumentReferenceContext(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(DocumentReferenceContext, self).update_with_json(jsondict)
         if 'event' in jsondict:
-            self.event = codeableconcept.CodeableConcept.with_json(jsondict['event'])
+            self.event = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['event'], self)
         if 'facilityType' in jsondict:
-            self.facilityType = codeableconcept.CodeableConcept.with_json(jsondict['facilityType'])
+            self.facilityType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['facilityType'], self)
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
 

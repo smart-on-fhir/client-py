@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (messageheader.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (messageheader.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -100,27 +100,27 @@ class MessageHeader(fhirresource.FHIRResource):
         if 'data' in jsondict:
             self.data = fhirreference.FHIRReference.with_json_and_owner(jsondict['data'], self, fhirresource.FHIRResource)
         if 'destination' in jsondict:
-            self.destination = MessageHeaderDestination.with_json(jsondict['destination'])
+            self.destination = MessageHeaderDestination.with_json_and_owner(jsondict['destination'], self)
         if 'enterer' in jsondict:
             self.enterer = fhirreference.FHIRReference.with_json_and_owner(jsondict['enterer'], self, practitioner.Practitioner)
         if 'event' in jsondict:
-            self.event = coding.Coding.with_json(jsondict['event'])
+            self.event = coding.Coding.with_json_and_owner(jsondict['event'], self)
         if 'identifier' in jsondict:
             self.identifier = jsondict['identifier']
         if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json(jsondict['reason'])
+            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
         if 'receiver' in jsondict:
             self.receiver = fhirreference.FHIRReference.with_json_and_owner(jsondict['receiver'], self, practitioner.Practitioner)
         if 'response' in jsondict:
-            self.response = MessageHeaderResponse.with_json(jsondict['response'])
+            self.response = MessageHeaderResponse.with_json_and_owner(jsondict['response'], self)
         if 'responsible' in jsondict:
             self.responsible = fhirreference.FHIRReference.with_json_and_owner(jsondict['responsible'], self, practitioner.Practitioner)
         if 'source' in jsondict:
-            self.source = MessageHeaderSource.with_json(jsondict['source'])
+            self.source = MessageHeaderSource.with_json_and_owner(jsondict['source'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'timestamp' in jsondict:
-            self.timestamp = fhirdate.FHIRDate.with_json(jsondict['timestamp'])
+            self.timestamp = fhirdate.FHIRDate.with_json_and_owner(jsondict['timestamp'], self)
 
 
 class MessageHeaderResponse(fhirelement.FHIRElement):
@@ -193,7 +193,7 @@ class MessageHeaderSource(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MessageHeaderSource, self).update_with_json(jsondict)
         if 'contact' in jsondict:
-            self.contact = contact.Contact.with_json(jsondict['contact'])
+            self.contact = contact.Contact.with_json_and_owner(jsondict['contact'], self)
         if 'endpoint' in jsondict:
             self.endpoint = jsondict['endpoint']
         if 'name' in jsondict:

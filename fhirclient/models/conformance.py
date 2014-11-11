@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (conformance.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (conformance.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -161,11 +161,11 @@ class Conformance(fhirresource.FHIRResource):
         if 'acceptUnknown' in jsondict:
             self.acceptUnknown = jsondict['acceptUnknown']
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'document' in jsondict:
-            self.document = ConformanceDocument.with_json(jsondict['document'])
+            self.document = ConformanceDocument.with_json_and_owner(jsondict['document'], self)
         if 'experimental' in jsondict:
             self.experimental = jsondict['experimental']
         if 'fhirVersion' in jsondict:
@@ -175,9 +175,9 @@ class Conformance(fhirresource.FHIRResource):
         if 'identifier' in jsondict:
             self.identifier = jsondict['identifier']
         if 'implementation' in jsondict:
-            self.implementation = ConformanceImplementation.with_json(jsondict['implementation'])
+            self.implementation = ConformanceImplementation.with_json_and_owner(jsondict['implementation'], self)
         if 'messaging' in jsondict:
-            self.messaging = ConformanceMessaging.with_json(jsondict['messaging'])
+            self.messaging = ConformanceMessaging.with_json_and_owner(jsondict['messaging'], self)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'profile' in jsondict:
@@ -185,15 +185,15 @@ class Conformance(fhirresource.FHIRResource):
         if 'publisher' in jsondict:
             self.publisher = jsondict['publisher']
         if 'rest' in jsondict:
-            self.rest = ConformanceRest.with_json(jsondict['rest'])
+            self.rest = ConformanceRest.with_json_and_owner(jsondict['rest'], self)
         if 'software' in jsondict:
-            self.software = ConformanceSoftware.with_json(jsondict['software'])
+            self.software = ConformanceSoftware.with_json_and_owner(jsondict['software'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'version' in jsondict:
             self.version = jsondict['version']
 
@@ -229,7 +229,7 @@ class ConformanceSoftware(fhirelement.FHIRElement):
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'releaseDate' in jsondict:
-            self.releaseDate = fhirdate.FHIRDate.with_json(jsondict['releaseDate'])
+            self.releaseDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['releaseDate'], self)
         if 'version' in jsondict:
             self.version = jsondict['version']
 
@@ -313,13 +313,13 @@ class ConformanceRest(fhirelement.FHIRElement):
         if 'mode' in jsondict:
             self.mode = jsondict['mode']
         if 'operation' in jsondict:
-            self.operation = ConformanceRestOperation.with_json(jsondict['operation'])
+            self.operation = ConformanceRestOperation.with_json_and_owner(jsondict['operation'], self)
         if 'query' in jsondict:
-            self.query = ConformanceRestQuery.with_json(jsondict['query'])
+            self.query = ConformanceRestQuery.with_json_and_owner(jsondict['query'], self)
         if 'resource' in jsondict:
-            self.resource = ConformanceRestResource.with_json(jsondict['resource'])
+            self.resource = ConformanceRestResource.with_json_and_owner(jsondict['resource'], self)
         if 'security' in jsondict:
-            self.security = ConformanceRestSecurity.with_json(jsondict['security'])
+            self.security = ConformanceRestSecurity.with_json_and_owner(jsondict['security'], self)
 
 
 class ConformanceRestSecurity(fhirelement.FHIRElement):
@@ -351,13 +351,13 @@ class ConformanceRestSecurity(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ConformanceRestSecurity, self).update_with_json(jsondict)
         if 'certificate' in jsondict:
-            self.certificate = ConformanceRestSecurityCertificate.with_json(jsondict['certificate'])
+            self.certificate = ConformanceRestSecurityCertificate.with_json_and_owner(jsondict['certificate'], self)
         if 'cors' in jsondict:
             self.cors = jsondict['cors']
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'service' in jsondict:
-            self.service = codeableconcept.CodeableConcept.with_json(jsondict['service'])
+            self.service = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['service'], self)
 
 
 class ConformanceRestSecurityCertificate(fhirelement.FHIRElement):
@@ -430,7 +430,7 @@ class ConformanceRestResource(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ConformanceRestResource, self).update_with_json(jsondict)
         if 'operation' in jsondict:
-            self.operation = ConformanceRestResourceOperation.with_json(jsondict['operation'])
+            self.operation = ConformanceRestResourceOperation.with_json_and_owner(jsondict['operation'], self)
         if 'profile' in jsondict:
             self.profile = fhirreference.FHIRReference.with_json_and_owner(jsondict['profile'], self, profile.Profile)
         if 'readHistory' in jsondict:
@@ -438,7 +438,7 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         if 'searchInclude' in jsondict:
             self.searchInclude = jsondict['searchInclude']
         if 'searchParam' in jsondict:
-            self.searchParam = ConformanceRestResourceSearchParam.with_json(jsondict['searchParam'])
+            self.searchParam = ConformanceRestResourceSearchParam.with_json_and_owner(jsondict['searchParam'], self)
         if 'type' in jsondict:
             self.type = jsondict['type']
         if 'updateCreate' in jsondict:
@@ -592,7 +592,7 @@ class ConformanceRestQuery(fhirelement.FHIRElement):
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'parameter' in jsondict:
-            self.parameter = ConformanceRestQueryParameter.with_json(jsondict['parameter'])
+            self.parameter = ConformanceRestQueryParameter.with_json_and_owner(jsondict['parameter'], self)
 
 
 class ConformanceRestQueryParameter(fhirelement.FHIRElement):
@@ -643,7 +643,7 @@ class ConformanceMessaging(fhirelement.FHIRElement):
         if 'endpoint' in jsondict:
             self.endpoint = jsondict['endpoint']
         if 'event' in jsondict:
-            self.event = ConformanceMessagingEvent.with_json(jsondict['event'])
+            self.event = ConformanceMessagingEvent.with_json_and_owner(jsondict['event'], self)
         if 'reliableCache' in jsondict:
             self.reliableCache = jsondict['reliableCache']
 
@@ -697,7 +697,7 @@ class ConformanceMessagingEvent(fhirelement.FHIRElement):
         if 'category' in jsondict:
             self.category = jsondict['category']
         if 'code' in jsondict:
-            self.code = coding.Coding.with_json(jsondict['code'])
+            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
         if 'documentation' in jsondict:
             self.documentation = jsondict['documentation']
         if 'focus' in jsondict:
@@ -705,7 +705,7 @@ class ConformanceMessagingEvent(fhirelement.FHIRElement):
         if 'mode' in jsondict:
             self.mode = jsondict['mode']
         if 'protocol' in jsondict:
-            self.protocol = coding.Coding.with_json(jsondict['protocol'])
+            self.protocol = coding.Coding.with_json_and_owner(jsondict['protocol'], self)
         if 'request' in jsondict:
             self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self, profile.Profile)
         if 'response' in jsondict:

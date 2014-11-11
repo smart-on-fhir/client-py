@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (immunizationrecommendation.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (immunizationrecommendation.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -61,13 +61,13 @@ class ImmunizationRecommendation(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(ImmunizationRecommendation, self).update_with_json(jsondict)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'recommendation' in jsondict:
-            self.recommendation = ImmunizationRecommendationRecommendation.with_json(jsondict['recommendation'])
+            self.recommendation = ImmunizationRecommendationRecommendation.with_json_and_owner(jsondict['recommendation'], self)
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class ImmunizationRecommendationRecommendation(fhirelement.FHIRElement):
@@ -115,21 +115,21 @@ class ImmunizationRecommendationRecommendation(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ImmunizationRecommendationRecommendation, self).update_with_json(jsondict)
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'dateCriterion' in jsondict:
-            self.dateCriterion = ImmunizationRecommendationRecommendationDateCriterion.with_json(jsondict['dateCriterion'])
+            self.dateCriterion = ImmunizationRecommendationRecommendationDateCriterion.with_json_and_owner(jsondict['dateCriterion'], self)
         if 'doseNumber' in jsondict:
             self.doseNumber = jsondict['doseNumber']
         if 'forecastStatus' in jsondict:
-            self.forecastStatus = codeableconcept.CodeableConcept.with_json(jsondict['forecastStatus'])
+            self.forecastStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['forecastStatus'], self)
         if 'protocol' in jsondict:
-            self.protocol = ImmunizationRecommendationRecommendationProtocol.with_json(jsondict['protocol'])
+            self.protocol = ImmunizationRecommendationRecommendationProtocol.with_json_and_owner(jsondict['protocol'], self)
         if 'supportingImmunization' in jsondict:
             self.supportingImmunization = fhirreference.FHIRReference.with_json_and_owner(jsondict['supportingImmunization'], self, immunization.Immunization)
         if 'supportingPatientInformation' in jsondict:
             self.supportingPatientInformation = fhirreference.FHIRReference.with_json_and_owner(jsondict['supportingPatientInformation'], self, observation.Observation)
         if 'vaccineType' in jsondict:
-            self.vaccineType = codeableconcept.CodeableConcept.with_json(jsondict['vaccineType'])
+            self.vaccineType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['vaccineType'], self)
 
 
 class ImmunizationRecommendationRecommendationDateCriterion(fhirelement.FHIRElement):
@@ -156,9 +156,9 @@ class ImmunizationRecommendationRecommendationDateCriterion(fhirelement.FHIRElem
     def update_with_json(self, jsondict):
         super(ImmunizationRecommendationRecommendationDateCriterion, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'value' in jsondict:
-            self.value = fhirdate.FHIRDate.with_json(jsondict['value'])
+            self.value = fhirdate.FHIRDate.with_json_and_owner(jsondict['value'], self)
 
 
 class ImmunizationRecommendationRecommendationProtocol(fhirelement.FHIRElement):

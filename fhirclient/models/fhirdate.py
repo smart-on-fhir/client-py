@@ -46,3 +46,10 @@ class FHIRDate(object):
             arr.append(cls(jsonval))
         return arr
     
+    @classmethod
+    def with_json_and_owner(cls, jsonobj, owner):
+        """ Added for compatibility reasons to FHIRElement; "owner" is
+        discarded.
+        """
+        return cls.with_json(jsonobj)
+    

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (media.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (media.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -110,9 +110,9 @@ class Media(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Media, self).update_with_json(jsondict)
         if 'content' in jsondict:
-            self.content = attachment.Attachment.with_json(jsondict['content'])
+            self.content = attachment.Attachment.with_json_and_owner(jsondict['content'], self)
         if 'dateTime' in jsondict:
-            self.dateTime = fhirdate.FHIRDate.with_json(jsondict['dateTime'])
+            self.dateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateTime'], self)
         if 'deviceName' in jsondict:
             self.deviceName = jsondict['deviceName']
         if 'frames' in jsondict:
@@ -120,7 +120,7 @@ class Media(fhirresource.FHIRResource):
         if 'height' in jsondict:
             self.height = jsondict['height']
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'length' in jsondict:
             self.length = jsondict['length']
         if 'operator' in jsondict:
@@ -128,13 +128,13 @@ class Media(fhirresource.FHIRResource):
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'subtype' in jsondict:
-            self.subtype = codeableconcept.CodeableConcept.with_json(jsondict['subtype'])
+            self.subtype = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['subtype'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'type' in jsondict:
             self.type = jsondict['type']
         if 'view' in jsondict:
-            self.view = codeableconcept.CodeableConcept.with_json(jsondict['view'])
+            self.view = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['view'], self)
         if 'width' in jsondict:
             self.width = jsondict['width']
 

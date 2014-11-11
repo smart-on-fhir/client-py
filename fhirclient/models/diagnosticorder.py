@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (diagnosticorder.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (diagnosticorder.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -103,11 +103,11 @@ class DiagnosticOrder(fhirresource.FHIRResource):
         if 'encounter' in jsondict:
             self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
         if 'event' in jsondict:
-            self.event = DiagnosticOrderEvent.with_json(jsondict['event'])
+            self.event = DiagnosticOrderEvent.with_json_and_owner(jsondict['event'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'item' in jsondict:
-            self.item = DiagnosticOrderItem.with_json(jsondict['item'])
+            self.item = DiagnosticOrderItem.with_json_and_owner(jsondict['item'], self)
         if 'orderer' in jsondict:
             self.orderer = fhirreference.FHIRReference.with_json_and_owner(jsondict['orderer'], self, practitioner.Practitioner)
         if 'priority' in jsondict:
@@ -119,7 +119,7 @@ class DiagnosticOrder(fhirresource.FHIRResource):
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class DiagnosticOrderEvent(fhirelement.FHIRElement):
@@ -158,9 +158,9 @@ class DiagnosticOrderEvent(fhirelement.FHIRElement):
         if 'actor' in jsondict:
             self.actor = fhirreference.FHIRReference.with_json_and_owner(jsondict['actor'], self, practitioner.Practitioner)
         if 'dateTime' in jsondict:
-            self.dateTime = fhirdate.FHIRDate.with_json(jsondict['dateTime'])
+            self.dateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateTime'], self)
         if 'description' in jsondict:
-            self.description = codeableconcept.CodeableConcept.with_json(jsondict['description'])
+            self.description = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['description'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
 
@@ -203,11 +203,11 @@ class DiagnosticOrderItem(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(DiagnosticOrderItem, self).update_with_json(jsondict)
         if 'bodySite' in jsondict:
-            self.bodySite = codeableconcept.CodeableConcept.with_json(jsondict['bodySite'])
+            self.bodySite = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySite'], self)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'event' in jsondict:
-            self.event = DiagnosticOrderItemEvent.with_json(jsondict['event'])
+            self.event = DiagnosticOrderItemEvent.with_json_and_owner(jsondict['event'], self)
         if 'specimen' in jsondict:
             self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, specimen.Specimen)
         if 'status' in jsondict:

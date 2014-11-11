@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (condition.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (condition.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -141,47 +141,47 @@ class Condition(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Condition, self).update_with_json(jsondict)
         if 'abatementAge' in jsondict:
-            self.abatementAge = age.Age.with_json(jsondict['abatementAge'])
+            self.abatementAge = age.Age.with_json_and_owner(jsondict['abatementAge'], self)
         if 'abatementBoolean' in jsondict:
             self.abatementBoolean = jsondict['abatementBoolean']
         if 'abatementDate' in jsondict:
-            self.abatementDate = fhirdate.FHIRDate.with_json(jsondict['abatementDate'])
+            self.abatementDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['abatementDate'], self)
         if 'asserter' in jsondict:
             self.asserter = fhirreference.FHIRReference.with_json_and_owner(jsondict['asserter'], self, practitioner.Practitioner)
         if 'category' in jsondict:
-            self.category = codeableconcept.CodeableConcept.with_json(jsondict['category'])
+            self.category = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['category'], self)
         if 'certainty' in jsondict:
-            self.certainty = codeableconcept.CodeableConcept.with_json(jsondict['certainty'])
+            self.certainty = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['certainty'], self)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'dateAsserted' in jsondict:
-            self.dateAsserted = fhirdate.FHIRDate.with_json(jsondict['dateAsserted'])
+            self.dateAsserted = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateAsserted'], self)
         if 'encounter' in jsondict:
             self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
         if 'evidence' in jsondict:
-            self.evidence = ConditionEvidence.with_json(jsondict['evidence'])
+            self.evidence = ConditionEvidence.with_json_and_owner(jsondict['evidence'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'location' in jsondict:
-            self.location = ConditionLocation.with_json(jsondict['location'])
+            self.location = ConditionLocation.with_json_and_owner(jsondict['location'], self)
         if 'notes' in jsondict:
             self.notes = jsondict['notes']
         if 'onsetAge' in jsondict:
-            self.onsetAge = age.Age.with_json(jsondict['onsetAge'])
+            self.onsetAge = age.Age.with_json_and_owner(jsondict['onsetAge'], self)
         if 'onsetDate' in jsondict:
-            self.onsetDate = fhirdate.FHIRDate.with_json(jsondict['onsetDate'])
+            self.onsetDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['onsetDate'], self)
         if 'relatedItem' in jsondict:
-            self.relatedItem = ConditionRelatedItem.with_json(jsondict['relatedItem'])
+            self.relatedItem = ConditionRelatedItem.with_json_and_owner(jsondict['relatedItem'], self)
         if 'severity' in jsondict:
-            self.severity = codeableconcept.CodeableConcept.with_json(jsondict['severity'])
+            self.severity = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['severity'], self)
         if 'stage' in jsondict:
-            self.stage = ConditionStage.with_json(jsondict['stage'])
+            self.stage = ConditionStage.with_json_and_owner(jsondict['stage'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class ConditionStage(fhirelement.FHIRElement):
@@ -210,7 +210,7 @@ class ConditionStage(fhirelement.FHIRElement):
         if 'assessment' in jsondict:
             self.assessment = fhirreference.FHIRReference.with_json_and_owner(jsondict['assessment'], self, fhirresource.FHIRResource)
         if 'summary' in jsondict:
-            self.summary = codeableconcept.CodeableConcept.with_json(jsondict['summary'])
+            self.summary = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['summary'], self)
 
 
 class ConditionEvidence(fhirelement.FHIRElement):
@@ -237,7 +237,7 @@ class ConditionEvidence(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ConditionEvidence, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'detail' in jsondict:
             self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self, fhirresource.FHIRResource)
 
@@ -265,7 +265,7 @@ class ConditionLocation(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ConditionLocation, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'detail' in jsondict:
             self.detail = jsondict['detail']
 
@@ -299,7 +299,7 @@ class ConditionRelatedItem(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ConditionRelatedItem, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'target' in jsondict:
             self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, Condition)
         if 'type' in jsondict:

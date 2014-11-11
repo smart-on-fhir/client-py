@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-SampledData.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (type-SampledData.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -60,7 +60,7 @@ class SampledData(fhirelement.FHIRElement):
         if 'lowerLimit' in jsondict:
             self.lowerLimit = jsondict['lowerLimit']
         if 'origin' in jsondict:
-            self.origin = quantity.Quantity.with_json(jsondict['origin'])
+            self.origin = quantity.Quantity.with_json_and_owner(jsondict['origin'], self)
         if 'period' in jsondict:
             self.period = jsondict['period']
         if 'upperLimit' in jsondict:

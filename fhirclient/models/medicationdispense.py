@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (medicationdispense.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (medicationdispense.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -78,19 +78,19 @@ class MedicationDispense(fhirresource.FHIRResource):
         if 'authorizingPrescription' in jsondict:
             self.authorizingPrescription = fhirreference.FHIRReference.with_json_and_owner(jsondict['authorizingPrescription'], self, medicationprescription.MedicationPrescription)
         if 'dispense' in jsondict:
-            self.dispense = MedicationDispenseDispense.with_json(jsondict['dispense'])
+            self.dispense = MedicationDispenseDispense.with_json_and_owner(jsondict['dispense'], self)
         if 'dispenser' in jsondict:
             self.dispenser = fhirreference.FHIRReference.with_json_and_owner(jsondict['dispenser'], self, practitioner.Practitioner)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'patient' in jsondict:
             self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'substitution' in jsondict:
-            self.substitution = MedicationDispenseSubstitution.with_json(jsondict['substitution'])
+            self.substitution = MedicationDispenseSubstitution.with_json_and_owner(jsondict['substitution'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class MedicationDispenseDispense(fhirelement.FHIRElement):
@@ -151,23 +151,23 @@ class MedicationDispenseDispense(fhirelement.FHIRElement):
         if 'destination' in jsondict:
             self.destination = fhirreference.FHIRReference.with_json_and_owner(jsondict['destination'], self, location.Location)
         if 'dosage' in jsondict:
-            self.dosage = MedicationDispenseDispenseDosage.with_json(jsondict['dosage'])
+            self.dosage = MedicationDispenseDispenseDosage.with_json_and_owner(jsondict['dosage'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'medication' in jsondict:
             self.medication = fhirreference.FHIRReference.with_json_and_owner(jsondict['medication'], self, medication.Medication)
         if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json(jsondict['quantity'])
+            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
         if 'receiver' in jsondict:
             self.receiver = fhirreference.FHIRReference.with_json_and_owner(jsondict['receiver'], self, patient.Patient)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
         if 'whenHandedOver' in jsondict:
-            self.whenHandedOver = fhirdate.FHIRDate.with_json(jsondict['whenHandedOver'])
+            self.whenHandedOver = fhirdate.FHIRDate.with_json_and_owner(jsondict['whenHandedOver'], self)
         if 'whenPrepared' in jsondict:
-            self.whenPrepared = fhirdate.FHIRDate.with_json(jsondict['whenPrepared'])
+            self.whenPrepared = fhirdate.FHIRDate.with_json_and_owner(jsondict['whenPrepared'], self)
 
 
 class MedicationDispenseDispenseDosage(fhirelement.FHIRElement):
@@ -233,29 +233,29 @@ class MedicationDispenseDispenseDosage(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MedicationDispenseDispenseDosage, self).update_with_json(jsondict)
         if 'additionalInstructions' in jsondict:
-            self.additionalInstructions = codeableconcept.CodeableConcept.with_json(jsondict['additionalInstructions'])
+            self.additionalInstructions = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['additionalInstructions'], self)
         if 'asNeededBoolean' in jsondict:
             self.asNeededBoolean = jsondict['asNeededBoolean']
         if 'asNeededCodeableConcept' in jsondict:
-            self.asNeededCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['asNeededCodeableConcept'])
+            self.asNeededCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['asNeededCodeableConcept'], self)
         if 'maxDosePerPeriod' in jsondict:
-            self.maxDosePerPeriod = ratio.Ratio.with_json(jsondict['maxDosePerPeriod'])
+            self.maxDosePerPeriod = ratio.Ratio.with_json_and_owner(jsondict['maxDosePerPeriod'], self)
         if 'method' in jsondict:
-            self.method = codeableconcept.CodeableConcept.with_json(jsondict['method'])
+            self.method = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['method'], self)
         if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json(jsondict['quantity'])
+            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
         if 'rate' in jsondict:
-            self.rate = ratio.Ratio.with_json(jsondict['rate'])
+            self.rate = ratio.Ratio.with_json_and_owner(jsondict['rate'], self)
         if 'route' in jsondict:
-            self.route = codeableconcept.CodeableConcept.with_json(jsondict['route'])
+            self.route = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['route'], self)
         if 'site' in jsondict:
-            self.site = codeableconcept.CodeableConcept.with_json(jsondict['site'])
+            self.site = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['site'], self)
         if 'timingDateTime' in jsondict:
-            self.timingDateTime = fhirdate.FHIRDate.with_json(jsondict['timingDateTime'])
+            self.timingDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['timingDateTime'], self)
         if 'timingPeriod' in jsondict:
-            self.timingPeriod = period.Period.with_json(jsondict['timingPeriod'])
+            self.timingPeriod = period.Period.with_json_and_owner(jsondict['timingPeriod'], self)
         if 'timingSchedule' in jsondict:
-            self.timingSchedule = schedule.Schedule.with_json(jsondict['timingSchedule'])
+            self.timingSchedule = schedule.Schedule.with_json_and_owner(jsondict['timingSchedule'], self)
 
 
 class MedicationDispenseSubstitution(fhirelement.FHIRElement):
@@ -288,9 +288,9 @@ class MedicationDispenseSubstitution(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MedicationDispenseSubstitution, self).update_with_json(jsondict)
         if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json(jsondict['reason'])
+            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
         if 'responsibleParty' in jsondict:
             self.responsibleParty = fhirreference.FHIRReference.with_json_and_owner(jsondict['responsibleParty'], self, practitioner.Practitioner)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 

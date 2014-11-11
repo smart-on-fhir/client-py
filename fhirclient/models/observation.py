@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (observation.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (observation.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -153,29 +153,29 @@ class Observation(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Observation, self).update_with_json(jsondict)
         if 'appliesDateTime' in jsondict:
-            self.appliesDateTime = fhirdate.FHIRDate.with_json(jsondict['appliesDateTime'])
+            self.appliesDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['appliesDateTime'], self)
         if 'appliesPeriod' in jsondict:
-            self.appliesPeriod = period.Period.with_json(jsondict['appliesPeriod'])
+            self.appliesPeriod = period.Period.with_json_and_owner(jsondict['appliesPeriod'], self)
         if 'bodySite' in jsondict:
-            self.bodySite = codeableconcept.CodeableConcept.with_json(jsondict['bodySite'])
+            self.bodySite = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySite'], self)
         if 'comments' in jsondict:
             self.comments = jsondict['comments']
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'interpretation' in jsondict:
-            self.interpretation = codeableconcept.CodeableConcept.with_json(jsondict['interpretation'])
+            self.interpretation = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['interpretation'], self)
         if 'issued' in jsondict:
-            self.issued = fhirdate.FHIRDate.with_json(jsondict['issued'])
+            self.issued = fhirdate.FHIRDate.with_json_and_owner(jsondict['issued'], self)
         if 'method' in jsondict:
-            self.method = codeableconcept.CodeableConcept.with_json(jsondict['method'])
+            self.method = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['method'], self)
         if 'name' in jsondict:
-            self.name = codeableconcept.CodeableConcept.with_json(jsondict['name'])
+            self.name = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['name'], self)
         if 'performer' in jsondict:
             self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self, practitioner.Practitioner)
         if 'referenceRange' in jsondict:
-            self.referenceRange = ObservationReferenceRange.with_json(jsondict['referenceRange'])
+            self.referenceRange = ObservationReferenceRange.with_json_and_owner(jsondict['referenceRange'], self)
         if 'related' in jsondict:
-            self.related = ObservationRelated.with_json(jsondict['related'])
+            self.related = ObservationRelated.with_json_and_owner(jsondict['related'], self)
         if 'reliability' in jsondict:
             self.reliability = jsondict['reliability']
         if 'specimen' in jsondict:
@@ -185,19 +185,19 @@ class Observation(fhirresource.FHIRResource):
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'valueAttachment' in jsondict:
-            self.valueAttachment = attachment.Attachment.with_json(jsondict['valueAttachment'])
+            self.valueAttachment = attachment.Attachment.with_json_and_owner(jsondict['valueAttachment'], self)
         if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['valueCodeableConcept'])
+            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
         if 'valuePeriod' in jsondict:
-            self.valuePeriod = period.Period.with_json(jsondict['valuePeriod'])
+            self.valuePeriod = period.Period.with_json_and_owner(jsondict['valuePeriod'], self)
         if 'valueQuantity' in jsondict:
-            self.valueQuantity = quantity.Quantity.with_json(jsondict['valueQuantity'])
+            self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
         if 'valueRatio' in jsondict:
-            self.valueRatio = ratio.Ratio.with_json(jsondict['valueRatio'])
+            self.valueRatio = ratio.Ratio.with_json_and_owner(jsondict['valueRatio'], self)
         if 'valueSampledData' in jsondict:
-            self.valueSampledData = sampleddata.SampledData.with_json(jsondict['valueSampledData'])
+            self.valueSampledData = sampleddata.SampledData.with_json_and_owner(jsondict['valueSampledData'], self)
         if 'valueString' in jsondict:
             self.valueString = jsondict['valueString']
 
@@ -234,13 +234,13 @@ class ObservationReferenceRange(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ObservationReferenceRange, self).update_with_json(jsondict)
         if 'age' in jsondict:
-            self.age = range.Range.with_json(jsondict['age'])
+            self.age = range.Range.with_json_and_owner(jsondict['age'], self)
         if 'high' in jsondict:
-            self.high = quantity.Quantity.with_json(jsondict['high'])
+            self.high = quantity.Quantity.with_json_and_owner(jsondict['high'], self)
         if 'low' in jsondict:
-            self.low = quantity.Quantity.with_json(jsondict['low'])
+            self.low = quantity.Quantity.with_json_and_owner(jsondict['low'], self)
         if 'meaning' in jsondict:
-            self.meaning = codeableconcept.CodeableConcept.with_json(jsondict['meaning'])
+            self.meaning = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['meaning'], self)
 
 
 class ObservationRelated(fhirelement.FHIRElement):

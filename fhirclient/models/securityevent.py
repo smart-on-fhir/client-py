@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (securityevent.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (securityevent.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -61,15 +61,15 @@ class SecurityEvent(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(SecurityEvent, self).update_with_json(jsondict)
         if 'event' in jsondict:
-            self.event = SecurityEventEvent.with_json(jsondict['event'])
+            self.event = SecurityEventEvent.with_json_and_owner(jsondict['event'], self)
         if 'object' in jsondict:
-            self.object = SecurityEventObject.with_json(jsondict['object'])
+            self.object = SecurityEventObject.with_json_and_owner(jsondict['object'], self)
         if 'participant' in jsondict:
-            self.participant = SecurityEventParticipant.with_json(jsondict['participant'])
+            self.participant = SecurityEventParticipant.with_json_and_owner(jsondict['participant'], self)
         if 'source' in jsondict:
-            self.source = SecurityEventSource.with_json(jsondict['source'])
+            self.source = SecurityEventSource.with_json_and_owner(jsondict['source'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class SecurityEventEvent(fhirelement.FHIRElement):
@@ -114,15 +114,15 @@ class SecurityEventEvent(fhirelement.FHIRElement):
         if 'action' in jsondict:
             self.action = jsondict['action']
         if 'dateTime' in jsondict:
-            self.dateTime = fhirdate.FHIRDate.with_json(jsondict['dateTime'])
+            self.dateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateTime'], self)
         if 'outcome' in jsondict:
             self.outcome = jsondict['outcome']
         if 'outcomeDesc' in jsondict:
             self.outcomeDesc = jsondict['outcomeDesc']
         if 'subtype' in jsondict:
-            self.subtype = codeableconcept.CodeableConcept.with_json(jsondict['subtype'])
+            self.subtype = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['subtype'], self)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
 class SecurityEventParticipant(fhirelement.FHIRElement):
@@ -172,17 +172,17 @@ class SecurityEventParticipant(fhirelement.FHIRElement):
         if 'altId' in jsondict:
             self.altId = jsondict['altId']
         if 'media' in jsondict:
-            self.media = coding.Coding.with_json(jsondict['media'])
+            self.media = coding.Coding.with_json_and_owner(jsondict['media'], self)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'network' in jsondict:
-            self.network = SecurityEventParticipantNetwork.with_json(jsondict['network'])
+            self.network = SecurityEventParticipantNetwork.with_json_and_owner(jsondict['network'], self)
         if 'reference' in jsondict:
             self.reference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reference'], self, practitioner.Practitioner)
         if 'requestor' in jsondict:
             self.requestor = jsondict['requestor']
         if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json(jsondict['role'])
+            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
         if 'userId' in jsondict:
             self.userId = jsondict['userId']
 
@@ -245,7 +245,7 @@ class SecurityEventSource(fhirelement.FHIRElement):
         if 'site' in jsondict:
             self.site = jsondict['site']
         if 'type' in jsondict:
-            self.type = coding.Coding.with_json(jsondict['type'])
+            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
 
 
 class SecurityEventObject(fhirelement.FHIRElement):
@@ -303,9 +303,9 @@ class SecurityEventObject(fhirelement.FHIRElement):
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'detail' in jsondict:
-            self.detail = SecurityEventObjectDetail.with_json(jsondict['detail'])
+            self.detail = SecurityEventObjectDetail.with_json_and_owner(jsondict['detail'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'lifecycle' in jsondict:
             self.lifecycle = jsondict['lifecycle']
         if 'name' in jsondict:
@@ -317,7 +317,7 @@ class SecurityEventObject(fhirelement.FHIRElement):
         if 'role' in jsondict:
             self.role = jsondict['role']
         if 'sensitivity' in jsondict:
-            self.sensitivity = codeableconcept.CodeableConcept.with_json(jsondict['sensitivity'])
+            self.sensitivity = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['sensitivity'], self)
         if 'type' in jsondict:
             self.type = jsondict['type']
 

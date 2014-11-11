@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (encounter.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (encounter.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -128,27 +128,27 @@ class Encounter(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Encounter, self).update_with_json(jsondict)
         if 'hospitalization' in jsondict:
-            self.hospitalization = EncounterHospitalization.with_json(jsondict['hospitalization'])
+            self.hospitalization = EncounterHospitalization.with_json_and_owner(jsondict['hospitalization'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'indication' in jsondict:
             self.indication = fhirreference.FHIRReference.with_json_and_owner(jsondict['indication'], self, fhirresource.FHIRResource)
         if 'klass' in jsondict:
             self.klass = jsondict['klass']
         if 'length' in jsondict:
-            self.length = duration.Duration.with_json(jsondict['length'])
+            self.length = duration.Duration.with_json_and_owner(jsondict['length'], self)
         if 'location' in jsondict:
-            self.location = EncounterLocation.with_json(jsondict['location'])
+            self.location = EncounterLocation.with_json_and_owner(jsondict['location'], self)
         if 'partOf' in jsondict:
             self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self, Encounter)
         if 'participant' in jsondict:
-            self.participant = EncounterParticipant.with_json(jsondict['participant'])
+            self.participant = EncounterParticipant.with_json_and_owner(jsondict['participant'], self)
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
         if 'priority' in jsondict:
-            self.priority = codeableconcept.CodeableConcept.with_json(jsondict['priority'])
+            self.priority = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['priority'], self)
         if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json(jsondict['reason'])
+            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
         if 'serviceProvider' in jsondict:
             self.serviceProvider = fhirreference.FHIRReference.with_json_and_owner(jsondict['serviceProvider'], self, organization.Organization)
         if 'status' in jsondict:
@@ -156,9 +156,9 @@ class Encounter(fhirresource.FHIRResource):
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
 class EncounterParticipant(fhirelement.FHIRElement):
@@ -186,7 +186,7 @@ class EncounterParticipant(fhirelement.FHIRElement):
         if 'individual' in jsondict:
             self.individual = fhirreference.FHIRReference.with_json_and_owner(jsondict['individual'], self, practitioner.Practitioner)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
 class EncounterHospitalization(fhirelement.FHIRElement):
@@ -251,29 +251,29 @@ class EncounterHospitalization(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(EncounterHospitalization, self).update_with_json(jsondict)
         if 'accomodation' in jsondict:
-            self.accomodation = EncounterHospitalizationAccomodation.with_json(jsondict['accomodation'])
+            self.accomodation = EncounterHospitalizationAccomodation.with_json_and_owner(jsondict['accomodation'], self)
         if 'admitSource' in jsondict:
-            self.admitSource = codeableconcept.CodeableConcept.with_json(jsondict['admitSource'])
+            self.admitSource = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['admitSource'], self)
         if 'destination' in jsondict:
             self.destination = fhirreference.FHIRReference.with_json_and_owner(jsondict['destination'], self, location.Location)
         if 'diet' in jsondict:
-            self.diet = codeableconcept.CodeableConcept.with_json(jsondict['diet'])
+            self.diet = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['diet'], self)
         if 'dischargeDiagnosis' in jsondict:
             self.dischargeDiagnosis = fhirreference.FHIRReference.with_json_and_owner(jsondict['dischargeDiagnosis'], self, fhirresource.FHIRResource)
         if 'dischargeDisposition' in jsondict:
-            self.dischargeDisposition = codeableconcept.CodeableConcept.with_json(jsondict['dischargeDisposition'])
+            self.dischargeDisposition = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['dischargeDisposition'], self)
         if 'origin' in jsondict:
             self.origin = fhirreference.FHIRReference.with_json_and_owner(jsondict['origin'], self, location.Location)
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
         if 'preAdmissionIdentifier' in jsondict:
-            self.preAdmissionIdentifier = identifier.Identifier.with_json(jsondict['preAdmissionIdentifier'])
+            self.preAdmissionIdentifier = identifier.Identifier.with_json_and_owner(jsondict['preAdmissionIdentifier'], self)
         if 'reAdmission' in jsondict:
             self.reAdmission = jsondict['reAdmission']
         if 'specialArrangement' in jsondict:
-            self.specialArrangement = codeableconcept.CodeableConcept.with_json(jsondict['specialArrangement'])
+            self.specialArrangement = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['specialArrangement'], self)
         if 'specialCourtesy' in jsondict:
-            self.specialCourtesy = codeableconcept.CodeableConcept.with_json(jsondict['specialCourtesy'])
+            self.specialCourtesy = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['specialCourtesy'], self)
 
 
 class EncounterHospitalizationAccomodation(fhirelement.FHIRElement):
@@ -299,7 +299,7 @@ class EncounterHospitalizationAccomodation(fhirelement.FHIRElement):
         if 'bed' in jsondict:
             self.bed = fhirreference.FHIRReference.with_json_and_owner(jsondict['bed'], self, location.Location)
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
 
 
 class EncounterLocation(fhirelement.FHIRElement):
@@ -327,5 +327,5 @@ class EncounterLocation(fhirelement.FHIRElement):
         if 'location' in jsondict:
             self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
 

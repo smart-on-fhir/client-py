@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (documentmanifest.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (documentmanifest.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -96,17 +96,17 @@ class DocumentManifest(fhirresource.FHIRResource):
         if 'author' in jsondict:
             self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'confidentiality' in jsondict:
-            self.confidentiality = codeableconcept.CodeableConcept.with_json(jsondict['confidentiality'])
+            self.confidentiality = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['confidentiality'], self)
         if 'content' in jsondict:
             self.content = fhirreference.FHIRReference.with_json_and_owner(jsondict['content'], self, documentreference.DocumentReference)
         if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json(jsondict['created'])
+            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'masterIdentifier' in jsondict:
-            self.masterIdentifier = identifier.Identifier.with_json(jsondict['masterIdentifier'])
+            self.masterIdentifier = identifier.Identifier.with_json_and_owner(jsondict['masterIdentifier'], self)
         if 'recipient' in jsondict:
             self.recipient = fhirreference.FHIRReference.with_json_and_owner(jsondict['recipient'], self, patient.Patient)
         if 'source' in jsondict:
@@ -118,7 +118,7 @@ class DocumentManifest(fhirresource.FHIRResource):
         if 'supercedes' in jsondict:
             self.supercedes = fhirreference.FHIRReference.with_json_and_owner(jsondict['supercedes'], self, DocumentManifest)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 

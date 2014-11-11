@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (device.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (device.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -100,11 +100,11 @@ class Device(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Device, self).update_with_json(jsondict)
         if 'contact' in jsondict:
-            self.contact = contact.Contact.with_json(jsondict['contact'])
+            self.contact = contact.Contact.with_json_and_owner(jsondict['contact'], self)
         if 'expiry' in jsondict:
-            self.expiry = fhirdate.FHIRDate.with_json(jsondict['expiry'])
+            self.expiry = fhirdate.FHIRDate.with_json_and_owner(jsondict['expiry'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'location' in jsondict:
             self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
         if 'lotNumber' in jsondict:
@@ -118,9 +118,9 @@ class Device(fhirresource.FHIRResource):
         if 'patient' in jsondict:
             self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
         if 'udi' in jsondict:
             self.udi = jsondict['udi']
         if 'url' in jsondict:

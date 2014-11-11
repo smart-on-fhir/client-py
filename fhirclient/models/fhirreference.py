@@ -12,8 +12,9 @@ class FHIRReference(resourcereference.ResourceReference):
     """
     
     def __init__(self, jsondict=None):
-        self._owner = None
         self._referenced_class = None
+        """ The class/resource this reference is resolving to. """
+        
         super(FHIRReference, self).__init__(jsondict)
     
     @classmethod

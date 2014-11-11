@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (location.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (location.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -99,11 +99,11 @@ class Location(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Location, self).update_with_json(jsondict)
         if 'address' in jsondict:
-            self.address = address.Address.with_json(jsondict['address'])
+            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'managingOrganization' in jsondict:
             self.managingOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self, organization.Organization)
         if 'mode' in jsondict:
@@ -113,17 +113,17 @@ class Location(fhirresource.FHIRResource):
         if 'partOf' in jsondict:
             self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self, Location)
         if 'physicalType' in jsondict:
-            self.physicalType = codeableconcept.CodeableConcept.with_json(jsondict['physicalType'])
+            self.physicalType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['physicalType'], self)
         if 'position' in jsondict:
-            self.position = LocationPosition.with_json(jsondict['position'])
+            self.position = LocationPosition.with_json_and_owner(jsondict['position'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
 class LocationPosition(fhirelement.FHIRElement):

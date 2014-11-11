@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Identifier.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (type-Identifier.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -54,7 +54,7 @@ class Identifier(fhirelement.FHIRElement):
         if 'label' in jsondict:
             self.label = jsondict['label']
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
         if 'system' in jsondict:
             self.system = jsondict['system']
         if 'use' in jsondict:

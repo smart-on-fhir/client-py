@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (group.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (group.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -83,11 +83,11 @@ class Group(fhirresource.FHIRResource):
         if 'actual' in jsondict:
             self.actual = jsondict['actual']
         if 'characteristic' in jsondict:
-            self.characteristic = GroupCharacteristic.with_json(jsondict['characteristic'])
+            self.characteristic = GroupCharacteristic.with_json_and_owner(jsondict['characteristic'], self)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'member' in jsondict:
             self.member = fhirreference.FHIRReference.with_json_and_owner(jsondict['member'], self, patient.Patient)
         if 'name' in jsondict:
@@ -95,7 +95,7 @@ class Group(fhirresource.FHIRResource):
         if 'quantity' in jsondict:
             self.quantity = jsondict['quantity']
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'type' in jsondict:
             self.type = jsondict['type']
 
@@ -139,15 +139,15 @@ class GroupCharacteristic(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(GroupCharacteristic, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'exclude' in jsondict:
             self.exclude = jsondict['exclude']
         if 'valueBoolean' in jsondict:
             self.valueBoolean = jsondict['valueBoolean']
         if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['valueCodeableConcept'])
+            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
         if 'valueQuantity' in jsondict:
-            self.valueQuantity = quantity.Quantity.with_json(jsondict['valueQuantity'])
+            self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
         if 'valueRange' in jsondict:
-            self.valueRange = range.Range.with_json(jsondict['valueRange'])
+            self.valueRange = range.Range.with_json_and_owner(jsondict['valueRange'], self)
 

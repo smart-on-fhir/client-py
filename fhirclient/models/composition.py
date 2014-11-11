@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (composition.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (composition.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -108,35 +108,35 @@ class Composition(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Composition, self).update_with_json(jsondict)
         if 'attester' in jsondict:
-            self.attester = CompositionAttester.with_json(jsondict['attester'])
+            self.attester = CompositionAttester.with_json_and_owner(jsondict['attester'], self)
         if 'author' in jsondict:
             self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'confidentiality' in jsondict:
-            self.confidentiality = coding.Coding.with_json(jsondict['confidentiality'])
+            self.confidentiality = coding.Coding.with_json_and_owner(jsondict['confidentiality'], self)
         if 'custodian' in jsondict:
             self.custodian = fhirreference.FHIRReference.with_json_and_owner(jsondict['custodian'], self, organization.Organization)
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'encounter' in jsondict:
             self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
         if 'event' in jsondict:
-            self.event = CompositionEvent.with_json(jsondict['event'])
+            self.event = CompositionEvent.with_json_and_owner(jsondict['event'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'klass' in jsondict:
-            self.klass = codeableconcept.CodeableConcept.with_json(jsondict['klass'])
+            self.klass = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['klass'], self)
         if 'section' in jsondict:
-            self.section = CompositionSection.with_json(jsondict['section'])
+            self.section = CompositionSection.with_json_and_owner(jsondict['section'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'title' in jsondict:
             self.title = jsondict['title']
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
 class CompositionAttester(fhirelement.FHIRElement):
@@ -170,7 +170,7 @@ class CompositionAttester(fhirelement.FHIRElement):
         if 'party' in jsondict:
             self.party = fhirreference.FHIRReference.with_json_and_owner(jsondict['party'], self, patient.Patient)
         if 'time' in jsondict:
-            self.time = fhirdate.FHIRDate.with_json(jsondict['time'])
+            self.time = fhirdate.FHIRDate.with_json_and_owner(jsondict['time'], self)
 
 
 class CompositionEvent(fhirelement.FHIRElement):
@@ -201,11 +201,11 @@ class CompositionEvent(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(CompositionEvent, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'detail' in jsondict:
             self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self, fhirresource.FHIRResource)
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
 
 
 class CompositionSection(fhirelement.FHIRElement):
@@ -243,11 +243,11 @@ class CompositionSection(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(CompositionSection, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'content' in jsondict:
             self.content = fhirreference.FHIRReference.with_json_and_owner(jsondict['content'], self, fhirresource.FHIRResource)
         if 'section' in jsondict:
-            self.section = CompositionSectionSection.with_json(jsondict['section'])
+            self.section = CompositionSectionSection.with_json_and_owner(jsondict['section'], self)
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'title' in jsondict:

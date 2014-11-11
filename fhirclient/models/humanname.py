@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-HumanName.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (type-HumanName.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -56,7 +56,7 @@ class HumanName(fhirelement.FHIRElement):
         if 'given' in jsondict:
             self.given = jsondict['given']
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
         if 'prefix' in jsondict:
             self.prefix = jsondict['prefix']
         if 'suffix' in jsondict:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Period.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (type-Period.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -32,7 +32,7 @@ class Period(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(Period, self).update_with_json(jsondict)
         if 'end' in jsondict:
-            self.end = fhirdate.FHIRDate.with_json(jsondict['end'])
+            self.end = fhirdate.FHIRDate.with_json_and_owner(jsondict['end'], self)
         if 'start' in jsondict:
-            self.start = fhirdate.FHIRDate.with_json(jsondict['start'])
+            self.start = fhirdate.FHIRDate.with_json_and_owner(jsondict['start'], self)
 

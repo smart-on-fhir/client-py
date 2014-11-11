@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (procedure.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (procedure.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -107,35 +107,35 @@ class Procedure(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Procedure, self).update_with_json(jsondict)
         if 'bodySite' in jsondict:
-            self.bodySite = codeableconcept.CodeableConcept.with_json(jsondict['bodySite'])
+            self.bodySite = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySite'], self)
         if 'complication' in jsondict:
-            self.complication = codeableconcept.CodeableConcept.with_json(jsondict['complication'])
+            self.complication = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['complication'], self)
         if 'date' in jsondict:
-            self.date = period.Period.with_json(jsondict['date'])
+            self.date = period.Period.with_json_and_owner(jsondict['date'], self)
         if 'encounter' in jsondict:
             self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
         if 'followUp' in jsondict:
             self.followUp = jsondict['followUp']
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'indication' in jsondict:
-            self.indication = codeableconcept.CodeableConcept.with_json(jsondict['indication'])
+            self.indication = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['indication'], self)
         if 'notes' in jsondict:
             self.notes = jsondict['notes']
         if 'outcome' in jsondict:
             self.outcome = jsondict['outcome']
         if 'performer' in jsondict:
-            self.performer = ProcedurePerformer.with_json(jsondict['performer'])
+            self.performer = ProcedurePerformer.with_json_and_owner(jsondict['performer'], self)
         if 'relatedItem' in jsondict:
-            self.relatedItem = ProcedureRelatedItem.with_json(jsondict['relatedItem'])
+            self.relatedItem = ProcedureRelatedItem.with_json_and_owner(jsondict['relatedItem'], self)
         if 'report' in jsondict:
             self.report = fhirreference.FHIRReference.with_json_and_owner(jsondict['report'], self, diagnosticreport.DiagnosticReport)
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
 class ProcedurePerformer(fhirelement.FHIRElement):
@@ -163,7 +163,7 @@ class ProcedurePerformer(fhirelement.FHIRElement):
         if 'person' in jsondict:
             self.person = fhirreference.FHIRReference.with_json_and_owner(jsondict['person'], self, practitioner.Practitioner)
         if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json(jsondict['role'])
+            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
 
 
 class ProcedureRelatedItem(fhirelement.FHIRElement):

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Extension.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (type-Extension.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -135,9 +135,9 @@ class Extension(fhirelement.FHIRElement):
         if 'url' in jsondict:
             self.url = jsondict['url']
         if 'valueAddress' in jsondict:
-            self.valueAddress = address.Address.with_json(jsondict['valueAddress'])
+            self.valueAddress = address.Address.with_json_and_owner(jsondict['valueAddress'], self)
         if 'valueAttachment' in jsondict:
-            self.valueAttachment = attachment.Attachment.with_json(jsondict['valueAttachment'])
+            self.valueAttachment = attachment.Attachment.with_json_and_owner(jsondict['valueAttachment'], self)
         if 'valueBase64Binary' in jsondict:
             self.valueBase64Binary = jsondict['valueBase64Binary']
         if 'valueBoolean' in jsondict:
@@ -145,37 +145,37 @@ class Extension(fhirelement.FHIRElement):
         if 'valueCode' in jsondict:
             self.valueCode = jsondict['valueCode']
         if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['valueCodeableConcept'])
+            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
         if 'valueCoding' in jsondict:
-            self.valueCoding = coding.Coding.with_json(jsondict['valueCoding'])
+            self.valueCoding = coding.Coding.with_json_and_owner(jsondict['valueCoding'], self)
         if 'valueContact' in jsondict:
-            self.valueContact = contact.Contact.with_json(jsondict['valueContact'])
+            self.valueContact = contact.Contact.with_json_and_owner(jsondict['valueContact'], self)
         if 'valueDate' in jsondict:
-            self.valueDate = fhirdate.FHIRDate.with_json(jsondict['valueDate'])
+            self.valueDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDate'], self)
         if 'valueDateTime' in jsondict:
-            self.valueDateTime = fhirdate.FHIRDate.with_json(jsondict['valueDateTime'])
+            self.valueDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDateTime'], self)
         if 'valueDecimal' in jsondict:
             self.valueDecimal = jsondict['valueDecimal']
         if 'valueHumanName' in jsondict:
-            self.valueHumanName = humanname.HumanName.with_json(jsondict['valueHumanName'])
+            self.valueHumanName = humanname.HumanName.with_json_and_owner(jsondict['valueHumanName'], self)
         if 'valueIdentifier' in jsondict:
-            self.valueIdentifier = identifier.Identifier.with_json(jsondict['valueIdentifier'])
+            self.valueIdentifier = identifier.Identifier.with_json_and_owner(jsondict['valueIdentifier'], self)
         if 'valueInstant' in jsondict:
-            self.valueInstant = fhirdate.FHIRDate.with_json(jsondict['valueInstant'])
+            self.valueInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueInstant'], self)
         if 'valueInteger' in jsondict:
             self.valueInteger = jsondict['valueInteger']
         if 'valuePeriod' in jsondict:
-            self.valuePeriod = period.Period.with_json(jsondict['valuePeriod'])
+            self.valuePeriod = period.Period.with_json_and_owner(jsondict['valuePeriod'], self)
         if 'valueQuantity' in jsondict:
-            self.valueQuantity = quantity.Quantity.with_json(jsondict['valueQuantity'])
+            self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
         if 'valueRange' in jsondict:
-            self.valueRange = range.Range.with_json(jsondict['valueRange'])
+            self.valueRange = range.Range.with_json_and_owner(jsondict['valueRange'], self)
         if 'valueRatio' in jsondict:
-            self.valueRatio = ratio.Ratio.with_json(jsondict['valueRatio'])
+            self.valueRatio = ratio.Ratio.with_json_and_owner(jsondict['valueRatio'], self)
         if 'valueResource' in jsondict:
-            self.valueResource = fhirresource.FHIRResource.with_json(jsondict['valueResource'])
+            self.valueResource = fhirresource.FHIRResource.with_json_and_owner(jsondict['valueResource'], self)
         if 'valueSchedule' in jsondict:
-            self.valueSchedule = schedule.Schedule.with_json(jsondict['valueSchedule'])
+            self.valueSchedule = schedule.Schedule.with_json_and_owner(jsondict['valueSchedule'], self)
         if 'valueString' in jsondict:
             self.valueString = jsondict['valueString']
         if 'valueUri' in jsondict:

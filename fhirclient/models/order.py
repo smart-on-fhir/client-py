@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (order.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (order.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -97,13 +97,13 @@ class Order(fhirresource.FHIRResource):
         if 'authority' in jsondict:
             self.authority = fhirreference.FHIRReference.with_json_and_owner(jsondict['authority'], self, fhirresource.FHIRResource)
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'detail' in jsondict:
             self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self, fhirresource.FHIRResource)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'reasonCodeableConcept' in jsondict:
-            self.reasonCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['reasonCodeableConcept'])
+            self.reasonCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonCodeableConcept'], self)
         if 'reasonResource' in jsondict:
             self.reasonResource = fhirreference.FHIRReference.with_json_and_owner(jsondict['reasonResource'], self, fhirresource.FHIRResource)
         if 'source' in jsondict:
@@ -113,9 +113,9 @@ class Order(fhirresource.FHIRResource):
         if 'target' in jsondict:
             self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, organization.Organization)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'when' in jsondict:
-            self.when = OrderWhen.with_json(jsondict['when'])
+            self.when = OrderWhen.with_json_and_owner(jsondict['when'], self)
 
 
 class OrderWhen(fhirelement.FHIRElement):
@@ -140,7 +140,7 @@ class OrderWhen(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(OrderWhen, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'schedule' in jsondict:
-            self.schedule = schedule.Schedule.with_json(jsondict['schedule'])
+            self.schedule = schedule.Schedule.with_json_and_owner(jsondict['schedule'], self)
 

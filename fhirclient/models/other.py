@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (other.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (other.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -84,13 +84,13 @@ class Other(fhirresource.FHIRResource):
         if 'author' in jsondict:
             self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json(jsondict['created'])
+            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, fhirresource.FHIRResource)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 

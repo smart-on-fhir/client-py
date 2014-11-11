@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (orderresponse.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (orderresponse.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -79,23 +79,23 @@ class OrderResponse(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(OrderResponse, self).update_with_json(jsondict)
         if 'authorityCodeableConcept' in jsondict:
-            self.authorityCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['authorityCodeableConcept'])
+            self.authorityCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['authorityCodeableConcept'], self)
         if 'authorityResource' in jsondict:
             self.authorityResource = fhirreference.FHIRReference.with_json_and_owner(jsondict['authorityResource'], self, fhirresource.FHIRResource)
         if 'code' in jsondict:
             self.code = jsondict['code']
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'fulfillment' in jsondict:
             self.fulfillment = fhirreference.FHIRReference.with_json_and_owner(jsondict['fulfillment'], self, fhirresource.FHIRResource)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'request' in jsondict:
             self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self, order.Order)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'who' in jsondict:
             self.who = fhirreference.FHIRReference.with_json_and_owner(jsondict['who'], self, practitioner.Practitioner)
 

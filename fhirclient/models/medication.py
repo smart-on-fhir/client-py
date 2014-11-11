@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (medication.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (medication.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -94,7 +94,7 @@ class Medication(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Medication, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'isBrand' in jsondict:
             self.isBrand = jsondict['isBrand']
         if 'kind' in jsondict:
@@ -104,11 +104,11 @@ class Medication(fhirresource.FHIRResource):
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'package' in jsondict:
-            self.package = MedicationPackage.with_json(jsondict['package'])
+            self.package = MedicationPackage.with_json_and_owner(jsondict['package'], self)
         if 'product' in jsondict:
-            self.product = MedicationProduct.with_json(jsondict['product'])
+            self.product = MedicationProduct.with_json_and_owner(jsondict['product'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class MedicationProduct(fhirelement.FHIRElement):
@@ -134,9 +134,9 @@ class MedicationProduct(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MedicationProduct, self).update_with_json(jsondict)
         if 'form' in jsondict:
-            self.form = codeableconcept.CodeableConcept.with_json(jsondict['form'])
+            self.form = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['form'], self)
         if 'ingredient' in jsondict:
-            self.ingredient = MedicationProductIngredient.with_json(jsondict['ingredient'])
+            self.ingredient = MedicationProductIngredient.with_json_and_owner(jsondict['ingredient'], self)
 
 
 class MedicationProductIngredient(fhirelement.FHIRElement):
@@ -162,7 +162,7 @@ class MedicationProductIngredient(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MedicationProductIngredient, self).update_with_json(jsondict)
         if 'amount' in jsondict:
-            self.amount = ratio.Ratio.with_json(jsondict['amount'])
+            self.amount = ratio.Ratio.with_json_and_owner(jsondict['amount'], self)
         if 'item' in jsondict:
             self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self, substance.Substance)
 
@@ -190,9 +190,9 @@ class MedicationPackage(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MedicationPackage, self).update_with_json(jsondict)
         if 'container' in jsondict:
-            self.container = codeableconcept.CodeableConcept.with_json(jsondict['container'])
+            self.container = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['container'], self)
         if 'content' in jsondict:
-            self.content = MedicationPackageContent.with_json(jsondict['content'])
+            self.content = MedicationPackageContent.with_json_and_owner(jsondict['content'], self)
 
 
 class MedicationPackageContent(fhirelement.FHIRElement):
@@ -218,7 +218,7 @@ class MedicationPackageContent(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(MedicationPackageContent, self).update_with_json(jsondict)
         if 'amount' in jsondict:
-            self.amount = quantity.Quantity.with_json(jsondict['amount'])
+            self.amount = quantity.Quantity.with_json_and_owner(jsondict['amount'], self)
         if 'item' in jsondict:
             self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self, Medication)
 

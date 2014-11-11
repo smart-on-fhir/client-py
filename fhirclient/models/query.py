@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (query.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (query.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -49,11 +49,11 @@ class Query(fhirresource.FHIRResource):
         if 'identifier' in jsondict:
             self.identifier = jsondict['identifier']
         if 'parameter' in jsondict:
-            self.parameter = extension.Extension.with_json(jsondict['parameter'])
+            self.parameter = extension.Extension.with_json_and_owner(jsondict['parameter'], self)
         if 'response' in jsondict:
-            self.response = QueryResponse.with_json(jsondict['response'])
+            self.response = QueryResponse.with_json_and_owner(jsondict['response'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class QueryResponse(fhirelement.FHIRElement):
@@ -105,19 +105,19 @@ class QueryResponse(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(QueryResponse, self).update_with_json(jsondict)
         if 'first' in jsondict:
-            self.first = extension.Extension.with_json(jsondict['first'])
+            self.first = extension.Extension.with_json_and_owner(jsondict['first'], self)
         if 'identifier' in jsondict:
             self.identifier = jsondict['identifier']
         if 'last' in jsondict:
-            self.last = extension.Extension.with_json(jsondict['last'])
+            self.last = extension.Extension.with_json_and_owner(jsondict['last'], self)
         if 'next' in jsondict:
-            self.next = extension.Extension.with_json(jsondict['next'])
+            self.next = extension.Extension.with_json_and_owner(jsondict['next'], self)
         if 'outcome' in jsondict:
             self.outcome = jsondict['outcome']
         if 'parameter' in jsondict:
-            self.parameter = extension.Extension.with_json(jsondict['parameter'])
+            self.parameter = extension.Extension.with_json_and_owner(jsondict['parameter'], self)
         if 'previous' in jsondict:
-            self.previous = extension.Extension.with_json(jsondict['previous'])
+            self.previous = extension.Extension.with_json_and_owner(jsondict['previous'], self)
         if 'reference' in jsondict:
             self.reference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reference'], self, fhirresource.FHIRResource)
         if 'total' in jsondict:

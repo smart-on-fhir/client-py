@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (provenance.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (provenance.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -87,25 +87,25 @@ class Provenance(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Provenance, self).update_with_json(jsondict)
         if 'agent' in jsondict:
-            self.agent = ProvenanceAgent.with_json(jsondict['agent'])
+            self.agent = ProvenanceAgent.with_json_and_owner(jsondict['agent'], self)
         if 'entity' in jsondict:
-            self.entity = ProvenanceEntity.with_json(jsondict['entity'])
+            self.entity = ProvenanceEntity.with_json_and_owner(jsondict['entity'], self)
         if 'integritySignature' in jsondict:
             self.integritySignature = jsondict['integritySignature']
         if 'location' in jsondict:
             self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
         if 'policy' in jsondict:
             self.policy = jsondict['policy']
         if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json(jsondict['reason'])
+            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
         if 'recorded' in jsondict:
-            self.recorded = fhirdate.FHIRDate.with_json(jsondict['recorded'])
+            self.recorded = fhirdate.FHIRDate.with_json_and_owner(jsondict['recorded'], self)
         if 'target' in jsondict:
             self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, fhirresource.FHIRResource)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class ProvenanceAgent(fhirelement.FHIRElement):
@@ -146,9 +146,9 @@ class ProvenanceAgent(fhirelement.FHIRElement):
         if 'reference' in jsondict:
             self.reference = jsondict['reference']
         if 'role' in jsondict:
-            self.role = coding.Coding.with_json(jsondict['role'])
+            self.role = coding.Coding.with_json_and_owner(jsondict['role'], self)
         if 'type' in jsondict:
-            self.type = coding.Coding.with_json(jsondict['type'])
+            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
 
 
 class ProvenanceEntity(fhirelement.FHIRElement):
@@ -184,7 +184,7 @@ class ProvenanceEntity(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ProvenanceEntity, self).update_with_json(jsondict)
         if 'agent' in jsondict:
-            self.agent = ProvenanceEntityAgent.with_json(jsondict['agent'])
+            self.agent = ProvenanceEntityAgent.with_json_and_owner(jsondict['agent'], self)
         if 'display' in jsondict:
             self.display = jsondict['display']
         if 'reference' in jsondict:
@@ -192,7 +192,7 @@ class ProvenanceEntity(fhirelement.FHIRElement):
         if 'role' in jsondict:
             self.role = jsondict['role']
         if 'type' in jsondict:
-            self.type = coding.Coding.with_json(jsondict['type'])
+            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
 
 
 class ProvenanceEntityAgent(fhirelement.FHIRElement):

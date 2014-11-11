@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (conceptmap.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (conceptmap.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -91,11 +91,11 @@ class ConceptMap(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(ConceptMap, self).update_with_json(jsondict)
         if 'concept' in jsondict:
-            self.concept = ConceptMapConcept.with_json(jsondict['concept'])
+            self.concept = ConceptMapConcept.with_json_and_owner(jsondict['concept'], self)
         if 'copyright' in jsondict:
             self.copyright = jsondict['copyright']
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'experimental' in jsondict:
@@ -113,9 +113,9 @@ class ConceptMap(fhirresource.FHIRResource):
         if 'target' in jsondict:
             self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, valueset.ValueSet)
         if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'version' in jsondict:
             self.version = jsondict['version']
 
@@ -151,9 +151,9 @@ class ConceptMapConcept(fhirelement.FHIRElement):
         if 'code' in jsondict:
             self.code = jsondict['code']
         if 'dependsOn' in jsondict:
-            self.dependsOn = ConceptMapConceptDependsOn.with_json(jsondict['dependsOn'])
+            self.dependsOn = ConceptMapConceptDependsOn.with_json_and_owner(jsondict['dependsOn'], self)
         if 'map' in jsondict:
-            self.map = ConceptMapConceptMap.with_json(jsondict['map'])
+            self.map = ConceptMapConceptMap.with_json_and_owner(jsondict['map'], self)
         if 'system' in jsondict:
             self.system = jsondict['system']
 
@@ -234,7 +234,7 @@ class ConceptMapConceptMap(fhirelement.FHIRElement):
         if 'equivalence' in jsondict:
             self.equivalence = jsondict['equivalence']
         if 'product' in jsondict:
-            self.product = ConceptMapConceptMapProduct.with_json(jsondict['product'])
+            self.product = ConceptMapConceptMapProduct.with_json_and_owner(jsondict['product'], self)
         if 'system' in jsondict:
             self.system = jsondict['system']
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (organization.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (organization.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -81,11 +81,11 @@ class Organization(fhirresource.FHIRResource):
         if 'active' in jsondict:
             self.active = jsondict['active']
         if 'address' in jsondict:
-            self.address = address.Address.with_json(jsondict['address'])
+            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
         if 'contact' in jsondict:
-            self.contact = OrganizationContact.with_json(jsondict['contact'])
+            self.contact = OrganizationContact.with_json_and_owner(jsondict['contact'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'location' in jsondict:
             self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
         if 'name' in jsondict:
@@ -93,11 +93,11 @@ class Organization(fhirresource.FHIRResource):
         if 'partOf' in jsondict:
             self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self, Organization)
         if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
 class OrganizationContact(fhirelement.FHIRElement):
@@ -133,13 +133,13 @@ class OrganizationContact(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(OrganizationContact, self).update_with_json(jsondict)
         if 'address' in jsondict:
-            self.address = address.Address.with_json(jsondict['address'])
+            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
         if 'gender' in jsondict:
-            self.gender = codeableconcept.CodeableConcept.with_json(jsondict['gender'])
+            self.gender = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['gender'], self)
         if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json(jsondict['name'])
+            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
         if 'purpose' in jsondict:
-            self.purpose = codeableconcept.CodeableConcept.with_json(jsondict['purpose'])
+            self.purpose = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['purpose'], self)
         if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
 

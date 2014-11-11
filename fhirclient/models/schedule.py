@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Schedule.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (type-Schedule.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -33,9 +33,9 @@ class Schedule(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(Schedule, self).update_with_json(jsondict)
         if 'event' in jsondict:
-            self.event = period.Period.with_json(jsondict['event'])
+            self.event = period.Period.with_json_and_owner(jsondict['event'], self)
         if 'repeat' in jsondict:
-            self.repeat = ScheduleRepeat.with_json(jsondict['repeat'])
+            self.repeat = ScheduleRepeat.with_json_and_owner(jsondict['repeat'], self)
 
 
 class ScheduleRepeat(fhirelement.FHIRElement):
@@ -82,7 +82,7 @@ class ScheduleRepeat(fhirelement.FHIRElement):
         if 'duration' in jsondict:
             self.duration = jsondict['duration']
         if 'end' in jsondict:
-            self.end = fhirdate.FHIRDate.with_json(jsondict['end'])
+            self.end = fhirdate.FHIRDate.with_json_and_owner(jsondict['end'], self)
         if 'frequency' in jsondict:
             self.frequency = jsondict['frequency']
         if 'units' in jsondict:

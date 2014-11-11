@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (deviceobservationreport.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (deviceobservationreport.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -69,17 +69,17 @@ class DeviceObservationReport(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(DeviceObservationReport, self).update_with_json(jsondict)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'instant' in jsondict:
-            self.instant = fhirdate.FHIRDate.with_json(jsondict['instant'])
+            self.instant = fhirdate.FHIRDate.with_json_and_owner(jsondict['instant'], self)
         if 'source' in jsondict:
             self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, device.Device)
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'virtualDevice' in jsondict:
-            self.virtualDevice = DeviceObservationReportVirtualDevice.with_json(jsondict['virtualDevice'])
+            self.virtualDevice = DeviceObservationReportVirtualDevice.with_json_and_owner(jsondict['virtualDevice'], self)
 
 
 class DeviceObservationReportVirtualDevice(fhirelement.FHIRElement):
@@ -103,9 +103,9 @@ class DeviceObservationReportVirtualDevice(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(DeviceObservationReportVirtualDevice, self).update_with_json(jsondict)
         if 'channel' in jsondict:
-            self.channel = DeviceObservationReportVirtualDeviceChannel.with_json(jsondict['channel'])
+            self.channel = DeviceObservationReportVirtualDeviceChannel.with_json_and_owner(jsondict['channel'], self)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
 
 
 class DeviceObservationReportVirtualDeviceChannel(fhirelement.FHIRElement):
@@ -131,9 +131,9 @@ class DeviceObservationReportVirtualDeviceChannel(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(DeviceObservationReportVirtualDeviceChannel, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'metric' in jsondict:
-            self.metric = DeviceObservationReportVirtualDeviceChannelMetric.with_json(jsondict['metric'])
+            self.metric = DeviceObservationReportVirtualDeviceChannelMetric.with_json_and_owner(jsondict['metric'], self)
 
 
 class DeviceObservationReportVirtualDeviceChannelMetric(fhirelement.FHIRElement):

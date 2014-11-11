@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (questionnaire.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (questionnaire.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -110,15 +110,15 @@ class Questionnaire(fhirresource.FHIRResource):
         if 'author' in jsondict:
             self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'authored' in jsondict:
-            self.authored = fhirdate.FHIRDate.with_json(jsondict['authored'])
+            self.authored = fhirdate.FHIRDate.with_json_and_owner(jsondict['authored'], self)
         if 'encounter' in jsondict:
             self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
         if 'group' in jsondict:
-            self.group = QuestionnaireGroup.with_json(jsondict['group'])
+            self.group = QuestionnaireGroup.with_json_and_owner(jsondict['group'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'name' in jsondict:
-            self.name = codeableconcept.CodeableConcept.with_json(jsondict['name'])
+            self.name = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['name'], self)
         if 'source' in jsondict:
             self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, patient.Patient)
         if 'status' in jsondict:
@@ -126,7 +126,7 @@ class Questionnaire(fhirresource.FHIRResource):
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class QuestionnaireGroup(fhirelement.FHIRElement):
@@ -169,13 +169,13 @@ class QuestionnaireGroup(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(QuestionnaireGroup, self).update_with_json(jsondict)
         if 'group' in jsondict:
-            self.group = QuestionnaireGroupGroup.with_json(jsondict['group'])
+            self.group = QuestionnaireGroupGroup.with_json_and_owner(jsondict['group'], self)
         if 'header' in jsondict:
             self.header = jsondict['header']
         if 'name' in jsondict:
-            self.name = codeableconcept.CodeableConcept.with_json(jsondict['name'])
+            self.name = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['name'], self)
         if 'question' in jsondict:
-            self.question = QuestionnaireGroupQuestion.with_json(jsondict['question'])
+            self.question = QuestionnaireGroupQuestion.with_json_and_owner(jsondict['question'], self)
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, fhirresource.FHIRResource)
         if 'text' in jsondict:
@@ -358,23 +358,23 @@ class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
         if 'answerBoolean' in jsondict:
             self.answerBoolean = jsondict['answerBoolean']
         if 'answerDate' in jsondict:
-            self.answerDate = fhirdate.FHIRDate.with_json(jsondict['answerDate'])
+            self.answerDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['answerDate'], self)
         if 'answerDateTime' in jsondict:
-            self.answerDateTime = fhirdate.FHIRDate.with_json(jsondict['answerDateTime'])
+            self.answerDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['answerDateTime'], self)
         if 'answerDecimal' in jsondict:
             self.answerDecimal = jsondict['answerDecimal']
         if 'answerInstant' in jsondict:
-            self.answerInstant = fhirdate.FHIRDate.with_json(jsondict['answerInstant'])
+            self.answerInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['answerInstant'], self)
         if 'answerInteger' in jsondict:
             self.answerInteger = jsondict['answerInteger']
         if 'answerString' in jsondict:
             self.answerString = jsondict['answerString']
         if 'choice' in jsondict:
-            self.choice = coding.Coding.with_json(jsondict['choice'])
+            self.choice = coding.Coding.with_json_and_owner(jsondict['choice'], self)
         if 'dataAddress' in jsondict:
-            self.dataAddress = address.Address.with_json(jsondict['dataAddress'])
+            self.dataAddress = address.Address.with_json_and_owner(jsondict['dataAddress'], self)
         if 'dataAttachment' in jsondict:
-            self.dataAttachment = attachment.Attachment.with_json(jsondict['dataAttachment'])
+            self.dataAttachment = attachment.Attachment.with_json_and_owner(jsondict['dataAttachment'], self)
         if 'dataBase64Binary' in jsondict:
             self.dataBase64Binary = jsondict['dataBase64Binary']
         if 'dataBoolean' in jsondict:
@@ -382,45 +382,45 @@ class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
         if 'dataCode' in jsondict:
             self.dataCode = jsondict['dataCode']
         if 'dataCodeableConcept' in jsondict:
-            self.dataCodeableConcept = codeableconcept.CodeableConcept.with_json(jsondict['dataCodeableConcept'])
+            self.dataCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['dataCodeableConcept'], self)
         if 'dataCoding' in jsondict:
-            self.dataCoding = coding.Coding.with_json(jsondict['dataCoding'])
+            self.dataCoding = coding.Coding.with_json_and_owner(jsondict['dataCoding'], self)
         if 'dataContact' in jsondict:
-            self.dataContact = contact.Contact.with_json(jsondict['dataContact'])
+            self.dataContact = contact.Contact.with_json_and_owner(jsondict['dataContact'], self)
         if 'dataDate' in jsondict:
-            self.dataDate = fhirdate.FHIRDate.with_json(jsondict['dataDate'])
+            self.dataDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['dataDate'], self)
         if 'dataDateTime' in jsondict:
-            self.dataDateTime = fhirdate.FHIRDate.with_json(jsondict['dataDateTime'])
+            self.dataDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['dataDateTime'], self)
         if 'dataDecimal' in jsondict:
             self.dataDecimal = jsondict['dataDecimal']
         if 'dataHumanName' in jsondict:
-            self.dataHumanName = humanname.HumanName.with_json(jsondict['dataHumanName'])
+            self.dataHumanName = humanname.HumanName.with_json_and_owner(jsondict['dataHumanName'], self)
         if 'dataIdentifier' in jsondict:
-            self.dataIdentifier = identifier.Identifier.with_json(jsondict['dataIdentifier'])
+            self.dataIdentifier = identifier.Identifier.with_json_and_owner(jsondict['dataIdentifier'], self)
         if 'dataInstant' in jsondict:
-            self.dataInstant = fhirdate.FHIRDate.with_json(jsondict['dataInstant'])
+            self.dataInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['dataInstant'], self)
         if 'dataInteger' in jsondict:
             self.dataInteger = jsondict['dataInteger']
         if 'dataPeriod' in jsondict:
-            self.dataPeriod = period.Period.with_json(jsondict['dataPeriod'])
+            self.dataPeriod = period.Period.with_json_and_owner(jsondict['dataPeriod'], self)
         if 'dataQuantity' in jsondict:
-            self.dataQuantity = quantity.Quantity.with_json(jsondict['dataQuantity'])
+            self.dataQuantity = quantity.Quantity.with_json_and_owner(jsondict['dataQuantity'], self)
         if 'dataRange' in jsondict:
-            self.dataRange = range.Range.with_json(jsondict['dataRange'])
+            self.dataRange = range.Range.with_json_and_owner(jsondict['dataRange'], self)
         if 'dataRatio' in jsondict:
-            self.dataRatio = ratio.Ratio.with_json(jsondict['dataRatio'])
+            self.dataRatio = ratio.Ratio.with_json_and_owner(jsondict['dataRatio'], self)
         if 'dataResource' in jsondict:
-            self.dataResource = fhirresource.FHIRResource.with_json(jsondict['dataResource'])
+            self.dataResource = fhirresource.FHIRResource.with_json_and_owner(jsondict['dataResource'], self)
         if 'dataSchedule' in jsondict:
-            self.dataSchedule = schedule.Schedule.with_json(jsondict['dataSchedule'])
+            self.dataSchedule = schedule.Schedule.with_json_and_owner(jsondict['dataSchedule'], self)
         if 'dataString' in jsondict:
             self.dataString = jsondict['dataString']
         if 'dataUri' in jsondict:
             self.dataUri = jsondict['dataUri']
         if 'group' in jsondict:
-            self.group = QuestionnaireGroupQuestionGroup.with_json(jsondict['group'])
+            self.group = QuestionnaireGroupQuestionGroup.with_json_and_owner(jsondict['group'], self)
         if 'name' in jsondict:
-            self.name = codeableconcept.CodeableConcept.with_json(jsondict['name'])
+            self.name = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['name'], self)
         if 'options' in jsondict:
             self.options = fhirreference.FHIRReference.with_json_and_owner(jsondict['options'], self, valueset.ValueSet)
         if 'remarks' in jsondict:

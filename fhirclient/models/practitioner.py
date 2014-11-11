@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (practitioner.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (practitioner.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -113,35 +113,35 @@ class Practitioner(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Practitioner, self).update_with_json(jsondict)
         if 'address' in jsondict:
-            self.address = address.Address.with_json(jsondict['address'])
+            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
         if 'birthDate' in jsondict:
-            self.birthDate = fhirdate.FHIRDate.with_json(jsondict['birthDate'])
+            self.birthDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['birthDate'], self)
         if 'communication' in jsondict:
-            self.communication = codeableconcept.CodeableConcept.with_json(jsondict['communication'])
+            self.communication = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['communication'], self)
         if 'gender' in jsondict:
-            self.gender = codeableconcept.CodeableConcept.with_json(jsondict['gender'])
+            self.gender = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['gender'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'location' in jsondict:
             self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
         if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json(jsondict['name'])
+            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
         if 'organization' in jsondict:
             self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self, organization.Organization)
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
         if 'photo' in jsondict:
-            self.photo = attachment.Attachment.with_json(jsondict['photo'])
+            self.photo = attachment.Attachment.with_json_and_owner(jsondict['photo'], self)
         if 'qualification' in jsondict:
-            self.qualification = PractitionerQualification.with_json(jsondict['qualification'])
+            self.qualification = PractitionerQualification.with_json_and_owner(jsondict['qualification'], self)
         if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json(jsondict['role'])
+            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
         if 'specialty' in jsondict:
-            self.specialty = codeableconcept.CodeableConcept.with_json(jsondict['specialty'])
+            self.specialty = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['specialty'], self)
         if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class PractitionerQualification(fhirelement.FHIRElement):
@@ -169,9 +169,9 @@ class PractitionerQualification(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(PractitionerQualification, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'issuer' in jsondict:
             self.issuer = fhirreference.FHIRReference.with_json_and_owner(jsondict['issuer'], self, organization.Organization)
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (substance.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (substance.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -62,13 +62,13 @@ class Substance(fhirresource.FHIRResource):
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'ingredient' in jsondict:
-            self.ingredient = SubstanceIngredient.with_json(jsondict['ingredient'])
+            self.ingredient = SubstanceIngredient.with_json_and_owner(jsondict['ingredient'], self)
         if 'instance' in jsondict:
-            self.instance = SubstanceInstance.with_json(jsondict['instance'])
+            self.instance = SubstanceInstance.with_json_and_owner(jsondict['instance'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
 class SubstanceInstance(fhirelement.FHIRElement):
@@ -99,11 +99,11 @@ class SubstanceInstance(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(SubstanceInstance, self).update_with_json(jsondict)
         if 'expiry' in jsondict:
-            self.expiry = fhirdate.FHIRDate.with_json(jsondict['expiry'])
+            self.expiry = fhirdate.FHIRDate.with_json_and_owner(jsondict['expiry'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json(jsondict['quantity'])
+            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
 
 
 class SubstanceIngredient(fhirelement.FHIRElement):
@@ -129,7 +129,7 @@ class SubstanceIngredient(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(SubstanceIngredient, self).update_with_json(jsondict)
         if 'quantity' in jsondict:
-            self.quantity = ratio.Ratio.with_json(jsondict['quantity'])
+            self.quantity = ratio.Ratio.with_json_and_owner(jsondict['quantity'], self)
         if 'substance' in jsondict:
             self.substance = fhirreference.FHIRReference.with_json_and_owner(jsondict['substance'], self, Substance)
 

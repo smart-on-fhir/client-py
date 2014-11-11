@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (valueset.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (valueset.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -99,17 +99,17 @@ class ValueSet(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(ValueSet, self).update_with_json(jsondict)
         if 'compose' in jsondict:
-            self.compose = ValueSetCompose.with_json(jsondict['compose'])
+            self.compose = ValueSetCompose.with_json_and_owner(jsondict['compose'], self)
         if 'copyright' in jsondict:
             self.copyright = jsondict['copyright']
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'define' in jsondict:
-            self.define = ValueSetDefine.with_json(jsondict['define'])
+            self.define = ValueSetDefine.with_json_and_owner(jsondict['define'], self)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'expansion' in jsondict:
-            self.expansion = ValueSetExpansion.with_json(jsondict['expansion'])
+            self.expansion = ValueSetExpansion.with_json_and_owner(jsondict['expansion'], self)
         if 'experimental' in jsondict:
             self.experimental = jsondict['experimental']
         if 'extensible' in jsondict:
@@ -123,9 +123,9 @@ class ValueSet(fhirresource.FHIRResource):
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json(jsondict['telecom'])
+            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'version' in jsondict:
             self.version = jsondict['version']
 
@@ -161,7 +161,7 @@ class ValueSetDefine(fhirelement.FHIRElement):
         if 'caseSensitive' in jsondict:
             self.caseSensitive = jsondict['caseSensitive']
         if 'concept' in jsondict:
-            self.concept = ValueSetDefineConcept.with_json(jsondict['concept'])
+            self.concept = ValueSetDefineConcept.with_json_and_owner(jsondict['concept'], self)
         if 'system' in jsondict:
             self.system = jsondict['system']
         if 'version' in jsondict:
@@ -205,7 +205,7 @@ class ValueSetDefineConcept(fhirelement.FHIRElement):
         if 'code' in jsondict:
             self.code = jsondict['code']
         if 'concept' in jsondict:
-            self.concept = ValueSetDefineConceptConcept.with_json(jsondict['concept'])
+            self.concept = ValueSetDefineConceptConcept.with_json_and_owner(jsondict['concept'], self)
         if 'definition' in jsondict:
             self.definition = jsondict['definition']
         if 'display' in jsondict:
@@ -248,11 +248,11 @@ class ValueSetCompose(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ValueSetCompose, self).update_with_json(jsondict)
         if 'exclude' in jsondict:
-            self.exclude = ValueSetComposeExclude.with_json(jsondict['exclude'])
+            self.exclude = ValueSetComposeExclude.with_json_and_owner(jsondict['exclude'], self)
         if 'importFrom' in jsondict:
             self.importFrom = jsondict['importFrom']
         if 'include' in jsondict:
-            self.include = ValueSetComposeInclude.with_json(jsondict['include'])
+            self.include = ValueSetComposeInclude.with_json_and_owner(jsondict['include'], self)
 
 
 class ValueSetComposeInclude(fhirelement.FHIRElement):
@@ -286,7 +286,7 @@ class ValueSetComposeInclude(fhirelement.FHIRElement):
         if 'code' in jsondict:
             self.code = jsondict['code']
         if 'filter' in jsondict:
-            self.filter = ValueSetComposeIncludeFilter.with_json(jsondict['filter'])
+            self.filter = ValueSetComposeIncludeFilter.with_json_and_owner(jsondict['filter'], self)
         if 'system' in jsondict:
             self.system = jsondict['system']
         if 'version' in jsondict:
@@ -367,11 +367,11 @@ class ValueSetExpansion(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ValueSetExpansion, self).update_with_json(jsondict)
         if 'contains' in jsondict:
-            self.contains = ValueSetExpansionContains.with_json(jsondict['contains'])
+            self.contains = ValueSetExpansionContains.with_json_and_owner(jsondict['contains'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'timestamp' in jsondict:
-            self.timestamp = fhirdate.FHIRDate.with_json(jsondict['timestamp'])
+            self.timestamp = fhirdate.FHIRDate.with_json_and_owner(jsondict['timestamp'], self)
 
 
 class ValueSetExpansionContains(fhirelement.FHIRElement):
@@ -405,7 +405,7 @@ class ValueSetExpansionContains(fhirelement.FHIRElement):
         if 'code' in jsondict:
             self.code = jsondict['code']
         if 'contains' in jsondict:
-            self.contains = ValueSetExpansionContainsContains.with_json(jsondict['contains'])
+            self.contains = ValueSetExpansionContainsContains.with_json_and_owner(jsondict['contains'], self)
         if 'display' in jsondict:
             self.display = jsondict['display']
         if 'system' in jsondict:

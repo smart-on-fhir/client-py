@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (alert.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (alert.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -75,9 +75,9 @@ class Alert(fhirresource.FHIRResource):
         if 'author' in jsondict:
             self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
         if 'category' in jsondict:
-            self.category = codeableconcept.CodeableConcept.with_json(jsondict['category'])
+            self.category = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['category'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'note' in jsondict:
             self.note = jsondict['note']
         if 'status' in jsondict:
@@ -85,5 +85,5 @@ class Alert(fhirresource.FHIRResource):
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 

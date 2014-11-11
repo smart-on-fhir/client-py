@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (immunization.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (immunization.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -124,15 +124,15 @@ class Immunization(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Immunization, self).update_with_json(jsondict)
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'doseQuantity' in jsondict:
-            self.doseQuantity = quantity.Quantity.with_json(jsondict['doseQuantity'])
+            self.doseQuantity = quantity.Quantity.with_json_and_owner(jsondict['doseQuantity'], self)
         if 'expirationDate' in jsondict:
-            self.expirationDate = fhirdate.FHIRDate.with_json(jsondict['expirationDate'])
+            self.expirationDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['expirationDate'], self)
         if 'explanation' in jsondict:
-            self.explanation = ImmunizationExplanation.with_json(jsondict['explanation'])
+            self.explanation = ImmunizationExplanation.with_json_and_owner(jsondict['explanation'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'location' in jsondict:
             self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
         if 'lotNumber' in jsondict:
@@ -142,7 +142,7 @@ class Immunization(fhirresource.FHIRResource):
         if 'performer' in jsondict:
             self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self, practitioner.Practitioner)
         if 'reaction' in jsondict:
-            self.reaction = ImmunizationReaction.with_json(jsondict['reaction'])
+            self.reaction = ImmunizationReaction.with_json_and_owner(jsondict['reaction'], self)
         if 'refusedIndicator' in jsondict:
             self.refusedIndicator = jsondict['refusedIndicator']
         if 'reported' in jsondict:
@@ -150,17 +150,17 @@ class Immunization(fhirresource.FHIRResource):
         if 'requester' in jsondict:
             self.requester = fhirreference.FHIRReference.with_json_and_owner(jsondict['requester'], self, practitioner.Practitioner)
         if 'route' in jsondict:
-            self.route = codeableconcept.CodeableConcept.with_json(jsondict['route'])
+            self.route = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['route'], self)
         if 'site' in jsondict:
-            self.site = codeableconcept.CodeableConcept.with_json(jsondict['site'])
+            self.site = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['site'], self)
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'vaccinationProtocol' in jsondict:
-            self.vaccinationProtocol = ImmunizationVaccinationProtocol.with_json(jsondict['vaccinationProtocol'])
+            self.vaccinationProtocol = ImmunizationVaccinationProtocol.with_json_and_owner(jsondict['vaccinationProtocol'], self)
         if 'vaccineType' in jsondict:
-            self.vaccineType = codeableconcept.CodeableConcept.with_json(jsondict['vaccineType'])
+            self.vaccineType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['vaccineType'], self)
 
 
 class ImmunizationExplanation(fhirelement.FHIRElement):
@@ -186,9 +186,9 @@ class ImmunizationExplanation(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ImmunizationExplanation, self).update_with_json(jsondict)
         if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json(jsondict['reason'])
+            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
         if 'refusalReason' in jsondict:
-            self.refusalReason = codeableconcept.CodeableConcept.with_json(jsondict['refusalReason'])
+            self.refusalReason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['refusalReason'], self)
 
 
 class ImmunizationReaction(fhirelement.FHIRElement):
@@ -219,7 +219,7 @@ class ImmunizationReaction(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ImmunizationReaction, self).update_with_json(jsondict)
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'detail' in jsondict:
             self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self, adversereaction.AdverseReaction)
         if 'reported' in jsondict:
@@ -280,11 +280,11 @@ class ImmunizationVaccinationProtocol(fhirelement.FHIRElement):
         if 'doseSequence' in jsondict:
             self.doseSequence = jsondict['doseSequence']
         if 'doseStatus' in jsondict:
-            self.doseStatus = codeableconcept.CodeableConcept.with_json(jsondict['doseStatus'])
+            self.doseStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['doseStatus'], self)
         if 'doseStatusReason' in jsondict:
-            self.doseStatusReason = codeableconcept.CodeableConcept.with_json(jsondict['doseStatusReason'])
+            self.doseStatusReason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['doseStatusReason'], self)
         if 'doseTarget' in jsondict:
-            self.doseTarget = codeableconcept.CodeableConcept.with_json(jsondict['doseTarget'])
+            self.doseTarget = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['doseTarget'], self)
         if 'series' in jsondict:
             self.series = jsondict['series']
         if 'seriesDoses' in jsondict:

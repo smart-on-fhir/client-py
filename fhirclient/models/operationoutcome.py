@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (operationoutcome.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (operationoutcome.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -48,9 +48,9 @@ class OperationOutcome(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(OperationOutcome, self).update_with_json(jsondict)
         if 'issue' in jsondict:
-            self.issue = OperationOutcomeIssue.with_json(jsondict['issue'])
+            self.issue = OperationOutcomeIssue.with_json_and_owner(jsondict['issue'], self)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class OperationOutcomeIssue(fhirelement.FHIRElement):
@@ -90,5 +90,5 @@ class OperationOutcomeIssue(fhirelement.FHIRElement):
         if 'severity' in jsondict:
             self.severity = jsondict['severity']
         if 'type' in jsondict:
-            self.type = coding.Coding.with_json(jsondict['type'])
+            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
 

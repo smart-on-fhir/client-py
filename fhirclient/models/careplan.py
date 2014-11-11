@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (careplan.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (careplan.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -98,27 +98,27 @@ class CarePlan(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(CarePlan, self).update_with_json(jsondict)
         if 'activity' in jsondict:
-            self.activity = CarePlanActivity.with_json(jsondict['activity'])
+            self.activity = CarePlanActivity.with_json_and_owner(jsondict['activity'], self)
         if 'concern' in jsondict:
             self.concern = fhirreference.FHIRReference.with_json_and_owner(jsondict['concern'], self, condition.Condition)
         if 'goal' in jsondict:
-            self.goal = CarePlanGoal.with_json(jsondict['goal'])
+            self.goal = CarePlanGoal.with_json_and_owner(jsondict['goal'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'modified' in jsondict:
-            self.modified = fhirdate.FHIRDate.with_json(jsondict['modified'])
+            self.modified = fhirdate.FHIRDate.with_json_and_owner(jsondict['modified'], self)
         if 'notes' in jsondict:
             self.notes = jsondict['notes']
         if 'participant' in jsondict:
-            self.participant = CarePlanParticipant.with_json(jsondict['participant'])
+            self.participant = CarePlanParticipant.with_json_and_owner(jsondict['participant'], self)
         if 'patient' in jsondict:
             self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
         if 'period' in jsondict:
-            self.period = period.Period.with_json(jsondict['period'])
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class CarePlanParticipant(fhirelement.FHIRElement):
@@ -147,7 +147,7 @@ class CarePlanParticipant(fhirelement.FHIRElement):
         if 'member' in jsondict:
             self.member = fhirreference.FHIRReference.with_json_and_owner(jsondict['member'], self, practitioner.Practitioner)
         if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json(jsondict['role'])
+            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
 
 
 class CarePlanGoal(fhirelement.FHIRElement):
@@ -246,7 +246,7 @@ class CarePlanActivity(fhirelement.FHIRElement):
         if 'prohibited' in jsondict:
             self.prohibited = jsondict['prohibited']
         if 'simple' in jsondict:
-            self.simple = CarePlanActivitySimple.with_json(jsondict['simple'])
+            self.simple = CarePlanActivitySimple.with_json_and_owner(jsondict['simple'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
 
@@ -314,9 +314,9 @@ class CarePlanActivitySimple(fhirelement.FHIRElement):
         if 'category' in jsondict:
             self.category = jsondict['category']
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'dailyAmount' in jsondict:
-            self.dailyAmount = quantity.Quantity.with_json(jsondict['dailyAmount'])
+            self.dailyAmount = quantity.Quantity.with_json_and_owner(jsondict['dailyAmount'], self)
         if 'details' in jsondict:
             self.details = jsondict['details']
         if 'location' in jsondict:
@@ -326,11 +326,11 @@ class CarePlanActivitySimple(fhirelement.FHIRElement):
         if 'product' in jsondict:
             self.product = fhirreference.FHIRReference.with_json_and_owner(jsondict['product'], self, medication.Medication)
         if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json(jsondict['quantity'])
+            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
         if 'timingPeriod' in jsondict:
-            self.timingPeriod = period.Period.with_json(jsondict['timingPeriod'])
+            self.timingPeriod = period.Period.with_json_and_owner(jsondict['timingPeriod'], self)
         if 'timingSchedule' in jsondict:
-            self.timingSchedule = schedule.Schedule.with_json(jsondict['timingSchedule'])
+            self.timingSchedule = schedule.Schedule.with_json_and_owner(jsondict['timingSchedule'], self)
         if 'timingString' in jsondict:
             self.timingString = jsondict['timingString']
 

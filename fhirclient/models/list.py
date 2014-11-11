@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (list.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (list.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -74,15 +74,15 @@ class List(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(List, self).update_with_json(jsondict)
         if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json(jsondict['code'])
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'emptyReason' in jsondict:
-            self.emptyReason = codeableconcept.CodeableConcept.with_json(jsondict['emptyReason'])
+            self.emptyReason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['emptyReason'], self)
         if 'entry' in jsondict:
-            self.entry = ListEntry.with_json(jsondict['entry'])
+            self.entry = ListEntry.with_json_and_owner(jsondict['entry'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'mode' in jsondict:
             self.mode = jsondict['mode']
         if 'ordered' in jsondict:
@@ -92,7 +92,7 @@ class List(fhirresource.FHIRResource):
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class ListEntry(fhirelement.FHIRElement):
@@ -126,11 +126,11 @@ class ListEntry(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ListEntry, self).update_with_json(jsondict)
         if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json(jsondict['date'])
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'deleted' in jsondict:
             self.deleted = jsondict['deleted']
         if 'flag' in jsondict:
-            self.flag = codeableconcept.CodeableConcept.with_json(jsondict['flag'])
+            self.flag = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['flag'], self)
         if 'item' in jsondict:
             self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self, fhirresource.FHIRResource)
 

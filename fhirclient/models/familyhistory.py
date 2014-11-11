@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (familyhistory.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (familyhistory.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -67,15 +67,15 @@ class FamilyHistory(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(FamilyHistory, self).update_with_json(jsondict)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'note' in jsondict:
             self.note = jsondict['note']
         if 'relation' in jsondict:
-            self.relation = FamilyHistoryRelation.with_json(jsondict['relation'])
+            self.relation = FamilyHistoryRelation.with_json_and_owner(jsondict['relation'], self)
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class FamilyHistoryRelation(fhirelement.FHIRElement):
@@ -142,21 +142,21 @@ class FamilyHistoryRelation(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(FamilyHistoryRelation, self).update_with_json(jsondict)
         if 'bornDate' in jsondict:
-            self.bornDate = fhirdate.FHIRDate.with_json(jsondict['bornDate'])
+            self.bornDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['bornDate'], self)
         if 'bornPeriod' in jsondict:
-            self.bornPeriod = period.Period.with_json(jsondict['bornPeriod'])
+            self.bornPeriod = period.Period.with_json_and_owner(jsondict['bornPeriod'], self)
         if 'bornString' in jsondict:
             self.bornString = jsondict['bornString']
         if 'condition' in jsondict:
-            self.condition = FamilyHistoryRelationCondition.with_json(jsondict['condition'])
+            self.condition = FamilyHistoryRelationCondition.with_json_and_owner(jsondict['condition'], self)
         if 'deceasedAge' in jsondict:
-            self.deceasedAge = age.Age.with_json(jsondict['deceasedAge'])
+            self.deceasedAge = age.Age.with_json_and_owner(jsondict['deceasedAge'], self)
         if 'deceasedBoolean' in jsondict:
             self.deceasedBoolean = jsondict['deceasedBoolean']
         if 'deceasedDate' in jsondict:
-            self.deceasedDate = fhirdate.FHIRDate.with_json(jsondict['deceasedDate'])
+            self.deceasedDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['deceasedDate'], self)
         if 'deceasedRange' in jsondict:
-            self.deceasedRange = range.Range.with_json(jsondict['deceasedRange'])
+            self.deceasedRange = range.Range.with_json_and_owner(jsondict['deceasedRange'], self)
         if 'deceasedString' in jsondict:
             self.deceasedString = jsondict['deceasedString']
         if 'name' in jsondict:
@@ -164,7 +164,7 @@ class FamilyHistoryRelation(fhirelement.FHIRElement):
         if 'note' in jsondict:
             self.note = jsondict['note']
         if 'relationship' in jsondict:
-            self.relationship = codeableconcept.CodeableConcept.with_json(jsondict['relationship'])
+            self.relationship = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['relationship'], self)
 
 
 class FamilyHistoryRelationCondition(fhirelement.FHIRElement):
@@ -211,13 +211,13 @@ class FamilyHistoryRelationCondition(fhirelement.FHIRElement):
         if 'note' in jsondict:
             self.note = jsondict['note']
         if 'onsetAge' in jsondict:
-            self.onsetAge = age.Age.with_json(jsondict['onsetAge'])
+            self.onsetAge = age.Age.with_json_and_owner(jsondict['onsetAge'], self)
         if 'onsetRange' in jsondict:
-            self.onsetRange = range.Range.with_json(jsondict['onsetRange'])
+            self.onsetRange = range.Range.with_json_and_owner(jsondict['onsetRange'], self)
         if 'onsetString' in jsondict:
             self.onsetString = jsondict['onsetString']
         if 'outcome' in jsondict:
-            self.outcome = codeableconcept.CodeableConcept.with_json(jsondict['outcome'])
+            self.outcome = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['outcome'], self)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 

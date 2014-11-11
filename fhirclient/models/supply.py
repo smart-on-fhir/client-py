@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (supply.profile.json) on 2014-10-31.
+#  Generated from FHIR 0.0.82.2943 (supply.profile.json) on 2014-11-11.
 #  2014, SMART Platforms.
 
 
@@ -69,11 +69,11 @@ class Supply(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(Supply, self).update_with_json(jsondict)
         if 'dispense' in jsondict:
-            self.dispense = SupplyDispense.with_json(jsondict['dispense'])
+            self.dispense = SupplyDispense.with_json_and_owner(jsondict['dispense'], self)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'kind' in jsondict:
-            self.kind = codeableconcept.CodeableConcept.with_json(jsondict['kind'])
+            self.kind = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['kind'], self)
         if 'orderedItem' in jsondict:
             self.orderedItem = fhirreference.FHIRReference.with_json_and_owner(jsondict['orderedItem'], self, medication.Medication)
         if 'patient' in jsondict:
@@ -81,7 +81,7 @@ class Supply(fhirresource.FHIRResource):
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json(jsondict['text'])
+            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class SupplyDispense(fhirelement.FHIRElement):
@@ -142,9 +142,9 @@ class SupplyDispense(fhirelement.FHIRElement):
         if 'destination' in jsondict:
             self.destination = fhirreference.FHIRReference.with_json_and_owner(jsondict['destination'], self, location.Location)
         if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json(jsondict['identifier'])
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json(jsondict['quantity'])
+            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
         if 'receiver' in jsondict:
             self.receiver = fhirreference.FHIRReference.with_json_and_owner(jsondict['receiver'], self, practitioner.Practitioner)
         if 'status' in jsondict:
@@ -154,9 +154,9 @@ class SupplyDispense(fhirelement.FHIRElement):
         if 'supplier' in jsondict:
             self.supplier = fhirreference.FHIRReference.with_json_and_owner(jsondict['supplier'], self, practitioner.Practitioner)
         if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json(jsondict['type'])
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
         if 'whenHandedOver' in jsondict:
-            self.whenHandedOver = period.Period.with_json(jsondict['whenHandedOver'])
+            self.whenHandedOver = period.Period.with_json_and_owner(jsondict['whenHandedOver'], self)
         if 'whenPrepared' in jsondict:
-            self.whenPrepared = period.Period.with_json(jsondict['whenPrepared'])
+            self.whenPrepared = period.Period.with_json_and_owner(jsondict['whenPrepared'], self)
 
