@@ -10,7 +10,7 @@ from server import FHIRServer, FHIRUnauthorizedException
 from auth import FHIRAuth
 import models.patient as patient
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 __author__ = 'SMART Platforms Team'
 __license__ = 'APACHE2'
 __copyright__ = "Copyright 2014 Boston Children's Hospital"
