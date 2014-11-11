@@ -106,10 +106,8 @@ class FHIRElement(object):
         if self._owner is not None:
             self._owner.didResolveReference(refid, resolved)
         elif self._resolved is not None:
-            print("DID RESOLVE")
             self._resolved[refid] = resolved
         else:
-            print("DID RESOLVE")
             self._resolved = {refid: resolved}
     
 
