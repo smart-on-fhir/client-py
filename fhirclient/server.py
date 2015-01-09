@@ -8,6 +8,7 @@ try:                                # Python 2.x
 except Exception as e:              # Python 3
     import urllib.parse as urlparse
 
+from auth import FHIRAuth
 from models import conformance
 
 
@@ -22,12 +23,10 @@ class FHIRServer(object):
     """ Handles talking to a FHIR server.
     """
     
-    def __init__(self, base_uri=None, state=None):
+    def __init__(self, client, base_uri=None, state=None):
+        self.client = client
         self.auth = None
         self.base_uri = base_uri
-        self._registration_uri = None
-        self._authorize_uri = None
-        self._token_uri = None
         self._conformance = None
         if state is not None:
             self.from_state(state)
@@ -52,25 +51,38 @@ class FHIRServer(object):
             except Exception as e:
                 raise Exception("Invalid SMART server conformance: {}\n{}".format(e, conf))
             
+            # USE NEW DATA MODELS (DSTU-2)
+            # EXTRACT URIS
+            # INSTANTIATE self.auth
+            
+            registration_uri = None
+            authorize_uri = None
+            token_uri = None
+            
             # extract extensions from conformance: OAuth2 endpoint URIs
             for e in extensions:
                 if "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register" == e.url:
-                    self._registration_uri = e.valueUri
+                    registration_uri = e.valueUri
                 elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize" == e.url:
-                    self._authorize_uri = e.valueUri
+                    authorize_uri = e.valueUri
                 elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token" == e.url:
-                    self._token_uri = e.valueUri
+                    token_uri = e.valueUri
 
             self._conformance = conf
+            app_id = self.client.app_id if self.client is not None else None
+            scope = self.client.scope if self.client is not None else None
+            self.auth = FHIRAuth.create('oauth2', app_id, scope=scope, authorize_uri=authorize_uri, redirect_uri=redirect_uri, token_uri=token_uri)
+            if self.client is not None:
+                self.client.save_state()
     
     
     # MARK: Authorization
     
     @property
     def authorize_uri(self):
-        if self._authorize_uri is None:
+        if self.auth is None:
             self.get_conformance()
-        return self._authorize_uri
+        return self.auth.authorize_uri
     
     @property
     def token_uri(self):
@@ -78,11 +90,22 @@ class FHIRServer(object):
             self.get_conformance()
         return self._token_uri
     
-    def did_authorize(self, auth):
-        self.auth = auth
+    def handle_callback(self, url):
+        if self.auth is None:
+            raise Exception("Not ready to handle callback, I do not have an auth instance")
+        return self.auth.handle_callback(url, self)
+    
+    def reauthorize(self):
+        if self.auth is None:
+            raise Exception("Not ready to reauthorize, I do not have an auth instance")
+        return self.auth.reauthorize(self) if self.auth is not None else None
     
     
     # MARK: Requests
+    
+    @property
+    def ready(self):
+        return self.auth.ready if self.auth is not None else False
     
     def request_json(self, path, nosign=False):
         """ Perform a request against the server's base with the given path.
@@ -129,9 +152,8 @@ class FHIRServer(object):
         """
         return {
             'base_uri': self.base_uri,
-            'registration_uri': self._registration_uri,
-            'authorize_uri': self._authorize_uri,
-            'token_uri': self._token_uri,
+            'auth_type': self.auth.auth_type if self.auth is not None else 'none',
+            'auth': self.auth.state if self.auth is not None else None,
         }
     
     def from_state(self, state):
@@ -139,7 +161,5 @@ class FHIRServer(object):
         """
         assert state
         self.base_uri = state.get('base_uri') or self.base_uri
-        self._registration_uri = state.get('registration_uri') or self._registration_uri
-        self._authorize_uri = state.get('authorize_uri') or self._authorize_uri
-        self._token_uri = state.get('token_uri') or self._token_uri
+        self.auth = FHIRAuth.create(state.get('auth_type'), app_id=self.app_id, state=state.get('auth'))
     

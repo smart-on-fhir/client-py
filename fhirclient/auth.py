@@ -38,12 +38,8 @@ class FHIRAuth(object):
             return klass(app_id=app_id, **kwargs)
         raise Exception('No class registered for authorization type "{}"'.format(auth_type))
     
-    def __init__(self, app_id, state=None, patient_id=None):
+    def __init__(self, app_id=None, state=None):
         self.app_id = app_id
-        
-        self.patient_id = patient_id
-        """ The currently active patient. """
-        
         if state is not None:
             self.from_state(state)
     
@@ -54,14 +50,14 @@ class FHIRAuth(object):
         return True
     
     def reset(self):
-        self.patient_id = None
+        pass
     
     def can_sign_headers(self):
         return False
     
-    def authorize_url(self, server):
-        """ Return the authorize URL to use against the given server. The
-        server must have a `metadata` dict property. """
+    @property
+    def authorize_uri(self):
+        """ Return the authorize URL to use, if any. """
         return None
     
     def handle_callback(self, url, server):
@@ -81,24 +77,27 @@ class FHIRAuth(object):
     @property
     def state(self):
         return {
-            'patient_id': self.patient_id,
+            'app_id': self.app_id,
         }
     
     def from_state(self, state):
         """ Update ivars from given state information.
         """
         assert state
-        self.patient_id = state.get('patient_id') or self.patient_id
+        self.app_id = state.get('app_id') or self.app_id
 
-    
+
 class FHIROAuth2Auth(FHIRAuth):
     """ OAuth2 handling class for FHIR servers.
     """
     auth_type = 'oauth2'
     
-    def __init__(self, app_id, scope=None, redirect_uri=None, state=None):
+    def __init__(self, app_id, scope=None, authorize_uri=None, redirect_uri=None, token_uri=None, state=None):
         self.scope = scope
-        self.redirect_uri = redirect_uri
+        self._registration_uri = None
+        self._authorize_uri = authorize_uri
+        self._redirect_uri = redirect_uri
+        self._token_uri = token_uri
         
         self.auth_state = None
         self.access_token = None
@@ -137,11 +136,12 @@ class FHIROAuth2Auth(FHIRAuth):
     
     # MARK: OAuth2 Flow
     
-    def authorize_url(self, server):
+    @property
+    def authorize_uri(self):
         auth_params = self.authorize_params()
         
         # the authorize uri may have params, make sure to not lose them
-        parts = list(urlparse.urlsplit(server.authorize_uri))
+        parts = list(urlparse.urlsplit(self._authorize_uri))
         if len(parts[3]) > 0:
             args = urlparse.parse_qs(parts[3])
             args.update(auth_params)
@@ -161,7 +161,7 @@ class FHIROAuth2Auth(FHIRAuth):
             'response_type': 'code',
             'scope': self.scope,
             'state': self.auth_state,
-            'redirect_uri': self.redirect_uri,
+            'redirect_uri': self._redirect_uri,
         }
     
     def handle_callback(self, url, server):
@@ -207,7 +207,7 @@ class FHIROAuth2Auth(FHIRAuth):
             'client_id': self.app_id,
             'code': code,
             'grant_type': 'authorization_code',
-            'redirect_uri': self.redirect_uri,
+            'redirect_uri': self._redirect_uri,
             'state': self.auth_state,
             # 'scope': self.scope,          # don't use, will return 400 when using launch:xxx scope
         }
@@ -232,9 +232,6 @@ class FHIROAuth2Auth(FHIRAuth):
         self.refresh_token = ret_params.get('refresh_token')
         if self.refresh_token is not None:
             del ret_params['refresh_token']
-        
-        if 'patient' in ret_params:
-            self.patient_id = ret_params['patient']
         
         return ret_params
     
@@ -272,11 +269,13 @@ class FHIROAuth2Auth(FHIRAuth):
     def state(self):
         return {
             'scope': self.scope,
-            'redirect_uri': self.redirect_uri,
+            'registration_uri': self._registration_uri,
+            'authorize_uri': self._authorize_uri,
+            'redirect_uri': self._redirect_uri,
+            'token_uri': self._token_uri,
             'auth_state': self.auth_state,
             'access_token': self.access_token,
             'refresh_token': self.refresh_token,
-            'patient_id': self.patient_id,
         }
     
     def from_state(self, state):
@@ -284,7 +283,10 @@ class FHIROAuth2Auth(FHIRAuth):
         """
         super(FHIROAuth2Auth, self).from_state(state)
         self.scope = state.get('scope') or self.scope
-        self.redirect_uri = state.get('redirect_uri') or self.redirect_uri
+        self._registration_uri = state.get('registration_uri') or self._registration_uri
+        self._authorize_uri = state.get('authorize_uri') or self._authorize_uri
+        self._redirect_uri = state.get('redirect_uri') or self._redirect_uri
+        self._token_uri = state.get('token_uri') or self._token_uri
         self.auth_state = state.get('auth_state') or self.auth_state
         
         self.access_token = state.get('access_token') or self.access_token
