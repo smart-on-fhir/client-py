@@ -1,46 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (diagnosticorder.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (diagnosticorder.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import codeableconcept
-import encounter
 import fhirdate
 import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import narrative
-import patient
-import practitioner
-import specimen
 
 
 class DiagnosticOrder(fhirresource.FHIRResource):
     """ A request for a diagnostic service.
     
-    Scope and Usage A Diagnostic Order is a record of a request for a set of
-    diagnostic investigations to be performed. The investigation will lead to a
-    Diagnostic Report that summarizes the outcome of the investigation, and
-    includes any useful data and/or images that are relevant to the
-    treatment/management of the subject.
-    
-    The principal intention of the Diagnostic Order is to support ordering
-    diagnostic investigations on patients (which includes non-human patients in
-    veterinary medicine). However in many contexts, healthcare related
-    processes include performing diagnostic investigations on groups of
-    subjects, devices involved in the provision of healthcare, and even
-    environmental locations such as ducts, bodies of water, etc. The Diagnostic
-    Order supports all these usages.
-    
-    The general work flow that this resource facilitates is that a clinical
-    system creates a diagnostic order. The diagnostic order is then exchanged,
-    perhaps via intermediaries, with a system that represents a diagnostic
-    service that can perform the investigation as a request to do so. The
-    diagnostic service will update the request as the work is performed, and
-    then finally issue a report that references the requests that it fulfills.
+    A request for a diagnostic investigation service to be performed.
     """
     
     resource_name = "DiagnosticOrder"
@@ -88,11 +64,11 @@ class DiagnosticOrder(fhirresource.FHIRResource):
         
         self.subject = None
         """ Who and/or what test is about.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Patient, Group, Location, Device` (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        self.supportingInformation = None
+        """ Supporting observations or conditions for this request.
+        List of `FHIRReference` items referencing `Observation, Condition` (represented as `dict` in JSON). """
         
         super(DiagnosticOrder, self).__init__(jsondict)
     
@@ -101,7 +77,7 @@ class DiagnosticOrder(fhirresource.FHIRResource):
         if 'clinicalNotes' in jsondict:
             self.clinicalNotes = jsondict['clinicalNotes']
         if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
+            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
         if 'event' in jsondict:
             self.event = DiagnosticOrderEvent.with_json_and_owner(jsondict['event'], self)
         if 'identifier' in jsondict:
@@ -109,17 +85,17 @@ class DiagnosticOrder(fhirresource.FHIRResource):
         if 'item' in jsondict:
             self.item = DiagnosticOrderItem.with_json_and_owner(jsondict['item'], self)
         if 'orderer' in jsondict:
-            self.orderer = fhirreference.FHIRReference.with_json_and_owner(jsondict['orderer'], self, practitioner.Practitioner)
+            self.orderer = fhirreference.FHIRReference.with_json_and_owner(jsondict['orderer'], self)
         if 'priority' in jsondict:
             self.priority = jsondict['priority']
         if 'specimen' in jsondict:
-            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, specimen.Specimen)
+            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
+        if 'supportingInformation' in jsondict:
+            self.supportingInformation = fhirreference.FHIRReference.with_json_and_owner(jsondict['supportingInformation'], self)
 
 
 class DiagnosticOrderEvent(fhirelement.FHIRElement):
@@ -130,20 +106,22 @@ class DiagnosticOrderEvent(fhirelement.FHIRElement):
     (specimens received), when it was completed.
     """
     
+    resource_name = "DiagnosticOrderEvent"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
         self.actor = None
         """ Who recorded or did this.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, Device` (represented as `dict` in JSON). """
         
         self.dateTime = None
         """ The date at which the event happened.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ More information about the event and it's context.
+        """ More information about the event and its context.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.status = None
@@ -156,7 +134,7 @@ class DiagnosticOrderEvent(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(DiagnosticOrderEvent, self).update_with_json(jsondict)
         if 'actor' in jsondict:
-            self.actor = fhirreference.FHIRReference.with_json_and_owner(jsondict['actor'], self, practitioner.Practitioner)
+            self.actor = fhirreference.FHIRReference.with_json_and_owner(jsondict['actor'], self)
         if 'dateTime' in jsondict:
             self.dateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateTime'], self)
         if 'description' in jsondict:
@@ -173,6 +151,8 @@ class DiagnosticOrderItem(fhirelement.FHIRElement):
     contexts, more than one investigation can be requested.
     """
     
+    resource_name = "DiagnosticOrderItem"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
@@ -186,8 +166,8 @@ class DiagnosticOrderItem(fhirelement.FHIRElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.event = None
-        """ Events specific to this item.
-        List of `DiagnosticOrderItemEvent` items (represented as `dict` in JSON). """
+        """ A list of events of interest in the lifecycle.
+        List of `DiagnosticOrderEvent` items (represented as `dict` in JSON). """
         
         self.specimen = None
         """ If this item relates to specific specimens.
@@ -207,23 +187,9 @@ class DiagnosticOrderItem(fhirelement.FHIRElement):
         if 'code' in jsondict:
             self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'event' in jsondict:
-            self.event = DiagnosticOrderItemEvent.with_json_and_owner(jsondict['event'], self)
+            self.event = DiagnosticOrderEvent.with_json_and_owner(jsondict['event'], self)
         if 'specimen' in jsondict:
-            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, specimen.Specimen)
+            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
-
-
-class DiagnosticOrderItemEvent(fhirelement.FHIRElement):
-    """ Events specific to this item.
-    
-    A summary of the events of interest that have occurred as this item of the
-    request is processed.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        super(DiagnosticOrderItemEvent, self).__init__(jsondict)
 

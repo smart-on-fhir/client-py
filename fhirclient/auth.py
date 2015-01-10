@@ -28,14 +28,14 @@ class FHIRAuth(object):
             raise Exception('Class {} is already registered for authorization type "{}"'.format(FHIRAuth.auth_classes[cls.auth_type], cls.auth_type))
     
     @classmethod
-    def create(cls, auth_type, app_id, **kwargs):
+    def create(cls, auth_type, **kwargs):
         """ Factory method to create the correct subclass for the given
         authorization type. """
         if not auth_type:
             auth_type = 'none'
         if auth_type in FHIRAuth.auth_classes:
             klass = FHIRAuth.auth_classes[auth_type]
-            return klass(app_id=app_id, **kwargs)
+            return klass(**kwargs)
         raise Exception('No class registered for authorization type "{}"'.format(auth_type))
     
     def __init__(self, app_id=None, state=None):
@@ -92,7 +92,7 @@ class FHIROAuth2Auth(FHIRAuth):
     """
     auth_type = 'oauth2'
     
-    def __init__(self, app_id, scope=None, authorize_uri=None, redirect_uri=None, token_uri=None, state=None):
+    def __init__(self, app_id=None, scope=None, authorize_uri=None, redirect_uri=None, token_uri=None, state=None):
         self.scope = scope
         self._registration_uri = None
         self._authorize_uri = authorize_uri
@@ -267,16 +267,20 @@ class FHIROAuth2Auth(FHIRAuth):
     
     @property
     def state(self):
-        return {
-            'scope': self.scope,
-            'registration_uri': self._registration_uri,
-            'authorize_uri': self._authorize_uri,
-            'redirect_uri': self._redirect_uri,
-            'token_uri': self._token_uri,
-            'auth_state': self.auth_state,
-            'access_token': self.access_token,
-            'refresh_token': self.refresh_token,
-        }
+        s = super(FHIROAuth2Auth, self).state
+        s['scope'] = self.scope
+        s['registration_uri'] = self._registration_uri
+        s['authorize_uri'] = self._authorize_uri
+        s['redirect_uri'] = self._redirect_uri
+        s['token_uri'] = self._token_uri
+        if self.auth_state is not None:
+            s['auth_state'] = self.auth_state
+        if self.access_token is not None:
+            s['access_token'] = self.access_token
+        if self.refresh_token is not None:
+            s['refresh_token'] = self.refresh_token
+        
+        return s
     
     def from_state(self, state):
         """ Update ivars from given state information.

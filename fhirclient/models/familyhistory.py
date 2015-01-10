@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (familyhistory.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (familyhistory.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import age
@@ -12,8 +12,6 @@ import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import narrative
-import patient
 import period
 import range
 
@@ -21,19 +19,8 @@ import range
 class FamilyHistory(fhirresource.FHIRResource):
     """ Information about patient's relatives, relevant for patient.
     
-    Scope and Usage This resource records significant health events and
-    conditions for people related to the subject. This information can be known
-    to different levels of accuracy. Sometimes the exact condition ('asthma')
-    is known, and sometimes it is less precise ('some sort of cancer').
-    Equally, sometimes the person can be identified ('my aunt Agatha') and
-    sometimes all that is known is that the person was an uncle.
-    
-    This resource represents a simple structure used to capture an 'elementary'
-    family history. However, it can also be the basis for capturing a more
-    rigorous history useful for genetic and other analysis - refer to the
-    Genetic Pedigree profile for an example.
-    
-    The entire family history for an individual is stored in a single resource.
+    Significant health events and conditions for people related to the subject
+    relevant in the context of care for the subject.
     """
     
     resource_name = "FamilyHistory"
@@ -41,6 +28,10 @@ class FamilyHistory(fhirresource.FHIRResource):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.date = None
+        """ When history was captured/updated.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
         """ External Id(s) for this record.
@@ -50,32 +41,28 @@ class FamilyHistory(fhirresource.FHIRResource):
         """ Additional details not covered elsewhere.
         Type `str`. """
         
-        self.relation = None
-        """ Relative described by history.
-        List of `FamilyHistoryRelation` items (represented as `dict` in JSON). """
-        
-        self.subject = None
+        self.patient = None
         """ Patient history is about.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        self.relation = None
+        """ Relative described by history.
+        List of `FamilyHistoryRelation` items (represented as `dict` in JSON). """
         
         super(FamilyHistory, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(FamilyHistory, self).update_with_json(jsondict)
+        if 'date' in jsondict:
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'note' in jsondict:
             self.note = jsondict['note']
+        if 'patient' in jsondict:
+            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
         if 'relation' in jsondict:
             self.relation = FamilyHistoryRelation.with_json_and_owner(jsondict['relation'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class FamilyHistoryRelation(fhirelement.FHIRElement):
@@ -85,9 +72,23 @@ class FamilyHistoryRelation(fhirelement.FHIRElement):
     history for a single person.
     """
     
+    resource_name = "FamilyHistoryRelation"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.ageAge = None
+        """ (approximate) age.
+        Type `Age` (represented as `dict` in JSON). """
+        
+        self.ageRange = None
+        """ (approximate) age.
+        Type `Range` (represented as `dict` in JSON). """
+        
+        self.ageString = None
+        """ (approximate) age.
+        Type `str`. """
         
         self.bornDate = None
         """ (approximate) date of birth.
@@ -141,6 +142,12 @@ class FamilyHistoryRelation(fhirelement.FHIRElement):
     
     def update_with_json(self, jsondict):
         super(FamilyHistoryRelation, self).update_with_json(jsondict)
+        if 'ageAge' in jsondict:
+            self.ageAge = age.Age.with_json_and_owner(jsondict['ageAge'], self)
+        if 'ageRange' in jsondict:
+            self.ageRange = range.Range.with_json_and_owner(jsondict['ageRange'], self)
+        if 'ageString' in jsondict:
+            self.ageString = jsondict['ageString']
         if 'bornDate' in jsondict:
             self.bornDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['bornDate'], self)
         if 'bornPeriod' in jsondict:
@@ -175,6 +182,8 @@ class FamilyHistoryRelationCondition(fhirelement.FHIRElement):
     condition per resource, though there is nothing stopping multiple resources
     - one per condition.
     """
+    
+    resource_name = "FamilyHistoryRelationCondition"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.

@@ -46,32 +46,36 @@ class FHIRServer(object):
         if self._conformance is None or force:
             logging.info('Fetching conformance statement from {}'.format(self.base_uri))
             conf = conformance.Conformance.read_from('metadata', self)
-            try:
-                extensions = conf.rest[0].security.extension
-            except Exception as e:
-                raise Exception("Invalid SMART server conformance: {}\n{}".format(e, conf))
-            
-            # USE NEW DATA MODELS (DSTU-2)
-            # EXTRACT URIS
-            # INSTANTIATE self.auth
-            
-            registration_uri = None
-            authorize_uri = None
-            token_uri = None
-            
-            # extract extensions from conformance: OAuth2 endpoint URIs
-            for e in extensions:
-                if "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register" == e.url:
-                    registration_uri = e.valueUri
-                elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize" == e.url:
-                    authorize_uri = e.valueUri
-                elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token" == e.url:
-                    token_uri = e.valueUri
-
             self._conformance = conf
+            
+            security = None
+            try:
+                security = conf.rest[0].security
+            except Exception as e:
+                logging.info("No REST security statement found in server conformance statement")
+
             app_id = self.client.app_id if self.client is not None else None
             scope = self.client.scope if self.client is not None else None
-            self.auth = FHIRAuth.create('oauth2', app_id, scope=scope, authorize_uri=authorize_uri, redirect_uri=redirect_uri, token_uri=token_uri)
+            registration_uri = None
+            authorize_uri = None
+            redirect_uri = self.client.redirect if self.client is not None else None
+            token_uri = None
+            
+            # determine security type
+            if security is not None and security.extension is not None:
+                for e in security.extension:
+                    if "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register" == e.url:
+                        registration_uri = e.valueUri
+                    elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize" == e.url:
+                        authorize_uri = e.valueUri
+                    elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token" == e.url:
+                        token_uri = e.valueUri
+            
+            if authorize_uri is not None:
+                self.auth = FHIRAuth.create('oauth2', app_id=app_id, scope=scope, authorize_uri=authorize_uri, redirect_uri=redirect_uri, token_uri=token_uri)
+            else:
+                self.auth = FHIRAuth.create('none', app_id=app_id)
+            
             if self.client is not None:
                 self.client.save_state()
     
@@ -161,5 +165,5 @@ class FHIRServer(object):
         """
         assert state
         self.base_uri = state.get('base_uri') or self.base_uri
-        self.auth = FHIRAuth.create(state.get('auth_type'), app_id=self.app_id, state=state.get('auth'))
+        self.auth = FHIRAuth.create(state.get('auth_type'), state=state.get('auth'))
     

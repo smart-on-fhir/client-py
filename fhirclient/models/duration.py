@@ -1,18 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Duration.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (Duration.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import quantity
 
 
 class Duration(quantity.Quantity):
-    """ Profile for Duration on Quantity.
+    """ A length of time.
     
-    Basic Profile for Duration on Quantity for validation support
+    There SHALL be a code if there is a value and it SHALL be an expression of
+    time.  If system is present, it SHALL be UCUM.
     """
+    
+    resource_name = "Duration"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.

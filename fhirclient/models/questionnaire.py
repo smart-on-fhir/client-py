@@ -1,60 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (questionnaire.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (questionnaire.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
-import address
-import attachment
-import codeableconcept
 import coding
-import contact
-import encounter
 import fhirdate
 import fhirelement
 import fhirreference
 import fhirresource
-import humanname
 import identifier
-import narrative
-import patient
-import period
-import practitioner
-import quantity
-import range
-import ratio
-import schedule
-import valueset
 
 
 class Questionnaire(fhirresource.FHIRResource):
-    """ A structured set of questions and their answers.
+    """ A structured set of questions.
     
-    Scope and Usage The Questionnaire may be a single list of questions, or can
-    be hierarchically organized in groups and sub-groups, each containing
-    questions. Questions may contain and single answer, which can take the form
-    of simple text, numbers, dates or a set of coded choices.
-    
-    Questionnaires cover the need to communicate data originating from forms
-    used in medical history examinations, research questionnaires and sometimes
-    full clinical speciality records. In many systems this data is collected
-    using user-defined screens and forms. Questionnaires record specifics about
-    data capture - exactly what questions were asked, in what order, what
-    choices for answers were, etc. Each of these questions are part of the
-    Questionnaire, and as such the Questionnaire is a separately identifiable
-    Resource, whereas the individual questions are not.
-    
-    Examples of Questionnaires include:
-    
-    * Past medical history (PMH)
-    * Family diseases
-    * Social history
-    * Research questionnaires
-    * Quality and evaluation forms
-    Support for validation is outside the scope of this Resource, although
-    basic structural features can be defined using the Questionnaire core
-    extensions.
+    A structured set of questions intended to guide the collection of answers.
+    The questions are ordered and grouped into coherent subsets, corresponding
+    to the structure of the grouping of the underlying questions.
     """
     
     resource_name = "Questionnaire"
@@ -63,17 +27,9 @@ class Questionnaire(fhirresource.FHIRResource):
         """ Initialize all valid properties.
         """
         
-        self.author = None
-        """ Person who received and recorded the answers.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.authored = None
+        self.date = None
         """ Date this version was authored.
         Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.encounter = None
-        """ Primary encounter during which the answers were collected.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
         
         self.group = None
         """ Grouped questions.
@@ -83,117 +39,100 @@ class Questionnaire(fhirresource.FHIRResource):
         """ External Ids for this questionnaire.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.name = None
-        """ Name/code for a predefined list of questions.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.source = None
-        """ The person who answered the questions.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.status = None
-        """ draft | published | retired | in progress | completed | amended.
+        self.publisher = None
+        """ Organization who designed the questionnaire.
         Type `str`. """
         
-        self.subject = None
-        """ The subject of the questions.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        self.status = None
+        """ draft | published | retired.
+        Type `str`. """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        self.version = None
+        """ Logical id for this version of Questionnaire.
+        Type `str`. """
         
         super(Questionnaire, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(Questionnaire, self).update_with_json(jsondict)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
-        if 'authored' in jsondict:
-            self.authored = fhirdate.FHIRDate.with_json_and_owner(jsondict['authored'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
+        if 'date' in jsondict:
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'group' in jsondict:
             self.group = QuestionnaireGroup.with_json_and_owner(jsondict['group'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'name' in jsondict:
-            self.name = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['name'], self)
-        if 'source' in jsondict:
-            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, patient.Patient)
+        if 'publisher' in jsondict:
+            self.publisher = jsondict['publisher']
         if 'status' in jsondict:
             self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+        if 'version' in jsondict:
+            self.version = jsondict['version']
 
 
 class QuestionnaireGroup(fhirelement.FHIRElement):
     """ Grouped questions.
     
-    A group of questions to a possibly similarly grouped set of questions in
-    the questionnaire.
+    A collection of related questions (or further groupings of questions).
     """
+    
+    resource_name = "QuestionnaireGroup"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
+        self.concept = None
+        """ Concept that represents this section on a questionnaire.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
         self.group = None
-        """ Nested questionnaire group.
-        List of `QuestionnaireGroupGroup` items (represented as `dict` in JSON). """
+        """ Grouped questions.
+        List of `QuestionnaireGroup` items (represented as `dict` in JSON). """
         
-        self.header = None
-        """ Text that is displayed above the contents of the group.
+        self.linkId = None
+        """ To link questionnaire with questionnaire answers.
         Type `str`. """
-        
-        self.name = None
-        """ Code or name of the section on a questionnaire.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.question = None
         """ Questions in this group.
         List of `QuestionnaireGroupQuestion` items (represented as `dict` in JSON). """
         
-        self.subject = None
-        """ The subject this group's answers are about.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        self.repeats = False
+        """ Whether the group may repeat.
+        Type `bool`. """
+        
+        self.required = False
+        """ Must group be included in data results?.
+        Type `bool`. """
         
         self.text = None
         """ Additional text for the group.
+        Type `str`. """
+        
+        self.title = None
+        """ Name to be displayed for group.
         Type `str`. """
         
         super(QuestionnaireGroup, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(QuestionnaireGroup, self).update_with_json(jsondict)
+        if 'concept' in jsondict:
+            self.concept = coding.Coding.with_json_and_owner(jsondict['concept'], self)
         if 'group' in jsondict:
-            self.group = QuestionnaireGroupGroup.with_json_and_owner(jsondict['group'], self)
-        if 'header' in jsondict:
-            self.header = jsondict['header']
-        if 'name' in jsondict:
-            self.name = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['name'], self)
+            self.group = QuestionnaireGroup.with_json_and_owner(jsondict['group'], self)
+        if 'linkId' in jsondict:
+            self.linkId = jsondict['linkId']
         if 'question' in jsondict:
             self.question = QuestionnaireGroupQuestion.with_json_and_owner(jsondict['question'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, fhirresource.FHIRResource)
+        if 'repeats' in jsondict:
+            self.repeats = jsondict['repeats']
+        if 'required' in jsondict:
+            self.required = jsondict['required']
         if 'text' in jsondict:
             self.text = jsondict['text']
-
-
-class QuestionnaireGroupGroup(fhirelement.FHIRElement):
-    """ Nested questionnaire group.
-    
-    A sub-group within a group. The ordering of groups within this group is
-    relevant.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        super(QuestionnaireGroupGroup, self).__init__(jsondict)
+        if 'title' in jsondict:
+            self.title = jsondict['title']
 
 
 class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
@@ -203,242 +142,62 @@ class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
     is relevant.
     """
     
+    resource_name = "QuestionnaireGroupQuestion"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
-        self.answerBoolean = False
-        """ Single-valued answer to the question.
-        Type `bool`. """
-        
-        self.answerDate = None
-        """ Single-valued answer to the question.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.answerDateTime = None
-        """ Single-valued answer to the question.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.answerDecimal = None
-        """ Single-valued answer to the question.
-        Type `float`. """
-        
-        self.answerInstant = None
-        """ Single-valued answer to the question.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.answerInteger = None
-        """ Single-valued answer to the question.
-        Type `int`. """
-        
-        self.answerString = None
-        """ Single-valued answer to the question.
-        Type `str`. """
-        
-        self.choice = None
-        """ Selected options.
+        self.concept = None
+        """ Concept that represents this question on a questionnaire.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.dataAddress = None
-        """ Structured answer.
-        Type `Address` (represented as `dict` in JSON). """
-        
-        self.dataAttachment = None
-        """ Structured answer.
-        Type `Attachment` (represented as `dict` in JSON). """
-        
-        self.dataBase64Binary = None
-        """ Structured answer.
-        Type `str`. """
-        
-        self.dataBoolean = False
-        """ Structured answer.
-        Type `bool`. """
-        
-        self.dataCode = None
-        """ Structured answer.
-        Type `str`. """
-        
-        self.dataCodeableConcept = None
-        """ Structured answer.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.dataCoding = None
-        """ Structured answer.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.dataContact = None
-        """ Structured answer.
-        Type `Contact` (represented as `dict` in JSON). """
-        
-        self.dataDate = None
-        """ Structured answer.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.dataDateTime = None
-        """ Structured answer.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.dataDecimal = None
-        """ Structured answer.
-        Type `float`. """
-        
-        self.dataHumanName = None
-        """ Structured answer.
-        Type `HumanName` (represented as `dict` in JSON). """
-        
-        self.dataIdentifier = None
-        """ Structured answer.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.dataInstant = None
-        """ Structured answer.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.dataInteger = None
-        """ Structured answer.
-        Type `int`. """
-        
-        self.dataPeriod = None
-        """ Structured answer.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.dataQuantity = None
-        """ Structured answer.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
-        self.dataRange = None
-        """ Structured answer.
-        Type `Range` (represented as `dict` in JSON). """
-        
-        self.dataRatio = None
-        """ Structured answer.
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.dataResource = None
-        """ Structured answer.
-        Type `FHIRResource` (represented as `dict` in JSON). """
-        
-        self.dataSchedule = None
-        """ Structured answer.
-        Type `Schedule` (represented as `dict` in JSON). """
-        
-        self.dataString = None
-        """ Structured answer.
-        Type `str`. """
-        
-        self.dataUri = None
-        """ Structured answer.
-        Type `str`. """
-        
         self.group = None
-        """ Nested questionnaire group.
-        List of `QuestionnaireGroupQuestionGroup` items (represented as `dict` in JSON). """
+        """ Grouped questions.
+        List of `QuestionnaireGroup` items (represented as `dict` in JSON). """
         
-        self.name = None
-        """ Code or name of the question.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.linkId = None
+        """ To link questionnaire with questionnaire answers.
+        Type `str`. """
         
         self.options = None
         """ Valueset containing the possible options.
         Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
         
-        self.remarks = None
-        """ Remarks about the answer given.
-        Type `str`. """
+        self.repeats = False
+        """ Whether the group may repeat.
+        Type `bool`. """
+        
+        self.required = False
+        """ Must group be included in data results?.
+        Type `bool`. """
         
         self.text = None
         """ Text of the question as it is shown to the user.
+        Type `str`. """
+        
+        self.type = None
+        """ boolean | decimal | integer | date | dateTime +.
         Type `str`. """
         
         super(QuestionnaireGroupQuestion, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(QuestionnaireGroupQuestion, self).update_with_json(jsondict)
-        if 'answerBoolean' in jsondict:
-            self.answerBoolean = jsondict['answerBoolean']
-        if 'answerDate' in jsondict:
-            self.answerDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['answerDate'], self)
-        if 'answerDateTime' in jsondict:
-            self.answerDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['answerDateTime'], self)
-        if 'answerDecimal' in jsondict:
-            self.answerDecimal = jsondict['answerDecimal']
-        if 'answerInstant' in jsondict:
-            self.answerInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['answerInstant'], self)
-        if 'answerInteger' in jsondict:
-            self.answerInteger = jsondict['answerInteger']
-        if 'answerString' in jsondict:
-            self.answerString = jsondict['answerString']
-        if 'choice' in jsondict:
-            self.choice = coding.Coding.with_json_and_owner(jsondict['choice'], self)
-        if 'dataAddress' in jsondict:
-            self.dataAddress = address.Address.with_json_and_owner(jsondict['dataAddress'], self)
-        if 'dataAttachment' in jsondict:
-            self.dataAttachment = attachment.Attachment.with_json_and_owner(jsondict['dataAttachment'], self)
-        if 'dataBase64Binary' in jsondict:
-            self.dataBase64Binary = jsondict['dataBase64Binary']
-        if 'dataBoolean' in jsondict:
-            self.dataBoolean = jsondict['dataBoolean']
-        if 'dataCode' in jsondict:
-            self.dataCode = jsondict['dataCode']
-        if 'dataCodeableConcept' in jsondict:
-            self.dataCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['dataCodeableConcept'], self)
-        if 'dataCoding' in jsondict:
-            self.dataCoding = coding.Coding.with_json_and_owner(jsondict['dataCoding'], self)
-        if 'dataContact' in jsondict:
-            self.dataContact = contact.Contact.with_json_and_owner(jsondict['dataContact'], self)
-        if 'dataDate' in jsondict:
-            self.dataDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['dataDate'], self)
-        if 'dataDateTime' in jsondict:
-            self.dataDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['dataDateTime'], self)
-        if 'dataDecimal' in jsondict:
-            self.dataDecimal = jsondict['dataDecimal']
-        if 'dataHumanName' in jsondict:
-            self.dataHumanName = humanname.HumanName.with_json_and_owner(jsondict['dataHumanName'], self)
-        if 'dataIdentifier' in jsondict:
-            self.dataIdentifier = identifier.Identifier.with_json_and_owner(jsondict['dataIdentifier'], self)
-        if 'dataInstant' in jsondict:
-            self.dataInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['dataInstant'], self)
-        if 'dataInteger' in jsondict:
-            self.dataInteger = jsondict['dataInteger']
-        if 'dataPeriod' in jsondict:
-            self.dataPeriod = period.Period.with_json_and_owner(jsondict['dataPeriod'], self)
-        if 'dataQuantity' in jsondict:
-            self.dataQuantity = quantity.Quantity.with_json_and_owner(jsondict['dataQuantity'], self)
-        if 'dataRange' in jsondict:
-            self.dataRange = range.Range.with_json_and_owner(jsondict['dataRange'], self)
-        if 'dataRatio' in jsondict:
-            self.dataRatio = ratio.Ratio.with_json_and_owner(jsondict['dataRatio'], self)
-        if 'dataResource' in jsondict:
-            self.dataResource = fhirresource.FHIRResource.with_json_and_owner(jsondict['dataResource'], self)
-        if 'dataSchedule' in jsondict:
-            self.dataSchedule = schedule.Schedule.with_json_and_owner(jsondict['dataSchedule'], self)
-        if 'dataString' in jsondict:
-            self.dataString = jsondict['dataString']
-        if 'dataUri' in jsondict:
-            self.dataUri = jsondict['dataUri']
+        if 'concept' in jsondict:
+            self.concept = coding.Coding.with_json_and_owner(jsondict['concept'], self)
         if 'group' in jsondict:
-            self.group = QuestionnaireGroupQuestionGroup.with_json_and_owner(jsondict['group'], self)
-        if 'name' in jsondict:
-            self.name = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['name'], self)
+            self.group = QuestionnaireGroup.with_json_and_owner(jsondict['group'], self)
+        if 'linkId' in jsondict:
+            self.linkId = jsondict['linkId']
         if 'options' in jsondict:
-            self.options = fhirreference.FHIRReference.with_json_and_owner(jsondict['options'], self, valueset.ValueSet)
-        if 'remarks' in jsondict:
-            self.remarks = jsondict['remarks']
+            self.options = fhirreference.FHIRReference.with_json_and_owner(jsondict['options'], self)
+        if 'repeats' in jsondict:
+            self.repeats = jsondict['repeats']
+        if 'required' in jsondict:
+            self.required = jsondict['required']
         if 'text' in jsondict:
             self.text = jsondict['text']
-
-
-class QuestionnaireGroupQuestionGroup(fhirelement.FHIRElement):
-    """ Nested questionnaire group.
-    
-    Nested group, containing nested question for this question. The order of
-    groups within the question is relevant.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        super(QuestionnaireGroupQuestionGroup, self).__init__(jsondict)
+        if 'type' in jsondict:
+            self.type = jsondict['type']
 

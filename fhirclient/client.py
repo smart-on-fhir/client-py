@@ -12,7 +12,7 @@ import models.patient as patient
 __version__ = '0.0.4'
 __author__ = 'SMART Platforms Team'
 __license__ = 'APACHE2'
-__copyright__ = "Copyright 2014 Boston Children's Hospital"
+__copyright__ = "Copyright 2015 Boston Children's Hospital"
 
 scope_default = 'user/*.* patient/*.read openid profile'
 scope_nolaunch = 'launch/patient'
@@ -34,13 +34,17 @@ class FHIRClient(object):
         self.app_id = None
         self.server = None
         self.scope = None
+        self.redirect = None
         
         self.launch_context = None
         """ Context parameters supplied by the server during launch. """
         
-        self.redirect = None
         self.patient_id = None
         self._patient = None
+        
+        if save_func is None:
+            raise Exception("Must supply a save_func when initializing the SMART client")
+        self._save_func = save_func
         
         # init from state
         if state is not None:
@@ -49,21 +53,16 @@ class FHIRClient(object):
         # init from settings dict
         elif settings is not None:
             self.app_id = settings['app_id']
-            self.server = FHIRServer(self, base_uri=settings['api_base'])
+            self.redirect = settings.get('redirect_uri')
             scope = scope_default
             if 'launch_token' in settings:
                 self.scope = ' launch:'.join([scope, settings['launch_token']])
             else:
                 self.scope = ' '.join([scope_nolaunch, scope])
-            self.redirect = settings.get('redirect_uri')
             self.patient_id = settings.get('patient_id')
+            self.server = FHIRServer(self, base_uri=settings['api_base'])
         else:
             raise Exception("Must either supply settings or a state upon client initialization")
-        
-        if save_func is None:
-            raise Exception("Must supply a save_func when initializing the SMART client")
-        self._save_func = save_func
-        self.save_state()
     
     
     # MARK: Authorization
@@ -89,7 +88,7 @@ class FHIRClient(object):
         """
         ctx = self.server.handle_callback(url) if self.server is not None else None
         self._handle_launch_context(ctx)
- 
+    
     def reauthorize(self):
         """ Try to reauthorize with the server.
         
@@ -110,13 +109,13 @@ class FHIRClient(object):
     
     @property
     def patient(self):
-        if self._patient is None and self.ready:
+        if self._patient is None and self.patient_id is not None and self.ready:
             try:
                 self._patient = patient.Patient.read(self.patient_id, self.server)
             except FHIRUnauthorizedException as e:
                 if self.reauthorize():
                     self._patient = patient.Patient.read(self.patient_id, self.server)
-         
+        
         return self._patient
     
     def human_name(self, human_name_instance):
@@ -139,6 +138,9 @@ class FHIRClient(object):
     def state(self):
         return {
             'app_id': self.app_id,
+            'scope': self.scope,
+            'redirect': self.redirect,
+            'patient_id': self.patient_id,
             'server': self.server.state,
             'launch_context': self.launch_context,
         }
@@ -146,8 +148,12 @@ class FHIRClient(object):
     def from_state(self, state):
         assert state
         self.app_id = state.get('app_id') or self.app_id
+        self.scope = state.get('scope') or self.scope
+        self.redirect = state.get('redirect') or self.redirect
+        self.patient_id = state.get('patient_id') or self.patient_id
         self.launch_context = state.get('launch_context') or self.launch_context
         self.server = FHIRServer(self, state=state.get('server'))
     
     def save_state (self):
         self._save_func(self.state)
+

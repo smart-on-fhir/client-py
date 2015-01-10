@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Coding.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (Coding.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import fhirelement
 import fhirreference
-import valueset
 
 
 class Coding(fhirelement.FHIRElement):
@@ -57,7 +56,7 @@ class Coding(fhirelement.FHIRElement):
         if 'system' in jsondict:
             self.system = jsondict['system']
         if 'valueSet' in jsondict:
-            self.valueSet = fhirreference.FHIRReference.with_json_and_owner(jsondict['valueSet'], self, valueset.ValueSet)
+            self.valueSet = fhirreference.FHIRReference.with_json_and_owner(jsondict['valueSet'], self)
         if 'version' in jsondict:
             self.version = jsondict['version']
 

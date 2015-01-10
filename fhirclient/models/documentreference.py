@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (xds-profile.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (documentreference.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import codeableconcept
@@ -11,15 +11,11 @@ import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import narrative
-import organization
-import patient
 import period
-import practitioner
 
 
 class DocumentReference(fhirresource.FHIRResource):
-    """ XDSDocumentEntry.
+    """ A reference to a document.
     """
     
     resource_name = "DocumentReference"
@@ -29,31 +25,31 @@ class DocumentReference(fhirresource.FHIRResource):
         """
         
         self.authenticator = None
-        """ ??.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        """ Who/What authenticated the document.
+        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.author = None
-        """ XDSDocumentEntry.author.
-        List of `FHIRReference` items referencing `Practitioner` (represented as `dict` in JSON). """
+        """ Who and/or what authored the document.
+        List of `FHIRReference` items referencing `Practitioner, Device, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.confidentiality = None
-        """ XDSDocumentEntry.confidentialityCode.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ Sensitivity of source document.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.context = None
-        """ event codes, service Start & Stop time, and facility type.
+        """ Clinical context of document.
         Type `DocumentReferenceContext` (represented as `dict` in JSON). """
         
         self.created = None
-        """ XDSDocumentEntry.creationTime.
+        """ Document creation time.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.custodian = None
-        """ n/a.
+        """ Org which maintains the document.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.description = None
-        """ XDSDocumentEntry.title.
+        """ Human-readable description (title).
         Type `str`. """
         
         self.docStatus = None
@@ -61,76 +57,67 @@ class DocumentReference(fhirresource.FHIRResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.format = None
-        """ XDSDocumentEntry.formatCode.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ Format/content rules for the document.
+        List of `str` items. """
         
         self.hash = None
-        """ XDSDocumentEntry.hash.
+        """ Base64 representation of SHA1.
         Type `str`. """
         
         self.identifier = None
-        """ XDSDocumentEntry.referenceIdList.
+        """ Other identifiers for the document.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.indexed = None
-        """ XDS submission time or XDSDocumentEntry.creationTime  if unknown.
+        """ When this document reference created.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.klass = None
-        """ XDSDocumentEntry.classCode.
+        """ Categorization of Document.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.location = None
-        """ repository location (by implication & configuration).
+        """ Where to access the document.
         Type `str`. """
         
         self.masterIdentifier = None
-        """ XDSDocumentEntry.uniqueId.
+        """ Master Version Specific Identifier.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.mimeType = None
-        """ XDSDocumentEntry.mimeType.
+        """ Mime type, + maybe character encoding.
         Type `str`. """
         
         self.policyManager = None
-        """ XDSDocumentEntry.homeCommunityId.
+        """ Manages access policies for the document.
         Type `str`. """
         
         self.primaryLanguage = None
-        """ XDSDocumentEntry.languageCode.
+        """ The marked primary language for the document.
         Type `str`. """
         
         self.relatesTo = None
-        """ Relationships that this document has with other document references
-        that already exist.
+        """ Relationships to other documents.
         List of `DocumentReferenceRelatesTo` items (represented as `dict` in JSON). """
         
         self.service = None
-        """ can be determined from repository location + parameters.
+        """ If access is not fully described by location.
         Type `DocumentReferenceService` (represented as `dict` in JSON). """
         
         self.size = None
-        """ XDSDocumentEntry.size.
+        """ Size of the document in bytes.
         Type `int`. """
         
         self.status = None
-        """ implied by XDS workflow.
+        """ current | superceded | entered in error.
         Type `str`. """
         
         self.subject = None
-        """ XDSDocumentEntry.patientId + sourcePatientId/sourcePatientInfo.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        """ Who|what is the subject of the document.
+        Type `FHIRReference` referencing `Patient, Practitioner, Group, Device` (represented as `dict` in JSON). """
         
         self.type = None
-        """ XDSDocumentEntry.typeCode.
+        """ What kind of document this is (LOINC if possible).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(DocumentReference, self).__init__(jsondict)
@@ -138,9 +125,9 @@ class DocumentReference(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(DocumentReference, self).update_with_json(jsondict)
         if 'authenticator' in jsondict:
-            self.authenticator = fhirreference.FHIRReference.with_json_and_owner(jsondict['authenticator'], self, practitioner.Practitioner)
+            self.authenticator = fhirreference.FHIRReference.with_json_and_owner(jsondict['authenticator'], self)
         if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
+            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
         if 'confidentiality' in jsondict:
             self.confidentiality = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['confidentiality'], self)
         if 'context' in jsondict:
@@ -148,13 +135,13 @@ class DocumentReference(fhirresource.FHIRResource):
         if 'created' in jsondict:
             self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
         if 'custodian' in jsondict:
-            self.custodian = fhirreference.FHIRReference.with_json_and_owner(jsondict['custodian'], self, organization.Organization)
+            self.custodian = fhirreference.FHIRReference.with_json_and_owner(jsondict['custodian'], self)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'docStatus' in jsondict:
             self.docStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['docStatus'], self)
         if 'format' in jsondict:
-            self.format = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['format'], self)
+            self.format = jsondict['format']
         if 'hash' in jsondict:
             self.hash = jsondict['hash']
         if 'identifier' in jsondict:
@@ -182,33 +169,66 @@ class DocumentReference(fhirresource.FHIRResource):
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
         if 'type' in jsondict:
             self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
-class DocumentReferenceRelatesTo(fhirelement.FHIRElement):
-    """ Relationships that this document has with other document references that
-    already exist.
+class DocumentReferenceContext(fhirelement.FHIRElement):
+    """ Clinical context of document.
     
-    Relationships to other documents.
+    The clinical context in which the document was prepared.
     """
+    
+    resource_name = "DocumentReferenceContext"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.event = None
+        """ Main Clinical Acts Documented.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.facilityType = None
+        """ Kind of facility where patient was seen.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.period = None
+        """ Time of service that is being documented.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        super(DocumentReferenceContext, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(DocumentReferenceContext, self).update_with_json(jsondict)
+        if 'event' in jsondict:
+            self.event = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['event'], self)
+        if 'facilityType' in jsondict:
+            self.facilityType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['facilityType'], self)
+        if 'period' in jsondict:
+            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
+
+
+class DocumentReferenceRelatesTo(fhirelement.FHIRElement):
+    """ Relationships to other documents.
+    
+    Relationships that this document has with other document references that
+    already exist.
+    """
+    
+    resource_name = "DocumentReferenceRelatesTo"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
         self.code = None
-        """ The type of relationship that this document has with anther
-        document.
+        """ replaces | transforms | signs | appends.
         Type `str`. """
         
         self.target = None
-        """ The target document of this relationship.
+        """ Target of the relationship.
         Type `FHIRReference` referencing `DocumentReference` (represented as `dict` in JSON). """
         
         super(DocumentReferenceRelatesTo, self).__init__(jsondict)
@@ -218,14 +238,16 @@ class DocumentReferenceRelatesTo(fhirelement.FHIRElement):
         if 'code' in jsondict:
             self.code = jsondict['code']
         if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, DocumentReference)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
 
 
 class DocumentReferenceService(fhirelement.FHIRElement):
-    """ can be determined from repository location + parameters.
+    """ If access is not fully described by location.
     
-    If access is not fully described by location.
+    A description of a service call that can be used to retrieve the document.
     """
+    
+    resource_name = "DocumentReferenceService"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -261,6 +283,8 @@ class DocumentReferenceServiceParameter(fhirelement.FHIRElement):
     A list of named parameters that is used in the service call.
     """
     
+    resource_name = "DocumentReferenceServiceParameter"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
@@ -281,40 +305,4 @@ class DocumentReferenceServiceParameter(fhirelement.FHIRElement):
             self.name = jsondict['name']
         if 'value' in jsondict:
             self.value = jsondict['value']
-
-
-class DocumentReferenceContext(fhirelement.FHIRElement):
-    """ event codes, service Start & Stop time, and facility type.
-    
-    Clinical context of document - eventCodeList, serviceStart & Stop time, and
-    facility type.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.event = None
-        """ XDSDocumentEntry.eventCodeList.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.facilityType = None
-        """ XDSDocumentEntry.healthCareFacilityTypeCode.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.period = None
-        """ XDSDocumentEntry.serviceStartTime &
-        XDSDocumentEntry.serviceStopTime.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        super(DocumentReferenceContext, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(DocumentReferenceContext, self).update_with_json(jsondict)
-        if 'event' in jsondict:
-            self.event = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['event'], self)
-        if 'facilityType' in jsondict:
-            self.facilityType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['facilityType'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
 

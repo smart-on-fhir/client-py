@@ -1,39 +1,23 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (procedure.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (procedure.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
-import adversereaction
 import codeableconcept
-import diagnosticreport
-import encounter
 import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import narrative
-import patient
 import period
-import practitioner
 
 
 class Procedure(fhirresource.FHIRResource):
     """ An action that is performed on a patient.
     
-    Scope and Usage This resource is used to record the details of procedures
-    performed on a patient. A procedure is an activity that is performed with
-    or on a patient as part of the provision of care. Examples include surgical
-    procedures, diagnostic procedures, endoscopic procedures, biopsies, and
-    exclude things for which there are specific resources, such as
-    immunizations, drug administrations.
-    
-    Note that many diagnostic processes are procedures that generate
-    observations and reports. In many cases, the existence of the procedure is
-    assumed, but where there are details of interest about how the diagnostic
-    procedure was performed, the procedure resource is used to describe the
-    activity.
+    An action that is performed on a patient. This can be a physical 'thing'
+    like an operation, or less invasive like counseling or hypnotherapy.
     """
     
     resource_name = "Procedure"
@@ -78,6 +62,10 @@ class Procedure(fhirresource.FHIRResource):
         """ What was result of procedure?.
         Type `str`. """
         
+        self.patient = None
+        """ Who procedure was performed on.
+        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
         self.performer = None
         """ The people who performed the procedure.
         List of `ProcedurePerformer` items (represented as `dict` in JSON). """
@@ -89,14 +77,6 @@ class Procedure(fhirresource.FHIRResource):
         self.report = None
         """ Any report that results from the procedure.
         List of `FHIRReference` items referencing `DiagnosticReport` (represented as `dict` in JSON). """
-        
-        self.subject = None
-        """ Who procedure was performed on.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
         
         self.type = None
         """ Identification of the procedure.
@@ -113,7 +93,7 @@ class Procedure(fhirresource.FHIRResource):
         if 'date' in jsondict:
             self.date = period.Period.with_json_and_owner(jsondict['date'], self)
         if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
+            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
         if 'followUp' in jsondict:
             self.followUp = jsondict['followUp']
         if 'identifier' in jsondict:
@@ -124,16 +104,14 @@ class Procedure(fhirresource.FHIRResource):
             self.notes = jsondict['notes']
         if 'outcome' in jsondict:
             self.outcome = jsondict['outcome']
+        if 'patient' in jsondict:
+            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
         if 'performer' in jsondict:
             self.performer = ProcedurePerformer.with_json_and_owner(jsondict['performer'], self)
         if 'relatedItem' in jsondict:
             self.relatedItem = ProcedureRelatedItem.with_json_and_owner(jsondict['relatedItem'], self)
         if 'report' in jsondict:
-            self.report = fhirreference.FHIRReference.with_json_and_owner(jsondict['report'], self, diagnosticreport.DiagnosticReport)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+            self.report = fhirreference.FHIRReference.with_json_and_owner(jsondict['report'], self)
         if 'type' in jsondict:
             self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
@@ -143,6 +121,8 @@ class ProcedurePerformer(fhirelement.FHIRElement):
     
     Limited to 'real' people rather than equipment.
     """
+    
+    resource_name = "ProcedurePerformer"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -161,7 +141,7 @@ class ProcedurePerformer(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ProcedurePerformer, self).update_with_json(jsondict)
         if 'person' in jsondict:
-            self.person = fhirreference.FHIRReference.with_json_and_owner(jsondict['person'], self, practitioner.Practitioner)
+            self.person = fhirreference.FHIRReference.with_json_and_owner(jsondict['person'], self)
         if 'role' in jsondict:
             self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
 
@@ -173,13 +153,15 @@ class ProcedureRelatedItem(fhirelement.FHIRElement):
     For example treating wound dehiscence following a previous procedure.
     """
     
+    resource_name = "ProcedureRelatedItem"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
         self.target = None
         """ The related item - e.g. a procedure.
-        Type `FHIRReference` referencing `AdverseReaction` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `AllergyIntolerance, CarePlan, Condition, DiagnosticReport, FamilyHistory, ImagingStudy, Immunization, ImmunizationRecommendation, MedicationAdministration, MedicationDispense, MedicationPrescription, MedicationStatement, Observation, Procedure` (represented as `dict` in JSON). """
         
         self.type = None
         """ caused-by | because-of.
@@ -190,7 +172,7 @@ class ProcedureRelatedItem(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ProcedureRelatedItem, self).update_with_json(jsondict)
         if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, adversereaction.AdverseReaction)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
         if 'type' in jsondict:
             self.type = jsondict['type']
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Address.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (Address.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import fhirelement
@@ -11,6 +11,10 @@ import period
 
 class Address(fhirelement.FHIRElement):
     """ A postal address.
+    
+    There is a variety of postal address formats defined around the world. This
+    format defines a superset that is the basis for all addresses around the
+    world.
     """
     
     resource_name = "Address"
@@ -35,6 +39,10 @@ class Address(fhirelement.FHIRElement):
         """ Time period when address was/is in use.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.postalCode = None
+        """ Postal code for area.
+        Type `str`. """
+        
         self.state = None
         """ Sub-unit of country (abreviations ok).
         Type `str`. """
@@ -45,10 +53,6 @@ class Address(fhirelement.FHIRElement):
         
         self.use = None
         """ home | work | temp | old - purpose of this address.
-        Type `str`. """
-        
-        self.zip = None
-        """ Postal code for area.
         Type `str`. """
         
         super(Address, self).__init__(jsondict)
@@ -63,12 +67,12 @@ class Address(fhirelement.FHIRElement):
             self.line = jsondict['line']
         if 'period' in jsondict:
             self.period = period.Period.with_json_and_owner(jsondict['period'], self)
+        if 'postalCode' in jsondict:
+            self.postalCode = jsondict['postalCode']
         if 'state' in jsondict:
             self.state = jsondict['state']
         if 'text' in jsondict:
             self.text = jsondict['text']
         if 'use' in jsondict:
             self.use = jsondict['use']
-        if 'zip' in jsondict:
-            self.zip = jsondict['zip']
 

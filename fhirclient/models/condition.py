@@ -1,49 +1,26 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (condition.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (condition.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import age
 import codeableconcept
-import encounter
 import fhirdate
 import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import narrative
-import patient
-import practitioner
 
 
 class Condition(fhirresource.FHIRResource):
     """ Detailed information about conditions, problems or diagnoses.
     
-    Scope and Usage This resource is used to record detailed information about
-    a specific aspect of or issue with the health state of a patient. It is
-    intended for use for issues that have been identified as relevant for
-    tracking and reporting purposes or where there's a need to capture a
-    concrete diagnosis or the gathering of data such as signs and symptoms.
-    There are situations where the same information might appear as both an
-    observation as well as a condition. For example, the appearance of a rash
-    or an instance of a fever are signs and symptoms that would typically be
-    captured using the Observation resource. However, a pattern of ongoing
-    fevers or a persistent or severe rash requiring treatment might be captured
-    as a condition. The Condition resource specifically excludes
-    AdverseReactions and AllergyIntolerances as those are handled with their
-    own resources.
-    
-    The Condition resource may be used to record positive aspects of the health
-    state of a patient (e.g. pregnancy) as well as the major use, which is for
-    problems/concerns (e.g. hypertension).
-    
-    Conditions are frequently referenced by other resources as "reasons" for an
-    action (Prescription, Procedure, DiagnosticOrder, etc.)
-    
-    The conditions represented in this resources are sometimes described as
-    "Problems", and kept as part of a problem list.
+    Use to record detailed information about conditions, problems or diagnoses
+    recognized by a clinician. There are many uses including: recording a
+    Diagnosis during an Encounter; populating a problem List or a Summary
+    Statement, such as a Discharge Summary.
     """
     
     resource_name = "Condition"
@@ -66,7 +43,7 @@ class Condition(fhirresource.FHIRResource):
         
         self.asserter = None
         """ Person who asserts this condition.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, Patient` (represented as `dict` in JSON). """
         
         self.category = None
         """ E.g. complaint | symptom | finding | diagnosis.
@@ -83,6 +60,10 @@ class Condition(fhirresource.FHIRResource):
         self.dateAsserted = None
         """ When first detected/suspected/entered.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.dueTo = None
+        """ Causes for this Condition.
+        List of `ConditionDueTo` items (represented as `dict` in JSON). """
         
         self.encounter = None
         """ Encounter when condition first asserted.
@@ -104,17 +85,17 @@ class Condition(fhirresource.FHIRResource):
         """ Additional information about the Condition.
         Type `str`. """
         
+        self.occurredFollowing = None
+        """ Precedent for this Condition.
+        List of `ConditionOccurredFollowing` items (represented as `dict` in JSON). """
+        
         self.onsetAge = None
-        """ Estimated or actual date, or age.
+        """ Estimated or actual date,  date-time, or age.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.onsetDate = None
-        """ Estimated or actual date, or age.
+        self.onsetDateTime = None
+        """ Estimated or actual date,  date-time, or age.
         Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.relatedItem = None
-        """ Causes or precedents for this Condition.
-        List of `ConditionRelatedItem` items (represented as `dict` in JSON). """
         
         self.severity = None
         """ Subjective severity of condition.
@@ -132,10 +113,6 @@ class Condition(fhirresource.FHIRResource):
         """ Who has the condition?.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         super(Condition, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
@@ -147,7 +124,7 @@ class Condition(fhirresource.FHIRResource):
         if 'abatementDate' in jsondict:
             self.abatementDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['abatementDate'], self)
         if 'asserter' in jsondict:
-            self.asserter = fhirreference.FHIRReference.with_json_and_owner(jsondict['asserter'], self, practitioner.Practitioner)
+            self.asserter = fhirreference.FHIRReference.with_json_and_owner(jsondict['asserter'], self)
         if 'category' in jsondict:
             self.category = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['category'], self)
         if 'certainty' in jsondict:
@@ -156,8 +133,10 @@ class Condition(fhirresource.FHIRResource):
             self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'dateAsserted' in jsondict:
             self.dateAsserted = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateAsserted'], self)
+        if 'dueTo' in jsondict:
+            self.dueTo = ConditionDueTo.with_json_and_owner(jsondict['dueTo'], self)
         if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
+            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
         if 'evidence' in jsondict:
             self.evidence = ConditionEvidence.with_json_and_owner(jsondict['evidence'], self)
         if 'identifier' in jsondict:
@@ -166,12 +145,12 @@ class Condition(fhirresource.FHIRResource):
             self.location = ConditionLocation.with_json_and_owner(jsondict['location'], self)
         if 'notes' in jsondict:
             self.notes = jsondict['notes']
+        if 'occurredFollowing' in jsondict:
+            self.occurredFollowing = ConditionOccurredFollowing.with_json_and_owner(jsondict['occurredFollowing'], self)
         if 'onsetAge' in jsondict:
             self.onsetAge = age.Age.with_json_and_owner(jsondict['onsetAge'], self)
-        if 'onsetDate' in jsondict:
-            self.onsetDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['onsetDate'], self)
-        if 'relatedItem' in jsondict:
-            self.relatedItem = ConditionRelatedItem.with_json_and_owner(jsondict['relatedItem'], self)
+        if 'onsetDateTime' in jsondict:
+            self.onsetDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['onsetDateTime'], self)
         if 'severity' in jsondict:
             self.severity = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['severity'], self)
         if 'stage' in jsondict:
@@ -179,38 +158,38 @@ class Condition(fhirresource.FHIRResource):
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
 
 
-class ConditionStage(fhirelement.FHIRElement):
-    """ Stage/grade, usually assessed formally.
+class ConditionDueTo(fhirelement.FHIRElement):
+    """ Causes for this Condition.
     
-    Clinical stage or grade of a condition. May include formal severity
-    assessments.
+    Further conditions, problems, diagnoses, procedures or events or the
+    substance that caused/triggered this Condition.
     """
+    
+    resource_name = "ConditionDueTo"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
-        self.assessment = None
-        """ Formal record of assessment.
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
-        
-        self.summary = None
-        """ Simple summary (disease specific).
+        self.codeableConcept = None
+        """ Relationship target by means of a predefined code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ConditionStage, self).__init__(jsondict)
+        self.target = None
+        """ Relationship target resource.
+        Type `FHIRReference` referencing `Condition, Procedure, MedicationAdministration, Immunization, MedicationStatement` (represented as `dict` in JSON). """
+        
+        super(ConditionDueTo, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
-        super(ConditionStage, self).update_with_json(jsondict)
-        if 'assessment' in jsondict:
-            self.assessment = fhirreference.FHIRReference.with_json_and_owner(jsondict['assessment'], self, fhirresource.FHIRResource)
-        if 'summary' in jsondict:
-            self.summary = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['summary'], self)
+        super(ConditionDueTo, self).update_with_json(jsondict)
+        if 'codeableConcept' in jsondict:
+            self.codeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['codeableConcept'], self)
+        if 'target' in jsondict:
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
 
 
 class ConditionEvidence(fhirelement.FHIRElement):
@@ -219,6 +198,8 @@ class ConditionEvidence(fhirelement.FHIRElement):
     Supporting Evidence / manifestations that are the basis on which this
     condition is suspected or confirmed.
     """
+    
+    resource_name = "ConditionEvidence"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -239,7 +220,7 @@ class ConditionEvidence(fhirelement.FHIRElement):
         if 'code' in jsondict:
             self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'detail' in jsondict:
-            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self, fhirresource.FHIRResource)
+            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self)
 
 
 class ConditionLocation(fhirelement.FHIRElement):
@@ -247,6 +228,8 @@ class ConditionLocation(fhirelement.FHIRElement):
     
     The anatomical location where this condition manifests itself.
     """
+    
+    resource_name = "ConditionLocation"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -270,38 +253,64 @@ class ConditionLocation(fhirelement.FHIRElement):
             self.detail = jsondict['detail']
 
 
-class ConditionRelatedItem(fhirelement.FHIRElement):
-    """ Causes or precedents for this Condition.
+class ConditionOccurredFollowing(fhirelement.FHIRElement):
+    """ Precedent for this Condition.
     
-    Further conditions, problems, diagnoses, procedures or events that are
-    related in some way to this condition, or the substance that
-    caused/triggered this Condition.
+    Further conditions, problems, diagnoses, procedures or events or the
+    substance that preceded this Condition.
     """
+    
+    resource_name = "ConditionOccurredFollowing"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
-        self.code = None
+        self.codeableConcept = None
         """ Relationship target by means of a predefined code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.target = None
         """ Relationship target resource.
-        Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Condition, Procedure, MedicationAdministration, Immunization, MedicationStatement` (represented as `dict` in JSON). """
         
-        self.type = None
-        """ due-to | following.
-        Type `str`. """
-        
-        super(ConditionRelatedItem, self).__init__(jsondict)
+        super(ConditionOccurredFollowing, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
-        super(ConditionRelatedItem, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
+        super(ConditionOccurredFollowing, self).update_with_json(jsondict)
+        if 'codeableConcept' in jsondict:
+            self.codeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['codeableConcept'], self)
         if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, Condition)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
+
+
+class ConditionStage(fhirelement.FHIRElement):
+    """ Stage/grade, usually assessed formally.
+    
+    Clinical stage or grade of a condition. May include formal severity
+    assessments.
+    """
+    
+    resource_name = "ConditionStage"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.assessment = None
+        """ Formal record of assessment.
+        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        
+        self.summary = None
+        """ Simple summary (disease specific).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(ConditionStage, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(ConditionStage, self).update_with_json(jsondict)
+        if 'assessment' in jsondict:
+            self.assessment = fhirreference.FHIRReference.with_json_and_owner(jsondict['assessment'], self)
+        if 'summary' in jsondict:
+            self.summary = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['summary'], self)
 

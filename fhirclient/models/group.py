@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (group.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (group.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import codeableconcept
@@ -10,8 +10,6 @@ import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import narrative
-import patient
 import quantity
 import range
 
@@ -19,19 +17,10 @@ import range
 class Group(fhirresource.FHIRResource):
     """ Group of multiple entities.
     
-    Scope and Usage Use Cases The group resource is used in one of two ways:
-    
-    * To define a group of specific people, animals, devices, etc. that is
-    being tracked, examined or otherwise referenced as part of healthcare-
-    related activities
-    * To define a set of *possible* people, animals, devices, etc. that are of
-    interest for some intended future healthcare-related activities
-    Examples of the former could include group therapy or treatment sessions,
-    exposed entities tracked as part of public health, etc. The latter might be
-    used to define expected subjects for a clinical study.
-    
-    Both use cases are handled by a single resource because the data elements
-    captured tend to be similar.
+    Represents a defined collection of entities that may be discussed or acted
+    upon collectively but which are not expected to act collectively and are
+    not formally or legally recognized.  I.e. A collection of entities that
+    isn't an Organization.
     """
     
     resource_name = "Group"
@@ -58,7 +47,7 @@ class Group(fhirresource.FHIRResource):
         
         self.member = None
         """ Who is in group.
-        List of `FHIRReference` items referencing `Patient` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Patient, Practitioner, Device, Medication, Substance` (represented as `dict` in JSON). """
         
         self.name = None
         """ Label for Group.
@@ -67,10 +56,6 @@ class Group(fhirresource.FHIRResource):
         self.quantity = None
         """ Number of members.
         Type `int`. """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
         
         self.type = None
         """ person | animal | practitioner | device | medication | substance.
@@ -89,13 +74,11 @@ class Group(fhirresource.FHIRResource):
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'member' in jsondict:
-            self.member = fhirreference.FHIRReference.with_json_and_owner(jsondict['member'], self, patient.Patient)
+            self.member = fhirreference.FHIRReference.with_json_and_owner(jsondict['member'], self)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'quantity' in jsondict:
             self.quantity = jsondict['quantity']
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'type' in jsondict:
             self.type = jsondict['type']
 
@@ -105,6 +88,8 @@ class GroupCharacteristic(fhirelement.FHIRElement):
     
     Identifies the traits shared by members of the group.
     """
+    
+    resource_name = "GroupCharacteristic"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.

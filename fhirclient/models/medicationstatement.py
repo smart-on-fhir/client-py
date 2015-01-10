@@ -1,34 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (medicationstatement.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (medicationstatement.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import codeableconcept
-import device
 import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import medication
-import narrative
-import patient
 import period
 import quantity
 import ratio
-import schedule
+import timing
 
 
 class MedicationStatement(fhirresource.FHIRResource):
     """ Administration of medication to a patient.
     
-    Scope and Usage Common usage includes:
-    
-    * the recording of non-prescription and/or recreational drugs
-    * the recording of an intake medication list upon admission to hospital
-    * the summarization of a patient's "active medications" in a patient
-    profile
+    A record of medication being taken by a patient, or that the medication has
+    been given to a patient where the record is the result of a report from the
+    patient or another clinician.
     """
     
     resource_name = "MedicationStatement"
@@ -61,10 +54,6 @@ class MedicationStatement(fhirresource.FHIRResource):
         """ True if asserting medication was not given.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         self.wasNotGiven = False
         """ True if medication is/was not being taken.
         Type `bool`. """
@@ -78,19 +67,17 @@ class MedicationStatement(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(MedicationStatement, self).update_with_json(jsondict)
         if 'device' in jsondict:
-            self.device = fhirreference.FHIRReference.with_json_and_owner(jsondict['device'], self, device.Device)
+            self.device = fhirreference.FHIRReference.with_json_and_owner(jsondict['device'], self)
         if 'dosage' in jsondict:
             self.dosage = MedicationStatementDosage.with_json_and_owner(jsondict['dosage'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'medication' in jsondict:
-            self.medication = fhirreference.FHIRReference.with_json_and_owner(jsondict['medication'], self, medication.Medication)
+            self.medication = fhirreference.FHIRReference.with_json_and_owner(jsondict['medication'], self)
         if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
+            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
         if 'reasonNotGiven' in jsondict:
             self.reasonNotGiven = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonNotGiven'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'wasNotGiven' in jsondict:
             self.wasNotGiven = jsondict['wasNotGiven']
         if 'whenGiven' in jsondict:
@@ -102,6 +89,8 @@ class MedicationStatementDosage(fhirelement.FHIRElement):
     
     Indicates how the medication is/was used by the patient.
     """
+    
+    resource_name = "MedicationStatementDosage"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -135,13 +124,13 @@ class MedicationStatementDosage(fhirelement.FHIRElement):
         """ How did the medication enter the body?.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.schedule = None
+        """ When/how often was medication taken?.
+        Type `Timing` (represented as `dict` in JSON). """
+        
         self.site = None
         """ Where on body was medication administered?.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.timing = None
-        """ When/how often was medication taken?.
-        Type `Schedule` (represented as `dict` in JSON). """
         
         super(MedicationStatementDosage, self).__init__(jsondict)
     
@@ -161,8 +150,8 @@ class MedicationStatementDosage(fhirelement.FHIRElement):
             self.rate = ratio.Ratio.with_json_and_owner(jsondict['rate'], self)
         if 'route' in jsondict:
             self.route = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['route'], self)
+        if 'schedule' in jsondict:
+            self.schedule = timing.Timing.with_json_and_owner(jsondict['schedule'], self)
         if 'site' in jsondict:
             self.site = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['site'], self)
-        if 'timing' in jsondict:
-            self.timing = schedule.Schedule.with_json_and_owner(jsondict['timing'], self)
 

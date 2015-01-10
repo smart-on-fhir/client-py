@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (observation.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (observation.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import attachment
@@ -12,38 +12,18 @@ import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import narrative
-import patient
 import period
-import practitioner
 import quantity
 import range
 import ratio
 import sampleddata
-import specimen
 
 
 class Observation(fhirresource.FHIRResource):
     """ Measurements and simple assertions.
     
-    Scope and Usage Observations are a central element in healthcare, used to
-    support diagnosis, monitor progress, determine baselines and patterns and
-    even capture demographic characteristics. Most observations are simple
-    name/value pair assertions with some metadata, but some observations group
-    other observations together logically, or even are multi-component
-    observations. Note that the resources DiagnosticReport and
-    DeviceObservationReport provide a clinical or workflow context for a set of
-    observations. Expected uses for the Observation resource include:
-    
-    * Vital signs: temperature, blood pressure, respiration rate
-    * Laboratory Data and other Diagnostic Measures
-    * Measurements emitted by Devices
-    * Clinical assessments such as APGAR
-    * Personal characteristics: height, weight, eye-color
-    * Diagnoses (Note: trackable conditions, allergies, adverse reactions and
-    more complex structures are handled elsewhere)
-    * Social history: tobacco use, family supports, cognitive status
-    * Core characteristics: pregnancy status, death assertion
+    Measurements and simple assertions made about a patient, device or other
+    subject.
     """
     
     resource_name = "Observation"
@@ -68,6 +48,14 @@ class Observation(fhirresource.FHIRResource):
         """ Comments about result.
         Type `str`. """
         
+        self.dataAbsentReason = None
+        """ unknown | asked | temp | notasked +.
+        Type `str`. """
+        
+        self.encounter = None
+        """ Healthcare event related to the observation.
+        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        
         self.identifier = None
         """ Unique Id for this particular observation.
         Type `Identifier` (represented as `dict` in JSON). """
@@ -90,7 +78,7 @@ class Observation(fhirresource.FHIRResource):
         
         self.performer = None
         """ Who did the observation.
-        List of `FHIRReference` items referencing `Practitioner` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Practitioner, Device, Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.referenceRange = None
         """ Provides guide for interpretation.
@@ -114,11 +102,7 @@ class Observation(fhirresource.FHIRResource):
         
         self.subject = None
         """ Who and/or what this is about.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Patient, Group, Device, Location` (represented as `dict` in JSON). """
         
         self.valueAttachment = None
         """ Actual result.
@@ -127,6 +111,10 @@ class Observation(fhirresource.FHIRResource):
         self.valueCodeableConcept = None
         """ Actual result.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.valueDateTime = None
+        """ Actual result.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valuePeriod = None
         """ Actual result.
@@ -148,6 +136,10 @@ class Observation(fhirresource.FHIRResource):
         """ Actual result.
         Type `str`. """
         
+        self.valueTime = None
+        """ Actual result.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         super(Observation, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
@@ -160,6 +152,10 @@ class Observation(fhirresource.FHIRResource):
             self.bodySite = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySite'], self)
         if 'comments' in jsondict:
             self.comments = jsondict['comments']
+        if 'dataAbsentReason' in jsondict:
+            self.dataAbsentReason = jsondict['dataAbsentReason']
+        if 'encounter' in jsondict:
+            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'interpretation' in jsondict:
@@ -171,7 +167,7 @@ class Observation(fhirresource.FHIRResource):
         if 'name' in jsondict:
             self.name = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['name'], self)
         if 'performer' in jsondict:
-            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self, practitioner.Practitioner)
+            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self)
         if 'referenceRange' in jsondict:
             self.referenceRange = ObservationReferenceRange.with_json_and_owner(jsondict['referenceRange'], self)
         if 'related' in jsondict:
@@ -179,17 +175,17 @@ class Observation(fhirresource.FHIRResource):
         if 'reliability' in jsondict:
             self.reliability = jsondict['reliability']
         if 'specimen' in jsondict:
-            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self, specimen.Specimen)
+            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
         if 'valueAttachment' in jsondict:
             self.valueAttachment = attachment.Attachment.with_json_and_owner(jsondict['valueAttachment'], self)
         if 'valueCodeableConcept' in jsondict:
             self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
+        if 'valueDateTime' in jsondict:
+            self.valueDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDateTime'], self)
         if 'valuePeriod' in jsondict:
             self.valuePeriod = period.Period.with_json_and_owner(jsondict['valuePeriod'], self)
         if 'valueQuantity' in jsondict:
@@ -200,6 +196,8 @@ class Observation(fhirresource.FHIRResource):
             self.valueSampledData = sampleddata.SampledData.with_json_and_owner(jsondict['valueSampledData'], self)
         if 'valueString' in jsondict:
             self.valueString = jsondict['valueString']
+        if 'valueTime' in jsondict:
+            self.valueTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueTime'], self)
 
 
 class ObservationReferenceRange(fhirelement.FHIRElement):
@@ -208,6 +206,8 @@ class ObservationReferenceRange(fhirelement.FHIRElement):
     Guidance on how to interpret the value by comparison to a normal or
     recommended range.
     """
+    
+    resource_name = "ObservationReferenceRange"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -229,6 +229,10 @@ class ObservationReferenceRange(fhirelement.FHIRElement):
         """ Indicates the meaning/use of this range of this range.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.text = None
+        """ Text based reference range in an observation.
+        Type `str`. """
+        
         super(ObservationReferenceRange, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
@@ -241,6 +245,8 @@ class ObservationReferenceRange(fhirelement.FHIRElement):
             self.low = quantity.Quantity.with_json_and_owner(jsondict['low'], self)
         if 'meaning' in jsondict:
             self.meaning = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['meaning'], self)
+        if 'text' in jsondict:
+            self.text = jsondict['text']
 
 
 class ObservationRelated(fhirelement.FHIRElement):
@@ -249,6 +255,8 @@ class ObservationRelated(fhirelement.FHIRElement):
     Related observations - either components, or previous observations, or
     statements of derivation.
     """
+    
+    resource_name = "ObservationRelated"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -268,7 +276,7 @@ class ObservationRelated(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ObservationRelated, self).update_with_json(jsondict)
         if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, Observation)
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
         if 'type' in jsondict:
             self.type = jsondict['type']
 

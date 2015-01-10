@@ -20,6 +20,10 @@ class FHIRContainedResource(object):
         self.json = None
         
         if jsondict is not None:
+            self.update_with_json(jsondict)
+    
+    def update_with_json(self, jsondict):
+        if jsondict is not None:
             self.id = jsondict.get('id')
             self.type = jsondict.get('resourceType')
             self.json = jsondict

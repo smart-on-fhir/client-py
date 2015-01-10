@@ -1,10 +1,6 @@
 # These are settings for the FHIR class generator
 
-from Python.mappings import *
 from Python.settings import *
-
-# where to load the specification archive from
-specification_url = 'http://hl7.org/documentcenter/public/standards/FHIR/fhir-spec.zip'
 
 # classes/resources
 write_resources = True
@@ -20,6 +16,6 @@ write_searchparams = True
 tpl_searchparams_target = '../fhirclient/models/fhirsearchelement.py'
 
 # unit tests
-write_unittests = True
+write_unittests = False
 tpl_unittest_target_ptrn = '../fhirclient/models/{}_tests.py'
 unittest_filename_prefix = '../../fhir-parser/downloads/site'

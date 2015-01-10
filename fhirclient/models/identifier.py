@@ -1,18 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Identifier.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (Identifier.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import fhirelement
 import fhirreference
-import organization
 import period
 
 
 class Identifier(fhirelement.FHIRElement):
     """ An identifier intended for computation.
+    
+    A technical identifier - identifies some entity uniquely and unambiguously.
     """
     
     resource_name = "Identifier"
@@ -50,7 +51,7 @@ class Identifier(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(Identifier, self).update_with_json(jsondict)
         if 'assigner' in jsondict:
-            self.assigner = fhirreference.FHIRReference.with_json_and_owner(jsondict['assigner'], self, organization.Organization)
+            self.assigner = fhirreference.FHIRReference.with_json_and_owner(jsondict['assigner'], self)
         if 'label' in jsondict:
             self.label = jsondict['label']
         if 'period' in jsondict:

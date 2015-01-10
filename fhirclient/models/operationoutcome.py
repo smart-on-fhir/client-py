@@ -1,32 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (operationoutcome.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (operationoutcome.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import coding
 import fhirelement
 import fhirresource
-import narrative
 
 
 class OperationOutcome(fhirresource.FHIRResource):
     """ Information about the success/failure of an action.
     
-    Scope and Usage Operation Outcomes are sets of error, warning and
-    information messages that provide detailed information about the outcome of
-    some attempted system operation. They are provided as a direct system
-    response, or component of one, where they provide information about the
-    outcome of the operation.
-    
-    Specifically, OperationOutcomes are used in the following circumstances:
-    
-    * When an RESTful operation fails
-    * As the response on a validation operation, to provide information about
-    the outcomes
-    * As part of a message response, usually when the message has not been
-    processed correctly
+    A collection of error, warning or information messages that result from a
+    system action.
     """
     
     resource_name = "OperationOutcome"
@@ -39,18 +27,12 @@ class OperationOutcome(fhirresource.FHIRResource):
         """ A single issue associated with the action.
         List of `OperationOutcomeIssue` items (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         super(OperationOutcome, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(OperationOutcome, self).update_with_json(jsondict)
         if 'issue' in jsondict:
             self.issue = OperationOutcomeIssue.with_json_and_owner(jsondict['issue'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class OperationOutcomeIssue(fhirelement.FHIRElement):
@@ -58,6 +40,8 @@ class OperationOutcomeIssue(fhirelement.FHIRElement):
     
     An error, warning or information message that results from a system action.
     """
+    
+    resource_name = "OperationOutcomeIssue"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.

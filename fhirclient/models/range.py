@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Range.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (Range.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import fhirelement
@@ -11,6 +11,8 @@ import quantity
 
 class Range(fhirelement.FHIRElement):
     """ Set of values bounded by low and high.
+    
+    A set of ordered Quantities defined by a low and high limit.
     """
     
     resource_name = "Range"

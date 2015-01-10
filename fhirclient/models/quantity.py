@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Quantity.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (Quantity.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import fhirelement
@@ -10,6 +10,10 @@ import fhirelement
 
 class Quantity(fhirelement.FHIRElement):
     """ A measured or measurable amount.
+    
+    A measured amount (or an amount that can potentially be measured). Note
+    that measured amounts include amounts that are not precisely quantified,
+    including amounts involving arbitrary units and floating currencies.
     """
     
     resource_name = "Quantity"

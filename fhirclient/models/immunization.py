@@ -1,40 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (immunization.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (immunization.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
-import adversereaction
 import codeableconcept
 import fhirdate
 import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import location
-import narrative
-import organization
-import patient
-import practitioner
 import quantity
 
 
 class Immunization(fhirresource.FHIRResource):
     """ Immunization event information.
-    
-    Scope and Usage The immunization resource is intended to cover the
-    administration of vaccines to patients across all healthcare disciplines in
-    all care settings and all regions. This includes immunization of both
-    humans and animals but does not include the administration of non-vaccine
-    agents, even those that may have or claim immunological effects.
-    
-    Additionally, the immunization resource is expected to cover key concepts
-    related to the creation, revision and querying of a patient's immunization
-    history. This resource - through consultation with the PHER work group - is
-    believed to meet key use cases and information requirements as defined in
-    the existing HL7 v2.x immunization implementation guide, HL7 v3 POIZ domain
-    and Immunization Domain Analysis Model.
     """
     
     resource_name = "Immunization"
@@ -107,10 +88,6 @@ class Immunization(fhirresource.FHIRResource):
         """ Who was immunized?.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         self.vaccinationProtocol = None
         """ What protocol was followed.
         List of `ImmunizationVaccinationProtocol` items (represented as `dict` in JSON). """
@@ -134,13 +111,13 @@ class Immunization(fhirresource.FHIRResource):
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
+            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
         if 'lotNumber' in jsondict:
             self.lotNumber = jsondict['lotNumber']
         if 'manufacturer' in jsondict:
-            self.manufacturer = fhirreference.FHIRReference.with_json_and_owner(jsondict['manufacturer'], self, organization.Organization)
+            self.manufacturer = fhirreference.FHIRReference.with_json_and_owner(jsondict['manufacturer'], self)
         if 'performer' in jsondict:
-            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self, practitioner.Practitioner)
+            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self)
         if 'reaction' in jsondict:
             self.reaction = ImmunizationReaction.with_json_and_owner(jsondict['reaction'], self)
         if 'refusedIndicator' in jsondict:
@@ -148,15 +125,13 @@ class Immunization(fhirresource.FHIRResource):
         if 'reported' in jsondict:
             self.reported = jsondict['reported']
         if 'requester' in jsondict:
-            self.requester = fhirreference.FHIRReference.with_json_and_owner(jsondict['requester'], self, practitioner.Practitioner)
+            self.requester = fhirreference.FHIRReference.with_json_and_owner(jsondict['requester'], self)
         if 'route' in jsondict:
             self.route = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['route'], self)
         if 'site' in jsondict:
             self.site = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['site'], self)
         if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
         if 'vaccinationProtocol' in jsondict:
             self.vaccinationProtocol = ImmunizationVaccinationProtocol.with_json_and_owner(jsondict['vaccinationProtocol'], self)
         if 'vaccineType' in jsondict:
@@ -168,6 +143,8 @@ class ImmunizationExplanation(fhirelement.FHIRElement):
     
     Reasons why a vaccine was administered or refused.
     """
+    
+    resource_name = "ImmunizationExplanation"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -198,6 +175,8 @@ class ImmunizationReaction(fhirelement.FHIRElement):
     an immunization.
     """
     
+    resource_name = "ImmunizationReaction"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
@@ -208,7 +187,7 @@ class ImmunizationReaction(fhirelement.FHIRElement):
         
         self.detail = None
         """ Additional information on reaction.
-        Type `FHIRReference` referencing `AdverseReaction` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Observation` (represented as `dict` in JSON). """
         
         self.reported = False
         """ Was reaction self-reported?.
@@ -221,7 +200,7 @@ class ImmunizationReaction(fhirelement.FHIRElement):
         if 'date' in jsondict:
             self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'detail' in jsondict:
-            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self, adversereaction.AdverseReaction)
+            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self)
         if 'reported' in jsondict:
             self.reported = jsondict['reported']
 
@@ -232,6 +211,8 @@ class ImmunizationVaccinationProtocol(fhirelement.FHIRElement):
     Contains information about the protocol(s) under which the vaccine was
     administered.
     """
+    
+    resource_name = "ImmunizationVaccinationProtocol"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -274,7 +255,7 @@ class ImmunizationVaccinationProtocol(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(ImmunizationVaccinationProtocol, self).update_with_json(jsondict)
         if 'authority' in jsondict:
-            self.authority = fhirreference.FHIRReference.with_json_and_owner(jsondict['authority'], self, organization.Organization)
+            self.authority = fhirreference.FHIRReference.with_json_and_owner(jsondict['authority'], self)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'doseSequence' in jsondict:

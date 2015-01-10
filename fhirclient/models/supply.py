@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (supply.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (supply.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import codeableconcept
@@ -10,24 +10,14 @@ import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import location
-import medication
-import narrative
-import patient
 import period
-import practitioner
 import quantity
 
 
 class Supply(fhirresource.FHIRResource):
     """ A supply -  request and provision.
     
-    Scope and Usage The scope of the supply resource is for supplies used in
-    the healthcare process. This includes supplies specifically used in the
-    treatment of patients as well as supply movement within an institution
-    (transport a set of supplies from materials management to a service unit
-    (nurse station). This resource does not include the provisioning of
-    transportation services.
+    A supply - a  request for something, and provision of what is supplied.
     """
     
     resource_name = "Supply"
@@ -50,7 +40,7 @@ class Supply(fhirresource.FHIRResource):
         
         self.orderedItem = None
         """ Medication, Substance, or Device requested to be supplied.
-        Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Medication, Substance, Device` (represented as `dict` in JSON). """
         
         self.patient = None
         """ Patient for whom the item is supplied.
@@ -59,10 +49,6 @@ class Supply(fhirresource.FHIRResource):
         self.status = None
         """ requested | dispensed | received | failed | cancelled.
         Type `str`. """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
         
         super(Supply, self).__init__(jsondict)
     
@@ -75,13 +61,11 @@ class Supply(fhirresource.FHIRResource):
         if 'kind' in jsondict:
             self.kind = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['kind'], self)
         if 'orderedItem' in jsondict:
-            self.orderedItem = fhirreference.FHIRReference.with_json_and_owner(jsondict['orderedItem'], self, medication.Medication)
+            self.orderedItem = fhirreference.FHIRReference.with_json_and_owner(jsondict['orderedItem'], self)
         if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
+            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class SupplyDispense(fhirelement.FHIRElement):
@@ -90,6 +74,8 @@ class SupplyDispense(fhirelement.FHIRElement):
     Indicates the details of the dispense event such as the days supply and
     quantity of a supply dispensed.
     """
+    
+    resource_name = "SupplyDispense"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -117,7 +103,7 @@ class SupplyDispense(fhirelement.FHIRElement):
         
         self.suppliedItem = None
         """ Medication, Substance, or Device supplied.
-        Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Medication, Substance, Device` (represented as `dict` in JSON). """
         
         self.supplier = None
         """ Dispenser.
@@ -140,19 +126,19 @@ class SupplyDispense(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(SupplyDispense, self).update_with_json(jsondict)
         if 'destination' in jsondict:
-            self.destination = fhirreference.FHIRReference.with_json_and_owner(jsondict['destination'], self, location.Location)
+            self.destination = fhirreference.FHIRReference.with_json_and_owner(jsondict['destination'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'quantity' in jsondict:
             self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
         if 'receiver' in jsondict:
-            self.receiver = fhirreference.FHIRReference.with_json_and_owner(jsondict['receiver'], self, practitioner.Practitioner)
+            self.receiver = fhirreference.FHIRReference.with_json_and_owner(jsondict['receiver'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'suppliedItem' in jsondict:
-            self.suppliedItem = fhirreference.FHIRReference.with_json_and_owner(jsondict['suppliedItem'], self, medication.Medication)
+            self.suppliedItem = fhirreference.FHIRReference.with_json_and_owner(jsondict['suppliedItem'], self)
         if 'supplier' in jsondict:
-            self.supplier = fhirreference.FHIRReference.with_json_and_owner(jsondict['supplier'], self, practitioner.Practitioner)
+            self.supplier = fhirreference.FHIRReference.with_json_and_owner(jsondict['supplier'], self)
         if 'type' in jsondict:
             self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
         if 'whenHandedOver' in jsondict:

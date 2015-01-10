@@ -30,12 +30,6 @@ class FHIRElement(object):
         if jsondict is None:
             return
         
-        # extract extensions
-        if 'extension' in jsondict:
-            self.extension = extension.Extension.with_json(jsondict['extension'])
-        if 'modifierExtension' in jsondict:
-            self.modifierExtension = extension.Extension.with_json(jsondict['modifierExtension'])
-        
         # extract contained resources
         if 'contained' in jsondict:
             self.contained = self.contained or {}
@@ -45,6 +39,26 @@ class FHIRElement(object):
                     self.contained[res.id] = res
                 else:
                     logging.warning("Contained resource {} does not have an id, ignoring".format(res))
+        
+        # extract (modifier) extensions. Non-modifier extensions have a URL as their JSON dictionary key.
+        extensions = []
+        for key, val in jsondict.items():
+            if ":" in key and isinstance(val, list):
+                for ext in extension.Extension.with_json(val):
+                    ext.url = key
+                    extensions.append(ext)
+        if len(extensions) > 0:
+            self.extension = extensions
+        
+        if "modifier" in jsondict and isinstance(jsondict["modifier"], dict):
+            extensions = []
+            for key, val in jsondict["modifier"].items():
+                if isinstance(val, list):
+                    for ext in extension.Extension.with_json(val):
+                        ext.url = key
+                        extensions.append(ext)
+            if len(extensions) > 0:
+                self.modifierExtension = extensions
     
     @classmethod
     def with_json(cls, jsonobj):
@@ -109,7 +123,7 @@ class FHIRElement(object):
             self._resolved[refid] = resolved
         else:
             self._resolved = {refid: resolved}
-    
+
 
 # these are subclasses of FHIRElement, import last
 import extension

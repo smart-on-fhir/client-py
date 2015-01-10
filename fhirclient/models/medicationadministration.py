@@ -1,24 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (medicationadministration.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (medicationadministration.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import codeableconcept
-import device
-import encounter
 import fhirdate
 import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import medication
-import medicationprescription
-import narrative
-import patient
 import period
-import practitioner
 import quantity
 import ratio
 
@@ -26,14 +19,12 @@ import ratio
 class MedicationAdministration(fhirresource.FHIRResource):
     """ Administration of medication to a patient.
     
-    Scope and Usage This resource covers the administration of all medications
-    with the exception of vaccines. It will principally be used within
-    inpatient settings to record the capture of medication administrations
-    including self-administrations of oral medications, injections, intra-
-    venous adjustments, etc. It can also be used in out-patient settings to
-    record allergy shots and other non-immunization administrations. In some
-    cases it might be used for home-health reporting, such as recording self-
-    administered or even device-administered insulin.
+    Describes the event of a patient being given a dose of a medication.  This
+    may be as simple as swallowing a tablet or it may be a long running
+    infusion.
+    
+    Related resources tie this event to the authorizing prescription, and the
+    specific encounter between patient and health care practitioner.
     """
     
     resource_name = "MedicationAdministration"
@@ -49,6 +40,14 @@ class MedicationAdministration(fhirresource.FHIRResource):
         self.dosage = None
         """ Medicine administration instructions to the patient/carer.
         List of `MedicationAdministrationDosage` items (represented as `dict` in JSON). """
+        
+        self.effectiveTimeDateTime = None
+        """ Start and end time of administration.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.effectiveTimePeriod = None
+        """ Start and end time of administration.
+        Type `Period` (represented as `dict` in JSON). """
         
         self.encounter = None
         """ Encounter administered as part of.
@@ -82,48 +81,40 @@ class MedicationAdministration(fhirresource.FHIRResource):
         """ in progress | on hold | completed | entered in error | stopped.
         Type `str`. """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         self.wasNotGiven = False
         """ True if medication not administered.
         Type `bool`. """
-        
-        self.whenGiven = None
-        """ Start and end time of administration.
-        Type `Period` (represented as `dict` in JSON). """
         
         super(MedicationAdministration, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(MedicationAdministration, self).update_with_json(jsondict)
         if 'device' in jsondict:
-            self.device = fhirreference.FHIRReference.with_json_and_owner(jsondict['device'], self, device.Device)
+            self.device = fhirreference.FHIRReference.with_json_and_owner(jsondict['device'], self)
         if 'dosage' in jsondict:
             self.dosage = MedicationAdministrationDosage.with_json_and_owner(jsondict['dosage'], self)
+        if 'effectiveTimeDateTime' in jsondict:
+            self.effectiveTimeDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['effectiveTimeDateTime'], self)
+        if 'effectiveTimePeriod' in jsondict:
+            self.effectiveTimePeriod = period.Period.with_json_and_owner(jsondict['effectiveTimePeriod'], self)
         if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
+            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'medication' in jsondict:
-            self.medication = fhirreference.FHIRReference.with_json_and_owner(jsondict['medication'], self, medication.Medication)
+            self.medication = fhirreference.FHIRReference.with_json_and_owner(jsondict['medication'], self)
         if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
+            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
         if 'practitioner' in jsondict:
-            self.practitioner = fhirreference.FHIRReference.with_json_and_owner(jsondict['practitioner'], self, practitioner.Practitioner)
+            self.practitioner = fhirreference.FHIRReference.with_json_and_owner(jsondict['practitioner'], self)
         if 'prescription' in jsondict:
-            self.prescription = fhirreference.FHIRReference.with_json_and_owner(jsondict['prescription'], self, medicationprescription.MedicationPrescription)
+            self.prescription = fhirreference.FHIRReference.with_json_and_owner(jsondict['prescription'], self)
         if 'reasonNotGiven' in jsondict:
             self.reasonNotGiven = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonNotGiven'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
         if 'wasNotGiven' in jsondict:
             self.wasNotGiven = jsondict['wasNotGiven']
-        if 'whenGiven' in jsondict:
-            self.whenGiven = period.Period.with_json_and_owner(jsondict['whenGiven'], self)
 
 
 class MedicationAdministrationDosage(fhirelement.FHIRElement):
@@ -131,6 +122,8 @@ class MedicationAdministrationDosage(fhirelement.FHIRElement):
     
     Provides details of how much of the medication was administered.
     """
+    
+    resource_name = "MedicationAdministrationDosage"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.

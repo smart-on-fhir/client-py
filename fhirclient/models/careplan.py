@@ -1,46 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (careplan.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (careplan.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import codeableconcept
-import condition
 import fhirdate
 import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import location
-import medication
-import narrative
-import patient
 import period
-import practitioner
-import procedure
 import quantity
-import schedule
+import timing
 
 
 class CarePlan(fhirresource.FHIRResource):
     """ Healthcare plan for patient.
     
-    Scope and Usage Care Plans are used in many of areas of healthcare with a
-    variety of scopes. They can be as simple as a general practitioner keeping
-    track of when their patient is next due for a tetanus immunization through
-    to a detailed plan for an oncology patient covering diet, chemotherapy,
-    radiation, lab work and counseling with detailed timing relationships, pre-
-    conditions and goals.
-    
-    This resource takes an intermediate approach. It captures basic details
-    about who is involved and what actions are intended without dealing in
-    discrete data about dependencies and timing relationships. These can be
-    supported where necessary using the extension mechanisms.
-    
-    Comments are welcome about the appropriateness of the proposed level of
-    granularity, whether it's too much detail for what most systems need, or
-    not sufficient for common essential use cases.
+    Describes the intention of how one or more practitioners intend to deliver
+    care for a particular patient for a period of time, possibly limited to
+    care for a specific condition or set of conditions.
     """
     
     resource_name = "CarePlan"
@@ -89,10 +70,6 @@ class CarePlan(fhirresource.FHIRResource):
         """ planned | active | completed.
         Type `str`. """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         super(CarePlan, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
@@ -100,7 +77,7 @@ class CarePlan(fhirresource.FHIRResource):
         if 'activity' in jsondict:
             self.activity = CarePlanActivity.with_json_and_owner(jsondict['activity'], self)
         if 'concern' in jsondict:
-            self.concern = fhirreference.FHIRReference.with_json_and_owner(jsondict['concern'], self, condition.Condition)
+            self.concern = fhirreference.FHIRReference.with_json_and_owner(jsondict['concern'], self)
         if 'goal' in jsondict:
             self.goal = CarePlanGoal.with_json_and_owner(jsondict['goal'], self)
         if 'identifier' in jsondict:
@@ -112,80 +89,9 @@ class CarePlan(fhirresource.FHIRResource):
         if 'participant' in jsondict:
             self.participant = CarePlanParticipant.with_json_and_owner(jsondict['participant'], self)
         if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
+            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
         if 'period' in jsondict:
             self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-
-
-class CarePlanParticipant(fhirelement.FHIRElement):
-    """ Who's involved in plan?.
-    
-    Identifies all people and organizations who are expected to be involved in
-    the care envisioned by this plan.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.member = None
-        """ Who is involved.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.role = None
-        """ Type of involvement.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        super(CarePlanParticipant, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(CarePlanParticipant, self).update_with_json(jsondict)
-        if 'member' in jsondict:
-            self.member = fhirreference.FHIRReference.with_json_and_owner(jsondict['member'], self, practitioner.Practitioner)
-        if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
-
-
-class CarePlanGoal(fhirelement.FHIRElement):
-    """ Desired outcome of plan.
-    
-    Describes the intended objective(s) of carrying out the Care Plan.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.concern = None
-        """ Health issues this goal addresses.
-        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
-        
-        self.description = None
-        """ What's the desired outcome?.
-        Type `str`. """
-        
-        self.notes = None
-        """ Comments about the goal.
-        Type `str`. """
-        
-        self.status = None
-        """ in progress | achieved | sustaining | cancelled.
-        Type `str`. """
-        
-        super(CarePlanGoal, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(CarePlanGoal, self).update_with_json(jsondict)
-        if 'concern' in jsondict:
-            self.concern = fhirreference.FHIRReference.with_json_and_owner(jsondict['concern'], self, condition.Condition)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'notes' in jsondict:
-            self.notes = jsondict['notes']
         if 'status' in jsondict:
             self.status = jsondict['status']
 
@@ -198,6 +104,8 @@ class CarePlanActivity(fhirelement.FHIRElement):
     etc.
     """
     
+    resource_name = "CarePlanActivity"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
@@ -208,7 +116,7 @@ class CarePlanActivity(fhirelement.FHIRElement):
         
         self.detail = None
         """ Activity details defined in specific resource.
-        Type `FHIRReference` referencing `Procedure` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Procedure, MedicationPrescription, DiagnosticOrder, Encounter, Supply` (represented as `dict` in JSON). """
         
         self.goal = None
         """ Goals this activity relates to.
@@ -236,9 +144,9 @@ class CarePlanActivity(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(CarePlanActivity, self).update_with_json(jsondict)
         if 'actionResulting' in jsondict:
-            self.actionResulting = fhirreference.FHIRReference.with_json_and_owner(jsondict['actionResulting'], self, fhirresource.FHIRResource)
+            self.actionResulting = fhirreference.FHIRReference.with_json_and_owner(jsondict['actionResulting'], self)
         if 'detail' in jsondict:
-            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self, procedure.Procedure)
+            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self)
         if 'goal' in jsondict:
             self.goal = jsondict['goal']
         if 'notes' in jsondict:
@@ -258,6 +166,8 @@ class CarePlanActivitySimple(fhirelement.FHIRElement):
     form driven) that doesn't know about specific resources such as procedure
     etc.
     """
+    
+    resource_name = "CarePlanActivitySimple"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -285,27 +195,27 @@ class CarePlanActivitySimple(fhirelement.FHIRElement):
         
         self.performer = None
         """ Who's responsible?.
-        List of `FHIRReference` items referencing `Practitioner` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Practitioner, Organization, RelatedPerson, Patient` (represented as `dict` in JSON). """
         
         self.product = None
         """ What's administered/supplied.
-        Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Medication, Substance` (represented as `dict` in JSON). """
         
         self.quantity = None
         """ How much is administered/supplied/consumed.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.timingPeriod = None
+        self.scheduledPeriod = None
         """ When activity is to occur.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.timingSchedule = None
-        """ When activity is to occur.
-        Type `Schedule` (represented as `dict` in JSON). """
-        
-        self.timingString = None
+        self.scheduledString = None
         """ When activity is to occur.
         Type `str`. """
+        
+        self.scheduledTiming = None
+        """ When activity is to occur.
+        Type `Timing` (represented as `dict` in JSON). """
         
         super(CarePlanActivitySimple, self).__init__(jsondict)
     
@@ -320,17 +230,90 @@ class CarePlanActivitySimple(fhirelement.FHIRElement):
         if 'details' in jsondict:
             self.details = jsondict['details']
         if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
+            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
         if 'performer' in jsondict:
-            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self, practitioner.Practitioner)
+            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self)
         if 'product' in jsondict:
-            self.product = fhirreference.FHIRReference.with_json_and_owner(jsondict['product'], self, medication.Medication)
+            self.product = fhirreference.FHIRReference.with_json_and_owner(jsondict['product'], self)
         if 'quantity' in jsondict:
             self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'timingPeriod' in jsondict:
-            self.timingPeriod = period.Period.with_json_and_owner(jsondict['timingPeriod'], self)
-        if 'timingSchedule' in jsondict:
-            self.timingSchedule = schedule.Schedule.with_json_and_owner(jsondict['timingSchedule'], self)
-        if 'timingString' in jsondict:
-            self.timingString = jsondict['timingString']
+        if 'scheduledPeriod' in jsondict:
+            self.scheduledPeriod = period.Period.with_json_and_owner(jsondict['scheduledPeriod'], self)
+        if 'scheduledString' in jsondict:
+            self.scheduledString = jsondict['scheduledString']
+        if 'scheduledTiming' in jsondict:
+            self.scheduledTiming = timing.Timing.with_json_and_owner(jsondict['scheduledTiming'], self)
+
+
+class CarePlanGoal(fhirelement.FHIRElement):
+    """ Desired outcome of plan.
+    
+    Describes the intended objective(s) of carrying out the Care Plan.
+    """
+    
+    resource_name = "CarePlanGoal"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.concern = None
+        """ Health issues this goal addresses.
+        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
+        
+        self.description = None
+        """ What's the desired outcome?.
+        Type `str`. """
+        
+        self.notes = None
+        """ Comments about the goal.
+        Type `str`. """
+        
+        self.status = None
+        """ in progress | achieved | sustaining | cancelled.
+        Type `str`. """
+        
+        super(CarePlanGoal, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(CarePlanGoal, self).update_with_json(jsondict)
+        if 'concern' in jsondict:
+            self.concern = fhirreference.FHIRReference.with_json_and_owner(jsondict['concern'], self)
+        if 'description' in jsondict:
+            self.description = jsondict['description']
+        if 'notes' in jsondict:
+            self.notes = jsondict['notes']
+        if 'status' in jsondict:
+            self.status = jsondict['status']
+
+
+class CarePlanParticipant(fhirelement.FHIRElement):
+    """ Who's involved in plan?.
+    
+    Identifies all people and organizations who are expected to be involved in
+    the care envisioned by this plan.
+    """
+    
+    resource_name = "CarePlanParticipant"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.member = None
+        """ Who is involved.
+        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Organization` (represented as `dict` in JSON). """
+        
+        self.role = None
+        """ Type of involvement.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(CarePlanParticipant, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(CarePlanParticipant, self).update_with_json(jsondict)
+        if 'member' in jsondict:
+            self.member = fhirreference.FHIRReference.with_json_and_owner(jsondict['member'], self)
+        if 'role' in jsondict:
+            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
 

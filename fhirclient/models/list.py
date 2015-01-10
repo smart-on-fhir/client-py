@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (list.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (list.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import codeableconcept
@@ -11,16 +11,12 @@ import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import narrative
-import patient
-import practitioner
 
 
 class List(fhirresource.FHIRResource):
     """ Information summarized from a list of other resources.
     
-    Scope and Usage List resources are used in many places, including
-    allergies, medications, alerts, medical history, etc.
+    A set of information summarized from a list of other resources.
     """
     
     resource_name = "List"
@@ -59,15 +55,11 @@ class List(fhirresource.FHIRResource):
         
         self.source = None
         """ Who and/or what defined the list contents.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, Patient, Device` (represented as `dict` in JSON). """
         
         self.subject = None
         """ If all resources have the same subject.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Patient, Group, Device, Location` (represented as `dict` in JSON). """
         
         super(List, self).__init__(jsondict)
     
@@ -88,11 +80,9 @@ class List(fhirresource.FHIRResource):
         if 'ordered' in jsondict:
             self.ordered = jsondict['ordered']
         if 'source' in jsondict:
-            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, practitioner.Practitioner)
+            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self)
         if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
 
 
 class ListEntry(fhirelement.FHIRElement):
@@ -100,6 +90,8 @@ class ListEntry(fhirelement.FHIRElement):
     
     Entries in this list.
     """
+    
+    resource_name = "ListEntry"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -132,5 +124,5 @@ class ListEntry(fhirelement.FHIRElement):
         if 'flag' in jsondict:
             self.flag = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['flag'], self)
         if 'item' in jsondict:
-            self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self, fhirresource.FHIRResource)
+            self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self)
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (securityevent.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (securityevent.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import codeableconcept
@@ -12,22 +12,14 @@ import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import narrative
-import practitioner
 
 
 class SecurityEvent(fhirresource.FHIRResource):
     """ Event record kept for security purposes.
     
-    Scope and Usage The security event is based on the ATNA Audit record
-    definitions, originally from RFC 3881, and now managed by DICOM (see DICOM
-    Part 15 Annex A5). This resource is managed collaboratively between HL7,
-    DICOM, and IHE for the MHD/mHealth initiatives.
-    
-    The primary purpose of this resource is the maintenance of audit log
-    information. However, it can also be used for simple event-based
-    notification or even general indexing of resources stored in a variety of
-    repositories.
+    A record of an event made for purposes of maintaining a security log.
+    Typical uses include detection of intrusion attempts and monitoring for
+    inappropriate usage.
     """
     
     resource_name = "SecurityEvent"
@@ -52,10 +44,6 @@ class SecurityEvent(fhirresource.FHIRResource):
         """ Application systems and processes.
         Type `SecurityEventSource` (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         super(SecurityEvent, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
@@ -68,8 +56,6 @@ class SecurityEvent(fhirresource.FHIRResource):
             self.participant = SecurityEventParticipant.with_json_and_owner(jsondict['participant'], self)
         if 'source' in jsondict:
             self.source = SecurityEventSource.with_json_and_owner(jsondict['source'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
 
 
 class SecurityEventEvent(fhirelement.FHIRElement):
@@ -78,6 +64,8 @@ class SecurityEventEvent(fhirelement.FHIRElement):
     Identifies the name, action type, time, and disposition of the audited
     event.
     """
+    
+    resource_name = "SecurityEventEvent"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -125,132 +113,11 @@ class SecurityEventEvent(fhirelement.FHIRElement):
             self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
 
-class SecurityEventParticipant(fhirelement.FHIRElement):
-    """ A person, a hardware device or software process.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.altId = None
-        """ Alternative User id e.g. authentication.
-        Type `str`. """
-        
-        self.media = None
-        """ Type of media.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.name = None
-        """ Human-meaningful name for the user.
-        Type `str`. """
-        
-        self.network = None
-        """ Logical network location for application activity.
-        Type `SecurityEventParticipantNetwork` (represented as `dict` in JSON). """
-        
-        self.reference = None
-        """ Direct reference to resource.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.requestor = False
-        """ Whether user is initiator.
-        Type `bool`. """
-        
-        self.role = None
-        """ User roles (e.g. local RBAC codes).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.userId = None
-        """ Unique identifier for the user.
-        Type `str`. """
-        
-        super(SecurityEventParticipant, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(SecurityEventParticipant, self).update_with_json(jsondict)
-        if 'altId' in jsondict:
-            self.altId = jsondict['altId']
-        if 'media' in jsondict:
-            self.media = coding.Coding.with_json_and_owner(jsondict['media'], self)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'network' in jsondict:
-            self.network = SecurityEventParticipantNetwork.with_json_and_owner(jsondict['network'], self)
-        if 'reference' in jsondict:
-            self.reference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reference'], self, practitioner.Practitioner)
-        if 'requestor' in jsondict:
-            self.requestor = jsondict['requestor']
-        if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
-        if 'userId' in jsondict:
-            self.userId = jsondict['userId']
-
-
-class SecurityEventParticipantNetwork(fhirelement.FHIRElement):
-    """ Logical network location for application activity.
-    
-    Logical network location for application activity, if the activity has a
-    network location.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.identifier = None
-        """ Identifier for the network access point of the user device.
-        Type `str`. """
-        
-        self.type = None
-        """ The type of network access point.
-        Type `str`. """
-        
-        super(SecurityEventParticipantNetwork, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(SecurityEventParticipantNetwork, self).update_with_json(jsondict)
-        if 'identifier' in jsondict:
-            self.identifier = jsondict['identifier']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-
-
-class SecurityEventSource(fhirelement.FHIRElement):
-    """ Application systems and processes.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.identifier = None
-        """ The id of source where event originated.
-        Type `str`. """
-        
-        self.site = None
-        """ Logical source location within the enterprise.
-        Type `str`. """
-        
-        self.type = None
-        """ The type of source where event originated.
-        List of `Coding` items (represented as `dict` in JSON). """
-        
-        super(SecurityEventSource, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(SecurityEventSource, self).update_with_json(jsondict)
-        if 'identifier' in jsondict:
-            self.identifier = jsondict['identifier']
-        if 'site' in jsondict:
-            self.site = jsondict['site']
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
-
-
 class SecurityEventObject(fhirelement.FHIRElement):
     """ Specific instances of data or objects that have been accessed.
     """
+    
+    resource_name = "SecurityEventObject"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -313,7 +180,7 @@ class SecurityEventObject(fhirelement.FHIRElement):
         if 'query' in jsondict:
             self.query = jsondict['query']
         if 'reference' in jsondict:
-            self.reference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reference'], self, fhirresource.FHIRResource)
+            self.reference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reference'], self)
         if 'role' in jsondict:
             self.role = jsondict['role']
         if 'sensitivity' in jsondict:
@@ -325,6 +192,8 @@ class SecurityEventObject(fhirelement.FHIRElement):
 class SecurityEventObjectDetail(fhirelement.FHIRElement):
     """ Additional Information about the Object.
     """
+    
+    resource_name = "SecurityEventObjectDetail"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -346,4 +215,133 @@ class SecurityEventObjectDetail(fhirelement.FHIRElement):
             self.type = jsondict['type']
         if 'value' in jsondict:
             self.value = jsondict['value']
+
+
+class SecurityEventParticipant(fhirelement.FHIRElement):
+    """ A person, a hardware device or software process.
+    """
+    
+    resource_name = "SecurityEventParticipant"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.altId = None
+        """ Alternative User id e.g. authentication.
+        Type `str`. """
+        
+        self.media = None
+        """ Type of media.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.name = None
+        """ Human-meaningful name for the user.
+        Type `str`. """
+        
+        self.network = None
+        """ Logical network location for application activity.
+        Type `SecurityEventParticipantNetwork` (represented as `dict` in JSON). """
+        
+        self.reference = None
+        """ Direct reference to resource.
+        Type `FHIRReference` referencing `Practitioner, Patient, Device` (represented as `dict` in JSON). """
+        
+        self.requestor = False
+        """ Whether user is initiator.
+        Type `bool`. """
+        
+        self.role = None
+        """ User roles (e.g. local RBAC codes).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.userId = None
+        """ Unique identifier for the user.
+        Type `str`. """
+        
+        super(SecurityEventParticipant, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(SecurityEventParticipant, self).update_with_json(jsondict)
+        if 'altId' in jsondict:
+            self.altId = jsondict['altId']
+        if 'media' in jsondict:
+            self.media = coding.Coding.with_json_and_owner(jsondict['media'], self)
+        if 'name' in jsondict:
+            self.name = jsondict['name']
+        if 'network' in jsondict:
+            self.network = SecurityEventParticipantNetwork.with_json_and_owner(jsondict['network'], self)
+        if 'reference' in jsondict:
+            self.reference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reference'], self)
+        if 'requestor' in jsondict:
+            self.requestor = jsondict['requestor']
+        if 'role' in jsondict:
+            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
+        if 'userId' in jsondict:
+            self.userId = jsondict['userId']
+
+
+class SecurityEventParticipantNetwork(fhirelement.FHIRElement):
+    """ Logical network location for application activity.
+    
+    Logical network location for application activity, if the activity has a
+    network location.
+    """
+    
+    resource_name = "SecurityEventParticipantNetwork"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.identifier = None
+        """ Identifier for the network access point of the user device.
+        Type `str`. """
+        
+        self.type = None
+        """ The type of network access point.
+        Type `str`. """
+        
+        super(SecurityEventParticipantNetwork, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(SecurityEventParticipantNetwork, self).update_with_json(jsondict)
+        if 'identifier' in jsondict:
+            self.identifier = jsondict['identifier']
+        if 'type' in jsondict:
+            self.type = jsondict['type']
+
+
+class SecurityEventSource(fhirelement.FHIRElement):
+    """ Application systems and processes.
+    """
+    
+    resource_name = "SecurityEventSource"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.identifier = None
+        """ The id of source where event originated.
+        Type `str`. """
+        
+        self.site = None
+        """ Logical source location within the enterprise.
+        Type `str`. """
+        
+        self.type = None
+        """ The type of source where event originated.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
+        super(SecurityEventSource, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(SecurityEventSource, self).update_with_json(jsondict)
+        if 'identifier' in jsondict:
+            self.identifier = jsondict['identifier']
+        if 'site' in jsondict:
+            self.site = jsondict['site']
+        if 'type' in jsondict:
+            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
 

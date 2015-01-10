@@ -1,29 +1,31 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Extension.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (Extension.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import address
 import attachment
 import codeableconcept
 import coding
-import contact
+import contactpoint
 import fhirdate
 import fhirelement
-import fhirresource
+import fhirreference
 import humanname
 import identifier
 import period
 import quantity
 import range
 import ratio
-import schedule
+import timing
 
 
 class Extension(fhirelement.FHIRElement):
     """ Optional Extensions Element - found in all resources..
+    
+    Optional Extensions Element - found in all resources.
     """
     
     resource_name = "Extension"
@@ -64,9 +66,9 @@ class Extension(fhirelement.FHIRElement):
         """ Value of extension.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.valueContact = None
+        self.valueContactPoint = None
         """ Value of extension.
-        Type `Contact` (represented as `dict` in JSON). """
+        Type `ContactPoint` (represented as `dict` in JSON). """
         
         self.valueDate = None
         """ Value of extension.
@@ -112,17 +114,21 @@ class Extension(fhirelement.FHIRElement):
         """ Value of extension.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.valueResource = None
+        self.valueReference = None
         """ Value of extension.
-        Type `FHIRResource` (represented as `dict` in JSON). """
-        
-        self.valueSchedule = None
-        """ Value of extension.
-        Type `Schedule` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.valueString = None
         """ Value of extension.
         Type `str`. """
+        
+        self.valueTime = None
+        """ Value of extension.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.valueTiming = None
+        """ Value of extension.
+        Type `Timing` (represented as `dict` in JSON). """
         
         self.valueUri = None
         """ Value of extension.
@@ -148,8 +154,8 @@ class Extension(fhirelement.FHIRElement):
             self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
         if 'valueCoding' in jsondict:
             self.valueCoding = coding.Coding.with_json_and_owner(jsondict['valueCoding'], self)
-        if 'valueContact' in jsondict:
-            self.valueContact = contact.Contact.with_json_and_owner(jsondict['valueContact'], self)
+        if 'valueContactPoint' in jsondict:
+            self.valueContactPoint = contactpoint.ContactPoint.with_json_and_owner(jsondict['valueContactPoint'], self)
         if 'valueDate' in jsondict:
             self.valueDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDate'], self)
         if 'valueDateTime' in jsondict:
@@ -172,12 +178,14 @@ class Extension(fhirelement.FHIRElement):
             self.valueRange = range.Range.with_json_and_owner(jsondict['valueRange'], self)
         if 'valueRatio' in jsondict:
             self.valueRatio = ratio.Ratio.with_json_and_owner(jsondict['valueRatio'], self)
-        if 'valueResource' in jsondict:
-            self.valueResource = fhirresource.FHIRResource.with_json_and_owner(jsondict['valueResource'], self)
-        if 'valueSchedule' in jsondict:
-            self.valueSchedule = schedule.Schedule.with_json_and_owner(jsondict['valueSchedule'], self)
+        if 'valueReference' in jsondict:
+            self.valueReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['valueReference'], self)
         if 'valueString' in jsondict:
             self.valueString = jsondict['valueString']
+        if 'valueTime' in jsondict:
+            self.valueTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueTime'], self)
+        if 'valueTiming' in jsondict:
+            self.valueTiming = timing.Timing.with_json_and_owner(jsondict['valueTiming'], self)
         if 'valueUri' in jsondict:
             self.valueUri = jsondict['valueUri']
 

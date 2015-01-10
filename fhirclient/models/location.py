@@ -1,37 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (location.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (location.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import address
 import codeableconcept
-import contact
+import contactpoint
 import fhirelement
 import fhirreference
 import fhirresource
 import identifier
-import narrative
-import organization
 
 
 class Location(fhirresource.FHIRResource):
     """ Details and position information for a physical place.
     
-    Scope and Usage A Location includes both incidental locations (a place
-    which is used for healthcare without prior designation or authorization)
-    and dedicated, formally appointed locations. Locations may be private,
-    public, mobile or fixed and scale from small freezers to full hospital
-    buildings or parking garages.
-    
-    Examples of Locations are:
-    
-    * Building, ward, corridor or room
-    * Freezer, incubator
-    * Vehicle or lift
-    * Home, shed, or a garage
-    * Road, parking place, a park
+    Details and position information for a physical place where services are
+    provided  and resources and participants may be stored, found, contained or
+    accommodated.
     """
     
     resource_name = "Location"
@@ -51,7 +39,7 @@ class Location(fhirresource.FHIRResource):
         
         self.identifier = None
         """ Unique code or number identifying the location to its users.
-        Type `Identifier` (represented as `dict` in JSON). """
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.managingOrganization = None
         """ The organization that is responsible for the provisioning and
@@ -84,11 +72,7 @@ class Location(fhirresource.FHIRResource):
         
         self.telecom = None
         """ Contact details of the location.
-        List of `Contact` items (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        List of `ContactPoint` items (represented as `dict` in JSON). """
         
         self.type = None
         """ Indicates the type of function performed at the location.
@@ -105,13 +89,13 @@ class Location(fhirresource.FHIRResource):
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'managingOrganization' in jsondict:
-            self.managingOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self, organization.Organization)
+            self.managingOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self)
         if 'mode' in jsondict:
             self.mode = jsondict['mode']
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'partOf' in jsondict:
-            self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self, Location)
+            self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self)
         if 'physicalType' in jsondict:
             self.physicalType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['physicalType'], self)
         if 'position' in jsondict:
@@ -119,9 +103,7 @@ class Location(fhirresource.FHIRResource):
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
         if 'type' in jsondict:
             self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
@@ -132,6 +114,8 @@ class LocationPosition(fhirelement.FHIRElement):
     The absolute geographic location of the Location, expressed in a KML
     compatible manner (see notes below for KML).
     """
+    
+    resource_name = "LocationPosition"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.

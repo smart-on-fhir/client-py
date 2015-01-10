@@ -1,31 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (organization.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (organization.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import address
 import codeableconcept
-import contact
+import contactpoint
 import fhirelement
 import fhirreference
 import fhirresource
 import humanname
 import identifier
-import location
-import narrative
 
 
 class Organization(fhirresource.FHIRResource):
     """ A grouping of people or organizations with a common purpose.
     
-    Scope and Usage This resource may be used in a shared registry of contact
-    and other information for various organizations or it can be used merely as
-    a support for other resources that need to reference organizations, perhaps
-    as a document, message or as a contained resource. If using a registry
-    approach, it's entirely possible for multiple registries to exist, each
-    dealing with different types or levels of organization.
+    A formally or informally recognized grouping of people or organizations
+    formed for the purpose of achieving some form of collective action.
+    Includes companies, institutions, corporations, departments, community
+    groups, healthcare practice groups, etc.
     """
     
     resource_name = "Organization"
@@ -64,11 +60,7 @@ class Organization(fhirresource.FHIRResource):
         
         self.telecom = None
         """ A contact detail for the organization.
-        List of `Contact` items (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        List of `ContactPoint` items (represented as `dict` in JSON). """
         
         self.type = None
         """ Kind of organization.
@@ -87,15 +79,13 @@ class Organization(fhirresource.FHIRResource):
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
+            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'partOf' in jsondict:
-            self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self, Organization)
+            self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self)
         if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
         if 'type' in jsondict:
             self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 
@@ -103,6 +93,8 @@ class Organization(fhirresource.FHIRResource):
 class OrganizationContact(fhirelement.FHIRElement):
     """ Contact for the organization for a certain purpose.
     """
+    
+    resource_name = "OrganizationContact"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -113,8 +105,8 @@ class OrganizationContact(fhirelement.FHIRElement):
         Type `Address` (represented as `dict` in JSON). """
         
         self.gender = None
-        """ Gender for administrative purposes.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ male | female | other | unknown.
+        Type `str`. """
         
         self.name = None
         """ A name associated with the contact.
@@ -126,7 +118,7 @@ class OrganizationContact(fhirelement.FHIRElement):
         
         self.telecom = None
         """ Contact details (telephone, email, etc)  for a contact.
-        List of `Contact` items (represented as `dict` in JSON). """
+        List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(OrganizationContact, self).__init__(jsondict)
     
@@ -135,11 +127,11 @@ class OrganizationContact(fhirelement.FHIRElement):
         if 'address' in jsondict:
             self.address = address.Address.with_json_and_owner(jsondict['address'], self)
         if 'gender' in jsondict:
-            self.gender = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['gender'], self)
+            self.gender = jsondict['gender']
         if 'name' in jsondict:
             self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
         if 'purpose' in jsondict:
             self.purpose = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['purpose'], self)
         if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
+            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
 

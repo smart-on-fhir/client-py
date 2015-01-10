@@ -1,30 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (documentmanifest.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (documentmanifest.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import codeableconcept
-import documentreference
 import fhirdate
 import fhirreference
 import fhirresource
 import identifier
-import narrative
-import patient
-import practitioner
 
 
 class DocumentManifest(fhirresource.FHIRResource):
     """ A manifest that defines a set of documents.
-    
-    Scope and Usage A document manifest gathers a set of Document Reference
-    resources into a single package that may be the subject of workflow such as
-    access control, auditing, and targeted delivery.
-    
-    Typically, Document Manifest Resources are used in document indexing
-    systems, such as IHE XDS (see the XDS specific profile).
     """
     
     resource_name = "DocumentManifest"
@@ -35,7 +24,7 @@ class DocumentManifest(fhirresource.FHIRResource):
         
         self.author = None
         """ Who and/or what authored the document.
-        List of `FHIRReference` items referencing `Practitioner` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Practitioner, Device, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.confidentiality = None
         """ Sensitivity of set of documents.
@@ -43,7 +32,7 @@ class DocumentManifest(fhirresource.FHIRResource):
         
         self.content = None
         """ Contents of this set of documents.
-        List of `FHIRReference` items referencing `DocumentReference` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `DocumentReference, Binary, Media` (represented as `dict` in JSON). """
         
         self.created = None
         """ When this document manifest created.
@@ -63,7 +52,7 @@ class DocumentManifest(fhirresource.FHIRResource):
         
         self.recipient = None
         """ Intended to get notified about this set of documents.
-        List of `FHIRReference` items referencing `Patient` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Patient, Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.source = None
         """ The source system/application/software.
@@ -75,15 +64,11 @@ class DocumentManifest(fhirresource.FHIRResource):
         
         self.subject = None
         """ The subject of the set of documents.
-        List of `FHIRReference` items referencing `Patient` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Patient, Practitioner, Group, Device` (represented as `dict` in JSON). """
         
         self.supercedes = None
         """ If this document manifest replaces another.
         Type `FHIRReference` referencing `DocumentManifest` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
         
         self.type = None
         """ What kind of document set this is.
@@ -94,11 +79,11 @@ class DocumentManifest(fhirresource.FHIRResource):
     def update_with_json(self, jsondict):
         super(DocumentManifest, self).update_with_json(jsondict)
         if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
+            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
         if 'confidentiality' in jsondict:
             self.confidentiality = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['confidentiality'], self)
         if 'content' in jsondict:
-            self.content = fhirreference.FHIRReference.with_json_and_owner(jsondict['content'], self, documentreference.DocumentReference)
+            self.content = fhirreference.FHIRReference.with_json_and_owner(jsondict['content'], self)
         if 'created' in jsondict:
             self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
         if 'description' in jsondict:
@@ -108,17 +93,15 @@ class DocumentManifest(fhirresource.FHIRResource):
         if 'masterIdentifier' in jsondict:
             self.masterIdentifier = identifier.Identifier.with_json_and_owner(jsondict['masterIdentifier'], self)
         if 'recipient' in jsondict:
-            self.recipient = fhirreference.FHIRReference.with_json_and_owner(jsondict['recipient'], self, patient.Patient)
+            self.recipient = fhirreference.FHIRReference.with_json_and_owner(jsondict['recipient'], self)
         if 'source' in jsondict:
             self.source = jsondict['source']
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
+            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
         if 'supercedes' in jsondict:
-            self.supercedes = fhirreference.FHIRReference.with_json_and_owner(jsondict['supercedes'], self, DocumentManifest)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+            self.supercedes = fhirreference.FHIRReference.with_json_and_owner(jsondict['supercedes'], self)
         if 'type' in jsondict:
             self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
 

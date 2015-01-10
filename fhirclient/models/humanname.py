@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-HumanName.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (HumanName.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import fhirelement
@@ -11,6 +11,8 @@ import period
 
 class HumanName(fhirelement.FHIRElement):
     """ Name of a human - parts and usage.
+    
+    A human's name with the ability to identify parts and usage.
     """
     
     resource_name = "HumanName"

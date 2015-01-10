@@ -1,18 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Money.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (Money.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import quantity
 
 
 class Money(quantity.Quantity):
-    """ Profile for Money on Quantity.
+    """ An amount of money. With regard to precision, see [[X]].
     
-    Basic Profile for Money on Quantity for validation support
+    There SHALL be a code if there is a value and it SHALL be an expression of
+    currency.  If system is present, it SHALL be ISO 4217 (system =
+    "urn:std:iso:4217" - currency).
     """
+    
+    resource_name = "Money"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.

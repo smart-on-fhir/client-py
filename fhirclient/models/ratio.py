@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Ratio.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (Ratio.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import fhirelement
@@ -11,6 +11,9 @@ import quantity
 
 class Ratio(fhirelement.FHIRElement):
     """ A ratio of two Quantity values - a numerator and a denominator.
+    
+    A relationship of two Quantity values - expressed as a numerator and a
+    denominator.
     """
     
     resource_name = "Ratio"

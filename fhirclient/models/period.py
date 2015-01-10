@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Period.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.4.0.3933 (Period.profile.json) on 2015-01-10.
+#  2015, SMART Platforms.
 
 
 import fhirdate
@@ -11,6 +11,8 @@ import fhirelement
 
 class Period(fhirelement.FHIRElement):
     """ Time range defined by start and end date/time.
+    
+    A time period defined by a start and end date and optionally time.
     """
     
     resource_name = "Period"
