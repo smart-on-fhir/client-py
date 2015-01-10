@@ -31,7 +31,7 @@ def _logout():
         del session['state']
 
 def _get_prescriptions(smart):
-    return MedicationPrescription.where().patient(smart.patient_id).perform(smart.server)
+    return MedicationPrescription.where({'patient': smart.patient_id}).perform(smart.server)
 
 def _med_name(prescription):
     if prescription.medication and prescription.medication.resolved and prescription.medication.resolved.name:
@@ -55,18 +55,18 @@ def index():
     
     if smart.ready and smart.patient is not None:       # "ready" may be true but the access token may have expired, making smart.patient = None
         name = smart.human_name(smart.patient.name[0] if smart.patient.name and len(smart.patient.name) > 0 else 'Unknown')
-        gender = smart.patient.gender.coding[0].code if smart.patient.gender.coding and len(smart.patient.gender.coding) > 0 else None
         
         # generate simple body text
         body += "<p>You are authorized and ready to make API requests for <em>{}</em>.</p>".format(name)
         pres = _get_prescriptions(smart)
         if pres is not None:
-            body += "<p>{} prescriptions: <ul><li>{}</li></ul></p>".format("His" if 'M' == gender else "Her", '</li><li>'.join([_med_name(m) for m in pres]))
+            body += "<p>{} prescriptions: <ul><li>{}</li></ul></p>".format("His" if 'male' == smart.patient.gender else "Her", '</li><li>'.join([_med_name(m) for m in pres]))
         else:
-            body += "<p>(There are no prescriptions for {})</p>".format("him" if 'M' == gender else "her")
+            body += "<p>(There are no prescriptions for {})</p>".format("him" if 'male' == smart.patient.gender else "her")
         body += """<p><a href="/logout">Logout</a></p>""".format(name)
     else:
-        body += """<p>Please <a href="{}">authorize</a>.</p>""".format(smart.authorize_url)
+        body += """<p>Please <a href="{}">authorize</a>.</p>
+        <p><a href="/logout" style="font-size:small;">Reset</a></p>""".format(smart.authorize_url)
     return body
 
 

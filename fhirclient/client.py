@@ -54,12 +54,14 @@ class FHIRClient(object):
         elif settings is not None:
             self.app_id = settings['app_id']
             self.redirect = settings.get('redirect_uri')
+            self.patient_id = settings.get('patient_id')
             scope = scope_default
             if 'launch_token' in settings:
                 self.scope = ' launch:'.join([scope, settings['launch_token']])
-            else:
+            elif self.patient_id is None:
                 self.scope = ' '.join([scope_nolaunch, scope])
-            self.patient_id = settings.get('patient_id')
+            else:
+                self.scope = scope
             self.server = FHIRServer(self, base_uri=settings['api_base'])
         else:
             raise Exception("Must either supply settings or a state upon client initialization")
@@ -100,6 +102,7 @@ class FHIRClient(object):
     
     def _handle_launch_context(self, ctx):
         if 'patient' in ctx:
+            #print('Patient id was {}, row context is {}'.format(self.patient_id, ctx))
             self.patient_id = ctx['patient']        # TODO: TEST THIS!
         self.launch_context = ctx
         self.save_state()

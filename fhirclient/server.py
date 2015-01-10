@@ -31,6 +31,10 @@ class FHIRServer(object):
         if state is not None:
             self.from_state(state)
     
+    def should_save_state(self):
+        if self.client is not None:
+            self.client.save_state()
+    
     
     # MARK: Server Conformance Statement
     
@@ -53,31 +57,31 @@ class FHIRServer(object):
                 security = conf.rest[0].security
             except Exception as e:
                 logging.info("No REST security statement found in server conformance statement")
-
-            app_id = self.client.app_id if self.client is not None else None
-            scope = self.client.scope if self.client is not None else None
-            registration_uri = None
-            authorize_uri = None
-            redirect_uri = self.client.redirect if self.client is not None else None
-            token_uri = None
+            
+            settings = {
+                'app_id': self.client.app_id if self.client is not None else None,
+                'scope': self.client.scope if self.client is not None else None,
+                'redirect_uri': self.client.redirect if self.client is not None else None,
+            }
             
             # determine security type
+            use_oauth2 = False
             if security is not None and security.extension is not None:
                 for e in security.extension:
                     if "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register" == e.url:
-                        registration_uri = e.valueUri
+                        settings['registration_uri'] = e.valueUri
                     elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize" == e.url:
-                        authorize_uri = e.valueUri
+                        settings['authorize_uri'] = e.valueUri
+                        use_oauth2 = True
                     elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token" == e.url:
-                        token_uri = e.valueUri
+                        settings['token_uri'] = e.valueUri
             
-            if authorize_uri is not None:
-                self.auth = FHIRAuth.create('oauth2', app_id=app_id, scope=scope, authorize_uri=authorize_uri, redirect_uri=redirect_uri, token_uri=token_uri)
+            if use_oauth2:
+                self.auth = FHIRAuth.create('oauth2', self, state=settings)
             else:
-                self.auth = FHIRAuth.create('none', app_id=app_id)
+                self.auth = FHIRAuth.create('none', self)
             
-            if self.client is not None:
-                self.client.save_state()
+            self.should_save_state()
     
     
     # MARK: Authorization
@@ -88,16 +92,10 @@ class FHIRServer(object):
             self.get_conformance()
         return self.auth.authorize_uri
     
-    @property
-    def token_uri(self):
-        if self._token_uri is None:
-            self.get_conformance()
-        return self._token_uri
-    
     def handle_callback(self, url):
         if self.auth is None:
             raise Exception("Not ready to handle callback, I do not have an auth instance")
-        return self.auth.handle_callback(url, self)
+        return self.auth.handle_callback(url)
     
     def reauthorize(self):
         if self.auth is None:
@@ -165,5 +163,5 @@ class FHIRServer(object):
         """
         assert state
         self.base_uri = state.get('base_uri') or self.base_uri
-        self.auth = FHIRAuth.create(state.get('auth_type'), state=state.get('auth'))
+        self.auth = FHIRAuth.create(state.get('auth_type'), self, state=state.get('auth'))
     
