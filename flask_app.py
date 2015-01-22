@@ -64,8 +64,12 @@ def index():
             body += "<p>(There are no prescriptions for {})</p>".format("him" if 'male' == smart.patient.gender else "her")
         body += """<p><a href="/logout">Logout</a></p>""".format(name)
     else:
+        auth_url = smart.authorize_url
+        if auth_url is not None:
         body += """<p>Please <a href="{}">authorize</a>.</p>
-        <p><a href="/logout" style="font-size:small;">Reset</a></p>""".format(smart.authorize_url)
+            <p><a href="/logout" style="font-size:small;">Reset</a></p>""".format(auth_url)
+        else:
+            body += """<p>Running against a no-auth server, nothing to demo here. """
     return body
 
 

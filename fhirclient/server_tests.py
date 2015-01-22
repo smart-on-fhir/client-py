@@ -19,30 +19,28 @@ class TestServer(unittest.TestCase):
 		shutil.copyfile('test_metadata_valid.json', 'metadata')
 		mock = MockServer()
 		mock.get_conformance()
-		self.assertIsNotNone(mock._registration_uri)
-		self.assertIsNotNone(mock.authorize_uri)
-		self.assertIsNotNone(mock.token_uri)
-	
-	def testInvalidConformance(self):
-		shutil.copyfile('test_metadata_invalid.json', 'metadata')
-		mock = MockServer()
-		with self.assertRaises(Exception):
-			mock.get_conformance()
+		
+		self.assertIsNotNone(mock.auth._registration_uri)
+		self.assertIsNotNone(mock.auth._authorize_uri)
+		self.assertIsNotNone(mock.auth._token_uri)
 	
 	def testStateConservation(self):
 		shutil.copyfile('test_metadata_valid.json', 'metadata')
 		mock = MockServer()
 		self.assertIsNotNone(mock.conformance)
 		
-		fhir = server.FHIRServer(state=mock.state)
-		self.assertIsNotNone(fhir._registration_uri)
-		self.assertIsNotNone(fhir.authorize_uri)
-		self.assertIsNotNone(fhir.token_uri)
+		fhir = server.FHIRServer(None, state=mock.state)
+		self.assertIsNotNone(fhir.auth._registration_uri)
+		self.assertIsNotNone(fhir.auth._authorize_uri)
+		self.assertIsNotNone(fhir.auth._token_uri)
 
 
 class MockServer(server.FHIRServer):
 	""" Reads local files.
 	"""
+	
+	def __init__(self):
+		super().__init__(None)
 	
 	def request_json(self, path, nosign=False):
 		assert path

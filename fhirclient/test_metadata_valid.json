@@ -26,20 +26,15 @@
             "resource": [],
             "security": {
                 "description": "SMART on FHIR uses OAuth2 for authorization",
-                "extension": [
-                    {
-                        "url": "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register",
-                        "valueUri": "https://authorize.smartplatforms.org/register"
-                    },
-                    {
-                        "url": "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize",
-                        "valueUri": "https://authorize.smartplatforms.org/authorize"
-                    },
-                    {
-                        "url": "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token",
-                        "valueUri": "https://authorize.smartplatforms.org/token"
-                    }
-                ],
+                "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register": [{
+                    "valueUri": "https://authorize.smartplatforms.org/register"
+                }],
+                "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize": [{
+                    "valueUri": "https://authorize.smartplatforms.org/authorize"
+                }],
+                "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token": [{
+                    "valueUri": "https://authorize.smartplatforms.org/token"
+                }],
                 "service": [
                     {
                         "coding": [
