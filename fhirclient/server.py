@@ -63,24 +63,7 @@ class FHIRServer(object):
                 'scope': self.client.scope if self.client is not None else None,
                 'redirect_uri': self.client.redirect if self.client is not None else None,
             }
-            
-            # determine security type
-            use_oauth2 = False
-            if security is not None and security.extension is not None:
-                for e in security.extension:
-                    if "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register" == e.url:
-                        settings['registration_uri'] = e.valueUri
-                    elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize" == e.url:
-                        settings['authorize_uri'] = e.valueUri
-                        use_oauth2 = True
-                    elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token" == e.url:
-                        settings['token_uri'] = e.valueUri
-            
-            if use_oauth2:
-                self.auth = FHIRAuth.create('oauth2', self, state=settings)
-            else:
-                self.auth = FHIRAuth.create('none', self)
-            
+            self.auth = FHIRAuth.from_conformance_security(security, settings)
             self.should_save_state()
     
     
@@ -90,12 +73,12 @@ class FHIRServer(object):
     def authorize_uri(self):
         if self.auth is None:
             self.get_conformance()
-        return self.auth.authorize_uri
+        return self.auth.authorize_uri(self)
     
     def handle_callback(self, url):
         if self.auth is None:
             raise Exception("Not ready to handle callback, I do not have an auth instance")
-        return self.auth.handle_callback(url)
+        return self.auth.handle_callback(url, self)
     
     def reauthorize(self):
         if self.auth is None:
@@ -163,5 +146,5 @@ class FHIRServer(object):
         """
         assert state
         self.base_uri = state.get('base_uri') or self.base_uri
-        self.auth = FHIRAuth.create(state.get('auth_type'), self, state=state.get('auth'))
+        self.auth = FHIRAuth.create(state.get('auth_type'), state=state.get('auth'))
     
