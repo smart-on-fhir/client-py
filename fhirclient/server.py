@@ -19,6 +19,13 @@ class FHIRUnauthorizedException(Exception):
         self.response = response
 
 
+class FHIRPermissionDeniedException(Exception):
+    """ Indicating a 403 response.
+    """
+    def __init__(self, response):
+        self.response = response
+
+
 class FHIRServer(object):
     """ Handles talking to a FHIR server.
     """
@@ -101,21 +108,22 @@ class FHIRServer(object):
         assert self.base_uri and path
         url = urlparse.urljoin(self.base_uri, path)
         
-        headers = {'Accept': 'application/json'}
+        headers = {
+            'Accept': 'application/json+fhir',
+            'Accept-Charset': 'UTF-8',
+        }
         if not nosign and self.auth is not None and self.auth.can_sign_headers():
             headers = self.auth.signed_headers(headers)
         
         # perform the request but intercept 401 responses, raising our own Exception
         res = requests.get(url, headers=headers)
-        if 401 == res.status_code:
-            raise FHIRUnauthorizedException(res)
-        else:
-            res.raise_for_status()
-        
+        self.raise_for_status(res)
         return res.json()
     
     def post_as_form(self, url, formdata):
         """ Performs a POST request with form-data, expecting to receive JSON.
+        This method is used in the OAuth2 token exchange and thus doesn't
+        request json+fhir.
         
         :returns: Decoded JSON response
         """
@@ -123,10 +131,20 @@ class FHIRServer(object):
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
             'Accept': 'application/json',
         }
-        req = requests.post(url, data=formdata)
-        req.raise_for_status()
+        res = requests.post(url, data=formdata)
+        self.raise_for_status(res)
+        return res.json()
+    
+    def raise_for_status(self, response):
+        if response.status_code < 400:
+            return
         
-        return req.json()
+        if 401 == response.status_code:
+            raise FHIRUnauthorizedException(response)
+        elif 403 == response.status_code:
+            raise FHIRPermissionDeniedException(response)
+        else:
+            response.raise_for_status()
     
     
     # MARK: State Handling

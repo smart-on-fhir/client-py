@@ -9,7 +9,7 @@ if abspath not in sys.path:
 from server import FHIRServer, FHIRUnauthorizedException
 import models.patient as patient
 
-__version__ = '0.0.4'
+__version__ = '0.0.4.90'
 __author__ = 'SMART Platforms Team'
 __license__ = 'APACHE2'
 __copyright__ = "Copyright 2015 Boston Children's Hospital"
@@ -39,6 +39,10 @@ class FHIRClient(object):
         self.launch_context = None
         """ Context parameters supplied by the server during launch. """
         
+        self.wants_patient = True
+        """ If true and launched without patient, will add the correct scope
+        to indicate that the server should prompt for a patient after login. """
+        
         self.patient_id = None
         self._patient = None
         
@@ -58,7 +62,7 @@ class FHIRClient(object):
             scope = scope_default
             if 'launch_token' in settings:
                 self.scope = ' launch:'.join([scope, settings['launch_token']])
-            elif self.patient_id is None:
+            elif self.patient_id is None and self.wants_patient:
                 self.scope = ' '.join([scope_nolaunch, scope])
             else:
                 self.scope = scope
