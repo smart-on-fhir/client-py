@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3933 (medicationprescription.profile.json) on 2015-01-10.
+#  Generated from FHIR 0.4.0.3969 (medicationprescription.profile.json) on 2015-01-23.
 #  2015, SMART Platforms.
 
 
@@ -14,6 +14,7 @@ import fhirresource
 import identifier
 import period
 import quantity
+import range
 import ratio
 import timing
 
@@ -73,7 +74,7 @@ class MedicationPrescription(fhirresource.FHIRResource):
         
         self.status = None
         """ active | on hold | completed | entered in error | stopped |
-        superceded.
+        superceded | draft.
         Type `str`. """
         
         self.substitution = None
@@ -186,6 +187,10 @@ class MedicationPrescriptionDosageInstruction(fhirelement.FHIRElement):
         """ Amount of medication per dose.
         Type `Quantity` (represented as `dict` in JSON). """
         
+        self.doseRange = None
+        """ Amount of medication per dose.
+        Type `Range` (represented as `dict` in JSON). """
+        
         self.maxDosePerPeriod = None
         """ Upper limit on medication per unit of time.
         Type `Ratio` (represented as `dict` in JSON). """
@@ -234,6 +239,8 @@ class MedicationPrescriptionDosageInstruction(fhirelement.FHIRElement):
             self.asNeededCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['asNeededCodeableConcept'], self)
         if 'doseQuantity' in jsondict:
             self.doseQuantity = quantity.Quantity.with_json_and_owner(jsondict['doseQuantity'], self)
+        if 'doseRange' in jsondict:
+            self.doseRange = range.Range.with_json_and_owner(jsondict['doseRange'], self)
         if 'maxDosePerPeriod' in jsondict:
             self.maxDosePerPeriod = ratio.Ratio.with_json_and_owner(jsondict['maxDosePerPeriod'], self)
         if 'method' in jsondict:

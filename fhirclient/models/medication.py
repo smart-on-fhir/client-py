@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3933 (medication.profile.json) on 2015-01-10.
+#  Generated from FHIR 0.4.0.3969 (medication.profile.json) on 2015-01-23.
 #  2015, SMART Platforms.
 
 
 import codeableconcept
+import fhirdate
 import fhirelement
 import fhirreference
 import fhirresource
@@ -146,6 +147,11 @@ class MedicationProduct(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
+        self.batch = None
+        """ Information about a group of medication produced or packaged from
+        one production run..
+        List of `MedicationProductBatch` items (represented as `dict` in JSON). """
+        
         self.form = None
         """ powder | tablets | carton +.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -158,10 +164,44 @@ class MedicationProduct(fhirelement.FHIRElement):
     
     def update_with_json(self, jsondict):
         super(MedicationProduct, self).update_with_json(jsondict)
+        if 'batch' in jsondict:
+            self.batch = MedicationProductBatch.with_json_and_owner(jsondict['batch'], self)
         if 'form' in jsondict:
             self.form = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['form'], self)
         if 'ingredient' in jsondict:
             self.ingredient = MedicationProductIngredient.with_json_and_owner(jsondict['ingredient'], self)
+
+
+class MedicationProductBatch(fhirelement.FHIRElement):
+    """ Information about a group of medication produced or packaged from one
+    production run..
+    
+    Information about a group of medication produced or packaged from one
+    production run.
+    """
+    
+    resource_name = "MedicationProductBatch"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.expirationDate = None
+        """ When this specific batch of product will expire..
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.lotNumber = None
+        """ The assigned lot number of a batch of the specified product..
+        Type `str`. """
+        
+        super(MedicationProductBatch, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(MedicationProductBatch, self).update_with_json(jsondict)
+        if 'expirationDate' in jsondict:
+            self.expirationDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['expirationDate'], self)
+        if 'lotNumber' in jsondict:
+            self.lotNumber = jsondict['lotNumber']
 
 
 class MedicationProductIngredient(fhirelement.FHIRElement):

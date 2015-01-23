@@ -11,7 +11,6 @@ class FHIRReference(reference.Reference):
     """ Subclassing FHIR's resource reference to add resolving capabilities.
     """
     
-    @property
     def resolved(self, klass):
         """ Resolves the reference and caches the result, returning instance(s)
         of the referenced classes.
@@ -40,7 +39,7 @@ class FHIRReference(reference.Reference):
         contained = self._owner.containedReference(refid)
         if contained is not None:
             instance = klass(jsondict=contained.json)
-            self._owner.didResolveReference(refid, instance)
+            contained.owner.didResolveReference(refid, instance)
             return instance
         
         # TODO: fetch remote resources

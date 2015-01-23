@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3933 (bundle.profile.json) on 2015-01-10.
+#  Generated from FHIR 0.4.0.3969 (bundle.profile.json) on 2015-01-23.
 #  2015, SMART Platforms.
 
 
@@ -111,7 +111,7 @@ class BundleEntry(fhirelement.FHIRElement):
         if 'deleted' in jsondict:
             self.deleted = BundleEntryDeleted.with_json_and_owner(jsondict['deleted'], self)
         if 'resource' in jsondict:
-            self.resource = FHIRResource.with_json_and_owner(jsondict['resource'], self)
+            self.resource = fhirresource.FHIRResource.with_json_and_owner(jsondict['resource'], self)
         if 'score' in jsondict:
             self.score = jsondict['score']
         if 'search' in jsondict:
@@ -147,7 +147,7 @@ class BundleEntryDeleted(fhirelement.FHIRElement):
         Type `str`. """
         
         self.versionId = None
-        """ Version id for releted resource.
+        """ Version id for related resource.
         Type `str`. """
         
         super(BundleEntryDeleted, self).__init__(jsondict)

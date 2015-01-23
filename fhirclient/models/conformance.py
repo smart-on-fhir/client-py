@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3933 (conformance.profile.json) on 2015-01-10.
+#  Generated from FHIR 0.4.0.3969 (conformance.profile.json) on 2015-01-23.
 #  2015, SMART Platforms.
 
 
@@ -422,7 +422,7 @@ class ConformanceRestOperation(fhirelement.FHIRElement):
         """
         
         self.definition = None
-        """ The the operation/query is defined.
+        """ The defined operation/query.
         Type `FHIRReference` referencing `OperationDefinition` (represented as `dict` in JSON). """
         
         self.name = None

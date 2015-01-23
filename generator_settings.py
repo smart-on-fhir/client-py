@@ -8,8 +8,8 @@ tpl_resource_target_ptrn = '../fhirclient/models/{}.py'     # where to write the
 resource_base_target = '../fhirclient/models/'              # resource target directory, likely the same as `tpl_resource_target_ptrn` without the filename pattern
 
 # factory methods
-write_factory = False
-tpl_factory_target = '../models/fhirelement+factory.py'
+write_factory = True
+tpl_factory_target = '../fhirclient/models/fhirelementfactory.py'
 
 # search parameters
 write_searchparams = True

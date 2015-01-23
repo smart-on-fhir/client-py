@@ -24,7 +24,7 @@ class FHIRClient(object):
     The settings dictionary supports:
     
         - `app_id`*: Your app/client-id, e.g. 'my_web_app'
-        - `api_base`*: The SMART service to connect to, e.g. 'https://fhir-api.smartplatforms.org'
+        - `api_base`*: The FHIR service to connect to, e.g. 'https://fhir-api.smartplatforms.org'
         - `redirect_uri`: The callback/redirect URL for your app, e.g. 'http://localhost:8000/fhir-app/' when testing locally
         - `patient_id`: The patient id against which to operate, if already known
         - `launch_token`: The launch token
@@ -140,6 +140,12 @@ class FHIRClient(object):
     
     
     # MARK: State
+    
+    def reset_patient(self):
+        self.launch_context = None
+        self.patient_id = None
+        self._patient = None
+        self.save_state()
     
     @property
     def state(self):

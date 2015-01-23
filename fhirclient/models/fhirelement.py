@@ -34,7 +34,7 @@ class FHIRElement(object):
         if 'contained' in jsondict:
             self.contained = self.contained or {}
             for js in jsondict['contained']:         # "contained" should be an array
-                res = fhircontainedresource.FHIRContainedResource(jsondict=js)
+                res = fhircontainedresource.FHIRContainedResource(jsondict=js, owner=self)
                 if res.id:
                     self.contained[res.id] = res
                 else:
@@ -98,7 +98,9 @@ class FHIRElement(object):
     # MARK: Handling References
     
     def containedReference(self, refid):
-        """ Returns the contained reference with the given id, if it exists.
+        """ Looks for the contained reference with the given id.
+        
+        :returns: An instance of FHIRContainedResource, if it was found
         """
         if self.contained and refid in self.contained:
             return self.contained[refid]
@@ -117,9 +119,7 @@ class FHIRElement(object):
         resolved reference into the `_resolved` dictionary of the topmost
         owner.
         """
-        if self._owner is not None:
-            self._owner.didResolveReference(refid, resolved)
-        elif self._resolved is not None:
+        if self._resolved is not None:
             self._resolved[refid] = resolved
         else:
             self._resolved = {refid: resolved}

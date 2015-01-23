@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3933 (medicationadministration.profile.json) on 2015-01-10.
+#  Generated from FHIR 0.4.0.3969 (medicationadministration.profile.json) on 2015-01-23.
 #  2015, SMART Platforms.
 
 
@@ -19,12 +19,11 @@ import ratio
 class MedicationAdministration(fhirresource.FHIRResource):
     """ Administration of medication to a patient.
     
-    Describes the event of a patient being given a dose of a medication.  This
-    may be as simple as swallowing a tablet or it may be a long running
-    infusion.
-    
-    Related resources tie this event to the authorizing prescription, and the
-    specific encounter between patient and health care practitioner.
+    Describes the event of a patient consuming or otherwise being administered
+    a medication.  This may be as simple as swallowing a tablet or it may be a
+    long running infusion.Related resources tie this event to the authorizing
+    prescription, and the specific encounter between patient and health care
+    practitioner.
     """
     
     resource_name = "MedicationAdministration"
@@ -38,8 +37,8 @@ class MedicationAdministration(fhirresource.FHIRResource):
         List of `FHIRReference` items referencing `Device` (represented as `dict` in JSON). """
         
         self.dosage = None
-        """ Medicine administration instructions to the patient/carer.
-        List of `MedicationAdministrationDosage` items (represented as `dict` in JSON). """
+        """ Details of how medication was taken.
+        Type `MedicationAdministrationDosage` (represented as `dict` in JSON). """
         
         self.effectiveTimeDateTime = None
         """ Start and end time of administration.
@@ -72,6 +71,10 @@ class MedicationAdministration(fhirresource.FHIRResource):
         self.prescription = None
         """ Order administration performed against.
         Type `FHIRReference` referencing `MedicationPrescription` (represented as `dict` in JSON). """
+        
+        self.reasonGiven = None
+        """ Reason administration performed.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonNotGiven = None
         """ Reason administration not performed.
@@ -109,6 +112,8 @@ class MedicationAdministration(fhirresource.FHIRResource):
             self.practitioner = fhirreference.FHIRReference.with_json_and_owner(jsondict['practitioner'], self)
         if 'prescription' in jsondict:
             self.prescription = fhirreference.FHIRReference.with_json_and_owner(jsondict['prescription'], self)
+        if 'reasonGiven' in jsondict:
+            self.reasonGiven = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonGiven'], self)
         if 'reasonNotGiven' in jsondict:
             self.reasonNotGiven = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonNotGiven'], self)
         if 'status' in jsondict:
@@ -118,9 +123,9 @@ class MedicationAdministration(fhirresource.FHIRResource):
 
 
 class MedicationAdministrationDosage(fhirelement.FHIRElement):
-    """ Medicine administration instructions to the patient/carer.
+    """ Details of how medication was taken.
     
-    Provides details of how much of the medication was administered.
+    Indicates how the medication is/was used by the patient.
     """
     
     resource_name = "MedicationAdministrationDosage"
@@ -128,18 +133,6 @@ class MedicationAdministrationDosage(fhirelement.FHIRElement):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
-        
-        self.asNeededBoolean = False
-        """ Take "as needed" f(or x).
-        Type `bool`. """
-        
-        self.asNeededCodeableConcept = None
-        """ Take "as needed" f(or x).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.maxDosePerPeriod = None
-        """ Total dose that was consumed per unit of time.
-        Type `Ratio` (represented as `dict` in JSON). """
         
         self.method = None
         """ How drug was administered.
@@ -161,24 +154,14 @@ class MedicationAdministrationDosage(fhirelement.FHIRElement):
         """ Body site administered to.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.timingDateTime = None
-        """ When dose(s) were given.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.timingPeriod = None
-        """ When dose(s) were given.
-        Type `Period` (represented as `dict` in JSON). """
+        self.text = None
+        """ Dosage Instructions.
+        Type `str`. """
         
         super(MedicationAdministrationDosage, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(MedicationAdministrationDosage, self).update_with_json(jsondict)
-        if 'asNeededBoolean' in jsondict:
-            self.asNeededBoolean = jsondict['asNeededBoolean']
-        if 'asNeededCodeableConcept' in jsondict:
-            self.asNeededCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['asNeededCodeableConcept'], self)
-        if 'maxDosePerPeriod' in jsondict:
-            self.maxDosePerPeriod = ratio.Ratio.with_json_and_owner(jsondict['maxDosePerPeriod'], self)
         if 'method' in jsondict:
             self.method = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['method'], self)
         if 'quantity' in jsondict:
@@ -189,8 +172,6 @@ class MedicationAdministrationDosage(fhirelement.FHIRElement):
             self.route = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['route'], self)
         if 'site' in jsondict:
             self.site = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['site'], self)
-        if 'timingDateTime' in jsondict:
-            self.timingDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['timingDateTime'], self)
-        if 'timingPeriod' in jsondict:
-            self.timingPeriod = period.Period.with_json_and_owner(jsondict['timingPeriod'], self)
+        if 'text' in jsondict:
+            self.text = jsondict['text']
 

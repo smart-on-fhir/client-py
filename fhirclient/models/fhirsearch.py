@@ -37,6 +37,9 @@ class FHIRSearch(object):
     def construct(self):
         """ Constructs the URL with query string from the receiver's params.
         """
+        if self.resource_type is None:
+            raise Exception("Need resource_type set to construct a search query")
+        
         parts = []
         if self.params is not None:
             for param in self.params:
@@ -50,21 +53,15 @@ class FHIRSearch(object):
     
     def perform(self, server):
         """ Construct the search URL and execute it against the given server.
-        :returns: A list of instances created from returned data (TODO)
+        
+        :returns: A Bundle resource
         """
         if server is None:
             raise Exception("Need a server to perform search")
-        if self.resource_type is None:
-            raise Exception("Need resource_type set to perform search")
         
+        import bundle
         res = server.request_json(self.construct())
-        cls = self.resource_type
-        instances = []
-        if 'entry' in res:
-            for entry in res['entry']:
-                if 'content' in entry:
-                    instances.append(cls(jsondict=entry['content']))
-        return instances
+        return bundle.Bundle(res)
 
 
 class FHIRSearchParam(object):

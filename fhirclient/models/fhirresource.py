@@ -7,6 +7,7 @@
 import fhirelement
 import fhirdate
 import fhirsearch
+import fhirelementfactory
 
 
 class FHIRResource(fhirelement.FHIRElement):
@@ -51,6 +52,16 @@ class FHIRResource(fhirelement.FHIRElement):
             self.language = jsondict['language']
         if 'language' in jsondict:
             self.language = jsondict['language']
+    
+    @classmethod
+    def with_json(cls, jsonobj):
+        """ Overridden to use a factory if called on the base resource and
+        "resourceType" is defined in the JSON.
+        """
+        if 'Resource' == cls.resource_name:     # cannot use isinstance(cls, FHIRResource) because of module mismatch
+            if isinstance(jsonobj, dict) and 'resourceType' in jsonobj:
+                return fhirelementfactory.FHIRElementFactory.instantiate(jsonobj['resourceType'], jsonobj)
+        return super(FHIRResource, cls).with_json(jsonobj)
     
     
     # MARK: Server Connection

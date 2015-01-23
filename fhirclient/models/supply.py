@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3933 (supply.profile.json) on 2015-01-10.
+#  Generated from FHIR 0.4.0.3969 (supply.profile.json) on 2015-01-23.
 #  2015, SMART Platforms.
 
 
 import codeableconcept
+import fhirdate
 import fhirelement
 import fhirreference
 import fhirresource
@@ -115,7 +116,7 @@ class SupplyDispense(fhirelement.FHIRElement):
         
         self.whenHandedOver = None
         """ Handover time.
-        Type `Period` (represented as `dict` in JSON). """
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.whenPrepared = None
         """ Dispensing time.
@@ -142,7 +143,7 @@ class SupplyDispense(fhirelement.FHIRElement):
         if 'type' in jsondict:
             self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
         if 'whenHandedOver' in jsondict:
-            self.whenHandedOver = period.Period.with_json_and_owner(jsondict['whenHandedOver'], self)
+            self.whenHandedOver = fhirdate.FHIRDate.with_json_and_owner(jsondict['whenHandedOver'], self)
         if 'whenPrepared' in jsondict:
             self.whenPrepared = period.Period.with_json_and_owner(jsondict['whenPrepared'], self)
 
