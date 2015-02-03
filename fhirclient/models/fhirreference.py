@@ -54,35 +54,43 @@ class FHIRReference(resourcereference.ResourceReference):
             raise Exception("Cannot resolve reference without having an owner")
         if self._referenced_class is None:
             raise Exception("Cannot resolve reference without having `_referenced_class` set")
-        
-        refid = self.processedReferenceIdentifier()
-        if not refid:
+        if not self.reference:
             logging.warning("No `reference` set, cannot resolve")
             return None
         
-        resolved = self._owner.resolvedReference(refid)
+        resolved = self._owner.resolvedReference(self.reference)
         if resolved is not None:
             return resolved
         
         # not yet resolved, see if it's a contained resource
-        contained = self._owner.containedReference(refid)
+        contained = self._resolveContained()
         if contained is not None:
             instance = self._referenced_class(jsondict=contained.json)
-            self._owner.didResolveReference(refid, instance)
+            self._owner.didResolveReference(self.reference, instance)
             return instance
         
-        # TODO: fetch remote resources
-        return None
-    
-    def processedReferenceIdentifier(self):
-        """ Normalizes the reference-id.
-        """
-        if not self.reference:
+        # fetch remote resources
+        server = self._owner.server()
+        if server is None:
+            logging.warning("Reference owner {} does not have a server, cannot resolve reference {}"
+                .format(self._owner, self.reference))
             return None
         
-        if '#' == self.reference[0]:
-            return self.reference[1:]
+        if '://' not in self.reference:
+            return self._referenced_class.read_from(self.reference, server)
         
-        # TODO: distinguish absolute (has "://") and relative URLs
+        logging.warning("Not implemented: resolving reference to foreign resource {}"
+            .format(self.reference))
         return None
     
+    def _resolveContained(self):
+        """ Returns None unless `reference` starts with a "#", in which case it
+        asks the owner for the reference with the id without "#".
+        
+        Only call from within `resolved()`!
+        """
+        if '#' != self.reference[0]:
+            return None
+        
+        return self._owner.containedReference(self.reference[1:])
+

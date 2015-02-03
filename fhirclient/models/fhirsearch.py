@@ -63,7 +63,9 @@ class FHIRSearch(object):
         if 'entry' in res:
             for entry in res['entry']:
                 if 'content' in entry:
-                    instances.append(cls(jsondict=entry['content']))
+                    instance = cls(jsondict=entry['content'])
+                    instance._server = server
+                    instances.append(instance)
         return instances
 
 
