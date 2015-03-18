@@ -54,11 +54,11 @@ class FHIRServer(object):
             
             # extract extensions from conformance: OAuth2 endpoint URIs
             for e in extensions:
-                if "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register" == e.url:
+                if "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#register" == e.url:
                     self._registration_uri = e.valueUri
-                elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize" == e.url:
+                elif "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#authorize" == e.url:
                     self._authorize_uri = e.valueUri
-                elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token" == e.url:
+                elif "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#token" == e.url:
                     self._token_uri = e.valueUri
 
             self._conformance = conf

@@ -7,7 +7,7 @@
         "xml",
         "json"
     ],
-    "identifier": "https://fhir-api.smartplatforms.org/conformance",
+    "identifier": "https://fhir-api.smarthealthit.org/conformance",
     "name": "SMART on FHIR Conformance Statement",
     "publisher": "SMART on FHIR",
     "resourceType": "Conformance",
@@ -28,16 +28,16 @@
                 "description": "SMART on FHIR uses OAuth2 for authorization",
                 "extension": [
                     {
-                        "url": "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register",
-                        "valueUri": "https://authorize.smartplatforms.org/register"
+                        "url": "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#register",
+                        "valueUri": "https://authorize.smarthealthit.org/register"
                     },
                     {
-                        "url": "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize",
-                        "valueUri": "https://authorize.smartplatforms.org/authorize"
+                        "url": "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#authorize",
+                        "valueUri": "https://authorize.smarthealthit.org/authorize"
                     },
                     {
-                        "url": "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token",
-                        "valueUri": "https://authorize.smartplatforms.org/token"
+                        "url": "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#token",
+                        "valueUri": "https://authorize.smarthealthit.org/token"
                     }
                 ],
                 "service": [
@@ -58,7 +58,7 @@
     "telecom": [
         {
             "system": "url",
-            "value": "https://fhir-api.smartplatforms.org"
+            "value": "https://fhir-api.smarthealthit.org"
         }
     ],
     "text": {

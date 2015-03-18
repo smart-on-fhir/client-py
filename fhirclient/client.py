@@ -25,7 +25,7 @@ class FHIRClient(object):
     The settings dictionary supports:
     
         - `app_id`: Your app/client-id, e.g. 'my_web_app'
-        - `api_base`: The SMART service to connect to, e.g. 'https://fhir-api.smartplatforms.org'
+        - `api_base`: The SMART service to connect to, e.g. 'https://fhir-api.smarthealthit.org'
         - `auth_type`: The authorization type, supports "oauth2" and "none". Defaults to "oauth2" if omitted
         - `redirect_uri`: The callback/redirect URL for your app, e.g. 'http://localhost:8000/fhir-app/' when testing locally
     """

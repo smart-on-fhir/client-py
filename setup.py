@@ -34,7 +34,7 @@ setup(
     url='https://github.com/smart-on-fhir/client-py/',
     license="APACHE2",
     author="SMART Platforms Team",
-    author_email='support@smartplatforms.org',
+    author_email='support@smarthealthit.org',
     packages=find_packages(exclude=['test*']),
     install_requires=['requests'],
     classifiers=[

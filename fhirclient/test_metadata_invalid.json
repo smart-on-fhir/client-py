@@ -7,7 +7,7 @@
         "xml",
         "json"
     ],
-    "identifier": "https://fhir-api.smartplatforms.org/conformance",
+    "identifier": "https://fhir-api.smarthealthit.org/conformance",
     "name": "SMART on FHIR Conformance Statement",
     "publisher": "SMART on FHIR",
     "resourceType": "Conformance",
@@ -44,7 +44,7 @@
     "telecom": [
         {
             "system": "url",
-            "value": "https://fhir-api.smartplatforms.org"
+            "value": "https://fhir-api.smarthealthit.org"
         }
     ],
     "text": {
