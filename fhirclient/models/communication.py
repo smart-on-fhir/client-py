@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (communication.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Communication) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import attachment
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 
 
-class Communication(fhirresource.FHIRResource):
-    """ Communication.
+class Communication(domainresource.DomainResource):
+    """ A record of information transmitted from a sender to a receiver.
     
     An occurrence of information being transmitted. E.g., an alert that was
     sent to a responsible provider, a public health agency was notified about a
@@ -58,18 +58,18 @@ class Communication(fhirresource.FHIRResource):
         
         self.recipient = None
         """ Message recipient.
-        List of `FHIRReference` items referencing `Patient, Device, RelatedPerson, Practitioner` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.sender = None
         """ Message sender.
-        Type `FHIRReference` referencing `Patient, Practitioner, Device, RelatedPerson, Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.sent = None
         """ When sent.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.status = None
-        """ in progress | completed | suspended | rejected | failed.
+        """ in-progress | completed | suspended | rejected | failed.
         Type `str`. """
         
         self.subject = None
@@ -109,7 +109,7 @@ class Communication(fhirresource.FHIRResource):
 class CommunicationPayload(fhirelement.FHIRElement):
     """ Message payload.
     
-    Text, attachment(s), or resource(s) to be communicated to the recipient.
+    Text, attachment(s), or resource(s) that was communicated to the recipient.
     """
     
     resource_name = "CommunicationPayload"
@@ -124,7 +124,7 @@ class CommunicationPayload(fhirelement.FHIRElement):
         
         self.contentReference = None
         """ Message part content.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.contentString = None
         """ Message part content.

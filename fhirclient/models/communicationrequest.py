@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (communicationrequest.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import attachment
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 
 
-class CommunicationRequest(fhirresource.FHIRResource):
-    """ Communication Request.
+class CommunicationRequest(domainresource.DomainResource):
+    """ A request for information to be sent to a receiver.
     
     A request to convey information. E.g., the CDS system proposes that an
     alert be sent to a responsible provider, the CDS system proposes that the
@@ -62,7 +62,7 @@ class CommunicationRequest(fhirresource.FHIRResource):
         
         self.recipient = None
         """ Message recipient.
-        List of `FHIRReference` items referencing `Patient, Device, RelatedPerson, Practitioner` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.requester = None
         """ Requester of communication.
@@ -74,10 +74,10 @@ class CommunicationRequest(fhirresource.FHIRResource):
         
         self.sender = None
         """ Message sender.
-        Type `FHIRReference` referencing `Patient, Practitioner, Device, RelatedPerson, Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.status = None
-        """ proposed | planned | requested | received | accepted | in progress
+        """ proposed | planned | requested | received | accepted | in-progress
         | completed | suspended | rejected | failed.
         Type `str`. """
         
@@ -137,7 +137,7 @@ class CommunicationRequestPayload(fhirelement.FHIRElement):
         
         self.contentReference = None
         """ Message part content.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.contentString = None
         """ Message part content.

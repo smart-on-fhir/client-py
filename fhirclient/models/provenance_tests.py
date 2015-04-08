@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  2015, SMART Health IT.
+
+
+import os
+import io
+import unittest
+import json
+import provenance
+from fhirdate import FHIRDate
+
+
+class ProvenanceTests(unittest.TestCase):
+    def instantiate_from(self, filename):
+        datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
+        with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
+            js = json.load(handle)
+        instance = provenance.Provenance(js)
+        self.assertIsNotNone(instance, "Must have instantiated a test instance")
+        return instance
+    
+    def testProvenance1(self):
+        inst = self.instantiate_from("provenance-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e37fe10> instance")
+    
+        self.assertEqual(inst.agent[0].display, "Grahame Grieve")
+        self.assertEqual(inst.agent[0].referenceUri, "mailto:grahame@healthintersections.com.au")
+        self.assertEqual(inst.agent[0].role.code, "author")
+        self.assertEqual(inst.agent[0].role.system, "http://hl7.org/fhir/provenance-participant-role")
+        self.assertEqual(inst.agent[0].type.code, "person")
+        self.assertEqual(inst.agent[0].type.system, "http://hl7.org/fhir/provenance-participant-type")
+        self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.period.start.date, FHIRDate("2011-06-23").date)
+        self.assertEqual(inst.period.start.isostring, "2011-06-23")
+        self.assertEqual(inst.reason.text, "Editing the FHIR Specification")
+        self.assertEqual(inst.recorded.date, FHIRDate("2012-11-08T23:16:03+11:00").date)
+        self.assertEqual(inst.recorded.isostring, "2012-11-08T23:16:03+11:00")
+        self.assertEqual(inst.text.div, "<div>Authored on 8-Nov 2011 by Grahame Grieve. Content extracted from ISO-21090</div>")
+        self.assertEqual(inst.text.status, "generated")
+

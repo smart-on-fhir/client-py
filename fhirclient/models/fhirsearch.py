@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  Create FHIR search params from NoSQL-like query structures.
-#  2014, SMART Platforms.
+#  2014, SMART Health IT.
 
 try:
     from urllib import quote_plus

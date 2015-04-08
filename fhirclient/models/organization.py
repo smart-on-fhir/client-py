@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (organization.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Organization) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import address
 import codeableconcept
 import contactpoint
+import domainresource
 import fhirelement
 import fhirreference
-import fhirresource
 import humanname
 import identifier
 
 
-class Organization(fhirresource.FHIRResource):
+class Organization(domainresource.DomainResource):
     """ A grouping of people or organizations with a common purpose.
     
     A formally or informally recognized grouping of people or organizations
@@ -46,10 +46,6 @@ class Organization(fhirresource.FHIRResource):
         """ Identifies this organization  across multiple systems.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.location = None
-        """ Location(s) the organization uses to provide services.
-        List of `FHIRReference` items referencing `Location` (represented as `dict` in JSON). """
-        
         self.name = None
         """ Name used for the organization.
         Type `str`. """
@@ -78,8 +74,6 @@ class Organization(fhirresource.FHIRResource):
             self.contact = OrganizationContact.with_json_and_owner(jsondict['contact'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'partOf' in jsondict:
@@ -104,10 +98,6 @@ class OrganizationContact(fhirelement.FHIRElement):
         """ Visiting or postal addresses for the contact.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.gender = None
-        """ male | female | other | unknown.
-        Type `str`. """
-        
         self.name = None
         """ A name associated with the contact.
         Type `HumanName` (represented as `dict` in JSON). """
@@ -126,8 +116,6 @@ class OrganizationContact(fhirelement.FHIRElement):
         super(OrganizationContact, self).update_with_json(jsondict)
         if 'address' in jsondict:
             self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'gender' in jsondict:
-            self.gender = jsondict['gender']
         if 'name' in jsondict:
             self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
         if 'purpose' in jsondict:

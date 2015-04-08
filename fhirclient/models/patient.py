@@ -1,28 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (patient.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Patient) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import address
 import attachment
 import codeableconcept
 import contactpoint
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import humanname
 import identifier
 import period
 
 
-class Patient(fhirresource.FHIRResource):
-    """ Information about a person or animal receiving health care services.
+class Patient(domainresource.DomainResource):
+    """ Information about an individual or animal receiving health care services.
     
-    Demographics and other administrative information about a person or animal
-    receiving care or other health-related services.
+    Demographics and other administrative information about an individual or
+    animal receiving care or other health-related services.
     """
     
     resource_name = "Patient"
@@ -44,7 +44,7 @@ class Patient(fhirresource.FHIRResource):
         Type `PatientAnimal` (represented as `dict` in JSON). """
         
         self.birthDate = None
-        """ The date and time of birth for the individual.
+        """ The date of birth for the individual.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.careProvider = None
@@ -52,9 +52,9 @@ class Patient(fhirresource.FHIRResource):
         List of `FHIRReference` items referencing `Organization, Practitioner` (represented as `dict` in JSON). """
         
         self.communication = None
-        """ Languages which may be used to communicate with the patient about
-        his or her health.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        """ A list of Languages which may be used to communicate with the
+        patient about his or her health.
+        List of `PatientCommunication` items (represented as `dict` in JSON). """
         
         self.contact = None
         """ A contact party (e.g. guardian, partner, friend) for the patient.
@@ -73,7 +73,7 @@ class Patient(fhirresource.FHIRResource):
         Type `str`. """
         
         self.identifier = None
-        """ An identifier for the person as this patient.
+        """ An identifier for this patient.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.link = None
@@ -86,7 +86,7 @@ class Patient(fhirresource.FHIRResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.maritalStatus = None
-        """ Marital (civil) status of a person.
+        """ Marital (civil) status of a patient.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.multipleBirthBoolean = False
@@ -102,7 +102,7 @@ class Patient(fhirresource.FHIRResource):
         List of `HumanName` items (represented as `dict` in JSON). """
         
         self.photo = None
-        """ Image of the person.
+        """ Image of the patient.
         List of `Attachment` items (represented as `dict` in JSON). """
         
         self.telecom = None
@@ -124,7 +124,7 @@ class Patient(fhirresource.FHIRResource):
         if 'careProvider' in jsondict:
             self.careProvider = fhirreference.FHIRReference.with_json_and_owner(jsondict['careProvider'], self)
         if 'communication' in jsondict:
-            self.communication = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['communication'], self)
+            self.communication = PatientCommunication.with_json_and_owner(jsondict['communication'], self)
         if 'contact' in jsondict:
             self.contact = PatientContact.with_json_and_owner(jsondict['contact'], self)
         if 'deceasedBoolean' in jsondict:
@@ -189,6 +189,39 @@ class PatientAnimal(fhirelement.FHIRElement):
             self.species = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['species'], self)
 
 
+class PatientCommunication(fhirelement.FHIRElement):
+    """ A list of Languages which may be used to communicate with the patient about
+    his or her health.
+    
+    Languages which may be used to communicate with the patient about his or
+    her health.
+    """
+    
+    resource_name = "PatientCommunication"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.language = None
+        """ The language which can be used to communicate with the patient
+        about his or her health.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.preferred = False
+        """ Language preference indicator.
+        Type `bool`. """
+        
+        super(PatientCommunication, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(PatientCommunication, self).update_with_json(jsondict)
+        if 'language' in jsondict:
+            self.language = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['language'], self)
+        if 'preferred' in jsondict:
+            self.preferred = jsondict['preferred']
+
+
 class PatientContact(fhirelement.FHIRElement):
     """ A contact party (e.g. guardian, partner, friend) for the patient.
     """
@@ -208,7 +241,7 @@ class PatientContact(fhirelement.FHIRElement):
         Type `str`. """
         
         self.name = None
-        """ A name associated with the person.
+        """ A name associated with the contact person.
         Type `HumanName` (represented as `dict` in JSON). """
         
         self.organization = None
@@ -216,8 +249,8 @@ class PatientContact(fhirelement.FHIRElement):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.period = None
-        """ The period during which this person or organization is valid to be
-        contacted relating to this patient.
+        """ The period during which this contact person or organization is
+        valid to be contacted relating to this patient.
         Type `Period` (represented as `dict` in JSON). """
         
         self.relationship = None
@@ -250,6 +283,8 @@ class PatientContact(fhirelement.FHIRElement):
 
 class PatientLink(fhirelement.FHIRElement):
     """ Link to another patient resource that concerns the same actual person.
+    
+    Link to another patient resource that concerns the same actual patient.
     """
     
     resource_name = "PatientLink"

@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (referralrequest.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirreference
-import fhirresource
 import identifier
 import period
 
 
-class ReferralRequest(fhirresource.FHIRResource):
-    """ A request for referral or tranfer of care.
+class ReferralRequest(domainresource.DomainResource):
+    """ A request for referral or transfer of care.
     
     Used to record and send details about a request for referral service or
     transfer of a patient to the care of another provider or provider
@@ -77,13 +77,14 @@ class ReferralRequest(fhirresource.FHIRResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | sent | active | cancelled | refused | completed.
+        """ draft | requested | active | cancelled | accepted | rejected |
+        completed.
         Type `str`. """
         
         self.supportingInformation = None
         """ Additonal information to support referral or transfer of care
         request.
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.type = None
         """ Referral/Transition of care request type.

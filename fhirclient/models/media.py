@@ -1,19 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (media.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Media) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import attachment
 import codeableconcept
-import fhirdate
+import domainresource
 import fhirreference
-import fhirresource
 import identifier
 
 
-class Media(fhirresource.FHIRResource):
+class Media(domainresource.DomainResource):
     """ A photo, video, or audio recording acquired or used in healthcare. The
     actual content may be inline or provided by direct reference.
     """
@@ -27,10 +26,6 @@ class Media(fhirresource.FHIRResource):
         self.content = None
         """ Actual Media - reference or data.
         Type `Attachment` (represented as `dict` in JSON). """
-        
-        self.created = None
-        """ When the media was taken/recorded (start).
-        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.deviceName = None
         """ Name of the device/manufacturer.
@@ -82,8 +77,6 @@ class Media(fhirresource.FHIRResource):
         super(Media, self).update_with_json(jsondict)
         if 'content' in jsondict:
             self.content = attachment.Attachment.with_json_and_owner(jsondict['content'], self)
-        if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
         if 'deviceName' in jsondict:
             self.deviceName = jsondict['deviceName']
         if 'duration' in jsondict:

@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (device.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Device) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
 import contactpoint
+import domainresource
 import fhirdate
 import fhirreference
-import fhirresource
 import identifier
 
 
-class Device(fhirresource.FHIRResource):
+class Device(domainresource.DomainResource):
     """ An instance of a manufactured thing that is used in the provision of
     healthcare.
     
@@ -36,11 +36,11 @@ class Device(fhirresource.FHIRResource):
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         self.expiry = None
-        """ Date of expiry of this device (if applicable).
+        """ Date and time of expiry of this device (if applicable).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
-        """ Instance id from manufacturer, owner and others.
+        """ Instance id from manufacturer, owner, and others.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.location = None
@@ -50,6 +50,10 @@ class Device(fhirresource.FHIRResource):
         self.lotNumber = None
         """ Lot number of manufacture.
         Type `str`. """
+        
+        self.manufactureDate = None
+        """ Manufacture date.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.manufacturer = None
         """ Name of device manufacturer.
@@ -66,6 +70,10 @@ class Device(fhirresource.FHIRResource):
         self.patient = None
         """ If the resource is affixed to a person.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ available | not-available | entered-in-error.
+        Type `str`. """
         
         self.type = None
         """ What kind of device this is.
@@ -97,6 +105,8 @@ class Device(fhirresource.FHIRResource):
             self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
         if 'lotNumber' in jsondict:
             self.lotNumber = jsondict['lotNumber']
+        if 'manufactureDate' in jsondict:
+            self.manufactureDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['manufactureDate'], self)
         if 'manufacturer' in jsondict:
             self.manufacturer = jsondict['manufacturer']
         if 'model' in jsondict:
@@ -105,6 +115,8 @@ class Device(fhirresource.FHIRResource):
             self.owner = fhirreference.FHIRReference.with_json_and_owner(jsondict['owner'], self)
         if 'patient' in jsondict:
             self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
+        if 'status' in jsondict:
+            self.status = jsondict['status']
         if 'type' in jsondict:
             self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
         if 'udi' in jsondict:

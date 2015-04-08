@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (observation.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Observation) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import attachment
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import period
 import quantity
@@ -19,7 +19,7 @@ import ratio
 import sampleddata
 
 
-class Observation(fhirresource.FHIRResource):
+class Observation(domainresource.DomainResource):
     """ Measurements and simple assertions.
     
     Measurements and simple assertions made about a patient, device or other
@@ -40,8 +40,16 @@ class Observation(fhirresource.FHIRResource):
         """ Physiologically Relevant time/time-period for observation.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.bodySite = None
+        self.bodySiteCodeableConcept = None
         """ Observed body part.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.bodySiteReference = None
+        """ Observed body part.
+        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
+        
+        self.code = None
+        """ Type of observation (code / type).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.comments = None
@@ -49,16 +57,20 @@ class Observation(fhirresource.FHIRResource):
         Type `str`. """
         
         self.dataAbsentReason = None
-        """ unknown | asked | temp | notasked +.
-        Type `str`. """
+        """ Why the result is missing.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.device = None
+        """ (Measurement) Device.
+        Type `FHIRReference` referencing `Device, DeviceMetric` (represented as `dict` in JSON). """
         
         self.encounter = None
-        """ Healthcare event related to the observation.
+        """ Healthcare event during which this observation is made.
         Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Unique Id for this particular observation.
-        Type `Identifier` (represented as `dict` in JSON). """
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.interpretation = None
         """ High, low, normal, etc..
@@ -72,13 +84,9 @@ class Observation(fhirresource.FHIRResource):
         """ How it was done.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.name = None
-        """ Type of observation (code / type).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.performer = None
         """ Who did the observation.
-        List of `FHIRReference` items referencing `Practitioner, Device, Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Practitioner, Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.referenceRange = None
         """ Provides guide for interpretation.
@@ -124,6 +132,10 @@ class Observation(fhirresource.FHIRResource):
         """ Actual result.
         Type `Quantity` (represented as `dict` in JSON). """
         
+        self.valueRange = None
+        """ Actual result.
+        Type `Range` (represented as `dict` in JSON). """
+        
         self.valueRatio = None
         """ Actual result.
         Type `Ratio` (represented as `dict` in JSON). """
@@ -148,12 +160,18 @@ class Observation(fhirresource.FHIRResource):
             self.appliesDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['appliesDateTime'], self)
         if 'appliesPeriod' in jsondict:
             self.appliesPeriod = period.Period.with_json_and_owner(jsondict['appliesPeriod'], self)
-        if 'bodySite' in jsondict:
-            self.bodySite = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySite'], self)
+        if 'bodySiteCodeableConcept' in jsondict:
+            self.bodySiteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySiteCodeableConcept'], self)
+        if 'bodySiteReference' in jsondict:
+            self.bodySiteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['bodySiteReference'], self)
+        if 'code' in jsondict:
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'comments' in jsondict:
             self.comments = jsondict['comments']
         if 'dataAbsentReason' in jsondict:
-            self.dataAbsentReason = jsondict['dataAbsentReason']
+            self.dataAbsentReason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['dataAbsentReason'], self)
+        if 'device' in jsondict:
+            self.device = fhirreference.FHIRReference.with_json_and_owner(jsondict['device'], self)
         if 'encounter' in jsondict:
             self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
         if 'identifier' in jsondict:
@@ -164,8 +182,6 @@ class Observation(fhirresource.FHIRResource):
             self.issued = fhirdate.FHIRDate.with_json_and_owner(jsondict['issued'], self)
         if 'method' in jsondict:
             self.method = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['method'], self)
-        if 'name' in jsondict:
-            self.name = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['name'], self)
         if 'performer' in jsondict:
             self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self)
         if 'referenceRange' in jsondict:
@@ -190,6 +206,8 @@ class Observation(fhirresource.FHIRResource):
             self.valuePeriod = period.Period.with_json_and_owner(jsondict['valuePeriod'], self)
         if 'valueQuantity' in jsondict:
             self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
+        if 'valueRange' in jsondict:
+            self.valueRange = range.Range.with_json_and_owner(jsondict['valueRange'], self)
         if 'valueRatio' in jsondict:
             self.valueRatio = ratio.Ratio.with_json_and_owner(jsondict['valueRatio'], self)
         if 'valueSampledData' in jsondict:

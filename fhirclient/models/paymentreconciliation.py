@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (paymentreconciliation.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import coding
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import money
 import period
 
 
-class PaymentReconciliation(fhirresource.FHIRResource):
+class PaymentReconciliation(domainresource.DomainResource):
     """ PaymentReconciliation resource.
     
     This resource provides payment details and claim references supporting a
@@ -70,7 +70,7 @@ class PaymentReconciliation(fhirresource.FHIRResource):
         
         self.request = None
         """ Claim reference.
-        Type `FHIRReference` referencing `PendedRequest` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `ProcessRequest` (represented as `dict` in JSON). """
         
         self.requestOrganization = None
         """ Responsible organization.
@@ -150,11 +150,11 @@ class PaymentReconciliationDetail(fhirelement.FHIRElement):
         
         self.request = None
         """ Claim.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.responce = None
         """ Claim Response.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.submitter = None
         """ Submitter.

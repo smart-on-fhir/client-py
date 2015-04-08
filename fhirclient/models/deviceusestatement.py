@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (deviceusestatement.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirreference
-import fhirresource
 import identifier
 import period
 import timing
 
 
-class DeviceUseStatement(fhirresource.FHIRResource):
+class DeviceUseStatement(domainresource.DomainResource):
     """ A record of a device being used by a patient where the record is the result
     of a report from the patient or another clinician..
     
@@ -28,9 +28,13 @@ class DeviceUseStatement(fhirresource.FHIRResource):
         """ Initialize all valid properties.
         """
         
-        self.bodySite = None
-        """ Body site where the device was used..
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self.bodySiteCodeableConcept = None
+        """ Target body site.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.bodySiteReference = None
+        """ Target body site.
+        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.device = None
         """ The details of the device used..
@@ -79,8 +83,10 @@ class DeviceUseStatement(fhirresource.FHIRResource):
     
     def update_with_json(self, jsondict):
         super(DeviceUseStatement, self).update_with_json(jsondict)
-        if 'bodySite' in jsondict:
-            self.bodySite = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySite'], self)
+        if 'bodySiteCodeableConcept' in jsondict:
+            self.bodySiteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySiteCodeableConcept'], self)
+        if 'bodySiteReference' in jsondict:
+            self.bodySiteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['bodySiteReference'], self)
         if 'device' in jsondict:
             self.device = fhirreference.FHIRReference.with_json_and_owner(jsondict['device'], self)
         if 'identifier' in jsondict:

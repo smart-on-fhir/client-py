@@ -1,22 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (relatedperson.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import address
 import attachment
 import codeableconcept
 import contactpoint
+import domainresource
 import fhirreference
-import fhirresource
 import humanname
 import identifier
 import period
 
 
-class RelatedPerson(fhirresource.FHIRResource):
+class RelatedPerson(domainresource.DomainResource):
     """ An person that is related to a patient, but who is not a direct target of
     care.
     

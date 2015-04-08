@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (episodeofcare.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import period
 
 
-class EpisodeOfCare(fhirresource.FHIRResource):
+class EpisodeOfCare(domainresource.DomainResource):
     """ An association of a Patient with an Organization and  Healthcare
     Provider(s) for a period of time that the Organization assumes some level
     of responsibility.
@@ -45,10 +45,6 @@ class EpisodeOfCare(fhirresource.FHIRResource):
         is intended to be providing care for.
         List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
         
-        self.currentStatus = None
-        """ planned | active | onhold | finished | withdrawn | other.
-        Type `str`. """
-        
         self.identifier = None
         """ Identifier(s) by which this EpisodeOfCare is known.
         List of `Identifier` items (represented as `dict` in JSON). """
@@ -59,7 +55,7 @@ class EpisodeOfCare(fhirresource.FHIRResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.patient = None
-        """ The patient that this episodeofcare applies to.
+        """ The patient that this EpisodeOfCare applies to.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.period = None
@@ -68,16 +64,20 @@ class EpisodeOfCare(fhirresource.FHIRResource):
         Type `Period` (represented as `dict` in JSON). """
         
         self.referralRequest = None
-        """ A Referral Request that this EpisodeOfCare manages activities
+        """ Referral Request(s) that this EpisodeOfCare manages activities
         within.
-        Type `FHIRReference` referencing `ReferralRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ReferralRequest` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ planned | waitlist | active | onhold | finished | cancelled.
+        Type `str`. """
         
         self.statusHistory = None
         """ The status history for the EpisodeOfCare.
         List of `EpisodeOfCareStatusHistory` items (represented as `dict` in JSON). """
         
         self.type = None
-        """ Specific type of EpisodeOfcare.
+        """ Specific type of EpisodeOfCare.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(EpisodeOfCare, self).__init__(jsondict)
@@ -90,8 +90,6 @@ class EpisodeOfCare(fhirresource.FHIRResource):
             self.careTeam = EpisodeOfCareCareTeam.with_json_and_owner(jsondict['careTeam'], self)
         if 'condition' in jsondict:
             self.condition = fhirreference.FHIRReference.with_json_and_owner(jsondict['condition'], self)
-        if 'currentStatus' in jsondict:
-            self.currentStatus = jsondict['currentStatus']
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'managingOrganization' in jsondict:
@@ -102,6 +100,8 @@ class EpisodeOfCare(fhirresource.FHIRResource):
             self.period = period.Period.with_json_and_owner(jsondict['period'], self)
         if 'referralRequest' in jsondict:
             self.referralRequest = fhirreference.FHIRReference.with_json_and_owner(jsondict['referralRequest'], self)
+        if 'status' in jsondict:
+            self.status = jsondict['status']
         if 'statusHistory' in jsondict:
             self.statusHistory = EpisodeOfCareStatusHistory.with_json_and_owner(jsondict['statusHistory'], self)
         if 'type' in jsondict:
@@ -120,8 +120,8 @@ class EpisodeOfCareCareTeam(fhirelement.FHIRElement):
         """
         
         self.member = None
-        """ The practitioner within the team.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        """ The practitioner (or Organization) within the team.
+        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.period = None
         """ The period of time that this practitioner is performing some role
@@ -156,12 +156,12 @@ class EpisodeOfCareStatusHistory(fhirelement.FHIRElement):
         """
         
         self.period = None
-        """ The period during this episodeofcare that the specific status
+        """ The period during this EpisodeOfCare that the specific status
         applied.
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | active | onhold | finished | withdrawn | other.
+        """ planned | waitlist | active | onhold | finished | cancelled.
         Type `str`. """
         
         super(EpisodeOfCareStatusHistory, self).__init__(jsondict)

@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (orderresponse.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OrderResponse) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirreference
-import fhirresource
 import identifier
 
 
-class OrderResponse(fhirresource.FHIRResource):
+class OrderResponse(domainresource.DomainResource):
     """ A response to an order.
     """
     
@@ -28,12 +28,7 @@ class OrderResponse(fhirresource.FHIRResource):
         
         self.authorityReference = None
         """ If required by policy.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
-        
-        self.code = None
-        """ pending | review | rejected | error | accepted | cancelled |
-        replaced | aborted | complete.
-        Type `str`. """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.date = None
         """ When the response was made.
@@ -45,12 +40,17 @@ class OrderResponse(fhirresource.FHIRResource):
         
         self.fulfillment = None
         """ Details of the outcome of performing the order.
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Identifiers assigned to this order by the orderer or by the
         receiver.
         List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.orderStatus = None
+        """ pending | review | rejected | error | accepted | cancelled |
+        replaced | aborted | completed.
+        Type `str`. """
         
         self.request = None
         """ The order that this is a response to.
@@ -68,8 +68,6 @@ class OrderResponse(fhirresource.FHIRResource):
             self.authorityCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['authorityCodeableConcept'], self)
         if 'authorityReference' in jsondict:
             self.authorityReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['authorityReference'], self)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
         if 'date' in jsondict:
             self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'description' in jsondict:
@@ -78,6 +76,8 @@ class OrderResponse(fhirresource.FHIRResource):
             self.fulfillment = fhirreference.FHIRReference.with_json_and_owner(jsondict['fulfillment'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
+        if 'orderStatus' in jsondict:
+            self.orderStatus = jsondict['orderStatus']
         if 'request' in jsondict:
             self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self)
         if 'who' in jsondict:

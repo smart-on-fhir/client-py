@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  Facilitate working with dates.
-#  2014, SMART Platforms.
+#  2014, SMART Health IT.
 
 import sys
 import isodate

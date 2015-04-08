@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (conformance.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
 import coding
 import contactpoint
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 
 
-class Conformance(fhirresource.FHIRResource):
+class Conformance(domainresource.DomainResource):
     """ A conformance statement.
     
     A conformance statement is a set of requirements for a desired
@@ -31,6 +31,14 @@ class Conformance(fhirresource.FHIRResource):
         self.acceptUnknown = False
         """ True if application accepts unknown elements.
         Type `bool`. """
+        
+        self.contact = None
+        """ Contact details of the publisher.
+        List of `ConformanceContact` items (represented as `dict` in JSON). """
+        
+        self.copyright = None
+        """ Use and/or Publishing restrictions.
+        Type `str`. """
         
         self.date = None
         """ Publication Date(/time).
@@ -56,10 +64,6 @@ class Conformance(fhirresource.FHIRResource):
         """ formats supported (xml | json | mime type).
         List of `str` items. """
         
-        self.identifier = None
-        """ Logical id to reference this statement.
-        Type `str`. """
-        
         self.implementation = None
         """ If this describes a specific instance.
         Type `ConformanceImplementation` (represented as `dict` in JSON). """
@@ -74,10 +78,14 @@ class Conformance(fhirresource.FHIRResource):
         
         self.profile = None
         """ Profiles supported by the system.
-        List of `FHIRReference` items referencing `Profile` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         self.publisher = None
-        """ Publishing Organization.
+        """ Name of the publisher (Organization or individual).
+        Type `str`. """
+        
+        self.requirements = None
+        """ Why is this needed?.
         Type `str`. """
         
         self.rest = None
@@ -92,9 +100,9 @@ class Conformance(fhirresource.FHIRResource):
         """ draft | active | retired.
         Type `str`. """
         
-        self.telecom = None
-        """ Contacts for Organization.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
+        self.url = None
+        """ Logical uri to reference this statement.
+        Type `str`. """
         
         self.version = None
         """ Logical id for this version of the statement.
@@ -106,6 +114,10 @@ class Conformance(fhirresource.FHIRResource):
         super(Conformance, self).update_with_json(jsondict)
         if 'acceptUnknown' in jsondict:
             self.acceptUnknown = jsondict['acceptUnknown']
+        if 'contact' in jsondict:
+            self.contact = ConformanceContact.with_json_and_owner(jsondict['contact'], self)
+        if 'copyright' in jsondict:
+            self.copyright = jsondict['copyright']
         if 'date' in jsondict:
             self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'description' in jsondict:
@@ -118,8 +130,6 @@ class Conformance(fhirresource.FHIRResource):
             self.fhirVersion = jsondict['fhirVersion']
         if 'format' in jsondict:
             self.format = jsondict['format']
-        if 'identifier' in jsondict:
-            self.identifier = jsondict['identifier']
         if 'implementation' in jsondict:
             self.implementation = ConformanceImplementation.with_json_and_owner(jsondict['implementation'], self)
         if 'messaging' in jsondict:
@@ -130,16 +140,48 @@ class Conformance(fhirresource.FHIRResource):
             self.profile = fhirreference.FHIRReference.with_json_and_owner(jsondict['profile'], self)
         if 'publisher' in jsondict:
             self.publisher = jsondict['publisher']
+        if 'requirements' in jsondict:
+            self.requirements = jsondict['requirements']
         if 'rest' in jsondict:
             self.rest = ConformanceRest.with_json_and_owner(jsondict['rest'], self)
         if 'software' in jsondict:
             self.software = ConformanceSoftware.with_json_and_owner(jsondict['software'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+        if 'url' in jsondict:
+            self.url = jsondict['url']
         if 'version' in jsondict:
             self.version = jsondict['version']
+
+
+class ConformanceContact(fhirelement.FHIRElement):
+    """ Contact details of the publisher.
+    
+    Contacts to assist a user in finding and communicating with the publisher.
+    """
+    
+    resource_name = "ConformanceContact"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.name = None
+        """ Name of a individual to contact.
+        Type `str`. """
+        
+        self.telecom = None
+        """ Contact details for individual or publisher.
+        List of `ContactPoint` items (represented as `dict` in JSON). """
+        
+        super(ConformanceContact, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(ConformanceContact, self).update_with_json(jsondict)
+        if 'name' in jsondict:
+            self.name = jsondict['name']
+        if 'telecom' in jsondict:
+            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
 
 
 class ConformanceDocument(fhirelement.FHIRElement):
@@ -164,7 +206,7 @@ class ConformanceDocument(fhirelement.FHIRElement):
         
         self.profile = None
         """ Constraint on a resource used in the document.
-        Type `FHIRReference` referencing `Profile` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         super(ConformanceDocument, self).__init__(jsondict)
     
@@ -290,11 +332,11 @@ class ConformanceMessagingEvent(fhirelement.FHIRElement):
         
         self.request = None
         """ Profile that describes the request.
-        Type `FHIRReference` referencing `Profile` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         self.response = None
         """ Profile that describes the response.
-        Type `FHIRReference` referencing `Profile` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         super(ConformanceMessagingEvent, self).__init__(jsondict)
     
@@ -330,6 +372,10 @@ class ConformanceRest(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
+        self.compartment = None
+        """ Compartments served/used by system.
+        List of `str` items. """
+        
         self.documentMailbox = None
         """ How documents are accepted in /Mailbox.
         List of `str` items. """
@@ -362,6 +408,8 @@ class ConformanceRest(fhirelement.FHIRElement):
     
     def update_with_json(self, jsondict):
         super(ConformanceRest, self).update_with_json(jsondict)
+        if 'compartment' in jsondict:
+            self.compartment = jsondict['compartment']
         if 'documentMailbox' in jsondict:
             self.documentMailbox = jsondict['documentMailbox']
         if 'documentation' in jsondict:
@@ -452,13 +500,25 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
+        self.conditionalCreate = False
+        """ If allows/uses conditional create.
+        Type `bool`. """
+        
+        self.conditionalDelete = False
+        """ If allows/uses conditional delete.
+        Type `bool`. """
+        
+        self.conditionalUpdate = False
+        """ If allows/uses conditional update.
+        Type `bool`. """
+        
         self.interaction = None
         """ What operations are supported?.
         List of `ConformanceRestResourceInteraction` items (represented as `dict` in JSON). """
         
         self.profile = None
         """ What structural features are supported.
-        Type `FHIRReference` referencing `Profile` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         self.readHistory = False
         """ Whether vRead can return past versions.
@@ -469,7 +529,7 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         List of `str` items. """
         
         self.searchParam = None
-        """ Additional search params defined.
+        """ Search params supported by implementation.
         List of `ConformanceRestResourceSearchParam` items (represented as `dict` in JSON). """
         
         self.type = None
@@ -477,7 +537,7 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         Type `str`. """
         
         self.updateCreate = False
-        """ If allows/uses update to a new location.
+        """ If update can commit to a new identity.
         Type `bool`. """
         
         self.versioning = None
@@ -488,6 +548,12 @@ class ConformanceRestResource(fhirelement.FHIRElement):
     
     def update_with_json(self, jsondict):
         super(ConformanceRestResource, self).update_with_json(jsondict)
+        if 'conditionalCreate' in jsondict:
+            self.conditionalCreate = jsondict['conditionalCreate']
+        if 'conditionalDelete' in jsondict:
+            self.conditionalDelete = jsondict['conditionalDelete']
+        if 'conditionalUpdate' in jsondict:
+            self.conditionalUpdate = jsondict['conditionalUpdate']
         if 'interaction' in jsondict:
             self.interaction = ConformanceRestResourceInteraction.with_json_and_owner(jsondict['interaction'], self)
         if 'profile' in jsondict:
@@ -538,10 +604,11 @@ class ConformanceRestResourceInteraction(fhirelement.FHIRElement):
 
 
 class ConformanceRestResourceSearchParam(fhirelement.FHIRElement):
-    """ Additional search params defined.
+    """ Search params supported by implementation.
     
-    Additional search parameters for implementations to support and/or make use
-    of.
+    Search parameters for implementations to support and/or make use of -
+    either references to ones defined in the specification, or additional ones
+    defined for/by the implementation.
     """
     
     resource_name = "ConformanceRestResourceSearchParam"
@@ -571,7 +638,8 @@ class ConformanceRestResourceSearchParam(fhirelement.FHIRElement):
         List of `str` items. """
         
         self.type = None
-        """ number | date | string | token | reference | composite | quantity.
+        """ number | date | string | token | reference | composite | quantity |
+        uri.
         Type `str`. """
         
         super(ConformanceRestResourceSearchParam, self).__init__(jsondict)
@@ -594,6 +662,9 @@ class ConformanceRestResourceSearchParam(fhirelement.FHIRElement):
 
 class ConformanceRestSecurity(fhirelement.FHIRElement):
     """ Information about security of implementation.
+    
+    Information about security implementation from an interface perspective -
+    what a client needs to know.
     """
     
     resource_name = "ConformanceRestSecurity"
@@ -664,8 +735,8 @@ class ConformanceSoftware(fhirelement.FHIRElement):
     """ Software that is covered by this conformance statement.
     
     Software that is covered by this conformance statement.  It is used when
-    the profile describes the capabilities of a particular software version,
-    independent of an installation.
+    the conformance statement describes the capabilities of a particular
+    software version, independent of an installation.
     """
     
     resource_name = "ConformanceSoftware"

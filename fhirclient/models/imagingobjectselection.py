@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (imagingobjectselection.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 
 
-class ImagingObjectSelection(fhirresource.FHIRResource):
+class ImagingObjectSelection(domainresource.DomainResource):
     """ Key Object Selection.
     
     A set of DICOM SOP Instances of a patient, selected for some application
@@ -88,14 +88,6 @@ class ImagingObjectSelectionStudy(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.retrieveAETitle = None
-        """ AE Title where may be retrieved.
-        Type `str`. """
-        
-        self.retrieveUrl = None
-        """ Retrieve URL.
-        Type `str`. """
-        
         self.series = None
         """ Series identity of the selected instances.
         List of `ImagingObjectSelectionStudySeries` items (represented as `dict` in JSON). """
@@ -104,18 +96,20 @@ class ImagingObjectSelectionStudy(fhirelement.FHIRElement):
         """ Study instance uid.
         Type `str`. """
         
+        self.url = None
+        """ Retrieve URL.
+        Type `str`. """
+        
         super(ImagingObjectSelectionStudy, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(ImagingObjectSelectionStudy, self).update_with_json(jsondict)
-        if 'retrieveAETitle' in jsondict:
-            self.retrieveAETitle = jsondict['retrieveAETitle']
-        if 'retrieveUrl' in jsondict:
-            self.retrieveUrl = jsondict['retrieveUrl']
         if 'series' in jsondict:
             self.series = ImagingObjectSelectionStudySeries.with_json_and_owner(jsondict['series'], self)
         if 'uid' in jsondict:
             self.uid = jsondict['uid']
+        if 'url' in jsondict:
+            self.url = jsondict['url']
 
 
 class ImagingObjectSelectionStudySeries(fhirelement.FHIRElement):
@@ -135,16 +129,12 @@ class ImagingObjectSelectionStudySeries(fhirelement.FHIRElement):
         """ The selected instance.
         List of `ImagingObjectSelectionStudySeriesInstance` items (represented as `dict` in JSON). """
         
-        self.retrieveAETitle = None
-        """ AE Title where may be retrieved.
-        Type `str`. """
-        
-        self.retrieveUrl = None
-        """ Retrieve URL.
-        Type `str`. """
-        
         self.uid = None
         """ Series instance uid.
+        Type `str`. """
+        
+        self.url = None
+        """ Retrieve URL.
         Type `str`. """
         
         super(ImagingObjectSelectionStudySeries, self).__init__(jsondict)
@@ -153,12 +143,10 @@ class ImagingObjectSelectionStudySeries(fhirelement.FHIRElement):
         super(ImagingObjectSelectionStudySeries, self).update_with_json(jsondict)
         if 'instance' in jsondict:
             self.instance = ImagingObjectSelectionStudySeriesInstance.with_json_and_owner(jsondict['instance'], self)
-        if 'retrieveAETitle' in jsondict:
-            self.retrieveAETitle = jsondict['retrieveAETitle']
-        if 'retrieveUrl' in jsondict:
-            self.retrieveUrl = jsondict['retrieveUrl']
         if 'uid' in jsondict:
             self.uid = jsondict['uid']
+        if 'url' in jsondict:
+            self.url = jsondict['url']
 
 
 class ImagingObjectSelectionStudySeriesInstance(fhirelement.FHIRElement):
@@ -173,13 +161,9 @@ class ImagingObjectSelectionStudySeriesInstance(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.retrieveAETitle = None
-        """ AE Title where may be retrieved.
-        Type `str`. """
-        
-        self.retrieveUrl = None
-        """ Retrieve URL.
-        Type `str`. """
+        self.frames = None
+        """ The frame set.
+        List of `ImagingObjectSelectionStudySeriesInstanceFrames` items (represented as `dict` in JSON). """
         
         self.sopClass = None
         """ SOP class uid of instance.
@@ -189,16 +173,50 @@ class ImagingObjectSelectionStudySeriesInstance(fhirelement.FHIRElement):
         """ Uid of the selected instance.
         Type `str`. """
         
+        self.url = None
+        """ Retrieve URL.
+        Type `str`. """
+        
         super(ImagingObjectSelectionStudySeriesInstance, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(ImagingObjectSelectionStudySeriesInstance, self).update_with_json(jsondict)
-        if 'retrieveAETitle' in jsondict:
-            self.retrieveAETitle = jsondict['retrieveAETitle']
-        if 'retrieveUrl' in jsondict:
-            self.retrieveUrl = jsondict['retrieveUrl']
+        if 'frames' in jsondict:
+            self.frames = ImagingObjectSelectionStudySeriesInstanceFrames.with_json_and_owner(jsondict['frames'], self)
         if 'sopClass' in jsondict:
             self.sopClass = jsondict['sopClass']
         if 'uid' in jsondict:
             self.uid = jsondict['uid']
+        if 'url' in jsondict:
+            self.url = jsondict['url']
+
+
+class ImagingObjectSelectionStudySeriesInstanceFrames(fhirelement.FHIRElement):
+    """ The frame set.
+    
+    Identity and location information of the frames in the selected instance.
+    """
+    
+    resource_name = "ImagingObjectSelectionStudySeriesInstanceFrames"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.frameNumbers = None
+        """ Frame numbers.
+        List of `int` items. """
+        
+        self.url = None
+        """ Retrieve URL.
+        Type `str`. """
+        
+        super(ImagingObjectSelectionStudySeriesInstanceFrames, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(ImagingObjectSelectionStudySeriesInstanceFrames, self).update_with_json(jsondict)
+        if 'frameNumbers' in jsondict:
+            self.frameNumbers = jsondict['frameNumbers']
+        if 'url' in jsondict:
+            self.url = jsondict['url']
 

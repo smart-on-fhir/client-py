@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (medicationprescription.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationPrescription) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import duration
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import period
 import quantity
@@ -19,7 +19,7 @@ import ratio
 import timing
 
 
-class MedicationPrescription(fhirresource.FHIRResource):
+class MedicationPrescription(domainresource.DomainResource):
     """ Prescription of medication to for patient.
     
     An order for both supply of the medication and the instructions for
@@ -56,6 +56,10 @@ class MedicationPrescription(fhirresource.FHIRResource):
         """ Medication to be taken.
         Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
         
+        self.note = None
+        """ Information about the prescription.
+        Type `str`. """
+        
         self.patient = None
         """ Who prescription is for.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
@@ -73,7 +77,7 @@ class MedicationPrescription(fhirresource.FHIRResource):
         Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
         
         self.status = None
-        """ active | on hold | completed | entered in error | stopped |
+        """ active | on-hold | completed | entered-in-error | stopped |
         superceded | draft.
         Type `str`. """
         
@@ -97,6 +101,8 @@ class MedicationPrescription(fhirresource.FHIRResource):
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'medication' in jsondict:
             self.medication = fhirreference.FHIRReference.with_json_and_owner(jsondict['medication'], self)
+        if 'note' in jsondict:
+            self.note = jsondict['note']
         if 'patient' in jsondict:
             self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
         if 'prescriber' in jsondict:

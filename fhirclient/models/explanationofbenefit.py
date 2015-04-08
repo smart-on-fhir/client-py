@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (explanationofbenefit.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import coding
+import domainresource
 import fhirdate
 import fhirreference
-import fhirresource
 import identifier
 
 
-class ExplanationOfBenefit(fhirresource.FHIRResource):
+class ExplanationOfBenefit(domainresource.DomainResource):
     """ Remittance resource.
     
     This resource provides: the claim details; adjudication details from the
@@ -52,7 +52,7 @@ class ExplanationOfBenefit(fhirresource.FHIRResource):
         
         self.request = None
         """ Claim reference.
-        Type `FHIRReference` referencing `OralHealthClaim` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Claim` (represented as `dict` in JSON). """
         
         self.requestOrganization = None
         """ Responsible organization.

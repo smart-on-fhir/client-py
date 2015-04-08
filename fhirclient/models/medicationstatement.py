@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (medicationstatement.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import period
 import quantity
@@ -17,7 +17,7 @@ import ratio
 import timing
 
 
-class MedicationStatement(fhirresource.FHIRResource):
+class MedicationStatement(domainresource.DomainResource):
     """ Administration of medication to a patient.
     
     A record of medication being taken by a patient, or that the medication has
@@ -30,6 +30,10 @@ class MedicationStatement(fhirresource.FHIRResource):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.dateAsserted = None
+        """ When the statement was asserted?.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.dosage = None
         """ Details of how medication was taken.
@@ -56,6 +60,10 @@ class MedicationStatement(fhirresource.FHIRResource):
         """ What medication was taken?.
         Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
         
+        self.note = None
+        """ Further information about the statement.
+        Type `str`. """
+        
         self.patient = None
         """ Who was/is taking medication.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
@@ -73,7 +81,7 @@ class MedicationStatement(fhirresource.FHIRResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ in progress | completed | entered in error.
+        """ in-progress | completed | entered-in-error.
         Type `str`. """
         
         self.wasNotGiven = False
@@ -84,6 +92,8 @@ class MedicationStatement(fhirresource.FHIRResource):
     
     def update_with_json(self, jsondict):
         super(MedicationStatement, self).update_with_json(jsondict)
+        if 'dateAsserted' in jsondict:
+            self.dateAsserted = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateAsserted'], self)
         if 'dosage' in jsondict:
             self.dosage = MedicationStatementDosage.with_json_and_owner(jsondict['dosage'], self)
         if 'effectiveDateTime' in jsondict:
@@ -96,6 +106,8 @@ class MedicationStatement(fhirresource.FHIRResource):
             self.informationSource = fhirreference.FHIRReference.with_json_and_owner(jsondict['informationSource'], self)
         if 'medication' in jsondict:
             self.medication = fhirreference.FHIRReference.with_json_and_owner(jsondict['medication'], self)
+        if 'note' in jsondict:
+            self.note = jsondict['note']
         if 'patient' in jsondict:
             self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
         if 'reasonForUseCodeableConcept' in jsondict:

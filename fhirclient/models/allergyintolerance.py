@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (allergyintolerance.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import duration
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 
 
-class AllergyIntolerance(fhirresource.FHIRResource):
+class AllergyIntolerance(domainresource.DomainResource):
     """ Allergy or Intolerance (generally: Risk Of Adverse reaction to a substance).
     
     Risk of harmful or undesirable, physiological response which is unique to
@@ -51,6 +51,10 @@ class AllergyIntolerance(fhirresource.FHIRResource):
         """ Date(/time) of last known occurence of a reaction.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.patient = None
+        """ Who the sensitivity is for.
+        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
         self.recordedDate = None
         """ When recorded.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -59,13 +63,13 @@ class AllergyIntolerance(fhirresource.FHIRResource):
         """ Who recorded the sensitivity.
         Type `FHIRReference` referencing `Practitioner, Patient` (represented as `dict` in JSON). """
         
-        self.status = None
-        """ unconfirmed | confirmed | resolved | refuted.
-        Type `str`. """
+        self.reporter = None
+        """ Source of the information about the allergy.
+        Type `FHIRReference` referencing `Patient, RelatedPerson, Practitioner` (represented as `dict` in JSON). """
         
-        self.subject = None
-        """ Who the sensitivity is for.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        self.status = None
+        """ unconfirmed | confirmed | resolved | refuted | entered-in-error.
+        Type `str`. """
         
         self.substance = None
         """ Substance, (or class) considered to be responsible for risk.
@@ -91,14 +95,16 @@ class AllergyIntolerance(fhirresource.FHIRResource):
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'lastOccurence' in jsondict:
             self.lastOccurence = fhirdate.FHIRDate.with_json_and_owner(jsondict['lastOccurence'], self)
+        if 'patient' in jsondict:
+            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
         if 'recordedDate' in jsondict:
             self.recordedDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['recordedDate'], self)
         if 'recorder' in jsondict:
             self.recorder = fhirreference.FHIRReference.with_json_and_owner(jsondict['recorder'], self)
+        if 'reporter' in jsondict:
+            self.reporter = fhirreference.FHIRReference.with_json_and_owner(jsondict['reporter'], self)
         if 'status' in jsondict:
             self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
         if 'substance' in jsondict:
             self.substance = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['substance'], self)
         if 'type' in jsondict:

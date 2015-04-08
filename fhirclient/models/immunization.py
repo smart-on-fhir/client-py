@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (immunization.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import quantity
 
 
-class Immunization(fhirresource.FHIRResource):
+class Immunization(domainresource.DomainResource):
     """ Immunization event information.
     """
     
@@ -32,12 +32,16 @@ class Immunization(fhirresource.FHIRResource):
         """ Amount of vaccine administered.
         Type `Quantity` (represented as `dict` in JSON). """
         
+        self.encounter = None
+        """ Encounter administered as part of.
+        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        
         self.expirationDate = None
         """ Vaccine expiration date.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.explanation = None
-        """ Administration / refusal reasons.
+        """ Administration / non-administration reasons.
         Type `ImmunizationExplanation` (represented as `dict` in JSON). """
         
         self.identifier = None
@@ -56,6 +60,10 @@ class Immunization(fhirresource.FHIRResource):
         """ Vaccine manufacturer.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
+        self.patient = None
+        """ Who was immunized?.
+        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
         self.performer = None
         """ Who administered vaccine?.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
@@ -63,10 +71,6 @@ class Immunization(fhirresource.FHIRResource):
         self.reaction = None
         """ Details of a reaction that follows immunization.
         List of `ImmunizationReaction` items (represented as `dict` in JSON). """
-        
-        self.refusedIndicator = False
-        """ Was immunization refused?.
-        Type `bool`. """
         
         self.reported = False
         """ Is this a self-reported record?.
@@ -84,10 +88,6 @@ class Immunization(fhirresource.FHIRResource):
         """ Body site vaccine  was administered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subject = None
-        """ Who was immunized?.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
         self.vaccinationProtocol = None
         """ What protocol was followed.
         List of `ImmunizationVaccinationProtocol` items (represented as `dict` in JSON). """
@@ -95,6 +95,10 @@ class Immunization(fhirresource.FHIRResource):
         self.vaccineType = None
         """ Vaccine product administered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.wasNotGiven = False
+        """ Was immunization given?.
+        Type `bool`. """
         
         super(Immunization, self).__init__(jsondict)
     
@@ -104,6 +108,8 @@ class Immunization(fhirresource.FHIRResource):
             self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'doseQuantity' in jsondict:
             self.doseQuantity = quantity.Quantity.with_json_and_owner(jsondict['doseQuantity'], self)
+        if 'encounter' in jsondict:
+            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
         if 'expirationDate' in jsondict:
             self.expirationDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['expirationDate'], self)
         if 'explanation' in jsondict:
@@ -116,12 +122,12 @@ class Immunization(fhirresource.FHIRResource):
             self.lotNumber = jsondict['lotNumber']
         if 'manufacturer' in jsondict:
             self.manufacturer = fhirreference.FHIRReference.with_json_and_owner(jsondict['manufacturer'], self)
+        if 'patient' in jsondict:
+            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
         if 'performer' in jsondict:
             self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self)
         if 'reaction' in jsondict:
             self.reaction = ImmunizationReaction.with_json_and_owner(jsondict['reaction'], self)
-        if 'refusedIndicator' in jsondict:
-            self.refusedIndicator = jsondict['refusedIndicator']
         if 'reported' in jsondict:
             self.reported = jsondict['reported']
         if 'requester' in jsondict:
@@ -130,18 +136,18 @@ class Immunization(fhirresource.FHIRResource):
             self.route = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['route'], self)
         if 'site' in jsondict:
             self.site = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['site'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
         if 'vaccinationProtocol' in jsondict:
             self.vaccinationProtocol = ImmunizationVaccinationProtocol.with_json_and_owner(jsondict['vaccinationProtocol'], self)
         if 'vaccineType' in jsondict:
             self.vaccineType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['vaccineType'], self)
+        if 'wasNotGiven' in jsondict:
+            self.wasNotGiven = jsondict['wasNotGiven']
 
 
 class ImmunizationExplanation(fhirelement.FHIRElement):
-    """ Administration / refusal reasons.
+    """ Administration / non-administration reasons.
     
-    Reasons why a vaccine was administered or refused.
+    Reasons why a vaccine was or was not administered.
     """
     
     resource_name = "ImmunizationExplanation"
@@ -154,7 +160,7 @@ class ImmunizationExplanation(fhirelement.FHIRElement):
         """ Why immunization occurred.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.refusalReason = None
+        self.reasonNotGiven = None
         """ Why immunization did not occur.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
@@ -164,8 +170,8 @@ class ImmunizationExplanation(fhirelement.FHIRElement):
         super(ImmunizationExplanation, self).update_with_json(jsondict)
         if 'reason' in jsondict:
             self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'refusalReason' in jsondict:
-            self.refusalReason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['refusalReason'], self)
+        if 'reasonNotGiven' in jsondict:
+            self.reasonNotGiven = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonNotGiven'], self)
 
 
 class ImmunizationReaction(fhirelement.FHIRElement):

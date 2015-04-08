@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (Extension.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Extension) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import address
@@ -19,6 +19,7 @@ import period
 import quantity
 import range
 import ratio
+import signature
 import timing
 
 
@@ -118,6 +119,10 @@ class Extension(fhirelement.FHIRElement):
         """ Value of extension.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.valueSignature = None
+        """ Value of extension.
+        Type `Signature` (represented as `dict` in JSON). """
+        
         self.valueString = None
         """ Value of extension.
         Type `str`. """
@@ -180,6 +185,8 @@ class Extension(fhirelement.FHIRElement):
             self.valueRatio = ratio.Ratio.with_json_and_owner(jsondict['valueRatio'], self)
         if 'valueReference' in jsondict:
             self.valueReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['valueReference'], self)
+        if 'valueSignature' in jsondict:
+            self.valueSignature = signature.Signature.with_json_and_owner(jsondict['valueSignature'], self)
         if 'valueString' in jsondict:
             self.valueString = jsondict['valueString']
         if 'valueTime' in jsondict:

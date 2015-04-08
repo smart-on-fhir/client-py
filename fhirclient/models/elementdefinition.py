@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (ElementDefinition.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import address
@@ -19,6 +19,7 @@ import period
 import quantity
 import range
 import ratio
+import signature
 import timing
 
 
@@ -35,9 +36,17 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
+        self.alias = None
+        """ Other names.
+        List of `str` items. """
+        
         self.binding = None
         """ ValueSet details if this is coded.
         Type `ElementDefinitionBinding` (represented as `dict` in JSON). """
+        
+        self.code = None
+        """ Defining code.
+        List of `Coding` items (represented as `dict` in JSON). """
         
         self.comments = None
         """ Comments about the use of this element.
@@ -131,6 +140,10 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ Specified value it missing from instance.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.defaultValueSignature = None
+        """ Specified value it missing from instance.
+        Type `Signature` (represented as `dict` in JSON). """
+        
         self.defaultValueString = None
         """ Specified value it missing from instance.
         Type `str`. """
@@ -145,6 +158,10 @@ class ElementDefinition(fhirelement.FHIRElement):
         
         self.defaultValueUri = None
         """ Specified value it missing from instance.
+        Type `str`. """
+        
+        self.definition = None
+        """ Full formal definition as narrative text.
         Type `str`. """
         
         self.exampleAddress = None
@@ -226,6 +243,10 @@ class ElementDefinition(fhirelement.FHIRElement):
         self.exampleReference = None
         """ Example value: [as defined for type].
         Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.exampleSignature = None
+        """ Example value: [as defined for type].
+        Type `Signature` (represented as `dict` in JSON). """
         
         self.exampleString = None
         """ Example value: [as defined for type].
@@ -323,6 +344,10 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ Value must be exactly this.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.fixedSignature = None
+        """ Value must be exactly this.
+        Type `Signature` (represented as `dict` in JSON). """
+        
         self.fixedString = None
         """ Value must be exactly this.
         Type `str`. """
@@ -339,10 +364,6 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ Value must be exactly this.
         Type `str`. """
         
-        self.formal = None
-        """ Full formal definition in human language.
-        Type `str`. """
-        
         self.isModifier = False
         """ If this modifies the meaning of other elements.
         Type `bool`. """
@@ -350,6 +371,10 @@ class ElementDefinition(fhirelement.FHIRElement):
         self.isSummary = False
         """ Include when _summary = true?.
         Type `bool`. """
+        
+        self.label = None
+        """ Name for element to display with or prompt for element.
+        Type `str`. """
         
         self.mapping = None
         """ Map element to another set of definitions.
@@ -467,6 +492,10 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ Value must have at least these property values.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.patternSignature = None
+        """ Value must have at least these property values.
+        Type `Signature` (represented as `dict` in JSON). """
+        
         self.patternString = None
         """ Value must have at least these property values.
         Type `str`. """
@@ -499,10 +528,6 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ This element is sliced - slices follow.
         Type `ElementDefinitionSlicing` (represented as `dict` in JSON). """
         
-        self.synonym = None
-        """ Other names.
-        List of `str` items. """
-        
         self.type = None
         """ Data type and Profile for this element.
         List of `ElementDefinitionType` items (represented as `dict` in JSON). """
@@ -511,8 +536,12 @@ class ElementDefinition(fhirelement.FHIRElement):
     
     def update_with_json(self, jsondict):
         super(ElementDefinition, self).update_with_json(jsondict)
+        if 'alias' in jsondict:
+            self.alias = jsondict['alias']
         if 'binding' in jsondict:
             self.binding = ElementDefinitionBinding.with_json_and_owner(jsondict['binding'], self)
+        if 'code' in jsondict:
+            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
         if 'comments' in jsondict:
             self.comments = jsondict['comments']
         if 'condition' in jsondict:
@@ -559,6 +588,8 @@ class ElementDefinition(fhirelement.FHIRElement):
             self.defaultValueRatio = ratio.Ratio.with_json_and_owner(jsondict['defaultValueRatio'], self)
         if 'defaultValueReference' in jsondict:
             self.defaultValueReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['defaultValueReference'], self)
+        if 'defaultValueSignature' in jsondict:
+            self.defaultValueSignature = signature.Signature.with_json_and_owner(jsondict['defaultValueSignature'], self)
         if 'defaultValueString' in jsondict:
             self.defaultValueString = jsondict['defaultValueString']
         if 'defaultValueTime' in jsondict:
@@ -567,6 +598,8 @@ class ElementDefinition(fhirelement.FHIRElement):
             self.defaultValueTiming = timing.Timing.with_json_and_owner(jsondict['defaultValueTiming'], self)
         if 'defaultValueUri' in jsondict:
             self.defaultValueUri = jsondict['defaultValueUri']
+        if 'definition' in jsondict:
+            self.definition = jsondict['definition']
         if 'exampleAddress' in jsondict:
             self.exampleAddress = address.Address.with_json_and_owner(jsondict['exampleAddress'], self)
         if 'exampleAttachment' in jsondict:
@@ -607,6 +640,8 @@ class ElementDefinition(fhirelement.FHIRElement):
             self.exampleRatio = ratio.Ratio.with_json_and_owner(jsondict['exampleRatio'], self)
         if 'exampleReference' in jsondict:
             self.exampleReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['exampleReference'], self)
+        if 'exampleSignature' in jsondict:
+            self.exampleSignature = signature.Signature.with_json_and_owner(jsondict['exampleSignature'], self)
         if 'exampleString' in jsondict:
             self.exampleString = jsondict['exampleString']
         if 'exampleTime' in jsondict:
@@ -655,6 +690,8 @@ class ElementDefinition(fhirelement.FHIRElement):
             self.fixedRatio = ratio.Ratio.with_json_and_owner(jsondict['fixedRatio'], self)
         if 'fixedReference' in jsondict:
             self.fixedReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['fixedReference'], self)
+        if 'fixedSignature' in jsondict:
+            self.fixedSignature = signature.Signature.with_json_and_owner(jsondict['fixedSignature'], self)
         if 'fixedString' in jsondict:
             self.fixedString = jsondict['fixedString']
         if 'fixedTime' in jsondict:
@@ -663,12 +700,12 @@ class ElementDefinition(fhirelement.FHIRElement):
             self.fixedTiming = timing.Timing.with_json_and_owner(jsondict['fixedTiming'], self)
         if 'fixedUri' in jsondict:
             self.fixedUri = jsondict['fixedUri']
-        if 'formal' in jsondict:
-            self.formal = jsondict['formal']
         if 'isModifier' in jsondict:
             self.isModifier = jsondict['isModifier']
         if 'isSummary' in jsondict:
             self.isSummary = jsondict['isSummary']
+        if 'label' in jsondict:
+            self.label = jsondict['label']
         if 'mapping' in jsondict:
             self.mapping = ElementDefinitionMapping.with_json_and_owner(jsondict['mapping'], self)
         if 'max' in jsondict:
@@ -727,6 +764,8 @@ class ElementDefinition(fhirelement.FHIRElement):
             self.patternRatio = ratio.Ratio.with_json_and_owner(jsondict['patternRatio'], self)
         if 'patternReference' in jsondict:
             self.patternReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['patternReference'], self)
+        if 'patternSignature' in jsondict:
+            self.patternSignature = signature.Signature.with_json_and_owner(jsondict['patternSignature'], self)
         if 'patternString' in jsondict:
             self.patternString = jsondict['patternString']
         if 'patternTime' in jsondict:
@@ -743,8 +782,6 @@ class ElementDefinition(fhirelement.FHIRElement):
             self.short = jsondict['short']
         if 'slicing' in jsondict:
             self.slicing = ElementDefinitionSlicing.with_json_and_owner(jsondict['slicing'], self)
-        if 'synonym' in jsondict:
-            self.synonym = jsondict['synonym']
         if 'type' in jsondict:
             self.type = ElementDefinitionType.with_json_and_owner(jsondict['type'], self)
 
@@ -762,27 +799,23 @@ class ElementDefinitionBinding(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.conformance = None
-        """ required | preferred | example.
-        Type `str`. """
-        
         self.description = None
         """ Human explanation of the value set.
         Type `str`. """
-        
-        self.isExtensible = False
-        """ Can additional codes be used?.
-        Type `bool`. """
         
         self.name = None
         """ Descriptive Name.
         Type `str`. """
         
-        self.referenceReference = None
+        self.strength = None
+        """ required | extensible | preferred | example.
+        Type `str`. """
+        
+        self.valueSetReference = None
         """ Source of value set.
         Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
         
-        self.referenceUri = None
+        self.valueSetUri = None
         """ Source of value set.
         Type `str`. """
         
@@ -790,18 +823,16 @@ class ElementDefinitionBinding(fhirelement.FHIRElement):
     
     def update_with_json(self, jsondict):
         super(ElementDefinitionBinding, self).update_with_json(jsondict)
-        if 'conformance' in jsondict:
-            self.conformance = jsondict['conformance']
         if 'description' in jsondict:
             self.description = jsondict['description']
-        if 'isExtensible' in jsondict:
-            self.isExtensible = jsondict['isExtensible']
         if 'name' in jsondict:
             self.name = jsondict['name']
-        if 'referenceReference' in jsondict:
-            self.referenceReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['referenceReference'], self)
-        if 'referenceUri' in jsondict:
-            self.referenceUri = jsondict['referenceUri']
+        if 'strength' in jsondict:
+            self.strength = jsondict['strength']
+        if 'valueSetReference' in jsondict:
+            self.valueSetReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['valueSetReference'], self)
+        if 'valueSetUri' in jsondict:
+            self.valueSetUri = jsondict['valueSetUri']
 
 
 class ElementDefinitionConstraint(fhirelement.FHIRElement):
@@ -870,6 +901,10 @@ class ElementDefinitionMapping(fhirelement.FHIRElement):
         """ Reference to mapping declaration.
         Type `str`. """
         
+        self.language = None
+        """ Computable language of mapping.
+        Type `str`. """
+        
         self.map = None
         """ Details of the mapping.
         Type `str`. """
@@ -880,6 +915,8 @@ class ElementDefinitionMapping(fhirelement.FHIRElement):
         super(ElementDefinitionMapping, self).update_with_json(jsondict)
         if 'identity' in jsondict:
             self.identity = jsondict['identity']
+        if 'language' in jsondict:
+            self.language = jsondict['language']
         if 'map' in jsondict:
             self.map = jsondict['map']
 

@@ -1,21 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (procedurerequest.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
+import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import period
 import timing
 
 
-class ProcedureRequest(fhirresource.FHIRResource):
-    """ Procedure Request.
+class ProcedureRequest(domainresource.DomainResource):
+    """ A request for a procedure to be performed.
     
     A request for a procedure to be performed. May be a proposal or an order.
     """
@@ -35,8 +36,8 @@ class ProcedureRequest(fhirresource.FHIRResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.bodySite = None
-        """ Target Body Site.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        """ Target body sites.
+        List of `ProcedureRequestBodySite` items (represented as `dict` in JSON). """
         
         self.encounter = None
         """ Encounter.
@@ -71,8 +72,8 @@ class ProcedureRequest(fhirresource.FHIRResource):
         Type `str`. """
         
         self.status = None
-        """ proposed | planned | requested | received | accepted | in progress
-        | completed | suspended | rejected | aborted.
+        """ proposed | draft | requested | received | accepted | in-progress |
+        completed | suspended | rejected | aborted.
         Type `str`. """
         
         self.subject = None
@@ -80,15 +81,15 @@ class ProcedureRequest(fhirresource.FHIRResource):
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.timingDateTime = None
-        """ Timing.
+        """ Procedure timing schedule.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.timingPeriod = None
-        """ Timing.
+        """ Procedure timing schedule.
         Type `Period` (represented as `dict` in JSON). """
         
         self.timingTiming = None
-        """ Timing.
+        """ Procedure timing schedule.
         Type `Timing` (represented as `dict` in JSON). """
         
         self.type = None
@@ -104,7 +105,7 @@ class ProcedureRequest(fhirresource.FHIRResource):
         if 'asNeededCodeableConcept' in jsondict:
             self.asNeededCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['asNeededCodeableConcept'], self)
         if 'bodySite' in jsondict:
-            self.bodySite = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySite'], self)
+            self.bodySite = ProcedureRequestBodySite.with_json_and_owner(jsondict['bodySite'], self)
         if 'encounter' in jsondict:
             self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
         if 'identifier' in jsondict:
@@ -133,4 +134,35 @@ class ProcedureRequest(fhirresource.FHIRResource):
             self.timingTiming = timing.Timing.with_json_and_owner(jsondict['timingTiming'], self)
         if 'type' in jsondict:
             self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+
+
+class ProcedureRequestBodySite(fhirelement.FHIRElement):
+    """ Target body sites.
+    
+    Indicates the sites on the subject's body where the procedure should be
+    performed ( i.e. the target sites).
+    """
+    
+    resource_name = "ProcedureRequestBodySite"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.siteCodeableConcept = None
+        """ Target body site.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.siteReference = None
+        """ Target body site.
+        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
+        
+        super(ProcedureRequestBodySite, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(ProcedureRequestBodySite, self).update_with_json(jsondict)
+        if 'siteCodeableConcept' in jsondict:
+            self.siteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['siteCodeableConcept'], self)
+        if 'siteReference' in jsondict:
+            self.siteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['siteReference'], self)
 

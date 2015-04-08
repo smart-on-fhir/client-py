@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (visionprescription.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
 import coding
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import quantity
 
 
-class VisionPrescription(fhirresource.FHIRResource):
+class VisionPrescription(domainresource.DomainResource):
     """ Prescription for Vision correction products for a patient.
     
     An authorization for the supply of glasses and/or contact lenses to a

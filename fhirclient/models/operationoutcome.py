@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (operationoutcome.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
-import coding
+import codeableconcept
+import domainresource
 import fhirelement
-import fhirresource
 
 
-class OperationOutcome(fhirresource.FHIRResource):
+class OperationOutcome(domainresource.DomainResource):
     """ Information about the success/failure of an action.
     
     A collection of error, warning or information messages that result from a
@@ -47,8 +47,12 @@ class OperationOutcomeIssue(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
+        self.code = None
+        """ Error or warning code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.details = None
-        """ Additional description of the issue.
+        """ Additional diagnostic information about the issue.
         Type `str`. """
         
         self.location = None
@@ -59,20 +63,16 @@ class OperationOutcomeIssue(fhirelement.FHIRElement):
         """ fatal | error | warning | information.
         Type `str`. """
         
-        self.type = None
-        """ Error or warning code.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         super(OperationOutcomeIssue, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(OperationOutcomeIssue, self).update_with_json(jsondict)
+        if 'code' in jsondict:
+            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'details' in jsondict:
             self.details = jsondict['details']
         if 'location' in jsondict:
             self.location = jsondict['location']
         if 'severity' in jsondict:
             self.severity = jsondict['severity']
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
 

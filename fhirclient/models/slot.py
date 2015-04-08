@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (slot.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Slot) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirreference
-import fhirresource
 import identifier
 
 
-class Slot(fhirresource.FHIRResource):
+class Slot(domainresource.DomainResource):
     """ A slot of time on a schedule that may be available for booking appointments.
     """
     
@@ -38,10 +38,6 @@ class Slot(fhirresource.FHIRResource):
         self.identifier = None
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.lastModified = None
-        """ When this slot was created, or last revised.
-        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.overbooked = False
         """ This slot has already been overbooked, appointments are unlikely to
@@ -76,8 +72,6 @@ class Slot(fhirresource.FHIRResource):
             self.freeBusyType = jsondict['freeBusyType']
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'lastModified' in jsondict:
-            self.lastModified = fhirdate.FHIRDate.with_json_and_owner(jsondict['lastModified'], self)
         if 'overbooked' in jsondict:
             self.overbooked = jsondict['overbooked']
         if 'schedule' in jsondict:

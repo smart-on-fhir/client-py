@@ -1,18 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (conceptmap.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
+import codeableconcept
 import contactpoint
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
+import identifier
 
 
-class ConceptMap(fhirresource.FHIRResource):
+class ConceptMap(domainresource.DomainResource):
     """ A map from one set of concepts to one or more other concepts.
     
     A statement of relationships from one set of concepts to one or more other
@@ -26,8 +28,12 @@ class ConceptMap(fhirresource.FHIRResource):
         """ Initialize all valid properties.
         """
         
+        self.contact = None
+        """ Contact details of the publisher.
+        List of `ConceptMapContact` items (represented as `dict` in JSON). """
+        
         self.copyright = None
-        """ About the concept map or its content.
+        """ Use and/or Publishing restrictions.
         Type `str`. """
         
         self.date = None
@@ -47,8 +53,8 @@ class ConceptMap(fhirresource.FHIRResource):
         Type `bool`. """
         
         self.identifier = None
-        """ Logical id to reference this concept map.
-        Type `str`. """
+        """ Additional identifier for the concept map.
+        Type `Identifier` (represented as `dict` in JSON). """
         
         self.name = None
         """ Informal name for this concept map.
@@ -58,9 +64,13 @@ class ConceptMap(fhirresource.FHIRResource):
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
+        self.requirements = None
+        """ Why is this needed?.
+        Type `str`. """
+        
         self.sourceReference = None
         """ Identifies the source of the concepts which are being mapped.
-        Type `FHIRReference` referencing `ValueSet, Profile` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `ValueSet, StructureDefinition` (represented as `dict` in JSON). """
         
         self.sourceUri = None
         """ Identifies the source of the concepts which are being mapped.
@@ -72,15 +82,19 @@ class ConceptMap(fhirresource.FHIRResource):
         
         self.targetReference = None
         """ Provides context to the mappings.
-        Type `FHIRReference` referencing `ValueSet, Profile` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `ValueSet, StructureDefinition` (represented as `dict` in JSON). """
         
         self.targetUri = None
         """ Provides context to the mappings.
         Type `str`. """
         
-        self.telecom = None
-        """ Contact information of the publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
+        self.url = None
+        """ Globally unique logical id for concept map.
+        Type `str`. """
+        
+        self.useContext = None
+        """ Content intends to support these contexts.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.version = None
         """ Logical id for this version of the concept map.
@@ -90,6 +104,8 @@ class ConceptMap(fhirresource.FHIRResource):
     
     def update_with_json(self, jsondict):
         super(ConceptMap, self).update_with_json(jsondict)
+        if 'contact' in jsondict:
+            self.contact = ConceptMapContact.with_json_and_owner(jsondict['contact'], self)
         if 'copyright' in jsondict:
             self.copyright = jsondict['copyright']
         if 'date' in jsondict:
@@ -101,11 +117,13 @@ class ConceptMap(fhirresource.FHIRResource):
         if 'experimental' in jsondict:
             self.experimental = jsondict['experimental']
         if 'identifier' in jsondict:
-            self.identifier = jsondict['identifier']
+            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'name' in jsondict:
             self.name = jsondict['name']
         if 'publisher' in jsondict:
             self.publisher = jsondict['publisher']
+        if 'requirements' in jsondict:
+            self.requirements = jsondict['requirements']
         if 'sourceReference' in jsondict:
             self.sourceReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['sourceReference'], self)
         if 'sourceUri' in jsondict:
@@ -116,10 +134,42 @@ class ConceptMap(fhirresource.FHIRResource):
             self.targetReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['targetReference'], self)
         if 'targetUri' in jsondict:
             self.targetUri = jsondict['targetUri']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+        if 'url' in jsondict:
+            self.url = jsondict['url']
+        if 'useContext' in jsondict:
+            self.useContext = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['useContext'], self)
         if 'version' in jsondict:
             self.version = jsondict['version']
+
+
+class ConceptMapContact(fhirelement.FHIRElement):
+    """ Contact details of the publisher.
+    
+    Contacts to assist a user in finding and communicating with the publisher.
+    """
+    
+    resource_name = "ConceptMapContact"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.name = None
+        """ Name of a individual to contact.
+        Type `str`. """
+        
+        self.telecom = None
+        """ Contact details for individual or publisher.
+        List of `ContactPoint` items (represented as `dict` in JSON). """
+        
+        super(ConceptMapContact, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(ConceptMapContact, self).update_with_json(jsondict)
+        if 'name' in jsondict:
+            self.name = jsondict['name']
+        if 'telecom' in jsondict:
+            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
 
 
 class ConceptMapElement(fhirelement.FHIRElement):

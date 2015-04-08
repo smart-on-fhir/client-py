@@ -1,19 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (questionnaire.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import coding
+import contactpoint
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 
 
-class Questionnaire(fhirresource.FHIRResource):
+class Questionnaire(domainresource.DomainResource):
     """ A structured set of questions.
     
     A structured set of questions intended to guide the collection of answers.
@@ -40,12 +41,16 @@ class Questionnaire(fhirresource.FHIRResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.publisher = None
-        """ Organization who designed the questionnaire.
+        """ Organization/individual who designed the questionnaire.
         Type `str`. """
         
         self.status = None
         """ draft | published | retired.
         Type `str`. """
+        
+        self.telecom = None
+        """ Contact information of the publisher.
+        List of `ContactPoint` items (represented as `dict` in JSON). """
         
         self.version = None
         """ Logical id for this version of Questionnaire.
@@ -65,6 +70,8 @@ class Questionnaire(fhirresource.FHIRResource):
             self.publisher = jsondict['publisher']
         if 'status' in jsondict:
             self.status = jsondict['status']
+        if 'telecom' in jsondict:
+            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
         if 'version' in jsondict:
             self.version = jsondict['version']
 
@@ -165,11 +172,11 @@ class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
         Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
         
         self.repeats = False
-        """ Whether the group may repeat.
+        """ Can question  have multiple answers?.
         Type `bool`. """
         
         self.required = False
-        """ Must group be included in data results?.
+        """ Must question be answered in data results?.
         Type `bool`. """
         
         self.text = None

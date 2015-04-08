@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (messageheader.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
 import coding
 import contactpoint
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 
 
-class MessageHeader(fhirresource.FHIRResource):
+class MessageHeader(domainresource.DomainResource):
     """ A resource that describes a message that is exchanged between systems.
     
     The header for a message exchange that is either requesting or responding
@@ -36,7 +36,7 @@ class MessageHeader(fhirresource.FHIRResource):
         
         self.data = None
         """ The actual content of the message.
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.destination = None
         """ Message Destination Application(s).

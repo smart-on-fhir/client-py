@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (diagnosticreport.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import attachment
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import period
 
 
-class DiagnosticReport(fhirresource.FHIRResource):
+class DiagnosticReport(domainresource.DomainResource):
     """ A Diagnostic report - a combination of request information, atomic results,
     images, interpretation, as well as formatted reports.
     
@@ -48,9 +48,13 @@ class DiagnosticReport(fhirresource.FHIRResource):
         """ Physiologically Relevant time/time-period for report.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.encounter = None
+        """ Health care event when test ordered.
+        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        
         self.identifier = None
         """ Id for external references to this report.
-        Type `Identifier` (represented as `dict` in JSON). """
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.image = None
         """ Key images associated with this report.
@@ -94,7 +98,8 @@ class DiagnosticReport(fhirresource.FHIRResource):
         List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
         
         self.status = None
-        """ registered | partial | final | corrected +.
+        """ registered | partial | final | corrected | appended | cancelled |
+        entered-in-error.
         Type `str`. """
         
         self.subject = None
@@ -113,6 +118,8 @@ class DiagnosticReport(fhirresource.FHIRResource):
             self.diagnosticDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['diagnosticDateTime'], self)
         if 'diagnosticPeriod' in jsondict:
             self.diagnosticPeriod = period.Period.with_json_and_owner(jsondict['diagnosticPeriod'], self)
+        if 'encounter' in jsondict:
+            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'image' in jsondict:

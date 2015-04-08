@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (Narrative.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Narrative) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import fhirelement
@@ -23,7 +23,7 @@ class Narrative(fhirelement.FHIRElement):
         Type `str`. """
         
         self.status = None
-        """ generated | extensions | additional.
+        """ generated | extensions | additional | empty.
         Type `str`. """
         
         super(Narrative, self).__init__(jsondict)

@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (bundle.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import fhirdate
 import fhirelement
-import fhirresource
+import resource
 
 
-class Bundle(fhirresource.FHIRResource):
-    """ Contains a group of resources.
+class Bundle(resource.Resource):
+    """ Contains a collection of resources.
     
-    A container for a group of resources.
+    A container for a collection of resources.
     """
     
     resource_name = "Bundle"
@@ -27,7 +27,7 @@ class Bundle(fhirresource.FHIRResource):
         Type `str`. """
         
         self.entry = None
-        """ Entry in the bundle - will have deleted or resource.
+        """ Entry in the bundle - will have a resource, or information.
         List of `BundleEntry` items (represented as `dict` in JSON). """
         
         self.link = None
@@ -66,10 +66,10 @@ class Bundle(fhirresource.FHIRResource):
 
 
 class BundleEntry(fhirelement.FHIRElement):
-    """ Entry in the bundle - will have deleted or resource.
+    """ Entry in the bundle - will have a resource, or information.
     
-    An entry in a bundle resource - will either contain a resource, or a
-    deleted entry (transaction and history bundles only).
+    An entry in a bundle resource - will either contain a resource, or
+    information about a resource (transactions and history only).
     """
     
     resource_name = "BundleEntry"
@@ -82,25 +82,25 @@ class BundleEntry(fhirelement.FHIRElement):
         """ Base URL, if different to bundle base.
         Type `str`. """
         
-        self.deleted = None
-        """ If this is a deleted resource (transaction/history).
-        Type `BundleEntryDeleted` (represented as `dict` in JSON). """
+        self.link = None
+        """ Links related to this Bundle.
+        List of `BundleLink` items (represented as `dict` in JSON). """
         
         self.resource = None
         """ Resources in this bundle.
-        Type `FHIRResource` (represented as `dict` in JSON). """
-        
-        self.score = None
-        """ Search ranking (between 0 and 1).
-        Type `float`. """
+        Type `Resource` (represented as `dict` in JSON). """
         
         self.search = None
-        """ Search URL (see transaction).
-        Type `str`. """
+        """ Search related information.
+        Type `BundleEntrySearch` (represented as `dict` in JSON). """
         
-        self.status = None
-        """ create | update | match | include - for search & transaction.
-        Type `str`. """
+        self.transaction = None
+        """ Transaction Related Information.
+        Type `BundleEntryTransaction` (represented as `dict` in JSON). """
+        
+        self.transactionResponse = None
+        """ Transaction Related Information.
+        Type `BundleEntryTransactionResponse` (represented as `dict` in JSON). """
         
         super(BundleEntry, self).__init__(jsondict)
     
@@ -108,60 +108,145 @@ class BundleEntry(fhirelement.FHIRElement):
         super(BundleEntry, self).update_with_json(jsondict)
         if 'base' in jsondict:
             self.base = jsondict['base']
-        if 'deleted' in jsondict:
-            self.deleted = BundleEntryDeleted.with_json_and_owner(jsondict['deleted'], self)
+        if 'link' in jsondict:
+            self.link = BundleLink.with_json_and_owner(jsondict['link'], self)
         if 'resource' in jsondict:
-            self.resource = fhirresource.FHIRResource.with_json_and_owner(jsondict['resource'], self)
-        if 'score' in jsondict:
-            self.score = jsondict['score']
+            self.resource = resource.Resource.with_json_and_owner(jsondict['resource'], self)
         if 'search' in jsondict:
-            self.search = jsondict['search']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
+            self.search = BundleEntrySearch.with_json_and_owner(jsondict['search'], self)
+        if 'transaction' in jsondict:
+            self.transaction = BundleEntryTransaction.with_json_and_owner(jsondict['transaction'], self)
+        if 'transactionResponse' in jsondict:
+            self.transactionResponse = BundleEntryTransactionResponse.with_json_and_owner(jsondict['transactionResponse'], self)
 
 
-class BundleEntryDeleted(fhirelement.FHIRElement):
-    """ If this is a deleted resource (transaction/history).
+class BundleEntrySearch(fhirelement.FHIRElement):
+    """ Search related information.
     
-    If this is an entry that represents a deleted resource. Only used when the
-    bundle is a transaction or a history type. See RESTful API documentation
-    for further information.
+    Information about the search process that lead to the creation of this
+    entry.
     """
     
-    resource_name = "BundleEntryDeleted"
+    resource_name = "BundleEntrySearch"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
-        self.instant = None
-        """ When the resource was deleted.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.resourceId = None
-        """ Id of resource that was deleted.
+        self.mode = None
+        """ match | include - why this is in the result set.
         Type `str`. """
         
-        self.type = None
-        """ Type of resource that was deleted.
-        Type `str`. """
+        self.score = None
+        """ Search ranking (between 0 and 1).
+        Type `float`. """
         
-        self.versionId = None
-        """ Version id for related resource.
-        Type `str`. """
-        
-        super(BundleEntryDeleted, self).__init__(jsondict)
+        super(BundleEntrySearch, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
-        super(BundleEntryDeleted, self).update_with_json(jsondict)
-        if 'instant' in jsondict:
-            self.instant = fhirdate.FHIRDate.with_json_and_owner(jsondict['instant'], self)
-        if 'resourceId' in jsondict:
-            self.resourceId = jsondict['resourceId']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'versionId' in jsondict:
-            self.versionId = jsondict['versionId']
+        super(BundleEntrySearch, self).update_with_json(jsondict)
+        if 'mode' in jsondict:
+            self.mode = jsondict['mode']
+        if 'score' in jsondict:
+            self.score = jsondict['score']
+
+
+class BundleEntryTransaction(fhirelement.FHIRElement):
+    """ Transaction Related Information.
+    
+    Additional information about how this entry should be processed as part of
+    a transaction.
+    """
+    
+    resource_name = "BundleEntryTransaction"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.ifMatch = None
+        """ For managing update contention.
+        Type `str`. """
+        
+        self.ifModifiedSince = None
+        """ For managing update contention.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.ifNoneExist = None
+        """ For conditional creates.
+        Type `str`. """
+        
+        self.ifNoneMatch = None
+        """ For managing cache currency.
+        Type `str`. """
+        
+        self.method = None
+        """ GET | POST | PUT | DELETE.
+        Type `str`. """
+        
+        self.url = None
+        """ The URL for the transaction.
+        Type `str`. """
+        
+        super(BundleEntryTransaction, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(BundleEntryTransaction, self).update_with_json(jsondict)
+        if 'ifMatch' in jsondict:
+            self.ifMatch = jsondict['ifMatch']
+        if 'ifModifiedSince' in jsondict:
+            self.ifModifiedSince = fhirdate.FHIRDate.with_json_and_owner(jsondict['ifModifiedSince'], self)
+        if 'ifNoneExist' in jsondict:
+            self.ifNoneExist = jsondict['ifNoneExist']
+        if 'ifNoneMatch' in jsondict:
+            self.ifNoneMatch = jsondict['ifNoneMatch']
+        if 'method' in jsondict:
+            self.method = jsondict['method']
+        if 'url' in jsondict:
+            self.url = jsondict['url']
+
+
+class BundleEntryTransactionResponse(fhirelement.FHIRElement):
+    """ Transaction Related Information.
+    
+    Additional information about how this entry should be processed as part of
+    a transaction.
+    """
+    
+    resource_name = "BundleEntryTransactionResponse"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.etag = None
+        """ The etag for the resource (if relevant).
+        Type `str`. """
+        
+        self.lastModified = None
+        """ Server's date time modified.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.location = None
+        """ The location, if the operation returns a location.
+        Type `str`. """
+        
+        self.status = None
+        """ Status return code for entry.
+        Type `str`. """
+        
+        super(BundleEntryTransactionResponse, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(BundleEntryTransactionResponse, self).update_with_json(jsondict)
+        if 'etag' in jsondict:
+            self.etag = jsondict['etag']
+        if 'lastModified' in jsondict:
+            self.lastModified = fhirdate.FHIRDate.with_json_and_owner(jsondict['lastModified'], self)
+        if 'location' in jsondict:
+            self.location = jsondict['location']
+        if 'status' in jsondict:
+            self.status = jsondict['status']
 
 
 class BundleLink(fhirelement.FHIRElement):

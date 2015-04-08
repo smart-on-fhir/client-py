@@ -1,20 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (subscription.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
+import coding
 import contactpoint
+import domainresource
 import fhirdate
 import fhirelement
-import fhirresource
 
 
-class Subscription(fhirresource.FHIRResource):
+class Subscription(domainresource.DomainResource):
     """ A server push subscription criteria.
     
-    Todo.
+    The subscription resource is used to define a push based subscription from
+    a server to another system. Once a subscription is registered with the
+    server, the server checks every resource that is created or updated, and if
+    the resource matches the given criteria, it sends a message on the defined
+    "channel" so that another system is able to take an appropriate action.
     """
     
     resource_name = "Subscription"
@@ -53,7 +58,7 @@ class Subscription(fhirresource.FHIRResource):
         
         self.tag = None
         """ A tag to add to matching resources.
-        List of `SubscriptionTag` items (represented as `dict` in JSON). """
+        List of `Coding` items (represented as `dict` in JSON). """
         
         super(Subscription, self).__init__(jsondict)
     
@@ -74,13 +79,14 @@ class Subscription(fhirresource.FHIRResource):
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'tag' in jsondict:
-            self.tag = SubscriptionTag.with_json_and_owner(jsondict['tag'], self)
+            self.tag = coding.Coding.with_json_and_owner(jsondict['tag'], self)
 
 
 class SubscriptionChannel(fhirelement.FHIRElement):
     """ The channel on which to report matches to the criteria.
     
-    Todo.
+    Details where to send notifications when resources are received that meet
+    the criteria.
     """
     
     resource_name = "SubscriptionChannel"
@@ -88,6 +94,10 @@ class SubscriptionChannel(fhirelement.FHIRElement):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.endpoint = None
+        """ Where the channel points to.
+        Type `str`. """
         
         self.header = None
         """ Usage depends on the channel type.
@@ -101,56 +111,16 @@ class SubscriptionChannel(fhirelement.FHIRElement):
         """ rest-hook | websocket | email | sms | message.
         Type `str`. """
         
-        self.url = None
-        """ Where the channel points to.
-        Type `str`. """
-        
         super(SubscriptionChannel, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(SubscriptionChannel, self).update_with_json(jsondict)
+        if 'endpoint' in jsondict:
+            self.endpoint = jsondict['endpoint']
         if 'header' in jsondict:
             self.header = jsondict['header']
         if 'payload' in jsondict:
             self.payload = jsondict['payload']
         if 'type' in jsondict:
             self.type = jsondict['type']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
-
-
-class SubscriptionTag(fhirelement.FHIRElement):
-    """ A tag to add to matching resources.
-    
-    Todo.
-    """
-    
-    resource_name = "SubscriptionTag"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.description = None
-        """ Tag description label.
-        Type `str`. """
-        
-        self.scheme = None
-        """ The scheme for the tag (kind of tag).
-        Type `str`. """
-        
-        self.term = None
-        """ The term that identifies the tag.
-        Type `str`. """
-        
-        super(SubscriptionTag, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(SubscriptionTag, self).update_with_json(jsondict)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'scheme' in jsondict:
-            self.scheme = jsondict['scheme']
-        if 'term' in jsondict:
-            self.term = jsondict['term']
 

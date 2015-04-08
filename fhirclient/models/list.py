@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (list.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/List) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 
 
-class List(fhirresource.FHIRResource):
+class List(domainresource.DomainResource):
     """ Information summarized from a list of other resources.
     
     A set of information summarized from a list of other resources.
@@ -49,17 +49,29 @@ class List(fhirresource.FHIRResource):
         """ working | snapshot | changes.
         Type `str`. """
         
-        self.ordered = False
-        """ Whether items in the list have a meaningful order.
-        Type `bool`. """
+        self.note = None
+        """ Comments about the note.
+        Type `str`. """
+        
+        self.orderedBy = None
+        """ What order the list has.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.source = None
         """ Who and/or what defined the list contents.
         Type `FHIRReference` referencing `Practitioner, Patient, Device` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ current | retired | entered-in-error.
+        Type `str`. """
+        
         self.subject = None
         """ If all resources have the same subject.
         Type `FHIRReference` referencing `Patient, Group, Device, Location` (represented as `dict` in JSON). """
+        
+        self.title = None
+        """ Descriptive name for the list.
+        Type `str`. """
         
         super(List, self).__init__(jsondict)
     
@@ -77,12 +89,18 @@ class List(fhirresource.FHIRResource):
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
         if 'mode' in jsondict:
             self.mode = jsondict['mode']
-        if 'ordered' in jsondict:
-            self.ordered = jsondict['ordered']
+        if 'note' in jsondict:
+            self.note = jsondict['note']
+        if 'orderedBy' in jsondict:
+            self.orderedBy = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['orderedBy'], self)
         if 'source' in jsondict:
             self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self)
+        if 'status' in jsondict:
+            self.status = jsondict['status']
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
+        if 'title' in jsondict:
+            self.title = jsondict['title']
 
 
 class ListEntry(fhirelement.FHIRElement):
@@ -111,7 +129,7 @@ class ListEntry(fhirelement.FHIRElement):
         
         self.item = None
         """ Actual entry.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         super(ListEntry, self).__init__(jsondict)
     

@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (namingsystem.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
 import contactpoint
+import domainresource
+import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
-import humanname
 import period
 
 
-class NamingSystem(fhirresource.FHIRResource):
+class NamingSystem(domainresource.DomainResource):
     """ System of unique identification.
     
     A curated namespace that issues unique symbols within that namespace for
@@ -29,16 +29,20 @@ class NamingSystem(fhirresource.FHIRResource):
         """
         
         self.category = None
-        """ driver | provider | patient | bank.
+        """ e.g. driver,  provider,  patient, bank etc.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.contact = None
-        """ Who should be contacted for questions about namingsystem.
-        Type `NamingSystemContact` (represented as `dict` in JSON). """
+        """ Contact details of the publisher.
+        List of `NamingSystemContact` items (represented as `dict` in JSON). """
         
         self.country = None
         """ ISO 3-char country code.
         Type `str`. """
+        
+        self.date = None
+        """ Publication Date(/time).
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
         """ What does namingsystem identify?.
@@ -46,6 +50,10 @@ class NamingSystem(fhirresource.FHIRResource):
         
         self.name = None
         """ Human-readable label.
+        Type `str`. """
+        
+        self.publisher = None
+        """ Name of the publisher (Organization or individual).
         Type `str`. """
         
         self.replacedBy = None
@@ -57,7 +65,7 @@ class NamingSystem(fhirresource.FHIRResource):
         Type `str`. """
         
         self.status = None
-        """ proposed | active | retired.
+        """ draft | active | retired.
         Type `str`. """
         
         self.type = None
@@ -82,10 +90,14 @@ class NamingSystem(fhirresource.FHIRResource):
             self.contact = NamingSystemContact.with_json_and_owner(jsondict['contact'], self)
         if 'country' in jsondict:
             self.country = jsondict['country']
+        if 'date' in jsondict:
+            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'name' in jsondict:
             self.name = jsondict['name']
+        if 'publisher' in jsondict:
+            self.publisher = jsondict['publisher']
         if 'replacedBy' in jsondict:
             self.replacedBy = fhirreference.FHIRReference.with_json_and_owner(jsondict['replacedBy'], self)
         if 'responsible' in jsondict:
@@ -101,9 +113,9 @@ class NamingSystem(fhirresource.FHIRResource):
 
 
 class NamingSystemContact(fhirelement.FHIRElement):
-    """ Who should be contacted for questions about namingsystem.
+    """ Contact details of the publisher.
     
-    The person who can be contacted about this system registration entry.
+    Contacts to assist a user in finding and communicating with the publisher.
     """
     
     resource_name = "NamingSystemContact"
@@ -113,11 +125,11 @@ class NamingSystemContact(fhirelement.FHIRElement):
         """
         
         self.name = None
-        """ Name of person.
-        Type `HumanName` (represented as `dict` in JSON). """
+        """ Name of a individual to contact.
+        Type `str`. """
         
         self.telecom = None
-        """ Phone, email, etc..
+        """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(NamingSystemContact, self).__init__(jsondict)
@@ -125,7 +137,7 @@ class NamingSystemContact(fhirelement.FHIRElement):
     def update_with_json(self, jsondict):
         super(NamingSystemContact, self).update_with_json(jsondict)
         if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
+            self.name = jsondict['name']
         if 'telecom' in jsondict:
             self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
 

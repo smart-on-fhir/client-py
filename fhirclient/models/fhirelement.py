@@ -11,15 +11,20 @@ class FHIRElement(object):
     """
     
     def __init__(self, jsondict=None):
-        self.extension = None
-        self.modifierExtension = None
+        self.id = None
+        """ Logical id of this artefact. """
+        
         self.contained = None
+        """ Contained resources. """
         
         self._resolved = None
         """ Dictionary of resolved resources. """
         
         self._owner = None
         """ Points to the parent resource, if there is one. """
+        
+        self.extension = None
+        self.modifierExtension = None
         
         if jsondict is not None:
             self.update_with_json(jsondict)
@@ -29,6 +34,9 @@ class FHIRElement(object):
         """
         if jsondict is None:
             return
+        
+        if 'id' in jsondict:
+            self.id = jsondict['id']
         
         # extract contained resources
         if 'contained' in jsondict:
@@ -40,25 +48,25 @@ class FHIRElement(object):
                 else:
                     logging.warning("Contained resource {} does not have an id, ignoring".format(res))
         
-        # extract (modifier) extensions. Non-modifier extensions have a URL as their JSON dictionary key.
-        extensions = []
-        for key, val in jsondict.items():
-            if ":" in key and isinstance(val, list):
-                for ext in extension.Extension.with_json(val):
-                    ext.url = key
-                    extensions.append(ext)
-        if len(extensions) > 0:
-            self.extension = extensions
-        
-        if "modifier" in jsondict and isinstance(jsondict["modifier"], dict):
+        # extract extensions
+        if "extension" in jsondict and isinstance(jsondict["extension"], list):
             extensions = []
-            for key, val in jsondict["modifier"].items():
-                if isinstance(val, list):
-                    for ext in extension.Extension.with_json(val):
-                        ext.url = key
-                        extensions.append(ext)
+            for ext_dict in jsondict["extension"]:
+                if isinstance(ext_dict, dict):
+                    ext = extension.Extension.with_json(ext_dict)
+                    extensions.append(ext)
+            if len(extensions) > 0:
+                self.extension = extensions
+        
+        if "modifierExtension" in jsondict and isinstance(jsondict["modifierExtension"], list):
+            extensions = []
+            for ext_dict in jsondict["modifierExtension"]:
+                if isinstance(ext_dict, dict):
+                    ext = extension.Extension.with_json(ext_dict)
+                    extensions.append(ext)
             if len(extensions) > 0:
                 self.modifierExtension = extensions
+    
     
     @classmethod
     def with_json(cls, jsonobj):

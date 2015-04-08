@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (Attachment.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
+import fhirdate
 import fhirelement
 
 
@@ -24,12 +25,20 @@ class Attachment(fhirelement.FHIRElement):
         """ Mime type of the content, with charset etc..
         Type `str`. """
         
+        self.creation = None
+        """ Date attachment was first created.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.data = None
         """ Data inline, base64ed.
         Type `str`. """
         
         self.hash = None
         """ Hash of the data (sha-1, base64ed ).
+        Type `str`. """
+        
+        self.language = None
+        """ Human language of the content (BCP-47).
         Type `str`. """
         
         self.size = None
@@ -50,10 +59,14 @@ class Attachment(fhirelement.FHIRElement):
         super(Attachment, self).update_with_json(jsondict)
         if 'contentType' in jsondict:
             self.contentType = jsondict['contentType']
+        if 'creation' in jsondict:
+            self.creation = fhirdate.FHIRDate.with_json_and_owner(jsondict['creation'], self)
         if 'data' in jsondict:
             self.data = jsondict['data']
         if 'hash' in jsondict:
             self.hash = jsondict['hash']
+        if 'language' in jsondict:
+            self.language = jsondict['language']
         if 'size' in jsondict:
             self.size = jsondict['size']
         if 'title' in jsondict:

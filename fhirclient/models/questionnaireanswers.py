@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (questionnaireanswers.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/QuestionnaireAnswers) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import attachment
 import coding
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import quantity
 
 
-class QuestionnaireAnswers(fhirresource.FHIRResource):
+class QuestionnaireAnswers(domainresource.DomainResource):
     """ A structured set of questions and their answers.
     
     A structured set of questions and their answers. The questions are ordered
@@ -31,7 +31,7 @@ class QuestionnaireAnswers(fhirresource.FHIRResource):
         
         self.author = None
         """ Person who received and recorded the answers.
-        Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Device, Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.authored = None
         """ Date this version was authored.
@@ -58,12 +58,12 @@ class QuestionnaireAnswers(fhirresource.FHIRResource):
         Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.status = None
-        """ in progress | completed | amended.
+        """ in-progress | completed | amended.
         Type `str`. """
         
         self.subject = None
         """ The subject of the questions.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         super(QuestionnaireAnswers, self).__init__(jsondict)
     
@@ -116,7 +116,7 @@ class QuestionnaireAnswersGroup(fhirelement.FHIRElement):
         
         self.subject = None
         """ The subject this group's answers are about.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.text = None
         """ Additional text for the group.
@@ -237,7 +237,7 @@ class QuestionnaireAnswersGroupQuestionAnswer(fhirelement.FHIRElement):
         
         self.valueReference = None
         """ Single-valued answer to the question.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.valueString = None
         """ Single-valued answer to the question.
@@ -246,6 +246,10 @@ class QuestionnaireAnswersGroupQuestionAnswer(fhirelement.FHIRElement):
         self.valueTime = None
         """ Single-valued answer to the question.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.valueUri = None
+        """ Single-valued answer to the question.
+        Type `str`. """
         
         super(QuestionnaireAnswersGroupQuestionAnswer, self).__init__(jsondict)
     
@@ -275,4 +279,6 @@ class QuestionnaireAnswersGroupQuestionAnswer(fhirelement.FHIRElement):
             self.valueString = jsondict['valueString']
         if 'valueTime' in jsondict:
             self.valueTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueTime'], self)
+        if 'valueUri' in jsondict:
+            self.valueUri = jsondict['valueUri']
 

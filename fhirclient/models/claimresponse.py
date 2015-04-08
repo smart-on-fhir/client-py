@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (claimresponse.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import coding
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import money
 
 
-class ClaimResponse(fhirresource.FHIRResource):
+class ClaimResponse(domainresource.DomainResource):
     """ Remittance resource.
     
     This resource provides the adjudication details from the processing of a
@@ -27,9 +27,13 @@ class ClaimResponse(fhirresource.FHIRResource):
         """ Initialize all valid properties.
         """
         
-        self.additem = None
+        self.addItem = None
         """ Insurer added line items.
-        List of `ClaimResponseAdditem` items (represented as `dict` in JSON). """
+        List of `ClaimResponseAddItem` items (represented as `dict` in JSON). """
+        
+        self.coverage = None
+        """ Insurance or medical plan.
+        List of `ClaimResponseCoverage` items (represented as `dict` in JSON). """
         
         self.created = None
         """ Creation date.
@@ -97,7 +101,7 @@ class ClaimResponse(fhirresource.FHIRResource):
         
         self.request = None
         """ Id of resource triggering adjudication.
-        Type `FHIRReference` referencing `OralHealthClaim, PharmacyClaim, VisionClaim, ProfessionalClaim, InstitutionalClaim` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Claim` (represented as `dict` in JSON). """
         
         self.requestOrganization = None
         """ Responsible organization.
@@ -131,8 +135,10 @@ class ClaimResponse(fhirresource.FHIRResource):
     
     def update_with_json(self, jsondict):
         super(ClaimResponse, self).update_with_json(jsondict)
-        if 'additem' in jsondict:
-            self.additem = ClaimResponseAdditem.with_json_and_owner(jsondict['additem'], self)
+        if 'addItem' in jsondict:
+            self.addItem = ClaimResponseAddItem.with_json_and_owner(jsondict['addItem'], self)
+        if 'coverage' in jsondict:
+            self.coverage = ClaimResponseCoverage.with_json_and_owner(jsondict['coverage'], self)
         if 'created' in jsondict:
             self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
         if 'disposition' in jsondict:
@@ -183,13 +189,13 @@ class ClaimResponse(fhirresource.FHIRResource):
             self.unallocDeductable = money.Money.with_json_and_owner(jsondict['unallocDeductable'], self)
 
 
-class ClaimResponseAdditem(fhirelement.FHIRElement):
+class ClaimResponseAddItem(fhirelement.FHIRElement):
     """ Insurer added line items.
     
     The first tier service adjudications for payor added services.
     """
     
-    resource_name = "ClaimResponseAdditem"
+    resource_name = "ClaimResponseAddItem"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -197,11 +203,11 @@ class ClaimResponseAdditem(fhirelement.FHIRElement):
         
         self.adjudication = None
         """ Added items adjudication.
-        List of `ClaimResponseAdditemAdjudication` items (represented as `dict` in JSON). """
+        List of `ClaimResponseAddItemAdjudication` items (represented as `dict` in JSON). """
         
         self.detail = None
         """ Added items details.
-        List of `ClaimResponseAdditemDetail` items (represented as `dict` in JSON). """
+        List of `ClaimResponseAddItemDetail` items (represented as `dict` in JSON). """
         
         self.fee = None
         """ Professional fee or Product charge.
@@ -219,14 +225,14 @@ class ClaimResponseAdditem(fhirelement.FHIRElement):
         """ Group, Service or Product.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ClaimResponseAdditem, self).__init__(jsondict)
+        super(ClaimResponseAddItem, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
-        super(ClaimResponseAdditem, self).update_with_json(jsondict)
+        super(ClaimResponseAddItem, self).update_with_json(jsondict)
         if 'adjudication' in jsondict:
-            self.adjudication = ClaimResponseAdditemAdjudication.with_json_and_owner(jsondict['adjudication'], self)
+            self.adjudication = ClaimResponseAddItemAdjudication.with_json_and_owner(jsondict['adjudication'], self)
         if 'detail' in jsondict:
-            self.detail = ClaimResponseAdditemDetail.with_json_and_owner(jsondict['detail'], self)
+            self.detail = ClaimResponseAddItemDetail.with_json_and_owner(jsondict['detail'], self)
         if 'fee' in jsondict:
             self.fee = money.Money.with_json_and_owner(jsondict['fee'], self)
         if 'noteNumberLinkId' in jsondict:
@@ -237,13 +243,13 @@ class ClaimResponseAdditem(fhirelement.FHIRElement):
             self.service = coding.Coding.with_json_and_owner(jsondict['service'], self)
 
 
-class ClaimResponseAdditemAdjudication(fhirelement.FHIRElement):
+class ClaimResponseAddItemAdjudication(fhirelement.FHIRElement):
     """ Added items adjudication.
     
     The adjudications results.
     """
     
-    resource_name = "ClaimResponseAdditemAdjudication"
+    resource_name = "ClaimResponseAddItemAdjudication"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -261,10 +267,10 @@ class ClaimResponseAdditemAdjudication(fhirelement.FHIRElement):
         """ Non-monitory value.
         Type `float`. """
         
-        super(ClaimResponseAdditemAdjudication, self).__init__(jsondict)
+        super(ClaimResponseAddItemAdjudication, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
-        super(ClaimResponseAdditemAdjudication, self).update_with_json(jsondict)
+        super(ClaimResponseAddItemAdjudication, self).update_with_json(jsondict)
         if 'amount' in jsondict:
             self.amount = money.Money.with_json_and_owner(jsondict['amount'], self)
         if 'code' in jsondict:
@@ -273,13 +279,13 @@ class ClaimResponseAdditemAdjudication(fhirelement.FHIRElement):
             self.value = jsondict['value']
 
 
-class ClaimResponseAdditemDetail(fhirelement.FHIRElement):
+class ClaimResponseAddItemDetail(fhirelement.FHIRElement):
     """ Added items details.
     
     The second tier service adjudications for payor added services.
     """
     
-    resource_name = "ClaimResponseAdditemDetail"
+    resource_name = "ClaimResponseAddItemDetail"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -287,7 +293,7 @@ class ClaimResponseAdditemDetail(fhirelement.FHIRElement):
         
         self.adjudication = None
         """ Added items detail adjudication.
-        List of `ClaimResponseAdditemDetailAdjudication` items (represented as `dict` in JSON). """
+        List of `ClaimResponseAddItemDetailAdjudication` items (represented as `dict` in JSON). """
         
         self.fee = None
         """ Professional fee or Product charge.
@@ -297,25 +303,25 @@ class ClaimResponseAdditemDetail(fhirelement.FHIRElement):
         """ Service or Product.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ClaimResponseAdditemDetail, self).__init__(jsondict)
+        super(ClaimResponseAddItemDetail, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
-        super(ClaimResponseAdditemDetail, self).update_with_json(jsondict)
+        super(ClaimResponseAddItemDetail, self).update_with_json(jsondict)
         if 'adjudication' in jsondict:
-            self.adjudication = ClaimResponseAdditemDetailAdjudication.with_json_and_owner(jsondict['adjudication'], self)
+            self.adjudication = ClaimResponseAddItemDetailAdjudication.with_json_and_owner(jsondict['adjudication'], self)
         if 'fee' in jsondict:
             self.fee = money.Money.with_json_and_owner(jsondict['fee'], self)
         if 'service' in jsondict:
             self.service = coding.Coding.with_json_and_owner(jsondict['service'], self)
 
 
-class ClaimResponseAdditemDetailAdjudication(fhirelement.FHIRElement):
+class ClaimResponseAddItemDetailAdjudication(fhirelement.FHIRElement):
     """ Added items detail adjudication.
     
     The adjudications results.
     """
     
-    resource_name = "ClaimResponseAdditemDetailAdjudication"
+    resource_name = "ClaimResponseAddItemDetailAdjudication"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -333,16 +339,82 @@ class ClaimResponseAdditemDetailAdjudication(fhirelement.FHIRElement):
         """ Non-monitory value.
         Type `float`. """
         
-        super(ClaimResponseAdditemDetailAdjudication, self).__init__(jsondict)
+        super(ClaimResponseAddItemDetailAdjudication, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
-        super(ClaimResponseAdditemDetailAdjudication, self).update_with_json(jsondict)
+        super(ClaimResponseAddItemDetailAdjudication, self).update_with_json(jsondict)
         if 'amount' in jsondict:
             self.amount = money.Money.with_json_and_owner(jsondict['amount'], self)
         if 'code' in jsondict:
             self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
         if 'value' in jsondict:
             self.value = jsondict['value']
+
+
+class ClaimResponseCoverage(fhirelement.FHIRElement):
+    """ Insurance or medical plan.
+    
+    Financial instrument by which payment information for health care.
+    """
+    
+    resource_name = "ClaimResponseCoverage"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.businessArrangement = None
+        """ Business agreement.
+        Type `str`. """
+        
+        self.claimResponse = None
+        """ Adjudication results.
+        Type `FHIRReference` referencing `ClaimResponse` (represented as `dict` in JSON). """
+        
+        self.coverage = None
+        """ Insurance information.
+        Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
+        
+        self.focal = False
+        """ Is the focal Coverage.
+        Type `bool`. """
+        
+        self.originalRuleset = None
+        """ Original version.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.preAuthRef = None
+        """ Pre-Authorization/Determination Reference.
+        List of `str` items. """
+        
+        self.relationship = None
+        """ Patient relationship to subscriber.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.sequence = None
+        """ Service instance identifier.
+        Type `int`. """
+        
+        super(ClaimResponseCoverage, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(ClaimResponseCoverage, self).update_with_json(jsondict)
+        if 'businessArrangement' in jsondict:
+            self.businessArrangement = jsondict['businessArrangement']
+        if 'claimResponse' in jsondict:
+            self.claimResponse = fhirreference.FHIRReference.with_json_and_owner(jsondict['claimResponse'], self)
+        if 'coverage' in jsondict:
+            self.coverage = fhirreference.FHIRReference.with_json_and_owner(jsondict['coverage'], self)
+        if 'focal' in jsondict:
+            self.focal = jsondict['focal']
+        if 'originalRuleset' in jsondict:
+            self.originalRuleset = coding.Coding.with_json_and_owner(jsondict['originalRuleset'], self)
+        if 'preAuthRef' in jsondict:
+            self.preAuthRef = jsondict['preAuthRef']
+        if 'relationship' in jsondict:
+            self.relationship = coding.Coding.with_json_and_owner(jsondict['relationship'], self)
+        if 'sequence' in jsondict:
+            self.sequence = jsondict['sequence']
 
 
 class ClaimResponseError(fhirelement.FHIRElement):
@@ -485,9 +557,9 @@ class ClaimResponseItemDetail(fhirelement.FHIRElement):
         """ Service instance.
         Type `int`. """
         
-        self.subdetail = None
+        self.subDetail = None
         """ Subdetail line items.
-        List of `ClaimResponseItemDetailSubdetail` items (represented as `dict` in JSON). """
+        List of `ClaimResponseItemDetailSubDetail` items (represented as `dict` in JSON). """
         
         super(ClaimResponseItemDetail, self).__init__(jsondict)
     
@@ -497,8 +569,8 @@ class ClaimResponseItemDetail(fhirelement.FHIRElement):
             self.adjudication = ClaimResponseItemDetailAdjudication.with_json_and_owner(jsondict['adjudication'], self)
         if 'sequenceLinkId' in jsondict:
             self.sequenceLinkId = jsondict['sequenceLinkId']
-        if 'subdetail' in jsondict:
-            self.subdetail = ClaimResponseItemDetailSubdetail.with_json_and_owner(jsondict['subdetail'], self)
+        if 'subDetail' in jsondict:
+            self.subDetail = ClaimResponseItemDetailSubDetail.with_json_and_owner(jsondict['subDetail'], self)
 
 
 class ClaimResponseItemDetailAdjudication(fhirelement.FHIRElement):
@@ -537,13 +609,13 @@ class ClaimResponseItemDetailAdjudication(fhirelement.FHIRElement):
             self.value = jsondict['value']
 
 
-class ClaimResponseItemDetailSubdetail(fhirelement.FHIRElement):
+class ClaimResponseItemDetailSubDetail(fhirelement.FHIRElement):
     """ Subdetail line items.
     
     The third tier service adjudications for submitted services.
     """
     
-    resource_name = "ClaimResponseItemDetailSubdetail"
+    resource_name = "ClaimResponseItemDetailSubDetail"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -551,29 +623,29 @@ class ClaimResponseItemDetailSubdetail(fhirelement.FHIRElement):
         
         self.adjudication = None
         """ Subdetail adjudication.
-        List of `ClaimResponseItemDetailSubdetailAdjudication` items (represented as `dict` in JSON). """
+        List of `ClaimResponseItemDetailSubDetailAdjudication` items (represented as `dict` in JSON). """
         
         self.sequenceLinkId = None
         """ Service instance.
         Type `int`. """
         
-        super(ClaimResponseItemDetailSubdetail, self).__init__(jsondict)
+        super(ClaimResponseItemDetailSubDetail, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
-        super(ClaimResponseItemDetailSubdetail, self).update_with_json(jsondict)
+        super(ClaimResponseItemDetailSubDetail, self).update_with_json(jsondict)
         if 'adjudication' in jsondict:
-            self.adjudication = ClaimResponseItemDetailSubdetailAdjudication.with_json_and_owner(jsondict['adjudication'], self)
+            self.adjudication = ClaimResponseItemDetailSubDetailAdjudication.with_json_and_owner(jsondict['adjudication'], self)
         if 'sequenceLinkId' in jsondict:
             self.sequenceLinkId = jsondict['sequenceLinkId']
 
 
-class ClaimResponseItemDetailSubdetailAdjudication(fhirelement.FHIRElement):
+class ClaimResponseItemDetailSubDetailAdjudication(fhirelement.FHIRElement):
     """ Subdetail adjudication.
     
     The adjudications results.
     """
     
-    resource_name = "ClaimResponseItemDetailSubdetailAdjudication"
+    resource_name = "ClaimResponseItemDetailSubDetailAdjudication"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -591,10 +663,10 @@ class ClaimResponseItemDetailSubdetailAdjudication(fhirelement.FHIRElement):
         """ Non-monitory value.
         Type `float`. """
         
-        super(ClaimResponseItemDetailSubdetailAdjudication, self).__init__(jsondict)
+        super(ClaimResponseItemDetailSubDetailAdjudication, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
-        super(ClaimResponseItemDetailSubdetailAdjudication, self).update_with_json(jsondict)
+        super(ClaimResponseItemDetailSubDetailAdjudication, self).update_with_json(jsondict)
         if 'amount' in jsondict:
             self.amount = money.Money.with_json_and_owner(jsondict['amount'], self)
         if 'code' in jsondict:

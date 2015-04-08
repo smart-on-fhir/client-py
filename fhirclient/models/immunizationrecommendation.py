@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (immunizationrecommendation.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 
 
-class ImmunizationRecommendation(fhirresource.FHIRResource):
-    """ Immunization profile.
+class ImmunizationRecommendation(domainresource.DomainResource):
+    """ Guidance or advice relating to an immunization.
     
     A patient's point-of-time immunization status and recommendation with
     optional supporting justification.
@@ -30,13 +30,13 @@ class ImmunizationRecommendation(fhirresource.FHIRResource):
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.patient = None
+        """ Who this profile is for.
+        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
         self.recommendation = None
         """ Vaccine administration recommendations.
         List of `ImmunizationRecommendationRecommendation` items (represented as `dict` in JSON). """
-        
-        self.subject = None
-        """ Who this profile is for.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         super(ImmunizationRecommendation, self).__init__(jsondict)
     
@@ -44,10 +44,10 @@ class ImmunizationRecommendation(fhirresource.FHIRResource):
         super(ImmunizationRecommendation, self).update_with_json(jsondict)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
+        if 'patient' in jsondict:
+            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
         if 'recommendation' in jsondict:
             self.recommendation = ImmunizationRecommendationRecommendation.with_json_and_owner(jsondict['recommendation'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
 
 
 class ImmunizationRecommendationRecommendation(fhirelement.FHIRElement):

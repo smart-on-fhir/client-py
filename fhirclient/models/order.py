@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (order.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Order) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import timing
 
 
-class Order(fhirresource.FHIRResource):
+class Order(domainresource.DomainResource):
     """ A request to perform an action.
     """
     
@@ -26,7 +26,7 @@ class Order(fhirresource.FHIRResource):
         
         self.authority = None
         """ If required by policy.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.date = None
         """ When the order was made.
@@ -34,7 +34,7 @@ class Order(fhirresource.FHIRResource):
         
         self.detail = None
         """ What action is being ordered.
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Identifiers assigned to this order by the orderer or by the
@@ -47,7 +47,7 @@ class Order(fhirresource.FHIRResource):
         
         self.reasonReference = None
         """ Text - why the order was made.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.source = None
         """ Who initiated the order.
@@ -55,7 +55,7 @@ class Order(fhirresource.FHIRResource):
         
         self.subject = None
         """ Patient this order is about.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Patient, Group, Device, Substance` (represented as `dict` in JSON). """
         
         self.target = None
         """ Who is intended to fulfill the order.

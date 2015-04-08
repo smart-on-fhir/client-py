@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (riskassessment.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import period
 import range
 
 
-class RiskAssessment(fhirresource.FHIRResource):
+class RiskAssessment(domainresource.DomainResource):
     """ Potential outcomes for a subject with likelihood.
     
     An assessment of the likely outcome(s) for a patient or other subject as
@@ -30,7 +30,7 @@ class RiskAssessment(fhirresource.FHIRResource):
         
         self.basis = None
         """ Information used in assessment.
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.condition = None
         """ Condition assessed.

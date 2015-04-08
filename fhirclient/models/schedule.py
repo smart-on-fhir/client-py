@@ -1,19 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (schedule.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
-import fhirdate
+import domainresource
 import fhirreference
-import fhirresource
 import identifier
 import period
 
 
-class Schedule(fhirresource.FHIRResource):
+class Schedule(domainresource.DomainResource):
     """ A container for slot(s) of time that may be available for booking
     appointments.
     """
@@ -29,7 +28,7 @@ class Schedule(fhirresource.FHIRResource):
         information for. These are expected to usually be one of
         HealthcareService, Location, Practitioner, Device, Patient or
         RelatedPerson.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.comment = None
         """ Comments on the availability to describe any extended information.
@@ -39,10 +38,6 @@ class Schedule(fhirresource.FHIRResource):
         self.identifier = None
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.lastModified = None
-        """ When this Schedule was created, or last revised.
-        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.planningHorizon = None
         """ The period of time that the slots that are attached to this
@@ -67,8 +62,6 @@ class Schedule(fhirresource.FHIRResource):
             self.comment = jsondict['comment']
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'lastModified' in jsondict:
-            self.lastModified = fhirdate.FHIRDate.with_json_and_owner(jsondict['lastModified'], self)
         if 'planningHorizon' in jsondict:
             self.planningHorizon = period.Period.with_json_and_owner(jsondict['planningHorizon'], self)
         if 'type' in jsondict:

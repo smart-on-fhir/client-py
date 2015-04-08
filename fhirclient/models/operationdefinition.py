@@ -1,19 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (operationdefinition.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
-import coding
 import contactpoint
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 
 
-class OperationDefinition(fhirresource.FHIRResource):
+class OperationDefinition(domainresource.DomainResource):
     """ Definition of an operation or a named query.
     
     A formal computable definition of an operation (on the RESTful interface)
@@ -31,8 +30,12 @@ class OperationDefinition(fhirresource.FHIRResource):
         Type `FHIRReference` referencing `OperationDefinition` (represented as `dict` in JSON). """
         
         self.code = None
-        """ Assist with indexing and finding.
-        List of `Coding` items (represented as `dict` in JSON). """
+        """ Name used to invoke the operation.
+        Type `str`. """
+        
+        self.contact = None
+        """ Contact details of the publisher.
+        List of `OperationDefinitionContact` items (represented as `dict` in JSON). """
         
         self.date = None
         """ Date for this version of the operation definition.
@@ -46,9 +49,9 @@ class OperationDefinition(fhirresource.FHIRResource):
         """ If for testing purposes, not real usage.
         Type `bool`. """
         
-        self.identifier = None
-        """ Logical id to reference this operation definition.
-        Type `str`. """
+        self.idempotent = False
+        """ Whether operation causes changes to content.
+        Type `bool`. """
         
         self.instance = False
         """ Invoke on an instance?.
@@ -59,7 +62,7 @@ class OperationDefinition(fhirresource.FHIRResource):
         Type `str`. """
         
         self.name = None
-        """ Name used to invoke the operation.
+        """ Informal name for this profile.
         Type `str`. """
         
         self.notes = None
@@ -74,6 +77,10 @@ class OperationDefinition(fhirresource.FHIRResource):
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
+        self.requirements = None
+        """ Why is this needed?.
+        Type `str`. """
+        
         self.status = None
         """ draft | active | retired.
         Type `str`. """
@@ -82,17 +89,13 @@ class OperationDefinition(fhirresource.FHIRResource):
         """ Invoke at the system level?.
         Type `bool`. """
         
-        self.telecom = None
-        """ Contact information of the publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        self.title = None
-        """ Informal name for this profile.
-        Type `str`. """
-        
         self.type = None
         """ Invoke at resource level for these type.
         List of `str` items. """
+        
+        self.url = None
+        """ Logical url to reference this operation definition.
+        Type `str`. """
         
         self.version = None
         """ Logical id for this version of the operation definition.
@@ -105,15 +108,17 @@ class OperationDefinition(fhirresource.FHIRResource):
         if 'base' in jsondict:
             self.base = fhirreference.FHIRReference.with_json_and_owner(jsondict['base'], self)
         if 'code' in jsondict:
-            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
+            self.code = jsondict['code']
+        if 'contact' in jsondict:
+            self.contact = OperationDefinitionContact.with_json_and_owner(jsondict['contact'], self)
         if 'date' in jsondict:
             self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
         if 'description' in jsondict:
             self.description = jsondict['description']
         if 'experimental' in jsondict:
             self.experimental = jsondict['experimental']
-        if 'identifier' in jsondict:
-            self.identifier = jsondict['identifier']
+        if 'idempotent' in jsondict:
+            self.idempotent = jsondict['idempotent']
         if 'instance' in jsondict:
             self.instance = jsondict['instance']
         if 'kind' in jsondict:
@@ -126,18 +131,48 @@ class OperationDefinition(fhirresource.FHIRResource):
             self.parameter = OperationDefinitionParameter.with_json_and_owner(jsondict['parameter'], self)
         if 'publisher' in jsondict:
             self.publisher = jsondict['publisher']
+        if 'requirements' in jsondict:
+            self.requirements = jsondict['requirements']
         if 'status' in jsondict:
             self.status = jsondict['status']
         if 'system' in jsondict:
             self.system = jsondict['system']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
-        if 'title' in jsondict:
-            self.title = jsondict['title']
         if 'type' in jsondict:
             self.type = jsondict['type']
+        if 'url' in jsondict:
+            self.url = jsondict['url']
         if 'version' in jsondict:
             self.version = jsondict['version']
+
+
+class OperationDefinitionContact(fhirelement.FHIRElement):
+    """ Contact details of the publisher.
+    
+    Contacts to assist a user in finding and communicating with the publisher.
+    """
+    
+    resource_name = "OperationDefinitionContact"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.name = None
+        """ Name of a individual to contact.
+        Type `str`. """
+        
+        self.telecom = None
+        """ Contact details for individual or publisher.
+        List of `ContactPoint` items (represented as `dict` in JSON). """
+        
+        super(OperationDefinitionContact, self).__init__(jsondict)
+    
+    def update_with_json(self, jsondict):
+        super(OperationDefinitionContact, self).update_with_json(jsondict)
+        if 'name' in jsondict:
+            self.name = jsondict['name']
+        if 'telecom' in jsondict:
+            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
 
 
 class OperationDefinitionParameter(fhirelement.FHIRElement):
@@ -174,7 +209,7 @@ class OperationDefinitionParameter(fhirelement.FHIRElement):
         
         self.profile = None
         """ Profile on the type.
-        Type `FHIRReference` referencing `Profile` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         self.type = None
         """ What type this parameter hs.
@@ -236,7 +271,7 @@ class OperationDefinitionParameterPart(fhirelement.FHIRElement):
         
         self.profile = None
         """ Profile on the type.
-        Type `FHIRReference` referencing `Profile` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         self.type = None
         """ What type this parameter hs.

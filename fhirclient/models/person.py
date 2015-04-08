@@ -1,22 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (person.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Person) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import address
 import attachment
 import contactpoint
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import humanname
 import identifier
 
 
-class Person(fhirresource.FHIRResource):
+class Person(domainresource.DomainResource):
     """ A generic person record.
     
     Demographics and administrative information about a person independent of a
@@ -50,7 +50,7 @@ class Person(fhirresource.FHIRResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.link = None
-        """ Link to a resource that converns the same actual person.
+        """ Link to a resource that concerns the same actual person.
         List of `PersonLink` items (represented as `dict` in JSON). """
         
         self.managingOrganization = None
@@ -96,7 +96,7 @@ class Person(fhirresource.FHIRResource):
 
 
 class PersonLink(fhirelement.FHIRElement):
-    """ Link to a resource that converns the same actual person.
+    """ Link to a resource that concerns the same actual person.
     """
     
     resource_name = "PersonLink"
@@ -109,7 +109,7 @@ class PersonLink(fhirelement.FHIRElement):
         """ level1 | level2 | level3 | level4.
         Type `str`. """
         
-        self.other = None
+        self.target = None
         """ The resource to which this actual person is associated.
         Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson, Person` (represented as `dict` in JSON). """
         
@@ -119,6 +119,6 @@ class PersonLink(fhirelement.FHIRElement):
         super(PersonLink, self).update_with_json(jsondict)
         if 'assurance' in jsondict:
             self.assurance = jsondict['assurance']
-        if 'other' in jsondict:
-            self.other = fhirreference.FHIRReference.with_json_and_owner(jsondict['other'], self)
+        if 'target' in jsondict:
+            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
 

@@ -1,22 +1,23 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (diagnosticorder.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DiagnosticOrder) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 
 
-class DiagnosticOrder(fhirresource.FHIRResource):
+class DiagnosticOrder(domainresource.DomainResource):
     """ A request for a diagnostic service.
     
-    A request for a diagnostic investigation service to be performed.
+    A record of a request for a diagnostic investigation service to be
+    performed.
     """
     
     resource_name = "DiagnosticOrder"
@@ -58,8 +59,9 @@ class DiagnosticOrder(fhirresource.FHIRResource):
         List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
         
         self.status = None
-        """ requested | received | accepted | in progress | review | completed
-        | suspended | rejected | failed.
+        """ proposed | draft | planned | requested | received | accepted | in-
+        progress | review | completed | cancelled | suspended | rejected |
+        failed.
         Type `str`. """
         
         self.subject = None
@@ -67,8 +69,8 @@ class DiagnosticOrder(fhirresource.FHIRResource):
         Type `FHIRReference` referencing `Patient, Group, Location, Device` (represented as `dict` in JSON). """
         
         self.supportingInformation = None
-        """ Supporting observations or conditions for this request.
-        List of `FHIRReference` items referencing `Observation, Condition` (represented as `dict` in JSON). """
+        """ Additional clinical information.
+        List of `FHIRReference` items referencing `Observation, Condition, DocumentReference` (represented as `dict` in JSON). """
         
         super(DiagnosticOrder, self).__init__(jsondict)
     
@@ -125,8 +127,9 @@ class DiagnosticOrderEvent(fhirelement.FHIRElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.status = None
-        """ requested | received | accepted | in progress | review | completed
-        | suspended | rejected | failed.
+        """ proposed | draft | planned | requested | received | accepted | in-
+        progress | review | completed | cancelled | suspended | rejected |
+        failed.
         Type `str`. """
         
         super(DiagnosticOrderEvent, self).__init__(jsondict)
@@ -157,9 +160,13 @@ class DiagnosticOrderItem(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.bodySite = None
+        self.bodySiteCodeableConcept = None
         """ Location of requested test (if applicable).
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.bodySiteReference = None
+        """ Location of requested test (if applicable).
+        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.code = None
         """ Code to indicate the item (test or panel) being ordered.
@@ -174,16 +181,19 @@ class DiagnosticOrderItem(fhirelement.FHIRElement):
         List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
         
         self.status = None
-        """ requested | received | accepted | in progress | review | completed
-        | suspended | rejected | failed.
+        """ proposed | draft | planned | requested | received | accepted | in-
+        progress | review | completed | cancelled | suspended | rejected |
+        failed.
         Type `str`. """
         
         super(DiagnosticOrderItem, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(DiagnosticOrderItem, self).update_with_json(jsondict)
-        if 'bodySite' in jsondict:
-            self.bodySite = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySite'], self)
+        if 'bodySiteCodeableConcept' in jsondict:
+            self.bodySiteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySiteCodeableConcept'], self)
+        if 'bodySiteReference' in jsondict:
+            self.bodySiteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['bodySiteReference'], self)
         if 'code' in jsondict:
             self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
         if 'event' in jsondict:

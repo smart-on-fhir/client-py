@@ -1,21 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (composition.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Composition) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
-import coding
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import period
 
 
-class Composition(fhirresource.FHIRResource):
+class Composition(domainresource.DomainResource):
     """ A set of resources composed into a single coherent clinical statement with
     clinical attestation.
     
@@ -41,7 +40,7 @@ class Composition(fhirresource.FHIRResource):
         
         self.confidentiality = None
         """ As defined by affinity domain.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.custodian = None
         """ Org which maintains the composition.
@@ -72,12 +71,12 @@ class Composition(fhirresource.FHIRResource):
         List of `CompositionSection` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ preliminary | final | appended | amended | entered in error.
+        """ preliminary | final | appended | amended | entered-in-error.
         Type `str`. """
         
         self.subject = None
         """ Who and/or what the composition is about.
-        Type `FHIRReference` referencing `Patient, Practitioner, Group, Device, Location` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.title = None
         """ Human Readable name/title.
@@ -96,7 +95,7 @@ class Composition(fhirresource.FHIRResource):
         if 'author' in jsondict:
             self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
         if 'confidentiality' in jsondict:
-            self.confidentiality = coding.Coding.with_json_and_owner(jsondict['confidentiality'], self)
+            self.confidentiality = jsondict['confidentiality']
         if 'custodian' in jsondict:
             self.custodian = fhirreference.FHIRReference.with_json_and_owner(jsondict['custodian'], self)
         if 'date' in jsondict:
@@ -107,8 +106,8 @@ class Composition(fhirresource.FHIRResource):
             self.event = CompositionEvent.with_json_and_owner(jsondict['event'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'klass' in jsondict:
-            self.klass = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['klass'], self)
+        if 'class' in jsondict:
+            self.klass = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['class'], self)
         if 'section' in jsondict:
             self.section = CompositionSection.with_json_and_owner(jsondict['section'], self)
         if 'status' in jsondict:
@@ -176,7 +175,7 @@ class CompositionEvent(fhirelement.FHIRElement):
         
         self.detail = None
         """ Full details for the event(s) the composition consents.
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.period = None
         """ The period covered by the documentation.
@@ -211,8 +210,8 @@ class CompositionSection(fhirelement.FHIRElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.content = None
-        """ The Content of the section.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        """ The Content of the section (narrative + data entries).
+        Type `FHIRReference` referencing `List` (represented as `dict` in JSON). """
         
         self.section = None
         """ Composition is broken into sections.

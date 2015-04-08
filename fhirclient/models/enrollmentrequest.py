@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (enrollmentrequest.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import coding
+import domainresource
 import fhirdate
 import fhirreference
-import fhirresource
 import identifier
 
 
-class EnrollmentRequest(fhirresource.FHIRResource):
+class EnrollmentRequest(domainresource.DomainResource):
     """ Enrollment request.
     
     This resource provides the insurance Enrollment details to the insurer

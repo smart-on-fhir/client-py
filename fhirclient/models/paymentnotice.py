@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (paymentnotice.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import coding
+import domainresource
 import fhirdate
 import fhirreference
-import fhirresource
 import identifier
 
 
-class PaymentNotice(fhirresource.FHIRResource):
+class PaymentNotice(domainresource.DomainResource):
     """ PaymentNotice request.
     
     This resource provides the status of the payment for goods and services
@@ -51,11 +51,11 @@ class PaymentNotice(fhirresource.FHIRResource):
         
         self.request = None
         """ Request reference.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.response = None
         """ Response reference.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.ruleset = None
         """ Resource version.

@@ -1,19 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (imagingstudy.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
+import attachment
 import coding
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 
 
-class ImagingStudy(fhirresource.FHIRResource):
+class ImagingStudy(domainresource.DomainResource):
     """ A set of images produced in single study (one or more series of references
     images).
     
@@ -171,6 +172,10 @@ class ImagingStudySeries(fhirelement.FHIRElement):
         """ A single instance taken from a patient (image or other).
         List of `ImagingStudySeriesInstance` items (represented as `dict` in JSON). """
         
+        self.laterality = None
+        """ Body part laterality.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.modality = None
         """ The modality of the instances in the series (0008,0060).
         Type `str`. """
@@ -205,6 +210,8 @@ class ImagingStudySeries(fhirelement.FHIRElement):
             self.description = jsondict['description']
         if 'instance' in jsondict:
             self.instance = ImagingStudySeriesInstance.with_json_and_owner(jsondict['instance'], self)
+        if 'laterality' in jsondict:
+            self.laterality = coding.Coding.with_json_and_owner(jsondict['laterality'], self)
         if 'modality' in jsondict:
             self.modality = jsondict['modality']
         if 'number' in jsondict:
@@ -220,7 +227,8 @@ class ImagingStudySeries(fhirelement.FHIRElement):
 class ImagingStudySeriesInstance(fhirelement.FHIRElement):
     """ A single instance taken from a patient (image or other).
     
-    A single image taken from a patient.
+    A single SOP Instance within the series, e.g., an image, or presentation
+    state.
     """
     
     resource_name = "ImagingStudySeriesInstance"
@@ -229,9 +237,9 @@ class ImagingStudySeriesInstance(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.attachment = None
-        """ Content for this instance.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        self.content = None
+        """ Content of the instance.
+        List of `Attachment` items (represented as `dict` in JSON). """
         
         self.number = None
         """ The number of this instance in the series (0020,0013).
@@ -254,17 +262,12 @@ class ImagingStudySeriesInstance(fhirelement.FHIRElement):
         """ Formal identifier for this instance (0008,0018).
         Type `str`. """
         
-        self.url = None
-        """ WADO-RS service where instance is available  (0008,1199 >
-        0008,1190).
-        Type `str`. """
-        
         super(ImagingStudySeriesInstance, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(ImagingStudySeriesInstance, self).update_with_json(jsondict)
-        if 'attachment' in jsondict:
-            self.attachment = fhirreference.FHIRReference.with_json_and_owner(jsondict['attachment'], self)
+        if 'content' in jsondict:
+            self.content = attachment.Attachment.with_json_and_owner(jsondict['content'], self)
         if 'number' in jsondict:
             self.number = jsondict['number']
         if 'sopclass' in jsondict:
@@ -275,6 +278,4 @@ class ImagingStudySeriesInstance(fhirelement.FHIRElement):
             self.type = jsondict['type']
         if 'uid' in jsondict:
             self.uid = jsondict['uid']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
 

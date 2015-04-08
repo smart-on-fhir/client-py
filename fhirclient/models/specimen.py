@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (specimen.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import period
 import quantity
 
 
-class Specimen(fhirresource.FHIRResource):
+class Specimen(domainresource.DomainResource):
     """ Sample for analysis.
     """
     
@@ -41,13 +41,13 @@ class Specimen(fhirresource.FHIRResource):
         """ External Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.parent = None
+        """ Specimen from which this specimen originated.
+        List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
+        
         self.receivedTime = None
         """ The time when specimen was received for processing.
         Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.source = None
-        """ Parent of specimen.
-        List of `SpecimenSource` items (represented as `dict` in JSON). """
         
         self.subject = None
         """ Where the specimen came from. This may be from the patient(s) or
@@ -74,10 +74,10 @@ class Specimen(fhirresource.FHIRResource):
             self.container = SpecimenContainer.with_json_and_owner(jsondict['container'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
+        if 'parent' in jsondict:
+            self.parent = fhirreference.FHIRReference.with_json_and_owner(jsondict['parent'], self)
         if 'receivedTime' in jsondict:
             self.receivedTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['receivedTime'], self)
-        if 'source' in jsondict:
-            self.source = SpecimenSource.with_json_and_owner(jsondict['source'], self)
         if 'subject' in jsondict:
             self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
         if 'treatment' in jsondict:
@@ -97,6 +97,14 @@ class SpecimenCollection(fhirelement.FHIRElement):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.bodySiteCodeableConcept = None
+        """ Anatomical collection site.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.bodySiteReference = None
+        """ Anatomical collection site.
+        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.collectedDateTime = None
         """ Collection time.
@@ -122,14 +130,14 @@ class SpecimenCollection(fhirelement.FHIRElement):
         """ The quantity of specimen collected.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.sourceSite = None
-        """ Anatomical collection site.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         super(SpecimenCollection, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(SpecimenCollection, self).update_with_json(jsondict)
+        if 'bodySiteCodeableConcept' in jsondict:
+            self.bodySiteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySiteCodeableConcept'], self)
+        if 'bodySiteReference' in jsondict:
+            self.bodySiteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['bodySiteReference'], self)
         if 'collectedDateTime' in jsondict:
             self.collectedDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['collectedDateTime'], self)
         if 'collectedPeriod' in jsondict:
@@ -142,8 +150,6 @@ class SpecimenCollection(fhirelement.FHIRElement):
             self.method = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['method'], self)
         if 'quantity' in jsondict:
             self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'sourceSite' in jsondict:
-            self.sourceSite = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['sourceSite'], self)
 
 
 class SpecimenContainer(fhirelement.FHIRElement):
@@ -205,36 +211,6 @@ class SpecimenContainer(fhirelement.FHIRElement):
             self.specimenQuantity = quantity.Quantity.with_json_and_owner(jsondict['specimenQuantity'], self)
         if 'type' in jsondict:
             self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
-
-
-class SpecimenSource(fhirelement.FHIRElement):
-    """ Parent of specimen.
-    
-    Parent specimen from which the focal specimen was a component.
-    """
-    
-    resource_name = "SpecimenSource"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.relationship = None
-        """ parent | child.
-        Type `str`. """
-        
-        self.target = None
-        """ The subject of the relationship.
-        List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
-        
-        super(SpecimenSource, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(SpecimenSource, self).update_with_json(jsondict)
-        if 'relationship' in jsondict:
-            self.relationship = jsondict['relationship']
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
 
 
 class SpecimenTreatment(fhirelement.FHIRElement):

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  Base class for FHIR resources.
-#  2014, SMART Platforms.
+#  2014, SMART Health IT.
 
 import fhirelement
 import fhirdate
@@ -23,35 +23,7 @@ class FHIRResource(fhirelement.FHIRElement):
         self._server = None
         """ The server the instance was read from. """
         
-        self.id = None
-        """ Logical id of this artefact. """
-        
-        self.meta = None
-        """ Metadata about the resource. """
-        
-        self.implicitRules = None
-        """ A set of rules under which this content was created. """
-        
-        self.language = None
-        """ Human language of the content (BCP-47). """
-        
-        self.narrative = None
-        """ A human-readable narrative. """
-        
         super(FHIRResource, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(FHIRResource, self).update_with_json(jsondict)
-        if 'id' in jsondict:
-            self.id = jsondict['id']
-        if 'meta' in jsondict:
-            self.meta = FHIRResourceMeta(jsondict['meta'])
-        if 'implicitRules' in jsondict:
-            self.implicitRules = jsondict['implicitRules']
-        if 'language' in jsondict:
-            self.language = jsondict['language']
-        if 'language' in jsondict:
-            self.language = jsondict['language']
     
     @classmethod
     def with_json(cls, jsonobj):
@@ -137,41 +109,3 @@ class FHIRResource(fhirelement.FHIRElement):
         """
         return fhirsearch.FHIRSearch(cls, struct)
 
-
-class FHIRResourceMeta(fhirelement.FHIRElement):
-    """ Metadata about a resource.
-    """
-    def __init__(self, jsondict=None):
-        self.versionId = None
-        """ Version specific identifier (a str). """
-        
-        self.lastUpdated = None
-        """ When the resource version last changed (as FHIRDate). """
-        
-        self.profiles = None
-        """ Profiles this resource claims to conform to (a list of URLs). """
-        
-        self.security = None
-        """ Security Labels applied to this resource (a list of Coding). """
-        
-        self.tags = None
-        """ Tags applied (a list of Coding instances). """
-        
-        super(FHIRResourceMeta, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(FHIRResourceMeta, self).update_with_json(jsondict)
-        if "versionId" in jsondict:
-            self.versionId = jsondict["versionId"]
-        if "lastUpdated" in jsondict:
-            self.lastUpdated = fhirdate.FHIRDate(jsondict["lastUpdated"])
-        if "profiles" in jsondict:
-            self.profiles = jsondict["profiles"]
-        if "security" in jsondict:
-            self.security = coding.Coding.with_json(jsondict["security"])
-        if "tags" in jsondict:
-            self.tags = coding.Coding.with_json(jsondict["tags"])
-
-
-import coding
-import narrative

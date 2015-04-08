@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (location.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Location) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import address
 import codeableconcept
 import contactpoint
+import domainresource
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 
 
-class Location(fhirresource.FHIRResource):
+class Location(domainresource.DomainResource):
     """ Details and position information for a physical place.
     
     Details and position information for a physical place where services are
@@ -111,8 +111,8 @@ class Location(fhirresource.FHIRResource):
 class LocationPosition(fhirelement.FHIRElement):
     """ The absolute geographic location.
     
-    The absolute geographic location of the Location, expressed in a KML
-    compatible manner (see notes below for KML).
+    The absolute geographic location of the Location, expressed in with the
+    WGS84 datum (This is the same co-ordinate system used in KML).
     """
     
     resource_name = "LocationPosition"
@@ -122,15 +122,15 @@ class LocationPosition(fhirelement.FHIRElement):
         """
         
         self.altitude = None
-        """ Altitude as expressed in KML.
+        """ Altitude with WGS84 datum.
         Type `float`. """
         
         self.latitude = None
-        """ Latitude as expressed in KML.
+        """ Latitude with WGS84 datum.
         Type `float`. """
         
         self.longitude = None
-        """ Longitude as expressed in KML.
+        """ Longitude with WGS84 datum.
         Type `float`. """
         
         super(LocationPosition, self).__init__(jsondict)

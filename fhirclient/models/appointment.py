@@ -1,21 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (appointment.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 
 
-class Appointment(fhirresource.FHIRResource):
-    """ A scheduled healthcare event for a patient and/or practitioner(s) where a
-    service may take place at a specific date/time.
+class Appointment(domainresource.DomainResource):
+    """ A booking of a healthcare event among patient(s), practitioner(s), related
+    person(s) and/or device(s) for a specific date/time. This may result in one
+    or more Encounter(s).
     """
     
     resource_name = "Appointment"
@@ -42,18 +43,6 @@ class Appointment(fhirresource.FHIRResource):
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.lastModified = None
-        """ Date when the appointment was recorded.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.lastModifiedBy = None
-        """ Who recorded the appointment.
-        Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
-        
-        self.location = None
-        """ The primary location that this appointment is to take place.
-        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
-        
         self.order = None
         """ An Order that lead to the creation of this appointment.
         Type `FHIRReference` referencing `Order` (represented as `dict` in JSON). """
@@ -66,7 +55,7 @@ class Appointment(fhirresource.FHIRResource):
         """ The priority of the appointment. Can be used to make informed
         decisions if needing to re-prioritize appointments. (The iCal
         Standard specifies 0 as undefined, 1 as highest, 9 as lowest
-        priority) (Need to change back to CodeableConcept).
+        priority).
         Type `int`. """
         
         self.reason = None
@@ -89,9 +78,7 @@ class Appointment(fhirresource.FHIRResource):
         Type `str`. """
         
         self.type = None
-        """ The type of appointments that is being booked (ideally this would
-        be an identifiable service - which is at a location, rather than
-        the location itself).
+        """ The type of appointment that is being booked.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Appointment, self).__init__(jsondict)
@@ -106,12 +93,6 @@ class Appointment(fhirresource.FHIRResource):
             self.end = fhirdate.FHIRDate.with_json_and_owner(jsondict['end'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'lastModified' in jsondict:
-            self.lastModified = fhirdate.FHIRDate.with_json_and_owner(jsondict['lastModified'], self)
-        if 'lastModifiedBy' in jsondict:
-            self.lastModifiedBy = fhirreference.FHIRReference.with_json_and_owner(jsondict['lastModifiedBy'], self)
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
         if 'order' in jsondict:
             self.order = fhirreference.FHIRReference.with_json_and_owner(jsondict['order'], self)
         if 'participant' in jsondict:
@@ -141,17 +122,16 @@ class AppointmentParticipant(fhirelement.FHIRElement):
         """
         
         self.actor = None
-        """ A Person of device that is participating in the appointment,
-        usually Practitioner, Patient, RelatedPerson or Device.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        """ A Person, Location/HealthcareService or Device that is
+        participating in the appointment.
+        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson, Device, HealthcareService, Location` (represented as `dict` in JSON). """
         
         self.required = None
         """ required | optional | information-only.
         Type `str`. """
         
         self.status = None
-        """ accepted | declined | tentative | in-process | completed | needs-
-        action.
+        """ accepted | declined | tentative | needs-action.
         Type `str`. """
         
         self.type = None

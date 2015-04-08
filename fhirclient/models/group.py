@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (group.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Group) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import quantity
 import range
 
 
-class Group(fhirresource.FHIRResource):
+class Group(domainresource.DomainResource):
     """ Group of multiple entities.
     
     Represents a defined collection of entities that may be discussed or acted
@@ -46,7 +46,7 @@ class Group(fhirresource.FHIRResource):
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.member = None
-        """ Who is in group.
+        """ Who or what is in group.
         List of `FHIRReference` items referencing `Patient, Practitioner, Device, Medication, Substance` (represented as `dict` in JSON). """
         
         self.name = None

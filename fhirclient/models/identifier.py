@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (Identifier.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Identifier) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
+import codeableconcept
 import fhirelement
 import fhirreference
 import period
@@ -26,10 +27,6 @@ class Identifier(fhirelement.FHIRElement):
         """ Organization that issued id (may be just text).
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.label = None
-        """ Description of identifier.
-        Type `str`. """
-        
         self.period = None
         """ Time period when id is/was valid for use.
         Type `Period` (represented as `dict` in JSON). """
@@ -37,6 +34,10 @@ class Identifier(fhirelement.FHIRElement):
         self.system = None
         """ The namespace for the identifier.
         Type `str`. """
+        
+        self.type = None
+        """ Description of identifier.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.use = None
         """ usual | official | temp | secondary (If known).
@@ -52,12 +53,12 @@ class Identifier(fhirelement.FHIRElement):
         super(Identifier, self).update_with_json(jsondict)
         if 'assigner' in jsondict:
             self.assigner = fhirreference.FHIRReference.with_json_and_owner(jsondict['assigner'], self)
-        if 'label' in jsondict:
-            self.label = jsondict['label']
         if 'period' in jsondict:
             self.period = period.Period.with_json_and_owner(jsondict['period'], self)
         if 'system' in jsondict:
             self.system = jsondict['system']
+        if 'type' in jsondict:
+            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
         if 'use' in jsondict:
             self.use = jsondict['use']
         if 'value' in jsondict:

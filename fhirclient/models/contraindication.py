@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (contraindication.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Contraindication) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 
 
-class Contraindication(fhirresource.FHIRResource):
+class Contraindication(domainresource.DomainResource):
     """ Clinical issue with action.
     
     Indicates an actual or potential clinical issue with or between one or more
@@ -50,7 +50,7 @@ class Contraindication(fhirresource.FHIRResource):
         
         self.implicated = None
         """ Problem resource.
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.mitigation = None
         """ Step taken to address.

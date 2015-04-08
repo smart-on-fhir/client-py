@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (appointmentresponse.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirreference
-import fhirresource
 import identifier
 
 
-class AppointmentResponse(fhirresource.FHIRResource):
+class AppointmentResponse(domainresource.DomainResource):
     """ A reply to an appointment request for a patient and/or practitioner(s),
     such as a confirmation or rejection.
     """
@@ -23,6 +23,11 @@ class AppointmentResponse(fhirresource.FHIRResource):
         """ Initialize all valid properties.
         """
         
+        self.actor = None
+        """ A Person, Location/HealthcareService or Device that is
+        participating in the appointment.
+        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson, Device, HealthcareService, Location` (represented as `dict` in JSON). """
+        
         self.appointment = None
         """ Parent appointment that this response is replying to.
         Type `FHIRReference` referencing `Appointment` (represented as `dict` in JSON). """
@@ -32,25 +37,13 @@ class AppointmentResponse(fhirresource.FHIRResource):
         Type `str`. """
         
         self.end = None
-        """ Date/Time that the appointment is to conclude.
+        """ Date/Time that the appointment is to conclude, or requested new end
+        time.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.individual = None
-        """ A Person of device that is participating in the appointment,
-        usually Practitioner, Patient, RelatedPerson or Device.
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
-        
-        self.lastModified = None
-        """ Date when the response was recorded or last updated.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.lastModifiedBy = None
-        """ Who recorded the appointment response.
-        Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.participantStatus = None
         """ accepted | declined | tentative | in-process | completed | needs-
@@ -62,13 +55,16 @@ class AppointmentResponse(fhirresource.FHIRResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.start = None
-        """ Date/Time that the appointment is to take place.
+        """ Date/Time that the appointment is to take place, or requested new
+        start time.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         super(AppointmentResponse, self).__init__(jsondict)
     
     def update_with_json(self, jsondict):
         super(AppointmentResponse, self).update_with_json(jsondict)
+        if 'actor' in jsondict:
+            self.actor = fhirreference.FHIRReference.with_json_and_owner(jsondict['actor'], self)
         if 'appointment' in jsondict:
             self.appointment = fhirreference.FHIRReference.with_json_and_owner(jsondict['appointment'], self)
         if 'comment' in jsondict:
@@ -77,12 +73,6 @@ class AppointmentResponse(fhirresource.FHIRResource):
             self.end = fhirdate.FHIRDate.with_json_and_owner(jsondict['end'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'individual' in jsondict:
-            self.individual = fhirreference.FHIRReference.with_json_and_owner(jsondict['individual'], self)
-        if 'lastModified' in jsondict:
-            self.lastModified = fhirdate.FHIRDate.with_json_and_owner(jsondict['lastModified'], self)
-        if 'lastModifiedBy' in jsondict:
-            self.lastModifiedBy = fhirreference.FHIRReference.with_json_and_owner(jsondict['lastModifiedBy'], self)
         if 'participantStatus' in jsondict:
             self.participantStatus = jsondict['participantStatus']
         if 'participantType' in jsondict:

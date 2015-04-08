@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (coverage.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import coding
+import domainresource
 import fhirreference
-import fhirresource
 import identifier
 import period
 
 
-class Coverage(fhirresource.FHIRResource):
+class Coverage(domainresource.DomainResource):
     """ Insurance or medical plan.
     
     Financial instrument which may be used to pay for or reimburse for health
@@ -24,6 +24,10 @@ class Coverage(fhirresource.FHIRResource):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.bin = None
+        """ BIN Number.
+        Type `Identifier` (represented as `dict` in JSON). """
         
         self.contract = None
         """ Contract details.
@@ -61,13 +65,17 @@ class Coverage(fhirresource.FHIRResource):
         """ The plan instance or sequence counter.
         Type `int`. """
         
-        self.subplan = None
+        self.subPlan = None
         """ An identifier for the subsection of the plan.
         Type `str`. """
         
         self.subscriber = None
         """ Plan holder information.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
+        self.subscriberId = None
+        """ Subscriber ID.
+        Type `Identifier` (represented as `dict` in JSON). """
         
         self.type = None
         """ Type of coverage.
@@ -77,6 +85,8 @@ class Coverage(fhirresource.FHIRResource):
     
     def update_with_json(self, jsondict):
         super(Coverage, self).update_with_json(jsondict)
+        if 'bin' in jsondict:
+            self.bin = identifier.Identifier.with_json_and_owner(jsondict['bin'], self)
         if 'contract' in jsondict:
             self.contract = fhirreference.FHIRReference.with_json_and_owner(jsondict['contract'], self)
         if 'dependent' in jsondict:
@@ -95,10 +105,12 @@ class Coverage(fhirresource.FHIRResource):
             self.plan = jsondict['plan']
         if 'sequence' in jsondict:
             self.sequence = jsondict['sequence']
-        if 'subplan' in jsondict:
-            self.subplan = jsondict['subplan']
+        if 'subPlan' in jsondict:
+            self.subPlan = jsondict['subPlan']
         if 'subscriber' in jsondict:
             self.subscriber = fhirreference.FHIRReference.with_json_and_owner(jsondict['subscriber'], self)
+        if 'subscriberId' in jsondict:
+            self.subscriberId = identifier.Identifier.with_json_and_owner(jsondict['subscriberId'], self)
         if 'type' in jsondict:
             self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
 

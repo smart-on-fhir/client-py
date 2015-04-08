@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (supply.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Supply) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import period
 import quantity
 
 
-class Supply(fhirresource.FHIRResource):
+class Supply(domainresource.DomainResource):
     """ A supply -  request and provision.
     
     A supply - a  request for something, and provision of what is supplied.
@@ -99,7 +99,7 @@ class SupplyDispense(fhirelement.FHIRElement):
         List of `FHIRReference` items referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.status = None
-        """ in progress | dispensed | abandoned.
+        """ in-progress | dispensed | abandoned.
         Type `str`. """
         
         self.suppliedItem = None

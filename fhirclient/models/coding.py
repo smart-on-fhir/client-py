@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (Coding.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Coding) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import fhirelement
-import fhirreference
 
 
 class Coding(fhirelement.FHIRElement):
@@ -35,10 +34,6 @@ class Coding(fhirelement.FHIRElement):
         """ Identity of the terminology system.
         Type `str`. """
         
-        self.valueSet = None
-        """ Set this coding was chosen from.
-        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
-        
         self.version = None
         """ Version of the system - if relevant.
         Type `str`. """
@@ -55,8 +50,6 @@ class Coding(fhirelement.FHIRElement):
             self.primary = jsondict['primary']
         if 'system' in jsondict:
             self.system = jsondict['system']
-        if 'valueSet' in jsondict:
-            self.valueSet = fhirreference.FHIRReference.with_json_and_owner(jsondict['valueSet'], self)
         if 'version' in jsondict:
             self.version = jsondict['version']
 

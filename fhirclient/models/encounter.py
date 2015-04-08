@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (encounter.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import duration
 import fhirelement
 import fhirreference
-import fhirresource
 import identifier
 import period
 
 
-class Encounter(fhirresource.FHIRResource):
+class Encounter(domainresource.DomainResource):
     """ An interaction during which services are provided to the patient.
     
     An interaction between a patient and healthcare provider(s) for the purpose
@@ -44,16 +44,20 @@ class Encounter(fhirresource.FHIRResource):
         """ Identifier(s) by which this encounter is known.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.incomingReferralRequest = None
+        """ Incoming Referral Request.
+        List of `FHIRReference` items referencing `ReferralRequest` (represented as `dict` in JSON). """
+        
         self.indication = None
         """ Reason the encounter takes place (resource).
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.klass = None
         """ inpatient | outpatient | ambulatory | emergency +.
         Type `str`. """
         
         self.length = None
-        """ Quantity of time the encounter lasted.
+        """ Quantity of time the encounter lasted (less time absent).
         Type `Duration` (represented as `dict` in JSON). """
         
         self.location = None
@@ -82,14 +86,14 @@ class Encounter(fhirresource.FHIRResource):
         
         self.reason = None
         """ Reason the encounter takes place (code).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.serviceProvider = None
-        """ Department or team providing care.
+        """ The custodian organization of this Encounter record.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | arrived | in progress | onleave | finished | cancelled.
+        """ planned | arrived | in-progress | onleave | finished | cancelled.
         Type `str`. """
         
         self.statusHistory = None
@@ -112,10 +116,12 @@ class Encounter(fhirresource.FHIRResource):
             self.hospitalization = EncounterHospitalization.with_json_and_owner(jsondict['hospitalization'], self)
         if 'identifier' in jsondict:
             self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
+        if 'incomingReferralRequest' in jsondict:
+            self.incomingReferralRequest = fhirreference.FHIRReference.with_json_and_owner(jsondict['incomingReferralRequest'], self)
         if 'indication' in jsondict:
             self.indication = fhirreference.FHIRReference.with_json_and_owner(jsondict['indication'], self)
-        if 'klass' in jsondict:
-            self.klass = jsondict['klass']
+        if 'class' in jsondict:
+            self.klass = jsondict['class']
         if 'length' in jsondict:
             self.length = duration.Duration.with_json_and_owner(jsondict['length'], self)
         if 'location' in jsondict:
@@ -160,14 +166,14 @@ class EncounterHospitalization(fhirelement.FHIRElement):
         """ Location to which the patient is discharged.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
-        self.diet = None
-        """ Dietary restrictions for the patient.
+        self.dietPreference = None
+        """ Diet preferences reported by the patient.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.dischargeDiagnosis = None
         """ The final diagnosis given a patient before release from the
         hospital after all testing, surgery, and workup are complete.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.dischargeDisposition = None
         """ Category or kind of location after discharge.
@@ -201,8 +207,8 @@ class EncounterHospitalization(fhirelement.FHIRElement):
             self.admitSource = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['admitSource'], self)
         if 'destination' in jsondict:
             self.destination = fhirreference.FHIRReference.with_json_and_owner(jsondict['destination'], self)
-        if 'diet' in jsondict:
-            self.diet = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['diet'], self)
+        if 'dietPreference' in jsondict:
+            self.dietPreference = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['dietPreference'], self)
         if 'dischargeDiagnosis' in jsondict:
             self.dischargeDiagnosis = fhirreference.FHIRReference.with_json_and_owner(jsondict['dischargeDiagnosis'], self)
         if 'dischargeDisposition' in jsondict:
@@ -311,7 +317,7 @@ class EncounterStatusHistory(fhirelement.FHIRElement):
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | arrived | in progress | onleave | finished | cancelled.
+        """ planned | arrived | in-progress | onleave | finished | cancelled.
         Type `str`. """
         
         super(EncounterStatusHistory, self).__init__(jsondict)

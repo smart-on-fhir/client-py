@@ -1,23 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.4.0.3969 (deviceuserequest.profile.json) on 2015-01-23.
-#  2015, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DeviceUseRequest) on 2015-04-08.
+#  2015, SMART Health IT.
 
 
 import codeableconcept
+import domainresource
 import fhirdate
 import fhirreference
-import fhirresource
 import identifier
 import period
 import timing
 
 
-class DeviceUseRequest(fhirresource.FHIRResource):
-    """ Request for device use.
+class DeviceUseRequest(domainresource.DomainResource):
+    """ A request for a patient to use or be given a medical device.
     
-    Represents a request for the use of a device.
+    Represents a request for a patient to employ a medical device. The device
+    may be an implantable device, or an external assistive device, such as a
+    walker.
     """
     
     resource_name = "DeviceUseRequest"
@@ -26,9 +28,13 @@ class DeviceUseRequest(fhirresource.FHIRResource):
         """ Initialize all valid properties.
         """
         
-        self.bodySite = None
+        self.bodySiteCodeableConcept = None
         """ Target body site.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.bodySiteReference = None
+        """ Target body site.
+        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.device = None
         """ Device requested.
@@ -67,7 +73,7 @@ class DeviceUseRequest(fhirresource.FHIRResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.status = None
-        """ proposed | planned | requested | received | accepted | in progress
+        """ proposed | planned | requested | received | accepted | in-progress
         | completed | suspended | rejected | aborted.
         Type `str`. """
         
@@ -91,8 +97,10 @@ class DeviceUseRequest(fhirresource.FHIRResource):
     
     def update_with_json(self, jsondict):
         super(DeviceUseRequest, self).update_with_json(jsondict)
-        if 'bodySite' in jsondict:
-            self.bodySite = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySite'], self)
+        if 'bodySiteCodeableConcept' in jsondict:
+            self.bodySiteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySiteCodeableConcept'], self)
+        if 'bodySiteReference' in jsondict:
+            self.bodySiteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['bodySiteReference'], self)
         if 'device' in jsondict:
             self.device = fhirreference.FHIRReference.with_json_and_owner(jsondict['device'], self)
         if 'encounter' in jsondict:
