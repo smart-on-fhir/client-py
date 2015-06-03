@@ -14,7 +14,7 @@ Installation
 Documentation
 -------------
 
-Technical documentation is available at [docs.smartplatforms.org/client-py/][docs].
+Technical documentation is available at [docs.smarthealthit.org/client-py/][docs].
 
 #### Flask App
 
@@ -54,7 +54,7 @@ I usually perform a second checkout of the _gh-pages_ branch and copy the html f
 
 
 [fhir]: http://www.hl7.org/implement/standards/fhir/
-[smart]: http://docs.smartplatforms.org
+[smart]: http://docs.smarthealthit.org
 [docs]: https://smart-on-fhir.github.io/client-py
 [flask_app]: https://github.com/smart-on-fhir/client-py/blob/master/flask_app.py
 [doxygen]: http://www.stack.nl/~dimitri/doxygen

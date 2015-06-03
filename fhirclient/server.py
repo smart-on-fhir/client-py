@@ -100,11 +100,25 @@ class FHIRServer(object):
         return self.auth.ready if self.auth is not None else False
     
     def request_json(self, path, nosign=False):
-        """ Perform a request against the server's base with the given path.
+        """ Perform a request for JSON data against the server's base with the
+        given relative path.
         
         :param str path: The path to append to `base_uri`
         :param bool nosign: If set to True, the request will not be signed
         """
+        headers = {'Accept': 'application/json'}
+        res = self._request(path, headers, nosign)
+        
+        return res.json()
+    
+    def request_data(self, path, headers={}, nosign=False):
+        """ Perform a data request data against the server's base with the
+        given relative path.
+        """
+        res = self._request(path, None, nosign)
+        return res.content
+    
+    def _request(self, path, headers={}, nosign=False):
         assert self.base_uri and path
         url = urlparse.urljoin(self.base_uri, path)
         

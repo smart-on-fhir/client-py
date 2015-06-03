@@ -26,20 +26,6 @@
             "resource": [],
             "security": {
                 "description": "SMART on FHIR uses OAuth2 for authorization",
-                "extension": [
-                    {
-                        "url": "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#register",
-                        "valueUri": "https://authorize.smarthealthit.org/register"
-                    },
-                    {
-                        "url": "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#authorize",
-                        "valueUri": "https://authorize.smarthealthit.org/authorize"
-                    },
-                    {
-                        "url": "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#token",
-                        "valueUri": "https://authorize.smarthealthit.org/token"
-                    }
-                ],
                 "service": [
                     {
                         "coding": [

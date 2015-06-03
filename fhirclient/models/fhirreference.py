@@ -42,7 +42,18 @@ class FHIRReference(reference.Reference):
             contained.owner.didResolveReference(refid, instance)
             return instance
         
-        # TODO: fetch remote resources
+        # fetch remote resources
+        server = self._owner.server()
+        if server is None:
+            logging.warning("Reference owner {} does not have a server, cannot resolve reference {}"
+                .format(self._owner, self.reference))
+            return None
+        
+        if '://' not in self.reference:
+            return self._referenced_class.read_from(self.reference, server)
+        
+        logging.warning("Not implemented: resolving reference to foreign resource {}"
+            .format(self.reference))
         return None
     
     def processedReferenceIdentifier(self):

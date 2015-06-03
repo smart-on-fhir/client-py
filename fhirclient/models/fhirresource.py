@@ -38,6 +38,25 @@ class FHIRResource(fhirelement.FHIRElement):
     
     # MARK: Server Connection
     
+    def server(self):
+        """ Walks the owner hierarchy until it finds an owner with a server.
+        """
+        if self._server is not None:
+            return self._server
+        owningRes = self.owningResource()
+        return owningRes.server() if owningRes is not None else None
+    
+    def owningResource(self):
+        """ Walks the owner hierarchy and returns the next parent that is a
+        FHIRResource instance.
+        """
+        owner = self._owner
+        while owner is not None:
+            if isinstance(owner, self.__class__):
+                break
+            owner = owner._owner
+        return owner
+    
     @classmethod
     def read(cls, rem_id, server):
         """ Read the resource with the given id from the given server. The
