@@ -201,7 +201,7 @@ class FHIROAuth2Auth(FHIRAuth):
         :param server: The Server instance to use
         :returns: The launch context dictionary
         """
-        logging.debug("Handling callback URL")
+        logging.debug("SMART: Handling callback URL")
         if url is None:
             raise Exception("No callback URL received")
         try:
@@ -249,7 +249,7 @@ class FHIROAuth2Auth(FHIRAuth):
         if server is None:
             raise Exception("I need a server to request an access token")
         
-        logging.debug("Requesting access token from {}".format(self._token_uri))
+        logging.debug("SMART: Requesting access token from {}".format(self._token_uri))
         ret_params = server.post_as_form(self._token_uri, params)
         
         self.access_token = ret_params.get('access_token')
@@ -263,7 +263,7 @@ class FHIROAuth2Auth(FHIRAuth):
         if self.refresh_token is not None:
             del ret_params['refresh_token']
         
-        logging.debug("Received access token: {}, refresh token: {}"
+        logging.debug("SMART: Received access token: {}, refresh token: {}"
             .format(self.access_token is not None, self.refresh_token is not None))
         return ret_params
     
@@ -277,8 +277,10 @@ class FHIROAuth2Auth(FHIRAuth):
         :returns: The launch context dictionary, or None on failure
         """
         if self.refresh_token is None:
+            logging.debug("SMART: Cannot reauthorize without refresh token")
             return None
         
+        logging.debug("SMART: Refreshing token")
         reauth = self._reauthorize_params()
         return self._request_access_token(server, reauth)
     

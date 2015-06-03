@@ -7,7 +7,7 @@ abspath = os.path.abspath(os.path.dirname(__file__))
 if abspath not in sys.path:
     sys.path.insert(0, abspath)
 
-from server import FHIRServer, FHIRUnauthorizedException
+from server import FHIRServer, FHIRUnauthorizedException, FHIRNotFoundException
 import models.patient as patient
 
 __version__ = '0.0.4.90'
@@ -106,12 +106,12 @@ class FHIRClient(object):
         return self.launch_context is not None
     
     def _handle_launch_context(self, ctx):
-        logging.debug("Handling launch context: {}".format(ctx))
+        logging.debug("SMART: Handling launch context: {}".format(ctx))
         if 'patient' in ctx:
             #print('Patient id was {}, row context is {}'.format(self.patient_id, ctx))
             self.patient_id = ctx['patient']        # TODO: TEST THIS!
         if 'id_token' in ctx:
-            logging.warning("Received an id_token, ignoring")
+            logging.warning("SMART: Received an id_token, ignoring")
         self.launch_context = ctx
         self.save_state()
     
@@ -122,10 +122,17 @@ class FHIRClient(object):
     def patient(self):
         if self._patient is None and self.patient_id is not None and self.ready:
             try:
+                logging.debug("SMART: Attempting to read Patient {}".format(self.patient_id))
                 self._patient = patient.Patient.read(self.patient_id, self.server)
             except FHIRUnauthorizedException as e:
                 if self.reauthorize():
+                    logging.debug("SMART: Attempting to read Patient {} after reauthorizing"
+                        .format(self.patient_id))
                     self._patient = patient.Patient.read(self.patient_id, self.server)
+            except FHIRNotFoundException as e:
+                logging.warning("SMART: Patient with id {} not found".format(self.patient_id))
+                self.patient_id = None
+            self.save_state()
         
         return self._patient
     

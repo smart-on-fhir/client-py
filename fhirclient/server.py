@@ -26,6 +26,13 @@ class FHIRPermissionDeniedException(Exception):
         self.response = response
 
 
+class FHIRNotFoundException(Exception):
+    """ Indicating a 404 response.
+    """
+    def __init__(self, response):
+        self.response = response
+
+
 class FHIRServer(object):
     """ Handles talking to a FHIR server.
     """
@@ -157,6 +164,8 @@ class FHIRServer(object):
             raise FHIRUnauthorizedException(response)
         elif 403 == response.status_code:
             raise FHIRPermissionDeniedException(response)
+        elif 404 == response.status_code:
+            raise FHIRNotFoundException(response)
         else:
             response.raise_for_status()
     
