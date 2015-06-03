@@ -41,12 +41,12 @@ class FHIRAuth(object):
         # look for OAuth2 URLs in SMART security extensions
         if security is not None and security.extension is not None:
             for e in security.extension:
-                if "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#register" == e.url:
+                if "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#register" == e.url:
                     state['registration_uri'] = e.valueUri
-                elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#authorize" == e.url:
+                elif "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#authorize" == e.url:
                     state['authorize_uri'] = e.valueUri
                     auth_type = 'oauth2'
-                elif "http://fhir-registry.smartplatforms.org/Profile/oauth-uris#token" == e.url:
+                elif "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#token" == e.url:
                     state['token_uri'] = e.valueUri
         
         return cls.create(auth_type, state=state)
@@ -263,6 +263,8 @@ class FHIROAuth2Auth(FHIRAuth):
         if self.refresh_token is not None:
             del ret_params['refresh_token']
         
+        logging.debug("Received access token: {}, refresh token: {}"
+            .format(self.access_token is not None, self.refresh_token is not None))
         return ret_params
     
     

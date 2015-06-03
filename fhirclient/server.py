@@ -132,7 +132,7 @@ class FHIRServer(object):
         # perform the request but intercept 401 responses, raising our own Exception
         res = requests.get(url, headers=headers)
         self.raise_for_status(res)
-        return res.json()
+        return res
     
     def post_as_form(self, url, formdata):
         """ Performs a POST request with form-data, expecting to receive JSON.

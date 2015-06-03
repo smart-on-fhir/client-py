@@ -2,6 +2,7 @@
 
 import sys
 import os.path
+import logging
 abspath = os.path.abspath(os.path.dirname(__file__))
 if abspath not in sys.path:
     sys.path.insert(0, abspath)
@@ -105,9 +106,12 @@ class FHIRClient(object):
         return self.launch_context is not None
     
     def _handle_launch_context(self, ctx):
+        logging.debug("Handling launch context: {}".format(ctx))
         if 'patient' in ctx:
             #print('Patient id was {}, row context is {}'.format(self.patient_id, ctx))
             self.patient_id = ctx['patient']        # TODO: TEST THIS!
+        if 'id_token' in ctx:
+            logging.warning("Received an id_token, ignoring")
         self.launch_context = ctx
         self.save_state()
     
