@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class PatientTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = patient.Patient(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return patient.Patient(js)
     
     def testPatient1(self):
         inst = self.instantiate_from("patient-example-a.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e35dad0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
+        self.implPatient1(inst)
+        inst2 = patient.Patient(inst.as_json())
+        self.implPatient1(inst2)
     
+    def implPatient1(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.contact[0].relationship[0].coding[0].code, "owner")
         self.assertEqual(inst.contact[0].relationship[0].coding[0].system, "http://hl7.org/fhir/patient-contact-relationship")
@@ -41,13 +43,16 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.name[0].given[0], "Duck")
         self.assertEqual(inst.name[0].use, "official")
         self.assertEqual(inst.photo[0].contentType, "image/gif")
-        self.assertEqual(inst.text.div, "<div>\n      \n      <p>Patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321</p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testPatient2(self):
         inst = self.instantiate_from("patient-example-animal.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e35dad0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
+        self.implPatient2(inst)
+        inst2 = patient.Patient(inst.as_json())
+        self.implPatient2(inst2)
     
+    def implPatient2(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.animal.breed.coding[0].code, "58108001")
         self.assertEqual(inst.animal.breed.coding[0].display, "Golden retriever")
@@ -61,7 +66,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.animal.species.coding[0].display, "Dog")
         self.assertEqual(inst.animal.species.coding[0].system, "http://hl7.org/fhir/animal-species")
         self.assertEqual(inst.birthDate.date, FHIRDate("2010-03-23").date)
-        self.assertEqual(inst.birthDate.isostring, "2010-03-23")
+        self.assertEqual(inst.birthDate.as_json(), "2010-03-23")
         self.assertEqual(inst.contact[0].name.family[0], "Chalmers")
         self.assertEqual(inst.contact[0].name.given[0], "Peter")
         self.assertEqual(inst.contact[0].name.given[1], "James")
@@ -73,7 +78,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.gender, "female")
         self.assertEqual(inst.id, "animal")
         self.assertEqual(inst.identifier[0].period.start.date, FHIRDate("2010-05-31").date)
-        self.assertEqual(inst.identifier[0].period.start.isostring, "2010-05-31")
+        self.assertEqual(inst.identifier[0].period.start.as_json(), "2010-05-31")
         self.assertEqual(inst.identifier[0].system, "http://www.maroondah.vic.gov.au/AnimalRegFees.aspx")
         self.assertEqual(inst.identifier[0].type.text, "Dog Tag")
         self.assertEqual(inst.identifier[0].value, "1234123")
@@ -83,8 +88,12 @@ class PatientTests(unittest.TestCase):
     
     def testPatient3(self):
         inst = self.instantiate_from("patient-example-b.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e35dad0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
+        self.implPatient3(inst)
+        inst2 = patient.Patient(inst.as_json())
+        self.implPatient3(inst2)
     
+    def implPatient3(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.gender, "other")
         self.assertEqual(inst.id, "pat2")
@@ -99,13 +108,16 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.name[0].given[1], "D")
         self.assertEqual(inst.name[0].use, "official")
         self.assertEqual(inst.photo[0].contentType, "image/gif")
-        self.assertEqual(inst.text.div, "<div>\n      \n      <p>Patient Donald D DUCK @ Acme Healthcare, Inc. MR = 123456</p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testPatient4(self):
         inst = self.instantiate_from("patient-example-dicom.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e35dad0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
+        self.implPatient4(inst)
+        inst2 = patient.Patient(inst.as_json())
+        self.implPatient4(inst2)
     
+    def implPatient4(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.extension[0].url, "http://nema.org/fhir/extensions#0010:1010")
         self.assertEqual(inst.extension[0].valueQuantity.units, "Y")
@@ -121,13 +133,16 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "http://nema.org/examples/patients")
         self.assertEqual(inst.identifier[0].value, "MINT1234")
         self.assertEqual(inst.name[0].family[0], "MINT_TEST")
-        self.assertEqual(inst.text.div, "<div> Patient MINT_TEST, ID = MINT1234. Age = 56y, Size =\n      1.83m, Weight = 72.58kg </div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testPatient5(self):
         inst = self.instantiate_from("patient-example-f001-pieter.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e35dad0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
+        self.implPatient5(inst)
+        inst2 = patient.Patient(inst.as_json())
+        self.implPatient5(inst2)
     
+    def implPatient5(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].city, "Amsterdam")
         self.assertEqual(inst.address[0].country, "NLD")
@@ -135,7 +150,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.address[0].postalCode, "1024 RJ")
         self.assertEqual(inst.address[0].use, "home")
         self.assertEqual(inst.birthDate.date, FHIRDate("1944-11-17").date)
-        self.assertEqual(inst.birthDate.isostring, "1944-11-17")
+        self.assertEqual(inst.birthDate.as_json(), "1944-11-17")
         self.assertEqual(inst.communication[0].language.coding[0].code, "nl")
         self.assertEqual(inst.communication[0].language.coding[0].display, "Dutch")
         self.assertEqual(inst.communication[0].language.coding[0].system, "urn:ietf:bcp:47")
@@ -176,8 +191,12 @@ class PatientTests(unittest.TestCase):
     
     def testPatient6(self):
         inst = self.instantiate_from("patient-example-f201-roel.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e35dad0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
+        self.implPatient6(inst)
+        inst2 = patient.Patient(inst.as_json())
+        self.implPatient6(inst2)
     
+    def implPatient6(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].city, "Amsterdam")
         self.assertEqual(inst.address[0].country, "NLD")
@@ -185,7 +204,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.address[0].postalCode, "1055RW")
         self.assertEqual(inst.address[0].use, "home")
         self.assertEqual(inst.birthDate.date, FHIRDate("1960-03-13").date)
-        self.assertEqual(inst.birthDate.isostring, "1960-03-13")
+        self.assertEqual(inst.birthDate.as_json(), "1960-03-13")
         self.assertEqual(inst.communication[0].language.coding[0].code, "nl-NL")
         self.assertEqual(inst.communication[0].language.coding[0].display, "Dutch")
         self.assertEqual(inst.communication[0].language.coding[0].system, "urn:std:iso:639-1")
@@ -235,8 +254,12 @@ class PatientTests(unittest.TestCase):
     
     def testPatient7(self):
         inst = self.instantiate_from("patient-example-ihe-pcd.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e35dad0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
+        self.implPatient7(inst)
+        inst2 = patient.Patient(inst.as_json())
+        self.implPatient7(inst2)
     
+    def implPatient7(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.id, "ihe-pcd")
         self.assertEqual(inst.identifier[0].type.text, "Internal Identifier")
@@ -248,11 +271,15 @@ class PatientTests(unittest.TestCase):
     
     def testPatient8(self):
         inst = self.instantiate_from("patient-example-proband.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e35dad0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
+        self.implPatient8(inst)
+        inst2 = patient.Patient(inst.as_json())
+        self.implPatient8(inst2)
     
+    def implPatient8(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.birthDate.date, FHIRDate("1966-04-04").date)
-        self.assertEqual(inst.birthDate.isostring, "1966-04-04")
+        self.assertEqual(inst.birthDate.as_json(), "1966-04-04")
         self.assertFalse(inst.deceasedBoolean)
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/us-core-race")
         self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].code, "2106-3")
@@ -264,13 +291,16 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].type.text, "Computer-Stored Abulatory Records (COSTAR)")
         self.assertEqual(inst.identifier[0].use, "usual")
         self.assertEqual(inst.identifier[0].value, "999999999")
-        self.assertEqual(inst.text.div, "<div>\n      \n      <p>\n        \n        <b>Annie Proband</b>: Female, born 1966-04-04\n      </p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testPatient9(self):
         inst = self.instantiate_from("patient-example-us-extensions.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e35dad0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
+        self.implPatient9(inst)
+        inst2 = patient.Patient(inst.as_json())
+        self.implPatient9(inst2)
     
+    def implPatient9(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].city, "PleasantVille")
         self.assertEqual(inst.address[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/us-core-county")
@@ -302,11 +332,15 @@ class PatientTests(unittest.TestCase):
     
     def testPatient10(self):
         inst = self.instantiate_from("patient-example-xcda.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e35dad0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
+        self.implPatient10(inst)
+        inst2 = patient.Patient(inst.as_json())
+        self.implPatient10(inst2)
     
+    def implPatient10(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.birthDate.date, FHIRDate("1932-09-24").date)
-        self.assertEqual(inst.birthDate.isostring, "1932-09-24")
+        self.assertEqual(inst.birthDate.as_json(), "1932-09-24")
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "xcda")
         self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.840.1.113883.19.5")
@@ -316,6 +350,5 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].value, "12345")
         self.assertEqual(inst.name[0].family[0], "Levin")
         self.assertEqual(inst.name[0].given[0], "Henry")
-        self.assertEqual(inst.text.div, "<div>\n      \n      <p>Henry Levin the 7th</p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "generated")
 

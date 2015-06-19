@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class LocationTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = location.Location(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return location.Location(js)
     
     def testLocation1(self):
         inst = self.instantiate_from("location-example-ambulance.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e31bf90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Location instance")
+        self.implLocation1(inst)
+        inst2 = location.Location(inst.as_json())
+        self.implLocation1(inst2)
     
+    def implLocation1(self, inst):
         self.assertEqual(inst.description, "Ambulance provided by Burgers University Medical Center")
         self.assertEqual(inst.id, "amb")
         self.assertEqual(inst.mode, "kind")
@@ -45,8 +47,12 @@ class LocationTests(unittest.TestCase):
     
     def testLocation2(self):
         inst = self.instantiate_from("location-example-patients-home.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e31bf90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Location instance")
+        self.implLocation2(inst)
+        inst2 = location.Location(inst.as_json())
+        self.implLocation2(inst2)
     
+    def implLocation2(self, inst):
         self.assertEqual(inst.description, "Patient's Home")
         self.assertEqual(inst.id, "ph")
         self.assertEqual(inst.mode, "kind")
@@ -63,8 +69,12 @@ class LocationTests(unittest.TestCase):
     
     def testLocation3(self):
         inst = self.instantiate_from("location-example-room.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e31bf90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Location instance")
+        self.implLocation3(inst)
+        inst2 = location.Location(inst.as_json())
+        self.implLocation3(inst2)
     
+    def implLocation3(self, inst):
         self.assertEqual(inst.description, "Old South Wing, Neuro Radiology Operation Room 1 on second floor")
         self.assertEqual(inst.id, "2")
         self.assertEqual(inst.identifier[0].value, "B1-S.F2.1.00")
@@ -84,8 +94,12 @@ class LocationTests(unittest.TestCase):
     
     def testLocation4(self):
         inst = self.instantiate_from("location-example-ukpharmacy.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e31bf90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Location instance")
+        self.implLocation4(inst)
+        inst2 = location.Location(inst.as_json())
+        self.implLocation4(inst2)
     
+    def implLocation4(self, inst):
         self.assertEqual(inst.description, "All Pharmacies in the United Kingdom covered by the National Pharmacy Association")
         self.assertEqual(inst.id, "ukp")
         self.assertEqual(inst.mode, "kind")
@@ -102,8 +116,12 @@ class LocationTests(unittest.TestCase):
     
     def testLocation5(self):
         inst = self.instantiate_from("location-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e31bf90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Location instance")
+        self.implLocation5(inst)
+        inst2 = location.Location(inst.as_json())
+        self.implLocation5(inst2)
     
+    def implLocation5(self, inst):
         self.assertEqual(inst.address.city, "Den Burg")
         self.assertEqual(inst.address.country, "NLD")
         self.assertEqual(inst.address.line[0], "Galapagosweg 91, Building A")

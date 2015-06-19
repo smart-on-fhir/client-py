@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -49,20 +49,17 @@ class Bundle(resource.Resource):
         
         super(Bundle, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Bundle, self).update_with_json(jsondict)
-        if 'base' in jsondict:
-            self.base = jsondict['base']
-        if 'entry' in jsondict:
-            self.entry = BundleEntry.with_json_and_owner(jsondict['entry'], self)
-        if 'link' in jsondict:
-            self.link = BundleLink.with_json_and_owner(jsondict['link'], self)
-        if 'signature' in jsondict:
-            self.signature = jsondict['signature']
-        if 'total' in jsondict:
-            self.total = jsondict['total']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(Bundle, self).elementProperties()
+        js.extend([
+            ("base", "base", str, False),
+            ("entry", "entry", BundleEntry, True),
+            ("link", "link", BundleLink, True),
+            ("signature", "signature", str, False),
+            ("total", "total", int, False),
+            ("type", "type", str, False),
+        ])
+        return js
 
 
 class BundleEntry(fhirelement.FHIRElement):
@@ -83,7 +80,7 @@ class BundleEntry(fhirelement.FHIRElement):
         Type `str`. """
         
         self.link = None
-        """ Links related to this Bundle.
+        """ Links related to this entry.
         List of `BundleLink` items (represented as `dict` in JSON). """
         
         self.resource = None
@@ -104,20 +101,17 @@ class BundleEntry(fhirelement.FHIRElement):
         
         super(BundleEntry, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(BundleEntry, self).update_with_json(jsondict)
-        if 'base' in jsondict:
-            self.base = jsondict['base']
-        if 'link' in jsondict:
-            self.link = BundleLink.with_json_and_owner(jsondict['link'], self)
-        if 'resource' in jsondict:
-            self.resource = resource.Resource.with_json_and_owner(jsondict['resource'], self)
-        if 'search' in jsondict:
-            self.search = BundleEntrySearch.with_json_and_owner(jsondict['search'], self)
-        if 'transaction' in jsondict:
-            self.transaction = BundleEntryTransaction.with_json_and_owner(jsondict['transaction'], self)
-        if 'transactionResponse' in jsondict:
-            self.transactionResponse = BundleEntryTransactionResponse.with_json_and_owner(jsondict['transactionResponse'], self)
+    def elementProperties(self):
+        js = super(BundleEntry, self).elementProperties()
+        js.extend([
+            ("base", "base", str, False),
+            ("link", "link", BundleLink, True),
+            ("resource", "resource", resource.Resource, False),
+            ("search", "search", BundleEntrySearch, False),
+            ("transaction", "transaction", BundleEntryTransaction, False),
+            ("transactionResponse", "transactionResponse", BundleEntryTransactionResponse, False),
+        ])
+        return js
 
 
 class BundleEntrySearch(fhirelement.FHIRElement):
@@ -143,12 +137,13 @@ class BundleEntrySearch(fhirelement.FHIRElement):
         
         super(BundleEntrySearch, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(BundleEntrySearch, self).update_with_json(jsondict)
-        if 'mode' in jsondict:
-            self.mode = jsondict['mode']
-        if 'score' in jsondict:
-            self.score = jsondict['score']
+    def elementProperties(self):
+        js = super(BundleEntrySearch, self).elementProperties()
+        js.extend([
+            ("mode", "mode", str, False),
+            ("score", "score", float, False),
+        ])
+        return js
 
 
 class BundleEntryTransaction(fhirelement.FHIRElement):
@@ -190,20 +185,17 @@ class BundleEntryTransaction(fhirelement.FHIRElement):
         
         super(BundleEntryTransaction, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(BundleEntryTransaction, self).update_with_json(jsondict)
-        if 'ifMatch' in jsondict:
-            self.ifMatch = jsondict['ifMatch']
-        if 'ifModifiedSince' in jsondict:
-            self.ifModifiedSince = fhirdate.FHIRDate.with_json_and_owner(jsondict['ifModifiedSince'], self)
-        if 'ifNoneExist' in jsondict:
-            self.ifNoneExist = jsondict['ifNoneExist']
-        if 'ifNoneMatch' in jsondict:
-            self.ifNoneMatch = jsondict['ifNoneMatch']
-        if 'method' in jsondict:
-            self.method = jsondict['method']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(BundleEntryTransaction, self).elementProperties()
+        js.extend([
+            ("ifMatch", "ifMatch", str, False),
+            ("ifModifiedSince", "ifModifiedSince", fhirdate.FHIRDate, False),
+            ("ifNoneExist", "ifNoneExist", str, False),
+            ("ifNoneMatch", "ifNoneMatch", str, False),
+            ("method", "method", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 
 
 class BundleEntryTransactionResponse(fhirelement.FHIRElement):
@@ -237,16 +229,15 @@ class BundleEntryTransactionResponse(fhirelement.FHIRElement):
         
         super(BundleEntryTransactionResponse, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(BundleEntryTransactionResponse, self).update_with_json(jsondict)
-        if 'etag' in jsondict:
-            self.etag = jsondict['etag']
-        if 'lastModified' in jsondict:
-            self.lastModified = fhirdate.FHIRDate.with_json_and_owner(jsondict['lastModified'], self)
-        if 'location' in jsondict:
-            self.location = jsondict['location']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
+    def elementProperties(self):
+        js = super(BundleEntryTransactionResponse, self).elementProperties()
+        js.extend([
+            ("etag", "etag", str, False),
+            ("lastModified", "lastModified", fhirdate.FHIRDate, False),
+            ("location", "location", str, False),
+            ("status", "status", str, False),
+        ])
+        return js
 
 
 class BundleLink(fhirelement.FHIRElement):
@@ -271,10 +262,11 @@ class BundleLink(fhirelement.FHIRElement):
         
         super(BundleLink, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(BundleLink, self).update_with_json(jsondict)
-        if 'relation' in jsondict:
-            self.relation = jsondict['relation']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(BundleLink, self).elementProperties()
+        js.extend([
+            ("relation", "relation", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 

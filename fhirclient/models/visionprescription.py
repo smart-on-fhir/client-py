@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -62,24 +62,19 @@ class VisionPrescription(domainresource.DomainResource):
         
         super(VisionPrescription, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(VisionPrescription, self).update_with_json(jsondict)
-        if 'dateWritten' in jsondict:
-            self.dateWritten = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateWritten'], self)
-        if 'dispense' in jsondict:
-            self.dispense = VisionPrescriptionDispense.with_json_and_owner(jsondict['dispense'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'prescriber' in jsondict:
-            self.prescriber = fhirreference.FHIRReference.with_json_and_owner(jsondict['prescriber'], self)
-        if 'reasonCodeableConcept' in jsondict:
-            self.reasonCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonCodeableConcept'], self)
-        if 'reasonReference' in jsondict:
-            self.reasonReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reasonReference'], self)
+    def elementProperties(self):
+        js = super(VisionPrescription, self).elementProperties()
+        js.extend([
+            ("dateWritten", "dateWritten", fhirdate.FHIRDate, False),
+            ("dispense", "dispense", VisionPrescriptionDispense, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("prescriber", "prescriber", fhirreference.FHIRReference, False),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class VisionPrescriptionDispense(fhirelement.FHIRElement):
@@ -156,36 +151,24 @@ class VisionPrescriptionDispense(fhirelement.FHIRElement):
         
         super(VisionPrescriptionDispense, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(VisionPrescriptionDispense, self).update_with_json(jsondict)
-        if 'add' in jsondict:
-            self.add = jsondict['add']
-        if 'axis' in jsondict:
-            self.axis = jsondict['axis']
-        if 'backCurve' in jsondict:
-            self.backCurve = jsondict['backCurve']
-        if 'base' in jsondict:
-            self.base = jsondict['base']
-        if 'brand' in jsondict:
-            self.brand = jsondict['brand']
-        if 'color' in jsondict:
-            self.color = jsondict['color']
-        if 'cylinder' in jsondict:
-            self.cylinder = jsondict['cylinder']
-        if 'diameter' in jsondict:
-            self.diameter = jsondict['diameter']
-        if 'duration' in jsondict:
-            self.duration = quantity.Quantity.with_json_and_owner(jsondict['duration'], self)
-        if 'eye' in jsondict:
-            self.eye = jsondict['eye']
-        if 'notes' in jsondict:
-            self.notes = jsondict['notes']
-        if 'power' in jsondict:
-            self.power = jsondict['power']
-        if 'prism' in jsondict:
-            self.prism = jsondict['prism']
-        if 'product' in jsondict:
-            self.product = coding.Coding.with_json_and_owner(jsondict['product'], self)
-        if 'sphere' in jsondict:
-            self.sphere = jsondict['sphere']
+    def elementProperties(self):
+        js = super(VisionPrescriptionDispense, self).elementProperties()
+        js.extend([
+            ("add", "add", float, False),
+            ("axis", "axis", int, False),
+            ("backCurve", "backCurve", float, False),
+            ("base", "base", str, False),
+            ("brand", "brand", str, False),
+            ("color", "color", str, False),
+            ("cylinder", "cylinder", float, False),
+            ("diameter", "diameter", float, False),
+            ("duration", "duration", quantity.Quantity, False),
+            ("eye", "eye", str, False),
+            ("notes", "notes", str, False),
+            ("power", "power", float, False),
+            ("prism", "prism", float, False),
+            ("product", "product", coding.Coding, False),
+            ("sphere", "sphere", float, False),
+        ])
+        return js
 

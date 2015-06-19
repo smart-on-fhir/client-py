@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -40,14 +40,13 @@ class ContactPoint(fhirelement.FHIRElement):
         
         super(ContactPoint, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ContactPoint, self).update_with_json(jsondict)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'system' in jsondict:
-            self.system = jsondict['system']
-        if 'use' in jsondict:
-            self.use = jsondict['use']
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(ContactPoint, self).elementProperties()
+        js.extend([
+            ("period", "period", period.Period, False),
+            ("system", "system", str, False),
+            ("use", "use", str, False),
+            ("value", "value", str, False),
+        ])
+        return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Organization) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Organization) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -64,24 +64,19 @@ class Organization(domainresource.DomainResource):
         
         super(Organization, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Organization, self).update_with_json(jsondict)
-        if 'active' in jsondict:
-            self.active = jsondict['active']
-        if 'address' in jsondict:
-            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'contact' in jsondict:
-            self.contact = OrganizationContact.with_json_and_owner(jsondict['contact'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'partOf' in jsondict:
-            self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self)
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(Organization, self).elementProperties()
+        js.extend([
+            ("active", "active", bool, False),
+            ("address", "address", address.Address, True),
+            ("contact", "contact", OrganizationContact, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("name", "name", str, False),
+            ("partOf", "partOf", fhirreference.FHIRReference, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class OrganizationContact(fhirelement.FHIRElement):
@@ -112,14 +107,13 @@ class OrganizationContact(fhirelement.FHIRElement):
         
         super(OrganizationContact, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(OrganizationContact, self).update_with_json(jsondict)
-        if 'address' in jsondict:
-            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
-        if 'purpose' in jsondict:
-            self.purpose = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['purpose'], self)
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(OrganizationContact, self).elementProperties()
+        js.extend([
+            ("address", "address", address.Address, False),
+            ("name", "name", humanname.HumanName, False),
+            ("purpose", "purpose", codeableconcept.CodeableConcept, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Binary) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Binary) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -31,10 +31,11 @@ class Binary(resource.Resource):
         
         super(Binary, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Binary, self).update_with_json(jsondict)
-        if 'content' in jsondict:
-            self.content = jsondict['content']
-        if 'contentType' in jsondict:
-            self.contentType = jsondict['contentType']
+    def elementProperties(self):
+        js = super(Binary, self).elementProperties()
+        js.extend([
+            ("content", "content", str, False),
+            ("contentType", "contentType", str, False),
+        ])
+        return js
 

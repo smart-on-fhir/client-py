@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,18 +18,20 @@ class AppointmentTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = appointment.Appointment(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return appointment.Appointment(js)
     
     def testAppointment1(self):
         inst = self.instantiate_from("appointment-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e251590> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Appointment instance")
+        self.implAppointment1(inst)
+        inst2 = appointment.Appointment(inst.as_json())
+        self.implAppointment1(inst2)
     
+    def implAppointment1(self, inst):
         self.assertEqual(inst.comment, "Further expand on the results of the MRI and determine the next actions that may be appropriate.")
         self.assertEqual(inst.description, "Discussion on the results of your recent MRI")
         self.assertEqual(inst.end.date, FHIRDate("2013-12-10T11:00:00Z").date)
-        self.assertEqual(inst.end.isostring, "2013-12-10T11:00:00Z")
+        self.assertEqual(inst.end.as_json(), "2013-12-10T11:00:00Z")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.participant[0].required, "required")
         self.assertEqual(inst.participant[0].status, "accepted")
@@ -40,7 +42,7 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.participant[2].status, "accepted")
         self.assertEqual(inst.priority, 5)
         self.assertEqual(inst.start.date, FHIRDate("2013-12-10T09:00:00Z").date)
-        self.assertEqual(inst.start.isostring, "2013-12-10T09:00:00Z")
+        self.assertEqual(inst.start.as_json(), "2013-12-10T09:00:00Z")
         self.assertEqual(inst.status, "booked")
         self.assertEqual(inst.text.div, "<div>Brian MRI results discussion</div>")
         self.assertEqual(inst.text.status, "generated")
@@ -49,12 +51,16 @@ class AppointmentTests(unittest.TestCase):
     
     def testAppointment2(self):
         inst = self.instantiate_from("appointment-example2doctors.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e251590> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Appointment instance")
+        self.implAppointment2(inst)
+        inst2 = appointment.Appointment(inst.as_json())
+        self.implAppointment2(inst2)
     
+    def implAppointment2(self, inst):
         self.assertEqual(inst.comment, "Clarify the results of the MRI to ensure context of test was correct")
         self.assertEqual(inst.description, "Discussion about Peter Chalmers MRI results")
         self.assertEqual(inst.end.date, FHIRDate("2013-12-09T11:00:00Z").date)
-        self.assertEqual(inst.end.isostring, "2013-12-09T11:00:00Z")
+        self.assertEqual(inst.end.as_json(), "2013-12-09T11:00:00Z")
         self.assertEqual(inst.id, "2docs")
         self.assertEqual(inst.participant[0].required, "information-only")
         self.assertEqual(inst.participant[0].status, "accepted")
@@ -66,7 +72,7 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.participant[3].status, "accepted")
         self.assertEqual(inst.priority, 5)
         self.assertEqual(inst.start.date, FHIRDate("2013-12-09T09:00:00Z").date)
-        self.assertEqual(inst.start.isostring, "2013-12-09T09:00:00Z")
+        self.assertEqual(inst.start.as_json(), "2013-12-09T09:00:00Z")
         self.assertEqual(inst.status, "booked")
         self.assertEqual(inst.text.div, "<div>Brian MRI results discussion</div>")
         self.assertEqual(inst.text.status, "generated")

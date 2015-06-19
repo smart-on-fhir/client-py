@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -54,16 +54,14 @@ class Schedule(domainresource.DomainResource):
         
         super(Schedule, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Schedule, self).update_with_json(jsondict)
-        if 'actor' in jsondict:
-            self.actor = fhirreference.FHIRReference.with_json_and_owner(jsondict['actor'], self)
-        if 'comment' in jsondict:
-            self.comment = jsondict['comment']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'planningHorizon' in jsondict:
-            self.planningHorizon = period.Period.with_json_and_owner(jsondict['planningHorizon'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(Schedule, self).elementProperties()
+        js.extend([
+            ("actor", "actor", fhirreference.FHIRReference, False),
+            ("comment", "comment", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("planningHorizon", "planningHorizon", period.Period, False),
+            ("type", "type", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 

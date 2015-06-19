@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class MediaTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = media.Media(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return media.Media(js)
     
     def testMedia1(self):
         inst = self.instantiate_from("media-example-dicom.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e31f490> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Media instance")
+        self.implMedia1(inst)
+        inst2 = media.Media(inst.as_json())
+        self.implMedia1(inst2)
     
+    def implMedia1(self, inst):
         self.assertEqual(inst.content.contentType, "application/dicom")
         self.assertEqual(inst.deviceName, "G.E. Medical Systems")
         self.assertEqual(inst.extension[0].url, "http://nema.org/fhir/extensions#0002-0010")
@@ -53,18 +55,21 @@ class MediaTests(unittest.TestCase):
     
     def testMedia2(self):
         inst = self.instantiate_from("media-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e31f490> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Media instance")
+        self.implMedia2(inst)
+        inst2 = media.Media(inst.as_json())
+        self.implMedia2(inst2)
     
+    def implMedia2(self, inst):
         self.assertEqual(inst.content.contentType, "image/gif")
         self.assertEqual(inst.content.creation.date, FHIRDate("2009-09-03").date)
-        self.assertEqual(inst.content.creation.isostring, "2009-09-03")
+        self.assertEqual(inst.content.creation.as_json(), "2009-09-03")
         self.assertEqual(inst.content.id, "a1")
         self.assertEqual(inst.deviceName, "Acme Camera")
         self.assertEqual(inst.height, 145)
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.subtype.coding[0].code, "diagram")
         self.assertEqual(inst.subtype.coding[0].system, "http://hl7.org/fhir/media-method")
-        self.assertEqual(inst.text.div, "<div>Diagram for Patient Henry Levin (MRN 12345):\n      <br/>\n      <img alt=\"diagram\" src=\"#11\"/>\n    </div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "photo")
         self.assertEqual(inst.width, 126)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -44,10 +44,12 @@ class Parameters(resource.Resource):
         
         super(Parameters, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Parameters, self).update_with_json(jsondict)
-        if 'parameter' in jsondict:
-            self.parameter = ParametersParameter.with_json_and_owner(jsondict['parameter'], self)
+    def elementProperties(self):
+        js = super(Parameters, self).elementProperties()
+        js.extend([
+            ("parameter", "parameter", ParametersParameter, True),
+        ])
+        return js
 
 
 class ParametersParameter(fhirelement.FHIRElement):
@@ -176,64 +178,39 @@ class ParametersParameter(fhirelement.FHIRElement):
         
         super(ParametersParameter, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ParametersParameter, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'part' in jsondict:
-            self.part = ParametersParameterPart.with_json_and_owner(jsondict['part'], self)
-        if 'resource' in jsondict:
-            self.resource = resource.Resource.with_json_and_owner(jsondict['resource'], self)
-        if 'valueAddress' in jsondict:
-            self.valueAddress = address.Address.with_json_and_owner(jsondict['valueAddress'], self)
-        if 'valueAttachment' in jsondict:
-            self.valueAttachment = attachment.Attachment.with_json_and_owner(jsondict['valueAttachment'], self)
-        if 'valueBase64Binary' in jsondict:
-            self.valueBase64Binary = jsondict['valueBase64Binary']
-        if 'valueBoolean' in jsondict:
-            self.valueBoolean = jsondict['valueBoolean']
-        if 'valueCode' in jsondict:
-            self.valueCode = jsondict['valueCode']
-        if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
-        if 'valueCoding' in jsondict:
-            self.valueCoding = coding.Coding.with_json_and_owner(jsondict['valueCoding'], self)
-        if 'valueContactPoint' in jsondict:
-            self.valueContactPoint = contactpoint.ContactPoint.with_json_and_owner(jsondict['valueContactPoint'], self)
-        if 'valueDate' in jsondict:
-            self.valueDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDate'], self)
-        if 'valueDateTime' in jsondict:
-            self.valueDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDateTime'], self)
-        if 'valueDecimal' in jsondict:
-            self.valueDecimal = jsondict['valueDecimal']
-        if 'valueHumanName' in jsondict:
-            self.valueHumanName = humanname.HumanName.with_json_and_owner(jsondict['valueHumanName'], self)
-        if 'valueIdentifier' in jsondict:
-            self.valueIdentifier = identifier.Identifier.with_json_and_owner(jsondict['valueIdentifier'], self)
-        if 'valueInstant' in jsondict:
-            self.valueInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueInstant'], self)
-        if 'valueInteger' in jsondict:
-            self.valueInteger = jsondict['valueInteger']
-        if 'valuePeriod' in jsondict:
-            self.valuePeriod = period.Period.with_json_and_owner(jsondict['valuePeriod'], self)
-        if 'valueQuantity' in jsondict:
-            self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
-        if 'valueRange' in jsondict:
-            self.valueRange = range.Range.with_json_and_owner(jsondict['valueRange'], self)
-        if 'valueRatio' in jsondict:
-            self.valueRatio = ratio.Ratio.with_json_and_owner(jsondict['valueRatio'], self)
-        if 'valueReference' in jsondict:
-            self.valueReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['valueReference'], self)
-        if 'valueSignature' in jsondict:
-            self.valueSignature = signature.Signature.with_json_and_owner(jsondict['valueSignature'], self)
-        if 'valueString' in jsondict:
-            self.valueString = jsondict['valueString']
-        if 'valueTime' in jsondict:
-            self.valueTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueTime'], self)
-        if 'valueTiming' in jsondict:
-            self.valueTiming = timing.Timing.with_json_and_owner(jsondict['valueTiming'], self)
-        if 'valueUri' in jsondict:
-            self.valueUri = jsondict['valueUri']
+    def elementProperties(self):
+        js = super(ParametersParameter, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("part", "part", ParametersParameterPart, True),
+            ("resource", "resource", resource.Resource, False),
+            ("valueAddress", "valueAddress", address.Address, False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False),
+            ("valueBase64Binary", "valueBase64Binary", str, False),
+            ("valueBoolean", "valueBoolean", bool, False),
+            ("valueCode", "valueCode", str, False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("valueCoding", "valueCoding", coding.Coding, False),
+            ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False),
+            ("valueDate", "valueDate", fhirdate.FHIRDate, False),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False),
+            ("valueDecimal", "valueDecimal", float, False),
+            ("valueHumanName", "valueHumanName", humanname.HumanName, False),
+            ("valueIdentifier", "valueIdentifier", identifier.Identifier, False),
+            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False),
+            ("valueInteger", "valueInteger", int, False),
+            ("valuePeriod", "valuePeriod", period.Period, False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
+            ("valueRange", "valueRange", range.Range, False),
+            ("valueRatio", "valueRatio", ratio.Ratio, False),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False),
+            ("valueSignature", "valueSignature", signature.Signature, False),
+            ("valueString", "valueString", str, False),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False),
+            ("valueTiming", "valueTiming", timing.Timing, False),
+            ("valueUri", "valueUri", str, False),
+        ])
+        return js
 
 
 class ParametersParameterPart(fhirelement.FHIRElement):
@@ -359,60 +336,36 @@ class ParametersParameterPart(fhirelement.FHIRElement):
         
         super(ParametersParameterPart, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ParametersParameterPart, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'resource' in jsondict:
-            self.resource = resource.Resource.with_json_and_owner(jsondict['resource'], self)
-        if 'valueAddress' in jsondict:
-            self.valueAddress = address.Address.with_json_and_owner(jsondict['valueAddress'], self)
-        if 'valueAttachment' in jsondict:
-            self.valueAttachment = attachment.Attachment.with_json_and_owner(jsondict['valueAttachment'], self)
-        if 'valueBase64Binary' in jsondict:
-            self.valueBase64Binary = jsondict['valueBase64Binary']
-        if 'valueBoolean' in jsondict:
-            self.valueBoolean = jsondict['valueBoolean']
-        if 'valueCode' in jsondict:
-            self.valueCode = jsondict['valueCode']
-        if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
-        if 'valueCoding' in jsondict:
-            self.valueCoding = coding.Coding.with_json_and_owner(jsondict['valueCoding'], self)
-        if 'valueContactPoint' in jsondict:
-            self.valueContactPoint = contactpoint.ContactPoint.with_json_and_owner(jsondict['valueContactPoint'], self)
-        if 'valueDate' in jsondict:
-            self.valueDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDate'], self)
-        if 'valueDateTime' in jsondict:
-            self.valueDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDateTime'], self)
-        if 'valueDecimal' in jsondict:
-            self.valueDecimal = jsondict['valueDecimal']
-        if 'valueHumanName' in jsondict:
-            self.valueHumanName = humanname.HumanName.with_json_and_owner(jsondict['valueHumanName'], self)
-        if 'valueIdentifier' in jsondict:
-            self.valueIdentifier = identifier.Identifier.with_json_and_owner(jsondict['valueIdentifier'], self)
-        if 'valueInstant' in jsondict:
-            self.valueInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueInstant'], self)
-        if 'valueInteger' in jsondict:
-            self.valueInteger = jsondict['valueInteger']
-        if 'valuePeriod' in jsondict:
-            self.valuePeriod = period.Period.with_json_and_owner(jsondict['valuePeriod'], self)
-        if 'valueQuantity' in jsondict:
-            self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
-        if 'valueRange' in jsondict:
-            self.valueRange = range.Range.with_json_and_owner(jsondict['valueRange'], self)
-        if 'valueRatio' in jsondict:
-            self.valueRatio = ratio.Ratio.with_json_and_owner(jsondict['valueRatio'], self)
-        if 'valueReference' in jsondict:
-            self.valueReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['valueReference'], self)
-        if 'valueSignature' in jsondict:
-            self.valueSignature = signature.Signature.with_json_and_owner(jsondict['valueSignature'], self)
-        if 'valueString' in jsondict:
-            self.valueString = jsondict['valueString']
-        if 'valueTime' in jsondict:
-            self.valueTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueTime'], self)
-        if 'valueTiming' in jsondict:
-            self.valueTiming = timing.Timing.with_json_and_owner(jsondict['valueTiming'], self)
-        if 'valueUri' in jsondict:
-            self.valueUri = jsondict['valueUri']
+    def elementProperties(self):
+        js = super(ParametersParameterPart, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("resource", "resource", resource.Resource, False),
+            ("valueAddress", "valueAddress", address.Address, False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False),
+            ("valueBase64Binary", "valueBase64Binary", str, False),
+            ("valueBoolean", "valueBoolean", bool, False),
+            ("valueCode", "valueCode", str, False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("valueCoding", "valueCoding", coding.Coding, False),
+            ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False),
+            ("valueDate", "valueDate", fhirdate.FHIRDate, False),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False),
+            ("valueDecimal", "valueDecimal", float, False),
+            ("valueHumanName", "valueHumanName", humanname.HumanName, False),
+            ("valueIdentifier", "valueIdentifier", identifier.Identifier, False),
+            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False),
+            ("valueInteger", "valueInteger", int, False),
+            ("valuePeriod", "valuePeriod", period.Period, False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
+            ("valueRange", "valueRange", range.Range, False),
+            ("valueRatio", "valueRatio", ratio.Ratio, False),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False),
+            ("valueSignature", "valueSignature", signature.Signature, False),
+            ("valueString", "valueString", str, False),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False),
+            ("valueTiming", "valueTiming", timing.Timing, False),
+            ("valueUri", "valueUri", str, False),
+        ])
+        return js
 

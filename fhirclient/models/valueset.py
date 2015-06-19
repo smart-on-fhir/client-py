@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -105,46 +105,30 @@ class ValueSet(domainresource.DomainResource):
         
         super(ValueSet, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSet, self).update_with_json(jsondict)
-        if 'compose' in jsondict:
-            self.compose = ValueSetCompose.with_json_and_owner(jsondict['compose'], self)
-        if 'contact' in jsondict:
-            self.contact = ValueSetContact.with_json_and_owner(jsondict['contact'], self)
-        if 'copyright' in jsondict:
-            self.copyright = jsondict['copyright']
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'define' in jsondict:
-            self.define = ValueSetDefine.with_json_and_owner(jsondict['define'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'expansion' in jsondict:
-            self.expansion = ValueSetExpansion.with_json_and_owner(jsondict['expansion'], self)
-        if 'experimental' in jsondict:
-            self.experimental = jsondict['experimental']
-        if 'extensible' in jsondict:
-            self.extensible = jsondict['extensible']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'immutable' in jsondict:
-            self.immutable = jsondict['immutable']
-        if 'lockedDate' in jsondict:
-            self.lockedDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['lockedDate'], self)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'publisher' in jsondict:
-            self.publisher = jsondict['publisher']
-        if 'requirements' in jsondict:
-            self.requirements = jsondict['requirements']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
-        if 'useContext' in jsondict:
-            self.useContext = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['useContext'], self)
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(ValueSet, self).elementProperties()
+        js.extend([
+            ("compose", "compose", ValueSetCompose, False),
+            ("contact", "contact", ValueSetContact, True),
+            ("copyright", "copyright", str, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("define", "define", ValueSetDefine, False),
+            ("description", "description", str, False),
+            ("expansion", "expansion", ValueSetExpansion, False),
+            ("experimental", "experimental", bool, False),
+            ("extensible", "extensible", bool, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("immutable", "immutable", bool, False),
+            ("lockedDate", "lockedDate", fhirdate.FHIRDate, False),
+            ("name", "name", str, False),
+            ("publisher", "publisher", str, False),
+            ("requirements", "requirements", str, False),
+            ("status", "status", str, False),
+            ("url", "url", str, False),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
+            ("version", "version", str, False),
+        ])
+        return js
 
 
 class ValueSetCompose(fhirelement.FHIRElement):
@@ -157,6 +141,10 @@ class ValueSetCompose(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
+        self.exclude = None
+        """ Explicitly exclude codes.
+        List of `ValueSetComposeInclude` items (represented as `dict` in JSON). """
+        
         self.importFrom = None
         """ Import the contents of another value set.
         List of `str` items. """
@@ -167,12 +155,14 @@ class ValueSetCompose(fhirelement.FHIRElement):
         
         super(ValueSetCompose, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSetCompose, self).update_with_json(jsondict)
-        if 'import' in jsondict:
-            self.importFrom = jsondict['import']
-        if 'include' in jsondict:
-            self.include = ValueSetComposeInclude.with_json_and_owner(jsondict['include'], self)
+    def elementProperties(self):
+        js = super(ValueSetCompose, self).elementProperties()
+        js.extend([
+            ("exclude", "exclude", ValueSetComposeInclude, True),
+            ("importFrom", "import", str, True),
+            ("include", "include", ValueSetComposeInclude, True),
+        ])
+        return js
 
 
 class ValueSetComposeInclude(fhirelement.FHIRElement):
@@ -203,16 +193,15 @@ class ValueSetComposeInclude(fhirelement.FHIRElement):
         
         super(ValueSetComposeInclude, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSetComposeInclude, self).update_with_json(jsondict)
-        if 'concept' in jsondict:
-            self.concept = ValueSetComposeIncludeConcept.with_json_and_owner(jsondict['concept'], self)
-        if 'filter' in jsondict:
-            self.filter = ValueSetComposeIncludeFilter.with_json_and_owner(jsondict['filter'], self)
-        if 'system' in jsondict:
-            self.system = jsondict['system']
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(ValueSetComposeInclude, self).elementProperties()
+        js.extend([
+            ("concept", "concept", ValueSetComposeIncludeConcept, True),
+            ("filter", "filter", ValueSetComposeIncludeFilter, True),
+            ("system", "system", str, False),
+            ("version", "version", str, False),
+        ])
+        return js
 
 
 class ValueSetComposeIncludeConcept(fhirelement.FHIRElement):
@@ -232,7 +221,7 @@ class ValueSetComposeIncludeConcept(fhirelement.FHIRElement):
         Type `str`. """
         
         self.designation = None
-        """ Additional representations for the concept.
+        """ Additional representations for this valueset.
         List of `ValueSetDefineConceptDesignation` items (represented as `dict` in JSON). """
         
         self.display = None
@@ -241,14 +230,14 @@ class ValueSetComposeIncludeConcept(fhirelement.FHIRElement):
         
         super(ValueSetComposeIncludeConcept, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSetComposeIncludeConcept, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'designation' in jsondict:
-            self.designation = ValueSetDefineConceptDesignation.with_json_and_owner(jsondict['designation'], self)
-        if 'display' in jsondict:
-            self.display = jsondict['display']
+    def elementProperties(self):
+        js = super(ValueSetComposeIncludeConcept, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("designation", "designation", ValueSetDefineConceptDesignation, True),
+            ("display", "display", str, False),
+        ])
+        return js
 
 
 class ValueSetComposeIncludeFilter(fhirelement.FHIRElement):
@@ -279,14 +268,14 @@ class ValueSetComposeIncludeFilter(fhirelement.FHIRElement):
         
         super(ValueSetComposeIncludeFilter, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSetComposeIncludeFilter, self).update_with_json(jsondict)
-        if 'op' in jsondict:
-            self.op = jsondict['op']
-        if 'property' in jsondict:
-            self.property = jsondict['property']
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(ValueSetComposeIncludeFilter, self).elementProperties()
+        js.extend([
+            ("op", "op", str, False),
+            ("property", "property", str, False),
+            ("value", "value", str, False),
+        ])
+        return js
 
 
 class ValueSetContact(fhirelement.FHIRElement):
@@ -311,12 +300,13 @@ class ValueSetContact(fhirelement.FHIRElement):
         
         super(ValueSetContact, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSetContact, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(ValueSetContact, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class ValueSetDefine(fhirelement.FHIRElement):
@@ -349,16 +339,15 @@ class ValueSetDefine(fhirelement.FHIRElement):
         
         super(ValueSetDefine, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSetDefine, self).update_with_json(jsondict)
-        if 'caseSensitive' in jsondict:
-            self.caseSensitive = jsondict['caseSensitive']
-        if 'concept' in jsondict:
-            self.concept = ValueSetDefineConcept.with_json_and_owner(jsondict['concept'], self)
-        if 'system' in jsondict:
-            self.system = jsondict['system']
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(ValueSetDefine, self).elementProperties()
+        js.extend([
+            ("caseSensitive", "caseSensitive", bool, False),
+            ("concept", "concept", ValueSetDefineConcept, True),
+            ("system", "system", str, False),
+            ("version", "version", str, False),
+        ])
+        return js
 
 
 class ValueSetDefineConcept(fhirelement.FHIRElement):
@@ -380,7 +369,7 @@ class ValueSetDefineConcept(fhirelement.FHIRElement):
         Type `str`. """
         
         self.concept = None
-        """ Concepts in the code system.
+        """ Child Concepts (is-a / contains).
         List of `ValueSetDefineConcept` items (represented as `dict` in JSON). """
         
         self.definition = None
@@ -397,20 +386,17 @@ class ValueSetDefineConcept(fhirelement.FHIRElement):
         
         super(ValueSetDefineConcept, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSetDefineConcept, self).update_with_json(jsondict)
-        if 'abstract' in jsondict:
-            self.abstract = jsondict['abstract']
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'concept' in jsondict:
-            self.concept = ValueSetDefineConcept.with_json_and_owner(jsondict['concept'], self)
-        if 'definition' in jsondict:
-            self.definition = jsondict['definition']
-        if 'designation' in jsondict:
-            self.designation = ValueSetDefineConceptDesignation.with_json_and_owner(jsondict['designation'], self)
-        if 'display' in jsondict:
-            self.display = jsondict['display']
+    def elementProperties(self):
+        js = super(ValueSetDefineConcept, self).elementProperties()
+        js.extend([
+            ("abstract", "abstract", bool, False),
+            ("code", "code", str, False),
+            ("concept", "concept", ValueSetDefineConcept, True),
+            ("definition", "definition", str, False),
+            ("designation", "designation", ValueSetDefineConceptDesignation, True),
+            ("display", "display", str, False),
+        ])
+        return js
 
 
 class ValueSetDefineConceptDesignation(fhirelement.FHIRElement):
@@ -440,14 +426,14 @@ class ValueSetDefineConceptDesignation(fhirelement.FHIRElement):
         
         super(ValueSetDefineConceptDesignation, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSetDefineConceptDesignation, self).update_with_json(jsondict)
-        if 'language' in jsondict:
-            self.language = jsondict['language']
-        if 'use' in jsondict:
-            self.use = coding.Coding.with_json_and_owner(jsondict['use'], self)
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(ValueSetDefineConceptDesignation, self).elementProperties()
+        js.extend([
+            ("language", "language", str, False),
+            ("use", "use", coding.Coding, False),
+            ("value", "value", str, False),
+        ])
+        return js
 
 
 class ValueSetExpansion(fhirelement.FHIRElement):
@@ -482,16 +468,15 @@ class ValueSetExpansion(fhirelement.FHIRElement):
         
         super(ValueSetExpansion, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSetExpansion, self).update_with_json(jsondict)
-        if 'contains' in jsondict:
-            self.contains = ValueSetExpansionContains.with_json_and_owner(jsondict['contains'], self)
-        if 'identifier' in jsondict:
-            self.identifier = jsondict['identifier']
-        if 'parameter' in jsondict:
-            self.parameter = ValueSetExpansionParameter.with_json_and_owner(jsondict['parameter'], self)
-        if 'timestamp' in jsondict:
-            self.timestamp = fhirdate.FHIRDate.with_json_and_owner(jsondict['timestamp'], self)
+    def elementProperties(self):
+        js = super(ValueSetExpansion, self).elementProperties()
+        js.extend([
+            ("contains", "contains", ValueSetExpansionContains, True),
+            ("identifier", "identifier", str, False),
+            ("parameter", "parameter", ValueSetExpansionParameter, True),
+            ("timestamp", "timestamp", fhirdate.FHIRDate, False),
+        ])
+        return js
 
 
 class ValueSetExpansionContains(fhirelement.FHIRElement):
@@ -515,7 +500,7 @@ class ValueSetExpansionContains(fhirelement.FHIRElement):
         Type `str`. """
         
         self.contains = None
-        """ Codes in the value set.
+        """ Codes contained in this concept.
         List of `ValueSetExpansionContains` items (represented as `dict` in JSON). """
         
         self.display = None
@@ -532,20 +517,17 @@ class ValueSetExpansionContains(fhirelement.FHIRElement):
         
         super(ValueSetExpansionContains, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSetExpansionContains, self).update_with_json(jsondict)
-        if 'abstract' in jsondict:
-            self.abstract = jsondict['abstract']
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'contains' in jsondict:
-            self.contains = ValueSetExpansionContains.with_json_and_owner(jsondict['contains'], self)
-        if 'display' in jsondict:
-            self.display = jsondict['display']
-        if 'system' in jsondict:
-            self.system = jsondict['system']
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(ValueSetExpansionContains, self).elementProperties()
+        js.extend([
+            ("abstract", "abstract", bool, False),
+            ("code", "code", str, False),
+            ("contains", "contains", ValueSetExpansionContains, True),
+            ("display", "display", str, False),
+            ("system", "system", str, False),
+            ("version", "version", str, False),
+        ])
+        return js
 
 
 class ValueSetExpansionParameter(fhirelement.FHIRElement):
@@ -592,20 +574,16 @@ class ValueSetExpansionParameter(fhirelement.FHIRElement):
         
         super(ValueSetExpansionParameter, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ValueSetExpansionParameter, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'valueBoolean' in jsondict:
-            self.valueBoolean = jsondict['valueBoolean']
-        if 'valueCode' in jsondict:
-            self.valueCode = jsondict['valueCode']
-        if 'valueDecimal' in jsondict:
-            self.valueDecimal = jsondict['valueDecimal']
-        if 'valueInteger' in jsondict:
-            self.valueInteger = jsondict['valueInteger']
-        if 'valueString' in jsondict:
-            self.valueString = jsondict['valueString']
-        if 'valueUri' in jsondict:
-            self.valueUri = jsondict['valueUri']
+    def elementProperties(self):
+        js = super(ValueSetExpansionParameter, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("valueBoolean", "valueBoolean", bool, False),
+            ("valueCode", "valueCode", str, False),
+            ("valueDecimal", "valueDecimal", float, False),
+            ("valueInteger", "valueInteger", int, False),
+            ("valueString", "valueString", str, False),
+            ("valueUri", "valueUri", str, False),
+        ])
+        return js
 

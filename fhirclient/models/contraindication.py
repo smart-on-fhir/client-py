@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Contraindication) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Contraindication) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -70,28 +70,21 @@ class Contraindication(domainresource.DomainResource):
         
         super(Contraindication, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Contraindication, self).update_with_json(jsondict)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'category' in jsondict:
-            self.category = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['category'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'detail' in jsondict:
-            self.detail = jsondict['detail']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'implicated' in jsondict:
-            self.implicated = fhirreference.FHIRReference.with_json_and_owner(jsondict['implicated'], self)
-        if 'mitigation' in jsondict:
-            self.mitigation = ContraindicationMitigation.with_json_and_owner(jsondict['mitigation'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'reference' in jsondict:
-            self.reference = jsondict['reference']
-        if 'severity' in jsondict:
-            self.severity = jsondict['severity']
+    def elementProperties(self):
+        js = super(Contraindication, self).elementProperties()
+        js.extend([
+            ("author", "author", fhirreference.FHIRReference, False),
+            ("category", "category", codeableconcept.CodeableConcept, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("detail", "detail", str, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("implicated", "implicated", fhirreference.FHIRReference, True),
+            ("mitigation", "mitigation", ContraindicationMitigation, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("reference", "reference", str, False),
+            ("severity", "severity", str, False),
+        ])
+        return js
 
 
 class ContraindicationMitigation(fhirelement.FHIRElement):
@@ -123,12 +116,12 @@ class ContraindicationMitigation(fhirelement.FHIRElement):
         
         super(ContraindicationMitigation, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ContraindicationMitigation, self).update_with_json(jsondict)
-        if 'action' in jsondict:
-            self.action = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['action'], self)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
+    def elementProperties(self):
+        js = super(ContraindicationMitigation, self).elementProperties()
+        js.extend([
+            ("action", "action", codeableconcept.CodeableConcept, False),
+            ("author", "author", fhirreference.FHIRReference, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+        ])
+        return js
 

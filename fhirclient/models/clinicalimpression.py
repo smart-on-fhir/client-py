@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -105,44 +105,29 @@ class ClinicalImpression(domainresource.DomainResource):
         
         super(ClinicalImpression, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClinicalImpression, self).update_with_json(jsondict)
-        if 'action' in jsondict:
-            self.action = fhirreference.FHIRReference.with_json_and_owner(jsondict['action'], self)
-        if 'assessor' in jsondict:
-            self.assessor = fhirreference.FHIRReference.with_json_and_owner(jsondict['assessor'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'finding' in jsondict:
-            self.finding = ClinicalImpressionFinding.with_json_and_owner(jsondict['finding'], self)
-        if 'investigations' in jsondict:
-            self.investigations = ClinicalImpressionInvestigations.with_json_and_owner(jsondict['investigations'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'plan' in jsondict:
-            self.plan = fhirreference.FHIRReference.with_json_and_owner(jsondict['plan'], self)
-        if 'previous' in jsondict:
-            self.previous = fhirreference.FHIRReference.with_json_and_owner(jsondict['previous'], self)
-        if 'problem' in jsondict:
-            self.problem = fhirreference.FHIRReference.with_json_and_owner(jsondict['problem'], self)
-        if 'prognosis' in jsondict:
-            self.prognosis = jsondict['prognosis']
-        if 'protocol' in jsondict:
-            self.protocol = jsondict['protocol']
-        if 'resolved' in jsondict:
-            self.resolved = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['resolved'], self)
-        if 'ruledOut' in jsondict:
-            self.ruledOut = ClinicalImpressionRuledOut.with_json_and_owner(jsondict['ruledOut'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'summary' in jsondict:
-            self.summary = jsondict['summary']
-        if 'triggerCodeableConcept' in jsondict:
-            self.triggerCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['triggerCodeableConcept'], self)
-        if 'triggerReference' in jsondict:
-            self.triggerReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['triggerReference'], self)
+    def elementProperties(self):
+        js = super(ClinicalImpression, self).elementProperties()
+        js.extend([
+            ("action", "action", fhirreference.FHIRReference, True),
+            ("assessor", "assessor", fhirreference.FHIRReference, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("finding", "finding", ClinicalImpressionFinding, True),
+            ("investigations", "investigations", ClinicalImpressionInvestigations, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("plan", "plan", fhirreference.FHIRReference, True),
+            ("previous", "previous", fhirreference.FHIRReference, False),
+            ("problem", "problem", fhirreference.FHIRReference, True),
+            ("prognosis", "prognosis", str, False),
+            ("protocol", "protocol", str, False),
+            ("resolved", "resolved", codeableconcept.CodeableConcept, True),
+            ("ruledOut", "ruledOut", ClinicalImpressionRuledOut, True),
+            ("status", "status", str, False),
+            ("summary", "summary", str, False),
+            ("triggerCodeableConcept", "triggerCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("triggerReference", "triggerReference", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ClinicalImpressionFinding(fhirelement.FHIRElement):
@@ -168,12 +153,13 @@ class ClinicalImpressionFinding(fhirelement.FHIRElement):
         
         super(ClinicalImpressionFinding, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClinicalImpressionFinding, self).update_with_json(jsondict)
-        if 'cause' in jsondict:
-            self.cause = jsondict['cause']
-        if 'item' in jsondict:
-            self.item = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['item'], self)
+    def elementProperties(self):
+        js = super(ClinicalImpressionFinding, self).elementProperties()
+        js.extend([
+            ("cause", "cause", str, False),
+            ("item", "item", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class ClinicalImpressionInvestigations(fhirelement.FHIRElement):
@@ -202,12 +188,13 @@ class ClinicalImpressionInvestigations(fhirelement.FHIRElement):
         
         super(ClinicalImpressionInvestigations, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClinicalImpressionInvestigations, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'item' in jsondict:
-            self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self)
+    def elementProperties(self):
+        js = super(ClinicalImpressionInvestigations, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("item", "item", fhirreference.FHIRReference, True),
+        ])
+        return js
 
 
 class ClinicalImpressionRuledOut(fhirelement.FHIRElement):
@@ -230,10 +217,11 @@ class ClinicalImpressionRuledOut(fhirelement.FHIRElement):
         
         super(ClinicalImpressionRuledOut, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClinicalImpressionRuledOut, self).update_with_json(jsondict)
-        if 'item' in jsondict:
-            self.item = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['item'], self)
-        if 'reason' in jsondict:
-            self.reason = jsondict['reason']
+    def elementProperties(self):
+        js = super(ClinicalImpressionRuledOut, self).elementProperties()
+        js.extend([
+            ("item", "item", codeableconcept.CodeableConcept, False),
+            ("reason", "reason", str, False),
+        ])
+        return js
 

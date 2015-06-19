@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -110,48 +110,31 @@ class Procedure(domainresource.DomainResource):
         
         super(Procedure, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Procedure, self).update_with_json(jsondict)
-        if 'bodySite' in jsondict:
-            self.bodySite = ProcedureBodySite.with_json_and_owner(jsondict['bodySite'], self)
-        if 'category' in jsondict:
-            self.category = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['category'], self)
-        if 'complication' in jsondict:
-            self.complication = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['complication'], self)
-        if 'device' in jsondict:
-            self.device = ProcedureDevice.with_json_and_owner(jsondict['device'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'followUp' in jsondict:
-            self.followUp = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['followUp'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'indication' in jsondict:
-            self.indication = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['indication'], self)
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
-        if 'notes' in jsondict:
-            self.notes = jsondict['notes']
-        if 'outcome' in jsondict:
-            self.outcome = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['outcome'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'performedDateTime' in jsondict:
-            self.performedDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['performedDateTime'], self)
-        if 'performedPeriod' in jsondict:
-            self.performedPeriod = period.Period.with_json_and_owner(jsondict['performedPeriod'], self)
-        if 'performer' in jsondict:
-            self.performer = ProcedurePerformer.with_json_and_owner(jsondict['performer'], self)
-        if 'relatedItem' in jsondict:
-            self.relatedItem = ProcedureRelatedItem.with_json_and_owner(jsondict['relatedItem'], self)
-        if 'report' in jsondict:
-            self.report = fhirreference.FHIRReference.with_json_and_owner(jsondict['report'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
-        if 'used' in jsondict:
-            self.used = fhirreference.FHIRReference.with_json_and_owner(jsondict['used'], self)
+    def elementProperties(self):
+        js = super(Procedure, self).elementProperties()
+        js.extend([
+            ("bodySite", "bodySite", ProcedureBodySite, True),
+            ("category", "category", codeableconcept.CodeableConcept, False),
+            ("complication", "complication", codeableconcept.CodeableConcept, True),
+            ("device", "device", ProcedureDevice, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("followUp", "followUp", codeableconcept.CodeableConcept, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("indication", "indication", codeableconcept.CodeableConcept, True),
+            ("location", "location", fhirreference.FHIRReference, False),
+            ("notes", "notes", str, False),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("performedDateTime", "performedDateTime", fhirdate.FHIRDate, False),
+            ("performedPeriod", "performedPeriod", period.Period, False),
+            ("performer", "performer", ProcedurePerformer, True),
+            ("relatedItem", "relatedItem", ProcedureRelatedItem, True),
+            ("report", "report", fhirreference.FHIRReference, True),
+            ("status", "status", str, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("used", "used", fhirreference.FHIRReference, True),
+        ])
+        return js
 
 
 class ProcedureBodySite(fhirelement.FHIRElement):
@@ -177,12 +160,13 @@ class ProcedureBodySite(fhirelement.FHIRElement):
         
         super(ProcedureBodySite, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProcedureBodySite, self).update_with_json(jsondict)
-        if 'siteCodeableConcept' in jsondict:
-            self.siteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['siteCodeableConcept'], self)
-        if 'siteReference' in jsondict:
-            self.siteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['siteReference'], self)
+    def elementProperties(self):
+        js = super(ProcedureBodySite, self).elementProperties()
+        js.extend([
+            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("siteReference", "siteReference", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ProcedureDevice(fhirelement.FHIRElement):
@@ -207,12 +191,13 @@ class ProcedureDevice(fhirelement.FHIRElement):
         
         super(ProcedureDevice, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProcedureDevice, self).update_with_json(jsondict)
-        if 'action' in jsondict:
-            self.action = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['action'], self)
-        if 'manipulated' in jsondict:
-            self.manipulated = fhirreference.FHIRReference.with_json_and_owner(jsondict['manipulated'], self)
+    def elementProperties(self):
+        js = super(ProcedureDevice, self).elementProperties()
+        js.extend([
+            ("action", "action", codeableconcept.CodeableConcept, False),
+            ("manipulated", "manipulated", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ProcedurePerformer(fhirelement.FHIRElement):
@@ -237,12 +222,13 @@ class ProcedurePerformer(fhirelement.FHIRElement):
         
         super(ProcedurePerformer, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProcedurePerformer, self).update_with_json(jsondict)
-        if 'person' in jsondict:
-            self.person = fhirreference.FHIRReference.with_json_and_owner(jsondict['person'], self)
-        if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
+    def elementProperties(self):
+        js = super(ProcedurePerformer, self).elementProperties()
+        js.extend([
+            ("person", "person", fhirreference.FHIRReference, False),
+            ("role", "role", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class ProcedureRelatedItem(fhirelement.FHIRElement):
@@ -268,10 +254,11 @@ class ProcedureRelatedItem(fhirelement.FHIRElement):
         
         super(ProcedureRelatedItem, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProcedureRelatedItem, self).update_with_json(jsondict)
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(ProcedureRelatedItem, self).elementProperties()
+        js.extend([
+            ("target", "target", fhirreference.FHIRReference, False),
+            ("type", "type", str, False),
+        ])
+        return js
 

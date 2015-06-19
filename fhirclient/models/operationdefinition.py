@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -103,46 +103,30 @@ class OperationDefinition(domainresource.DomainResource):
         
         super(OperationDefinition, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(OperationDefinition, self).update_with_json(jsondict)
-        if 'base' in jsondict:
-            self.base = fhirreference.FHIRReference.with_json_and_owner(jsondict['base'], self)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'contact' in jsondict:
-            self.contact = OperationDefinitionContact.with_json_and_owner(jsondict['contact'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'experimental' in jsondict:
-            self.experimental = jsondict['experimental']
-        if 'idempotent' in jsondict:
-            self.idempotent = jsondict['idempotent']
-        if 'instance' in jsondict:
-            self.instance = jsondict['instance']
-        if 'kind' in jsondict:
-            self.kind = jsondict['kind']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'notes' in jsondict:
-            self.notes = jsondict['notes']
-        if 'parameter' in jsondict:
-            self.parameter = OperationDefinitionParameter.with_json_and_owner(jsondict['parameter'], self)
-        if 'publisher' in jsondict:
-            self.publisher = jsondict['publisher']
-        if 'requirements' in jsondict:
-            self.requirements = jsondict['requirements']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'system' in jsondict:
-            self.system = jsondict['system']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(OperationDefinition, self).elementProperties()
+        js.extend([
+            ("base", "base", fhirreference.FHIRReference, False),
+            ("code", "code", str, False),
+            ("contact", "contact", OperationDefinitionContact, True),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("experimental", "experimental", bool, False),
+            ("idempotent", "idempotent", bool, False),
+            ("instance", "instance", bool, False),
+            ("kind", "kind", str, False),
+            ("name", "name", str, False),
+            ("notes", "notes", str, False),
+            ("parameter", "parameter", OperationDefinitionParameter, True),
+            ("publisher", "publisher", str, False),
+            ("requirements", "requirements", str, False),
+            ("status", "status", str, False),
+            ("system", "system", bool, False),
+            ("type", "type", str, True),
+            ("url", "url", str, False),
+            ("version", "version", str, False),
+        ])
+        return js
 
 
 class OperationDefinitionContact(fhirelement.FHIRElement):
@@ -167,12 +151,13 @@ class OperationDefinitionContact(fhirelement.FHIRElement):
         
         super(OperationDefinitionContact, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(OperationDefinitionContact, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(OperationDefinitionContact, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class OperationDefinitionParameter(fhirelement.FHIRElement):
@@ -221,24 +206,19 @@ class OperationDefinitionParameter(fhirelement.FHIRElement):
         
         super(OperationDefinitionParameter, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(OperationDefinitionParameter, self).update_with_json(jsondict)
-        if 'documentation' in jsondict:
-            self.documentation = jsondict['documentation']
-        if 'max' in jsondict:
-            self.max = jsondict['max']
-        if 'min' in jsondict:
-            self.min = jsondict['min']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'part' in jsondict:
-            self.part = OperationDefinitionParameterPart.with_json_and_owner(jsondict['part'], self)
-        if 'profile' in jsondict:
-            self.profile = fhirreference.FHIRReference.with_json_and_owner(jsondict['profile'], self)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'use' in jsondict:
-            self.use = jsondict['use']
+    def elementProperties(self):
+        js = super(OperationDefinitionParameter, self).elementProperties()
+        js.extend([
+            ("documentation", "documentation", str, False),
+            ("max", "max", str, False),
+            ("min", "min", int, False),
+            ("name", "name", str, False),
+            ("part", "part", OperationDefinitionParameterPart, True),
+            ("profile", "profile", fhirreference.FHIRReference, False),
+            ("type", "type", str, False),
+            ("use", "use", str, False),
+        ])
+        return js
 
 
 class OperationDefinitionParameterPart(fhirelement.FHIRElement):
@@ -279,18 +259,15 @@ class OperationDefinitionParameterPart(fhirelement.FHIRElement):
         
         super(OperationDefinitionParameterPart, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(OperationDefinitionParameterPart, self).update_with_json(jsondict)
-        if 'documentation' in jsondict:
-            self.documentation = jsondict['documentation']
-        if 'max' in jsondict:
-            self.max = jsondict['max']
-        if 'min' in jsondict:
-            self.min = jsondict['min']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'profile' in jsondict:
-            self.profile = fhirreference.FHIRReference.with_json_and_owner(jsondict['profile'], self)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(OperationDefinitionParameterPart, self).elementProperties()
+        js.extend([
+            ("documentation", "documentation", str, False),
+            ("max", "max", str, False),
+            ("min", "min", int, False),
+            ("name", "name", str, False),
+            ("profile", "profile", fhirreference.FHIRReference, False),
+            ("type", "type", str, False),
+        ])
+        return js
 

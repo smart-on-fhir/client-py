@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class ImagingObjectSelectionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = imagingobjectselection.ImagingObjectSelection(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return imagingobjectselection.ImagingObjectSelection(js)
     
     def testImagingObjectSelection1(self):
         inst = self.instantiate_from("imagingobjectselection-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e305bd0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ImagingObjectSelection instance")
+        self.implImagingObjectSelection1(inst)
+        inst2 = imagingobjectselection.ImagingObjectSelection(inst.as_json())
+        self.implImagingObjectSelection1(inst2)
     
+    def implImagingObjectSelection1(self, inst):
         self.assertEqual(inst.authoringTime.date, FHIRDate("2014-11-20T11:01:20-08:00").date)
-        self.assertEqual(inst.authoringTime.isostring, "2014-11-20T11:01:20-08:00")
+        self.assertEqual(inst.authoringTime.as_json(), "2014-11-20T11:01:20-08:00")
         self.assertEqual(inst.description, "1 SC image (screen snapshot) and 2 CT images to share a chest CT exam")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.study[0].series[0].instance[0].sopClass, "urn:oid:1.2.840.10008.5.1.4.1.1.7")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/CodeableConcept) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/CodeableConcept) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -32,10 +32,11 @@ class CodeableConcept(fhirelement.FHIRElement):
         
         super(CodeableConcept, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(CodeableConcept, self).update_with_json(jsondict)
-        if 'coding' in jsondict:
-            self.coding = coding.Coding.with_json_and_owner(jsondict['coding'], self)
-        if 'text' in jsondict:
-            self.text = jsondict['text']
+    def elementProperties(self):
+        js = super(CodeableConcept, self).elementProperties()
+        js.extend([
+            ("coding", "coding", coding.Coding, True),
+            ("text", "text", str, False),
+        ])
+        return js
 

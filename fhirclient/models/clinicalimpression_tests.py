@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class ClinicalImpressionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = clinicalimpression.ClinicalImpression(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return clinicalimpression.ClinicalImpression(js)
     
     def testClinicalImpression1(self):
         inst = self.instantiate_from("clinicalimpression-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e285d90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ClinicalImpression instance")
+        self.implClinicalImpression1(inst)
+        inst2 = clinicalimpression.ClinicalImpression(inst.as_json())
+        self.implClinicalImpression1(inst2)
     
+    def implClinicalImpression1(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2014-12-06T22:33:00+11:00").date)
-        self.assertEqual(inst.date.isostring, "2014-12-06T22:33:00+11:00")
+        self.assertEqual(inst.date.as_json(), "2014-12-06T22:33:00+11:00")
         self.assertEqual(inst.description, "This 26 yo male patient is brought into ER by ambulance after being involved in a motor vehicle accident")
         self.assertEqual(inst.finding[0].item.coding[0].code, "850.0")
         self.assertEqual(inst.finding[0].item.coding[0].system, "http://hl7.org/fhir/sid/icd-9")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,20 +18,21 @@ class NamingSystemTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = namingsystem.NamingSystem(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return namingsystem.NamingSystem(js)
     
     def testNamingSystem1(self):
         inst = self.instantiate_from("namingsystem-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e33fed0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a NamingSystem instance")
+        self.implNamingSystem1(inst)
+        inst2 = namingsystem.NamingSystem(inst.as_json())
+        self.implNamingSystem1(inst2)
     
+    def implNamingSystem1(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2014-12-13").date)
-        self.assertEqual(inst.date.isostring, "2014-12-13")
+        self.assertEqual(inst.date.as_json(), "2014-12-13")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.name, "SNOMED CT")
         self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.div, "<div>\n      \n      <p>\n        <b>SNOMED CT</b>\n      </p>\n      \n      <p> oid: 2.16.840.1.113883.6.96</p>\n      \n      <p> uri: http://snomed.info/sct</p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "codesystem")
         self.assertEqual(inst.uniqueId[0].type, "oid")

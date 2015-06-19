@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Group) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Group) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -63,24 +63,19 @@ class Group(domainresource.DomainResource):
         
         super(Group, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Group, self).update_with_json(jsondict)
-        if 'actual' in jsondict:
-            self.actual = jsondict['actual']
-        if 'characteristic' in jsondict:
-            self.characteristic = GroupCharacteristic.with_json_and_owner(jsondict['characteristic'], self)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'member' in jsondict:
-            self.member = fhirreference.FHIRReference.with_json_and_owner(jsondict['member'], self)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'quantity' in jsondict:
-            self.quantity = jsondict['quantity']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(Group, self).elementProperties()
+        js.extend([
+            ("actual", "actual", bool, False),
+            ("characteristic", "characteristic", GroupCharacteristic, True),
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("member", "member", fhirreference.FHIRReference, True),
+            ("name", "name", str, False),
+            ("quantity", "quantity", int, False),
+            ("type", "type", str, False),
+        ])
+        return js
 
 
 class GroupCharacteristic(fhirelement.FHIRElement):
@@ -121,18 +116,15 @@ class GroupCharacteristic(fhirelement.FHIRElement):
         
         super(GroupCharacteristic, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(GroupCharacteristic, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'exclude' in jsondict:
-            self.exclude = jsondict['exclude']
-        if 'valueBoolean' in jsondict:
-            self.valueBoolean = jsondict['valueBoolean']
-        if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
-        if 'valueQuantity' in jsondict:
-            self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
-        if 'valueRange' in jsondict:
-            self.valueRange = range.Range.with_json_and_owner(jsondict['valueRange'], self)
+    def elementProperties(self):
+        js = super(GroupCharacteristic, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("exclude", "exclude", bool, False),
+            ("valueBoolean", "valueBoolean", bool, False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
+            ("valueRange", "valueRange", range.Range, False),
+        ])
+        return js
 

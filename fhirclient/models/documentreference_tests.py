@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class DocumentReferenceTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = documentreference.DocumentReference(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return documentreference.DocumentReference(js)
     
     def testDocumentReference1(self):
         inst = self.instantiate_from("documentreference-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2dd750> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a DocumentReference instance")
+        self.implDocumentReference1(inst)
+        inst2 = documentreference.DocumentReference(inst.as_json())
+        self.implDocumentReference1(inst2)
     
+    def implDocumentReference1(self, inst):
         self.assertEqual(inst.confidentiality[0].coding[0].code, "1.3.6.1.4.1.21367.2006.7.101")
         self.assertEqual(inst.confidentiality[0].coding[0].display, "Clinical-Staff")
         self.assertEqual(inst.confidentiality[0].coding[0].system, "http://ihe.net/xds/connectathon/confidentialityCodes")
@@ -41,15 +43,15 @@ class DocumentReferenceTests(unittest.TestCase):
         self.assertEqual(inst.context.facilityType.coding[0].display, "Outpatient")
         self.assertEqual(inst.context.facilityType.coding[0].system, "http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes")
         self.assertEqual(inst.context.period.end.date, FHIRDate("2004-12-23T08:01:00+11:00").date)
-        self.assertEqual(inst.context.period.end.isostring, "2004-12-23T08:01:00+11:00")
+        self.assertEqual(inst.context.period.end.as_json(), "2004-12-23T08:01:00+11:00")
         self.assertEqual(inst.context.period.start.date, FHIRDate("2004-12-23T08:00:00+11:00").date)
-        self.assertEqual(inst.context.period.start.isostring, "2004-12-23T08:00:00+11:00")
+        self.assertEqual(inst.context.period.start.as_json(), "2004-12-23T08:00:00+11:00")
         self.assertEqual(inst.created.date, FHIRDate("2005-12-24T09:35:00+11:00").date)
-        self.assertEqual(inst.created.isostring, "2005-12-24T09:35:00+11:00")
+        self.assertEqual(inst.created.as_json(), "2005-12-24T09:35:00+11:00")
         self.assertEqual(inst.description, "Physical")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.indexed.date, FHIRDate("2005-12-24T09:43:41+11:00").date)
-        self.assertEqual(inst.indexed.isostring, "2005-12-24T09:43:41+11:00")
+        self.assertEqual(inst.indexed.as_json(), "2005-12-24T09:43:41+11:00")
         self.assertEqual(inst.klass.coding[0].code, "History and Physical")
         self.assertEqual(inst.klass.coding[0].display, "History and Physical")
         self.assertEqual(inst.klass.coding[0].system, "http://ihe.net/xds/connectathon/classCodes")

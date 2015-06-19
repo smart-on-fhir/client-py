@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class SubstanceTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = substance.Substance(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return substance.Substance(js)
     
     def testSubstance1(self):
         inst = self.instantiate_from("substance-example-f201-dust.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3a67d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
+        self.implSubstance1(inst)
+        inst2 = substance.Substance(inst.as_json())
+        self.implSubstance1(inst2)
     
+    def implSubstance1(self, inst):
         self.assertEqual(inst.id, "f201")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "406466009")
@@ -34,8 +36,12 @@ class SubstanceTests(unittest.TestCase):
     
     def testSubstance2(self):
         inst = self.instantiate_from("substance-example-f202-staphylococcus.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3a67d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
+        self.implSubstance2(inst)
+        inst2 = substance.Substance(inst.as_json())
+        self.implSubstance2(inst2)
     
+    def implSubstance2(self, inst):
         self.assertEqual(inst.id, "f202")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "3092008")
@@ -44,8 +50,12 @@ class SubstanceTests(unittest.TestCase):
     
     def testSubstance3(self):
         inst = self.instantiate_from("substance-example-f203-potassium.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3a67d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
+        self.implSubstance3(inst)
+        inst2 = substance.Substance(inst.as_json())
+        self.implSubstance3(inst2)
     
+    def implSubstance3(self, inst):
         self.assertEqual(inst.id, "f203")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "88480006")
@@ -54,8 +64,12 @@ class SubstanceTests(unittest.TestCase):
     
     def testSubstance4(self):
         inst = self.instantiate_from("substance-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3a67d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
+        self.implSubstance4(inst)
+        inst2 = substance.Substance(inst.as_json())
+        self.implSubstance4(inst2)
     
+    def implSubstance4(self, inst):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.text.div, "<div>Apitoxin (known as Honey Bee Venom)</div>")
         self.assertEqual(inst.text.status, "generated")

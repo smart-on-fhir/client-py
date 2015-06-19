@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -92,36 +92,24 @@ class ReferralRequest(domainresource.DomainResource):
         
         super(ReferralRequest, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ReferralRequest, self).update_with_json(jsondict)
-        if 'dateSent' in jsondict:
-            self.dateSent = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateSent'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'fulfillmentTime' in jsondict:
-            self.fulfillmentTime = period.Period.with_json_and_owner(jsondict['fulfillmentTime'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'priority' in jsondict:
-            self.priority = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['priority'], self)
-        if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'recipient' in jsondict:
-            self.recipient = fhirreference.FHIRReference.with_json_and_owner(jsondict['recipient'], self)
-        if 'requester' in jsondict:
-            self.requester = fhirreference.FHIRReference.with_json_and_owner(jsondict['requester'], self)
-        if 'serviceRequested' in jsondict:
-            self.serviceRequested = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['serviceRequested'], self)
-        if 'specialty' in jsondict:
-            self.specialty = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['specialty'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'supportingInformation' in jsondict:
-            self.supportingInformation = fhirreference.FHIRReference.with_json_and_owner(jsondict['supportingInformation'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(ReferralRequest, self).elementProperties()
+        js.extend([
+            ("dateSent", "dateSent", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("fulfillmentTime", "fulfillmentTime", period.Period, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("priority", "priority", codeableconcept.CodeableConcept, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, False),
+            ("recipient", "recipient", fhirreference.FHIRReference, True),
+            ("requester", "requester", fhirreference.FHIRReference, False),
+            ("serviceRequested", "serviceRequested", codeableconcept.CodeableConcept, True),
+            ("specialty", "specialty", codeableconcept.CodeableConcept, False),
+            ("status", "status", str, False),
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

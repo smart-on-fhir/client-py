@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/QuestionnaireAnswers) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/QuestionnaireAnswers) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -67,26 +67,20 @@ class QuestionnaireAnswers(domainresource.DomainResource):
         
         super(QuestionnaireAnswers, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(QuestionnaireAnswers, self).update_with_json(jsondict)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'authored' in jsondict:
-            self.authored = fhirdate.FHIRDate.with_json_and_owner(jsondict['authored'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'group' in jsondict:
-            self.group = QuestionnaireAnswersGroup.with_json_and_owner(jsondict['group'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'questionnaire' in jsondict:
-            self.questionnaire = fhirreference.FHIRReference.with_json_and_owner(jsondict['questionnaire'], self)
-        if 'source' in jsondict:
-            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
+    def elementProperties(self):
+        js = super(QuestionnaireAnswers, self).elementProperties()
+        js.extend([
+            ("author", "author", fhirreference.FHIRReference, False),
+            ("authored", "authored", fhirdate.FHIRDate, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("group", "group", QuestionnaireAnswersGroup, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("questionnaire", "questionnaire", fhirreference.FHIRReference, False),
+            ("source", "source", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class QuestionnaireAnswersGroup(fhirelement.FHIRElement):
@@ -103,7 +97,7 @@ class QuestionnaireAnswersGroup(fhirelement.FHIRElement):
         """
         
         self.group = None
-        """ Grouped questions.
+        """ Nested questionnaire answers group.
         List of `QuestionnaireAnswersGroup` items (represented as `dict` in JSON). """
         
         self.linkId = None
@@ -128,20 +122,17 @@ class QuestionnaireAnswersGroup(fhirelement.FHIRElement):
         
         super(QuestionnaireAnswersGroup, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(QuestionnaireAnswersGroup, self).update_with_json(jsondict)
-        if 'group' in jsondict:
-            self.group = QuestionnaireAnswersGroup.with_json_and_owner(jsondict['group'], self)
-        if 'linkId' in jsondict:
-            self.linkId = jsondict['linkId']
-        if 'question' in jsondict:
-            self.question = QuestionnaireAnswersGroupQuestion.with_json_and_owner(jsondict['question'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'text' in jsondict:
-            self.text = jsondict['text']
-        if 'title' in jsondict:
-            self.title = jsondict['title']
+    def elementProperties(self):
+        js = super(QuestionnaireAnswersGroup, self).elementProperties()
+        js.extend([
+            ("group", "group", QuestionnaireAnswersGroup, True),
+            ("linkId", "linkId", str, False),
+            ("question", "question", QuestionnaireAnswersGroupQuestion, True),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("text", "text", str, False),
+            ("title", "title", str, False),
+        ])
+        return js
 
 
 class QuestionnaireAnswersGroupQuestion(fhirelement.FHIRElement):
@@ -162,7 +153,7 @@ class QuestionnaireAnswersGroupQuestion(fhirelement.FHIRElement):
         List of `QuestionnaireAnswersGroupQuestionAnswer` items (represented as `dict` in JSON). """
         
         self.group = None
-        """ Grouped questions.
+        """ Nested questionnaire group.
         List of `QuestionnaireAnswersGroup` items (represented as `dict` in JSON). """
         
         self.linkId = None
@@ -175,16 +166,15 @@ class QuestionnaireAnswersGroupQuestion(fhirelement.FHIRElement):
         
         super(QuestionnaireAnswersGroupQuestion, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(QuestionnaireAnswersGroupQuestion, self).update_with_json(jsondict)
-        if 'answer' in jsondict:
-            self.answer = QuestionnaireAnswersGroupQuestionAnswer.with_json_and_owner(jsondict['answer'], self)
-        if 'group' in jsondict:
-            self.group = QuestionnaireAnswersGroup.with_json_and_owner(jsondict['group'], self)
-        if 'linkId' in jsondict:
-            self.linkId = jsondict['linkId']
-        if 'text' in jsondict:
-            self.text = jsondict['text']
+    def elementProperties(self):
+        js = super(QuestionnaireAnswersGroupQuestion, self).elementProperties()
+        js.extend([
+            ("answer", "answer", QuestionnaireAnswersGroupQuestionAnswer, True),
+            ("group", "group", QuestionnaireAnswersGroup, True),
+            ("linkId", "linkId", str, False),
+            ("text", "text", str, False),
+        ])
+        return js
 
 
 class QuestionnaireAnswersGroupQuestionAnswer(fhirelement.FHIRElement):
@@ -253,32 +243,22 @@ class QuestionnaireAnswersGroupQuestionAnswer(fhirelement.FHIRElement):
         
         super(QuestionnaireAnswersGroupQuestionAnswer, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(QuestionnaireAnswersGroupQuestionAnswer, self).update_with_json(jsondict)
-        if 'valueAttachment' in jsondict:
-            self.valueAttachment = attachment.Attachment.with_json_and_owner(jsondict['valueAttachment'], self)
-        if 'valueBoolean' in jsondict:
-            self.valueBoolean = jsondict['valueBoolean']
-        if 'valueCoding' in jsondict:
-            self.valueCoding = coding.Coding.with_json_and_owner(jsondict['valueCoding'], self)
-        if 'valueDate' in jsondict:
-            self.valueDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDate'], self)
-        if 'valueDateTime' in jsondict:
-            self.valueDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDateTime'], self)
-        if 'valueDecimal' in jsondict:
-            self.valueDecimal = jsondict['valueDecimal']
-        if 'valueInstant' in jsondict:
-            self.valueInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueInstant'], self)
-        if 'valueInteger' in jsondict:
-            self.valueInteger = jsondict['valueInteger']
-        if 'valueQuantity' in jsondict:
-            self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
-        if 'valueReference' in jsondict:
-            self.valueReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['valueReference'], self)
-        if 'valueString' in jsondict:
-            self.valueString = jsondict['valueString']
-        if 'valueTime' in jsondict:
-            self.valueTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueTime'], self)
-        if 'valueUri' in jsondict:
-            self.valueUri = jsondict['valueUri']
+    def elementProperties(self):
+        js = super(QuestionnaireAnswersGroupQuestionAnswer, self).elementProperties()
+        js.extend([
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False),
+            ("valueBoolean", "valueBoolean", bool, False),
+            ("valueCoding", "valueCoding", coding.Coding, False),
+            ("valueDate", "valueDate", fhirdate.FHIRDate, False),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False),
+            ("valueDecimal", "valueDecimal", float, False),
+            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False),
+            ("valueInteger", "valueInteger", int, False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False),
+            ("valueString", "valueString", str, False),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False),
+            ("valueUri", "valueUri", str, False),
+        ])
+        return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -102,42 +102,28 @@ class ImagingStudy(domainresource.DomainResource):
         
         super(ImagingStudy, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImagingStudy, self).update_with_json(jsondict)
-        if 'accession' in jsondict:
-            self.accession = identifier.Identifier.with_json_and_owner(jsondict['accession'], self)
-        if 'availability' in jsondict:
-            self.availability = jsondict['availability']
-        if 'clinicalInformation' in jsondict:
-            self.clinicalInformation = jsondict['clinicalInformation']
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'interpreter' in jsondict:
-            self.interpreter = fhirreference.FHIRReference.with_json_and_owner(jsondict['interpreter'], self)
-        if 'modalityList' in jsondict:
-            self.modalityList = jsondict['modalityList']
-        if 'numberOfInstances' in jsondict:
-            self.numberOfInstances = jsondict['numberOfInstances']
-        if 'numberOfSeries' in jsondict:
-            self.numberOfSeries = jsondict['numberOfSeries']
-        if 'order' in jsondict:
-            self.order = fhirreference.FHIRReference.with_json_and_owner(jsondict['order'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'procedure' in jsondict:
-            self.procedure = coding.Coding.with_json_and_owner(jsondict['procedure'], self)
-        if 'referrer' in jsondict:
-            self.referrer = fhirreference.FHIRReference.with_json_and_owner(jsondict['referrer'], self)
-        if 'series' in jsondict:
-            self.series = ImagingStudySeries.with_json_and_owner(jsondict['series'], self)
-        if 'started' in jsondict:
-            self.started = fhirdate.FHIRDate.with_json_and_owner(jsondict['started'], self)
-        if 'uid' in jsondict:
-            self.uid = jsondict['uid']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(ImagingStudy, self).elementProperties()
+        js.extend([
+            ("accession", "accession", identifier.Identifier, False),
+            ("availability", "availability", str, False),
+            ("clinicalInformation", "clinicalInformation", str, False),
+            ("description", "description", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("interpreter", "interpreter", fhirreference.FHIRReference, False),
+            ("modalityList", "modalityList", str, True),
+            ("numberOfInstances", "numberOfInstances", int, False),
+            ("numberOfSeries", "numberOfSeries", int, False),
+            ("order", "order", fhirreference.FHIRReference, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("procedure", "procedure", coding.Coding, True),
+            ("referrer", "referrer", fhirreference.FHIRReference, False),
+            ("series", "series", ImagingStudySeries, True),
+            ("started", "started", fhirdate.FHIRDate, False),
+            ("uid", "uid", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 
 
 class ImagingStudySeries(fhirelement.FHIRElement):
@@ -198,30 +184,22 @@ class ImagingStudySeries(fhirelement.FHIRElement):
         
         super(ImagingStudySeries, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImagingStudySeries, self).update_with_json(jsondict)
-        if 'availability' in jsondict:
-            self.availability = jsondict['availability']
-        if 'bodySite' in jsondict:
-            self.bodySite = coding.Coding.with_json_and_owner(jsondict['bodySite'], self)
-        if 'dateTime' in jsondict:
-            self.dateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateTime'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'instance' in jsondict:
-            self.instance = ImagingStudySeriesInstance.with_json_and_owner(jsondict['instance'], self)
-        if 'laterality' in jsondict:
-            self.laterality = coding.Coding.with_json_and_owner(jsondict['laterality'], self)
-        if 'modality' in jsondict:
-            self.modality = jsondict['modality']
-        if 'number' in jsondict:
-            self.number = jsondict['number']
-        if 'numberOfInstances' in jsondict:
-            self.numberOfInstances = jsondict['numberOfInstances']
-        if 'uid' in jsondict:
-            self.uid = jsondict['uid']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(ImagingStudySeries, self).elementProperties()
+        js.extend([
+            ("availability", "availability", str, False),
+            ("bodySite", "bodySite", coding.Coding, False),
+            ("dateTime", "dateTime", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("instance", "instance", ImagingStudySeriesInstance, True),
+            ("laterality", "laterality", coding.Coding, False),
+            ("modality", "modality", str, False),
+            ("number", "number", int, False),
+            ("numberOfInstances", "numberOfInstances", int, False),
+            ("uid", "uid", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 
 
 class ImagingStudySeriesInstance(fhirelement.FHIRElement):
@@ -264,18 +242,15 @@ class ImagingStudySeriesInstance(fhirelement.FHIRElement):
         
         super(ImagingStudySeriesInstance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImagingStudySeriesInstance, self).update_with_json(jsondict)
-        if 'content' in jsondict:
-            self.content = attachment.Attachment.with_json_and_owner(jsondict['content'], self)
-        if 'number' in jsondict:
-            self.number = jsondict['number']
-        if 'sopclass' in jsondict:
-            self.sopclass = jsondict['sopclass']
-        if 'title' in jsondict:
-            self.title = jsondict['title']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'uid' in jsondict:
-            self.uid = jsondict['uid']
+    def elementProperties(self):
+        js = super(ImagingStudySeriesInstance, self).elementProperties()
+        js.extend([
+            ("content", "content", attachment.Attachment, True),
+            ("number", "number", int, False),
+            ("sopclass", "sopclass", str, False),
+            ("title", "title", str, False),
+            ("type", "type", str, False),
+            ("uid", "uid", str, False),
+        ])
+        return js
 

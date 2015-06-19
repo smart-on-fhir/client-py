@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -68,26 +68,19 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         super(ExplanationOfBenefit, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ExplanationOfBenefit, self).update_with_json(jsondict)
-        if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
-        if 'disposition' in jsondict:
-            self.disposition = jsondict['disposition']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'organization' in jsondict:
-            self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self)
-        if 'originalRuleset' in jsondict:
-            self.originalRuleset = coding.Coding.with_json_and_owner(jsondict['originalRuleset'], self)
-        if 'outcome' in jsondict:
-            self.outcome = jsondict['outcome']
-        if 'request' in jsondict:
-            self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self)
-        if 'requestOrganization' in jsondict:
-            self.requestOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['requestOrganization'], self)
-        if 'requestProvider' in jsondict:
-            self.requestProvider = fhirreference.FHIRReference.with_json_and_owner(jsondict['requestProvider'], self)
-        if 'ruleset' in jsondict:
-            self.ruleset = coding.Coding.with_json_and_owner(jsondict['ruleset'], self)
+    def elementProperties(self):
+        js = super(ExplanationOfBenefit, self).elementProperties()
+        js.extend([
+            ("created", "created", fhirdate.FHIRDate, False),
+            ("disposition", "disposition", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("organization", "organization", fhirreference.FHIRReference, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False),
+            ("outcome", "outcome", str, False),
+            ("request", "request", fhirreference.FHIRReference, False),
+            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False),
+            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False),
+            ("ruleset", "ruleset", coding.Coding, False),
+        ])
+        return js
 

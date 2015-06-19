@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -74,32 +74,23 @@ class DocumentManifest(domainresource.DomainResource):
         
         super(DocumentManifest, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DocumentManifest, self).update_with_json(jsondict)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'content' in jsondict:
-            self.content = DocumentManifestContent.with_json_and_owner(jsondict['content'], self)
-        if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'masterIdentifier' in jsondict:
-            self.masterIdentifier = identifier.Identifier.with_json_and_owner(jsondict['masterIdentifier'], self)
-        if 'recipient' in jsondict:
-            self.recipient = fhirreference.FHIRReference.with_json_and_owner(jsondict['recipient'], self)
-        if 'related' in jsondict:
-            self.related = DocumentManifestRelated.with_json_and_owner(jsondict['related'], self)
-        if 'source' in jsondict:
-            self.source = jsondict['source']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(DocumentManifest, self).elementProperties()
+        js.extend([
+            ("author", "author", fhirreference.FHIRReference, True),
+            ("content", "content", DocumentManifestContent, True),
+            ("created", "created", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("masterIdentifier", "masterIdentifier", identifier.Identifier, False),
+            ("recipient", "recipient", fhirreference.FHIRReference, True),
+            ("related", "related", DocumentManifestRelated, True),
+            ("source", "source", str, False),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class DocumentManifestContent(fhirelement.FHIRElement):
@@ -124,12 +115,13 @@ class DocumentManifestContent(fhirelement.FHIRElement):
         
         super(DocumentManifestContent, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DocumentManifestContent, self).update_with_json(jsondict)
-        if 'pAttachment' in jsondict:
-            self.pAttachment = attachment.Attachment.with_json_and_owner(jsondict['pAttachment'], self)
-        if 'pReference' in jsondict:
-            self.pReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['pReference'], self)
+    def elementProperties(self):
+        js = super(DocumentManifestContent, self).elementProperties()
+        js.extend([
+            ("pAttachment", "pAttachment", attachment.Attachment, False),
+            ("pReference", "pReference", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class DocumentManifestRelated(fhirelement.FHIRElement):
@@ -154,10 +146,11 @@ class DocumentManifestRelated(fhirelement.FHIRElement):
         
         super(DocumentManifestRelated, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DocumentManifestRelated, self).update_with_json(jsondict)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'ref' in jsondict:
-            self.ref = fhirreference.FHIRReference.with_json_and_owner(jsondict['ref'], self)
+    def elementProperties(self):
+        js = super(DocumentManifestRelated, self).elementProperties()
+        js.extend([
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("ref", "ref", fhirreference.FHIRReference, False),
+        ])
+        return js
 

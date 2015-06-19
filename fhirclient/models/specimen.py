@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -64,26 +64,20 @@ class Specimen(domainresource.DomainResource):
         
         super(Specimen, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Specimen, self).update_with_json(jsondict)
-        if 'accessionIdentifier' in jsondict:
-            self.accessionIdentifier = identifier.Identifier.with_json_and_owner(jsondict['accessionIdentifier'], self)
-        if 'collection' in jsondict:
-            self.collection = SpecimenCollection.with_json_and_owner(jsondict['collection'], self)
-        if 'container' in jsondict:
-            self.container = SpecimenContainer.with_json_and_owner(jsondict['container'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'parent' in jsondict:
-            self.parent = fhirreference.FHIRReference.with_json_and_owner(jsondict['parent'], self)
-        if 'receivedTime' in jsondict:
-            self.receivedTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['receivedTime'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'treatment' in jsondict:
-            self.treatment = SpecimenTreatment.with_json_and_owner(jsondict['treatment'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(Specimen, self).elementProperties()
+        js.extend([
+            ("accessionIdentifier", "accessionIdentifier", identifier.Identifier, False),
+            ("collection", "collection", SpecimenCollection, False),
+            ("container", "container", SpecimenContainer, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("parent", "parent", fhirreference.FHIRReference, True),
+            ("receivedTime", "receivedTime", fhirdate.FHIRDate, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("treatment", "treatment", SpecimenTreatment, True),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class SpecimenCollection(fhirelement.FHIRElement):
@@ -132,24 +126,19 @@ class SpecimenCollection(fhirelement.FHIRElement):
         
         super(SpecimenCollection, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SpecimenCollection, self).update_with_json(jsondict)
-        if 'bodySiteCodeableConcept' in jsondict:
-            self.bodySiteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySiteCodeableConcept'], self)
-        if 'bodySiteReference' in jsondict:
-            self.bodySiteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['bodySiteReference'], self)
-        if 'collectedDateTime' in jsondict:
-            self.collectedDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['collectedDateTime'], self)
-        if 'collectedPeriod' in jsondict:
-            self.collectedPeriod = period.Period.with_json_and_owner(jsondict['collectedPeriod'], self)
-        if 'collector' in jsondict:
-            self.collector = fhirreference.FHIRReference.with_json_and_owner(jsondict['collector'], self)
-        if 'comment' in jsondict:
-            self.comment = jsondict['comment']
-        if 'method' in jsondict:
-            self.method = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['method'], self)
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
+    def elementProperties(self):
+        js = super(SpecimenCollection, self).elementProperties()
+        js.extend([
+            ("bodySiteCodeableConcept", "bodySiteCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("bodySiteReference", "bodySiteReference", fhirreference.FHIRReference, False),
+            ("collectedDateTime", "collectedDateTime", fhirdate.FHIRDate, False),
+            ("collectedPeriod", "collectedPeriod", period.Period, False),
+            ("collector", "collector", fhirreference.FHIRReference, False),
+            ("comment", "comment", str, True),
+            ("method", "method", codeableconcept.CodeableConcept, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+        ])
+        return js
 
 
 class SpecimenContainer(fhirelement.FHIRElement):
@@ -195,22 +184,18 @@ class SpecimenContainer(fhirelement.FHIRElement):
         
         super(SpecimenContainer, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SpecimenContainer, self).update_with_json(jsondict)
-        if 'additiveCodeableConcept' in jsondict:
-            self.additiveCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['additiveCodeableConcept'], self)
-        if 'additiveReference' in jsondict:
-            self.additiveReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['additiveReference'], self)
-        if 'capacity' in jsondict:
-            self.capacity = quantity.Quantity.with_json_and_owner(jsondict['capacity'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'specimenQuantity' in jsondict:
-            self.specimenQuantity = quantity.Quantity.with_json_and_owner(jsondict['specimenQuantity'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(SpecimenContainer, self).elementProperties()
+        js.extend([
+            ("additiveCodeableConcept", "additiveCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("additiveReference", "additiveReference", fhirreference.FHIRReference, False),
+            ("capacity", "capacity", quantity.Quantity, False),
+            ("description", "description", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("specimenQuantity", "specimenQuantity", quantity.Quantity, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class SpecimenTreatment(fhirelement.FHIRElement):
@@ -239,12 +224,12 @@ class SpecimenTreatment(fhirelement.FHIRElement):
         
         super(SpecimenTreatment, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SpecimenTreatment, self).update_with_json(jsondict)
-        if 'additive' in jsondict:
-            self.additive = fhirreference.FHIRReference.with_json_and_owner(jsondict['additive'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'procedure' in jsondict:
-            self.procedure = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['procedure'], self)
+    def elementProperties(self):
+        js = super(SpecimenTreatment, self).elementProperties()
+        js.extend([
+            ("additive", "additive", fhirreference.FHIRReference, True),
+            ("description", "description", str, False),
+            ("procedure", "procedure", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

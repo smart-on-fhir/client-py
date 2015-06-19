@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -81,30 +81,21 @@ class DeviceUseStatement(domainresource.DomainResource):
         
         super(DeviceUseStatement, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DeviceUseStatement, self).update_with_json(jsondict)
-        if 'bodySiteCodeableConcept' in jsondict:
-            self.bodySiteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySiteCodeableConcept'], self)
-        if 'bodySiteReference' in jsondict:
-            self.bodySiteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['bodySiteReference'], self)
-        if 'device' in jsondict:
-            self.device = fhirreference.FHIRReference.with_json_and_owner(jsondict['device'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'indication' in jsondict:
-            self.indication = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['indication'], self)
-        if 'notes' in jsondict:
-            self.notes = jsondict['notes']
-        if 'recordedOn' in jsondict:
-            self.recordedOn = fhirdate.FHIRDate.with_json_and_owner(jsondict['recordedOn'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'timingDateTime' in jsondict:
-            self.timingDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['timingDateTime'], self)
-        if 'timingPeriod' in jsondict:
-            self.timingPeriod = period.Period.with_json_and_owner(jsondict['timingPeriod'], self)
-        if 'timingTiming' in jsondict:
-            self.timingTiming = timing.Timing.with_json_and_owner(jsondict['timingTiming'], self)
-        if 'whenUsed' in jsondict:
-            self.whenUsed = period.Period.with_json_and_owner(jsondict['whenUsed'], self)
+    def elementProperties(self):
+        js = super(DeviceUseStatement, self).elementProperties()
+        js.extend([
+            ("bodySiteCodeableConcept", "bodySiteCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("bodySiteReference", "bodySiteReference", fhirreference.FHIRReference, False),
+            ("device", "device", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("indication", "indication", codeableconcept.CodeableConcept, True),
+            ("notes", "notes", str, True),
+            ("recordedOn", "recordedOn", fhirdate.FHIRDate, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False),
+            ("timingPeriod", "timingPeriod", period.Period, False),
+            ("timingTiming", "timingTiming", timing.Timing, False),
+            ("whenUsed", "whenUsed", period.Period, False),
+        ])
+        return js
 

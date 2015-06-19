@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class ParametersTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = parameters.Parameters(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return parameters.Parameters(js)
     
     def testParameters1(self):
         inst = self.instantiate_from("parameters-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e214a50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Parameters instance")
+        self.implParameters1(inst)
+        inst2 = parameters.Parameters(inst.as_json())
+        self.implParameters1(inst2)
     
+    def implParameters1(self, inst):
         self.assertEqual(inst.parameter[0].name, "start")
         self.assertEqual(inst.parameter[0].valueDate.date, FHIRDate("2010-01-01").date)
-        self.assertEqual(inst.parameter[0].valueDate.isostring, "2010-01-01")
+        self.assertEqual(inst.parameter[0].valueDate.as_json(), "2010-01-01")
         self.assertEqual(inst.parameter[1].name, "end")
 

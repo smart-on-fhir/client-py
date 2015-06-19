@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Composition) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Composition) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -88,36 +88,25 @@ class Composition(domainresource.DomainResource):
         
         super(Composition, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Composition, self).update_with_json(jsondict)
-        if 'attester' in jsondict:
-            self.attester = CompositionAttester.with_json_and_owner(jsondict['attester'], self)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'confidentiality' in jsondict:
-            self.confidentiality = jsondict['confidentiality']
-        if 'custodian' in jsondict:
-            self.custodian = fhirreference.FHIRReference.with_json_and_owner(jsondict['custodian'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'event' in jsondict:
-            self.event = CompositionEvent.with_json_and_owner(jsondict['event'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'class' in jsondict:
-            self.klass = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['class'], self)
-        if 'section' in jsondict:
-            self.section = CompositionSection.with_json_and_owner(jsondict['section'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'title' in jsondict:
-            self.title = jsondict['title']
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(Composition, self).elementProperties()
+        js.extend([
+            ("attester", "attester", CompositionAttester, True),
+            ("author", "author", fhirreference.FHIRReference, True),
+            ("confidentiality", "confidentiality", str, False),
+            ("custodian", "custodian", fhirreference.FHIRReference, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("event", "event", CompositionEvent, True),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("klass", "class", codeableconcept.CodeableConcept, False),
+            ("section", "section", CompositionSection, True),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("title", "title", str, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class CompositionAttester(fhirelement.FHIRElement):
@@ -146,14 +135,14 @@ class CompositionAttester(fhirelement.FHIRElement):
         
         super(CompositionAttester, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(CompositionAttester, self).update_with_json(jsondict)
-        if 'mode' in jsondict:
-            self.mode = jsondict['mode']
-        if 'party' in jsondict:
-            self.party = fhirreference.FHIRReference.with_json_and_owner(jsondict['party'], self)
-        if 'time' in jsondict:
-            self.time = fhirdate.FHIRDate.with_json_and_owner(jsondict['time'], self)
+    def elementProperties(self):
+        js = super(CompositionAttester, self).elementProperties()
+        js.extend([
+            ("mode", "mode", str, True),
+            ("party", "party", fhirreference.FHIRReference, False),
+            ("time", "time", fhirdate.FHIRDate, False),
+        ])
+        return js
 
 
 class CompositionEvent(fhirelement.FHIRElement):
@@ -183,14 +172,14 @@ class CompositionEvent(fhirelement.FHIRElement):
         
         super(CompositionEvent, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(CompositionEvent, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'detail' in jsondict:
-            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
+    def elementProperties(self):
+        js = super(CompositionEvent, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, True),
+            ("detail", "detail", fhirreference.FHIRReference, True),
+            ("period", "period", period.Period, False),
+        ])
+        return js
 
 
 class CompositionSection(fhirelement.FHIRElement):
@@ -214,7 +203,7 @@ class CompositionSection(fhirelement.FHIRElement):
         Type `FHIRReference` referencing `List` (represented as `dict` in JSON). """
         
         self.section = None
-        """ Composition is broken into sections.
+        """ Nested Section.
         List of `CompositionSection` items (represented as `dict` in JSON). """
         
         self.title = None
@@ -223,14 +212,13 @@ class CompositionSection(fhirelement.FHIRElement):
         
         super(CompositionSection, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(CompositionSection, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'content' in jsondict:
-            self.content = fhirreference.FHIRReference.with_json_and_owner(jsondict['content'], self)
-        if 'section' in jsondict:
-            self.section = CompositionSection.with_json_and_owner(jsondict['section'], self)
-        if 'title' in jsondict:
-            self.title = jsondict['title']
+    def elementProperties(self):
+        js = super(CompositionSection, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("content", "content", fhirreference.FHIRReference, False),
+            ("section", "section", CompositionSection, True),
+            ("title", "title", str, False),
+        ])
+        return js
 

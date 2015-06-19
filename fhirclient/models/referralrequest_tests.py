@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class ReferralRequestTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = referralrequest.ReferralRequest(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return referralrequest.ReferralRequest(js)
     
     def testReferralRequest1(self):
         inst = self.instantiate_from("referralrequest-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e38c410> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ReferralRequest instance")
+        self.implReferralRequest1(inst)
+        inst2 = referralrequest.ReferralRequest(inst.as_json())
+        self.implReferralRequest1(inst2)
     
+    def implReferralRequest1(self, inst):
         self.assertEqual(inst.dateSent.date, FHIRDate("2014-02-14").date)
-        self.assertEqual(inst.dateSent.isostring, "2014-02-14")
+        self.assertEqual(inst.dateSent.as_json(), "2014-02-14")
         self.assertEqual(inst.description, "In the past 2 years Beverly has had 6 instances of r) sided Otitis media. She is     falling behind her peers at school, and displaying some learning difficulties.")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://orionhealth.com/fhir/apps/referralids")
@@ -52,10 +54,14 @@ class ReferralRequestTests(unittest.TestCase):
     
     def testReferralRequest2(self):
         inst = self.instantiate_from("referralrequest-qicore-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e38c410> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ReferralRequest instance")
+        self.implReferralRequest2(inst)
+        inst2 = referralrequest.ReferralRequest(inst.as_json())
+        self.implReferralRequest2(inst2)
     
+    def implReferralRequest2(self, inst):
         self.assertEqual(inst.dateSent.date, FHIRDate("2014-02-14").date)
-        self.assertEqual(inst.dateSent.isostring, "2014-02-14")
+        self.assertEqual(inst.dateSent.as_json(), "2014-02-14")
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/referralrequest-reasonRefused")
         self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].code, "609589008")
         self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].display, "Refused by parents of subject")

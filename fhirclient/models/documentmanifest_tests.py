@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class DocumentManifestTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = documentmanifest.DocumentManifest(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return documentmanifest.DocumentManifest(js)
     
     def testDocumentManifest1(self):
         inst = self.instantiate_from("documentmanifest-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2db110> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a DocumentManifest instance")
+        self.implDocumentManifest1(inst)
+        inst2 = documentmanifest.DocumentManifest(inst.as_json())
+        self.implDocumentManifest1(inst2)
     
+    def implDocumentManifest1(self, inst):
         self.assertEqual(inst.created.date, FHIRDate("2004-12-25T23:50:50-05:00").date)
-        self.assertEqual(inst.created.isostring, "2004-12-25T23:50:50-05:00")
+        self.assertEqual(inst.created.as_json(), "2004-12-25T23:50:50-05:00")
         self.assertEqual(inst.description, "Physical")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.masterIdentifier.system, "http://example.org/documents")

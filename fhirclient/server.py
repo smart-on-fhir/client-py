@@ -112,9 +112,11 @@ class FHIRServer(object):
         
         :param str path: The path to append to `base_uri`
         :param bool nosign: If set to True, the request will not be signed
+        :throws: Exception on HTTP status >= 400
+        :returns: Decoded JSON response
         """
         headers = {'Accept': 'application/json'}
-        res = self._request(path, headers, nosign)
+        res = self._get(path, headers, nosign)
         
         return res.json()
     
@@ -122,10 +124,10 @@ class FHIRServer(object):
         """ Perform a data request data against the server's base with the
         given relative path.
         """
-        res = self._request(path, None, nosign)
+        res = self._get(path, None, nosign)
         return res.content
     
-    def _request(self, path, headers={}, nosign=False):
+    def _get(self, path, headers={}, nosign=False):
         assert self.base_uri and path
         url = urlparse.urljoin(self.base_uri, path)
         
@@ -141,11 +143,46 @@ class FHIRServer(object):
         self.raise_for_status(res)
         return res
     
+    def put_json(self, path, resource_json):
+        """ Performs a PUT request of the given JSON, which should represent a
+        resource, to the given relative path.
+        
+        :param str path: The path to append to `base_uri`
+        :param dict resource_json: The JSON representing the resource
+        :throws: Exception on HTTP status >= 400
+        :returns: Decoded JSON response
+        """
+        headers = {
+            'Content-type': 'application/json+fhir',
+            'Accept': 'application/json+fhir',
+        }
+        res = requests.put(url, headers=headers, data=json.dumps(resource_json))
+        self.raise_for_status(res)
+        return res.json()
+    
+    def post_json(self, path, resource_json):
+        """ Performs a POST of the given JSON, which should represent a
+        resource, to the given relative path.
+        
+        :param str path: The path to append to `base_uri`
+        :param dict resource_json: The JSON representing the resource
+        :throws: Exception on HTTP status >= 400
+        :returns: Decoded JSON response
+        """
+        headers = {
+            'Content-type': 'application/json+fhir',
+            'Accept': 'application/json+fhir',
+        }
+        res = requests.post(url, headers=headers, data=json.dumps(resource_json))
+        self.raise_for_status(res)
+        return res.json()
+    
     def post_as_form(self, url, formdata):
         """ Performs a POST request with form-data, expecting to receive JSON.
         This method is used in the OAuth2 token exchange and thus doesn't
         request json+fhir.
         
+        :throws: Exception on HTTP status >= 400
         :returns: Decoded JSON response
         """
         headers = {

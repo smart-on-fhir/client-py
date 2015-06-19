@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -90,38 +90,26 @@ class PaymentReconciliation(domainresource.DomainResource):
         
         super(PaymentReconciliation, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PaymentReconciliation, self).update_with_json(jsondict)
-        if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
-        if 'detail' in jsondict:
-            self.detail = PaymentReconciliationDetail.with_json_and_owner(jsondict['detail'], self)
-        if 'disposition' in jsondict:
-            self.disposition = jsondict['disposition']
-        if 'form' in jsondict:
-            self.form = coding.Coding.with_json_and_owner(jsondict['form'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'note' in jsondict:
-            self.note = PaymentReconciliationNote.with_json_and_owner(jsondict['note'], self)
-        if 'organization' in jsondict:
-            self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self)
-        if 'originalRuleset' in jsondict:
-            self.originalRuleset = coding.Coding.with_json_and_owner(jsondict['originalRuleset'], self)
-        if 'outcome' in jsondict:
-            self.outcome = jsondict['outcome']
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'request' in jsondict:
-            self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self)
-        if 'requestOrganization' in jsondict:
-            self.requestOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['requestOrganization'], self)
-        if 'requestProvider' in jsondict:
-            self.requestProvider = fhirreference.FHIRReference.with_json_and_owner(jsondict['requestProvider'], self)
-        if 'ruleset' in jsondict:
-            self.ruleset = coding.Coding.with_json_and_owner(jsondict['ruleset'], self)
-        if 'total' in jsondict:
-            self.total = money.Money.with_json_and_owner(jsondict['total'], self)
+    def elementProperties(self):
+        js = super(PaymentReconciliation, self).elementProperties()
+        js.extend([
+            ("created", "created", fhirdate.FHIRDate, False),
+            ("detail", "detail", PaymentReconciliationDetail, True),
+            ("disposition", "disposition", str, False),
+            ("form", "form", coding.Coding, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("note", "note", PaymentReconciliationNote, True),
+            ("organization", "organization", fhirreference.FHIRReference, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False),
+            ("outcome", "outcome", str, False),
+            ("period", "period", period.Period, False),
+            ("request", "request", fhirreference.FHIRReference, False),
+            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False),
+            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False),
+            ("ruleset", "ruleset", coding.Coding, False),
+            ("total", "total", money.Money, False),
+        ])
+        return js
 
 
 class PaymentReconciliationDetail(fhirelement.FHIRElement):
@@ -166,22 +154,18 @@ class PaymentReconciliationDetail(fhirelement.FHIRElement):
         
         super(PaymentReconciliationDetail, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PaymentReconciliationDetail, self).update_with_json(jsondict)
-        if 'amount' in jsondict:
-            self.amount = money.Money.with_json_and_owner(jsondict['amount'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'payee' in jsondict:
-            self.payee = fhirreference.FHIRReference.with_json_and_owner(jsondict['payee'], self)
-        if 'request' in jsondict:
-            self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self)
-        if 'responce' in jsondict:
-            self.responce = fhirreference.FHIRReference.with_json_and_owner(jsondict['responce'], self)
-        if 'submitter' in jsondict:
-            self.submitter = fhirreference.FHIRReference.with_json_and_owner(jsondict['submitter'], self)
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(PaymentReconciliationDetail, self).elementProperties()
+        js.extend([
+            ("amount", "amount", money.Money, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("payee", "payee", fhirreference.FHIRReference, False),
+            ("request", "request", fhirreference.FHIRReference, False),
+            ("responce", "responce", fhirreference.FHIRReference, False),
+            ("submitter", "submitter", fhirreference.FHIRReference, False),
+            ("type", "type", coding.Coding, False),
+        ])
+        return js
 
 
 class PaymentReconciliationNote(fhirelement.FHIRElement):
@@ -206,10 +190,11 @@ class PaymentReconciliationNote(fhirelement.FHIRElement):
         
         super(PaymentReconciliationNote, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PaymentReconciliationNote, self).update_with_json(jsondict)
-        if 'text' in jsondict:
-            self.text = jsondict['text']
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(PaymentReconciliationNote, self).elementProperties()
+        js.extend([
+            ("text", "text", str, False),
+            ("type", "type", coding.Coding, False),
+        ])
+        return js
 

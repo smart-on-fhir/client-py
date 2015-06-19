@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class ValueSetTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = valueset.ValueSet(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return valueset.ValueSet(js)
     
     def testValueSet1(self):
         inst = self.instantiate_from("valueset-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e20c4d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ValueSet instance")
+        self.implValueSet1(inst)
+        inst2 = valueset.ValueSet(inst.as_json())
+        self.implValueSet1(inst2)
     
+    def implValueSet1(self, inst):
         self.assertEqual(inst.compose.include[0].concept[0].code, "14647-2")
         self.assertEqual(inst.compose.include[0].concept[1].code, "2093-3")
         self.assertEqual(inst.compose.include[0].concept[2].code, "35200-5")
@@ -34,8 +36,9 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.compose.include[0].version, "2.36")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
+        self.assertEqual(inst.copyright, "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use")
         self.assertEqual(inst.date.date, FHIRDate("2012-06-13").date)
-        self.assertEqual(inst.date.isostring, "2012-06-13")
+        self.assertEqual(inst.date.as_json(), "2012-06-13")
         self.assertEqual(inst.description, "This is an example value set that includes        all the LOINC codes for serum cholesterol from v2.36")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "101")
@@ -48,8 +51,12 @@ class ValueSetTests(unittest.TestCase):
     
     def testValueSet2(self):
         inst = self.instantiate_from("valueset-list-example-codes.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e20c4d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ValueSet instance")
+        self.implValueSet2(inst)
+        inst2 = valueset.ValueSet(inst.as_json())
+        self.implValueSet2(inst2)
     
+    def implValueSet2(self, inst):
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertTrue(inst.define.caseSensitive)
@@ -89,7 +96,7 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.extension[0].valueUri, "urn:oid:2.16.840.1.113883.4.642.2.320")
         self.assertEqual(inst.id, "valueset-list-example-codes")
         self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2015-04-03T14:24:32.000+11:00").date)
-        self.assertEqual(inst.meta.lastUpdated.isostring, "2015-04-03T14:24:32.000+11:00")
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2015-04-03T14:24:32.000+11:00")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
         self.assertEqual(inst.name, "Example Use Codes for List")
         self.assertEqual(inst.publisher, "FHIR Project")

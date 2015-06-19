@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -133,60 +133,37 @@ class ClaimResponse(domainresource.DomainResource):
         
         super(ClaimResponse, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponse, self).update_with_json(jsondict)
-        if 'addItem' in jsondict:
-            self.addItem = ClaimResponseAddItem.with_json_and_owner(jsondict['addItem'], self)
-        if 'coverage' in jsondict:
-            self.coverage = ClaimResponseCoverage.with_json_and_owner(jsondict['coverage'], self)
-        if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
-        if 'disposition' in jsondict:
-            self.disposition = jsondict['disposition']
-        if 'error' in jsondict:
-            self.error = ClaimResponseError.with_json_and_owner(jsondict['error'], self)
-        if 'form' in jsondict:
-            self.form = coding.Coding.with_json_and_owner(jsondict['form'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'item' in jsondict:
-            self.item = ClaimResponseItem.with_json_and_owner(jsondict['item'], self)
-        if 'note' in jsondict:
-            self.note = ClaimResponseNote.with_json_and_owner(jsondict['note'], self)
-        if 'organization' in jsondict:
-            self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self)
-        if 'originalRuleset' in jsondict:
-            self.originalRuleset = coding.Coding.with_json_and_owner(jsondict['originalRuleset'], self)
-        if 'outcome' in jsondict:
-            self.outcome = jsondict['outcome']
-        if 'payeeType' in jsondict:
-            self.payeeType = coding.Coding.with_json_and_owner(jsondict['payeeType'], self)
-        if 'paymentAdjustment' in jsondict:
-            self.paymentAdjustment = money.Money.with_json_and_owner(jsondict['paymentAdjustment'], self)
-        if 'paymentAdjustmentReason' in jsondict:
-            self.paymentAdjustmentReason = coding.Coding.with_json_and_owner(jsondict['paymentAdjustmentReason'], self)
-        if 'paymentAmount' in jsondict:
-            self.paymentAmount = money.Money.with_json_and_owner(jsondict['paymentAmount'], self)
-        if 'paymentDate' in jsondict:
-            self.paymentDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['paymentDate'], self)
-        if 'paymentRef' in jsondict:
-            self.paymentRef = identifier.Identifier.with_json_and_owner(jsondict['paymentRef'], self)
-        if 'request' in jsondict:
-            self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self)
-        if 'requestOrganization' in jsondict:
-            self.requestOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['requestOrganization'], self)
-        if 'requestProvider' in jsondict:
-            self.requestProvider = fhirreference.FHIRReference.with_json_and_owner(jsondict['requestProvider'], self)
-        if 'reserved' in jsondict:
-            self.reserved = coding.Coding.with_json_and_owner(jsondict['reserved'], self)
-        if 'ruleset' in jsondict:
-            self.ruleset = coding.Coding.with_json_and_owner(jsondict['ruleset'], self)
-        if 'totalBenefit' in jsondict:
-            self.totalBenefit = money.Money.with_json_and_owner(jsondict['totalBenefit'], self)
-        if 'totalCost' in jsondict:
-            self.totalCost = money.Money.with_json_and_owner(jsondict['totalCost'], self)
-        if 'unallocDeductable' in jsondict:
-            self.unallocDeductable = money.Money.with_json_and_owner(jsondict['unallocDeductable'], self)
+    def elementProperties(self):
+        js = super(ClaimResponse, self).elementProperties()
+        js.extend([
+            ("addItem", "addItem", ClaimResponseAddItem, True),
+            ("coverage", "coverage", ClaimResponseCoverage, True),
+            ("created", "created", fhirdate.FHIRDate, False),
+            ("disposition", "disposition", str, False),
+            ("error", "error", ClaimResponseError, True),
+            ("form", "form", coding.Coding, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("item", "item", ClaimResponseItem, True),
+            ("note", "note", ClaimResponseNote, True),
+            ("organization", "organization", fhirreference.FHIRReference, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False),
+            ("outcome", "outcome", str, False),
+            ("payeeType", "payeeType", coding.Coding, False),
+            ("paymentAdjustment", "paymentAdjustment", money.Money, False),
+            ("paymentAdjustmentReason", "paymentAdjustmentReason", coding.Coding, False),
+            ("paymentAmount", "paymentAmount", money.Money, False),
+            ("paymentDate", "paymentDate", fhirdate.FHIRDate, False),
+            ("paymentRef", "paymentRef", identifier.Identifier, False),
+            ("request", "request", fhirreference.FHIRReference, False),
+            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False),
+            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False),
+            ("reserved", "reserved", coding.Coding, False),
+            ("ruleset", "ruleset", coding.Coding, False),
+            ("totalBenefit", "totalBenefit", money.Money, False),
+            ("totalCost", "totalCost", money.Money, False),
+            ("unallocDeductable", "unallocDeductable", money.Money, False),
+        ])
+        return js
 
 
 class ClaimResponseAddItem(fhirelement.FHIRElement):
@@ -227,20 +204,17 @@ class ClaimResponseAddItem(fhirelement.FHIRElement):
         
         super(ClaimResponseAddItem, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseAddItem, self).update_with_json(jsondict)
-        if 'adjudication' in jsondict:
-            self.adjudication = ClaimResponseAddItemAdjudication.with_json_and_owner(jsondict['adjudication'], self)
-        if 'detail' in jsondict:
-            self.detail = ClaimResponseAddItemDetail.with_json_and_owner(jsondict['detail'], self)
-        if 'fee' in jsondict:
-            self.fee = money.Money.with_json_and_owner(jsondict['fee'], self)
-        if 'noteNumberLinkId' in jsondict:
-            self.noteNumberLinkId = jsondict['noteNumberLinkId']
-        if 'sequenceLinkId' in jsondict:
-            self.sequenceLinkId = jsondict['sequenceLinkId']
-        if 'service' in jsondict:
-            self.service = coding.Coding.with_json_and_owner(jsondict['service'], self)
+    def elementProperties(self):
+        js = super(ClaimResponseAddItem, self).elementProperties()
+        js.extend([
+            ("adjudication", "adjudication", ClaimResponseAddItemAdjudication, True),
+            ("detail", "detail", ClaimResponseAddItemDetail, True),
+            ("fee", "fee", money.Money, False),
+            ("noteNumberLinkId", "noteNumberLinkId", int, True),
+            ("sequenceLinkId", "sequenceLinkId", int, True),
+            ("service", "service", coding.Coding, False),
+        ])
+        return js
 
 
 class ClaimResponseAddItemAdjudication(fhirelement.FHIRElement):
@@ -269,14 +243,14 @@ class ClaimResponseAddItemAdjudication(fhirelement.FHIRElement):
         
         super(ClaimResponseAddItemAdjudication, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseAddItemAdjudication, self).update_with_json(jsondict)
-        if 'amount' in jsondict:
-            self.amount = money.Money.with_json_and_owner(jsondict['amount'], self)
-        if 'code' in jsondict:
-            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(ClaimResponseAddItemAdjudication, self).elementProperties()
+        js.extend([
+            ("amount", "amount", money.Money, False),
+            ("code", "code", coding.Coding, False),
+            ("value", "value", float, False),
+        ])
+        return js
 
 
 class ClaimResponseAddItemDetail(fhirelement.FHIRElement):
@@ -305,14 +279,14 @@ class ClaimResponseAddItemDetail(fhirelement.FHIRElement):
         
         super(ClaimResponseAddItemDetail, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseAddItemDetail, self).update_with_json(jsondict)
-        if 'adjudication' in jsondict:
-            self.adjudication = ClaimResponseAddItemDetailAdjudication.with_json_and_owner(jsondict['adjudication'], self)
-        if 'fee' in jsondict:
-            self.fee = money.Money.with_json_and_owner(jsondict['fee'], self)
-        if 'service' in jsondict:
-            self.service = coding.Coding.with_json_and_owner(jsondict['service'], self)
+    def elementProperties(self):
+        js = super(ClaimResponseAddItemDetail, self).elementProperties()
+        js.extend([
+            ("adjudication", "adjudication", ClaimResponseAddItemDetailAdjudication, True),
+            ("fee", "fee", money.Money, False),
+            ("service", "service", coding.Coding, False),
+        ])
+        return js
 
 
 class ClaimResponseAddItemDetailAdjudication(fhirelement.FHIRElement):
@@ -341,14 +315,14 @@ class ClaimResponseAddItemDetailAdjudication(fhirelement.FHIRElement):
         
         super(ClaimResponseAddItemDetailAdjudication, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseAddItemDetailAdjudication, self).update_with_json(jsondict)
-        if 'amount' in jsondict:
-            self.amount = money.Money.with_json_and_owner(jsondict['amount'], self)
-        if 'code' in jsondict:
-            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(ClaimResponseAddItemDetailAdjudication, self).elementProperties()
+        js.extend([
+            ("amount", "amount", money.Money, False),
+            ("code", "code", coding.Coding, False),
+            ("value", "value", float, False),
+        ])
+        return js
 
 
 class ClaimResponseCoverage(fhirelement.FHIRElement):
@@ -397,24 +371,19 @@ class ClaimResponseCoverage(fhirelement.FHIRElement):
         
         super(ClaimResponseCoverage, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseCoverage, self).update_with_json(jsondict)
-        if 'businessArrangement' in jsondict:
-            self.businessArrangement = jsondict['businessArrangement']
-        if 'claimResponse' in jsondict:
-            self.claimResponse = fhirreference.FHIRReference.with_json_and_owner(jsondict['claimResponse'], self)
-        if 'coverage' in jsondict:
-            self.coverage = fhirreference.FHIRReference.with_json_and_owner(jsondict['coverage'], self)
-        if 'focal' in jsondict:
-            self.focal = jsondict['focal']
-        if 'originalRuleset' in jsondict:
-            self.originalRuleset = coding.Coding.with_json_and_owner(jsondict['originalRuleset'], self)
-        if 'preAuthRef' in jsondict:
-            self.preAuthRef = jsondict['preAuthRef']
-        if 'relationship' in jsondict:
-            self.relationship = coding.Coding.with_json_and_owner(jsondict['relationship'], self)
-        if 'sequence' in jsondict:
-            self.sequence = jsondict['sequence']
+    def elementProperties(self):
+        js = super(ClaimResponseCoverage, self).elementProperties()
+        js.extend([
+            ("businessArrangement", "businessArrangement", str, False),
+            ("claimResponse", "claimResponse", fhirreference.FHIRReference, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False),
+            ("focal", "focal", bool, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False),
+            ("preAuthRef", "preAuthRef", str, True),
+            ("relationship", "relationship", coding.Coding, False),
+            ("sequence", "sequence", int, False),
+        ])
+        return js
 
 
 class ClaimResponseError(fhirelement.FHIRElement):
@@ -447,16 +416,15 @@ class ClaimResponseError(fhirelement.FHIRElement):
         
         super(ClaimResponseError, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseError, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
-        if 'detailSequenceLinkId' in jsondict:
-            self.detailSequenceLinkId = jsondict['detailSequenceLinkId']
-        if 'sequenceLinkId' in jsondict:
-            self.sequenceLinkId = jsondict['sequenceLinkId']
-        if 'subdetailSequenceLinkId' in jsondict:
-            self.subdetailSequenceLinkId = jsondict['subdetailSequenceLinkId']
+    def elementProperties(self):
+        js = super(ClaimResponseError, self).elementProperties()
+        js.extend([
+            ("code", "code", coding.Coding, False),
+            ("detailSequenceLinkId", "detailSequenceLinkId", int, False),
+            ("sequenceLinkId", "sequenceLinkId", int, False),
+            ("subdetailSequenceLinkId", "subdetailSequenceLinkId", int, False),
+        ])
+        return js
 
 
 class ClaimResponseItem(fhirelement.FHIRElement):
@@ -489,16 +457,15 @@ class ClaimResponseItem(fhirelement.FHIRElement):
         
         super(ClaimResponseItem, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseItem, self).update_with_json(jsondict)
-        if 'adjudication' in jsondict:
-            self.adjudication = ClaimResponseItemAdjudication.with_json_and_owner(jsondict['adjudication'], self)
-        if 'detail' in jsondict:
-            self.detail = ClaimResponseItemDetail.with_json_and_owner(jsondict['detail'], self)
-        if 'noteNumber' in jsondict:
-            self.noteNumber = jsondict['noteNumber']
-        if 'sequenceLinkId' in jsondict:
-            self.sequenceLinkId = jsondict['sequenceLinkId']
+    def elementProperties(self):
+        js = super(ClaimResponseItem, self).elementProperties()
+        js.extend([
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True),
+            ("detail", "detail", ClaimResponseItemDetail, True),
+            ("noteNumber", "noteNumber", int, True),
+            ("sequenceLinkId", "sequenceLinkId", int, False),
+        ])
+        return js
 
 
 class ClaimResponseItemAdjudication(fhirelement.FHIRElement):
@@ -527,14 +494,14 @@ class ClaimResponseItemAdjudication(fhirelement.FHIRElement):
         
         super(ClaimResponseItemAdjudication, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseItemAdjudication, self).update_with_json(jsondict)
-        if 'amount' in jsondict:
-            self.amount = money.Money.with_json_and_owner(jsondict['amount'], self)
-        if 'code' in jsondict:
-            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(ClaimResponseItemAdjudication, self).elementProperties()
+        js.extend([
+            ("amount", "amount", money.Money, False),
+            ("code", "code", coding.Coding, False),
+            ("value", "value", float, False),
+        ])
+        return js
 
 
 class ClaimResponseItemDetail(fhirelement.FHIRElement):
@@ -563,14 +530,14 @@ class ClaimResponseItemDetail(fhirelement.FHIRElement):
         
         super(ClaimResponseItemDetail, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseItemDetail, self).update_with_json(jsondict)
-        if 'adjudication' in jsondict:
-            self.adjudication = ClaimResponseItemDetailAdjudication.with_json_and_owner(jsondict['adjudication'], self)
-        if 'sequenceLinkId' in jsondict:
-            self.sequenceLinkId = jsondict['sequenceLinkId']
-        if 'subDetail' in jsondict:
-            self.subDetail = ClaimResponseItemDetailSubDetail.with_json_and_owner(jsondict['subDetail'], self)
+    def elementProperties(self):
+        js = super(ClaimResponseItemDetail, self).elementProperties()
+        js.extend([
+            ("adjudication", "adjudication", ClaimResponseItemDetailAdjudication, True),
+            ("sequenceLinkId", "sequenceLinkId", int, False),
+            ("subDetail", "subDetail", ClaimResponseItemDetailSubDetail, True),
+        ])
+        return js
 
 
 class ClaimResponseItemDetailAdjudication(fhirelement.FHIRElement):
@@ -599,14 +566,14 @@ class ClaimResponseItemDetailAdjudication(fhirelement.FHIRElement):
         
         super(ClaimResponseItemDetailAdjudication, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseItemDetailAdjudication, self).update_with_json(jsondict)
-        if 'amount' in jsondict:
-            self.amount = money.Money.with_json_and_owner(jsondict['amount'], self)
-        if 'code' in jsondict:
-            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(ClaimResponseItemDetailAdjudication, self).elementProperties()
+        js.extend([
+            ("amount", "amount", money.Money, False),
+            ("code", "code", coding.Coding, False),
+            ("value", "value", float, False),
+        ])
+        return js
 
 
 class ClaimResponseItemDetailSubDetail(fhirelement.FHIRElement):
@@ -631,12 +598,13 @@ class ClaimResponseItemDetailSubDetail(fhirelement.FHIRElement):
         
         super(ClaimResponseItemDetailSubDetail, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseItemDetailSubDetail, self).update_with_json(jsondict)
-        if 'adjudication' in jsondict:
-            self.adjudication = ClaimResponseItemDetailSubDetailAdjudication.with_json_and_owner(jsondict['adjudication'], self)
-        if 'sequenceLinkId' in jsondict:
-            self.sequenceLinkId = jsondict['sequenceLinkId']
+    def elementProperties(self):
+        js = super(ClaimResponseItemDetailSubDetail, self).elementProperties()
+        js.extend([
+            ("adjudication", "adjudication", ClaimResponseItemDetailSubDetailAdjudication, True),
+            ("sequenceLinkId", "sequenceLinkId", int, False),
+        ])
+        return js
 
 
 class ClaimResponseItemDetailSubDetailAdjudication(fhirelement.FHIRElement):
@@ -665,14 +633,14 @@ class ClaimResponseItemDetailSubDetailAdjudication(fhirelement.FHIRElement):
         
         super(ClaimResponseItemDetailSubDetailAdjudication, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseItemDetailSubDetailAdjudication, self).update_with_json(jsondict)
-        if 'amount' in jsondict:
-            self.amount = money.Money.with_json_and_owner(jsondict['amount'], self)
-        if 'code' in jsondict:
-            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(ClaimResponseItemDetailSubDetailAdjudication, self).elementProperties()
+        js.extend([
+            ("amount", "amount", money.Money, False),
+            ("code", "code", coding.Coding, False),
+            ("value", "value", float, False),
+        ])
+        return js
 
 
 class ClaimResponseNote(fhirelement.FHIRElement):
@@ -701,12 +669,12 @@ class ClaimResponseNote(fhirelement.FHIRElement):
         
         super(ClaimResponseNote, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimResponseNote, self).update_with_json(jsondict)
-        if 'number' in jsondict:
-            self.number = jsondict['number']
-        if 'text' in jsondict:
-            self.text = jsondict['text']
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(ClaimResponseNote, self).elementProperties()
+        js.extend([
+            ("number", "number", int, False),
+            ("text", "text", str, False),
+            ("type", "type", coding.Coding, False),
+        ])
+        return js
 

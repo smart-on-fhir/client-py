@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Patient) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Patient) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -111,46 +111,30 @@ class Patient(domainresource.DomainResource):
         
         super(Patient, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Patient, self).update_with_json(jsondict)
-        if 'active' in jsondict:
-            self.active = jsondict['active']
-        if 'address' in jsondict:
-            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'animal' in jsondict:
-            self.animal = PatientAnimal.with_json_and_owner(jsondict['animal'], self)
-        if 'birthDate' in jsondict:
-            self.birthDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['birthDate'], self)
-        if 'careProvider' in jsondict:
-            self.careProvider = fhirreference.FHIRReference.with_json_and_owner(jsondict['careProvider'], self)
-        if 'communication' in jsondict:
-            self.communication = PatientCommunication.with_json_and_owner(jsondict['communication'], self)
-        if 'contact' in jsondict:
-            self.contact = PatientContact.with_json_and_owner(jsondict['contact'], self)
-        if 'deceasedBoolean' in jsondict:
-            self.deceasedBoolean = jsondict['deceasedBoolean']
-        if 'deceasedDateTime' in jsondict:
-            self.deceasedDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['deceasedDateTime'], self)
-        if 'gender' in jsondict:
-            self.gender = jsondict['gender']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'link' in jsondict:
-            self.link = PatientLink.with_json_and_owner(jsondict['link'], self)
-        if 'managingOrganization' in jsondict:
-            self.managingOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self)
-        if 'maritalStatus' in jsondict:
-            self.maritalStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['maritalStatus'], self)
-        if 'multipleBirthBoolean' in jsondict:
-            self.multipleBirthBoolean = jsondict['multipleBirthBoolean']
-        if 'multipleBirthInteger' in jsondict:
-            self.multipleBirthInteger = jsondict['multipleBirthInteger']
-        if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
-        if 'photo' in jsondict:
-            self.photo = attachment.Attachment.with_json_and_owner(jsondict['photo'], self)
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(Patient, self).elementProperties()
+        js.extend([
+            ("active", "active", bool, False),
+            ("address", "address", address.Address, True),
+            ("animal", "animal", PatientAnimal, False),
+            ("birthDate", "birthDate", fhirdate.FHIRDate, False),
+            ("careProvider", "careProvider", fhirreference.FHIRReference, True),
+            ("communication", "communication", PatientCommunication, True),
+            ("contact", "contact", PatientContact, True),
+            ("deceasedBoolean", "deceasedBoolean", bool, False),
+            ("deceasedDateTime", "deceasedDateTime", fhirdate.FHIRDate, False),
+            ("gender", "gender", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("link", "link", PatientLink, True),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
+            ("maritalStatus", "maritalStatus", codeableconcept.CodeableConcept, False),
+            ("multipleBirthBoolean", "multipleBirthBoolean", bool, False),
+            ("multipleBirthInteger", "multipleBirthInteger", int, False),
+            ("name", "name", humanname.HumanName, True),
+            ("photo", "photo", attachment.Attachment, True),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class PatientAnimal(fhirelement.FHIRElement):
@@ -179,14 +163,14 @@ class PatientAnimal(fhirelement.FHIRElement):
         
         super(PatientAnimal, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PatientAnimal, self).update_with_json(jsondict)
-        if 'breed' in jsondict:
-            self.breed = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['breed'], self)
-        if 'genderStatus' in jsondict:
-            self.genderStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['genderStatus'], self)
-        if 'species' in jsondict:
-            self.species = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['species'], self)
+    def elementProperties(self):
+        js = super(PatientAnimal, self).elementProperties()
+        js.extend([
+            ("breed", "breed", codeableconcept.CodeableConcept, False),
+            ("genderStatus", "genderStatus", codeableconcept.CodeableConcept, False),
+            ("species", "species", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class PatientCommunication(fhirelement.FHIRElement):
@@ -214,12 +198,13 @@ class PatientCommunication(fhirelement.FHIRElement):
         
         super(PatientCommunication, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PatientCommunication, self).update_with_json(jsondict)
-        if 'language' in jsondict:
-            self.language = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['language'], self)
-        if 'preferred' in jsondict:
-            self.preferred = jsondict['preferred']
+    def elementProperties(self):
+        js = super(PatientCommunication, self).elementProperties()
+        js.extend([
+            ("language", "language", codeableconcept.CodeableConcept, False),
+            ("preferred", "preferred", bool, False),
+        ])
+        return js
 
 
 class PatientContact(fhirelement.FHIRElement):
@@ -263,22 +248,18 @@ class PatientContact(fhirelement.FHIRElement):
         
         super(PatientContact, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PatientContact, self).update_with_json(jsondict)
-        if 'address' in jsondict:
-            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'gender' in jsondict:
-            self.gender = jsondict['gender']
-        if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
-        if 'organization' in jsondict:
-            self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'relationship' in jsondict:
-            self.relationship = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['relationship'], self)
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(PatientContact, self).elementProperties()
+        js.extend([
+            ("address", "address", address.Address, False),
+            ("gender", "gender", str, False),
+            ("name", "name", humanname.HumanName, False),
+            ("organization", "organization", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("relationship", "relationship", codeableconcept.CodeableConcept, True),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class PatientLink(fhirelement.FHIRElement):
@@ -303,10 +284,11 @@ class PatientLink(fhirelement.FHIRElement):
         
         super(PatientLink, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PatientLink, self).update_with_json(jsondict)
-        if 'other' in jsondict:
-            self.other = fhirreference.FHIRReference.with_json_and_owner(jsondict['other'], self)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(PatientLink, self).elementProperties()
+        js.extend([
+            ("other", "other", fhirreference.FHIRReference, False),
+            ("type", "type", str, False),
+        ])
+        return js
 

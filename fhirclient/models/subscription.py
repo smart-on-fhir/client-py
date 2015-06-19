@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -62,24 +62,19 @@ class Subscription(domainresource.DomainResource):
         
         super(Subscription, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Subscription, self).update_with_json(jsondict)
-        if 'channel' in jsondict:
-            self.channel = SubscriptionChannel.with_json_and_owner(jsondict['channel'], self)
-        if 'contact' in jsondict:
-            self.contact = contactpoint.ContactPoint.with_json_and_owner(jsondict['contact'], self)
-        if 'criteria' in jsondict:
-            self.criteria = jsondict['criteria']
-        if 'end' in jsondict:
-            self.end = fhirdate.FHIRDate.with_json_and_owner(jsondict['end'], self)
-        if 'error' in jsondict:
-            self.error = jsondict['error']
-        if 'reason' in jsondict:
-            self.reason = jsondict['reason']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'tag' in jsondict:
-            self.tag = coding.Coding.with_json_and_owner(jsondict['tag'], self)
+    def elementProperties(self):
+        js = super(Subscription, self).elementProperties()
+        js.extend([
+            ("channel", "channel", SubscriptionChannel, False),
+            ("contact", "contact", contactpoint.ContactPoint, True),
+            ("criteria", "criteria", str, False),
+            ("end", "end", fhirdate.FHIRDate, False),
+            ("error", "error", str, False),
+            ("reason", "reason", str, False),
+            ("status", "status", str, False),
+            ("tag", "tag", coding.Coding, True),
+        ])
+        return js
 
 
 class SubscriptionChannel(fhirelement.FHIRElement):
@@ -113,14 +108,13 @@ class SubscriptionChannel(fhirelement.FHIRElement):
         
         super(SubscriptionChannel, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SubscriptionChannel, self).update_with_json(jsondict)
-        if 'endpoint' in jsondict:
-            self.endpoint = jsondict['endpoint']
-        if 'header' in jsondict:
-            self.header = jsondict['header']
-        if 'payload' in jsondict:
-            self.payload = jsondict['payload']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(SubscriptionChannel, self).elementProperties()
+        js.extend([
+            ("endpoint", "endpoint", str, False),
+            ("header", "header", str, False),
+            ("payload", "payload", str, False),
+            ("type", "type", str, False),
+        ])
+        return js
 

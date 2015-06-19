@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class EnrollmentResponseTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = enrollmentresponse.EnrollmentResponse(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return enrollmentresponse.EnrollmentResponse(js)
     
     def testEnrollmentResponse1(self):
         inst = self.instantiate_from("enrollmentresponse-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2f2110> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a EnrollmentResponse instance")
+        self.implEnrollmentResponse1(inst)
+        inst2 = enrollmentresponse.EnrollmentResponse(inst.as_json())
+        self.implEnrollmentResponse1(inst2)
     
+    def implEnrollmentResponse1(self, inst):
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.isostring, "2014-08-16")
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Dependant added to policy.")
         self.assertEqual(inst.id, "ER2500")
         self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/enrollmentresponse")

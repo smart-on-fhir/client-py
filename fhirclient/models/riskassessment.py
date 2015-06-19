@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -66,26 +66,20 @@ class RiskAssessment(domainresource.DomainResource):
         
         super(RiskAssessment, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(RiskAssessment, self).update_with_json(jsondict)
-        if 'basis' in jsondict:
-            self.basis = fhirreference.FHIRReference.with_json_and_owner(jsondict['basis'], self)
-        if 'condition' in jsondict:
-            self.condition = fhirreference.FHIRReference.with_json_and_owner(jsondict['condition'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'method' in jsondict:
-            self.method = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['method'], self)
-        if 'mitigation' in jsondict:
-            self.mitigation = jsondict['mitigation']
-        if 'performer' in jsondict:
-            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self)
-        if 'prediction' in jsondict:
-            self.prediction = RiskAssessmentPrediction.with_json_and_owner(jsondict['prediction'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
+    def elementProperties(self):
+        js = super(RiskAssessment, self).elementProperties()
+        js.extend([
+            ("basis", "basis", fhirreference.FHIRReference, True),
+            ("condition", "condition", fhirreference.FHIRReference, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("method", "method", codeableconcept.CodeableConcept, False),
+            ("mitigation", "mitigation", str, False),
+            ("performer", "performer", fhirreference.FHIRReference, False),
+            ("prediction", "prediction", RiskAssessmentPrediction, True),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class RiskAssessmentPrediction(fhirelement.FHIRElement):
@@ -134,22 +128,17 @@ class RiskAssessmentPrediction(fhirelement.FHIRElement):
         
         super(RiskAssessmentPrediction, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(RiskAssessmentPrediction, self).update_with_json(jsondict)
-        if 'outcome' in jsondict:
-            self.outcome = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['outcome'], self)
-        if 'probabilityCodeableConcept' in jsondict:
-            self.probabilityCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['probabilityCodeableConcept'], self)
-        if 'probabilityDecimal' in jsondict:
-            self.probabilityDecimal = jsondict['probabilityDecimal']
-        if 'probabilityRange' in jsondict:
-            self.probabilityRange = range.Range.with_json_and_owner(jsondict['probabilityRange'], self)
-        if 'rationale' in jsondict:
-            self.rationale = jsondict['rationale']
-        if 'relativeRisk' in jsondict:
-            self.relativeRisk = jsondict['relativeRisk']
-        if 'whenPeriod' in jsondict:
-            self.whenPeriod = period.Period.with_json_and_owner(jsondict['whenPeriod'], self)
-        if 'whenRange' in jsondict:
-            self.whenRange = range.Range.with_json_and_owner(jsondict['whenRange'], self)
+    def elementProperties(self):
+        js = super(RiskAssessmentPrediction, self).elementProperties()
+        js.extend([
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False),
+            ("probabilityCodeableConcept", "probabilityCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("probabilityDecimal", "probabilityDecimal", float, False),
+            ("probabilityRange", "probabilityRange", range.Range, False),
+            ("rationale", "rationale", str, False),
+            ("relativeRisk", "relativeRisk", float, False),
+            ("whenPeriod", "whenPeriod", period.Period, False),
+            ("whenRange", "whenRange", range.Range, False),
+        ])
+        return js
 

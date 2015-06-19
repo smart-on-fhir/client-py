@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class SubscriptionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = subscription.Subscription(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return subscription.Subscription(js)
     
     def testSubscription1(self):
         inst = self.instantiate_from("subscription-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3a2990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Subscription instance")
+        self.implSubscription1(inst)
+        inst2 = subscription.Subscription(inst.as_json())
+        self.implSubscription1(inst2)
     
+    def implSubscription1(self, inst):
         self.assertEqual(inst.channel.endpoint, "https://biliwatch.com/customers/mount-auburn-miu/on-result")
         self.assertEqual(inst.channel.header, "Authorization: Bearer secret-token-abc-123")
         self.assertEqual(inst.channel.payload, "application/json")

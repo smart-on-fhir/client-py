@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -81,34 +81,24 @@ class AllergyIntolerance(domainresource.DomainResource):
         
         super(AllergyIntolerance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(AllergyIntolerance, self).update_with_json(jsondict)
-        if 'category' in jsondict:
-            self.category = jsondict['category']
-        if 'comment' in jsondict:
-            self.comment = jsondict['comment']
-        if 'criticality' in jsondict:
-            self.criticality = jsondict['criticality']
-        if 'event' in jsondict:
-            self.event = AllergyIntoleranceEvent.with_json_and_owner(jsondict['event'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'lastOccurence' in jsondict:
-            self.lastOccurence = fhirdate.FHIRDate.with_json_and_owner(jsondict['lastOccurence'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'recordedDate' in jsondict:
-            self.recordedDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['recordedDate'], self)
-        if 'recorder' in jsondict:
-            self.recorder = fhirreference.FHIRReference.with_json_and_owner(jsondict['recorder'], self)
-        if 'reporter' in jsondict:
-            self.reporter = fhirreference.FHIRReference.with_json_and_owner(jsondict['reporter'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'substance' in jsondict:
-            self.substance = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['substance'], self)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(AllergyIntolerance, self).elementProperties()
+        js.extend([
+            ("category", "category", str, False),
+            ("comment", "comment", str, False),
+            ("criticality", "criticality", str, False),
+            ("event", "event", AllergyIntoleranceEvent, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("lastOccurence", "lastOccurence", fhirdate.FHIRDate, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("recordedDate", "recordedDate", fhirdate.FHIRDate, False),
+            ("recorder", "recorder", fhirreference.FHIRReference, False),
+            ("reporter", "reporter", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+            ("substance", "substance", codeableconcept.CodeableConcept, False),
+            ("type", "type", str, False),
+        ])
+        return js
 
 
 class AllergyIntoleranceEvent(fhirelement.FHIRElement):
@@ -163,24 +153,18 @@ class AllergyIntoleranceEvent(fhirelement.FHIRElement):
         
         super(AllergyIntoleranceEvent, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(AllergyIntoleranceEvent, self).update_with_json(jsondict)
-        if 'certainty' in jsondict:
-            self.certainty = jsondict['certainty']
-        if 'comment' in jsondict:
-            self.comment = jsondict['comment']
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'duration' in jsondict:
-            self.duration = duration.Duration.with_json_and_owner(jsondict['duration'], self)
-        if 'exposureRoute' in jsondict:
-            self.exposureRoute = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['exposureRoute'], self)
-        if 'manifestation' in jsondict:
-            self.manifestation = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['manifestation'], self)
-        if 'onset' in jsondict:
-            self.onset = fhirdate.FHIRDate.with_json_and_owner(jsondict['onset'], self)
-        if 'severity' in jsondict:
-            self.severity = jsondict['severity']
-        if 'substance' in jsondict:
-            self.substance = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['substance'], self)
+    def elementProperties(self):
+        js = super(AllergyIntoleranceEvent, self).elementProperties()
+        js.extend([
+            ("certainty", "certainty", str, False),
+            ("comment", "comment", str, False),
+            ("description", "description", str, False),
+            ("duration", "duration", duration.Duration, False),
+            ("exposureRoute", "exposureRoute", codeableconcept.CodeableConcept, False),
+            ("manifestation", "manifestation", codeableconcept.CodeableConcept, True),
+            ("onset", "onset", fhirdate.FHIRDate, False),
+            ("severity", "severity", str, False),
+            ("substance", "substance", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -75,28 +75,21 @@ class Practitioner(domainresource.DomainResource):
         
         super(Practitioner, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Practitioner, self).update_with_json(jsondict)
-        if 'address' in jsondict:
-            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'birthDate' in jsondict:
-            self.birthDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['birthDate'], self)
-        if 'communication' in jsondict:
-            self.communication = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['communication'], self)
-        if 'gender' in jsondict:
-            self.gender = jsondict['gender']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
-        if 'photo' in jsondict:
-            self.photo = attachment.Attachment.with_json_and_owner(jsondict['photo'], self)
-        if 'practitionerRole' in jsondict:
-            self.practitionerRole = PractitionerPractitionerRole.with_json_and_owner(jsondict['practitionerRole'], self)
-        if 'qualification' in jsondict:
-            self.qualification = PractitionerQualification.with_json_and_owner(jsondict['qualification'], self)
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(Practitioner, self).elementProperties()
+        js.extend([
+            ("address", "address", address.Address, True),
+            ("birthDate", "birthDate", fhirdate.FHIRDate, False),
+            ("communication", "communication", codeableconcept.CodeableConcept, True),
+            ("gender", "gender", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("name", "name", humanname.HumanName, False),
+            ("photo", "photo", attachment.Attachment, True),
+            ("practitionerRole", "practitionerRole", PractitionerPractitionerRole, True),
+            ("qualification", "qualification", PractitionerQualification, True),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class PractitionerPractitionerRole(fhirelement.FHIRElement):
@@ -138,20 +131,17 @@ class PractitionerPractitionerRole(fhirelement.FHIRElement):
         
         super(PractitionerPractitionerRole, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PractitionerPractitionerRole, self).update_with_json(jsondict)
-        if 'healthcareService' in jsondict:
-            self.healthcareService = fhirreference.FHIRReference.with_json_and_owner(jsondict['healthcareService'], self)
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
-        if 'managingOrganization' in jsondict:
-            self.managingOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
-        if 'specialty' in jsondict:
-            self.specialty = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['specialty'], self)
+    def elementProperties(self):
+        js = super(PractitionerPractitionerRole, self).elementProperties()
+        js.extend([
+            ("healthcareService", "healthcareService", fhirreference.FHIRReference, True),
+            ("location", "location", fhirreference.FHIRReference, True),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("role", "role", codeableconcept.CodeableConcept, False),
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 
 
 class PractitionerQualification(fhirelement.FHIRElement):
@@ -182,14 +172,13 @@ class PractitionerQualification(fhirelement.FHIRElement):
         
         super(PractitionerQualification, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PractitionerQualification, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'issuer' in jsondict:
-            self.issuer = fhirreference.FHIRReference.with_json_and_owner(jsondict['issuer'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
+    def elementProperties(self):
+        js = super(PractitionerQualification, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("issuer", "issuer", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+        ])
+        return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -135,52 +135,33 @@ class HealthcareService(domainresource.DomainResource):
         
         super(HealthcareService, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(HealthcareService, self).update_with_json(jsondict)
-        if 'appointmentRequired' in jsondict:
-            self.appointmentRequired = jsondict['appointmentRequired']
-        if 'availabilityExceptions' in jsondict:
-            self.availabilityExceptions = jsondict['availabilityExceptions']
-        if 'availableTime' in jsondict:
-            self.availableTime = HealthcareServiceAvailableTime.with_json_and_owner(jsondict['availableTime'], self)
-        if 'characteristic' in jsondict:
-            self.characteristic = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['characteristic'], self)
-        if 'comment' in jsondict:
-            self.comment = jsondict['comment']
-        if 'coverageArea' in jsondict:
-            self.coverageArea = fhirreference.FHIRReference.with_json_and_owner(jsondict['coverageArea'], self)
-        if 'eligibility' in jsondict:
-            self.eligibility = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['eligibility'], self)
-        if 'eligibilityNote' in jsondict:
-            self.eligibilityNote = jsondict['eligibilityNote']
-        if 'extraDetails' in jsondict:
-            self.extraDetails = jsondict['extraDetails']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
-        if 'notAvailable' in jsondict:
-            self.notAvailable = HealthcareServiceNotAvailable.with_json_and_owner(jsondict['notAvailable'], self)
-        if 'photo' in jsondict:
-            self.photo = attachment.Attachment.with_json_and_owner(jsondict['photo'], self)
-        if 'programName' in jsondict:
-            self.programName = jsondict['programName']
-        if 'providedBy' in jsondict:
-            self.providedBy = fhirreference.FHIRReference.with_json_and_owner(jsondict['providedBy'], self)
-        if 'publicKey' in jsondict:
-            self.publicKey = jsondict['publicKey']
-        if 'referralMethod' in jsondict:
-            self.referralMethod = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['referralMethod'], self)
-        if 'serviceCategory' in jsondict:
-            self.serviceCategory = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['serviceCategory'], self)
-        if 'serviceName' in jsondict:
-            self.serviceName = jsondict['serviceName']
-        if 'serviceProvisionCode' in jsondict:
-            self.serviceProvisionCode = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['serviceProvisionCode'], self)
-        if 'serviceType' in jsondict:
-            self.serviceType = HealthcareServiceServiceType.with_json_and_owner(jsondict['serviceType'], self)
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(HealthcareService, self).elementProperties()
+        js.extend([
+            ("appointmentRequired", "appointmentRequired", bool, False),
+            ("availabilityExceptions", "availabilityExceptions", str, False),
+            ("availableTime", "availableTime", HealthcareServiceAvailableTime, True),
+            ("characteristic", "characteristic", codeableconcept.CodeableConcept, True),
+            ("comment", "comment", str, False),
+            ("coverageArea", "coverageArea", fhirreference.FHIRReference, True),
+            ("eligibility", "eligibility", codeableconcept.CodeableConcept, False),
+            ("eligibilityNote", "eligibilityNote", str, False),
+            ("extraDetails", "extraDetails", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("location", "location", fhirreference.FHIRReference, False),
+            ("notAvailable", "notAvailable", HealthcareServiceNotAvailable, True),
+            ("photo", "photo", attachment.Attachment, False),
+            ("programName", "programName", str, True),
+            ("providedBy", "providedBy", fhirreference.FHIRReference, False),
+            ("publicKey", "publicKey", str, False),
+            ("referralMethod", "referralMethod", codeableconcept.CodeableConcept, True),
+            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False),
+            ("serviceName", "serviceName", str, False),
+            ("serviceProvisionCode", "serviceProvisionCode", codeableconcept.CodeableConcept, True),
+            ("serviceType", "serviceType", HealthcareServiceServiceType, True),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class HealthcareServiceAvailableTime(fhirelement.FHIRElement):
@@ -214,16 +195,15 @@ class HealthcareServiceAvailableTime(fhirelement.FHIRElement):
         
         super(HealthcareServiceAvailableTime, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(HealthcareServiceAvailableTime, self).update_with_json(jsondict)
-        if 'allDay' in jsondict:
-            self.allDay = jsondict['allDay']
-        if 'availableEndTime' in jsondict:
-            self.availableEndTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['availableEndTime'], self)
-        if 'availableStartTime' in jsondict:
-            self.availableStartTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['availableStartTime'], self)
-        if 'daysOfWeek' in jsondict:
-            self.daysOfWeek = jsondict['daysOfWeek']
+    def elementProperties(self):
+        js = super(HealthcareServiceAvailableTime, self).elementProperties()
+        js.extend([
+            ("allDay", "allDay", bool, False),
+            ("availableEndTime", "availableEndTime", fhirdate.FHIRDate, False),
+            ("availableStartTime", "availableStartTime", fhirdate.FHIRDate, False),
+            ("daysOfWeek", "daysOfWeek", str, True),
+        ])
+        return js
 
 
 class HealthcareServiceNotAvailable(fhirelement.FHIRElement):
@@ -249,12 +229,13 @@ class HealthcareServiceNotAvailable(fhirelement.FHIRElement):
         
         super(HealthcareServiceNotAvailable, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(HealthcareServiceNotAvailable, self).update_with_json(jsondict)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'during' in jsondict:
-            self.during = period.Period.with_json_and_owner(jsondict['during'], self)
+    def elementProperties(self):
+        js = super(HealthcareServiceNotAvailable, self).elementProperties()
+        js.extend([
+            ("description", "description", str, False),
+            ("during", "during", period.Period, False),
+        ])
+        return js
 
 
 class HealthcareServiceServiceType(fhirelement.FHIRElement):
@@ -278,10 +259,11 @@ class HealthcareServiceServiceType(fhirelement.FHIRElement):
         
         super(HealthcareServiceServiceType, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(HealthcareServiceServiceType, self).update_with_json(jsondict)
-        if 'specialty' in jsondict:
-            self.specialty = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['specialty'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(HealthcareServiceServiceType, self).elementProperties()
+        js.extend([
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

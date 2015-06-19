@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -84,34 +84,24 @@ class CarePlan(domainresource.DomainResource):
         
         super(CarePlan, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(CarePlan, self).update_with_json(jsondict)
-        if 'activity' in jsondict:
-            self.activity = CarePlanActivity.with_json_and_owner(jsondict['activity'], self)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'category' in jsondict:
-            self.category = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['category'], self)
-        if 'concern' in jsondict:
-            self.concern = fhirreference.FHIRReference.with_json_and_owner(jsondict['concern'], self)
-        if 'goal' in jsondict:
-            self.goal = fhirreference.FHIRReference.with_json_and_owner(jsondict['goal'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'modified' in jsondict:
-            self.modified = fhirdate.FHIRDate.with_json_and_owner(jsondict['modified'], self)
-        if 'notes' in jsondict:
-            self.notes = jsondict['notes']
-        if 'participant' in jsondict:
-            self.participant = CarePlanParticipant.with_json_and_owner(jsondict['participant'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'support' in jsondict:
-            self.support = fhirreference.FHIRReference.with_json_and_owner(jsondict['support'], self)
+    def elementProperties(self):
+        js = super(CarePlan, self).elementProperties()
+        js.extend([
+            ("activity", "activity", CarePlanActivity, True),
+            ("author", "author", fhirreference.FHIRReference, True),
+            ("category", "category", codeableconcept.CodeableConcept, True),
+            ("concern", "concern", fhirreference.FHIRReference, True),
+            ("goal", "goal", fhirreference.FHIRReference, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("modified", "modified", fhirdate.FHIRDate, False),
+            ("notes", "notes", str, False),
+            ("participant", "participant", CarePlanParticipant, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("status", "status", str, False),
+            ("support", "support", fhirreference.FHIRReference, True),
+        ])
+        return js
 
 
 class CarePlanActivity(fhirelement.FHIRElement):
@@ -146,16 +136,15 @@ class CarePlanActivity(fhirelement.FHIRElement):
         
         super(CarePlanActivity, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(CarePlanActivity, self).update_with_json(jsondict)
-        if 'actionResulting' in jsondict:
-            self.actionResulting = fhirreference.FHIRReference.with_json_and_owner(jsondict['actionResulting'], self)
-        if 'detail' in jsondict:
-            self.detail = CarePlanActivityDetail.with_json_and_owner(jsondict['detail'], self)
-        if 'notes' in jsondict:
-            self.notes = jsondict['notes']
-        if 'reference' in jsondict:
-            self.reference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reference'], self)
+    def elementProperties(self):
+        js = super(CarePlanActivity, self).elementProperties()
+        js.extend([
+            ("actionResulting", "actionResulting", fhirreference.FHIRReference, True),
+            ("detail", "detail", CarePlanActivityDetail, False),
+            ("notes", "notes", str, False),
+            ("reference", "reference", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class CarePlanActivityDetail(fhirelement.FHIRElement):
@@ -243,42 +232,28 @@ class CarePlanActivityDetail(fhirelement.FHIRElement):
         
         super(CarePlanActivityDetail, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(CarePlanActivityDetail, self).update_with_json(jsondict)
-        if 'category' in jsondict:
-            self.category = jsondict['category']
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'dailyAmount' in jsondict:
-            self.dailyAmount = quantity.Quantity.with_json_and_owner(jsondict['dailyAmount'], self)
-        if 'goal' in jsondict:
-            self.goal = fhirreference.FHIRReference.with_json_and_owner(jsondict['goal'], self)
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
-        if 'note' in jsondict:
-            self.note = jsondict['note']
-        if 'performer' in jsondict:
-            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self)
-        if 'product' in jsondict:
-            self.product = fhirreference.FHIRReference.with_json_and_owner(jsondict['product'], self)
-        if 'prohibited' in jsondict:
-            self.prohibited = jsondict['prohibited']
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'reasonCodeableConcept' in jsondict:
-            self.reasonCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonCodeableConcept'], self)
-        if 'reasonReference' in jsondict:
-            self.reasonReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reasonReference'], self)
-        if 'scheduledPeriod' in jsondict:
-            self.scheduledPeriod = period.Period.with_json_and_owner(jsondict['scheduledPeriod'], self)
-        if 'scheduledString' in jsondict:
-            self.scheduledString = jsondict['scheduledString']
-        if 'scheduledTiming' in jsondict:
-            self.scheduledTiming = timing.Timing.with_json_and_owner(jsondict['scheduledTiming'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'statusReason' in jsondict:
-            self.statusReason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['statusReason'], self)
+    def elementProperties(self):
+        js = super(CarePlanActivityDetail, self).elementProperties()
+        js.extend([
+            ("category", "category", str, False),
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("dailyAmount", "dailyAmount", quantity.Quantity, False),
+            ("goal", "goal", fhirreference.FHIRReference, True),
+            ("location", "location", fhirreference.FHIRReference, False),
+            ("note", "note", str, False),
+            ("performer", "performer", fhirreference.FHIRReference, True),
+            ("product", "product", fhirreference.FHIRReference, False),
+            ("prohibited", "prohibited", bool, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
+            ("scheduledPeriod", "scheduledPeriod", period.Period, False),
+            ("scheduledString", "scheduledString", str, False),
+            ("scheduledTiming", "scheduledTiming", timing.Timing, False),
+            ("status", "status", str, False),
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class CarePlanParticipant(fhirelement.FHIRElement):
@@ -304,10 +279,11 @@ class CarePlanParticipant(fhirelement.FHIRElement):
         
         super(CarePlanParticipant, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(CarePlanParticipant, self).update_with_json(jsondict)
-        if 'member' in jsondict:
-            self.member = fhirreference.FHIRReference.with_json_and_owner(jsondict['member'], self)
-        if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
+    def elementProperties(self):
+        js = super(CarePlanParticipant, self).elementProperties()
+        js.extend([
+            ("member", "member", fhirreference.FHIRReference, False),
+            ("role", "role", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

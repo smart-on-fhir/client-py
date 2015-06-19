@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Contract) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Contract) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -109,46 +109,30 @@ class Contract(domainresource.DomainResource):
         
         super(Contract, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Contract, self).update_with_json(jsondict)
-        if 'action' in jsondict:
-            self.action = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['action'], self)
-        if 'actionReason' in jsondict:
-            self.actionReason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['actionReason'], self)
-        if 'actor' in jsondict:
-            self.actor = ContractActor.with_json_and_owner(jsondict['actor'], self)
-        if 'applies' in jsondict:
-            self.applies = period.Period.with_json_and_owner(jsondict['applies'], self)
-        if 'authority' in jsondict:
-            self.authority = fhirreference.FHIRReference.with_json_and_owner(jsondict['authority'], self)
-        if 'bindingAttachment' in jsondict:
-            self.bindingAttachment = attachment.Attachment.with_json_and_owner(jsondict['bindingAttachment'], self)
-        if 'bindingReference' in jsondict:
-            self.bindingReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['bindingReference'], self)
-        if 'domain' in jsondict:
-            self.domain = fhirreference.FHIRReference.with_json_and_owner(jsondict['domain'], self)
-        if 'friendly' in jsondict:
-            self.friendly = ContractFriendly.with_json_and_owner(jsondict['friendly'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'issued' in jsondict:
-            self.issued = fhirdate.FHIRDate.with_json_and_owner(jsondict['issued'], self)
-        if 'legal' in jsondict:
-            self.legal = ContractLegal.with_json_and_owner(jsondict['legal'], self)
-        if 'rule' in jsondict:
-            self.rule = ContractRule.with_json_and_owner(jsondict['rule'], self)
-        if 'signer' in jsondict:
-            self.signer = ContractSigner.with_json_and_owner(jsondict['signer'], self)
-        if 'subType' in jsondict:
-            self.subType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['subType'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'term' in jsondict:
-            self.term = ContractTerm.with_json_and_owner(jsondict['term'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
-        if 'valuedItem' in jsondict:
-            self.valuedItem = ContractValuedItem.with_json_and_owner(jsondict['valuedItem'], self)
+    def elementProperties(self):
+        js = super(Contract, self).elementProperties()
+        js.extend([
+            ("action", "action", codeableconcept.CodeableConcept, True),
+            ("actionReason", "actionReason", codeableconcept.CodeableConcept, True),
+            ("actor", "actor", ContractActor, True),
+            ("applies", "applies", period.Period, False),
+            ("authority", "authority", fhirreference.FHIRReference, True),
+            ("bindingAttachment", "bindingAttachment", attachment.Attachment, False),
+            ("bindingReference", "bindingReference", fhirreference.FHIRReference, False),
+            ("domain", "domain", fhirreference.FHIRReference, True),
+            ("friendly", "friendly", ContractFriendly, True),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("issued", "issued", fhirdate.FHIRDate, False),
+            ("legal", "legal", ContractLegal, True),
+            ("rule", "rule", ContractRule, True),
+            ("signer", "signer", ContractSigner, True),
+            ("subType", "subType", codeableconcept.CodeableConcept, True),
+            ("subject", "subject", fhirreference.FHIRReference, True),
+            ("term", "term", ContractTerm, True),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("valuedItem", "valuedItem", ContractValuedItem, True),
+        ])
+        return js
 
 
 class ContractActor(fhirelement.FHIRElement):
@@ -173,12 +157,13 @@ class ContractActor(fhirelement.FHIRElement):
         
         super(ContractActor, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ContractActor, self).update_with_json(jsondict)
-        if 'entity' in jsondict:
-            self.entity = fhirreference.FHIRReference.with_json_and_owner(jsondict['entity'], self)
-        if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
+    def elementProperties(self):
+        js = super(ContractActor, self).elementProperties()
+        js.extend([
+            ("entity", "entity", fhirreference.FHIRReference, False),
+            ("role", "role", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 
 
 class ContractFriendly(fhirelement.FHIRElement):
@@ -209,12 +194,13 @@ class ContractFriendly(fhirelement.FHIRElement):
         
         super(ContractFriendly, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ContractFriendly, self).update_with_json(jsondict)
-        if 'contentAttachment' in jsondict:
-            self.contentAttachment = attachment.Attachment.with_json_and_owner(jsondict['contentAttachment'], self)
-        if 'contentReference' in jsondict:
-            self.contentReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['contentReference'], self)
+    def elementProperties(self):
+        js = super(ContractFriendly, self).elementProperties()
+        js.extend([
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False),
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ContractLegal(fhirelement.FHIRElement):
@@ -239,12 +225,13 @@ class ContractLegal(fhirelement.FHIRElement):
         
         super(ContractLegal, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ContractLegal, self).update_with_json(jsondict)
-        if 'contentAttachment' in jsondict:
-            self.contentAttachment = attachment.Attachment.with_json_and_owner(jsondict['contentAttachment'], self)
-        if 'contentReference' in jsondict:
-            self.contentReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['contentReference'], self)
+    def elementProperties(self):
+        js = super(ContractLegal, self).elementProperties()
+        js.extend([
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False),
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ContractRule(fhirelement.FHIRElement):
@@ -269,12 +256,13 @@ class ContractRule(fhirelement.FHIRElement):
         
         super(ContractRule, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ContractRule, self).update_with_json(jsondict)
-        if 'contentAttachment' in jsondict:
-            self.contentAttachment = attachment.Attachment.with_json_and_owner(jsondict['contentAttachment'], self)
-        if 'contentReference' in jsondict:
-            self.contentReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['contentReference'], self)
+    def elementProperties(self):
+        js = super(ContractRule, self).elementProperties()
+        js.extend([
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False),
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ContractSigner(fhirelement.FHIRElement):
@@ -303,14 +291,14 @@ class ContractSigner(fhirelement.FHIRElement):
         
         super(ContractSigner, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ContractSigner, self).update_with_json(jsondict)
-        if 'party' in jsondict:
-            self.party = fhirreference.FHIRReference.with_json_and_owner(jsondict['party'], self)
-        if 'signature' in jsondict:
-            self.signature = jsondict['signature']
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(ContractSigner, self).elementProperties()
+        js.extend([
+            ("party", "party", fhirreference.FHIRReference, False),
+            ("signature", "signature", str, False),
+            ("type", "type", coding.Coding, False),
+        ])
+        return js
 
 
 class ContractTerm(fhirelement.FHIRElement):
@@ -342,6 +330,10 @@ class ContractTerm(fhirelement.FHIRElement):
         """ Contract Term Effective Time.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.group = None
+        """ Nested Contract Term Group.
+        List of `ContractTerm` items (represented as `dict` in JSON). """
+        
         self.identifier = None
         """ Contract Term identifier.
         Type `Identifier` (represented as `dict` in JSON). """
@@ -358,10 +350,6 @@ class ContractTerm(fhirelement.FHIRElement):
         """ Subject of this Contract Term.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        self.term = None
-        """ Contract Term List.
-        List of `ContractTerm` items (represented as `dict` in JSON). """
-        
         self.text = None
         """ Human readable Contract term text.
         Type `str`. """
@@ -376,32 +364,23 @@ class ContractTerm(fhirelement.FHIRElement):
         
         super(ContractTerm, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ContractTerm, self).update_with_json(jsondict)
-        if 'action' in jsondict:
-            self.action = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['action'], self)
-        if 'actionReason' in jsondict:
-            self.actionReason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['actionReason'], self)
-        if 'actor' in jsondict:
-            self.actor = ContractTermActor.with_json_and_owner(jsondict['actor'], self)
-        if 'applies' in jsondict:
-            self.applies = period.Period.with_json_and_owner(jsondict['applies'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'issued' in jsondict:
-            self.issued = fhirdate.FHIRDate.with_json_and_owner(jsondict['issued'], self)
-        if 'subType' in jsondict:
-            self.subType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['subType'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'term' in jsondict:
-            self.term = ContractTerm.with_json_and_owner(jsondict['term'], self)
-        if 'text' in jsondict:
-            self.text = jsondict['text']
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
-        if 'valuedItem' in jsondict:
-            self.valuedItem = ContractTermValuedItem.with_json_and_owner(jsondict['valuedItem'], self)
+    def elementProperties(self):
+        js = super(ContractTerm, self).elementProperties()
+        js.extend([
+            ("action", "action", codeableconcept.CodeableConcept, True),
+            ("actionReason", "actionReason", codeableconcept.CodeableConcept, True),
+            ("actor", "actor", ContractTermActor, True),
+            ("applies", "applies", period.Period, False),
+            ("group", "group", ContractTerm, True),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("issued", "issued", fhirdate.FHIRDate, False),
+            ("subType", "subType", codeableconcept.CodeableConcept, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("text", "text", str, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("valuedItem", "valuedItem", ContractTermValuedItem, True),
+        ])
+        return js
 
 
 class ContractTermActor(fhirelement.FHIRElement):
@@ -426,12 +405,13 @@ class ContractTermActor(fhirelement.FHIRElement):
         
         super(ContractTermActor, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ContractTermActor, self).update_with_json(jsondict)
-        if 'entity' in jsondict:
-            self.entity = fhirreference.FHIRReference.with_json_and_owner(jsondict['entity'], self)
-        if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
+    def elementProperties(self):
+        js = super(ContractTermActor, self).elementProperties()
+        js.extend([
+            ("entity", "entity", fhirreference.FHIRReference, False),
+            ("role", "role", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 
 
 class ContractTermValuedItem(fhirelement.FHIRElement):
@@ -484,26 +464,20 @@ class ContractTermValuedItem(fhirelement.FHIRElement):
         
         super(ContractTermValuedItem, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ContractTermValuedItem, self).update_with_json(jsondict)
-        if 'effectiveTime' in jsondict:
-            self.effectiveTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['effectiveTime'], self)
-        if 'entityCodeableConcept' in jsondict:
-            self.entityCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['entityCodeableConcept'], self)
-        if 'entityReference' in jsondict:
-            self.entityReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['entityReference'], self)
-        if 'factor' in jsondict:
-            self.factor = jsondict['factor']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'net' in jsondict:
-            self.net = money.Money.with_json_and_owner(jsondict['net'], self)
-        if 'points' in jsondict:
-            self.points = jsondict['points']
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'unitPrice' in jsondict:
-            self.unitPrice = money.Money.with_json_and_owner(jsondict['unitPrice'], self)
+    def elementProperties(self):
+        js = super(ContractTermValuedItem, self).elementProperties()
+        js.extend([
+            ("effectiveTime", "effectiveTime", fhirdate.FHIRDate, False),
+            ("entityCodeableConcept", "entityCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("entityReference", "entityReference", fhirreference.FHIRReference, False),
+            ("factor", "factor", float, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("net", "net", money.Money, False),
+            ("points", "points", float, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("unitPrice", "unitPrice", money.Money, False),
+        ])
+        return js
 
 
 class ContractValuedItem(fhirelement.FHIRElement):
@@ -556,24 +530,18 @@ class ContractValuedItem(fhirelement.FHIRElement):
         
         super(ContractValuedItem, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ContractValuedItem, self).update_with_json(jsondict)
-        if 'effectiveTime' in jsondict:
-            self.effectiveTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['effectiveTime'], self)
-        if 'entityCodeableConcept' in jsondict:
-            self.entityCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['entityCodeableConcept'], self)
-        if 'entityReference' in jsondict:
-            self.entityReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['entityReference'], self)
-        if 'factor' in jsondict:
-            self.factor = jsondict['factor']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'net' in jsondict:
-            self.net = money.Money.with_json_and_owner(jsondict['net'], self)
-        if 'points' in jsondict:
-            self.points = jsondict['points']
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'unitPrice' in jsondict:
-            self.unitPrice = money.Money.with_json_and_owner(jsondict['unitPrice'], self)
+    def elementProperties(self):
+        js = super(ContractValuedItem, self).elementProperties()
+        js.extend([
+            ("effectiveTime", "effectiveTime", fhirdate.FHIRDate, False),
+            ("entityCodeableConcept", "entityCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("entityReference", "entityReference", fhirreference.FHIRReference, False),
+            ("factor", "factor", float, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("net", "net", money.Money, False),
+            ("points", "points", float, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("unitPrice", "unitPrice", money.Money, False),
+        ])
+        return js
 

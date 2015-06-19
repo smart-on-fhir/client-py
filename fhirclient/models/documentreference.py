@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -99,44 +99,29 @@ class DocumentReference(domainresource.DomainResource):
         
         super(DocumentReference, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DocumentReference, self).update_with_json(jsondict)
-        if 'authenticator' in jsondict:
-            self.authenticator = fhirreference.FHIRReference.with_json_and_owner(jsondict['authenticator'], self)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'confidentiality' in jsondict:
-            self.confidentiality = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['confidentiality'], self)
-        if 'content' in jsondict:
-            self.content = attachment.Attachment.with_json_and_owner(jsondict['content'], self)
-        if 'context' in jsondict:
-            self.context = DocumentReferenceContext.with_json_and_owner(jsondict['context'], self)
-        if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
-        if 'custodian' in jsondict:
-            self.custodian = fhirreference.FHIRReference.with_json_and_owner(jsondict['custodian'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'docStatus' in jsondict:
-            self.docStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['docStatus'], self)
-        if 'format' in jsondict:
-            self.format = jsondict['format']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'indexed' in jsondict:
-            self.indexed = fhirdate.FHIRDate.with_json_and_owner(jsondict['indexed'], self)
-        if 'class' in jsondict:
-            self.klass = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['class'], self)
-        if 'masterIdentifier' in jsondict:
-            self.masterIdentifier = identifier.Identifier.with_json_and_owner(jsondict['masterIdentifier'], self)
-        if 'relatesTo' in jsondict:
-            self.relatesTo = DocumentReferenceRelatesTo.with_json_and_owner(jsondict['relatesTo'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(DocumentReference, self).elementProperties()
+        js.extend([
+            ("authenticator", "authenticator", fhirreference.FHIRReference, False),
+            ("author", "author", fhirreference.FHIRReference, True),
+            ("confidentiality", "confidentiality", codeableconcept.CodeableConcept, True),
+            ("content", "content", attachment.Attachment, True),
+            ("context", "context", DocumentReferenceContext, False),
+            ("created", "created", fhirdate.FHIRDate, False),
+            ("custodian", "custodian", fhirreference.FHIRReference, False),
+            ("description", "description", str, False),
+            ("docStatus", "docStatus", codeableconcept.CodeableConcept, False),
+            ("format", "format", str, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("indexed", "indexed", fhirdate.FHIRDate, False),
+            ("klass", "class", codeableconcept.CodeableConcept, False),
+            ("masterIdentifier", "masterIdentifier", identifier.Identifier, False),
+            ("relatesTo", "relatesTo", DocumentReferenceRelatesTo, True),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class DocumentReferenceContext(fhirelement.FHIRElement):
@@ -178,20 +163,17 @@ class DocumentReferenceContext(fhirelement.FHIRElement):
         
         super(DocumentReferenceContext, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DocumentReferenceContext, self).update_with_json(jsondict)
-        if 'event' in jsondict:
-            self.event = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['event'], self)
-        if 'facilityType' in jsondict:
-            self.facilityType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['facilityType'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'practiceSetting' in jsondict:
-            self.practiceSetting = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['practiceSetting'], self)
-        if 'related' in jsondict:
-            self.related = DocumentReferenceContextRelated.with_json_and_owner(jsondict['related'], self)
-        if 'sourcePatientInfo' in jsondict:
-            self.sourcePatientInfo = fhirreference.FHIRReference.with_json_and_owner(jsondict['sourcePatientInfo'], self)
+    def elementProperties(self):
+        js = super(DocumentReferenceContext, self).elementProperties()
+        js.extend([
+            ("event", "event", codeableconcept.CodeableConcept, True),
+            ("facilityType", "facilityType", codeableconcept.CodeableConcept, False),
+            ("period", "period", period.Period, False),
+            ("practiceSetting", "practiceSetting", codeableconcept.CodeableConcept, False),
+            ("related", "related", DocumentReferenceContextRelated, True),
+            ("sourcePatientInfo", "sourcePatientInfo", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class DocumentReferenceContextRelated(fhirelement.FHIRElement):
@@ -216,12 +198,13 @@ class DocumentReferenceContextRelated(fhirelement.FHIRElement):
         
         super(DocumentReferenceContextRelated, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DocumentReferenceContextRelated, self).update_with_json(jsondict)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'ref' in jsondict:
-            self.ref = fhirreference.FHIRReference.with_json_and_owner(jsondict['ref'], self)
+    def elementProperties(self):
+        js = super(DocumentReferenceContextRelated, self).elementProperties()
+        js.extend([
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("ref", "ref", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class DocumentReferenceRelatesTo(fhirelement.FHIRElement):
@@ -247,10 +230,11 @@ class DocumentReferenceRelatesTo(fhirelement.FHIRElement):
         
         super(DocumentReferenceRelatesTo, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DocumentReferenceRelatesTo, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
+    def elementProperties(self):
+        js = super(DocumentReferenceRelatesTo, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+        ])
+        return js
 

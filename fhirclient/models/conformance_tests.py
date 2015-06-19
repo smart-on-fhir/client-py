@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,19 +18,21 @@ class ConformanceTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = conformance.Conformance(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return conformance.Conformance(js)
     
     def testConformance1(self):
         inst = self.instantiate_from("conformance-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2a3650> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Conformance instance")
+        self.implConformance1(inst)
+        inst2 = conformance.Conformance(inst.as_json())
+        self.implConformance1(inst2)
     
+    def implConformance1(self, inst):
         self.assertTrue(inst.acceptUnknown)
         self.assertEqual(inst.contact[0].telecom[0].system, "email")
         self.assertEqual(inst.contact[0].telecom[0].value, "wile@acme.org")
         self.assertEqual(inst.date.date, FHIRDate("2012-01-04").date)
-        self.assertEqual(inst.date.isostring, "2012-01-04")
+        self.assertEqual(inst.date.as_json(), "2012-01-04")
         self.assertEqual(inst.description, "This is the FHIR conformance statement for the main EHR at ACME for the private interface - it does not describe the public interface")
         self.assertEqual(inst.document[0].documentation, "Basic rules for all documents in the EHR system")
         self.assertEqual(inst.document[0].mode, "consumer")
@@ -62,13 +64,17 @@ class ConformanceTests(unittest.TestCase):
     
     def testConformance2(self):
         inst = self.instantiate_from("conformance-phr-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2a3650> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Conformance instance")
+        self.implConformance2(inst)
+        inst2 = conformance.Conformance(inst.as_json())
+        self.implConformance2(inst2)
     
+    def implConformance2(self, inst):
         self.assertFalse(inst.acceptUnknown)
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.date.date, FHIRDate("2013-06-18").date)
-        self.assertEqual(inst.date.isostring, "2013-06-18")
+        self.assertEqual(inst.date.as_json(), "2013-06-18")
         self.assertEqual(inst.description, "Prototype Conformance Statement for September 2013 Connectathon")
         self.assertEqual(inst.fhirVersion, "0.09")
         self.assertEqual(inst.format[0], "json")

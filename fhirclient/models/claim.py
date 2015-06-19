@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Claim) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Claim) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -147,66 +147,40 @@ class Claim(domainresource.DomainResource):
         
         super(Claim, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Claim, self).update_with_json(jsondict)
-        if 'accident' in jsondict:
-            self.accident = fhirdate.FHIRDate.with_json_and_owner(jsondict['accident'], self)
-        if 'accidentType' in jsondict:
-            self.accidentType = coding.Coding.with_json_and_owner(jsondict['accidentType'], self)
-        if 'additionalMaterials' in jsondict:
-            self.additionalMaterials = coding.Coding.with_json_and_owner(jsondict['additionalMaterials'], self)
-        if 'condition' in jsondict:
-            self.condition = coding.Coding.with_json_and_owner(jsondict['condition'], self)
-        if 'coverage' in jsondict:
-            self.coverage = ClaimCoverage.with_json_and_owner(jsondict['coverage'], self)
-        if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
-        if 'diagnosis' in jsondict:
-            self.diagnosis = ClaimDiagnosis.with_json_and_owner(jsondict['diagnosis'], self)
-        if 'enterer' in jsondict:
-            self.enterer = fhirreference.FHIRReference.with_json_and_owner(jsondict['enterer'], self)
-        if 'exception' in jsondict:
-            self.exception = coding.Coding.with_json_and_owner(jsondict['exception'], self)
-        if 'facility' in jsondict:
-            self.facility = fhirreference.FHIRReference.with_json_and_owner(jsondict['facility'], self)
-        if 'fundsReserve' in jsondict:
-            self.fundsReserve = coding.Coding.with_json_and_owner(jsondict['fundsReserve'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'interventionException' in jsondict:
-            self.interventionException = coding.Coding.with_json_and_owner(jsondict['interventionException'], self)
-        if 'item' in jsondict:
-            self.item = ClaimItem.with_json_and_owner(jsondict['item'], self)
-        if 'missingTeeth' in jsondict:
-            self.missingTeeth = ClaimMissingTeeth.with_json_and_owner(jsondict['missingTeeth'], self)
-        if 'organization' in jsondict:
-            self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self)
-        if 'originalPrescription' in jsondict:
-            self.originalPrescription = fhirreference.FHIRReference.with_json_and_owner(jsondict['originalPrescription'], self)
-        if 'originalRuleset' in jsondict:
-            self.originalRuleset = coding.Coding.with_json_and_owner(jsondict['originalRuleset'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'payee' in jsondict:
-            self.payee = ClaimPayee.with_json_and_owner(jsondict['payee'], self)
-        if 'prescription' in jsondict:
-            self.prescription = fhirreference.FHIRReference.with_json_and_owner(jsondict['prescription'], self)
-        if 'priority' in jsondict:
-            self.priority = coding.Coding.with_json_and_owner(jsondict['priority'], self)
-        if 'provider' in jsondict:
-            self.provider = fhirreference.FHIRReference.with_json_and_owner(jsondict['provider'], self)
-        if 'referral' in jsondict:
-            self.referral = fhirreference.FHIRReference.with_json_and_owner(jsondict['referral'], self)
-        if 'ruleset' in jsondict:
-            self.ruleset = coding.Coding.with_json_and_owner(jsondict['ruleset'], self)
-        if 'school' in jsondict:
-            self.school = jsondict['school']
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'use' in jsondict:
-            self.use = jsondict['use']
+    def elementProperties(self):
+        js = super(Claim, self).elementProperties()
+        js.extend([
+            ("accident", "accident", fhirdate.FHIRDate, False),
+            ("accidentType", "accidentType", coding.Coding, False),
+            ("additionalMaterials", "additionalMaterials", coding.Coding, True),
+            ("condition", "condition", coding.Coding, True),
+            ("coverage", "coverage", ClaimCoverage, True),
+            ("created", "created", fhirdate.FHIRDate, False),
+            ("diagnosis", "diagnosis", ClaimDiagnosis, True),
+            ("enterer", "enterer", fhirreference.FHIRReference, False),
+            ("exception", "exception", coding.Coding, True),
+            ("facility", "facility", fhirreference.FHIRReference, False),
+            ("fundsReserve", "fundsReserve", coding.Coding, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("interventionException", "interventionException", coding.Coding, True),
+            ("item", "item", ClaimItem, True),
+            ("missingTeeth", "missingTeeth", ClaimMissingTeeth, True),
+            ("organization", "organization", fhirreference.FHIRReference, False),
+            ("originalPrescription", "originalPrescription", fhirreference.FHIRReference, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("payee", "payee", ClaimPayee, False),
+            ("prescription", "prescription", fhirreference.FHIRReference, False),
+            ("priority", "priority", coding.Coding, False),
+            ("provider", "provider", fhirreference.FHIRReference, False),
+            ("referral", "referral", fhirreference.FHIRReference, False),
+            ("ruleset", "ruleset", coding.Coding, False),
+            ("school", "school", str, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+            ("type", "type", str, False),
+            ("use", "use", str, False),
+        ])
+        return js
 
 
 class ClaimCoverage(fhirelement.FHIRElement):
@@ -255,24 +229,19 @@ class ClaimCoverage(fhirelement.FHIRElement):
         
         super(ClaimCoverage, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimCoverage, self).update_with_json(jsondict)
-        if 'businessArrangement' in jsondict:
-            self.businessArrangement = jsondict['businessArrangement']
-        if 'claimResponse' in jsondict:
-            self.claimResponse = fhirreference.FHIRReference.with_json_and_owner(jsondict['claimResponse'], self)
-        if 'coverage' in jsondict:
-            self.coverage = fhirreference.FHIRReference.with_json_and_owner(jsondict['coverage'], self)
-        if 'focal' in jsondict:
-            self.focal = jsondict['focal']
-        if 'originalRuleset' in jsondict:
-            self.originalRuleset = coding.Coding.with_json_and_owner(jsondict['originalRuleset'], self)
-        if 'preAuthRef' in jsondict:
-            self.preAuthRef = jsondict['preAuthRef']
-        if 'relationship' in jsondict:
-            self.relationship = coding.Coding.with_json_and_owner(jsondict['relationship'], self)
-        if 'sequence' in jsondict:
-            self.sequence = jsondict['sequence']
+    def elementProperties(self):
+        js = super(ClaimCoverage, self).elementProperties()
+        js.extend([
+            ("businessArrangement", "businessArrangement", str, False),
+            ("claimResponse", "claimResponse", fhirreference.FHIRReference, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False),
+            ("focal", "focal", bool, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False),
+            ("preAuthRef", "preAuthRef", str, True),
+            ("relationship", "relationship", coding.Coding, False),
+            ("sequence", "sequence", int, False),
+        ])
+        return js
 
 
 class ClaimDiagnosis(fhirelement.FHIRElement):
@@ -297,12 +266,13 @@ class ClaimDiagnosis(fhirelement.FHIRElement):
         
         super(ClaimDiagnosis, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimDiagnosis, self).update_with_json(jsondict)
-        if 'diagnosis' in jsondict:
-            self.diagnosis = coding.Coding.with_json_and_owner(jsondict['diagnosis'], self)
-        if 'sequence' in jsondict:
-            self.sequence = jsondict['sequence']
+    def elementProperties(self):
+        js = super(ClaimDiagnosis, self).elementProperties()
+        js.extend([
+            ("diagnosis", "diagnosis", coding.Coding, False),
+            ("sequence", "sequence", int, False),
+        ])
+        return js
 
 
 class ClaimItem(fhirelement.FHIRElement):
@@ -387,42 +357,28 @@ class ClaimItem(fhirelement.FHIRElement):
         
         super(ClaimItem, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimItem, self).update_with_json(jsondict)
-        if 'bodySite' in jsondict:
-            self.bodySite = coding.Coding.with_json_and_owner(jsondict['bodySite'], self)
-        if 'detail' in jsondict:
-            self.detail = ClaimItemDetail.with_json_and_owner(jsondict['detail'], self)
-        if 'diagnosisLinkId' in jsondict:
-            self.diagnosisLinkId = jsondict['diagnosisLinkId']
-        if 'factor' in jsondict:
-            self.factor = jsondict['factor']
-        if 'modifier' in jsondict:
-            self.mod = coding.Coding.with_json_and_owner(jsondict['modifier'], self)
-        if 'net' in jsondict:
-            self.net = money.Money.with_json_and_owner(jsondict['net'], self)
-        if 'points' in jsondict:
-            self.points = jsondict['points']
-        if 'prosthesis' in jsondict:
-            self.prosthesis = ClaimItemProsthesis.with_json_and_owner(jsondict['prosthesis'], self)
-        if 'provider' in jsondict:
-            self.provider = fhirreference.FHIRReference.with_json_and_owner(jsondict['provider'], self)
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'sequence' in jsondict:
-            self.sequence = jsondict['sequence']
-        if 'service' in jsondict:
-            self.service = coding.Coding.with_json_and_owner(jsondict['service'], self)
-        if 'serviceDate' in jsondict:
-            self.serviceDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['serviceDate'], self)
-        if 'subSite' in jsondict:
-            self.subSite = coding.Coding.with_json_and_owner(jsondict['subSite'], self)
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
-        if 'udi' in jsondict:
-            self.udi = coding.Coding.with_json_and_owner(jsondict['udi'], self)
-        if 'unitPrice' in jsondict:
-            self.unitPrice = money.Money.with_json_and_owner(jsondict['unitPrice'], self)
+    def elementProperties(self):
+        js = super(ClaimItem, self).elementProperties()
+        js.extend([
+            ("bodySite", "bodySite", coding.Coding, False),
+            ("detail", "detail", ClaimItemDetail, True),
+            ("diagnosisLinkId", "diagnosisLinkId", int, True),
+            ("factor", "factor", float, False),
+            ("mod", "modifier", coding.Coding, True),
+            ("net", "net", money.Money, False),
+            ("points", "points", float, False),
+            ("prosthesis", "prosthesis", ClaimItemProsthesis, False),
+            ("provider", "provider", fhirreference.FHIRReference, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("sequence", "sequence", int, False),
+            ("service", "service", coding.Coding, False),
+            ("serviceDate", "serviceDate", fhirdate.FHIRDate, False),
+            ("subSite", "subSite", coding.Coding, True),
+            ("type", "type", coding.Coding, False),
+            ("udi", "udi", coding.Coding, False),
+            ("unitPrice", "unitPrice", money.Money, False),
+        ])
+        return js
 
 
 class ClaimItemDetail(fhirelement.FHIRElement):
@@ -479,28 +435,21 @@ class ClaimItemDetail(fhirelement.FHIRElement):
         
         super(ClaimItemDetail, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimItemDetail, self).update_with_json(jsondict)
-        if 'factor' in jsondict:
-            self.factor = jsondict['factor']
-        if 'net' in jsondict:
-            self.net = money.Money.with_json_and_owner(jsondict['net'], self)
-        if 'points' in jsondict:
-            self.points = jsondict['points']
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'sequence' in jsondict:
-            self.sequence = jsondict['sequence']
-        if 'service' in jsondict:
-            self.service = coding.Coding.with_json_and_owner(jsondict['service'], self)
-        if 'subDetail' in jsondict:
-            self.subDetail = ClaimItemDetailSubDetail.with_json_and_owner(jsondict['subDetail'], self)
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
-        if 'udi' in jsondict:
-            self.udi = coding.Coding.with_json_and_owner(jsondict['udi'], self)
-        if 'unitPrice' in jsondict:
-            self.unitPrice = money.Money.with_json_and_owner(jsondict['unitPrice'], self)
+    def elementProperties(self):
+        js = super(ClaimItemDetail, self).elementProperties()
+        js.extend([
+            ("factor", "factor", float, False),
+            ("net", "net", money.Money, False),
+            ("points", "points", float, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("sequence", "sequence", int, False),
+            ("service", "service", coding.Coding, False),
+            ("subDetail", "subDetail", ClaimItemDetailSubDetail, True),
+            ("type", "type", coding.Coding, False),
+            ("udi", "udi", coding.Coding, False),
+            ("unitPrice", "unitPrice", money.Money, False),
+        ])
+        return js
 
 
 class ClaimItemDetailSubDetail(fhirelement.FHIRElement):
@@ -553,26 +502,20 @@ class ClaimItemDetailSubDetail(fhirelement.FHIRElement):
         
         super(ClaimItemDetailSubDetail, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimItemDetailSubDetail, self).update_with_json(jsondict)
-        if 'factor' in jsondict:
-            self.factor = jsondict['factor']
-        if 'net' in jsondict:
-            self.net = money.Money.with_json_and_owner(jsondict['net'], self)
-        if 'points' in jsondict:
-            self.points = jsondict['points']
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'sequence' in jsondict:
-            self.sequence = jsondict['sequence']
-        if 'service' in jsondict:
-            self.service = coding.Coding.with_json_and_owner(jsondict['service'], self)
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
-        if 'udi' in jsondict:
-            self.udi = coding.Coding.with_json_and_owner(jsondict['udi'], self)
-        if 'unitPrice' in jsondict:
-            self.unitPrice = money.Money.with_json_and_owner(jsondict['unitPrice'], self)
+    def elementProperties(self):
+        js = super(ClaimItemDetailSubDetail, self).elementProperties()
+        js.extend([
+            ("factor", "factor", float, False),
+            ("net", "net", money.Money, False),
+            ("points", "points", float, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("sequence", "sequence", int, False),
+            ("service", "service", coding.Coding, False),
+            ("type", "type", coding.Coding, False),
+            ("udi", "udi", coding.Coding, False),
+            ("unitPrice", "unitPrice", money.Money, False),
+        ])
+        return js
 
 
 class ClaimItemProsthesis(fhirelement.FHIRElement):
@@ -601,14 +544,14 @@ class ClaimItemProsthesis(fhirelement.FHIRElement):
         
         super(ClaimItemProsthesis, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimItemProsthesis, self).update_with_json(jsondict)
-        if 'initial' in jsondict:
-            self.initial = jsondict['initial']
-        if 'priorDate' in jsondict:
-            self.priorDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['priorDate'], self)
-        if 'priorMaterial' in jsondict:
-            self.priorMaterial = coding.Coding.with_json_and_owner(jsondict['priorMaterial'], self)
+    def elementProperties(self):
+        js = super(ClaimItemProsthesis, self).elementProperties()
+        js.extend([
+            ("initial", "initial", bool, False),
+            ("priorDate", "priorDate", fhirdate.FHIRDate, False),
+            ("priorMaterial", "priorMaterial", coding.Coding, False),
+        ])
+        return js
 
 
 class ClaimMissingTeeth(fhirelement.FHIRElement):
@@ -638,14 +581,14 @@ class ClaimMissingTeeth(fhirelement.FHIRElement):
         
         super(ClaimMissingTeeth, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimMissingTeeth, self).update_with_json(jsondict)
-        if 'extractionDate' in jsondict:
-            self.extractionDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['extractionDate'], self)
-        if 'reason' in jsondict:
-            self.reason = coding.Coding.with_json_and_owner(jsondict['reason'], self)
-        if 'tooth' in jsondict:
-            self.tooth = coding.Coding.with_json_and_owner(jsondict['tooth'], self)
+    def elementProperties(self):
+        js = super(ClaimMissingTeeth, self).elementProperties()
+        js.extend([
+            ("extractionDate", "extractionDate", fhirdate.FHIRDate, False),
+            ("reason", "reason", coding.Coding, False),
+            ("tooth", "tooth", coding.Coding, False),
+        ])
+        return js
 
 
 class ClaimPayee(fhirelement.FHIRElement):
@@ -678,14 +621,13 @@ class ClaimPayee(fhirelement.FHIRElement):
         
         super(ClaimPayee, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ClaimPayee, self).update_with_json(jsondict)
-        if 'organization' in jsondict:
-            self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self)
-        if 'person' in jsondict:
-            self.person = fhirreference.FHIRReference.with_json_and_owner(jsondict['person'], self)
-        if 'provider' in jsondict:
-            self.provider = fhirreference.FHIRReference.with_json_and_owner(jsondict['provider'], self)
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(ClaimPayee, self).elementProperties()
+        js.extend([
+            ("organization", "organization", fhirreference.FHIRReference, False),
+            ("person", "person", fhirreference.FHIRReference, False),
+            ("provider", "provider", fhirreference.FHIRReference, False),
+            ("type", "type", coding.Coding, False),
+        ])
+        return js
 

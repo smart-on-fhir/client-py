@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class GoalTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = goal.Goal(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return goal.Goal(js)
     
     def testGoal1(self):
         inst = self.instantiate_from("goal-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2fc250> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Goal instance")
+        self.implGoal1(inst)
+        inst2 = goal.Goal(inst.as_json())
+        self.implGoal1(inst2)
     
+    def implGoal1(self, inst):
         self.assertEqual(inst.description, "Target weight is 160 to 180 lbs.")
         self.assertEqual(inst.extension[0].extension[0].url, "measure")
         self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.coding[0].code, "3141-9")
@@ -43,13 +45,16 @@ class GoalTests(unittest.TestCase):
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/goal-target")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.status, "in-progress")
-        self.assertEqual(inst.text.div, "<div>\n			\n      <p> A simple care goal for a patient to lose weight due to obesity.</p>\n		\n    </div>")
         self.assertEqual(inst.text.status, "additional")
     
     def testGoal2(self):
         inst = self.instantiate_from("goal-qicore-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2fc250> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Goal instance")
+        self.implGoal2(inst)
+        inst2 = goal.Goal(inst.as_json())
+        self.implGoal2(inst2)
     
+    def implGoal2(self, inst):
         self.assertEqual(inst.description, "Target weight is 160 to 180 lbs.")
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/goal-category")
         self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].code, "289169006")
@@ -75,6 +80,5 @@ class GoalTests(unittest.TestCase):
         self.assertEqual(inst.extension[2].valueCodeableConcept.coding[0].system, "http://hl7.org/fhir/v3/ActReason")
         self.assertEqual(inst.id, "qicore")
         self.assertEqual(inst.status, "rejected")
-        self.assertEqual(inst.text.div, "<div>\n			\n      <p> A simple care goal for a patient to lose weight due to obesity.</p>\n		\n    </div>")
         self.assertEqual(inst.text.status, "additional")
 

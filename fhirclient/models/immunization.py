@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -102,46 +102,30 @@ class Immunization(domainresource.DomainResource):
         
         super(Immunization, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Immunization, self).update_with_json(jsondict)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'doseQuantity' in jsondict:
-            self.doseQuantity = quantity.Quantity.with_json_and_owner(jsondict['doseQuantity'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'expirationDate' in jsondict:
-            self.expirationDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['expirationDate'], self)
-        if 'explanation' in jsondict:
-            self.explanation = ImmunizationExplanation.with_json_and_owner(jsondict['explanation'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
-        if 'lotNumber' in jsondict:
-            self.lotNumber = jsondict['lotNumber']
-        if 'manufacturer' in jsondict:
-            self.manufacturer = fhirreference.FHIRReference.with_json_and_owner(jsondict['manufacturer'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'performer' in jsondict:
-            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self)
-        if 'reaction' in jsondict:
-            self.reaction = ImmunizationReaction.with_json_and_owner(jsondict['reaction'], self)
-        if 'reported' in jsondict:
-            self.reported = jsondict['reported']
-        if 'requester' in jsondict:
-            self.requester = fhirreference.FHIRReference.with_json_and_owner(jsondict['requester'], self)
-        if 'route' in jsondict:
-            self.route = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['route'], self)
-        if 'site' in jsondict:
-            self.site = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['site'], self)
-        if 'vaccinationProtocol' in jsondict:
-            self.vaccinationProtocol = ImmunizationVaccinationProtocol.with_json_and_owner(jsondict['vaccinationProtocol'], self)
-        if 'vaccineType' in jsondict:
-            self.vaccineType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['vaccineType'], self)
-        if 'wasNotGiven' in jsondict:
-            self.wasNotGiven = jsondict['wasNotGiven']
+    def elementProperties(self):
+        js = super(Immunization, self).elementProperties()
+        js.extend([
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("doseQuantity", "doseQuantity", quantity.Quantity, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False),
+            ("explanation", "explanation", ImmunizationExplanation, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("location", "location", fhirreference.FHIRReference, False),
+            ("lotNumber", "lotNumber", str, False),
+            ("manufacturer", "manufacturer", fhirreference.FHIRReference, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("performer", "performer", fhirreference.FHIRReference, False),
+            ("reaction", "reaction", ImmunizationReaction, True),
+            ("reported", "reported", bool, False),
+            ("requester", "requester", fhirreference.FHIRReference, False),
+            ("route", "route", codeableconcept.CodeableConcept, False),
+            ("site", "site", codeableconcept.CodeableConcept, False),
+            ("vaccinationProtocol", "vaccinationProtocol", ImmunizationVaccinationProtocol, True),
+            ("vaccineType", "vaccineType", codeableconcept.CodeableConcept, False),
+            ("wasNotGiven", "wasNotGiven", bool, False),
+        ])
+        return js
 
 
 class ImmunizationExplanation(fhirelement.FHIRElement):
@@ -166,12 +150,13 @@ class ImmunizationExplanation(fhirelement.FHIRElement):
         
         super(ImmunizationExplanation, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImmunizationExplanation, self).update_with_json(jsondict)
-        if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'reasonNotGiven' in jsondict:
-            self.reasonNotGiven = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonNotGiven'], self)
+    def elementProperties(self):
+        js = super(ImmunizationExplanation, self).elementProperties()
+        js.extend([
+            ("reason", "reason", codeableconcept.CodeableConcept, True),
+            ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 
 
 class ImmunizationReaction(fhirelement.FHIRElement):
@@ -201,14 +186,14 @@ class ImmunizationReaction(fhirelement.FHIRElement):
         
         super(ImmunizationReaction, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImmunizationReaction, self).update_with_json(jsondict)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'detail' in jsondict:
-            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self)
-        if 'reported' in jsondict:
-            self.reported = jsondict['reported']
+    def elementProperties(self):
+        js = super(ImmunizationReaction, self).elementProperties()
+        js.extend([
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("detail", "detail", fhirreference.FHIRReference, False),
+            ("reported", "reported", bool, False),
+        ])
+        return js
 
 
 class ImmunizationVaccinationProtocol(fhirelement.FHIRElement):
@@ -258,22 +243,17 @@ class ImmunizationVaccinationProtocol(fhirelement.FHIRElement):
         
         super(ImmunizationVaccinationProtocol, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImmunizationVaccinationProtocol, self).update_with_json(jsondict)
-        if 'authority' in jsondict:
-            self.authority = fhirreference.FHIRReference.with_json_and_owner(jsondict['authority'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'doseSequence' in jsondict:
-            self.doseSequence = jsondict['doseSequence']
-        if 'doseStatus' in jsondict:
-            self.doseStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['doseStatus'], self)
-        if 'doseStatusReason' in jsondict:
-            self.doseStatusReason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['doseStatusReason'], self)
-        if 'doseTarget' in jsondict:
-            self.doseTarget = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['doseTarget'], self)
-        if 'series' in jsondict:
-            self.series = jsondict['series']
-        if 'seriesDoses' in jsondict:
-            self.seriesDoses = jsondict['seriesDoses']
+    def elementProperties(self):
+        js = super(ImmunizationVaccinationProtocol, self).elementProperties()
+        js.extend([
+            ("authority", "authority", fhirreference.FHIRReference, False),
+            ("description", "description", str, False),
+            ("doseSequence", "doseSequence", int, False),
+            ("doseStatus", "doseStatus", codeableconcept.CodeableConcept, False),
+            ("doseStatusReason", "doseStatusReason", codeableconcept.CodeableConcept, False),
+            ("doseTarget", "doseTarget", codeableconcept.CodeableConcept, False),
+            ("series", "series", str, False),
+            ("seriesDoses", "seriesDoses", int, False),
+        ])
+        return js
 

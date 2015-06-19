@@ -29,3 +29,5 @@ class FHIRContainedResource(object):
             self.type = jsondict.get('resourceType')
             self.json = jsondict
     
+    def as_json(self):
+        return self.json

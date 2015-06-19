@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Order) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Order) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -67,28 +67,21 @@ class Order(domainresource.DomainResource):
         
         super(Order, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Order, self).update_with_json(jsondict)
-        if 'authority' in jsondict:
-            self.authority = fhirreference.FHIRReference.with_json_and_owner(jsondict['authority'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'detail' in jsondict:
-            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'reasonCodeableConcept' in jsondict:
-            self.reasonCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonCodeableConcept'], self)
-        if 'reasonReference' in jsondict:
-            self.reasonReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reasonReference'], self)
-        if 'source' in jsondict:
-            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
-        if 'when' in jsondict:
-            self.when = OrderWhen.with_json_and_owner(jsondict['when'], self)
+    def elementProperties(self):
+        js = super(Order, self).elementProperties()
+        js.extend([
+            ("authority", "authority", fhirreference.FHIRReference, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("detail", "detail", fhirreference.FHIRReference, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
+            ("source", "source", fhirreference.FHIRReference, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+            ("when", "when", OrderWhen, False),
+        ])
+        return js
 
 
 class OrderWhen(fhirelement.FHIRElement):
@@ -112,10 +105,11 @@ class OrderWhen(fhirelement.FHIRElement):
         
         super(OrderWhen, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(OrderWhen, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'schedule' in jsondict:
-            self.schedule = timing.Timing.with_json_and_owner(jsondict['schedule'], self)
+    def elementProperties(self):
+        js = super(OrderWhen, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("schedule", "schedule", timing.Timing, False),
+        ])
+        return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -127,56 +127,35 @@ class StructureDefinition(domainresource.DomainResource):
         
         super(StructureDefinition, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(StructureDefinition, self).update_with_json(jsondict)
-        if 'abstract' in jsondict:
-            self.abstract = jsondict['abstract']
-        if 'base' in jsondict:
-            self.base = jsondict['base']
-        if 'code' in jsondict:
-            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
-        if 'contact' in jsondict:
-            self.contact = StructureDefinitionContact.with_json_and_owner(jsondict['contact'], self)
-        if 'context' in jsondict:
-            self.context = jsondict['context']
-        if 'contextType' in jsondict:
-            self.contextType = jsondict['contextType']
-        if 'copyright' in jsondict:
-            self.copyright = jsondict['copyright']
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'differential' in jsondict:
-            self.differential = StructureDefinitionDifferential.with_json_and_owner(jsondict['differential'], self)
-        if 'display' in jsondict:
-            self.display = jsondict['display']
-        if 'experimental' in jsondict:
-            self.experimental = jsondict['experimental']
-        if 'fhirVersion' in jsondict:
-            self.fhirVersion = jsondict['fhirVersion']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'mapping' in jsondict:
-            self.mapping = StructureDefinitionMapping.with_json_and_owner(jsondict['mapping'], self)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'publisher' in jsondict:
-            self.publisher = jsondict['publisher']
-        if 'requirements' in jsondict:
-            self.requirements = jsondict['requirements']
-        if 'snapshot' in jsondict:
-            self.snapshot = StructureDefinitionSnapshot.with_json_and_owner(jsondict['snapshot'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
-        if 'useContext' in jsondict:
-            self.useContext = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['useContext'], self)
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(StructureDefinition, self).elementProperties()
+        js.extend([
+            ("abstract", "abstract", bool, False),
+            ("base", "base", str, False),
+            ("code", "code", coding.Coding, True),
+            ("contact", "contact", StructureDefinitionContact, True),
+            ("context", "context", str, True),
+            ("contextType", "contextType", str, False),
+            ("copyright", "copyright", str, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("differential", "differential", StructureDefinitionDifferential, False),
+            ("display", "display", str, False),
+            ("experimental", "experimental", bool, False),
+            ("fhirVersion", "fhirVersion", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("mapping", "mapping", StructureDefinitionMapping, True),
+            ("name", "name", str, False),
+            ("publisher", "publisher", str, False),
+            ("requirements", "requirements", str, False),
+            ("snapshot", "snapshot", StructureDefinitionSnapshot, False),
+            ("status", "status", str, False),
+            ("type", "type", str, False),
+            ("url", "url", str, False),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
+            ("version", "version", str, False),
+        ])
+        return js
 
 
 class StructureDefinitionContact(fhirelement.FHIRElement):
@@ -201,12 +180,13 @@ class StructureDefinitionContact(fhirelement.FHIRElement):
         
         super(StructureDefinitionContact, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(StructureDefinitionContact, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(StructureDefinitionContact, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class StructureDefinitionDifferential(fhirelement.FHIRElement):
@@ -228,10 +208,12 @@ class StructureDefinitionDifferential(fhirelement.FHIRElement):
         
         super(StructureDefinitionDifferential, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(StructureDefinitionDifferential, self).update_with_json(jsondict)
-        if 'element' in jsondict:
-            self.element = elementdefinition.ElementDefinition.with_json_and_owner(jsondict['element'], self)
+    def elementProperties(self):
+        js = super(StructureDefinitionDifferential, self).elementProperties()
+        js.extend([
+            ("element", "element", elementdefinition.ElementDefinition, True),
+        ])
+        return js
 
 
 class StructureDefinitionMapping(fhirelement.FHIRElement):
@@ -264,16 +246,15 @@ class StructureDefinitionMapping(fhirelement.FHIRElement):
         
         super(StructureDefinitionMapping, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(StructureDefinitionMapping, self).update_with_json(jsondict)
-        if 'comments' in jsondict:
-            self.comments = jsondict['comments']
-        if 'identity' in jsondict:
-            self.identity = jsondict['identity']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'uri' in jsondict:
-            self.uri = jsondict['uri']
+    def elementProperties(self):
+        js = super(StructureDefinitionMapping, self).elementProperties()
+        js.extend([
+            ("comments", "comments", str, False),
+            ("identity", "identity", str, False),
+            ("name", "name", str, False),
+            ("uri", "uri", str, False),
+        ])
+        return js
 
 
 class StructureDefinitionSnapshot(fhirelement.FHIRElement):
@@ -295,8 +276,10 @@ class StructureDefinitionSnapshot(fhirelement.FHIRElement):
         
         super(StructureDefinitionSnapshot, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(StructureDefinitionSnapshot, self).update_with_json(jsondict)
-        if 'element' in jsondict:
-            self.element = elementdefinition.ElementDefinition.with_json_and_owner(jsondict['element'], self)
+    def elementProperties(self):
+        js = super(StructureDefinitionSnapshot, self).elementProperties()
+        js.extend([
+            ("element", "element", elementdefinition.ElementDefinition, True),
+        ])
+        return js
 

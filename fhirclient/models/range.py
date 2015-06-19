@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Range) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Range) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -31,10 +31,11 @@ class Range(fhirelement.FHIRElement):
         
         super(Range, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Range, self).update_with_json(jsondict)
-        if 'high' in jsondict:
-            self.high = quantity.Quantity.with_json_and_owner(jsondict['high'], self)
-        if 'low' in jsondict:
-            self.low = quantity.Quantity.with_json_and_owner(jsondict['low'], self)
+    def elementProperties(self):
+        js = super(Range, self).elementProperties()
+        js.extend([
+            ("high", "high", quantity.Quantity, False),
+            ("low", "low", quantity.Quantity, False),
+        ])
+        return js
 

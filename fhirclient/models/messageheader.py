@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -80,32 +80,23 @@ class MessageHeader(domainresource.DomainResource):
         
         super(MessageHeader, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MessageHeader, self).update_with_json(jsondict)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'data' in jsondict:
-            self.data = fhirreference.FHIRReference.with_json_and_owner(jsondict['data'], self)
-        if 'destination' in jsondict:
-            self.destination = MessageHeaderDestination.with_json_and_owner(jsondict['destination'], self)
-        if 'enterer' in jsondict:
-            self.enterer = fhirreference.FHIRReference.with_json_and_owner(jsondict['enterer'], self)
-        if 'event' in jsondict:
-            self.event = coding.Coding.with_json_and_owner(jsondict['event'], self)
-        if 'identifier' in jsondict:
-            self.identifier = jsondict['identifier']
-        if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'receiver' in jsondict:
-            self.receiver = fhirreference.FHIRReference.with_json_and_owner(jsondict['receiver'], self)
-        if 'response' in jsondict:
-            self.response = MessageHeaderResponse.with_json_and_owner(jsondict['response'], self)
-        if 'responsible' in jsondict:
-            self.responsible = fhirreference.FHIRReference.with_json_and_owner(jsondict['responsible'], self)
-        if 'source' in jsondict:
-            self.source = MessageHeaderSource.with_json_and_owner(jsondict['source'], self)
-        if 'timestamp' in jsondict:
-            self.timestamp = fhirdate.FHIRDate.with_json_and_owner(jsondict['timestamp'], self)
+    def elementProperties(self):
+        js = super(MessageHeader, self).elementProperties()
+        js.extend([
+            ("author", "author", fhirreference.FHIRReference, False),
+            ("data", "data", fhirreference.FHIRReference, True),
+            ("destination", "destination", MessageHeaderDestination, True),
+            ("enterer", "enterer", fhirreference.FHIRReference, False),
+            ("event", "event", coding.Coding, False),
+            ("identifier", "identifier", str, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, False),
+            ("receiver", "receiver", fhirreference.FHIRReference, False),
+            ("response", "response", MessageHeaderResponse, False),
+            ("responsible", "responsible", fhirreference.FHIRReference, False),
+            ("source", "source", MessageHeaderSource, False),
+            ("timestamp", "timestamp", fhirdate.FHIRDate, False),
+        ])
+        return js
 
 
 class MessageHeaderDestination(fhirelement.FHIRElement):
@@ -134,14 +125,14 @@ class MessageHeaderDestination(fhirelement.FHIRElement):
         
         super(MessageHeaderDestination, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MessageHeaderDestination, self).update_with_json(jsondict)
-        if 'endpoint' in jsondict:
-            self.endpoint = jsondict['endpoint']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
+    def elementProperties(self):
+        js = super(MessageHeaderDestination, self).elementProperties()
+        js.extend([
+            ("endpoint", "endpoint", str, False),
+            ("name", "name", str, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class MessageHeaderResponse(fhirelement.FHIRElement):
@@ -171,14 +162,14 @@ class MessageHeaderResponse(fhirelement.FHIRElement):
         
         super(MessageHeaderResponse, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MessageHeaderResponse, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'details' in jsondict:
-            self.details = fhirreference.FHIRReference.with_json_and_owner(jsondict['details'], self)
-        if 'identifier' in jsondict:
-            self.identifier = jsondict['identifier']
+    def elementProperties(self):
+        js = super(MessageHeaderResponse, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("details", "details", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", str, False),
+        ])
+        return js
 
 
 class MessageHeaderSource(fhirelement.FHIRElement):
@@ -215,16 +206,14 @@ class MessageHeaderSource(fhirelement.FHIRElement):
         
         super(MessageHeaderSource, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MessageHeaderSource, self).update_with_json(jsondict)
-        if 'contact' in jsondict:
-            self.contact = contactpoint.ContactPoint.with_json_and_owner(jsondict['contact'], self)
-        if 'endpoint' in jsondict:
-            self.endpoint = jsondict['endpoint']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'software' in jsondict:
-            self.software = jsondict['software']
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(MessageHeaderSource, self).elementProperties()
+        js.extend([
+            ("contact", "contact", contactpoint.ContactPoint, False),
+            ("endpoint", "endpoint", str, False),
+            ("name", "name", str, False),
+            ("software", "software", str, False),
+            ("version", "version", str, False),
+        ])
+        return js
 

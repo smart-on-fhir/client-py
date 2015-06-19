@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DiagnosticOrder) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DiagnosticOrder) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -74,30 +74,22 @@ class DiagnosticOrder(domainresource.DomainResource):
         
         super(DiagnosticOrder, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DiagnosticOrder, self).update_with_json(jsondict)
-        if 'clinicalNotes' in jsondict:
-            self.clinicalNotes = jsondict['clinicalNotes']
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'event' in jsondict:
-            self.event = DiagnosticOrderEvent.with_json_and_owner(jsondict['event'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'item' in jsondict:
-            self.item = DiagnosticOrderItem.with_json_and_owner(jsondict['item'], self)
-        if 'orderer' in jsondict:
-            self.orderer = fhirreference.FHIRReference.with_json_and_owner(jsondict['orderer'], self)
-        if 'priority' in jsondict:
-            self.priority = jsondict['priority']
-        if 'specimen' in jsondict:
-            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'supportingInformation' in jsondict:
-            self.supportingInformation = fhirreference.FHIRReference.with_json_and_owner(jsondict['supportingInformation'], self)
+    def elementProperties(self):
+        js = super(DiagnosticOrder, self).elementProperties()
+        js.extend([
+            ("clinicalNotes", "clinicalNotes", str, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("event", "event", DiagnosticOrderEvent, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("item", "item", DiagnosticOrderItem, True),
+            ("orderer", "orderer", fhirreference.FHIRReference, False),
+            ("priority", "priority", str, False),
+            ("specimen", "specimen", fhirreference.FHIRReference, True),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True),
+        ])
+        return js
 
 
 class DiagnosticOrderEvent(fhirelement.FHIRElement):
@@ -134,16 +126,15 @@ class DiagnosticOrderEvent(fhirelement.FHIRElement):
         
         super(DiagnosticOrderEvent, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DiagnosticOrderEvent, self).update_with_json(jsondict)
-        if 'actor' in jsondict:
-            self.actor = fhirreference.FHIRReference.with_json_and_owner(jsondict['actor'], self)
-        if 'dateTime' in jsondict:
-            self.dateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateTime'], self)
-        if 'description' in jsondict:
-            self.description = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['description'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
+    def elementProperties(self):
+        js = super(DiagnosticOrderEvent, self).elementProperties()
+        js.extend([
+            ("actor", "actor", fhirreference.FHIRReference, False),
+            ("dateTime", "dateTime", fhirdate.FHIRDate, False),
+            ("description", "description", codeableconcept.CodeableConcept, False),
+            ("status", "status", str, False),
+        ])
+        return js
 
 
 class DiagnosticOrderItem(fhirelement.FHIRElement):
@@ -173,7 +164,7 @@ class DiagnosticOrderItem(fhirelement.FHIRElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.event = None
-        """ A list of events of interest in the lifecycle.
+        """ Events specific to this item.
         List of `DiagnosticOrderEvent` items (represented as `dict` in JSON). """
         
         self.specimen = None
@@ -188,18 +179,15 @@ class DiagnosticOrderItem(fhirelement.FHIRElement):
         
         super(DiagnosticOrderItem, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DiagnosticOrderItem, self).update_with_json(jsondict)
-        if 'bodySiteCodeableConcept' in jsondict:
-            self.bodySiteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySiteCodeableConcept'], self)
-        if 'bodySiteReference' in jsondict:
-            self.bodySiteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['bodySiteReference'], self)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'event' in jsondict:
-            self.event = DiagnosticOrderEvent.with_json_and_owner(jsondict['event'], self)
-        if 'specimen' in jsondict:
-            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
+    def elementProperties(self):
+        js = super(DiagnosticOrderItem, self).elementProperties()
+        js.extend([
+            ("bodySiteCodeableConcept", "bodySiteCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("bodySiteReference", "bodySiteReference", fhirreference.FHIRReference, False),
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("event", "event", DiagnosticOrderEvent, True),
+            ("specimen", "specimen", fhirreference.FHIRReference, True),
+            ("status", "status", str, False),
+        ])
+        return js
 

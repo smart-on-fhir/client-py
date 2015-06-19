@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -93,40 +93,27 @@ class ProcessRequest(domainresource.DomainResource):
         
         super(ProcessRequest, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProcessRequest, self).update_with_json(jsondict)
-        if 'action' in jsondict:
-            self.action = jsondict['action']
-        if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
-        if 'exclude' in jsondict:
-            self.exclude = jsondict['exclude']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'include' in jsondict:
-            self.include = jsondict['include']
-        if 'item' in jsondict:
-            self.item = ProcessRequestItem.with_json_and_owner(jsondict['item'], self)
-        if 'nullify' in jsondict:
-            self.nullify = jsondict['nullify']
-        if 'organization' in jsondict:
-            self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self)
-        if 'originalRuleset' in jsondict:
-            self.originalRuleset = coding.Coding.with_json_and_owner(jsondict['originalRuleset'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'provider' in jsondict:
-            self.provider = fhirreference.FHIRReference.with_json_and_owner(jsondict['provider'], self)
-        if 'reference' in jsondict:
-            self.reference = jsondict['reference']
-        if 'request' in jsondict:
-            self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self)
-        if 'response' in jsondict:
-            self.response = fhirreference.FHIRReference.with_json_and_owner(jsondict['response'], self)
-        if 'ruleset' in jsondict:
-            self.ruleset = coding.Coding.with_json_and_owner(jsondict['ruleset'], self)
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
+    def elementProperties(self):
+        js = super(ProcessRequest, self).elementProperties()
+        js.extend([
+            ("action", "action", str, False),
+            ("created", "created", fhirdate.FHIRDate, False),
+            ("exclude", "exclude", str, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("include", "include", str, True),
+            ("item", "item", ProcessRequestItem, True),
+            ("nullify", "nullify", bool, False),
+            ("organization", "organization", fhirreference.FHIRReference, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False),
+            ("period", "period", period.Period, False),
+            ("provider", "provider", fhirreference.FHIRReference, False),
+            ("reference", "reference", str, False),
+            ("request", "request", fhirreference.FHIRReference, False),
+            ("response", "response", fhirreference.FHIRReference, False),
+            ("ruleset", "ruleset", coding.Coding, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ProcessRequestItem(fhirelement.FHIRElement):
@@ -148,8 +135,10 @@ class ProcessRequestItem(fhirelement.FHIRElement):
         
         super(ProcessRequestItem, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProcessRequestItem, self).update_with_json(jsondict)
-        if 'sequenceLinkId' in jsondict:
-            self.sequenceLinkId = jsondict['sequenceLinkId']
+    def elementProperties(self):
+        js = super(ProcessRequestItem, self).elementProperties()
+        js.extend([
+            ("sequenceLinkId", "sequenceLinkId", int, False),
+        ])
+        return js
 

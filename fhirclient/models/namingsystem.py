@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -82,34 +82,24 @@ class NamingSystem(domainresource.DomainResource):
         
         super(NamingSystem, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(NamingSystem, self).update_with_json(jsondict)
-        if 'category' in jsondict:
-            self.category = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['category'], self)
-        if 'contact' in jsondict:
-            self.contact = NamingSystemContact.with_json_and_owner(jsondict['contact'], self)
-        if 'country' in jsondict:
-            self.country = jsondict['country']
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'publisher' in jsondict:
-            self.publisher = jsondict['publisher']
-        if 'replacedBy' in jsondict:
-            self.replacedBy = fhirreference.FHIRReference.with_json_and_owner(jsondict['replacedBy'], self)
-        if 'responsible' in jsondict:
-            self.responsible = jsondict['responsible']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'uniqueId' in jsondict:
-            self.uniqueId = NamingSystemUniqueId.with_json_and_owner(jsondict['uniqueId'], self)
-        if 'usage' in jsondict:
-            self.usage = jsondict['usage']
+    def elementProperties(self):
+        js = super(NamingSystem, self).elementProperties()
+        js.extend([
+            ("category", "category", codeableconcept.CodeableConcept, False),
+            ("contact", "contact", NamingSystemContact, True),
+            ("country", "country", str, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("name", "name", str, False),
+            ("publisher", "publisher", str, False),
+            ("replacedBy", "replacedBy", fhirreference.FHIRReference, False),
+            ("responsible", "responsible", str, False),
+            ("status", "status", str, False),
+            ("type", "type", str, False),
+            ("uniqueId", "uniqueId", NamingSystemUniqueId, True),
+            ("usage", "usage", str, False),
+        ])
+        return js
 
 
 class NamingSystemContact(fhirelement.FHIRElement):
@@ -134,12 +124,13 @@ class NamingSystemContact(fhirelement.FHIRElement):
         
         super(NamingSystemContact, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(NamingSystemContact, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(NamingSystemContact, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class NamingSystemUniqueId(fhirelement.FHIRElement):
@@ -173,14 +164,13 @@ class NamingSystemUniqueId(fhirelement.FHIRElement):
         
         super(NamingSystemUniqueId, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(NamingSystemUniqueId, self).update_with_json(jsondict)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'preferred' in jsondict:
-            self.preferred = jsondict['preferred']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(NamingSystemUniqueId, self).elementProperties()
+        js.extend([
+            ("period", "period", period.Period, False),
+            ("preferred", "preferred", bool, False),
+            ("type", "type", str, False),
+            ("value", "value", str, False),
+        ])
+        return js
 

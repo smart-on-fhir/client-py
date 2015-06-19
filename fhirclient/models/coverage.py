@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -83,34 +83,23 @@ class Coverage(domainresource.DomainResource):
         
         super(Coverage, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Coverage, self).update_with_json(jsondict)
-        if 'bin' in jsondict:
-            self.bin = identifier.Identifier.with_json_and_owner(jsondict['bin'], self)
-        if 'contract' in jsondict:
-            self.contract = fhirreference.FHIRReference.with_json_and_owner(jsondict['contract'], self)
-        if 'dependent' in jsondict:
-            self.dependent = jsondict['dependent']
-        if 'group' in jsondict:
-            self.group = jsondict['group']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'issuer' in jsondict:
-            self.issuer = fhirreference.FHIRReference.with_json_and_owner(jsondict['issuer'], self)
-        if 'network' in jsondict:
-            self.network = identifier.Identifier.with_json_and_owner(jsondict['network'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'plan' in jsondict:
-            self.plan = jsondict['plan']
-        if 'sequence' in jsondict:
-            self.sequence = jsondict['sequence']
-        if 'subPlan' in jsondict:
-            self.subPlan = jsondict['subPlan']
-        if 'subscriber' in jsondict:
-            self.subscriber = fhirreference.FHIRReference.with_json_and_owner(jsondict['subscriber'], self)
-        if 'subscriberId' in jsondict:
-            self.subscriberId = identifier.Identifier.with_json_and_owner(jsondict['subscriberId'], self)
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(Coverage, self).elementProperties()
+        js.extend([
+            ("bin", "bin", identifier.Identifier, False),
+            ("contract", "contract", fhirreference.FHIRReference, True),
+            ("dependent", "dependent", int, False),
+            ("group", "group", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("issuer", "issuer", fhirreference.FHIRReference, False),
+            ("network", "network", identifier.Identifier, False),
+            ("period", "period", period.Period, False),
+            ("plan", "plan", str, False),
+            ("sequence", "sequence", int, False),
+            ("subPlan", "subPlan", str, False),
+            ("subscriber", "subscriber", fhirreference.FHIRReference, False),
+            ("subscriberId", "subscriberId", identifier.Identifier, False),
+            ("type", "type", coding.Coding, False),
+        ])
+        return js
 

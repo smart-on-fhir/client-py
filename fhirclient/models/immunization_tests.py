@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class ImmunizationTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = immunization.Immunization(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return immunization.Immunization(js)
     
     def testImmunization1(self):
         inst = self.instantiate_from("immunization-example-refused.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3103d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Immunization instance")
+        self.implImmunization1(inst)
+        inst2 = immunization.Immunization(inst.as_json())
+        self.implImmunization1(inst2)
     
+    def implImmunization1(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2013-01-10").date)
-        self.assertEqual(inst.date.isostring, "2013-01-10")
+        self.assertEqual(inst.date.as_json(), "2013-01-10")
         self.assertEqual(inst.explanation.reasonNotGiven[0].coding[0].code, "MEDPREC")
         self.assertEqual(inst.explanation.reasonNotGiven[0].coding[0].display, "medical precaution")
         self.assertEqual(inst.explanation.reasonNotGiven[0].coding[0].system, "http://hl7.org/fhir/v3/ActReason")
@@ -42,12 +44,16 @@ class ImmunizationTests(unittest.TestCase):
     
     def testImmunization2(self):
         inst = self.instantiate_from("immunization-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3103d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Immunization instance")
+        self.implImmunization2(inst)
+        inst2 = immunization.Immunization(inst.as_json())
+        self.implImmunization2(inst2)
     
+    def implImmunization2(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2013-01-10").date)
-        self.assertEqual(inst.date.isostring, "2013-01-10")
+        self.assertEqual(inst.date.as_json(), "2013-01-10")
         self.assertEqual(inst.expirationDate.date, FHIRDate("2015-02-15").date)
-        self.assertEqual(inst.expirationDate.isostring, "2015-02-15")
+        self.assertEqual(inst.expirationDate.as_json(), "2015-02-15")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.lotNumber, "AAJN11K")
         self.assertFalse(inst.reported)

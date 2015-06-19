@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Resource) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Resource) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -35,12 +35,12 @@ class Resource(fhirresource.FHIRResource):
         
         super(Resource, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Resource, self).update_with_json(jsondict)
-        if 'implicitRules' in jsondict:
-            self.implicitRules = jsondict['implicitRules']
-        if 'language' in jsondict:
-            self.language = jsondict['language']
-        if 'meta' in jsondict:
-            self.meta = meta.Meta.with_json_and_owner(jsondict['meta'], self)
+    def elementProperties(self):
+        js = super(Resource, self).elementProperties()
+        js.extend([
+            ("implicitRules", "implicitRules", str, False),
+            ("language", "language", str, False),
+            ("meta", "meta", meta.Meta, False),
+        ])
+        return js
 

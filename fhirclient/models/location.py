@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Location) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Location) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -80,32 +80,23 @@ class Location(domainresource.DomainResource):
         
         super(Location, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Location, self).update_with_json(jsondict)
-        if 'address' in jsondict:
-            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'managingOrganization' in jsondict:
-            self.managingOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self)
-        if 'mode' in jsondict:
-            self.mode = jsondict['mode']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'partOf' in jsondict:
-            self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self)
-        if 'physicalType' in jsondict:
-            self.physicalType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['physicalType'], self)
-        if 'position' in jsondict:
-            self.position = LocationPosition.with_json_and_owner(jsondict['position'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(Location, self).elementProperties()
+        js.extend([
+            ("address", "address", address.Address, False),
+            ("description", "description", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
+            ("mode", "mode", str, False),
+            ("name", "name", str, False),
+            ("partOf", "partOf", fhirreference.FHIRReference, False),
+            ("physicalType", "physicalType", codeableconcept.CodeableConcept, False),
+            ("position", "position", LocationPosition, False),
+            ("status", "status", str, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class LocationPosition(fhirelement.FHIRElement):
@@ -135,12 +126,12 @@ class LocationPosition(fhirelement.FHIRElement):
         
         super(LocationPosition, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(LocationPosition, self).update_with_json(jsondict)
-        if 'altitude' in jsondict:
-            self.altitude = jsondict['altitude']
-        if 'latitude' in jsondict:
-            self.latitude = jsondict['latitude']
-        if 'longitude' in jsondict:
-            self.longitude = jsondict['longitude']
+    def elementProperties(self):
+        js = super(LocationPosition, self).elementProperties()
+        js.extend([
+            ("altitude", "altitude", float, False),
+            ("latitude", "latitude", float, False),
+            ("longitude", "longitude", float, False),
+        ])
+        return js
 

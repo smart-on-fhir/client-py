@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Timing) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Timing) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -40,14 +40,14 @@ class Timing(fhirelement.FHIRElement):
         
         super(Timing, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Timing, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'event' in jsondict:
-            self.event = fhirdate.FHIRDate.with_json_and_owner(jsondict['event'], self)
-        if 'repeat' in jsondict:
-            self.repeat = TimingRepeat.with_json_and_owner(jsondict['repeat'], self)
+    def elementProperties(self):
+        js = super(Timing, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("event", "event", fhirdate.FHIRDate, True),
+            ("repeat", "repeat", TimingRepeat, False),
+        ])
+        return js
 
 
 class TimingRepeat(fhirelement.FHIRElement):
@@ -104,26 +104,19 @@ class TimingRepeat(fhirelement.FHIRElement):
         
         super(TimingRepeat, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(TimingRepeat, self).update_with_json(jsondict)
-        if 'bounds' in jsondict:
-            self.bounds = period.Period.with_json_and_owner(jsondict['bounds'], self)
-        if 'count' in jsondict:
-            self.count = jsondict['count']
-        if 'duration' in jsondict:
-            self.duration = jsondict['duration']
-        if 'durationUnits' in jsondict:
-            self.durationUnits = jsondict['durationUnits']
-        if 'frequency' in jsondict:
-            self.frequency = jsondict['frequency']
-        if 'frequencyMax' in jsondict:
-            self.frequencyMax = jsondict['frequencyMax']
-        if 'period' in jsondict:
-            self.period = jsondict['period']
-        if 'periodMax' in jsondict:
-            self.periodMax = jsondict['periodMax']
-        if 'periodUnits' in jsondict:
-            self.periodUnits = jsondict['periodUnits']
-        if 'when' in jsondict:
-            self.when = jsondict['when']
+    def elementProperties(self):
+        js = super(TimingRepeat, self).elementProperties()
+        js.extend([
+            ("bounds", "bounds", period.Period, False),
+            ("count", "count", int, False),
+            ("duration", "duration", float, False),
+            ("durationUnits", "durationUnits", str, False),
+            ("frequency", "frequency", int, False),
+            ("frequencyMax", "frequencyMax", int, False),
+            ("period", "period", float, False),
+            ("periodMax", "periodMax", float, False),
+            ("periodUnits", "periodUnits", str, False),
+            ("when", "when", str, False),
+        ])
+        return js
 

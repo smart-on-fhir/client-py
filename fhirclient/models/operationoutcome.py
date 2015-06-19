@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -29,10 +29,12 @@ class OperationOutcome(domainresource.DomainResource):
         
         super(OperationOutcome, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(OperationOutcome, self).update_with_json(jsondict)
-        if 'issue' in jsondict:
-            self.issue = OperationOutcomeIssue.with_json_and_owner(jsondict['issue'], self)
+    def elementProperties(self):
+        js = super(OperationOutcome, self).elementProperties()
+        js.extend([
+            ("issue", "issue", OperationOutcomeIssue, True),
+        ])
+        return js
 
 
 class OperationOutcomeIssue(fhirelement.FHIRElement):
@@ -65,14 +67,13 @@ class OperationOutcomeIssue(fhirelement.FHIRElement):
         
         super(OperationOutcomeIssue, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(OperationOutcomeIssue, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'details' in jsondict:
-            self.details = jsondict['details']
-        if 'location' in jsondict:
-            self.location = jsondict['location']
-        if 'severity' in jsondict:
-            self.severity = jsondict['severity']
+    def elementProperties(self):
+        js = super(OperationOutcomeIssue, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("details", "details", str, False),
+            ("location", "location", str, True),
+            ("severity", "severity", str, False),
+        ])
+        return js
 

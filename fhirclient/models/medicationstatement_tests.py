@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class MedicationStatementTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = medicationstatement.MedicationStatement(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return medicationstatement.MedicationStatement(js)
     
     def testMedicationStatement1(self):
         inst = self.instantiate_from("medicationstatement-example-tylenol.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e339190> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationStatement instance")
+        self.implMedicationStatement1(inst)
+        inst2 = medicationstatement.MedicationStatement(inst.as_json())
+        self.implMedicationStatement1(inst2)
     
+    def implMedicationStatement1(self, inst):
         self.assertTrue(inst.dosage[0].asNeededBoolean)
         self.assertEqual(inst.dosage[0].quantity.value, 1)
         self.assertEqual(inst.dosage[0].route.coding[0].code, "394899003")
@@ -35,16 +37,19 @@ class MedicationStatementTests(unittest.TestCase):
         self.assertEqual(inst.dosage[0].schedule.repeat.period, 1)
         self.assertEqual(inst.dosage[0].schedule.repeat.periodUnits, "d")
         self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2010").date)
-        self.assertEqual(inst.effectiveDateTime.isostring, "2010")
+        self.assertEqual(inst.effectiveDateTime.as_json(), "2010")
         self.assertEqual(inst.id, "tylenol")
         self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.div, "<div>\n      \n      <p>500 mg Acetaminophen tablet 1/day, PRN since 2010</p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testMedicationStatement2(self):
         inst = self.instantiate_from("medicationstatement-qicore-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e339190> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationStatement instance")
+        self.implMedicationStatement2(inst)
+        inst2 = medicationstatement.MedicationStatement(inst.as_json())
+        self.implMedicationStatement2(inst2)
     
+    def implMedicationStatement2(self, inst):
         self.assertEqual(inst.dosage[0].quantity.code, "ml")
         self.assertEqual(inst.dosage[0].quantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dosage[0].quantity.units, "ml")
@@ -53,9 +58,8 @@ class MedicationStatementTests(unittest.TestCase):
         self.assertEqual(inst.dosage[0].route.coding[0].display, "oral administration of treatment")
         self.assertEqual(inst.dosage[0].route.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2012-06-01T14:30:00+14:00").date)
-        self.assertEqual(inst.effectiveDateTime.isostring, "2012-06-01T14:30:00+14:00")
+        self.assertEqual(inst.effectiveDateTime.as_json(), "2012-06-01T14:30:00+14:00")
         self.assertEqual(inst.id, "qicore")
         self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.div, "<div>\n      \n      <p>Penicillin VK 10ml suspension administered by oral route at 14:30 on 1 June 2012</p>\n      \n      <p>to patient ref: a23</p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "generated")
 

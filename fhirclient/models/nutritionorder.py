@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -82,32 +82,23 @@ class NutritionOrder(domainresource.DomainResource):
         
         super(NutritionOrder, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(NutritionOrder, self).update_with_json(jsondict)
-        if 'allergyIntolerance' in jsondict:
-            self.allergyIntolerance = fhirreference.FHIRReference.with_json_and_owner(jsondict['allergyIntolerance'], self)
-        if 'dateTime' in jsondict:
-            self.dateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateTime'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'enteralFormula' in jsondict:
-            self.enteralFormula = NutritionOrderEnteralFormula.with_json_and_owner(jsondict['enteralFormula'], self)
-        if 'excludeFoodModifier' in jsondict:
-            self.excludeFoodModifier = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['excludeFoodModifier'], self)
-        if 'foodPreferenceModifier' in jsondict:
-            self.foodPreferenceModifier = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['foodPreferenceModifier'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'oralDiet' in jsondict:
-            self.oralDiet = NutritionOrderOralDiet.with_json_and_owner(jsondict['oralDiet'], self)
-        if 'orderer' in jsondict:
-            self.orderer = fhirreference.FHIRReference.with_json_and_owner(jsondict['orderer'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'supplement' in jsondict:
-            self.supplement = NutritionOrderSupplement.with_json_and_owner(jsondict['supplement'], self)
+    def elementProperties(self):
+        js = super(NutritionOrder, self).elementProperties()
+        js.extend([
+            ("allergyIntolerance", "allergyIntolerance", fhirreference.FHIRReference, True),
+            ("dateTime", "dateTime", fhirdate.FHIRDate, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("enteralFormula", "enteralFormula", NutritionOrderEnteralFormula, False),
+            ("excludeFoodModifier", "excludeFoodModifier", codeableconcept.CodeableConcept, True),
+            ("foodPreferenceModifier", "foodPreferenceModifier", codeableconcept.CodeableConcept, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("oralDiet", "oralDiet", NutritionOrderOralDiet, False),
+            ("orderer", "orderer", fhirreference.FHIRReference, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+            ("supplement", "supplement", NutritionOrderSupplement, True),
+        ])
+        return js
 
 
 class NutritionOrderEnteralFormula(fhirelement.FHIRElement):
@@ -173,32 +164,23 @@ class NutritionOrderEnteralFormula(fhirelement.FHIRElement):
         
         super(NutritionOrderEnteralFormula, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(NutritionOrderEnteralFormula, self).update_with_json(jsondict)
-        if 'additiveProductName' in jsondict:
-            self.additiveProductName = jsondict['additiveProductName']
-        if 'additiveType' in jsondict:
-            self.additiveType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['additiveType'], self)
-        if 'administrationInstructions' in jsondict:
-            self.administrationInstructions = jsondict['administrationInstructions']
-        if 'baseFormulaProductName' in jsondict:
-            self.baseFormulaProductName = jsondict['baseFormulaProductName']
-        if 'baseFormulaType' in jsondict:
-            self.baseFormulaType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['baseFormulaType'], self)
-        if 'caloricDensity' in jsondict:
-            self.caloricDensity = quantity.Quantity.with_json_and_owner(jsondict['caloricDensity'], self)
-        if 'maxVolumeToDeliver' in jsondict:
-            self.maxVolumeToDeliver = quantity.Quantity.with_json_and_owner(jsondict['maxVolumeToDeliver'], self)
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'rate' in jsondict:
-            self.rate = ratio.Ratio.with_json_and_owner(jsondict['rate'], self)
-        if 'rateAdjustment' in jsondict:
-            self.rateAdjustment = quantity.Quantity.with_json_and_owner(jsondict['rateAdjustment'], self)
-        if 'routeofAdministration' in jsondict:
-            self.routeofAdministration = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['routeofAdministration'], self)
-        if 'scheduled' in jsondict:
-            self.scheduled = timing.Timing.with_json_and_owner(jsondict['scheduled'], self)
+    def elementProperties(self):
+        js = super(NutritionOrderEnteralFormula, self).elementProperties()
+        js.extend([
+            ("additiveProductName", "additiveProductName", str, False),
+            ("additiveType", "additiveType", codeableconcept.CodeableConcept, False),
+            ("administrationInstructions", "administrationInstructions", str, False),
+            ("baseFormulaProductName", "baseFormulaProductName", str, False),
+            ("baseFormulaType", "baseFormulaType", codeableconcept.CodeableConcept, False),
+            ("caloricDensity", "caloricDensity", quantity.Quantity, False),
+            ("maxVolumeToDeliver", "maxVolumeToDeliver", quantity.Quantity, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("rate", "rate", ratio.Ratio, False),
+            ("rateAdjustment", "rateAdjustment", quantity.Quantity, False),
+            ("routeofAdministration", "routeofAdministration", codeableconcept.CodeableConcept, False),
+            ("scheduled", "scheduled", timing.Timing, False),
+        ])
+        return js
 
 
 class NutritionOrderOralDiet(fhirelement.FHIRElement):
@@ -241,20 +223,17 @@ class NutritionOrderOralDiet(fhirelement.FHIRElement):
         
         super(NutritionOrderOralDiet, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(NutritionOrderOralDiet, self).update_with_json(jsondict)
-        if 'fluidConsistencyType' in jsondict:
-            self.fluidConsistencyType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['fluidConsistencyType'], self)
-        if 'instruction' in jsondict:
-            self.instruction = jsondict['instruction']
-        if 'nutrient' in jsondict:
-            self.nutrient = NutritionOrderOralDietNutrient.with_json_and_owner(jsondict['nutrient'], self)
-        if 'scheduled' in jsondict:
-            self.scheduled = timing.Timing.with_json_and_owner(jsondict['scheduled'], self)
-        if 'texture' in jsondict:
-            self.texture = NutritionOrderOralDietTexture.with_json_and_owner(jsondict['texture'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(NutritionOrderOralDiet, self).elementProperties()
+        js.extend([
+            ("fluidConsistencyType", "fluidConsistencyType", codeableconcept.CodeableConcept, True),
+            ("instruction", "instruction", str, False),
+            ("nutrient", "nutrient", NutritionOrderOralDietNutrient, True),
+            ("scheduled", "scheduled", timing.Timing, False),
+            ("texture", "texture", NutritionOrderOralDietTexture, True),
+            ("type", "type", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 
 
 class NutritionOrderOralDietNutrient(fhirelement.FHIRElement):
@@ -280,12 +259,13 @@ class NutritionOrderOralDietNutrient(fhirelement.FHIRElement):
         
         super(NutritionOrderOralDietNutrient, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(NutritionOrderOralDietNutrient, self).update_with_json(jsondict)
-        if 'amount' in jsondict:
-            self.amount = quantity.Quantity.with_json_and_owner(jsondict['amount'], self)
-        if 'modifier' in jsondict:
-            self.mod = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['modifier'], self)
+    def elementProperties(self):
+        js = super(NutritionOrderOralDietNutrient, self).elementProperties()
+        js.extend([
+            ("amount", "amount", quantity.Quantity, False),
+            ("mod", "modifier", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class NutritionOrderOralDietTexture(fhirelement.FHIRElement):
@@ -313,12 +293,13 @@ class NutritionOrderOralDietTexture(fhirelement.FHIRElement):
         
         super(NutritionOrderOralDietTexture, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(NutritionOrderOralDietTexture, self).update_with_json(jsondict)
-        if 'foodType' in jsondict:
-            self.foodType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['foodType'], self)
-        if 'modifier' in jsondict:
-            self.mod = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['modifier'], self)
+    def elementProperties(self):
+        js = super(NutritionOrderOralDietTexture, self).elementProperties()
+        js.extend([
+            ("foodType", "foodType", codeableconcept.CodeableConcept, False),
+            ("mod", "modifier", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class NutritionOrderSupplement(fhirelement.FHIRElement):
@@ -356,16 +337,14 @@ class NutritionOrderSupplement(fhirelement.FHIRElement):
         
         super(NutritionOrderSupplement, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(NutritionOrderSupplement, self).update_with_json(jsondict)
-        if 'instruction' in jsondict:
-            self.instruction = jsondict['instruction']
-        if 'productName' in jsondict:
-            self.productName = jsondict['productName']
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'scheduled' in jsondict:
-            self.scheduled = timing.Timing.with_json_and_owner(jsondict['scheduled'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(NutritionOrderSupplement, self).elementProperties()
+        js.extend([
+            ("instruction", "instruction", str, False),
+            ("productName", "productName", str, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("scheduled", "scheduled", timing.Timing, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

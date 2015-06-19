@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,29 +18,31 @@ class HealthcareServiceTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = healthcareservice.HealthcareService(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return healthcareservice.HealthcareService(js)
     
     def testHealthcareService1(self):
         inst = self.instantiate_from("healthcareservice-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e300750> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a HealthcareService instance")
+        self.implHealthcareService1(inst)
+        inst2 = healthcareservice.HealthcareService(inst.as_json())
+        self.implHealthcareService1(inst2)
     
+    def implHealthcareService1(self, inst):
         self.assertFalse(inst.appointmentRequired)
         self.assertEqual(inst.availabilityExceptions, "Reduced capacity is available during the Christmas period")
         self.assertEqual(inst.availableTime[0].availableEndTime.date, FHIRDate("05:30:00").date)
-        self.assertEqual(inst.availableTime[0].availableEndTime.isostring, "05:30:00")
+        self.assertEqual(inst.availableTime[0].availableEndTime.as_json(), "05:30:00")
         self.assertEqual(inst.availableTime[0].availableStartTime.date, FHIRDate("08:30:00").date)
-        self.assertEqual(inst.availableTime[0].availableStartTime.isostring, "08:30:00")
+        self.assertEqual(inst.availableTime[0].availableStartTime.as_json(), "08:30:00")
         self.assertEqual(inst.availableTime[0].daysOfWeek[0], "mon")
         self.assertEqual(inst.availableTime[0].daysOfWeek[1], "tue")
         self.assertEqual(inst.availableTime[0].daysOfWeek[2], "wed")
         self.assertEqual(inst.availableTime[0].daysOfWeek[3], "thu")
         self.assertEqual(inst.availableTime[0].daysOfWeek[4], "fri")
         self.assertEqual(inst.availableTime[1].availableEndTime.date, FHIRDate("04:30:00").date)
-        self.assertEqual(inst.availableTime[1].availableEndTime.isostring, "04:30:00")
+        self.assertEqual(inst.availableTime[1].availableEndTime.as_json(), "04:30:00")
         self.assertEqual(inst.availableTime[1].availableStartTime.date, FHIRDate("09:30:00").date)
-        self.assertEqual(inst.availableTime[1].availableStartTime.isostring, "09:30:00")
+        self.assertEqual(inst.availableTime[1].availableStartTime.as_json(), "09:30:00")
         self.assertEqual(inst.availableTime[1].daysOfWeek[0], "sat")
         self.assertEqual(inst.availableTime[1].daysOfWeek[1], "fri")
         self.assertEqual(inst.characteristic[0].coding[0].display, "Wheelchair access")
@@ -50,14 +52,14 @@ class HealthcareServiceTests(unittest.TestCase):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.notAvailable[0].description, "Christmas/Boxing Day")
         self.assertEqual(inst.notAvailable[0].during.end.date, FHIRDate("2015-12-26").date)
-        self.assertEqual(inst.notAvailable[0].during.end.isostring, "2015-12-26")
+        self.assertEqual(inst.notAvailable[0].during.end.as_json(), "2015-12-26")
         self.assertEqual(inst.notAvailable[0].during.start.date, FHIRDate("2015-12-25").date)
-        self.assertEqual(inst.notAvailable[0].during.start.isostring, "2015-12-25")
+        self.assertEqual(inst.notAvailable[0].during.start.as_json(), "2015-12-25")
         self.assertEqual(inst.notAvailable[1].description, "New Years Day")
         self.assertEqual(inst.notAvailable[1].during.end.date, FHIRDate("2016-01-01").date)
-        self.assertEqual(inst.notAvailable[1].during.end.isostring, "2016-01-01")
+        self.assertEqual(inst.notAvailable[1].during.end.as_json(), "2016-01-01")
         self.assertEqual(inst.notAvailable[1].during.start.date, FHIRDate("2016-01-01").date)
-        self.assertEqual(inst.notAvailable[1].during.start.isostring, "2016-01-01")
+        self.assertEqual(inst.notAvailable[1].during.start.as_json(), "2016-01-01")
         self.assertEqual(inst.programName[0], "PTSD outreach")
         self.assertEqual(inst.publicKey, "*** Base64 public key goes here to be used for secure messaging ***")
         self.assertEqual(inst.referralMethod[0].coding[0].code, "phone")
@@ -84,6 +86,5 @@ class HealthcareServiceTests(unittest.TestCase):
         self.assertEqual(inst.telecom[1].system, "email")
         self.assertEqual(inst.telecom[1].use, "work")
         self.assertEqual(inst.telecom[1].value, "directaddress@example.com")
-        self.assertEqual(inst.text.div, "<div>\n			25 Dec 2013 9:15am - 9:30am: \n      <b>Busy</b> Physiotherapy\n		\n    </div>")
         self.assertEqual(inst.text.status, "generated")
 

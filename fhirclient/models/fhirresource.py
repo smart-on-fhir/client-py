@@ -16,10 +16,6 @@ class FHIRResource(fhirelement.FHIRElement):
     resource_name = 'Resource'
     
     def __init__(self, jsondict=None):
-        self._local_id = None
-        """ If the instance was read from a server, this is the id that was
-        used, likely the same as `id`. """
-        
         self._server = None
         """ The server the instance was read from. """
         
@@ -34,6 +30,15 @@ class FHIRResource(fhirelement.FHIRElement):
             if isinstance(jsonobj, dict) and 'resourceType' in jsonobj:
                 return fhirelementfactory.FHIRElementFactory.instantiate(jsonobj['resourceType'], jsonobj)
         return super(FHIRResource, cls).with_json(jsonobj)
+    
+    
+    # MARK: Handling Paths
+    
+    def relativeBase(self):
+        return self.__class__.resource_name
+    
+    def relativePath(self):
+        return "{}/{}".format(self.relativeBase(), self.id)
     
     
     # MARK: Server Connection

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/BodySite) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/BodySite) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -52,18 +52,15 @@ class BodySite(domainresource.DomainResource):
         
         super(BodySite, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(BodySite, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'image' in jsondict:
-            self.image = attachment.Attachment.with_json_and_owner(jsondict['image'], self)
-        if 'modifier' in jsondict:
-            self.mod = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['modifier'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
+    def elementProperties(self):
+        js = super(BodySite, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("description", "description", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("image", "image", attachment.Attachment, True),
+            ("mod", "modifier", codeableconcept.CodeableConcept, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+        ])
+        return js
 

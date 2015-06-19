@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -110,48 +110,31 @@ class Conformance(domainresource.DomainResource):
         
         super(Conformance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Conformance, self).update_with_json(jsondict)
-        if 'acceptUnknown' in jsondict:
-            self.acceptUnknown = jsondict['acceptUnknown']
-        if 'contact' in jsondict:
-            self.contact = ConformanceContact.with_json_and_owner(jsondict['contact'], self)
-        if 'copyright' in jsondict:
-            self.copyright = jsondict['copyright']
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'document' in jsondict:
-            self.document = ConformanceDocument.with_json_and_owner(jsondict['document'], self)
-        if 'experimental' in jsondict:
-            self.experimental = jsondict['experimental']
-        if 'fhirVersion' in jsondict:
-            self.fhirVersion = jsondict['fhirVersion']
-        if 'format' in jsondict:
-            self.format = jsondict['format']
-        if 'implementation' in jsondict:
-            self.implementation = ConformanceImplementation.with_json_and_owner(jsondict['implementation'], self)
-        if 'messaging' in jsondict:
-            self.messaging = ConformanceMessaging.with_json_and_owner(jsondict['messaging'], self)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'profile' in jsondict:
-            self.profile = fhirreference.FHIRReference.with_json_and_owner(jsondict['profile'], self)
-        if 'publisher' in jsondict:
-            self.publisher = jsondict['publisher']
-        if 'requirements' in jsondict:
-            self.requirements = jsondict['requirements']
-        if 'rest' in jsondict:
-            self.rest = ConformanceRest.with_json_and_owner(jsondict['rest'], self)
-        if 'software' in jsondict:
-            self.software = ConformanceSoftware.with_json_and_owner(jsondict['software'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(Conformance, self).elementProperties()
+        js.extend([
+            ("acceptUnknown", "acceptUnknown", bool, False),
+            ("contact", "contact", ConformanceContact, True),
+            ("copyright", "copyright", str, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("document", "document", ConformanceDocument, True),
+            ("experimental", "experimental", bool, False),
+            ("fhirVersion", "fhirVersion", str, False),
+            ("format", "format", str, True),
+            ("implementation", "implementation", ConformanceImplementation, False),
+            ("messaging", "messaging", ConformanceMessaging, True),
+            ("name", "name", str, False),
+            ("profile", "profile", fhirreference.FHIRReference, True),
+            ("publisher", "publisher", str, False),
+            ("requirements", "requirements", str, False),
+            ("rest", "rest", ConformanceRest, True),
+            ("software", "software", ConformanceSoftware, False),
+            ("status", "status", str, False),
+            ("url", "url", str, False),
+            ("version", "version", str, False),
+        ])
+        return js
 
 
 class ConformanceContact(fhirelement.FHIRElement):
@@ -176,12 +159,13 @@ class ConformanceContact(fhirelement.FHIRElement):
         
         super(ConformanceContact, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceContact, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(ConformanceContact, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class ConformanceDocument(fhirelement.FHIRElement):
@@ -210,14 +194,14 @@ class ConformanceDocument(fhirelement.FHIRElement):
         
         super(ConformanceDocument, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceDocument, self).update_with_json(jsondict)
-        if 'documentation' in jsondict:
-            self.documentation = jsondict['documentation']
-        if 'mode' in jsondict:
-            self.mode = jsondict['mode']
-        if 'profile' in jsondict:
-            self.profile = fhirreference.FHIRReference.with_json_and_owner(jsondict['profile'], self)
+    def elementProperties(self):
+        js = super(ConformanceDocument, self).elementProperties()
+        js.extend([
+            ("documentation", "documentation", str, False),
+            ("mode", "mode", str, False),
+            ("profile", "profile", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ConformanceImplementation(fhirelement.FHIRElement):
@@ -244,12 +228,13 @@ class ConformanceImplementation(fhirelement.FHIRElement):
         
         super(ConformanceImplementation, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceImplementation, self).update_with_json(jsondict)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(ConformanceImplementation, self).elementProperties()
+        js.extend([
+            ("description", "description", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 
 
 class ConformanceMessaging(fhirelement.FHIRElement):
@@ -282,16 +267,15 @@ class ConformanceMessaging(fhirelement.FHIRElement):
         
         super(ConformanceMessaging, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceMessaging, self).update_with_json(jsondict)
-        if 'documentation' in jsondict:
-            self.documentation = jsondict['documentation']
-        if 'endpoint' in jsondict:
-            self.endpoint = jsondict['endpoint']
-        if 'event' in jsondict:
-            self.event = ConformanceMessagingEvent.with_json_and_owner(jsondict['event'], self)
-        if 'reliableCache' in jsondict:
-            self.reliableCache = jsondict['reliableCache']
+    def elementProperties(self):
+        js = super(ConformanceMessaging, self).elementProperties()
+        js.extend([
+            ("documentation", "documentation", str, False),
+            ("endpoint", "endpoint", str, False),
+            ("event", "event", ConformanceMessagingEvent, True),
+            ("reliableCache", "reliableCache", int, False),
+        ])
+        return js
 
 
 class ConformanceMessagingEvent(fhirelement.FHIRElement):
@@ -340,24 +324,19 @@ class ConformanceMessagingEvent(fhirelement.FHIRElement):
         
         super(ConformanceMessagingEvent, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceMessagingEvent, self).update_with_json(jsondict)
-        if 'category' in jsondict:
-            self.category = jsondict['category']
-        if 'code' in jsondict:
-            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
-        if 'documentation' in jsondict:
-            self.documentation = jsondict['documentation']
-        if 'focus' in jsondict:
-            self.focus = jsondict['focus']
-        if 'mode' in jsondict:
-            self.mode = jsondict['mode']
-        if 'protocol' in jsondict:
-            self.protocol = coding.Coding.with_json_and_owner(jsondict['protocol'], self)
-        if 'request' in jsondict:
-            self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self)
-        if 'response' in jsondict:
-            self.response = fhirreference.FHIRReference.with_json_and_owner(jsondict['response'], self)
+    def elementProperties(self):
+        js = super(ConformanceMessagingEvent, self).elementProperties()
+        js.extend([
+            ("category", "category", str, False),
+            ("code", "code", coding.Coding, False),
+            ("documentation", "documentation", str, False),
+            ("focus", "focus", str, False),
+            ("mode", "mode", str, False),
+            ("protocol", "protocol", coding.Coding, True),
+            ("request", "request", fhirreference.FHIRReference, False),
+            ("response", "response", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ConformanceRest(fhirelement.FHIRElement):
@@ -406,24 +385,19 @@ class ConformanceRest(fhirelement.FHIRElement):
         
         super(ConformanceRest, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceRest, self).update_with_json(jsondict)
-        if 'compartment' in jsondict:
-            self.compartment = jsondict['compartment']
-        if 'documentMailbox' in jsondict:
-            self.documentMailbox = jsondict['documentMailbox']
-        if 'documentation' in jsondict:
-            self.documentation = jsondict['documentation']
-        if 'interaction' in jsondict:
-            self.interaction = ConformanceRestInteraction.with_json_and_owner(jsondict['interaction'], self)
-        if 'mode' in jsondict:
-            self.mode = jsondict['mode']
-        if 'operation' in jsondict:
-            self.operation = ConformanceRestOperation.with_json_and_owner(jsondict['operation'], self)
-        if 'resource' in jsondict:
-            self.resource = ConformanceRestResource.with_json_and_owner(jsondict['resource'], self)
-        if 'security' in jsondict:
-            self.security = ConformanceRestSecurity.with_json_and_owner(jsondict['security'], self)
+    def elementProperties(self):
+        js = super(ConformanceRest, self).elementProperties()
+        js.extend([
+            ("compartment", "compartment", str, True),
+            ("documentMailbox", "documentMailbox", str, True),
+            ("documentation", "documentation", str, False),
+            ("interaction", "interaction", ConformanceRestInteraction, True),
+            ("mode", "mode", str, False),
+            ("operation", "operation", ConformanceRestOperation, True),
+            ("resource", "resource", ConformanceRestResource, True),
+            ("security", "security", ConformanceRestSecurity, False),
+        ])
+        return js
 
 
 class ConformanceRestInteraction(fhirelement.FHIRElement):
@@ -448,12 +422,13 @@ class ConformanceRestInteraction(fhirelement.FHIRElement):
         
         super(ConformanceRestInteraction, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceRestInteraction, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'documentation' in jsondict:
-            self.documentation = jsondict['documentation']
+    def elementProperties(self):
+        js = super(ConformanceRestInteraction, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("documentation", "documentation", str, False),
+        ])
+        return js
 
 
 class ConformanceRestOperation(fhirelement.FHIRElement):
@@ -479,12 +454,13 @@ class ConformanceRestOperation(fhirelement.FHIRElement):
         
         super(ConformanceRestOperation, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceRestOperation, self).update_with_json(jsondict)
-        if 'definition' in jsondict:
-            self.definition = fhirreference.FHIRReference.with_json_and_owner(jsondict['definition'], self)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
+    def elementProperties(self):
+        js = super(ConformanceRestOperation, self).elementProperties()
+        js.extend([
+            ("definition", "definition", fhirreference.FHIRReference, False),
+            ("name", "name", str, False),
+        ])
+        return js
 
 
 class ConformanceRestResource(fhirelement.FHIRElement):
@@ -546,30 +522,22 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         
         super(ConformanceRestResource, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceRestResource, self).update_with_json(jsondict)
-        if 'conditionalCreate' in jsondict:
-            self.conditionalCreate = jsondict['conditionalCreate']
-        if 'conditionalDelete' in jsondict:
-            self.conditionalDelete = jsondict['conditionalDelete']
-        if 'conditionalUpdate' in jsondict:
-            self.conditionalUpdate = jsondict['conditionalUpdate']
-        if 'interaction' in jsondict:
-            self.interaction = ConformanceRestResourceInteraction.with_json_and_owner(jsondict['interaction'], self)
-        if 'profile' in jsondict:
-            self.profile = fhirreference.FHIRReference.with_json_and_owner(jsondict['profile'], self)
-        if 'readHistory' in jsondict:
-            self.readHistory = jsondict['readHistory']
-        if 'searchInclude' in jsondict:
-            self.searchInclude = jsondict['searchInclude']
-        if 'searchParam' in jsondict:
-            self.searchParam = ConformanceRestResourceSearchParam.with_json_and_owner(jsondict['searchParam'], self)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'updateCreate' in jsondict:
-            self.updateCreate = jsondict['updateCreate']
-        if 'versioning' in jsondict:
-            self.versioning = jsondict['versioning']
+    def elementProperties(self):
+        js = super(ConformanceRestResource, self).elementProperties()
+        js.extend([
+            ("conditionalCreate", "conditionalCreate", bool, False),
+            ("conditionalDelete", "conditionalDelete", bool, False),
+            ("conditionalUpdate", "conditionalUpdate", bool, False),
+            ("interaction", "interaction", ConformanceRestResourceInteraction, True),
+            ("profile", "profile", fhirreference.FHIRReference, False),
+            ("readHistory", "readHistory", bool, False),
+            ("searchInclude", "searchInclude", str, True),
+            ("searchParam", "searchParam", ConformanceRestResourceSearchParam, True),
+            ("type", "type", str, False),
+            ("updateCreate", "updateCreate", bool, False),
+            ("versioning", "versioning", str, False),
+        ])
+        return js
 
 
 class ConformanceRestResourceInteraction(fhirelement.FHIRElement):
@@ -595,12 +563,13 @@ class ConformanceRestResourceInteraction(fhirelement.FHIRElement):
         
         super(ConformanceRestResourceInteraction, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceRestResourceInteraction, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'documentation' in jsondict:
-            self.documentation = jsondict['documentation']
+    def elementProperties(self):
+        js = super(ConformanceRestResourceInteraction, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("documentation", "documentation", str, False),
+        ])
+        return js
 
 
 class ConformanceRestResourceSearchParam(fhirelement.FHIRElement):
@@ -644,20 +613,17 @@ class ConformanceRestResourceSearchParam(fhirelement.FHIRElement):
         
         super(ConformanceRestResourceSearchParam, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceRestResourceSearchParam, self).update_with_json(jsondict)
-        if 'chain' in jsondict:
-            self.chain = jsondict['chain']
-        if 'definition' in jsondict:
-            self.definition = jsondict['definition']
-        if 'documentation' in jsondict:
-            self.documentation = jsondict['documentation']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'target' in jsondict:
-            self.target = jsondict['target']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(ConformanceRestResourceSearchParam, self).elementProperties()
+        js.extend([
+            ("chain", "chain", str, True),
+            ("definition", "definition", str, False),
+            ("documentation", "documentation", str, False),
+            ("name", "name", str, False),
+            ("target", "target", str, True),
+            ("type", "type", str, False),
+        ])
+        return js
 
 
 class ConformanceRestSecurity(fhirelement.FHIRElement):
@@ -691,16 +657,15 @@ class ConformanceRestSecurity(fhirelement.FHIRElement):
         
         super(ConformanceRestSecurity, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceRestSecurity, self).update_with_json(jsondict)
-        if 'certificate' in jsondict:
-            self.certificate = ConformanceRestSecurityCertificate.with_json_and_owner(jsondict['certificate'], self)
-        if 'cors' in jsondict:
-            self.cors = jsondict['cors']
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'service' in jsondict:
-            self.service = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['service'], self)
+    def elementProperties(self):
+        js = super(ConformanceRestSecurity, self).elementProperties()
+        js.extend([
+            ("certificate", "certificate", ConformanceRestSecurityCertificate, True),
+            ("cors", "cors", bool, False),
+            ("description", "description", str, False),
+            ("service", "service", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 
 
 class ConformanceRestSecurityCertificate(fhirelement.FHIRElement):
@@ -723,12 +688,13 @@ class ConformanceRestSecurityCertificate(fhirelement.FHIRElement):
         
         super(ConformanceRestSecurityCertificate, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceRestSecurityCertificate, self).update_with_json(jsondict)
-        if 'blob' in jsondict:
-            self.blob = jsondict['blob']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(ConformanceRestSecurityCertificate, self).elementProperties()
+        js.extend([
+            ("blob", "blob", str, False),
+            ("type", "type", str, False),
+        ])
+        return js
 
 
 class ConformanceSoftware(fhirelement.FHIRElement):
@@ -759,12 +725,12 @@ class ConformanceSoftware(fhirelement.FHIRElement):
         
         super(ConformanceSoftware, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConformanceSoftware, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'releaseDate' in jsondict:
-            self.releaseDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['releaseDate'], self)
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(ConformanceSoftware, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("releaseDate", "releaseDate", fhirdate.FHIRDate, False),
+            ("version", "version", str, False),
+        ])
+        return js
 

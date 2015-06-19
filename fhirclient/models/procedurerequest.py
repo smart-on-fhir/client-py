@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -98,42 +98,28 @@ class ProcedureRequest(domainresource.DomainResource):
         
         super(ProcedureRequest, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProcedureRequest, self).update_with_json(jsondict)
-        if 'asNeededBoolean' in jsondict:
-            self.asNeededBoolean = jsondict['asNeededBoolean']
-        if 'asNeededCodeableConcept' in jsondict:
-            self.asNeededCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['asNeededCodeableConcept'], self)
-        if 'bodySite' in jsondict:
-            self.bodySite = ProcedureRequestBodySite.with_json_and_owner(jsondict['bodySite'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'indication' in jsondict:
-            self.indication = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['indication'], self)
-        if 'notes' in jsondict:
-            self.notes = jsondict['notes']
-        if 'orderedOn' in jsondict:
-            self.orderedOn = fhirdate.FHIRDate.with_json_and_owner(jsondict['orderedOn'], self)
-        if 'orderer' in jsondict:
-            self.orderer = fhirreference.FHIRReference.with_json_and_owner(jsondict['orderer'], self)
-        if 'performer' in jsondict:
-            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self)
-        if 'priority' in jsondict:
-            self.priority = jsondict['priority']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'timingDateTime' in jsondict:
-            self.timingDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['timingDateTime'], self)
-        if 'timingPeriod' in jsondict:
-            self.timingPeriod = period.Period.with_json_and_owner(jsondict['timingPeriod'], self)
-        if 'timingTiming' in jsondict:
-            self.timingTiming = timing.Timing.with_json_and_owner(jsondict['timingTiming'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(ProcedureRequest, self).elementProperties()
+        js.extend([
+            ("asNeededBoolean", "asNeededBoolean", bool, False),
+            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("bodySite", "bodySite", ProcedureRequestBodySite, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("indication", "indication", codeableconcept.CodeableConcept, True),
+            ("notes", "notes", str, True),
+            ("orderedOn", "orderedOn", fhirdate.FHIRDate, False),
+            ("orderer", "orderer", fhirreference.FHIRReference, False),
+            ("performer", "performer", fhirreference.FHIRReference, False),
+            ("priority", "priority", str, False),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False),
+            ("timingPeriod", "timingPeriod", period.Period, False),
+            ("timingTiming", "timingTiming", timing.Timing, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class ProcedureRequestBodySite(fhirelement.FHIRElement):
@@ -159,10 +145,11 @@ class ProcedureRequestBodySite(fhirelement.FHIRElement):
         
         super(ProcedureRequestBodySite, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProcedureRequestBodySite, self).update_with_json(jsondict)
-        if 'siteCodeableConcept' in jsondict:
-            self.siteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['siteCodeableConcept'], self)
-        if 'siteReference' in jsondict:
-            self.siteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['siteReference'], self)
+    def elementProperties(self):
+        js = super(ProcedureRequestBodySite, self).elementProperties()
+        js.extend([
+            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("siteReference", "siteReference", fhirreference.FHIRReference, False),
+        ])
+        return js
 

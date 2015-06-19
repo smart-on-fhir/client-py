@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class ObservationTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = observation.Observation(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return observation.Observation(js)
     
     def testObservation1(self):
         inst = self.instantiate_from("obs-genetics-example1-somatic.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e349b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
+        self.implObservation1(inst)
+        inst2 = observation.Observation(inst.as_json())
+        self.implObservation1(inst2)
     
+    def implObservation1(self, inst):
         self.assertEqual(inst.code.coding[0].code, "21665-5")
         self.assertEqual(inst.code.coding[0].display, "EGFR gene mutation analysis")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
@@ -58,8 +60,12 @@ class ObservationTests(unittest.TestCase):
     
     def testObservation2(self):
         inst = self.instantiate_from("obs-genetics-example2-germline.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e349b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
+        self.implObservation2(inst)
+        inst2 = observation.Observation(inst.as_json())
+        self.implObservation2(inst2)
     
+    def implObservation2(self, inst):
         self.assertEqual(inst.code.coding[0].code, "21636-6")
         self.assertEqual(inst.code.coding[0].display, "BRCA1 gene mutation analysis")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
@@ -91,10 +97,14 @@ class ObservationTests(unittest.TestCase):
     
     def testObservation3(self):
         inst = self.instantiate_from("obs-uslab-example1.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e349b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
+        self.implObservation3(inst)
+        inst2 = observation.Observation(inst.as_json())
+        self.implObservation3(inst2)
     
+    def implObservation3(self, inst):
         self.assertEqual(inst.appliesDateTime.date, FHIRDate("2014-12-03").date)
-        self.assertEqual(inst.appliesDateTime.isostring, "2014-12-03")
+        self.assertEqual(inst.appliesDateTime.as_json(), "2014-12-03")
         self.assertEqual(inst.code.coding[0].code, "10368-9")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
         self.assertEqual(inst.code.coding[1].code, "CAPLD")
@@ -111,7 +121,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.interpretation.coding[0].code, "H")
         self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
         self.assertEqual(inst.issued.date, FHIRDate("2014-12-04T15:42:15-08:00").date)
-        self.assertEqual(inst.issued.isostring, "2014-12-04T15:42:15-08:00")
+        self.assertEqual(inst.issued.as_json(), "2014-12-04T15:42:15-08:00")
         self.assertEqual(inst.referenceRange[0].high.code, "ug/dL")
         self.assertEqual(inst.referenceRange[0].high.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.referenceRange[0].high.units, "microgram per deciliter")
@@ -125,10 +135,14 @@ class ObservationTests(unittest.TestCase):
     
     def testObservation4(self):
         inst = self.instantiate_from("obs-uslab-example2.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e349b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
+        self.implObservation4(inst)
+        inst2 = observation.Observation(inst.as_json())
+        self.implObservation4(inst2)
     
+    def implObservation4(self, inst):
         self.assertEqual(inst.appliesDateTime.date, FHIRDate("2014-12-05").date)
-        self.assertEqual(inst.appliesDateTime.isostring, "2014-12-05")
+        self.assertEqual(inst.appliesDateTime.as_json(), "2014-12-05")
         self.assertEqual(inst.code.coding[0].code, "43305-2")
         self.assertEqual(inst.code.coding[0].display, "Neisseria gonorrhoeae rRNA [Presence] in Unspecified specimen by Probe and target amplification method")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
@@ -146,7 +160,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.interpretation.coding[0].code, "A")
         self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
         self.assertEqual(inst.issued.date, FHIRDate("2014-12-06T15:42:15-08:00").date)
-        self.assertEqual(inst.issued.isostring, "2014-12-06T15:42:15-08:00")
+        self.assertEqual(inst.issued.as_json(), "2014-12-06T15:42:15-08:00")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.valueCodeableConcept.coding[0].code, "10828004")
@@ -159,10 +173,14 @@ class ObservationTests(unittest.TestCase):
     
     def testObservation5(self):
         inst = self.instantiate_from("obs-uslab-example3.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e349b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
+        self.implObservation5(inst)
+        inst2 = observation.Observation(inst.as_json())
+        self.implObservation5(inst2)
     
+    def implObservation5(self, inst):
         self.assertEqual(inst.appliesDateTime.date, FHIRDate("2014-12-05").date)
-        self.assertEqual(inst.appliesDateTime.isostring, "2014-12-05")
+        self.assertEqual(inst.appliesDateTime.as_json(), "2014-12-05")
         self.assertEqual(inst.code.coding[0].code, "6463-4")
         self.assertEqual(inst.code.coding[0].display, "Bacteria identified in Unspecified specimen by Culture")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
@@ -180,17 +198,21 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.interpretation.coding[0].code, "A")
         self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
         self.assertEqual(inst.issued.date, FHIRDate("2014-12-06T15:42:15-08:00").date)
-        self.assertEqual(inst.issued.isostring, "2014-12-06T15:42:15-08:00")
+        self.assertEqual(inst.issued.as_json(), "2014-12-06T15:42:15-08:00")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.valueString, "Moderate Growth of gram-positive cocci bacteria")
     
     def testObservation6(self):
         inst = self.instantiate_from("obs-uslab-example4.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e349b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
+        self.implObservation6(inst)
+        inst2 = observation.Observation(inst.as_json())
+        self.implObservation6(inst2)
     
+    def implObservation6(self, inst):
         self.assertEqual(inst.appliesDateTime.date, FHIRDate("2014-12-05").date)
-        self.assertEqual(inst.appliesDateTime.isostring, "2014-12-05")
+        self.assertEqual(inst.appliesDateTime.as_json(), "2014-12-05")
         self.assertEqual(inst.code.coding[0].code, "6812-2")
         self.assertEqual(inst.code.coding[0].display, "Dengue virus IgM Ab [Titer] in Serum")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
@@ -208,7 +230,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.interpretation.coding[0].code, "H")
         self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
         self.assertEqual(inst.issued.date, FHIRDate("2014-12-06T15:42:15-08:00").date)
-        self.assertEqual(inst.issued.isostring, "2014-12-06T15:42:15-08:00")
+        self.assertEqual(inst.issued.as_json(), "2014-12-06T15:42:15-08:00")
         self.assertEqual(inst.referenceRange[0].text, "<1:64")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
@@ -217,10 +239,14 @@ class ObservationTests(unittest.TestCase):
     
     def testObservation7(self):
         inst = self.instantiate_from("obs-uslab-example5.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e349b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
+        self.implObservation7(inst)
+        inst2 = observation.Observation(inst.as_json())
+        self.implObservation7(inst2)
     
+    def implObservation7(self, inst):
         self.assertEqual(inst.appliesDateTime.date, FHIRDate("2014-12-05").date)
-        self.assertEqual(inst.appliesDateTime.isostring, "2014-12-05")
+        self.assertEqual(inst.appliesDateTime.as_json(), "2014-12-05")
         self.assertEqual(inst.code.coding[0].code, "5671-3")
         self.assertEqual(inst.code.coding[0].display, "Lead [Mass/volume] in Blood")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
@@ -238,7 +264,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.interpretation.coding[0].code, "H")
         self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
         self.assertEqual(inst.issued.date, FHIRDate("2014-12-06T15:42:15-08:00").date)
-        self.assertEqual(inst.issued.isostring, "2014-12-06T15:42:15-08:00")
+        self.assertEqual(inst.issued.as_json(), "2014-12-06T15:42:15-08:00")
         self.assertEqual(inst.referenceRange[0].high.code, "ug/dL")
         self.assertEqual(inst.referenceRange[0].high.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.referenceRange[0].high.units, "microgram per deciliter")
@@ -252,10 +278,14 @@ class ObservationTests(unittest.TestCase):
     
     def testObservation8(self):
         inst = self.instantiate_from("obs-uslab-example6.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e349b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
+        self.implObservation8(inst)
+        inst2 = observation.Observation(inst.as_json())
+        self.implObservation8(inst2)
     
+    def implObservation8(self, inst):
         self.assertEqual(inst.appliesDateTime.date, FHIRDate("2014-12-05").date)
-        self.assertEqual(inst.appliesDateTime.isostring, "2014-12-05")
+        self.assertEqual(inst.appliesDateTime.as_json(), "2014-12-05")
         self.assertEqual(inst.code.coding[0].code, "64017-7")
         self.assertEqual(inst.code.coding[0].display, "Chlamydia trachomatis and Neisseria gonorrhoeae rRNA panel - Unspecified specimen by Probe and target amplification method")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
@@ -271,7 +301,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "8901")
         self.assertEqual(inst.issued.date, FHIRDate("2014-12-06T15:42:15-08:00").date)
-        self.assertEqual(inst.issued.isostring, "2014-12-06T15:42:15-08:00")
+        self.assertEqual(inst.issued.as_json(), "2014-12-06T15:42:15-08:00")
         self.assertEqual(inst.related[0].type, "has-component")
         self.assertEqual(inst.related[1].type, "has-component")
         self.assertEqual(inst.status, "final")
@@ -279,10 +309,14 @@ class ObservationTests(unittest.TestCase):
     
     def testObservation9(self):
         inst = self.instantiate_from("obs-uslab-example7.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e349b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
+        self.implObservation9(inst)
+        inst2 = observation.Observation(inst.as_json())
+        self.implObservation9(inst2)
     
+    def implObservation9(self, inst):
         self.assertEqual(inst.appliesDateTime.date, FHIRDate("2014-12-05").date)
-        self.assertEqual(inst.appliesDateTime.isostring, "2014-12-05")
+        self.assertEqual(inst.appliesDateTime.as_json(), "2014-12-05")
         self.assertEqual(inst.code.coding[0].code, "43304-5")
         self.assertEqual(inst.code.coding[0].display, "Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
@@ -300,7 +334,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.interpretation.coding[0].code, "N")
         self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
         self.assertEqual(inst.issued.date, FHIRDate("2014-12-06T15:42:15-08:00").date)
-        self.assertEqual(inst.issued.isostring, "2014-12-06T15:42:15-08:00")
+        self.assertEqual(inst.issued.as_json(), "2014-12-06T15:42:15-08:00")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.valueCodeableConcept.coding[0].code, "260385009")
@@ -313,10 +347,14 @@ class ObservationTests(unittest.TestCase):
     
     def testObservation10(self):
         inst = self.instantiate_from("obs-uslab-example8.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e349b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
+        self.implObservation10(inst)
+        inst2 = observation.Observation(inst.as_json())
+        self.implObservation10(inst2)
     
+    def implObservation10(self, inst):
         self.assertEqual(inst.appliesDateTime.date, FHIRDate("2014-12-03").date)
-        self.assertEqual(inst.appliesDateTime.isostring, "2014-12-03")
+        self.assertEqual(inst.appliesDateTime.as_json(), "2014-12-03")
         self.assertEqual(inst.code.coding[0].code, "5821-4")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
         self.assertEqual(inst.code.coding[1].code, "WBCFLD")
@@ -333,7 +371,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.interpretation.coding[0].code, "H")
         self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
         self.assertEqual(inst.issued.date, FHIRDate("2014-12-04T15:42:15-08:00").date)
-        self.assertEqual(inst.issued.isostring, "2014-12-04T15:42:15-08:00")
+        self.assertEqual(inst.issued.as_json(), "2014-12-04T15:42:15-08:00")
         self.assertEqual(inst.referenceRange[0].high.code, "/[HPF]")
         self.assertEqual(inst.referenceRange[0].high.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.referenceRange[0].high.units, "WBC/HPF")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Observation) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Observation) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -154,68 +154,41 @@ class Observation(domainresource.DomainResource):
         
         super(Observation, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Observation, self).update_with_json(jsondict)
-        if 'appliesDateTime' in jsondict:
-            self.appliesDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['appliesDateTime'], self)
-        if 'appliesPeriod' in jsondict:
-            self.appliesPeriod = period.Period.with_json_and_owner(jsondict['appliesPeriod'], self)
-        if 'bodySiteCodeableConcept' in jsondict:
-            self.bodySiteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['bodySiteCodeableConcept'], self)
-        if 'bodySiteReference' in jsondict:
-            self.bodySiteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['bodySiteReference'], self)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'comments' in jsondict:
-            self.comments = jsondict['comments']
-        if 'dataAbsentReason' in jsondict:
-            self.dataAbsentReason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['dataAbsentReason'], self)
-        if 'device' in jsondict:
-            self.device = fhirreference.FHIRReference.with_json_and_owner(jsondict['device'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'interpretation' in jsondict:
-            self.interpretation = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['interpretation'], self)
-        if 'issued' in jsondict:
-            self.issued = fhirdate.FHIRDate.with_json_and_owner(jsondict['issued'], self)
-        if 'method' in jsondict:
-            self.method = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['method'], self)
-        if 'performer' in jsondict:
-            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self)
-        if 'referenceRange' in jsondict:
-            self.referenceRange = ObservationReferenceRange.with_json_and_owner(jsondict['referenceRange'], self)
-        if 'related' in jsondict:
-            self.related = ObservationRelated.with_json_and_owner(jsondict['related'], self)
-        if 'reliability' in jsondict:
-            self.reliability = jsondict['reliability']
-        if 'specimen' in jsondict:
-            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'valueAttachment' in jsondict:
-            self.valueAttachment = attachment.Attachment.with_json_and_owner(jsondict['valueAttachment'], self)
-        if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
-        if 'valueDateTime' in jsondict:
-            self.valueDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDateTime'], self)
-        if 'valuePeriod' in jsondict:
-            self.valuePeriod = period.Period.with_json_and_owner(jsondict['valuePeriod'], self)
-        if 'valueQuantity' in jsondict:
-            self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
-        if 'valueRange' in jsondict:
-            self.valueRange = range.Range.with_json_and_owner(jsondict['valueRange'], self)
-        if 'valueRatio' in jsondict:
-            self.valueRatio = ratio.Ratio.with_json_and_owner(jsondict['valueRatio'], self)
-        if 'valueSampledData' in jsondict:
-            self.valueSampledData = sampleddata.SampledData.with_json_and_owner(jsondict['valueSampledData'], self)
-        if 'valueString' in jsondict:
-            self.valueString = jsondict['valueString']
-        if 'valueTime' in jsondict:
-            self.valueTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueTime'], self)
+    def elementProperties(self):
+        js = super(Observation, self).elementProperties()
+        js.extend([
+            ("appliesDateTime", "appliesDateTime", fhirdate.FHIRDate, False),
+            ("appliesPeriod", "appliesPeriod", period.Period, False),
+            ("bodySiteCodeableConcept", "bodySiteCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("bodySiteReference", "bodySiteReference", fhirreference.FHIRReference, False),
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("comments", "comments", str, False),
+            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False),
+            ("device", "device", fhirreference.FHIRReference, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("interpretation", "interpretation", codeableconcept.CodeableConcept, False),
+            ("issued", "issued", fhirdate.FHIRDate, False),
+            ("method", "method", codeableconcept.CodeableConcept, False),
+            ("performer", "performer", fhirreference.FHIRReference, True),
+            ("referenceRange", "referenceRange", ObservationReferenceRange, True),
+            ("related", "related", ObservationRelated, True),
+            ("reliability", "reliability", str, False),
+            ("specimen", "specimen", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False),
+            ("valuePeriod", "valuePeriod", period.Period, False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
+            ("valueRange", "valueRange", range.Range, False),
+            ("valueRatio", "valueRatio", ratio.Ratio, False),
+            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False),
+            ("valueString", "valueString", str, False),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False),
+        ])
+        return js
 
 
 class ObservationReferenceRange(fhirelement.FHIRElement):
@@ -253,18 +226,16 @@ class ObservationReferenceRange(fhirelement.FHIRElement):
         
         super(ObservationReferenceRange, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ObservationReferenceRange, self).update_with_json(jsondict)
-        if 'age' in jsondict:
-            self.age = range.Range.with_json_and_owner(jsondict['age'], self)
-        if 'high' in jsondict:
-            self.high = quantity.Quantity.with_json_and_owner(jsondict['high'], self)
-        if 'low' in jsondict:
-            self.low = quantity.Quantity.with_json_and_owner(jsondict['low'], self)
-        if 'meaning' in jsondict:
-            self.meaning = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['meaning'], self)
-        if 'text' in jsondict:
-            self.text = jsondict['text']
+    def elementProperties(self):
+        js = super(ObservationReferenceRange, self).elementProperties()
+        js.extend([
+            ("age", "age", range.Range, False),
+            ("high", "high", quantity.Quantity, False),
+            ("low", "low", quantity.Quantity, False),
+            ("meaning", "meaning", codeableconcept.CodeableConcept, False),
+            ("text", "text", str, False),
+        ])
+        return js
 
 
 class ObservationRelated(fhirelement.FHIRElement):
@@ -291,10 +262,11 @@ class ObservationRelated(fhirelement.FHIRElement):
         
         super(ObservationRelated, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ObservationRelated, self).update_with_json(jsondict)
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(ObservationRelated, self).elementProperties()
+        js.extend([
+            ("target", "target", fhirreference.FHIRReference, False),
+            ("type", "type", str, False),
+        ])
+        return js
 

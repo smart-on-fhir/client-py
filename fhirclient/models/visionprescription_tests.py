@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class VisionPrescriptionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = visionprescription.VisionPrescription(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return visionprescription.VisionPrescription(js)
     
     def testVisionPrescription1(self):
         inst = self.instantiate_from("visionprescription-example-1.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3aab10> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a VisionPrescription instance")
+        self.implVisionPrescription1(inst)
+        inst2 = visionprescription.VisionPrescription(inst.as_json())
+        self.implVisionPrescription1(inst2)
     
+    def implVisionPrescription1(self, inst):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2014-06-15").date)
-        self.assertEqual(inst.dateWritten.isostring, "2014-06-15")
+        self.assertEqual(inst.dateWritten.as_json(), "2014-06-15")
         self.assertEqual(inst.dispense[0].add, 1.75)
         self.assertEqual(inst.dispense[0].axis, 160)
         self.assertEqual(inst.dispense[0].backCurve, 8.7)
@@ -66,10 +68,14 @@ class VisionPrescriptionTests(unittest.TestCase):
     
     def testVisionPrescription2(self):
         inst = self.instantiate_from("visionprescription-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3aab10> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a VisionPrescription instance")
+        self.implVisionPrescription2(inst)
+        inst2 = visionprescription.VisionPrescription(inst.as_json())
+        self.implVisionPrescription2(inst2)
     
+    def implVisionPrescription2(self, inst):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2014-06-15").date)
-        self.assertEqual(inst.dateWritten.isostring, "2014-06-15")
+        self.assertEqual(inst.dateWritten.as_json(), "2014-06-15")
         self.assertEqual(inst.dispense[0].add, 2.0)
         self.assertEqual(inst.dispense[0].base, "down")
         self.assertEqual(inst.dispense[0].eye, "right")
@@ -89,6 +95,5 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.id, "33123")
         self.assertEqual(inst.identifier[0].system, "http://www.happysight.com/prescription")
         self.assertEqual(inst.identifier[0].value, "15013")
-        self.assertEqual(inst.text.div, "<div>\n	  \n      <p>OD -2.00 SPH         +2.00 add    0.5 p.d. BD</p>\n      \n      <p>OS -1.00 -0.50 x 180 +2.00 add    0.5 p.d. BU</p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "generated")
 

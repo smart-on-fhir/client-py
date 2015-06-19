@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -86,36 +86,25 @@ class DataElement(domainresource.DomainResource):
         
         super(DataElement, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DataElement, self).update_with_json(jsondict)
-        if 'contact' in jsondict:
-            self.contact = DataElementContact.with_json_and_owner(jsondict['contact'], self)
-        if 'copyright' in jsondict:
-            self.copyright = jsondict['copyright']
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'element' in jsondict:
-            self.element = elementdefinition.ElementDefinition.with_json_and_owner(jsondict['element'], self)
-        if 'experimental' in jsondict:
-            self.experimental = jsondict['experimental']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'mapping' in jsondict:
-            self.mapping = DataElementMapping.with_json_and_owner(jsondict['mapping'], self)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'publisher' in jsondict:
-            self.publisher = jsondict['publisher']
-        if 'specificity' in jsondict:
-            self.specificity = jsondict['specificity']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
-        if 'useContext' in jsondict:
-            self.useContext = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['useContext'], self)
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(DataElement, self).elementProperties()
+        js.extend([
+            ("contact", "contact", DataElementContact, True),
+            ("copyright", "copyright", str, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("element", "element", elementdefinition.ElementDefinition, True),
+            ("experimental", "experimental", bool, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("mapping", "mapping", DataElementMapping, True),
+            ("name", "name", str, False),
+            ("publisher", "publisher", str, False),
+            ("specificity", "specificity", str, False),
+            ("status", "status", str, False),
+            ("url", "url", str, False),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
+            ("version", "version", str, False),
+        ])
+        return js
 
 
 class DataElementContact(fhirelement.FHIRElement):
@@ -140,12 +129,13 @@ class DataElementContact(fhirelement.FHIRElement):
         
         super(DataElementContact, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DataElementContact, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(DataElementContact, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class DataElementMapping(fhirelement.FHIRElement):
@@ -179,14 +169,13 @@ class DataElementMapping(fhirelement.FHIRElement):
         
         super(DataElementMapping, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DataElementMapping, self).update_with_json(jsondict)
-        if 'comments' in jsondict:
-            self.comments = jsondict['comments']
-        if 'identity' in jsondict:
-            self.identity = jsondict['identity']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'uri' in jsondict:
-            self.uri = jsondict['uri']
+    def elementProperties(self):
+        js = super(DataElementMapping, self).elementProperties()
+        js.extend([
+            ("comments", "comments", str, False),
+            ("identity", "identity", str, False),
+            ("name", "name", str, False),
+            ("uri", "uri", str, False),
+        ])
+        return js
 

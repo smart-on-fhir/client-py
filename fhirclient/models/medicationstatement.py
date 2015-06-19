@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -90,36 +90,25 @@ class MedicationStatement(domainresource.DomainResource):
         
         super(MedicationStatement, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationStatement, self).update_with_json(jsondict)
-        if 'dateAsserted' in jsondict:
-            self.dateAsserted = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateAsserted'], self)
-        if 'dosage' in jsondict:
-            self.dosage = MedicationStatementDosage.with_json_and_owner(jsondict['dosage'], self)
-        if 'effectiveDateTime' in jsondict:
-            self.effectiveDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['effectiveDateTime'], self)
-        if 'effectivePeriod' in jsondict:
-            self.effectivePeriod = period.Period.with_json_and_owner(jsondict['effectivePeriod'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'informationSource' in jsondict:
-            self.informationSource = fhirreference.FHIRReference.with_json_and_owner(jsondict['informationSource'], self)
-        if 'medication' in jsondict:
-            self.medication = fhirreference.FHIRReference.with_json_and_owner(jsondict['medication'], self)
-        if 'note' in jsondict:
-            self.note = jsondict['note']
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'reasonForUseCodeableConcept' in jsondict:
-            self.reasonForUseCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonForUseCodeableConcept'], self)
-        if 'reasonForUseReference' in jsondict:
-            self.reasonForUseReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['reasonForUseReference'], self)
-        if 'reasonNotGiven' in jsondict:
-            self.reasonNotGiven = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonNotGiven'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'wasNotGiven' in jsondict:
-            self.wasNotGiven = jsondict['wasNotGiven']
+    def elementProperties(self):
+        js = super(MedicationStatement, self).elementProperties()
+        js.extend([
+            ("dateAsserted", "dateAsserted", fhirdate.FHIRDate, False),
+            ("dosage", "dosage", MedicationStatementDosage, True),
+            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False),
+            ("effectivePeriod", "effectivePeriod", period.Period, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("informationSource", "informationSource", fhirreference.FHIRReference, False),
+            ("medication", "medication", fhirreference.FHIRReference, False),
+            ("note", "note", str, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("reasonForUseCodeableConcept", "reasonForUseCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("reasonForUseReference", "reasonForUseReference", fhirreference.FHIRReference, False),
+            ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True),
+            ("status", "status", str, False),
+            ("wasNotGiven", "wasNotGiven", bool, False),
+        ])
+        return js
 
 
 class MedicationStatementDosage(fhirelement.FHIRElement):
@@ -176,26 +165,19 @@ class MedicationStatementDosage(fhirelement.FHIRElement):
         
         super(MedicationStatementDosage, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationStatementDosage, self).update_with_json(jsondict)
-        if 'asNeededBoolean' in jsondict:
-            self.asNeededBoolean = jsondict['asNeededBoolean']
-        if 'asNeededCodeableConcept' in jsondict:
-            self.asNeededCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['asNeededCodeableConcept'], self)
-        if 'maxDosePerPeriod' in jsondict:
-            self.maxDosePerPeriod = ratio.Ratio.with_json_and_owner(jsondict['maxDosePerPeriod'], self)
-        if 'method' in jsondict:
-            self.method = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['method'], self)
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'rate' in jsondict:
-            self.rate = ratio.Ratio.with_json_and_owner(jsondict['rate'], self)
-        if 'route' in jsondict:
-            self.route = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['route'], self)
-        if 'schedule' in jsondict:
-            self.schedule = timing.Timing.with_json_and_owner(jsondict['schedule'], self)
-        if 'site' in jsondict:
-            self.site = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['site'], self)
-        if 'text' in jsondict:
-            self.text = jsondict['text']
+    def elementProperties(self):
+        js = super(MedicationStatementDosage, self).elementProperties()
+        js.extend([
+            ("asNeededBoolean", "asNeededBoolean", bool, False),
+            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False),
+            ("method", "method", codeableconcept.CodeableConcept, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("rate", "rate", ratio.Ratio, False),
+            ("route", "route", codeableconcept.CodeableConcept, False),
+            ("schedule", "schedule", timing.Timing, False),
+            ("site", "site", codeableconcept.CodeableConcept, False),
+            ("text", "text", str, False),
+        ])
+        return js
 

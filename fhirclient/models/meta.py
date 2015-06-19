@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Meta) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Meta) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -46,16 +46,14 @@ class Meta(fhirelement.FHIRElement):
         
         super(Meta, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Meta, self).update_with_json(jsondict)
-        if 'lastUpdated' in jsondict:
-            self.lastUpdated = fhirdate.FHIRDate.with_json_and_owner(jsondict['lastUpdated'], self)
-        if 'profile' in jsondict:
-            self.profile = jsondict['profile']
-        if 'security' in jsondict:
-            self.security = coding.Coding.with_json_and_owner(jsondict['security'], self)
-        if 'tag' in jsondict:
-            self.tag = coding.Coding.with_json_and_owner(jsondict['tag'], self)
-        if 'versionId' in jsondict:
-            self.versionId = jsondict['versionId']
+    def elementProperties(self):
+        js = super(Meta, self).elementProperties()
+        js.extend([
+            ("lastUpdated", "lastUpdated", fhirdate.FHIRDate, False),
+            ("profile", "profile", str, True),
+            ("security", "security", coding.Coding, True),
+            ("tag", "tag", coding.Coding, True),
+            ("versionId", "versionId", str, False),
+        ])
+        return js
 

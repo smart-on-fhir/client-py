@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Person) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Person) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -71,28 +71,21 @@ class Person(domainresource.DomainResource):
         
         super(Person, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Person, self).update_with_json(jsondict)
-        if 'active' in jsondict:
-            self.active = jsondict['active']
-        if 'address' in jsondict:
-            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'birthDate' in jsondict:
-            self.birthDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['birthDate'], self)
-        if 'gender' in jsondict:
-            self.gender = jsondict['gender']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'link' in jsondict:
-            self.link = PersonLink.with_json_and_owner(jsondict['link'], self)
-        if 'managingOrganization' in jsondict:
-            self.managingOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self)
-        if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
-        if 'photo' in jsondict:
-            self.photo = attachment.Attachment.with_json_and_owner(jsondict['photo'], self)
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(Person, self).elementProperties()
+        js.extend([
+            ("active", "active", bool, False),
+            ("address", "address", address.Address, True),
+            ("birthDate", "birthDate", fhirdate.FHIRDate, False),
+            ("gender", "gender", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("link", "link", PersonLink, True),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
+            ("name", "name", humanname.HumanName, True),
+            ("photo", "photo", attachment.Attachment, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class PersonLink(fhirelement.FHIRElement):
@@ -115,10 +108,11 @@ class PersonLink(fhirelement.FHIRElement):
         
         super(PersonLink, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PersonLink, self).update_with_json(jsondict)
-        if 'assurance' in jsondict:
-            self.assurance = jsondict['assurance']
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
+    def elementProperties(self):
+        js = super(PersonLink, self).elementProperties()
+        js.extend([
+            ("assurance", "assurance", str, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+        ])
+        return js
 

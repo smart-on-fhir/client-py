@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class RiskAssessmentTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = riskassessment.RiskAssessment(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return riskassessment.RiskAssessment(js)
     
     def testRiskAssessment1(self):
         inst = self.instantiate_from("riskassessment-example-cardiac.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e390710> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a RiskAssessment instance")
+        self.implRiskAssessment1(inst)
+        inst2 = riskassessment.RiskAssessment(inst.as_json())
+        self.implRiskAssessment1(inst2)
     
+    def implRiskAssessment1(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2014-07-19T16:04:00Z").date)
-        self.assertEqual(inst.date.isostring, "2014-07-19T16:04:00Z")
+        self.assertEqual(inst.date.as_json(), "2014-07-19T16:04:00Z")
         self.assertEqual(inst.id, "cardiac")
         self.assertEqual(inst.prediction[0].outcome.text, "Heart Attack")
         self.assertEqual(inst.prediction[0].probabilityDecimal, 0.02)
@@ -43,18 +45,25 @@ class RiskAssessmentTests(unittest.TestCase):
     
     def testRiskAssessment2(self):
         inst = self.instantiate_from("riskassessment-example-population.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e390710> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a RiskAssessment instance")
+        self.implRiskAssessment2(inst)
+        inst2 = riskassessment.RiskAssessment(inst.as_json())
+        self.implRiskAssessment2(inst2)
     
+    def implRiskAssessment2(self, inst):
         self.assertEqual(inst.id, "population")
-        self.assertEqual(inst.text.div, "<div>\n      \n      <p>Todo - e.g. probable number of infections in a given region over a time period for a given disease based on vaccination rates and other factors</p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testRiskAssessment3(self):
         inst = self.instantiate_from("riskassessment-example-prognosis.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e390710> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a RiskAssessment instance")
+        self.implRiskAssessment3(inst)
+        inst2 = riskassessment.RiskAssessment(inst.as_json())
+        self.implRiskAssessment3(inst2)
     
+    def implRiskAssessment3(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2010-11-22").date)
-        self.assertEqual(inst.date.isostring, "2010-11-22")
+        self.assertEqual(inst.date.as_json(), "2010-11-22")
         self.assertEqual(inst.id, "prognosis")
         self.assertEqual(inst.prediction[0].outcome.coding[0].code, "249943000:363698007=72098002,260868000=6934004")
         self.assertEqual(inst.prediction[0].outcome.coding[0].system, "http://snomed.info/sct")
@@ -62,15 +71,18 @@ class RiskAssessmentTests(unittest.TestCase):
         self.assertEqual(inst.prediction[0].probabilityCodeableConcept.coding[0].code, "moderate")
         self.assertEqual(inst.prediction[0].probabilityCodeableConcept.coding[0].display, "moderate likelihood")
         self.assertEqual(inst.prediction[0].probabilityCodeableConcept.coding[0].system, "http://hl7.org/fhir/risk-probability")
-        self.assertEqual(inst.text.div, "<div>\n      \n      <p>Moderate risk of permanent weakness of the left arm, but otherwise no permanent disability</p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "additional")
     
     def testRiskAssessment4(self):
         inst = self.instantiate_from("riskassessment-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e390710> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a RiskAssessment instance")
+        self.implRiskAssessment4(inst)
+        inst2 = riskassessment.RiskAssessment(inst.as_json())
+        self.implRiskAssessment4(inst2)
     
+    def implRiskAssessment4(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2006-01-13T23:01:00Z").date)
-        self.assertEqual(inst.date.isostring, "2006-01-13T23:01:00Z")
+        self.assertEqual(inst.date.as_json(), "2006-01-13T23:01:00Z")
         self.assertEqual(inst.id, "genetic")
         self.assertEqual(inst.method.coding[0].code, "BRCAPRO")
         self.assertEqual(inst.prediction[0].outcome.text, "Breast Cancer")

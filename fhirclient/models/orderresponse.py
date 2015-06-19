@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OrderResponse) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OrderResponse) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -62,24 +62,18 @@ class OrderResponse(domainresource.DomainResource):
         
         super(OrderResponse, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(OrderResponse, self).update_with_json(jsondict)
-        if 'authorityCodeableConcept' in jsondict:
-            self.authorityCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['authorityCodeableConcept'], self)
-        if 'authorityReference' in jsondict:
-            self.authorityReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['authorityReference'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'fulfillment' in jsondict:
-            self.fulfillment = fhirreference.FHIRReference.with_json_and_owner(jsondict['fulfillment'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'orderStatus' in jsondict:
-            self.orderStatus = jsondict['orderStatus']
-        if 'request' in jsondict:
-            self.request = fhirreference.FHIRReference.with_json_and_owner(jsondict['request'], self)
-        if 'who' in jsondict:
-            self.who = fhirreference.FHIRReference.with_json_and_owner(jsondict['who'], self)
+    def elementProperties(self):
+        js = super(OrderResponse, self).elementProperties()
+        js.extend([
+            ("authorityCodeableConcept", "authorityCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("authorityReference", "authorityReference", fhirreference.FHIRReference, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("fulfillment", "fulfillment", fhirreference.FHIRReference, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("orderStatus", "orderStatus", str, False),
+            ("request", "request", fhirreference.FHIRReference, False),
+            ("who", "who", fhirreference.FHIRReference, False),
+        ])
+        return js
 

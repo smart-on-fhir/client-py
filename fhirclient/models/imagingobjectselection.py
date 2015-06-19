@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -57,22 +57,18 @@ class ImagingObjectSelection(domainresource.DomainResource):
         
         super(ImagingObjectSelection, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImagingObjectSelection, self).update_with_json(jsondict)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'authoringTime' in jsondict:
-            self.authoringTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['authoringTime'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'study' in jsondict:
-            self.study = ImagingObjectSelectionStudy.with_json_and_owner(jsondict['study'], self)
-        if 'title' in jsondict:
-            self.title = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['title'], self)
-        if 'uid' in jsondict:
-            self.uid = jsondict['uid']
+    def elementProperties(self):
+        js = super(ImagingObjectSelection, self).elementProperties()
+        js.extend([
+            ("author", "author", fhirreference.FHIRReference, False),
+            ("authoringTime", "authoringTime", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("study", "study", ImagingObjectSelectionStudy, True),
+            ("title", "title", codeableconcept.CodeableConcept, False),
+            ("uid", "uid", str, False),
+        ])
+        return js
 
 
 class ImagingObjectSelectionStudy(fhirelement.FHIRElement):
@@ -102,14 +98,14 @@ class ImagingObjectSelectionStudy(fhirelement.FHIRElement):
         
         super(ImagingObjectSelectionStudy, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImagingObjectSelectionStudy, self).update_with_json(jsondict)
-        if 'series' in jsondict:
-            self.series = ImagingObjectSelectionStudySeries.with_json_and_owner(jsondict['series'], self)
-        if 'uid' in jsondict:
-            self.uid = jsondict['uid']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(ImagingObjectSelectionStudy, self).elementProperties()
+        js.extend([
+            ("series", "series", ImagingObjectSelectionStudySeries, True),
+            ("uid", "uid", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 
 
 class ImagingObjectSelectionStudySeries(fhirelement.FHIRElement):
@@ -139,14 +135,14 @@ class ImagingObjectSelectionStudySeries(fhirelement.FHIRElement):
         
         super(ImagingObjectSelectionStudySeries, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImagingObjectSelectionStudySeries, self).update_with_json(jsondict)
-        if 'instance' in jsondict:
-            self.instance = ImagingObjectSelectionStudySeriesInstance.with_json_and_owner(jsondict['instance'], self)
-        if 'uid' in jsondict:
-            self.uid = jsondict['uid']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(ImagingObjectSelectionStudySeries, self).elementProperties()
+        js.extend([
+            ("instance", "instance", ImagingObjectSelectionStudySeriesInstance, True),
+            ("uid", "uid", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 
 
 class ImagingObjectSelectionStudySeriesInstance(fhirelement.FHIRElement):
@@ -179,16 +175,15 @@ class ImagingObjectSelectionStudySeriesInstance(fhirelement.FHIRElement):
         
         super(ImagingObjectSelectionStudySeriesInstance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImagingObjectSelectionStudySeriesInstance, self).update_with_json(jsondict)
-        if 'frames' in jsondict:
-            self.frames = ImagingObjectSelectionStudySeriesInstanceFrames.with_json_and_owner(jsondict['frames'], self)
-        if 'sopClass' in jsondict:
-            self.sopClass = jsondict['sopClass']
-        if 'uid' in jsondict:
-            self.uid = jsondict['uid']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(ImagingObjectSelectionStudySeriesInstance, self).elementProperties()
+        js.extend([
+            ("frames", "frames", ImagingObjectSelectionStudySeriesInstanceFrames, True),
+            ("sopClass", "sopClass", str, False),
+            ("uid", "uid", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 
 
 class ImagingObjectSelectionStudySeriesInstanceFrames(fhirelement.FHIRElement):
@@ -213,10 +208,11 @@ class ImagingObjectSelectionStudySeriesInstanceFrames(fhirelement.FHIRElement):
         
         super(ImagingObjectSelectionStudySeriesInstanceFrames, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImagingObjectSelectionStudySeriesInstanceFrames, self).update_with_json(jsondict)
-        if 'frameNumbers' in jsondict:
-            self.frameNumbers = jsondict['frameNumbers']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(ImagingObjectSelectionStudySeriesInstanceFrames, self).elementProperties()
+        js.extend([
+            ("frameNumbers", "frameNumbers", int, True),
+            ("url", "url", str, False),
+        ])
+        return js
 

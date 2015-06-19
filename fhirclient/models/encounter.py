@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -106,46 +106,30 @@ class Encounter(domainresource.DomainResource):
         
         super(Encounter, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Encounter, self).update_with_json(jsondict)
-        if 'episodeOfCare' in jsondict:
-            self.episodeOfCare = fhirreference.FHIRReference.with_json_and_owner(jsondict['episodeOfCare'], self)
-        if 'fulfills' in jsondict:
-            self.fulfills = fhirreference.FHIRReference.with_json_and_owner(jsondict['fulfills'], self)
-        if 'hospitalization' in jsondict:
-            self.hospitalization = EncounterHospitalization.with_json_and_owner(jsondict['hospitalization'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'incomingReferralRequest' in jsondict:
-            self.incomingReferralRequest = fhirreference.FHIRReference.with_json_and_owner(jsondict['incomingReferralRequest'], self)
-        if 'indication' in jsondict:
-            self.indication = fhirreference.FHIRReference.with_json_and_owner(jsondict['indication'], self)
-        if 'class' in jsondict:
-            self.klass = jsondict['class']
-        if 'length' in jsondict:
-            self.length = duration.Duration.with_json_and_owner(jsondict['length'], self)
-        if 'location' in jsondict:
-            self.location = EncounterLocation.with_json_and_owner(jsondict['location'], self)
-        if 'partOf' in jsondict:
-            self.partOf = fhirreference.FHIRReference.with_json_and_owner(jsondict['partOf'], self)
-        if 'participant' in jsondict:
-            self.participant = EncounterParticipant.with_json_and_owner(jsondict['participant'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'priority' in jsondict:
-            self.priority = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['priority'], self)
-        if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'serviceProvider' in jsondict:
-            self.serviceProvider = fhirreference.FHIRReference.with_json_and_owner(jsondict['serviceProvider'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'statusHistory' in jsondict:
-            self.statusHistory = EncounterStatusHistory.with_json_and_owner(jsondict['statusHistory'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(Encounter, self).elementProperties()
+        js.extend([
+            ("episodeOfCare", "episodeOfCare", fhirreference.FHIRReference, False),
+            ("fulfills", "fulfills", fhirreference.FHIRReference, False),
+            ("hospitalization", "hospitalization", EncounterHospitalization, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("incomingReferralRequest", "incomingReferralRequest", fhirreference.FHIRReference, True),
+            ("indication", "indication", fhirreference.FHIRReference, True),
+            ("klass", "class", str, False),
+            ("length", "length", duration.Duration, False),
+            ("location", "location", EncounterLocation, True),
+            ("partOf", "partOf", fhirreference.FHIRReference, False),
+            ("participant", "participant", EncounterParticipant, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("priority", "priority", codeableconcept.CodeableConcept, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, True),
+            ("serviceProvider", "serviceProvider", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+            ("statusHistory", "statusHistory", EncounterStatusHistory, True),
+            ("type", "type", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 
 
 class EncounterHospitalization(fhirelement.FHIRElement):
@@ -201,28 +185,21 @@ class EncounterHospitalization(fhirelement.FHIRElement):
         
         super(EncounterHospitalization, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(EncounterHospitalization, self).update_with_json(jsondict)
-        if 'admitSource' in jsondict:
-            self.admitSource = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['admitSource'], self)
-        if 'destination' in jsondict:
-            self.destination = fhirreference.FHIRReference.with_json_and_owner(jsondict['destination'], self)
-        if 'dietPreference' in jsondict:
-            self.dietPreference = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['dietPreference'], self)
-        if 'dischargeDiagnosis' in jsondict:
-            self.dischargeDiagnosis = fhirreference.FHIRReference.with_json_and_owner(jsondict['dischargeDiagnosis'], self)
-        if 'dischargeDisposition' in jsondict:
-            self.dischargeDisposition = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['dischargeDisposition'], self)
-        if 'origin' in jsondict:
-            self.origin = fhirreference.FHIRReference.with_json_and_owner(jsondict['origin'], self)
-        if 'preAdmissionIdentifier' in jsondict:
-            self.preAdmissionIdentifier = identifier.Identifier.with_json_and_owner(jsondict['preAdmissionIdentifier'], self)
-        if 'reAdmission' in jsondict:
-            self.reAdmission = jsondict['reAdmission']
-        if 'specialArrangement' in jsondict:
-            self.specialArrangement = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['specialArrangement'], self)
-        if 'specialCourtesy' in jsondict:
-            self.specialCourtesy = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['specialCourtesy'], self)
+    def elementProperties(self):
+        js = super(EncounterHospitalization, self).elementProperties()
+        js.extend([
+            ("admitSource", "admitSource", codeableconcept.CodeableConcept, False),
+            ("destination", "destination", fhirreference.FHIRReference, False),
+            ("dietPreference", "dietPreference", codeableconcept.CodeableConcept, False),
+            ("dischargeDiagnosis", "dischargeDiagnosis", fhirreference.FHIRReference, False),
+            ("dischargeDisposition", "dischargeDisposition", codeableconcept.CodeableConcept, False),
+            ("origin", "origin", fhirreference.FHIRReference, False),
+            ("preAdmissionIdentifier", "preAdmissionIdentifier", identifier.Identifier, False),
+            ("reAdmission", "reAdmission", bool, False),
+            ("specialArrangement", "specialArrangement", codeableconcept.CodeableConcept, True),
+            ("specialCourtesy", "specialCourtesy", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 
 
 class EncounterLocation(fhirelement.FHIRElement):
@@ -251,14 +228,14 @@ class EncounterLocation(fhirelement.FHIRElement):
         
         super(EncounterLocation, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(EncounterLocation, self).update_with_json(jsondict)
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
+    def elementProperties(self):
+        js = super(EncounterLocation, self).elementProperties()
+        js.extend([
+            ("location", "location", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("status", "status", str, False),
+        ])
+        return js
 
 
 class EncounterParticipant(fhirelement.FHIRElement):
@@ -287,14 +264,14 @@ class EncounterParticipant(fhirelement.FHIRElement):
         
         super(EncounterParticipant, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(EncounterParticipant, self).update_with_json(jsondict)
-        if 'individual' in jsondict:
-            self.individual = fhirreference.FHIRReference.with_json_and_owner(jsondict['individual'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(EncounterParticipant, self).elementProperties()
+        js.extend([
+            ("individual", "individual", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("type", "type", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 
 
 class EncounterStatusHistory(fhirelement.FHIRElement):
@@ -322,10 +299,11 @@ class EncounterStatusHistory(fhirelement.FHIRElement):
         
         super(EncounterStatusHistory, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(EncounterStatusHistory, self).update_with_json(jsondict)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
+    def elementProperties(self):
+        js = super(EncounterStatusHistory, self).elementProperties()
+        js.extend([
+            ("period", "period", period.Period, False),
+            ("status", "status", str, False),
+        ])
+        return js
 

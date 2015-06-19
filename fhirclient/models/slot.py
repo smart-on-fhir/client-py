@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Slot) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Slot) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -62,22 +62,17 @@ class Slot(domainresource.DomainResource):
         
         super(Slot, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Slot, self).update_with_json(jsondict)
-        if 'comment' in jsondict:
-            self.comment = jsondict['comment']
-        if 'end' in jsondict:
-            self.end = fhirdate.FHIRDate.with_json_and_owner(jsondict['end'], self)
-        if 'freeBusyType' in jsondict:
-            self.freeBusyType = jsondict['freeBusyType']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'overbooked' in jsondict:
-            self.overbooked = jsondict['overbooked']
-        if 'schedule' in jsondict:
-            self.schedule = fhirreference.FHIRReference.with_json_and_owner(jsondict['schedule'], self)
-        if 'start' in jsondict:
-            self.start = fhirdate.FHIRDate.with_json_and_owner(jsondict['start'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(Slot, self).elementProperties()
+        js.extend([
+            ("comment", "comment", str, False),
+            ("end", "end", fhirdate.FHIRDate, False),
+            ("freeBusyType", "freeBusyType", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("overbooked", "overbooked", bool, False),
+            ("schedule", "schedule", fhirreference.FHIRReference, False),
+            ("start", "start", fhirdate.FHIRDate, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -82,30 +82,22 @@ class EpisodeOfCare(domainresource.DomainResource):
         
         super(EpisodeOfCare, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(EpisodeOfCare, self).update_with_json(jsondict)
-        if 'careManager' in jsondict:
-            self.careManager = fhirreference.FHIRReference.with_json_and_owner(jsondict['careManager'], self)
-        if 'careTeam' in jsondict:
-            self.careTeam = EpisodeOfCareCareTeam.with_json_and_owner(jsondict['careTeam'], self)
-        if 'condition' in jsondict:
-            self.condition = fhirreference.FHIRReference.with_json_and_owner(jsondict['condition'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'managingOrganization' in jsondict:
-            self.managingOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'referralRequest' in jsondict:
-            self.referralRequest = fhirreference.FHIRReference.with_json_and_owner(jsondict['referralRequest'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'statusHistory' in jsondict:
-            self.statusHistory = EpisodeOfCareStatusHistory.with_json_and_owner(jsondict['statusHistory'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(EpisodeOfCare, self).elementProperties()
+        js.extend([
+            ("careManager", "careManager", fhirreference.FHIRReference, False),
+            ("careTeam", "careTeam", EpisodeOfCareCareTeam, True),
+            ("condition", "condition", fhirreference.FHIRReference, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("referralRequest", "referralRequest", fhirreference.FHIRReference, True),
+            ("status", "status", str, False),
+            ("statusHistory", "statusHistory", EpisodeOfCareStatusHistory, True),
+            ("type", "type", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 
 
 class EpisodeOfCareCareTeam(fhirelement.FHIRElement):
@@ -135,14 +127,14 @@ class EpisodeOfCareCareTeam(fhirelement.FHIRElement):
         
         super(EpisodeOfCareCareTeam, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(EpisodeOfCareCareTeam, self).update_with_json(jsondict)
-        if 'member' in jsondict:
-            self.member = fhirreference.FHIRReference.with_json_and_owner(jsondict['member'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'role' in jsondict:
-            self.role = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['role'], self)
+    def elementProperties(self):
+        js = super(EpisodeOfCareCareTeam, self).elementProperties()
+        js.extend([
+            ("member", "member", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("role", "role", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 
 
 class EpisodeOfCareStatusHistory(fhirelement.FHIRElement):
@@ -166,10 +158,11 @@ class EpisodeOfCareStatusHistory(fhirelement.FHIRElement):
         
         super(EpisodeOfCareStatusHistory, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(EpisodeOfCareStatusHistory, self).update_with_json(jsondict)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
+    def elementProperties(self):
+        js = super(EpisodeOfCareStatusHistory, self).elementProperties()
+        js.extend([
+            ("period", "period", period.Period, False),
+            ("status", "status", str, False),
+        ])
+        return js
 

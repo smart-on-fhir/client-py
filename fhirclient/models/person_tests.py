@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class PersonTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = person.Person(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return person.Person(js)
     
     def testPerson1(self):
         inst = self.instantiate_from("person-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e369d50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Person instance")
+        self.implPerson1(inst)
+        inst2 = person.Person(inst.as_json())
+        self.implPerson1(inst2)
     
+    def implPerson1(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].city, "PleasantVille")
         self.assertEqual(inst.address[0].line[0], "534 Erewhon St")
@@ -33,11 +35,11 @@ class PersonTests(unittest.TestCase):
         self.assertEqual(inst.address[0].state, "Vic")
         self.assertEqual(inst.address[0].use, "home")
         self.assertEqual(inst.birthDate.date, FHIRDate("1974-12-25").date)
-        self.assertEqual(inst.birthDate.isostring, "1974-12-25")
+        self.assertEqual(inst.birthDate.as_json(), "1974-12-25")
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].period.start.date, FHIRDate("2001-05-06").date)
-        self.assertEqual(inst.identifier[0].period.start.isostring, "2001-05-06")
+        self.assertEqual(inst.identifier[0].period.start.as_json(), "2001-05-06")
         self.assertEqual(inst.identifier[0].system, "urn:oid:1.2.36.146.595.217.0.1")
         self.assertEqual(inst.identifier[0].type.coding[0].code, "MRN")
         self.assertEqual(inst.identifier[0].type.coding[0].system, "http://hl7.org/fhir/v2/0203")

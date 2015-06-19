@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -55,20 +55,16 @@ class EligibilityRequest(domainresource.DomainResource):
         
         super(EligibilityRequest, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(EligibilityRequest, self).update_with_json(jsondict)
-        if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'organization' in jsondict:
-            self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self)
-        if 'originalRuleset' in jsondict:
-            self.originalRuleset = coding.Coding.with_json_and_owner(jsondict['originalRuleset'], self)
-        if 'provider' in jsondict:
-            self.provider = fhirreference.FHIRReference.with_json_and_owner(jsondict['provider'], self)
-        if 'ruleset' in jsondict:
-            self.ruleset = coding.Coding.with_json_and_owner(jsondict['ruleset'], self)
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
+    def elementProperties(self):
+        js = super(EligibilityRequest, self).elementProperties()
+        js.extend([
+            ("created", "created", fhirdate.FHIRDate, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("organization", "organization", fhirreference.FHIRReference, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False),
+            ("provider", "provider", fhirreference.FHIRReference, False),
+            ("ruleset", "ruleset", coding.Coding, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+        ])
+        return js
 

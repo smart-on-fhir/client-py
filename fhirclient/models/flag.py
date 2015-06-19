@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Flag) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Flag) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -55,20 +55,16 @@ class Flag(domainresource.DomainResource):
         
         super(Flag, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Flag, self).update_with_json(jsondict)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'category' in jsondict:
-            self.category = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['category'], self)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
+    def elementProperties(self):
+        js = super(Flag, self).elementProperties()
+        js.extend([
+            ("author", "author", fhirreference.FHIRReference, False),
+            ("category", "category", codeableconcept.CodeableConcept, False),
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("status", "status", str, False),
+        ])
+        return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -69,24 +69,18 @@ class RelatedPerson(domainresource.DomainResource):
         
         super(RelatedPerson, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(RelatedPerson, self).update_with_json(jsondict)
-        if 'address' in jsondict:
-            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'gender' in jsondict:
-            self.gender = jsondict['gender']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'photo' in jsondict:
-            self.photo = attachment.Attachment.with_json_and_owner(jsondict['photo'], self)
-        if 'relationship' in jsondict:
-            self.relationship = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['relationship'], self)
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(RelatedPerson, self).elementProperties()
+        js.extend([
+            ("address", "address", address.Address, False),
+            ("gender", "gender", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("name", "name", humanname.HumanName, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("photo", "photo", attachment.Attachment, True),
+            ("relationship", "relationship", codeableconcept.CodeableConcept, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 

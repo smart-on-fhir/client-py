@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -70,28 +70,21 @@ class DeviceMetric(domainresource.DomainResource):
         
         super(DeviceMetric, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DeviceMetric, self).update_with_json(jsondict)
-        if 'calibration' in jsondict:
-            self.calibration = DeviceMetricCalibration.with_json_and_owner(jsondict['calibration'], self)
-        if 'category' in jsondict:
-            self.category = jsondict['category']
-        if 'color' in jsondict:
-            self.color = jsondict['color']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'measurementPeriod' in jsondict:
-            self.measurementPeriod = timing.Timing.with_json_and_owner(jsondict['measurementPeriod'], self)
-        if 'operationalStatus' in jsondict:
-            self.operationalStatus = jsondict['operationalStatus']
-        if 'parent' in jsondict:
-            self.parent = fhirreference.FHIRReference.with_json_and_owner(jsondict['parent'], self)
-        if 'source' in jsondict:
-            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
-        if 'unit' in jsondict:
-            self.unit = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['unit'], self)
+    def elementProperties(self):
+        js = super(DeviceMetric, self).elementProperties()
+        js.extend([
+            ("calibration", "calibration", DeviceMetricCalibration, True),
+            ("category", "category", str, False),
+            ("color", "color", str, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("measurementPeriod", "measurementPeriod", timing.Timing, False),
+            ("operationalStatus", "operationalStatus", str, False),
+            ("parent", "parent", fhirreference.FHIRReference, False),
+            ("source", "source", fhirreference.FHIRReference, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("unit", "unit", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class DeviceMetricCalibration(fhirelement.FHIRElement):
@@ -119,12 +112,12 @@ class DeviceMetricCalibration(fhirelement.FHIRElement):
         
         super(DeviceMetricCalibration, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DeviceMetricCalibration, self).update_with_json(jsondict)
-        if 'state' in jsondict:
-            self.state = jsondict['state']
-        if 'time' in jsondict:
-            self.time = fhirdate.FHIRDate.with_json_and_owner(jsondict['time'], self)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(DeviceMetricCalibration, self).elementProperties()
+        js.extend([
+            ("state", "state", str, False),
+            ("time", "time", fhirdate.FHIRDate, False),
+            ("type", "type", str, False),
+        ])
+        return js
 

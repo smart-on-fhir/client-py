@@ -29,44 +29,8 @@ class FHIRElement(object):
         if jsondict is not None:
             self.update_with_json(jsondict)
     
-    def update_with_json(self, jsondict):
-        """ Update the receiver with data in a JSON dictionary.
-        """
-        if jsondict is None:
-            return
-        
-        if 'id' in jsondict:
-            self.id = jsondict['id']
-        
-        # extract contained resources
-        if 'contained' in jsondict:
-            self.contained = self.contained or {}
-            for js in jsondict['contained']:         # "contained" should be an array
-                res = fhircontainedresource.FHIRContainedResource(jsondict=js, owner=self)
-                if res.id:
-                    self.contained[res.id] = res
-                else:
-                    logging.warning("Contained resource {} does not have an id, ignoring".format(res))
-        
-        # extract extensions
-        if "extension" in jsondict and isinstance(jsondict["extension"], list):
-            extensions = []
-            for ext_dict in jsondict["extension"]:
-                if isinstance(ext_dict, dict):
-                    ext = extension.Extension.with_json(ext_dict)
-                    extensions.append(ext)
-            if len(extensions) > 0:
-                self.extension = extensions
-        
-        if "modifierExtension" in jsondict and isinstance(jsondict["modifierExtension"], list):
-            extensions = []
-            for ext_dict in jsondict["modifierExtension"]:
-                if isinstance(ext_dict, dict):
-                    ext = extension.Extension.with_json(ext_dict)
-                    extensions.append(ext)
-            if len(extensions) > 0:
-                self.modifierExtension = extensions
     
+    # MARK: Instantiation from JSON
     
     @classmethod
     def with_json(cls, jsonobj):
@@ -75,7 +39,7 @@ class FHIRElement(object):
         :param jsonobj: A dict or list of dicts to instantiate from
         :returns: An instance or a list of instances created from JSON data
         """
-        if dict == type(jsonobj):
+        if isinstance(jsonobj, dict):
             return cls(jsonobj)
         
         arr = []
@@ -94,13 +58,79 @@ class FHIRElement(object):
         :returns: An instance or a list of instances created from JSON data
         """
         instance = cls.with_json(jsonobj)
-        if list == type(instance):
+        if isinstance(instance, list):
             for inst in instance:
                 inst._owner = owner
         else:
             instance._owner = owner
         
         return instance
+    
+    
+    # MARK: (De)Serialization
+    
+    def elementProperties(self):
+        """ Returns a list of tuples, one tuple for each property that should
+        be serialized, as: ("name", "json_name", type, is_list)
+        """
+        return [
+            ("id", "id", str, False),
+            ("extension", "extension", extension.Extension, True),
+            ("modifierExtension", "modifierExtension", extension.Extension, True),
+        ]
+    
+    def update_with_json(self, jsondict):
+        """ Update the receiver with data in a JSON dictionary.
+        """
+        if jsondict is None:
+            return
+        if not isinstance(jsondict, dict):
+            logging.warning("Non-dict type {} fed to `update_with_json` on {}"
+                .format(type(jsondict), type(self)))
+            return
+        
+        # loop all registered properties and instantiate
+        for prop, name, typ, is_list in self.elementProperties():
+            if not name in jsondict:
+                continue
+            
+            if hasattr(typ, 'with_json_and_owner'):
+                setattr(self, prop, typ.with_json_and_owner(jsondict[name], self))
+            else:
+                setattr(self, prop, jsondict[name])
+        
+        # extract contained resources
+        if 'contained' in jsondict:
+            self.contained = self.contained or {}
+            for js in jsondict['contained']:         # "contained" should be an array
+                res = fhircontainedresource.FHIRContainedResource(jsondict=js, owner=self)
+                if res.id:
+                    self.contained[res.id] = res
+                else:
+                    logging.warning("Contained resource {} does not have an id, ignoring".format(res))
+    
+    def as_json(self):
+        """ Serializes to JSON by inspecting `elementProperties()` and creating
+        a JSON dictionary of all registered properties.
+        """
+        js = {}
+        
+        # JSONify all registered properties
+        for prop, name, typ, is_list in self.elementProperties():
+            val = getattr(self, prop)
+            if val is None:
+                continue
+            if is_list:
+                js[name] = [v.as_json() if hasattr(v, 'as_json') else v for v in val]
+            else:
+                js[name] = val.as_json() if hasattr(val, 'as_json') else val
+        
+        # handle contained resources
+        if self.contained is not None and len(self.contained) > 0:
+            # TODO: look at resolved (and newly added?) contained resources
+            js['contained'] = [v.as_json() for k, v in self.contained.items()]
+        
+        return js
     
     
     # MARK: Handling References

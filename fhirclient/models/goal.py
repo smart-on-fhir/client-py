@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Goal) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Goal) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -73,30 +73,22 @@ class Goal(domainresource.DomainResource):
         
         super(Goal, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Goal, self).update_with_json(jsondict)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'concern' in jsondict:
-            self.concern = fhirreference.FHIRReference.with_json_and_owner(jsondict['concern'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'notes' in jsondict:
-            self.notes = jsondict['notes']
-        if 'outcome' in jsondict:
-            self.outcome = GoalOutcome.with_json_and_owner(jsondict['outcome'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'priority' in jsondict:
-            self.priority = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['priority'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'statusDate' in jsondict:
-            self.statusDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['statusDate'], self)
-        if 'targetDate' in jsondict:
-            self.targetDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['targetDate'], self)
+    def elementProperties(self):
+        js = super(Goal, self).elementProperties()
+        js.extend([
+            ("author", "author", fhirreference.FHIRReference, False),
+            ("concern", "concern", fhirreference.FHIRReference, True),
+            ("description", "description", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("notes", "notes", str, False),
+            ("outcome", "outcome", GoalOutcome, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("priority", "priority", codeableconcept.CodeableConcept, False),
+            ("status", "status", str, False),
+            ("statusDate", "statusDate", fhirdate.FHIRDate, False),
+            ("targetDate", "targetDate", fhirdate.FHIRDate, False),
+        ])
+        return js
 
 
 class GoalOutcome(fhirelement.FHIRElement):
@@ -122,10 +114,11 @@ class GoalOutcome(fhirelement.FHIRElement):
         
         super(GoalOutcome, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(GoalOutcome, self).update_with_json(jsondict)
-        if 'resultCodeableConcept' in jsondict:
-            self.resultCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['resultCodeableConcept'], self)
-        if 'resultReference' in jsondict:
-            self.resultReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['resultReference'], self)
+    def elementProperties(self):
+        js = super(GoalOutcome, self).elementProperties()
+        js.extend([
+            ("resultCodeableConcept", "resultCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("resultReference", "resultReference", fhirreference.FHIRReference, False),
+        ])
+        return js
 

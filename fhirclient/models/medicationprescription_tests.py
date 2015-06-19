@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class MedicationPrescriptionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = medicationprescription.MedicationPrescription(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return medicationprescription.MedicationPrescription(js)
     
     def testMedicationPrescription1(self):
         inst = self.instantiate_from("medicationprescription-example-f001-combivent.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e330610> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
+        self.implMedicationPrescription1(inst)
+        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        self.implMedicationPrescription1(inst2)
     
+    def implMedicationPrescription1(self, inst):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2013-05-25T19:32:52+01:00").date)
-        self.assertEqual(inst.dateWritten.isostring, "2013-05-25T19:32:52+01:00")
+        self.assertEqual(inst.dateWritten.as_json(), "2013-05-25T19:32:52+01:00")
         self.assertEqual(inst.dispense.expectedSupplyDuration.code, "d")
         self.assertEqual(inst.dispense.expectedSupplyDuration.system, "urn:oid:2.16.840.1.113883.6.8")
         self.assertEqual(inst.dispense.expectedSupplyDuration.units, "days")
@@ -38,9 +40,9 @@ class MedicationPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dispense.quantity.units, "mcg")
         self.assertEqual(inst.dispense.quantity.value, 100)
         self.assertEqual(inst.dispense.validityPeriod.end.date, FHIRDate("2013-05-30").date)
-        self.assertEqual(inst.dispense.validityPeriod.end.isostring, "2013-05-30")
+        self.assertEqual(inst.dispense.validityPeriod.end.as_json(), "2013-05-30")
         self.assertEqual(inst.dispense.validityPeriod.start.date, FHIRDate("2013-04-08").date)
-        self.assertEqual(inst.dispense.validityPeriod.start.isostring, "2013-04-08")
+        self.assertEqual(inst.dispense.validityPeriod.start.as_json(), "2013-04-08")
         self.assertEqual(inst.dosageInstruction[0].additionalInstructions.text, "for use during pregnancy, contact physician")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.code, "ml")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.system, "http://unitsofmeasure.org")
@@ -50,9 +52,9 @@ class MedicationPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].display, "oral administration of treatment")
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.end.date, FHIRDate("2013-11-05").date)
-        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.end.isostring, "2013-11-05")
+        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.end.as_json(), "2013-11-05")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.date, FHIRDate("2013-08-04").date)
-        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.isostring, "2013-08-04")
+        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.as_json(), "2013-08-04")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.frequency, 3)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.period, 1)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.periodUnits, "d")
@@ -72,15 +74,19 @@ class MedicationPrescriptionTests(unittest.TestCase):
     
     def testMedicationPrescription2(self):
         inst = self.instantiate_from("medicationprescription-example-f002-crestor.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e330610> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
+        self.implMedicationPrescription2(inst)
+        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        self.implMedicationPrescription2(inst2)
     
+    def implMedicationPrescription2(self, inst):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2013-04-08").date)
-        self.assertEqual(inst.dateWritten.isostring, "2013-04-08")
+        self.assertEqual(inst.dateWritten.as_json(), "2013-04-08")
         self.assertEqual(inst.dispense.quantity.code, "46992007")
         self.assertEqual(inst.dispense.quantity.system, "http://snomed.info/sct")
         self.assertEqual(inst.dispense.quantity.value, 90)
         self.assertEqual(inst.dispense.validityPeriod.start.date, FHIRDate("2013-04-08").date)
-        self.assertEqual(inst.dispense.validityPeriod.start.isostring, "2013-04-08")
+        self.assertEqual(inst.dispense.validityPeriod.start.as_json(), "2013-04-08")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.code, "mg")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.units, "mg")
@@ -89,7 +95,7 @@ class MedicationPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].display, "Administration of drug or medicament via oral route")
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.date, FHIRDate("2013-08-04").date)
-        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.isostring, "2013-08-04")
+        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.as_json(), "2013-08-04")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.frequency, 1)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.period, 1)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.periodUnits, "d")
@@ -108,15 +114,19 @@ class MedicationPrescriptionTests(unittest.TestCase):
     
     def testMedicationPrescription3(self):
         inst = self.instantiate_from("medicationprescription-example-f003-tolbutamide.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e330610> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
+        self.implMedicationPrescription3(inst)
+        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        self.implMedicationPrescription3(inst2)
     
+    def implMedicationPrescription3(self, inst):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2011-05-01").date)
-        self.assertEqual(inst.dateWritten.isostring, "2011-05-01")
+        self.assertEqual(inst.dateWritten.as_json(), "2011-05-01")
         self.assertEqual(inst.dispense.quantity.code, "46992007")
         self.assertEqual(inst.dispense.quantity.system, "http://snomed.info/sct")
         self.assertEqual(inst.dispense.quantity.value, 90)
         self.assertEqual(inst.dispense.validityPeriod.start.date, FHIRDate("2011-05-01").date)
-        self.assertEqual(inst.dispense.validityPeriod.start.isostring, "2011-05-01")
+        self.assertEqual(inst.dispense.validityPeriod.start.as_json(), "2011-05-01")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.code, "mg")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.units, "mg")
@@ -125,7 +135,7 @@ class MedicationPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].display, "Administration of drug or medicament via oral route")
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.date, FHIRDate("2011-05-01").date)
-        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.isostring, "2011-05-01")
+        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.as_json(), "2011-05-01")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.frequency, 3)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.period, 1)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.periodUnits, "d")
@@ -144,15 +154,19 @@ class MedicationPrescriptionTests(unittest.TestCase):
     
     def testMedicationPrescription4(self):
         inst = self.instantiate_from("medicationprescription-example-f004-metoprolol.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e330610> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
+        self.implMedicationPrescription4(inst)
+        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        self.implMedicationPrescription4(inst2)
     
+    def implMedicationPrescription4(self, inst):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2011-05-01").date)
-        self.assertEqual(inst.dateWritten.isostring, "2011-05-01")
+        self.assertEqual(inst.dateWritten.as_json(), "2011-05-01")
         self.assertEqual(inst.dispense.quantity.code, "46992007")
         self.assertEqual(inst.dispense.quantity.system, "http://snomed.info/sct")
         self.assertEqual(inst.dispense.quantity.value, 90)
         self.assertEqual(inst.dispense.validityPeriod.start.date, FHIRDate("2011-05-01").date)
-        self.assertEqual(inst.dispense.validityPeriod.start.isostring, "2011-05-01")
+        self.assertEqual(inst.dispense.validityPeriod.start.as_json(), "2011-05-01")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.code, "mg")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.units, "mg")
@@ -161,7 +175,7 @@ class MedicationPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].display, "Administration of drug or medicament via oral route")
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.date, FHIRDate("2011-05-01").date)
-        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.isostring, "2011-05-01")
+        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.as_json(), "2011-05-01")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.frequency, 1)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.period, 1)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.periodUnits, "d")
@@ -180,15 +194,19 @@ class MedicationPrescriptionTests(unittest.TestCase):
     
     def testMedicationPrescription5(self):
         inst = self.instantiate_from("medicationprescription-example-f005-enalapril.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e330610> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
+        self.implMedicationPrescription5(inst)
+        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        self.implMedicationPrescription5(inst2)
     
+    def implMedicationPrescription5(self, inst):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2011-05-01").date)
-        self.assertEqual(inst.dateWritten.isostring, "2011-05-01")
+        self.assertEqual(inst.dateWritten.as_json(), "2011-05-01")
         self.assertEqual(inst.dispense.quantity.code, "46992007")
         self.assertEqual(inst.dispense.quantity.system, "http://snomed.info/sct")
         self.assertEqual(inst.dispense.quantity.value, 28)
         self.assertEqual(inst.dispense.validityPeriod.start.date, FHIRDate("2011-05-01").date)
-        self.assertEqual(inst.dispense.validityPeriod.start.isostring, "2011-05-01")
+        self.assertEqual(inst.dispense.validityPeriod.start.as_json(), "2011-05-01")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.code, "mg")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.units, "mg")
@@ -197,7 +215,7 @@ class MedicationPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].display, "Administration of drug or medicament via oral route")
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.date, FHIRDate("2011-05-01").date)
-        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.isostring, "2011-05-01")
+        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.as_json(), "2011-05-01")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.frequency, 1)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.period, 1)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.periodUnits, "d")
@@ -216,10 +234,14 @@ class MedicationPrescriptionTests(unittest.TestCase):
     
     def testMedicationPrescription6(self):
         inst = self.instantiate_from("medicationprescription-example-f201-salmeterol.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e330610> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
+        self.implMedicationPrescription6(inst)
+        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        self.implMedicationPrescription6(inst2)
     
+    def implMedicationPrescription6(self, inst):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2013-03-11").date)
-        self.assertEqual(inst.dateWritten.isostring, "2013-03-11")
+        self.assertEqual(inst.dateWritten.as_json(), "2013-03-11")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.code, "PUFF")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.system, "http://hl7.org/fhir/v3/orderableDrugForm")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.value, 1)
@@ -238,9 +260,9 @@ class MedicationPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].display, "Respiratory tract")
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.end.date, FHIRDate("2013-05-11").date)
-        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.end.isostring, "2013-05-11")
+        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.end.as_json(), "2013-05-11")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.date, FHIRDate("2013-03-11").date)
-        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.isostring, "2013-03-11")
+        self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.bounds.start.as_json(), "2013-03-11")
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.frequency, 2)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.period, 1)
         self.assertEqual(inst.dosageInstruction[0].scheduledTiming.repeat.periodUnits, "d")
@@ -254,10 +276,14 @@ class MedicationPrescriptionTests(unittest.TestCase):
     
     def testMedicationPrescription7(self):
         inst = self.instantiate_from("medicationprescription-example-f202-flucloxacilline.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e330610> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
+        self.implMedicationPrescription7(inst)
+        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        self.implMedicationPrescription7(inst2)
     
+    def implMedicationPrescription7(self, inst):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2013-03-11").date)
-        self.assertEqual(inst.dateWritten.isostring, "2013-03-11")
+        self.assertEqual(inst.dateWritten.as_json(), "2013-03-11")
         self.assertEqual(inst.dosageInstruction[0].maxDosePerPeriod.denominator.code, "258702006")
         self.assertEqual(inst.dosageInstruction[0].maxDosePerPeriod.denominator.system, "http://snomed.info/sct")
         self.assertEqual(inst.dosageInstruction[0].maxDosePerPeriod.denominator.units, "hours")
@@ -273,9 +299,9 @@ class MedicationPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].display, "Intravenous route")
         self.assertEqual(inst.dosageInstruction[0].route.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dosageInstruction[0].scheduledPeriod.end.date, FHIRDate("2013-03-21").date)
-        self.assertEqual(inst.dosageInstruction[0].scheduledPeriod.end.isostring, "2013-03-21")
+        self.assertEqual(inst.dosageInstruction[0].scheduledPeriod.end.as_json(), "2013-03-21")
         self.assertEqual(inst.dosageInstruction[0].scheduledPeriod.start.date, FHIRDate("2013-03-11").date)
-        self.assertEqual(inst.dosageInstruction[0].scheduledPeriod.start.isostring, "2013-03-11")
+        self.assertEqual(inst.dosageInstruction[0].scheduledPeriod.start.as_json(), "2013-03-11")
         self.assertEqual(inst.dosageInstruction[0].text, "Flucloxacilline 12g/24h")
         self.assertEqual(inst.id, "f202")
         self.assertEqual(inst.status, "completed")
@@ -283,10 +309,14 @@ class MedicationPrescriptionTests(unittest.TestCase):
     
     def testMedicationPrescription8(self):
         inst = self.instantiate_from("medicationprescription-example-f203-paracetamol.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e330610> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
+        self.implMedicationPrescription8(inst)
+        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        self.implMedicationPrescription8(inst2)
     
+    def implMedicationPrescription8(self, inst):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2013-04-04").date)
-        self.assertEqual(inst.dateWritten.isostring, "2013-04-04")
+        self.assertEqual(inst.dateWritten.as_json(), "2013-04-04")
         self.assertEqual(inst.dosageInstruction[0].maxDosePerPeriod.denominator.code, "258702006")
         self.assertEqual(inst.dosageInstruction[0].maxDosePerPeriod.denominator.system, "http://snomed.info/sct")
         self.assertEqual(inst.dosageInstruction[0].maxDosePerPeriod.denominator.units, "hours")
@@ -305,10 +335,14 @@ class MedicationPrescriptionTests(unittest.TestCase):
     
     def testMedicationPrescription9(self):
         inst = self.instantiate_from("medicationprescription-qicore-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e330610> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
+        self.implMedicationPrescription9(inst)
+        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        self.implMedicationPrescription9(inst2)
     
+    def implMedicationPrescription9(self, inst):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2015-03-25T19:32:52-05:00").date)
-        self.assertEqual(inst.dateWritten.isostring, "2015-03-25T19:32:52-05:00")
+        self.assertEqual(inst.dateWritten.as_json(), "2015-03-25T19:32:52-05:00")
         self.assertEqual(inst.dispense.quantity.code, "ml")
         self.assertEqual(inst.dispense.quantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dispense.quantity.units, "ml")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Device) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Device) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -93,36 +93,24 @@ class Device(domainresource.DomainResource):
         
         super(Device, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Device, self).update_with_json(jsondict)
-        if 'contact' in jsondict:
-            self.contact = contactpoint.ContactPoint.with_json_and_owner(jsondict['contact'], self)
-        if 'expiry' in jsondict:
-            self.expiry = fhirdate.FHIRDate.with_json_and_owner(jsondict['expiry'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
-        if 'lotNumber' in jsondict:
-            self.lotNumber = jsondict['lotNumber']
-        if 'manufactureDate' in jsondict:
-            self.manufactureDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['manufactureDate'], self)
-        if 'manufacturer' in jsondict:
-            self.manufacturer = jsondict['manufacturer']
-        if 'model' in jsondict:
-            self.model = jsondict['model']
-        if 'owner' in jsondict:
-            self.owner = fhirreference.FHIRReference.with_json_and_owner(jsondict['owner'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
-        if 'udi' in jsondict:
-            self.udi = jsondict['udi']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(Device, self).elementProperties()
+        js.extend([
+            ("contact", "contact", contactpoint.ContactPoint, True),
+            ("expiry", "expiry", fhirdate.FHIRDate, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("location", "location", fhirreference.FHIRReference, False),
+            ("lotNumber", "lotNumber", str, False),
+            ("manufactureDate", "manufactureDate", fhirdate.FHIRDate, False),
+            ("manufacturer", "manufacturer", str, False),
+            ("model", "model", str, False),
+            ("owner", "owner", fhirreference.FHIRReference, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("udi", "udi", str, False),
+            ("url", "url", str, False),
+            ("version", "version", str, False),
+        ])
+        return js
 

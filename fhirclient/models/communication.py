@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Communication) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Communication) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -78,32 +78,23 @@ class Communication(domainresource.DomainResource):
         
         super(Communication, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Communication, self).update_with_json(jsondict)
-        if 'category' in jsondict:
-            self.category = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['category'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'medium' in jsondict:
-            self.medium = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['medium'], self)
-        if 'payload' in jsondict:
-            self.payload = CommunicationPayload.with_json_and_owner(jsondict['payload'], self)
-        if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'received' in jsondict:
-            self.received = fhirdate.FHIRDate.with_json_and_owner(jsondict['received'], self)
-        if 'recipient' in jsondict:
-            self.recipient = fhirreference.FHIRReference.with_json_and_owner(jsondict['recipient'], self)
-        if 'sender' in jsondict:
-            self.sender = fhirreference.FHIRReference.with_json_and_owner(jsondict['sender'], self)
-        if 'sent' in jsondict:
-            self.sent = fhirdate.FHIRDate.with_json_and_owner(jsondict['sent'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
+    def elementProperties(self):
+        js = super(Communication, self).elementProperties()
+        js.extend([
+            ("category", "category", codeableconcept.CodeableConcept, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("medium", "medium", codeableconcept.CodeableConcept, True),
+            ("payload", "payload", CommunicationPayload, True),
+            ("reason", "reason", codeableconcept.CodeableConcept, True),
+            ("received", "received", fhirdate.FHIRDate, False),
+            ("recipient", "recipient", fhirreference.FHIRReference, True),
+            ("sender", "sender", fhirreference.FHIRReference, False),
+            ("sent", "sent", fhirdate.FHIRDate, False),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class CommunicationPayload(fhirelement.FHIRElement):
@@ -132,12 +123,12 @@ class CommunicationPayload(fhirelement.FHIRElement):
         
         super(CommunicationPayload, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(CommunicationPayload, self).update_with_json(jsondict)
-        if 'contentAttachment' in jsondict:
-            self.contentAttachment = attachment.Attachment.with_json_and_owner(jsondict['contentAttachment'], self)
-        if 'contentReference' in jsondict:
-            self.contentReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['contentReference'], self)
-        if 'contentString' in jsondict:
-            self.contentString = jsondict['contentString']
+    def elementProperties(self):
+        js = super(CommunicationPayload, self).elementProperties()
+        js.extend([
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False),
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False),
+            ("contentString", "contentString", str, False),
+        ])
+        return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class BodySiteTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = bodysite.BodySite(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return bodysite.BodySite(js)
     
     def testBodySite1(self):
         inst = self.instantiate_from("bodysite-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e260d50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a BodySite instance")
+        self.implBodySite1(inst)
+        inst2 = bodysite.BodySite(inst.as_json())
+        self.implBodySite1(inst2)
     
+    def implBodySite1(self, inst):
         self.assertEqual(inst.code.coding[0].code, "53120007")
         self.assertEqual(inst.code.coding[0].display, "Arm")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")

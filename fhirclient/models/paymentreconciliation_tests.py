@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,35 +18,37 @@ class PaymentReconciliationTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = paymentreconciliation.PaymentReconciliation(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return paymentreconciliation.PaymentReconciliation(js)
     
     def testPaymentReconciliation1(self):
         inst = self.instantiate_from("paymentreconciliation-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e366150> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a PaymentReconciliation instance")
+        self.implPaymentReconciliation1(inst)
+        inst2 = paymentreconciliation.PaymentReconciliation(inst.as_json())
+        self.implPaymentReconciliation1(inst2)
     
+    def implPaymentReconciliation1(self, inst):
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.isostring, "2014-08-16")
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.detail[0].amount.code, "USD")
         self.assertEqual(inst.detail[0].amount.system, "urn:std:iso:4217")
         self.assertEqual(inst.detail[0].amount.value, 1000.0)
         self.assertEqual(inst.detail[0].date.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.detail[0].date.isostring, "2014-08-16")
+        self.assertEqual(inst.detail[0].date.as_json(), "2014-08-16")
         self.assertEqual(inst.detail[0].type.code, "payment")
         self.assertEqual(inst.detail[0].type.system, "http://hl7.org/fhir/paymenttype")
         self.assertEqual(inst.detail[1].amount.code, "USD")
         self.assertEqual(inst.detail[1].amount.system, "urn:std:iso:4217")
         self.assertEqual(inst.detail[1].amount.value, 4000.0)
         self.assertEqual(inst.detail[1].date.date, FHIRDate("2014-08-12").date)
-        self.assertEqual(inst.detail[1].date.isostring, "2014-08-12")
+        self.assertEqual(inst.detail[1].date.as_json(), "2014-08-12")
         self.assertEqual(inst.detail[1].type.code, "payment")
         self.assertEqual(inst.detail[1].type.system, "http://hl7.org/fhir/paymenttype")
         self.assertEqual(inst.detail[2].amount.code, "USD")
         self.assertEqual(inst.detail[2].amount.system, "urn:std:iso:4217")
         self.assertEqual(inst.detail[2].amount.value, -1500.0)
         self.assertEqual(inst.detail[2].date.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.detail[2].date.isostring, "2014-08-16")
+        self.assertEqual(inst.detail[2].date.as_json(), "2014-08-16")
         self.assertEqual(inst.detail[2].type.code, "advance")
         self.assertEqual(inst.detail[2].type.system, "http://hl7.org/fhir/paymenttype")
         self.assertEqual(inst.disposition, "2014 August mid-month settlement.")

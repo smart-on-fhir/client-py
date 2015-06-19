@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class QuestionnaireTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = questionnaire.Questionnaire(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return questionnaire.Questionnaire(js)
     
     def testQuestionnaire1(self):
         inst = self.instantiate_from("questionnaire-example-bluebook.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e383750> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Questionnaire instance")
+        self.implQuestionnaire1(inst)
+        inst2 = questionnaire.Questionnaire(inst.as_json())
+        self.implQuestionnaire1(inst2)
     
+    def implQuestionnaire1(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2013-02-19").date)
-        self.assertEqual(inst.date.isostring, "2013-02-19")
+        self.assertEqual(inst.date.as_json(), "2013-02-19")
         self.assertEqual(inst.group.group[0].group[0].question[0].text, "Name of child")
         self.assertEqual(inst.group.group[0].group[0].question[1].text, "Sex")
         self.assertEqual(inst.group.group[0].group[1].question[0].text, "Birth weight (kg)")
@@ -50,10 +52,14 @@ class QuestionnaireTests(unittest.TestCase):
     
     def testQuestionnaire2(self):
         inst = self.instantiate_from("questionnaire-example-f201-lifelines.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e383750> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Questionnaire instance")
+        self.implQuestionnaire2(inst)
+        inst2 = questionnaire.Questionnaire(inst.as_json())
+        self.implQuestionnaire2(inst2)
     
+    def implQuestionnaire2(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2010").date)
-        self.assertEqual(inst.date.isostring, "2010")
+        self.assertEqual(inst.date.as_json(), "2010")
         self.assertEqual(inst.group.concept[0].code, "VL 1-1, 18-65_1.2.2")
         self.assertEqual(inst.group.concept[0].display, "Lifelines Questionnaire 1 part 1")
         self.assertEqual(inst.group.concept[0].system, "http://example.org/system/code/lifelines/nl")
@@ -72,10 +78,14 @@ class QuestionnaireTests(unittest.TestCase):
     
     def testQuestionnaire3(self):
         inst = self.instantiate_from("questionnaire-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e383750> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Questionnaire instance")
+        self.implQuestionnaire3(inst)
+        inst2 = questionnaire.Questionnaire(inst.as_json())
+        self.implQuestionnaire3(inst2)
     
+    def implQuestionnaire3(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2012-01").date)
-        self.assertEqual(inst.date.isostring, "2012-01")
+        self.assertEqual(inst.date.as_json(), "2012-01")
         self.assertEqual(inst.group.group[0].concept[0].code, "COMORBIDITY")
         self.assertEqual(inst.group.group[0].concept[0].system, "http://example.org/system/code/sections")
         self.assertEqual(inst.group.group[0].question[0].concept[0].code, "COMORB")
@@ -113,10 +123,14 @@ class QuestionnaireTests(unittest.TestCase):
     
     def testQuestionnaire4(self):
         inst = self.instantiate_from("questionnaire-sdc-profile-example-LOINC.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e383750> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Questionnaire instance")
+        self.implQuestionnaire4(inst)
+        inst2 = questionnaire.Questionnaire(inst.as_json())
+        self.implQuestionnaire4(inst2)
     
+    def implQuestionnaire4(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2012-04-01").date)
-        self.assertEqual(inst.date.isostring, "2012-04-01")
+        self.assertEqual(inst.date.as_json(), "2012-04-01")
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/questionnaire-category")
         self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].code, "Acute Care Hospitals")
         self.assertEqual(inst.group.group[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/questionnaire-sdc-specialGroup")

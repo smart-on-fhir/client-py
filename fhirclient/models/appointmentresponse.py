@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -61,22 +61,17 @@ class AppointmentResponse(domainresource.DomainResource):
         
         super(AppointmentResponse, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(AppointmentResponse, self).update_with_json(jsondict)
-        if 'actor' in jsondict:
-            self.actor = fhirreference.FHIRReference.with_json_and_owner(jsondict['actor'], self)
-        if 'appointment' in jsondict:
-            self.appointment = fhirreference.FHIRReference.with_json_and_owner(jsondict['appointment'], self)
-        if 'comment' in jsondict:
-            self.comment = jsondict['comment']
-        if 'end' in jsondict:
-            self.end = fhirdate.FHIRDate.with_json_and_owner(jsondict['end'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'participantStatus' in jsondict:
-            self.participantStatus = jsondict['participantStatus']
-        if 'participantType' in jsondict:
-            self.participantType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['participantType'], self)
-        if 'start' in jsondict:
-            self.start = fhirdate.FHIRDate.with_json_and_owner(jsondict['start'], self)
+    def elementProperties(self):
+        js = super(AppointmentResponse, self).elementProperties()
+        js.extend([
+            ("actor", "actor", fhirreference.FHIRReference, False),
+            ("appointment", "appointment", fhirreference.FHIRReference, False),
+            ("comment", "comment", str, False),
+            ("end", "end", fhirdate.FHIRDate, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("participantStatus", "participantStatus", str, False),
+            ("participantType", "participantType", codeableconcept.CodeableConcept, True),
+            ("start", "start", fhirdate.FHIRDate, False),
+        ])
+        return js
 

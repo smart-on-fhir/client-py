@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DeviceComponent) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DeviceComponent) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -70,28 +70,21 @@ class DeviceComponent(domainresource.DomainResource):
         
         super(DeviceComponent, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DeviceComponent, self).update_with_json(jsondict)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'languageCode' in jsondict:
-            self.languageCode = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['languageCode'], self)
-        if 'lastSystemChange' in jsondict:
-            self.lastSystemChange = fhirdate.FHIRDate.with_json_and_owner(jsondict['lastSystemChange'], self)
-        if 'measurementPrinciple' in jsondict:
-            self.measurementPrinciple = jsondict['measurementPrinciple']
-        if 'operationalStatus' in jsondict:
-            self.operationalStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['operationalStatus'], self)
-        if 'parameterGroup' in jsondict:
-            self.parameterGroup = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['parameterGroup'], self)
-        if 'parent' in jsondict:
-            self.parent = fhirreference.FHIRReference.with_json_and_owner(jsondict['parent'], self)
-        if 'productionSpecification' in jsondict:
-            self.productionSpecification = DeviceComponentProductionSpecification.with_json_and_owner(jsondict['productionSpecification'], self)
-        if 'source' in jsondict:
-            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(DeviceComponent, self).elementProperties()
+        js.extend([
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("languageCode", "languageCode", codeableconcept.CodeableConcept, False),
+            ("lastSystemChange", "lastSystemChange", fhirdate.FHIRDate, False),
+            ("measurementPrinciple", "measurementPrinciple", str, False),
+            ("operationalStatus", "operationalStatus", codeableconcept.CodeableConcept, True),
+            ("parameterGroup", "parameterGroup", codeableconcept.CodeableConcept, False),
+            ("parent", "parent", fhirreference.FHIRReference, False),
+            ("productionSpecification", "productionSpecification", DeviceComponentProductionSpecification, True),
+            ("source", "source", fhirreference.FHIRReference, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class DeviceComponentProductionSpecification(fhirelement.FHIRElement):
@@ -121,12 +114,12 @@ class DeviceComponentProductionSpecification(fhirelement.FHIRElement):
         
         super(DeviceComponentProductionSpecification, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DeviceComponentProductionSpecification, self).update_with_json(jsondict)
-        if 'componentId' in jsondict:
-            self.componentId = identifier.Identifier.with_json_and_owner(jsondict['componentId'], self)
-        if 'productionSpec' in jsondict:
-            self.productionSpec = jsondict['productionSpec']
-        if 'specType' in jsondict:
-            self.specType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['specType'], self)
+    def elementProperties(self):
+        js = super(DeviceComponentProductionSpecification, self).elementProperties()
+        js.extend([
+            ("componentId", "componentId", identifier.Identifier, False),
+            ("productionSpec", "productionSpec", str, False),
+            ("specType", "specType", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

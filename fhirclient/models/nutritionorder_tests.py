@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class NutritionOrderTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = nutritionorder.NutritionOrder(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return nutritionorder.NutritionOrder(js)
     
     def testNutritionOrder1(self):
         inst = self.instantiate_from("nutritionorder-example-cardiacdiet.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e343450> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder1(inst)
+        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        self.implNutritionOrder1(inst2)
     
+    def implNutritionOrder1(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.dateTime.isostring, "2014-09-17")
+        self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].code, "227493005")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].display, "Cashew Nut")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].system, "http://snomed.info/sct")
@@ -71,10 +73,14 @@ class NutritionOrderTests(unittest.TestCase):
     
     def testNutritionOrder2(self):
         inst = self.instantiate_from("nutritionorder-example-diabeticdiet.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e343450> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder2(inst)
+        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        self.implNutritionOrder2(inst2)
     
+    def implNutritionOrder2(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.dateTime.isostring, "2014-09-17")
+        self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].code, "227493005")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].display, "Cashew Nut")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].system, "http://snomed.info/sct")
@@ -92,7 +98,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.oralDiet.nutrient[0].mod.coding[0].display, "Carbohydrate")
         self.assertEqual(inst.oralDiet.nutrient[0].mod.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.oralDiet.scheduled.repeat.bounds.start.date, FHIRDate("2015-02-10").date)
-        self.assertEqual(inst.oralDiet.scheduled.repeat.bounds.start.isostring, "2015-02-10")
+        self.assertEqual(inst.oralDiet.scheduled.repeat.bounds.start.as_json(), "2015-02-10")
         self.assertEqual(inst.oralDiet.scheduled.repeat.frequency, 3)
         self.assertEqual(inst.oralDiet.scheduled.repeat.period, 1)
         self.assertEqual(inst.oralDiet.scheduled.repeat.periodUnits, "d")
@@ -108,10 +114,14 @@ class NutritionOrderTests(unittest.TestCase):
     
     def testNutritionOrder3(self):
         inst = self.instantiate_from("nutritionorder-example-diabeticsupplement.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e343450> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder3(inst)
+        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        self.implNutritionOrder3(inst2)
     
+    def implNutritionOrder3(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.dateTime.isostring, "2014-09-17")
+        self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].code, "227493005")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].display, "Cashew Nut")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].system, "http://snomed.info/sct")
@@ -126,7 +136,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.supplement[0].quantity.units, "8 oz bottle")
         self.assertEqual(inst.supplement[0].quantity.value, 1)
         self.assertEqual(inst.supplement[0].scheduled.repeat.bounds.start.date, FHIRDate("2015-02-10").date)
-        self.assertEqual(inst.supplement[0].scheduled.repeat.bounds.start.isostring, "2015-02-10")
+        self.assertEqual(inst.supplement[0].scheduled.repeat.bounds.start.as_json(), "2015-02-10")
         self.assertEqual(inst.supplement[0].scheduled.repeat.period, 1)
         self.assertEqual(inst.supplement[0].scheduled.repeat.periodUnits, "h")
         self.assertEqual(inst.supplement[0].scheduled.repeat.when, "HS")
@@ -141,10 +151,14 @@ class NutritionOrderTests(unittest.TestCase):
     
     def testNutritionOrder4(self):
         inst = self.instantiate_from("nutritionorder-example-energysupplement.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e343450> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder4(inst)
+        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        self.implNutritionOrder4(inst2)
     
+    def implNutritionOrder4(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.dateTime.isostring, "2014-09-17")
+        self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].code, "227493005")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].display, "Cashew Nut")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].system, "http://snomed.info/sct")
@@ -159,7 +173,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.supplement[0].quantity.units, "8 oz can")
         self.assertEqual(inst.supplement[0].quantity.value, 1)
         self.assertEqual(inst.supplement[0].scheduled.repeat.bounds.start.date, FHIRDate("2015-02-10").date)
-        self.assertEqual(inst.supplement[0].scheduled.repeat.bounds.start.isostring, "2015-02-10")
+        self.assertEqual(inst.supplement[0].scheduled.repeat.bounds.start.as_json(), "2015-02-10")
         self.assertEqual(inst.supplement[0].scheduled.repeat.frequency, 3)
         self.assertEqual(inst.supplement[0].scheduled.repeat.period, 1)
         self.assertEqual(inst.supplement[0].scheduled.repeat.periodUnits, "d")
@@ -174,10 +188,14 @@ class NutritionOrderTests(unittest.TestCase):
     
     def testNutritionOrder5(self):
         inst = self.instantiate_from("nutritionorder-example-enteralbolus.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e343450> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder5(inst)
+        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        self.implNutritionOrder5(inst2)
     
+    def implNutritionOrder5(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.dateTime.isostring, "2014-09-17")
+        self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.enteralFormula.additiveProductName, "Acme Lipid Additive")
         self.assertEqual(inst.enteralFormula.additiveType.coding[0].code, "lipid")
         self.assertEqual(inst.enteralFormula.additiveType.coding[0].display, "Modular lipid enteral formula component")
@@ -203,7 +221,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.enteralFormula.routeofAdministration.coding[0].display, "Instillation, gastrostomy tube")
         self.assertEqual(inst.enteralFormula.routeofAdministration.coding[0].system, "http://hl7.org/fhir/v3/RouteOfAdministration")
         self.assertEqual(inst.enteralFormula.scheduled.repeat.bounds.start.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.enteralFormula.scheduled.repeat.bounds.start.isostring, "2014-09-17")
+        self.assertEqual(inst.enteralFormula.scheduled.repeat.bounds.start.as_json(), "2014-09-17")
         self.assertEqual(inst.enteralFormula.scheduled.repeat.frequency, 1)
         self.assertEqual(inst.enteralFormula.scheduled.repeat.period, 4)
         self.assertEqual(inst.enteralFormula.scheduled.repeat.periodUnits, "h")
@@ -221,10 +239,14 @@ class NutritionOrderTests(unittest.TestCase):
     
     def testNutritionOrder6(self):
         inst = self.instantiate_from("nutritionorder-example-enteralcontinuous.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e343450> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder6(inst)
+        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        self.implNutritionOrder6(inst2)
     
+    def implNutritionOrder6(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.dateTime.isostring, "2014-09-17")
+        self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.enteralFormula.administrationInstructions, "Hold feedings from 7 pm to 7 am. Add MCT oil to increase calories from 1.0 cal/mL to 1.5 cal/mL")
         self.assertEqual(inst.enteralFormula.baseFormulaProductName, " Acme Diabetes Formula")
         self.assertEqual(inst.enteralFormula.baseFormulaType.coding[0].code, "6547210000124112")
@@ -252,7 +274,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.enteralFormula.routeofAdministration.coding[0].display, "Instillation, nasogastrostomy tube")
         self.assertEqual(inst.enteralFormula.routeofAdministration.coding[0].system, "http://hl7.org/fhir/v3/RouteOfAdministration")
         self.assertEqual(inst.enteralFormula.scheduled.event[0].date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.enteralFormula.scheduled.event[0].isostring, "2014-09-17")
+        self.assertEqual(inst.enteralFormula.scheduled.event[0].as_json(), "2014-09-17")
         self.assertEqual(inst.id, "enteralcontinuous")
         self.assertEqual(inst.identifier[0].system, "http://www.acme.org/nutritionorders")
         self.assertEqual(inst.identifier[0].value, "123")
@@ -261,10 +283,14 @@ class NutritionOrderTests(unittest.TestCase):
     
     def testNutritionOrder7(self):
         inst = self.instantiate_from("nutritionorder-example-fiberrestricteddiet.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e343450> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder7(inst)
+        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        self.implNutritionOrder7(inst2)
     
+    def implNutritionOrder7(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.dateTime.isostring, "2014-09-17")
+        self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].code, "227493005")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].display, "Cashew Nut")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].system, "http://snomed.info/sct")
@@ -282,7 +308,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.oralDiet.nutrient[0].mod.coding[0].display, "Fat")
         self.assertEqual(inst.oralDiet.nutrient[0].mod.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.oralDiet.scheduled.repeat.bounds.start.date, FHIRDate("2015-02-10").date)
-        self.assertEqual(inst.oralDiet.scheduled.repeat.bounds.start.isostring, "2015-02-10")
+        self.assertEqual(inst.oralDiet.scheduled.repeat.bounds.start.as_json(), "2015-02-10")
         self.assertEqual(inst.oralDiet.scheduled.repeat.frequency, 3)
         self.assertEqual(inst.oralDiet.scheduled.repeat.period, 1)
         self.assertEqual(inst.oralDiet.scheduled.repeat.periodUnits, "d")
@@ -305,10 +331,14 @@ class NutritionOrderTests(unittest.TestCase):
     
     def testNutritionOrder8(self):
         inst = self.instantiate_from("nutritionorder-example-infantenteral.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e343450> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder8(inst)
+        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        self.implNutritionOrder8(inst2)
     
+    def implNutritionOrder8(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.dateTime.isostring, "2014-09-17")
+        self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.enteralFormula.additiveProductName, "Acme High Carbohydrate Additive")
         self.assertEqual(inst.enteralFormula.additiveType.coding[0].code, "carbohydrate")
         self.assertEqual(inst.enteralFormula.additiveType.coding[0].display, "Modular carbohydrate enteral formula component")
@@ -335,7 +365,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertTrue(inst.enteralFormula.routeofAdministration.coding[0].primary)
         self.assertEqual(inst.enteralFormula.routeofAdministration.coding[0].system, "http://hl7.org/fhir/v3/RouteOfAdministration")
         self.assertEqual(inst.enteralFormula.scheduled.repeat.bounds.start.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.enteralFormula.scheduled.repeat.bounds.start.isostring, "2014-09-17")
+        self.assertEqual(inst.enteralFormula.scheduled.repeat.bounds.start.as_json(), "2014-09-17")
         self.assertEqual(inst.enteralFormula.scheduled.repeat.frequency, 1)
         self.assertEqual(inst.enteralFormula.scheduled.repeat.period, 3)
         self.assertEqual(inst.enteralFormula.scheduled.repeat.periodUnits, "h")
@@ -347,10 +377,14 @@ class NutritionOrderTests(unittest.TestCase):
     
     def testNutritionOrder9(self):
         inst = self.instantiate_from("nutritionorder-example-proteinsupplement.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e343450> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder9(inst)
+        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        self.implNutritionOrder9(inst2)
     
+    def implNutritionOrder9(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.dateTime.isostring, "2014-09-17")
+        self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.id, "proteinsupplement")
         self.assertEqual(inst.identifier[0].system, "http://goodhealthhospital.org/nutrition-orders")
         self.assertEqual(inst.identifier[0].value, "123")
@@ -362,7 +396,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.supplement[0].quantity.units, "scoop")
         self.assertEqual(inst.supplement[0].quantity.value, 1)
         self.assertEqual(inst.supplement[0].scheduled.repeat.bounds.start.date, FHIRDate("2015-02-10").date)
-        self.assertEqual(inst.supplement[0].scheduled.repeat.bounds.start.isostring, "2015-02-10")
+        self.assertEqual(inst.supplement[0].scheduled.repeat.bounds.start.as_json(), "2015-02-10")
         self.assertEqual(inst.supplement[0].scheduled.repeat.when, "C")
         self.assertEqual(inst.supplement[0].type.coding[0].code, "442991000124104")
         self.assertEqual(inst.supplement[0].type.coding[0].display, "Adult high protein formula")
@@ -375,10 +409,14 @@ class NutritionOrderTests(unittest.TestCase):
     
     def testNutritionOrder10(self):
         inst = self.instantiate_from("nutritionorder-example-pureeddiet-simple.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e343450> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder10(inst)
+        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        self.implNutritionOrder10(inst2)
     
+    def implNutritionOrder10(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
-        self.assertEqual(inst.dateTime.isostring, "2014-09-17")
+        self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.id, "pureeddiet-simple")
         self.assertEqual(inst.identifier[0].system, "http://goodhealthhospital.org/nutrition-orders")
         self.assertEqual(inst.identifier[0].value, "123")
@@ -387,7 +425,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.oralDiet.fluidConsistencyType[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.oralDiet.fluidConsistencyType[0].text, "Nectar thick liquids")
         self.assertEqual(inst.oralDiet.scheduled.repeat.bounds.start.date, FHIRDate("2015-02-10").date)
-        self.assertEqual(inst.oralDiet.scheduled.repeat.bounds.start.isostring, "2015-02-10")
+        self.assertEqual(inst.oralDiet.scheduled.repeat.bounds.start.as_json(), "2015-02-10")
         self.assertEqual(inst.oralDiet.scheduled.repeat.frequency, 3)
         self.assertEqual(inst.oralDiet.scheduled.repeat.period, 1)
         self.assertEqual(inst.oralDiet.scheduled.repeat.periodUnits, "d")

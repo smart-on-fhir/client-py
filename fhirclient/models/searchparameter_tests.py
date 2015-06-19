@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class SearchParameterTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = searchparameter.SearchParameter(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return searchparameter.SearchParameter(js)
     
     def testSearchParameter1(self):
         inst = self.instantiate_from("searchparameter-example-extension.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e394510> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a SearchParameter instance")
+        self.implSearchParameter1(inst)
+        inst2 = searchparameter.SearchParameter(inst.as_json())
+        self.implSearchParameter1(inst2)
     
+    def implSearchParameter1(self, inst):
         self.assertEqual(inst.base, "Patient")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
@@ -40,8 +42,12 @@ class SearchParameterTests(unittest.TestCase):
     
     def testSearchParameter2(self):
         inst = self.instantiate_from("searchparameter-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e394510> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a SearchParameter instance")
+        self.implSearchParameter2(inst)
+        inst2 = searchparameter.SearchParameter(inst.as_json())
+        self.implSearchParameter2(inst2)
     
+    def implSearchParameter2(self, inst):
         self.assertEqual(inst.base, "Resource")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")

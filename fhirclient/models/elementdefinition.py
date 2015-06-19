@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -534,256 +534,135 @@ class ElementDefinition(fhirelement.FHIRElement):
         
         super(ElementDefinition, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ElementDefinition, self).update_with_json(jsondict)
-        if 'alias' in jsondict:
-            self.alias = jsondict['alias']
-        if 'binding' in jsondict:
-            self.binding = ElementDefinitionBinding.with_json_and_owner(jsondict['binding'], self)
-        if 'code' in jsondict:
-            self.code = coding.Coding.with_json_and_owner(jsondict['code'], self)
-        if 'comments' in jsondict:
-            self.comments = jsondict['comments']
-        if 'condition' in jsondict:
-            self.condition = jsondict['condition']
-        if 'constraint' in jsondict:
-            self.constraint = ElementDefinitionConstraint.with_json_and_owner(jsondict['constraint'], self)
-        if 'defaultValueAddress' in jsondict:
-            self.defaultValueAddress = address.Address.with_json_and_owner(jsondict['defaultValueAddress'], self)
-        if 'defaultValueAttachment' in jsondict:
-            self.defaultValueAttachment = attachment.Attachment.with_json_and_owner(jsondict['defaultValueAttachment'], self)
-        if 'defaultValueBase64Binary' in jsondict:
-            self.defaultValueBase64Binary = jsondict['defaultValueBase64Binary']
-        if 'defaultValueBoolean' in jsondict:
-            self.defaultValueBoolean = jsondict['defaultValueBoolean']
-        if 'defaultValueCode' in jsondict:
-            self.defaultValueCode = jsondict['defaultValueCode']
-        if 'defaultValueCodeableConcept' in jsondict:
-            self.defaultValueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['defaultValueCodeableConcept'], self)
-        if 'defaultValueCoding' in jsondict:
-            self.defaultValueCoding = coding.Coding.with_json_and_owner(jsondict['defaultValueCoding'], self)
-        if 'defaultValueContactPoint' in jsondict:
-            self.defaultValueContactPoint = contactpoint.ContactPoint.with_json_and_owner(jsondict['defaultValueContactPoint'], self)
-        if 'defaultValueDate' in jsondict:
-            self.defaultValueDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['defaultValueDate'], self)
-        if 'defaultValueDateTime' in jsondict:
-            self.defaultValueDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['defaultValueDateTime'], self)
-        if 'defaultValueDecimal' in jsondict:
-            self.defaultValueDecimal = jsondict['defaultValueDecimal']
-        if 'defaultValueHumanName' in jsondict:
-            self.defaultValueHumanName = humanname.HumanName.with_json_and_owner(jsondict['defaultValueHumanName'], self)
-        if 'defaultValueIdentifier' in jsondict:
-            self.defaultValueIdentifier = identifier.Identifier.with_json_and_owner(jsondict['defaultValueIdentifier'], self)
-        if 'defaultValueInstant' in jsondict:
-            self.defaultValueInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['defaultValueInstant'], self)
-        if 'defaultValueInteger' in jsondict:
-            self.defaultValueInteger = jsondict['defaultValueInteger']
-        if 'defaultValuePeriod' in jsondict:
-            self.defaultValuePeriod = period.Period.with_json_and_owner(jsondict['defaultValuePeriod'], self)
-        if 'defaultValueQuantity' in jsondict:
-            self.defaultValueQuantity = quantity.Quantity.with_json_and_owner(jsondict['defaultValueQuantity'], self)
-        if 'defaultValueRange' in jsondict:
-            self.defaultValueRange = range.Range.with_json_and_owner(jsondict['defaultValueRange'], self)
-        if 'defaultValueRatio' in jsondict:
-            self.defaultValueRatio = ratio.Ratio.with_json_and_owner(jsondict['defaultValueRatio'], self)
-        if 'defaultValueReference' in jsondict:
-            self.defaultValueReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['defaultValueReference'], self)
-        if 'defaultValueSignature' in jsondict:
-            self.defaultValueSignature = signature.Signature.with_json_and_owner(jsondict['defaultValueSignature'], self)
-        if 'defaultValueString' in jsondict:
-            self.defaultValueString = jsondict['defaultValueString']
-        if 'defaultValueTime' in jsondict:
-            self.defaultValueTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['defaultValueTime'], self)
-        if 'defaultValueTiming' in jsondict:
-            self.defaultValueTiming = timing.Timing.with_json_and_owner(jsondict['defaultValueTiming'], self)
-        if 'defaultValueUri' in jsondict:
-            self.defaultValueUri = jsondict['defaultValueUri']
-        if 'definition' in jsondict:
-            self.definition = jsondict['definition']
-        if 'exampleAddress' in jsondict:
-            self.exampleAddress = address.Address.with_json_and_owner(jsondict['exampleAddress'], self)
-        if 'exampleAttachment' in jsondict:
-            self.exampleAttachment = attachment.Attachment.with_json_and_owner(jsondict['exampleAttachment'], self)
-        if 'exampleBase64Binary' in jsondict:
-            self.exampleBase64Binary = jsondict['exampleBase64Binary']
-        if 'exampleBoolean' in jsondict:
-            self.exampleBoolean = jsondict['exampleBoolean']
-        if 'exampleCode' in jsondict:
-            self.exampleCode = jsondict['exampleCode']
-        if 'exampleCodeableConcept' in jsondict:
-            self.exampleCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['exampleCodeableConcept'], self)
-        if 'exampleCoding' in jsondict:
-            self.exampleCoding = coding.Coding.with_json_and_owner(jsondict['exampleCoding'], self)
-        if 'exampleContactPoint' in jsondict:
-            self.exampleContactPoint = contactpoint.ContactPoint.with_json_and_owner(jsondict['exampleContactPoint'], self)
-        if 'exampleDate' in jsondict:
-            self.exampleDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['exampleDate'], self)
-        if 'exampleDateTime' in jsondict:
-            self.exampleDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['exampleDateTime'], self)
-        if 'exampleDecimal' in jsondict:
-            self.exampleDecimal = jsondict['exampleDecimal']
-        if 'exampleHumanName' in jsondict:
-            self.exampleHumanName = humanname.HumanName.with_json_and_owner(jsondict['exampleHumanName'], self)
-        if 'exampleIdentifier' in jsondict:
-            self.exampleIdentifier = identifier.Identifier.with_json_and_owner(jsondict['exampleIdentifier'], self)
-        if 'exampleInstant' in jsondict:
-            self.exampleInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['exampleInstant'], self)
-        if 'exampleInteger' in jsondict:
-            self.exampleInteger = jsondict['exampleInteger']
-        if 'examplePeriod' in jsondict:
-            self.examplePeriod = period.Period.with_json_and_owner(jsondict['examplePeriod'], self)
-        if 'exampleQuantity' in jsondict:
-            self.exampleQuantity = quantity.Quantity.with_json_and_owner(jsondict['exampleQuantity'], self)
-        if 'exampleRange' in jsondict:
-            self.exampleRange = range.Range.with_json_and_owner(jsondict['exampleRange'], self)
-        if 'exampleRatio' in jsondict:
-            self.exampleRatio = ratio.Ratio.with_json_and_owner(jsondict['exampleRatio'], self)
-        if 'exampleReference' in jsondict:
-            self.exampleReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['exampleReference'], self)
-        if 'exampleSignature' in jsondict:
-            self.exampleSignature = signature.Signature.with_json_and_owner(jsondict['exampleSignature'], self)
-        if 'exampleString' in jsondict:
-            self.exampleString = jsondict['exampleString']
-        if 'exampleTime' in jsondict:
-            self.exampleTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['exampleTime'], self)
-        if 'exampleTiming' in jsondict:
-            self.exampleTiming = timing.Timing.with_json_and_owner(jsondict['exampleTiming'], self)
-        if 'exampleUri' in jsondict:
-            self.exampleUri = jsondict['exampleUri']
-        if 'fixedAddress' in jsondict:
-            self.fixedAddress = address.Address.with_json_and_owner(jsondict['fixedAddress'], self)
-        if 'fixedAttachment' in jsondict:
-            self.fixedAttachment = attachment.Attachment.with_json_and_owner(jsondict['fixedAttachment'], self)
-        if 'fixedBase64Binary' in jsondict:
-            self.fixedBase64Binary = jsondict['fixedBase64Binary']
-        if 'fixedBoolean' in jsondict:
-            self.fixedBoolean = jsondict['fixedBoolean']
-        if 'fixedCode' in jsondict:
-            self.fixedCode = jsondict['fixedCode']
-        if 'fixedCodeableConcept' in jsondict:
-            self.fixedCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['fixedCodeableConcept'], self)
-        if 'fixedCoding' in jsondict:
-            self.fixedCoding = coding.Coding.with_json_and_owner(jsondict['fixedCoding'], self)
-        if 'fixedContactPoint' in jsondict:
-            self.fixedContactPoint = contactpoint.ContactPoint.with_json_and_owner(jsondict['fixedContactPoint'], self)
-        if 'fixedDate' in jsondict:
-            self.fixedDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['fixedDate'], self)
-        if 'fixedDateTime' in jsondict:
-            self.fixedDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['fixedDateTime'], self)
-        if 'fixedDecimal' in jsondict:
-            self.fixedDecimal = jsondict['fixedDecimal']
-        if 'fixedHumanName' in jsondict:
-            self.fixedHumanName = humanname.HumanName.with_json_and_owner(jsondict['fixedHumanName'], self)
-        if 'fixedIdentifier' in jsondict:
-            self.fixedIdentifier = identifier.Identifier.with_json_and_owner(jsondict['fixedIdentifier'], self)
-        if 'fixedInstant' in jsondict:
-            self.fixedInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['fixedInstant'], self)
-        if 'fixedInteger' in jsondict:
-            self.fixedInteger = jsondict['fixedInteger']
-        if 'fixedPeriod' in jsondict:
-            self.fixedPeriod = period.Period.with_json_and_owner(jsondict['fixedPeriod'], self)
-        if 'fixedQuantity' in jsondict:
-            self.fixedQuantity = quantity.Quantity.with_json_and_owner(jsondict['fixedQuantity'], self)
-        if 'fixedRange' in jsondict:
-            self.fixedRange = range.Range.with_json_and_owner(jsondict['fixedRange'], self)
-        if 'fixedRatio' in jsondict:
-            self.fixedRatio = ratio.Ratio.with_json_and_owner(jsondict['fixedRatio'], self)
-        if 'fixedReference' in jsondict:
-            self.fixedReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['fixedReference'], self)
-        if 'fixedSignature' in jsondict:
-            self.fixedSignature = signature.Signature.with_json_and_owner(jsondict['fixedSignature'], self)
-        if 'fixedString' in jsondict:
-            self.fixedString = jsondict['fixedString']
-        if 'fixedTime' in jsondict:
-            self.fixedTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['fixedTime'], self)
-        if 'fixedTiming' in jsondict:
-            self.fixedTiming = timing.Timing.with_json_and_owner(jsondict['fixedTiming'], self)
-        if 'fixedUri' in jsondict:
-            self.fixedUri = jsondict['fixedUri']
-        if 'isModifier' in jsondict:
-            self.isModifier = jsondict['isModifier']
-        if 'isSummary' in jsondict:
-            self.isSummary = jsondict['isSummary']
-        if 'label' in jsondict:
-            self.label = jsondict['label']
-        if 'mapping' in jsondict:
-            self.mapping = ElementDefinitionMapping.with_json_and_owner(jsondict['mapping'], self)
-        if 'max' in jsondict:
-            self.max = jsondict['max']
-        if 'maxLength' in jsondict:
-            self.maxLength = jsondict['maxLength']
-        if 'meaningWhenMissing' in jsondict:
-            self.meaningWhenMissing = jsondict['meaningWhenMissing']
-        if 'min' in jsondict:
-            self.min = jsondict['min']
-        if 'mustSupport' in jsondict:
-            self.mustSupport = jsondict['mustSupport']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'nameReference' in jsondict:
-            self.nameReference = jsondict['nameReference']
-        if 'path' in jsondict:
-            self.path = jsondict['path']
-        if 'patternAddress' in jsondict:
-            self.patternAddress = address.Address.with_json_and_owner(jsondict['patternAddress'], self)
-        if 'patternAttachment' in jsondict:
-            self.patternAttachment = attachment.Attachment.with_json_and_owner(jsondict['patternAttachment'], self)
-        if 'patternBase64Binary' in jsondict:
-            self.patternBase64Binary = jsondict['patternBase64Binary']
-        if 'patternBoolean' in jsondict:
-            self.patternBoolean = jsondict['patternBoolean']
-        if 'patternCode' in jsondict:
-            self.patternCode = jsondict['patternCode']
-        if 'patternCodeableConcept' in jsondict:
-            self.patternCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['patternCodeableConcept'], self)
-        if 'patternCoding' in jsondict:
-            self.patternCoding = coding.Coding.with_json_and_owner(jsondict['patternCoding'], self)
-        if 'patternContactPoint' in jsondict:
-            self.patternContactPoint = contactpoint.ContactPoint.with_json_and_owner(jsondict['patternContactPoint'], self)
-        if 'patternDate' in jsondict:
-            self.patternDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['patternDate'], self)
-        if 'patternDateTime' in jsondict:
-            self.patternDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['patternDateTime'], self)
-        if 'patternDecimal' in jsondict:
-            self.patternDecimal = jsondict['patternDecimal']
-        if 'patternHumanName' in jsondict:
-            self.patternHumanName = humanname.HumanName.with_json_and_owner(jsondict['patternHumanName'], self)
-        if 'patternIdentifier' in jsondict:
-            self.patternIdentifier = identifier.Identifier.with_json_and_owner(jsondict['patternIdentifier'], self)
-        if 'patternInstant' in jsondict:
-            self.patternInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['patternInstant'], self)
-        if 'patternInteger' in jsondict:
-            self.patternInteger = jsondict['patternInteger']
-        if 'patternPeriod' in jsondict:
-            self.patternPeriod = period.Period.with_json_and_owner(jsondict['patternPeriod'], self)
-        if 'patternQuantity' in jsondict:
-            self.patternQuantity = quantity.Quantity.with_json_and_owner(jsondict['patternQuantity'], self)
-        if 'patternRange' in jsondict:
-            self.patternRange = range.Range.with_json_and_owner(jsondict['patternRange'], self)
-        if 'patternRatio' in jsondict:
-            self.patternRatio = ratio.Ratio.with_json_and_owner(jsondict['patternRatio'], self)
-        if 'patternReference' in jsondict:
-            self.patternReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['patternReference'], self)
-        if 'patternSignature' in jsondict:
-            self.patternSignature = signature.Signature.with_json_and_owner(jsondict['patternSignature'], self)
-        if 'patternString' in jsondict:
-            self.patternString = jsondict['patternString']
-        if 'patternTime' in jsondict:
-            self.patternTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['patternTime'], self)
-        if 'patternTiming' in jsondict:
-            self.patternTiming = timing.Timing.with_json_and_owner(jsondict['patternTiming'], self)
-        if 'patternUri' in jsondict:
-            self.patternUri = jsondict['patternUri']
-        if 'representation' in jsondict:
-            self.representation = jsondict['representation']
-        if 'requirements' in jsondict:
-            self.requirements = jsondict['requirements']
-        if 'short' in jsondict:
-            self.short = jsondict['short']
-        if 'slicing' in jsondict:
-            self.slicing = ElementDefinitionSlicing.with_json_and_owner(jsondict['slicing'], self)
-        if 'type' in jsondict:
-            self.type = ElementDefinitionType.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(ElementDefinition, self).elementProperties()
+        js.extend([
+            ("alias", "alias", str, True),
+            ("binding", "binding", ElementDefinitionBinding, False),
+            ("code", "code", coding.Coding, True),
+            ("comments", "comments", str, False),
+            ("condition", "condition", str, True),
+            ("constraint", "constraint", ElementDefinitionConstraint, True),
+            ("defaultValueAddress", "defaultValueAddress", address.Address, False),
+            ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False),
+            ("defaultValueBase64Binary", "defaultValueBase64Binary", str, False),
+            ("defaultValueBoolean", "defaultValueBoolean", bool, False),
+            ("defaultValueCode", "defaultValueCode", str, False),
+            ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("defaultValueCoding", "defaultValueCoding", coding.Coding, False),
+            ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False),
+            ("defaultValueDate", "defaultValueDate", fhirdate.FHIRDate, False),
+            ("defaultValueDateTime", "defaultValueDateTime", fhirdate.FHIRDate, False),
+            ("defaultValueDecimal", "defaultValueDecimal", float, False),
+            ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False),
+            ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False),
+            ("defaultValueInstant", "defaultValueInstant", fhirdate.FHIRDate, False),
+            ("defaultValueInteger", "defaultValueInteger", int, False),
+            ("defaultValuePeriod", "defaultValuePeriod", period.Period, False),
+            ("defaultValueQuantity", "defaultValueQuantity", quantity.Quantity, False),
+            ("defaultValueRange", "defaultValueRange", range.Range, False),
+            ("defaultValueRatio", "defaultValueRatio", ratio.Ratio, False),
+            ("defaultValueReference", "defaultValueReference", fhirreference.FHIRReference, False),
+            ("defaultValueSignature", "defaultValueSignature", signature.Signature, False),
+            ("defaultValueString", "defaultValueString", str, False),
+            ("defaultValueTime", "defaultValueTime", fhirdate.FHIRDate, False),
+            ("defaultValueTiming", "defaultValueTiming", timing.Timing, False),
+            ("defaultValueUri", "defaultValueUri", str, False),
+            ("definition", "definition", str, False),
+            ("exampleAddress", "exampleAddress", address.Address, False),
+            ("exampleAttachment", "exampleAttachment", attachment.Attachment, False),
+            ("exampleBase64Binary", "exampleBase64Binary", str, False),
+            ("exampleBoolean", "exampleBoolean", bool, False),
+            ("exampleCode", "exampleCode", str, False),
+            ("exampleCodeableConcept", "exampleCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("exampleCoding", "exampleCoding", coding.Coding, False),
+            ("exampleContactPoint", "exampleContactPoint", contactpoint.ContactPoint, False),
+            ("exampleDate", "exampleDate", fhirdate.FHIRDate, False),
+            ("exampleDateTime", "exampleDateTime", fhirdate.FHIRDate, False),
+            ("exampleDecimal", "exampleDecimal", float, False),
+            ("exampleHumanName", "exampleHumanName", humanname.HumanName, False),
+            ("exampleIdentifier", "exampleIdentifier", identifier.Identifier, False),
+            ("exampleInstant", "exampleInstant", fhirdate.FHIRDate, False),
+            ("exampleInteger", "exampleInteger", int, False),
+            ("examplePeriod", "examplePeriod", period.Period, False),
+            ("exampleQuantity", "exampleQuantity", quantity.Quantity, False),
+            ("exampleRange", "exampleRange", range.Range, False),
+            ("exampleRatio", "exampleRatio", ratio.Ratio, False),
+            ("exampleReference", "exampleReference", fhirreference.FHIRReference, False),
+            ("exampleSignature", "exampleSignature", signature.Signature, False),
+            ("exampleString", "exampleString", str, False),
+            ("exampleTime", "exampleTime", fhirdate.FHIRDate, False),
+            ("exampleTiming", "exampleTiming", timing.Timing, False),
+            ("exampleUri", "exampleUri", str, False),
+            ("fixedAddress", "fixedAddress", address.Address, False),
+            ("fixedAttachment", "fixedAttachment", attachment.Attachment, False),
+            ("fixedBase64Binary", "fixedBase64Binary", str, False),
+            ("fixedBoolean", "fixedBoolean", bool, False),
+            ("fixedCode", "fixedCode", str, False),
+            ("fixedCodeableConcept", "fixedCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("fixedCoding", "fixedCoding", coding.Coding, False),
+            ("fixedContactPoint", "fixedContactPoint", contactpoint.ContactPoint, False),
+            ("fixedDate", "fixedDate", fhirdate.FHIRDate, False),
+            ("fixedDateTime", "fixedDateTime", fhirdate.FHIRDate, False),
+            ("fixedDecimal", "fixedDecimal", float, False),
+            ("fixedHumanName", "fixedHumanName", humanname.HumanName, False),
+            ("fixedIdentifier", "fixedIdentifier", identifier.Identifier, False),
+            ("fixedInstant", "fixedInstant", fhirdate.FHIRDate, False),
+            ("fixedInteger", "fixedInteger", int, False),
+            ("fixedPeriod", "fixedPeriod", period.Period, False),
+            ("fixedQuantity", "fixedQuantity", quantity.Quantity, False),
+            ("fixedRange", "fixedRange", range.Range, False),
+            ("fixedRatio", "fixedRatio", ratio.Ratio, False),
+            ("fixedReference", "fixedReference", fhirreference.FHIRReference, False),
+            ("fixedSignature", "fixedSignature", signature.Signature, False),
+            ("fixedString", "fixedString", str, False),
+            ("fixedTime", "fixedTime", fhirdate.FHIRDate, False),
+            ("fixedTiming", "fixedTiming", timing.Timing, False),
+            ("fixedUri", "fixedUri", str, False),
+            ("isModifier", "isModifier", bool, False),
+            ("isSummary", "isSummary", bool, False),
+            ("label", "label", str, False),
+            ("mapping", "mapping", ElementDefinitionMapping, True),
+            ("max", "max", str, False),
+            ("maxLength", "maxLength", int, False),
+            ("meaningWhenMissing", "meaningWhenMissing", str, False),
+            ("min", "min", int, False),
+            ("mustSupport", "mustSupport", bool, False),
+            ("name", "name", str, False),
+            ("nameReference", "nameReference", str, False),
+            ("path", "path", str, False),
+            ("patternAddress", "patternAddress", address.Address, False),
+            ("patternAttachment", "patternAttachment", attachment.Attachment, False),
+            ("patternBase64Binary", "patternBase64Binary", str, False),
+            ("patternBoolean", "patternBoolean", bool, False),
+            ("patternCode", "patternCode", str, False),
+            ("patternCodeableConcept", "patternCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("patternCoding", "patternCoding", coding.Coding, False),
+            ("patternContactPoint", "patternContactPoint", contactpoint.ContactPoint, False),
+            ("patternDate", "patternDate", fhirdate.FHIRDate, False),
+            ("patternDateTime", "patternDateTime", fhirdate.FHIRDate, False),
+            ("patternDecimal", "patternDecimal", float, False),
+            ("patternHumanName", "patternHumanName", humanname.HumanName, False),
+            ("patternIdentifier", "patternIdentifier", identifier.Identifier, False),
+            ("patternInstant", "patternInstant", fhirdate.FHIRDate, False),
+            ("patternInteger", "patternInteger", int, False),
+            ("patternPeriod", "patternPeriod", period.Period, False),
+            ("patternQuantity", "patternQuantity", quantity.Quantity, False),
+            ("patternRange", "patternRange", range.Range, False),
+            ("patternRatio", "patternRatio", ratio.Ratio, False),
+            ("patternReference", "patternReference", fhirreference.FHIRReference, False),
+            ("patternSignature", "patternSignature", signature.Signature, False),
+            ("patternString", "patternString", str, False),
+            ("patternTime", "patternTime", fhirdate.FHIRDate, False),
+            ("patternTiming", "patternTiming", timing.Timing, False),
+            ("patternUri", "patternUri", str, False),
+            ("representation", "representation", str, True),
+            ("requirements", "requirements", str, False),
+            ("short", "short", str, False),
+            ("slicing", "slicing", ElementDefinitionSlicing, False),
+            ("type", "type", ElementDefinitionType, True),
+        ])
+        return js
 
 
 class ElementDefinitionBinding(fhirelement.FHIRElement):
@@ -821,18 +700,16 @@ class ElementDefinitionBinding(fhirelement.FHIRElement):
         
         super(ElementDefinitionBinding, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ElementDefinitionBinding, self).update_with_json(jsondict)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'strength' in jsondict:
-            self.strength = jsondict['strength']
-        if 'valueSetReference' in jsondict:
-            self.valueSetReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['valueSetReference'], self)
-        if 'valueSetUri' in jsondict:
-            self.valueSetUri = jsondict['valueSetUri']
+    def elementProperties(self):
+        js = super(ElementDefinitionBinding, self).elementProperties()
+        js.extend([
+            ("description", "description", str, False),
+            ("name", "name", str, False),
+            ("strength", "strength", str, False),
+            ("valueSetReference", "valueSetReference", fhirreference.FHIRReference, False),
+            ("valueSetUri", "valueSetUri", str, False),
+        ])
+        return js
 
 
 class ElementDefinitionConstraint(fhirelement.FHIRElement):
@@ -870,18 +747,16 @@ class ElementDefinitionConstraint(fhirelement.FHIRElement):
         
         super(ElementDefinitionConstraint, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ElementDefinitionConstraint, self).update_with_json(jsondict)
-        if 'human' in jsondict:
-            self.human = jsondict['human']
-        if 'key' in jsondict:
-            self.key = jsondict['key']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'severity' in jsondict:
-            self.severity = jsondict['severity']
-        if 'xpath' in jsondict:
-            self.xpath = jsondict['xpath']
+    def elementProperties(self):
+        js = super(ElementDefinitionConstraint, self).elementProperties()
+        js.extend([
+            ("human", "human", str, False),
+            ("key", "key", str, False),
+            ("name", "name", str, False),
+            ("severity", "severity", str, False),
+            ("xpath", "xpath", str, False),
+        ])
+        return js
 
 
 class ElementDefinitionMapping(fhirelement.FHIRElement):
@@ -911,14 +786,14 @@ class ElementDefinitionMapping(fhirelement.FHIRElement):
         
         super(ElementDefinitionMapping, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ElementDefinitionMapping, self).update_with_json(jsondict)
-        if 'identity' in jsondict:
-            self.identity = jsondict['identity']
-        if 'language' in jsondict:
-            self.language = jsondict['language']
-        if 'map' in jsondict:
-            self.map = jsondict['map']
+    def elementProperties(self):
+        js = super(ElementDefinitionMapping, self).elementProperties()
+        js.extend([
+            ("identity", "identity", str, False),
+            ("language", "language", str, False),
+            ("map", "map", str, False),
+        ])
+        return js
 
 
 class ElementDefinitionSlicing(fhirelement.FHIRElement):
@@ -955,16 +830,15 @@ class ElementDefinitionSlicing(fhirelement.FHIRElement):
         
         super(ElementDefinitionSlicing, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ElementDefinitionSlicing, self).update_with_json(jsondict)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'discriminator' in jsondict:
-            self.discriminator = jsondict['discriminator']
-        if 'ordered' in jsondict:
-            self.ordered = jsondict['ordered']
-        if 'rules' in jsondict:
-            self.rules = jsondict['rules']
+    def elementProperties(self):
+        js = super(ElementDefinitionSlicing, self).elementProperties()
+        js.extend([
+            ("description", "description", str, False),
+            ("discriminator", "discriminator", str, True),
+            ("ordered", "ordered", bool, False),
+            ("rules", "rules", str, False),
+        ])
+        return js
 
 
 class ElementDefinitionType(fhirelement.FHIRElement):
@@ -994,12 +868,12 @@ class ElementDefinitionType(fhirelement.FHIRElement):
         
         super(ElementDefinitionType, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ElementDefinitionType, self).update_with_json(jsondict)
-        if 'aggregation' in jsondict:
-            self.aggregation = jsondict['aggregation']
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'profile' in jsondict:
-            self.profile = jsondict['profile']
+    def elementProperties(self):
+        js = super(ElementDefinitionType, self).elementProperties()
+        js.extend([
+            ("aggregation", "aggregation", str, True),
+            ("code", "code", str, False),
+            ("profile", "profile", str, False),
+        ])
+        return js
 

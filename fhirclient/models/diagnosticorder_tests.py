@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,31 +18,36 @@ class DiagnosticOrderTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = diagnosticorder.DiagnosticOrder(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return diagnosticorder.DiagnosticOrder(js)
     
     def testDiagnosticOrder1(self):
         inst = self.instantiate_from("diagnosticorder-example-di.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2d1910> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a DiagnosticOrder instance")
+        self.implDiagnosticOrder1(inst)
+        inst2 = diagnosticorder.DiagnosticOrder(inst.as_json())
+        self.implDiagnosticOrder1(inst2)
     
+    def implDiagnosticOrder1(self, inst):
         self.assertEqual(inst.event[0].dateTime.date, FHIRDate("2013-05-08T09:33:27+07:00").date)
-        self.assertEqual(inst.event[0].dateTime.isostring, "2013-05-08T09:33:27+07:00")
+        self.assertEqual(inst.event[0].dateTime.as_json(), "2013-05-08T09:33:27+07:00")
         self.assertEqual(inst.event[0].status, "requested")
         self.assertEqual(inst.id, "di")
         self.assertEqual(inst.item[0].code.coding[0].code, "24627-2")
         self.assertEqual(inst.item[0].code.coding[0].system, "http://loinc.org")
         self.assertEqual(inst.item[0].code.text, "Chest CT")
         self.assertEqual(inst.status, "requested")
-        self.assertEqual(inst.text.div, "<div>\n      \n      <p>Chest CT - ordered May 8, 2013 by Dr. Adam Careful</p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testDiagnosticOrder2(self):
         inst = self.instantiate_from("diagnosticorder-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2d1910> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a DiagnosticOrder instance")
+        self.implDiagnosticOrder2(inst)
+        inst2 = diagnosticorder.DiagnosticOrder(inst.as_json())
+        self.implDiagnosticOrder2(inst2)
     
+    def implDiagnosticOrder2(self, inst):
         self.assertEqual(inst.event[0].dateTime.date, FHIRDate("2013-05-02T16:16:00-07:00").date)
-        self.assertEqual(inst.event[0].dateTime.isostring, "2013-05-02T16:16:00-07:00")
+        self.assertEqual(inst.event[0].dateTime.as_json(), "2013-05-02T16:16:00-07:00")
         self.assertEqual(inst.event[0].status, "requested")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "urn:oid:1.3.4.5.6.7")
@@ -52,18 +57,21 @@ class DiagnosticOrderTests(unittest.TestCase):
         self.assertEqual(inst.item[0].code.coding[0].system, "http://acme.org/tests")
         self.assertEqual(inst.item[0].code.text, "Lipid Panel")
         self.assertEqual(inst.status, "received")
-        self.assertEqual(inst.text.div, "<div> \n        Example Diagnostic Order\n        </div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testDiagnosticOrder3(self):
         inst = self.instantiate_from("diagnosticorder-qicore-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2d1910> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a DiagnosticOrder instance")
+        self.implDiagnosticOrder3(inst)
+        inst2 = diagnosticorder.DiagnosticOrder(inst.as_json())
+        self.implDiagnosticOrder3(inst2)
     
+    def implDiagnosticOrder3(self, inst):
         self.assertEqual(inst.event[0].dateTime.date, FHIRDate("2013-05-02T16:16:00-07:00").date)
-        self.assertEqual(inst.event[0].dateTime.isostring, "2013-05-02T16:16:00-07:00")
+        self.assertEqual(inst.event[0].dateTime.as_json(), "2013-05-02T16:16:00-07:00")
         self.assertEqual(inst.event[0].status, "requested")
         self.assertEqual(inst.event[1].dateTime.date, FHIRDate("2013-05-06T11:20:00-07:00").date)
-        self.assertEqual(inst.event[1].dateTime.isostring, "2013-05-06T11:20:00-07:00")
+        self.assertEqual(inst.event[1].dateTime.as_json(), "2013-05-06T11:20:00-07:00")
         self.assertEqual(inst.event[1].status, "rejected")
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/diagnosticorder-reason")
         self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].code, "PHY")
@@ -81,16 +89,19 @@ class DiagnosticOrderTests(unittest.TestCase):
         self.assertEqual(inst.item[0].code.coding[0].system, "http://loinc.org")
         self.assertEqual(inst.item[0].code.text, "Lipid panel with direct LDL - Serum or Plasma")
         self.assertEqual(inst.status, "rejected")
-        self.assertEqual(inst.text.div, "<div>\n        Example Diagnostic Order\n        </div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testDiagnosticOrder4(self):
         inst = self.instantiate_from("do-uslab-example1.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2d1910> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a DiagnosticOrder instance")
+        self.implDiagnosticOrder4(inst)
+        inst2 = diagnosticorder.DiagnosticOrder(inst.as_json())
+        self.implDiagnosticOrder4(inst2)
     
+    def implDiagnosticOrder4(self, inst):
         self.assertEqual(inst.clinicalNotes, "Screening for blood lead")
         self.assertEqual(inst.event[0].dateTime.date, FHIRDate("2014-12-04T15:42:15-08:00").date)
-        self.assertEqual(inst.event[0].dateTime.isostring, "2014-12-04T15:42:15-08:00")
+        self.assertEqual(inst.event[0].dateTime.as_json(), "2014-12-04T15:42:15-08:00")
         self.assertEqual(inst.event[0].description.coding[0].code, "new-request")
         self.assertEqual(inst.event[0].status, "requested")
         self.assertEqual(inst.id, "uslab-example1")

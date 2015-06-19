@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class RelatedPersonTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = relatedperson.RelatedPerson(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return relatedperson.RelatedPerson(js)
     
     def testRelatedPerson1(self):
         inst = self.instantiate_from("relatedperson-example-f001-sarah.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e38ea10> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a RelatedPerson instance")
+        self.implRelatedPerson1(inst)
+        inst2 = relatedperson.RelatedPerson(inst.as_json())
+        self.implRelatedPerson1(inst2)
     
+    def implRelatedPerson1(self, inst):
         self.assertEqual(inst.gender, "female")
         self.assertEqual(inst.id, "f001")
         self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.840.1.113883.2.4.6.3")
@@ -42,13 +44,16 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.telecom[1].system, "email")
         self.assertEqual(inst.telecom[1].use, "home")
         self.assertEqual(inst.telecom[1].value, "s.abels@kpn.nl")
-        self.assertEqual(inst.text.div, "<div>\n     Sarah Abels\n    </div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testRelatedPerson2(self):
         inst = self.instantiate_from("relatedperson-example-f002-ariadne.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e38ea10> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a RelatedPerson instance")
+        self.implRelatedPerson2(inst)
+        inst2 = relatedperson.RelatedPerson(inst.as_json())
+        self.implRelatedPerson2(inst2)
     
+    def implRelatedPerson2(self, inst):
         self.assertEqual(inst.gender, "female")
         self.assertEqual(inst.id, "f002")
         self.assertEqual(inst.name.text, "Ariadne Bor-Jansma")
@@ -58,13 +63,16 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.telecom[0].system, "phone")
         self.assertEqual(inst.telecom[0].use, "home")
         self.assertEqual(inst.telecom[0].value, "+31201234567")
-        self.assertEqual(inst.text.div, "<div>\n     Ariadne Bor-Jansma\n    </div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testRelatedPerson3(self):
         inst = self.instantiate_from("relatedperson-example-peter.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e38ea10> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a RelatedPerson instance")
+        self.implRelatedPerson3(inst)
+        inst2 = relatedperson.RelatedPerson(inst.as_json())
+        self.implRelatedPerson3(inst2)
     
+    def implRelatedPerson3(self, inst):
         self.assertEqual(inst.address.city, "PleasantVille")
         self.assertEqual(inst.address.line[0], "534 Erewhon St")
         self.assertEqual(inst.address.postalCode, "3999")
@@ -77,7 +85,7 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.name.given[1], "James")
         self.assertEqual(inst.name.use, "official")
         self.assertEqual(inst.period.start.date, FHIRDate("2012-03-11").date)
-        self.assertEqual(inst.period.start.isostring, "2012-03-11")
+        self.assertEqual(inst.period.start.as_json(), "2012-03-11")
         self.assertEqual(inst.photo[0].contentType, "image/jpeg")
         self.assertEqual(inst.photo[0].url, "Binary/f012")
         self.assertEqual(inst.relationship.coding[0].code, "owner")
@@ -89,10 +97,15 @@ class RelatedPersonTests(unittest.TestCase):
     
     def testRelatedPerson4(self):
         inst = self.instantiate_from("relatedperson-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e38ea10> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a RelatedPerson instance")
+        self.implRelatedPerson4(inst)
+        inst2 = relatedperson.RelatedPerson(inst.as_json())
+        self.implRelatedPerson4(inst2)
     
+    def implRelatedPerson4(self, inst):
         self.assertEqual(inst.address.city, "Paris")
         self.assertEqual(inst.address.country, "FRA")
+        self.assertEqual(inst.address.line[0], "43, Place du Marché Sainte Catherine")
         self.assertEqual(inst.address.postalCode, "75004")
         self.assertEqual(inst.gender, "female")
         self.assertEqual(inst.id, "benedicte")
@@ -101,6 +114,8 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "usual")
         self.assertEqual(inst.identifier[0].value, "272117510400399")
         self.assertEqual(inst.name.family[0], "du")
+        self.assertEqual(inst.name.family[1], "Marché")
+        self.assertEqual(inst.name.given[0], "Bénédicte")
         self.assertEqual(inst.photo[0].contentType, "image/jpeg")
         self.assertEqual(inst.photo[0].url, "Binary/f016")
         self.assertEqual(inst.relationship.coding[0].code, "partner")

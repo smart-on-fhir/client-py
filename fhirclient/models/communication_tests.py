@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class CommunicationTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = communication.Communication(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return communication.Communication(js)
     
     def testCommunication1(self):
         inst = self.instantiate_from("communication-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e28bed0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Communication instance")
+        self.implCommunication1(inst)
+        inst2 = communication.Communication(inst.as_json())
+        self.implCommunication1(inst2)
     
+    def implCommunication1(self, inst):
         self.assertEqual(inst.category.coding[0].code, "Alert")
         self.assertEqual(inst.category.coding[0].system, "http://acme.org/messagetypes")
         self.assertEqual(inst.category.text, "Alert")
@@ -35,15 +37,19 @@ class CommunicationTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].value, "2345678901")
         self.assertEqual(inst.payload[0].contentString, "Patient 1 has a very high serum potassium value (7.2 mmol/L on 2014-Dec-12 at 5:55 pm)")
         self.assertEqual(inst.sent.date, FHIRDate("2014-12-12T18:01:10-08:00").date)
-        self.assertEqual(inst.sent.isostring, "2014-12-12T18:01:10-08:00")
+        self.assertEqual(inst.sent.as_json(), "2014-12-12T18:01:10-08:00")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.div, "<div>Patient has very high serum potassium</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testCommunication2(self):
         inst = self.instantiate_from("communication-qicore-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e28bed0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Communication instance")
+        self.implCommunication2(inst)
+        inst2 = communication.Communication(inst.as_json())
+        self.implCommunication2(inst2)
     
+    def implCommunication2(self, inst):
         self.assertEqual(inst.category.coding[0].code, "Alert")
         self.assertEqual(inst.category.coding[0].system, "http://acme.org/messagetypes")
         self.assertEqual(inst.category.text, "Alert")
@@ -57,7 +63,7 @@ class CommunicationTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].value, "2345678901")
         self.assertEqual(inst.payload[0].contentString, "Patient 1 has a very high serum potassium value (7.2 mmol/L on 2014-Dec-12 at 5:55 pm)")
         self.assertEqual(inst.sent.date, FHIRDate("2014-12-12T18:01:10-08:00").date)
-        self.assertEqual(inst.sent.isostring, "2014-12-12T18:01:10-08:00")
+        self.assertEqual(inst.sent.as_json(), "2014-12-12T18:01:10-08:00")
         self.assertEqual(inst.status, "suspended")
         self.assertEqual(inst.text.div, "<div>Patient has very high serum potassium</div>")
         self.assertEqual(inst.text.status, "generated")

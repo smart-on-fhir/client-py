@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Coding) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Coding) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -40,16 +40,14 @@ class Coding(fhirelement.FHIRElement):
         
         super(Coding, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Coding, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'display' in jsondict:
-            self.display = jsondict['display']
-        if 'primary' in jsondict:
-            self.primary = jsondict['primary']
-        if 'system' in jsondict:
-            self.system = jsondict['system']
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(Coding, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("display", "display", str, False),
+            ("primary", "primary", bool, False),
+            ("system", "system", str, False),
+            ("version", "version", str, False),
+        ])
+        return js
 

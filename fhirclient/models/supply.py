@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Supply) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Supply) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -53,20 +53,17 @@ class Supply(domainresource.DomainResource):
         
         super(Supply, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Supply, self).update_with_json(jsondict)
-        if 'dispense' in jsondict:
-            self.dispense = SupplyDispense.with_json_and_owner(jsondict['dispense'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'kind' in jsondict:
-            self.kind = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['kind'], self)
-        if 'orderedItem' in jsondict:
-            self.orderedItem = fhirreference.FHIRReference.with_json_and_owner(jsondict['orderedItem'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
+    def elementProperties(self):
+        js = super(Supply, self).elementProperties()
+        js.extend([
+            ("dispense", "dispense", SupplyDispense, True),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("kind", "kind", codeableconcept.CodeableConcept, False),
+            ("orderedItem", "orderedItem", fhirreference.FHIRReference, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+        ])
+        return js
 
 
 class SupplyDispense(fhirelement.FHIRElement):
@@ -124,26 +121,19 @@ class SupplyDispense(fhirelement.FHIRElement):
         
         super(SupplyDispense, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SupplyDispense, self).update_with_json(jsondict)
-        if 'destination' in jsondict:
-            self.destination = fhirreference.FHIRReference.with_json_and_owner(jsondict['destination'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'receiver' in jsondict:
-            self.receiver = fhirreference.FHIRReference.with_json_and_owner(jsondict['receiver'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'suppliedItem' in jsondict:
-            self.suppliedItem = fhirreference.FHIRReference.with_json_and_owner(jsondict['suppliedItem'], self)
-        if 'supplier' in jsondict:
-            self.supplier = fhirreference.FHIRReference.with_json_and_owner(jsondict['supplier'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
-        if 'whenHandedOver' in jsondict:
-            self.whenHandedOver = fhirdate.FHIRDate.with_json_and_owner(jsondict['whenHandedOver'], self)
-        if 'whenPrepared' in jsondict:
-            self.whenPrepared = period.Period.with_json_and_owner(jsondict['whenPrepared'], self)
+    def elementProperties(self):
+        js = super(SupplyDispense, self).elementProperties()
+        js.extend([
+            ("destination", "destination", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("receiver", "receiver", fhirreference.FHIRReference, True),
+            ("status", "status", str, False),
+            ("suppliedItem", "suppliedItem", fhirreference.FHIRReference, False),
+            ("supplier", "supplier", fhirreference.FHIRReference, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("whenHandedOver", "whenHandedOver", fhirdate.FHIRDate, False),
+            ("whenPrepared", "whenPrepared", period.Period, False),
+        ])
+        return js
 

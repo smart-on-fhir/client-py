@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class MedicationTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = medication.Medication(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return medication.Medication(js)
     
     def testMedication1(self):
         inst = self.instantiate_from("medication-example-f001-combivent.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3226d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Medication instance")
+        self.implMedication1(inst)
+        inst2 = medication.Medication(inst.as_json())
+        self.implMedication1(inst2)
     
+    def implMedication1(self, inst):
         self.assertEqual(inst.code.coding[0].code, "320442002")
         self.assertEqual(inst.code.coding[0].display, "Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
@@ -45,8 +47,12 @@ class MedicationTests(unittest.TestCase):
     
     def testMedication2(self):
         inst = self.instantiate_from("medication-example-f002-crestor.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3226d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Medication instance")
+        self.implMedication2(inst)
+        inst2 = medication.Medication(inst.as_json())
+        self.implMedication2(inst2)
     
+    def implMedication2(self, inst):
         self.assertEqual(inst.code.coding[0].code, "408036003")
         self.assertEqual(inst.code.coding[0].display, "Rosuvastatin 10mg tablet")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
@@ -61,8 +67,12 @@ class MedicationTests(unittest.TestCase):
     
     def testMedication3(self):
         inst = self.instantiate_from("medication-example-f003-tolbutamide.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3226d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Medication instance")
+        self.implMedication3(inst)
+        inst2 = medication.Medication(inst.as_json())
+        self.implMedication3(inst2)
     
+    def implMedication3(self, inst):
         self.assertEqual(inst.code.coding[0].code, "325267004")
         self.assertEqual(inst.code.coding[0].display, "Tolbutamide 500mg tablet")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
@@ -77,8 +87,12 @@ class MedicationTests(unittest.TestCase):
     
     def testMedication4(self):
         inst = self.instantiate_from("medication-example-f004-metoprolol.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3226d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Medication instance")
+        self.implMedication4(inst)
+        inst2 = medication.Medication(inst.as_json())
+        self.implMedication4(inst2)
     
+    def implMedication4(self, inst):
         self.assertEqual(inst.code.coding[0].code, "318475005")
         self.assertEqual(inst.code.coding[0].display, "Metoprolol tartrate 50mg tablet")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
@@ -93,8 +107,12 @@ class MedicationTests(unittest.TestCase):
     
     def testMedication5(self):
         inst = self.instantiate_from("medication-example-f005-enalapril.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3226d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Medication instance")
+        self.implMedication5(inst)
+        inst2 = medication.Medication(inst.as_json())
+        self.implMedication5(inst2)
     
+    def implMedication5(self, inst):
         self.assertEqual(inst.code.coding[0].code, "318851002")
         self.assertEqual(inst.code.coding[0].display, "Enalapril maleate 5mg tablet")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
@@ -109,8 +127,12 @@ class MedicationTests(unittest.TestCase):
     
     def testMedication6(self):
         inst = self.instantiate_from("medication-example-f201-salmeterol.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3226d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Medication instance")
+        self.implMedication6(inst)
+        inst2 = medication.Medication(inst.as_json())
+        self.implMedication6(inst2)
     
+    def implMedication6(self, inst):
         self.assertEqual(inst.code.coding[0].code, "411106009")
         self.assertEqual(inst.code.coding[0].display, "25ug Flutacisone + 250ug Salmeterol")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
@@ -137,8 +159,12 @@ class MedicationTests(unittest.TestCase):
     
     def testMedication7(self):
         inst = self.instantiate_from("medication-example-f202-flucloxacilline.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3226d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Medication instance")
+        self.implMedication7(inst)
+        inst2 = medication.Medication(inst.as_json())
+        self.implMedication7(inst2)
     
+    def implMedication7(self, inst):
         self.assertEqual(inst.code.coding[0].code, "387544009")
         self.assertEqual(inst.code.coding[0].display, "Flucloxacillin")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
@@ -153,8 +179,12 @@ class MedicationTests(unittest.TestCase):
     
     def testMedication8(self):
         inst = self.instantiate_from("medication-example-f203-paracetamol.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e3226d0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Medication instance")
+        self.implMedication8(inst)
+        inst2 = medication.Medication(inst.as_json())
+        self.implMedication8(inst2)
     
+    def implMedication8(self, inst):
         self.assertEqual(inst.code.coding[0].code, "387517004")
         self.assertEqual(inst.code.coding[0].display, "Paracetamol")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class MedicationDispenseTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = medicationdispense.MedicationDispense(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return medicationdispense.MedicationDispense(js)
     
     def testMedicationDispense1(self):
         inst = self.instantiate_from("medicationdispense-qicore-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e32ac10> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MedicationDispense instance")
+        self.implMedicationDispense1(inst)
+        inst2 = medicationdispense.MedicationDispense(inst.as_json())
+        self.implMedicationDispense1(inst2)
     
+    def implMedicationDispense1(self, inst):
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.code, "ml")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.units, "ml")
@@ -63,9 +65,9 @@ class MedicationDispenseTests(unittest.TestCase):
         self.assertEqual(inst.extension[0].valueInteger, 0)
         self.assertEqual(inst.extension[1].url, "http://hl7.org/fhir/StructureDefinition/medicationdispense-validityPeriod")
         self.assertEqual(inst.extension[1].valuePeriod.end.date, FHIRDate("2012-06-10").date)
-        self.assertEqual(inst.extension[1].valuePeriod.end.isostring, "2012-06-10")
+        self.assertEqual(inst.extension[1].valuePeriod.end.as_json(), "2012-06-10")
         self.assertEqual(inst.extension[1].valuePeriod.start.date, FHIRDate("2012-05-30").date)
-        self.assertEqual(inst.extension[1].valuePeriod.start.isostring, "2012-05-30")
+        self.assertEqual(inst.extension[1].valuePeriod.start.as_json(), "2012-05-30")
         self.assertEqual(inst.id, "qicore")
         self.assertEqual(inst.quantity.code, "ml")
         self.assertEqual(inst.quantity.system, "http://unitsofmeasure.org")
@@ -77,7 +79,7 @@ class MedicationDispenseTests(unittest.TestCase):
         self.assertEqual(inst.substitution.type.coding[0].system, "http://example.org/MedDispSubType")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.whenHandedOver.date, FHIRDate("2012-05-31T10:20:00+00:00").date)
-        self.assertEqual(inst.whenHandedOver.isostring, "2012-05-31T10:20:00+00:00")
+        self.assertEqual(inst.whenHandedOver.as_json(), "2012-05-31T10:20:00+00:00")
         self.assertEqual(inst.whenPrepared.date, FHIRDate("2012-05-30T16:20:00+00:00").date)
-        self.assertEqual(inst.whenPrepared.isostring, "2012-05-30T16:20:00+00:00")
+        self.assertEqual(inst.whenPrepared.as_json(), "2012-05-30T16:20:00+00:00")
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -79,34 +79,24 @@ class SearchParameter(domainresource.DomainResource):
         
         super(SearchParameter, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SearchParameter, self).update_with_json(jsondict)
-        if 'base' in jsondict:
-            self.base = jsondict['base']
-        if 'contact' in jsondict:
-            self.contact = SearchParameterContact.with_json_and_owner(jsondict['contact'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'experimental' in jsondict:
-            self.experimental = jsondict['experimental']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'publisher' in jsondict:
-            self.publisher = jsondict['publisher']
-        if 'requirements' in jsondict:
-            self.requirements = jsondict['requirements']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'target' in jsondict:
-            self.target = jsondict['target']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
-        if 'xpath' in jsondict:
-            self.xpath = jsondict['xpath']
+    def elementProperties(self):
+        js = super(SearchParameter, self).elementProperties()
+        js.extend([
+            ("base", "base", str, False),
+            ("contact", "contact", SearchParameterContact, True),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("experimental", "experimental", bool, False),
+            ("name", "name", str, False),
+            ("publisher", "publisher", str, False),
+            ("requirements", "requirements", str, False),
+            ("status", "status", str, False),
+            ("target", "target", str, True),
+            ("type", "type", str, False),
+            ("url", "url", str, False),
+            ("xpath", "xpath", str, False),
+        ])
+        return js
 
 
 class SearchParameterContact(fhirelement.FHIRElement):
@@ -131,10 +121,11 @@ class SearchParameterContact(fhirelement.FHIRElement):
         
         super(SearchParameterContact, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SearchParameterContact, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(SearchParameterContact, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 

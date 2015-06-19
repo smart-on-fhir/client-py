@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class MessageHeaderTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = messageheader.MessageHeader(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return messageheader.MessageHeader(js)
     
     def testMessageHeader1(self):
         inst = self.instantiate_from("messageheader-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e33bcd0> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a MessageHeader instance")
+        self.implMessageHeader1(inst)
+        inst2 = messageheader.MessageHeader(inst.as_json())
+        self.implMessageHeader1(inst2)
     
+    def implMessageHeader1(self, inst):
         self.assertEqual(inst.destination[0].endpoint, "llp:10.11.12.14:5432")
         self.assertEqual(inst.destination[0].name, "Acme Message Gateway")
         self.assertEqual(inst.event.code, "admin-update")
@@ -40,8 +42,7 @@ class MessageHeaderTests(unittest.TestCase):
         self.assertEqual(inst.source.name, "Acme Central Patient Registry")
         self.assertEqual(inst.source.software, "FooBar Patient Manager")
         self.assertEqual(inst.source.version, "3.1.45.AABB")
-        self.assertEqual(inst.text.div, "<div>\n      \n      <p>Update Person resource for Peter James CHALMERS (Jim), MRN: 12345 (Acme Healthcare)</p>\n    \n    </div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.timestamp.date, FHIRDate("2012-01-04T09:10:14Z").date)
-        self.assertEqual(inst.timestamp.isostring, "2012-01-04T09:10:14Z")
+        self.assertEqual(inst.timestamp.as_json(), "2012-01-04T09:10:14Z")
 

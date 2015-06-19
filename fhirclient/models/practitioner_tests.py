@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class PractitionerTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = practitioner.Practitioner(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return practitioner.Practitioner(js)
     
     def testPractitioner1(self):
         inst = self.instantiate_from("pract-uslab-example1.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e36de90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
+        self.implPractitioner1(inst)
+        inst2 = practitioner.Practitioner(inst.as_json())
+        self.implPractitioner1(inst2)
     
+    def implPractitioner1(self, inst):
         self.assertEqual(inst.id, "uslab-example1")
         self.assertEqual(inst.identifier[0].system, "https://nppes.cms.hhs.gov/NPPES/")
         self.assertEqual(inst.identifier[0].use, "official")
@@ -40,8 +42,12 @@ class PractitionerTests(unittest.TestCase):
     
     def testPractitioner2(self):
         inst = self.instantiate_from("pract-uslab-example2.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e36de90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
+        self.implPractitioner2(inst)
+        inst2 = practitioner.Practitioner(inst.as_json())
+        self.implPractitioner2(inst2)
     
+    def implPractitioner2(self, inst):
         self.assertEqual(inst.address[0].city, "Boston")
         self.assertEqual(inst.address[0].country, "USA")
         self.assertEqual(inst.address[0].extension[0].extension[0].url, "http://example.org//iso21090-SC-coding")
@@ -69,8 +75,12 @@ class PractitionerTests(unittest.TestCase):
     
     def testPractitioner3(self):
         inst = self.instantiate_from("pract-uslab-example3.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e36de90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
+        self.implPractitioner3(inst)
+        inst2 = practitioner.Practitioner(inst.as_json())
+        self.implPractitioner3(inst2)
     
+    def implPractitioner3(self, inst):
         self.assertEqual(inst.id, "uslab-example3")
         self.assertEqual(inst.identifier[0].system, "https://nppes.cms.hhs.gov/NPPES/")
         self.assertEqual(inst.identifier[0].use, "official")
@@ -85,15 +95,19 @@ class PractitionerTests(unittest.TestCase):
     
     def testPractitioner4(self):
         inst = self.instantiate_from("practitioner-example-f001-evdb.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e36de90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
+        self.implPractitioner4(inst)
+        inst2 = practitioner.Practitioner(inst.as_json())
+        self.implPractitioner4(inst2)
     
+    def implPractitioner4(self, inst):
         self.assertEqual(inst.address[0].city, "Den Burg")
         self.assertEqual(inst.address[0].country, "NLD")
         self.assertEqual(inst.address[0].line[0], "Galapagosweg 91")
         self.assertEqual(inst.address[0].postalCode, "9105 PZ")
         self.assertEqual(inst.address[0].use, "work")
         self.assertEqual(inst.birthDate.date, FHIRDate("1975-12-07").date)
-        self.assertEqual(inst.birthDate.isostring, "1975-12-07")
+        self.assertEqual(inst.birthDate.as_json(), "1975-12-07")
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "f001")
         self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.528.1.1007.3.1")
@@ -127,15 +141,19 @@ class PractitionerTests(unittest.TestCase):
     
     def testPractitioner5(self):
         inst = self.instantiate_from("practitioner-example-f002-pv.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e36de90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
+        self.implPractitioner5(inst)
+        inst2 = practitioner.Practitioner(inst.as_json())
+        self.implPractitioner5(inst2)
     
+    def implPractitioner5(self, inst):
         self.assertEqual(inst.address[0].city, "Den Burg")
         self.assertEqual(inst.address[0].country, "NLD")
         self.assertEqual(inst.address[0].line[0], "Galapagosweg 91")
         self.assertEqual(inst.address[0].postalCode, "9105 PZ")
         self.assertEqual(inst.address[0].use, "work")
         self.assertEqual(inst.birthDate.date, FHIRDate("1979-04-29").date)
-        self.assertEqual(inst.birthDate.isostring, "1979-04-29")
+        self.assertEqual(inst.birthDate.as_json(), "1979-04-29")
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "f002")
         self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.528.1.1007.3.1")
@@ -169,15 +187,19 @@ class PractitionerTests(unittest.TestCase):
     
     def testPractitioner6(self):
         inst = self.instantiate_from("practitioner-example-f003-mv.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e36de90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
+        self.implPractitioner6(inst)
+        inst2 = practitioner.Practitioner(inst.as_json())
+        self.implPractitioner6(inst2)
     
+    def implPractitioner6(self, inst):
         self.assertEqual(inst.address[0].city, "Amsterdam")
         self.assertEqual(inst.address[0].country, "NLD")
         self.assertEqual(inst.address[0].line[0], "Galapagosweg 91")
         self.assertEqual(inst.address[0].postalCode, "1105 AZ")
         self.assertEqual(inst.address[0].use, "work")
         self.assertEqual(inst.birthDate.date, FHIRDate("1963-07-01").date)
-        self.assertEqual(inst.birthDate.isostring, "1963-07-01")
+        self.assertEqual(inst.birthDate.as_json(), "1963-07-01")
         self.assertEqual(inst.communication[0].coding[0].code, "nl")
         self.assertEqual(inst.communication[0].coding[0].display, "Dutch")
         self.assertEqual(inst.communication[0].coding[0].system, "urn:oid:2.16.840.1.113883.6.121")
@@ -214,15 +236,19 @@ class PractitionerTests(unittest.TestCase):
     
     def testPractitioner7(self):
         inst = self.instantiate_from("practitioner-example-f004-rb.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e36de90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
+        self.implPractitioner7(inst)
+        inst2 = practitioner.Practitioner(inst.as_json())
+        self.implPractitioner7(inst2)
     
+    def implPractitioner7(self, inst):
         self.assertEqual(inst.address[0].city, "Amsterdam")
         self.assertEqual(inst.address[0].country, "NLD")
         self.assertEqual(inst.address[0].line[0], "Galapagosweg 91")
         self.assertEqual(inst.address[0].postalCode, "1105 AZ")
         self.assertEqual(inst.address[0].use, "work")
         self.assertEqual(inst.birthDate.date, FHIRDate("1980-02-04").date)
-        self.assertEqual(inst.birthDate.isostring, "1980-02-04")
+        self.assertEqual(inst.birthDate.as_json(), "1980-02-04")
         self.assertEqual(inst.communication[0].coding[0].code, "nl")
         self.assertEqual(inst.communication[0].coding[0].display, "Netherlands")
         self.assertEqual(inst.communication[0].coding[0].system, "urn:oid:2.16.840.1.113883.6.121")
@@ -260,15 +286,19 @@ class PractitionerTests(unittest.TestCase):
     
     def testPractitioner8(self):
         inst = self.instantiate_from("practitioner-example-f005-al.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e36de90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
+        self.implPractitioner8(inst)
+        inst2 = practitioner.Practitioner(inst.as_json())
+        self.implPractitioner8(inst2)
     
+    def implPractitioner8(self, inst):
         self.assertEqual(inst.address[0].city, "Amsterdam")
         self.assertEqual(inst.address[0].country, "NLD")
         self.assertEqual(inst.address[0].line[0], "Galapagosweg 9")
         self.assertEqual(inst.address[0].postalCode, "1105 AZ")
         self.assertEqual(inst.address[0].use, "work")
         self.assertEqual(inst.birthDate.date, FHIRDate("1959-03-11").date)
-        self.assertEqual(inst.birthDate.isostring, "1959-03-11")
+        self.assertEqual(inst.birthDate.as_json(), "1959-03-11")
         self.assertEqual(inst.communication[0].coding[0].code, "fr")
         self.assertEqual(inst.communication[0].coding[0].display, "France")
         self.assertEqual(inst.communication[0].coding[0].system, "urn:oid:2.16.840.1.113883.6.121")
@@ -305,15 +335,19 @@ class PractitionerTests(unittest.TestCase):
     
     def testPractitioner9(self):
         inst = self.instantiate_from("practitioner-example-f006-rvdb.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e36de90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
+        self.implPractitioner9(inst)
+        inst2 = practitioner.Practitioner(inst.as_json())
+        self.implPractitioner9(inst2)
     
+    def implPractitioner9(self, inst):
         self.assertEqual(inst.address[0].city, "Den Burg")
         self.assertEqual(inst.address[0].country, "NLD")
         self.assertEqual(inst.address[0].line[0], "Galapagosweg 91")
         self.assertEqual(inst.address[0].postalCode, "9105 PZ")
         self.assertEqual(inst.address[0].use, "work")
         self.assertEqual(inst.birthDate.date, FHIRDate("1975-12-07").date)
-        self.assertEqual(inst.birthDate.isostring, "1975-12-07")
+        self.assertEqual(inst.birthDate.as_json(), "1975-12-07")
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "f006")
         self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.528.1.1007.3.1")
@@ -347,15 +381,19 @@ class PractitionerTests(unittest.TestCase):
     
     def testPractitioner10(self):
         inst = self.instantiate_from("practitioner-example-f007-sh.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e36de90> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
+        self.implPractitioner10(inst)
+        inst2 = practitioner.Practitioner(inst.as_json())
+        self.implPractitioner10(inst2)
     
+    def implPractitioner10(self, inst):
         self.assertEqual(inst.address[0].city, "Den Burg")
         self.assertEqual(inst.address[0].country, "NLD")
         self.assertEqual(inst.address[0].line[0], "Galapagosweg 91")
         self.assertEqual(inst.address[0].postalCode, "9105 PZ")
         self.assertEqual(inst.address[0].use, "work")
         self.assertEqual(inst.birthDate.date, FHIRDate("1971-11-07").date)
-        self.assertEqual(inst.birthDate.isostring, "1971-11-07")
+        self.assertEqual(inst.birthDate.as_json(), "1971-11-07")
         self.assertEqual(inst.gender, "female")
         self.assertEqual(inst.id, "f007")
         self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.528.1.1007.3.1")

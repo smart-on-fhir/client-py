@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -102,44 +102,29 @@ class ConceptMap(domainresource.DomainResource):
         
         super(ConceptMap, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConceptMap, self).update_with_json(jsondict)
-        if 'contact' in jsondict:
-            self.contact = ConceptMapContact.with_json_and_owner(jsondict['contact'], self)
-        if 'copyright' in jsondict:
-            self.copyright = jsondict['copyright']
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'element' in jsondict:
-            self.element = ConceptMapElement.with_json_and_owner(jsondict['element'], self)
-        if 'experimental' in jsondict:
-            self.experimental = jsondict['experimental']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'publisher' in jsondict:
-            self.publisher = jsondict['publisher']
-        if 'requirements' in jsondict:
-            self.requirements = jsondict['requirements']
-        if 'sourceReference' in jsondict:
-            self.sourceReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['sourceReference'], self)
-        if 'sourceUri' in jsondict:
-            self.sourceUri = jsondict['sourceUri']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'targetReference' in jsondict:
-            self.targetReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['targetReference'], self)
-        if 'targetUri' in jsondict:
-            self.targetUri = jsondict['targetUri']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
-        if 'useContext' in jsondict:
-            self.useContext = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['useContext'], self)
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(ConceptMap, self).elementProperties()
+        js.extend([
+            ("contact", "contact", ConceptMapContact, True),
+            ("copyright", "copyright", str, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("element", "element", ConceptMapElement, True),
+            ("experimental", "experimental", bool, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("name", "name", str, False),
+            ("publisher", "publisher", str, False),
+            ("requirements", "requirements", str, False),
+            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False),
+            ("sourceUri", "sourceUri", str, False),
+            ("status", "status", str, False),
+            ("targetReference", "targetReference", fhirreference.FHIRReference, False),
+            ("targetUri", "targetUri", str, False),
+            ("url", "url", str, False),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
+            ("version", "version", str, False),
+        ])
+        return js
 
 
 class ConceptMapContact(fhirelement.FHIRElement):
@@ -164,12 +149,13 @@ class ConceptMapContact(fhirelement.FHIRElement):
         
         super(ConceptMapContact, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConceptMapContact, self).update_with_json(jsondict)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(ConceptMapContact, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class ConceptMapElement(fhirelement.FHIRElement):
@@ -203,16 +189,15 @@ class ConceptMapElement(fhirelement.FHIRElement):
         
         super(ConceptMapElement, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConceptMapElement, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'codeSystem' in jsondict:
-            self.codeSystem = jsondict['codeSystem']
-        if 'dependsOn' in jsondict:
-            self.dependsOn = ConceptMapElementDependsOn.with_json_and_owner(jsondict['dependsOn'], self)
-        if 'map' in jsondict:
-            self.map = ConceptMapElementMap.with_json_and_owner(jsondict['map'], self)
+    def elementProperties(self):
+        js = super(ConceptMapElement, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("codeSystem", "codeSystem", str, False),
+            ("dependsOn", "dependsOn", ConceptMapElementDependsOn, True),
+            ("map", "map", ConceptMapElementMap, True),
+        ])
+        return js
 
 
 class ConceptMapElementDependsOn(fhirelement.FHIRElement):
@@ -243,14 +228,14 @@ class ConceptMapElementDependsOn(fhirelement.FHIRElement):
         
         super(ConceptMapElementDependsOn, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConceptMapElementDependsOn, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'codeSystem' in jsondict:
-            self.codeSystem = jsondict['codeSystem']
-        if 'element' in jsondict:
-            self.element = jsondict['element']
+    def elementProperties(self):
+        js = super(ConceptMapElementDependsOn, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("codeSystem", "codeSystem", str, False),
+            ("element", "element", str, False),
+        ])
+        return js
 
 
 class ConceptMapElementMap(fhirelement.FHIRElement):
@@ -277,27 +262,25 @@ class ConceptMapElementMap(fhirelement.FHIRElement):
         """ Description of status/issues in mapping.
         Type `str`. """
         
-        self.dependsOn = None
-        """ Other elements required for this mapping (from context).
-        List of `ConceptMapElementDependsOn` items (represented as `dict` in JSON). """
-        
         self.equivalence = None
         """ equivalent | equal | wider | subsumes | narrower | specialises |
         inexact | unmatched | disjoint.
         Type `str`. """
         
+        self.product = None
+        """ Other concepts that this mapping also produces.
+        List of `ConceptMapElementDependsOn` items (represented as `dict` in JSON). """
+        
         super(ConceptMapElementMap, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConceptMapElementMap, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'codeSystem' in jsondict:
-            self.codeSystem = jsondict['codeSystem']
-        if 'comments' in jsondict:
-            self.comments = jsondict['comments']
-        if 'dependsOn' in jsondict:
-            self.dependsOn = ConceptMapElementDependsOn.with_json_and_owner(jsondict['dependsOn'], self)
-        if 'equivalence' in jsondict:
-            self.equivalence = jsondict['equivalence']
+    def elementProperties(self):
+        js = super(ConceptMapElementMap, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("codeSystem", "codeSystem", str, False),
+            ("comments", "comments", str, False),
+            ("equivalence", "equivalence", str, False),
+            ("product", "product", ConceptMapElementDependsOn, True),
+        ])
+        return js
 

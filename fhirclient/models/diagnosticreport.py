@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -108,44 +108,29 @@ class DiagnosticReport(domainresource.DomainResource):
         
         super(DiagnosticReport, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DiagnosticReport, self).update_with_json(jsondict)
-        if 'codedDiagnosis' in jsondict:
-            self.codedDiagnosis = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['codedDiagnosis'], self)
-        if 'conclusion' in jsondict:
-            self.conclusion = jsondict['conclusion']
-        if 'diagnosticDateTime' in jsondict:
-            self.diagnosticDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['diagnosticDateTime'], self)
-        if 'diagnosticPeriod' in jsondict:
-            self.diagnosticPeriod = period.Period.with_json_and_owner(jsondict['diagnosticPeriod'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'image' in jsondict:
-            self.image = DiagnosticReportImage.with_json_and_owner(jsondict['image'], self)
-        if 'imagingStudy' in jsondict:
-            self.imagingStudy = fhirreference.FHIRReference.with_json_and_owner(jsondict['imagingStudy'], self)
-        if 'issued' in jsondict:
-            self.issued = fhirdate.FHIRDate.with_json_and_owner(jsondict['issued'], self)
-        if 'name' in jsondict:
-            self.name = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['name'], self)
-        if 'performer' in jsondict:
-            self.performer = fhirreference.FHIRReference.with_json_and_owner(jsondict['performer'], self)
-        if 'presentedForm' in jsondict:
-            self.presentedForm = attachment.Attachment.with_json_and_owner(jsondict['presentedForm'], self)
-        if 'requestDetail' in jsondict:
-            self.requestDetail = fhirreference.FHIRReference.with_json_and_owner(jsondict['requestDetail'], self)
-        if 'result' in jsondict:
-            self.result = fhirreference.FHIRReference.with_json_and_owner(jsondict['result'], self)
-        if 'serviceCategory' in jsondict:
-            self.serviceCategory = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['serviceCategory'], self)
-        if 'specimen' in jsondict:
-            self.specimen = fhirreference.FHIRReference.with_json_and_owner(jsondict['specimen'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
+    def elementProperties(self):
+        js = super(DiagnosticReport, self).elementProperties()
+        js.extend([
+            ("codedDiagnosis", "codedDiagnosis", codeableconcept.CodeableConcept, True),
+            ("conclusion", "conclusion", str, False),
+            ("diagnosticDateTime", "diagnosticDateTime", fhirdate.FHIRDate, False),
+            ("diagnosticPeriod", "diagnosticPeriod", period.Period, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("image", "image", DiagnosticReportImage, True),
+            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True),
+            ("issued", "issued", fhirdate.FHIRDate, False),
+            ("name", "name", codeableconcept.CodeableConcept, False),
+            ("performer", "performer", fhirreference.FHIRReference, False),
+            ("presentedForm", "presentedForm", attachment.Attachment, True),
+            ("requestDetail", "requestDetail", fhirreference.FHIRReference, True),
+            ("result", "result", fhirreference.FHIRReference, True),
+            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False),
+            ("specimen", "specimen", fhirreference.FHIRReference, True),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class DiagnosticReportImage(fhirelement.FHIRElement):
@@ -172,10 +157,11 @@ class DiagnosticReportImage(fhirelement.FHIRElement):
         
         super(DiagnosticReportImage, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DiagnosticReportImage, self).update_with_json(jsondict)
-        if 'comment' in jsondict:
-            self.comment = jsondict['comment']
-        if 'link' in jsondict:
-            self.link = fhirreference.FHIRReference.with_json_and_owner(jsondict['link'], self)
+    def elementProperties(self):
+        js = super(DiagnosticReportImage, self).elementProperties()
+        js.extend([
+            ("comment", "comment", str, False),
+            ("link", "link", fhirreference.FHIRReference, False),
+        ])
+        return js
 

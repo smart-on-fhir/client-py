@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -107,46 +107,30 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         super(FamilyMemberHistory, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(FamilyMemberHistory, self).update_with_json(jsondict)
-        if 'ageAge' in jsondict:
-            self.ageAge = age.Age.with_json_and_owner(jsondict['ageAge'], self)
-        if 'ageRange' in jsondict:
-            self.ageRange = range.Range.with_json_and_owner(jsondict['ageRange'], self)
-        if 'ageString' in jsondict:
-            self.ageString = jsondict['ageString']
-        if 'bornDate' in jsondict:
-            self.bornDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['bornDate'], self)
-        if 'bornPeriod' in jsondict:
-            self.bornPeriod = period.Period.with_json_and_owner(jsondict['bornPeriod'], self)
-        if 'bornString' in jsondict:
-            self.bornString = jsondict['bornString']
-        if 'condition' in jsondict:
-            self.condition = FamilyMemberHistoryCondition.with_json_and_owner(jsondict['condition'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'deceasedAge' in jsondict:
-            self.deceasedAge = age.Age.with_json_and_owner(jsondict['deceasedAge'], self)
-        if 'deceasedBoolean' in jsondict:
-            self.deceasedBoolean = jsondict['deceasedBoolean']
-        if 'deceasedDate' in jsondict:
-            self.deceasedDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['deceasedDate'], self)
-        if 'deceasedRange' in jsondict:
-            self.deceasedRange = range.Range.with_json_and_owner(jsondict['deceasedRange'], self)
-        if 'deceasedString' in jsondict:
-            self.deceasedString = jsondict['deceasedString']
-        if 'gender' in jsondict:
-            self.gender = jsondict['gender']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'note' in jsondict:
-            self.note = jsondict['note']
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'relationship' in jsondict:
-            self.relationship = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['relationship'], self)
+    def elementProperties(self):
+        js = super(FamilyMemberHistory, self).elementProperties()
+        js.extend([
+            ("ageAge", "ageAge", age.Age, False),
+            ("ageRange", "ageRange", range.Range, False),
+            ("ageString", "ageString", str, False),
+            ("bornDate", "bornDate", fhirdate.FHIRDate, False),
+            ("bornPeriod", "bornPeriod", period.Period, False),
+            ("bornString", "bornString", str, False),
+            ("condition", "condition", FamilyMemberHistoryCondition, True),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("deceasedAge", "deceasedAge", age.Age, False),
+            ("deceasedBoolean", "deceasedBoolean", bool, False),
+            ("deceasedDate", "deceasedDate", fhirdate.FHIRDate, False),
+            ("deceasedRange", "deceasedRange", range.Range, False),
+            ("deceasedString", "deceasedString", str, False),
+            ("gender", "gender", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("name", "name", str, False),
+            ("note", "note", str, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("relationship", "relationship", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class FamilyMemberHistoryCondition(fhirelement.FHIRElement):
@@ -190,18 +174,15 @@ class FamilyMemberHistoryCondition(fhirelement.FHIRElement):
         
         super(FamilyMemberHistoryCondition, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(FamilyMemberHistoryCondition, self).update_with_json(jsondict)
-        if 'note' in jsondict:
-            self.note = jsondict['note']
-        if 'onsetAge' in jsondict:
-            self.onsetAge = age.Age.with_json_and_owner(jsondict['onsetAge'], self)
-        if 'onsetRange' in jsondict:
-            self.onsetRange = range.Range.with_json_and_owner(jsondict['onsetRange'], self)
-        if 'onsetString' in jsondict:
-            self.onsetString = jsondict['onsetString']
-        if 'outcome' in jsondict:
-            self.outcome = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['outcome'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(FamilyMemberHistoryCondition, self).elementProperties()
+        js.extend([
+            ("note", "note", str, False),
+            ("onsetAge", "onsetAge", age.Age, False),
+            ("onsetRange", "onsetRange", range.Range, False),
+            ("onsetString", "onsetString", str, False),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

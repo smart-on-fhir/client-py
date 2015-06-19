@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Signature) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Signature) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -45,16 +45,14 @@ class Signature(fhirelement.FHIRElement):
         
         super(Signature, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Signature, self).update_with_json(jsondict)
-        if 'blob' in jsondict:
-            self.blob = jsondict['blob']
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
-        if 'when' in jsondict:
-            self.when = fhirdate.FHIRDate.with_json_and_owner(jsondict['when'], self)
-        if 'whoReference' in jsondict:
-            self.whoReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['whoReference'], self)
-        if 'whoUri' in jsondict:
-            self.whoUri = jsondict['whoUri']
+    def elementProperties(self):
+        js = super(Signature, self).elementProperties()
+        js.extend([
+            ("blob", "blob", str, False),
+            ("type", "type", coding.Coding, True),
+            ("when", "when", fhirdate.FHIRDate, False),
+            ("whoReference", "whoReference", fhirreference.FHIRReference, False),
+            ("whoUri", "whoUri", str, False),
+        ])
+        return js
 

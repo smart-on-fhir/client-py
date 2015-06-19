@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -58,22 +58,18 @@ class Questionnaire(domainresource.DomainResource):
         
         super(Questionnaire, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Questionnaire, self).update_with_json(jsondict)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'group' in jsondict:
-            self.group = QuestionnaireGroup.with_json_and_owner(jsondict['group'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'publisher' in jsondict:
-            self.publisher = jsondict['publisher']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'telecom' in jsondict:
-            self.telecom = contactpoint.ContactPoint.with_json_and_owner(jsondict['telecom'], self)
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(Questionnaire, self).elementProperties()
+        js.extend([
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("group", "group", QuestionnaireGroup, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("publisher", "publisher", str, False),
+            ("status", "status", str, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("version", "version", str, False),
+        ])
+        return js
 
 
 class QuestionnaireGroup(fhirelement.FHIRElement):
@@ -93,7 +89,7 @@ class QuestionnaireGroup(fhirelement.FHIRElement):
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.group = None
-        """ Grouped questions.
+        """ Nested questionnaire group.
         List of `QuestionnaireGroup` items (represented as `dict` in JSON). """
         
         self.linkId = None
@@ -122,24 +118,19 @@ class QuestionnaireGroup(fhirelement.FHIRElement):
         
         super(QuestionnaireGroup, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(QuestionnaireGroup, self).update_with_json(jsondict)
-        if 'concept' in jsondict:
-            self.concept = coding.Coding.with_json_and_owner(jsondict['concept'], self)
-        if 'group' in jsondict:
-            self.group = QuestionnaireGroup.with_json_and_owner(jsondict['group'], self)
-        if 'linkId' in jsondict:
-            self.linkId = jsondict['linkId']
-        if 'question' in jsondict:
-            self.question = QuestionnaireGroupQuestion.with_json_and_owner(jsondict['question'], self)
-        if 'repeats' in jsondict:
-            self.repeats = jsondict['repeats']
-        if 'required' in jsondict:
-            self.required = jsondict['required']
-        if 'text' in jsondict:
-            self.text = jsondict['text']
-        if 'title' in jsondict:
-            self.title = jsondict['title']
+    def elementProperties(self):
+        js = super(QuestionnaireGroup, self).elementProperties()
+        js.extend([
+            ("concept", "concept", coding.Coding, True),
+            ("group", "group", QuestionnaireGroup, True),
+            ("linkId", "linkId", str, False),
+            ("question", "question", QuestionnaireGroupQuestion, True),
+            ("repeats", "repeats", bool, False),
+            ("required", "required", bool, False),
+            ("text", "text", str, False),
+            ("title", "title", str, False),
+        ])
+        return js
 
 
 class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
@@ -160,7 +151,7 @@ class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.group = None
-        """ Grouped questions.
+        """ Nested questionnaire group.
         List of `QuestionnaireGroup` items (represented as `dict` in JSON). """
         
         self.linkId = None
@@ -189,22 +180,17 @@ class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
         
         super(QuestionnaireGroupQuestion, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(QuestionnaireGroupQuestion, self).update_with_json(jsondict)
-        if 'concept' in jsondict:
-            self.concept = coding.Coding.with_json_and_owner(jsondict['concept'], self)
-        if 'group' in jsondict:
-            self.group = QuestionnaireGroup.with_json_and_owner(jsondict['group'], self)
-        if 'linkId' in jsondict:
-            self.linkId = jsondict['linkId']
-        if 'options' in jsondict:
-            self.options = fhirreference.FHIRReference.with_json_and_owner(jsondict['options'], self)
-        if 'repeats' in jsondict:
-            self.repeats = jsondict['repeats']
-        if 'required' in jsondict:
-            self.required = jsondict['required']
-        if 'text' in jsondict:
-            self.text = jsondict['text']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(QuestionnaireGroupQuestion, self).elementProperties()
+        js.extend([
+            ("concept", "concept", coding.Coding, True),
+            ("group", "group", QuestionnaireGroup, True),
+            ("linkId", "linkId", str, False),
+            ("options", "options", fhirreference.FHIRReference, False),
+            ("repeats", "repeats", bool, False),
+            ("required", "required", bool, False),
+            ("text", "text", str, False),
+            ("type", "type", str, False),
+        ])
+        return js
 

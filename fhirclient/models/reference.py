@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Reference) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Reference) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -28,10 +28,11 @@ class Reference(fhirelement.FHIRElement):
         
         super(Reference, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Reference, self).update_with_json(jsondict)
-        if 'display' in jsondict:
-            self.display = jsondict['display']
-        if 'reference' in jsondict:
-            self.reference = jsondict['reference']
+    def elementProperties(self):
+        js = super(Reference, self).elementProperties()
+        js.extend([
+            ("display", "display", str, False),
+            ("reference", "reference", str, False),
+        ])
+        return js
 

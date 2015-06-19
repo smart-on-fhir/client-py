@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -74,26 +74,20 @@ class Provenance(domainresource.DomainResource):
         
         super(Provenance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Provenance, self).update_with_json(jsondict)
-        if 'agent' in jsondict:
-            self.agent = ProvenanceAgent.with_json_and_owner(jsondict['agent'], self)
-        if 'entity' in jsondict:
-            self.entity = ProvenanceEntity.with_json_and_owner(jsondict['entity'], self)
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'policy' in jsondict:
-            self.policy = jsondict['policy']
-        if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'recorded' in jsondict:
-            self.recorded = fhirdate.FHIRDate.with_json_and_owner(jsondict['recorded'], self)
-        if 'signature' in jsondict:
-            self.signature = signature.Signature.with_json_and_owner(jsondict['signature'], self)
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
+    def elementProperties(self):
+        js = super(Provenance, self).elementProperties()
+        js.extend([
+            ("agent", "agent", ProvenanceAgent, True),
+            ("entity", "entity", ProvenanceEntity, True),
+            ("location", "location", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("policy", "policy", str, True),
+            ("reason", "reason", codeableconcept.CodeableConcept, False),
+            ("recorded", "recorded", fhirdate.FHIRDate, False),
+            ("signature", "signature", signature.Signature, True),
+            ("target", "target", fhirreference.FHIRReference, True),
+        ])
+        return js
 
 
 class ProvenanceAgent(fhirelement.FHIRElement):
@@ -133,18 +127,16 @@ class ProvenanceAgent(fhirelement.FHIRElement):
         
         super(ProvenanceAgent, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProvenanceAgent, self).update_with_json(jsondict)
-        if 'display' in jsondict:
-            self.display = jsondict['display']
-        if 'referenceReference' in jsondict:
-            self.referenceReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['referenceReference'], self)
-        if 'referenceUri' in jsondict:
-            self.referenceUri = jsondict['referenceUri']
-        if 'role' in jsondict:
-            self.role = coding.Coding.with_json_and_owner(jsondict['role'], self)
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(ProvenanceAgent, self).elementProperties()
+        js.extend([
+            ("display", "display", str, False),
+            ("referenceReference", "referenceReference", fhirreference.FHIRReference, False),
+            ("referenceUri", "referenceUri", str, False),
+            ("role", "role", coding.Coding, False),
+            ("type", "type", coding.Coding, False),
+        ])
+        return js
 
 
 class ProvenanceEntity(fhirelement.FHIRElement):
@@ -158,7 +150,7 @@ class ProvenanceEntity(fhirelement.FHIRElement):
         """
         
         self.agent = None
-        """ Agents involved in creating resource.
+        """ Entity is attributed to this agent.
         Type `ProvenanceAgent` (represented as `dict` in JSON). """
         
         self.display = None
@@ -179,16 +171,14 @@ class ProvenanceEntity(fhirelement.FHIRElement):
         
         super(ProvenanceEntity, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProvenanceEntity, self).update_with_json(jsondict)
-        if 'agent' in jsondict:
-            self.agent = ProvenanceAgent.with_json_and_owner(jsondict['agent'], self)
-        if 'display' in jsondict:
-            self.display = jsondict['display']
-        if 'reference' in jsondict:
-            self.reference = jsondict['reference']
-        if 'role' in jsondict:
-            self.role = jsondict['role']
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(ProvenanceEntity, self).elementProperties()
+        js.extend([
+            ("agent", "agent", ProvenanceAgent, False),
+            ("display", "display", str, False),
+            ("reference", "reference", str, False),
+            ("role", "role", str, False),
+            ("type", "type", coding.Coding, False),
+        ])
+        return js
 

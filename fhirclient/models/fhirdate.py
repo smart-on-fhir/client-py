@@ -22,6 +22,12 @@ class FHIRDate(object):
                 self.date = isodate.parse_datetime(jsonval)
             else:
                 self.date = isodate.parse_date(jsonval)
+        self.origval = jsonval
+    
+    def __setattr__(self, prop, value):
+        if 'date' == prop:
+            self.origval = None
+        object.__setattr__(self, prop, value)
     
     @property
     def isostring(self):
@@ -52,4 +58,9 @@ class FHIRDate(object):
         discarded.
         """
         return cls.with_json(jsonobj)
+    
+    def as_json(self):
+        if self.origval is not None:
+            return self.origval
+        return self.isostring
     

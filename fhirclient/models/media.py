@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Media) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Media) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -73,30 +73,21 @@ class Media(domainresource.DomainResource):
         
         super(Media, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Media, self).update_with_json(jsondict)
-        if 'content' in jsondict:
-            self.content = attachment.Attachment.with_json_and_owner(jsondict['content'], self)
-        if 'deviceName' in jsondict:
-            self.deviceName = jsondict['deviceName']
-        if 'duration' in jsondict:
-            self.duration = jsondict['duration']
-        if 'frames' in jsondict:
-            self.frames = jsondict['frames']
-        if 'height' in jsondict:
-            self.height = jsondict['height']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'operator' in jsondict:
-            self.operator = fhirreference.FHIRReference.with_json_and_owner(jsondict['operator'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
-        if 'subtype' in jsondict:
-            self.subtype = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['subtype'], self)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'view' in jsondict:
-            self.view = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['view'], self)
-        if 'width' in jsondict:
-            self.width = jsondict['width']
+    def elementProperties(self):
+        js = super(Media, self).elementProperties()
+        js.extend([
+            ("content", "content", attachment.Attachment, False),
+            ("deviceName", "deviceName", str, False),
+            ("duration", "duration", int, False),
+            ("frames", "frames", int, False),
+            ("height", "height", int, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("operator", "operator", fhirreference.FHIRReference, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("subtype", "subtype", codeableconcept.CodeableConcept, False),
+            ("type", "type", str, False),
+            ("view", "view", codeableconcept.CodeableConcept, False),
+            ("width", "width", int, False),
+        ])
+        return js
 

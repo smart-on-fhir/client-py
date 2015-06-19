@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Condition) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Condition) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -138,60 +138,37 @@ class Condition(domainresource.DomainResource):
         
         super(Condition, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Condition, self).update_with_json(jsondict)
-        if 'abatementAge' in jsondict:
-            self.abatementAge = age.Age.with_json_and_owner(jsondict['abatementAge'], self)
-        if 'abatementBoolean' in jsondict:
-            self.abatementBoolean = jsondict['abatementBoolean']
-        if 'abatementDate' in jsondict:
-            self.abatementDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['abatementDate'], self)
-        if 'abatementPeriod' in jsondict:
-            self.abatementPeriod = period.Period.with_json_and_owner(jsondict['abatementPeriod'], self)
-        if 'abatementRange' in jsondict:
-            self.abatementRange = range.Range.with_json_and_owner(jsondict['abatementRange'], self)
-        if 'abatementString' in jsondict:
-            self.abatementString = jsondict['abatementString']
-        if 'asserter' in jsondict:
-            self.asserter = fhirreference.FHIRReference.with_json_and_owner(jsondict['asserter'], self)
-        if 'category' in jsondict:
-            self.category = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['category'], self)
-        if 'clinicalStatus' in jsondict:
-            self.clinicalStatus = jsondict['clinicalStatus']
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'dateAsserted' in jsondict:
-            self.dateAsserted = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateAsserted'], self)
-        if 'dueTo' in jsondict:
-            self.dueTo = ConditionDueTo.with_json_and_owner(jsondict['dueTo'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'evidence' in jsondict:
-            self.evidence = ConditionEvidence.with_json_and_owner(jsondict['evidence'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'location' in jsondict:
-            self.location = ConditionLocation.with_json_and_owner(jsondict['location'], self)
-        if 'notes' in jsondict:
-            self.notes = jsondict['notes']
-        if 'occurredFollowing' in jsondict:
-            self.occurredFollowing = ConditionOccurredFollowing.with_json_and_owner(jsondict['occurredFollowing'], self)
-        if 'onsetAge' in jsondict:
-            self.onsetAge = age.Age.with_json_and_owner(jsondict['onsetAge'], self)
-        if 'onsetDateTime' in jsondict:
-            self.onsetDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['onsetDateTime'], self)
-        if 'onsetPeriod' in jsondict:
-            self.onsetPeriod = period.Period.with_json_and_owner(jsondict['onsetPeriod'], self)
-        if 'onsetRange' in jsondict:
-            self.onsetRange = range.Range.with_json_and_owner(jsondict['onsetRange'], self)
-        if 'onsetString' in jsondict:
-            self.onsetString = jsondict['onsetString']
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'severity' in jsondict:
-            self.severity = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['severity'], self)
-        if 'stage' in jsondict:
-            self.stage = ConditionStage.with_json_and_owner(jsondict['stage'], self)
+    def elementProperties(self):
+        js = super(Condition, self).elementProperties()
+        js.extend([
+            ("abatementAge", "abatementAge", age.Age, False),
+            ("abatementBoolean", "abatementBoolean", bool, False),
+            ("abatementDate", "abatementDate", fhirdate.FHIRDate, False),
+            ("abatementPeriod", "abatementPeriod", period.Period, False),
+            ("abatementRange", "abatementRange", range.Range, False),
+            ("abatementString", "abatementString", str, False),
+            ("asserter", "asserter", fhirreference.FHIRReference, False),
+            ("category", "category", codeableconcept.CodeableConcept, False),
+            ("clinicalStatus", "clinicalStatus", str, False),
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("dateAsserted", "dateAsserted", fhirdate.FHIRDate, False),
+            ("dueTo", "dueTo", ConditionDueTo, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("evidence", "evidence", ConditionEvidence, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("location", "location", ConditionLocation, True),
+            ("notes", "notes", str, False),
+            ("occurredFollowing", "occurredFollowing", ConditionOccurredFollowing, True),
+            ("onsetAge", "onsetAge", age.Age, False),
+            ("onsetDateTime", "onsetDateTime", fhirdate.FHIRDate, False),
+            ("onsetPeriod", "onsetPeriod", period.Period, False),
+            ("onsetRange", "onsetRange", range.Range, False),
+            ("onsetString", "onsetString", str, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("severity", "severity", codeableconcept.CodeableConcept, False),
+            ("stage", "stage", ConditionStage, False),
+        ])
+        return js
 
 
 class ConditionDueTo(fhirelement.FHIRElement):
@@ -217,12 +194,13 @@ class ConditionDueTo(fhirelement.FHIRElement):
         
         super(ConditionDueTo, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConditionDueTo, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
+    def elementProperties(self):
+        js = super(ConditionDueTo, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ConditionEvidence(fhirelement.FHIRElement):
@@ -248,12 +226,13 @@ class ConditionEvidence(fhirelement.FHIRElement):
         
         super(ConditionEvidence, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConditionEvidence, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'detail' in jsondict:
-            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self)
+    def elementProperties(self):
+        js = super(ConditionEvidence, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("detail", "detail", fhirreference.FHIRReference, True),
+        ])
+        return js
 
 
 class ConditionLocation(fhirelement.FHIRElement):
@@ -278,12 +257,13 @@ class ConditionLocation(fhirelement.FHIRElement):
         
         super(ConditionLocation, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConditionLocation, self).update_with_json(jsondict)
-        if 'siteCodeableConcept' in jsondict:
-            self.siteCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['siteCodeableConcept'], self)
-        if 'siteReference' in jsondict:
-            self.siteReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['siteReference'], self)
+    def elementProperties(self):
+        js = super(ConditionLocation, self).elementProperties()
+        js.extend([
+            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("siteReference", "siteReference", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ConditionOccurredFollowing(fhirelement.FHIRElement):
@@ -309,12 +289,13 @@ class ConditionOccurredFollowing(fhirelement.FHIRElement):
         
         super(ConditionOccurredFollowing, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConditionOccurredFollowing, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self)
+    def elementProperties(self):
+        js = super(ConditionOccurredFollowing, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class ConditionStage(fhirelement.FHIRElement):
@@ -340,10 +321,11 @@ class ConditionStage(fhirelement.FHIRElement):
         
         super(ConditionStage, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConditionStage, self).update_with_json(jsondict)
-        if 'assessment' in jsondict:
-            self.assessment = fhirreference.FHIRReference.with_json_and_owner(jsondict['assessment'], self)
-        if 'summary' in jsondict:
-            self.summary = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['summary'], self)
+    def elementProperties(self):
+        js = super(ConditionStage, self).elementProperties()
+        js.extend([
+            ("assessment", "assessment", fhirreference.FHIRReference, True),
+            ("summary", "summary", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

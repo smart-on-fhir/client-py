@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,16 +18,18 @@ class QuestionnaireAnswersTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = questionnaireanswers.QuestionnaireAnswers(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return questionnaireanswers.QuestionnaireAnswers(js)
     
     def testQuestionnaireAnswers1(self):
         inst = self.instantiate_from("questionnaireanswers-example-bluebook.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e387550> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireAnswers instance")
+        self.implQuestionnaireAnswers1(inst)
+        inst2 = questionnaireanswers.QuestionnaireAnswers(inst.as_json())
+        self.implQuestionnaireAnswers1(inst2)
     
+    def implQuestionnaireAnswers1(self, inst):
         self.assertEqual(inst.authored.date, FHIRDate("2013-02-19T14:15:00+10:00").date)
-        self.assertEqual(inst.authored.isostring, "2013-02-19T14:15:00+10:00")
+        self.assertEqual(inst.authored.as_json(), "2013-02-19T14:15:00+10:00")
         self.assertEqual(inst.group.group[0].group[0].question[0].answer[0].valueString, "Cathy Jones")
         self.assertEqual(inst.group.group[0].group[0].question[0].text, "Name of child")
         self.assertEqual(inst.group.group[0].group[0].question[1].answer[0].valueCoding.code, "f")
@@ -40,15 +42,15 @@ class QuestionnaireAnswersTests(unittest.TestCase):
         self.assertEqual(inst.group.group[0].group[1].question[2].group[0].extension[0].url, "http://example.org/Profile/questionnaire#visibilityCondition")
         self.assertEqual(inst.group.group[0].group[1].question[2].group[0].extension[0].valueString, "HAS_VALUE(../choice/code) AND NEQ(../choice/code,'NO')")
         self.assertEqual(inst.group.group[0].group[1].question[2].group[0].question[0].answer[0].valueDate.date, FHIRDate("1972-11-30").date)
-        self.assertEqual(inst.group.group[0].group[1].question[2].group[0].question[0].answer[0].valueDate.isostring, "1972-11-30")
+        self.assertEqual(inst.group.group[0].group[1].question[2].group[0].question[0].answer[0].valueDate.as_json(), "1972-11-30")
         self.assertEqual(inst.group.group[0].group[1].question[2].group[0].question[0].text, "1st dose")
         self.assertEqual(inst.group.group[0].group[1].question[2].group[0].question[1].answer[0].valueDate.date, FHIRDate("1972-12-11").date)
-        self.assertEqual(inst.group.group[0].group[1].question[2].group[0].question[1].answer[0].valueDate.isostring, "1972-12-11")
+        self.assertEqual(inst.group.group[0].group[1].question[2].group[0].question[1].answer[0].valueDate.as_json(), "1972-12-11")
         self.assertEqual(inst.group.group[0].group[1].question[2].group[0].question[1].text, "2nd dose")
         self.assertEqual(inst.group.group[0].group[1].question[2].text, "Vitamin K given")
         self.assertTrue(inst.group.group[0].group[1].question[3].answer[0].valueBoolean)
         self.assertEqual(inst.group.group[0].group[1].question[3].group[0].question[0].answer[0].valueDate.date, FHIRDate("1972-12-04").date)
-        self.assertEqual(inst.group.group[0].group[1].question[3].group[0].question[0].answer[0].valueDate.isostring, "1972-12-04")
+        self.assertEqual(inst.group.group[0].group[1].question[3].group[0].question[0].answer[0].valueDate.as_json(), "1972-12-04")
         self.assertEqual(inst.group.group[0].group[1].question[3].group[0].question[0].text, "Date given")
         self.assertEqual(inst.group.group[0].group[1].question[3].text, "Hep B given y / n")
         self.assertEqual(inst.group.group[0].group[1].question[4].answer[0].valueString, "Already able to speak Chinese")
@@ -62,16 +64,20 @@ class QuestionnaireAnswersTests(unittest.TestCase):
     
     def testQuestionnaireAnswers2(self):
         inst = self.instantiate_from("questionnaireanswers-example-f201-lifelines.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e387550> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireAnswers instance")
+        self.implQuestionnaireAnswers2(inst)
+        inst2 = questionnaireanswers.QuestionnaireAnswers(inst.as_json())
+        self.implQuestionnaireAnswers2(inst2)
     
+    def implQuestionnaireAnswers2(self, inst):
         self.assertEqual(inst.authored.date, FHIRDate("2013-06-18T00:00:00+01:00").date)
-        self.assertEqual(inst.authored.isostring, "2013-06-18T00:00:00+01:00")
+        self.assertEqual(inst.authored.as_json(), "2013-06-18T00:00:00+01:00")
         self.assertEqual(inst.group.group[0].question[0].answer[0].valueString, "I am allergic to house dust")
         self.assertEqual(inst.group.group[0].question[0].text, "Do you have allergies?")
         self.assertEqual(inst.group.group[1].question[0].answer[0].valueString, "Male")
         self.assertEqual(inst.group.group[1].question[0].text, "What is your gender?")
         self.assertEqual(inst.group.group[1].question[1].answer[0].valueDate.date, FHIRDate("1960-03-13").date)
-        self.assertEqual(inst.group.group[1].question[1].answer[0].valueDate.isostring, "1960-03-13")
+        self.assertEqual(inst.group.group[1].question[1].answer[0].valueDate.as_json(), "1960-03-13")
         self.assertEqual(inst.group.group[1].question[1].text, "What is your date of birth?")
         self.assertEqual(inst.group.group[1].question[2].answer[0].valueString, "The Netherlands")
         self.assertEqual(inst.group.group[1].question[2].text, "What is your country of birth?")
@@ -89,10 +95,14 @@ class QuestionnaireAnswersTests(unittest.TestCase):
     
     def testQuestionnaireAnswers3(self):
         inst = self.instantiate_from("questionnaireanswers-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e387550> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireAnswers instance")
+        self.implQuestionnaireAnswers3(inst)
+        inst2 = questionnaireanswers.QuestionnaireAnswers(inst.as_json())
+        self.implQuestionnaireAnswers3(inst2)
     
+    def implQuestionnaireAnswers3(self, inst):
         self.assertEqual(inst.authored.date, FHIRDate("2013-02-19T14:15:00-05:00").date)
-        self.assertEqual(inst.authored.isostring, "2013-02-19T14:15:00-05:00")
+        self.assertEqual(inst.authored.as_json(), "2013-02-19T14:15:00-05:00")
         self.assertEqual(inst.group.group[0].question[0].answer[0].valueCoding.code, "1")
         self.assertEqual(inst.group.group[0].question[0].answer[0].valueCoding.display, "Yes")
         self.assertEqual(inst.group.group[0].question[0].answer[0].valueCoding.system, "http://cancer.questionnaire.org/system/code/yesno")
@@ -109,13 +119,17 @@ class QuestionnaireAnswersTests(unittest.TestCase):
     
     def testQuestionnaireAnswers4(self):
         inst = self.instantiate_from("questionnaireanswers-sdc-profile-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e387550> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireAnswers instance")
+        self.implQuestionnaireAnswers4(inst)
+        inst2 = questionnaireanswers.QuestionnaireAnswers(inst.as_json())
+        self.implQuestionnaireAnswers4(inst2)
     
+    def implQuestionnaireAnswers4(self, inst):
         self.assertEqual(inst.authored.date, FHIRDate("2014-01-21").date)
-        self.assertEqual(inst.authored.isostring, "2014-01-21")
+        self.assertEqual(inst.authored.as_json(), "2014-01-21")
         self.assertEqual(inst.group.group[0].linkId, "3921053v1.0")
         self.assertEqual(inst.group.group[0].question[0].answer[0].valueDate.date, FHIRDate("2003-02-18").date)
-        self.assertEqual(inst.group.group[0].question[0].answer[0].valueDate.isostring, "2003-02-18")
+        self.assertEqual(inst.group.group[0].question[0].answer[0].valueDate.as_json(), "2003-02-18")
         self.assertEqual(inst.group.group[0].question[0].linkId, "3921059v1.0")
         self.assertEqual(inst.group.group[0].question[0].text, "Date of Current Pathologic Diagnosis")
         self.assertEqual(inst.group.group[0].question[1].answer[0].valueCoding.code, "1")

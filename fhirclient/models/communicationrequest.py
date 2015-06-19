@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -87,36 +87,25 @@ class CommunicationRequest(domainresource.DomainResource):
         
         super(CommunicationRequest, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(CommunicationRequest, self).update_with_json(jsondict)
-        if 'category' in jsondict:
-            self.category = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['category'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'medium' in jsondict:
-            self.medium = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['medium'], self)
-        if 'orderedOn' in jsondict:
-            self.orderedOn = fhirdate.FHIRDate.with_json_and_owner(jsondict['orderedOn'], self)
-        if 'payload' in jsondict:
-            self.payload = CommunicationRequestPayload.with_json_and_owner(jsondict['payload'], self)
-        if 'priority' in jsondict:
-            self.priority = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['priority'], self)
-        if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'recipient' in jsondict:
-            self.recipient = fhirreference.FHIRReference.with_json_and_owner(jsondict['recipient'], self)
-        if 'requester' in jsondict:
-            self.requester = fhirreference.FHIRReference.with_json_and_owner(jsondict['requester'], self)
-        if 'scheduledTime' in jsondict:
-            self.scheduledTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['scheduledTime'], self)
-        if 'sender' in jsondict:
-            self.sender = fhirreference.FHIRReference.with_json_and_owner(jsondict['sender'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
+    def elementProperties(self):
+        js = super(CommunicationRequest, self).elementProperties()
+        js.extend([
+            ("category", "category", codeableconcept.CodeableConcept, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("medium", "medium", codeableconcept.CodeableConcept, True),
+            ("orderedOn", "orderedOn", fhirdate.FHIRDate, False),
+            ("payload", "payload", CommunicationRequestPayload, True),
+            ("priority", "priority", codeableconcept.CodeableConcept, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, True),
+            ("recipient", "recipient", fhirreference.FHIRReference, True),
+            ("requester", "requester", fhirreference.FHIRReference, False),
+            ("scheduledTime", "scheduledTime", fhirdate.FHIRDate, False),
+            ("sender", "sender", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class CommunicationRequestPayload(fhirelement.FHIRElement):
@@ -145,12 +134,12 @@ class CommunicationRequestPayload(fhirelement.FHIRElement):
         
         super(CommunicationRequestPayload, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(CommunicationRequestPayload, self).update_with_json(jsondict)
-        if 'contentAttachment' in jsondict:
-            self.contentAttachment = attachment.Attachment.with_json_and_owner(jsondict['contentAttachment'], self)
-        if 'contentReference' in jsondict:
-            self.contentReference = fhirreference.FHIRReference.with_json_and_owner(jsondict['contentReference'], self)
-        if 'contentString' in jsondict:
-            self.contentString = jsondict['contentString']
+    def elementProperties(self):
+        js = super(CommunicationRequestPayload, self).elementProperties()
+        js.extend([
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False),
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False),
+            ("contentString", "contentString", str, False),
+        ])
+        return js
 

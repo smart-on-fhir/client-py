@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Identifier) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Identifier) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -49,18 +49,15 @@ class Identifier(fhirelement.FHIRElement):
         
         super(Identifier, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Identifier, self).update_with_json(jsondict)
-        if 'assigner' in jsondict:
-            self.assigner = fhirreference.FHIRReference.with_json_and_owner(jsondict['assigner'], self)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'system' in jsondict:
-            self.system = jsondict['system']
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
-        if 'use' in jsondict:
-            self.use = jsondict['use']
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(Identifier, self).elementProperties()
+        js.extend([
+            ("assigner", "assigner", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("system", "system", str, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("use", "use", str, False),
+            ("value", "value", str, False),
+        ])
+        return js
 

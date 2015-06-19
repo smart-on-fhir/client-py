@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class ConditionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = condition.Condition(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return condition.Condition(js)
     
     def testCondition1(self):
         inst = self.instantiate_from("cond-uslab-example1.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e29b690> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
+        self.implCondition1(inst)
+        inst2 = condition.Condition(inst.as_json())
+        self.implCondition1(inst2)
     
+    def implCondition1(self, inst):
         self.assertEqual(inst.category.coding[0].code, "diagnosis")
         self.assertEqual(inst.category.coding[0].display, "Diagnosis")
         self.assertEqual(inst.category.coding[0].system, "http://hl7.org/fhir/condition-category")
@@ -40,8 +42,12 @@ class ConditionTests(unittest.TestCase):
     
     def testCondition2(self):
         inst = self.instantiate_from("cond-uslab-example2.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e29b690> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
+        self.implCondition2(inst)
+        inst2 = condition.Condition(inst.as_json())
+        self.implCondition2(inst2)
     
+    def implCondition2(self, inst):
         self.assertEqual(inst.category.coding[0].code, "diagnosis")
         self.assertEqual(inst.category.coding[0].display, "Diagnosis")
         self.assertEqual(inst.category.coding[0].system, "http://hl7.org/fhir/condition-category")
@@ -54,8 +60,12 @@ class ConditionTests(unittest.TestCase):
     
     def testCondition3(self):
         inst = self.instantiate_from("condition-example-f001-heart.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e29b690> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
+        self.implCondition3(inst)
+        inst2 = condition.Condition(inst.as_json())
+        self.implCondition3(inst2)
     
+    def implCondition3(self, inst):
         self.assertEqual(inst.category.coding[0].code, "439401001")
         self.assertEqual(inst.category.coding[0].display, "diagnosis")
         self.assertEqual(inst.category.coding[0].system, "http://snomed.info/sct")
@@ -64,7 +74,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Heart valve disorder")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dateAsserted.date, FHIRDate("2011-10-05").date)
-        self.assertEqual(inst.dateAsserted.isostring, "2011-10-05")
+        self.assertEqual(inst.dateAsserted.as_json(), "2011-10-05")
         self.assertEqual(inst.evidence[0].code.coding[0].code, "426396005")
         self.assertEqual(inst.evidence[0].code.coding[0].display, "Cardiac chest pain")
         self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
@@ -74,7 +84,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.location[0].siteCodeableConcept.text, "heart structure")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2011-08-05").date)
-        self.assertEqual(inst.onsetDateTime.isostring, "2011-08-05")
+        self.assertEqual(inst.onsetDateTime.as_json(), "2011-08-05")
         self.assertEqual(inst.severity.coding[0].code, "6736007")
         self.assertEqual(inst.severity.coding[0].display, "Moderate")
         self.assertEqual(inst.severity.coding[0].system, "http://snomed.info/sct")
@@ -82,8 +92,12 @@ class ConditionTests(unittest.TestCase):
     
     def testCondition4(self):
         inst = self.instantiate_from("condition-example-f002-lung.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e29b690> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
+        self.implCondition4(inst)
+        inst2 = condition.Condition(inst.as_json())
+        self.implCondition4(inst2)
     
+    def implCondition4(self, inst):
         self.assertEqual(inst.category.coding[0].code, "439401001")
         self.assertEqual(inst.category.coding[0].display, "diagnosis")
         self.assertEqual(inst.category.coding[0].system, "http://snomed.info/sct")
@@ -92,7 +106,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "NSCLC - Non-small cell lung cancer")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dateAsserted.date, FHIRDate("2012-06-03").date)
-        self.assertEqual(inst.dateAsserted.isostring, "2012-06-03")
+        self.assertEqual(inst.dateAsserted.as_json(), "2012-06-03")
         self.assertEqual(inst.evidence[0].code.coding[0].code, "169069000")
         self.assertEqual(inst.evidence[0].code.coding[0].display, "CT of thorax")
         self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
@@ -102,7 +116,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.location[0].siteCodeableConcept.text, "lung")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2011-05-05").date)
-        self.assertEqual(inst.onsetDateTime.isostring, "2011-05-05")
+        self.assertEqual(inst.onsetDateTime.as_json(), "2011-05-05")
         self.assertEqual(inst.severity.coding[0].code, "24484000")
         self.assertEqual(inst.severity.coding[0].display, "Severe")
         self.assertEqual(inst.severity.coding[0].system, "http://snomed.info/sct")
@@ -113,8 +127,12 @@ class ConditionTests(unittest.TestCase):
     
     def testCondition5(self):
         inst = self.instantiate_from("condition-example-f003-abscess.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e29b690> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
+        self.implCondition5(inst)
+        inst2 = condition.Condition(inst.as_json())
+        self.implCondition5(inst2)
     
+    def implCondition5(self, inst):
         self.assertEqual(inst.category.coding[0].code, "439401001")
         self.assertEqual(inst.category.coding[0].display, "diagnosis")
         self.assertEqual(inst.category.coding[0].system, "http://snomed.info/sct")
@@ -123,7 +141,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Retropharyngeal abscess")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dateAsserted.date, FHIRDate("2012-02-20").date)
-        self.assertEqual(inst.dateAsserted.isostring, "2012-02-20")
+        self.assertEqual(inst.dateAsserted.as_json(), "2012-02-20")
         self.assertEqual(inst.evidence[0].code.coding[0].code, "169068008")
         self.assertEqual(inst.evidence[0].code.coding[0].display, "CT of neck")
         self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
@@ -132,7 +150,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].display, "Entire retropharyngeal area")
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2012-02-27").date)
-        self.assertEqual(inst.onsetDateTime.isostring, "2012-02-27")
+        self.assertEqual(inst.onsetDateTime.as_json(), "2012-02-27")
         self.assertEqual(inst.severity.coding[0].code, "371923003")
         self.assertEqual(inst.severity.coding[0].display, "Mild to moderate")
         self.assertEqual(inst.severity.coding[0].system, "http://snomed.info/sct")
@@ -140,8 +158,12 @@ class ConditionTests(unittest.TestCase):
     
     def testCondition6(self):
         inst = self.instantiate_from("condition-example-f201-fever.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e29b690> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
+        self.implCondition6(inst)
+        inst2 = condition.Condition(inst.as_json())
+        self.implCondition6(inst2)
     
+    def implCondition6(self, inst):
         self.assertEqual(inst.category.coding[0].code, "55607006")
         self.assertEqual(inst.category.coding[0].display, "Problem")
         self.assertEqual(inst.category.coding[0].system, "http://snomed.info/sct")
@@ -152,7 +174,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Fever")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dateAsserted.date, FHIRDate("2013-04-04").date)
-        self.assertEqual(inst.dateAsserted.isostring, "2013-04-04")
+        self.assertEqual(inst.dateAsserted.as_json(), "2013-04-04")
         self.assertEqual(inst.evidence[0].code.coding[0].code, "258710007")
         self.assertEqual(inst.evidence[0].code.coding[0].display, "degrees C")
         self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
@@ -161,7 +183,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].display, "Entire body as a whole")
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2013-04-02").date)
-        self.assertEqual(inst.onsetDateTime.isostring, "2013-04-02")
+        self.assertEqual(inst.onsetDateTime.as_json(), "2013-04-02")
         self.assertEqual(inst.severity.coding[0].code, "255604002")
         self.assertEqual(inst.severity.coding[0].display, "Mild")
         self.assertEqual(inst.severity.coding[0].system, "http://snomed.info/sct")
@@ -169,8 +191,12 @@ class ConditionTests(unittest.TestCase):
     
     def testCondition7(self):
         inst = self.instantiate_from("condition-example-f202-malignancy.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e29b690> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
+        self.implCondition7(inst)
+        inst2 = condition.Condition(inst.as_json())
+        self.implCondition7(inst2)
     
+    def implCondition7(self, inst):
         self.assertEqual(inst.category.coding[0].code, "diagnose")
         self.assertEqual(inst.category.coding[0].system, "http://hl7.org/fhir/condition-category")
         self.assertEqual(inst.clinicalStatus, "confirmed")
@@ -178,7 +204,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Malignant neoplastic disease")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dateAsserted.date, FHIRDate("2012-12-01").date)
-        self.assertEqual(inst.dateAsserted.isostring, "2012-12-01")
+        self.assertEqual(inst.dateAsserted.as_json(), "2012-12-01")
         self.assertEqual(inst.id, "f202")
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].code, "361355005")
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].display, "Entire head and neck")
@@ -194,8 +220,12 @@ class ConditionTests(unittest.TestCase):
     
     def testCondition8(self):
         inst = self.instantiate_from("condition-example-f203-sepsis.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e29b690> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
+        self.implCondition8(inst)
+        inst2 = condition.Condition(inst.as_json())
+        self.implCondition8(inst2)
     
+    def implCondition8(self, inst):
         self.assertEqual(inst.category.coding[0].code, "55607006")
         self.assertEqual(inst.category.coding[0].display, "Problem")
         self.assertEqual(inst.category.coding[0].system, "http://snomed.info/sct")
@@ -206,13 +236,13 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Bacterial sepsis")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dateAsserted.date, FHIRDate("2013-03-11").date)
-        self.assertEqual(inst.dateAsserted.isostring, "2013-03-11")
+        self.assertEqual(inst.dateAsserted.as_json(), "2013-03-11")
         self.assertEqual(inst.id, "f203")
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].code, "281158006")
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].display, "Pulmonary vascular structure")
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2013-03-08").date)
-        self.assertEqual(inst.onsetDateTime.isostring, "2013-03-08")
+        self.assertEqual(inst.onsetDateTime.as_json(), "2013-03-08")
         self.assertEqual(inst.severity.coding[0].code, "371924009")
         self.assertEqual(inst.severity.coding[0].display, "Moderate to severe")
         self.assertEqual(inst.severity.coding[0].system, "http://snomed.info/sct")
@@ -220,10 +250,14 @@ class ConditionTests(unittest.TestCase):
     
     def testCondition9(self):
         inst = self.instantiate_from("condition-example-f204-renal.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e29b690> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
+        self.implCondition9(inst)
+        inst2 = condition.Condition(inst.as_json())
+        self.implCondition9(inst2)
     
+    def implCondition9(self, inst):
         self.assertEqual(inst.abatementDate.date, FHIRDate("2013-03-20").date)
-        self.assertEqual(inst.abatementDate.isostring, "2013-03-20")
+        self.assertEqual(inst.abatementDate.as_json(), "2013-03-20")
         self.assertEqual(inst.category.coding[0].code, "55607006")
         self.assertEqual(inst.category.coding[0].display, "Problem")
         self.assertEqual(inst.category.coding[0].system, "http://snomed.info/sct")
@@ -234,13 +268,13 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Acute renal insufficiency specified as due to procedure")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dateAsserted.date, FHIRDate("2013-03-11").date)
-        self.assertEqual(inst.dateAsserted.isostring, "2013-03-11")
+        self.assertEqual(inst.dateAsserted.as_json(), "2013-03-11")
         self.assertEqual(inst.id, "f204")
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].code, "181414000")
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].display, "Kidney")
         self.assertEqual(inst.location[0].siteCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2013-03-11").date)
-        self.assertEqual(inst.onsetDateTime.isostring, "2013-03-11")
+        self.assertEqual(inst.onsetDateTime.as_json(), "2013-03-11")
         self.assertEqual(inst.severity.coding[0].code, "24484000")
         self.assertEqual(inst.severity.coding[0].display, "Severe")
         self.assertEqual(inst.severity.coding[0].system, "http://snomed.info/sct")
@@ -251,14 +285,18 @@ class ConditionTests(unittest.TestCase):
     
     def testCondition10(self):
         inst = self.instantiate_from("condition-example-f205-infection.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e29b690> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
+        self.implCondition10(inst)
+        inst2 = condition.Condition(inst.as_json())
+        self.implCondition10(inst2)
     
+    def implCondition10(self, inst):
         self.assertEqual(inst.clinicalStatus, "working")
         self.assertEqual(inst.code.coding[0].code, "87628006")
         self.assertEqual(inst.code.coding[0].display, "Bacterial infectious disease")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.dateAsserted.date, FHIRDate("2013-04-04").date)
-        self.assertEqual(inst.dateAsserted.isostring, "2013-04-04")
+        self.assertEqual(inst.dateAsserted.as_json(), "2013-04-04")
         self.assertEqual(inst.id, "f205")
         self.assertEqual(inst.text.status, "generated")
 

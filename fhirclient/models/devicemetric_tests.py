@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class DeviceMetricTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = devicemetric.DeviceMetric(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return devicemetric.DeviceMetric(js)
     
     def testDeviceMetric1(self):
         inst = self.instantiate_from("devicemetric-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2ca810> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a DeviceMetric instance")
+        self.implDeviceMetric1(inst)
+        inst2 = devicemetric.DeviceMetric(inst.as_json())
+        self.implDeviceMetric1(inst2)
     
+    def implDeviceMetric1(self, inst):
         self.assertEqual(inst.category, "measurement")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier.system, "http://goodcare.org/devicemetric/id")

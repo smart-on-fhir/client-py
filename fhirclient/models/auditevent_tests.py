@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,17 +18,19 @@ class AuditEventTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = auditevent.AuditEvent(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return auditevent.AuditEvent(js)
     
     def testAuditEvent1(self):
         inst = self.instantiate_from("audit-event-example-login.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e255b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a AuditEvent instance")
+        self.implAuditEvent1(inst)
+        inst2 = auditevent.AuditEvent(inst.as_json())
+        self.implAuditEvent1(inst2)
     
+    def implAuditEvent1(self, inst):
         self.assertEqual(inst.event.action, "E")
         self.assertEqual(inst.event.dateTime.date, FHIRDate("2013-06-20T23:41:23Z").date)
-        self.assertEqual(inst.event.dateTime.isostring, "2013-06-20T23:41:23Z")
+        self.assertEqual(inst.event.dateTime.as_json(), "2013-06-20T23:41:23Z")
         self.assertEqual(inst.event.outcome, "0")
         self.assertEqual(inst.event.subtype[0].coding[0].code, "110122")
         self.assertEqual(inst.event.subtype[0].coding[0].display, "Login")
@@ -52,11 +54,15 @@ class AuditEventTests(unittest.TestCase):
     
     def testAuditEvent2(self):
         inst = self.instantiate_from("audit-event-example-logout.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e255b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a AuditEvent instance")
+        self.implAuditEvent2(inst)
+        inst2 = auditevent.AuditEvent(inst.as_json())
+        self.implAuditEvent2(inst2)
     
+    def implAuditEvent2(self, inst):
         self.assertEqual(inst.event.action, "E")
         self.assertEqual(inst.event.dateTime.date, FHIRDate("2013-06-20T23:46:41Z").date)
-        self.assertEqual(inst.event.dateTime.isostring, "2013-06-20T23:46:41Z")
+        self.assertEqual(inst.event.dateTime.as_json(), "2013-06-20T23:46:41Z")
         self.assertEqual(inst.event.outcome, "0")
         self.assertEqual(inst.event.subtype[0].coding[0].code, "110123")
         self.assertEqual(inst.event.subtype[0].coding[0].display, "Logout")
@@ -80,11 +86,15 @@ class AuditEventTests(unittest.TestCase):
     
     def testAuditEvent3(self):
         inst = self.instantiate_from("audit-event-example-vread.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e255b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a AuditEvent instance")
+        self.implAuditEvent3(inst)
+        inst2 = auditevent.AuditEvent(inst.as_json())
+        self.implAuditEvent3(inst2)
     
+    def implAuditEvent3(self, inst):
         self.assertEqual(inst.event.action, "R")
         self.assertEqual(inst.event.dateTime.date, FHIRDate("2013-06-20T23:42:24Z").date)
-        self.assertEqual(inst.event.dateTime.isostring, "2013-06-20T23:42:24Z")
+        self.assertEqual(inst.event.dateTime.as_json(), "2013-06-20T23:42:24Z")
         self.assertEqual(inst.event.outcome, "0")
         self.assertEqual(inst.event.subtype[0].coding[0].code, "vread")
         self.assertEqual(inst.event.subtype[0].coding[0].display, "vread")
@@ -108,11 +118,15 @@ class AuditEventTests(unittest.TestCase):
     
     def testAuditEvent4(self):
         inst = self.instantiate_from("auditevent-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e255b50> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a AuditEvent instance")
+        self.implAuditEvent4(inst)
+        inst2 = auditevent.AuditEvent(inst.as_json())
+        self.implAuditEvent4(inst2)
     
+    def implAuditEvent4(self, inst):
         self.assertEqual(inst.event.action, "E")
         self.assertEqual(inst.event.dateTime.date, FHIRDate("2012-10-25T22:04:27+11:00").date)
-        self.assertEqual(inst.event.dateTime.isostring, "2012-10-25T22:04:27+11:00")
+        self.assertEqual(inst.event.dateTime.as_json(), "2012-10-25T22:04:27+11:00")
         self.assertEqual(inst.event.outcome, "0")
         self.assertEqual(inst.event.subtype[0].coding[0].code, "110120")
         self.assertEqual(inst.event.subtype[0].coding[0].display, "Application Start")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Basic) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Basic) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -48,16 +48,14 @@ class Basic(domainresource.DomainResource):
         
         super(Basic, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Basic, self).update_with_json(jsondict)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self)
+    def elementProperties(self):
+        js = super(Basic, self).elementProperties()
+        js.extend([
+            ("author", "author", fhirreference.FHIRReference, False),
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("created", "created", fhirdate.FHIRDate, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+        ])
+        return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -55,22 +55,17 @@ class Attachment(fhirelement.FHIRElement):
         
         super(Attachment, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Attachment, self).update_with_json(jsondict)
-        if 'contentType' in jsondict:
-            self.contentType = jsondict['contentType']
-        if 'creation' in jsondict:
-            self.creation = fhirdate.FHIRDate.with_json_and_owner(jsondict['creation'], self)
-        if 'data' in jsondict:
-            self.data = jsondict['data']
-        if 'hash' in jsondict:
-            self.hash = jsondict['hash']
-        if 'language' in jsondict:
-            self.language = jsondict['language']
-        if 'size' in jsondict:
-            self.size = jsondict['size']
-        if 'title' in jsondict:
-            self.title = jsondict['title']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(Attachment, self).elementProperties()
+        js.extend([
+            ("contentType", "contentType", str, False),
+            ("creation", "creation", fhirdate.FHIRDate, False),
+            ("data", "data", str, False),
+            ("hash", "hash", str, False),
+            ("language", "language", str, False),
+            ("size", "size", int, False),
+            ("title", "title", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 

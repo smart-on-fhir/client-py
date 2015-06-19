@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Substance) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Substance) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -43,16 +43,15 @@ class Substance(domainresource.DomainResource):
         
         super(Substance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Substance, self).update_with_json(jsondict)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'ingredient' in jsondict:
-            self.ingredient = SubstanceIngredient.with_json_and_owner(jsondict['ingredient'], self)
-        if 'instance' in jsondict:
-            self.instance = SubstanceInstance.with_json_and_owner(jsondict['instance'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(Substance, self).elementProperties()
+        js.extend([
+            ("description", "description", str, False),
+            ("ingredient", "ingredient", SubstanceIngredient, True),
+            ("instance", "instance", SubstanceInstance, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class SubstanceIngredient(fhirelement.FHIRElement):
@@ -77,12 +76,13 @@ class SubstanceIngredient(fhirelement.FHIRElement):
         
         super(SubstanceIngredient, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SubstanceIngredient, self).update_with_json(jsondict)
-        if 'quantity' in jsondict:
-            self.quantity = ratio.Ratio.with_json_and_owner(jsondict['quantity'], self)
-        if 'substance' in jsondict:
-            self.substance = fhirreference.FHIRReference.with_json_and_owner(jsondict['substance'], self)
+    def elementProperties(self):
+        js = super(SubstanceIngredient, self).elementProperties()
+        js.extend([
+            ("quantity", "quantity", ratio.Ratio, False),
+            ("substance", "substance", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class SubstanceInstance(fhirelement.FHIRElement):
@@ -112,12 +112,12 @@ class SubstanceInstance(fhirelement.FHIRElement):
         
         super(SubstanceInstance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SubstanceInstance, self).update_with_json(jsondict)
-        if 'expiry' in jsondict:
-            self.expiry = fhirdate.FHIRDate.with_json_and_owner(jsondict['expiry'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
+    def elementProperties(self):
+        js = super(SubstanceInstance, self).elementProperties()
+        js.extend([
+            ("expiry", "expiry", fhirdate.FHIRDate, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+        ])
+        return js
 

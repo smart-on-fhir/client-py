@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class ImagingStudyTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = imagingstudy.ImagingStudy(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return imagingstudy.ImagingStudy(js)
     
     def testImagingStudy1(self):
         inst = self.instantiate_from("imagingstudy-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e309410> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ImagingStudy instance")
+        self.implImagingStudy1(inst)
+        inst2 = imagingstudy.ImagingStudy(inst.as_json())
+        self.implImagingStudy1(inst2)
     
+    def implImagingStudy1(self, inst):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.numberOfInstances, 1)
         self.assertEqual(inst.numberOfSeries, 1)
@@ -42,15 +44,19 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.series[0].numberOfInstances, 1)
         self.assertEqual(inst.series[0].uid, "urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630")
         self.assertEqual(inst.started.date, FHIRDate("2011-01-01T11:01:20+03:00").date)
-        self.assertEqual(inst.started.isostring, "2011-01-01T11:01:20+03:00")
+        self.assertEqual(inst.started.as_json(), "2011-01-01T11:01:20+03:00")
         self.assertEqual(inst.text.div, "<div>Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.uid, "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045")
     
     def testImagingStudy2(self):
         inst = self.instantiate_from("imagingstudy-qicore-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e309410> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ImagingStudy instance")
+        self.implImagingStudy2(inst)
+        inst2 = imagingstudy.ImagingStudy(inst.as_json())
+        self.implImagingStudy2(inst2)
     
+    def implImagingStudy2(self, inst):
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/imagingstudy-radiationDose")
         self.assertEqual(inst.extension[0].valueRange.high.units, "Gy")
         self.assertEqual(inst.extension[0].valueRange.high.value, 1234.5)
@@ -77,7 +83,7 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.series[0].numberOfInstances, 1)
         self.assertEqual(inst.series[0].uid, "urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630")
         self.assertEqual(inst.started.date, FHIRDate("2011-01-01T11:01:20+03:00").date)
-        self.assertEqual(inst.started.isostring, "2011-01-01T11:01:20+03:00")
+        self.assertEqual(inst.started.as_json(), "2011-01-01T11:01:20+03:00")
         self.assertEqual(inst.text.div, "<div>Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.uid, "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045")

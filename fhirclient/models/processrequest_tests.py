@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,17 +18,19 @@ class ProcessRequestTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = processrequest.ProcessRequest(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return processrequest.ProcessRequest(js)
     
     def testProcessRequest1(self):
         inst = self.instantiate_from("processrequest-example-poll-eob.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e37a990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
+        self.implProcessRequest1(inst)
+        inst2 = processrequest.ProcessRequest(inst.as_json())
+        self.implProcessRequest1(inst2)
     
+    def implProcessRequest1(self, inst):
         self.assertEqual(inst.action, "poll")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.isostring, "2014-08-16")
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.id, "1115")
         self.assertEqual(inst.identifier[0].system, "http://www.phr.com/patient/12345/processrequest")
         self.assertEqual(inst.identifier[0].value, "115")
@@ -38,11 +40,15 @@ class ProcessRequestTests(unittest.TestCase):
     
     def testProcessRequest2(self):
         inst = self.instantiate_from("processrequest-example-poll-exclusive.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e37a990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
+        self.implProcessRequest2(inst)
+        inst2 = processrequest.ProcessRequest(inst.as_json())
+        self.implProcessRequest2(inst2)
     
+    def implProcessRequest2(self, inst):
         self.assertEqual(inst.action, "poll")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.isostring, "2014-08-16")
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.exclude[0], "SupportingDocumentation")
         self.assertEqual(inst.exclude[1], "Reconciliation")
         self.assertEqual(inst.id, "1113")
@@ -53,11 +59,15 @@ class ProcessRequestTests(unittest.TestCase):
     
     def testProcessRequest3(self):
         inst = self.instantiate_from("processrequest-example-poll-inclusive.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e37a990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
+        self.implProcessRequest3(inst)
+        inst2 = processrequest.ProcessRequest(inst.as_json())
+        self.implProcessRequest3(inst2)
     
+    def implProcessRequest3(self, inst):
         self.assertEqual(inst.action, "poll")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.isostring, "2014-08-16")
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.id, "1112")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "112")
@@ -67,29 +77,37 @@ class ProcessRequestTests(unittest.TestCase):
     
     def testProcessRequest4(self):
         inst = self.instantiate_from("processrequest-example-poll-payrec.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e37a990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
+        self.implProcessRequest4(inst)
+        inst2 = processrequest.ProcessRequest(inst.as_json())
+        self.implProcessRequest4(inst2)
     
+    def implProcessRequest4(self, inst):
         self.assertEqual(inst.action, "poll")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.isostring, "2014-08-16")
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.id, "1114")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "114")
         self.assertEqual(inst.include[0], "Reconciliation")
         self.assertEqual(inst.period.end.date, FHIRDate("2014-08-20").date)
-        self.assertEqual(inst.period.end.isostring, "2014-08-20")
+        self.assertEqual(inst.period.end.as_json(), "2014-08-20")
         self.assertEqual(inst.period.start.date, FHIRDate("2014-08-10").date)
-        self.assertEqual(inst.period.start.isostring, "2014-08-10")
+        self.assertEqual(inst.period.start.as_json(), "2014-08-10")
         self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Poll ProcessRequest</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProcessRequest5(self):
         inst = self.instantiate_from("processrequest-example-poll-specific.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e37a990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
+        self.implProcessRequest5(inst)
+        inst2 = processrequest.ProcessRequest(inst.as_json())
+        self.implProcessRequest5(inst2)
     
+    def implProcessRequest5(self, inst):
         self.assertEqual(inst.action, "poll")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.isostring, "2014-08-16")
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.id, "1111")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "111")
@@ -98,11 +116,15 @@ class ProcessRequestTests(unittest.TestCase):
     
     def testProcessRequest6(self):
         inst = self.instantiate_from("processrequest-example-reprocess.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e37a990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
+        self.implProcessRequest6(inst)
+        inst2 = processrequest.ProcessRequest(inst.as_json())
+        self.implProcessRequest6(inst2)
     
+    def implProcessRequest6(self, inst):
         self.assertEqual(inst.action, "reprocess")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.isostring, "2014-08-16")
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.id, "44654")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "44543")
@@ -113,11 +135,15 @@ class ProcessRequestTests(unittest.TestCase):
     
     def testProcessRequest7(self):
         inst = self.instantiate_from("processrequest-example-reverse.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e37a990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
+        self.implProcessRequest7(inst)
+        inst2 = processrequest.ProcessRequest(inst.as_json())
+        self.implProcessRequest7(inst2)
     
+    def implProcessRequest7(self, inst):
         self.assertEqual(inst.action, "cancel")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.isostring, "2014-08-16")
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.id, "87654")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "76543")
@@ -127,11 +153,15 @@ class ProcessRequestTests(unittest.TestCase):
     
     def testProcessRequest8(self):
         inst = self.instantiate_from("processrequest-example-status.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e37a990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
+        self.implProcessRequest8(inst)
+        inst2 = processrequest.ProcessRequest(inst.as_json())
+        self.implProcessRequest8(inst2)
     
+    def implProcessRequest8(self, inst):
         self.assertEqual(inst.action, "status")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.isostring, "2014-08-16")
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.id, "87655")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "1776543")
@@ -140,11 +170,15 @@ class ProcessRequestTests(unittest.TestCase):
     
     def testProcessRequest9(self):
         inst = self.instantiate_from("processrequest-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e37a990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
+        self.implProcessRequest9(inst)
+        inst2 = processrequest.ProcessRequest(inst.as_json())
+        self.implProcessRequest9(inst2)
     
+    def implProcessRequest9(self, inst):
         self.assertEqual(inst.action, "poll")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.isostring, "2014-08-16")
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.id, "1110")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "110")

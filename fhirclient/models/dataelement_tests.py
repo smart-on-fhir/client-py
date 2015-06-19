@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 () on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 () on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -18,14 +18,16 @@ class DataElementTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-        instance = dataelement.DataElement(js)
-        self.assertIsNotNone(instance, "Must have instantiated a test instance")
-        return instance
+        return dataelement.DataElement(js)
     
     def testDataElement1(self):
         inst = self.instantiate_from("dataelement-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2c2990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a DataElement instance")
+        self.implDataElement1(inst)
+        inst2 = dataelement.DataElement(inst.as_json())
+        self.implDataElement1(inst2)
     
+    def implDataElement1(self, inst):
         self.assertEqual(inst.element[0].binding.name, "Gender")
         self.assertEqual(inst.element[0].binding.strength, "required")
         self.assertEqual(inst.element[0].binding.valueSetReference.extension[0].url, "http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset")
@@ -68,8 +70,12 @@ class DataElementTests(unittest.TestCase):
     
     def testDataElement2(self):
         inst = self.instantiate_from("dataelement-labtestmaster-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2c2990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a DataElement instance")
+        self.implDataElement2(inst)
+        inst2 = dataelement.DataElement(inst.as_json())
+        self.implDataElement2(inst2)
     
+    def implDataElement2(self, inst):
         self.assertEqual(inst.element[0].alias[0], "Protime, PT")
         self.assertEqual(inst.element[0].comments, "Used to screen the integrity of the extrinsic and common pathways of coagulation and to monitor warfarin anticoagulation. ")
         self.assertEqual(inst.element[0].definition, "The PT test evaluates the extrinsic and common pathways of the coagulation cascade.")
@@ -88,7 +94,7 @@ class DataElementTests(unittest.TestCase):
         self.assertEqual(inst.element[0].type[0].code, "Decimal")
         self.assertEqual(inst.id, "prothrombin")
         self.assertEqual(inst.identifier.period.start.date, FHIRDate("2011-05-19").date)
-        self.assertEqual(inst.identifier.period.start.isostring, "2011-05-19")
+        self.assertEqual(inst.identifier.period.start.as_json(), "2011-05-19")
         self.assertEqual(inst.identifier.system, "http://www.CenturyHospital/Laboratory/DirectoryofServices")
         self.assertEqual(inst.identifier.type.text, "Prothrombin Time, PT")
         self.assertEqual(inst.identifier.value, "11")
@@ -102,15 +108,19 @@ class DataElementTests(unittest.TestCase):
     
     def testDataElement3(self):
         inst = self.instantiate_from("dataelement-sdc-profile-example-de.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2c2990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a DataElement instance")
+        self.implDataElement3(inst)
+        inst2 = dataelement.DataElement(inst.as_json())
+        self.implDataElement3(inst2)
     
+    def implDataElement3(self, inst):
         self.assertEqual(inst.contact[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/11179-de-contact-address")
         self.assertEqual(inst.contact[0].extension[0].valueAddress.text, "540 Gaither Rd Rockville MD 20850")
         self.assertEqual(inst.contact[0].name, "Bill Munier")
         self.assertEqual(inst.contact[0].telecom[0].system, "email")
         self.assertEqual(inst.contact[0].telecom[0].value, "william.munier@ahrq.hhs.gov")
         self.assertEqual(inst.date.date, FHIRDate("2010-03-31").date)
-        self.assertEqual(inst.date.isostring, "2010-03-31")
+        self.assertEqual(inst.date.as_json(), "2010-03-31")
         self.assertEqual(inst.element[0].binding.name, "Gender")
         self.assertEqual(inst.element[0].binding.strength, "required")
         self.assertEqual(inst.element[0].binding.valueSetReference.extension[0].url, "http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset")
@@ -139,7 +149,7 @@ class DataElementTests(unittest.TestCase):
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/11179-de-document-reference")
         self.assertEqual(inst.extension[1].url, "http://hl7.org/fhir/StructureDefinition/11179-de-effective-period")
         self.assertEqual(inst.extension[1].valuePeriod.start.date, FHIRDate("2010-03-31").date)
-        self.assertEqual(inst.extension[1].valuePeriod.start.isostring, "2010-03-31")
+        self.assertEqual(inst.extension[1].valuePeriod.start.as_json(), "2010-03-31")
         self.assertEqual(inst.extension[2].url, "http://hl7.org/fhir/StructureDefinition/11179-de-submitter-org")
         self.assertEqual(inst.id, "sdc-gender-de")
         self.assertEqual(inst.identifier.system, "http://nlm.nih.gov/some_other_text/data_element_identifier")
@@ -158,12 +168,16 @@ class DataElementTests(unittest.TestCase):
     
     def testDataElement4(self):
         inst = self.instantiate_from("dataelement-sdc-profile-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a <fhirclass.FHIRClass object at 0x10e2c2990> instance")
+        self.assertIsNotNone(inst, "Must have instantiated a DataElement instance")
+        self.implDataElement4(inst)
+        inst2 = dataelement.DataElement(inst.as_json())
+        self.implDataElement4(inst2)
     
+    def implDataElement4(self, inst):
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org")
         self.assertEqual(inst.date.date, FHIRDate("2015-02-04").date)
-        self.assertEqual(inst.date.isostring, "2015-02-04")
+        self.assertEqual(inst.date.as_json(), "2015-02-04")
         self.assertEqual(inst.element[0].binding.name, "AdministrativeGender")
         self.assertEqual(inst.element[0].binding.strength, "required")
         self.assertEqual(inst.element[0].definition, "The gender (i.e., the behavioral, cultural, or psychological traits typically associated with one sex) of a living subject as defined for administrative purposes.")

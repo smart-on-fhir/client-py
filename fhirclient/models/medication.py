@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Medication) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Medication) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -57,22 +57,18 @@ class Medication(domainresource.DomainResource):
         
         super(Medication, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Medication, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'isBrand' in jsondict:
-            self.isBrand = jsondict['isBrand']
-        if 'kind' in jsondict:
-            self.kind = jsondict['kind']
-        if 'manufacturer' in jsondict:
-            self.manufacturer = fhirreference.FHIRReference.with_json_and_owner(jsondict['manufacturer'], self)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'package' in jsondict:
-            self.package = MedicationPackage.with_json_and_owner(jsondict['package'], self)
-        if 'product' in jsondict:
-            self.product = MedicationProduct.with_json_and_owner(jsondict['product'], self)
+    def elementProperties(self):
+        js = super(Medication, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("isBrand", "isBrand", bool, False),
+            ("kind", "kind", str, False),
+            ("manufacturer", "manufacturer", fhirreference.FHIRReference, False),
+            ("name", "name", str, False),
+            ("package", "package", MedicationPackage, False),
+            ("product", "product", MedicationProduct, False),
+        ])
+        return js
 
 
 class MedicationPackage(fhirelement.FHIRElement):
@@ -97,12 +93,13 @@ class MedicationPackage(fhirelement.FHIRElement):
         
         super(MedicationPackage, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationPackage, self).update_with_json(jsondict)
-        if 'container' in jsondict:
-            self.container = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['container'], self)
-        if 'content' in jsondict:
-            self.content = MedicationPackageContent.with_json_and_owner(jsondict['content'], self)
+    def elementProperties(self):
+        js = super(MedicationPackage, self).elementProperties()
+        js.extend([
+            ("container", "container", codeableconcept.CodeableConcept, False),
+            ("content", "content", MedicationPackageContent, True),
+        ])
+        return js
 
 
 class MedicationPackageContent(fhirelement.FHIRElement):
@@ -127,12 +124,13 @@ class MedicationPackageContent(fhirelement.FHIRElement):
         
         super(MedicationPackageContent, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationPackageContent, self).update_with_json(jsondict)
-        if 'amount' in jsondict:
-            self.amount = quantity.Quantity.with_json_and_owner(jsondict['amount'], self)
-        if 'item' in jsondict:
-            self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self)
+    def elementProperties(self):
+        js = super(MedicationPackageContent, self).elementProperties()
+        js.extend([
+            ("amount", "amount", quantity.Quantity, False),
+            ("item", "item", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class MedicationProduct(fhirelement.FHIRElement):
@@ -162,14 +160,14 @@ class MedicationProduct(fhirelement.FHIRElement):
         
         super(MedicationProduct, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationProduct, self).update_with_json(jsondict)
-        if 'batch' in jsondict:
-            self.batch = MedicationProductBatch.with_json_and_owner(jsondict['batch'], self)
-        if 'form' in jsondict:
-            self.form = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['form'], self)
-        if 'ingredient' in jsondict:
-            self.ingredient = MedicationProductIngredient.with_json_and_owner(jsondict['ingredient'], self)
+    def elementProperties(self):
+        js = super(MedicationProduct, self).elementProperties()
+        js.extend([
+            ("batch", "batch", MedicationProductBatch, True),
+            ("form", "form", codeableconcept.CodeableConcept, False),
+            ("ingredient", "ingredient", MedicationProductIngredient, True),
+        ])
+        return js
 
 
 class MedicationProductBatch(fhirelement.FHIRElement):
@@ -196,12 +194,13 @@ class MedicationProductBatch(fhirelement.FHIRElement):
         
         super(MedicationProductBatch, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationProductBatch, self).update_with_json(jsondict)
-        if 'expirationDate' in jsondict:
-            self.expirationDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['expirationDate'], self)
-        if 'lotNumber' in jsondict:
-            self.lotNumber = jsondict['lotNumber']
+    def elementProperties(self):
+        js = super(MedicationProductBatch, self).elementProperties()
+        js.extend([
+            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False),
+            ("lotNumber", "lotNumber", str, False),
+        ])
+        return js
 
 
 class MedicationProductIngredient(fhirelement.FHIRElement):
@@ -226,10 +225,11 @@ class MedicationProductIngredient(fhirelement.FHIRElement):
         
         super(MedicationProductIngredient, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationProductIngredient, self).update_with_json(jsondict)
-        if 'amount' in jsondict:
-            self.amount = ratio.Ratio.with_json_and_owner(jsondict['amount'], self)
-        if 'item' in jsondict:
-            self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self)
+    def elementProperties(self):
+        js = super(MedicationProductIngredient, self).elementProperties()
+        js.extend([
+            ("amount", "amount", ratio.Ratio, False),
+            ("item", "item", fhirreference.FHIRReference, False),
+        ])
+        return js
 

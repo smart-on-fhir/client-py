@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -83,32 +83,23 @@ class Appointment(domainresource.DomainResource):
         
         super(Appointment, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Appointment, self).update_with_json(jsondict)
-        if 'comment' in jsondict:
-            self.comment = jsondict['comment']
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'end' in jsondict:
-            self.end = fhirdate.FHIRDate.with_json_and_owner(jsondict['end'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'order' in jsondict:
-            self.order = fhirreference.FHIRReference.with_json_and_owner(jsondict['order'], self)
-        if 'participant' in jsondict:
-            self.participant = AppointmentParticipant.with_json_and_owner(jsondict['participant'], self)
-        if 'priority' in jsondict:
-            self.priority = jsondict['priority']
-        if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'slot' in jsondict:
-            self.slot = fhirreference.FHIRReference.with_json_and_owner(jsondict['slot'], self)
-        if 'start' in jsondict:
-            self.start = fhirdate.FHIRDate.with_json_and_owner(jsondict['start'], self)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(Appointment, self).elementProperties()
+        js.extend([
+            ("comment", "comment", str, False),
+            ("description", "description", str, False),
+            ("end", "end", fhirdate.FHIRDate, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("order", "order", fhirreference.FHIRReference, False),
+            ("participant", "participant", AppointmentParticipant, True),
+            ("priority", "priority", int, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, False),
+            ("slot", "slot", fhirreference.FHIRReference, True),
+            ("start", "start", fhirdate.FHIRDate, False),
+            ("status", "status", str, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class AppointmentParticipant(fhirelement.FHIRElement):
@@ -140,14 +131,13 @@ class AppointmentParticipant(fhirelement.FHIRElement):
         
         super(AppointmentParticipant, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(AppointmentParticipant, self).update_with_json(jsondict)
-        if 'actor' in jsondict:
-            self.actor = fhirreference.FHIRReference.with_json_and_owner(jsondict['actor'], self)
-        if 'required' in jsondict:
-            self.required = jsondict['required']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(AppointmentParticipant, self).elementProperties()
+        js.extend([
+            ("actor", "actor", fhirreference.FHIRReference, False),
+            ("required", "required", str, False),
+            ("status", "status", str, False),
+            ("type", "type", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 

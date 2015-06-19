@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DomainResource) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DomainResource) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -27,8 +27,10 @@ class DomainResource(resource.Resource):
         
         super(DomainResource, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DomainResource, self).update_with_json(jsondict)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+    def elementProperties(self):
+        js = super(DomainResource, self).elementProperties()
+        js.extend([
+            ("text", "text", narrative.Narrative, False),
+        ])
+        return js
 

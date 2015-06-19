@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Narrative) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Narrative) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -28,10 +28,11 @@ class Narrative(fhirelement.FHIRElement):
         
         super(Narrative, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Narrative, self).update_with_json(jsondict)
-        if 'div' in jsondict:
-            self.div = jsondict['div']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
+    def elementProperties(self):
+        js = super(Narrative, self).elementProperties()
+        js.extend([
+            ("div", "div", str, False),
+            ("status", "status", str, False),
+        ])
+        return js
 

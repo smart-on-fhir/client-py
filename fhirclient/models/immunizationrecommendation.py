@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2015-04-08.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2015-06-19.
 #  2015, SMART Health IT.
 
 
@@ -40,14 +40,14 @@ class ImmunizationRecommendation(domainresource.DomainResource):
         
         super(ImmunizationRecommendation, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImmunizationRecommendation, self).update_with_json(jsondict)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self)
-        if 'recommendation' in jsondict:
-            self.recommendation = ImmunizationRecommendationRecommendation.with_json_and_owner(jsondict['recommendation'], self)
+    def elementProperties(self):
+        js = super(ImmunizationRecommendation, self).elementProperties()
+        js.extend([
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("recommendation", "recommendation", ImmunizationRecommendationRecommendation, True),
+        ])
+        return js
 
 
 class ImmunizationRecommendationRecommendation(fhirelement.FHIRElement):
@@ -94,24 +94,19 @@ class ImmunizationRecommendationRecommendation(fhirelement.FHIRElement):
         
         super(ImmunizationRecommendationRecommendation, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImmunizationRecommendationRecommendation, self).update_with_json(jsondict)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'dateCriterion' in jsondict:
-            self.dateCriterion = ImmunizationRecommendationRecommendationDateCriterion.with_json_and_owner(jsondict['dateCriterion'], self)
-        if 'doseNumber' in jsondict:
-            self.doseNumber = jsondict['doseNumber']
-        if 'forecastStatus' in jsondict:
-            self.forecastStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['forecastStatus'], self)
-        if 'protocol' in jsondict:
-            self.protocol = ImmunizationRecommendationRecommendationProtocol.with_json_and_owner(jsondict['protocol'], self)
-        if 'supportingImmunization' in jsondict:
-            self.supportingImmunization = fhirreference.FHIRReference.with_json_and_owner(jsondict['supportingImmunization'], self)
-        if 'supportingPatientInformation' in jsondict:
-            self.supportingPatientInformation = fhirreference.FHIRReference.with_json_and_owner(jsondict['supportingPatientInformation'], self)
-        if 'vaccineType' in jsondict:
-            self.vaccineType = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['vaccineType'], self)
+    def elementProperties(self):
+        js = super(ImmunizationRecommendationRecommendation, self).elementProperties()
+        js.extend([
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("dateCriterion", "dateCriterion", ImmunizationRecommendationRecommendationDateCriterion, True),
+            ("doseNumber", "doseNumber", int, False),
+            ("forecastStatus", "forecastStatus", codeableconcept.CodeableConcept, False),
+            ("protocol", "protocol", ImmunizationRecommendationRecommendationProtocol, False),
+            ("supportingImmunization", "supportingImmunization", fhirreference.FHIRReference, True),
+            ("supportingPatientInformation", "supportingPatientInformation", fhirreference.FHIRReference, True),
+            ("vaccineType", "vaccineType", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class ImmunizationRecommendationRecommendationDateCriterion(fhirelement.FHIRElement):
@@ -137,12 +132,13 @@ class ImmunizationRecommendationRecommendationDateCriterion(fhirelement.FHIRElem
         
         super(ImmunizationRecommendationRecommendationDateCriterion, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImmunizationRecommendationRecommendationDateCriterion, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'value' in jsondict:
-            self.value = fhirdate.FHIRDate.with_json_and_owner(jsondict['value'], self)
+    def elementProperties(self):
+        js = super(ImmunizationRecommendationRecommendationDateCriterion, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("value", "value", fhirdate.FHIRDate, False),
+        ])
+        return js
 
 
 class ImmunizationRecommendationRecommendationProtocol(fhirelement.FHIRElement):
@@ -176,14 +172,13 @@ class ImmunizationRecommendationRecommendationProtocol(fhirelement.FHIRElement):
         
         super(ImmunizationRecommendationRecommendationProtocol, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImmunizationRecommendationRecommendationProtocol, self).update_with_json(jsondict)
-        if 'authority' in jsondict:
-            self.authority = fhirreference.FHIRReference.with_json_and_owner(jsondict['authority'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'doseSequence' in jsondict:
-            self.doseSequence = jsondict['doseSequence']
-        if 'series' in jsondict:
-            self.series = jsondict['series']
+    def elementProperties(self):
+        js = super(ImmunizationRecommendationRecommendationProtocol, self).elementProperties()
+        js.extend([
+            ("authority", "authority", fhirreference.FHIRReference, False),
+            ("description", "description", str, False),
+            ("doseSequence", "doseSequence", int, False),
+            ("series", "series", str, False),
+        ])
+        return js
 
