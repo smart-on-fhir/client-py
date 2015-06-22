@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -45,15 +45,15 @@ class OperationDefinition(domainresource.DomainResource):
         """ Natural language description of the operation.
         Type `str`. """
         
-        self.experimental = False
+        self.experimental = None
         """ If for testing purposes, not real usage.
         Type `bool`. """
         
-        self.idempotent = False
+        self.idempotent = None
         """ Whether operation causes changes to content.
         Type `bool`. """
         
-        self.instance = False
+        self.instance = None
         """ Invoke on an instance?.
         Type `bool`. """
         
@@ -85,7 +85,7 @@ class OperationDefinition(domainresource.DomainResource):
         """ draft | active | retired.
         Type `str`. """
         
-        self.system = False
+        self.system = None
         """ Invoke at the system level?.
         Type `bool`. """
         

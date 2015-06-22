@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Claim) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Claim) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -207,7 +207,7 @@ class ClaimCoverage(fhirelement.FHIRElement):
         """ Insurance information.
         Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
         
-        self.focal = False
+        self.focal = None
         """ Is the focal Coverage.
         Type `bool`. """
         
@@ -530,7 +530,7 @@ class ClaimItemProsthesis(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.initial = False
+        self.initial = None
         """ Is this the initial service.
         Type `bool`. """
         

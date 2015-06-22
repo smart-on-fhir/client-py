@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Group) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Group) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -29,7 +29,7 @@ class Group(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.actual = False
+        self.actual = None
         """ Descriptive or actual.
         Type `bool`. """
         
@@ -94,11 +94,11 @@ class GroupCharacteristic(fhirelement.FHIRElement):
         """ Kind of characteristic.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.exclude = False
+        self.exclude = None
         """ Group includes or excludes.
         Type `bool`. """
         
-        self.valueBoolean = False
+        self.valueBoolean = None
         """ Value held by characteristic.
         Type `bool`. """
         

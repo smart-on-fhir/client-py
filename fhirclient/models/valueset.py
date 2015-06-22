@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -54,11 +54,11 @@ class ValueSet(domainresource.DomainResource):
         """ Used when the value set is "expanded".
         Type `ValueSetExpansion` (represented as `dict` in JSON). """
         
-        self.experimental = False
+        self.experimental = None
         """ If for testing purposes, not real usage.
         Type `bool`. """
         
-        self.extensible = False
+        self.extensible = None
         """ Whether this is intended to be used with an extensible binding.
         Type `bool`. """
         
@@ -66,7 +66,7 @@ class ValueSet(domainresource.DomainResource):
         """ Additional identifier for the value set (v2 / CDA).
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.immutable = False
+        self.immutable = None
         """ Indicates whether or not any change to the content logical
         definition may occur.
         Type `bool`. """
@@ -321,7 +321,7 @@ class ValueSetDefine(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.caseSensitive = False
+        self.caseSensitive = None
         """ If code comparison is case sensitive.
         Type `bool`. """
         
@@ -360,7 +360,7 @@ class ValueSetDefineConcept(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.abstract = False
+        self.abstract = None
         """ If this code is not for use as a real concept.
         Type `bool`. """
         
@@ -491,7 +491,7 @@ class ValueSetExpansionContains(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.abstract = False
+        self.abstract = None
         """ If user cannot select this entry.
         Type `bool`. """
         
@@ -548,7 +548,7 @@ class ValueSetExpansionParameter(fhirelement.FHIRElement):
         """ Name as assigned by server.
         Type `str`. """
         
-        self.valueBoolean = False
+        self.valueBoolean = None
         """ Value of the parameter.
         Type `bool`. """
         

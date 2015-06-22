@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -84,7 +84,7 @@ class MedicationStatement(domainresource.DomainResource):
         """ in-progress | completed | entered-in-error.
         Type `str`. """
         
-        self.wasNotGiven = False
+        self.wasNotGiven = None
         """ True if medication is/was not being taken.
         Type `bool`. """
         
@@ -123,7 +123,7 @@ class MedicationStatementDosage(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.asNeededBoolean = False
+        self.asNeededBoolean = None
         """ Take "as needed" f(or x).
         Type `bool`. """
         

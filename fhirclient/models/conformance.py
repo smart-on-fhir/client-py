@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -28,7 +28,7 @@ class Conformance(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.acceptUnknown = False
+        self.acceptUnknown = None
         """ True if application accepts unknown elements.
         Type `bool`. """
         
@@ -52,7 +52,7 @@ class Conformance(domainresource.DomainResource):
         """ Document definition.
         List of `ConformanceDocument` items (represented as `dict` in JSON). """
         
-        self.experimental = False
+        self.experimental = None
         """ If for testing purposes, not real usage.
         Type `bool`. """
         
@@ -476,15 +476,15 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.conditionalCreate = False
+        self.conditionalCreate = None
         """ If allows/uses conditional create.
         Type `bool`. """
         
-        self.conditionalDelete = False
+        self.conditionalDelete = None
         """ If allows/uses conditional delete.
         Type `bool`. """
         
-        self.conditionalUpdate = False
+        self.conditionalUpdate = None
         """ If allows/uses conditional update.
         Type `bool`. """
         
@@ -496,7 +496,7 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         """ What structural features are supported.
         Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
-        self.readHistory = False
+        self.readHistory = None
         """ Whether vRead can return past versions.
         Type `bool`. """
         
@@ -512,7 +512,7 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         """ A resource type that is supported.
         Type `str`. """
         
-        self.updateCreate = False
+        self.updateCreate = None
         """ If update can commit to a new identity.
         Type `bool`. """
         
@@ -643,7 +643,7 @@ class ConformanceRestSecurity(fhirelement.FHIRElement):
         """ Certificates associated with security profiles.
         List of `ConformanceRestSecurityCertificate` items (represented as `dict` in JSON). """
         
-        self.cors = False
+        self.cors = None
         """ Adds CORS Headers (http://enable-cors.org/).
         Type `bool`. """
         

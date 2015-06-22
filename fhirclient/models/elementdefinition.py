@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -72,7 +72,7 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ Specified value it missing from instance.
         Type `str`. """
         
-        self.defaultValueBoolean = False
+        self.defaultValueBoolean = None
         """ Specified value it missing from instance.
         Type `bool`. """
         
@@ -176,7 +176,7 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ Example value: [as defined for type].
         Type `str`. """
         
-        self.exampleBoolean = False
+        self.exampleBoolean = None
         """ Example value: [as defined for type].
         Type `bool`. """
         
@@ -276,7 +276,7 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ Value must be exactly this.
         Type `str`. """
         
-        self.fixedBoolean = False
+        self.fixedBoolean = None
         """ Value must be exactly this.
         Type `bool`. """
         
@@ -364,11 +364,11 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ Value must be exactly this.
         Type `str`. """
         
-        self.isModifier = False
+        self.isModifier = None
         """ If this modifies the meaning of other elements.
         Type `bool`. """
         
-        self.isSummary = False
+        self.isSummary = None
         """ Include when _summary = true?.
         Type `bool`. """
         
@@ -396,7 +396,7 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ Minimum Cardinality.
         Type `int`. """
         
-        self.mustSupport = False
+        self.mustSupport = None
         """ If the element must supported.
         Type `bool`. """
         
@@ -424,7 +424,7 @@ class ElementDefinition(fhirelement.FHIRElement):
         """ Value must have at least these property values.
         Type `str`. """
         
-        self.patternBoolean = False
+        self.patternBoolean = None
         """ Value must have at least these property values.
         Type `bool`. """
         
@@ -820,7 +820,7 @@ class ElementDefinitionSlicing(fhirelement.FHIRElement):
         """ Element values that used to distinguish the slices.
         List of `str` items. """
         
-        self.ordered = False
+        self.ordered = None
         """ If elements must be in same order as slices.
         Type `bool`. """
         

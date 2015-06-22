@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationPrescription) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationPrescription) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -169,7 +169,7 @@ class MedicationPrescriptionDosageInstruction(fhirelement.FHIRElement):
         """ Supplemental instructions - e.g. "with meals".
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.asNeededBoolean = False
+        self.asNeededBoolean = None
         """ Take "as needed" f(or x).
         Type `bool`. """
         

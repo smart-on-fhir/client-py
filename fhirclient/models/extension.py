@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Extension) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Extension) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -51,7 +51,7 @@ class Extension(fhirelement.FHIRElement):
         """ Value of extension.
         Type `str`. """
         
-        self.valueBoolean = False
+        self.valueBoolean = None
         """ Value of extension.
         Type `bool`. """
         

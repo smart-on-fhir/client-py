@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -72,7 +72,7 @@ class Immunization(domainresource.DomainResource):
         """ Details of a reaction that follows immunization.
         List of `ImmunizationReaction` items (represented as `dict` in JSON). """
         
-        self.reported = False
+        self.reported = None
         """ Is this a self-reported record?.
         Type `bool`. """
         
@@ -96,7 +96,7 @@ class Immunization(domainresource.DomainResource):
         """ Vaccine product administered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.wasNotGiven = False
+        self.wasNotGiven = None
         """ Was immunization given?.
         Type `bool`. """
         
@@ -180,7 +180,7 @@ class ImmunizationReaction(fhirelement.FHIRElement):
         """ Additional information on reaction.
         Type `FHIRReference` referencing `Observation` (represented as `dict` in JSON). """
         
-        self.reported = False
+        self.reported = None
         """ Was reaction self-reported?.
         Type `bool`. """
         

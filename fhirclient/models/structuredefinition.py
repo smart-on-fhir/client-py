@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -29,7 +29,7 @@ class StructureDefinition(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.abstract = False
+        self.abstract = None
         """ Whether the structure is abstract.
         Type `bool`. """
         
@@ -73,7 +73,7 @@ class StructureDefinition(domainresource.DomainResource):
         """ Use this name when displaying the value.
         Type `str`. """
         
-        self.experimental = False
+        self.experimental = None
         """ If for testing purposes, not real usage.
         Type `bool`. """
         

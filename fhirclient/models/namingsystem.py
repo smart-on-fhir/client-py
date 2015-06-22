@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -150,7 +150,7 @@ class NamingSystemUniqueId(fhirelement.FHIRElement):
         """ When is identifier valid?.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.preferred = False
+        self.preferred = None
         """ Is this the id that should be used for this type.
         Type `bool`. """
         

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -193,7 +193,7 @@ class CarePlanActivityDetail(fhirelement.FHIRElement):
         """ What is to be administered/supplied.
         Type `FHIRReference` referencing `Medication, Substance` (represented as `dict` in JSON). """
         
-        self.prohibited = False
+        self.prohibited = None
         """ Do NOT do.
         Type `bool`. """
         

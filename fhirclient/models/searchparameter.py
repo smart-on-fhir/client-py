@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -40,7 +40,7 @@ class SearchParameter(domainresource.DomainResource):
         """ Documentation for  search parameter.
         Type `str`. """
         
-        self.experimental = False
+        self.experimental = None
         """ If for testing purposes, not real usage.
         Type `bool`. """
         

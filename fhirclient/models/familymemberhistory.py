@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -65,7 +65,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ Dead? How old/when?.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.deceasedBoolean = False
+        self.deceasedBoolean = None
         """ Dead? How old/when?.
         Type `bool`. """
         

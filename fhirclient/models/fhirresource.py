@@ -101,6 +101,26 @@ class FHIRResource(fhirelement.FHIRElement):
         
         return instance
     
+    def create(self, server):
+        srv = server or self._server
+        if srv is None:
+            raise Exception("Cannot create a resource without a server")
+        if self.id:
+            raise Exception("This resource already has an id, cannot create")
+        
+        ret = srv.post_json(self.relativePath(), self.as_json())
+        print ('==>  ', ret)
+    
+    def update(self, server=None):
+        srv = server or self._server
+        if srv is None:
+            raise Exception("Cannot update a resource that does not have a server")
+        if not self.id:
+            raise Exception("Cannot update a resource that does not have an id")
+        
+        ret = srv.put_json(self.relativePath(), self.as_json())
+        print('==>  ', ret)
+    
     
     # MARK: Search
     

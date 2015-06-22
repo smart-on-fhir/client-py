@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -27,7 +27,7 @@ class ProcedureRequest(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.asNeededBoolean = False
+        self.asNeededBoolean = None
         """ PRN.
         Type `bool`. """
         

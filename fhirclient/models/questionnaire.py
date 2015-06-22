@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -100,11 +100,11 @@ class QuestionnaireGroup(fhirelement.FHIRElement):
         """ Questions in this group.
         List of `QuestionnaireGroupQuestion` items (represented as `dict` in JSON). """
         
-        self.repeats = False
+        self.repeats = None
         """ Whether the group may repeat.
         Type `bool`. """
         
-        self.required = False
+        self.required = None
         """ Must group be included in data results?.
         Type `bool`. """
         
@@ -162,11 +162,11 @@ class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
         """ Valueset containing the possible options.
         Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
         
-        self.repeats = False
+        self.repeats = None
         """ Can question  have multiple answers?.
         Type `bool`. """
         
-        self.required = False
+        self.required = None
         """ Must question be answered in data results?.
         Type `bool`. """
         

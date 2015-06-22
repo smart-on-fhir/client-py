@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Patient) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Patient) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -31,7 +31,7 @@ class Patient(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.active = False
+        self.active = None
         """ Whether this patient's record is in active use.
         Type `bool`. """
         
@@ -60,7 +60,7 @@ class Patient(domainresource.DomainResource):
         """ A contact party (e.g. guardian, partner, friend) for the patient.
         List of `PatientContact` items (represented as `dict` in JSON). """
         
-        self.deceasedBoolean = False
+        self.deceasedBoolean = None
         """ Indicates if the individual is deceased or not.
         Type `bool`. """
         
@@ -89,7 +89,7 @@ class Patient(domainresource.DomainResource):
         """ Marital (civil) status of a patient.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.multipleBirthBoolean = False
+        self.multipleBirthBoolean = None
         """ Whether patient is part of a multiple birth.
         Type `bool`. """
         
@@ -192,7 +192,7 @@ class PatientCommunication(fhirelement.FHIRElement):
         about his or her health.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.preferred = False
+        self.preferred = None
         """ Language preference indicator.
         Type `bool`. """
         

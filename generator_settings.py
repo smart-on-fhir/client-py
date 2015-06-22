@@ -13,10 +13,6 @@ resource_base_target = '../fhirclient/models/'              # resource target di
 write_factory = True
 tpl_factory_target = '../fhirclient/models/fhirelementfactory.py'
 
-# search parameters
-write_searchparams = False
-tpl_searchparams_target = '../fhirclient/models/fhirsearchelement.py'
-
 # unit tests
 write_unittests = True
 tpl_unittest_target_ptrn = '../fhirclient/models/{}_tests.py'

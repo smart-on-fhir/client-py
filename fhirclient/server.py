@@ -9,7 +9,6 @@ except Exception as e:              # Python 3
     import urllib.parse as urlparse
 
 from auth import FHIRAuth
-from models import conformance
 
 
 class FHIRUnauthorizedException(Exception):
@@ -63,6 +62,7 @@ class FHIRServer(object):
         """
         if self._conformance is None or force:
             logging.info('Fetching conformance statement from {}'.format(self.base_uri))
+            from models import conformance
             conf = conformance.Conformance.read_from('metadata', self)
             self._conformance = conf
             

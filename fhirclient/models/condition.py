@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Condition) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Condition) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -35,7 +35,7 @@ class Condition(domainresource.DomainResource):
         """ If/when in resolution/remission.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.abatementBoolean = False
+        self.abatementBoolean = None
         """ If/when in resolution/remission.
         Type `bool`. """
         

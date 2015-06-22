@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -43,7 +43,7 @@ class DataElement(domainresource.DomainResource):
         """ Definition of element.
         List of `ElementDefinition` items (represented as `dict` in JSON). """
         
-        self.experimental = False
+        self.experimental = None
         """ If for testing purposes, not real usage.
         Type `bool`. """
         

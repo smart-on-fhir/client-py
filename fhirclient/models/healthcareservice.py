@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -26,7 +26,7 @@ class HealthcareService(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.appointmentRequired = False
+        self.appointmentRequired = None
         """ Indicates if an appointment is required for access to this service.
         Type `bool`. """
         
@@ -174,7 +174,7 @@ class HealthcareServiceAvailableTime(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.allDay = False
+        self.allDay = None
         """ Is this always available? (hence times are irrelevant) e.g. 24 hour
         service.
         Type `bool`. """

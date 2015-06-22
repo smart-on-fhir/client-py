@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Slot) on 2015-06-19.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Slot) on 2015-06-22.
 #  2015, SMART Health IT.
 
 
@@ -39,7 +39,7 @@ class Slot(domainresource.DomainResource):
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.overbooked = False
+        self.overbooked = None
         """ This slot has already been overbooked, appointments are unlikely to
         be accepted for this time.
         Type `bool`. """
