@@ -18,13 +18,17 @@ class SearchParameterTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("SearchParameter", js["resourceType"])
         return searchparameter.SearchParameter(js)
     
     def testSearchParameter1(self):
         inst = self.instantiate_from("searchparameter-example-extension.json")
         self.assertIsNotNone(inst, "Must have instantiated a SearchParameter instance")
         self.implSearchParameter1(inst)
-        inst2 = searchparameter.SearchParameter(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("SearchParameter", js["resourceType"])
+        inst2 = searchparameter.SearchParameter(js)
         self.implSearchParameter1(inst2)
     
     def implSearchParameter1(self, inst):
@@ -44,7 +48,10 @@ class SearchParameterTests(unittest.TestCase):
         inst = self.instantiate_from("searchparameter-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a SearchParameter instance")
         self.implSearchParameter2(inst)
-        inst2 = searchparameter.SearchParameter(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("SearchParameter", js["resourceType"])
+        inst2 = searchparameter.SearchParameter(js)
         self.implSearchParameter2(inst2)
     
     def implSearchParameter2(self, inst):

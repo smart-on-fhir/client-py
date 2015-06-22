@@ -18,13 +18,17 @@ class ParametersTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Parameters", js["resourceType"])
         return parameters.Parameters(js)
     
     def testParameters1(self):
         inst = self.instantiate_from("parameters-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Parameters instance")
         self.implParameters1(inst)
-        inst2 = parameters.Parameters(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Parameters", js["resourceType"])
+        inst2 = parameters.Parameters(js)
         self.implParameters1(inst2)
     
     def implParameters1(self, inst):

@@ -18,13 +18,17 @@ class ClaimResponseTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("ClaimResponse", js["resourceType"])
         return claimresponse.ClaimResponse(js)
     
     def testClaimResponse1(self):
         inst = self.instantiate_from("claimresponse-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ClaimResponse instance")
         self.implClaimResponse1(inst)
-        inst2 = claimresponse.ClaimResponse(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ClaimResponse", js["resourceType"])
+        inst2 = claimresponse.ClaimResponse(js)
         self.implClaimResponse1(inst2)
     
     def implClaimResponse1(self, inst):

@@ -18,13 +18,17 @@ class ImmunizationTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Immunization", js["resourceType"])
         return immunization.Immunization(js)
     
     def testImmunization1(self):
         inst = self.instantiate_from("immunization-example-refused.json")
         self.assertIsNotNone(inst, "Must have instantiated a Immunization instance")
         self.implImmunization1(inst)
-        inst2 = immunization.Immunization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Immunization", js["resourceType"])
+        inst2 = immunization.Immunization(js)
         self.implImmunization1(inst2)
     
     def implImmunization1(self, inst):
@@ -46,7 +50,10 @@ class ImmunizationTests(unittest.TestCase):
         inst = self.instantiate_from("immunization-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Immunization instance")
         self.implImmunization2(inst)
-        inst2 = immunization.Immunization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Immunization", js["resourceType"])
+        inst2 = immunization.Immunization(js)
         self.implImmunization2(inst2)
     
     def implImmunization2(self, inst):

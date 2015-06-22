@@ -18,13 +18,17 @@ class DataElementTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("DataElement", js["resourceType"])
         return dataelement.DataElement(js)
     
     def testDataElement1(self):
         inst = self.instantiate_from("dataelement-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DataElement instance")
         self.implDataElement1(inst)
-        inst2 = dataelement.DataElement(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DataElement", js["resourceType"])
+        inst2 = dataelement.DataElement(js)
         self.implDataElement1(inst2)
     
     def implDataElement1(self, inst):
@@ -72,7 +76,10 @@ class DataElementTests(unittest.TestCase):
         inst = self.instantiate_from("dataelement-labtestmaster-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DataElement instance")
         self.implDataElement2(inst)
-        inst2 = dataelement.DataElement(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DataElement", js["resourceType"])
+        inst2 = dataelement.DataElement(js)
         self.implDataElement2(inst2)
     
     def implDataElement2(self, inst):
@@ -110,7 +117,10 @@ class DataElementTests(unittest.TestCase):
         inst = self.instantiate_from("dataelement-sdc-profile-example-de.json")
         self.assertIsNotNone(inst, "Must have instantiated a DataElement instance")
         self.implDataElement3(inst)
-        inst2 = dataelement.DataElement(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DataElement", js["resourceType"])
+        inst2 = dataelement.DataElement(js)
         self.implDataElement3(inst2)
     
     def implDataElement3(self, inst):
@@ -170,7 +180,10 @@ class DataElementTests(unittest.TestCase):
         inst = self.instantiate_from("dataelement-sdc-profile-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DataElement instance")
         self.implDataElement4(inst)
-        inst2 = dataelement.DataElement(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DataElement", js["resourceType"])
+        inst2 = dataelement.DataElement(js)
         self.implDataElement4(inst2)
     
     def implDataElement4(self, inst):

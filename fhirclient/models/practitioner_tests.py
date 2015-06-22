@@ -18,13 +18,17 @@ class PractitionerTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Practitioner", js["resourceType"])
         return practitioner.Practitioner(js)
     
     def testPractitioner1(self):
         inst = self.instantiate_from("pract-uslab-example1.json")
         self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
         self.implPractitioner1(inst)
-        inst2 = practitioner.Practitioner(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Practitioner", js["resourceType"])
+        inst2 = practitioner.Practitioner(js)
         self.implPractitioner1(inst2)
     
     def implPractitioner1(self, inst):
@@ -44,7 +48,10 @@ class PractitionerTests(unittest.TestCase):
         inst = self.instantiate_from("pract-uslab-example2.json")
         self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
         self.implPractitioner2(inst)
-        inst2 = practitioner.Practitioner(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Practitioner", js["resourceType"])
+        inst2 = practitioner.Practitioner(js)
         self.implPractitioner2(inst2)
     
     def implPractitioner2(self, inst):
@@ -77,7 +84,10 @@ class PractitionerTests(unittest.TestCase):
         inst = self.instantiate_from("pract-uslab-example3.json")
         self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
         self.implPractitioner3(inst)
-        inst2 = practitioner.Practitioner(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Practitioner", js["resourceType"])
+        inst2 = practitioner.Practitioner(js)
         self.implPractitioner3(inst2)
     
     def implPractitioner3(self, inst):
@@ -97,7 +107,10 @@ class PractitionerTests(unittest.TestCase):
         inst = self.instantiate_from("practitioner-example-f001-evdb.json")
         self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
         self.implPractitioner4(inst)
-        inst2 = practitioner.Practitioner(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Practitioner", js["resourceType"])
+        inst2 = practitioner.Practitioner(js)
         self.implPractitioner4(inst2)
     
     def implPractitioner4(self, inst):
@@ -143,7 +156,10 @@ class PractitionerTests(unittest.TestCase):
         inst = self.instantiate_from("practitioner-example-f002-pv.json")
         self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
         self.implPractitioner5(inst)
-        inst2 = practitioner.Practitioner(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Practitioner", js["resourceType"])
+        inst2 = practitioner.Practitioner(js)
         self.implPractitioner5(inst2)
     
     def implPractitioner5(self, inst):
@@ -189,7 +205,10 @@ class PractitionerTests(unittest.TestCase):
         inst = self.instantiate_from("practitioner-example-f003-mv.json")
         self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
         self.implPractitioner6(inst)
-        inst2 = practitioner.Practitioner(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Practitioner", js["resourceType"])
+        inst2 = practitioner.Practitioner(js)
         self.implPractitioner6(inst2)
     
     def implPractitioner6(self, inst):
@@ -238,7 +257,10 @@ class PractitionerTests(unittest.TestCase):
         inst = self.instantiate_from("practitioner-example-f004-rb.json")
         self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
         self.implPractitioner7(inst)
-        inst2 = practitioner.Practitioner(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Practitioner", js["resourceType"])
+        inst2 = practitioner.Practitioner(js)
         self.implPractitioner7(inst2)
     
     def implPractitioner7(self, inst):
@@ -288,7 +310,10 @@ class PractitionerTests(unittest.TestCase):
         inst = self.instantiate_from("practitioner-example-f005-al.json")
         self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
         self.implPractitioner8(inst)
-        inst2 = practitioner.Practitioner(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Practitioner", js["resourceType"])
+        inst2 = practitioner.Practitioner(js)
         self.implPractitioner8(inst2)
     
     def implPractitioner8(self, inst):
@@ -337,7 +362,10 @@ class PractitionerTests(unittest.TestCase):
         inst = self.instantiate_from("practitioner-example-f006-rvdb.json")
         self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
         self.implPractitioner9(inst)
-        inst2 = practitioner.Practitioner(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Practitioner", js["resourceType"])
+        inst2 = practitioner.Practitioner(js)
         self.implPractitioner9(inst2)
     
     def implPractitioner9(self, inst):
@@ -383,7 +411,10 @@ class PractitionerTests(unittest.TestCase):
         inst = self.instantiate_from("practitioner-example-f007-sh.json")
         self.assertIsNotNone(inst, "Must have instantiated a Practitioner instance")
         self.implPractitioner10(inst)
-        inst2 = practitioner.Practitioner(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Practitioner", js["resourceType"])
+        inst2 = practitioner.Practitioner(js)
         self.implPractitioner10(inst2)
     
     def implPractitioner10(self, inst):

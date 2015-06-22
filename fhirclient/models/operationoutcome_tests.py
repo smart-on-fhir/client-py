@@ -18,13 +18,17 @@ class OperationOutcomeTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("OperationOutcome", js["resourceType"])
         return operationoutcome.OperationOutcome(js)
     
     def testOperationOutcome1(self):
         inst = self.instantiate_from("operationoutcome-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a OperationOutcome instance")
         self.implOperationOutcome1(inst)
-        inst2 = operationoutcome.OperationOutcome(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("OperationOutcome", js["resourceType"])
+        inst2 = operationoutcome.OperationOutcome(js)
         self.implOperationOutcome1(inst2)
     
     def implOperationOutcome1(self, inst):

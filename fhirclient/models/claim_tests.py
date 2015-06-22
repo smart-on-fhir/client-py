@@ -18,13 +18,17 @@ class ClaimTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Claim", js["resourceType"])
         return claim.Claim(js)
     
     def testClaim1(self):
         inst = self.instantiate_from("claim-example-institutional.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
         self.implClaim1(inst)
-        inst2 = claim.Claim(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Claim", js["resourceType"])
+        inst2 = claim.Claim(js)
         self.implClaim1(inst2)
     
     def implClaim1(self, inst):
@@ -61,7 +65,10 @@ class ClaimTests(unittest.TestCase):
         inst = self.instantiate_from("claim-example-oral-average.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
         self.implClaim2(inst)
-        inst2 = claim.Claim(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Claim", js["resourceType"])
+        inst2 = claim.Claim(js)
         self.implClaim2(inst2)
     
     def implClaim2(self, inst):
@@ -148,7 +155,10 @@ class ClaimTests(unittest.TestCase):
         inst = self.instantiate_from("claim-example-oral-contained.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
         self.implClaim3(inst)
-        inst2 = claim.Claim(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Claim", js["resourceType"])
+        inst2 = claim.Claim(js)
         self.implClaim3(inst2)
     
     def implClaim3(self, inst):
@@ -184,7 +194,10 @@ class ClaimTests(unittest.TestCase):
         inst = self.instantiate_from("claim-example-oral-orthoplan.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
         self.implClaim4(inst)
-        inst2 = claim.Claim(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Claim", js["resourceType"])
+        inst2 = claim.Claim(js)
         self.implClaim4(inst2)
     
     def implClaim4(self, inst):
@@ -325,7 +338,10 @@ class ClaimTests(unittest.TestCase):
         inst = self.instantiate_from("claim-example-pharmacy.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
         self.implClaim5(inst)
-        inst2 = claim.Claim(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Claim", js["resourceType"])
+        inst2 = claim.Claim(js)
         self.implClaim5(inst2)
     
     def implClaim5(self, inst):
@@ -362,7 +378,10 @@ class ClaimTests(unittest.TestCase):
         inst = self.instantiate_from("claim-example-professional.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
         self.implClaim6(inst)
-        inst2 = claim.Claim(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Claim", js["resourceType"])
+        inst2 = claim.Claim(js)
         self.implClaim6(inst2)
     
     def implClaim6(self, inst):
@@ -399,7 +418,10 @@ class ClaimTests(unittest.TestCase):
         inst = self.instantiate_from("claim-example-vision-glasses.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
         self.implClaim7(inst)
-        inst2 = claim.Claim(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Claim", js["resourceType"])
+        inst2 = claim.Claim(js)
         self.implClaim7(inst2)
     
     def implClaim7(self, inst):
@@ -468,7 +490,10 @@ class ClaimTests(unittest.TestCase):
         inst = self.instantiate_from("claim-example-vision.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
         self.implClaim8(inst)
-        inst2 = claim.Claim(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Claim", js["resourceType"])
+        inst2 = claim.Claim(js)
         self.implClaim8(inst2)
     
     def implClaim8(self, inst):
@@ -505,7 +530,10 @@ class ClaimTests(unittest.TestCase):
         inst = self.instantiate_from("claim-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
         self.implClaim9(inst)
-        inst2 = claim.Claim(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Claim", js["resourceType"])
+        inst2 = claim.Claim(js)
         self.implClaim9(inst2)
     
     def implClaim9(self, inst):

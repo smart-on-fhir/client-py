@@ -18,13 +18,17 @@ class LocationTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Location", js["resourceType"])
         return location.Location(js)
     
     def testLocation1(self):
         inst = self.instantiate_from("location-example-ambulance.json")
         self.assertIsNotNone(inst, "Must have instantiated a Location instance")
         self.implLocation1(inst)
-        inst2 = location.Location(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Location", js["resourceType"])
+        inst2 = location.Location(js)
         self.implLocation1(inst2)
     
     def implLocation1(self, inst):
@@ -49,7 +53,10 @@ class LocationTests(unittest.TestCase):
         inst = self.instantiate_from("location-example-patients-home.json")
         self.assertIsNotNone(inst, "Must have instantiated a Location instance")
         self.implLocation2(inst)
-        inst2 = location.Location(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Location", js["resourceType"])
+        inst2 = location.Location(js)
         self.implLocation2(inst2)
     
     def implLocation2(self, inst):
@@ -71,7 +78,10 @@ class LocationTests(unittest.TestCase):
         inst = self.instantiate_from("location-example-room.json")
         self.assertIsNotNone(inst, "Must have instantiated a Location instance")
         self.implLocation3(inst)
-        inst2 = location.Location(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Location", js["resourceType"])
+        inst2 = location.Location(js)
         self.implLocation3(inst2)
     
     def implLocation3(self, inst):
@@ -96,7 +106,10 @@ class LocationTests(unittest.TestCase):
         inst = self.instantiate_from("location-example-ukpharmacy.json")
         self.assertIsNotNone(inst, "Must have instantiated a Location instance")
         self.implLocation4(inst)
-        inst2 = location.Location(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Location", js["resourceType"])
+        inst2 = location.Location(js)
         self.implLocation4(inst2)
     
     def implLocation4(self, inst):
@@ -118,7 +131,10 @@ class LocationTests(unittest.TestCase):
         inst = self.instantiate_from("location-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Location instance")
         self.implLocation5(inst)
-        inst2 = location.Location(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Location", js["resourceType"])
+        inst2 = location.Location(js)
         self.implLocation5(inst2)
     
     def implLocation5(self, inst):

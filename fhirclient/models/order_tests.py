@@ -18,13 +18,17 @@ class OrderTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Order", js["resourceType"])
         return order.Order(js)
     
     def testOrder1(self):
         inst = self.instantiate_from("order-example-f201-physiotherapy.json")
         self.assertIsNotNone(inst, "Must have instantiated a Order instance")
         self.implOrder1(inst)
-        inst2 = order.Order(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Order", js["resourceType"])
+        inst2 = order.Order(js)
         self.implOrder1(inst2)
     
     def implOrder1(self, inst):
@@ -41,7 +45,10 @@ class OrderTests(unittest.TestCase):
         inst = self.instantiate_from("order-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Order instance")
         self.implOrder2(inst)
-        inst2 = order.Order(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Order", js["resourceType"])
+        inst2 = order.Order(js)
         self.implOrder2(inst2)
     
     def implOrder2(self, inst):

@@ -18,13 +18,17 @@ class ValueSetTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("ValueSet", js["resourceType"])
         return valueset.ValueSet(js)
     
     def testValueSet1(self):
         inst = self.instantiate_from("valueset-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ValueSet instance")
         self.implValueSet1(inst)
-        inst2 = valueset.ValueSet(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ValueSet", js["resourceType"])
+        inst2 = valueset.ValueSet(js)
         self.implValueSet1(inst2)
     
     def implValueSet1(self, inst):
@@ -53,7 +57,10 @@ class ValueSetTests(unittest.TestCase):
         inst = self.instantiate_from("valueset-list-example-codes.json")
         self.assertIsNotNone(inst, "Must have instantiated a ValueSet instance")
         self.implValueSet2(inst)
-        inst2 = valueset.ValueSet(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ValueSet", js["resourceType"])
+        inst2 = valueset.ValueSet(js)
         self.implValueSet2(inst2)
     
     def implValueSet2(self, inst):

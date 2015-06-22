@@ -18,13 +18,17 @@ class DocumentReferenceTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("DocumentReference", js["resourceType"])
         return documentreference.DocumentReference(js)
     
     def testDocumentReference1(self):
         inst = self.instantiate_from("documentreference-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DocumentReference instance")
         self.implDocumentReference1(inst)
-        inst2 = documentreference.DocumentReference(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DocumentReference", js["resourceType"])
+        inst2 = documentreference.DocumentReference(js)
         self.implDocumentReference1(inst2)
     
     def implDocumentReference1(self, inst):

@@ -18,13 +18,17 @@ class ObservationTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Observation", js["resourceType"])
         return observation.Observation(js)
     
     def testObservation1(self):
         inst = self.instantiate_from("obs-genetics-example1-somatic.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation1(inst)
-        inst2 = observation.Observation(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Observation", js["resourceType"])
+        inst2 = observation.Observation(js)
         self.implObservation1(inst2)
     
     def implObservation1(self, inst):
@@ -62,7 +66,10 @@ class ObservationTests(unittest.TestCase):
         inst = self.instantiate_from("obs-genetics-example2-germline.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation2(inst)
-        inst2 = observation.Observation(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Observation", js["resourceType"])
+        inst2 = observation.Observation(js)
         self.implObservation2(inst2)
     
     def implObservation2(self, inst):
@@ -99,7 +106,10 @@ class ObservationTests(unittest.TestCase):
         inst = self.instantiate_from("obs-uslab-example1.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation3(inst)
-        inst2 = observation.Observation(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Observation", js["resourceType"])
+        inst2 = observation.Observation(js)
         self.implObservation3(inst2)
     
     def implObservation3(self, inst):
@@ -137,7 +147,10 @@ class ObservationTests(unittest.TestCase):
         inst = self.instantiate_from("obs-uslab-example2.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation4(inst)
-        inst2 = observation.Observation(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Observation", js["resourceType"])
+        inst2 = observation.Observation(js)
         self.implObservation4(inst2)
     
     def implObservation4(self, inst):
@@ -175,7 +188,10 @@ class ObservationTests(unittest.TestCase):
         inst = self.instantiate_from("obs-uslab-example3.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation5(inst)
-        inst2 = observation.Observation(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Observation", js["resourceType"])
+        inst2 = observation.Observation(js)
         self.implObservation5(inst2)
     
     def implObservation5(self, inst):
@@ -207,7 +223,10 @@ class ObservationTests(unittest.TestCase):
         inst = self.instantiate_from("obs-uslab-example4.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation6(inst)
-        inst2 = observation.Observation(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Observation", js["resourceType"])
+        inst2 = observation.Observation(js)
         self.implObservation6(inst2)
     
     def implObservation6(self, inst):
@@ -241,7 +260,10 @@ class ObservationTests(unittest.TestCase):
         inst = self.instantiate_from("obs-uslab-example5.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation7(inst)
-        inst2 = observation.Observation(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Observation", js["resourceType"])
+        inst2 = observation.Observation(js)
         self.implObservation7(inst2)
     
     def implObservation7(self, inst):
@@ -280,7 +302,10 @@ class ObservationTests(unittest.TestCase):
         inst = self.instantiate_from("obs-uslab-example6.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation8(inst)
-        inst2 = observation.Observation(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Observation", js["resourceType"])
+        inst2 = observation.Observation(js)
         self.implObservation8(inst2)
     
     def implObservation8(self, inst):
@@ -311,7 +336,10 @@ class ObservationTests(unittest.TestCase):
         inst = self.instantiate_from("obs-uslab-example7.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation9(inst)
-        inst2 = observation.Observation(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Observation", js["resourceType"])
+        inst2 = observation.Observation(js)
         self.implObservation9(inst2)
     
     def implObservation9(self, inst):
@@ -349,7 +377,10 @@ class ObservationTests(unittest.TestCase):
         inst = self.instantiate_from("obs-uslab-example8.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation10(inst)
-        inst2 = observation.Observation(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Observation", js["resourceType"])
+        inst2 = observation.Observation(js)
         self.implObservation10(inst2)
     
     def implObservation10(self, inst):

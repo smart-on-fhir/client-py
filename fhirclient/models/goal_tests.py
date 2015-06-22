@@ -18,13 +18,17 @@ class GoalTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Goal", js["resourceType"])
         return goal.Goal(js)
     
     def testGoal1(self):
         inst = self.instantiate_from("goal-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Goal instance")
         self.implGoal1(inst)
-        inst2 = goal.Goal(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Goal", js["resourceType"])
+        inst2 = goal.Goal(js)
         self.implGoal1(inst2)
     
     def implGoal1(self, inst):
@@ -51,7 +55,10 @@ class GoalTests(unittest.TestCase):
         inst = self.instantiate_from("goal-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Goal instance")
         self.implGoal2(inst)
-        inst2 = goal.Goal(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Goal", js["resourceType"])
+        inst2 = goal.Goal(js)
         self.implGoal2(inst2)
     
     def implGoal2(self, inst):

@@ -18,13 +18,17 @@ class AllergyIntoleranceTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("AllergyIntolerance", js["resourceType"])
         return allergyintolerance.AllergyIntolerance(js)
     
     def testAllergyIntolerance1(self):
         inst = self.instantiate_from("allergyintolerance-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a AllergyIntolerance instance")
         self.implAllergyIntolerance1(inst)
-        inst2 = allergyintolerance.AllergyIntolerance(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("AllergyIntolerance", js["resourceType"])
+        inst2 = allergyintolerance.AllergyIntolerance(js)
         self.implAllergyIntolerance1(inst2)
     
     def implAllergyIntolerance1(self, inst):
@@ -65,7 +69,10 @@ class AllergyIntoleranceTests(unittest.TestCase):
         inst = self.instantiate_from("allergyintolerance-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a AllergyIntolerance instance")
         self.implAllergyIntolerance2(inst)
-        inst2 = allergyintolerance.AllergyIntolerance(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("AllergyIntolerance", js["resourceType"])
+        inst2 = allergyintolerance.AllergyIntolerance(js)
         self.implAllergyIntolerance2(inst2)
     
     def implAllergyIntolerance2(self, inst):

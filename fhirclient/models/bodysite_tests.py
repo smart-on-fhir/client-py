@@ -18,13 +18,17 @@ class BodySiteTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("BodySite", js["resourceType"])
         return bodysite.BodySite(js)
     
     def testBodySite1(self):
         inst = self.instantiate_from("bodysite-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a BodySite instance")
         self.implBodySite1(inst)
-        inst2 = bodysite.BodySite(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("BodySite", js["resourceType"])
+        inst2 = bodysite.BodySite(js)
         self.implBodySite1(inst2)
     
     def implBodySite1(self, inst):

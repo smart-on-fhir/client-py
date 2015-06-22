@@ -18,13 +18,17 @@ class VisionPrescriptionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("VisionPrescription", js["resourceType"])
         return visionprescription.VisionPrescription(js)
     
     def testVisionPrescription1(self):
         inst = self.instantiate_from("visionprescription-example-1.json")
         self.assertIsNotNone(inst, "Must have instantiated a VisionPrescription instance")
         self.implVisionPrescription1(inst)
-        inst2 = visionprescription.VisionPrescription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("VisionPrescription", js["resourceType"])
+        inst2 = visionprescription.VisionPrescription(js)
         self.implVisionPrescription1(inst2)
     
     def implVisionPrescription1(self, inst):
@@ -70,7 +74,10 @@ class VisionPrescriptionTests(unittest.TestCase):
         inst = self.instantiate_from("visionprescription-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a VisionPrescription instance")
         self.implVisionPrescription2(inst)
-        inst2 = visionprescription.VisionPrescription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("VisionPrescription", js["resourceType"])
+        inst2 = visionprescription.VisionPrescription(js)
         self.implVisionPrescription2(inst2)
     
     def implVisionPrescription2(self, inst):

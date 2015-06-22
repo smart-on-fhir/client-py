@@ -18,13 +18,17 @@ class RiskAssessmentTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("RiskAssessment", js["resourceType"])
         return riskassessment.RiskAssessment(js)
     
     def testRiskAssessment1(self):
         inst = self.instantiate_from("riskassessment-example-cardiac.json")
         self.assertIsNotNone(inst, "Must have instantiated a RiskAssessment instance")
         self.implRiskAssessment1(inst)
-        inst2 = riskassessment.RiskAssessment(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("RiskAssessment", js["resourceType"])
+        inst2 = riskassessment.RiskAssessment(js)
         self.implRiskAssessment1(inst2)
     
     def implRiskAssessment1(self, inst):
@@ -47,7 +51,10 @@ class RiskAssessmentTests(unittest.TestCase):
         inst = self.instantiate_from("riskassessment-example-population.json")
         self.assertIsNotNone(inst, "Must have instantiated a RiskAssessment instance")
         self.implRiskAssessment2(inst)
-        inst2 = riskassessment.RiskAssessment(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("RiskAssessment", js["resourceType"])
+        inst2 = riskassessment.RiskAssessment(js)
         self.implRiskAssessment2(inst2)
     
     def implRiskAssessment2(self, inst):
@@ -58,7 +65,10 @@ class RiskAssessmentTests(unittest.TestCase):
         inst = self.instantiate_from("riskassessment-example-prognosis.json")
         self.assertIsNotNone(inst, "Must have instantiated a RiskAssessment instance")
         self.implRiskAssessment3(inst)
-        inst2 = riskassessment.RiskAssessment(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("RiskAssessment", js["resourceType"])
+        inst2 = riskassessment.RiskAssessment(js)
         self.implRiskAssessment3(inst2)
     
     def implRiskAssessment3(self, inst):
@@ -77,7 +87,10 @@ class RiskAssessmentTests(unittest.TestCase):
         inst = self.instantiate_from("riskassessment-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a RiskAssessment instance")
         self.implRiskAssessment4(inst)
-        inst2 = riskassessment.RiskAssessment(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("RiskAssessment", js["resourceType"])
+        inst2 = riskassessment.RiskAssessment(js)
         self.implRiskAssessment4(inst2)
     
     def implRiskAssessment4(self, inst):

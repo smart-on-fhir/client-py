@@ -18,13 +18,17 @@ class DeviceTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Device", js["resourceType"])
         return device.Device(js)
     
     def testDevice1(self):
         inst = self.instantiate_from("device-example-f001-feedingtube.json")
         self.assertIsNotNone(inst, "Must have instantiated a Device instance")
         self.implDevice1(inst)
-        inst2 = device.Device(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Device", js["resourceType"])
+        inst2 = device.Device(js)
         self.implDevice1(inst2)
     
     def implDevice1(self, inst):
@@ -39,7 +43,10 @@ class DeviceTests(unittest.TestCase):
         inst = self.instantiate_from("device-example-ihe-pcd.json")
         self.assertIsNotNone(inst, "Must have instantiated a Device instance")
         self.implDevice2(inst)
-        inst2 = device.Device(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Device", js["resourceType"])
+        inst2 = device.Device(js)
         self.implDevice2(inst2)
     
     def implDevice2(self, inst):
@@ -58,7 +65,10 @@ class DeviceTests(unittest.TestCase):
         inst = self.instantiate_from("device-example-pacemaker.json")
         self.assertIsNotNone(inst, "Must have instantiated a Device instance")
         self.implDevice3(inst)
-        inst2 = device.Device(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Device", js["resourceType"])
+        inst2 = device.Device(js)
         self.implDevice3(inst2)
     
     def implDevice3(self, inst):
@@ -79,7 +89,10 @@ class DeviceTests(unittest.TestCase):
         inst = self.instantiate_from("device-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Device instance")
         self.implDevice4(inst)
-        inst2 = device.Device(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Device", js["resourceType"])
+        inst2 = device.Device(js)
         self.implDevice4(inst2)
     
     def implDevice4(self, inst):

@@ -18,13 +18,17 @@ class ConformanceTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Conformance", js["resourceType"])
         return conformance.Conformance(js)
     
     def testConformance1(self):
         inst = self.instantiate_from("conformance-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Conformance instance")
         self.implConformance1(inst)
-        inst2 = conformance.Conformance(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Conformance", js["resourceType"])
+        inst2 = conformance.Conformance(js)
         self.implConformance1(inst2)
     
     def implConformance1(self, inst):
@@ -66,7 +70,10 @@ class ConformanceTests(unittest.TestCase):
         inst = self.instantiate_from("conformance-phr-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Conformance instance")
         self.implConformance2(inst)
-        inst2 = conformance.Conformance(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Conformance", js["resourceType"])
+        inst2 = conformance.Conformance(js)
         self.implConformance2(inst2)
     
     def implConformance2(self, inst):

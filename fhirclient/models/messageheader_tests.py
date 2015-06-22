@@ -18,13 +18,17 @@ class MessageHeaderTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("MessageHeader", js["resourceType"])
         return messageheader.MessageHeader(js)
     
     def testMessageHeader1(self):
         inst = self.instantiate_from("messageheader-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a MessageHeader instance")
         self.implMessageHeader1(inst)
-        inst2 = messageheader.MessageHeader(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MessageHeader", js["resourceType"])
+        inst2 = messageheader.MessageHeader(js)
         self.implMessageHeader1(inst2)
     
     def implMessageHeader1(self, inst):

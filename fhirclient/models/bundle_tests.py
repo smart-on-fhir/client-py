@@ -18,13 +18,17 @@ class BundleTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Bundle", js["resourceType"])
         return bundle.Bundle(js)
     
     def testBundle1(self):
         inst = self.instantiate_from("bundle-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
         self.implBundle1(inst)
-        inst2 = bundle.Bundle(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Bundle", js["resourceType"])
+        inst2 = bundle.Bundle(js)
         self.implBundle1(inst2)
     
     def implBundle1(self, inst):
@@ -48,7 +52,10 @@ class BundleTests(unittest.TestCase):
         inst = self.instantiate_from("diagnosticreport-examples-general.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
         self.implBundle2(inst)
-        inst2 = bundle.Bundle(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Bundle", js["resourceType"])
+        inst2 = bundle.Bundle(js)
         self.implBundle2(inst2)
     
     def implBundle2(self, inst):
@@ -92,7 +99,10 @@ class BundleTests(unittest.TestCase):
         inst = self.instantiate_from("diagnosticreport-examples-lab-text.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
         self.implBundle3(inst)
-        inst2 = bundle.Bundle(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Bundle", js["resourceType"])
+        inst2 = bundle.Bundle(js)
         self.implBundle3(inst2)
     
     def implBundle3(self, inst):
@@ -136,7 +146,10 @@ class BundleTests(unittest.TestCase):
         inst = self.instantiate_from("document-example-dischargesummary.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
         self.implBundle4(inst)
-        inst2 = bundle.Bundle(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Bundle", js["resourceType"])
+        inst2 = bundle.Bundle(js)
         self.implBundle4(inst2)
     
     def implBundle4(self, inst):
@@ -187,7 +200,10 @@ class BundleTests(unittest.TestCase):
         inst = self.instantiate_from("observation-example-bloodpressure.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
         self.implBundle5(inst)
-        inst2 = bundle.Bundle(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Bundle", js["resourceType"])
+        inst2 = bundle.Bundle(js)
         self.implBundle5(inst2)
     
     def implBundle5(self, inst):
@@ -210,7 +226,10 @@ class BundleTests(unittest.TestCase):
         inst = self.instantiate_from("patient-examples-cypress-template.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
         self.implBundle6(inst)
-        inst2 = bundle.Bundle(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Bundle", js["resourceType"])
+        inst2 = bundle.Bundle(js)
         self.implBundle6(inst2)
     
     def implBundle6(self, inst):
@@ -254,7 +273,10 @@ class BundleTests(unittest.TestCase):
         inst = self.instantiate_from("patient-examples-general.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
         self.implBundle7(inst)
-        inst2 = bundle.Bundle(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Bundle", js["resourceType"])
+        inst2 = bundle.Bundle(js)
         self.implBundle7(inst2)
     
     def implBundle7(self, inst):
@@ -298,7 +320,10 @@ class BundleTests(unittest.TestCase):
         inst = self.instantiate_from("practitioner-examples-general.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
         self.implBundle8(inst)
-        inst2 = bundle.Bundle(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Bundle", js["resourceType"])
+        inst2 = bundle.Bundle(js)
         self.implBundle8(inst2)
     
     def implBundle8(self, inst):
@@ -342,7 +367,10 @@ class BundleTests(unittest.TestCase):
         inst = self.instantiate_from("questionnaire-sdc-profile-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
         self.implBundle9(inst)
-        inst2 = bundle.Bundle(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Bundle", js["resourceType"])
+        inst2 = bundle.Bundle(js)
         self.implBundle9(inst2)
     
     def implBundle9(self, inst):
@@ -384,7 +412,10 @@ class BundleTests(unittest.TestCase):
         inst = self.instantiate_from("xds-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
         self.implBundle10(inst)
-        inst2 = bundle.Bundle(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Bundle", js["resourceType"])
+        inst2 = bundle.Bundle(js)
         self.implBundle10(inst2)
     
     def implBundle10(self, inst):

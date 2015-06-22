@@ -18,13 +18,17 @@ class MediaTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Media", js["resourceType"])
         return media.Media(js)
     
     def testMedia1(self):
         inst = self.instantiate_from("media-example-dicom.json")
         self.assertIsNotNone(inst, "Must have instantiated a Media instance")
         self.implMedia1(inst)
-        inst2 = media.Media(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Media", js["resourceType"])
+        inst2 = media.Media(js)
         self.implMedia1(inst2)
     
     def implMedia1(self, inst):
@@ -57,7 +61,10 @@ class MediaTests(unittest.TestCase):
         inst = self.instantiate_from("media-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Media instance")
         self.implMedia2(inst)
-        inst2 = media.Media(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Media", js["resourceType"])
+        inst2 = media.Media(js)
         self.implMedia2(inst2)
     
     def implMedia2(self, inst):

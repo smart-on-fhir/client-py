@@ -18,13 +18,17 @@ class AppointmentTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Appointment", js["resourceType"])
         return appointment.Appointment(js)
     
     def testAppointment1(self):
         inst = self.instantiate_from("appointment-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Appointment instance")
         self.implAppointment1(inst)
-        inst2 = appointment.Appointment(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Appointment", js["resourceType"])
+        inst2 = appointment.Appointment(js)
         self.implAppointment1(inst2)
     
     def implAppointment1(self, inst):
@@ -53,7 +57,10 @@ class AppointmentTests(unittest.TestCase):
         inst = self.instantiate_from("appointment-example2doctors.json")
         self.assertIsNotNone(inst, "Must have instantiated a Appointment instance")
         self.implAppointment2(inst)
-        inst2 = appointment.Appointment(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Appointment", js["resourceType"])
+        inst2 = appointment.Appointment(js)
         self.implAppointment2(inst2)
     
     def implAppointment2(self, inst):

@@ -18,13 +18,17 @@ class ProcessResponseTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("ProcessResponse", js["resourceType"])
         return processresponse.ProcessResponse(js)
     
     def testProcessResponse1(self):
         inst = self.instantiate_from("processresponse-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessResponse instance")
         self.implProcessResponse1(inst)
-        inst2 = processresponse.ProcessResponse(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcessResponse", js["resourceType"])
+        inst2 = processresponse.ProcessResponse(js)
         self.implProcessResponse1(inst2)
     
     def implProcessResponse1(self, inst):

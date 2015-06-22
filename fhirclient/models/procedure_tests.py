@@ -18,13 +18,17 @@ class ProcedureTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Procedure", js["resourceType"])
         return procedure.Procedure(js)
     
     def testProcedure1(self):
         inst = self.instantiate_from("procedure-example-biopsy.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
         self.implProcedure1(inst)
-        inst2 = procedure.Procedure(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Procedure", js["resourceType"])
+        inst2 = procedure.Procedure(js)
         self.implProcedure1(inst2)
     
     def implProcedure1(self, inst):
@@ -50,7 +54,10 @@ class ProcedureTests(unittest.TestCase):
         inst = self.instantiate_from("procedure-example-f001-heart.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
         self.implProcedure2(inst)
-        inst2 = procedure.Procedure(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Procedure", js["resourceType"])
+        inst2 = procedure.Procedure(js)
         self.implProcedure2(inst2)
     
     def implProcedure2(self, inst):
@@ -79,7 +86,10 @@ class ProcedureTests(unittest.TestCase):
         inst = self.instantiate_from("procedure-example-f002-lung.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
         self.implProcedure3(inst)
-        inst2 = procedure.Procedure(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Procedure", js["resourceType"])
+        inst2 = procedure.Procedure(js)
         self.implProcedure3(inst2)
     
     def implProcedure3(self, inst):
@@ -108,7 +118,10 @@ class ProcedureTests(unittest.TestCase):
         inst = self.instantiate_from("procedure-example-f003-abscess.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
         self.implProcedure4(inst)
-        inst2 = procedure.Procedure(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Procedure", js["resourceType"])
+        inst2 = procedure.Procedure(js)
         self.implProcedure4(inst2)
     
     def implProcedure4(self, inst):
@@ -137,7 +150,10 @@ class ProcedureTests(unittest.TestCase):
         inst = self.instantiate_from("procedure-example-f004-tracheotomy.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
         self.implProcedure5(inst)
-        inst2 = procedure.Procedure(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Procedure", js["resourceType"])
+        inst2 = procedure.Procedure(js)
         self.implProcedure5(inst2)
     
     def implProcedure5(self, inst):
@@ -166,7 +182,10 @@ class ProcedureTests(unittest.TestCase):
         inst = self.instantiate_from("procedure-example-f201-tpf.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
         self.implProcedure6(inst)
-        inst2 = procedure.Procedure(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Procedure", js["resourceType"])
+        inst2 = procedure.Procedure(js)
         self.implProcedure6(inst2)
     
     def implProcedure6(self, inst):
@@ -193,7 +212,10 @@ class ProcedureTests(unittest.TestCase):
         inst = self.instantiate_from("procedure-example-implant.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
         self.implProcedure7(inst)
-        inst2 = procedure.Procedure(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Procedure", js["resourceType"])
+        inst2 = procedure.Procedure(js)
         self.implProcedure7(inst2)
     
     def implProcedure7(self, inst):
@@ -216,7 +238,10 @@ class ProcedureTests(unittest.TestCase):
         inst = self.instantiate_from("procedure-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
         self.implProcedure8(inst)
-        inst2 = procedure.Procedure(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Procedure", js["resourceType"])
+        inst2 = procedure.Procedure(js)
         self.implProcedure8(inst2)
     
     def implProcedure8(self, inst):
@@ -238,7 +263,10 @@ class ProcedureTests(unittest.TestCase):
         inst = self.instantiate_from("procedure-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
         self.implProcedure9(inst)
-        inst2 = procedure.Procedure(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Procedure", js["resourceType"])
+        inst2 = procedure.Procedure(js)
         self.implProcedure9(inst2)
     
     def implProcedure9(self, inst):

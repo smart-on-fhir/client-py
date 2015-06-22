@@ -18,13 +18,17 @@ class OrganizationTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Organization", js["resourceType"])
         return organization.Organization(js)
     
     def testOrganization1(self):
         inst = self.instantiate_from("org-uslab-example1.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization1(inst)
-        inst2 = organization.Organization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
         self.implOrganization1(inst2)
     
     def implOrganization1(self, inst):
@@ -52,7 +56,10 @@ class OrganizationTests(unittest.TestCase):
         inst = self.instantiate_from("org-uslab-example2.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization2(inst)
-        inst2 = organization.Organization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
         self.implOrganization2(inst2)
     
     def implOrganization2(self, inst):
@@ -83,7 +90,10 @@ class OrganizationTests(unittest.TestCase):
         inst = self.instantiate_from("org-uslab-example3.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization3(inst)
-        inst2 = organization.Organization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
         self.implOrganization3(inst2)
     
     def implOrganization3(self, inst):
@@ -112,7 +122,10 @@ class OrganizationTests(unittest.TestCase):
         inst = self.instantiate_from("organization-example-f001-burgers.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization4(inst)
-        inst2 = organization.Organization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
         self.implOrganization4(inst2)
     
     def implOrganization4(self, inst):
@@ -157,7 +170,10 @@ class OrganizationTests(unittest.TestCase):
         inst = self.instantiate_from("organization-example-f002-burgers-card.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization5(inst)
-        inst2 = organization.Organization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
         self.implOrganization5(inst2)
     
     def implOrganization5(self, inst):
@@ -186,7 +202,10 @@ class OrganizationTests(unittest.TestCase):
         inst = self.instantiate_from("organization-example-f003-burgers-ENT.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization6(inst)
-        inst2 = organization.Organization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
         self.implOrganization6(inst2)
     
     def implOrganization6(self, inst):
@@ -215,7 +234,10 @@ class OrganizationTests(unittest.TestCase):
         inst = self.instantiate_from("organization-example-f201-aumc.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization7(inst)
-        inst2 = organization.Organization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
         self.implOrganization7(inst2)
     
     def implOrganization7(self, inst):
@@ -261,7 +283,10 @@ class OrganizationTests(unittest.TestCase):
         inst = self.instantiate_from("organization-example-f203-bumc.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization8(inst)
-        inst2 = organization.Organization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
         self.implOrganization8(inst2)
     
     def implOrganization8(self, inst):
@@ -291,7 +316,10 @@ class OrganizationTests(unittest.TestCase):
         inst = self.instantiate_from("organization-example-gastro.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization9(inst)
-        inst2 = organization.Organization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
         self.implOrganization9(inst2)
     
     def implOrganization9(self, inst):
@@ -311,7 +339,10 @@ class OrganizationTests(unittest.TestCase):
         inst = self.instantiate_from("organization-example-good-health-care.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization10(inst)
-        inst2 = organization.Organization(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
         self.implOrganization10(inst2)
     
     def implOrganization10(self, inst):

@@ -18,13 +18,17 @@ class AuditEventTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("AuditEvent", js["resourceType"])
         return auditevent.AuditEvent(js)
     
     def testAuditEvent1(self):
         inst = self.instantiate_from("audit-event-example-login.json")
         self.assertIsNotNone(inst, "Must have instantiated a AuditEvent instance")
         self.implAuditEvent1(inst)
-        inst2 = auditevent.AuditEvent(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("AuditEvent", js["resourceType"])
+        inst2 = auditevent.AuditEvent(js)
         self.implAuditEvent1(inst2)
     
     def implAuditEvent1(self, inst):
@@ -56,7 +60,10 @@ class AuditEventTests(unittest.TestCase):
         inst = self.instantiate_from("audit-event-example-logout.json")
         self.assertIsNotNone(inst, "Must have instantiated a AuditEvent instance")
         self.implAuditEvent2(inst)
-        inst2 = auditevent.AuditEvent(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("AuditEvent", js["resourceType"])
+        inst2 = auditevent.AuditEvent(js)
         self.implAuditEvent2(inst2)
     
     def implAuditEvent2(self, inst):
@@ -88,7 +95,10 @@ class AuditEventTests(unittest.TestCase):
         inst = self.instantiate_from("audit-event-example-vread.json")
         self.assertIsNotNone(inst, "Must have instantiated a AuditEvent instance")
         self.implAuditEvent3(inst)
-        inst2 = auditevent.AuditEvent(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("AuditEvent", js["resourceType"])
+        inst2 = auditevent.AuditEvent(js)
         self.implAuditEvent3(inst2)
     
     def implAuditEvent3(self, inst):
@@ -120,7 +130,10 @@ class AuditEventTests(unittest.TestCase):
         inst = self.instantiate_from("auditevent-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a AuditEvent instance")
         self.implAuditEvent4(inst)
-        inst2 = auditevent.AuditEvent(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("AuditEvent", js["resourceType"])
+        inst2 = auditevent.AuditEvent(js)
         self.implAuditEvent4(inst2)
     
     def implAuditEvent4(self, inst):

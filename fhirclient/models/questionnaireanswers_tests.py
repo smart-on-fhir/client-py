@@ -18,13 +18,17 @@ class QuestionnaireAnswersTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("QuestionnaireAnswers", js["resourceType"])
         return questionnaireanswers.QuestionnaireAnswers(js)
     
     def testQuestionnaireAnswers1(self):
         inst = self.instantiate_from("questionnaireanswers-example-bluebook.json")
         self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireAnswers instance")
         self.implQuestionnaireAnswers1(inst)
-        inst2 = questionnaireanswers.QuestionnaireAnswers(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("QuestionnaireAnswers", js["resourceType"])
+        inst2 = questionnaireanswers.QuestionnaireAnswers(js)
         self.implQuestionnaireAnswers1(inst2)
     
     def implQuestionnaireAnswers1(self, inst):
@@ -66,7 +70,10 @@ class QuestionnaireAnswersTests(unittest.TestCase):
         inst = self.instantiate_from("questionnaireanswers-example-f201-lifelines.json")
         self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireAnswers instance")
         self.implQuestionnaireAnswers2(inst)
-        inst2 = questionnaireanswers.QuestionnaireAnswers(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("QuestionnaireAnswers", js["resourceType"])
+        inst2 = questionnaireanswers.QuestionnaireAnswers(js)
         self.implQuestionnaireAnswers2(inst2)
     
     def implQuestionnaireAnswers2(self, inst):
@@ -97,7 +104,10 @@ class QuestionnaireAnswersTests(unittest.TestCase):
         inst = self.instantiate_from("questionnaireanswers-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireAnswers instance")
         self.implQuestionnaireAnswers3(inst)
-        inst2 = questionnaireanswers.QuestionnaireAnswers(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("QuestionnaireAnswers", js["resourceType"])
+        inst2 = questionnaireanswers.QuestionnaireAnswers(js)
         self.implQuestionnaireAnswers3(inst2)
     
     def implQuestionnaireAnswers3(self, inst):
@@ -121,7 +131,10 @@ class QuestionnaireAnswersTests(unittest.TestCase):
         inst = self.instantiate_from("questionnaireanswers-sdc-profile-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireAnswers instance")
         self.implQuestionnaireAnswers4(inst)
-        inst2 = questionnaireanswers.QuestionnaireAnswers(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("QuestionnaireAnswers", js["resourceType"])
+        inst2 = questionnaireanswers.QuestionnaireAnswers(js)
         self.implQuestionnaireAnswers4(inst2)
     
     def implQuestionnaireAnswers4(self, inst):

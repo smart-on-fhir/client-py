@@ -18,13 +18,17 @@ class ScheduleTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Schedule", js["resourceType"])
         return schedule.Schedule(js)
     
     def testSchedule1(self):
         inst = self.instantiate_from("schedule-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Schedule instance")
         self.implSchedule1(inst)
-        inst2 = schedule.Schedule(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Schedule", js["resourceType"])
+        inst2 = schedule.Schedule(js)
         self.implSchedule1(inst2)
     
     def implSchedule1(self, inst):

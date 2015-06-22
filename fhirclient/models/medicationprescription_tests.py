@@ -18,13 +18,17 @@ class MedicationPrescriptionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("MedicationPrescription", js["resourceType"])
         return medicationprescription.MedicationPrescription(js)
     
     def testMedicationPrescription1(self):
         inst = self.instantiate_from("medicationprescription-example-f001-combivent.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
         self.implMedicationPrescription1(inst)
-        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationPrescription", js["resourceType"])
+        inst2 = medicationprescription.MedicationPrescription(js)
         self.implMedicationPrescription1(inst2)
     
     def implMedicationPrescription1(self, inst):
@@ -76,7 +80,10 @@ class MedicationPrescriptionTests(unittest.TestCase):
         inst = self.instantiate_from("medicationprescription-example-f002-crestor.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
         self.implMedicationPrescription2(inst)
-        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationPrescription", js["resourceType"])
+        inst2 = medicationprescription.MedicationPrescription(js)
         self.implMedicationPrescription2(inst2)
     
     def implMedicationPrescription2(self, inst):
@@ -116,7 +123,10 @@ class MedicationPrescriptionTests(unittest.TestCase):
         inst = self.instantiate_from("medicationprescription-example-f003-tolbutamide.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
         self.implMedicationPrescription3(inst)
-        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationPrescription", js["resourceType"])
+        inst2 = medicationprescription.MedicationPrescription(js)
         self.implMedicationPrescription3(inst2)
     
     def implMedicationPrescription3(self, inst):
@@ -156,7 +166,10 @@ class MedicationPrescriptionTests(unittest.TestCase):
         inst = self.instantiate_from("medicationprescription-example-f004-metoprolol.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
         self.implMedicationPrescription4(inst)
-        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationPrescription", js["resourceType"])
+        inst2 = medicationprescription.MedicationPrescription(js)
         self.implMedicationPrescription4(inst2)
     
     def implMedicationPrescription4(self, inst):
@@ -196,7 +209,10 @@ class MedicationPrescriptionTests(unittest.TestCase):
         inst = self.instantiate_from("medicationprescription-example-f005-enalapril.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
         self.implMedicationPrescription5(inst)
-        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationPrescription", js["resourceType"])
+        inst2 = medicationprescription.MedicationPrescription(js)
         self.implMedicationPrescription5(inst2)
     
     def implMedicationPrescription5(self, inst):
@@ -236,7 +252,10 @@ class MedicationPrescriptionTests(unittest.TestCase):
         inst = self.instantiate_from("medicationprescription-example-f201-salmeterol.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
         self.implMedicationPrescription6(inst)
-        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationPrescription", js["resourceType"])
+        inst2 = medicationprescription.MedicationPrescription(js)
         self.implMedicationPrescription6(inst2)
     
     def implMedicationPrescription6(self, inst):
@@ -278,7 +297,10 @@ class MedicationPrescriptionTests(unittest.TestCase):
         inst = self.instantiate_from("medicationprescription-example-f202-flucloxacilline.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
         self.implMedicationPrescription7(inst)
-        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationPrescription", js["resourceType"])
+        inst2 = medicationprescription.MedicationPrescription(js)
         self.implMedicationPrescription7(inst2)
     
     def implMedicationPrescription7(self, inst):
@@ -311,7 +333,10 @@ class MedicationPrescriptionTests(unittest.TestCase):
         inst = self.instantiate_from("medicationprescription-example-f203-paracetamol.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
         self.implMedicationPrescription8(inst)
-        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationPrescription", js["resourceType"])
+        inst2 = medicationprescription.MedicationPrescription(js)
         self.implMedicationPrescription8(inst2)
     
     def implMedicationPrescription8(self, inst):
@@ -337,7 +362,10 @@ class MedicationPrescriptionTests(unittest.TestCase):
         inst = self.instantiate_from("medicationprescription-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationPrescription instance")
         self.implMedicationPrescription9(inst)
-        inst2 = medicationprescription.MedicationPrescription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationPrescription", js["resourceType"])
+        inst2 = medicationprescription.MedicationPrescription(js)
         self.implMedicationPrescription9(inst2)
     
     def implMedicationPrescription9(self, inst):

@@ -18,13 +18,17 @@ class HealthcareServiceTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("HealthcareService", js["resourceType"])
         return healthcareservice.HealthcareService(js)
     
     def testHealthcareService1(self):
         inst = self.instantiate_from("healthcareservice-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a HealthcareService instance")
         self.implHealthcareService1(inst)
-        inst2 = healthcareservice.HealthcareService(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("HealthcareService", js["resourceType"])
+        inst2 = healthcareservice.HealthcareService(js)
         self.implHealthcareService1(inst2)
     
     def implHealthcareService1(self, inst):

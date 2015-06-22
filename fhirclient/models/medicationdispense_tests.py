@@ -18,13 +18,17 @@ class MedicationDispenseTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("MedicationDispense", js["resourceType"])
         return medicationdispense.MedicationDispense(js)
     
     def testMedicationDispense1(self):
         inst = self.instantiate_from("medicationdispense-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationDispense instance")
         self.implMedicationDispense1(inst)
-        inst2 = medicationdispense.MedicationDispense(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationDispense", js["resourceType"])
+        inst2 = medicationdispense.MedicationDispense(js)
         self.implMedicationDispense1(inst2)
     
     def implMedicationDispense1(self, inst):

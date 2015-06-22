@@ -18,13 +18,17 @@ class DocumentManifestTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("DocumentManifest", js["resourceType"])
         return documentmanifest.DocumentManifest(js)
     
     def testDocumentManifest1(self):
         inst = self.instantiate_from("documentmanifest-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DocumentManifest instance")
         self.implDocumentManifest1(inst)
-        inst2 = documentmanifest.DocumentManifest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DocumentManifest", js["resourceType"])
+        inst2 = documentmanifest.DocumentManifest(js)
         self.implDocumentManifest1(inst2)
     
     def implDocumentManifest1(self, inst):

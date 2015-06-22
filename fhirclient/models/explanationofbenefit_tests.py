@@ -18,13 +18,17 @@ class ExplanationOfBenefitTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("ExplanationOfBenefit", js["resourceType"])
         return explanationofbenefit.ExplanationOfBenefit(js)
     
     def testExplanationOfBenefit1(self):
         inst = self.instantiate_from("explanationofbenefit-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ExplanationOfBenefit instance")
         self.implExplanationOfBenefit1(inst)
-        inst2 = explanationofbenefit.ExplanationOfBenefit(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ExplanationOfBenefit", js["resourceType"])
+        inst2 = explanationofbenefit.ExplanationOfBenefit(js)
         self.implExplanationOfBenefit1(inst2)
     
     def implExplanationOfBenefit1(self, inst):

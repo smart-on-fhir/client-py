@@ -18,13 +18,17 @@ class ConditionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Condition", js["resourceType"])
         return condition.Condition(js)
     
     def testCondition1(self):
         inst = self.instantiate_from("cond-uslab-example1.json")
         self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
         self.implCondition1(inst)
-        inst2 = condition.Condition(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Condition", js["resourceType"])
+        inst2 = condition.Condition(js)
         self.implCondition1(inst2)
     
     def implCondition1(self, inst):
@@ -44,7 +48,10 @@ class ConditionTests(unittest.TestCase):
         inst = self.instantiate_from("cond-uslab-example2.json")
         self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
         self.implCondition2(inst)
-        inst2 = condition.Condition(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Condition", js["resourceType"])
+        inst2 = condition.Condition(js)
         self.implCondition2(inst2)
     
     def implCondition2(self, inst):
@@ -62,7 +69,10 @@ class ConditionTests(unittest.TestCase):
         inst = self.instantiate_from("condition-example-f001-heart.json")
         self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
         self.implCondition3(inst)
-        inst2 = condition.Condition(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Condition", js["resourceType"])
+        inst2 = condition.Condition(js)
         self.implCondition3(inst2)
     
     def implCondition3(self, inst):
@@ -94,7 +104,10 @@ class ConditionTests(unittest.TestCase):
         inst = self.instantiate_from("condition-example-f002-lung.json")
         self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
         self.implCondition4(inst)
-        inst2 = condition.Condition(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Condition", js["resourceType"])
+        inst2 = condition.Condition(js)
         self.implCondition4(inst2)
     
     def implCondition4(self, inst):
@@ -129,7 +142,10 @@ class ConditionTests(unittest.TestCase):
         inst = self.instantiate_from("condition-example-f003-abscess.json")
         self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
         self.implCondition5(inst)
-        inst2 = condition.Condition(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Condition", js["resourceType"])
+        inst2 = condition.Condition(js)
         self.implCondition5(inst2)
     
     def implCondition5(self, inst):
@@ -160,7 +176,10 @@ class ConditionTests(unittest.TestCase):
         inst = self.instantiate_from("condition-example-f201-fever.json")
         self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
         self.implCondition6(inst)
-        inst2 = condition.Condition(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Condition", js["resourceType"])
+        inst2 = condition.Condition(js)
         self.implCondition6(inst2)
     
     def implCondition6(self, inst):
@@ -193,7 +212,10 @@ class ConditionTests(unittest.TestCase):
         inst = self.instantiate_from("condition-example-f202-malignancy.json")
         self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
         self.implCondition7(inst)
-        inst2 = condition.Condition(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Condition", js["resourceType"])
+        inst2 = condition.Condition(js)
         self.implCondition7(inst2)
     
     def implCondition7(self, inst):
@@ -222,7 +244,10 @@ class ConditionTests(unittest.TestCase):
         inst = self.instantiate_from("condition-example-f203-sepsis.json")
         self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
         self.implCondition8(inst)
-        inst2 = condition.Condition(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Condition", js["resourceType"])
+        inst2 = condition.Condition(js)
         self.implCondition8(inst2)
     
     def implCondition8(self, inst):
@@ -252,7 +277,10 @@ class ConditionTests(unittest.TestCase):
         inst = self.instantiate_from("condition-example-f204-renal.json")
         self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
         self.implCondition9(inst)
-        inst2 = condition.Condition(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Condition", js["resourceType"])
+        inst2 = condition.Condition(js)
         self.implCondition9(inst2)
     
     def implCondition9(self, inst):
@@ -287,7 +315,10 @@ class ConditionTests(unittest.TestCase):
         inst = self.instantiate_from("condition-example-f205-infection.json")
         self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
         self.implCondition10(inst)
-        inst2 = condition.Condition(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Condition", js["resourceType"])
+        inst2 = condition.Condition(js)
         self.implCondition10(inst2)
     
     def implCondition10(self, inst):

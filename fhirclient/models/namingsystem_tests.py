@@ -18,13 +18,17 @@ class NamingSystemTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("NamingSystem", js["resourceType"])
         return namingsystem.NamingSystem(js)
     
     def testNamingSystem1(self):
         inst = self.instantiate_from("namingsystem-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a NamingSystem instance")
         self.implNamingSystem1(inst)
-        inst2 = namingsystem.NamingSystem(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("NamingSystem", js["resourceType"])
+        inst2 = namingsystem.NamingSystem(js)
         self.implNamingSystem1(inst2)
     
     def implNamingSystem1(self, inst):

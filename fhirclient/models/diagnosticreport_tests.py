@@ -18,13 +18,17 @@ class DiagnosticReportTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("DiagnosticReport", js["resourceType"])
         return diagnosticreport.DiagnosticReport(js)
     
     def testDiagnosticReport1(self):
         inst = self.instantiate_from("diagnosticreport-example-dxa.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
         self.implDiagnosticReport1(inst)
-        inst2 = diagnosticreport.DiagnosticReport(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticReport", js["resourceType"])
+        inst2 = diagnosticreport.DiagnosticReport(js)
         self.implDiagnosticReport1(inst2)
     
     def implDiagnosticReport1(self, inst):
@@ -46,7 +50,10 @@ class DiagnosticReportTests(unittest.TestCase):
         inst = self.instantiate_from("diagnosticreport-example-f001-bloodexam.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
         self.implDiagnosticReport2(inst)
-        inst2 = diagnosticreport.DiagnosticReport(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticReport", js["resourceType"])
+        inst2 = diagnosticreport.DiagnosticReport(js)
         self.implDiagnosticReport2(inst2)
     
     def implDiagnosticReport2(self, inst):
@@ -74,7 +81,10 @@ class DiagnosticReportTests(unittest.TestCase):
         inst = self.instantiate_from("diagnosticreport-example-f201-brainct.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
         self.implDiagnosticReport3(inst)
-        inst2 = diagnosticreport.DiagnosticReport(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticReport", js["resourceType"])
+        inst2 = diagnosticreport.DiagnosticReport(js)
         self.implDiagnosticReport3(inst2)
     
     def implDiagnosticReport3(self, inst):
@@ -103,7 +113,10 @@ class DiagnosticReportTests(unittest.TestCase):
         inst = self.instantiate_from("diagnosticreport-example-f202-bloodculture.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
         self.implDiagnosticReport4(inst)
-        inst2 = diagnosticreport.DiagnosticReport(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticReport", js["resourceType"])
+        inst2 = diagnosticreport.DiagnosticReport(js)
         self.implDiagnosticReport4(inst2)
     
     def implDiagnosticReport4(self, inst):
@@ -131,7 +144,10 @@ class DiagnosticReportTests(unittest.TestCase):
         inst = self.instantiate_from("diagnosticreport-example-lipids.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
         self.implDiagnosticReport5(inst)
-        inst2 = diagnosticreport.DiagnosticReport(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticReport", js["resourceType"])
+        inst2 = diagnosticreport.DiagnosticReport(js)
         self.implDiagnosticReport5(inst2)
     
     def implDiagnosticReport5(self, inst):
@@ -155,7 +171,10 @@ class DiagnosticReportTests(unittest.TestCase):
         inst = self.instantiate_from("diagnosticreport-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
         self.implDiagnosticReport6(inst)
-        inst2 = diagnosticreport.DiagnosticReport(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticReport", js["resourceType"])
+        inst2 = diagnosticreport.DiagnosticReport(js)
         self.implDiagnosticReport6(inst2)
     
     def implDiagnosticReport6(self, inst):
@@ -184,7 +203,10 @@ class DiagnosticReportTests(unittest.TestCase):
         inst = self.instantiate_from("diagnosticreport-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
         self.implDiagnosticReport7(inst)
-        inst2 = diagnosticreport.DiagnosticReport(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticReport", js["resourceType"])
+        inst2 = diagnosticreport.DiagnosticReport(js)
         self.implDiagnosticReport7(inst2)
     
     def implDiagnosticReport7(self, inst):
@@ -214,7 +236,10 @@ class DiagnosticReportTests(unittest.TestCase):
         inst = self.instantiate_from("dr-uslab-example1.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
         self.implDiagnosticReport8(inst)
-        inst2 = diagnosticreport.DiagnosticReport(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticReport", js["resourceType"])
+        inst2 = diagnosticreport.DiagnosticReport(js)
         self.implDiagnosticReport8(inst2)
     
     def implDiagnosticReport8(self, inst):

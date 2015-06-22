@@ -18,13 +18,17 @@ class ReferralRequestTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("ReferralRequest", js["resourceType"])
         return referralrequest.ReferralRequest(js)
     
     def testReferralRequest1(self):
         inst = self.instantiate_from("referralrequest-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ReferralRequest instance")
         self.implReferralRequest1(inst)
-        inst2 = referralrequest.ReferralRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ReferralRequest", js["resourceType"])
+        inst2 = referralrequest.ReferralRequest(js)
         self.implReferralRequest1(inst2)
     
     def implReferralRequest1(self, inst):
@@ -56,7 +60,10 @@ class ReferralRequestTests(unittest.TestCase):
         inst = self.instantiate_from("referralrequest-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ReferralRequest instance")
         self.implReferralRequest2(inst)
-        inst2 = referralrequest.ReferralRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ReferralRequest", js["resourceType"])
+        inst2 = referralrequest.ReferralRequest(js)
         self.implReferralRequest2(inst2)
     
     def implReferralRequest2(self, inst):

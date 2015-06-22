@@ -18,13 +18,17 @@ class BinaryTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Binary", js["resourceType"])
         return binary.Binary(js)
     
     def testBinary1(self):
         inst = self.instantiate_from("binary-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Binary instance")
         self.implBinary1(inst)
-        inst2 = binary.Binary(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Binary", js["resourceType"])
+        inst2 = binary.Binary(js)
         self.implBinary1(inst2)
     
     def implBinary1(self, inst):

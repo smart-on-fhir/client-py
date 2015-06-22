@@ -18,13 +18,17 @@ class SubscriptionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Subscription", js["resourceType"])
         return subscription.Subscription(js)
     
     def testSubscription1(self):
         inst = self.instantiate_from("subscription-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Subscription instance")
         self.implSubscription1(inst)
-        inst2 = subscription.Subscription(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Subscription", js["resourceType"])
+        inst2 = subscription.Subscription(js)
         self.implSubscription1(inst2)
     
     def implSubscription1(self, inst):

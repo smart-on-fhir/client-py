@@ -31,6 +31,11 @@ class FHIRResource(fhirelement.FHIRElement):
                 return fhirelementfactory.FHIRElementFactory.instantiate(jsonobj['resourceType'], jsonobj)
         return super(FHIRResource, cls).with_json(jsonobj)
     
+    def as_json(self):
+        js = super(FHIRResource, self).as_json()
+        js['resourceType'] = self.resource_name
+        return js
+    
     
     # MARK: Handling Paths
     

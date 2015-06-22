@@ -18,13 +18,17 @@ class GroupTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Group", js["resourceType"])
         return group.Group(js)
     
     def testGroup1(self):
         inst = self.instantiate_from("group-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Group instance")
         self.implGroup1(inst)
-        inst2 = group.Group(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Group", js["resourceType"])
+        inst2 = group.Group(js)
         self.implGroup1(inst2)
     
     def implGroup1(self, inst):

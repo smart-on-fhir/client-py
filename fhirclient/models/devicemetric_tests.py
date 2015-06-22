@@ -18,13 +18,17 @@ class DeviceMetricTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("DeviceMetric", js["resourceType"])
         return devicemetric.DeviceMetric(js)
     
     def testDeviceMetric1(self):
         inst = self.instantiate_from("devicemetric-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DeviceMetric instance")
         self.implDeviceMetric1(inst)
-        inst2 = devicemetric.DeviceMetric(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DeviceMetric", js["resourceType"])
+        inst2 = devicemetric.DeviceMetric(js)
         self.implDeviceMetric1(inst2)
     
     def implDeviceMetric1(self, inst):

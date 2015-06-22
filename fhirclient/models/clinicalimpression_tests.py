@@ -18,13 +18,17 @@ class ClinicalImpressionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("ClinicalImpression", js["resourceType"])
         return clinicalimpression.ClinicalImpression(js)
     
     def testClinicalImpression1(self):
         inst = self.instantiate_from("clinicalimpression-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ClinicalImpression instance")
         self.implClinicalImpression1(inst)
-        inst2 = clinicalimpression.ClinicalImpression(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ClinicalImpression", js["resourceType"])
+        inst2 = clinicalimpression.ClinicalImpression(js)
         self.implClinicalImpression1(inst2)
     
     def implClinicalImpression1(self, inst):

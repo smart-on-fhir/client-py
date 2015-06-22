@@ -18,13 +18,17 @@ class DeviceUseRequestTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("DeviceUseRequest", js["resourceType"])
         return deviceuserequest.DeviceUseRequest(js)
     
     def testDeviceUseRequest1(self):
         inst = self.instantiate_from("deviceuserequest-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DeviceUseRequest instance")
         self.implDeviceUseRequest1(inst)
-        inst2 = deviceuserequest.DeviceUseRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DeviceUseRequest", js["resourceType"])
+        inst2 = deviceuserequest.DeviceUseRequest(js)
         self.implDeviceUseRequest1(inst2)
     
     def implDeviceUseRequest1(self, inst):
@@ -36,7 +40,10 @@ class DeviceUseRequestTests(unittest.TestCase):
         inst = self.instantiate_from("deviceuserequest-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DeviceUseRequest instance")
         self.implDeviceUseRequest2(inst)
-        inst2 = deviceuserequest.DeviceUseRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DeviceUseRequest", js["resourceType"])
+        inst2 = deviceuserequest.DeviceUseRequest(js)
         self.implDeviceUseRequest2(inst2)
     
     def implDeviceUseRequest2(self, inst):

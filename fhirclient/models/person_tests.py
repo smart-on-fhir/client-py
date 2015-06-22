@@ -18,13 +18,17 @@ class PersonTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Person", js["resourceType"])
         return person.Person(js)
     
     def testPerson1(self):
         inst = self.instantiate_from("person-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Person instance")
         self.implPerson1(inst)
-        inst2 = person.Person(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Person", js["resourceType"])
+        inst2 = person.Person(js)
         self.implPerson1(inst2)
     
     def implPerson1(self, inst):

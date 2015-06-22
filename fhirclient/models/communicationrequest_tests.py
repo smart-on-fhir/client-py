@@ -18,13 +18,17 @@ class CommunicationRequestTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("CommunicationRequest", js["resourceType"])
         return communicationrequest.CommunicationRequest(js)
     
     def testCommunicationRequest1(self):
         inst = self.instantiate_from("communicationrequest-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a CommunicationRequest instance")
         self.implCommunicationRequest1(inst)
-        inst2 = communicationrequest.CommunicationRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CommunicationRequest", js["resourceType"])
+        inst2 = communicationrequest.CommunicationRequest(js)
         self.implCommunicationRequest1(inst2)
     
     def implCommunicationRequest1(self, inst):
@@ -36,7 +40,10 @@ class CommunicationRequestTests(unittest.TestCase):
         inst = self.instantiate_from("communicationrequest-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a CommunicationRequest instance")
         self.implCommunicationRequest2(inst)
-        inst2 = communicationrequest.CommunicationRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CommunicationRequest", js["resourceType"])
+        inst2 = communicationrequest.CommunicationRequest(js)
         self.implCommunicationRequest2(inst2)
     
     def implCommunicationRequest2(self, inst):

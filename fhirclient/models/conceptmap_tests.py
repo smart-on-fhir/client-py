@@ -18,13 +18,17 @@ class ConceptMapTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("ConceptMap", js["resourceType"])
         return conceptmap.ConceptMap(js)
     
     def testConceptMap1(self):
         inst = self.instantiate_from("conceptmap-example-specimen-type.json")
         self.assertIsNotNone(inst, "Must have instantiated a ConceptMap instance")
         self.implConceptMap1(inst)
-        inst2 = conceptmap.ConceptMap(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ConceptMap", js["resourceType"])
+        inst2 = conceptmap.ConceptMap(js)
         self.implConceptMap1(inst2)
     
     def implConceptMap1(self, inst):
@@ -112,7 +116,10 @@ class ConceptMapTests(unittest.TestCase):
         inst = self.instantiate_from("conceptmap-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ConceptMap instance")
         self.implConceptMap2(inst)
-        inst2 = conceptmap.ConceptMap(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ConceptMap", js["resourceType"])
+        inst2 = conceptmap.ConceptMap(js)
         self.implConceptMap2(inst2)
     
     def implConceptMap2(self, inst):

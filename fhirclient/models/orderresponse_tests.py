@@ -18,13 +18,17 @@ class OrderResponseTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("OrderResponse", js["resourceType"])
         return orderresponse.OrderResponse(js)
     
     def testOrderResponse1(self):
         inst = self.instantiate_from("orderresponse-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a OrderResponse instance")
         self.implOrderResponse1(inst)
-        inst2 = orderresponse.OrderResponse(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("OrderResponse", js["resourceType"])
+        inst2 = orderresponse.OrderResponse(js)
         self.implOrderResponse1(inst2)
     
     def implOrderResponse1(self, inst):

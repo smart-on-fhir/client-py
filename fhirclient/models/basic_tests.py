@@ -18,13 +18,17 @@ class BasicTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Basic", js["resourceType"])
         return basic.Basic(js)
     
     def testBasic1(self):
         inst = self.instantiate_from("basic-example-adverseevent-qicore.json")
         self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
         self.implBasic1(inst)
-        inst2 = basic.Basic(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Basic", js["resourceType"])
+        inst2 = basic.Basic(js)
         self.implBasic1(inst2)
     
     def implBasic1(self, inst):
@@ -54,7 +58,10 @@ class BasicTests(unittest.TestCase):
         inst = self.instantiate_from("basic-example-narrative.json")
         self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
         self.implBasic2(inst)
-        inst2 = basic.Basic(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Basic", js["resourceType"])
+        inst2 = basic.Basic(js)
         self.implBasic2(inst2)
     
     def implBasic2(self, inst):
@@ -66,7 +73,10 @@ class BasicTests(unittest.TestCase):
         inst = self.instantiate_from("basic-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
         self.implBasic3(inst)
-        inst2 = basic.Basic(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Basic", js["resourceType"])
+        inst2 = basic.Basic(js)
         self.implBasic3(inst2)
     
     def implBasic3(self, inst):
@@ -94,7 +104,10 @@ class BasicTests(unittest.TestCase):
         inst = self.instantiate_from("basic-example2.json")
         self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
         self.implBasic4(inst)
-        inst2 = basic.Basic(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Basic", js["resourceType"])
+        inst2 = basic.Basic(js)
         self.implBasic4(inst2)
     
     def implBasic4(self, inst):

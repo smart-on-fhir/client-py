@@ -18,13 +18,17 @@ class ProcessRequestTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("ProcessRequest", js["resourceType"])
         return processrequest.ProcessRequest(js)
     
     def testProcessRequest1(self):
         inst = self.instantiate_from("processrequest-example-poll-eob.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
         self.implProcessRequest1(inst)
-        inst2 = processrequest.ProcessRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcessRequest", js["resourceType"])
+        inst2 = processrequest.ProcessRequest(js)
         self.implProcessRequest1(inst2)
     
     def implProcessRequest1(self, inst):
@@ -42,7 +46,10 @@ class ProcessRequestTests(unittest.TestCase):
         inst = self.instantiate_from("processrequest-example-poll-exclusive.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
         self.implProcessRequest2(inst)
-        inst2 = processrequest.ProcessRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcessRequest", js["resourceType"])
+        inst2 = processrequest.ProcessRequest(js)
         self.implProcessRequest2(inst2)
     
     def implProcessRequest2(self, inst):
@@ -61,7 +68,10 @@ class ProcessRequestTests(unittest.TestCase):
         inst = self.instantiate_from("processrequest-example-poll-inclusive.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
         self.implProcessRequest3(inst)
-        inst2 = processrequest.ProcessRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcessRequest", js["resourceType"])
+        inst2 = processrequest.ProcessRequest(js)
         self.implProcessRequest3(inst2)
     
     def implProcessRequest3(self, inst):
@@ -79,7 +89,10 @@ class ProcessRequestTests(unittest.TestCase):
         inst = self.instantiate_from("processrequest-example-poll-payrec.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
         self.implProcessRequest4(inst)
-        inst2 = processrequest.ProcessRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcessRequest", js["resourceType"])
+        inst2 = processrequest.ProcessRequest(js)
         self.implProcessRequest4(inst2)
     
     def implProcessRequest4(self, inst):
@@ -101,7 +114,10 @@ class ProcessRequestTests(unittest.TestCase):
         inst = self.instantiate_from("processrequest-example-poll-specific.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
         self.implProcessRequest5(inst)
-        inst2 = processrequest.ProcessRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcessRequest", js["resourceType"])
+        inst2 = processrequest.ProcessRequest(js)
         self.implProcessRequest5(inst2)
     
     def implProcessRequest5(self, inst):
@@ -118,7 +134,10 @@ class ProcessRequestTests(unittest.TestCase):
         inst = self.instantiate_from("processrequest-example-reprocess.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
         self.implProcessRequest6(inst)
-        inst2 = processrequest.ProcessRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcessRequest", js["resourceType"])
+        inst2 = processrequest.ProcessRequest(js)
         self.implProcessRequest6(inst2)
     
     def implProcessRequest6(self, inst):
@@ -137,7 +156,10 @@ class ProcessRequestTests(unittest.TestCase):
         inst = self.instantiate_from("processrequest-example-reverse.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
         self.implProcessRequest7(inst)
-        inst2 = processrequest.ProcessRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcessRequest", js["resourceType"])
+        inst2 = processrequest.ProcessRequest(js)
         self.implProcessRequest7(inst2)
     
     def implProcessRequest7(self, inst):
@@ -155,7 +177,10 @@ class ProcessRequestTests(unittest.TestCase):
         inst = self.instantiate_from("processrequest-example-status.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
         self.implProcessRequest8(inst)
-        inst2 = processrequest.ProcessRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcessRequest", js["resourceType"])
+        inst2 = processrequest.ProcessRequest(js)
         self.implProcessRequest8(inst2)
     
     def implProcessRequest8(self, inst):
@@ -172,7 +197,10 @@ class ProcessRequestTests(unittest.TestCase):
         inst = self.instantiate_from("processrequest-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessRequest instance")
         self.implProcessRequest9(inst)
-        inst2 = processrequest.ProcessRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcessRequest", js["resourceType"])
+        inst2 = processrequest.ProcessRequest(js)
         self.implProcessRequest9(inst2)
     
     def implProcessRequest9(self, inst):

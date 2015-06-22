@@ -18,13 +18,17 @@ class FlagTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Flag", js["resourceType"])
         return flag.Flag(js)
     
     def testFlag1(self):
         inst = self.instantiate_from("flag-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Flag instance")
         self.implFlag1(inst)
-        inst2 = flag.Flag(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Flag", js["resourceType"])
+        inst2 = flag.Flag(js)
         self.implFlag1(inst2)
     
     def implFlag1(self, inst):
@@ -45,7 +49,10 @@ class FlagTests(unittest.TestCase):
         inst = self.instantiate_from("flag-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Flag instance")
         self.implFlag2(inst)
-        inst2 = flag.Flag(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Flag", js["resourceType"])
+        inst2 = flag.Flag(js)
         self.implFlag2(inst2)
     
     def implFlag2(self, inst):

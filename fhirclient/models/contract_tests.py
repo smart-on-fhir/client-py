@@ -18,13 +18,17 @@ class ContractTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Contract", js["resourceType"])
         return contract.Contract(js)
     
     def testContract1(self):
         inst = self.instantiate_from("contract-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Contract instance")
         self.implContract1(inst)
-        inst2 = contract.Contract(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Contract", js["resourceType"])
+        inst2 = contract.Contract(js)
         self.implContract1(inst2)
     
     def implContract1(self, inst):

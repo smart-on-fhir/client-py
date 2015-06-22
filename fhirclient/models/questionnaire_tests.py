@@ -18,13 +18,17 @@ class QuestionnaireTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Questionnaire", js["resourceType"])
         return questionnaire.Questionnaire(js)
     
     def testQuestionnaire1(self):
         inst = self.instantiate_from("questionnaire-example-bluebook.json")
         self.assertIsNotNone(inst, "Must have instantiated a Questionnaire instance")
         self.implQuestionnaire1(inst)
-        inst2 = questionnaire.Questionnaire(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Questionnaire", js["resourceType"])
+        inst2 = questionnaire.Questionnaire(js)
         self.implQuestionnaire1(inst2)
     
     def implQuestionnaire1(self, inst):
@@ -54,7 +58,10 @@ class QuestionnaireTests(unittest.TestCase):
         inst = self.instantiate_from("questionnaire-example-f201-lifelines.json")
         self.assertIsNotNone(inst, "Must have instantiated a Questionnaire instance")
         self.implQuestionnaire2(inst)
-        inst2 = questionnaire.Questionnaire(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Questionnaire", js["resourceType"])
+        inst2 = questionnaire.Questionnaire(js)
         self.implQuestionnaire2(inst2)
     
     def implQuestionnaire2(self, inst):
@@ -80,7 +87,10 @@ class QuestionnaireTests(unittest.TestCase):
         inst = self.instantiate_from("questionnaire-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Questionnaire instance")
         self.implQuestionnaire3(inst)
-        inst2 = questionnaire.Questionnaire(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Questionnaire", js["resourceType"])
+        inst2 = questionnaire.Questionnaire(js)
         self.implQuestionnaire3(inst2)
     
     def implQuestionnaire3(self, inst):
@@ -125,7 +135,10 @@ class QuestionnaireTests(unittest.TestCase):
         inst = self.instantiate_from("questionnaire-sdc-profile-example-LOINC.json")
         self.assertIsNotNone(inst, "Must have instantiated a Questionnaire instance")
         self.implQuestionnaire4(inst)
-        inst2 = questionnaire.Questionnaire(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Questionnaire", js["resourceType"])
+        inst2 = questionnaire.Questionnaire(js)
         self.implQuestionnaire4(inst2)
     
     def implQuestionnaire4(self, inst):

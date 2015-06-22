@@ -18,13 +18,17 @@ class SlotTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Slot", js["resourceType"])
         return slot.Slot(js)
     
     def testSlot1(self):
         inst = self.instantiate_from("slot-example-busy.json")
         self.assertIsNotNone(inst, "Must have instantiated a Slot instance")
         self.implSlot1(inst)
-        inst2 = slot.Slot(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Slot", js["resourceType"])
+        inst2 = slot.Slot(js)
         self.implSlot1(inst2)
     
     def implSlot1(self, inst):
@@ -46,7 +50,10 @@ class SlotTests(unittest.TestCase):
         inst = self.instantiate_from("slot-example-tentative.json")
         self.assertIsNotNone(inst, "Must have instantiated a Slot instance")
         self.implSlot2(inst)
-        inst2 = slot.Slot(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Slot", js["resourceType"])
+        inst2 = slot.Slot(js)
         self.implSlot2(inst2)
     
     def implSlot2(self, inst):
@@ -65,7 +72,10 @@ class SlotTests(unittest.TestCase):
         inst = self.instantiate_from("slot-example-unavailable.json")
         self.assertIsNotNone(inst, "Must have instantiated a Slot instance")
         self.implSlot3(inst)
-        inst2 = slot.Slot(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Slot", js["resourceType"])
+        inst2 = slot.Slot(js)
         self.implSlot3(inst2)
     
     def implSlot3(self, inst):
@@ -84,7 +94,10 @@ class SlotTests(unittest.TestCase):
         inst = self.instantiate_from("slot-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Slot instance")
         self.implSlot4(inst)
-        inst2 = slot.Slot(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Slot", js["resourceType"])
+        inst2 = slot.Slot(js)
         self.implSlot4(inst2)
     
     def implSlot4(self, inst):

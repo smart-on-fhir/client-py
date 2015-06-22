@@ -18,13 +18,17 @@ class DiagnosticOrderTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("DiagnosticOrder", js["resourceType"])
         return diagnosticorder.DiagnosticOrder(js)
     
     def testDiagnosticOrder1(self):
         inst = self.instantiate_from("diagnosticorder-example-di.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticOrder instance")
         self.implDiagnosticOrder1(inst)
-        inst2 = diagnosticorder.DiagnosticOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticOrder", js["resourceType"])
+        inst2 = diagnosticorder.DiagnosticOrder(js)
         self.implDiagnosticOrder1(inst2)
     
     def implDiagnosticOrder1(self, inst):
@@ -42,7 +46,10 @@ class DiagnosticOrderTests(unittest.TestCase):
         inst = self.instantiate_from("diagnosticorder-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticOrder instance")
         self.implDiagnosticOrder2(inst)
-        inst2 = diagnosticorder.DiagnosticOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticOrder", js["resourceType"])
+        inst2 = diagnosticorder.DiagnosticOrder(js)
         self.implDiagnosticOrder2(inst2)
     
     def implDiagnosticOrder2(self, inst):
@@ -63,7 +70,10 @@ class DiagnosticOrderTests(unittest.TestCase):
         inst = self.instantiate_from("diagnosticorder-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticOrder instance")
         self.implDiagnosticOrder3(inst)
-        inst2 = diagnosticorder.DiagnosticOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticOrder", js["resourceType"])
+        inst2 = diagnosticorder.DiagnosticOrder(js)
         self.implDiagnosticOrder3(inst2)
     
     def implDiagnosticOrder3(self, inst):
@@ -95,7 +105,10 @@ class DiagnosticOrderTests(unittest.TestCase):
         inst = self.instantiate_from("do-uslab-example1.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticOrder instance")
         self.implDiagnosticOrder4(inst)
-        inst2 = diagnosticorder.DiagnosticOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticOrder", js["resourceType"])
+        inst2 = diagnosticorder.DiagnosticOrder(js)
         self.implDiagnosticOrder4(inst2)
     
     def implDiagnosticOrder4(self, inst):

@@ -18,13 +18,17 @@ class DeviceUseStatementTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("DeviceUseStatement", js["resourceType"])
         return deviceusestatement.DeviceUseStatement(js)
     
     def testDeviceUseStatement1(self):
         inst = self.instantiate_from("deviceusestatement-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DeviceUseStatement instance")
         self.implDeviceUseStatement1(inst)
-        inst2 = deviceusestatement.DeviceUseStatement(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DeviceUseStatement", js["resourceType"])
+        inst2 = deviceusestatement.DeviceUseStatement(js)
         self.implDeviceUseStatement1(inst2)
     
     def implDeviceUseStatement1(self, inst):

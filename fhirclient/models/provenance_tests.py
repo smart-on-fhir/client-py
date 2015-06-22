@@ -18,13 +18,17 @@ class ProvenanceTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Provenance", js["resourceType"])
         return provenance.Provenance(js)
     
     def testProvenance1(self):
         inst = self.instantiate_from("provenance-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Provenance instance")
         self.implProvenance1(inst)
-        inst2 = provenance.Provenance(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Provenance", js["resourceType"])
+        inst2 = provenance.Provenance(js)
         self.implProvenance1(inst2)
     
     def implProvenance1(self, inst):

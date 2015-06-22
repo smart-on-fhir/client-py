@@ -18,13 +18,17 @@ class EncounterTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Encounter", js["resourceType"])
         return encounter.Encounter(js)
     
     def testEncounter1(self):
         inst = self.instantiate_from("encounter-example-f001-heart.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
         self.implEncounter1(inst)
-        inst2 = encounter.Encounter(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Encounter", js["resourceType"])
+        inst2 = encounter.Encounter(js)
         self.implEncounter1(inst2)
     
     def implEncounter1(self, inst):
@@ -63,7 +67,10 @@ class EncounterTests(unittest.TestCase):
         inst = self.instantiate_from("encounter-example-f002-lung.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
         self.implEncounter2(inst)
-        inst2 = encounter.Encounter(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Encounter", js["resourceType"])
+        inst2 = encounter.Encounter(js)
         self.implEncounter2(inst2)
     
     def implEncounter2(self, inst):
@@ -102,7 +109,10 @@ class EncounterTests(unittest.TestCase):
         inst = self.instantiate_from("encounter-example-f003-abscess.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
         self.implEncounter3(inst)
-        inst2 = encounter.Encounter(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Encounter", js["resourceType"])
+        inst2 = encounter.Encounter(js)
         self.implEncounter3(inst2)
     
     def implEncounter3(self, inst):
@@ -141,7 +151,10 @@ class EncounterTests(unittest.TestCase):
         inst = self.instantiate_from("encounter-example-f201-20130404.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
         self.implEncounter4(inst)
-        inst2 = encounter.Encounter(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Encounter", js["resourceType"])
+        inst2 = encounter.Encounter(js)
         self.implEncounter4(inst2)
     
     def implEncounter4(self, inst):
@@ -163,7 +176,10 @@ class EncounterTests(unittest.TestCase):
         inst = self.instantiate_from("encounter-example-f202-20130128.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
         self.implEncounter5(inst)
-        inst2 = encounter.Encounter(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Encounter", js["resourceType"])
+        inst2 = encounter.Encounter(js)
         self.implEncounter5(inst2)
     
     def implEncounter5(self, inst):
@@ -189,7 +205,10 @@ class EncounterTests(unittest.TestCase):
         inst = self.instantiate_from("encounter-example-f203-20130311.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
         self.implEncounter6(inst)
-        inst2 = encounter.Encounter(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Encounter", js["resourceType"])
+        inst2 = encounter.Encounter(js)
         self.implEncounter6(inst2)
     
     def implEncounter6(self, inst):
@@ -222,7 +241,10 @@ class EncounterTests(unittest.TestCase):
         inst = self.instantiate_from("encounter-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
         self.implEncounter7(inst)
-        inst2 = encounter.Encounter(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Encounter", js["resourceType"])
+        inst2 = encounter.Encounter(js)
         self.implEncounter7(inst2)
     
     def implEncounter7(self, inst):
@@ -236,7 +258,10 @@ class EncounterTests(unittest.TestCase):
         inst = self.instantiate_from("encounter-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
         self.implEncounter8(inst)
-        inst2 = encounter.Encounter(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Encounter", js["resourceType"])
+        inst2 = encounter.Encounter(js)
         self.implEncounter8(inst2)
     
     def implEncounter8(self, inst):

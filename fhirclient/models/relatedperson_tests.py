@@ -18,13 +18,17 @@ class RelatedPersonTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("RelatedPerson", js["resourceType"])
         return relatedperson.RelatedPerson(js)
     
     def testRelatedPerson1(self):
         inst = self.instantiate_from("relatedperson-example-f001-sarah.json")
         self.assertIsNotNone(inst, "Must have instantiated a RelatedPerson instance")
         self.implRelatedPerson1(inst)
-        inst2 = relatedperson.RelatedPerson(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("RelatedPerson", js["resourceType"])
+        inst2 = relatedperson.RelatedPerson(js)
         self.implRelatedPerson1(inst2)
     
     def implRelatedPerson1(self, inst):
@@ -50,7 +54,10 @@ class RelatedPersonTests(unittest.TestCase):
         inst = self.instantiate_from("relatedperson-example-f002-ariadne.json")
         self.assertIsNotNone(inst, "Must have instantiated a RelatedPerson instance")
         self.implRelatedPerson2(inst)
-        inst2 = relatedperson.RelatedPerson(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("RelatedPerson", js["resourceType"])
+        inst2 = relatedperson.RelatedPerson(js)
         self.implRelatedPerson2(inst2)
     
     def implRelatedPerson2(self, inst):
@@ -69,7 +76,10 @@ class RelatedPersonTests(unittest.TestCase):
         inst = self.instantiate_from("relatedperson-example-peter.json")
         self.assertIsNotNone(inst, "Must have instantiated a RelatedPerson instance")
         self.implRelatedPerson3(inst)
-        inst2 = relatedperson.RelatedPerson(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("RelatedPerson", js["resourceType"])
+        inst2 = relatedperson.RelatedPerson(js)
         self.implRelatedPerson3(inst2)
     
     def implRelatedPerson3(self, inst):
@@ -99,7 +109,10 @@ class RelatedPersonTests(unittest.TestCase):
         inst = self.instantiate_from("relatedperson-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a RelatedPerson instance")
         self.implRelatedPerson4(inst)
-        inst2 = relatedperson.RelatedPerson(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("RelatedPerson", js["resourceType"])
+        inst2 = relatedperson.RelatedPerson(js)
         self.implRelatedPerson4(inst2)
     
     def implRelatedPerson4(self, inst):

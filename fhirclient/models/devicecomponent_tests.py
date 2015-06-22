@@ -18,13 +18,17 @@ class DeviceComponentTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("DeviceComponent", js["resourceType"])
         return devicecomponent.DeviceComponent(js)
     
     def testDeviceComponent1(self):
         inst = self.instantiate_from("devicecomponent-example-prodspec.json")
         self.assertIsNotNone(inst, "Must have instantiated a DeviceComponent instance")
         self.implDeviceComponent1(inst)
-        inst2 = devicecomponent.DeviceComponent(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DeviceComponent", js["resourceType"])
+        inst2 = devicecomponent.DeviceComponent(js)
         self.implDeviceComponent1(inst2)
     
     def implDeviceComponent1(self, inst):
@@ -59,7 +63,10 @@ class DeviceComponentTests(unittest.TestCase):
         inst = self.instantiate_from("devicecomponent-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DeviceComponent instance")
         self.implDeviceComponent2(inst)
-        inst2 = devicecomponent.DeviceComponent(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("DeviceComponent", js["resourceType"])
+        inst2 = devicecomponent.DeviceComponent(js)
         self.implDeviceComponent2(inst2)
     
     def implDeviceComponent2(self, inst):

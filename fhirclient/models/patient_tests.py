@@ -18,13 +18,17 @@ class PatientTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Patient", js["resourceType"])
         return patient.Patient(js)
     
     def testPatient1(self):
         inst = self.instantiate_from("patient-example-a.json")
         self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
         self.implPatient1(inst)
-        inst2 = patient.Patient(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Patient", js["resourceType"])
+        inst2 = patient.Patient(js)
         self.implPatient1(inst2)
     
     def implPatient1(self, inst):
@@ -49,7 +53,10 @@ class PatientTests(unittest.TestCase):
         inst = self.instantiate_from("patient-example-animal.json")
         self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
         self.implPatient2(inst)
-        inst2 = patient.Patient(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Patient", js["resourceType"])
+        inst2 = patient.Patient(js)
         self.implPatient2(inst2)
     
     def implPatient2(self, inst):
@@ -90,7 +97,10 @@ class PatientTests(unittest.TestCase):
         inst = self.instantiate_from("patient-example-b.json")
         self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
         self.implPatient3(inst)
-        inst2 = patient.Patient(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Patient", js["resourceType"])
+        inst2 = patient.Patient(js)
         self.implPatient3(inst2)
     
     def implPatient3(self, inst):
@@ -114,7 +124,10 @@ class PatientTests(unittest.TestCase):
         inst = self.instantiate_from("patient-example-dicom.json")
         self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
         self.implPatient4(inst)
-        inst2 = patient.Patient(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Patient", js["resourceType"])
+        inst2 = patient.Patient(js)
         self.implPatient4(inst2)
     
     def implPatient4(self, inst):
@@ -139,7 +152,10 @@ class PatientTests(unittest.TestCase):
         inst = self.instantiate_from("patient-example-f001-pieter.json")
         self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
         self.implPatient5(inst)
-        inst2 = patient.Patient(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Patient", js["resourceType"])
+        inst2 = patient.Patient(js)
         self.implPatient5(inst2)
     
     def implPatient5(self, inst):
@@ -193,7 +209,10 @@ class PatientTests(unittest.TestCase):
         inst = self.instantiate_from("patient-example-f201-roel.json")
         self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
         self.implPatient6(inst)
-        inst2 = patient.Patient(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Patient", js["resourceType"])
+        inst2 = patient.Patient(js)
         self.implPatient6(inst2)
     
     def implPatient6(self, inst):
@@ -256,7 +275,10 @@ class PatientTests(unittest.TestCase):
         inst = self.instantiate_from("patient-example-ihe-pcd.json")
         self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
         self.implPatient7(inst)
-        inst2 = patient.Patient(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Patient", js["resourceType"])
+        inst2 = patient.Patient(js)
         self.implPatient7(inst2)
     
     def implPatient7(self, inst):
@@ -273,7 +295,10 @@ class PatientTests(unittest.TestCase):
         inst = self.instantiate_from("patient-example-proband.json")
         self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
         self.implPatient8(inst)
-        inst2 = patient.Patient(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Patient", js["resourceType"])
+        inst2 = patient.Patient(js)
         self.implPatient8(inst2)
     
     def implPatient8(self, inst):
@@ -297,7 +322,10 @@ class PatientTests(unittest.TestCase):
         inst = self.instantiate_from("patient-example-us-extensions.json")
         self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
         self.implPatient9(inst)
-        inst2 = patient.Patient(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Patient", js["resourceType"])
+        inst2 = patient.Patient(js)
         self.implPatient9(inst2)
     
     def implPatient9(self, inst):
@@ -334,7 +362,10 @@ class PatientTests(unittest.TestCase):
         inst = self.instantiate_from("patient-example-xcda.json")
         self.assertIsNotNone(inst, "Must have instantiated a Patient instance")
         self.implPatient10(inst)
-        inst2 = patient.Patient(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Patient", js["resourceType"])
+        inst2 = patient.Patient(js)
         self.implPatient10(inst2)
     
     def implPatient10(self, inst):

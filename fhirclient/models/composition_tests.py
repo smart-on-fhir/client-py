@@ -18,13 +18,17 @@ class CompositionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Composition", js["resourceType"])
         return composition.Composition(js)
     
     def testComposition1(self):
         inst = self.instantiate_from("composition-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Composition instance")
         self.implComposition1(inst)
-        inst2 = composition.Composition(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Composition", js["resourceType"])
+        inst2 = composition.Composition(js)
         self.implComposition1(inst2)
     
     def implComposition1(self, inst):

@@ -18,13 +18,17 @@ class ContraindicationTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Contraindication", js["resourceType"])
         return contraindication.Contraindication(js)
     
     def testContraindication1(self):
         inst = self.instantiate_from("contraindication-example-allergy.json")
         self.assertIsNotNone(inst, "Must have instantiated a Contraindication instance")
         self.implContraindication1(inst)
-        inst2 = contraindication.Contraindication(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Contraindication", js["resourceType"])
+        inst2 = contraindication.Contraindication(js)
         self.implContraindication1(inst2)
     
     def implContraindication1(self, inst):
@@ -36,7 +40,10 @@ class ContraindicationTests(unittest.TestCase):
         inst = self.instantiate_from("contraindication-example-dup.json")
         self.assertIsNotNone(inst, "Must have instantiated a Contraindication instance")
         self.implContraindication2(inst)
-        inst2 = contraindication.Contraindication(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Contraindication", js["resourceType"])
+        inst2 = contraindication.Contraindication(js)
         self.implContraindication2(inst2)
     
     def implContraindication2(self, inst):
@@ -53,7 +60,10 @@ class ContraindicationTests(unittest.TestCase):
         inst = self.instantiate_from("contraindication-example-lab.json")
         self.assertIsNotNone(inst, "Must have instantiated a Contraindication instance")
         self.implContraindication3(inst)
-        inst2 = contraindication.Contraindication(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Contraindication", js["resourceType"])
+        inst2 = contraindication.Contraindication(js)
         self.implContraindication3(inst2)
     
     def implContraindication3(self, inst):
@@ -65,7 +75,10 @@ class ContraindicationTests(unittest.TestCase):
         inst = self.instantiate_from("contraindication-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Contraindication instance")
         self.implContraindication4(inst)
-        inst2 = contraindication.Contraindication(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Contraindication", js["resourceType"])
+        inst2 = contraindication.Contraindication(js)
         self.implContraindication4(inst2)
     
     def implContraindication4(self, inst):

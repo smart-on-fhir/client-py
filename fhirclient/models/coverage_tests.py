@@ -18,13 +18,17 @@ class CoverageTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Coverage", js["resourceType"])
         return coverage.Coverage(js)
     
     def testCoverage1(self):
         inst = self.instantiate_from("coverage-example-2.json")
         self.assertIsNotNone(inst, "Must have instantiated a Coverage instance")
         self.implCoverage1(inst)
-        inst2 = coverage.Coverage(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Coverage", js["resourceType"])
+        inst2 = coverage.Coverage(js)
         self.implCoverage1(inst2)
     
     def implCoverage1(self, inst):
@@ -48,7 +52,10 @@ class CoverageTests(unittest.TestCase):
         inst = self.instantiate_from("coverage-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Coverage instance")
         self.implCoverage2(inst)
-        inst2 = coverage.Coverage(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Coverage", js["resourceType"])
+        inst2 = coverage.Coverage(js)
         self.implCoverage2(inst2)
     
     def implCoverage2(self, inst):

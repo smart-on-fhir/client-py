@@ -18,13 +18,17 @@ class NutritionOrderTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("NutritionOrder", js["resourceType"])
         return nutritionorder.NutritionOrder(js)
     
     def testNutritionOrder1(self):
         inst = self.instantiate_from("nutritionorder-example-cardiacdiet.json")
         self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
         self.implNutritionOrder1(inst)
-        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
         self.implNutritionOrder1(inst2)
     
     def implNutritionOrder1(self, inst):
@@ -75,7 +79,10 @@ class NutritionOrderTests(unittest.TestCase):
         inst = self.instantiate_from("nutritionorder-example-diabeticdiet.json")
         self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
         self.implNutritionOrder2(inst)
-        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
         self.implNutritionOrder2(inst2)
     
     def implNutritionOrder2(self, inst):
@@ -116,7 +123,10 @@ class NutritionOrderTests(unittest.TestCase):
         inst = self.instantiate_from("nutritionorder-example-diabeticsupplement.json")
         self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
         self.implNutritionOrder3(inst)
-        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
         self.implNutritionOrder3(inst2)
     
     def implNutritionOrder3(self, inst):
@@ -153,7 +163,10 @@ class NutritionOrderTests(unittest.TestCase):
         inst = self.instantiate_from("nutritionorder-example-energysupplement.json")
         self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
         self.implNutritionOrder4(inst)
-        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
         self.implNutritionOrder4(inst2)
     
     def implNutritionOrder4(self, inst):
@@ -190,7 +203,10 @@ class NutritionOrderTests(unittest.TestCase):
         inst = self.instantiate_from("nutritionorder-example-enteralbolus.json")
         self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
         self.implNutritionOrder5(inst)
-        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
         self.implNutritionOrder5(inst2)
     
     def implNutritionOrder5(self, inst):
@@ -241,7 +257,10 @@ class NutritionOrderTests(unittest.TestCase):
         inst = self.instantiate_from("nutritionorder-example-enteralcontinuous.json")
         self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
         self.implNutritionOrder6(inst)
-        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
         self.implNutritionOrder6(inst2)
     
     def implNutritionOrder6(self, inst):
@@ -285,7 +304,10 @@ class NutritionOrderTests(unittest.TestCase):
         inst = self.instantiate_from("nutritionorder-example-fiberrestricteddiet.json")
         self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
         self.implNutritionOrder7(inst)
-        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
         self.implNutritionOrder7(inst2)
     
     def implNutritionOrder7(self, inst):
@@ -333,7 +355,10 @@ class NutritionOrderTests(unittest.TestCase):
         inst = self.instantiate_from("nutritionorder-example-infantenteral.json")
         self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
         self.implNutritionOrder8(inst)
-        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
         self.implNutritionOrder8(inst2)
     
     def implNutritionOrder8(self, inst):
@@ -379,7 +404,10 @@ class NutritionOrderTests(unittest.TestCase):
         inst = self.instantiate_from("nutritionorder-example-proteinsupplement.json")
         self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
         self.implNutritionOrder9(inst)
-        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
         self.implNutritionOrder9(inst2)
     
     def implNutritionOrder9(self, inst):
@@ -411,7 +439,10 @@ class NutritionOrderTests(unittest.TestCase):
         inst = self.instantiate_from("nutritionorder-example-pureeddiet-simple.json")
         self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
         self.implNutritionOrder10(inst)
-        inst2 = nutritionorder.NutritionOrder(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
         self.implNutritionOrder10(inst2)
     
     def implNutritionOrder10(self, inst):

@@ -18,13 +18,17 @@ class SubstanceTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Substance", js["resourceType"])
         return substance.Substance(js)
     
     def testSubstance1(self):
         inst = self.instantiate_from("substance-example-f201-dust.json")
         self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
         self.implSubstance1(inst)
-        inst2 = substance.Substance(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
         self.implSubstance1(inst2)
     
     def implSubstance1(self, inst):
@@ -38,7 +42,10 @@ class SubstanceTests(unittest.TestCase):
         inst = self.instantiate_from("substance-example-f202-staphylococcus.json")
         self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
         self.implSubstance2(inst)
-        inst2 = substance.Substance(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
         self.implSubstance2(inst2)
     
     def implSubstance2(self, inst):
@@ -52,7 +59,10 @@ class SubstanceTests(unittest.TestCase):
         inst = self.instantiate_from("substance-example-f203-potassium.json")
         self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
         self.implSubstance3(inst)
-        inst2 = substance.Substance(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
         self.implSubstance3(inst2)
     
     def implSubstance3(self, inst):
@@ -66,7 +76,10 @@ class SubstanceTests(unittest.TestCase):
         inst = self.instantiate_from("substance-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
         self.implSubstance4(inst)
-        inst2 = substance.Substance(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
         self.implSubstance4(inst2)
     
     def implSubstance4(self, inst):

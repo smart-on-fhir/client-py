@@ -18,13 +18,17 @@ class ProcedureRequestTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("ProcedureRequest", js["resourceType"])
         return procedurerequest.ProcedureRequest(js)
     
     def testProcedureRequest1(self):
         inst = self.instantiate_from("procedurerequest-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcedureRequest instance")
         self.implProcedureRequest1(inst)
-        inst2 = procedurerequest.ProcedureRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcedureRequest", js["resourceType"])
+        inst2 = procedurerequest.ProcedureRequest(js)
         self.implProcedureRequest1(inst2)
     
     def implProcedureRequest1(self, inst):
@@ -39,7 +43,10 @@ class ProcedureRequestTests(unittest.TestCase):
         inst = self.instantiate_from("procedurerequest-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcedureRequest instance")
         self.implProcedureRequest2(inst)
-        inst2 = procedurerequest.ProcedureRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ProcedureRequest", js["resourceType"])
+        inst2 = procedurerequest.ProcedureRequest(js)
         self.implProcedureRequest2(inst2)
     
     def implProcedureRequest2(self, inst):

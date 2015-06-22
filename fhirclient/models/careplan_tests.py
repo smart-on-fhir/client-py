@@ -18,13 +18,17 @@ class CarePlanTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("CarePlan", js["resourceType"])
         return careplan.CarePlan(js)
     
     def testCarePlan1(self):
         inst = self.instantiate_from("careplan-example-f001-heart.json")
         self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
         self.implCarePlan1(inst)
-        inst2 = careplan.CarePlan(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CarePlan", js["resourceType"])
+        inst2 = careplan.CarePlan(js)
         self.implCarePlan1(inst2)
     
     def implCarePlan1(self, inst):
@@ -52,7 +56,10 @@ class CarePlanTests(unittest.TestCase):
         inst = self.instantiate_from("careplan-example-f002-lung.json")
         self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
         self.implCarePlan2(inst)
-        inst2 = careplan.CarePlan(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CarePlan", js["resourceType"])
+        inst2 = careplan.CarePlan(js)
         self.implCarePlan2(inst2)
     
     def implCarePlan2(self, inst):
@@ -80,7 +87,10 @@ class CarePlanTests(unittest.TestCase):
         inst = self.instantiate_from("careplan-example-f003-pharynx.json")
         self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
         self.implCarePlan3(inst)
-        inst2 = careplan.CarePlan(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CarePlan", js["resourceType"])
+        inst2 = careplan.CarePlan(js)
         self.implCarePlan3(inst2)
     
     def implCarePlan3(self, inst):
@@ -108,7 +118,10 @@ class CarePlanTests(unittest.TestCase):
         inst = self.instantiate_from("careplan-example-f201-renal.json")
         self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
         self.implCarePlan4(inst)
-        inst2 = careplan.CarePlan(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CarePlan", js["resourceType"])
+        inst2 = careplan.CarePlan(js)
         self.implCarePlan4(inst2)
     
     def implCarePlan4(self, inst):
@@ -149,7 +162,10 @@ class CarePlanTests(unittest.TestCase):
         inst = self.instantiate_from("careplan-example-f202-malignancy.json")
         self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
         self.implCarePlan5(inst)
-        inst2 = careplan.CarePlan(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CarePlan", js["resourceType"])
+        inst2 = careplan.CarePlan(js)
         self.implCarePlan5(inst2)
     
     def implCarePlan5(self, inst):
@@ -170,7 +186,10 @@ class CarePlanTests(unittest.TestCase):
         inst = self.instantiate_from("careplan-example-f203-sepsis.json")
         self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
         self.implCarePlan6(inst)
-        inst2 = careplan.CarePlan(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CarePlan", js["resourceType"])
+        inst2 = careplan.CarePlan(js)
         self.implCarePlan6(inst2)
     
     def implCarePlan6(self, inst):
@@ -200,7 +219,10 @@ class CarePlanTests(unittest.TestCase):
         inst = self.instantiate_from("careplan-example-GPVisit.json")
         self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
         self.implCarePlan7(inst)
-        inst2 = careplan.CarePlan(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CarePlan", js["resourceType"])
+        inst2 = careplan.CarePlan(js)
         self.implCarePlan7(inst2)
     
     def implCarePlan7(self, inst):
@@ -238,7 +260,10 @@ class CarePlanTests(unittest.TestCase):
         inst = self.instantiate_from("careplan-example-integrated.json")
         self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
         self.implCarePlan8(inst)
-        inst2 = careplan.CarePlan(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CarePlan", js["resourceType"])
+        inst2 = careplan.CarePlan(js)
         self.implCarePlan8(inst2)
     
     def implCarePlan8(self, inst):
@@ -349,7 +374,10 @@ class CarePlanTests(unittest.TestCase):
         inst = self.instantiate_from("careplan-example-pregnancy.json")
         self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
         self.implCarePlan9(inst)
-        inst2 = careplan.CarePlan(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CarePlan", js["resourceType"])
+        inst2 = careplan.CarePlan(js)
         self.implCarePlan9(inst2)
     
     def implCarePlan9(self, inst):
@@ -409,7 +437,10 @@ class CarePlanTests(unittest.TestCase):
         inst = self.instantiate_from("careplan-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
         self.implCarePlan10(inst)
-        inst2 = careplan.CarePlan(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("CarePlan", js["resourceType"])
+        inst2 = careplan.CarePlan(js)
         self.implCarePlan10(inst2)
     
     def implCarePlan10(self, inst):

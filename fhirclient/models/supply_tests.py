@@ -18,13 +18,17 @@ class SupplyTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Supply", js["resourceType"])
         return supply.Supply(js)
     
     def testSupply1(self):
         inst = self.instantiate_from("supply-example1.json")
         self.assertIsNotNone(inst, "Must have instantiated a Supply instance")
         self.implSupply1(inst)
-        inst2 = supply.Supply(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Supply", js["resourceType"])
+        inst2 = supply.Supply(js)
         self.implSupply1(inst2)
     
     def implSupply1(self, inst):

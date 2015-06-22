@@ -18,13 +18,17 @@ class ListTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("List", js["resourceType"])
         return list.List(js)
     
     def testList1(self):
         inst = self.instantiate_from("list-example-empty.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList1(inst)
-        inst2 = list.List(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("List", js["resourceType"])
+        inst2 = list.List(js)
         self.implList1(inst2)
     
     def implList1(self, inst):
@@ -47,7 +51,10 @@ class ListTests(unittest.TestCase):
         inst = self.instantiate_from("list-example-familyhistory-f201-roel.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList2(inst)
-        inst2 = list.List(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("List", js["resourceType"])
+        inst2 = list.List(js)
         self.implList2(inst2)
     
     def implList2(self, inst):
@@ -64,7 +71,10 @@ class ListTests(unittest.TestCase):
         inst = self.instantiate_from("list-example-familyhistory-genetics-profile-annie.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList3(inst)
-        inst2 = list.List(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("List", js["resourceType"])
+        inst2 = list.List(js)
         self.implList3(inst2)
     
     def implList3(self, inst):
@@ -80,7 +90,10 @@ class ListTests(unittest.TestCase):
         inst = self.instantiate_from("list-example-familyhistory-genetics-profile.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList4(inst)
-        inst2 = list.List(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("List", js["resourceType"])
+        inst2 = list.List(js)
         self.implList4(inst2)
     
     def implList4(self, inst):
@@ -97,7 +110,10 @@ class ListTests(unittest.TestCase):
         inst = self.instantiate_from("list-example-medlist.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList5(inst)
-        inst2 = list.List(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("List", js["resourceType"])
+        inst2 = list.List(js)
         self.implList5(inst2)
     
     def implList5(self, inst):
@@ -124,7 +140,10 @@ class ListTests(unittest.TestCase):
         inst = self.instantiate_from("list-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList6(inst)
-        inst2 = list.List(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("List", js["resourceType"])
+        inst2 = list.List(js)
         self.implList6(inst2)
     
     def implList6(self, inst):

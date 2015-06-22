@@ -18,13 +18,17 @@ class FamilyMemberHistoryTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("FamilyMemberHistory", js["resourceType"])
         return familymemberhistory.FamilyMemberHistory(js)
     
     def testFamilyMemberHistory1(self):
         inst = self.instantiate_from("familymemberhistory-example-mother.json")
         self.assertIsNotNone(inst, "Must have instantiated a FamilyMemberHistory instance")
         self.implFamilyMemberHistory1(inst)
-        inst2 = familymemberhistory.FamilyMemberHistory(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("FamilyMemberHistory", js["resourceType"])
+        inst2 = familymemberhistory.FamilyMemberHistory(js)
         self.implFamilyMemberHistory1(inst2)
     
     def implFamilyMemberHistory1(self, inst):
@@ -45,7 +49,10 @@ class FamilyMemberHistoryTests(unittest.TestCase):
         inst = self.instantiate_from("familymemberhistory-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a FamilyMemberHistory instance")
         self.implFamilyMemberHistory2(inst)
-        inst2 = familymemberhistory.FamilyMemberHistory(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("FamilyMemberHistory", js["resourceType"])
+        inst2 = familymemberhistory.FamilyMemberHistory(js)
         self.implFamilyMemberHistory2(inst2)
     
     def implFamilyMemberHistory2(self, inst):
@@ -69,7 +76,10 @@ class FamilyMemberHistoryTests(unittest.TestCase):
         inst = self.instantiate_from("familymemberhistory-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a FamilyMemberHistory instance")
         self.implFamilyMemberHistory3(inst)
-        inst2 = familymemberhistory.FamilyMemberHistory(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("FamilyMemberHistory", js["resourceType"])
+        inst2 = familymemberhistory.FamilyMemberHistory(js)
         self.implFamilyMemberHistory3(inst2)
     
     def implFamilyMemberHistory3(self, inst):

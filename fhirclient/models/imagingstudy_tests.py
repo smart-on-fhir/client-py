@@ -18,13 +18,17 @@ class ImagingStudyTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("ImagingStudy", js["resourceType"])
         return imagingstudy.ImagingStudy(js)
     
     def testImagingStudy1(self):
         inst = self.instantiate_from("imagingstudy-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ImagingStudy instance")
         self.implImagingStudy1(inst)
-        inst2 = imagingstudy.ImagingStudy(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ImagingStudy", js["resourceType"])
+        inst2 = imagingstudy.ImagingStudy(js)
         self.implImagingStudy1(inst2)
     
     def implImagingStudy1(self, inst):
@@ -53,7 +57,10 @@ class ImagingStudyTests(unittest.TestCase):
         inst = self.instantiate_from("imagingstudy-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ImagingStudy instance")
         self.implImagingStudy2(inst)
-        inst2 = imagingstudy.ImagingStudy(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ImagingStudy", js["resourceType"])
+        inst2 = imagingstudy.ImagingStudy(js)
         self.implImagingStudy2(inst2)
     
     def implImagingStudy2(self, inst):

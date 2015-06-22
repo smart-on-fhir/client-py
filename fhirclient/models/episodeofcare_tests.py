@@ -18,13 +18,17 @@ class EpisodeOfCareTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("EpisodeOfCare", js["resourceType"])
         return episodeofcare.EpisodeOfCare(js)
     
     def testEpisodeOfCare1(self):
         inst = self.instantiate_from("episodeofcare-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a EpisodeOfCare instance")
         self.implEpisodeOfCare1(inst)
-        inst2 = episodeofcare.EpisodeOfCare(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("EpisodeOfCare", js["resourceType"])
+        inst2 = episodeofcare.EpisodeOfCare(js)
         self.implEpisodeOfCare1(inst2)
     
     def implEpisodeOfCare1(self, inst):

@@ -18,13 +18,17 @@ class MedicationStatementTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("MedicationStatement", js["resourceType"])
         return medicationstatement.MedicationStatement(js)
     
     def testMedicationStatement1(self):
         inst = self.instantiate_from("medicationstatement-example-tylenol.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationStatement instance")
         self.implMedicationStatement1(inst)
-        inst2 = medicationstatement.MedicationStatement(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationStatement", js["resourceType"])
+        inst2 = medicationstatement.MedicationStatement(js)
         self.implMedicationStatement1(inst2)
     
     def implMedicationStatement1(self, inst):
@@ -46,7 +50,10 @@ class MedicationStatementTests(unittest.TestCase):
         inst = self.instantiate_from("medicationstatement-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a MedicationStatement instance")
         self.implMedicationStatement2(inst)
-        inst2 = medicationstatement.MedicationStatement(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("MedicationStatement", js["resourceType"])
+        inst2 = medicationstatement.MedicationStatement(js)
         self.implMedicationStatement2(inst2)
     
     def implMedicationStatement2(self, inst):

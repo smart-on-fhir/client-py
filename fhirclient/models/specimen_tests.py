@@ -18,13 +18,17 @@ class SpecimenTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("Specimen", js["resourceType"])
         return specimen.Specimen(js)
     
     def testSpecimen1(self):
         inst = self.instantiate_from("spec-uslab-example1.json")
         self.assertIsNotNone(inst, "Must have instantiated a Specimen instance")
         self.implSpecimen1(inst)
-        inst2 = specimen.Specimen(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Specimen", js["resourceType"])
+        inst2 = specimen.Specimen(js)
         self.implSpecimen1(inst2)
     
     def implSpecimen1(self, inst):
@@ -57,7 +61,10 @@ class SpecimenTests(unittest.TestCase):
         inst = self.instantiate_from("spec-uslab-example2.json")
         self.assertIsNotNone(inst, "Must have instantiated a Specimen instance")
         self.implSpecimen2(inst)
-        inst2 = specimen.Specimen(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Specimen", js["resourceType"])
+        inst2 = specimen.Specimen(js)
         self.implSpecimen2(inst2)
     
     def implSpecimen2(self, inst):
@@ -83,7 +90,10 @@ class SpecimenTests(unittest.TestCase):
         inst = self.instantiate_from("specimen-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Specimen instance")
         self.implSpecimen3(inst)
-        inst2 = specimen.Specimen(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Specimen", js["resourceType"])
+        inst2 = specimen.Specimen(js)
         self.implSpecimen3(inst2)
     
     def implSpecimen3(self, inst):
@@ -116,7 +126,10 @@ class SpecimenTests(unittest.TestCase):
         inst = self.instantiate_from("specimen-qicore-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Specimen instance")
         self.implSpecimen4(inst)
-        inst2 = specimen.Specimen(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("Specimen", js["resourceType"])
+        inst2 = specimen.Specimen(js)
         self.implSpecimen4(inst2)
     
     def implSpecimen4(self, inst):

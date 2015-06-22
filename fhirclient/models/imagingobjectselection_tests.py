@@ -18,13 +18,17 @@ class ImagingObjectSelectionTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("ImagingObjectSelection", js["resourceType"])
         return imagingobjectselection.ImagingObjectSelection(js)
     
     def testImagingObjectSelection1(self):
         inst = self.instantiate_from("imagingobjectselection-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ImagingObjectSelection instance")
         self.implImagingObjectSelection1(inst)
-        inst2 = imagingobjectselection.ImagingObjectSelection(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("ImagingObjectSelection", js["resourceType"])
+        inst2 = imagingobjectselection.ImagingObjectSelection(js)
         self.implImagingObjectSelection1(inst2)
     
     def implImagingObjectSelection1(self, inst):

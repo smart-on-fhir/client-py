@@ -18,13 +18,17 @@ class EligibilityRequestTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("EligibilityRequest", js["resourceType"])
         return eligibilityrequest.EligibilityRequest(js)
     
     def testEligibilityRequest1(self):
         inst = self.instantiate_from("eligibilityrequest-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a EligibilityRequest instance")
         self.implEligibilityRequest1(inst)
-        inst2 = eligibilityrequest.EligibilityRequest(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("EligibilityRequest", js["resourceType"])
+        inst2 = eligibilityrequest.EligibilityRequest(js)
         self.implEligibilityRequest1(inst2)
     
     def implEligibilityRequest1(self, inst):

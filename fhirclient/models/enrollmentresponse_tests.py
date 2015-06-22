@@ -18,13 +18,17 @@ class EnrollmentResponseTests(unittest.TestCase):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
+            self.assertEqual("EnrollmentResponse", js["resourceType"])
         return enrollmentresponse.EnrollmentResponse(js)
     
     def testEnrollmentResponse1(self):
         inst = self.instantiate_from("enrollmentresponse-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a EnrollmentResponse instance")
         self.implEnrollmentResponse1(inst)
-        inst2 = enrollmentresponse.EnrollmentResponse(inst.as_json())
+        
+        js = inst.as_json()
+        self.assertEqual("EnrollmentResponse", js["resourceType"])
+        inst2 = enrollmentresponse.EnrollmentResponse(js)
         self.implEnrollmentResponse1(inst2)
     
     def implEnrollmentResponse1(self, inst):
