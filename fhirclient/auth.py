@@ -250,7 +250,7 @@ class FHIROAuth2Auth(FHIRAuth):
             raise Exception("I need a server to request an access token")
         
         logging.debug("SMART: Requesting access token from {}".format(self._token_uri))
-        ret_params = server.post_as_form(self._token_uri, params)
+        ret_params = server.post_as_form(self._token_uri, params).json()
         
         self.access_token = ret_params.get('access_token')
         if self.access_token is None:

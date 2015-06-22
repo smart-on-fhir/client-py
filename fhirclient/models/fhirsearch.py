@@ -62,7 +62,9 @@ class FHIRSearch(object):
         
         import bundle
         res = server.request_json(self.construct())
-        return bundle.Bundle(res)
+        bundle = bundle.Bundle(res)
+        bundle._server = server
+        return bundle
     
     def perform_resources(self, server):
         """ Performs the search by calling `perform`, then extracts all Bundle

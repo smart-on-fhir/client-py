@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import json
 import requests
 import urllib
 import logging
@@ -128,6 +129,10 @@ class FHIRServer(object):
         return res.content
     
     def _get(self, path, headers={}, nosign=False):
+        """ Issues a GET request.
+        
+        :returns: The response object
+        """
         assert self.base_uri and path
         url = urlparse.urljoin(self.base_uri, path)
         
@@ -150,15 +155,16 @@ class FHIRServer(object):
         :param str path: The path to append to `base_uri`
         :param dict resource_json: The JSON representing the resource
         :throws: Exception on HTTP status >= 400
-        :returns: Decoded JSON response
+        :returns: The response object
         """
+        url = urlparse.urljoin(self.base_uri, path)
         headers = {
             'Content-type': 'application/json+fhir',
             'Accept': 'application/json+fhir',
         }
         res = requests.put(url, headers=headers, data=json.dumps(resource_json))
         self.raise_for_status(res)
-        return res.json()
+        return res
     
     def post_json(self, path, resource_json):
         """ Performs a POST of the given JSON, which should represent a
@@ -167,15 +173,16 @@ class FHIRServer(object):
         :param str path: The path to append to `base_uri`
         :param dict resource_json: The JSON representing the resource
         :throws: Exception on HTTP status >= 400
-        :returns: Decoded JSON response
+        :returns: The response object
         """
+        url = urlparse.urljoin(self.base_uri, path)
         headers = {
             'Content-type': 'application/json+fhir',
             'Accept': 'application/json+fhir',
         }
         res = requests.post(url, headers=headers, data=json.dumps(resource_json))
         self.raise_for_status(res)
-        return res.json()
+        return res
     
     def post_as_form(self, url, formdata):
         """ Performs a POST request with form-data, expecting to receive JSON.
@@ -183,7 +190,7 @@ class FHIRServer(object):
         request json+fhir.
         
         :throws: Exception on HTTP status >= 400
-        :returns: Decoded JSON response
+        :returns: The response object
         """
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
@@ -192,6 +199,21 @@ class FHIRServer(object):
         res = requests.post(url, data=formdata)
         self.raise_for_status(res)
         return res.json()
+    
+    def delete_json(self, path):
+        """ Issues a DELETE command against the given relative path, accepting
+        a JSON response.
+        
+        :param str url: The relative URL path to issue a DELETE against
+        :returns: The response object
+        """
+        url = urlparse.urljoin(self.base_uri, path)
+        headers = {
+            'Accept': 'application/json',
+        }
+        res = requests.delete(url)
+        self.raise_for_status(res)
+        return res
     
     def raise_for_status(self, response):
         if response.status_code < 400:
