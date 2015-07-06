@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
 #  2015, SMART Health IT.
 
 
@@ -9,8 +9,8 @@ import os
 import io
 import unittest
 import json
-import deviceusestatement
-from fhirdate import FHIRDate
+from . import deviceusestatement
+from .fhirdate import FHIRDate
 
 
 class DeviceUseStatementTests(unittest.TestCase):

@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import fhirdate
-import fhirelement
+from . import fhirdate
+from . import fhirelement
 
 
 class Attachment(fhirelement.FHIRElement):

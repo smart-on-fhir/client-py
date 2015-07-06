@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import codeableconcept
-import coding
-import contactpoint
-import domainresource
-import elementdefinition
-import fhirdate
-import fhirelement
-import identifier
+from . import codeableconcept
+from . import coding
+from . import contactpoint
+from . import domainresource
+from . import elementdefinition
+from . import fhirdate
+from . import fhirelement
+from . import identifier
 
 
 class StructureDefinition(domainresource.DomainResource):

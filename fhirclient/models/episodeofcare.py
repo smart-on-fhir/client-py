@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import codeableconcept
-import domainresource
-import fhirelement
-import fhirreference
-import identifier
-import period
+from . import codeableconcept
+from . import domainresource
+from . import fhirelement
+from . import fhirreference
+from . import identifier
+from . import period
 
 
 class EpisodeOfCare(domainresource.DomainResource):

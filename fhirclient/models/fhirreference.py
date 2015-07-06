@@ -4,7 +4,7 @@
 #  Subclassing FHIR's reference to add resolving capabilities
 
 import logging
-import reference
+from . import reference
 
 
 class FHIRReference(reference.Reference):

@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import age
-import codeableconcept
-import domainresource
-import fhirdate
-import fhirelement
-import fhirreference
-import identifier
-import period
-import range
+from . import age
+from . import codeableconcept
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
+from . import period
+from . import range
 
 
 class FamilyMemberHistory(domainresource.DomainResource):

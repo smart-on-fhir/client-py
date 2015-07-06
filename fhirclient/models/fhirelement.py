@@ -73,6 +73,7 @@ class FHIRElement(object):
         """ Returns a list of tuples, one tuple for each property that should
         be serialized, as: ("name", "json_name", type, is_list)
         """
+        from . import extension
         return [
             ("id", "id", str, False),
             ("extension", "extension", extension.Extension, True),
@@ -101,6 +102,7 @@ class FHIRElement(object):
         
         # extract contained resources
         if 'contained' in jsondict:
+            from . import fhircontainedresource
             self.contained = self.contained or {}
             for js in jsondict['contained']:         # "contained" should be an array
                 res = fhircontainedresource.FHIRContainedResource(jsondict=js, owner=self)
@@ -162,7 +164,3 @@ class FHIRElement(object):
         else:
             self._resolved = {refid: resolved}
 
-
-# these are subclasses of FHIRElement, import last
-import extension
-import fhircontainedresource

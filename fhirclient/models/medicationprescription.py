@@ -1,22 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationPrescription) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationPrescription) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import codeableconcept
-import domainresource
-import duration
-import fhirdate
-import fhirelement
-import fhirreference
-import identifier
-import period
-import quantity
-import range
-import ratio
-import timing
+from . import codeableconcept
+from . import domainresource
+from . import duration
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity
+from . import range
+from . import ratio
+from . import timing
 
 
 class MedicationPrescription(domainresource.DomainResource):

@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Media) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Media) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import attachment
-import codeableconcept
-import domainresource
-import fhirreference
-import identifier
+from . import attachment
+from . import codeableconcept
+from . import domainresource
+from . import fhirreference
+from . import identifier
 
 
 class Media(domainresource.DomainResource):

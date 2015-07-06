@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Person) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Person) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import address
-import attachment
-import contactpoint
-import domainresource
-import fhirdate
-import fhirelement
-import fhirreference
-import humanname
-import identifier
+from . import address
+from . import attachment
+from . import contactpoint
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import humanname
+from . import identifier
 
 
 class Person(domainresource.DomainResource):

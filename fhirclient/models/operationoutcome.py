@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import codeableconcept
-import domainresource
-import fhirelement
+from . import codeableconcept
+from . import domainresource
+from . import fhirelement
 
 
 class OperationOutcome(domainresource.DomainResource):

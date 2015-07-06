@@ -1,27 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import address
-import attachment
-import codeableconcept
-import coding
-import contactpoint
-import fhirdate
-import fhirelement
-import fhirreference
-import humanname
-import identifier
-import period
-import quantity
-import range
-import ratio
-import resource
-import signature
-import timing
+from . import address
+from . import attachment
+from . import codeableconcept
+from . import coding
+from . import contactpoint
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import humanname
+from . import identifier
+from . import period
+from . import quantity
+from . import range
+from . import ratio
+from . import resource
+from . import signature
+from . import timing
 
 
 class Parameters(resource.Resource):

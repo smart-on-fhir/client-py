@@ -4,10 +4,10 @@
 #  Base class for FHIR resources.
 #  2014, SMART Health IT.
 
-import fhirelement
-import fhirdate
-import fhirsearch
-import fhirelementfactory
+from . import fhirelement
+from . import fhirdate
+from . import fhirsearch
+from . import fhirelementfactory
 
 
 class FHIRResource(fhirelement.FHIRElement):

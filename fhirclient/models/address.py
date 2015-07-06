@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Address) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Address) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import fhirelement
-import period
+from . import fhirelement
+from . import period
 
 
 class Address(fhirelement.FHIRElement):

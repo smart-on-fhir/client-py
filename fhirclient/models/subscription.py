@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import coding
-import contactpoint
-import domainresource
-import fhirdate
-import fhirelement
+from . import coding
+from . import contactpoint
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
 
 
 class Subscription(domainresource.DomainResource):

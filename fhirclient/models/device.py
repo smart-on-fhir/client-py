@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Device) on 2015-06-22.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Device) on 2015-07-06.
 #  2015, SMART Health IT.
 
 
-import codeableconcept
-import contactpoint
-import domainresource
-import fhirdate
-import fhirreference
-import identifier
+from . import codeableconcept
+from . import contactpoint
+from . import domainresource
+from . import fhirdate
+from . import fhirreference
+from . import identifier
 
 
 class Device(domainresource.DomainResource):
