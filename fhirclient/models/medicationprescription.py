@@ -1,39 +1,29 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (medicationprescription.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationPrescription) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import codeableconcept
-import condition
-import duration
-import encounter
-import fhirdate
-import fhirelement
-import fhirreference
-import fhirresource
-import identifier
-import medication
-import narrative
-import patient
-import period
-import practitioner
-import quantity
-import ratio
-import schedule
+from . import codeableconcept
+from . import domainresource
+from . import duration
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity
+from . import range
+from . import ratio
+from . import timing
 
 
-class MedicationPrescription(fhirresource.FHIRResource):
+class MedicationPrescription(domainresource.DomainResource):
     """ Prescription of medication to for patient.
     
-    Scope and Usage This resource covers all orders for medications for a
-    patient. This includes in-patient medication orders as well as community
-    orders (whether filled by the prescriber or by a pharmacy). It also
-    includes orders for over-the-counter medications (e.g. Aspirin) and dietary
-    supplements. It may be used to support the order of medication-related
-    devices. It is not intended for use in prescribing particular diets, or for
-    ordering non-medication-related items (eye-glasses, supplies, etc.)
+    An order for both supply of the medication and the instructions for
+    administration of the medicine to a patient.
     """
     
     resource_name = "MedicationPrescription"
@@ -66,6 +56,10 @@ class MedicationPrescription(fhirresource.FHIRResource):
         """ Medication to be taken.
         Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
         
+        self.note = None
+        """ Information about the prescription.
+        Type `str`. """
+        
         self.patient = None
         """ Who prescription is for.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
@@ -78,147 +72,39 @@ class MedicationPrescription(fhirresource.FHIRResource):
         """ Reason or indication for writing the prescription.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.reasonResource = None
+        self.reasonReference = None
         """ Reason or indication for writing the prescription.
         Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
         
         self.status = None
-        """ active | on hold | completed | entered in error | stopped |
-        superceded.
+        """ active | on-hold | completed | entered-in-error | stopped |
+        superceded | draft.
         Type `str`. """
         
         self.substitution = None
         """ Any restrictions on medication substitution?.
         Type `MedicationPrescriptionSubstitution` (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         super(MedicationPrescription, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationPrescription, self).update_with_json(jsondict)
-        if 'dateWritten' in jsondict:
-            self.dateWritten = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateWritten'], self)
-        if 'dispense' in jsondict:
-            self.dispense = MedicationPrescriptionDispense.with_json_and_owner(jsondict['dispense'], self)
-        if 'dosageInstruction' in jsondict:
-            self.dosageInstruction = MedicationPrescriptionDosageInstruction.with_json_and_owner(jsondict['dosageInstruction'], self)
-        if 'encounter' in jsondict:
-            self.encounter = fhirreference.FHIRReference.with_json_and_owner(jsondict['encounter'], self, encounter.Encounter)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'medication' in jsondict:
-            self.medication = fhirreference.FHIRReference.with_json_and_owner(jsondict['medication'], self, medication.Medication)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
-        if 'prescriber' in jsondict:
-            self.prescriber = fhirreference.FHIRReference.with_json_and_owner(jsondict['prescriber'], self, practitioner.Practitioner)
-        if 'reasonCodeableConcept' in jsondict:
-            self.reasonCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonCodeableConcept'], self)
-        if 'reasonResource' in jsondict:
-            self.reasonResource = fhirreference.FHIRReference.with_json_and_owner(jsondict['reasonResource'], self, condition.Condition)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'substitution' in jsondict:
-            self.substitution = MedicationPrescriptionSubstitution.with_json_and_owner(jsondict['substitution'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-
-
-class MedicationPrescriptionDosageInstruction(fhirelement.FHIRElement):
-    """ How medication should be taken.
-    
-    Indicates how the medication is to be used by the patient.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.additionalInstructions = None
-        """ Supplemental instructions - e.g. "with meals".
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.asNeededBoolean = False
-        """ Take "as needed" f(or x).
-        Type `bool`. """
-        
-        self.asNeededCodeableConcept = None
-        """ Take "as needed" f(or x).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.doseQuantity = None
-        """ Amount of medication per dose.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
-        self.maxDosePerPeriod = None
-        """ Upper limit on medication per unit of time.
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.method = None
-        """ Technique for administering medication.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.rate = None
-        """ Amount of medication per unit of time.
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.route = None
-        """ How drug should enter body.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.site = None
-        """ Body site to administer to.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Dosage instructions expressed as text.
-        Type `str`. """
-        
-        self.timingDateTime = None
-        """ When medication should be administered.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.timingPeriod = None
-        """ When medication should be administered.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.timingSchedule = None
-        """ When medication should be administered.
-        Type `Schedule` (represented as `dict` in JSON). """
-        
-        super(MedicationPrescriptionDosageInstruction, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(MedicationPrescriptionDosageInstruction, self).update_with_json(jsondict)
-        if 'additionalInstructions' in jsondict:
-            self.additionalInstructions = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['additionalInstructions'], self)
-        if 'asNeededBoolean' in jsondict:
-            self.asNeededBoolean = jsondict['asNeededBoolean']
-        if 'asNeededCodeableConcept' in jsondict:
-            self.asNeededCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['asNeededCodeableConcept'], self)
-        if 'doseQuantity' in jsondict:
-            self.doseQuantity = quantity.Quantity.with_json_and_owner(jsondict['doseQuantity'], self)
-        if 'maxDosePerPeriod' in jsondict:
-            self.maxDosePerPeriod = ratio.Ratio.with_json_and_owner(jsondict['maxDosePerPeriod'], self)
-        if 'method' in jsondict:
-            self.method = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['method'], self)
-        if 'rate' in jsondict:
-            self.rate = ratio.Ratio.with_json_and_owner(jsondict['rate'], self)
-        if 'route' in jsondict:
-            self.route = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['route'], self)
-        if 'site' in jsondict:
-            self.site = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['site'], self)
-        if 'text' in jsondict:
-            self.text = jsondict['text']
-        if 'timingDateTime' in jsondict:
-            self.timingDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['timingDateTime'], self)
-        if 'timingPeriod' in jsondict:
-            self.timingPeriod = period.Period.with_json_and_owner(jsondict['timingPeriod'], self)
-        if 'timingSchedule' in jsondict:
-            self.timingSchedule = schedule.Schedule.with_json_and_owner(jsondict['timingSchedule'], self)
+    def elementProperties(self):
+        js = super(MedicationPrescription, self).elementProperties()
+        js.extend([
+            ("dateWritten", "dateWritten", fhirdate.FHIRDate, False),
+            ("dispense", "dispense", MedicationPrescriptionDispense, False),
+            ("dosageInstruction", "dosageInstruction", MedicationPrescriptionDosageInstruction, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("medication", "medication", fhirreference.FHIRReference, False),
+            ("note", "note", str, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("prescriber", "prescriber", fhirreference.FHIRReference, False),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+            ("substitution", "substitution", MedicationPrescriptionSubstitution, False),
+        ])
+        return js
 
 
 class MedicationPrescriptionDispense(fhirelement.FHIRElement):
@@ -226,6 +112,8 @@ class MedicationPrescriptionDispense(fhirelement.FHIRElement):
     
     Deals with details of the dispense part of the order.
     """
+    
+    resource_name = "MedicationPrescriptionDispense"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -253,18 +141,107 @@ class MedicationPrescriptionDispense(fhirelement.FHIRElement):
         
         super(MedicationPrescriptionDispense, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationPrescriptionDispense, self).update_with_json(jsondict)
-        if 'expectedSupplyDuration' in jsondict:
-            self.expectedSupplyDuration = duration.Duration.with_json_and_owner(jsondict['expectedSupplyDuration'], self)
-        if 'medication' in jsondict:
-            self.medication = fhirreference.FHIRReference.with_json_and_owner(jsondict['medication'], self, medication.Medication)
-        if 'numberOfRepeatsAllowed' in jsondict:
-            self.numberOfRepeatsAllowed = jsondict['numberOfRepeatsAllowed']
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'validityPeriod' in jsondict:
-            self.validityPeriod = period.Period.with_json_and_owner(jsondict['validityPeriod'], self)
+    def elementProperties(self):
+        js = super(MedicationPrescriptionDispense, self).elementProperties()
+        js.extend([
+            ("expectedSupplyDuration", "expectedSupplyDuration", duration.Duration, False),
+            ("medication", "medication", fhirreference.FHIRReference, False),
+            ("numberOfRepeatsAllowed", "numberOfRepeatsAllowed", int, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("validityPeriod", "validityPeriod", period.Period, False),
+        ])
+        return js
+
+
+class MedicationPrescriptionDosageInstruction(fhirelement.FHIRElement):
+    """ How medication should be taken.
+    
+    Indicates how the medication is to be used by the patient.
+    """
+    
+    resource_name = "MedicationPrescriptionDosageInstruction"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.additionalInstructions = None
+        """ Supplemental instructions - e.g. "with meals".
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.asNeededBoolean = None
+        """ Take "as needed" f(or x).
+        Type `bool`. """
+        
+        self.asNeededCodeableConcept = None
+        """ Take "as needed" f(or x).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.doseQuantity = None
+        """ Amount of medication per dose.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.doseRange = None
+        """ Amount of medication per dose.
+        Type `Range` (represented as `dict` in JSON). """
+        
+        self.maxDosePerPeriod = None
+        """ Upper limit on medication per unit of time.
+        Type `Ratio` (represented as `dict` in JSON). """
+        
+        self.method = None
+        """ Technique for administering medication.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.rate = None
+        """ Amount of medication per unit of time.
+        Type `Ratio` (represented as `dict` in JSON). """
+        
+        self.route = None
+        """ How drug should enter body.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.scheduledDateTime = None
+        """ When medication should be administered.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.scheduledPeriod = None
+        """ When medication should be administered.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.scheduledTiming = None
+        """ When medication should be administered.
+        Type `Timing` (represented as `dict` in JSON). """
+        
+        self.site = None
+        """ Body site to administer to.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.text = None
+        """ Dosage instructions expressed as text.
+        Type `str`. """
+        
+        super(MedicationPrescriptionDosageInstruction, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(MedicationPrescriptionDosageInstruction, self).elementProperties()
+        js.extend([
+            ("additionalInstructions", "additionalInstructions", codeableconcept.CodeableConcept, False),
+            ("asNeededBoolean", "asNeededBoolean", bool, False),
+            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("doseQuantity", "doseQuantity", quantity.Quantity, False),
+            ("doseRange", "doseRange", range.Range, False),
+            ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False),
+            ("method", "method", codeableconcept.CodeableConcept, False),
+            ("rate", "rate", ratio.Ratio, False),
+            ("route", "route", codeableconcept.CodeableConcept, False),
+            ("scheduledDateTime", "scheduledDateTime", fhirdate.FHIRDate, False),
+            ("scheduledPeriod", "scheduledPeriod", period.Period, False),
+            ("scheduledTiming", "scheduledTiming", timing.Timing, False),
+            ("site", "site", codeableconcept.CodeableConcept, False),
+            ("text", "text", str, False),
+        ])
+        return js
 
 
 class MedicationPrescriptionSubstitution(fhirelement.FHIRElement):
@@ -276,6 +253,8 @@ class MedicationPrescriptionSubstitution(fhirelement.FHIRElement):
     explains the prescriber's intent. If nothing is specified substitution may
     be done.
     """
+    
+    resource_name = "MedicationPrescriptionSubstitution"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -291,10 +270,11 @@ class MedicationPrescriptionSubstitution(fhirelement.FHIRElement):
         
         super(MedicationPrescriptionSubstitution, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationPrescriptionSubstitution, self).update_with_json(jsondict)
-        if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(MedicationPrescriptionSubstitution, self).elementProperties()
+        js.extend([
+            ("reason", "reason", codeableconcept.CodeableConcept, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

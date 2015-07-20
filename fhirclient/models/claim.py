@@ -1,0 +1,633 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Claim) on 2015-07-06.
+#  2015, SMART Health IT.
+
+
+from . import coding
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
+from . import money
+from . import quantity
+
+
+class Claim(domainresource.DomainResource):
+    """ Claim, Pre-determination or Pre-authorization.
+    
+    A provider issued list of services and products provided, or to be
+    provided, to a patient which is provided to an insurer for payment
+    recovery.
+    """
+    
+    resource_name = "Claim"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.accident = None
+        """ Accident Date.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.accidentType = None
+        """ Accident Type.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.additionalMaterials = None
+        """ Additional materials, documents, etc..
+        List of `Coding` items (represented as `dict` in JSON). """
+        
+        self.condition = None
+        """ List of presenting Conditions.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
+        self.coverage = None
+        """ Insurance or medical plan.
+        List of `ClaimCoverage` items (represented as `dict` in JSON). """
+        
+        self.created = None
+        """ Creation date.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.diagnosis = None
+        """ Diagnosis.
+        List of `ClaimDiagnosis` items (represented as `dict` in JSON). """
+        
+        self.enterer = None
+        """ Author.
+        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
+        self.exception = None
+        """ Eligibility exceptions.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
+        self.facility = None
+        """ Servicing Facility.
+        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
+        
+        self.fundsReserve = None
+        """ Funds requested to be reserved.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.identifier = None
+        """ Claim number.
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.interventionException = None
+        """ Intervention and exception code (Pharma).
+        List of `Coding` items (represented as `dict` in JSON). """
+        
+        self.item = None
+        """ Goods and Services.
+        List of `ClaimItem` items (represented as `dict` in JSON). """
+        
+        self.missingTeeth = None
+        """ Only if type = oral.
+        List of `ClaimMissingTeeth` items (represented as `dict` in JSON). """
+        
+        self.organization = None
+        """ Responsible organization.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
+        self.originalPrescription = None
+        """ Original Prescription.
+        Type `FHIRReference` referencing `MedicationPrescription` (represented as `dict` in JSON). """
+        
+        self.originalRuleset = None
+        """ Original specification followed.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.patient = None
+        """ The subject of the Products and Services.
+        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
+        self.payee = None
+        """ Payee.
+        Type `ClaimPayee` (represented as `dict` in JSON). """
+        
+        self.prescription = None
+        """ Prescription.
+        Type `FHIRReference` referencing `MedicationPrescription, VisionPrescription` (represented as `dict` in JSON). """
+        
+        self.priority = None
+        """ Desired processing priority.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.provider = None
+        """ Responsible provider.
+        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
+        self.referral = None
+        """ Treatment Referral.
+        Type `FHIRReference` referencing `ReferralRequest` (represented as `dict` in JSON). """
+        
+        self.ruleset = None
+        """ Current specification followed.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.school = None
+        """ Name of School.
+        Type `str`. """
+        
+        self.target = None
+        """ Insurer.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ institutional | oral | pharmacy | professional | vision.
+        Type `str`. """
+        
+        self.use = None
+        """ complete | proposed | exploratory | other.
+        Type `str`. """
+        
+        super(Claim, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(Claim, self).elementProperties()
+        js.extend([
+            ("accident", "accident", fhirdate.FHIRDate, False),
+            ("accidentType", "accidentType", coding.Coding, False),
+            ("additionalMaterials", "additionalMaterials", coding.Coding, True),
+            ("condition", "condition", coding.Coding, True),
+            ("coverage", "coverage", ClaimCoverage, True),
+            ("created", "created", fhirdate.FHIRDate, False),
+            ("diagnosis", "diagnosis", ClaimDiagnosis, True),
+            ("enterer", "enterer", fhirreference.FHIRReference, False),
+            ("exception", "exception", coding.Coding, True),
+            ("facility", "facility", fhirreference.FHIRReference, False),
+            ("fundsReserve", "fundsReserve", coding.Coding, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("interventionException", "interventionException", coding.Coding, True),
+            ("item", "item", ClaimItem, True),
+            ("missingTeeth", "missingTeeth", ClaimMissingTeeth, True),
+            ("organization", "organization", fhirreference.FHIRReference, False),
+            ("originalPrescription", "originalPrescription", fhirreference.FHIRReference, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("payee", "payee", ClaimPayee, False),
+            ("prescription", "prescription", fhirreference.FHIRReference, False),
+            ("priority", "priority", coding.Coding, False),
+            ("provider", "provider", fhirreference.FHIRReference, False),
+            ("referral", "referral", fhirreference.FHIRReference, False),
+            ("ruleset", "ruleset", coding.Coding, False),
+            ("school", "school", str, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+            ("type", "type", str, False),
+            ("use", "use", str, False),
+        ])
+        return js
+
+
+class ClaimCoverage(fhirelement.FHIRElement):
+    """ Insurance or medical plan.
+    
+    Financial instrument by which payment information for health care.
+    """
+    
+    resource_name = "ClaimCoverage"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.businessArrangement = None
+        """ Business agreement.
+        Type `str`. """
+        
+        self.claimResponse = None
+        """ Adjudication results.
+        Type `FHIRReference` referencing `ClaimResponse` (represented as `dict` in JSON). """
+        
+        self.coverage = None
+        """ Insurance information.
+        Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
+        
+        self.focal = None
+        """ Is the focal Coverage.
+        Type `bool`. """
+        
+        self.originalRuleset = None
+        """ Original version.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.preAuthRef = None
+        """ Pre-Authorization/Determination Reference.
+        List of `str` items. """
+        
+        self.relationship = None
+        """ Patient relationship to subscriber.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.sequence = None
+        """ Service instance identifier.
+        Type `int`. """
+        
+        super(ClaimCoverage, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ClaimCoverage, self).elementProperties()
+        js.extend([
+            ("businessArrangement", "businessArrangement", str, False),
+            ("claimResponse", "claimResponse", fhirreference.FHIRReference, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False),
+            ("focal", "focal", bool, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False),
+            ("preAuthRef", "preAuthRef", str, True),
+            ("relationship", "relationship", coding.Coding, False),
+            ("sequence", "sequence", int, False),
+        ])
+        return js
+
+
+class ClaimDiagnosis(fhirelement.FHIRElement):
+    """ Diagnosis.
+    
+    Ordered list of patient diagnosis for which care is sought.
+    """
+    
+    resource_name = "ClaimDiagnosis"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.diagnosis = None
+        """ Patient's list of diagnosis.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.sequence = None
+        """ Sequence of diagnosis.
+        Type `int`. """
+        
+        super(ClaimDiagnosis, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ClaimDiagnosis, self).elementProperties()
+        js.extend([
+            ("diagnosis", "diagnosis", coding.Coding, False),
+            ("sequence", "sequence", int, False),
+        ])
+        return js
+
+
+class ClaimItem(fhirelement.FHIRElement):
+    """ Goods and Services.
+    
+    First tier of goods and services.
+    """
+    
+    resource_name = "ClaimItem"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.bodySite = None
+        """ Service Location.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.detail = None
+        """ Additional items.
+        List of `ClaimItemDetail` items (represented as `dict` in JSON). """
+        
+        self.diagnosisLinkId = None
+        """ Diagnosis Link.
+        List of `int` items. """
+        
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
+        
+        self.mod = None
+        """ Service/Product billing modifiers.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
+        self.net = None
+        """ Total item cost.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.points = None
+        """ Difficulty scaling factor.
+        Type `float`. """
+        
+        self.prosthesis = None
+        """ Prosthetic details.
+        Type `ClaimItemProsthesis` (represented as `dict` in JSON). """
+        
+        self.provider = None
+        """ Responsible practitioner.
+        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
+        self.quantity = None
+        """ Count of Products or Services.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.sequence = None
+        """ Service instance.
+        Type `int`. """
+        
+        self.service = None
+        """ Item Code.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.serviceDate = None
+        """ Date of Service.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.subSite = None
+        """ Service Sub-location.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ Group or type of product or service.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.udi = None
+        """ Unique Device Identifier.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.unitPrice = None
+        """ Fee, charge or cost per point.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        super(ClaimItem, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ClaimItem, self).elementProperties()
+        js.extend([
+            ("bodySite", "bodySite", coding.Coding, False),
+            ("detail", "detail", ClaimItemDetail, True),
+            ("diagnosisLinkId", "diagnosisLinkId", int, True),
+            ("factor", "factor", float, False),
+            ("mod", "modifier", coding.Coding, True),
+            ("net", "net", money.Money, False),
+            ("points", "points", float, False),
+            ("prosthesis", "prosthesis", ClaimItemProsthesis, False),
+            ("provider", "provider", fhirreference.FHIRReference, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("sequence", "sequence", int, False),
+            ("service", "service", coding.Coding, False),
+            ("serviceDate", "serviceDate", fhirdate.FHIRDate, False),
+            ("subSite", "subSite", coding.Coding, True),
+            ("type", "type", coding.Coding, False),
+            ("udi", "udi", coding.Coding, False),
+            ("unitPrice", "unitPrice", money.Money, False),
+        ])
+        return js
+
+
+class ClaimItemDetail(fhirelement.FHIRElement):
+    """ Additional items.
+    
+    Second tier of goods and services.
+    """
+    
+    resource_name = "ClaimItemDetail"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
+        
+        self.net = None
+        """ Total additional item cost.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.points = None
+        """ Difficulty scaling factor.
+        Type `float`. """
+        
+        self.quantity = None
+        """ Count of Products or Services.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.sequence = None
+        """ Service instance.
+        Type `int`. """
+        
+        self.service = None
+        """ Additional item codes.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.subDetail = None
+        """ Additional items.
+        List of `ClaimItemDetailSubDetail` items (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ Group or type of product or service.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.udi = None
+        """ Unique Device Identifier.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.unitPrice = None
+        """ Fee, charge or cost per point.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        super(ClaimItemDetail, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ClaimItemDetail, self).elementProperties()
+        js.extend([
+            ("factor", "factor", float, False),
+            ("net", "net", money.Money, False),
+            ("points", "points", float, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("sequence", "sequence", int, False),
+            ("service", "service", coding.Coding, False),
+            ("subDetail", "subDetail", ClaimItemDetailSubDetail, True),
+            ("type", "type", coding.Coding, False),
+            ("udi", "udi", coding.Coding, False),
+            ("unitPrice", "unitPrice", money.Money, False),
+        ])
+        return js
+
+
+class ClaimItemDetailSubDetail(fhirelement.FHIRElement):
+    """ Additional items.
+    
+    Third tier of goods and services.
+    """
+    
+    resource_name = "ClaimItemDetailSubDetail"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
+        
+        self.net = None
+        """ Net additional item cost.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.points = None
+        """ Difficulty scaling factor.
+        Type `float`. """
+        
+        self.quantity = None
+        """ Count of Products or Services.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.sequence = None
+        """ Service instance.
+        Type `int`. """
+        
+        self.service = None
+        """ Additional item codes.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ Type of product or service.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.udi = None
+        """ Unique Device Identifier.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.unitPrice = None
+        """ Fee, charge or cost per point.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        super(ClaimItemDetailSubDetail, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ClaimItemDetailSubDetail, self).elementProperties()
+        js.extend([
+            ("factor", "factor", float, False),
+            ("net", "net", money.Money, False),
+            ("points", "points", float, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("sequence", "sequence", int, False),
+            ("service", "service", coding.Coding, False),
+            ("type", "type", coding.Coding, False),
+            ("udi", "udi", coding.Coding, False),
+            ("unitPrice", "unitPrice", money.Money, False),
+        ])
+        return js
+
+
+class ClaimItemProsthesis(fhirelement.FHIRElement):
+    """ Prosthetic details.
+    
+    The materials and placement date of prior fixed prosthesis.
+    """
+    
+    resource_name = "ClaimItemProsthesis"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.initial = None
+        """ Is this the initial service.
+        Type `bool`. """
+        
+        self.priorDate = None
+        """ Initial service Date.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.priorMaterial = None
+        """ Prosthetic Material.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        super(ClaimItemProsthesis, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ClaimItemProsthesis, self).elementProperties()
+        js.extend([
+            ("initial", "initial", bool, False),
+            ("priorDate", "priorDate", fhirdate.FHIRDate, False),
+            ("priorMaterial", "priorMaterial", coding.Coding, False),
+        ])
+        return js
+
+
+class ClaimMissingTeeth(fhirelement.FHIRElement):
+    """ Only if type = oral.
+    
+    A list of teeth which would be expected but are not found due to having
+    been previously  extracted or for other reasons.
+    """
+    
+    resource_name = "ClaimMissingTeeth"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.extractionDate = None
+        """ Date of Extraction.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.reason = None
+        """ Reason for missing.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.tooth = None
+        """ Tooth Code.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        super(ClaimMissingTeeth, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ClaimMissingTeeth, self).elementProperties()
+        js.extend([
+            ("extractionDate", "extractionDate", fhirdate.FHIRDate, False),
+            ("reason", "reason", coding.Coding, False),
+            ("tooth", "tooth", coding.Coding, False),
+        ])
+        return js
+
+
+class ClaimPayee(fhirelement.FHIRElement):
+    """ Payee.
+    
+    The party to be reimbursed for the services.
+    """
+    
+    resource_name = "ClaimPayee"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.organization = None
+        """ Organization who is the payee.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
+        self.person = None
+        """ Other person who is the payee.
+        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
+        self.provider = None
+        """ Provider who is the payee.
+        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ Party to be paid any benefits payable.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        super(ClaimPayee, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ClaimPayee, self).elementProperties()
+        js.extend([
+            ("organization", "organization", fhirreference.FHIRReference, False),
+            ("person", "person", fhirreference.FHIRReference, False),
+            ("provider", "provider", fhirreference.FHIRReference, False),
+            ("type", "type", coding.Coding, False),
+        ])
+        return js
+

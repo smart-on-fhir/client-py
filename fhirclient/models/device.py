@@ -1,36 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (device.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Device) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import codeableconcept
-import contact
-import fhirdate
-import fhirreference
-import fhirresource
-import identifier
-import location
-import narrative
-import organization
-import patient
+from . import codeableconcept
+from . import contactpoint
+from . import domainresource
+from . import fhirdate
+from . import fhirreference
+from . import identifier
 
 
-class Device(fhirresource.FHIRResource):
+class Device(domainresource.DomainResource):
     """ An instance of a manufactured thing that is used in the provision of
     healthcare.
     
-    Scope and Usage This resource is primarily used for recording which device
-    performed an action and can also be used to track device location. It is
-    also used for prescribing and dispensing devices for patient use. If the
-    device is implanted in a patient, then the patient element will be present,
-    and there would be no location.
-    
-    Devices that are implanted in a patient differ from medications because
-    they are not "used up" - they remain active in a patient in an ongoing
-    fashion. The Medication resource SHOULD not be used to represent implanted
-    devices.
+    This resource identifies an instance of a manufactured thing that is used
+    in the provision of healthcare without being substantially changed through
+    that activity. The device may be a machine, an insert, a computer, an
+    application, etc. This includes durable (reusable) medical equipment as
+    well as disposable equipment used for diagnostic, treatment, and research
+    for healthcare and public health.
     """
     
     resource_name = "Device"
@@ -41,14 +33,14 @@ class Device(fhirresource.FHIRResource):
         
         self.contact = None
         """ Details for human/organization for support.
-        List of `Contact` items (represented as `dict` in JSON). """
+        List of `ContactPoint` items (represented as `dict` in JSON). """
         
         self.expiry = None
-        """ Date of expiry of this device (if applicable).
+        """ Date and time of expiry of this device (if applicable).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
-        """ Instance id from manufacturer, owner and others.
+        """ Instance id from manufacturer, owner, and others.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.location = None
@@ -58,6 +50,10 @@ class Device(fhirresource.FHIRResource):
         self.lotNumber = None
         """ Lot number of manufacture.
         Type `str`. """
+        
+        self.manufactureDate = None
+        """ Manufacture date.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.manufacturer = None
         """ Name of device manufacturer.
@@ -75,9 +71,9 @@ class Device(fhirresource.FHIRResource):
         """ If the resource is affixed to a person.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        self.status = None
+        """ available | not-available | entered-in-error.
+        Type `str`. """
         
         self.type = None
         """ What kind of device this is.
@@ -97,34 +93,24 @@ class Device(fhirresource.FHIRResource):
         
         super(Device, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Device, self).update_with_json(jsondict)
-        if 'contact' in jsondict:
-            self.contact = contact.Contact.with_json_and_owner(jsondict['contact'], self)
-        if 'expiry' in jsondict:
-            self.expiry = fhirdate.FHIRDate.with_json_and_owner(jsondict['expiry'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
-        if 'lotNumber' in jsondict:
-            self.lotNumber = jsondict['lotNumber']
-        if 'manufacturer' in jsondict:
-            self.manufacturer = jsondict['manufacturer']
-        if 'model' in jsondict:
-            self.model = jsondict['model']
-        if 'owner' in jsondict:
-            self.owner = fhirreference.FHIRReference.with_json_and_owner(jsondict['owner'], self, organization.Organization)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
-        if 'udi' in jsondict:
-            self.udi = jsondict['udi']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(Device, self).elementProperties()
+        js.extend([
+            ("contact", "contact", contactpoint.ContactPoint, True),
+            ("expiry", "expiry", fhirdate.FHIRDate, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("location", "location", fhirreference.FHIRReference, False),
+            ("lotNumber", "lotNumber", str, False),
+            ("manufactureDate", "manufactureDate", fhirdate.FHIRDate, False),
+            ("manufacturer", "manufacturer", str, False),
+            ("model", "model", str, False),
+            ("owner", "owner", fhirreference.FHIRReference, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("udi", "udi", str, False),
+            ("url", "url", str, False),
+            ("version", "version", str, False),
+        ])
+        return js
 

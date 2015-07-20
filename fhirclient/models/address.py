@@ -1,16 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Address.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Address) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import fhirelement
-import period
+from . import fhirelement
+from . import period
 
 
 class Address(fhirelement.FHIRElement):
     """ A postal address.
+    
+    There is a variety of postal address formats defined around the world. This
+    format defines a superset that is the basis for all addresses around the
+    world.
     """
     
     resource_name = "Address"
@@ -35,6 +39,10 @@ class Address(fhirelement.FHIRElement):
         """ Time period when address was/is in use.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.postalCode = None
+        """ Postal code for area.
+        Type `str`. """
+        
         self.state = None
         """ Sub-unit of country (abreviations ok).
         Type `str`. """
@@ -47,28 +55,19 @@ class Address(fhirelement.FHIRElement):
         """ home | work | temp | old - purpose of this address.
         Type `str`. """
         
-        self.zip = None
-        """ Postal code for area.
-        Type `str`. """
-        
         super(Address, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Address, self).update_with_json(jsondict)
-        if 'city' in jsondict:
-            self.city = jsondict['city']
-        if 'country' in jsondict:
-            self.country = jsondict['country']
-        if 'line' in jsondict:
-            self.line = jsondict['line']
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'state' in jsondict:
-            self.state = jsondict['state']
-        if 'text' in jsondict:
-            self.text = jsondict['text']
-        if 'use' in jsondict:
-            self.use = jsondict['use']
-        if 'zip' in jsondict:
-            self.zip = jsondict['zip']
+    def elementProperties(self):
+        js = super(Address, self).elementProperties()
+        js.extend([
+            ("city", "city", str, False),
+            ("country", "country", str, False),
+            ("line", "line", str, True),
+            ("period", "period", period.Period, False),
+            ("postalCode", "postalCode", str, False),
+            ("state", "state", str, False),
+            ("text", "text", str, False),
+            ("use", "use", str, False),
+        ])
+        return js
 

@@ -1,30 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (documentmanifest.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import codeableconcept
-import documentreference
-import fhirdate
-import fhirreference
-import fhirresource
-import identifier
-import narrative
-import patient
-import practitioner
+from . import attachment
+from . import codeableconcept
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
 
 
-class DocumentManifest(fhirresource.FHIRResource):
+class DocumentManifest(domainresource.DomainResource):
     """ A manifest that defines a set of documents.
-    
-    Scope and Usage A document manifest gathers a set of Document Reference
-    resources into a single package that may be the subject of workflow such as
-    access control, auditing, and targeted delivery.
-    
-    Typically, Document Manifest Resources are used in document indexing
-    systems, such as IHE XDS (see the XDS specific profile).
     """
     
     resource_name = "DocumentManifest"
@@ -35,15 +26,11 @@ class DocumentManifest(fhirresource.FHIRResource):
         
         self.author = None
         """ Who and/or what authored the document.
-        List of `FHIRReference` items referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.confidentiality = None
-        """ Sensitivity of set of documents.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Practitioner, Organization, Device, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.content = None
-        """ Contents of this set of documents.
-        List of `FHIRReference` items referencing `DocumentReference` (represented as `dict` in JSON). """
+        """ Contents of the manifest.
+        List of `DocumentManifestContent` items (represented as `dict` in JSON). """
         
         self.created = None
         """ When this document manifest created.
@@ -63,27 +50,23 @@ class DocumentManifest(fhirresource.FHIRResource):
         
         self.recipient = None
         """ Intended to get notified about this set of documents.
-        List of `FHIRReference` items referencing `Patient` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Patient, Practitioner, Organization` (represented as `dict` in JSON). """
+        
+        self.related = None
+        """ Related things.
+        List of `DocumentManifestRelated` items (represented as `dict` in JSON). """
         
         self.source = None
         """ The source system/application/software.
         Type `str`. """
         
         self.status = None
-        """ current | superceded | entered in error.
+        """ current | superceded | entered-in-error.
         Type `str`. """
         
         self.subject = None
         """ The subject of the set of documents.
-        List of `FHIRReference` items referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.supercedes = None
-        """ If this document manifest replaces another.
-        Type `FHIRReference` referencing `DocumentManifest` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Patient, Practitioner, Group, Device` (represented as `dict` in JSON). """
         
         self.type = None
         """ What kind of document set this is.
@@ -91,34 +74,83 @@ class DocumentManifest(fhirresource.FHIRResource):
         
         super(DocumentManifest, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(DocumentManifest, self).update_with_json(jsondict)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
-        if 'confidentiality' in jsondict:
-            self.confidentiality = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['confidentiality'], self)
-        if 'content' in jsondict:
-            self.content = fhirreference.FHIRReference.with_json_and_owner(jsondict['content'], self, documentreference.DocumentReference)
-        if 'created' in jsondict:
-            self.created = fhirdate.FHIRDate.with_json_and_owner(jsondict['created'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'masterIdentifier' in jsondict:
-            self.masterIdentifier = identifier.Identifier.with_json_and_owner(jsondict['masterIdentifier'], self)
-        if 'recipient' in jsondict:
-            self.recipient = fhirreference.FHIRReference.with_json_and_owner(jsondict['recipient'], self, patient.Patient)
-        if 'source' in jsondict:
-            self.source = jsondict['source']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'supercedes' in jsondict:
-            self.supercedes = fhirreference.FHIRReference.with_json_and_owner(jsondict['supercedes'], self, DocumentManifest)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(DocumentManifest, self).elementProperties()
+        js.extend([
+            ("author", "author", fhirreference.FHIRReference, True),
+            ("content", "content", DocumentManifestContent, True),
+            ("created", "created", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("masterIdentifier", "masterIdentifier", identifier.Identifier, False),
+            ("recipient", "recipient", fhirreference.FHIRReference, True),
+            ("related", "related", DocumentManifestRelated, True),
+            ("source", "source", str, False),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
+
+
+class DocumentManifestContent(fhirelement.FHIRElement):
+    """ Contents of the manifest.
+    
+    The manifest list.
+    """
+    
+    resource_name = "DocumentManifestContent"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.pAttachment = None
+        """ Contents of this set of documents.
+        Type `Attachment` (represented as `dict` in JSON). """
+        
+        self.pReference = None
+        """ Contents of this set of documents.
+        Type `FHIRReference` referencing `DocumentReference, Media` (represented as `dict` in JSON). """
+        
+        super(DocumentManifestContent, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(DocumentManifestContent, self).elementProperties()
+        js.extend([
+            ("pAttachment", "pAttachment", attachment.Attachment, False),
+            ("pReference", "pReference", fhirreference.FHIRReference, False),
+        ])
+        return js
+
+
+class DocumentManifestRelated(fhirelement.FHIRElement):
+    """ Related things.
+    
+    Related identifiers or resources associated with the DocumentManifest.
+    """
+    
+    resource_name = "DocumentManifestRelated"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.identifier = None
+        """ Related Identifier.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.ref = None
+        """ Related Resource.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        
+        super(DocumentManifestRelated, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(DocumentManifestRelated, self).elementProperties()
+        js.extend([
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("ref", "ref", fhirreference.FHIRReference, False),
+        ])
+        return js
 

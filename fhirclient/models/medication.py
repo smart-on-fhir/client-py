@@ -1,54 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (medication.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Medication) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import codeableconcept
-import fhirelement
-import fhirreference
-import fhirresource
-import narrative
-import organization
-import quantity
-import ratio
-import substance
+from . import codeableconcept
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import quantity
+from . import ratio
 
 
-class Medication(fhirresource.FHIRResource):
+class Medication(domainresource.DomainResource):
     """ Definition of a Medication.
     
-    Scope and Usage Representing Medication in the majority of healthcare
-    settings is a matter of identifying an item from a list and then conveying
-    a reference for the item selected either into a patient related resource or
-    to other applications. Additional information about the medication is
-    frequently provided for human verification but a full representation of the
-    details of composition and efficacy of the medicine is conveyed by
-    referring to drug dictionaries by means of the codes they define. There are
-    some occasions where it is necessary to identify slightly more detail, such
-    as when dispensing a package containing a particular medicine requires
-    identification both of the medicine and the package at once. There are also
-    some occasions (e.g. custom formulations) where the composition of a
-    medicine must be represented. In these cases the ingredients of the
-    medicine have to be specified together with the amount contained, though
-    the medication resource does not provide full details.
-    
-    The medication resource allows for medications to be characterised as
-    either a product or a package; this classification is important because it
-    affects the interpretation of a prescribed amount. For instance, is the
-    prescribed amount 20 tablets, or 20 packages of 50 tablets each? However
-    the kind element is not required because not all contexts of use are
-    involved with prescription (medication statements, for instance).
-    Typically, however, profiles describing the use of the medication resource
-    in a prescribing environment will make the kind element required.
-    
-    Depending on whether the medication is a product or a package, further
-    details about the composition can be provided. A product has a form
-    (tablet, suspension, etc.) and a list of ingredients with quantities. The
-    ingredients may be other medications or substances. A package has a
-    container (vacuum packed box, jar, etc.) and a list of the products or
-    other packages that are in the package.
+    Primarily used for identification and definition of Medication, but also
+    covers ingredients and packaging.
     """
     
     resource_name = "Medication"
@@ -61,7 +31,7 @@ class Medication(fhirresource.FHIRResource):
         """ Codes that identify this medication.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.isBrand = False
+        self.isBrand = None
         """ True if a brand.
         Type `bool`. """
         
@@ -85,86 +55,20 @@ class Medication(fhirresource.FHIRResource):
         """ Administrable medication details.
         Type `MedicationProduct` (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         super(Medication, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Medication, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'isBrand' in jsondict:
-            self.isBrand = jsondict['isBrand']
-        if 'kind' in jsondict:
-            self.kind = jsondict['kind']
-        if 'manufacturer' in jsondict:
-            self.manufacturer = fhirreference.FHIRReference.with_json_and_owner(jsondict['manufacturer'], self, organization.Organization)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'package' in jsondict:
-            self.package = MedicationPackage.with_json_and_owner(jsondict['package'], self)
-        if 'product' in jsondict:
-            self.product = MedicationProduct.with_json_and_owner(jsondict['product'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-
-
-class MedicationProduct(fhirelement.FHIRElement):
-    """ Administrable medication details.
-    
-    Information that only applies to products (not packages).
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.form = None
-        """ powder | tablets | carton +.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.ingredient = None
-        """ Active or inactive ingredient.
-        List of `MedicationProductIngredient` items (represented as `dict` in JSON). """
-        
-        super(MedicationProduct, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(MedicationProduct, self).update_with_json(jsondict)
-        if 'form' in jsondict:
-            self.form = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['form'], self)
-        if 'ingredient' in jsondict:
-            self.ingredient = MedicationProductIngredient.with_json_and_owner(jsondict['ingredient'], self)
-
-
-class MedicationProductIngredient(fhirelement.FHIRElement):
-    """ Active or inactive ingredient.
-    
-    Identifies a particular constituent of interest in the product.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.amount = None
-        """ How much ingredient in product.
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.item = None
-        """ The product contained.
-        Type `FHIRReference` referencing `Substance` (represented as `dict` in JSON). """
-        
-        super(MedicationProductIngredient, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(MedicationProductIngredient, self).update_with_json(jsondict)
-        if 'amount' in jsondict:
-            self.amount = ratio.Ratio.with_json_and_owner(jsondict['amount'], self)
-        if 'item' in jsondict:
-            self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self, substance.Substance)
+    def elementProperties(self):
+        js = super(Medication, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("isBrand", "isBrand", bool, False),
+            ("kind", "kind", str, False),
+            ("manufacturer", "manufacturer", fhirreference.FHIRReference, False),
+            ("name", "name", str, False),
+            ("package", "package", MedicationPackage, False),
+            ("product", "product", MedicationProduct, False),
+        ])
+        return js
 
 
 class MedicationPackage(fhirelement.FHIRElement):
@@ -172,6 +76,8 @@ class MedicationPackage(fhirelement.FHIRElement):
     
     Information that only applies to packages (not products).
     """
+    
+    resource_name = "MedicationPackage"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -187,12 +93,13 @@ class MedicationPackage(fhirelement.FHIRElement):
         
         super(MedicationPackage, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationPackage, self).update_with_json(jsondict)
-        if 'container' in jsondict:
-            self.container = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['container'], self)
-        if 'content' in jsondict:
-            self.content = MedicationPackageContent.with_json_and_owner(jsondict['content'], self)
+    def elementProperties(self):
+        js = super(MedicationPackage, self).elementProperties()
+        js.extend([
+            ("container", "container", codeableconcept.CodeableConcept, False),
+            ("content", "content", MedicationPackageContent, True),
+        ])
+        return js
 
 
 class MedicationPackageContent(fhirelement.FHIRElement):
@@ -200,6 +107,8 @@ class MedicationPackageContent(fhirelement.FHIRElement):
     
     A set of components that go to make up the described item.
     """
+    
+    resource_name = "MedicationPackageContent"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -215,10 +124,112 @@ class MedicationPackageContent(fhirelement.FHIRElement):
         
         super(MedicationPackageContent, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MedicationPackageContent, self).update_with_json(jsondict)
-        if 'amount' in jsondict:
-            self.amount = quantity.Quantity.with_json_and_owner(jsondict['amount'], self)
-        if 'item' in jsondict:
-            self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self, Medication)
+    def elementProperties(self):
+        js = super(MedicationPackageContent, self).elementProperties()
+        js.extend([
+            ("amount", "amount", quantity.Quantity, False),
+            ("item", "item", fhirreference.FHIRReference, False),
+        ])
+        return js
+
+
+class MedicationProduct(fhirelement.FHIRElement):
+    """ Administrable medication details.
+    
+    Information that only applies to products (not packages).
+    """
+    
+    resource_name = "MedicationProduct"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.batch = None
+        """ Information about a group of medication produced or packaged from
+        one production run..
+        List of `MedicationProductBatch` items (represented as `dict` in JSON). """
+        
+        self.form = None
+        """ powder | tablets | carton +.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.ingredient = None
+        """ Active or inactive ingredient.
+        List of `MedicationProductIngredient` items (represented as `dict` in JSON). """
+        
+        super(MedicationProduct, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(MedicationProduct, self).elementProperties()
+        js.extend([
+            ("batch", "batch", MedicationProductBatch, True),
+            ("form", "form", codeableconcept.CodeableConcept, False),
+            ("ingredient", "ingredient", MedicationProductIngredient, True),
+        ])
+        return js
+
+
+class MedicationProductBatch(fhirelement.FHIRElement):
+    """ Information about a group of medication produced or packaged from one
+    production run..
+    
+    Information about a group of medication produced or packaged from one
+    production run.
+    """
+    
+    resource_name = "MedicationProductBatch"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.expirationDate = None
+        """ When this specific batch of product will expire..
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.lotNumber = None
+        """ The assigned lot number of a batch of the specified product..
+        Type `str`. """
+        
+        super(MedicationProductBatch, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(MedicationProductBatch, self).elementProperties()
+        js.extend([
+            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False),
+            ("lotNumber", "lotNumber", str, False),
+        ])
+        return js
+
+
+class MedicationProductIngredient(fhirelement.FHIRElement):
+    """ Active or inactive ingredient.
+    
+    Identifies a particular constituent of interest in the product.
+    """
+    
+    resource_name = "MedicationProductIngredient"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.amount = None
+        """ How much ingredient in product.
+        Type `Ratio` (represented as `dict` in JSON). """
+        
+        self.item = None
+        """ The product contained.
+        Type `FHIRReference` referencing `Substance, Medication` (represented as `dict` in JSON). """
+        
+        super(MedicationProductIngredient, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(MedicationProductIngredient, self).elementProperties()
+        js.extend([
+            ("amount", "amount", ratio.Ratio, False),
+            ("item", "item", fhirreference.FHIRReference, False),
+        ])
+        return js
 

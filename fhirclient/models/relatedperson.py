@@ -1,40 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (relatedperson.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import address
-import attachment
-import codeableconcept
-import contact
-import fhirreference
-import fhirresource
-import humanname
-import identifier
-import narrative
-import patient
+from . import address
+from . import attachment
+from . import codeableconcept
+from . import contactpoint
+from . import domainresource
+from . import fhirreference
+from . import humanname
+from . import identifier
+from . import period
 
 
-class RelatedPerson(fhirresource.FHIRResource):
+class RelatedPerson(domainresource.DomainResource):
     """ An person that is related to a patient, but who is not a direct target of
     care.
     
-    Scope and Usage RelatedPersons typically have a personal or non-healthcare-
-    specific professional relationship to the patient. A RelatedPerson resource
-    is primarily used for attribution of information, since RelatedPersons are
-    often a source of information about the patient. For keeping information
-    about persons for contact purposes for a patient, use a Patient's Contact
-    element instead.
-    
-    Example RelatedPersons are:
-    
-    * A patient's wife or husband
-    * A patient's relatives or friends
-    * A neighbor bringing a patient to the hospital
-    * The owner or trainer of a horse
-    * A patient's attorney or guardian
+    Information about a person that is involved in the care for a patient, but
+    who is not the target of healthcare, nor has a formal responsibility in the
+    care process.
     """
     
     resource_name = "RelatedPerson"
@@ -48,8 +36,8 @@ class RelatedPerson(fhirresource.FHIRResource):
         Type `Address` (represented as `dict` in JSON). """
         
         self.gender = None
-        """ Gender for administrative purposes.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ male | female | other | unknown.
+        Type `str`. """
         
         self.identifier = None
         """ A Human identifier for this person.
@@ -63,6 +51,10 @@ class RelatedPerson(fhirresource.FHIRResource):
         """ The patient this person is related to.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
+        self.period = None
+        """ Period of time that this relationship is considered valid.
+        Type `Period` (represented as `dict` in JSON). """
+        
         self.photo = None
         """ Image of the person.
         List of `Attachment` items (represented as `dict` in JSON). """
@@ -73,32 +65,22 @@ class RelatedPerson(fhirresource.FHIRResource):
         
         self.telecom = None
         """ A contact detail for the person.
-        List of `Contact` items (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(RelatedPerson, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(RelatedPerson, self).update_with_json(jsondict)
-        if 'address' in jsondict:
-            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'gender' in jsondict:
-            self.gender = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['gender'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
-        if 'patient' in jsondict:
-            self.patient = fhirreference.FHIRReference.with_json_and_owner(jsondict['patient'], self, patient.Patient)
-        if 'photo' in jsondict:
-            self.photo = attachment.Attachment.with_json_and_owner(jsondict['photo'], self)
-        if 'relationship' in jsondict:
-            self.relationship = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['relationship'], self)
-        if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+    def elementProperties(self):
+        js = super(RelatedPerson, self).elementProperties()
+        js.extend([
+            ("address", "address", address.Address, False),
+            ("gender", "gender", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("name", "name", humanname.HumanName, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("photo", "photo", attachment.Attachment, True),
+            ("relationship", "relationship", codeableconcept.CodeableConcept, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 

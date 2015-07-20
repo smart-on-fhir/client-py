@@ -1,16 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-HumanName.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/HumanName) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import fhirelement
-import period
+from . import fhirelement
+from . import period
 
 
 class HumanName(fhirelement.FHIRElement):
     """ Name of a human - parts and usage.
+    
+    A human's name with the ability to identify parts and usage.
     """
     
     resource_name = "HumanName"
@@ -49,20 +51,16 @@ class HumanName(fhirelement.FHIRElement):
         
         super(HumanName, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(HumanName, self).update_with_json(jsondict)
-        if 'family' in jsondict:
-            self.family = jsondict['family']
-        if 'given' in jsondict:
-            self.given = jsondict['given']
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'prefix' in jsondict:
-            self.prefix = jsondict['prefix']
-        if 'suffix' in jsondict:
-            self.suffix = jsondict['suffix']
-        if 'text' in jsondict:
-            self.text = jsondict['text']
-        if 'use' in jsondict:
-            self.use = jsondict['use']
+    def elementProperties(self):
+        js = super(HumanName, self).elementProperties()
+        js.extend([
+            ("family", "family", str, True),
+            ("given", "given", str, True),
+            ("period", "period", period.Period, False),
+            ("prefix", "prefix", str, True),
+            ("suffix", "suffix", str, True),
+            ("text", "text", str, False),
+            ("use", "use", str, False),
+        ])
+        return js
 

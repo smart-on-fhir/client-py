@@ -1,39 +1,29 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (imagingstudy.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import coding
-import diagnosticorder
-import fhirdate
-import fhirelement
-import fhirreference
-import fhirresource
-import identifier
-import narrative
-import patient
-import practitioner
+from . import attachment
+from . import coding
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
 
 
-class ImagingStudy(fhirresource.FHIRResource):
+class ImagingStudy(domainresource.DomainResource):
     """ A set of images produced in single study (one or more series of references
     images).
     
-    Scope and Usage This resource summarizes a series of images or other
-    instances generated as part of an imaging study, and provides references to
-    where the images are available using WADO-RS. This resource is used to make
-    information concerning images etc. that are available in other clinical
-    contexts such as diagnostic reports, Care Plans, etc. Also, see the use
-    case description below.
-    
-    This resources has been specifically designed with use in DICOM contexts in
-    mind. The content is closely based on the definitions of the equivalent
-    DICOM constructs, and informed by usage patterns already established
-    through DICOM implementation practices, including XDS-I. It is not,
-    however, necessary to use DICOM infrastructure in order to use this
-    resource.
+    Representation of the content produced in a DICOM imaging study. A study
+    comprises a set of Series, each of which includes a set of Service-Object
+    Pair Instances (SOP Instances - images or other data) acquired or produced
+    in a common context.  A Series is of only one modality (e.g., X-ray, CT,
+    MR, ultrasound), but a Study may have multiple Series of different
+    modalities.
     """
     
     resource_name = "ImagingStudy"
@@ -42,7 +32,7 @@ class ImagingStudy(fhirresource.FHIRResource):
         """ Initialize all valid properties.
         """
         
-        self.accessionNo = None
+        self.accession = None
         """ Accession Number (0008,0050).
         Type `Identifier` (represented as `dict` in JSON). """
         
@@ -53,10 +43,6 @@ class ImagingStudy(fhirresource.FHIRResource):
         self.clinicalInformation = None
         """ Diagnoses etc with request (0040,1002).
         Type `str`. """
-        
-        self.dateTime = None
-        """ When the study was performed.
-        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
         """ Institution-generated description (0008,1030).
@@ -70,7 +56,7 @@ class ImagingStudy(fhirresource.FHIRResource):
         """ Who interpreted images (0008,1060).
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.modality = None
+        self.modalityList = None
         """ All series.modality if actual acquisition modalities.
         List of `str` items. """
         
@@ -86,6 +72,10 @@ class ImagingStudy(fhirresource.FHIRResource):
         """ Order(s) that caused this study to be performed.
         List of `FHIRReference` items referencing `DiagnosticOrder` (represented as `dict` in JSON). """
         
+        self.patient = None
+        """ Who the images are of.
+        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
         self.procedure = None
         """ Type of procedure performed (0008,1032).
         List of `Coding` items (represented as `dict` in JSON). """
@@ -98,13 +88,9 @@ class ImagingStudy(fhirresource.FHIRResource):
         """ Each study has one or more series of instances.
         List of `ImagingStudySeries` items (represented as `dict` in JSON). """
         
-        self.subject = None
-        """ Who the images are of.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        self.started = None
+        """ When the study was started (0008,0020)+(0008,0030).
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.uid = None
         """ Formal identifier for the study (0020,000D).
@@ -116,44 +102,28 @@ class ImagingStudy(fhirresource.FHIRResource):
         
         super(ImagingStudy, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImagingStudy, self).update_with_json(jsondict)
-        if 'accessionNo' in jsondict:
-            self.accessionNo = identifier.Identifier.with_json_and_owner(jsondict['accessionNo'], self)
-        if 'availability' in jsondict:
-            self.availability = jsondict['availability']
-        if 'clinicalInformation' in jsondict:
-            self.clinicalInformation = jsondict['clinicalInformation']
-        if 'dateTime' in jsondict:
-            self.dateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateTime'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'interpreter' in jsondict:
-            self.interpreter = fhirreference.FHIRReference.with_json_and_owner(jsondict['interpreter'], self, practitioner.Practitioner)
-        if 'modality' in jsondict:
-            self.modality = jsondict['modality']
-        if 'numberOfInstances' in jsondict:
-            self.numberOfInstances = jsondict['numberOfInstances']
-        if 'numberOfSeries' in jsondict:
-            self.numberOfSeries = jsondict['numberOfSeries']
-        if 'order' in jsondict:
-            self.order = fhirreference.FHIRReference.with_json_and_owner(jsondict['order'], self, diagnosticorder.DiagnosticOrder)
-        if 'procedure' in jsondict:
-            self.procedure = coding.Coding.with_json_and_owner(jsondict['procedure'], self)
-        if 'referrer' in jsondict:
-            self.referrer = fhirreference.FHIRReference.with_json_and_owner(jsondict['referrer'], self, practitioner.Practitioner)
-        if 'series' in jsondict:
-            self.series = ImagingStudySeries.with_json_and_owner(jsondict['series'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-        if 'uid' in jsondict:
-            self.uid = jsondict['uid']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(ImagingStudy, self).elementProperties()
+        js.extend([
+            ("accession", "accession", identifier.Identifier, False),
+            ("availability", "availability", str, False),
+            ("clinicalInformation", "clinicalInformation", str, False),
+            ("description", "description", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("interpreter", "interpreter", fhirreference.FHIRReference, False),
+            ("modalityList", "modalityList", str, True),
+            ("numberOfInstances", "numberOfInstances", int, False),
+            ("numberOfSeries", "numberOfSeries", int, False),
+            ("order", "order", fhirreference.FHIRReference, True),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("procedure", "procedure", coding.Coding, True),
+            ("referrer", "referrer", fhirreference.FHIRReference, False),
+            ("series", "series", ImagingStudySeries, True),
+            ("started", "started", fhirdate.FHIRDate, False),
+            ("uid", "uid", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 
 
 class ImagingStudySeries(fhirelement.FHIRElement):
@@ -161,6 +131,8 @@ class ImagingStudySeries(fhirelement.FHIRElement):
     
     Each study has one or more series of image instances.
     """
+    
+    resource_name = "ImagingStudySeries"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -186,12 +158,16 @@ class ImagingStudySeries(fhirelement.FHIRElement):
         """ A single instance taken from a patient (image or other).
         List of `ImagingStudySeriesInstance` items (represented as `dict` in JSON). """
         
+        self.laterality = None
+        """ Body part laterality.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.modality = None
         """ The modality of the instances in the series (0008,0060).
         Type `str`. """
         
         self.number = None
-        """ Number of this series in overall sequence (0020,0011).
+        """ Numeric identifier of this series (0020,0011).
         Type `int`. """
         
         self.numberOfInstances = None
@@ -208,43 +184,40 @@ class ImagingStudySeries(fhirelement.FHIRElement):
         
         super(ImagingStudySeries, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImagingStudySeries, self).update_with_json(jsondict)
-        if 'availability' in jsondict:
-            self.availability = jsondict['availability']
-        if 'bodySite' in jsondict:
-            self.bodySite = coding.Coding.with_json_and_owner(jsondict['bodySite'], self)
-        if 'dateTime' in jsondict:
-            self.dateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['dateTime'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'instance' in jsondict:
-            self.instance = ImagingStudySeriesInstance.with_json_and_owner(jsondict['instance'], self)
-        if 'modality' in jsondict:
-            self.modality = jsondict['modality']
-        if 'number' in jsondict:
-            self.number = jsondict['number']
-        if 'numberOfInstances' in jsondict:
-            self.numberOfInstances = jsondict['numberOfInstances']
-        if 'uid' in jsondict:
-            self.uid = jsondict['uid']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(ImagingStudySeries, self).elementProperties()
+        js.extend([
+            ("availability", "availability", str, False),
+            ("bodySite", "bodySite", coding.Coding, False),
+            ("dateTime", "dateTime", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("instance", "instance", ImagingStudySeriesInstance, True),
+            ("laterality", "laterality", coding.Coding, False),
+            ("modality", "modality", str, False),
+            ("number", "number", int, False),
+            ("numberOfInstances", "numberOfInstances", int, False),
+            ("uid", "uid", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 
 
 class ImagingStudySeriesInstance(fhirelement.FHIRElement):
     """ A single instance taken from a patient (image or other).
     
-    A single image taken from a patient.
+    A single SOP Instance within the series, e.g., an image, or presentation
+    state.
     """
+    
+    resource_name = "ImagingStudySeriesInstance"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
-        self.attachment = None
-        """ A FHIR resource with content for this instance.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        self.content = None
+        """ Content of the instance.
+        List of `Attachment` items (represented as `dict` in JSON). """
         
         self.number = None
         """ The number of this instance in the series (0020,0013).
@@ -267,27 +240,17 @@ class ImagingStudySeriesInstance(fhirelement.FHIRElement):
         """ Formal identifier for this instance (0008,0018).
         Type `str`. """
         
-        self.url = None
-        """ WADO-RS service where instance is available  (0008,1199 >
-        0008,1190).
-        Type `str`. """
-        
         super(ImagingStudySeriesInstance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ImagingStudySeriesInstance, self).update_with_json(jsondict)
-        if 'attachment' in jsondict:
-            self.attachment = fhirreference.FHIRReference.with_json_and_owner(jsondict['attachment'], self, fhirresource.FHIRResource)
-        if 'number' in jsondict:
-            self.number = jsondict['number']
-        if 'sopclass' in jsondict:
-            self.sopclass = jsondict['sopclass']
-        if 'title' in jsondict:
-            self.title = jsondict['title']
-        if 'type' in jsondict:
-            self.type = jsondict['type']
-        if 'uid' in jsondict:
-            self.uid = jsondict['uid']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(ImagingStudySeriesInstance, self).elementProperties()
+        js.extend([
+            ("content", "content", attachment.Attachment, True),
+            ("number", "number", int, False),
+            ("sopclass", "sopclass", str, False),
+            ("title", "title", str, False),
+            ("type", "type", str, False),
+            ("uid", "uid", str, False),
+        ])
+        return js
 

@@ -28,22 +28,43 @@ class FHIRAuth(object):
             raise Exception('Class {} is already registered for authorization type "{}"'.format(FHIRAuth.auth_classes[cls.auth_type], cls.auth_type))
     
     @classmethod
-    def create(cls, auth_type, app_id, **kwargs):
+    def from_conformance_security(cls, security, state=None):
+        """ Supply a conformance.rest.security statement and this method will
+        figure out which type of security should be instantiated.
+        
+        :param security: A ConformanceRestSecurity instance
+        :param state: A settings/state dictionary
+        :returns: A FHIRAuth instance or subclass thereof
+        """
+        auth_type = None
+        
+        # look for OAuth2 URLs in SMART security extensions
+        if security is not None and security.extension is not None:
+            for e in security.extension:
+                if "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#register" == e.url:
+                    state['registration_uri'] = e.valueUri
+                elif "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#authorize" == e.url:
+                    state['authorize_uri'] = e.valueUri
+                    auth_type = 'oauth2'
+                elif "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#token" == e.url:
+                    state['token_uri'] = e.valueUri
+        
+        return cls.create(auth_type, state=state)
+    
+    @classmethod
+    def create(cls, auth_type, state=None):
         """ Factory method to create the correct subclass for the given
         authorization type. """
         if not auth_type:
             auth_type = 'none'
         if auth_type in FHIRAuth.auth_classes:
             klass = FHIRAuth.auth_classes[auth_type]
-            return klass(app_id=app_id, **kwargs)
+            return klass(state=state)
         raise Exception('No class registered for authorization type "{}"'.format(auth_type))
     
-    def __init__(self, app_id, state=None, patient_id=None):
-        self.app_id = app_id
-        
-        self.patient_id = patient_id
-        """ The currently active patient. """
-        
+    
+    def __init__(self, state=None):
+        self.app_id = None
         if state is not None:
             self.from_state(state)
     
@@ -54,21 +75,20 @@ class FHIRAuth(object):
         return True
     
     def reset(self):
-        self.patient_id = None
+        pass
     
     def can_sign_headers(self):
         return False
     
-    def authorize_url(self, server):
-        """ Return the authorize URL to use against the given server. The
-        server must have a `metadata` dict property. """
+    def authorize_uri(self, server):
+        """ Return the authorize URL to use, if any. """
         return None
     
     def handle_callback(self, url, server):
         """ Return the launch context. """
         raise Exception("{} cannot handle callback URL".format(self))
     
-    def reauthorize(self, server):
+    def reauthorize(self):
         """ Perform a re-authorization of some form.
         
         :returns: The launch context dictionary or None on failure
@@ -81,30 +101,33 @@ class FHIRAuth(object):
     @property
     def state(self):
         return {
-            'patient_id': self.patient_id,
+            'app_id': self.app_id,
         }
     
     def from_state(self, state):
         """ Update ivars from given state information.
         """
         assert state
-        self.patient_id = state.get('patient_id') or self.patient_id
+        self.app_id = state.get('app_id') or self.app_id
 
-    
+
 class FHIROAuth2Auth(FHIRAuth):
     """ OAuth2 handling class for FHIR servers.
     """
     auth_type = 'oauth2'
     
-    def __init__(self, app_id, scope=None, redirect_uri=None, state=None):
-        self.scope = scope
-        self.redirect_uri = redirect_uri
+    def __init__(self, state=None):
+        self.scope = None
+        self._registration_uri = None
+        self._authorize_uri = None
+        self._redirect_uri = None
+        self._token_uri = None
         
         self.auth_state = None
         self.access_token = None
         self.refresh_token = None
         
-        super(FHIROAuth2Auth, self).__init__(app_id, state=state)
+        super(FHIROAuth2Auth, self).__init__(state=state)
     
     @property
     def ready(self):
@@ -137,11 +160,15 @@ class FHIROAuth2Auth(FHIRAuth):
     
     # MARK: OAuth2 Flow
     
-    def authorize_url(self, server):
-        auth_params = self.authorize_params()
+    def authorize_uri(self, server):
+        """ The URL to authorize against. The `server` param is supplied so
+        that the server can be informed of state changes that need to be
+        stored.
+        """
+        auth_params = self._authorize_params(server)
         
         # the authorize uri may have params, make sure to not lose them
-        parts = list(urlparse.urlsplit(server.authorize_uri))
+        parts = list(urlparse.urlsplit(self._authorize_uri))
         if len(parts[3]) > 0:
             args = urlparse.parse_qs(parts[3])
             args.update(auth_params)
@@ -150,18 +177,20 @@ class FHIROAuth2Auth(FHIRAuth):
         
         return urlparse.urlunsplit(parts)
     
-    def authorize_params(self):
+    def _authorize_params(self, server):
         """ The URL parameters to use when requesting a token code.
         """
         if self.auth_state is None:
             self.auth_state = str(uuid.uuid4())[:8]
+            if server is not None:
+                server.should_save_state()
         
         return {
             'client_id': self.app_id,
             'response_type': 'code',
             'scope': self.scope,
             'state': self.auth_state,
-            'redirect_uri': self.redirect_uri,
+            'redirect_uri': self._redirect_uri,
         }
     
     def handle_callback(self, url, server):
@@ -169,14 +198,12 @@ class FHIROAuth2Auth(FHIRAuth):
         goes well, for an access token.
         
         :param str url: The callback/redirect URL to handle
-        :param server: The FHIR server to handle the callback against
+        :param server: The Server instance to use
         :returns: The launch context dictionary
         """
-        logging.debug("Handling callback URL")
+        logging.debug("SMART: Handling callback URL")
         if url is None:
             raise Exception("No callback URL received")
-        if server is None:
-            raise Exception("I need a server against which to handle the callback")
         try:
             args = dict(urlparse.parse_qsl(urlparse.urlsplit(url)[3]))
         except Exception as e:
@@ -196,31 +223,34 @@ class FHIROAuth2Auth(FHIRAuth):
             raise Exception("Did not receive a code, only have: {}".format(', '.join(args.keys())))
         
         # exchange code for token
-        exchange = self.code_exchange_params(code)
-        return self.request_access_token(server, exchange)
+        exchange = self._code_exchange_params(code)
+        return self._request_access_token(server, exchange)
     
-    def code_exchange_params(self, code):
-        """ These parameters are used by the server to exchange the given code
-        for an access token.
+    def _code_exchange_params(self, code):
+        """ These parameters are used by to exchange the given code for an
+        access token.
         """
         return {
             'client_id': self.app_id,
             'code': code,
             'grant_type': 'authorization_code',
-            'redirect_uri': self.redirect_uri,
+            'redirect_uri': self._redirect_uri,
             'state': self.auth_state,
             # 'scope': self.scope,          # don't use, will return 400 when using launch:xxx scope
         }
     
-    def request_access_token(self, server, params):
-        """ Requests an access token from the given server via a form POST
+    def _request_access_token(self, server, params):
+        """ Requests an access token from the instance's server via a form POST
         request, remembers the token (and patient id if there is one) or
         raises an Exception.
         
         :returns: A dictionary with launch params
         """
-        logging.debug("Requesting access token from {}".format(server.token_uri))
-        ret_params = server.post_as_form(server.token_uri, params)
+        if server is None:
+            raise Exception("I need a server to request an access token")
+        
+        logging.debug("SMART: Requesting access token from {}".format(self._token_uri))
+        ret_params = server.post_as_form(self._token_uri, params).json()
         
         self.access_token = ret_params.get('access_token')
         if self.access_token is None:
@@ -233,9 +263,8 @@ class FHIROAuth2Auth(FHIRAuth):
         if self.refresh_token is not None:
             del ret_params['refresh_token']
         
-        if 'patient' in ret_params:
-            self.patient_id = ret_params['patient']
-        
+        logging.debug("SMART: Received access token: {}, refresh token: {}"
+            .format(self.access_token is not None, self.refresh_token is not None))
         return ret_params
     
     
@@ -244,15 +273,18 @@ class FHIROAuth2Auth(FHIRAuth):
     def reauthorize(self, server):
         """ Perform reauthorization.
         
+        :param server: The Server instance to use
         :returns: The launch context dictionary, or None on failure
         """
         if self.refresh_token is None:
+            logging.debug("SMART: Cannot reauthorize without refresh token")
             return None
         
-        reauth = self.reauthorize_params()
-        return self.request_access_token(server, reauth)
+        logging.debug("SMART: Refreshing token")
+        reauth = self._reauthorize_params()
+        return self._request_access_token(server, reauth)
     
-    def reauthorize_params(self):
+    def _reauthorize_params(self):
         """ Parameters to be used in a reauthorize request.
         """
         if self.refresh_token is None:
@@ -270,21 +302,30 @@ class FHIROAuth2Auth(FHIRAuth):
     
     @property
     def state(self):
-        return {
-            'scope': self.scope,
-            'redirect_uri': self.redirect_uri,
-            'auth_state': self.auth_state,
-            'access_token': self.access_token,
-            'refresh_token': self.refresh_token,
-            'patient_id': self.patient_id,
-        }
+        s = super(FHIROAuth2Auth, self).state
+        s['scope'] = self.scope
+        s['registration_uri'] = self._registration_uri
+        s['authorize_uri'] = self._authorize_uri
+        s['redirect_uri'] = self._redirect_uri
+        s['token_uri'] = self._token_uri
+        if self.auth_state is not None:
+            s['auth_state'] = self.auth_state
+        if self.access_token is not None:
+            s['access_token'] = self.access_token
+        if self.refresh_token is not None:
+            s['refresh_token'] = self.refresh_token
+        
+        return s
     
     def from_state(self, state):
         """ Update ivars from given state information.
         """
         super(FHIROAuth2Auth, self).from_state(state)
         self.scope = state.get('scope') or self.scope
-        self.redirect_uri = state.get('redirect_uri') or self.redirect_uri
+        self._registration_uri = state.get('registration_uri') or self._registration_uri
+        self._authorize_uri = state.get('authorize_uri') or self._authorize_uri
+        self._redirect_uri = state.get('redirect_uri') or self._redirect_uri
+        self._token_uri = state.get('token_uri') or self._token_uri
         self.auth_state = state.get('auth_state') or self.auth_state
         
         self.access_token = state.get('access_token') or self.access_token

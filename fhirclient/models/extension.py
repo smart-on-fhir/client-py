@@ -1,29 +1,32 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Extension.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Extension) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import address
-import attachment
-import codeableconcept
-import coding
-import contact
-import fhirdate
-import fhirelement
-import fhirresource
-import humanname
-import identifier
-import period
-import quantity
-import range
-import ratio
-import schedule
+from . import address
+from . import attachment
+from . import codeableconcept
+from . import coding
+from . import contactpoint
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import humanname
+from . import identifier
+from . import period
+from . import quantity
+from . import range
+from . import ratio
+from . import signature
+from . import timing
 
 
 class Extension(fhirelement.FHIRElement):
     """ Optional Extensions Element - found in all resources..
+    
+    Optional Extensions Element - found in all resources.
     """
     
     resource_name = "Extension"
@@ -48,7 +51,7 @@ class Extension(fhirelement.FHIRElement):
         """ Value of extension.
         Type `str`. """
         
-        self.valueBoolean = False
+        self.valueBoolean = None
         """ Value of extension.
         Type `bool`. """
         
@@ -64,9 +67,9 @@ class Extension(fhirelement.FHIRElement):
         """ Value of extension.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.valueContact = None
+        self.valueContactPoint = None
         """ Value of extension.
-        Type `Contact` (represented as `dict` in JSON). """
+        Type `ContactPoint` (represented as `dict` in JSON). """
         
         self.valueDate = None
         """ Value of extension.
@@ -112,17 +115,25 @@ class Extension(fhirelement.FHIRElement):
         """ Value of extension.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.valueResource = None
+        self.valueReference = None
         """ Value of extension.
-        Type `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.valueSchedule = None
+        self.valueSignature = None
         """ Value of extension.
-        Type `Schedule` (represented as `dict` in JSON). """
+        Type `Signature` (represented as `dict` in JSON). """
         
         self.valueString = None
         """ Value of extension.
         Type `str`. """
+        
+        self.valueTime = None
+        """ Value of extension.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.valueTiming = None
+        """ Value of extension.
+        Type `Timing` (represented as `dict` in JSON). """
         
         self.valueUri = None
         """ Value of extension.
@@ -130,54 +141,35 @@ class Extension(fhirelement.FHIRElement):
         
         super(Extension, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Extension, self).update_with_json(jsondict)
-        if 'url' in jsondict:
-            self.url = jsondict['url']
-        if 'valueAddress' in jsondict:
-            self.valueAddress = address.Address.with_json_and_owner(jsondict['valueAddress'], self)
-        if 'valueAttachment' in jsondict:
-            self.valueAttachment = attachment.Attachment.with_json_and_owner(jsondict['valueAttachment'], self)
-        if 'valueBase64Binary' in jsondict:
-            self.valueBase64Binary = jsondict['valueBase64Binary']
-        if 'valueBoolean' in jsondict:
-            self.valueBoolean = jsondict['valueBoolean']
-        if 'valueCode' in jsondict:
-            self.valueCode = jsondict['valueCode']
-        if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
-        if 'valueCoding' in jsondict:
-            self.valueCoding = coding.Coding.with_json_and_owner(jsondict['valueCoding'], self)
-        if 'valueContact' in jsondict:
-            self.valueContact = contact.Contact.with_json_and_owner(jsondict['valueContact'], self)
-        if 'valueDate' in jsondict:
-            self.valueDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDate'], self)
-        if 'valueDateTime' in jsondict:
-            self.valueDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueDateTime'], self)
-        if 'valueDecimal' in jsondict:
-            self.valueDecimal = jsondict['valueDecimal']
-        if 'valueHumanName' in jsondict:
-            self.valueHumanName = humanname.HumanName.with_json_and_owner(jsondict['valueHumanName'], self)
-        if 'valueIdentifier' in jsondict:
-            self.valueIdentifier = identifier.Identifier.with_json_and_owner(jsondict['valueIdentifier'], self)
-        if 'valueInstant' in jsondict:
-            self.valueInstant = fhirdate.FHIRDate.with_json_and_owner(jsondict['valueInstant'], self)
-        if 'valueInteger' in jsondict:
-            self.valueInteger = jsondict['valueInteger']
-        if 'valuePeriod' in jsondict:
-            self.valuePeriod = period.Period.with_json_and_owner(jsondict['valuePeriod'], self)
-        if 'valueQuantity' in jsondict:
-            self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
-        if 'valueRange' in jsondict:
-            self.valueRange = range.Range.with_json_and_owner(jsondict['valueRange'], self)
-        if 'valueRatio' in jsondict:
-            self.valueRatio = ratio.Ratio.with_json_and_owner(jsondict['valueRatio'], self)
-        if 'valueResource' in jsondict:
-            self.valueResource = fhirresource.FHIRResource.with_json_and_owner(jsondict['valueResource'], self)
-        if 'valueSchedule' in jsondict:
-            self.valueSchedule = schedule.Schedule.with_json_and_owner(jsondict['valueSchedule'], self)
-        if 'valueString' in jsondict:
-            self.valueString = jsondict['valueString']
-        if 'valueUri' in jsondict:
-            self.valueUri = jsondict['valueUri']
+    def elementProperties(self):
+        js = super(Extension, self).elementProperties()
+        js.extend([
+            ("url", "url", str, False),
+            ("valueAddress", "valueAddress", address.Address, False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False),
+            ("valueBase64Binary", "valueBase64Binary", str, False),
+            ("valueBoolean", "valueBoolean", bool, False),
+            ("valueCode", "valueCode", str, False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("valueCoding", "valueCoding", coding.Coding, False),
+            ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False),
+            ("valueDate", "valueDate", fhirdate.FHIRDate, False),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False),
+            ("valueDecimal", "valueDecimal", float, False),
+            ("valueHumanName", "valueHumanName", humanname.HumanName, False),
+            ("valueIdentifier", "valueIdentifier", identifier.Identifier, False),
+            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False),
+            ("valueInteger", "valueInteger", int, False),
+            ("valuePeriod", "valuePeriod", period.Period, False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
+            ("valueRange", "valueRange", range.Range, False),
+            ("valueRatio", "valueRatio", ratio.Ratio, False),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False),
+            ("valueSignature", "valueSignature", signature.Signature, False),
+            ("valueString", "valueString", str, False),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False),
+            ("valueTiming", "valueTiming", timing.Timing, False),
+            ("valueUri", "valueUri", str, False),
+        ])
+        return js
 

@@ -1,36 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (messageheader.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import codeableconcept
-import coding
-import contact
-import device
-import fhirdate
-import fhirelement
-import fhirreference
-import fhirresource
-import narrative
-import operationoutcome
-import practitioner
+from . import codeableconcept
+from . import coding
+from . import contactpoint
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
 
 
-class MessageHeader(fhirresource.FHIRResource):
+class MessageHeader(domainresource.DomainResource):
     """ A resource that describes a message that is exchanged between systems.
     
-    Scope and Usage The MessageHeader resource is defined in order to support
-    Messaging using FHIR resources. The principle usage of the MessageHeader
-    resource is when messages are exchanged. However, as a resource that can be
-    used with the RESTful framework, the MessageHeader resource has the normal
-    resource end-point ([base-url]/Message), which is used to manage a set of
-    static messages resources. This could be used to make an archive of past
-    messages available. Creating or updating Message resources in this fashion
-    does not represent the actual occurrence of any event, nor can it trigger
-    any logic associated with the actual event. It is just for managing a set
-    of message resources.
+    The header for a message exchange that is either requesting or responding
+    to an action.  The Reference(s) that are the subject of the action as well
+    as other Information related to the action are typically transmitted in a
+    bundle in which the MessageHeader resource instance is the first resource
+    in the bundle.
     """
     
     resource_name = "MessageHeader"
@@ -45,7 +36,7 @@ class MessageHeader(fhirresource.FHIRResource):
         
         self.data = None
         """ The actual content of the message.
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.destination = None
         """ Message Destination Application(s).
@@ -69,7 +60,7 @@ class MessageHeader(fhirresource.FHIRResource):
         
         self.receiver = None
         """ Intended "real-world" recipient for the data.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.response = None
         """ If this is a reply to prior message.
@@ -77,15 +68,11 @@ class MessageHeader(fhirresource.FHIRResource):
         
         self.responsible = None
         """ Final responsibility for event.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.source = None
         """ Message Source Application.
         Type `MessageHeaderSource` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
         
         self.timestamp = None
         """ Time that the message was sent.
@@ -93,115 +80,23 @@ class MessageHeader(fhirresource.FHIRResource):
         
         super(MessageHeader, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MessageHeader, self).update_with_json(jsondict)
-        if 'author' in jsondict:
-            self.author = fhirreference.FHIRReference.with_json_and_owner(jsondict['author'], self, practitioner.Practitioner)
-        if 'data' in jsondict:
-            self.data = fhirreference.FHIRReference.with_json_and_owner(jsondict['data'], self, fhirresource.FHIRResource)
-        if 'destination' in jsondict:
-            self.destination = MessageHeaderDestination.with_json_and_owner(jsondict['destination'], self)
-        if 'enterer' in jsondict:
-            self.enterer = fhirreference.FHIRReference.with_json_and_owner(jsondict['enterer'], self, practitioner.Practitioner)
-        if 'event' in jsondict:
-            self.event = coding.Coding.with_json_and_owner(jsondict['event'], self)
-        if 'identifier' in jsondict:
-            self.identifier = jsondict['identifier']
-        if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'receiver' in jsondict:
-            self.receiver = fhirreference.FHIRReference.with_json_and_owner(jsondict['receiver'], self, practitioner.Practitioner)
-        if 'response' in jsondict:
-            self.response = MessageHeaderResponse.with_json_and_owner(jsondict['response'], self)
-        if 'responsible' in jsondict:
-            self.responsible = fhirreference.FHIRReference.with_json_and_owner(jsondict['responsible'], self, practitioner.Practitioner)
-        if 'source' in jsondict:
-            self.source = MessageHeaderSource.with_json_and_owner(jsondict['source'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-        if 'timestamp' in jsondict:
-            self.timestamp = fhirdate.FHIRDate.with_json_and_owner(jsondict['timestamp'], self)
-
-
-class MessageHeaderResponse(fhirelement.FHIRElement):
-    """ If this is a reply to prior message.
-    
-    Information about the message that this message is a response to.  Only
-    present if this message is a response.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.code = None
-        """ ok | transient-error | fatal-error.
-        Type `str`. """
-        
-        self.details = None
-        """ Specific list of hints/warnings/errors.
-        Type `FHIRReference` referencing `OperationOutcome` (represented as `dict` in JSON). """
-        
-        self.identifier = None
-        """ Id of original message.
-        Type `str`. """
-        
-        super(MessageHeaderResponse, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(MessageHeaderResponse, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'details' in jsondict:
-            self.details = fhirreference.FHIRReference.with_json_and_owner(jsondict['details'], self, operationoutcome.OperationOutcome)
-        if 'identifier' in jsondict:
-            self.identifier = jsondict['identifier']
-
-
-class MessageHeaderSource(fhirelement.FHIRElement):
-    """ Message Source Application.
-    
-    The source application from which this message originated.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.contact = None
-        """ Human contact for problems.
-        Type `Contact` (represented as `dict` in JSON). """
-        
-        self.endpoint = None
-        """ Actual message source address or id.
-        Type `str`. """
-        
-        self.name = None
-        """ Name of system.
-        Type `str`. """
-        
-        self.software = None
-        """ Name of software running the system.
-        Type `str`. """
-        
-        self.version = None
-        """ Version of software running.
-        Type `str`. """
-        
-        super(MessageHeaderSource, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(MessageHeaderSource, self).update_with_json(jsondict)
-        if 'contact' in jsondict:
-            self.contact = contact.Contact.with_json_and_owner(jsondict['contact'], self)
-        if 'endpoint' in jsondict:
-            self.endpoint = jsondict['endpoint']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'software' in jsondict:
-            self.software = jsondict['software']
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(MessageHeader, self).elementProperties()
+        js.extend([
+            ("author", "author", fhirreference.FHIRReference, False),
+            ("data", "data", fhirreference.FHIRReference, True),
+            ("destination", "destination", MessageHeaderDestination, True),
+            ("enterer", "enterer", fhirreference.FHIRReference, False),
+            ("event", "event", coding.Coding, False),
+            ("identifier", "identifier", str, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, False),
+            ("receiver", "receiver", fhirreference.FHIRReference, False),
+            ("response", "response", MessageHeaderResponse, False),
+            ("responsible", "responsible", fhirreference.FHIRReference, False),
+            ("source", "source", MessageHeaderSource, False),
+            ("timestamp", "timestamp", fhirdate.FHIRDate, False),
+        ])
+        return js
 
 
 class MessageHeaderDestination(fhirelement.FHIRElement):
@@ -209,6 +104,8 @@ class MessageHeaderDestination(fhirelement.FHIRElement):
     
     The destination application which the message is intended for.
     """
+    
+    resource_name = "MessageHeaderDestination"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -228,12 +125,95 @@ class MessageHeaderDestination(fhirelement.FHIRElement):
         
         super(MessageHeaderDestination, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(MessageHeaderDestination, self).update_with_json(jsondict)
-        if 'endpoint' in jsondict:
-            self.endpoint = jsondict['endpoint']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, device.Device)
+    def elementProperties(self):
+        js = super(MessageHeaderDestination, self).elementProperties()
+        js.extend([
+            ("endpoint", "endpoint", str, False),
+            ("name", "name", str, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+        ])
+        return js
+
+
+class MessageHeaderResponse(fhirelement.FHIRElement):
+    """ If this is a reply to prior message.
+    
+    Information about the message that this message is a response to.  Only
+    present if this message is a response.
+    """
+    
+    resource_name = "MessageHeaderResponse"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.code = None
+        """ ok | transient-error | fatal-error.
+        Type `str`. """
+        
+        self.details = None
+        """ Specific list of hints/warnings/errors.
+        Type `FHIRReference` referencing `OperationOutcome` (represented as `dict` in JSON). """
+        
+        self.identifier = None
+        """ Id of original message.
+        Type `str`. """
+        
+        super(MessageHeaderResponse, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(MessageHeaderResponse, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("details", "details", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", str, False),
+        ])
+        return js
+
+
+class MessageHeaderSource(fhirelement.FHIRElement):
+    """ Message Source Application.
+    
+    The source application from which this message originated.
+    """
+    
+    resource_name = "MessageHeaderSource"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.contact = None
+        """ Human contact for problems.
+        Type `ContactPoint` (represented as `dict` in JSON). """
+        
+        self.endpoint = None
+        """ Actual message source address or id.
+        Type `str`. """
+        
+        self.name = None
+        """ Name of system.
+        Type `str`. """
+        
+        self.software = None
+        """ Name of software running the system.
+        Type `str`. """
+        
+        self.version = None
+        """ Version of software running.
+        Type `str`. """
+        
+        super(MessageHeaderSource, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(MessageHeaderSource, self).elementProperties()
+        js.extend([
+            ("contact", "contact", contactpoint.ContactPoint, False),
+            ("endpoint", "endpoint", str, False),
+            ("name", "name", str, False),
+            ("software", "software", str, False),
+            ("version", "version", str, False),
+        ])
+        return js
 

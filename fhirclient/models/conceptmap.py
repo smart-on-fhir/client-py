@@ -1,27 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (conceptmap.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import contact
-import fhirdate
-import fhirelement
-import fhirreference
-import fhirresource
-import narrative
-import valueset
+from . import codeableconcept
+from . import contactpoint
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
 
 
-class ConceptMap(fhirresource.FHIRResource):
-    """ A statement of relationships from one set of concepts to one or more other
-    concept systems.
+class ConceptMap(domainresource.DomainResource):
+    """ A map from one set of concepts to one or more other concepts.
     
-    Scope and Usage A concept map defines a mapping from a concept defined in
-    one system to one or more concepts defined in other systems. Mappings are
-    always framed within the concept of value sets - they are specific to a
-    context of use.
+    A statement of relationships from one set of concepts to one or more other
+    concepts - either code systems or data elements, or classes in class
+    models.
     """
     
     resource_name = "ConceptMap"
@@ -30,12 +28,12 @@ class ConceptMap(fhirresource.FHIRResource):
         """ Initialize all valid properties.
         """
         
-        self.concept = None
-        """ Mappings for a concept from the source valueset.
-        List of `ConceptMapConcept` items (represented as `dict` in JSON). """
+        self.contact = None
+        """ Contact details of the publisher.
+        List of `ConceptMapContact` items (represented as `dict` in JSON). """
         
         self.copyright = None
-        """ About the concept map or its content.
+        """ Use and/or Publishing restrictions.
         Type `str`. """
         
         self.date = None
@@ -46,13 +44,17 @@ class ConceptMap(fhirresource.FHIRResource):
         """ Human language description of the concept map.
         Type `str`. """
         
-        self.experimental = False
+        self.element = None
+        """ Mappings for a concept from the source set.
+        List of `ConceptMapElement` items (represented as `dict` in JSON). """
+        
+        self.experimental = None
         """ If for testing purposes, not real usage.
         Type `bool`. """
         
         self.identifier = None
-        """ Logical id to reference this concept map.
-        Type `str`. """
+        """ Additional identifier for the concept map.
+        Type `Identifier` (represented as `dict` in JSON). """
         
         self.name = None
         """ Informal name for this concept map.
@@ -62,25 +64,37 @@ class ConceptMap(fhirresource.FHIRResource):
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
-        self.source = None
-        """ Identifies the source value set which is being mapped.
-        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
+        self.requirements = None
+        """ Why is this needed?.
+        Type `str`. """
+        
+        self.sourceReference = None
+        """ Identifies the source of the concepts which are being mapped.
+        Type `FHIRReference` referencing `ValueSet, StructureDefinition` (represented as `dict` in JSON). """
+        
+        self.sourceUri = None
+        """ Identifies the source of the concepts which are being mapped.
+        Type `str`. """
         
         self.status = None
         """ draft | active | retired.
         Type `str`. """
         
-        self.target = None
+        self.targetReference = None
         """ Provides context to the mappings.
-        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `ValueSet, StructureDefinition` (represented as `dict` in JSON). """
         
-        self.telecom = None
-        """ Contact information of the publisher.
-        List of `Contact` items (represented as `dict` in JSON). """
+        self.targetUri = None
+        """ Provides context to the mappings.
+        Type `str`. """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        self.url = None
+        """ Globally unique logical id for concept map.
+        Type `str`. """
+        
+        self.useContext = None
+        """ Content intends to support these contexts.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.version = None
         """ Logical id for this version of the concept map.
@@ -88,122 +102,160 @@ class ConceptMap(fhirresource.FHIRResource):
         
         super(ConceptMap, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConceptMap, self).update_with_json(jsondict)
-        if 'concept' in jsondict:
-            self.concept = ConceptMapConcept.with_json_and_owner(jsondict['concept'], self)
-        if 'copyright' in jsondict:
-            self.copyright = jsondict['copyright']
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'experimental' in jsondict:
-            self.experimental = jsondict['experimental']
-        if 'identifier' in jsondict:
-            self.identifier = jsondict['identifier']
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'publisher' in jsondict:
-            self.publisher = jsondict['publisher']
-        if 'source' in jsondict:
-            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, valueset.ValueSet)
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, valueset.ValueSet)
-        if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-        if 'version' in jsondict:
-            self.version = jsondict['version']
+    def elementProperties(self):
+        js = super(ConceptMap, self).elementProperties()
+        js.extend([
+            ("contact", "contact", ConceptMapContact, True),
+            ("copyright", "copyright", str, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("description", "description", str, False),
+            ("element", "element", ConceptMapElement, True),
+            ("experimental", "experimental", bool, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("name", "name", str, False),
+            ("publisher", "publisher", str, False),
+            ("requirements", "requirements", str, False),
+            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False),
+            ("sourceUri", "sourceUri", str, False),
+            ("status", "status", str, False),
+            ("targetReference", "targetReference", fhirreference.FHIRReference, False),
+            ("targetUri", "targetUri", str, False),
+            ("url", "url", str, False),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
+            ("version", "version", str, False),
+        ])
+        return js
 
 
-class ConceptMapConcept(fhirelement.FHIRElement):
-    """ Mappings for a concept from the source valueset.
+class ConceptMapContact(fhirelement.FHIRElement):
+    """ Contact details of the publisher.
+    
+    Contacts to assist a user in finding and communicating with the publisher.
     """
+    
+    resource_name = "ConceptMapContact"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.name = None
+        """ Name of a individual to contact.
+        Type `str`. """
+        
+        self.telecom = None
+        """ Contact details for individual or publisher.
+        List of `ContactPoint` items (represented as `dict` in JSON). """
+        
+        super(ConceptMapContact, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ConceptMapContact, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
+
+
+class ConceptMapElement(fhirelement.FHIRElement):
+    """ Mappings for a concept from the source set.
+    
+    Mappings for an individual concept in the source to one or more concepts in
+    the target.
+    """
+    
+    resource_name = "ConceptMapElement"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
         self.code = None
-        """ Identifies concept being mapped.
+        """ Identifies element being mapped.
+        Type `str`. """
+        
+        self.codeSystem = None
+        """ Code System (if value set crosses code systems).
         Type `str`. """
         
         self.dependsOn = None
-        """ Other concepts required for this mapping (from context).
-        List of `ConceptMapConceptDependsOn` items (represented as `dict` in JSON). """
+        """ Other elements required for this mapping (from context).
+        List of `ConceptMapElementDependsOn` items (represented as `dict` in JSON). """
         
         self.map = None
-        """ A concept from the target value set that this concept maps to.
-        List of `ConceptMapConceptMap` items (represented as `dict` in JSON). """
+        """ Target of this map.
+        List of `ConceptMapElementMap` items (represented as `dict` in JSON). """
         
-        self.system = None
-        """ System that defines the concept being mapped.
-        Type `str`. """
-        
-        super(ConceptMapConcept, self).__init__(jsondict)
+        super(ConceptMapElement, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConceptMapConcept, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'dependsOn' in jsondict:
-            self.dependsOn = ConceptMapConceptDependsOn.with_json_and_owner(jsondict['dependsOn'], self)
-        if 'map' in jsondict:
-            self.map = ConceptMapConceptMap.with_json_and_owner(jsondict['map'], self)
-        if 'system' in jsondict:
-            self.system = jsondict['system']
+    def elementProperties(self):
+        js = super(ConceptMapElement, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("codeSystem", "codeSystem", str, False),
+            ("dependsOn", "dependsOn", ConceptMapElementDependsOn, True),
+            ("map", "map", ConceptMapElementMap, True),
+        ])
+        return js
 
 
-class ConceptMapConceptDependsOn(fhirelement.FHIRElement):
-    """ Other concepts required for this mapping (from context).
+class ConceptMapElementDependsOn(fhirelement.FHIRElement):
+    """ Other elements required for this mapping (from context).
     
     A set of additional dependencies for this mapping to hold. This mapping is
-    only applicable if the specified concept can be resolved, and it has the
+    only applicable if the specified element can be resolved, and it has the
     specified value.
     """
     
+    resource_name = "ConceptMapElementDependsOn"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
         self.code = None
-        """ Code for a concept in the referenced concept.
+        """ Value of the referenced element.
         Type `str`. """
         
-        self.concept = None
-        """ Reference to element/field/valueset provides the context.
+        self.codeSystem = None
+        """ Code System (if necessary).
         Type `str`. """
         
-        self.system = None
-        """ System for a concept in the referenced concept.
+        self.element = None
+        """ Reference to element/field/valueset mapping depends on.
         Type `str`. """
         
-        super(ConceptMapConceptDependsOn, self).__init__(jsondict)
+        super(ConceptMapElementDependsOn, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConceptMapConceptDependsOn, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'concept' in jsondict:
-            self.concept = jsondict['concept']
-        if 'system' in jsondict:
-            self.system = jsondict['system']
+    def elementProperties(self):
+        js = super(ConceptMapElementDependsOn, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("codeSystem", "codeSystem", str, False),
+            ("element", "element", str, False),
+        ])
+        return js
 
 
-class ConceptMapConceptMap(fhirelement.FHIRElement):
-    """ A concept from the target value set that this concept maps to.
+class ConceptMapElementMap(fhirelement.FHIRElement):
+    """ Target of this map.
+    
+    A concept from the target value set that this concept maps to.
     """
     
+    resource_name = "ConceptMapElementMap"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
         self.code = None
-        """ Code that identifies the target concept.
+        """ Code that identifies the target element.
+        Type `str`. """
+        
+        self.codeSystem = None
+        """ System of the target (if necessary).
         Type `str`. """
         
         self.comments = None
@@ -211,47 +263,24 @@ class ConceptMapConceptMap(fhirelement.FHIRElement):
         Type `str`. """
         
         self.equivalence = None
-        """ equal | equivalent | wider | subsumes | narrower | specialises |
+        """ equivalent | equal | wider | subsumes | narrower | specialises |
         inexact | unmatched | disjoint.
         Type `str`. """
         
         self.product = None
         """ Other concepts that this mapping also produces.
-        List of `ConceptMapConceptMapProduct` items (represented as `dict` in JSON). """
+        List of `ConceptMapElementDependsOn` items (represented as `dict` in JSON). """
         
-        self.system = None
-        """ System of the target.
-        Type `str`. """
-        
-        super(ConceptMapConceptMap, self).__init__(jsondict)
+        super(ConceptMapElementMap, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ConceptMapConceptMap, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'comments' in jsondict:
-            self.comments = jsondict['comments']
-        if 'equivalence' in jsondict:
-            self.equivalence = jsondict['equivalence']
-        if 'product' in jsondict:
-            self.product = ConceptMapConceptMapProduct.with_json_and_owner(jsondict['product'], self)
-        if 'system' in jsondict:
-            self.system = jsondict['system']
-
-
-class ConceptMapConceptMapProduct(fhirelement.FHIRElement):
-    """ Other concepts that this mapping also produces.
-    
-    A set of additional outcomes from this mapping to other value sets. To
-    properly execute this mapping, the specified value set must be mapped to
-    some data element or source that is in context. The mapping may still be
-    useful without a place for the additional data elements, but the
-    equivalence cannot be relied on.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        super(ConceptMapConceptMapProduct, self).__init__(jsondict)
+    def elementProperties(self):
+        js = super(ConceptMapElementMap, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("codeSystem", "codeSystem", str, False),
+            ("comments", "comments", str, False),
+            ("equivalence", "equivalence", str, False),
+            ("product", "product", ConceptMapElementDependsOn, True),
+        ])
+        return js
 

@@ -1,39 +1,33 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (provenance.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import codeableconcept
-import coding
-import fhirdate
-import fhirelement
-import fhirreference
-import fhirresource
-import location
-import narrative
-import period
+from . import codeableconcept
+from . import coding
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import period
+from . import signature
 
 
-class Provenance(fhirresource.FHIRResource):
+class Provenance(domainresource.DomainResource):
     """ Who, What, When for a set of resources.
     
-    Scope and Usage The provenance resource tracks information about activity
-    that created a version of a resource, including the entities, and agents
-    involved in producing a resource. This information can be used to form
-    assessments about its quality, reliability or trustworthiness, or to
-    provide pointers for where to go to further investigate the origins of the
-    resource and the information in it.
-    
-    Provenance resources are a record-keeping assertion that gathers
-    information about the context in which the information in a resource was
-    obtained. Provenance resources are prepared by the application that
-    initiates the create/update etc. of the resource. A Security Event resource
-    contains overlapping information, but is created as events occur, to track
-    and audit the events. Security Event resources are often (though not
-    exclusively) created by the application responding to the
-    read/query/create/update etc. event.
+    Provenance of a resource is a record that describes entities and processes
+    involved in producing and delivering or otherwise influencing that
+    resource. Provenance provides a critical foundation for assessing
+    authenticity, enabling trust, and allowing reproducibility. Provenance
+    assertions are a form of contextual metadata and can themselves become
+    important records with their own provenance. Provenance statement indicates
+    clinical significance in terms of confidence in authenticity, reliability,
+    and trustworthiness, integrity, and stage in lifecycle (e.g., Document
+    Completion - has the artifact been legally authenticated), all of which may
+    impact Security, Privacy, and Trust policies.
     """
     
     resource_name = "Provenance"
@@ -43,16 +37,12 @@ class Provenance(fhirresource.FHIRResource):
         """
         
         self.agent = None
-        """ Person, organization, records, etc. involved in creating resource.
+        """ Agents involved in creating resource.
         List of `ProvenanceAgent` items (represented as `dict` in JSON). """
         
         self.entity = None
         """ An entity used in this activity.
         List of `ProvenanceEntity` items (represented as `dict` in JSON). """
-        
-        self.integritySignature = None
-        """ Base64 signature (DigSig) - integrity check.
-        Type `str`. """
         
         self.location = None
         """ Where the activity occurred, if relevant.
@@ -74,48 +64,42 @@ class Provenance(fhirresource.FHIRResource):
         """ When the activity was recorded / updated.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.target = None
-        """ Target resource(s) (usually version specific).
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        self.signature = None
+        """ Signature on target.
+        List of `Signature` items (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        self.target = None
+        """ Target Reference(s) (usually version specific).
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         super(Provenance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Provenance, self).update_with_json(jsondict)
-        if 'agent' in jsondict:
-            self.agent = ProvenanceAgent.with_json_and_owner(jsondict['agent'], self)
-        if 'entity' in jsondict:
-            self.entity = ProvenanceEntity.with_json_and_owner(jsondict['entity'], self)
-        if 'integritySignature' in jsondict:
-            self.integritySignature = jsondict['integritySignature']
-        if 'location' in jsondict:
-            self.location = fhirreference.FHIRReference.with_json_and_owner(jsondict['location'], self, location.Location)
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'policy' in jsondict:
-            self.policy = jsondict['policy']
-        if 'reason' in jsondict:
-            self.reason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reason'], self)
-        if 'recorded' in jsondict:
-            self.recorded = fhirdate.FHIRDate.with_json_and_owner(jsondict['recorded'], self)
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, fhirresource.FHIRResource)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+    def elementProperties(self):
+        js = super(Provenance, self).elementProperties()
+        js.extend([
+            ("agent", "agent", ProvenanceAgent, True),
+            ("entity", "entity", ProvenanceEntity, True),
+            ("location", "location", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("policy", "policy", str, True),
+            ("reason", "reason", codeableconcept.CodeableConcept, False),
+            ("recorded", "recorded", fhirdate.FHIRDate, False),
+            ("signature", "signature", signature.Signature, True),
+            ("target", "target", fhirreference.FHIRReference, True),
+        ])
+        return js
 
 
 class ProvenanceAgent(fhirelement.FHIRElement):
-    """ Person, organization, records, etc. involved in creating resource.
+    """ Agents involved in creating resource.
     
     An agent takes a role in an activity such that the agent can be assigned
     some degree of responsibility for the activity taking place. An agent can
-    be a person, a piece of software, an inanimate object, an organization, or
-    other entities that may be ascribed responsibility.
+    be a person, an organization, software, or other entities that may be
+    ascribed responsibility.
     """
+    
+    resource_name = "ProvenanceAgent"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -125,35 +109,41 @@ class ProvenanceAgent(fhirelement.FHIRElement):
         """ Human description of participant.
         Type `str`. """
         
-        self.reference = None
-        """ Identity of agent (urn or url).
+        self.referenceReference = None
+        """ Identity of agent.
+        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device` (represented as `dict` in JSON). """
+        
+        self.referenceUri = None
+        """ Identity of agent.
         Type `str`. """
         
         self.role = None
-        """ e.g. author | overseer | enterer | attester | source | cc: +.
+        """ Agents Role.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.type = None
-        """ e.g. Resource | Person | Application | Record | Document +.
+        """ Agent Type.
         Type `Coding` (represented as `dict` in JSON). """
         
         super(ProvenanceAgent, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProvenanceAgent, self).update_with_json(jsondict)
-        if 'display' in jsondict:
-            self.display = jsondict['display']
-        if 'reference' in jsondict:
-            self.reference = jsondict['reference']
-        if 'role' in jsondict:
-            self.role = coding.Coding.with_json_and_owner(jsondict['role'], self)
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(ProvenanceAgent, self).elementProperties()
+        js.extend([
+            ("display", "display", str, False),
+            ("referenceReference", "referenceReference", fhirreference.FHIRReference, False),
+            ("referenceUri", "referenceUri", str, False),
+            ("role", "role", coding.Coding, False),
+            ("type", "type", coding.Coding, False),
+        ])
+        return js
 
 
 class ProvenanceEntity(fhirelement.FHIRElement):
     """ An entity used in this activity.
     """
+    
+    resource_name = "ProvenanceEntity"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -161,14 +151,14 @@ class ProvenanceEntity(fhirelement.FHIRElement):
         
         self.agent = None
         """ Entity is attributed to this agent.
-        Type `ProvenanceEntityAgent` (represented as `dict` in JSON). """
+        Type `ProvenanceAgent` (represented as `dict` in JSON). """
         
         self.display = None
-        """ Human description of participant.
+        """ Human description of entity.
         Type `str`. """
         
         self.reference = None
-        """ Identity of participant (urn or url).
+        """ Identity of entity.
         Type `str`. """
         
         self.role = None
@@ -176,37 +166,19 @@ class ProvenanceEntity(fhirelement.FHIRElement):
         Type `str`. """
         
         self.type = None
-        """ Resource Type, or something else.
+        """ Entity Type.
         Type `Coding` (represented as `dict` in JSON). """
         
         super(ProvenanceEntity, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ProvenanceEntity, self).update_with_json(jsondict)
-        if 'agent' in jsondict:
-            self.agent = ProvenanceEntityAgent.with_json_and_owner(jsondict['agent'], self)
-        if 'display' in jsondict:
-            self.display = jsondict['display']
-        if 'reference' in jsondict:
-            self.reference = jsondict['reference']
-        if 'role' in jsondict:
-            self.role = jsondict['role']
-        if 'type' in jsondict:
-            self.type = coding.Coding.with_json_and_owner(jsondict['type'], self)
-
-
-class ProvenanceEntityAgent(fhirelement.FHIRElement):
-    """ Entity is attributed to this agent.
-    
-    The entity is attributed to an agent to express the agent's responsibility
-    for that entity, possibly along with other agents. This description can be
-    understood as shorthand for saying that the agent was responsible for the
-    activity which generated the entity.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        super(ProvenanceEntityAgent, self).__init__(jsondict)
+    def elementProperties(self):
+        js = super(ProvenanceEntity, self).elementProperties()
+        js.extend([
+            ("agent", "agent", ProvenanceAgent, False),
+            ("display", "display", str, False),
+            ("reference", "reference", str, False),
+            ("role", "role", str, False),
+            ("type", "type", coding.Coding, False),
+        ])
+        return js
 

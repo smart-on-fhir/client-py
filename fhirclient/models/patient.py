@@ -1,44 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (patient.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Patient) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import address
-import attachment
-import codeableconcept
-import contact
-import fhirdate
-import fhirelement
-import fhirreference
-import fhirresource
-import humanname
-import identifier
-import narrative
-import organization
+from . import address
+from . import attachment
+from . import codeableconcept
+from . import contactpoint
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import humanname
+from . import identifier
+from . import period
 
 
-class Patient(fhirresource.FHIRResource):
-    """ Information about a person or animal receiving health care services.
+class Patient(domainresource.DomainResource):
+    """ Information about an individual or animal receiving health care services.
     
-    Scope and Usage This Resource covers data about persons and animals
-    involved in a wide range of health-related activities, including:
-    
-    * Curative activities
-    * Psychiatric care
-    * Social services
-    * Pregnancy care
-    * Nursing and assisted living
-    * Dietary services
-    * Tracking of personal health and exercise data
-    The data in the Resource covers the "who" information about the patient:
-    its attributes are focused on the demographic information necessary to
-    support the administrative, financial and logistic procedures. A Patient
-    record is generally created and maintained by each organization providing
-    care for a patient. A person or animal receiving care at multiple
-    organizations may therefore have its information present in multiple
-    Patient Resources.
+    Demographics and other administrative information about an individual or
+    animal receiving care or other health-related services.
     """
     
     resource_name = "Patient"
@@ -47,7 +31,7 @@ class Patient(fhirresource.FHIRResource):
         """ Initialize all valid properties.
         """
         
-        self.active = False
+        self.active = None
         """ Whether this patient's record is in active use.
         Type `bool`. """
         
@@ -60,23 +44,23 @@ class Patient(fhirresource.FHIRResource):
         Type `PatientAnimal` (represented as `dict` in JSON). """
         
         self.birthDate = None
-        """ The date and time of birth for the individual.
+        """ The date of birth for the individual.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.careProvider = None
         """ Patient's nominated care provider.
-        List of `FHIRReference` items referencing `Organization` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Organization, Practitioner` (represented as `dict` in JSON). """
         
         self.communication = None
-        """ Languages which may be used to communicate with the patient about
-        his or her health.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        """ A list of Languages which may be used to communicate with the
+        patient about his or her health.
+        List of `PatientCommunication` items (represented as `dict` in JSON). """
         
         self.contact = None
         """ A contact party (e.g. guardian, partner, friend) for the patient.
         List of `PatientContact` items (represented as `dict` in JSON). """
         
-        self.deceasedBoolean = False
+        self.deceasedBoolean = None
         """ Indicates if the individual is deceased or not.
         Type `bool`. """
         
@@ -85,11 +69,11 @@ class Patient(fhirresource.FHIRResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.gender = None
-        """ Gender for administrative purposes.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ male | female | other | unknown.
+        Type `str`. """
         
         self.identifier = None
-        """ An identifier for the person as this patient.
+        """ An identifier for this patient.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.link = None
@@ -102,10 +86,10 @@ class Patient(fhirresource.FHIRResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.maritalStatus = None
-        """ Marital (civil) status of a person.
+        """ Marital (civil) status of a patient.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.multipleBirthBoolean = False
+        self.multipleBirthBoolean = None
         """ Whether patient is part of a multiple birth.
         Type `bool`. """
         
@@ -118,111 +102,39 @@ class Patient(fhirresource.FHIRResource):
         List of `HumanName` items (represented as `dict` in JSON). """
         
         self.photo = None
-        """ Image of the person.
+        """ Image of the patient.
         List of `Attachment` items (represented as `dict` in JSON). """
         
         self.telecom = None
         """ A contact detail for the individual.
-        List of `Contact` items (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(Patient, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Patient, self).update_with_json(jsondict)
-        if 'active' in jsondict:
-            self.active = jsondict['active']
-        if 'address' in jsondict:
-            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'animal' in jsondict:
-            self.animal = PatientAnimal.with_json_and_owner(jsondict['animal'], self)
-        if 'birthDate' in jsondict:
-            self.birthDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['birthDate'], self)
-        if 'careProvider' in jsondict:
-            self.careProvider = fhirreference.FHIRReference.with_json_and_owner(jsondict['careProvider'], self, organization.Organization)
-        if 'communication' in jsondict:
-            self.communication = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['communication'], self)
-        if 'contact' in jsondict:
-            self.contact = PatientContact.with_json_and_owner(jsondict['contact'], self)
-        if 'deceasedBoolean' in jsondict:
-            self.deceasedBoolean = jsondict['deceasedBoolean']
-        if 'deceasedDateTime' in jsondict:
-            self.deceasedDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['deceasedDateTime'], self)
-        if 'gender' in jsondict:
-            self.gender = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['gender'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'link' in jsondict:
-            self.link = PatientLink.with_json_and_owner(jsondict['link'], self)
-        if 'managingOrganization' in jsondict:
-            self.managingOrganization = fhirreference.FHIRReference.with_json_and_owner(jsondict['managingOrganization'], self, organization.Organization)
-        if 'maritalStatus' in jsondict:
-            self.maritalStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['maritalStatus'], self)
-        if 'multipleBirthBoolean' in jsondict:
-            self.multipleBirthBoolean = jsondict['multipleBirthBoolean']
-        if 'multipleBirthInteger' in jsondict:
-            self.multipleBirthInteger = jsondict['multipleBirthInteger']
-        if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
-        if 'photo' in jsondict:
-            self.photo = attachment.Attachment.with_json_and_owner(jsondict['photo'], self)
-        if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-
-
-class PatientContact(fhirelement.FHIRElement):
-    """ A contact party (e.g. guardian, partner, friend) for the patient.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.address = None
-        """ Address for the contact person.
-        Type `Address` (represented as `dict` in JSON). """
-        
-        self.gender = None
-        """ Gender for administrative purposes.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.name = None
-        """ A name associated with the person.
-        Type `HumanName` (represented as `dict` in JSON). """
-        
-        self.organization = None
-        """ Organization that is associated with the contact.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
-        self.relationship = None
-        """ The kind of relationship.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.telecom = None
-        """ A contact detail for the person.
-        List of `Contact` items (represented as `dict` in JSON). """
-        
-        super(PatientContact, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(PatientContact, self).update_with_json(jsondict)
-        if 'address' in jsondict:
-            self.address = address.Address.with_json_and_owner(jsondict['address'], self)
-        if 'gender' in jsondict:
-            self.gender = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['gender'], self)
-        if 'name' in jsondict:
-            self.name = humanname.HumanName.with_json_and_owner(jsondict['name'], self)
-        if 'organization' in jsondict:
-            self.organization = fhirreference.FHIRReference.with_json_and_owner(jsondict['organization'], self, organization.Organization)
-        if 'relationship' in jsondict:
-            self.relationship = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['relationship'], self)
-        if 'telecom' in jsondict:
-            self.telecom = contact.Contact.with_json_and_owner(jsondict['telecom'], self)
+    def elementProperties(self):
+        js = super(Patient, self).elementProperties()
+        js.extend([
+            ("active", "active", bool, False),
+            ("address", "address", address.Address, True),
+            ("animal", "animal", PatientAnimal, False),
+            ("birthDate", "birthDate", fhirdate.FHIRDate, False),
+            ("careProvider", "careProvider", fhirreference.FHIRReference, True),
+            ("communication", "communication", PatientCommunication, True),
+            ("contact", "contact", PatientContact, True),
+            ("deceasedBoolean", "deceasedBoolean", bool, False),
+            ("deceasedDateTime", "deceasedDateTime", fhirdate.FHIRDate, False),
+            ("gender", "gender", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("link", "link", PatientLink, True),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
+            ("maritalStatus", "maritalStatus", codeableconcept.CodeableConcept, False),
+            ("multipleBirthBoolean", "multipleBirthBoolean", bool, False),
+            ("multipleBirthInteger", "multipleBirthInteger", int, False),
+            ("name", "name", humanname.HumanName, True),
+            ("photo", "photo", attachment.Attachment, True),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class PatientAnimal(fhirelement.FHIRElement):
@@ -230,6 +142,8 @@ class PatientAnimal(fhirelement.FHIRElement):
     
     This element has a value if the patient is an animal.
     """
+    
+    resource_name = "PatientAnimal"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -249,19 +163,112 @@ class PatientAnimal(fhirelement.FHIRElement):
         
         super(PatientAnimal, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PatientAnimal, self).update_with_json(jsondict)
-        if 'breed' in jsondict:
-            self.breed = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['breed'], self)
-        if 'genderStatus' in jsondict:
-            self.genderStatus = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['genderStatus'], self)
-        if 'species' in jsondict:
-            self.species = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['species'], self)
+    def elementProperties(self):
+        js = super(PatientAnimal, self).elementProperties()
+        js.extend([
+            ("breed", "breed", codeableconcept.CodeableConcept, False),
+            ("genderStatus", "genderStatus", codeableconcept.CodeableConcept, False),
+            ("species", "species", codeableconcept.CodeableConcept, False),
+        ])
+        return js
+
+
+class PatientCommunication(fhirelement.FHIRElement):
+    """ A list of Languages which may be used to communicate with the patient about
+    his or her health.
+    
+    Languages which may be used to communicate with the patient about his or
+    her health.
+    """
+    
+    resource_name = "PatientCommunication"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.language = None
+        """ The language which can be used to communicate with the patient
+        about his or her health.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.preferred = None
+        """ Language preference indicator.
+        Type `bool`. """
+        
+        super(PatientCommunication, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(PatientCommunication, self).elementProperties()
+        js.extend([
+            ("language", "language", codeableconcept.CodeableConcept, False),
+            ("preferred", "preferred", bool, False),
+        ])
+        return js
+
+
+class PatientContact(fhirelement.FHIRElement):
+    """ A contact party (e.g. guardian, partner, friend) for the patient.
+    """
+    
+    resource_name = "PatientContact"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.address = None
+        """ Address for the contact person.
+        Type `Address` (represented as `dict` in JSON). """
+        
+        self.gender = None
+        """ male | female | other | unknown.
+        Type `str`. """
+        
+        self.name = None
+        """ A name associated with the contact person.
+        Type `HumanName` (represented as `dict` in JSON). """
+        
+        self.organization = None
+        """ Organization that is associated with the contact.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
+        self.period = None
+        """ The period during which this contact person or organization is
+        valid to be contacted relating to this patient.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.relationship = None
+        """ The kind of relationship.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.telecom = None
+        """ A contact detail for the person.
+        List of `ContactPoint` items (represented as `dict` in JSON). """
+        
+        super(PatientContact, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(PatientContact, self).elementProperties()
+        js.extend([
+            ("address", "address", address.Address, False),
+            ("gender", "gender", str, False),
+            ("name", "name", humanname.HumanName, False),
+            ("organization", "organization", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("relationship", "relationship", codeableconcept.CodeableConcept, True),
+            ("telecom", "telecom", contactpoint.ContactPoint, True),
+        ])
+        return js
 
 
 class PatientLink(fhirelement.FHIRElement):
     """ Link to another patient resource that concerns the same actual person.
+    
+    Link to another patient resource that concerns the same actual patient.
     """
+    
+    resource_name = "PatientLink"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -277,10 +284,11 @@ class PatientLink(fhirelement.FHIRElement):
         
         super(PatientLink, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(PatientLink, self).update_with_json(jsondict)
-        if 'other' in jsondict:
-            self.other = fhirreference.FHIRReference.with_json_and_owner(jsondict['other'], self, Patient)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(PatientLink, self).elementProperties()
+        js.extend([
+            ("other", "other", fhirreference.FHIRReference, False),
+            ("type", "type", str, False),
+        ])
+        return js
 

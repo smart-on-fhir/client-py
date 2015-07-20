@@ -1,42 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (order.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Order) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import codeableconcept
-import fhirdate
-import fhirelement
-import fhirreference
-import fhirresource
-import identifier
-import narrative
-import organization
-import patient
-import practitioner
-import schedule
+from . import codeableconcept
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
+from . import timing
 
 
-class Order(fhirresource.FHIRResource):
+class Order(domainresource.DomainResource):
     """ A request to perform an action.
-    
-    Scope and Usage An order resource describes a request that an action be
-    performed. An order is expected to lead to one or more responses that
-    describe the outcome of processing/handling the order. The order resource
-    is focused on the process of actually requesting an action be performed;
-    the actual action to be performed is detailed in a separate resource that
-    contains the details. Note that orders are often called "requests", but
-    this name is not used here since the word "request" is used differently
-    elsewhere in this specification.
-    
-    Note that there are a variety of processes associated with making and
-    processing orders. Some orders may be handled immediately by automated
-    systems but most require real world actions by one or more humans. Some
-    orders can only be processed when other real world actions happen, such as
-    a patient actually presenting themselves so that the action to be performed
-    can actually be performed. Often these real world dependencies are only
-    implicit in the order details.
     """
     
     resource_name = "Order"
@@ -47,7 +26,7 @@ class Order(fhirresource.FHIRResource):
         
         self.authority = None
         """ If required by policy.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.date = None
         """ When the order was made.
@@ -55,7 +34,7 @@ class Order(fhirresource.FHIRResource):
         
         self.detail = None
         """ What action is being ordered.
-        List of `FHIRReference` items referencing `FHIRResource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Identifiers assigned to this order by the orderer or by the
@@ -66,9 +45,9 @@ class Order(fhirresource.FHIRResource):
         """ Text - why the order was made.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.reasonResource = None
+        self.reasonReference = None
         """ Text - why the order was made.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.source = None
         """ Who initiated the order.
@@ -76,15 +55,11 @@ class Order(fhirresource.FHIRResource):
         
         self.subject = None
         """ Patient this order is about.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Patient, Group, Device, Substance` (represented as `dict` in JSON). """
         
         self.target = None
         """ Who is intended to fulfill the order.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Organization, Device, Practitioner` (represented as `dict` in JSON). """
         
         self.when = None
         """ When order should be fulfilled.
@@ -92,35 +67,28 @@ class Order(fhirresource.FHIRResource):
         
         super(Order, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Order, self).update_with_json(jsondict)
-        if 'authority' in jsondict:
-            self.authority = fhirreference.FHIRReference.with_json_and_owner(jsondict['authority'], self, fhirresource.FHIRResource)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'detail' in jsondict:
-            self.detail = fhirreference.FHIRReference.with_json_and_owner(jsondict['detail'], self, fhirresource.FHIRResource)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'reasonCodeableConcept' in jsondict:
-            self.reasonCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['reasonCodeableConcept'], self)
-        if 'reasonResource' in jsondict:
-            self.reasonResource = fhirreference.FHIRReference.with_json_and_owner(jsondict['reasonResource'], self, fhirresource.FHIRResource)
-        if 'source' in jsondict:
-            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, practitioner.Practitioner)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, organization.Organization)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-        if 'when' in jsondict:
-            self.when = OrderWhen.with_json_and_owner(jsondict['when'], self)
+    def elementProperties(self):
+        js = super(Order, self).elementProperties()
+        js.extend([
+            ("authority", "authority", fhirreference.FHIRReference, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("detail", "detail", fhirreference.FHIRReference, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
+            ("source", "source", fhirreference.FHIRReference, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("target", "target", fhirreference.FHIRReference, False),
+            ("when", "when", OrderWhen, False),
+        ])
+        return js
 
 
 class OrderWhen(fhirelement.FHIRElement):
     """ When order should be fulfilled.
     """
+    
+    resource_name = "OrderWhen"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -133,14 +101,15 @@ class OrderWhen(fhirelement.FHIRElement):
         
         self.schedule = None
         """ A formal schedule.
-        Type `Schedule` (represented as `dict` in JSON). """
+        Type `Timing` (represented as `dict` in JSON). """
         
         super(OrderWhen, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(OrderWhen, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'schedule' in jsondict:
-            self.schedule = schedule.Schedule.with_json_and_owner(jsondict['schedule'], self)
+    def elementProperties(self):
+        js = super(OrderWhen, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("schedule", "schedule", timing.Timing, False),
+        ])
+        return js
 

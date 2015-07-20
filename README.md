@@ -22,6 +22,14 @@ Take a look at [`flask_app.py`][flask_app] to see how you can use the client in 
 This app starts a webserver, listening on [_localhost:8000_](http://localhost:8000), and prompts you to login to our sandbox server and select a patient.
 It then goes on to retrieve the selected patient's demographics and med prescriptions and lists them in a simple HTML page.
 
+The Flask demo app has separate requirements.
+To go about installing needed packages (using _virtualenv_) and running the app you can issue these commands to your shell:
+
+    virtualenv -p python3 env
+    . env/bin/activate
+    pip install -r requirements_flask_app.txt
+    python flask_app.py
+
 
 Building Distribution
 ---------------------

@@ -1,18 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Identifier.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Identifier) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import fhirelement
-import fhirreference
-import organization
-import period
+from . import codeableconcept
+from . import fhirelement
+from . import fhirreference
+from . import period
 
 
 class Identifier(fhirelement.FHIRElement):
     """ An identifier intended for computation.
+    
+    A technical identifier - identifies some entity uniquely and unambiguously.
     """
     
     resource_name = "Identifier"
@@ -25,10 +27,6 @@ class Identifier(fhirelement.FHIRElement):
         """ Organization that issued id (may be just text).
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.label = None
-        """ Description of identifier.
-        Type `str`. """
-        
         self.period = None
         """ Time period when id is/was valid for use.
         Type `Period` (represented as `dict` in JSON). """
@@ -36,6 +34,10 @@ class Identifier(fhirelement.FHIRElement):
         self.system = None
         """ The namespace for the identifier.
         Type `str`. """
+        
+        self.type = None
+        """ Description of identifier.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.use = None
         """ usual | official | temp | secondary (If known).
@@ -47,18 +49,15 @@ class Identifier(fhirelement.FHIRElement):
         
         super(Identifier, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Identifier, self).update_with_json(jsondict)
-        if 'assigner' in jsondict:
-            self.assigner = fhirreference.FHIRReference.with_json_and_owner(jsondict['assigner'], self, organization.Organization)
-        if 'label' in jsondict:
-            self.label = jsondict['label']
-        if 'period' in jsondict:
-            self.period = period.Period.with_json_and_owner(jsondict['period'], self)
-        if 'system' in jsondict:
-            self.system = jsondict['system']
-        if 'use' in jsondict:
-            self.use = jsondict['use']
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(Identifier, self).elementProperties()
+        js.extend([
+            ("assigner", "assigner", fhirreference.FHIRReference, False),
+            ("period", "period", period.Period, False),
+            ("system", "system", str, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("use", "use", str, False),
+            ("value", "value", str, False),
+        ])
+        return js
 

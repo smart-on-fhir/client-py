@@ -1,16 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Period.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Period) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import fhirdate
-import fhirelement
+from . import fhirdate
+from . import fhirelement
 
 
 class Period(fhirelement.FHIRElement):
     """ Time range defined by start and end date/time.
+    
+    A time period defined by a start and end date and optionally time.
     """
     
     resource_name = "Period"
@@ -29,10 +31,11 @@ class Period(fhirelement.FHIRElement):
         
         super(Period, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Period, self).update_with_json(jsondict)
-        if 'end' in jsondict:
-            self.end = fhirdate.FHIRDate.with_json_and_owner(jsondict['end'], self)
-        if 'start' in jsondict:
-            self.start = fhirdate.FHIRDate.with_json_and_owner(jsondict['start'], self)
+    def elementProperties(self):
+        js = super(Period, self).elementProperties()
+        js.extend([
+            ("end", "end", fhirdate.FHIRDate, False),
+            ("start", "start", fhirdate.FHIRDate, False),
+        ])
+        return js
 

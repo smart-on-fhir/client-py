@@ -1,16 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-SampledData.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/SampledData) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import fhirelement
-import quantity
+from . import fhirelement
+from . import quantity
 
 
 class SampledData(fhirelement.FHIRElement):
     """ A series of measurements taken by a device.
+    
+    A series of measurements taken by a device, with upper and lower limits.
+    There may be more than one dimension in the data.
     """
     
     resource_name = "SampledData"
@@ -49,20 +52,16 @@ class SampledData(fhirelement.FHIRElement):
         
         super(SampledData, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SampledData, self).update_with_json(jsondict)
-        if 'data' in jsondict:
-            self.data = jsondict['data']
-        if 'dimensions' in jsondict:
-            self.dimensions = jsondict['dimensions']
-        if 'factor' in jsondict:
-            self.factor = jsondict['factor']
-        if 'lowerLimit' in jsondict:
-            self.lowerLimit = jsondict['lowerLimit']
-        if 'origin' in jsondict:
-            self.origin = quantity.Quantity.with_json_and_owner(jsondict['origin'], self)
-        if 'period' in jsondict:
-            self.period = jsondict['period']
-        if 'upperLimit' in jsondict:
-            self.upperLimit = jsondict['upperLimit']
+    def elementProperties(self):
+        js = super(SampledData, self).elementProperties()
+        js.extend([
+            ("data", "data", str, False),
+            ("dimensions", "dimensions", int, False),
+            ("factor", "factor", float, False),
+            ("lowerLimit", "lowerLimit", float, False),
+            ("origin", "origin", quantity.Quantity, False),
+            ("period", "period", float, False),
+            ("upperLimit", "upperLimit", float, False),
+        ])
+        return js
 

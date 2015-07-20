@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Narrative.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Narrative) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import fhirelement
+from . import fhirelement
 
 
 class Narrative(fhirelement.FHIRElement):
@@ -23,15 +23,16 @@ class Narrative(fhirelement.FHIRElement):
         Type `str`. """
         
         self.status = None
-        """ generated | extensions | additional.
+        """ generated | extensions | additional | empty.
         Type `str`. """
         
         super(Narrative, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Narrative, self).update_with_json(jsondict)
-        if 'div' in jsondict:
-            self.div = jsondict['div']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
+    def elementProperties(self):
+        js = super(Narrative, self).elementProperties()
+        js.extend([
+            ("div", "div", str, False),
+            ("status", "status", str, False),
+        ])
+        return js
 

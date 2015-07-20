@@ -1,37 +1,26 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (group.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Group) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import codeableconcept
-import fhirelement
-import fhirreference
-import fhirresource
-import identifier
-import narrative
-import patient
-import quantity
-import range
+from . import codeableconcept
+from . import domainresource
+from . import fhirelement
+from . import fhirreference
+from . import identifier
+from . import quantity
+from . import range
 
 
-class Group(fhirresource.FHIRResource):
+class Group(domainresource.DomainResource):
     """ Group of multiple entities.
     
-    Scope and Usage Use Cases The group resource is used in one of two ways:
-    
-    * To define a group of specific people, animals, devices, etc. that is
-    being tracked, examined or otherwise referenced as part of healthcare-
-    related activities
-    * To define a set of *possible* people, animals, devices, etc. that are of
-    interest for some intended future healthcare-related activities
-    Examples of the former could include group therapy or treatment sessions,
-    exposed entities tracked as part of public health, etc. The latter might be
-    used to define expected subjects for a clinical study.
-    
-    Both use cases are handled by a single resource because the data elements
-    captured tend to be similar.
+    Represents a defined collection of entities that may be discussed or acted
+    upon collectively but which are not expected to act collectively and are
+    not formally or legally recognized.  I.e. A collection of entities that
+    isn't an Organization.
     """
     
     resource_name = "Group"
@@ -40,7 +29,7 @@ class Group(fhirresource.FHIRResource):
         """ Initialize all valid properties.
         """
         
-        self.actual = False
+        self.actual = None
         """ Descriptive or actual.
         Type `bool`. """
         
@@ -57,8 +46,8 @@ class Group(fhirresource.FHIRResource):
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.member = None
-        """ Who is in group.
-        List of `FHIRReference` items referencing `Patient` (represented as `dict` in JSON). """
+        """ Who or what is in group.
+        List of `FHIRReference` items referencing `Patient, Practitioner, Device, Medication, Substance` (represented as `dict` in JSON). """
         
         self.name = None
         """ Label for Group.
@@ -68,36 +57,25 @@ class Group(fhirresource.FHIRResource):
         """ Number of members.
         Type `int`. """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         self.type = None
         """ person | animal | practitioner | device | medication | substance.
         Type `str`. """
         
         super(Group, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Group, self).update_with_json(jsondict)
-        if 'actual' in jsondict:
-            self.actual = jsondict['actual']
-        if 'characteristic' in jsondict:
-            self.characteristic = GroupCharacteristic.with_json_and_owner(jsondict['characteristic'], self)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'member' in jsondict:
-            self.member = fhirreference.FHIRReference.with_json_and_owner(jsondict['member'], self, patient.Patient)
-        if 'name' in jsondict:
-            self.name = jsondict['name']
-        if 'quantity' in jsondict:
-            self.quantity = jsondict['quantity']
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-        if 'type' in jsondict:
-            self.type = jsondict['type']
+    def elementProperties(self):
+        js = super(Group, self).elementProperties()
+        js.extend([
+            ("actual", "actual", bool, False),
+            ("characteristic", "characteristic", GroupCharacteristic, True),
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("member", "member", fhirreference.FHIRReference, True),
+            ("name", "name", str, False),
+            ("quantity", "quantity", int, False),
+            ("type", "type", str, False),
+        ])
+        return js
 
 
 class GroupCharacteristic(fhirelement.FHIRElement):
@@ -105,6 +83,8 @@ class GroupCharacteristic(fhirelement.FHIRElement):
     
     Identifies the traits shared by members of the group.
     """
+    
+    resource_name = "GroupCharacteristic"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -114,11 +94,11 @@ class GroupCharacteristic(fhirelement.FHIRElement):
         """ Kind of characteristic.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.exclude = False
+        self.exclude = None
         """ Group includes or excludes.
         Type `bool`. """
         
-        self.valueBoolean = False
+        self.valueBoolean = None
         """ Value held by characteristic.
         Type `bool`. """
         
@@ -136,18 +116,15 @@ class GroupCharacteristic(fhirelement.FHIRElement):
         
         super(GroupCharacteristic, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(GroupCharacteristic, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'exclude' in jsondict:
-            self.exclude = jsondict['exclude']
-        if 'valueBoolean' in jsondict:
-            self.valueBoolean = jsondict['valueBoolean']
-        if 'valueCodeableConcept' in jsondict:
-            self.valueCodeableConcept = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['valueCodeableConcept'], self)
-        if 'valueQuantity' in jsondict:
-            self.valueQuantity = quantity.Quantity.with_json_and_owner(jsondict['valueQuantity'], self)
-        if 'valueRange' in jsondict:
-            self.valueRange = range.Range.with_json_and_owner(jsondict['valueRange'], self)
+    def elementProperties(self):
+        js = super(GroupCharacteristic, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("exclude", "exclude", bool, False),
+            ("valueBoolean", "valueBoolean", bool, False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
+            ("valueRange", "valueRange", range.Range, False),
+        ])
+        return js
 

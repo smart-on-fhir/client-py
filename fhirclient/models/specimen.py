@@ -1,40 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (specimen.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import codeableconcept
-import fhirdate
-import fhirelement
-import fhirreference
-import fhirresource
-import identifier
-import narrative
-import patient
-import period
-import practitioner
-import quantity
-import substance
+from . import codeableconcept
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity
 
 
-class Specimen(fhirresource.FHIRResource):
+class Specimen(domainresource.DomainResource):
     """ Sample for analysis.
-    
-    Scope and Usage Any material sample:
-    
-    * taken from a biological entity, living or dead
-    * taken from a physical object or the environment
-    Biospecimen can contain one or more components including but not limited to
-    cellular molecules, cells, tissues, organs, body fluids, embryos, and body
-    excretory products (source: NCIt, modified).
-    
-    The specimen resource covers substances used for diagnostic and
-    environmental testing. The focus of the specimen resource is the process
-    for gathering, maintaining and processing the specimen as well as where the
-    specimen originated. This is distinct from the use of Substance which is
-    only used when these other aspects are not relevant.
     """
     
     resource_name = "Specimen"
@@ -59,22 +41,18 @@ class Specimen(fhirresource.FHIRResource):
         """ External Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.parent = None
+        """ Specimen from which this specimen originated.
+        List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
+        
         self.receivedTime = None
         """ The time when specimen was received for processing.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.source = None
-        """ Parent of specimen.
-        List of `SpecimenSource` items (represented as `dict` in JSON). """
-        
         self.subject = None
-        """ Where the specimen came from. This may be the patient(s) or from
-        the environment or  a device.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        """ Where the specimen came from. This may be from the patient(s) or
+        from the environment or a device.
+        Type `FHIRReference` referencing `Patient, Group, Device, Substance` (represented as `dict` in JSON). """
         
         self.treatment = None
         """ Treatment and processing step details.
@@ -86,56 +64,20 @@ class Specimen(fhirresource.FHIRResource):
         
         super(Specimen, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Specimen, self).update_with_json(jsondict)
-        if 'accessionIdentifier' in jsondict:
-            self.accessionIdentifier = identifier.Identifier.with_json_and_owner(jsondict['accessionIdentifier'], self)
-        if 'collection' in jsondict:
-            self.collection = SpecimenCollection.with_json_and_owner(jsondict['collection'], self)
-        if 'container' in jsondict:
-            self.container = SpecimenContainer.with_json_and_owner(jsondict['container'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'receivedTime' in jsondict:
-            self.receivedTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['receivedTime'], self)
-        if 'source' in jsondict:
-            self.source = SpecimenSource.with_json_and_owner(jsondict['source'], self)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-        if 'treatment' in jsondict:
-            self.treatment = SpecimenTreatment.with_json_and_owner(jsondict['treatment'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
-
-
-class SpecimenSource(fhirelement.FHIRElement):
-    """ Parent of specimen.
-    
-    Parent specimen from which the focal specimen was a component.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.relationship = None
-        """ parent | child.
-        Type `str`. """
-        
-        self.target = None
-        """ The subject of the relationship.
-        List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
-        
-        super(SpecimenSource, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(SpecimenSource, self).update_with_json(jsondict)
-        if 'relationship' in jsondict:
-            self.relationship = jsondict['relationship']
-        if 'target' in jsondict:
-            self.target = fhirreference.FHIRReference.with_json_and_owner(jsondict['target'], self, Specimen)
+    def elementProperties(self):
+        js = super(Specimen, self).elementProperties()
+        js.extend([
+            ("accessionIdentifier", "accessionIdentifier", identifier.Identifier, False),
+            ("collection", "collection", SpecimenCollection, False),
+            ("container", "container", SpecimenContainer, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("parent", "parent", fhirreference.FHIRReference, True),
+            ("receivedTime", "receivedTime", fhirdate.FHIRDate, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("treatment", "treatment", SpecimenTreatment, True),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 
 
 class SpecimenCollection(fhirelement.FHIRElement):
@@ -144,9 +86,19 @@ class SpecimenCollection(fhirelement.FHIRElement):
     Details concerning the specimen collection.
     """
     
+    resource_name = "SpecimenCollection"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.bodySiteCodeableConcept = None
+        """ Anatomical collection site.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.bodySiteReference = None
+        """ Anatomical collection site.
+        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.collectedDateTime = None
         """ Collection time.
@@ -172,62 +124,21 @@ class SpecimenCollection(fhirelement.FHIRElement):
         """ The quantity of specimen collected.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.sourceSite = None
-        """ Anatomical collection site.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         super(SpecimenCollection, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SpecimenCollection, self).update_with_json(jsondict)
-        if 'collectedDateTime' in jsondict:
-            self.collectedDateTime = fhirdate.FHIRDate.with_json_and_owner(jsondict['collectedDateTime'], self)
-        if 'collectedPeriod' in jsondict:
-            self.collectedPeriod = period.Period.with_json_and_owner(jsondict['collectedPeriod'], self)
-        if 'collector' in jsondict:
-            self.collector = fhirreference.FHIRReference.with_json_and_owner(jsondict['collector'], self, practitioner.Practitioner)
-        if 'comment' in jsondict:
-            self.comment = jsondict['comment']
-        if 'method' in jsondict:
-            self.method = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['method'], self)
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-        if 'sourceSite' in jsondict:
-            self.sourceSite = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['sourceSite'], self)
-
-
-class SpecimenTreatment(fhirelement.FHIRElement):
-    """ Treatment and processing step details.
-    
-    Details concerning treatment and processing steps for the specimen.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.additive = None
-        """ Material used in the processing step.
-        List of `FHIRReference` items referencing `Substance` (represented as `dict` in JSON). """
-        
-        self.description = None
-        """ Textual description of procedure.
-        Type `str`. """
-        
-        self.procedure = None
-        """ Indicates the treatment or processing step  applied to the specimen.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        super(SpecimenTreatment, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(SpecimenTreatment, self).update_with_json(jsondict)
-        if 'additive' in jsondict:
-            self.additive = fhirreference.FHIRReference.with_json_and_owner(jsondict['additive'], self, substance.Substance)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'procedure' in jsondict:
-            self.procedure = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['procedure'], self)
+    def elementProperties(self):
+        js = super(SpecimenCollection, self).elementProperties()
+        js.extend([
+            ("bodySiteCodeableConcept", "bodySiteCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("bodySiteReference", "bodySiteReference", fhirreference.FHIRReference, False),
+            ("collectedDateTime", "collectedDateTime", fhirdate.FHIRDate, False),
+            ("collectedPeriod", "collectedPeriod", period.Period, False),
+            ("collector", "collector", fhirreference.FHIRReference, False),
+            ("comment", "comment", str, True),
+            ("method", "method", codeableconcept.CodeableConcept, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+        ])
+        return js
 
 
 class SpecimenContainer(fhirelement.FHIRElement):
@@ -237,11 +148,17 @@ class SpecimenContainer(fhirelement.FHIRElement):
     i.e. blood in tube in tray in rack is not addressed here.
     """
     
+    resource_name = "SpecimenContainer"
+    
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
-        self.additive = None
+        self.additiveCodeableConcept = None
+        """ Additive associated with container.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.additiveReference = None
         """ Additive associated with container.
         Type `FHIRReference` referencing `Substance` (represented as `dict` in JSON). """
         
@@ -267,18 +184,52 @@ class SpecimenContainer(fhirelement.FHIRElement):
         
         super(SpecimenContainer, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SpecimenContainer, self).update_with_json(jsondict)
-        if 'additive' in jsondict:
-            self.additive = fhirreference.FHIRReference.with_json_and_owner(jsondict['additive'], self, substance.Substance)
-        if 'capacity' in jsondict:
-            self.capacity = quantity.Quantity.with_json_and_owner(jsondict['capacity'], self)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'specimenQuantity' in jsondict:
-            self.specimenQuantity = quantity.Quantity.with_json_and_owner(jsondict['specimenQuantity'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(SpecimenContainer, self).elementProperties()
+        js.extend([
+            ("additiveCodeableConcept", "additiveCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("additiveReference", "additiveReference", fhirreference.FHIRReference, False),
+            ("capacity", "capacity", quantity.Quantity, False),
+            ("description", "description", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("specimenQuantity", "specimenQuantity", quantity.Quantity, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
+
+
+class SpecimenTreatment(fhirelement.FHIRElement):
+    """ Treatment and processing step details.
+    
+    Details concerning treatment and processing steps for the specimen.
+    """
+    
+    resource_name = "SpecimenTreatment"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.additive = None
+        """ Material used in the processing step.
+        List of `FHIRReference` items referencing `Substance` (represented as `dict` in JSON). """
+        
+        self.description = None
+        """ Textual description of procedure.
+        Type `str`. """
+        
+        self.procedure = None
+        """ Indicates the treatment or processing step  applied to the specimen.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(SpecimenTreatment, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(SpecimenTreatment, self).elementProperties()
+        js.extend([
+            ("additive", "additive", fhirreference.FHIRReference, True),
+            ("description", "description", str, False),
+            ("procedure", "procedure", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

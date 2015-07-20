@@ -1,57 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (allergyintolerance.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import adversereaction
-import fhirdate
-import fhirreference
-import fhirresource
-import identifier
-import narrative
-import observation
-import patient
-import practitioner
-import substance
+from . import codeableconcept
+from . import domainresource
+from . import duration
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
 
 
-class AllergyIntolerance(fhirresource.FHIRResource):
-    """ Drug, food, environmental and others.
+class AllergyIntolerance(domainresource.DomainResource):
+    """ Allergy or Intolerance (generally: Risk Of Adverse reaction to a substance).
     
-    Scope and Usage Allergy/Intolerance resources are used to provide
-    information about adverse sensitivities to substances that lead to
-    physiologic changes that are clinically observable. An adverse sensitivity
-    is defined as:
-    
-    A condition expected to result in undesirable physiologic reaction to an
-    amount of a substance that would not produce a reaction in most
-    individuals. The substance is the trigger of an immunologic response that
-    produces the observed physiologic changes, or in some instances
-    nonimmunologic mechanisms that produce clinically identical physiologic
-    changes. The immunologic response might be considered the actual cause of
-    the reaction, but it is exposure to the trigger substance that is
-    clinically observable.
-    
-    This definition excludes clinically identical episodes that may be caused
-    by physical agents, such as heat, cold, sunlight, or vibration, by exercise
-    activity, or by infectious agents. Those conditions caused by physical
-    agents or infectious would be captured on the problem list (List/Condition
-    Resources). The allergy/intolerance list is a list of conditions that
-    represent a propensity unique to this individual for a reaction upon future
-    exposure to a specified substance.
-    
-    Note that this specification draws a distinction between the patients
-    condition/problem list and an allergy/intolerance list, even though
-    allergies and intolerances are also conditions. This is because the
-    distinction is a long established clinical workflow, even to patients.
-    Asking an individual "if they have any problems" is not going to invoke an
-    account of their past reactions to medications or foods. Instead, they are
-    asked if they "have any allergies". An allergy/intolerance is also
-    different in that a potential harm from exposure to an external substance
-    that may be ordered by a provider in the course of their care but is not
-    inherent to exposure to that substance for the general population.
+    Risk of harmful or undesirable, physiological response which is unique to
+    an individual and associated with exposure to a substance.
     """
     
     resource_name = "AllergyIntolerance"
@@ -60,17 +27,33 @@ class AllergyIntolerance(fhirresource.FHIRResource):
         """ Initialize all valid properties.
         """
         
-        self.criticality = None
-        """ fatal | high | medium | low.
+        self.category = None
+        """ food | medication | environment - Category of Substance.
         Type `str`. """
+        
+        self.comment = None
+        """ Additional text not captured in other fields.
+        Type `str`. """
+        
+        self.criticality = None
+        """ low | high | unassessible - Estimated potential clinical harm.
+        Type `str`. """
+        
+        self.event = None
+        """ Adverse Reaction Events linked to exposure to substance.
+        List of `AllergyIntoleranceEvent` items (represented as `dict` in JSON). """
         
         self.identifier = None
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.reaction = None
-        """ Reactions associated with the sensitivity.
-        List of `FHIRReference` items referencing `AdverseReaction` (represented as `dict` in JSON). """
+        self.lastOccurence = None
+        """ Date(/time) of last known occurence of a reaction.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.patient = None
+        """ Who the sensitivity is for.
+        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.recordedDate = None
         """ When recorded.
@@ -78,56 +61,110 @@ class AllergyIntolerance(fhirresource.FHIRResource):
         
         self.recorder = None
         """ Who recorded the sensitivity.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, Patient` (represented as `dict` in JSON). """
         
-        self.sensitivityTest = None
-        """ Observations that confirm or refute.
-        List of `FHIRReference` items referencing `Observation` (represented as `dict` in JSON). """
-        
-        self.sensitivityType = None
-        """ allergy | intolerance | unknown.
-        Type `str`. """
+        self.reporter = None
+        """ Source of the information about the allergy.
+        Type `FHIRReference` referencing `Patient, RelatedPerson, Practitioner` (represented as `dict` in JSON). """
         
         self.status = None
-        """ suspected | confirmed | refuted | resolved.
+        """ unconfirmed | confirmed | resolved | refuted | entered-in-error.
         Type `str`. """
         
-        self.subject = None
-        """ Who the sensitivity is for.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
         self.substance = None
-        """ The substance that causes the sensitivity.
-        Type `FHIRReference` referencing `Substance` (represented as `dict` in JSON). """
+        """ Substance, (or class) considered to be responsible for risk.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        self.type = None
+        """ immune | non-immune - Underlying mechanism (if known).
+        Type `str`. """
         
         super(AllergyIntolerance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(AllergyIntolerance, self).update_with_json(jsondict)
-        if 'criticality' in jsondict:
-            self.criticality = jsondict['criticality']
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'reaction' in jsondict:
-            self.reaction = fhirreference.FHIRReference.with_json_and_owner(jsondict['reaction'], self, adversereaction.AdverseReaction)
-        if 'recordedDate' in jsondict:
-            self.recordedDate = fhirdate.FHIRDate.with_json_and_owner(jsondict['recordedDate'], self)
-        if 'recorder' in jsondict:
-            self.recorder = fhirreference.FHIRReference.with_json_and_owner(jsondict['recorder'], self, practitioner.Practitioner)
-        if 'sensitivityTest' in jsondict:
-            self.sensitivityTest = fhirreference.FHIRReference.with_json_and_owner(jsondict['sensitivityTest'], self, observation.Observation)
-        if 'sensitivityType' in jsondict:
-            self.sensitivityType = jsondict['sensitivityType']
-        if 'status' in jsondict:
-            self.status = jsondict['status']
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'substance' in jsondict:
-            self.substance = fhirreference.FHIRReference.with_json_and_owner(jsondict['substance'], self, substance.Substance)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+    def elementProperties(self):
+        js = super(AllergyIntolerance, self).elementProperties()
+        js.extend([
+            ("category", "category", str, False),
+            ("comment", "comment", str, False),
+            ("criticality", "criticality", str, False),
+            ("event", "event", AllergyIntoleranceEvent, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("lastOccurence", "lastOccurence", fhirdate.FHIRDate, False),
+            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("recordedDate", "recordedDate", fhirdate.FHIRDate, False),
+            ("recorder", "recorder", fhirreference.FHIRReference, False),
+            ("reporter", "reporter", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+            ("substance", "substance", codeableconcept.CodeableConcept, False),
+            ("type", "type", str, False),
+        ])
+        return js
+
+
+class AllergyIntoleranceEvent(fhirelement.FHIRElement):
+    """ Adverse Reaction Events linked to exposure to substance.
+    
+    Details about each Adverse Reaction Event linked to exposure to the
+    identified Substance.
+    """
+    
+    resource_name = "AllergyIntoleranceEvent"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.certainty = None
+        """ unlikely | likely | confirmed - clinical certainty about the
+        specific substance.
+        Type `str`. """
+        
+        self.comment = None
+        """ Text about event not captured in other fields.
+        Type `str`. """
+        
+        self.description = None
+        """ Description of the event as a whole.
+        Type `str`. """
+        
+        self.duration = None
+        """ How long Manifestations persisted.
+        Type `Duration` (represented as `dict` in JSON). """
+        
+        self.exposureRoute = None
+        """ How the subject was exposed to the substance.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.manifestation = None
+        """ Clinical symptoms/signs associated with the Event.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.onset = None
+        """ Date(/time) when manifestations showed.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.severity = None
+        """ mild | moderate | severe (of event as a whole).
+        Type `str`. """
+        
+        self.substance = None
+        """ Specific substance considered to be responsible for event.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(AllergyIntoleranceEvent, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(AllergyIntoleranceEvent, self).elementProperties()
+        js.extend([
+            ("certainty", "certainty", str, False),
+            ("comment", "comment", str, False),
+            ("description", "description", str, False),
+            ("duration", "duration", duration.Duration, False),
+            ("exposureRoute", "exposureRoute", codeableconcept.CodeableConcept, False),
+            ("manifestation", "manifestation", codeableconcept.CodeableConcept, True),
+            ("onset", "onset", fhirdate.FHIRDate, False),
+            ("severity", "severity", str, False),
+            ("substance", "substance", codeableconcept.CodeableConcept, False),
+        ])
+        return js
 

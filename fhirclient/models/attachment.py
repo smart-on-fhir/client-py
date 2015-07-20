@@ -1,15 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Attachment.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import fhirelement
+from . import fhirdate
+from . import fhirelement
 
 
 class Attachment(fhirelement.FHIRElement):
     """ Content in a format defined elsewhere.
+    
+    For referring to data content defined in other formats.
     """
     
     resource_name = "Attachment"
@@ -22,12 +25,20 @@ class Attachment(fhirelement.FHIRElement):
         """ Mime type of the content, with charset etc..
         Type `str`. """
         
+        self.creation = None
+        """ Date attachment was first created.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.data = None
         """ Data inline, base64ed.
         Type `str`. """
         
         self.hash = None
         """ Hash of the data (sha-1, base64ed ).
+        Type `str`. """
+        
+        self.language = None
+        """ Human language of the content (BCP-47).
         Type `str`. """
         
         self.size = None
@@ -44,18 +55,17 @@ class Attachment(fhirelement.FHIRElement):
         
         super(Attachment, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Attachment, self).update_with_json(jsondict)
-        if 'contentType' in jsondict:
-            self.contentType = jsondict['contentType']
-        if 'data' in jsondict:
-            self.data = jsondict['data']
-        if 'hash' in jsondict:
-            self.hash = jsondict['hash']
-        if 'size' in jsondict:
-            self.size = jsondict['size']
-        if 'title' in jsondict:
-            self.title = jsondict['title']
-        if 'url' in jsondict:
-            self.url = jsondict['url']
+    def elementProperties(self):
+        js = super(Attachment, self).elementProperties()
+        js.extend([
+            ("contentType", "contentType", str, False),
+            ("creation", "creation", fhirdate.FHIRDate, False),
+            ("data", "data", str, False),
+            ("hash", "hash", str, False),
+            ("language", "language", str, False),
+            ("size", "size", int, False),
+            ("title", "title", str, False),
+            ("url", "url", str, False),
+        ])
+        return js
 

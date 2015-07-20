@@ -1,17 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Schedule.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import fhirdate
-import fhirelement
-import period
+from . import codeableconcept
+from . import domainresource
+from . import fhirreference
+from . import identifier
+from . import period
 
 
-class Schedule(fhirelement.FHIRElement):
-    """ A schedule that specifies an event that may occur multiple times.
+class Schedule(domainresource.DomainResource):
+    """ A container for slot(s) of time that may be available for booking
+    appointments.
     """
     
     resource_name = "Schedule"
@@ -20,73 +23,45 @@ class Schedule(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.event = None
-        """ When the event occurs.
-        List of `Period` items (represented as `dict` in JSON). """
+        self.actor = None
+        """ The resource this Schedule resource is providing availability
+        information for. These are expected to usually be one of
+        HealthcareService, Location, Practitioner, Device, Patient or
+        RelatedPerson.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        self.repeat = None
-        """ Only if there is none or one event.
-        Type `ScheduleRepeat` (represented as `dict` in JSON). """
+        self.comment = None
+        """ Comments on the availability to describe any extended information.
+        Such as custom constraints on the slot(s) that may be associated.
+        Type `str`. """
+        
+        self.identifier = None
+        """ External Ids for this item.
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.planningHorizon = None
+        """ The period of time that the slots that are attached to this
+        Schedule resource cover (even if none exist). These  cover the
+        amount of time that an organization's planning horizon; the
+        interval for which they are currently accepting appointments. This
+        does not define a "template" for planning outside these dates.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ The schedule type can be used for the categorization of healthcare
+        services or other appointment types.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(Schedule, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Schedule, self).update_with_json(jsondict)
-        if 'event' in jsondict:
-            self.event = period.Period.with_json_and_owner(jsondict['event'], self)
-        if 'repeat' in jsondict:
-            self.repeat = ScheduleRepeat.with_json_and_owner(jsondict['repeat'], self)
-
-
-class ScheduleRepeat(fhirelement.FHIRElement):
-    """ Only if there is none or one event.
-    
-    Identifies a repeating pattern to the intended time periods.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.count = None
-        """ Number of times to repeat.
-        Type `int`. """
-        
-        self.duration = None
-        """ Repeating or event-related duration.
-        Type `float`. """
-        
-        self.end = None
-        """ When to stop repeats.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.frequency = None
-        """ Event occurs frequency times per duration.
-        Type `int`. """
-        
-        self.units = None
-        """ s | min | h | d | wk | mo | a - unit of time (UCUM).
-        Type `str`. """
-        
-        self.when = None
-        """ HS | WAKE | AC | ACM | ACD | ACV | PC | PCM | PCD | PCV - common
-        life events.
-        Type `str`. """
-        
-        super(ScheduleRepeat, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(ScheduleRepeat, self).update_with_json(jsondict)
-        if 'count' in jsondict:
-            self.count = jsondict['count']
-        if 'duration' in jsondict:
-            self.duration = jsondict['duration']
-        if 'end' in jsondict:
-            self.end = fhirdate.FHIRDate.with_json_and_owner(jsondict['end'], self)
-        if 'frequency' in jsondict:
-            self.frequency = jsondict['frequency']
-        if 'units' in jsondict:
-            self.units = jsondict['units']
-        if 'when' in jsondict:
-            self.when = jsondict['when']
+    def elementProperties(self):
+        js = super(Schedule, self).elementProperties()
+        js.extend([
+            ("actor", "actor", fhirreference.FHIRReference, False),
+            ("comment", "comment", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("planningHorizon", "planningHorizon", period.Period, False),
+            ("type", "type", codeableconcept.CodeableConcept, True),
+        ])
+        return js
 

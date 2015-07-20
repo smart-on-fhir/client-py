@@ -1,26 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (list.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/List) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import codeableconcept
-import fhirdate
-import fhirelement
-import fhirreference
-import fhirresource
-import identifier
-import narrative
-import patient
-import practitioner
+from . import codeableconcept
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
 
 
-class List(fhirresource.FHIRResource):
+class List(domainresource.DomainResource):
     """ Information summarized from a list of other resources.
     
-    Scope and Usage List resources are used in many places, including
-    allergies, medications, alerts, medical history, etc.
+    A set of information summarized from a list of other resources.
     """
     
     resource_name = "List"
@@ -53,46 +49,49 @@ class List(fhirresource.FHIRResource):
         """ working | snapshot | changes.
         Type `str`. """
         
-        self.ordered = False
-        """ Whether items in the list have a meaningful order.
-        Type `bool`. """
+        self.note = None
+        """ Comments about the note.
+        Type `str`. """
+        
+        self.orderedBy = None
+        """ What order the list has.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.source = None
         """ Who and/or what defined the list contents.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, Patient, Device` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ current | retired | entered-in-error.
+        Type `str`. """
         
         self.subject = None
         """ If all resources have the same subject.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Patient, Group, Device, Location` (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
+        self.title = None
+        """ Descriptive name for the list.
+        Type `str`. """
         
         super(List, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(List, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['code'], self)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'emptyReason' in jsondict:
-            self.emptyReason = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['emptyReason'], self)
-        if 'entry' in jsondict:
-            self.entry = ListEntry.with_json_and_owner(jsondict['entry'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'mode' in jsondict:
-            self.mode = jsondict['mode']
-        if 'ordered' in jsondict:
-            self.ordered = jsondict['ordered']
-        if 'source' in jsondict:
-            self.source = fhirreference.FHIRReference.with_json_and_owner(jsondict['source'], self, practitioner.Practitioner)
-        if 'subject' in jsondict:
-            self.subject = fhirreference.FHIRReference.with_json_and_owner(jsondict['subject'], self, patient.Patient)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
+    def elementProperties(self):
+        js = super(List, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False),
+            ("entry", "entry", ListEntry, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("mode", "mode", str, False),
+            ("note", "note", str, False),
+            ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False),
+            ("source", "source", fhirreference.FHIRReference, False),
+            ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("title", "title", str, False),
+        ])
+        return js
 
 
 class ListEntry(fhirelement.FHIRElement):
@@ -100,6 +99,8 @@ class ListEntry(fhirelement.FHIRElement):
     
     Entries in this list.
     """
+    
+    resource_name = "ListEntry"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -109,7 +110,7 @@ class ListEntry(fhirelement.FHIRElement):
         """ When item added to list.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.deleted = False
+        self.deleted = None
         """ If this item is actually marked as deleted.
         Type `bool`. """
         
@@ -119,18 +120,17 @@ class ListEntry(fhirelement.FHIRElement):
         
         self.item = None
         """ Actual entry.
-        Type `FHIRReference` referencing `FHIRResource` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         super(ListEntry, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(ListEntry, self).update_with_json(jsondict)
-        if 'date' in jsondict:
-            self.date = fhirdate.FHIRDate.with_json_and_owner(jsondict['date'], self)
-        if 'deleted' in jsondict:
-            self.deleted = jsondict['deleted']
-        if 'flag' in jsondict:
-            self.flag = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['flag'], self)
-        if 'item' in jsondict:
-            self.item = fhirreference.FHIRReference.with_json_and_owner(jsondict['item'], self, fhirresource.FHIRResource)
+    def elementProperties(self):
+        js = super(ListEntry, self).elementProperties()
+        js.extend([
+            ("date", "date", fhirdate.FHIRDate, False),
+            ("deleted", "deleted", bool, False),
+            ("flag", "flag", codeableconcept.CodeableConcept, True),
+            ("item", "item", fhirreference.FHIRReference, False),
+        ])
+        return js
 

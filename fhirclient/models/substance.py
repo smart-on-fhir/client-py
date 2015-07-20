@@ -1,32 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (substance.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Substance) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import codeableconcept
-import fhirdate
-import fhirelement
-import fhirreference
-import fhirresource
-import identifier
-import narrative
-import quantity
-import ratio
+from . import codeableconcept
+from . import domainresource
+from . import fhirdate
+from . import fhirelement
+from . import fhirreference
+from . import identifier
+from . import quantity
+from . import ratio
 
 
-class Substance(fhirresource.FHIRResource):
+class Substance(domainresource.DomainResource):
     """ A homogeneous material with a definite composition.
-    
-    Scope and Usage This resource allows for a material to be represented. The
-    resource can be used to represent either a kind of a substance - e.g. a
-    formulation commonly used for treating patients, or it can be used to
-    describe a particular package of a known substance (e.g. bottle, jar,
-    packet).
-    
-    The composition of the material can be specified in terms of a mix of other
-    materials, including with precise amounts if required.
     """
     
     resource_name = "Substance"
@@ -47,28 +37,52 @@ class Substance(fhirresource.FHIRResource):
         """ If this describes a specific package/container of the substance.
         Type `SubstanceInstance` (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         self.type = None
         """ What kind of substance this is.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Substance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Substance, self).update_with_json(jsondict)
-        if 'description' in jsondict:
-            self.description = jsondict['description']
-        if 'ingredient' in jsondict:
-            self.ingredient = SubstanceIngredient.with_json_and_owner(jsondict['ingredient'], self)
-        if 'instance' in jsondict:
-            self.instance = SubstanceInstance.with_json_and_owner(jsondict['instance'], self)
-        if 'text' in jsondict:
-            self.text = narrative.Narrative.with_json_and_owner(jsondict['text'], self)
-        if 'type' in jsondict:
-            self.type = codeableconcept.CodeableConcept.with_json_and_owner(jsondict['type'], self)
+    def elementProperties(self):
+        js = super(Substance, self).elementProperties()
+        js.extend([
+            ("description", "description", str, False),
+            ("ingredient", "ingredient", SubstanceIngredient, True),
+            ("instance", "instance", SubstanceInstance, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
+        ])
+        return js
+
+
+class SubstanceIngredient(fhirelement.FHIRElement):
+    """ Composition information about the substance.
+    
+    A substance can be composed of other substances.
+    """
+    
+    resource_name = "SubstanceIngredient"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.quantity = None
+        """ Optional amount (concentration).
+        Type `Ratio` (represented as `dict` in JSON). """
+        
+        self.substance = None
+        """ A component of the substance.
+        Type `FHIRReference` referencing `Substance` (represented as `dict` in JSON). """
+        
+        super(SubstanceIngredient, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(SubstanceIngredient, self).elementProperties()
+        js.extend([
+            ("quantity", "quantity", ratio.Ratio, False),
+            ("substance", "substance", fhirreference.FHIRReference, False),
+        ])
+        return js
 
 
 class SubstanceInstance(fhirelement.FHIRElement):
@@ -77,6 +91,8 @@ class SubstanceInstance(fhirelement.FHIRElement):
     Substance may be used to describe a kind of substance, or a specific
     package/container of the substance: an instance.
     """
+    
+    resource_name = "SubstanceInstance"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -96,40 +112,12 @@ class SubstanceInstance(fhirelement.FHIRElement):
         
         super(SubstanceInstance, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(SubstanceInstance, self).update_with_json(jsondict)
-        if 'expiry' in jsondict:
-            self.expiry = fhirdate.FHIRDate.with_json_and_owner(jsondict['expiry'], self)
-        if 'identifier' in jsondict:
-            self.identifier = identifier.Identifier.with_json_and_owner(jsondict['identifier'], self)
-        if 'quantity' in jsondict:
-            self.quantity = quantity.Quantity.with_json_and_owner(jsondict['quantity'], self)
-
-
-class SubstanceIngredient(fhirelement.FHIRElement):
-    """ Composition information about the substance.
-    
-    A substance can be composed of other substances.
-    """
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.quantity = None
-        """ Optional amount (concentration).
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.substance = None
-        """ A component of the substance.
-        Type `FHIRReference` referencing `Substance` (represented as `dict` in JSON). """
-        
-        super(SubstanceIngredient, self).__init__(jsondict)
-    
-    def update_with_json(self, jsondict):
-        super(SubstanceIngredient, self).update_with_json(jsondict)
-        if 'quantity' in jsondict:
-            self.quantity = ratio.Ratio.with_json_and_owner(jsondict['quantity'], self)
-        if 'substance' in jsondict:
-            self.substance = fhirreference.FHIRReference.with_json_and_owner(jsondict['substance'], self, Substance)
+    def elementProperties(self):
+        js = super(SubstanceInstance, self).elementProperties()
+        js.extend([
+            ("expiry", "expiry", fhirdate.FHIRDate, False),
+            ("identifier", "identifier", identifier.Identifier, False),
+            ("quantity", "quantity", quantity.Quantity, False),
+        ])
+        return js
 

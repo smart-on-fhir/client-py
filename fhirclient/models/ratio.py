@@ -1,16 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Ratio.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Ratio) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import fhirelement
-import quantity
+from . import fhirelement
+from . import quantity
 
 
 class Ratio(fhirelement.FHIRElement):
     """ A ratio of two Quantity values - a numerator and a denominator.
+    
+    A relationship of two Quantity values - expressed as a numerator and a
+    denominator.
     """
     
     resource_name = "Ratio"
@@ -29,10 +32,11 @@ class Ratio(fhirelement.FHIRElement):
         
         super(Ratio, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Ratio, self).update_with_json(jsondict)
-        if 'denominator' in jsondict:
-            self.denominator = quantity.Quantity.with_json_and_owner(jsondict['denominator'], self)
-        if 'numerator' in jsondict:
-            self.numerator = quantity.Quantity.with_json_and_owner(jsondict['numerator'], self)
+    def elementProperties(self):
+        js = super(Ratio, self).elementProperties()
+        js.extend([
+            ("denominator", "denominator", quantity.Quantity, False),
+            ("numerator", "numerator", quantity.Quantity, False),
+        ])
+        return js
 

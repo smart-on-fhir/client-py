@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import json
 import requests
 import urllib
 import logging
@@ -8,7 +9,7 @@ try:                                # Python 2.x
 except Exception as e:              # Python 3
     import urllib.parse as urlparse
 
-from models import conformance
+from auth import FHIRAuth
 
 
 class FHIRUnauthorizedException(Exception):
@@ -18,19 +19,35 @@ class FHIRUnauthorizedException(Exception):
         self.response = response
 
 
+class FHIRPermissionDeniedException(Exception):
+    """ Indicating a 403 response.
+    """
+    def __init__(self, response):
+        self.response = response
+
+
+class FHIRNotFoundException(Exception):
+    """ Indicating a 404 response.
+    """
+    def __init__(self, response):
+        self.response = response
+
+
 class FHIRServer(object):
     """ Handles talking to a FHIR server.
     """
     
-    def __init__(self, base_uri=None, state=None):
+    def __init__(self, client, base_uri=None, state=None):
+        self.client = client
         self.auth = None
         self.base_uri = base_uri
-        self._registration_uri = None
-        self._authorize_uri = None
-        self._token_uri = None
         self._conformance = None
         if state is not None:
             self.from_state(state)
+    
+    def should_save_state(self):
+        if self.client is not None:
+            self.client.save_state()
     
     
     # MARK: Server Conformance Statement
@@ -46,43 +63,49 @@ class FHIRServer(object):
         """
         if self._conformance is None or force:
             logging.info('Fetching conformance statement from {}'.format(self.base_uri))
+            from models import conformance
             conf = conformance.Conformance.read_from('metadata', self)
-            try:
-                extensions = conf.rest[0].security.extension
-            except Exception as e:
-                raise Exception("Invalid SMART server conformance: {}\n{}".format(e, conf))
-            
-            # extract extensions from conformance: OAuth2 endpoint URIs
-            for e in extensions:
-                if "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#register" == e.url:
-                    self._registration_uri = e.valueUri
-                elif "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#authorize" == e.url:
-                    self._authorize_uri = e.valueUri
-                elif "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#token" == e.url:
-                    self._token_uri = e.valueUri
-
             self._conformance = conf
+            
+            security = None
+            try:
+                security = conf.rest[0].security
+            except Exception as e:
+                logging.info("No REST security statement found in server conformance statement")
+            
+            settings = {
+                'app_id': self.client.app_id if self.client is not None else None,
+                'scope': self.client.scope if self.client is not None else None,
+                'redirect_uri': self.client.redirect if self.client is not None else None,
+            }
+            self.auth = FHIRAuth.from_conformance_security(security, settings)
+            self.should_save_state()
     
     
     # MARK: Authorization
     
     @property
     def authorize_uri(self):
-        if self._authorize_uri is None:
+        if self.auth is None:
             self.get_conformance()
-        return self._authorize_uri
+        return self.auth.authorize_uri(self)
     
-    @property
-    def token_uri(self):
-        if self._token_uri is None:
-            self.get_conformance()
-        return self._token_uri
+    def handle_callback(self, url):
+        if self.auth is None:
+            raise Exception("Not ready to handle callback, I do not have an auth instance")
+        return self.auth.handle_callback(url, self)
     
-    def did_authorize(self, auth):
-        self.auth = auth
+    def reauthorize(self):
+        if self.auth is None:
+            raise Exception("Not ready to reauthorize, I do not have an auth instance")
+        return self.auth.reauthorize(self) if self.auth is not None else None
     
     
     # MARK: Requests
+    
+    @property
+    def ready(self):
+        return self.auth.ready if self.auth is not None else False
     
     def request_json(self, path, nosign=False):
         """ Perform a request for JSON data against the server's base with the
@@ -90,9 +113,11 @@ class FHIRServer(object):
         
         :param str path: The path to append to `base_uri`
         :param bool nosign: If set to True, the request will not be signed
+        :throws: Exception on HTTP status >= 400
+        :returns: Decoded JSON response
         """
         headers = {'Accept': 'application/json'}
-        res = self._request(path, headers, nosign)
+        res = self._get(path, headers, nosign)
         
         return res.json()
     
@@ -100,37 +125,108 @@ class FHIRServer(object):
         """ Perform a data request data against the server's base with the
         given relative path.
         """
-        res = self._request(path, None, nosign)
+        res = self._get(path, None, nosign)
         return res.content
     
-    def _request(self, path, headers={}, nosign=False):
+    def _get(self, path, headers={}, nosign=False):
+        """ Issues a GET request.
+        
+        :returns: The response object
+        """
         assert self.base_uri and path
         url = urlparse.urljoin(self.base_uri, path)
         
+        headers = {
+            'Accept': 'application/json+fhir',
+            'Accept-Charset': 'UTF-8',
+        }
         if not nosign and self.auth is not None and self.auth.can_sign_headers():
             headers = self.auth.signed_headers(headers)
         
         # perform the request but intercept 401 responses, raising our own Exception
         res = requests.get(url, headers=headers)
-        if 401 == res.status_code:
-            raise FHIRUnauthorizedException(res)
-        else:
-            res.raise_for_status()
+        self.raise_for_status(res)
+        return res
+    
+    def put_json(self, path, resource_json):
+        """ Performs a PUT request of the given JSON, which should represent a
+        resource, to the given relative path.
+        
+        :param str path: The path to append to `base_uri`
+        :param dict resource_json: The JSON representing the resource
+        :throws: Exception on HTTP status >= 400
+        :returns: The response object
+        """
+        url = urlparse.urljoin(self.base_uri, path)
+        headers = {
+            'Content-type': 'application/json+fhir',
+            'Accept': 'application/json+fhir',
+        }
+        res = requests.put(url, headers=headers, data=json.dumps(resource_json))
+        self.raise_for_status(res)
+        return res
+    
+    def post_json(self, path, resource_json):
+        """ Performs a POST of the given JSON, which should represent a
+        resource, to the given relative path.
+        
+        :param str path: The path to append to `base_uri`
+        :param dict resource_json: The JSON representing the resource
+        :throws: Exception on HTTP status >= 400
+        :returns: The response object
+        """
+        url = urlparse.urljoin(self.base_uri, path)
+        headers = {
+            'Content-type': 'application/json+fhir',
+            'Accept': 'application/json+fhir',
+        }
+        res = requests.post(url, headers=headers, data=json.dumps(resource_json))
+        self.raise_for_status(res)
         return res
     
     def post_as_form(self, url, formdata):
         """ Performs a POST request with form-data, expecting to receive JSON.
+        This method is used in the OAuth2 token exchange and thus doesn't
+        request json+fhir.
         
-        :returns: Decoded JSON response
+        :throws: Exception on HTTP status >= 400
+        :returns: The response object
         """
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
             'Accept': 'application/json',
         }
-        req = requests.post(url, data=formdata)
-        req.raise_for_status()
+        res = requests.post(url, data=formdata)
+        self.raise_for_status(res)
+        return res
+    
+    def delete_json(self, path):
+        """ Issues a DELETE command against the given relative path, accepting
+        a JSON response.
         
-        return req.json()
+        :param str url: The relative URL path to issue a DELETE against
+        :returns: The response object
+        """
+        url = urlparse.urljoin(self.base_uri, path)
+        headers = {
+            'Accept': 'application/json',
+        }
+        res = requests.delete(url)
+        self.raise_for_status(res)
+        return res
+    
+    def raise_for_status(self, response):
+        if response.status_code < 400:
+            return
+        
+        if 401 == response.status_code:
+            raise FHIRUnauthorizedException(response)
+        elif 403 == response.status_code:
+            raise FHIRPermissionDeniedException(response)
+        elif 404 == response.status_code:
+            raise FHIRNotFoundException(response)
+        else:
+            response.raise_for_status()
     
     
     # MARK: State Handling
@@ -141,9 +237,8 @@ class FHIRServer(object):
         """
         return {
             'base_uri': self.base_uri,
-            'registration_uri': self._registration_uri,
-            'authorize_uri': self._authorize_uri,
-            'token_uri': self._token_uri,
+            'auth_type': self.auth.auth_type if self.auth is not None else 'none',
+            'auth': self.auth.state if self.auth is not None else None,
         }
     
     def from_state(self, state):
@@ -151,7 +246,5 @@ class FHIRServer(object):
         """
         assert state
         self.base_uri = state.get('base_uri') or self.base_uri
-        self._registration_uri = state.get('registration_uri') or self._registration_uri
-        self._authorize_uri = state.get('authorize_uri') or self._authorize_uri
-        self._token_uri = state.get('token_uri') or self._token_uri
+        self.auth = FHIRAuth.create(state.get('auth_type'), state=state.get('auth'))
     

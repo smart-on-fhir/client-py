@@ -1,15 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.0.82.2943 (type-Quantity.profile.json) on 2014-11-11.
-#  2014, SMART Platforms.
+#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Quantity) on 2015-07-06.
+#  2015, SMART Health IT.
 
 
-import fhirelement
+from . import fhirelement
 
 
 class Quantity(fhirelement.FHIRElement):
     """ A measured or measurable amount.
+    
+    A measured amount (or an amount that can potentially be measured). Note
+    that measured amounts include amounts that are not precisely quantified,
+    including amounts involving arbitrary units and floating currencies.
     """
     
     resource_name = "Quantity"
@@ -40,16 +44,14 @@ class Quantity(fhirelement.FHIRElement):
         
         super(Quantity, self).__init__(jsondict)
     
-    def update_with_json(self, jsondict):
-        super(Quantity, self).update_with_json(jsondict)
-        if 'code' in jsondict:
-            self.code = jsondict['code']
-        if 'comparator' in jsondict:
-            self.comparator = jsondict['comparator']
-        if 'system' in jsondict:
-            self.system = jsondict['system']
-        if 'units' in jsondict:
-            self.units = jsondict['units']
-        if 'value' in jsondict:
-            self.value = jsondict['value']
+    def elementProperties(self):
+        js = super(Quantity, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("comparator", "comparator", str, False),
+            ("system", "system", str, False),
+            ("units", "units", str, False),
+            ("value", "value", float, False),
+        ])
+        return js
 
