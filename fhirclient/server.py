@@ -198,7 +198,7 @@ class FHIRServer(object):
         }
         res = requests.post(url, data=formdata)
         self.raise_for_status(res)
-        return res.json()
+        return res
     
     def delete_json(self, path):
         """ Issues a DELETE command against the given relative path, accepting
