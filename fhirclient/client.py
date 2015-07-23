@@ -15,7 +15,8 @@ __license__ = 'APACHE2'
 __copyright__ = "Copyright 2015 Boston Children's Hospital"
 
 scope_default = 'user/*.* patient/*.read openid profile'
-scope_nolaunch = 'launch/patient'
+scope_haslaunch = 'launch'
+scope_patientlaunch = 'launch/patient'
 
 class FHIRClient(object):
     """ Instances of this class handle authorizing and talking to SMART on FHIR
@@ -24,17 +25,24 @@ class FHIRClient(object):
     The settings dictionary supports:
     
         - `app_id`*: Your app/client-id, e.g. 'my_web_app'
-        - `api_base`*: The FHIR service to connect to, e.g. 'https://fhir-api.smarthealthit.org'
+        - `api_base`*: The FHIR service to connect to, e.g. 'https://fhir-api-dstu2.smarthealthit.org'
         - `redirect_uri`: The callback/redirect URL for your app, e.g. 'http://localhost:8000/fhir-app/' when testing locally
         - `patient_id`: The patient id against which to operate, if already known
+        - `scope`: Space-separated list of scopes to request, if other than default
         - `launch_token`: The launch token
     """
     
     def __init__(self, settings=None, state=None, save_func=lambda x:x):
         self.app_id = None
+        """ The app-id for the app this client is used in. """
+        
         self.server = None
-        self.scope = None
+        self.scope = scope_default
         self.redirect = None
+        """ The redirect-uri that will be used to redirect after authorization. """
+        
+        self.launch_token = None
+        """ The token/id provided at launch, if any. """
         
         self.launch_context = None
         """ Context parameters supplied by the server during launch. """
@@ -59,19 +67,26 @@ class FHIRClient(object):
             self.app_id = settings['app_id']
             self.redirect = settings.get('redirect_uri')
             self.patient_id = settings.get('patient_id')
-            scope = scope_default
-            if 'launch_token' in settings:
-                self.scope = ' launch:'.join([scope, settings['launch_token']])
-            elif self.patient_id is None and self.wants_patient:
-                self.scope = ' '.join([scope_nolaunch, scope])
-            else:
-                self.scope = scope
+            self.scope = settings.get('scope', self.scope)
+            self.launch_token = settings.get('launch_token')
             self.server = FHIRServer(self, base_uri=settings['api_base'])
         else:
             raise Exception("Must either supply settings or a state upon client initialization")
     
     
     # MARK: Authorization
+    
+    @property
+    def desired_scope(self):
+        """ Ensures `self.scope` is completed with launch scopes, according to
+        current client settings.
+        """
+        scope = self.scope
+        if self.launch_token is not None:
+            scope = ' '.join([scope_haslaunch, scope])
+        elif self.patient_id is None and self.wants_patient:
+            scope = ' '.join([scope_patientlaunch, scope])
+        return scope
     
     @property
     def ready(self):
@@ -153,6 +168,7 @@ class FHIRClient(object):
     # MARK: State
     
     def reset_patient(self):
+        self.launch_token = None
         self.launch_context = None
         self.patient_id = None
         self._patient = None
@@ -166,6 +182,7 @@ class FHIRClient(object):
             'redirect': self.redirect,
             'patient_id': self.patient_id,
             'server': self.server.state,
+            'launch_token': self.launch_token,
             'launch_context': self.launch_context,
         }
     
@@ -175,6 +192,7 @@ class FHIRClient(object):
         self.scope = state.get('scope') or self.scope
         self.redirect = state.get('redirect') or self.redirect
         self.patient_id = state.get('patient_id') or self.patient_id
+        self.launch_token = state.get('launch_token') or self.launch_token
         self.launch_context = state.get('launch_context') or self.launch_context
         self.server = FHIRServer(self, state=state.get('server'))
     
