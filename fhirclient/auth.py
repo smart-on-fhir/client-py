@@ -41,7 +41,22 @@ class FHIRAuth(object):
         # look for OAuth2 URLs in SMART security extensions
         if security is not None and security.extension is not None:
             for e in security.extension:
-                if "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#register" == e.url:
+                if "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris" == e.url:
+                    if e.extension is not None:
+                        for ee in e.extension:
+                            if 'token' == ee.url:
+                                state['token_uri'] = ee.valueUri
+                            elif 'authorize' == ee.url:
+                                state['authorize_uri'] = ee.valueUri
+                                auth_type = 'oauth2'
+                            elif 'register' == ee.url:
+                                state['registration_uri'] = ee.valueUri
+                        break
+                    else:
+                        logging.warning("SMART AUTH: invalid `http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris` extension: needs to include sub-extensions to define OAuth2 endpoints but there are none")
+                
+                # fallback to old extension URLs  
+                elif "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#register" == e.url:
                     state['registration_uri'] = e.valueUri
                 elif "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#authorize" == e.url:
                     state['authorize_uri'] = e.valueUri
