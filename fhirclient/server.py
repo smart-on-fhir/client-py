@@ -74,8 +74,8 @@ class FHIRServer(object):
                 logging.info("No REST security statement found in server conformance statement")
             
             settings = {
+                'aud': self.base_uri,
                 'app_id': self.client.app_id if self.client is not None else None,
-                'scope': self.client.scope if self.client is not None else None,
                 'redirect_uri': self.client.redirect if self.client is not None else None,
             }
             self.auth = FHIRAuth.from_conformance_security(security, settings)
@@ -83,6 +83,14 @@ class FHIRServer(object):
     
     
     # MARK: Authorization
+    
+    @property
+    def desired_scope(self):
+        return self.client.desired_scope if self.client is not None else None
+    
+    @property
+    def launch_token(self):
+        return self.client.launch_token if self.client is not None else None
     
     @property
     def authorize_uri(self):
