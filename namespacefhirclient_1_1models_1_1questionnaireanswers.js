@@ -1,0 +1,7 @@
+var namespacefhirclient_1_1models_1_1questionnaireanswers =
+[
+    [ "QuestionnaireAnswers", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers.html", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers" ],
+    [ "QuestionnaireAnswersGroup", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group.html", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group" ],
+    [ "QuestionnaireAnswersGroupQuestion", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group_question.html", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group_question" ],
+    [ "QuestionnaireAnswersGroupQuestionAnswer", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group_question_answer.html", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group_question_answer" ]
+];

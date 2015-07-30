@@ -1,7 +1,7 @@
 var classfhirclient_1_1models_1_1group_1_1_group_characteristic =
 [
     [ "__init__", "classfhirclient_1_1models_1_1group_1_1_group_characteristic.html#a9275a7f23bd8f28724f39a89f3f89581", null ],
-    [ "update_with_json", "classfhirclient_1_1models_1_1group_1_1_group_characteristic.html#a3f200b6fd41642537de45b2afa73bf6d", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1group_1_1_group_characteristic.html#a1180d53d083b10cdf5ae19b16956b092", null ],
     [ "code", "classfhirclient_1_1models_1_1group_1_1_group_characteristic.html#a3e47eea8e75cf09944b8867508625647", null ],
     [ "exclude", "classfhirclient_1_1models_1_1group_1_1_group_characteristic.html#ae27b1c11d477ae26cbd3f48b132cfa76", null ],
     [ "valueBoolean", "classfhirclient_1_1models_1_1group_1_1_group_characteristic.html#af9b17962ce3f0c75b23480d5ae1164c3", null ],

@@ -1,7 +1,7 @@
 var classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event =
 [
     [ "__init__", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event.html#a0a19221641414614cd02002e87b5ab79", null ],
-    [ "update_with_json", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event.html#a59c6020c1994b720565f75d0d84a7b16", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event.html#a0d93d22e43fd3d09b8522bafdbb6ad71", null ],
     [ "category", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event.html#ad600ed3aca31b70752ce8fc0440f5b64", null ],
     [ "code", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event.html#af64e9cd695d400a7e07b08608435ebe8", null ],
     [ "documentation", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event.html#a244f0169851afae5abc3425f02ee1fe3", null ],

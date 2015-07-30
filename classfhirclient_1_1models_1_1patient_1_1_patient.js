@@ -1,7 +1,7 @@
 var classfhirclient_1_1models_1_1patient_1_1_patient =
 [
     [ "__init__", "classfhirclient_1_1models_1_1patient_1_1_patient.html#a2215073a12aeecb396239180f04c4fbb", null ],
-    [ "update_with_json", "classfhirclient_1_1models_1_1patient_1_1_patient.html#a179bf1a8ea7074e45ee8dc100e6e9500", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1patient_1_1_patient.html#add5e82d22ec253f2f033c34470f41e7b", null ],
     [ "active", "classfhirclient_1_1models_1_1patient_1_1_patient.html#a21941a93817aac38103a4633ed54ddf1", null ],
     [ "address", "classfhirclient_1_1models_1_1patient_1_1_patient.html#aed16e8b3d582d86c24eb59b993797684", null ],
     [ "animal", "classfhirclient_1_1models_1_1patient_1_1_patient.html#a6dd02f26178f416b7f316f01a8c7dd19", null ],
@@ -20,6 +20,5 @@ var classfhirclient_1_1models_1_1patient_1_1_patient =
     [ "multipleBirthInteger", "classfhirclient_1_1models_1_1patient_1_1_patient.html#afaf17154eec5a58e6f6ccdda6cb5d5e0", null ],
     [ "name", "classfhirclient_1_1models_1_1patient_1_1_patient.html#a5a32eb161342084be3839cb227504e97", null ],
     [ "photo", "classfhirclient_1_1models_1_1patient_1_1_patient.html#a87512cf500c7db7169a86e5d71576524", null ],
-    [ "telecom", "classfhirclient_1_1models_1_1patient_1_1_patient.html#aa9c910b47c025c6d6df93d3d87fd6396", null ],
-    [ "text", "classfhirclient_1_1models_1_1patient_1_1_patient.html#a9c5cd68f6e44ab6620b2a0207a86134d", null ]
+    [ "telecom", "classfhirclient_1_1models_1_1patient_1_1_patient.html#aa9c910b47c025c6d6df93d3d87fd6396", null ]
 ];

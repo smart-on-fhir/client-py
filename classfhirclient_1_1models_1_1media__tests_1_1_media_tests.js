@@ -1,5 +1,8 @@
 var classfhirclient_1_1models_1_1media__tests_1_1_media_tests =
 [
-    [ "instantiate_from", "classfhirclient_1_1models_1_1media__tests_1_1_media_tests.html#abdf8ad0adb2a8a9af1c6dc8adec169ea", null ],
-    [ "testMedia1", "classfhirclient_1_1models_1_1media__tests_1_1_media_tests.html#a00902ac7988f8ca250b9b1e8433b7a68", null ]
+    [ "implMedia1", "classfhirclient_1_1models_1_1media__tests_1_1_media_tests.html#aa07a84fe9625a92f2563b096b892d05b", null ],
+    [ "implMedia2", "classfhirclient_1_1models_1_1media__tests_1_1_media_tests.html#aed092d31fd5099731a3b95feb673a140", null ],
+    [ "instantiate_from", "classfhirclient_1_1models_1_1media__tests_1_1_media_tests.html#a111cfdbb5f7a92b9c555cdd151f871e0", null ],
+    [ "testMedia1", "classfhirclient_1_1models_1_1media__tests_1_1_media_tests.html#aae1e9b1d2cfdec296731d5d7cf2ff875", null ],
+    [ "testMedia2", "classfhirclient_1_1models_1_1media__tests_1_1_media_tests.html#a946791703d42c208f3677f179e9e6cab", null ]
 ];

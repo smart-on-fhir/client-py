@@ -1,7 +1,7 @@
 var classfhirclient_1_1models_1_1extension_1_1_extension =
 [
     [ "__init__", "classfhirclient_1_1models_1_1extension_1_1_extension.html#aa977953580e7924be28dcc3a341e4e6d", null ],
-    [ "update_with_json", "classfhirclient_1_1models_1_1extension_1_1_extension.html#ab525cac4fbca267518f5ad426cf10a30", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a4ca3035c60e04c65163e16f598fc1ed8", null ],
     [ "url", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a165416dd45d43eb89f35a923b716a8fd", null ],
     [ "valueAddress", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a2064e06eff75f28266ba0c23bc15cb14", null ],
     [ "valueAttachment", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a3ab12f44ca5666dccdfdd5845638afcb", null ],
@@ -10,7 +10,7 @@ var classfhirclient_1_1models_1_1extension_1_1_extension =
     [ "valueCode", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a305ee73eb84529a7e08375941cd1f12e", null ],
     [ "valueCodeableConcept", "classfhirclient_1_1models_1_1extension_1_1_extension.html#aa940f449d3861c5971d4d8e6480e3e89", null ],
     [ "valueCoding", "classfhirclient_1_1models_1_1extension_1_1_extension.html#aefb1d261dac6097ba7144f1a3bc7cf1f", null ],
-    [ "valueContact", "classfhirclient_1_1models_1_1extension_1_1_extension.html#ad536ee2d4c7e5a33534106481517cdae", null ],
+    [ "valueContactPoint", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a4da367cdf9abd1a23c653f367bc47a1f", null ],
     [ "valueDate", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a47dec452d6fc9d39fa79a91da2feda30", null ],
     [ "valueDateTime", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a47fbd2e8dcb67c5b827651f679cbbdeb", null ],
     [ "valueDecimal", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a256b4d66a75ed5db12a034410356f619", null ],
@@ -22,8 +22,10 @@ var classfhirclient_1_1models_1_1extension_1_1_extension =
     [ "valueQuantity", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a29847ad8f0285383f1db37d907995fad", null ],
     [ "valueRange", "classfhirclient_1_1models_1_1extension_1_1_extension.html#aa8405b443512f380ea4b3abf9322f736", null ],
     [ "valueRatio", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a2e96c66b8175b3858d2a16c7ab731897", null ],
-    [ "valueResource", "classfhirclient_1_1models_1_1extension_1_1_extension.html#ad214611ec8019cb7dd7b0e3ea17d187b", null ],
-    [ "valueSchedule", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a90c64cf314e498a02ee5869c82edf2cd", null ],
+    [ "valueReference", "classfhirclient_1_1models_1_1extension_1_1_extension.html#af0b2b4115497b10d13cdf6282dffffbd", null ],
+    [ "valueSignature", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a39da31903ea5f722d9920a9234a3d05e", null ],
     [ "valueString", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a92a480b0d6499d410db332acf3ad50a9", null ],
+    [ "valueTime", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a0ec440343b8d83435b1d481002f6f284", null ],
+    [ "valueTiming", "classfhirclient_1_1models_1_1extension_1_1_extension.html#a61888a4965b15c56e297cb7b690128ab", null ],
     [ "valueUri", "classfhirclient_1_1models_1_1extension_1_1_extension.html#aa1d359747b6c9aafdea7d2348a816e16", null ]
 ];

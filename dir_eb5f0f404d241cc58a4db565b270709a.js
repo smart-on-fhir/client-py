@@ -9,6 +9,8 @@ var dir_eb5f0f404d241cc58a4db565b270709a =
     [ "client.py", "client_8py.html", "client_8py" ],
     [ "server.py", "server_8py.html", [
       [ "FHIRUnauthorizedException", "classfhirclient_1_1server_1_1_f_h_i_r_unauthorized_exception.html", "classfhirclient_1_1server_1_1_f_h_i_r_unauthorized_exception" ],
+      [ "FHIRPermissionDeniedException", "classfhirclient_1_1server_1_1_f_h_i_r_permission_denied_exception.html", "classfhirclient_1_1server_1_1_f_h_i_r_permission_denied_exception" ],
+      [ "FHIRNotFoundException", "classfhirclient_1_1server_1_1_f_h_i_r_not_found_exception.html", "classfhirclient_1_1server_1_1_f_h_i_r_not_found_exception" ],
       [ "FHIRServer", "classfhirclient_1_1server_1_1_f_h_i_r_server.html", "classfhirclient_1_1server_1_1_f_h_i_r_server" ]
     ] ],
     [ "server_tests.py", "server__tests_8py.html", [

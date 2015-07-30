@@ -1,0 +1,4 @@
+var namespacefhirclient_1_1models_1_1imagingobjectselection__tests =
+[
+    [ "ImagingObjectSelectionTests", "classfhirclient_1_1models_1_1imagingobjectselection__tests_1_1_imaging_object_selection_tests.html", "classfhirclient_1_1models_1_1imagingobjectselection__tests_1_1_imaging_object_selection_tests" ]
+];

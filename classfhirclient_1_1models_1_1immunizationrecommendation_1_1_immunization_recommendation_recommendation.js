@@ -1,7 +1,7 @@
 var classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation =
 [
     [ "__init__", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation.html#a0015e5a0346c691767d4327b3b143f46", null ],
-    [ "update_with_json", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation.html#ac6f017dfbac737fbbb15cb0101f023f8", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation.html#a2271070ab92e011860c1ed7b64f3a85f", null ],
     [ "date", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation.html#af8a8d496a400996f2f559b0bf7407c9d", null ],
     [ "dateCriterion", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation.html#a5e7751d4761ae138a5b6cbc048a211ef", null ],
     [ "doseNumber", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation.html#aa28b64d7b9c230e15253cca649f6e617", null ],

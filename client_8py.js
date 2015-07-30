@@ -7,5 +7,6 @@ var client_8py =
     [ "__version__", "client_8py.html#a717a12be9019b1a548bb2cd76d24e44e", null ],
     [ "abspath", "client_8py.html#ab4f9db2536d7a8144f647db5f7bc5e90", null ],
     [ "scope_default", "client_8py.html#a91f9ce55f2c87896470af1ae755cf6ea", null ],
-    [ "scope_nolaunch", "client_8py.html#a29231a466f4f577206306408fdadb8eb", null ]
+    [ "scope_haslaunch", "client_8py.html#ac7ff315b43092aa89c787a8a79fe82e9", null ],
+    [ "scope_patientlaunch", "client_8py.html#a8495905378d8fde0854146bb89eb26d7", null ]
 ];

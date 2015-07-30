@@ -1,7 +1,7 @@
 var classfhirclient_1_1models_1_1supply_1_1_supply_dispense =
 [
     [ "__init__", "classfhirclient_1_1models_1_1supply_1_1_supply_dispense.html#a0b1d9b057888fd2c45954b405c1e499c", null ],
-    [ "update_with_json", "classfhirclient_1_1models_1_1supply_1_1_supply_dispense.html#a276ad21ea5146deb7610d32b48e79993", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1supply_1_1_supply_dispense.html#ad6643dc105f18505ce0735c9b542959d", null ],
     [ "destination", "classfhirclient_1_1models_1_1supply_1_1_supply_dispense.html#ad2a13e4f1b1c0eefd481919dc26146c3", null ],
     [ "identifier", "classfhirclient_1_1models_1_1supply_1_1_supply_dispense.html#a7306c7608368f0ab2c583b707e93a15c", null ],
     [ "quantity", "classfhirclient_1_1models_1_1supply_1_1_supply_dispense.html#a79ccd3b1c737a01382efdb2241cbe719", null ],

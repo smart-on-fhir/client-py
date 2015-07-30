@@ -1,15 +1,13 @@
 var classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization =
 [
     [ "__init__", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a0db8dcae3f60d3b21eb1d57ff75069b5", null ],
-    [ "update_with_json", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a1134231852175adc8ecb9210e4d11a21", null ],
-    [ "accomodation", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#abc823deb3934ad473023cd492762469b", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a159da2f2b476f69b348900dced748a89", null ],
     [ "admitSource", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a43ccd2842b83b27890db066f501e64a0", null ],
     [ "destination", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a630178c4cc9795ebc3970b48e929a1c7", null ],
-    [ "diet", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#af03c21985766aa78d21e18c5eebb15e9", null ],
+    [ "dietPreference", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a9c5585764a804a5c9f161b8869efce16", null ],
     [ "dischargeDiagnosis", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a5651c7570eb667fdcc50262c22980903", null ],
     [ "dischargeDisposition", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#abfe083642d1e49d9294f733432371046", null ],
     [ "origin", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a9f0bcc9531a7bade579a8c1c970d34fc", null ],
-    [ "period", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#ac48c1f0a1e18d22b613f2ee4e50b6a16", null ],
     [ "preAdmissionIdentifier", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a62b1cbecce3168e6016f15b6807931d4", null ],
     [ "reAdmission", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a58c7825fb12b57b3347f4dc4f3974eef", null ],
     [ "specialArrangement", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a9e486b8918f223bc5f97a3ef2b45d806", null ],

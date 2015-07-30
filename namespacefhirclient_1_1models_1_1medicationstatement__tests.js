@@ -1,0 +1,4 @@
+var namespacefhirclient_1_1models_1_1medicationstatement__tests =
+[
+    [ "MedicationStatementTests", "classfhirclient_1_1models_1_1medicationstatement__tests_1_1_medication_statement_tests.html", "classfhirclient_1_1models_1_1medicationstatement__tests_1_1_medication_statement_tests" ]
+];

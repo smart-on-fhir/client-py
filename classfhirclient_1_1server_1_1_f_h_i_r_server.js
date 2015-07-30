@@ -1,15 +1,25 @@
 var classfhirclient_1_1server_1_1_f_h_i_r_server =
 [
     [ "__init__", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#ad2cd7b259977d53b656a6d52c8ce72b9", null ],
-    [ "authorize_uri", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a39757c55a1b17f3ad3ee22cf4fb34c5b", null ],
-    [ "conformance", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#ac7cc08b28bbdb54c0227abb0ecb03495", null ],
-    [ "did_authorize", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a24c8dc9de17ab60b3dfdd466fd670af1", null ],
-    [ "from_state", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a584ed3f8737854eb19ebc63b52e3c110", null ],
+    [ "authorize_uri", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a2071ff8f02cbc8a65f9ba6156bc40a16", null ],
+    [ "conformance", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a6b0b2c6f1d3bfdbf242a8d47aab89e0f", null ],
+    [ "delete_json", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a729df52659d0d18774dc25253d5bdd5c", null ],
+    [ "desired_scope", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#aaae49d15ba5d1ac957e8d6a0be2a7698", null ],
+    [ "from_state", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#ae65742eca6ca9f0d3a5651e042ef74a3", null ],
     [ "get_conformance", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a42e06023d3e82ba133963cc5ffd3e561", null ],
-    [ "post_as_form", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#ac93e9076bcc5314d18f6d6e71fac2cd0", null ],
+    [ "handle_callback", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a28e34e938da6b2f96cac8fd85945c54d", null ],
+    [ "launch_token", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#adc86d4d2a9c9609ab85f698f7ea5e364", null ],
+    [ "post_as_form", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#aca8174439786a29c0da231db159d2b2b", null ],
+    [ "post_json", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#abe132f28cac9ab5c12c48066adce1e47", null ],
+    [ "put_json", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#aa02b883d755d4202a3b91187777d7834", null ],
+    [ "raise_for_status", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a1c47b18be8db3da944020841cbf0226d", null ],
+    [ "ready", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#abd35df8f9d63421025b814640efa7819", null ],
+    [ "reauthorize", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a49e8dd99adaf1228836654e018cd140f", null ],
+    [ "request_data", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a2a7bf3ecc258e6164f01f616d0281c80", null ],
     [ "request_json", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a8ee57dc2bd891d46b4fa87e97d380ba2", null ],
-    [ "state", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a3d7cbc117531e4255d74e7214c20bfb9", null ],
-    [ "token_uri", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#aadcd6140b19c357866209facfcbd6ef7", null ],
+    [ "should_save_state", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#aa8e4c98234350e126793fa996857e32c", null ],
+    [ "state", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#a4aabe6251ccd5c05c5920761cd62eeac", null ],
     [ "auth", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#ab7a528932a89398f278cea2872b9fad4", null ],
-    [ "base_uri", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#af47781a666ac2796e32537623f51678b", null ]
+    [ "base_uri", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#af47781a666ac2796e32537623f51678b", null ],
+    [ "client", "classfhirclient_1_1server_1_1_f_h_i_r_server.html#ad6aa33d943610bc7247196cfdf8593ec", null ]
 ];

@@ -1,7 +1,7 @@
 var classfhirclient_1_1models_1_1humanname_1_1_human_name =
 [
     [ "__init__", "classfhirclient_1_1models_1_1humanname_1_1_human_name.html#a8e2ec6a3adbfcf13e5531fa38e8390ef", null ],
-    [ "update_with_json", "classfhirclient_1_1models_1_1humanname_1_1_human_name.html#a99bdd522304cd6c7b2b8baa02f007aab", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1humanname_1_1_human_name.html#acc38e52e97111ae483ae0ebdf8393ac0", null ],
     [ "family", "classfhirclient_1_1models_1_1humanname_1_1_human_name.html#a3de00a475a49dc7216a4cdf77e1215e0", null ],
     [ "given", "classfhirclient_1_1models_1_1humanname_1_1_human_name.html#ade60f674cab5cad0317afc19ccf411f3", null ],
     [ "period", "classfhirclient_1_1models_1_1humanname_1_1_human_name.html#aef6667f94a34cf32ca8a68a9c46a7774", null ],

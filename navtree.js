@@ -1,50 +1,3 @@
-var NAVTREE =
-[
-  [ "SMART on FHIR Python Client", "index.html", [
-    [ "Credits", "md__a_u_t_h_o_r_s.html", null ],
-    [ "How To Contribute", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", null ],
-    [ "Namespaces", null, [
-      [ "Namespace List", "namespaces.html", "namespaces" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ]
-      ] ]
-    ] ],
-    [ "Classes", null, [
-      [ "Class List", "annotated.html", "annotated" ],
-      [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", "functions_vars" ]
-      ] ]
-    ] ],
-    [ "Files", null, [
-      [ "File List", "files.html", "files" ]
-    ] ]
-  ] ]
-];
-
-var NAVTREEINDEX =
-[
-"____init_____8py.html",
-"classfhirclient_1_1models_1_1composition_1_1_composition_section.html#aeb3568f0d61afc542e54ecf4028a635e",
-"classfhirclient_1_1models_1_1deviceobservationreport_1_1_device_observation_report.html#a2a680aa12952d8764cebf24fea8f0349",
-"classfhirclient_1_1models_1_1familyhistory_1_1_family_history_relation.html#a6583df43aadec112be1e685418f8b7db",
-"classfhirclient_1_1models_1_1fhirsearchelement_1_1_f_h_i_r_search_element.html#a5027cced77d29dd0e34364158baf58d5",
-"classfhirclient_1_1models_1_1fhirsearchelement_1_1_f_h_i_r_search_element.html#aca949ab9066076cd47f5af46cc7260c8",
-"classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation_protocol.html",
-"classfhirclient_1_1models_1_1medicationstatement_1_1_medication_statement.html#a399131369f29ae5dd5ac50e07ede702a",
-"classfhirclient_1_1models_1_1patient__tests_1_1_patient_tests.html#a0c151074f5499dd7baf1b2c6359753d6",
-"classfhirclient_1_1models_1_1provenance_1_1_provenance_agent.html#a0bdf96fc020a8437fb8788f5a6f2a8d3",
-"classfhirclient_1_1models_1_1specimen_1_1_specimen_collection.html#ae42e95b9a4fbcb16aa105c932f636132",
-"functions_o.html",
-"namespacefhirclient_1_1models_1_1resourcereference.html"
-];
-
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
 var navTreeSubIndices = new Array();
 
 function getData(varName)
@@ -152,7 +105,7 @@ function createIndent(o,domNode,node,level)
     node.expandToggle.onclick = function() {
       if (node.expanded) {
         $(node.getChildrenUL()).slideUp("fast");
-        node.plus_img.src = node.relpath+"ftv2pnode.png";
+        node.plus_img.src = node.relpath+"arrowright.png";
         node.expanded = false;
       } else {
         expandNode(o, node, false, false);
@@ -160,7 +113,7 @@ function createIndent(o,domNode,node,level)
     }
     node.expandToggle.appendChild(imgNode);
     domNode.appendChild(node.expandToggle);
-    imgNode.src = node.relpath+"ftv2pnode.png";
+    imgNode.src = node.relpath+"arrowright.png";
   } else {
     var span = document.createElement("span");
     span.style.display = 'inline-block';
@@ -316,9 +269,9 @@ function expandNode(o, node, imm, showRoot)
         $(node.getChildrenUL()).slideDown("fast");
       }
       if (node.isLast) {
-        node.plus_img.src = node.relpath+"ftv2mlastnode.png";
+        node.plus_img.src = node.relpath+"arrowdown.png";
       } else {
-        node.plus_img.src = node.relpath+"ftv2mnode.png";
+        node.plus_img.src = node.relpath+"arrowdown.png";
       }
       node.expanded = true;
     }
@@ -388,11 +341,7 @@ function showNode(o, node, index, hash)
         getNode(o, node);
       }
       $(node.getChildrenUL()).css({'display':'block'});
-      if (node.isLast) {
-        node.plus_img.src = node.relpath+"ftv2mlastnode.png";
-      } else {
-        node.plus_img.src = node.relpath+"ftv2mnode.png";
-      }
+      node.plus_img.src = node.relpath+"arrowdown.png";
       node.expanded = true;
       var n = node.children[o.breadcrumbs[index]];
       if (index+1<o.breadcrumbs.length) {
@@ -530,7 +479,7 @@ function initNavTree(toroot,relpath)
   o.node.expanded = false;
   o.node.isLast = true;
   o.node.plus_img = document.createElement("img");
-  o.node.plus_img.src = relpath+"ftv2pnode.png";
+  o.node.plus_img.src = relpath+"arrowright.png";
   o.node.plus_img.width = 16;
   o.node.plus_img.height = 22;
 

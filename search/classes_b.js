@@ -1,18 +1,15 @@
 var searchData=
 [
-  ['observation',['Observation',['../classfhirclient_1_1models_1_1observation_1_1_observation.html',1,'fhirclient::models::observation']]],
-  ['observationreferencerange',['ObservationReferenceRange',['../classfhirclient_1_1models_1_1observation_1_1_observation_reference_range.html',1,'fhirclient::models::observation']]],
-  ['observationrelated',['ObservationRelated',['../classfhirclient_1_1models_1_1observation_1_1_observation_related.html',1,'fhirclient::models::observation']]],
-  ['observationtests',['ObservationTests',['../classfhirclient_1_1models_1_1observation__tests_1_1_observation_tests.html',1,'fhirclient::models::observation_tests']]],
-  ['operationoutcome',['OperationOutcome',['../classfhirclient_1_1models_1_1operationoutcome_1_1_operation_outcome.html',1,'fhirclient::models::operationoutcome']]],
-  ['operationoutcomeissue',['OperationOutcomeIssue',['../classfhirclient_1_1models_1_1operationoutcome_1_1_operation_outcome_issue.html',1,'fhirclient::models::operationoutcome']]],
-  ['order',['Order',['../classfhirclient_1_1models_1_1order_1_1_order.html',1,'fhirclient::models::order']]],
-  ['orderresponse',['OrderResponse',['../classfhirclient_1_1models_1_1orderresponse_1_1_order_response.html',1,'fhirclient::models::orderresponse']]],
-  ['ordertests',['OrderTests',['../classfhirclient_1_1models_1_1order__tests_1_1_order_tests.html',1,'fhirclient::models::order_tests']]],
-  ['orderwhen',['OrderWhen',['../classfhirclient_1_1models_1_1order_1_1_order_when.html',1,'fhirclient::models::order']]],
-  ['organization',['Organization',['../classfhirclient_1_1models_1_1organization_1_1_organization.html',1,'fhirclient::models::organization']]],
-  ['organizationcontact',['OrganizationContact',['../classfhirclient_1_1models_1_1organization_1_1_organization_contact.html',1,'fhirclient::models::organization']]],
-  ['organizationtests',['OrganizationTests',['../classfhirclient_1_1models_1_1organization__tests_1_1_organization_tests.html',1,'fhirclient::models::organization_tests']]],
-  ['other',['Other',['../classfhirclient_1_1models_1_1other_1_1_other.html',1,'fhirclient::models::other']]],
-  ['othertests',['OtherTests',['../classfhirclient_1_1models_1_1other__tests_1_1_other_tests.html',1,'fhirclient::models::other_tests']]]
+  ['namingsystem',['NamingSystem',['../classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html',1,'fhirclient::models::namingsystem']]],
+  ['namingsystemcontact',['NamingSystemContact',['../classfhirclient_1_1models_1_1namingsystem_1_1_naming_system_contact.html',1,'fhirclient::models::namingsystem']]],
+  ['namingsystemtests',['NamingSystemTests',['../classfhirclient_1_1models_1_1namingsystem__tests_1_1_naming_system_tests.html',1,'fhirclient::models::namingsystem_tests']]],
+  ['namingsystemuniqueid',['NamingSystemUniqueId',['../classfhirclient_1_1models_1_1namingsystem_1_1_naming_system_unique_id.html',1,'fhirclient::models::namingsystem']]],
+  ['narrative',['Narrative',['../classfhirclient_1_1models_1_1narrative_1_1_narrative.html',1,'fhirclient::models::narrative']]],
+  ['nutritionorder',['NutritionOrder',['../classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order.html',1,'fhirclient::models::nutritionorder']]],
+  ['nutritionorderenteralformula',['NutritionOrderEnteralFormula',['../classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_enteral_formula.html',1,'fhirclient::models::nutritionorder']]],
+  ['nutritionorderoraldiet',['NutritionOrderOralDiet',['../classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet.html',1,'fhirclient::models::nutritionorder']]],
+  ['nutritionorderoraldietnutrient',['NutritionOrderOralDietNutrient',['../classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet_nutrient.html',1,'fhirclient::models::nutritionorder']]],
+  ['nutritionorderoraldiettexture',['NutritionOrderOralDietTexture',['../classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet_texture.html',1,'fhirclient::models::nutritionorder']]],
+  ['nutritionordersupplement',['NutritionOrderSupplement',['../classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_supplement.html',1,'fhirclient::models::nutritionorder']]],
+  ['nutritionordertests',['NutritionOrderTests',['../classfhirclient_1_1models_1_1nutritionorder__tests_1_1_nutrition_order_tests.html',1,'fhirclient::models::nutritionorder_tests']]]
 ];
