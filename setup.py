@@ -31,14 +31,15 @@ setup(
     description='A flexible client for FHIR servers supporting the SMART on FHIR protocol',
     long_description=(read('README.md') + '\n\n' +
                       read('AUTHORS.md')),
+    keywords='smart fhir healthcare',
     url='https://github.com/smart-on-fhir/client-py/',
     license="APACHE2",
     author="SMART Platforms Team",
     author_email='support@smarthealthit.org',
-    packages=find_packages(exclude=['test*']),
+    packages=find_packages(exclude=['test*', '*_tests.py']),
     install_requires=['requests', 'isodate'],
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'License :: OSI Approved :: Apache Software License',
@@ -47,6 +48,9 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 )
