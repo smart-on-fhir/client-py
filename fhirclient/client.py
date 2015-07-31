@@ -9,7 +9,7 @@ if abspath not in sys.path:
 
 from server import FHIRServer, FHIRUnauthorizedException, FHIRNotFoundException
 
-__version__ = '0.5'
+__version__ = '0.5.1'
 __author__ = 'SMART Platforms Team'
 __license__ = 'APACHE2'
 __copyright__ = "Copyright 2015 Boston Children's Hospital"
