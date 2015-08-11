@@ -67,7 +67,7 @@ def index():
         name = smart.human_name(smart.patient.name[0] if smart.patient.name and len(smart.patient.name) > 0 else 'Unknown')
         
         # generate simple body text
-        body += "<p>You are authorized and ready to make API requests for <em>{}</em>.</p>".format(name)
+        body += "<p>Hello, you are authorized and ready to make API requests for <em>{}</em>.</p>".format(name)
         pres = _get_prescriptions(smart)
         if pres is not None:
             body += "<p>{} prescriptions: <ul><li>{}</li></ul></p>".format("His" if 'male' == smart.patient.gender else "Her", '</li><li>'.join([_med_name(p) for p in pres]))
