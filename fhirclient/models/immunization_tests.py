@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -39,11 +39,11 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.explanation.reasonNotGiven[0].coding[0].system, "http://hl7.org/fhir/v3/ActReason")
         self.assertEqual(inst.id, "notGiven")
         self.assertFalse(inst.reported)
-        self.assertEqual(inst.text.div, "<div>Refused Immunization Example</div>")
+        self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.vaccineType.coding[0].code, "01")
-        self.assertEqual(inst.vaccineType.coding[0].display, "DTP")
-        self.assertEqual(inst.vaccineType.coding[0].system, "http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx")
+        self.assertEqual(inst.vaccineCode.coding[0].code, "01")
+        self.assertEqual(inst.vaccineCode.coding[0].display, "DTP")
+        self.assertEqual(inst.vaccineCode.coding[0].system, "http://hl7.org/fhir/sid/cvx")
         self.assertTrue(inst.wasNotGiven)
     
     def testImmunization2(self):
@@ -59,15 +59,44 @@ class ImmunizationTests(unittest.TestCase):
     def implImmunization2(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2013-01-10").date)
         self.assertEqual(inst.date.as_json(), "2013-01-10")
+        self.assertEqual(inst.doseQuantity.code, "mg")
+        self.assertEqual(inst.doseQuantity.system, "http://unitsofmeasure.org")
+        self.assertEqual(inst.doseQuantity.value, 5)
         self.assertEqual(inst.expirationDate.date, FHIRDate("2015-02-15").date)
         self.assertEqual(inst.expirationDate.as_json(), "2015-02-15")
+        self.assertEqual(inst.explanation.reason[0].coding[0].code, "429060002")
+        self.assertEqual(inst.explanation.reason[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
+        self.assertEqual(inst.identifier[0].value, "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234")
         self.assertEqual(inst.lotNumber, "AAJN11K")
+        self.assertEqual(inst.note[0].text, "Notes on adminstration of vaccine")
+        self.assertEqual(inst.reaction[0].date.date, FHIRDate("2013-01-10").date)
+        self.assertEqual(inst.reaction[0].date.as_json(), "2013-01-10")
+        self.assertTrue(inst.reaction[0].reported)
         self.assertFalse(inst.reported)
-        self.assertEqual(inst.text.div, "<div>Authored by Joginder Madra</div>")
+        self.assertEqual(inst.route.coding[0].code, "IM")
+        self.assertEqual(inst.route.coding[0].display, "Injection, intramuscular")
+        self.assertEqual(inst.route.coding[0].system, "http://hl7.org/fhir/v3/RouteOfAdministration")
+        self.assertEqual(inst.site.coding[0].code, "LA")
+        self.assertEqual(inst.site.coding[0].display, "left arm")
+        self.assertEqual(inst.site.coding[0].system, "http://hl7.org/fhir/v3/ActSite")
+        self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.vaccineType.coding[0].code, "Fluvax")
-        self.assertEqual(inst.vaccineType.coding[0].system, "urn:oid:1.2.36.1.2001.1005.17")
-        self.assertEqual(inst.vaccineType.text, "Fluvax (Influenza)")
+        self.assertEqual(inst.vaccinationProtocol[0].description, "Vaccination Protocol Sequence 1")
+        self.assertEqual(inst.vaccinationProtocol[0].doseSequence, 1)
+        self.assertEqual(inst.vaccinationProtocol[0].doseStatus.coding[0].code, "count")
+        self.assertEqual(inst.vaccinationProtocol[0].doseStatus.coding[0].display, "Counts")
+        self.assertEqual(inst.vaccinationProtocol[0].doseStatus.coding[0].system, "http://hl7.org/fhir/vaccination-protocol-dose-status")
+        self.assertEqual(inst.vaccinationProtocol[0].doseStatusReason.coding[0].code, "coldchbrk")
+        self.assertEqual(inst.vaccinationProtocol[0].doseStatusReason.coding[0].display, "Cold chain break")
+        self.assertEqual(inst.vaccinationProtocol[0].doseStatusReason.coding[0].system, "http://hl7.org/fhir/vaccination-protocol-dose-status-reason")
+        self.assertEqual(inst.vaccinationProtocol[0].series, "Vaccination Series 1")
+        self.assertEqual(inst.vaccinationProtocol[0].seriesDoses, 2)
+        self.assertEqual(inst.vaccinationProtocol[0].targetDisease[0].coding[0].code, "1857005")
+        self.assertEqual(inst.vaccinationProtocol[0].targetDisease[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.vaccineCode.coding[0].code, "FLUVAX")
+        self.assertEqual(inst.vaccineCode.coding[0].system, "urn:oid:1.2.36.1.2001.1005.17")
+        self.assertEqual(inst.vaccineCode.text, "Fluvax (Influenza)")
         self.assertFalse(inst.wasNotGiven)
 

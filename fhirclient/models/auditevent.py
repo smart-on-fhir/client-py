@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -92,11 +92,11 @@ class AuditEventEvent(fhirelement.FHIRElement):
         
         self.subtype = None
         """ More specific type/id for the event.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        List of `Coding` items (represented as `dict` in JSON). """
         
         self.type = None
         """ Type/identifier of event.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        Type `Coding` (represented as `dict` in JSON). """
         
         super(AuditEventEvent, self).__init__(jsondict)
     
@@ -108,8 +108,8 @@ class AuditEventEvent(fhirelement.FHIRElement):
             ("outcome", "outcome", str, False),
             ("outcomeDesc", "outcomeDesc", str, False),
             ("purposeOfEvent", "purposeOfEvent", coding.Coding, True),
-            ("subtype", "subtype", codeableconcept.CodeableConcept, True),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("subtype", "subtype", coding.Coding, True),
+            ("type", "type", coding.Coding, False),
         ])
         return js
 
@@ -138,7 +138,7 @@ class AuditEventObject(fhirelement.FHIRElement):
         
         self.lifecycle = None
         """ Life-cycle stage for the object.
-        Type `str`. """
+        Type `Coding` (represented as `dict` in JSON). """
         
         self.name = None
         """ Instance-specific descriptor for Object.
@@ -154,15 +154,15 @@ class AuditEventObject(fhirelement.FHIRElement):
         
         self.role = None
         """ What role the Object played.
-        Type `str`. """
+        Type `Coding` (represented as `dict` in JSON). """
         
-        self.sensitivity = None
-        """ Policy-defined sensitivity for the object.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.securityLabel = None
+        """ Security labels applied to the object.
+        List of `Coding` items (represented as `dict` in JSON). """
         
         self.type = None
         """ Type of object involved.
-        Type `str`. """
+        Type `Coding` (represented as `dict` in JSON). """
         
         super(AuditEventObject, self).__init__(jsondict)
     
@@ -172,13 +172,13 @@ class AuditEventObject(fhirelement.FHIRElement):
             ("description", "description", str, False),
             ("detail", "detail", AuditEventObjectDetail, True),
             ("identifier", "identifier", identifier.Identifier, False),
-            ("lifecycle", "lifecycle", str, False),
+            ("lifecycle", "lifecycle", coding.Coding, False),
             ("name", "name", str, False),
             ("query", "query", str, False),
             ("reference", "reference", fhirreference.FHIRReference, False),
-            ("role", "role", str, False),
-            ("sensitivity", "sensitivity", codeableconcept.CodeableConcept, False),
-            ("type", "type", str, False),
+            ("role", "role", coding.Coding, False),
+            ("securityLabel", "securityLabel", coding.Coding, True),
+            ("type", "type", coding.Coding, False),
         ])
         return js
 
@@ -247,7 +247,7 @@ class AuditEventParticipant(fhirelement.FHIRElement):
         List of `str` items. """
         
         self.purposeOfUse = None
-        """ Participant purposeOfUse.
+        """ Reason given for this user.
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.reference = None
@@ -264,7 +264,7 @@ class AuditEventParticipant(fhirelement.FHIRElement):
         
         self.userId = None
         """ Unique identifier for the user.
-        Type `str`. """
+        Type `Identifier` (represented as `dict` in JSON). """
         
         super(AuditEventParticipant, self).__init__(jsondict)
     
@@ -281,7 +281,7 @@ class AuditEventParticipant(fhirelement.FHIRElement):
             ("reference", "reference", fhirreference.FHIRReference, False),
             ("requestor", "requestor", bool, False),
             ("role", "role", codeableconcept.CodeableConcept, True),
-            ("userId", "userId", str, False),
+            ("userId", "userId", identifier.Identifier, False),
         ])
         return js
 
@@ -299,7 +299,7 @@ class AuditEventParticipantNetwork(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.identifier = None
+        self.address = None
         """ Identifier for the network access point of the user device.
         Type `str`. """
         
@@ -312,7 +312,7 @@ class AuditEventParticipantNetwork(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(AuditEventParticipantNetwork, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", str, False),
+            ("address", "address", str, False),
             ("type", "type", str, False),
         ])
         return js
@@ -329,8 +329,8 @@ class AuditEventSource(fhirelement.FHIRElement):
         """
         
         self.identifier = None
-        """ The id of source where event originated.
-        Type `str`. """
+        """ The identity of source detecting the event.
+        Type `Identifier` (represented as `dict` in JSON). """
         
         self.site = None
         """ Logical source location within the enterprise.
@@ -345,7 +345,7 @@ class AuditEventSource(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(AuditEventSource, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", str, False),
+            ("identifier", "identifier", identifier.Identifier, False),
             ("site", "site", str, False),
             ("type", "type", coding.Coding, True),
         ])

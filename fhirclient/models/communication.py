@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Communication) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Communication) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -17,8 +17,8 @@ from . import identifier
 class Communication(domainresource.DomainResource):
     """ A record of information transmitted from a sender to a receiver.
     
-    An occurrence of information being transmitted. E.g., an alert that was
-    sent to a responsible provider, a public health agency was notified about a
+    An occurrence of information being transmitted; e.g. an alert that was sent
+    to a responsible provider, a public health agency was notified about a
     reportable condition.
     """
     
@@ -41,7 +41,7 @@ class Communication(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.medium = None
-        """ Communication medium.
+        """ A channel of communication.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.payload = None
@@ -58,7 +58,11 @@ class Communication(domainresource.DomainResource):
         
         self.recipient = None
         """ Message recipient.
-        List of `FHIRReference` items referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Device, Organization, Patient, Practitioner, RelatedPerson, Group` (represented as `dict` in JSON). """
+        
+        self.requestDetail = None
+        """ CommunicationRequest producing this message.
+        Type `FHIRReference` referencing `CommunicationRequest` (represented as `dict` in JSON). """
         
         self.sender = None
         """ Message sender.
@@ -89,6 +93,7 @@ class Communication(domainresource.DomainResource):
             ("reason", "reason", codeableconcept.CodeableConcept, True),
             ("received", "received", fhirdate.FHIRDate, False),
             ("recipient", "recipient", fhirreference.FHIRReference, True),
+            ("requestDetail", "requestDetail", fhirreference.FHIRReference, False),
             ("sender", "sender", fhirreference.FHIRReference, False),
             ("sent", "sent", fhirdate.FHIRDate, False),
             ("status", "status", str, False),

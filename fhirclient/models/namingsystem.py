@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -28,24 +28,20 @@ class NamingSystem(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.category = None
-        """ e.g. driver,  provider,  patient, bank etc.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.contact = None
         """ Contact details of the publisher.
         List of `NamingSystemContact` items (represented as `dict` in JSON). """
-        
-        self.country = None
-        """ ISO 3-char country code.
-        Type `str`. """
         
         self.date = None
         """ Publication Date(/time).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ What does namingsystem identify?.
+        """ What does naming system identify?.
+        Type `str`. """
+        
+        self.kind = None
+        """ codesystem | identifier | root.
         Type `str`. """
         
         self.name = None
@@ -69,8 +65,8 @@ class NamingSystem(domainresource.DomainResource):
         Type `str`. """
         
         self.type = None
-        """ codesystem | identifier | root.
-        Type `str`. """
+        """ e.g. driver,  provider,  patient, bank etc..
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.uniqueId = None
         """ Unique identifiers used for system.
@@ -80,24 +76,28 @@ class NamingSystem(domainresource.DomainResource):
         """ How/where is it used.
         Type `str`. """
         
+        self.useContext = None
+        """ Content intends to support these contexts.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         super(NamingSystem, self).__init__(jsondict)
     
     def elementProperties(self):
         js = super(NamingSystem, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, False),
             ("contact", "contact", NamingSystemContact, True),
-            ("country", "country", str, False),
             ("date", "date", fhirdate.FHIRDate, False),
             ("description", "description", str, False),
+            ("kind", "kind", str, False),
             ("name", "name", str, False),
             ("publisher", "publisher", str, False),
             ("replacedBy", "replacedBy", fhirreference.FHIRReference, False),
             ("responsible", "responsible", str, False),
             ("status", "status", str, False),
-            ("type", "type", str, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
             ("uniqueId", "uniqueId", NamingSystemUniqueId, True),
             ("usage", "usage", str, False),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
         ])
         return js
 

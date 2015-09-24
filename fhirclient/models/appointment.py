@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -26,55 +26,48 @@ class Appointment(domainresource.DomainResource):
         """
         
         self.comment = None
-        """ Additional comments about the appointment.
+        """ Additional comments.
         Type `str`. """
         
         self.description = None
-        """ The brief description of the appointment as would be shown on a
-        subject line in a meeting request, or appointment list. Detailed or
-        expanded information should be put in the comment field.
+        """ Shown on a subject line in a meeting request, or appointment list.
         Type `str`. """
         
         self.end = None
-        """ Date/Time that the appointment is to conclude.
+        """ When appointment is to conclude.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.order = None
-        """ An Order that lead to the creation of this appointment.
-        Type `FHIRReference` referencing `Order` (represented as `dict` in JSON). """
+        self.minutesDuration = None
+        """ Can be less than start/end (e.g. estimate).
+        Type `int`. """
         
         self.participant = None
-        """ List of participants involved in the appointment.
+        """ Participants involved in appointment.
         List of `AppointmentParticipant` items (represented as `dict` in JSON). """
         
         self.priority = None
-        """ The priority of the appointment. Can be used to make informed
-        decisions if needing to re-prioritize appointments. (The iCal
-        Standard specifies 0 as undefined, 1 as highest, 9 as lowest
-        priority).
+        """ Used to make informed decisions if needing to re-prioritize.
         Type `int`. """
         
         self.reason = None
-        """ The reason that this appointment is being scheduled, this is more
-        clinical than administrative.
+        """ Reason this appointment is scheduled.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.slot = None
-        """ The slot that this appointment is filling. If provided then the
-        schedule will not be provided as slots are not recursive, and the
-        start/end values MUST be the same as from the slot.
+        """ If provided, then no schedule and start/end values MUST match slot.
         List of `FHIRReference` items referencing `Slot` (represented as `dict` in JSON). """
         
         self.start = None
-        """ Date/Time that the appointment is to take place.
+        """ When appointment is to take place.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.status = None
-        """ pending | booked | arrived | fulfilled | cancelled | noshow.
+        """ proposed | pending | booked | arrived | fulfilled | cancelled |
+        noshow.
         Type `str`. """
         
         self.type = None
@@ -90,7 +83,7 @@ class Appointment(domainresource.DomainResource):
             ("description", "description", str, False),
             ("end", "end", fhirdate.FHIRDate, False),
             ("identifier", "identifier", identifier.Identifier, True),
-            ("order", "order", fhirreference.FHIRReference, False),
+            ("minutesDuration", "minutesDuration", int, False),
             ("participant", "participant", AppointmentParticipant, True),
             ("priority", "priority", int, False),
             ("reason", "reason", codeableconcept.CodeableConcept, False),
@@ -103,7 +96,9 @@ class Appointment(domainresource.DomainResource):
 
 
 class AppointmentParticipant(fhirelement.FHIRElement):
-    """ List of participants involved in the appointment.
+    """ Participants involved in appointment.
+    
+    List of participants involved in the appointment.
     """
     
     resource_name = "AppointmentParticipant"
@@ -113,8 +108,7 @@ class AppointmentParticipant(fhirelement.FHIRElement):
         """
         
         self.actor = None
-        """ A Person, Location/HealthcareService or Device that is
-        participating in the appointment.
+        """ Person, Location/HealthcareService or Device.
         Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson, Device, HealthcareService, Location` (represented as `dict` in JSON). """
         
         self.required = None

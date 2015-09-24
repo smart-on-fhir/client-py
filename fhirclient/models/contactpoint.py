@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -10,9 +10,9 @@ from . import period
 
 
 class ContactPoint(fhirelement.FHIRElement):
-    """ Details of a Technology mediated contact point (phone, fax, email, etc).
+    """ Details of a Technology mediated contact point (phone, fax, email, etc.).
     
-    Details for All kinds of technology mediated contact points for a person or
+    Details for all kinds of technology mediated contact points for a person or
     organization, including telephone, email, etc.
     """
     
@@ -26,8 +26,12 @@ class ContactPoint(fhirelement.FHIRElement):
         """ Time period when the contact point was/is in use.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.rank = None
+        """ Specify preferred order of use (1 = highest).
+        Type `int`. """
+        
         self.system = None
-        """ phone | fax | email | url.
+        """ phone | fax | email | pager | other.
         Type `str`. """
         
         self.use = None
@@ -44,6 +48,7 @@ class ContactPoint(fhirelement.FHIRElement):
         js = super(ContactPoint, self).elementProperties()
         js.extend([
             ("period", "period", period.Period, False),
+            ("rank", "rank", int, False),
             ("system", "system", str, False),
             ("use", "use", str, False),
             ("value", "value", str, False),

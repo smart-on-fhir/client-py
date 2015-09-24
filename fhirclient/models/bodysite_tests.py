@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -43,17 +43,17 @@ class BodySiteTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].value, "12345")
         self.assertEqual(inst.image[0].contentType, "image/png;base64")
         self.assertEqual(inst.image[0].title, "ARM")
-        self.assertEqual(inst.mod[0].coding[0].code, "419161000")
-        self.assertEqual(inst.mod[0].coding[0].display, "Unilateral left")
-        self.assertEqual(inst.mod[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.mod[0].text, "Left")
-        self.assertEqual(inst.mod[1].coding[0].code, "261183002")
-        self.assertEqual(inst.mod[1].coding[0].display, "Upper")
-        self.assertEqual(inst.mod[1].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.mod[1].text, "Upper")
-        self.assertEqual(inst.mod[2].coding[0].code, "255549009")
-        self.assertEqual(inst.mod[2].coding[0].display, "Anterior")
-        self.assertEqual(inst.mod[2].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.mod[2].text, "Anterior")
+        self.assertEqual(inst.modifier[0].coding[0].code, "419161000")
+        self.assertEqual(inst.modifier[0].coding[0].display, "Unilateral left")
+        self.assertEqual(inst.modifier[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.modifier[0].text, "Left")
+        self.assertEqual(inst.modifier[1].coding[0].code, "261183002")
+        self.assertEqual(inst.modifier[1].coding[0].display, "Upper")
+        self.assertEqual(inst.modifier[1].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.modifier[1].text, "Upper")
+        self.assertEqual(inst.modifier[2].coding[0].code, "255549009")
+        self.assertEqual(inst.modifier[2].coding[0].display, "Anterior")
+        self.assertEqual(inst.modifier[2].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.modifier[2].text, "Anterior")
         self.assertEqual(inst.text.status, "generated")
 

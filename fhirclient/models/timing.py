@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Timing) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Timing) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -9,6 +9,8 @@ from . import codeableconcept
 from . import fhirdate
 from . import fhirelement
 from . import period
+from . import quantity
+from . import range
 
 
 class Timing(fhirelement.FHIRElement):
@@ -27,7 +29,7 @@ class Timing(fhirelement.FHIRElement):
         """
         
         self.code = None
-        """ BID | TID | QID | AM | PM +.
+        """ QD | QOD | Q4H | Q6H | BID | TID | QID | AM | PM +.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.event = None
@@ -62,9 +64,17 @@ class TimingRepeat(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.bounds = None
-        """ Start and/or end limits.
+        self.boundsPeriod = None
+        """ Length/Range of lengths, or (Start and/or end) limits.
         Type `Period` (represented as `dict` in JSON). """
+        
+        self.boundsQuantity = None
+        """ Length/Range of lengths, or (Start and/or end) limits.
+        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
+        
+        self.boundsRange = None
+        """ Length/Range of lengths, or (Start and/or end) limits.
+        Type `Range` (represented as `dict` in JSON). """
         
         self.count = None
         """ Number of times to repeat.
@@ -74,16 +84,20 @@ class TimingRepeat(fhirelement.FHIRElement):
         """ How long when it happens.
         Type `float`. """
         
+        self.durationMax = None
+        """ How long when it happens (Max).
+        Type `float`. """
+        
         self.durationUnits = None
         """ s | min | h | d | wk | mo | a - unit of time (UCUM).
         Type `str`. """
         
         self.frequency = None
-        """ Event occurs frequency times per duration.
+        """ Event occurs frequency times per period.
         Type `int`. """
         
         self.frequencyMax = None
-        """ Event occurs frequency times per duration.
+        """ Event occurs up to frequencyMax times per period.
         Type `int`. """
         
         self.period = None
@@ -107,9 +121,12 @@ class TimingRepeat(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(TimingRepeat, self).elementProperties()
         js.extend([
-            ("bounds", "bounds", period.Period, False),
+            ("boundsPeriod", "boundsPeriod", period.Period, False),
+            ("boundsQuantity", "boundsQuantity", quantity.Quantity, False),
+            ("boundsRange", "boundsRange", range.Range, False),
             ("count", "count", int, False),
             ("duration", "duration", float, False),
+            ("durationMax", "durationMax", float, False),
             ("durationUnits", "durationUnits", str, False),
             ("frequency", "frequency", int, False),
             ("frequencyMax", "frequencyMax", int, False),

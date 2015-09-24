@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -11,7 +11,7 @@ from . import fhirdate
 from . import fhirelement
 from . import fhirreference
 from . import identifier
-from . import money
+from . import quantity
 
 
 class ClaimResponse(domainresource.DomainResource):
@@ -81,7 +81,7 @@ class ClaimResponse(domainresource.DomainResource):
         
         self.paymentAdjustment = None
         """ Payment adjustment for non-Claim issues.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.paymentAdjustmentReason = None
         """ Reason for Payment adjustment.
@@ -89,7 +89,7 @@ class ClaimResponse(domainresource.DomainResource):
         
         self.paymentAmount = None
         """ Payment amount.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.paymentDate = None
         """ Expected data of Payment.
@@ -121,15 +121,15 @@ class ClaimResponse(domainresource.DomainResource):
         
         self.totalBenefit = None
         """ Total benefit payable for the Claim.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.totalCost = None
         """ Total Cost of service from the Claim.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.unallocDeductable = None
-        """ Unallocated deductable.
-        Type `Money` (represented as `dict` in JSON). """
+        """ Unallocated deductible.
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         super(ClaimResponse, self).__init__(jsondict)
     
@@ -149,9 +149,9 @@ class ClaimResponse(domainresource.DomainResource):
             ("originalRuleset", "originalRuleset", coding.Coding, False),
             ("outcome", "outcome", str, False),
             ("payeeType", "payeeType", coding.Coding, False),
-            ("paymentAdjustment", "paymentAdjustment", money.Money, False),
+            ("paymentAdjustment", "paymentAdjustment", quantity.Quantity, False),
             ("paymentAdjustmentReason", "paymentAdjustmentReason", coding.Coding, False),
-            ("paymentAmount", "paymentAmount", money.Money, False),
+            ("paymentAmount", "paymentAmount", quantity.Quantity, False),
             ("paymentDate", "paymentDate", fhirdate.FHIRDate, False),
             ("paymentRef", "paymentRef", identifier.Identifier, False),
             ("request", "request", fhirreference.FHIRReference, False),
@@ -159,9 +159,9 @@ class ClaimResponse(domainresource.DomainResource):
             ("requestProvider", "requestProvider", fhirreference.FHIRReference, False),
             ("reserved", "reserved", coding.Coding, False),
             ("ruleset", "ruleset", coding.Coding, False),
-            ("totalBenefit", "totalBenefit", money.Money, False),
-            ("totalCost", "totalCost", money.Money, False),
-            ("unallocDeductable", "unallocDeductable", money.Money, False),
+            ("totalBenefit", "totalBenefit", quantity.Quantity, False),
+            ("totalCost", "totalCost", quantity.Quantity, False),
+            ("unallocDeductable", "unallocDeductable", quantity.Quantity, False),
         ])
         return js
 
@@ -188,7 +188,7 @@ class ClaimResponseAddItem(fhirelement.FHIRElement):
         
         self.fee = None
         """ Professional fee or Product charge.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.noteNumberLinkId = None
         """ List of note numbers which apply.
@@ -209,7 +209,7 @@ class ClaimResponseAddItem(fhirelement.FHIRElement):
         js.extend([
             ("adjudication", "adjudication", ClaimResponseAddItemAdjudication, True),
             ("detail", "detail", ClaimResponseAddItemDetail, True),
-            ("fee", "fee", money.Money, False),
+            ("fee", "fee", quantity.Quantity, False),
             ("noteNumberLinkId", "noteNumberLinkId", int, True),
             ("sequenceLinkId", "sequenceLinkId", int, True),
             ("service", "service", coding.Coding, False),
@@ -230,15 +230,15 @@ class ClaimResponseAddItemAdjudication(fhirelement.FHIRElement):
         """
         
         self.amount = None
-        """ Monitary amount.
-        Type `Money` (represented as `dict` in JSON). """
+        """ Monetary amount.
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.code = None
         """ Adjudication category such as co-pay, eligible, benefit, etc..
         Type `Coding` (represented as `dict` in JSON). """
         
         self.value = None
-        """ Non-monitory value.
+        """ Non-monetary value.
         Type `float`. """
         
         super(ClaimResponseAddItemAdjudication, self).__init__(jsondict)
@@ -246,7 +246,7 @@ class ClaimResponseAddItemAdjudication(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(ClaimResponseAddItemAdjudication, self).elementProperties()
         js.extend([
-            ("amount", "amount", money.Money, False),
+            ("amount", "amount", quantity.Quantity, False),
             ("code", "code", coding.Coding, False),
             ("value", "value", float, False),
         ])
@@ -271,7 +271,7 @@ class ClaimResponseAddItemDetail(fhirelement.FHIRElement):
         
         self.fee = None
         """ Professional fee or Product charge.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.service = None
         """ Service or Product.
@@ -283,7 +283,7 @@ class ClaimResponseAddItemDetail(fhirelement.FHIRElement):
         js = super(ClaimResponseAddItemDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseAddItemDetailAdjudication, True),
-            ("fee", "fee", money.Money, False),
+            ("fee", "fee", quantity.Quantity, False),
             ("service", "service", coding.Coding, False),
         ])
         return js
@@ -302,15 +302,15 @@ class ClaimResponseAddItemDetailAdjudication(fhirelement.FHIRElement):
         """
         
         self.amount = None
-        """ Monitary amount.
-        Type `Money` (represented as `dict` in JSON). """
+        """ Monetary amount.
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.code = None
         """ Adjudication category such as co-pay, eligible, benefit, etc..
         Type `Coding` (represented as `dict` in JSON). """
         
         self.value = None
-        """ Non-monitory value.
+        """ Non-monetary value.
         Type `float`. """
         
         super(ClaimResponseAddItemDetailAdjudication, self).__init__(jsondict)
@@ -318,7 +318,7 @@ class ClaimResponseAddItemDetailAdjudication(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(ClaimResponseAddItemDetailAdjudication, self).elementProperties()
         js.extend([
-            ("amount", "amount", money.Money, False),
+            ("amount", "amount", quantity.Quantity, False),
             ("code", "code", coding.Coding, False),
             ("value", "value", float, False),
         ])
@@ -481,15 +481,15 @@ class ClaimResponseItemAdjudication(fhirelement.FHIRElement):
         """
         
         self.amount = None
-        """ Monitary amount.
-        Type `Money` (represented as `dict` in JSON). """
+        """ Monetary amount.
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.code = None
         """ Adjudication category such as co-pay, eligible, benefit, etc..
         Type `Coding` (represented as `dict` in JSON). """
         
         self.value = None
-        """ Non-monitory value.
+        """ Non-monetary value.
         Type `float`. """
         
         super(ClaimResponseItemAdjudication, self).__init__(jsondict)
@@ -497,7 +497,7 @@ class ClaimResponseItemAdjudication(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(ClaimResponseItemAdjudication, self).elementProperties()
         js.extend([
-            ("amount", "amount", money.Money, False),
+            ("amount", "amount", quantity.Quantity, False),
             ("code", "code", coding.Coding, False),
             ("value", "value", float, False),
         ])
@@ -553,15 +553,15 @@ class ClaimResponseItemDetailAdjudication(fhirelement.FHIRElement):
         """
         
         self.amount = None
-        """ Monitary amount.
-        Type `Money` (represented as `dict` in JSON). """
+        """ Monetary amount.
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.code = None
         """ Adjudication category such as co-pay, eligible, benefit, etc..
         Type `Coding` (represented as `dict` in JSON). """
         
         self.value = None
-        """ Non-monitory value.
+        """ Non-monetary value.
         Type `float`. """
         
         super(ClaimResponseItemDetailAdjudication, self).__init__(jsondict)
@@ -569,7 +569,7 @@ class ClaimResponseItemDetailAdjudication(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(ClaimResponseItemDetailAdjudication, self).elementProperties()
         js.extend([
-            ("amount", "amount", money.Money, False),
+            ("amount", "amount", quantity.Quantity, False),
             ("code", "code", coding.Coding, False),
             ("value", "value", float, False),
         ])
@@ -620,15 +620,15 @@ class ClaimResponseItemDetailSubDetailAdjudication(fhirelement.FHIRElement):
         """
         
         self.amount = None
-        """ Monitary amount.
-        Type `Money` (represented as `dict` in JSON). """
+        """ Monetary amount.
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.code = None
         """ Adjudication category such as co-pay, eligible, benefit, etc..
         Type `Coding` (represented as `dict` in JSON). """
         
         self.value = None
-        """ Non-monitory value.
+        """ Non-monetary value.
         Type `float`. """
         
         super(ClaimResponseItemDetailSubDetailAdjudication, self).__init__(jsondict)
@@ -636,7 +636,7 @@ class ClaimResponseItemDetailSubDetailAdjudication(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(ClaimResponseItemDetailSubDetailAdjudication, self).elementProperties()
         js.extend([
-            ("amount", "amount", money.Money, False),
+            ("amount", "amount", quantity.Quantity, False),
             ("code", "code", coding.Coding, False),
             ("value", "value", float, False),
         ])
@@ -660,7 +660,7 @@ class ClaimResponseNote(fhirelement.FHIRElement):
         Type `int`. """
         
         self.text = None
-        """ Note explanitory text.
+        """ Note explanatory text.
         Type `str`. """
         
         self.type = None

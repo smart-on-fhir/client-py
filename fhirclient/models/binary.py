@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Binary) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Binary) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -9,7 +9,7 @@ from . import resource
 
 
 class Binary(resource.Resource):
-    """ Pure binary content defined by sime other format than FHIR.
+    """ Pure binary content defined by some other format than FHIR.
     
     A binary resource can contain any content, whether text, image, pdf, zip
     archive, etc.

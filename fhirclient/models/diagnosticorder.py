@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DiagnosticOrder) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DiagnosticOrder) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
+from . import annotation
 from . import codeableconcept
 from . import domainresource
 from . import fhirdate
@@ -26,10 +27,6 @@ class DiagnosticOrder(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.clinicalNotes = None
-        """ Explanation/Justification for test.
-        Type `str`. """
-        
         self.encounter = None
         """ The encounter that this diagnostic order is associated with.
         Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
@@ -46,6 +43,10 @@ class DiagnosticOrder(domainresource.DomainResource):
         """ The items the orderer requested.
         List of `DiagnosticOrderItem` items (represented as `dict` in JSON). """
         
+        self.note = None
+        """ Other notes and comments.
+        List of `Annotation` items (represented as `dict` in JSON). """
+        
         self.orderer = None
         """ Who ordered the test.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
@@ -53,6 +54,10 @@ class DiagnosticOrder(domainresource.DomainResource):
         self.priority = None
         """ routine | urgent | stat | asap.
         Type `str`. """
+        
+        self.reason = None
+        """ Explanation/Justification for test.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.specimen = None
         """ If the whole order relates to specific specimens.
@@ -77,13 +82,14 @@ class DiagnosticOrder(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DiagnosticOrder, self).elementProperties()
         js.extend([
-            ("clinicalNotes", "clinicalNotes", str, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False),
             ("event", "event", DiagnosticOrderEvent, True),
             ("identifier", "identifier", identifier.Identifier, True),
             ("item", "item", DiagnosticOrderItem, True),
+            ("note", "note", annotation.Annotation, True),
             ("orderer", "orderer", fhirreference.FHIRReference, False),
             ("priority", "priority", str, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, True),
             ("specimen", "specimen", fhirreference.FHIRReference, True),
             ("status", "status", str, False),
             ("subject", "subject", fhirreference.FHIRReference, False),
@@ -96,7 +102,7 @@ class DiagnosticOrderEvent(fhirelement.FHIRElement):
     """ A list of events of interest in the lifecycle.
     
     A summary of the events of interest that have occurred as the request is
-    processed. E.g. when the order was made, various processing steps
+    processed; e.g. when the order was made, various processing steps
     (specimens received), when it was completed.
     """
     
@@ -151,13 +157,9 @@ class DiagnosticOrderItem(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.bodySiteCodeableConcept = None
+        self.bodySite = None
         """ Location of requested test (if applicable).
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.bodySiteReference = None
-        """ Location of requested test (if applicable).
-        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.code = None
         """ Code to indicate the item (test or panel) being ordered.
@@ -182,8 +184,7 @@ class DiagnosticOrderItem(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(DiagnosticOrderItem, self).elementProperties()
         js.extend([
-            ("bodySiteCodeableConcept", "bodySiteCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("bodySiteReference", "bodySiteReference", fhirreference.FHIRReference, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False),
             ("code", "code", codeableconcept.CodeableConcept, False),
             ("event", "event", DiagnosticOrderEvent, True),
             ("specimen", "specimen", fhirreference.FHIRReference, True),

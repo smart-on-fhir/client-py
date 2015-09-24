@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class GroupTests(unittest.TestCase):
         return group.Group(js)
     
     def testGroup1(self):
-        inst = self.instantiate_from("group-example.json")
+        inst = self.instantiate_from("group-example-member.json")
         self.assertIsNotNone(inst, "Must have instantiated a Group instance")
         self.implGroup1(inst)
         
@@ -32,6 +32,31 @@ class GroupTests(unittest.TestCase):
         self.implGroup1(inst2)
     
     def implGroup1(self, inst):
+        self.assertTrue(inst.actual)
+        self.assertEqual(inst.id, "102")
+        self.assertEqual(inst.member[0].period.start.date, FHIRDate("2014-10-08").date)
+        self.assertEqual(inst.member[0].period.start.as_json(), "2014-10-08")
+        self.assertTrue(inst.member[1].inactive)
+        self.assertEqual(inst.member[1].period.start.date, FHIRDate("2015-04-02").date)
+        self.assertEqual(inst.member[1].period.start.as_json(), "2015-04-02")
+        self.assertEqual(inst.member[2].period.start.date, FHIRDate("2015-08-06").date)
+        self.assertEqual(inst.member[2].period.start.as_json(), "2015-08-06")
+        self.assertEqual(inst.member[3].period.start.date, FHIRDate("2015-08-06").date)
+        self.assertEqual(inst.member[3].period.start.as_json(), "2015-08-06")
+        self.assertEqual(inst.text.status, "additional")
+        self.assertEqual(inst.type, "person")
+    
+    def testGroup2(self):
+        inst = self.instantiate_from("group-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Group instance")
+        self.implGroup2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Group", js["resourceType"])
+        inst2 = group.Group(js)
+        self.implGroup2(inst2)
+    
+    def implGroup2(self, inst):
         self.assertTrue(inst.actual)
         self.assertEqual(inst.characteristic[0].code.text, "gender")
         self.assertFalse(inst.characteristic[0].exclude)

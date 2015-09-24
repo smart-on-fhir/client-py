@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -18,8 +18,8 @@ class MessageHeader(domainresource.DomainResource):
     """ A resource that describes a message that is exchanged between systems.
     
     The header for a message exchange that is either requesting or responding
-    to an action.  The Reference(s) that are the subject of the action as well
-    as other Information related to the action are typically transmitted in a
+    to an action.  The reference(s) that are the subject of the action as well
+    as other information related to the action are typically transmitted in a
     bundle in which the MessageHeader resource instance is the first resource
     in the bundle.
     """
@@ -49,10 +49,6 @@ class MessageHeader(domainresource.DomainResource):
         self.event = None
         """ Code for the event this message represents.
         Type `Coding` (represented as `dict` in JSON). """
-        
-        self.identifier = None
-        """ Id of this message.
-        Type `str`. """
         
         self.reason = None
         """ Cause of event.
@@ -88,7 +84,6 @@ class MessageHeader(domainresource.DomainResource):
             ("destination", "destination", MessageHeaderDestination, True),
             ("enterer", "enterer", fhirreference.FHIRReference, False),
             ("event", "event", coding.Coding, False),
-            ("identifier", "identifier", str, False),
             ("reason", "reason", codeableconcept.CodeableConcept, False),
             ("receiver", "receiver", fhirreference.FHIRReference, False),
             ("response", "response", MessageHeaderResponse, False),

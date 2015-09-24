@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -16,7 +16,7 @@ from . import quantity
 
 
 class VisionPrescription(domainresource.DomainResource):
-    """ Prescription for Vision correction products for a patient.
+    """ Prescription for vision correction products for a patient.
     
     An authorization for the supply of glasses and/or contact lenses to a
     patient.
@@ -49,7 +49,7 @@ class VisionPrescription(domainresource.DomainResource):
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.prescriber = None
-        """ Who authorizes the Vision product.
+        """ Who authorizes the vision product.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.reasonCodeableConcept = None
@@ -118,12 +118,12 @@ class VisionPrescriptionDispense(fhirelement.FHIRElement):
         Type `float`. """
         
         self.diameter = None
-        """ Contact Lens diameter.
+        """ Contact lens diameter.
         Type `float`. """
         
         self.duration = None
         """ Lens wear duration.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.eye = None
         """ right | left.
@@ -134,7 +134,7 @@ class VisionPrescriptionDispense(fhirelement.FHIRElement):
         Type `str`. """
         
         self.power = None
-        """ Contact Lens power.
+        """ Contact lens power.
         Type `float`. """
         
         self.prism = None

@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
+from . import annotation
 from . import codeableconcept
 from . import domainresource
 from . import fhirdate
@@ -16,6 +17,11 @@ from . import quantity
 
 class Immunization(domainresource.DomainResource):
     """ Immunization event information.
+    
+    Describes the event of a patient being administered a vaccination or a
+    record of a vaccination as reported by a patient, a clinician or another
+    party and may include vaccine reaction information and what vaccination
+    protocol was followed.
     """
     
     resource_name = "Immunization"
@@ -30,7 +36,7 @@ class Immunization(domainresource.DomainResource):
         
         self.doseQuantity = None
         """ Amount of vaccine administered.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.encounter = None
         """ Encounter administered as part of.
@@ -41,7 +47,7 @@ class Immunization(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.explanation = None
-        """ Administration / non-administration reasons.
+        """ Administration/non-administration reasons.
         Type `ImmunizationExplanation` (represented as `dict` in JSON). """
         
         self.identifier = None
@@ -49,7 +55,7 @@ class Immunization(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.location = None
-        """ Where did vaccination occur?.
+        """ Where vaccination occurred.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
         self.lotNumber = None
@@ -60,12 +66,16 @@ class Immunization(domainresource.DomainResource):
         """ Vaccine manufacturer.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
+        self.note = None
+        """ Vaccination notes.
+        List of `Annotation` items (represented as `dict` in JSON). """
+        
         self.patient = None
-        """ Who was immunized?.
+        """ Who was immunized.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.performer = None
-        """ Who administered vaccine?.
+        """ Who administered vaccine.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.reaction = None
@@ -73,11 +83,11 @@ class Immunization(domainresource.DomainResource):
         List of `ImmunizationReaction` items (represented as `dict` in JSON). """
         
         self.reported = None
-        """ Is this a self-reported record?.
+        """ Indicates a self-reported record.
         Type `bool`. """
         
         self.requester = None
-        """ Who ordered vaccination?.
+        """ Who ordered vaccination.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.route = None
@@ -88,16 +98,20 @@ class Immunization(domainresource.DomainResource):
         """ Body site vaccine  was administered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ in-progress | on-hold | completed | entered-in-error | stopped.
+        Type `str`. """
+        
         self.vaccinationProtocol = None
         """ What protocol was followed.
         List of `ImmunizationVaccinationProtocol` items (represented as `dict` in JSON). """
         
-        self.vaccineType = None
+        self.vaccineCode = None
         """ Vaccine product administered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.wasNotGiven = None
-        """ Was immunization given?.
+        """ Flag for whether immunization was given.
         Type `bool`. """
         
         super(Immunization, self).__init__(jsondict)
@@ -114,6 +128,7 @@ class Immunization(domainresource.DomainResource):
             ("location", "location", fhirreference.FHIRReference, False),
             ("lotNumber", "lotNumber", str, False),
             ("manufacturer", "manufacturer", fhirreference.FHIRReference, False),
+            ("note", "note", annotation.Annotation, True),
             ("patient", "patient", fhirreference.FHIRReference, False),
             ("performer", "performer", fhirreference.FHIRReference, False),
             ("reaction", "reaction", ImmunizationReaction, True),
@@ -121,15 +136,16 @@ class Immunization(domainresource.DomainResource):
             ("requester", "requester", fhirreference.FHIRReference, False),
             ("route", "route", codeableconcept.CodeableConcept, False),
             ("site", "site", codeableconcept.CodeableConcept, False),
+            ("status", "status", str, False),
             ("vaccinationProtocol", "vaccinationProtocol", ImmunizationVaccinationProtocol, True),
-            ("vaccineType", "vaccineType", codeableconcept.CodeableConcept, False),
+            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, False),
             ("wasNotGiven", "wasNotGiven", bool, False),
         ])
         return js
 
 
 class ImmunizationExplanation(fhirelement.FHIRElement):
-    """ Administration / non-administration reasons.
+    """ Administration/non-administration reasons.
     
     Reasons why a vaccine was or was not administered.
     """
@@ -173,7 +189,7 @@ class ImmunizationReaction(fhirelement.FHIRElement):
         """
         
         self.date = None
-        """ When did reaction start?.
+        """ When reaction started.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.detail = None
@@ -181,7 +197,7 @@ class ImmunizationReaction(fhirelement.FHIRElement):
         Type `FHIRReference` referencing `Observation` (represented as `dict` in JSON). """
         
         self.reported = None
-        """ Was reaction self-reported?.
+        """ Indicates self-reported reaction.
         Type `bool`. """
         
         super(ImmunizationReaction, self).__init__(jsondict)
@@ -218,19 +234,15 @@ class ImmunizationVaccinationProtocol(fhirelement.FHIRElement):
         Type `str`. """
         
         self.doseSequence = None
-        """ What dose number within series?.
+        """ Dose number within series.
         Type `int`. """
         
         self.doseStatus = None
-        """ Does dose count towards immunity?.
+        """ Indicates if dose counts towards immunity.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.doseStatusReason = None
-        """ Why does does count/not count?.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.doseTarget = None
-        """ Disease immunized against.
+        """ Why dose does (not) count.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.series = None
@@ -240,6 +252,10 @@ class ImmunizationVaccinationProtocol(fhirelement.FHIRElement):
         self.seriesDoses = None
         """ Recommended number of doses for immunity.
         Type `int`. """
+        
+        self.targetDisease = None
+        """ Disease immunized against.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(ImmunizationVaccinationProtocol, self).__init__(jsondict)
     
@@ -251,9 +267,9 @@ class ImmunizationVaccinationProtocol(fhirelement.FHIRElement):
             ("doseSequence", "doseSequence", int, False),
             ("doseStatus", "doseStatus", codeableconcept.CodeableConcept, False),
             ("doseStatusReason", "doseStatusReason", codeableconcept.CodeableConcept, False),
-            ("doseTarget", "doseTarget", codeableconcept.CodeableConcept, False),
             ("series", "series", str, False),
             ("seriesDoses", "seriesDoses", int, False),
+            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, True),
         ])
         return js
 

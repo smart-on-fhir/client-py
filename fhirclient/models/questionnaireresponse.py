@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/QuestionnaireAnswers) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -15,7 +15,7 @@ from . import identifier
 from . import quantity
 
 
-class QuestionnaireAnswers(domainresource.DomainResource):
+class QuestionnaireResponse(domainresource.DomainResource):
     """ A structured set of questions and their answers.
     
     A structured set of questions and their answers. The questions are ordered
@@ -23,7 +23,7 @@ class QuestionnaireAnswers(domainresource.DomainResource):
     grouping of the underlying questions.
     """
     
-    resource_name = "QuestionnaireAnswers"
+    resource_name = "QuestionnaireResponse"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -43,7 +43,7 @@ class QuestionnaireAnswers(domainresource.DomainResource):
         
         self.group = None
         """ Grouped questions.
-        Type `QuestionnaireAnswersGroup` (represented as `dict` in JSON). """
+        Type `QuestionnaireResponseGroup` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Unique id for this set of answers.
@@ -65,15 +65,15 @@ class QuestionnaireAnswers(domainresource.DomainResource):
         """ The subject of the questions.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        super(QuestionnaireAnswers, self).__init__(jsondict)
+        super(QuestionnaireResponse, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(QuestionnaireAnswers, self).elementProperties()
+        js = super(QuestionnaireResponse, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False),
             ("authored", "authored", fhirdate.FHIRDate, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("group", "group", QuestionnaireAnswersGroup, False),
+            ("group", "group", QuestionnaireResponseGroup, False),
             ("identifier", "identifier", identifier.Identifier, False),
             ("questionnaire", "questionnaire", fhirreference.FHIRReference, False),
             ("source", "source", fhirreference.FHIRReference, False),
@@ -83,22 +83,22 @@ class QuestionnaireAnswers(domainresource.DomainResource):
         return js
 
 
-class QuestionnaireAnswersGroup(fhirelement.FHIRElement):
+class QuestionnaireResponseGroup(fhirelement.FHIRElement):
     """ Grouped questions.
     
     A group of questions to a possibly similarly grouped set of questions in
-    the questionnaire answers.
+    the questionnaire response.
     """
     
-    resource_name = "QuestionnaireAnswersGroup"
+    resource_name = "QuestionnaireResponseGroup"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
         self.group = None
-        """ Nested questionnaire answers group.
-        List of `QuestionnaireAnswersGroup` items (represented as `dict` in JSON). """
+        """ Nested questionnaire response group.
+        List of `QuestionnaireResponseGroup` items (represented as `dict` in JSON). """
         
         self.linkId = None
         """ Corresponding group within Questionnaire.
@@ -106,7 +106,7 @@ class QuestionnaireAnswersGroup(fhirelement.FHIRElement):
         
         self.question = None
         """ Questions in this group.
-        List of `QuestionnaireAnswersGroupQuestion` items (represented as `dict` in JSON). """
+        List of `QuestionnaireResponseGroupQuestion` items (represented as `dict` in JSON). """
         
         self.subject = None
         """ The subject this group's answers are about.
@@ -120,14 +120,14 @@ class QuestionnaireAnswersGroup(fhirelement.FHIRElement):
         """ Name for this group.
         Type `str`. """
         
-        super(QuestionnaireAnswersGroup, self).__init__(jsondict)
+        super(QuestionnaireResponseGroup, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(QuestionnaireAnswersGroup, self).elementProperties()
+        js = super(QuestionnaireResponseGroup, self).elementProperties()
         js.extend([
-            ("group", "group", QuestionnaireAnswersGroup, True),
+            ("group", "group", QuestionnaireResponseGroup, True),
             ("linkId", "linkId", str, False),
-            ("question", "question", QuestionnaireAnswersGroupQuestion, True),
+            ("question", "question", QuestionnaireResponseGroupQuestion, True),
             ("subject", "subject", fhirreference.FHIRReference, False),
             ("text", "text", str, False),
             ("title", "title", str, False),
@@ -135,14 +135,14 @@ class QuestionnaireAnswersGroup(fhirelement.FHIRElement):
         return js
 
 
-class QuestionnaireAnswersGroupQuestion(fhirelement.FHIRElement):
+class QuestionnaireResponseGroupQuestion(fhirelement.FHIRElement):
     """ Questions in this group.
     
     Set of questions within this group. The order of questions within the group
     is relevant.
     """
     
-    resource_name = "QuestionnaireAnswersGroupQuestion"
+    resource_name = "QuestionnaireResponseGroupQuestion"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -150,11 +150,7 @@ class QuestionnaireAnswersGroupQuestion(fhirelement.FHIRElement):
         
         self.answer = None
         """ The response(s) to the question.
-        List of `QuestionnaireAnswersGroupQuestionAnswer` items (represented as `dict` in JSON). """
-        
-        self.group = None
-        """ Nested questionnaire group.
-        List of `QuestionnaireAnswersGroup` items (represented as `dict` in JSON). """
+        List of `QuestionnaireResponseGroupQuestionAnswer` items (represented as `dict` in JSON). """
         
         self.linkId = None
         """ Corresponding question within Questionnaire.
@@ -164,30 +160,33 @@ class QuestionnaireAnswersGroupQuestion(fhirelement.FHIRElement):
         """ Text of the question as it is shown to the user.
         Type `str`. """
         
-        super(QuestionnaireAnswersGroupQuestion, self).__init__(jsondict)
+        super(QuestionnaireResponseGroupQuestion, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(QuestionnaireAnswersGroupQuestion, self).elementProperties()
+        js = super(QuestionnaireResponseGroupQuestion, self).elementProperties()
         js.extend([
-            ("answer", "answer", QuestionnaireAnswersGroupQuestionAnswer, True),
-            ("group", "group", QuestionnaireAnswersGroup, True),
+            ("answer", "answer", QuestionnaireResponseGroupQuestionAnswer, True),
             ("linkId", "linkId", str, False),
             ("text", "text", str, False),
         ])
         return js
 
 
-class QuestionnaireAnswersGroupQuestionAnswer(fhirelement.FHIRElement):
+class QuestionnaireResponseGroupQuestionAnswer(fhirelement.FHIRElement):
     """ The response(s) to the question.
     
     The respondent's answer(s) to the question.
     """
     
-    resource_name = "QuestionnaireAnswersGroupQuestionAnswer"
+    resource_name = "QuestionnaireResponseGroupQuestionAnswer"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.group = None
+        """ Nested questionnaire group.
+        List of `QuestionnaireResponseGroup` items (represented as `dict` in JSON). """
         
         self.valueAttachment = None
         """ Single-valued answer to the question.
@@ -241,11 +240,12 @@ class QuestionnaireAnswersGroupQuestionAnswer(fhirelement.FHIRElement):
         """ Single-valued answer to the question.
         Type `str`. """
         
-        super(QuestionnaireAnswersGroupQuestionAnswer, self).__init__(jsondict)
+        super(QuestionnaireResponseGroupQuestionAnswer, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(QuestionnaireAnswersGroupQuestionAnswer, self).elementProperties()
+        js = super(QuestionnaireResponseGroupQuestionAnswer, self).elementProperties()
         js.extend([
+            ("group", "group", QuestionnaireResponseGroup, True),
             ("valueAttachment", "valueAttachment", attachment.Attachment, False),
             ("valueBoolean", "valueBoolean", bool, False),
             ("valueCoding", "valueCoding", coding.Coding, False),

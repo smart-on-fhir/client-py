@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -17,7 +17,7 @@ from . import period
 
 
 class HealthcareService(domainresource.DomainResource):
-    """ The details of a Healthcare Service available at a location.
+    """ The details of a healthcare service available at a location.
     """
     
     resource_name = "HealthcareService"
@@ -27,38 +27,32 @@ class HealthcareService(domainresource.DomainResource):
         """
         
         self.appointmentRequired = None
-        """ Indicates if an appointment is required for access to this service.
+        """ If an appointment is required for access to this service.
         Type `bool`. """
         
         self.availabilityExceptions = None
-        """ A description of Site availability exceptions, e.g., public holiday
-        availability. Succinctly describing all possible exceptions to
-        normal Site availability as details in the Available Times and Not
-        Available Times.
+        """ Description of availability exceptions.
         Type `str`. """
         
         self.availableTime = None
-        """ A Collection of times that the Service Site is available.
+        """ Times the Service Site is available.
         List of `HealthcareServiceAvailableTime` items (represented as `dict` in JSON). """
         
         self.characteristic = None
-        """ Collection of Characteristics (attributes).
+        """ Collection of characteristics (attributes).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.comment = None
-        """ Any additional description of the service and/or any specific
-        issues not covered by the other attributes, which can be displayed
-        as further detail under the serviceName.
+        """ Additional description and/or any specific issues not covered
+        elsewhere.
         Type `str`. """
         
         self.coverageArea = None
-        """ The location(s) that this service is available to (not where the
-        service is provided).
+        """ Location(s) service is inteded for/available to.
         List of `FHIRReference` items referencing `Location` (represented as `dict` in JSON). """
         
         self.eligibility = None
-        """ Does this service have specific eligibility requirements that need
-        to be met in order to use the service.
+        """ Specific eligibility requirements required to use the service.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.eligibilityNote = None
@@ -71,36 +65,31 @@ class HealthcareService(domainresource.DomainResource):
         Type `str`. """
         
         self.identifier = None
-        """ External Identifiers for this item.
+        """ External identifiers for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.location = None
-        """ The location where this healthcare service may be provided.
+        """ Location where service may be provided.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
         self.notAvailable = None
-        """ The HealthcareService is not available during this period of time
-        due to the provided reason.
+        """ Not available during this time due to provided reason.
         List of `HealthcareServiceNotAvailable` items (represented as `dict` in JSON). """
         
         self.photo = None
-        """ If there is a photo/symbol associated with this HealthcareService,
-        it may be included here to facilitate quick identification of the
-        service in a list.
+        """ Facilitates quick identification of the service.
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.programName = None
-        """ Program Names that can be used to categorize the service.
+        """ Program Names that categorize the service.
         List of `str` items. """
         
         self.providedBy = None
-        """ The organization that provides this Healthcare Service.
+        """ Organization that provides this service.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.publicKey = None
-        """ The public part of the 'keys' allocated to an Organization by an
-        accredited body to support secure exchange of data over the
-        internet. To be provided by the Organization, where available.
+        """ PKI Public keys to support secure communications.
         Type `str`. """
         
         self.referralMethod = None
@@ -108,29 +97,23 @@ class HealthcareService(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.serviceCategory = None
-        """ Identifies the broad category of service being performed or
-        delivered. Selecting a Service Category then determines the list of
-        relevant service types that can be selected in the Primary Service
-        Type.
+        """ Broad category of service being performed or delivered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.serviceName = None
-        """ Further description of the service as it would be presented to a
-        consumer while searching.
+        """ Description of service as presented to a consumer while searching.
         Type `str`. """
         
         self.serviceProvisionCode = None
-        """ The code(s) that detail the conditions under which the healthcare
-        service is available/offered.
+        """ Conditions under which service is available/offered.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.serviceType = None
-        """ A specific type of service that may be delivered or performed.
+        """ Specific service delivered or performed.
         List of `HealthcareServiceServiceType` items (represented as `dict` in JSON). """
         
         self.telecom = None
-        """ List of contacts related to this specific healthcare service. If
-        this is empty, then refer to the location's contacts.
+        """ Contacts related to the healthcare service.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(HealthcareService, self).__init__(jsondict)
@@ -165,7 +148,9 @@ class HealthcareService(domainresource.DomainResource):
 
 
 class HealthcareServiceAvailableTime(fhirelement.FHIRElement):
-    """ A Collection of times that the Service Site is available.
+    """ Times the Service Site is available.
+    
+    A collection of times that the Service Site is available.
     """
     
     resource_name = "HealthcareServiceAvailableTime"
@@ -175,18 +160,15 @@ class HealthcareServiceAvailableTime(fhirelement.FHIRElement):
         """
         
         self.allDay = None
-        """ Is this always available? (hence times are irrelevant) e.g. 24 hour
-        service.
+        """ Always available? e.g. 24 hour service.
         Type `bool`. """
         
         self.availableEndTime = None
-        """ The closing time of day. Note: If the AllDay flag is set, then this
-        time is ignored.
+        """ Closing time of day (ignored if allDay = true).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.availableStartTime = None
-        """ The opening time of day. Note: If the AllDay flag is set, then this
-        time is ignored.
+        """ Opening time of day (ignored if allDay = true).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.daysOfWeek = None
@@ -207,7 +189,9 @@ class HealthcareServiceAvailableTime(fhirelement.FHIRElement):
 
 
 class HealthcareServiceNotAvailable(fhirelement.FHIRElement):
-    """ The HealthcareService is not available during this period of time due to
+    """ Not available during this time due to provided reason.
+    
+    The HealthcareService is not available during this period of time due to
     the provided reason.
     """
     
@@ -218,13 +202,11 @@ class HealthcareServiceNotAvailable(fhirelement.FHIRElement):
         """
         
         self.description = None
-        """ The reason that can be presented to the user as to why this time is
-        not available.
+        """ Reason presented to the user explaining why time not available.
         Type `str`. """
         
         self.during = None
-        """ Service is not available (seasonally or for a public holiday) from
-        this date.
+        """ Service not availablefrom this date.
         Type `Period` (represented as `dict` in JSON). """
         
         super(HealthcareServiceNotAvailable, self).__init__(jsondict)
@@ -239,7 +221,9 @@ class HealthcareServiceNotAvailable(fhirelement.FHIRElement):
 
 
 class HealthcareServiceServiceType(fhirelement.FHIRElement):
-    """ A specific type of service that may be delivered or performed.
+    """ Specific service delivered or performed.
+    
+    A specific type of service that may be delivered or performed.
     """
     
     resource_name = "HealthcareServiceServiceType"
@@ -249,12 +233,11 @@ class HealthcareServiceServiceType(fhirelement.FHIRElement):
         """
         
         self.specialty = None
-        """ Collection of Specialties handled by the Service Site. This is more
-        of a Medical Term.
+        """ Specialties handled by the Service Site.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.type = None
-        """ The specific type of service being delivered or performed.
+        """ Type of service delivered or performed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(HealthcareServiceServiceType, self).__init__(jsondict)

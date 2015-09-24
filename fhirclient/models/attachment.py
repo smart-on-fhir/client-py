@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -34,7 +34,7 @@ class Attachment(fhirelement.FHIRElement):
         Type `str`. """
         
         self.hash = None
-        """ Hash of the data (sha-1, base64ed ).
+        """ Hash of the data (sha-1, base64ed).
         Type `str`. """
         
         self.language = None

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class SubstanceTests(unittest.TestCase):
         return substance.Substance(js)
     
     def testSubstance1(self):
-        inst = self.instantiate_from("substance-example-f201-dust.json")
+        inst = self.instantiate_from("substance-example-amoxicillin-clavulanate.json")
         self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
         self.implSubstance1(inst)
         
@@ -32,14 +32,34 @@ class SubstanceTests(unittest.TestCase):
         self.implSubstance1(inst2)
     
     def implSubstance1(self, inst):
-        self.assertEqual(inst.id, "f201")
+        self.assertEqual(inst.category[0].coding[0].code, "drug")
+        self.assertEqual(inst.category[0].coding[0].display, "Drug or Medicament")
+        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org.fhir/substance-category")
+        self.assertEqual(inst.code.coding[0].code, "392259005")
+        self.assertEqual(inst.code.coding[0].display, "Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.description, "Augmentin 875")
+        self.assertEqual(inst.id, "f205")
+        self.assertEqual(inst.ingredient[0].quantity.denominator.code, "mg")
+        self.assertEqual(inst.ingredient[0].quantity.denominator.system, "http://unitsofmeasure.org")
+        self.assertEqual(inst.ingredient[0].quantity.denominator.unit, "mg")
+        self.assertEqual(inst.ingredient[0].quantity.denominator.value, 1000)
+        self.assertEqual(inst.ingredient[0].quantity.numerator.code, "mg")
+        self.assertEqual(inst.ingredient[0].quantity.numerator.system, "http://unitsofmeasure.org")
+        self.assertEqual(inst.ingredient[0].quantity.numerator.unit, "mg")
+        self.assertEqual(inst.ingredient[0].quantity.numerator.value, 875)
+        self.assertEqual(inst.ingredient[1].quantity.denominator.code, "mg")
+        self.assertEqual(inst.ingredient[1].quantity.denominator.system, "http://unitsofmeasure.org")
+        self.assertEqual(inst.ingredient[1].quantity.denominator.unit, "mg")
+        self.assertEqual(inst.ingredient[1].quantity.denominator.value, 1000)
+        self.assertEqual(inst.ingredient[1].quantity.numerator.code, "mg")
+        self.assertEqual(inst.ingredient[1].quantity.numerator.system, "http://unitsofmeasure.org")
+        self.assertEqual(inst.ingredient[1].quantity.numerator.unit, "mg")
+        self.assertEqual(inst.ingredient[1].quantity.numerator.value, 125)
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "406466009")
-        self.assertEqual(inst.type.coding[0].display, "House dust allergen")
-        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
     
     def testSubstance2(self):
-        inst = self.instantiate_from("substance-example-f202-staphylococcus.json")
+        inst = self.instantiate_from("substance-example-f201-dust.json")
         self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
         self.implSubstance2(inst)
         
@@ -49,14 +69,14 @@ class SubstanceTests(unittest.TestCase):
         self.implSubstance2(inst2)
     
     def implSubstance2(self, inst):
-        self.assertEqual(inst.id, "f202")
+        self.assertEqual(inst.code.coding[0].code, "406466009")
+        self.assertEqual(inst.code.coding[0].display, "House dust allergen")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.id, "f201")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "3092008")
-        self.assertEqual(inst.type.coding[0].display, "Staphylococcus Aureus")
-        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
     
     def testSubstance3(self):
-        inst = self.instantiate_from("substance-example-f203-potassium.json")
+        inst = self.instantiate_from("substance-example-f202-staphylococcus.json")
         self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
         self.implSubstance3(inst)
         
@@ -66,14 +86,14 @@ class SubstanceTests(unittest.TestCase):
         self.implSubstance3(inst2)
     
     def implSubstance3(self, inst):
-        self.assertEqual(inst.id, "f203")
+        self.assertEqual(inst.code.coding[0].code, "3092008")
+        self.assertEqual(inst.code.coding[0].display, "Staphylococcus Aureus")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.id, "f202")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "88480006")
-        self.assertEqual(inst.type.coding[0].display, "Potassium")
-        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
     
     def testSubstance4(self):
-        inst = self.instantiate_from("substance-example.json")
+        inst = self.instantiate_from("substance-example-f203-potassium.json")
         self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
         self.implSubstance4(inst)
         
@@ -83,8 +103,65 @@ class SubstanceTests(unittest.TestCase):
         self.implSubstance4(inst2)
     
     def implSubstance4(self, inst):
-        self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.text.div, "<div>Apitoxin (known as Honey Bee Venom)</div>")
+        self.assertEqual(inst.category[0].coding[0].code, "chemical")
+        self.assertEqual(inst.category[0].coding[0].display, "Chemical")
+        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org.fhir/substance-category")
+        self.assertEqual(inst.code.coding[0].code, "88480006")
+        self.assertEqual(inst.code.coding[0].display, "Potassium")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.id, "f203")
+        self.assertEqual(inst.identifier[0].system, "http://acme.org/indentifiers/substances")
+        self.assertEqual(inst.identifier[0].value, "1234")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.text, "apitoxin")
+    
+    def testSubstance5(self):
+        inst = self.instantiate_from("substance-example-silver-nitrate-product.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
+        self.implSubstance5(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
+        self.implSubstance5(inst2)
+    
+    def implSubstance5(self, inst):
+        self.assertEqual(inst.category[0].coding[0].code, "chemical")
+        self.assertEqual(inst.category[0].coding[0].display, "Chemical")
+        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org.fhir/substance-category")
+        self.assertEqual(inst.code.coding[0].code, "333346007")
+        self.assertEqual(inst.code.coding[0].display, "Silver nitrate 20% solution (product)")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.description, "Solution for silver nitrate stain")
+        self.assertEqual(inst.id, "f204")
+        self.assertEqual(inst.identifier[0].system, "http://acme.org/indentifiers/substances")
+        self.assertEqual(inst.identifier[0].value, "15970")
+        self.assertEqual(inst.instance[0].expiry.date, FHIRDate("2018-01-01").date)
+        self.assertEqual(inst.instance[0].expiry.as_json(), "2018-01-01")
+        self.assertEqual(inst.instance[0].identifier.system, "http://acme.org/indentifiers/substances/lot")
+        self.assertEqual(inst.instance[0].identifier.value, "AB94687")
+        self.assertEqual(inst.instance[0].quantity.code, "mL")
+        self.assertEqual(inst.instance[0].quantity.system, "http://unitsofmeasure.org")
+        self.assertEqual(inst.instance[0].quantity.unit, "mL")
+        self.assertEqual(inst.instance[0].quantity.value, 100)
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testSubstance6(self):
+        inst = self.instantiate_from("substance-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Substance instance")
+        self.implSubstance6(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
+        self.implSubstance6(inst2)
+    
+    def implSubstance6(self, inst):
+        self.assertEqual(inst.category[0].coding[0].code, "allergen")
+        self.assertEqual(inst.category[0].coding[0].display, "Allergen")
+        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org.fhir/substance-category")
+        self.assertEqual(inst.code.text, "apitoxin (Honey Bee Venom)")
+        self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.identifier[0].system, "http://acme.org/indentifiers/substances")
+        self.assertEqual(inst.identifier[0].value, "1463")
+        self.assertEqual(inst.text.status, "generated")
 

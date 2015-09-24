@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Signature) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Signature) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -12,9 +12,12 @@ from . import fhirreference
 
 
 class Signature(fhirelement.FHIRElement):
-    """ An XML digital Signature.
+    """ A digital Signature - XML DigSig, JWT, Graphical image of signature, etc..
     
-    An XML digital signature along with supporting context.
+    A digital signature along with supporting context. The signature may be
+    electronic/cryptographic in nature, or a graphical image representing a
+    hand-written signature, or a signature process. Different Signature
+    approaches have different utilities.
     """
     
     resource_name = "Signature"
@@ -24,7 +27,11 @@ class Signature(fhirelement.FHIRElement):
         """
         
         self.blob = None
-        """ The actual XML Dig-Sig.
+        """ The actual signature content (XML DigSig. JWT, picture, etc.).
+        Type `str`. """
+        
+        self.contentType = None
+        """ The technical format of the signature.
         Type `str`. """
         
         self.type = None
@@ -37,7 +44,7 @@ class Signature(fhirelement.FHIRElement):
         
         self.whoReference = None
         """ Who signed the signature.
-        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device, Organization` (represented as `dict` in JSON). """
         
         self.whoUri = None
         """ Who signed the signature.
@@ -49,6 +56,7 @@ class Signature(fhirelement.FHIRElement):
         js = super(Signature, self).elementProperties()
         js.extend([
             ("blob", "blob", str, False),
+            ("contentType", "contentType", str, False),
             ("type", "type", coding.Coding, True),
             ("when", "when", fhirdate.FHIRDate, False),
             ("whoReference", "whoReference", fhirreference.FHIRReference, False),

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -50,7 +50,7 @@ class LocationTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/v3/RoleCode")
     
     def testLocation2(self):
-        inst = self.instantiate_from("location-example-patients-home.json")
+        inst = self.instantiate_from("location-example-hl7hq.json")
         self.assertIsNotNone(inst, "Must have instantiated a Location instance")
         self.implLocation2(inst)
         
@@ -60,6 +60,43 @@ class LocationTests(unittest.TestCase):
         self.implLocation2(inst2)
     
     def implLocation2(self, inst):
+        self.assertEqual(inst.address.city, "Ann Arbor")
+        self.assertEqual(inst.address.country, "USA")
+        self.assertEqual(inst.address.line[0], "3300 Washtenaw Avenue, Suite 227")
+        self.assertEqual(inst.address.postalCode, "48104")
+        self.assertEqual(inst.address.state, "MI")
+        self.assertEqual(inst.description, "HL7 Headquarters")
+        self.assertEqual(inst.id, "hl7")
+        self.assertEqual(inst.mode, "instance")
+        self.assertEqual(inst.name, "Health Level Seven International")
+        self.assertEqual(inst.physicalType.coding[0].code, "bu")
+        self.assertEqual(inst.physicalType.coding[0].display, "Building")
+        self.assertEqual(inst.physicalType.coding[0].system, "http://hl7.org/fhir/location-physical-type")
+        self.assertEqual(inst.position.latitude, -83.69471)
+        self.assertEqual(inst.position.longitude, 42.2565)
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.telecom[0].system, "phone")
+        self.assertEqual(inst.telecom[0].value, "(+1) 734-677-7777")
+        self.assertEqual(inst.telecom[1].system, "fax")
+        self.assertEqual(inst.telecom[1].value, "(+1) 734-677-6622")
+        self.assertEqual(inst.telecom[2].system, "email")
+        self.assertEqual(inst.telecom[2].value, "hq@HL7.org")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "SLEEP")
+        self.assertEqual(inst.type.coding[0].display, "Sleep disorders unit")
+        self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/v3/RoleCode")
+    
+    def testLocation3(self):
+        inst = self.instantiate_from("location-example-patients-home.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Location instance")
+        self.implLocation3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Location", js["resourceType"])
+        inst2 = location.Location(js)
+        self.implLocation3(inst2)
+    
+    def implLocation3(self, inst):
         self.assertEqual(inst.description, "Patient's Home")
         self.assertEqual(inst.id, "ph")
         self.assertEqual(inst.mode, "kind")
@@ -74,17 +111,17 @@ class LocationTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].display, "Patient's Residence")
         self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/v3/RoleCode")
     
-    def testLocation3(self):
+    def testLocation4(self):
         inst = self.instantiate_from("location-example-room.json")
         self.assertIsNotNone(inst, "Must have instantiated a Location instance")
-        self.implLocation3(inst)
+        self.implLocation4(inst)
         
         js = inst.as_json()
         self.assertEqual("Location", js["resourceType"])
         inst2 = location.Location(js)
-        self.implLocation3(inst2)
+        self.implLocation4(inst2)
     
-    def implLocation3(self, inst):
+    def implLocation4(self, inst):
         self.assertEqual(inst.description, "Old South Wing, Neuro Radiology Operation Room 1 on second floor")
         self.assertEqual(inst.id, "2")
         self.assertEqual(inst.identifier[0].value, "B1-S.F2.1.00")
@@ -102,17 +139,17 @@ class LocationTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].display, "Neuroradiology unit")
         self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/v3/RoleCode")
     
-    def testLocation4(self):
+    def testLocation5(self):
         inst = self.instantiate_from("location-example-ukpharmacy.json")
         self.assertIsNotNone(inst, "Must have instantiated a Location instance")
-        self.implLocation4(inst)
+        self.implLocation5(inst)
         
         js = inst.as_json()
         self.assertEqual("Location", js["resourceType"])
         inst2 = location.Location(js)
-        self.implLocation4(inst2)
+        self.implLocation5(inst2)
     
-    def implLocation4(self, inst):
+    def implLocation5(self, inst):
         self.assertEqual(inst.description, "All Pharmacies in the United Kingdom covered by the National Pharmacy Association")
         self.assertEqual(inst.id, "ukp")
         self.assertEqual(inst.mode, "kind")
@@ -127,17 +164,17 @@ class LocationTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].display, "Pharmacy")
         self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/v3/RoleCode")
     
-    def testLocation5(self):
+    def testLocation6(self):
         inst = self.instantiate_from("location-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Location instance")
-        self.implLocation5(inst)
+        self.implLocation6(inst)
         
         js = inst.as_json()
         self.assertEqual("Location", js["resourceType"])
         inst2 = location.Location(js)
-        self.implLocation5(inst2)
+        self.implLocation6(inst2)
     
-    def implLocation5(self, inst):
+    def implLocation6(self, inst):
         self.assertEqual(inst.address.city, "Den Burg")
         self.assertEqual(inst.address.country, "NLD")
         self.assertEqual(inst.address.line[0], "Galapagosweg 91, Building A")
@@ -167,7 +204,7 @@ class LocationTests(unittest.TestCase):
         self.assertEqual(inst.telecom[1].value, "2329")
         self.assertEqual(inst.telecom[2].system, "email")
         self.assertEqual(inst.telecom[2].value, "second wing admissions")
-        self.assertEqual(inst.telecom[3].system, "url")
+        self.assertEqual(inst.telecom[3].system, "other")
         self.assertEqual(inst.telecom[3].use, "work")
         self.assertEqual(inst.telecom[3].value, "http://sampleorg.com/southwing")
         self.assertEqual(inst.text.div, "<div>Burgers UMC, South Wing, second floor</div>")

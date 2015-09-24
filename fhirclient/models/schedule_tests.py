@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -34,6 +34,9 @@ class ScheduleTests(unittest.TestCase):
     def implSchedule1(self, inst):
         self.assertEqual(inst.comment, "Assessments should be performed before requesting appointments in this slot.")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.identifier[0].system, "http://example.org/scheduleid")
+        self.assertEqual(inst.identifier[0].use, "usual")
+        self.assertEqual(inst.identifier[0].value, "45")
         self.assertEqual(inst.planningHorizon.end.date, FHIRDate("2013-12-25T09:30:00Z").date)
         self.assertEqual(inst.planningHorizon.end.as_json(), "2013-12-25T09:30:00Z")
         self.assertEqual(inst.planningHorizon.start.date, FHIRDate("2013-12-25T09:15:00Z").date)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -11,8 +11,8 @@ from . import fhirdate
 from . import fhirelement
 from . import fhirreference
 from . import identifier
-from . import money
 from . import period
+from . import quantity
 
 
 class PaymentReconciliation(domainresource.DomainResource):
@@ -86,7 +86,7 @@ class PaymentReconciliation(domainresource.DomainResource):
         
         self.total = None
         """ Total amount of Payment.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         super(PaymentReconciliation, self).__init__(jsondict)
     
@@ -107,7 +107,7 @@ class PaymentReconciliation(domainresource.DomainResource):
             ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False),
             ("requestProvider", "requestProvider", fhirreference.FHIRReference, False),
             ("ruleset", "ruleset", coding.Coding, False),
-            ("total", "total", money.Money, False),
+            ("total", "total", quantity.Quantity, False),
         ])
         return js
 
@@ -126,7 +126,7 @@ class PaymentReconciliationDetail(fhirelement.FHIRElement):
         
         self.amount = None
         """ Detail amount.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.date = None
         """ Invoice date.
@@ -157,7 +157,7 @@ class PaymentReconciliationDetail(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(PaymentReconciliationDetail, self).elementProperties()
         js.extend([
-            ("amount", "amount", money.Money, False),
+            ("amount", "amount", quantity.Quantity, False),
             ("date", "date", fhirdate.FHIRDate, False),
             ("payee", "payee", fhirreference.FHIRReference, False),
             ("request", "request", fhirreference.FHIRReference, False),

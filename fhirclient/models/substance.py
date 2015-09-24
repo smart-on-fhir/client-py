@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Substance) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Substance) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -25,9 +25,21 @@ class Substance(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
+        self.category = None
+        """ What class/type of substance this is.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.code = None
+        """ What substance this is.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.description = None
         """ Textual description of the substance, comments.
         Type `str`. """
+        
+        self.identifier = None
+        """ Unique identifier.
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.ingredient = None
         """ Composition information about the substance.
@@ -35,21 +47,19 @@ class Substance(domainresource.DomainResource):
         
         self.instance = None
         """ If this describes a specific package/container of the substance.
-        Type `SubstanceInstance` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ What kind of substance this is.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `SubstanceInstance` items (represented as `dict` in JSON). """
         
         super(Substance, self).__init__(jsondict)
     
     def elementProperties(self):
         js = super(Substance, self).elementProperties()
         js.extend([
+            ("category", "category", codeableconcept.CodeableConcept, True),
+            ("code", "code", codeableconcept.CodeableConcept, False),
             ("description", "description", str, False),
+            ("identifier", "identifier", identifier.Identifier, True),
             ("ingredient", "ingredient", SubstanceIngredient, True),
-            ("instance", "instance", SubstanceInstance, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("instance", "instance", SubstanceInstance, True),
         ])
         return js
 
@@ -108,7 +118,7 @@ class SubstanceInstance(fhirelement.FHIRElement):
         
         self.quantity = None
         """ Amount of substance in the package.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         super(SubstanceInstance, self).__init__(jsondict)
     

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class BasicTests(unittest.TestCase):
         return basic.Basic(js)
     
     def testBasic1(self):
-        inst = self.instantiate_from("basic-example-adverseevent-qicore.json")
+        inst = self.instantiate_from("basic-example-narrative.json")
         self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
         self.implBasic1(inst)
         
@@ -32,30 +32,12 @@ class BasicTests(unittest.TestCase):
         self.implBasic1(inst2)
     
     def implBasic1(self, inst):
-        self.assertEqual(inst.code.coding[0].code, "ADVEVENT")
-        self.assertEqual(inst.code.coding[0].system, "http://hl7.org/fhir/other-resource-type")
-        self.assertEqual(inst.extension[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause-item")
-        self.assertEqual(inst.extension[0].extension[1].url, "http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause-certainty")
-        self.assertEqual(inst.extension[0].extension[1].valueCodeableConcept.coding[0].code, "415684004")
-        self.assertEqual(inst.extension[0].extension[1].valueCodeableConcept.coding[0].display, "Suspected (qualifier)")
-        self.assertEqual(inst.extension[0].extension[1].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-cause")
-        self.assertEqual(inst.extension[1].url, "http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-type")
-        self.assertEqual(inst.extension[1].valueCodeableConcept.coding[0].code, "28926001")
-        self.assertEqual(inst.extension[1].valueCodeableConcept.coding[0].display, "Eruption due to drug (disorder)")
-        self.assertEqual(inst.extension[1].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.extension[2].url, "http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-period")
-        self.assertEqual(inst.extension[2].valuePeriod.end.date, FHIRDate("2014-01-15").date)
-        self.assertEqual(inst.extension[2].valuePeriod.end.as_json(), "2014-01-15")
-        self.assertEqual(inst.extension[2].valuePeriod.start.date, FHIRDate("2014-01-14").date)
-        self.assertEqual(inst.extension[2].valuePeriod.start.as_json(), "2014-01-14")
-        self.assertEqual(inst.id, "qicore")
-        self.assertEqual(inst.modifierExtension[0].url, "http://hl7.org/fhir/StructureDefinition/adverseevent-qicore-didNotOccur")
-        self.assertFalse(inst.modifierExtension[0].valueBoolean)
-        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.code.text, "Example Narrative Tester")
+        self.assertEqual(inst.id, "basic-example-narrative")
+        self.assertEqual(inst.text.status, "additional")
     
     def testBasic2(self):
-        inst = self.instantiate_from("basic-example-narrative.json")
+        inst = self.instantiate_from("basic-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
         self.implBasic2(inst)
         
@@ -65,23 +47,10 @@ class BasicTests(unittest.TestCase):
         self.implBasic2(inst2)
     
     def implBasic2(self, inst):
-        self.assertEqual(inst.code.text, "Example Narrative Tester")
-        self.assertEqual(inst.id, "basic-example-narrative")
-        self.assertEqual(inst.text.status, "additional")
-    
-    def testBasic3(self):
-        inst = self.instantiate_from("basic-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
-        self.implBasic3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Basic", js["resourceType"])
-        inst2 = basic.Basic(js)
-        self.implBasic3(inst2)
-    
-    def implBasic3(self, inst):
-        self.assertEqual(inst.code.coding[0].code, "REFERRAL")
+        self.assertEqual(inst.code.coding[0].code, "referral")
         self.assertEqual(inst.code.coding[0].system, "http://hl7.org/fhir/basic-resource-type")
+        self.assertEqual(inst.created.date, FHIRDate("2013-05-14").date)
+        self.assertEqual(inst.created.as_json(), "2013-05-14")
         self.assertEqual(inst.extension[0].url, "http://example.org/do-not-use/fhir-extensions/referral#requestingPractitioner")
         self.assertEqual(inst.extension[1].url, "http://example.org/do-not-use/fhir-extensions/referral#notes")
         self.assertEqual(inst.extension[1].valueString, "The patient had fever peaks over the last couple of days. He is worried about these peaks.")
@@ -100,17 +69,17 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(inst.modifierExtension[2].valueCode, "complete")
         self.assertEqual(inst.text.status, "generated")
     
-    def testBasic4(self):
+    def testBasic3(self):
         inst = self.instantiate_from("basic-example2.json")
         self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
-        self.implBasic4(inst)
+        self.implBasic3(inst)
         
         js = inst.as_json()
         self.assertEqual("Basic", js["resourceType"])
         inst2 = basic.Basic(js)
-        self.implBasic4(inst2)
+        self.implBasic3(inst2)
     
-    def implBasic4(self, inst):
+    def implBasic3(self, inst):
         self.assertEqual(inst.code.coding[0].code, "UMLCLASSMODEL")
         self.assertEqual(inst.code.coding[0].system, "http://example.org/do-not-use/fhir-codes#resourceTypes")
         self.assertEqual(inst.extension[0].extension[0].url, "name")

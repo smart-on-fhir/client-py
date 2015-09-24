@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -10,6 +10,7 @@ from . import attachment
 from . import codeableconcept
 from . import contactpoint
 from . import domainresource
+from . import fhirdate
 from . import fhirreference
 from . import humanname
 from . import identifier
@@ -33,14 +34,18 @@ class RelatedPerson(domainresource.DomainResource):
         
         self.address = None
         """ Address where the related person can be contacted or visited.
-        Type `Address` (represented as `dict` in JSON). """
+        List of `Address` items (represented as `dict` in JSON). """
+        
+        self.birthDate = None
+        """ The date on which the related person was born.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.gender = None
         """ male | female | other | unknown.
         Type `str`. """
         
         self.identifier = None
-        """ A Human identifier for this person.
+        """ A human identifier for this person.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.name = None
@@ -72,7 +77,8 @@ class RelatedPerson(domainresource.DomainResource):
     def elementProperties(self):
         js = super(RelatedPerson, self).elementProperties()
         js.extend([
-            ("address", "address", address.Address, False),
+            ("address", "address", address.Address, True),
+            ("birthDate", "birthDate", fhirdate.FHIRDate, False),
             ("gender", "gender", str, False),
             ("identifier", "identifier", identifier.Identifier, True),
             ("name", "name", humanname.HumanName, False),

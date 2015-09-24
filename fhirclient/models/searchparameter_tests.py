@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -33,16 +33,19 @@ class SearchParameterTests(unittest.TestCase):
     
     def implSearchParameter1(self, inst):
         self.assertEqual(inst.base, "Patient")
-        self.assertEqual(inst.contact[0].telecom[0].system, "url")
+        self.assertEqual(inst.code, "part-agree")
+        self.assertEqual(inst.contact[0].telecom[0].system, "other")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.description, "Search by url for a participation agreement")
+        self.assertEqual(inst.description, "Search by url for a participation agreement, which is stored in a DocumentReference")
         self.assertEqual(inst.id, "example-extension")
         self.assertEqual(inst.name, "Example Search Parameter on an extension")
-        self.assertEqual(inst.publisher, "HL7 FHIR Project")
+        self.assertEqual(inst.publisher, "Health Level Seven International (FHIR Infrastructure)")
+        self.assertEqual(inst.target[0], "DocumentReference")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type, "token")
+        self.assertEqual(inst.type, "reference")
         self.assertEqual(inst.url, "http://hl7.org/fhir/SearchParameter/example-extension")
         self.assertEqual(inst.xpath, "http://example.org/fhir/StructureDefinition/participation-agreement")
+        self.assertEqual(inst.xpathUsage, "normal")
     
     def testSearchParameter2(self):
         inst = self.instantiate_from("searchparameter-example.json")
@@ -56,14 +59,22 @@ class SearchParameterTests(unittest.TestCase):
     
     def implSearchParameter2(self, inst):
         self.assertEqual(inst.base, "Resource")
-        self.assertEqual(inst.contact[0].telecom[0].system, "url")
+        self.assertEqual(inst.code, "_id")
+        self.assertEqual(inst.contact[0].name, "[string]")
+        self.assertEqual(inst.contact[0].telecom[0].system, "other")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
+        self.assertEqual(inst.date.date, FHIRDate("2013-10-23").date)
+        self.assertEqual(inst.date.as_json(), "2013-10-23")
         self.assertEqual(inst.description, "Search by resource identifier - e.g. same as the read interaction, but can return included resources")
+        self.assertFalse(inst.experimental)
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.name, "Example Search Parameter")
-        self.assertEqual(inst.publisher, "HL7 FHIR Project")
+        self.assertEqual(inst.publisher, "Health Level Seven International (FHIR Infrastructure)")
+        self.assertEqual(inst.requirements, "Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain")
+        self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "token")
         self.assertEqual(inst.url, "http://hl7.org/fhir/SearchParameter/example")
-        self.assertEqual(inst.xpath, "f:id")
+        self.assertEqual(inst.xpath, "f:*/f:id")
+        self.assertEqual(inst.xpathUsage, "normal")
 

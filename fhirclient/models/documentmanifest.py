@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -25,11 +25,11 @@ class DocumentManifest(domainresource.DomainResource):
         """
         
         self.author = None
-        """ Who and/or what authored the document.
+        """ Who and/or what authored the manifest.
         List of `FHIRReference` items referencing `Practitioner, Organization, Device, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.content = None
-        """ Contents of the manifest.
+        """ The items included.
         List of `DocumentManifestContent` items (represented as `dict` in JSON). """
         
         self.created = None
@@ -50,7 +50,7 @@ class DocumentManifest(domainresource.DomainResource):
         
         self.recipient = None
         """ Intended to get notified about this set of documents.
-        List of `FHIRReference` items referencing `Patient, Practitioner, Organization` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Patient, Practitioner, RelatedPerson, Organization` (represented as `dict` in JSON). """
         
         self.related = None
         """ Related things.
@@ -61,7 +61,7 @@ class DocumentManifest(domainresource.DomainResource):
         Type `str`. """
         
         self.status = None
-        """ current | superceded | entered-in-error.
+        """ current | superseded | entered-in-error.
         Type `str`. """
         
         self.subject = None
@@ -69,7 +69,7 @@ class DocumentManifest(domainresource.DomainResource):
         Type `FHIRReference` referencing `Patient, Practitioner, Group, Device` (represented as `dict` in JSON). """
         
         self.type = None
-        """ What kind of document set this is.
+        """ Kind of document set.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(DocumentManifest, self).__init__(jsondict)
@@ -94,9 +94,9 @@ class DocumentManifest(domainresource.DomainResource):
 
 
 class DocumentManifestContent(fhirelement.FHIRElement):
-    """ Contents of the manifest.
+    """ The items included.
     
-    The manifest list.
+    The list of Documents included in the manifest.
     """
     
     resource_name = "DocumentManifestContent"
@@ -111,7 +111,7 @@ class DocumentManifestContent(fhirelement.FHIRElement):
         
         self.pReference = None
         """ Contents of this set of documents.
-        Type `FHIRReference` referencing `DocumentReference, Media` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         super(DocumentManifestContent, self).__init__(jsondict)
     
@@ -137,7 +137,7 @@ class DocumentManifestRelated(fhirelement.FHIRElement):
         """
         
         self.identifier = None
-        """ Related Identifier.
+        """ Identifiers of things that are related.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.ref = None

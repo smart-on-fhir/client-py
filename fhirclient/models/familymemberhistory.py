@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
-from . import age
+from . import annotation
 from . import codeableconcept
 from . import domainresource
 from . import fhirdate
@@ -13,6 +13,7 @@ from . import fhirelement
 from . import fhirreference
 from . import identifier
 from . import period
+from . import quantity
 from . import range
 
 
@@ -29,9 +30,9 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.ageAge = None
+        self.ageQuantity = None
         """ (approximate) age.
-        Type `Age` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Age` (represented as `dict` in JSON). """
         
         self.ageRange = None
         """ (approximate) age.
@@ -61,10 +62,6 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ When history was captured/updated.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.deceasedAge = None
-        """ Dead? How old/when?.
-        Type `Age` (represented as `dict` in JSON). """
-        
         self.deceasedBoolean = None
         """ Dead? How old/when?.
         Type `bool`. """
@@ -72,6 +69,10 @@ class FamilyMemberHistory(domainresource.DomainResource):
         self.deceasedDate = None
         """ Dead? How old/when?.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.deceasedQuantity = None
+        """ Dead? How old/when?.
+        Type `Quantity` referencing `Age` (represented as `dict` in JSON). """
         
         self.deceasedRange = None
         """ Dead? How old/when?.
@@ -95,7 +96,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         self.note = None
         """ General note about related person.
-        Type `str`. """
+        Type `Annotation` (represented as `dict` in JSON). """
         
         self.patient = None
         """ Patient history is about.
@@ -105,12 +106,16 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ Relationship to the subject.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ partial | completed | entered-in-error | health-unknown.
+        Type `str`. """
+        
         super(FamilyMemberHistory, self).__init__(jsondict)
     
     def elementProperties(self):
         js = super(FamilyMemberHistory, self).elementProperties()
         js.extend([
-            ("ageAge", "ageAge", age.Age, False),
+            ("ageQuantity", "ageQuantity", quantity.Quantity, False),
             ("ageRange", "ageRange", range.Range, False),
             ("ageString", "ageString", str, False),
             ("bornDate", "bornDate", fhirdate.FHIRDate, False),
@@ -118,17 +123,18 @@ class FamilyMemberHistory(domainresource.DomainResource):
             ("bornString", "bornString", str, False),
             ("condition", "condition", FamilyMemberHistoryCondition, True),
             ("date", "date", fhirdate.FHIRDate, False),
-            ("deceasedAge", "deceasedAge", age.Age, False),
             ("deceasedBoolean", "deceasedBoolean", bool, False),
             ("deceasedDate", "deceasedDate", fhirdate.FHIRDate, False),
+            ("deceasedQuantity", "deceasedQuantity", quantity.Quantity, False),
             ("deceasedRange", "deceasedRange", range.Range, False),
             ("deceasedString", "deceasedString", str, False),
             ("gender", "gender", str, False),
             ("identifier", "identifier", identifier.Identifier, True),
             ("name", "name", str, False),
-            ("note", "note", str, False),
+            ("note", "note", annotation.Annotation, False),
             ("patient", "patient", fhirreference.FHIRReference, False),
             ("relationship", "relationship", codeableconcept.CodeableConcept, False),
+            ("status", "status", str, False),
         ])
         return js
 
@@ -148,13 +154,21 @@ class FamilyMemberHistoryCondition(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
+        self.code = None
+        """ Condition suffered by relation.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.note = None
         """ Extra information about condition.
-        Type `str`. """
+        Type `Annotation` (represented as `dict` in JSON). """
         
-        self.onsetAge = None
+        self.onsetPeriod = None
         """ When condition first manifested.
-        Type `Age` (represented as `dict` in JSON). """
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.onsetQuantity = None
+        """ When condition first manifested.
+        Type `Quantity` referencing `Age` (represented as `dict` in JSON). """
         
         self.onsetRange = None
         """ When condition first manifested.
@@ -168,21 +182,18 @@ class FamilyMemberHistoryCondition(fhirelement.FHIRElement):
         """ deceased | permanent disability | etc..
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.type = None
-        """ Condition suffered by relation.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         super(FamilyMemberHistoryCondition, self).__init__(jsondict)
     
     def elementProperties(self):
         js = super(FamilyMemberHistoryCondition, self).elementProperties()
         js.extend([
-            ("note", "note", str, False),
-            ("onsetAge", "onsetAge", age.Age, False),
+            ("code", "code", codeableconcept.CodeableConcept, False),
+            ("note", "note", annotation.Annotation, False),
+            ("onsetPeriod", "onsetPeriod", period.Period, False),
+            ("onsetQuantity", "onsetQuantity", quantity.Quantity, False),
             ("onsetRange", "onsetRange", range.Range, False),
             ("onsetString", "onsetString", str, False),
             ("outcome", "outcome", codeableconcept.CodeableConcept, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
         ])
         return js
 

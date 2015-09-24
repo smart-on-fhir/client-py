@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
 from . import fhirdate
 from . import fhirelement
 from . import resource
+from . import signature
 
 
 class Bundle(resource.Resource):
@@ -22,10 +23,6 @@ class Bundle(resource.Resource):
         """ Initialize all valid properties.
         """
         
-        self.base = None
-        """ Stated Base URL.
-        Type `str`. """
-        
         self.entry = None
         """ Entry in the bundle - will have a resource, or information.
         List of `BundleEntry` items (represented as `dict` in JSON). """
@@ -35,16 +32,16 @@ class Bundle(resource.Resource):
         List of `BundleLink` items (represented as `dict` in JSON). """
         
         self.signature = None
-        """ XML Digital Signature (base64 encoded).
-        Type `str`. """
+        """ Digital Signature.
+        Type `Signature` (represented as `dict` in JSON). """
         
         self.total = None
         """ If search, the total number of matches.
         Type `int`. """
         
         self.type = None
-        """ document | message | transaction | transaction-response | history |
-        searchset | collection.
+        """ document | message | transaction | transaction-response | batch |
+        batch-response | history | searchset | collection.
         Type `str`. """
         
         super(Bundle, self).__init__(jsondict)
@@ -52,10 +49,9 @@ class Bundle(resource.Resource):
     def elementProperties(self):
         js = super(Bundle, self).elementProperties()
         js.extend([
-            ("base", "base", str, False),
             ("entry", "entry", BundleEntry, True),
             ("link", "link", BundleLink, True),
-            ("signature", "signature", str, False),
+            ("signature", "signature", signature.Signature, False),
             ("total", "total", int, False),
             ("type", "type", str, False),
         ])
@@ -75,85 +71,53 @@ class BundleEntry(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.base = None
-        """ Base URL, if different to bundle base.
+        self.fullUrl = None
+        """ Absolute URL for resource (server address, or UUID/OID).
         Type `str`. """
         
         self.link = None
         """ Links related to this entry.
         List of `BundleLink` items (represented as `dict` in JSON). """
         
+        self.request = None
+        """ Transaction Related Information.
+        Type `BundleEntryRequest` (represented as `dict` in JSON). """
+        
         self.resource = None
-        """ Resources in this bundle.
+        """ A resource in the bundle.
         Type `Resource` (represented as `dict` in JSON). """
+        
+        self.response = None
+        """ Transaction Related Information.
+        Type `BundleEntryResponse` (represented as `dict` in JSON). """
         
         self.search = None
         """ Search related information.
         Type `BundleEntrySearch` (represented as `dict` in JSON). """
-        
-        self.transaction = None
-        """ Transaction Related Information.
-        Type `BundleEntryTransaction` (represented as `dict` in JSON). """
-        
-        self.transactionResponse = None
-        """ Transaction Related Information.
-        Type `BundleEntryTransactionResponse` (represented as `dict` in JSON). """
         
         super(BundleEntry, self).__init__(jsondict)
     
     def elementProperties(self):
         js = super(BundleEntry, self).elementProperties()
         js.extend([
-            ("base", "base", str, False),
+            ("fullUrl", "fullUrl", str, False),
             ("link", "link", BundleLink, True),
+            ("request", "request", BundleEntryRequest, False),
             ("resource", "resource", resource.Resource, False),
+            ("response", "response", BundleEntryResponse, False),
             ("search", "search", BundleEntrySearch, False),
-            ("transaction", "transaction", BundleEntryTransaction, False),
-            ("transactionResponse", "transactionResponse", BundleEntryTransactionResponse, False),
         ])
         return js
 
 
-class BundleEntrySearch(fhirelement.FHIRElement):
-    """ Search related information.
-    
-    Information about the search process that lead to the creation of this
-    entry.
-    """
-    
-    resource_name = "BundleEntrySearch"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.mode = None
-        """ match | include - why this is in the result set.
-        Type `str`. """
-        
-        self.score = None
-        """ Search ranking (between 0 and 1).
-        Type `float`. """
-        
-        super(BundleEntrySearch, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(BundleEntrySearch, self).elementProperties()
-        js.extend([
-            ("mode", "mode", str, False),
-            ("score", "score", float, False),
-        ])
-        return js
-
-
-class BundleEntryTransaction(fhirelement.FHIRElement):
+class BundleEntryRequest(fhirelement.FHIRElement):
     """ Transaction Related Information.
     
     Additional information about how this entry should be processed as part of
     a transaction.
     """
     
-    resource_name = "BundleEntryTransaction"
+    resource_name = "BundleEntryRequest"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -180,13 +144,13 @@ class BundleEntryTransaction(fhirelement.FHIRElement):
         Type `str`. """
         
         self.url = None
-        """ The URL for the transaction.
+        """ URL for HTTP equivalent of this entry.
         Type `str`. """
         
-        super(BundleEntryTransaction, self).__init__(jsondict)
+        super(BundleEntryRequest, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(BundleEntryTransaction, self).elementProperties()
+        js = super(BundleEntryRequest, self).elementProperties()
         js.extend([
             ("ifMatch", "ifMatch", str, False),
             ("ifModifiedSince", "ifModifiedSince", fhirdate.FHIRDate, False),
@@ -198,14 +162,14 @@ class BundleEntryTransaction(fhirelement.FHIRElement):
         return js
 
 
-class BundleEntryTransactionResponse(fhirelement.FHIRElement):
+class BundleEntryResponse(fhirelement.FHIRElement):
     """ Transaction Related Information.
     
     Additional information about how this entry should be processed as part of
     a transaction.
     """
     
-    resource_name = "BundleEntryTransactionResponse"
+    resource_name = "BundleEntryResponse"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -227,15 +191,47 @@ class BundleEntryTransactionResponse(fhirelement.FHIRElement):
         """ Status return code for entry.
         Type `str`. """
         
-        super(BundleEntryTransactionResponse, self).__init__(jsondict)
+        super(BundleEntryResponse, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(BundleEntryTransactionResponse, self).elementProperties()
+        js = super(BundleEntryResponse, self).elementProperties()
         js.extend([
             ("etag", "etag", str, False),
             ("lastModified", "lastModified", fhirdate.FHIRDate, False),
             ("location", "location", str, False),
             ("status", "status", str, False),
+        ])
+        return js
+
+
+class BundleEntrySearch(fhirelement.FHIRElement):
+    """ Search related information.
+    
+    Information about the search process that lead to the creation of this
+    entry.
+    """
+    
+    resource_name = "BundleEntrySearch"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.mode = None
+        """ match | include | outcome - why this is in the result set.
+        Type `str`. """
+        
+        self.score = None
+        """ Search ranking (between 0 and 1).
+        Type `float`. """
+        
+        super(BundleEntrySearch, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(BundleEntrySearch, self).elementProperties()
+        js.extend([
+            ("mode", "mode", str, False),
+            ("score", "score", float, False),
         ])
         return js
 

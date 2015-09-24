@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -15,10 +15,16 @@ from . import fhirreference
 class ImagingObjectSelection(domainresource.DomainResource):
     """ Key Object Selection.
     
-    A set of DICOM SOP Instances of a patient, selected for some application
-    purpose, e.g., quality assurance, teaching, conference, consulting, etc.
-    Objects selected can be from different studies, but must be of the same
-    patient.
+    A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).
+    The referenced SOP Instances (images or other content) are for a single
+    patient, and may be from one or more studies. The referenced SOP Instances
+    have been selected for a purpose, such as quality assurance, conference, or
+    consult. Reflecting that range of purposes, typical ImagingObjectSelection
+    resources may include all SOP Instances in a study (perhaps for sharing
+    through a Health Information Exchange); key images from multiple studies
+    (for reference by a referring or treating physician); a multi-frame
+    ultrasound instance ("cine" video clip) and a set of measurements taken
+    from that instance (for inclusion in a teaching file); and so on.
     """
     
     resource_name = "ImagingObjectSelection"
@@ -84,16 +90,20 @@ class ImagingObjectSelectionStudy(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
+        self.imagingStudy = None
+        """ Reference to ImagingStudy.
+        Type `FHIRReference` referencing `ImagingStudy` (represented as `dict` in JSON). """
+        
         self.series = None
         """ Series identity of the selected instances.
         List of `ImagingObjectSelectionStudySeries` items (represented as `dict` in JSON). """
         
         self.uid = None
-        """ Study instance uid.
+        """ Study instance UID.
         Type `str`. """
         
         self.url = None
-        """ Retrieve URL.
+        """ Retrieve study URL.
         Type `str`. """
         
         super(ImagingObjectSelectionStudy, self).__init__(jsondict)
@@ -101,6 +111,7 @@ class ImagingObjectSelectionStudy(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudy, self).elementProperties()
         js.extend([
+            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, False),
             ("series", "series", ImagingObjectSelectionStudySeries, True),
             ("uid", "uid", str, False),
             ("url", "url", str, False),
@@ -111,7 +122,7 @@ class ImagingObjectSelectionStudy(fhirelement.FHIRElement):
 class ImagingObjectSelectionStudySeries(fhirelement.FHIRElement):
     """ Series identity of the selected instances.
     
-    Series indetity and locating information of the DICOM SOP instances in the
+    Series identity and locating information of the DICOM SOP instances in the
     selection.
     """
     
@@ -126,11 +137,11 @@ class ImagingObjectSelectionStudySeries(fhirelement.FHIRElement):
         List of `ImagingObjectSelectionStudySeriesInstance` items (represented as `dict` in JSON). """
         
         self.uid = None
-        """ Series instance uid.
+        """ Series instance UID.
         Type `str`. """
         
         self.url = None
-        """ Retrieve URL.
+        """ Retrieve series URL.
         Type `str`. """
         
         super(ImagingObjectSelectionStudySeries, self).__init__(jsondict)
@@ -162,15 +173,15 @@ class ImagingObjectSelectionStudySeriesInstance(fhirelement.FHIRElement):
         List of `ImagingObjectSelectionStudySeriesInstanceFrames` items (represented as `dict` in JSON). """
         
         self.sopClass = None
-        """ SOP class uid of instance.
+        """ SOP class UID of instance.
         Type `str`. """
         
         self.uid = None
-        """ Uid of the selected instance.
+        """ Selected instance UID.
         Type `str`. """
         
         self.url = None
-        """ Retrieve URL.
+        """ Retrieve instance URL.
         Type `str`. """
         
         super(ImagingObjectSelectionStudySeriesInstance, self).__init__(jsondict)
@@ -203,7 +214,7 @@ class ImagingObjectSelectionStudySeriesInstanceFrames(fhirelement.FHIRElement):
         List of `int` items. """
         
         self.url = None
-        """ Retrieve URL.
+        """ Retrieve frame URL.
         Type `str`. """
         
         super(ImagingObjectSelectionStudySeriesInstanceFrames, self).__init__(jsondict)

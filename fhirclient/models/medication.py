@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Medication) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Medication) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -17,8 +17,8 @@ from . import ratio
 class Medication(domainresource.DomainResource):
     """ Definition of a Medication.
     
-    Primarily used for identification and definition of Medication, but also
-    covers ingredients and packaging.
+    This resource is primarily used for the identification and definition of a
+    medication. It covers the ingredients and the packaging for a medication.
     """
     
     resource_name = "Medication"
@@ -35,17 +35,9 @@ class Medication(domainresource.DomainResource):
         """ True if a brand.
         Type `bool`. """
         
-        self.kind = None
-        """ product | package.
-        Type `str`. """
-        
         self.manufacturer = None
         """ Manufacturer of the item.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
-        self.name = None
-        """ Common / Commercial name.
-        Type `str`. """
         
         self.package = None
         """ Details about packaged medications.
@@ -62,9 +54,7 @@ class Medication(domainresource.DomainResource):
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False),
             ("isBrand", "isBrand", bool, False),
-            ("kind", "kind", str, False),
             ("manufacturer", "manufacturer", fhirreference.FHIRReference, False),
-            ("name", "name", str, False),
             ("package", "package", MedicationPackage, False),
             ("product", "product", MedicationProduct, False),
         ])
@@ -88,7 +78,7 @@ class MedicationPackage(fhirelement.FHIRElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.content = None
-        """ What is  in the package?.
+        """ What is  in the package.
         List of `MedicationPackageContent` items (represented as `dict` in JSON). """
         
         super(MedicationPackage, self).__init__(jsondict)
@@ -103,7 +93,7 @@ class MedicationPackage(fhirelement.FHIRElement):
 
 
 class MedicationPackageContent(fhirelement.FHIRElement):
-    """ What is  in the package?.
+    """ What is  in the package.
     
     A set of components that go to make up the described item.
     """
@@ -115,8 +105,8 @@ class MedicationPackageContent(fhirelement.FHIRElement):
         """
         
         self.amount = None
-        """ How many are in the package?.
-        Type `Quantity` (represented as `dict` in JSON). """
+        """ Quantity present in the package.
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.item = None
         """ A product in the package.
@@ -146,8 +136,7 @@ class MedicationProduct(fhirelement.FHIRElement):
         """
         
         self.batch = None
-        """ Information about a group of medication produced or packaged from
-        one production run..
+        """ None.
         List of `MedicationProductBatch` items (represented as `dict` in JSON). """
         
         self.form = None
@@ -171,8 +160,7 @@ class MedicationProduct(fhirelement.FHIRElement):
 
 
 class MedicationProductBatch(fhirelement.FHIRElement):
-    """ Information about a group of medication produced or packaged from one
-    production run..
+    """ None.
     
     Information about a group of medication produced or packaged from one
     production run.
@@ -185,11 +173,11 @@ class MedicationProductBatch(fhirelement.FHIRElement):
         """
         
         self.expirationDate = None
-        """ When this specific batch of product will expire..
+        """ None.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.lotNumber = None
-        """ The assigned lot number of a batch of the specified product..
+        """ None.
         Type `str`. """
         
         super(MedicationProductBatch, self).__init__(jsondict)
@@ -216,7 +204,7 @@ class MedicationProductIngredient(fhirelement.FHIRElement):
         """
         
         self.amount = None
-        """ How much ingredient in product.
+        """ Quantity of ingredient present.
         Type `Ratio` (represented as `dict` in JSON). """
         
         self.item = None

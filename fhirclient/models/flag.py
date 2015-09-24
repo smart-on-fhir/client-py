@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Flag) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Flag) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -27,7 +27,7 @@ class Flag(domainresource.DomainResource):
         
         self.author = None
         """ Flag creator.
-        Type `FHIRReference` referencing `Practitioner, Patient, Device` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner` (represented as `dict` in JSON). """
         
         self.category = None
         """ Clinical, administrative, etc..
@@ -37,13 +37,13 @@ class Flag(domainresource.DomainResource):
         """ Partially deaf, Requires easy open caps, No permanent address, etc..
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.encounter = None
+        """ Alert relevant during encounter.
+        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        
         self.identifier = None
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.patient = None
-        """ Who is flag about?.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.period = None
         """ Time period when flag is active.
@@ -53,6 +53,10 @@ class Flag(domainresource.DomainResource):
         """ active | inactive | entered-in-error.
         Type `str`. """
         
+        self.subject = None
+        """ Who/What is flag about?.
+        Type `FHIRReference` referencing `Patient, Location, Group, Organization, Practitioner` (represented as `dict` in JSON). """
+        
         super(Flag, self).__init__(jsondict)
     
     def elementProperties(self):
@@ -61,10 +65,11 @@ class Flag(domainresource.DomainResource):
             ("author", "author", fhirreference.FHIRReference, False),
             ("category", "category", codeableconcept.CodeableConcept, False),
             ("code", "code", codeableconcept.CodeableConcept, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
             ("identifier", "identifier", identifier.Identifier, True),
-            ("patient", "patient", fhirreference.FHIRReference, False),
             ("period", "period", period.Period, False),
             ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
         ])
         return js
 

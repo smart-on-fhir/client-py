@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Person) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Person) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -38,7 +38,7 @@ class Person(domainresource.DomainResource):
         List of `Address` items (represented as `dict` in JSON). """
         
         self.birthDate = None
-        """ The birth date for the person.
+        """ The date on which the person was born.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.gender = None
@@ -46,7 +46,7 @@ class Person(domainresource.DomainResource):
         Type `str`. """
         
         self.identifier = None
-        """ A Human identifier for this person.
+        """ A human identifier for this person.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.link = None
@@ -54,7 +54,7 @@ class Person(domainresource.DomainResource):
         List of `PersonLink` items (represented as `dict` in JSON). """
         
         self.managingOrganization = None
-        """ The Organization that is the custodian of the person record.
+        """ The organization that is the custodian of the person record.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.name = None
@@ -62,7 +62,7 @@ class Person(domainresource.DomainResource):
         List of `HumanName` items (represented as `dict` in JSON). """
         
         self.photo = None
-        """ Image of the Person.
+        """ Image of the person.
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.telecom = None

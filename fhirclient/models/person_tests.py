@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class PersonTests(unittest.TestCase):
         return person.Person(js)
     
     def testPerson1(self):
-        inst = self.instantiate_from("person-example.json")
+        inst = self.instantiate_from("person-example-f002-ariadne.json")
         self.assertIsNotNone(inst, "Must have instantiated a Person instance")
         self.implPerson1(inst)
         
@@ -32,6 +32,30 @@ class PersonTests(unittest.TestCase):
         self.implPerson1(inst2)
     
     def implPerson1(self, inst):
+        self.assertTrue(inst.active)
+        self.assertEqual(inst.birthDate.date, FHIRDate("1963").date)
+        self.assertEqual(inst.birthDate.as_json(), "1963")
+        self.assertEqual(inst.gender, "female")
+        self.assertEqual(inst.id, "f002")
+        self.assertEqual(inst.name[0].text, "Ariadne Bor-Jansma")
+        self.assertEqual(inst.name[0].use, "usual")
+        self.assertEqual(inst.photo.contentType, "image/jpeg")
+        self.assertEqual(inst.telecom[0].system, "phone")
+        self.assertEqual(inst.telecom[0].use, "home")
+        self.assertEqual(inst.telecom[0].value, "+31201234567")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testPerson2(self):
+        inst = self.instantiate_from("person-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Person instance")
+        self.implPerson2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Person", js["resourceType"])
+        inst2 = person.Person(js)
+        self.implPerson2(inst2)
+    
+    def implPerson2(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].city, "PleasantVille")
         self.assertEqual(inst.address[0].line[0], "534 Erewhon St")
@@ -45,7 +69,7 @@ class PersonTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].period.start.date, FHIRDate("2001-05-06").date)
         self.assertEqual(inst.identifier[0].period.start.as_json(), "2001-05-06")
         self.assertEqual(inst.identifier[0].system, "urn:oid:1.2.36.146.595.217.0.1")
-        self.assertEqual(inst.identifier[0].type.coding[0].code, "MRN")
+        self.assertEqual(inst.identifier[0].type.coding[0].code, "MR")
         self.assertEqual(inst.identifier[0].type.coding[0].system, "http://hl7.org/fhir/v2/0203")
         self.assertEqual(inst.identifier[0].use, "usual")
         self.assertEqual(inst.identifier[0].value, "12345")

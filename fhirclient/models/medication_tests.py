@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -37,15 +37,13 @@ class MedicationTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f001")
         self.assertTrue(inst.isBrand)
-        self.assertEqual(inst.kind, "product")
-        self.assertEqual(inst.name, "Combivent")
         self.assertEqual(inst.product.form.coding[0].code, "420317006")
         self.assertEqual(inst.product.form.coding[0].display, "Inhaler (qualifier value)")
         self.assertEqual(inst.product.form.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.product.ingredient[0].amount.denominator.value, 1)
         self.assertEqual(inst.product.ingredient[0].amount.numerator.code, "ml")
         self.assertEqual(inst.product.ingredient[0].amount.numerator.system, "http://unitsofmeasure.org")
-        self.assertEqual(inst.product.ingredient[0].amount.numerator.units, "ml")
+        self.assertEqual(inst.product.ingredient[0].amount.numerator.unit, "ml")
         self.assertEqual(inst.product.ingredient[0].amount.numerator.value, 100)
         self.assertEqual(inst.text.status, "generated")
     
@@ -65,8 +63,6 @@ class MedicationTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f002")
         self.assertTrue(inst.isBrand)
-        self.assertEqual(inst.kind, "product")
-        self.assertEqual(inst.name, "Crestor")
         self.assertEqual(inst.package.container.coding[0].code, "398124009")
         self.assertEqual(inst.package.container.coding[0].display, "drug container")
         self.assertEqual(inst.package.container.coding[0].system, "http://snomed.info/sct")
@@ -88,8 +84,6 @@ class MedicationTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f003")
         self.assertTrue(inst.isBrand)
-        self.assertEqual(inst.kind, "product")
-        self.assertEqual(inst.name, "Tolbutamide")
         self.assertEqual(inst.package.container.coding[0].code, "398124009")
         self.assertEqual(inst.package.container.coding[0].display, "drug container")
         self.assertEqual(inst.package.container.coding[0].system, "http://snomed.info/sct")
@@ -111,8 +105,6 @@ class MedicationTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f004")
         self.assertTrue(inst.isBrand)
-        self.assertEqual(inst.kind, "product")
-        self.assertEqual(inst.name, "Metoprolol")
         self.assertEqual(inst.package.container.coding[0].code, "398124009")
         self.assertEqual(inst.package.container.coding[0].display, "drug container")
         self.assertEqual(inst.package.container.coding[0].system, "http://snomed.info/sct")
@@ -134,8 +126,6 @@ class MedicationTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f005")
         self.assertTrue(inst.isBrand)
-        self.assertEqual(inst.kind, "product")
-        self.assertEqual(inst.name, "Enalapril")
         self.assertEqual(inst.package.container.coding[0].code, "398124009")
         self.assertEqual(inst.package.container.coding[0].display, "drug container")
         self.assertEqual(inst.package.container.coding[0].system, "http://snomed.info/sct")
@@ -157,8 +147,6 @@ class MedicationTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f201")
         self.assertFalse(inst.isBrand)
-        self.assertEqual(inst.kind, "product")
-        self.assertEqual(inst.name, "Salmeterol/fluticason")
         self.assertEqual(inst.product.form.coding[0].code, "421606006")
         self.assertEqual(inst.product.form.coding[0].display, "Aerosol spray")
         self.assertEqual(inst.product.form.coding[0].system, "http://snomed.info/sct")
@@ -192,8 +180,6 @@ class MedicationTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f202")
         self.assertFalse(inst.isBrand)
-        self.assertEqual(inst.kind, "product")
-        self.assertEqual(inst.name, "Flucloxacillin")
         self.assertEqual(inst.product.form.coding[0].code, "385218009")
         self.assertEqual(inst.product.form.coding[0].display, "Injection")
         self.assertEqual(inst.product.form.coding[0].system, "http://snomed.info/sct")
@@ -215,8 +201,6 @@ class MedicationTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f203")
         self.assertFalse(inst.isBrand)
-        self.assertEqual(inst.kind, "product")
-        self.assertEqual(inst.name, "Paracetamol")
         self.assertEqual(inst.product.form.coding[0].code, "385055001")
         self.assertEqual(inst.product.form.coding[0].display, "Tablet")
         self.assertEqual(inst.product.form.coding[0].system, "http://snomed.info/sct")

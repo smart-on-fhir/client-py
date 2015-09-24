@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -16,8 +16,9 @@ from . import identifier
 class ImmunizationRecommendation(domainresource.DomainResource):
     """ Guidance or advice relating to an immunization.
     
-    A patient's point-of-time immunization status and recommendation with
-    optional supporting justification.
+    A patient's point-in-time immunization and recommendation (i.e. forecasting
+    a patient's immunization eligibility according to a published schedule)
+    with optional supporting justification.
     """
     
     resource_name = "ImmunizationRecommendation"
@@ -88,7 +89,7 @@ class ImmunizationRecommendationRecommendation(fhirelement.FHIRElement):
         """ Patient observations supporting recommendation.
         List of `FHIRReference` items referencing `Observation, AllergyIntolerance` (represented as `dict` in JSON). """
         
-        self.vaccineType = None
+        self.vaccineCode = None
         """ Vaccine recommendation applies to.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
@@ -104,7 +105,7 @@ class ImmunizationRecommendationRecommendation(fhirelement.FHIRElement):
             ("protocol", "protocol", ImmunizationRecommendationRecommendationProtocol, False),
             ("supportingImmunization", "supportingImmunization", fhirreference.FHIRReference, True),
             ("supportingPatientInformation", "supportingPatientInformation", fhirreference.FHIRReference, True),
-            ("vaccineType", "vaccineType", codeableconcept.CodeableConcept, False),
+            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, False),
         ])
         return js
 
@@ -112,8 +113,8 @@ class ImmunizationRecommendationRecommendation(fhirelement.FHIRElement):
 class ImmunizationRecommendationRecommendationDateCriterion(fhirelement.FHIRElement):
     """ Dates governing proposed immunization.
     
-    Vaccine date recommendations - e.g. earliest date to administer, latest
-    date to administer, etc.
+    Vaccine date recommendations.  For example, earliest date to administer,
+    latest date to administer, etc.
     """
     
     resource_name = "ImmunizationRecommendationRecommendationDateCriterion"
@@ -163,7 +164,7 @@ class ImmunizationRecommendationRecommendationProtocol(fhirelement.FHIRElement):
         Type `str`. """
         
         self.doseSequence = None
-        """ Number of dose within sequence.
+        """ Dose number within sequence.
         Type `int`. """
         
         self.series = None

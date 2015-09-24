@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -23,7 +23,7 @@ class DiagnosticReport(domainresource.DomainResource):
     groups of patients, devices, and locations, and/or specimens derived from
     these. The report includes clinical context such as requesting and provider
     information, and some mix of atomic results, images, textual and coded
-    interpretation, and formatted representation of diagnostic reports.
+    interpretations, and formatted representation of diagnostic reports.
     """
     
     resource_name = "DiagnosticReport"
@@ -31,6 +31,14 @@ class DiagnosticReport(domainresource.DomainResource):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.category = None
+        """ Service category.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.code = None
+        """ Name/Code for this diagnostic report.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.codedDiagnosis = None
         """ Codes for the conclusion.
@@ -40,12 +48,12 @@ class DiagnosticReport(domainresource.DomainResource):
         """ Clinical Interpretation of test results.
         Type `str`. """
         
-        self.diagnosticDateTime = None
-        """ Physiologically Relevant time/time-period for report.
+        self.effectiveDateTime = None
+        """ Clinically Relevant time/time-period for report.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.diagnosticPeriod = None
-        """ Physiologically Relevant time/time-period for report.
+        self.effectivePeriod = None
+        """ Clinically Relevant time/time-period for report.
         Type `Period` (represented as `dict` in JSON). """
         
         self.encounter = None
@@ -63,35 +71,27 @@ class DiagnosticReport(domainresource.DomainResource):
         self.imagingStudy = None
         """ Reference to full details of imaging associated with the diagnostic
         report.
-        List of `FHIRReference` items referencing `ImagingStudy` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ImagingStudy, ImagingObjectSelection` (represented as `dict` in JSON). """
         
         self.issued = None
-        """ Date this version was released.
+        """ DateTime this version was released.
         Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.name = None
-        """ Name/Code for this diagnostic report.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.performer = None
         """ Responsible Diagnostic Service.
         Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.presentedForm = None
-        """ Entire Report as issued.
+        """ Entire report as issued.
         List of `Attachment` items (represented as `dict` in JSON). """
         
-        self.requestDetail = None
+        self.request = None
         """ What was requested.
-        List of `FHIRReference` items referencing `DiagnosticOrder` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `DiagnosticOrder, ProcedureRequest, ReferralRequest` (represented as `dict` in JSON). """
         
         self.result = None
         """ Observations - simple, or complex nested groups.
         List of `FHIRReference` items referencing `Observation` (represented as `dict` in JSON). """
-        
-        self.serviceCategory = None
-        """ Biochemistry, Hematology etc..
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.specimen = None
         """ Specimens this report is based on.
@@ -111,21 +111,21 @@ class DiagnosticReport(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DiagnosticReport, self).elementProperties()
         js.extend([
+            ("category", "category", codeableconcept.CodeableConcept, False),
+            ("code", "code", codeableconcept.CodeableConcept, False),
             ("codedDiagnosis", "codedDiagnosis", codeableconcept.CodeableConcept, True),
             ("conclusion", "conclusion", str, False),
-            ("diagnosticDateTime", "diagnosticDateTime", fhirdate.FHIRDate, False),
-            ("diagnosticPeriod", "diagnosticPeriod", period.Period, False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False),
+            ("effectivePeriod", "effectivePeriod", period.Period, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False),
             ("identifier", "identifier", identifier.Identifier, True),
             ("image", "image", DiagnosticReportImage, True),
             ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True),
             ("issued", "issued", fhirdate.FHIRDate, False),
-            ("name", "name", codeableconcept.CodeableConcept, False),
             ("performer", "performer", fhirreference.FHIRReference, False),
             ("presentedForm", "presentedForm", attachment.Attachment, True),
-            ("requestDetail", "requestDetail", fhirreference.FHIRReference, True),
+            ("request", "request", fhirreference.FHIRReference, True),
             ("result", "result", fhirreference.FHIRReference, True),
-            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False),
             ("specimen", "specimen", fhirreference.FHIRReference, True),
             ("status", "status", str, False),
             ("subject", "subject", fhirreference.FHIRReference, False),

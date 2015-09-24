@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
+from . import annotation
 from . import codeableconcept
 from . import domainresource
 from . import fhirdate
@@ -17,11 +18,11 @@ from . import timing
 
 
 class CarePlan(domainresource.DomainResource):
-    """ Healthcare plan for patient.
+    """ Healthcare plan for patient or group.
     
     Describes the intention of how one or more practitioners intend to deliver
-    care for a particular patient for a period of time, possibly limited to
-    care for a specific condition or set of conditions.
+    care for a particular patient, group or community for a period of time,
+    possibly limited to care for a specific condition or set of conditions.
     """
     
     resource_name = "CarePlan"
@@ -34,17 +35,25 @@ class CarePlan(domainresource.DomainResource):
         """ Action to occur as part of plan.
         List of `CarePlanActivity` items (represented as `dict` in JSON). """
         
+        self.addresses = None
+        """ Health issues this plan addresses.
+        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
+        
         self.author = None
-        """ Who is responsible for plan.
+        """ Who is responsible for contents of the plan.
         List of `FHIRReference` items referencing `Patient, Practitioner, RelatedPerson, Organization` (represented as `dict` in JSON). """
         
         self.category = None
         """ Type of plan.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.concern = None
-        """ Health issues this plan addresses.
-        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
+        self.context = None
+        """ Created in context of.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        
+        self.description = None
+        """ Summary of nature of plan.
+        Type `str`. """
         
         self.goal = None
         """ Desired outcome of plan.
@@ -58,25 +67,29 @@ class CarePlan(domainresource.DomainResource):
         """ When last updated.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.notes = None
+        self.note = None
         """ Comments about the plan.
-        Type `str`. """
+        Type `Annotation` (represented as `dict` in JSON). """
         
         self.participant = None
         """ Who's involved in plan?.
         List of `CarePlanParticipant` items (represented as `dict` in JSON). """
         
-        self.patient = None
-        """ Who care plan is for.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
         self.period = None
         """ Time period plan covers.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.relatedPlan = None
+        """ Plans related to this one.
+        List of `CarePlanRelatedPlan` items (represented as `dict` in JSON). """
+        
         self.status = None
-        """ planned | active | completed.
+        """ proposed | draft | active | completed | cancelled.
         Type `str`. """
+        
+        self.subject = None
+        """ Who care plan is for.
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         self.support = None
         """ Information considered as part of plan.
@@ -88,17 +101,20 @@ class CarePlan(domainresource.DomainResource):
         js = super(CarePlan, self).elementProperties()
         js.extend([
             ("activity", "activity", CarePlanActivity, True),
+            ("addresses", "addresses", fhirreference.FHIRReference, True),
             ("author", "author", fhirreference.FHIRReference, True),
             ("category", "category", codeableconcept.CodeableConcept, True),
-            ("concern", "concern", fhirreference.FHIRReference, True),
+            ("context", "context", fhirreference.FHIRReference, False),
+            ("description", "description", str, False),
             ("goal", "goal", fhirreference.FHIRReference, True),
             ("identifier", "identifier", identifier.Identifier, True),
             ("modified", "modified", fhirdate.FHIRDate, False),
-            ("notes", "notes", str, False),
+            ("note", "note", annotation.Annotation, False),
             ("participant", "participant", CarePlanParticipant, True),
-            ("patient", "patient", fhirreference.FHIRReference, False),
             ("period", "period", period.Period, False),
+            ("relatedPlan", "relatedPlan", CarePlanRelatedPlan, True),
             ("status", "status", str, False),
+            ("subject", "subject", fhirreference.FHIRReference, False),
             ("support", "support", fhirreference.FHIRReference, True),
         ])
         return js
@@ -126,13 +142,13 @@ class CarePlanActivity(fhirelement.FHIRElement):
         """ In-line definition of activity.
         Type `CarePlanActivityDetail` (represented as `dict` in JSON). """
         
-        self.notes = None
-        """ Comments about the activity.
-        Type `str`. """
+        self.progress = None
+        """ Comments about the activity status/progress.
+        List of `Annotation` items (represented as `dict` in JSON). """
         
         self.reference = None
         """ Activity details defined in specific resource.
-        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticOrder, MedicationPrescription, NutritionOrder, Order, ProcedureRequest, ProcessRequest, ReferralRequest, Supply, VisionPrescription` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticOrder, MedicationOrder, NutritionOrder, Order, ProcedureRequest, ProcessRequest, ReferralRequest, SupplyRequest, VisionPrescription` (represented as `dict` in JSON). """
         
         super(CarePlanActivity, self).__init__(jsondict)
     
@@ -141,7 +157,7 @@ class CarePlanActivity(fhirelement.FHIRElement):
         js.extend([
             ("actionResulting", "actionResulting", fhirreference.FHIRReference, True),
             ("detail", "detail", CarePlanActivityDetail, False),
-            ("notes", "notes", str, False),
+            ("progress", "progress", annotation.Annotation, True),
             ("reference", "reference", fhirreference.FHIRReference, False),
         ])
         return js
@@ -163,7 +179,7 @@ class CarePlanActivityDetail(fhirelement.FHIRElement):
         
         self.category = None
         """ diet | drug | encounter | observation | procedure | supply | other.
-        Type `str`. """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.code = None
         """ Detail type of activity.
@@ -171,7 +187,11 @@ class CarePlanActivityDetail(fhirelement.FHIRElement):
         
         self.dailyAmount = None
         """ How to consume/day?.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        
+        self.description = None
+        """ Extra info describing activity to perform.
+        Type `str`. """
         
         self.goal = None
         """ Goals this activity relates to.
@@ -181,15 +201,15 @@ class CarePlanActivityDetail(fhirelement.FHIRElement):
         """ Where it should happen.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
-        self.note = None
-        """ Extra info on activity occurrence.
-        Type `str`. """
-        
         self.performer = None
         """ Who will be responsible?.
         List of `FHIRReference` items referencing `Practitioner, Organization, RelatedPerson, Patient` (represented as `dict` in JSON). """
         
-        self.product = None
+        self.productCodeableConcept = None
+        """ What is to be administered/supplied.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.productReference = None
         """ What is to be administered/supplied.
         Type `FHIRReference` referencing `Medication, Substance` (represented as `dict` in JSON). """
         
@@ -199,15 +219,15 @@ class CarePlanActivityDetail(fhirelement.FHIRElement):
         
         self.quantity = None
         """ How much to administer/supply/consume.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
-        self.reasonCodeableConcept = None
+        self.reasonCode = None
         """ Why activity should be done.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonReference = None
-        """ Why activity should be done.
-        Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
+        """ Condition triggering need for activity.
+        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
         
         self.scheduledPeriod = None
         """ When activity is to occur.
@@ -235,18 +255,19 @@ class CarePlanActivityDetail(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(CarePlanActivityDetail, self).elementProperties()
         js.extend([
-            ("category", "category", str, False),
+            ("category", "category", codeableconcept.CodeableConcept, False),
             ("code", "code", codeableconcept.CodeableConcept, False),
             ("dailyAmount", "dailyAmount", quantity.Quantity, False),
+            ("description", "description", str, False),
             ("goal", "goal", fhirreference.FHIRReference, True),
             ("location", "location", fhirreference.FHIRReference, False),
-            ("note", "note", str, False),
             ("performer", "performer", fhirreference.FHIRReference, True),
-            ("product", "product", fhirreference.FHIRReference, False),
+            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("productReference", "productReference", fhirreference.FHIRReference, False),
             ("prohibited", "prohibited", bool, False),
             ("quantity", "quantity", quantity.Quantity, False),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True),
             ("scheduledPeriod", "scheduledPeriod", period.Period, False),
             ("scheduledString", "scheduledString", str, False),
             ("scheduledTiming", "scheduledTiming", timing.Timing, False),
@@ -284,6 +305,38 @@ class CarePlanParticipant(fhirelement.FHIRElement):
         js.extend([
             ("member", "member", fhirreference.FHIRReference, False),
             ("role", "role", codeableconcept.CodeableConcept, False),
+        ])
+        return js
+
+
+class CarePlanRelatedPlan(fhirelement.FHIRElement):
+    """ Plans related to this one.
+    
+    Identifies CarePlans with some sort of formal relationship to the current
+    plan.
+    """
+    
+    resource_name = "CarePlanRelatedPlan"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.code = None
+        """ includes | replaces | fulfills.
+        Type `str`. """
+        
+        self.plan = None
+        """ Plan relationship exists with.
+        Type `FHIRReference` referencing `CarePlan` (represented as `dict` in JSON). """
+        
+        super(CarePlanRelatedPlan, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(CarePlanRelatedPlan, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False),
+            ("plan", "plan", fhirreference.FHIRReference, False),
         ])
         return js
 

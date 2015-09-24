@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -41,7 +41,7 @@ class DeviceComponentTests(unittest.TestCase):
         self.assertEqual(inst.lastSystemChange.as_json(), "2014-10-07T14:45:00Z")
         self.assertEqual(inst.operationalStatus[0].coding[0].code, "0")
         self.assertEqual(inst.operationalStatus[0].coding[0].display, "disconnected")
-        self.assertEqual(inst.operationalStatus[0].coding[0].system, "urn:std:iso:11073:10101")
+        self.assertEqual(inst.operationalStatus[0].coding[0].system, "urn:iso:std:iso:11073:10101")
         self.assertEqual(inst.productionSpecification[0].productionSpec, "xa-12324-b")
         self.assertEqual(inst.productionSpecification[0].specType.coding[0].code, "1")
         self.assertEqual(inst.productionSpecification[0].specType.coding[0].display, "Serial number")
@@ -57,7 +57,7 @@ class DeviceComponentTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "2000")
         self.assertEqual(inst.type.coding[0].display, "MDC_DEV_ANALY_SAT_O2_MDS")
-        self.assertEqual(inst.type.coding[0].system, "urn:std:iso:11073:10101")
+        self.assertEqual(inst.type.coding[0].system, "urn:iso:std:iso:11073:10101")
     
     def testDeviceComponent2(self):
         inst = self.instantiate_from("devicecomponent-example.json")
@@ -79,9 +79,9 @@ class DeviceComponentTests(unittest.TestCase):
         self.assertEqual(inst.lastSystemChange.as_json(), "2014-10-07T14:45:00Z")
         self.assertEqual(inst.operationalStatus[0].coding[0].code, "0")
         self.assertEqual(inst.operationalStatus[0].coding[0].display, "disconnected")
-        self.assertEqual(inst.operationalStatus[0].coding[0].system, "urn:std:iso:11073:10101")
+        self.assertEqual(inst.operationalStatus[0].coding[0].system, "urn:iso:std:iso:11073:10101")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "2000")
         self.assertEqual(inst.type.coding[0].display, "MDC_DEV_ANALY_SAT_O2_MDS")
-        self.assertEqual(inst.type.coding[0].system, "urn:std:iso:11073:10101")
+        self.assertEqual(inst.type.coding[0].system, "urn:iso:std:iso:11073:10101")
 

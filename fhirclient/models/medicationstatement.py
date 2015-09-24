@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -13,16 +13,36 @@ from . import fhirreference
 from . import identifier
 from . import period
 from . import quantity
+from . import range
 from . import ratio
 from . import timing
 
 
 class MedicationStatement(domainresource.DomainResource):
-    """ Administration of medication to a patient.
+    """ Record of medication being taken by a patient.
     
-    A record of medication being taken by a patient, or that the medication has
-    been given to a patient where the record is the result of a report from the
-    patient or another clinician.
+    A record of a medication that is being consumed by a patient.   A
+    MedicationStatement may indicate that the patient may be taking the
+    medication now, or has taken the medication in the past or will be taking
+    the medication in the future.  The source of this information can be the
+    patient, significant other (such as a family member or spouse), or a
+    clinician.  A common scenario where this information is captured is during
+    the history taking process during a patient visit or stay.   The medication
+    information may come from e.g. the patient's memory, from a prescription
+    bottle,  or from a list of medications the patient, clinician or other
+    party maintains The primary difference between a medication statement and
+    a medication administration is that the medication administration has
+    complete administration information and is based on actual administration
+    information from the person who administered the medication.  A medication
+    statement is often, if not always, less specific.  There is no required
+    date/time when the medication was administered, in fact we only know that a
+    source has reported the patient is taking this medication, where details
+    such as time, quantity, or rate or even medication product may be
+    incomplete or missing or less precise.  As stated earlier, the medication
+    statement information may come from the patient's memory, from a
+    prescription bottle or from a list of medications the patient, clinician or
+    other party maintains.  Medication administration is more formal and is not
+    missing detailed information.
     """
     
     resource_name = "MedicationStatement"
@@ -48,16 +68,19 @@ class MedicationStatement(domainresource.DomainResource):
         Type `Period` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ External Identifier.
+        """ External identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.informationSource = None
-        """ The person who provided the information about the taking of this
-        medication..
+        """ None.
         Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
-        self.medication = None
-        """ What medication was taken?.
+        self.medicationCodeableConcept = None
+        """ What medication was taken.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.medicationReference = None
+        """ What medication was taken.
         Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
         
         self.note = None
@@ -65,26 +88,30 @@ class MedicationStatement(domainresource.DomainResource):
         Type `str`. """
         
         self.patient = None
-        """ Who was/is taking medication.
+        """ Who is/was taking  the medication.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.reasonForUseCodeableConcept = None
-        """ A reason for why the medication is being/was taken..
+        """ None.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.reasonForUseReference = None
-        """ A reason for why the medication is being/was taken..
+        """ None.
         Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
         
-        self.reasonNotGiven = None
+        self.reasonNotTaken = None
         """ True if asserting medication was not given.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ in-progress | completed | entered-in-error.
+        """ active | completed | entered-in-error | intended.
         Type `str`. """
         
-        self.wasNotGiven = None
+        self.supportingInformation = None
+        """ Additional supporting information.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
+        self.wasNotTaken = None
         """ True if medication is/was not being taken.
         Type `bool`. """
         
@@ -99,14 +126,16 @@ class MedicationStatement(domainresource.DomainResource):
             ("effectivePeriod", "effectivePeriod", period.Period, False),
             ("identifier", "identifier", identifier.Identifier, True),
             ("informationSource", "informationSource", fhirreference.FHIRReference, False),
-            ("medication", "medication", fhirreference.FHIRReference, False),
+            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False),
             ("note", "note", str, False),
             ("patient", "patient", fhirreference.FHIRReference, False),
             ("reasonForUseCodeableConcept", "reasonForUseCodeableConcept", codeableconcept.CodeableConcept, False),
             ("reasonForUseReference", "reasonForUseReference", fhirreference.FHIRReference, False),
-            ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True),
+            ("reasonNotTaken", "reasonNotTaken", codeableconcept.CodeableConcept, True),
             ("status", "status", str, False),
-            ("wasNotGiven", "wasNotGiven", bool, False),
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True),
+            ("wasNotTaken", "wasNotTaken", bool, False),
         ])
         return js
 
@@ -124,11 +153,11 @@ class MedicationStatementDosage(fhirelement.FHIRElement):
         """
         
         self.asNeededBoolean = None
-        """ Take "as needed" f(or x).
+        """ Take "as needed" (for x).
         Type `bool`. """
         
         self.asNeededCodeableConcept = None
-        """ Take "as needed" f(or x).
+        """ Take "as needed" (for x).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.maxDosePerPeriod = None
@@ -139,29 +168,41 @@ class MedicationStatementDosage(fhirelement.FHIRElement):
         """ Technique used to administer medication.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantityQuantity = None
         """ Amount administered in one dose.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
-        self.rate = None
+        self.quantityRange = None
+        """ Amount administered in one dose.
+        Type `Range` (represented as `dict` in JSON). """
+        
+        self.rateRange = None
+        """ Dose quantity per unit of time.
+        Type `Range` (represented as `dict` in JSON). """
+        
+        self.rateRatio = None
         """ Dose quantity per unit of time.
         Type `Ratio` (represented as `dict` in JSON). """
         
         self.route = None
-        """ How did the medication enter the body?.
+        """ How the medication entered the body.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.schedule = None
-        """ When/how often was medication taken?.
-        Type `Timing` (represented as `dict` in JSON). """
-        
-        self.site = None
-        """ Where on body was medication administered?.
+        self.siteCodeableConcept = None
+        """ Where (on body) medication is/was administered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.siteReference = None
+        """ Where (on body) medication is/was administered.
+        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.text = None
-        """ Dosage Instructions.
+        """ Reported dosage information.
         Type `str`. """
+        
+        self.timing = None
+        """ When/how often was medication taken.
+        Type `Timing` (represented as `dict` in JSON). """
         
         super(MedicationStatementDosage, self).__init__(jsondict)
     
@@ -172,12 +213,15 @@ class MedicationStatementDosage(fhirelement.FHIRElement):
             ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False),
             ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False),
             ("method", "method", codeableconcept.CodeableConcept, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("rate", "rate", ratio.Ratio, False),
+            ("quantityQuantity", "quantityQuantity", quantity.Quantity, False),
+            ("quantityRange", "quantityRange", range.Range, False),
+            ("rateRange", "rateRange", range.Range, False),
+            ("rateRatio", "rateRatio", ratio.Ratio, False),
             ("route", "route", codeableconcept.CodeableConcept, False),
-            ("schedule", "schedule", timing.Timing, False),
-            ("site", "site", codeableconcept.CodeableConcept, False),
+            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("siteReference", "siteReference", fhirreference.FHIRReference, False),
             ("text", "text", str, False),
+            ("timing", "timing", timing.Timing, False),
         ])
         return js
 

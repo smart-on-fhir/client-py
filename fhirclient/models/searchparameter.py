@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -14,7 +14,7 @@ from . import fhirelement
 class SearchParameter(domainresource.DomainResource):
     """ Search Parameter for a resource.
     
-    A Search Parameter that defines a named search item that can be used to
+    A search parameter that defines a named search item that can be used to
     search/filter on a resource.
     """
     
@@ -26,6 +26,10 @@ class SearchParameter(domainresource.DomainResource):
         
         self.base = None
         """ The resource type this search parameter applies to.
+        Type `str`. """
+        
+        self.code = None
+        """ Code used in URL.
         Type `str`. """
         
         self.contact = None
@@ -45,7 +49,7 @@ class SearchParameter(domainresource.DomainResource):
         Type `bool`. """
         
         self.name = None
-        """ Name of search parameter.
+        """ Informal name for this search parameter.
         Type `str`. """
         
         self.publisher = None
@@ -70,11 +74,15 @@ class SearchParameter(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Literal URL used to reference this search parameter.
+        """ Absolute URL used to reference this search parameter.
         Type `str`. """
         
         self.xpath = None
         """ XPath that extracts the values.
+        Type `str`. """
+        
+        self.xpathUsage = None
+        """ normal | phonetic | nearby | distance | other.
         Type `str`. """
         
         super(SearchParameter, self).__init__(jsondict)
@@ -83,6 +91,7 @@ class SearchParameter(domainresource.DomainResource):
         js = super(SearchParameter, self).elementProperties()
         js.extend([
             ("base", "base", str, False),
+            ("code", "code", str, False),
             ("contact", "contact", SearchParameterContact, True),
             ("date", "date", fhirdate.FHIRDate, False),
             ("description", "description", str, False),
@@ -95,6 +104,7 @@ class SearchParameter(domainresource.DomainResource):
             ("type", "type", str, False),
             ("url", "url", str, False),
             ("xpath", "xpath", str, False),
+            ("xpathUsage", "xpathUsage", str, False),
         ])
         return js
 

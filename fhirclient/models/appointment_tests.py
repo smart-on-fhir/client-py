@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class AppointmentTests(unittest.TestCase):
         return appointment.Appointment(js)
     
     def testAppointment1(self):
-        inst = self.instantiate_from("appointment-example.json")
+        inst = self.instantiate_from("appointment-example-request.json")
         self.assertIsNotNone(inst, "Must have instantiated a Appointment instance")
         self.implAppointment1(inst)
         
@@ -32,6 +32,38 @@ class AppointmentTests(unittest.TestCase):
         self.implAppointment1(inst2)
     
     def implAppointment1(self, inst):
+        self.assertEqual(inst.comment, "Further expand on the results of the MRI and determine the next actions that may be appropriate.")
+        self.assertEqual(inst.description, "Discussion on the results of your recent MRI")
+        self.assertEqual(inst.id, "examplereq")
+        self.assertEqual(inst.identifier[0].system, "http://example.org/sampleappointment-identifier")
+        self.assertEqual(inst.identifier[0].value, "123")
+        self.assertEqual(inst.minutesDuration, 15)
+        self.assertEqual(inst.participant[0].required, "required")
+        self.assertEqual(inst.participant[0].status, "needs-action")
+        self.assertEqual(inst.participant[1].required, "required")
+        self.assertEqual(inst.participant[1].status, "needs-action")
+        self.assertEqual(inst.participant[1].type[0].coding[0].code, "attending")
+        self.assertEqual(inst.participant[2].required, "required")
+        self.assertEqual(inst.participant[2].status, "accepted")
+        self.assertEqual(inst.priority, 5)
+        self.assertEqual(inst.reason.text, "Clinical Review")
+        self.assertEqual(inst.status, "proposed")
+        self.assertEqual(inst.text.div, "<div>Brian MRI results discussion</div>")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "52")
+        self.assertEqual(inst.type.coding[0].display, "General Discussion")
+    
+    def testAppointment2(self):
+        inst = self.instantiate_from("appointment-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Appointment instance")
+        self.implAppointment2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Appointment", js["resourceType"])
+        inst2 = appointment.Appointment(js)
+        self.implAppointment2(inst2)
+    
+    def implAppointment2(self, inst):
         self.assertEqual(inst.comment, "Further expand on the results of the MRI and determine the next actions that may be appropriate.")
         self.assertEqual(inst.description, "Discussion on the results of your recent MRI")
         self.assertEqual(inst.end.date, FHIRDate("2013-12-10T11:00:00Z").date)
@@ -53,17 +85,17 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].code, "52")
         self.assertEqual(inst.type.coding[0].display, "General Discussion")
     
-    def testAppointment2(self):
+    def testAppointment3(self):
         inst = self.instantiate_from("appointment-example2doctors.json")
         self.assertIsNotNone(inst, "Must have instantiated a Appointment instance")
-        self.implAppointment2(inst)
+        self.implAppointment3(inst)
         
         js = inst.as_json()
         self.assertEqual("Appointment", js["resourceType"])
         inst2 = appointment.Appointment(js)
-        self.implAppointment2(inst2)
+        self.implAppointment3(inst2)
     
-    def implAppointment2(self, inst):
+    def implAppointment3(self, inst):
         self.assertEqual(inst.comment, "Clarify the results of the MRI to ensure context of test was correct")
         self.assertEqual(inst.description, "Discussion about Peter Chalmers MRI results")
         self.assertEqual(inst.end.date, FHIRDate("2013-12-09T11:00:00Z").date)

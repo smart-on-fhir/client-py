@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -32,7 +32,7 @@ class DataElement(domainresource.DomainResource):
         List of `DataElementContact` items (represented as `dict` in JSON). """
         
         self.copyright = None
-        """ Use and/or Publishing restrictions.
+        """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
@@ -49,7 +49,7 @@ class DataElement(domainresource.DomainResource):
         
         self.identifier = None
         """ Logical id to reference this data element.
-        Type `Identifier` (represented as `dict` in JSON). """
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.mapping = None
         """ External specification mapped to.
@@ -63,13 +63,13 @@ class DataElement(domainresource.DomainResource):
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
-        self.specificity = None
-        """ comparable | fully-specified | equivalent | convertable | scaleable
-        | flexible.
-        Type `str`. """
-        
         self.status = None
         """ draft | active | retired.
+        Type `str`. """
+        
+        self.stringency = None
+        """ comparable | fully-specified | equivalent | convertable | scaleable
+        | flexible.
         Type `str`. """
         
         self.url = None
@@ -94,12 +94,12 @@ class DataElement(domainresource.DomainResource):
             ("date", "date", fhirdate.FHIRDate, False),
             ("element", "element", elementdefinition.ElementDefinition, True),
             ("experimental", "experimental", bool, False),
-            ("identifier", "identifier", identifier.Identifier, False),
+            ("identifier", "identifier", identifier.Identifier, True),
             ("mapping", "mapping", DataElementMapping, True),
             ("name", "name", str, False),
             ("publisher", "publisher", str, False),
-            ("specificity", "specificity", str, False),
             ("status", "status", str, False),
+            ("stringency", "stringency", str, False),
             ("url", "url", str, False),
             ("useContext", "useContext", codeableconcept.CodeableConcept, True),
             ("version", "version", str, False),
@@ -142,7 +142,7 @@ class DataElementMapping(fhirelement.FHIRElement):
     """ External specification mapped to.
     
     Identifies a specification (other than a terminology) that the elements
-    that make up the DataElement hav some correspondance with.
+    which make up the DataElement have some correspondence with.
     """
     
     resource_name = "DataElementMapping"
@@ -152,7 +152,7 @@ class DataElementMapping(fhirelement.FHIRElement):
         """
         
         self.comments = None
-        """ Versions, Issues, Scope limitations etc.
+        """ Versions, Issues, Scope limitations etc..
         Type `str`. """
         
         self.identity = None

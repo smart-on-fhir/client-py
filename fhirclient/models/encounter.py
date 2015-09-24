@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
 from . import codeableconcept
 from . import domainresource
-from . import duration
 from . import fhirelement
 from . import fhirreference
 from . import identifier
 from . import period
+from . import quantity
 
 
 class Encounter(domainresource.DomainResource):
@@ -28,40 +28,40 @@ class Encounter(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.episodeOfCare = None
-        """ An episode of care that this encounter should be recorded against.
-        Type `FHIRReference` referencing `EpisodeOfCare` (represented as `dict` in JSON). """
-        
-        self.fulfills = None
+        self.appointment = None
         """ The appointment that scheduled this encounter.
         Type `FHIRReference` referencing `Appointment` (represented as `dict` in JSON). """
         
+        self.class_fhir = None
+        """ inpatient | outpatient | ambulatory | emergency +.
+        Type `str`. """
+        
+        self.episodeOfCare = None
+        """ Episode(s) of care that this encounter should be recorded against.
+        List of `FHIRReference` items referencing `EpisodeOfCare` (represented as `dict` in JSON). """
+        
         self.hospitalization = None
-        """ Details about an admission to a clinic.
+        """ Details about the admission to a healthcare service.
         Type `EncounterHospitalization` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Identifier(s) by which this encounter is known.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.incomingReferralRequest = None
-        """ Incoming Referral Request.
+        self.incomingReferral = None
+        """ The ReferralRequest that initiated this encounter.
         List of `FHIRReference` items referencing `ReferralRequest` (represented as `dict` in JSON). """
         
         self.indication = None
         """ Reason the encounter takes place (resource).
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
-        
-        self.klass = None
-        """ inpatient | outpatient | ambulatory | emergency +.
-        Type `str`. """
+        List of `FHIRReference` items referencing `Condition, Procedure` (represented as `dict` in JSON). """
         
         self.length = None
         """ Quantity of time the encounter lasted (less time absent).
-        Type `Duration` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
         
         self.location = None
-        """ List of locations the patient has been at.
+        """ List of locations where the patient has been.
         List of `EncounterLocation` items (represented as `dict` in JSON). """
         
         self.partOf = None
@@ -97,7 +97,7 @@ class Encounter(domainresource.DomainResource):
         Type `str`. """
         
         self.statusHistory = None
-        """ List of Encounter statuses.
+        """ List of past encounter statuses.
         List of `EncounterStatusHistory` items (represented as `dict` in JSON). """
         
         self.type = None
@@ -109,14 +109,14 @@ class Encounter(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Encounter, self).elementProperties()
         js.extend([
-            ("episodeOfCare", "episodeOfCare", fhirreference.FHIRReference, False),
-            ("fulfills", "fulfills", fhirreference.FHIRReference, False),
+            ("appointment", "appointment", fhirreference.FHIRReference, False),
+            ("class_fhir", "class", str, False),
+            ("episodeOfCare", "episodeOfCare", fhirreference.FHIRReference, True),
             ("hospitalization", "hospitalization", EncounterHospitalization, False),
             ("identifier", "identifier", identifier.Identifier, True),
-            ("incomingReferralRequest", "incomingReferralRequest", fhirreference.FHIRReference, True),
+            ("incomingReferral", "incomingReferral", fhirreference.FHIRReference, True),
             ("indication", "indication", fhirreference.FHIRReference, True),
-            ("klass", "class", str, False),
-            ("length", "length", duration.Duration, False),
+            ("length", "length", quantity.Quantity, False),
             ("location", "location", EncounterLocation, True),
             ("partOf", "partOf", fhirreference.FHIRReference, False),
             ("participant", "participant", EncounterParticipant, True),
@@ -133,7 +133,7 @@ class Encounter(domainresource.DomainResource):
 
 
 class EncounterHospitalization(fhirelement.FHIRElement):
-    """ Details about an admission to a clinic.
+    """ Details about the admission to a healthcare service.
     """
     
     resource_name = "EncounterHospitalization"
@@ -146,18 +146,22 @@ class EncounterHospitalization(fhirelement.FHIRElement):
         """ From where patient was admitted (physician referral, transfer).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.admittingDiagnosis = None
+        """ The admitting diagnosis as reported by admitting practitioner.
+        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
+        
         self.destination = None
         """ Location to which the patient is discharged.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
         self.dietPreference = None
         """ Diet preferences reported by the patient.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.dischargeDiagnosis = None
         """ The final diagnosis given a patient before release from the
         hospital after all testing, surgery, and workup are complete.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
         
         self.dischargeDisposition = None
         """ Category or kind of location after discharge.
@@ -172,11 +176,12 @@ class EncounterHospitalization(fhirelement.FHIRElement):
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.reAdmission = None
-        """ Is this hospitalization a readmission?.
-        Type `bool`. """
+        """ The type of hospital re-admission that has occurred (if any). If
+        the value is absent, then this is not identified as a readmission.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.specialArrangement = None
-        """ Wheelchair, translator, stretcher, etc.
+        """ Wheelchair, translator, stretcher, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.specialCourtesy = None
@@ -189,13 +194,14 @@ class EncounterHospitalization(fhirelement.FHIRElement):
         js = super(EncounterHospitalization, self).elementProperties()
         js.extend([
             ("admitSource", "admitSource", codeableconcept.CodeableConcept, False),
+            ("admittingDiagnosis", "admittingDiagnosis", fhirreference.FHIRReference, True),
             ("destination", "destination", fhirreference.FHIRReference, False),
-            ("dietPreference", "dietPreference", codeableconcept.CodeableConcept, False),
-            ("dischargeDiagnosis", "dischargeDiagnosis", fhirreference.FHIRReference, False),
+            ("dietPreference", "dietPreference", codeableconcept.CodeableConcept, True),
+            ("dischargeDiagnosis", "dischargeDiagnosis", fhirreference.FHIRReference, True),
             ("dischargeDisposition", "dischargeDisposition", codeableconcept.CodeableConcept, False),
             ("origin", "origin", fhirreference.FHIRReference, False),
             ("preAdmissionIdentifier", "preAdmissionIdentifier", identifier.Identifier, False),
-            ("reAdmission", "reAdmission", bool, False),
+            ("reAdmission", "reAdmission", codeableconcept.CodeableConcept, False),
             ("specialArrangement", "specialArrangement", codeableconcept.CodeableConcept, True),
             ("specialCourtesy", "specialCourtesy", codeableconcept.CodeableConcept, True),
         ])
@@ -203,9 +209,9 @@ class EncounterHospitalization(fhirelement.FHIRElement):
 
 
 class EncounterLocation(fhirelement.FHIRElement):
-    """ List of locations the patient has been at.
+    """ List of locations where the patient has been.
     
-    List of locations at which the patient has been.
+    List of locations where  the patient has been during this encounter.
     """
     
     resource_name = "EncounterLocation"
@@ -223,7 +229,7 @@ class EncounterLocation(fhirelement.FHIRElement):
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | present | reserved.
+        """ planned | active | reserved | completed.
         Type `str`. """
         
         super(EncounterLocation, self).__init__(jsondict)
@@ -241,7 +247,7 @@ class EncounterLocation(fhirelement.FHIRElement):
 class EncounterParticipant(fhirelement.FHIRElement):
     """ List of participants involved in the encounter.
     
-    The main practitioner responsible for providing the service.
+    The list of people responsible for providing the service.
     """
     
     resource_name = "EncounterParticipant"
@@ -275,11 +281,10 @@ class EncounterParticipant(fhirelement.FHIRElement):
 
 
 class EncounterStatusHistory(fhirelement.FHIRElement):
-    """ List of Encounter statuses.
+    """ List of past encounter statuses.
     
-    The current status is always found in the current version of the resource.
-    This status history permits the encounter resource to contain the status
-    history without the needing to read through the historical versions of the
+    The status history permits the encounter resource to contain the status
+    history without needing to read through the historical versions of the
     resource, or even have the server store them.
     """
     

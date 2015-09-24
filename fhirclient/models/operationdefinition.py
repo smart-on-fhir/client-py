@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -50,7 +50,7 @@ class OperationDefinition(domainresource.DomainResource):
         Type `bool`. """
         
         self.idempotent = None
-        """ Whether operation causes changes to content.
+        """ Whether content is unchanged by operation.
         Type `bool`. """
         
         self.instance = None
@@ -62,7 +62,7 @@ class OperationDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.name = None
-        """ Informal name for this profile.
+        """ Informal name for this operation.
         Type `str`. """
         
         self.notes = None
@@ -94,7 +94,7 @@ class OperationDefinition(domainresource.DomainResource):
         List of `str` items. """
         
         self.url = None
-        """ Logical url to reference this operation definition.
+        """ Logical URL to reference this operation definition.
         Type `str`. """
         
         self.version = None
@@ -172,6 +172,10 @@ class OperationDefinitionParameter(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
+        self.binding = None
+        """ ValueSet details if this is coded.
+        Type `OperationDefinitionParameterBinding` (represented as `dict` in JSON). """
+        
         self.documentation = None
         """ Description of meaning/use.
         Type `str`. """
@@ -185,19 +189,19 @@ class OperationDefinitionParameter(fhirelement.FHIRElement):
         Type `int`. """
         
         self.name = None
-        """ Name of the parameter.
+        """ Name in Parameters.parameter.name or in URL.
         Type `str`. """
         
         self.part = None
         """ Parts of a Tuple Parameter.
-        List of `OperationDefinitionParameterPart` items (represented as `dict` in JSON). """
+        List of `OperationDefinitionParameter` items (represented as `dict` in JSON). """
         
         self.profile = None
         """ Profile on the type.
         Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         self.type = None
-        """ What type this parameter hs.
+        """ What type this parameter has.
         Type `str`. """
         
         self.use = None
@@ -209,11 +213,12 @@ class OperationDefinitionParameter(fhirelement.FHIRElement):
     def elementProperties(self):
         js = super(OperationDefinitionParameter, self).elementProperties()
         js.extend([
+            ("binding", "binding", OperationDefinitionParameterBinding, False),
             ("documentation", "documentation", str, False),
             ("max", "max", str, False),
             ("min", "min", int, False),
             ("name", "name", str, False),
-            ("part", "part", OperationDefinitionParameterPart, True),
+            ("part", "part", OperationDefinitionParameter, True),
             ("profile", "profile", fhirreference.FHIRReference, False),
             ("type", "type", str, False),
             ("use", "use", str, False),
@@ -221,53 +226,39 @@ class OperationDefinitionParameter(fhirelement.FHIRElement):
         return js
 
 
-class OperationDefinitionParameterPart(fhirelement.FHIRElement):
-    """ Parts of a Tuple Parameter.
+class OperationDefinitionParameterBinding(fhirelement.FHIRElement):
+    """ ValueSet details if this is coded.
     
-    The parts of a Tuple Parameter.
+    Binds to a value set if this parameter is coded (code, Coding,
+    CodeableConcept).
     """
     
-    resource_name = "OperationDefinitionParameterPart"
+    resource_name = "OperationDefinitionParameterBinding"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
-        self.documentation = None
-        """ Description of meaning/use.
+        self.strength = None
+        """ required | extensible | preferred | example.
         Type `str`. """
         
-        self.max = None
-        """ Maximum Cardinality (a number or *).
+        self.valueSetReference = None
+        """ Source of value set.
+        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
+        
+        self.valueSetUri = None
+        """ Source of value set.
         Type `str`. """
         
-        self.min = None
-        """ Minimum Cardinality.
-        Type `int`. """
-        
-        self.name = None
-        """ Name of the parameter.
-        Type `str`. """
-        
-        self.profile = None
-        """ Profile on the type.
-        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ What type this parameter hs.
-        Type `str`. """
-        
-        super(OperationDefinitionParameterPart, self).__init__(jsondict)
+        super(OperationDefinitionParameterBinding, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(OperationDefinitionParameterPart, self).elementProperties()
+        js = super(OperationDefinitionParameterBinding, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", str, False),
-            ("max", "max", str, False),
-            ("min", "min", int, False),
-            ("name", "name", str, False),
-            ("profile", "profile", fhirreference.FHIRReference, False),
-            ("type", "type", str, False),
+            ("strength", "strength", str, False),
+            ("valueSetReference", "valueSetReference", fhirreference.FHIRReference, False),
+            ("valueSetUri", "valueSetUri", str, False),
         ])
         return js
 

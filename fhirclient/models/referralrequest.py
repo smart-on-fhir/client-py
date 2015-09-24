@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -18,7 +18,7 @@ class ReferralRequest(domainresource.DomainResource):
     
     Used to record and send details about a request for referral service or
     transfer of a patient to the care of another provider or provider
-    organisation.
+    organization.
     """
     
     resource_name = "ReferralRequest"
@@ -26,6 +26,10 @@ class ReferralRequest(domainresource.DomainResource):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.date = None
+        """ Date of creation/activation.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.dateSent = None
         """ Date referral/transfer of care request is sent.
@@ -36,7 +40,7 @@ class ReferralRequest(domainresource.DomainResource):
         Type `str`. """
         
         self.encounter = None
-        """ Encounter.
+        """ Originating encounter.
         Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
         
         self.fulfillmentTime = None
@@ -44,7 +48,7 @@ class ReferralRequest(domainresource.DomainResource):
         Type `Period` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Identifier of request.
+        """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.patient = None
@@ -56,7 +60,7 @@ class ReferralRequest(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.reason = None
-        """ Reason for referral / Transfer of care request.
+        """ Reason for referral / transfer of care request.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.recipient = None
@@ -68,7 +72,7 @@ class ReferralRequest(domainresource.DomainResource):
         Type `FHIRReference` referencing `Practitioner, Organization, Patient` (represented as `dict` in JSON). """
         
         self.serviceRequested = None
-        """ Service(s) requested.
+        """ Actions requested as part of the referral.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.specialty = None
@@ -95,6 +99,7 @@ class ReferralRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ReferralRequest, self).elementProperties()
         js.extend([
+            ("date", "date", fhirdate.FHIRDate, False),
             ("dateSent", "dateSent", fhirdate.FHIRDate, False),
             ("description", "description", str, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False),

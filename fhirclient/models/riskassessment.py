@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -40,6 +40,10 @@ class RiskAssessment(domainresource.DomainResource):
         """ When was assessment made?.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.encounter = None
+        """ Where was assessment performed?.
+        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        
         self.identifier = None
         """ Unique identifier for the assessment.
         Type `Identifier` (represented as `dict` in JSON). """
@@ -72,6 +76,7 @@ class RiskAssessment(domainresource.DomainResource):
             ("basis", "basis", fhirreference.FHIRReference, True),
             ("condition", "condition", fhirreference.FHIRReference, False),
             ("date", "date", fhirdate.FHIRDate, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
             ("identifier", "identifier", identifier.Identifier, False),
             ("method", "method", codeableconcept.CodeableConcept, False),
             ("mitigation", "mitigation", str, False),

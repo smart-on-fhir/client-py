@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -55,41 +55,4 @@ class ReferralRequestTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].code, "rfs")
         self.assertEqual(inst.type.coding[0].display, "Referral for service")
         self.assertEqual(inst.type.coding[0].system, "http://orionhealth.com/fhir/apps/referraltypes")
-    
-    def testReferralRequest2(self):
-        inst = self.instantiate_from("referralrequest-qicore-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a ReferralRequest instance")
-        self.implReferralRequest2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("ReferralRequest", js["resourceType"])
-        inst2 = referralrequest.ReferralRequest(js)
-        self.implReferralRequest2(inst2)
-    
-    def implReferralRequest2(self, inst):
-        self.assertEqual(inst.dateSent.date, FHIRDate("2014-02-14").date)
-        self.assertEqual(inst.dateSent.as_json(), "2014-02-14")
-        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/referralrequest-reasonRefused")
-        self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].code, "609589008")
-        self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].display, "Refused by parents of subject")
-        self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.id, "qicore")
-        self.assertEqual(inst.priority.coding[0].code, "394848005")
-        self.assertEqual(inst.priority.coding[0].display, "Normal priority")
-        self.assertEqual(inst.priority.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.reason.coding[0].code, "65363002")
-        self.assertEqual(inst.reason.coding[0].display, "Otitis media")
-        self.assertEqual(inst.reason.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.serviceRequested[0].coding[0].code, "172676009")
-        self.assertEqual(inst.serviceRequested[0].coding[0].display, "Myringotomy and insertion of short-term tympanic ventilation tube (procedure)")
-        self.assertEqual(inst.serviceRequested[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.specialty.coding[0].code, "417887005")
-        self.assertEqual(inst.specialty.coding[0].display, "Pediatric otolaryngology")
-        self.assertEqual(inst.specialty.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.status, "rejected")
-        self.assertEqual(inst.text.div, "<div>Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "700274009")
-        self.assertEqual(inst.type.coding[0].display, "Referral for procedure")
-        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Contract) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Contract) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -13,7 +13,6 @@ from . import fhirdate
 from . import fhirelement
 from . import fhirreference
 from . import identifier
-from . import money
 from . import period
 from . import quantity
 
@@ -57,7 +56,7 @@ class Contract(domainresource.DomainResource):
         
         self.bindingReference = None
         """ Binding Contract.
-        Type `FHIRReference` referencing `Composition, DocumentReference, QuestionnaireAnswers` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Composition, DocumentReference, QuestionnaireResponse` (represented as `dict` in JSON). """
         
         self.domain = None
         """ Domain in which this Contract applies.
@@ -149,7 +148,7 @@ class ContractActor(fhirelement.FHIRElement):
         
         self.entity = None
         """ Contract Actor Type.
-        Type `FHIRReference` referencing `Contract, Device, Group, Location, Organization, Patient, Practitioner, RelatedPerson, Substance, Supply` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Contract, Device, Group, Location, Organization, Patient, Practitioner, RelatedPerson, Substance` (represented as `dict` in JSON). """
         
         self.role = None
         """ Contract  Actor Role.
@@ -190,7 +189,7 @@ class ContractFriendly(fhirelement.FHIRElement):
         
         self.contentReference = None
         """ Easily comprehended representation of this Contract.
-        Type `FHIRReference` referencing `Composition, DocumentReference, QuestionnaireAnswers` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Composition, DocumentReference, QuestionnaireResponse` (represented as `dict` in JSON). """
         
         super(ContractFriendly, self).__init__(jsondict)
     
@@ -221,7 +220,7 @@ class ContractLegal(fhirelement.FHIRElement):
         
         self.contentReference = None
         """ Contract Legal Text.
-        Type `FHIRReference` referencing `Composition, DocumentReference, QuestionnaireAnswers` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Composition, DocumentReference, QuestionnaireResponse` (represented as `dict` in JSON). """
         
         super(ContractLegal, self).__init__(jsondict)
     
@@ -397,7 +396,7 @@ class ContractTermActor(fhirelement.FHIRElement):
         
         self.entity = None
         """ Contract Term Actor.
-        Type `FHIRReference` referencing `Contract, Device, Group, Location, Organization, Patient, Practitioner, RelatedPerson, Substance, Supply` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Contract, Device, Group, Location, Organization, Patient, Practitioner, RelatedPerson, Substance` (represented as `dict` in JSON). """
         
         self.role = None
         """ Contract Term Actor Role.
@@ -448,7 +447,7 @@ class ContractTermValuedItem(fhirelement.FHIRElement):
         
         self.net = None
         """ Total Contract Term Valued Item Value.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.points = None
         """ Contract Term Valued Item Difficulty Scaling Factor.
@@ -456,11 +455,11 @@ class ContractTermValuedItem(fhirelement.FHIRElement):
         
         self.quantity = None
         """ Contract Term Valued Item Count.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.unitPrice = None
         """ Contract Term Valued Item fee, charge, or cost.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         super(ContractTermValuedItem, self).__init__(jsondict)
     
@@ -472,10 +471,10 @@ class ContractTermValuedItem(fhirelement.FHIRElement):
             ("entityReference", "entityReference", fhirreference.FHIRReference, False),
             ("factor", "factor", float, False),
             ("identifier", "identifier", identifier.Identifier, False),
-            ("net", "net", money.Money, False),
+            ("net", "net", quantity.Quantity, False),
             ("points", "points", float, False),
             ("quantity", "quantity", quantity.Quantity, False),
-            ("unitPrice", "unitPrice", money.Money, False),
+            ("unitPrice", "unitPrice", quantity.Quantity, False),
         ])
         return js
 
@@ -514,7 +513,7 @@ class ContractValuedItem(fhirelement.FHIRElement):
         
         self.net = None
         """ Total Contract Valued Item Value.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.points = None
         """ Contract Valued Item Difficulty Scaling Factor.
@@ -522,11 +521,11 @@ class ContractValuedItem(fhirelement.FHIRElement):
         
         self.quantity = None
         """ Count of Contract Valued Items.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.unitPrice = None
         """ Contract Valued Item fee, charge, or cost.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         super(ContractValuedItem, self).__init__(jsondict)
     
@@ -538,10 +537,10 @@ class ContractValuedItem(fhirelement.FHIRElement):
             ("entityReference", "entityReference", fhirreference.FHIRReference, False),
             ("factor", "factor", float, False),
             ("identifier", "identifier", identifier.Identifier, False),
-            ("net", "net", money.Money, False),
+            ("net", "net", quantity.Quantity, False),
             ("points", "points", float, False),
             ("quantity", "quantity", quantity.Quantity, False),
-            ("unitPrice", "unitPrice", money.Money, False),
+            ("unitPrice", "unitPrice", quantity.Quantity, False),
         ])
         return js
 

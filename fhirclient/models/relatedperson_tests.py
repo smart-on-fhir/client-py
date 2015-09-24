@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -61,10 +61,15 @@ class RelatedPersonTests(unittest.TestCase):
         self.implRelatedPerson2(inst2)
     
     def implRelatedPerson2(self, inst):
+        self.assertEqual(inst.birthDate.date, FHIRDate("1963").date)
+        self.assertEqual(inst.birthDate.as_json(), "1963")
         self.assertEqual(inst.gender, "female")
         self.assertEqual(inst.id, "f002")
         self.assertEqual(inst.name.text, "Ariadne Bor-Jansma")
         self.assertEqual(inst.name.use, "usual")
+        self.assertEqual(inst.period.start.date, FHIRDate("1975").date)
+        self.assertEqual(inst.period.start.as_json(), "1975")
+        self.assertEqual(inst.photo[0].contentType, "image/jpeg")
         self.assertEqual(inst.relationship.coding[0].code, "SIGOTHR")
         self.assertEqual(inst.relationship.coding[0].system, "http://hl7.org/fhir/v3/RoleCode")
         self.assertEqual(inst.telecom[0].system, "phone")
@@ -83,11 +88,11 @@ class RelatedPersonTests(unittest.TestCase):
         self.implRelatedPerson3(inst2)
     
     def implRelatedPerson3(self, inst):
-        self.assertEqual(inst.address.city, "PleasantVille")
-        self.assertEqual(inst.address.line[0], "534 Erewhon St")
-        self.assertEqual(inst.address.postalCode, "3999")
-        self.assertEqual(inst.address.state, "Vic")
-        self.assertEqual(inst.address.use, "home")
+        self.assertEqual(inst.address[0].city, "PleasantVille")
+        self.assertEqual(inst.address[0].line[0], "534 Erewhon St")
+        self.assertEqual(inst.address[0].postalCode, "3999")
+        self.assertEqual(inst.address[0].state, "Vic")
+        self.assertEqual(inst.address[0].use, "home")
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "peter")
         self.assertEqual(inst.name.family[0], "Chalmers")
@@ -116,10 +121,10 @@ class RelatedPersonTests(unittest.TestCase):
         self.implRelatedPerson4(inst2)
     
     def implRelatedPerson4(self, inst):
-        self.assertEqual(inst.address.city, "Paris")
-        self.assertEqual(inst.address.country, "FRA")
-        self.assertEqual(inst.address.line[0], "43, Place du Marché Sainte Catherine")
-        self.assertEqual(inst.address.postalCode, "75004")
+        self.assertEqual(inst.address[0].city, "Paris")
+        self.assertEqual(inst.address[0].country, "FRA")
+        self.assertEqual(inst.address[0].line[0], "43, Place du Marché Sainte Catherine")
+        self.assertEqual(inst.address[0].postalCode, "75004")
         self.assertEqual(inst.gender, "female")
         self.assertEqual(inst.id, "benedicte")
         self.assertEqual(inst.identifier[0].system, "urn:oid:1.2.250.1.61")

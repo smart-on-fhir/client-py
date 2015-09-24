@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -33,27 +33,6 @@ class CommunicationRequestTests(unittest.TestCase):
     
     def implCommunicationRequest1(self, inst):
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.text.div, "<div>To be filled out at a later time</div>")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testCommunicationRequest2(self):
-        inst = self.instantiate_from("communicationrequest-qicore-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a CommunicationRequest instance")
-        self.implCommunicationRequest2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("CommunicationRequest", js["resourceType"])
-        inst2 = communicationrequest.CommunicationRequest(js)
-        self.implCommunicationRequest2(inst2)
-    
-    def implCommunicationRequest2(self, inst):
-        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/communicationrequest-orderedBy")
-        self.assertEqual(inst.extension[1].url, "http://hl7.org/fhir/StructureDefinition/communicationrequest-reasonRejected")
-        self.assertEqual(inst.extension[1].valueCodeableConcept.coding[0].code, "NON-AVAIL")
-        self.assertEqual(inst.extension[1].valueCodeableConcept.coding[0].display, "patient not-available")
-        self.assertEqual(inst.extension[1].valueCodeableConcept.coding[0].system, "http://hl7.org/fhir/v3/ActReason")
-        self.assertEqual(inst.id, "qicore")
-        self.assertEqual(inst.status, "rejected")
         self.assertEqual(inst.text.div, "<div>To be filled out at a later time</div>")
         self.assertEqual(inst.text.status, "generated")
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Order) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Order) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -23,10 +23,6 @@ class Order(domainresource.DomainResource):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
-        
-        self.authority = None
-        """ If required by policy.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.date = None
         """ When the order was made.
@@ -51,7 +47,7 @@ class Order(domainresource.DomainResource):
         
         self.source = None
         """ Who initiated the order.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.subject = None
         """ Patient this order is about.
@@ -70,7 +66,6 @@ class Order(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Order, self).elementProperties()
         js.extend([
-            ("authority", "authority", fhirreference.FHIRReference, False),
             ("date", "date", fhirdate.FHIRDate, False),
             ("detail", "detail", fhirreference.FHIRReference, True),
             ("identifier", "identifier", identifier.Identifier, True),

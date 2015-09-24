@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -13,6 +13,7 @@ from . import fhirreference
 from . import identifier
 from . import period
 from . import quantity
+from . import range
 from . import ratio
 
 
@@ -21,7 +22,7 @@ class MedicationAdministration(domainresource.DomainResource):
     
     Describes the event of a patient consuming or otherwise being administered
     a medication.  This may be as simple as swallowing a tablet or it may be a
-    long running infusion.Related resources tie this event to the authorizing
+    long running infusion.  Related resources tie this event to the authorizing
     prescription, and the specific encounter between patient and health care
     practitioner.
     """
@@ -56,8 +57,12 @@ class MedicationAdministration(domainresource.DomainResource):
         """ External identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.medication = None
-        """ What was administered?.
+        self.medicationCodeableConcept = None
+        """ What was administered.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.medicationReference = None
+        """ What was administered.
         Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
         
         self.note = None
@@ -65,16 +70,16 @@ class MedicationAdministration(domainresource.DomainResource):
         Type `str`. """
         
         self.patient = None
-        """ Who received medication?.
+        """ Who received medication.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.practitioner = None
-        """ Who administered substance?.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        """ Who administered substance.
+        Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.prescription = None
         """ Order administration performed against.
-        Type `FHIRReference` referencing `MedicationPrescription` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `MedicationOrder` (represented as `dict` in JSON). """
         
         self.reasonGiven = None
         """ Reason administration performed.
@@ -103,7 +108,8 @@ class MedicationAdministration(domainresource.DomainResource):
             ("effectiveTimePeriod", "effectiveTimePeriod", period.Period, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False),
             ("identifier", "identifier", identifier.Identifier, True),
-            ("medication", "medication", fhirreference.FHIRReference, False),
+            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False),
             ("note", "note", str, False),
             ("patient", "patient", fhirreference.FHIRReference, False),
             ("practitioner", "practitioner", fhirreference.FHIRReference, False),
@@ -119,7 +125,8 @@ class MedicationAdministration(domainresource.DomainResource):
 class MedicationAdministrationDosage(fhirelement.FHIRElement):
     """ Details of how medication was taken.
     
-    Indicates how the medication is/was used by the patient.
+    Describes the medication dosage information details e.g. dose, rate, site,
+    route, etc.
     """
     
     resource_name = "MedicationAdministrationDosage"
@@ -134,9 +141,13 @@ class MedicationAdministrationDosage(fhirelement.FHIRElement):
         
         self.quantity = None
         """ Amount administered in one dose.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
-        self.rate = None
+        self.rateRange = None
+        """ Dose quantity per unit of time.
+        Type `Range` (represented as `dict` in JSON). """
+        
+        self.rateRatio = None
         """ Dose quantity per unit of time.
         Type `Ratio` (represented as `dict` in JSON). """
         
@@ -144,9 +155,13 @@ class MedicationAdministrationDosage(fhirelement.FHIRElement):
         """ Path of substance into body.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.site = None
+        self.siteCodeableConcept = None
         """ Body site administered to.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.siteReference = None
+        """ Body site administered to.
+        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.text = None
         """ Dosage Instructions.
@@ -159,9 +174,11 @@ class MedicationAdministrationDosage(fhirelement.FHIRElement):
         js.extend([
             ("method", "method", codeableconcept.CodeableConcept, False),
             ("quantity", "quantity", quantity.Quantity, False),
-            ("rate", "rate", ratio.Ratio, False),
+            ("rateRange", "rateRange", range.Range, False),
+            ("rateRatio", "rateRatio", ratio.Ratio, False),
             ("route", "route", codeableconcept.CodeableConcept, False),
-            ("site", "site", codeableconcept.CodeableConcept, False),
+            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False),
+            ("siteReference", "siteReference", fhirreference.FHIRReference, False),
             ("text", "text", str, False),
         ])
         return js

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Group) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Group) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -10,6 +10,7 @@ from . import domainresource
 from . import fhirelement
 from . import fhirreference
 from . import identifier
+from . import period
 from . import quantity
 from . import range
 
@@ -19,7 +20,7 @@ class Group(domainresource.DomainResource):
     
     Represents a defined collection of entities that may be discussed or acted
     upon collectively but which are not expected to act collectively and are
-    not formally or legally recognized.  I.e. A collection of entities that
+    not formally or legally recognized; i.e. a collection of entities that
     isn't an Organization.
     """
     
@@ -43,11 +44,11 @@ class Group(domainresource.DomainResource):
         
         self.identifier = None
         """ Unique id.
-        Type `Identifier` (represented as `dict` in JSON). """
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.member = None
         """ Who or what is in group.
-        List of `FHIRReference` items referencing `Patient, Practitioner, Device, Medication, Substance` (represented as `dict` in JSON). """
+        List of `GroupMember` items (represented as `dict` in JSON). """
         
         self.name = None
         """ Label for Group.
@@ -69,8 +70,8 @@ class Group(domainresource.DomainResource):
             ("actual", "actual", bool, False),
             ("characteristic", "characteristic", GroupCharacteristic, True),
             ("code", "code", codeableconcept.CodeableConcept, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("member", "member", fhirreference.FHIRReference, True),
+            ("identifier", "identifier", identifier.Identifier, True),
+            ("member", "member", GroupMember, True),
             ("name", "name", str, False),
             ("quantity", "quantity", int, False),
             ("type", "type", str, False),
@@ -98,6 +99,10 @@ class GroupCharacteristic(fhirelement.FHIRElement):
         """ Group includes or excludes.
         Type `bool`. """
         
+        self.period = None
+        """ Period over which characteristic is tested.
+        Type `Period` (represented as `dict` in JSON). """
+        
         self.valueBoolean = None
         """ Value held by characteristic.
         Type `bool`. """
@@ -121,10 +126,47 @@ class GroupCharacteristic(fhirelement.FHIRElement):
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False),
             ("exclude", "exclude", bool, False),
+            ("period", "period", period.Period, False),
             ("valueBoolean", "valueBoolean", bool, False),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False),
             ("valueRange", "valueRange", range.Range, False),
+        ])
+        return js
+
+
+class GroupMember(fhirelement.FHIRElement):
+    """ Who or what is in group.
+    
+    Identifies the resource instances that are members of the group.
+    """
+    
+    resource_name = "GroupMember"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.entity = None
+        """ Reference to the group member.
+        Type `FHIRReference` referencing `Patient, Practitioner, Device, Medication, Substance` (represented as `dict` in JSON). """
+        
+        self.inactive = None
+        """ If member is no longer in group.
+        Type `bool`. """
+        
+        self.period = None
+        """ Period member belonged to the group.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        super(GroupMember, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(GroupMember, self).elementProperties()
+        js.extend([
+            ("entity", "entity", fhirreference.FHIRReference, False),
+            ("inactive", "inactive", bool, False),
+            ("period", "period", period.Period, False),
         ])
         return js
 

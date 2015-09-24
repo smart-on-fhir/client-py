@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -36,8 +36,12 @@ class DocumentManifestTests(unittest.TestCase):
         self.assertEqual(inst.created.as_json(), "2004-12-25T23:50:50-05:00")
         self.assertEqual(inst.description, "Physical")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.identifier[0].system, "http://example.org/documents")
+        self.assertEqual(inst.identifier[0].value, "23425234234-2347")
         self.assertEqual(inst.masterIdentifier.system, "http://example.org/documents")
         self.assertEqual(inst.masterIdentifier.value, "23425234234-2346")
+        self.assertEqual(inst.related[0].identifier.system, "http://example.org/documents")
+        self.assertEqual(inst.related[0].identifier.value, "23425234234-9999")
         self.assertEqual(inst.source, "urn:oid:1.3.6.1.4.1.21367.2009.1.2.1")
         self.assertEqual(inst.status, "current")
         self.assertEqual(inst.text.div, "<div>Text</div>")

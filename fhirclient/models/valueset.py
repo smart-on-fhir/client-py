@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -26,6 +26,10 @@ class ValueSet(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
+        self.codeSystem = None
+        """ An inline code system - part of this value set.
+        Type `ValueSetCodeSystem` (represented as `dict` in JSON). """
+        
         self.compose = None
         """ When value set includes codes from elsewhere.
         Type `ValueSetCompose` (represented as `dict` in JSON). """
@@ -35,16 +39,12 @@ class ValueSet(domainresource.DomainResource):
         List of `ValueSetContact` items (represented as `dict` in JSON). """
         
         self.copyright = None
-        """ Use and/or Publishing restrictions.
+        """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
         """ Date for given status.
         Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.define = None
-        """ When value set defines its own codes.
-        Type `ValueSetDefine` (represented as `dict` in JSON). """
         
         self.description = None
         """ Human language description of the value set.
@@ -63,7 +63,7 @@ class ValueSet(domainresource.DomainResource):
         Type `bool`. """
         
         self.identifier = None
-        """ Additional identifier for the value set (v2 / CDA).
+        """ Additional identifier for the value set (e.g. HL7 v2 / CDA).
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.immutable = None
@@ -80,11 +80,11 @@ class ValueSet(domainresource.DomainResource):
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (Organization or individual).
+        """ Name of the publisher (organization or individual).
         Type `str`. """
         
         self.requirements = None
-        """ Why is this needed?.
+        """ Why needed.
         Type `str`. """
         
         self.status = None
@@ -92,7 +92,7 @@ class ValueSet(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Globally unique logical id for  value set.
+        """ Globally unique logical identifier for  value set.
         Type `str`. """
         
         self.useContext = None
@@ -100,7 +100,7 @@ class ValueSet(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Logical id for this version of the value set.
+        """ Logical identifier for this version of the value set.
         Type `str`. """
         
         super(ValueSet, self).__init__(jsondict)
@@ -108,11 +108,11 @@ class ValueSet(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ValueSet, self).elementProperties()
         js.extend([
+            ("codeSystem", "codeSystem", ValueSetCodeSystem, False),
             ("compose", "compose", ValueSetCompose, False),
             ("contact", "contact", ValueSetContact, True),
             ("copyright", "copyright", str, False),
             ("date", "date", fhirdate.FHIRDate, False),
-            ("define", "define", ValueSetDefine, False),
             ("description", "description", str, False),
             ("expansion", "expansion", ValueSetExpansion, False),
             ("experimental", "experimental", bool, False),
@@ -131,8 +131,144 @@ class ValueSet(domainresource.DomainResource):
         return js
 
 
+class ValueSetCodeSystem(fhirelement.FHIRElement):
+    """ An inline code system - part of this value set.
+    
+    A definition of a code system, inlined into the value set (as a packaging
+    convenience). Note that the inline code system may be used from other value
+    sets by referring to it's (codeSystem.system) directly.
+    """
+    
+    resource_name = "ValueSetCodeSystem"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.caseSensitive = None
+        """ If code comparison is case sensitive.
+        Type `bool`. """
+        
+        self.concept = None
+        """ Concepts in the code system.
+        List of `ValueSetCodeSystemConcept` items (represented as `dict` in JSON). """
+        
+        self.system = None
+        """ URI to identify the code system (e.g. in Coding.system).
+        Type `str`. """
+        
+        self.version = None
+        """ Version (for use in Coding.version).
+        Type `str`. """
+        
+        super(ValueSetCodeSystem, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ValueSetCodeSystem, self).elementProperties()
+        js.extend([
+            ("caseSensitive", "caseSensitive", bool, False),
+            ("concept", "concept", ValueSetCodeSystemConcept, True),
+            ("system", "system", str, False),
+            ("version", "version", str, False),
+        ])
+        return js
+
+
+class ValueSetCodeSystemConcept(fhirelement.FHIRElement):
+    """ Concepts in the code system.
+    
+    Concepts that are in the code system. The concept definitions are
+    inherently hierarchical, but the definitions must be consulted to determine
+    what the meaning of the hierarchical relationships are.
+    """
+    
+    resource_name = "ValueSetCodeSystemConcept"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.abstract = None
+        """ If this code is not for use as a real concept.
+        Type `bool`. """
+        
+        self.code = None
+        """ Code that identifies concept.
+        Type `str`. """
+        
+        self.concept = None
+        """ Child Concepts (is-a/contains/categorizes).
+        List of `ValueSetCodeSystemConcept` items (represented as `dict` in JSON). """
+        
+        self.definition = None
+        """ Formal Definition.
+        Type `str`. """
+        
+        self.designation = None
+        """ Additional representations for the concept.
+        List of `ValueSetCodeSystemConceptDesignation` items (represented as `dict` in JSON). """
+        
+        self.display = None
+        """ Text to Display to the user.
+        Type `str`. """
+        
+        super(ValueSetCodeSystemConcept, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ValueSetCodeSystemConcept, self).elementProperties()
+        js.extend([
+            ("abstract", "abstract", bool, False),
+            ("code", "code", str, False),
+            ("concept", "concept", ValueSetCodeSystemConcept, True),
+            ("definition", "definition", str, False),
+            ("designation", "designation", ValueSetCodeSystemConceptDesignation, True),
+            ("display", "display", str, False),
+        ])
+        return js
+
+
+class ValueSetCodeSystemConceptDesignation(fhirelement.FHIRElement):
+    """ Additional representations for the concept.
+    
+    Additional representations for the concept - other languages, aliases,
+    specialized purposes, used for particular purposes, etc.
+    """
+    
+    resource_name = "ValueSetCodeSystemConceptDesignation"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.language = None
+        """ Human language of the designation.
+        Type `str`. """
+        
+        self.use = None
+        """ Details how this designation would be used.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.value = None
+        """ The text value for this designation.
+        Type `str`. """
+        
+        super(ValueSetCodeSystemConceptDesignation, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ValueSetCodeSystemConceptDesignation, self).elementProperties()
+        js.extend([
+            ("language", "language", str, False),
+            ("use", "use", coding.Coding, False),
+            ("value", "value", str, False),
+        ])
+        return js
+
+
 class ValueSetCompose(fhirelement.FHIRElement):
     """ When value set includes codes from elsewhere.
+    
+    A set of criteria that provide the content logical definition of the value
+    set by including or excluding codes from outside this value set.
     """
     
     resource_name = "ValueSetCompose"
@@ -145,7 +281,7 @@ class ValueSetCompose(fhirelement.FHIRElement):
         """ Explicitly exclude codes.
         List of `ValueSetComposeInclude` items (represented as `dict` in JSON). """
         
-        self.importFrom = None
+        self.import_fhir = None
         """ Import the contents of another value set.
         List of `str` items. """
         
@@ -159,7 +295,7 @@ class ValueSetCompose(fhirelement.FHIRElement):
         js = super(ValueSetCompose, self).elementProperties()
         js.extend([
             ("exclude", "exclude", ValueSetComposeInclude, True),
-            ("importFrom", "import", str, True),
+            ("import_fhir", "import", str, True),
             ("include", "include", ValueSetComposeInclude, True),
         ])
         return js
@@ -222,7 +358,7 @@ class ValueSetComposeIncludeConcept(fhirelement.FHIRElement):
         
         self.designation = None
         """ Additional representations for this valueset.
-        List of `ValueSetDefineConceptDesignation` items (represented as `dict` in JSON). """
+        List of `ValueSetCodeSystemConceptDesignation` items (represented as `dict` in JSON). """
         
         self.display = None
         """ Test to display for this code for this value set.
@@ -234,7 +370,7 @@ class ValueSetComposeIncludeConcept(fhirelement.FHIRElement):
         js = super(ValueSetComposeIncludeConcept, self).elementProperties()
         js.extend([
             ("code", "code", str, False),
-            ("designation", "designation", ValueSetDefineConceptDesignation, True),
+            ("designation", "designation", ValueSetCodeSystemConceptDesignation, True),
             ("display", "display", str, False),
         ])
         return js
@@ -291,7 +427,7 @@ class ValueSetContact(fhirelement.FHIRElement):
         """
         
         self.name = None
-        """ Name of a individual to contact.
+        """ Name of an individual to contact.
         Type `str`. """
         
         self.telecom = None
@@ -305,133 +441,6 @@ class ValueSetContact(fhirelement.FHIRElement):
         js.extend([
             ("name", "name", str, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True),
-        ])
-        return js
-
-
-class ValueSetDefine(fhirelement.FHIRElement):
-    """ When value set defines its own codes.
-    
-    A definition of an code system, inlined into the value set.
-    """
-    
-    resource_name = "ValueSetDefine"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.caseSensitive = None
-        """ If code comparison is case sensitive.
-        Type `bool`. """
-        
-        self.concept = None
-        """ Concepts in the code system.
-        List of `ValueSetDefineConcept` items (represented as `dict` in JSON). """
-        
-        self.system = None
-        """ URI to identify the code system.
-        Type `str`. """
-        
-        self.version = None
-        """ Version of this system.
-        Type `str`. """
-        
-        super(ValueSetDefine, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(ValueSetDefine, self).elementProperties()
-        js.extend([
-            ("caseSensitive", "caseSensitive", bool, False),
-            ("concept", "concept", ValueSetDefineConcept, True),
-            ("system", "system", str, False),
-            ("version", "version", str, False),
-        ])
-        return js
-
-
-class ValueSetDefineConcept(fhirelement.FHIRElement):
-    """ Concepts in the code system.
-    """
-    
-    resource_name = "ValueSetDefineConcept"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.abstract = None
-        """ If this code is not for use as a real concept.
-        Type `bool`. """
-        
-        self.code = None
-        """ Code that identifies concept.
-        Type `str`. """
-        
-        self.concept = None
-        """ Child Concepts (is-a / contains).
-        List of `ValueSetDefineConcept` items (represented as `dict` in JSON). """
-        
-        self.definition = None
-        """ Formal Definition.
-        Type `str`. """
-        
-        self.designation = None
-        """ Additional representations for the concept.
-        List of `ValueSetDefineConceptDesignation` items (represented as `dict` in JSON). """
-        
-        self.display = None
-        """ Text to Display to the user.
-        Type `str`. """
-        
-        super(ValueSetDefineConcept, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(ValueSetDefineConcept, self).elementProperties()
-        js.extend([
-            ("abstract", "abstract", bool, False),
-            ("code", "code", str, False),
-            ("concept", "concept", ValueSetDefineConcept, True),
-            ("definition", "definition", str, False),
-            ("designation", "designation", ValueSetDefineConceptDesignation, True),
-            ("display", "display", str, False),
-        ])
-        return js
-
-
-class ValueSetDefineConceptDesignation(fhirelement.FHIRElement):
-    """ Additional representations for the concept.
-    
-    Additional representations for the concept - other languages, aliases,
-    specialised purposes, used for particular purposes, etc.
-    """
-    
-    resource_name = "ValueSetDefineConceptDesignation"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.language = None
-        """ Language of the designation.
-        Type `str`. """
-        
-        self.use = None
-        """ Details how this designation would be used.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.value = None
-        """ The text value for this designation.
-        Type `str`. """
-        
-        super(ValueSetDefineConceptDesignation, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(ValueSetDefineConceptDesignation, self).elementProperties()
-        js.extend([
-            ("language", "language", str, False),
-            ("use", "use", coding.Coding, False),
-            ("value", "value", str, False),
         ])
         return js
 
@@ -458,13 +467,21 @@ class ValueSetExpansion(fhirelement.FHIRElement):
         """ Uniquely identifies this expansion.
         Type `str`. """
         
+        self.offset = None
+        """ Offset at which this resource starts.
+        Type `int`. """
+        
         self.parameter = None
         """ Parameter that controlled the expansion process.
         List of `ValueSetExpansionParameter` items (represented as `dict` in JSON). """
         
         self.timestamp = None
-        """ Time valueset expansion happened.
+        """ Time ValueSet expansion happened.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.total = None
+        """ Total number of codes in the expansion.
+        Type `int`. """
         
         super(ValueSetExpansion, self).__init__(jsondict)
     
@@ -473,8 +490,10 @@ class ValueSetExpansion(fhirelement.FHIRElement):
         js.extend([
             ("contains", "contains", ValueSetExpansionContains, True),
             ("identifier", "identifier", str, False),
+            ("offset", "offset", int, False),
             ("parameter", "parameter", ValueSetExpansionParameter, True),
             ("timestamp", "timestamp", fhirdate.FHIRDate, False),
+            ("total", "total", int, False),
         ])
         return js
 
@@ -496,11 +515,11 @@ class ValueSetExpansionContains(fhirelement.FHIRElement):
         Type `bool`. """
         
         self.code = None
-        """ Code - if blank, this is not a choosable code.
+        """ Code - if blank, this is not a selectable code.
         Type `str`. """
         
         self.contains = None
-        """ Codes contained in this concept.
+        """ Codes contained under this entry.
         List of `ValueSetExpansionContains` items (represented as `dict` in JSON). """
         
         self.display = None
@@ -512,7 +531,7 @@ class ValueSetExpansionContains(fhirelement.FHIRElement):
         Type `str`. """
         
         self.version = None
-        """ Version in which this code / display is defined.
+        """ Version in which this code/display is defined.
         Type `str`. """
         
         super(ValueSetExpansionContains, self).__init__(jsondict)
@@ -533,7 +552,7 @@ class ValueSetExpansionContains(fhirelement.FHIRElement):
 class ValueSetExpansionParameter(fhirelement.FHIRElement):
     """ Parameter that controlled the expansion process.
     
-    A Parameter that controlled the expansion process. These paameters may be
+    A Parameter that controlled the expansion process. These parameters may be
     used by users of expanded value sets to check whether the expansion is
     suitable for a particular purpose, or to pick the correct expansion.
     """
@@ -549,27 +568,27 @@ class ValueSetExpansionParameter(fhirelement.FHIRElement):
         Type `str`. """
         
         self.valueBoolean = None
-        """ Value of the parameter.
+        """ Value of the named parameter.
         Type `bool`. """
         
         self.valueCode = None
-        """ Value of the parameter.
+        """ Value of the named parameter.
         Type `str`. """
         
         self.valueDecimal = None
-        """ Value of the parameter.
+        """ Value of the named parameter.
         Type `float`. """
         
         self.valueInteger = None
-        """ Value of the parameter.
+        """ Value of the named parameter.
         Type `int`. """
         
         self.valueString = None
-        """ Value of the parameter.
+        """ Value of the named parameter.
         Type `str`. """
         
         self.valueUri = None
-        """ Value of the parameter.
+        """ Value of the named parameter.
         Type `str`. """
         
         super(ValueSetExpansionParameter, self).__init__(jsondict)

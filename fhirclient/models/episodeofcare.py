@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -31,41 +31,35 @@ class EpisodeOfCare(domainresource.DomainResource):
         """
         
         self.careManager = None
-        """ The practitioner that is the care manager/care co-ordinator for
-        this patient.
+        """ Care manager/care co-ordinator for the patient.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.careTeam = None
-        """ The list of practitioners that may be facilitating this episode of
-        care for specific purposes.
+        """ Other practitioners facilitating this episode of care.
         List of `EpisodeOfCareCareTeam` items (represented as `dict` in JSON). """
         
         self.condition = None
-        """ A list of conditions/problems/diagnoses that this episode of care
-        is intended to be providing care for.
+        """ Conditions/problems/diagnoses this episode of care is for.
         List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Identifier(s) by which this EpisodeOfCare is known.
+        """ Identifier(s) for the EpisodeOfCare.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.managingOrganization = None
-        """ The organization that has assumed the specific responsibilities for
-        the specified duration.
+        """ Organization that assumes care.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.patient = None
-        """ The patient that this EpisodeOfCare applies to.
+        """ Patient for this episode of care.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.period = None
-        """ The interval during which the managing organization assumes the
-        defined responsibility.
+        """ Interval during responsibility is assumed.
         Type `Period` (represented as `dict` in JSON). """
         
         self.referralRequest = None
-        """ Referral Request(s) that this EpisodeOfCare manages activities
-        within.
+        """ Originating Referral Request(s).
         List of `FHIRReference` items referencing `ReferralRequest` (represented as `dict` in JSON). """
         
         self.status = None
@@ -73,11 +67,11 @@ class EpisodeOfCare(domainresource.DomainResource):
         Type `str`. """
         
         self.statusHistory = None
-        """ The status history for the EpisodeOfCare.
+        """ Past list of status codes.
         List of `EpisodeOfCareStatusHistory` items (represented as `dict` in JSON). """
         
         self.type = None
-        """ Specific type of EpisodeOfCare.
+        """ Type/class  - e.g. specialist referral, disease management.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(EpisodeOfCare, self).__init__(jsondict)
@@ -101,7 +95,9 @@ class EpisodeOfCare(domainresource.DomainResource):
 
 
 class EpisodeOfCareCareTeam(fhirelement.FHIRElement):
-    """ The list of practitioners that may be facilitating this episode of care for
+    """ Other practitioners facilitating this episode of care.
+    
+    The list of practitioners that may be facilitating this episode of care for
     specific purposes.
     """
     
@@ -116,13 +112,11 @@ class EpisodeOfCareCareTeam(fhirelement.FHIRElement):
         Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.period = None
-        """ The period of time that this practitioner is performing some role
-        within the episode of care.
+        """ Period of time for this role.
         Type `Period` (represented as `dict` in JSON). """
         
         self.role = None
-        """ The role that this team member is taking within this episode of
-        care.
+        """ Role taken by this team member.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(EpisodeOfCareCareTeam, self).__init__(jsondict)
@@ -138,7 +132,10 @@ class EpisodeOfCareCareTeam(fhirelement.FHIRElement):
 
 
 class EpisodeOfCareStatusHistory(fhirelement.FHIRElement):
-    """ The status history for the EpisodeOfCare.
+    """ Past list of status codes.
+    
+    The history of statuses that the EpisodeOfCare has been through (without
+    requiring processing the history of the resource).
     """
     
     resource_name = "EpisodeOfCareStatusHistory"
@@ -148,8 +145,7 @@ class EpisodeOfCareStatusHistory(fhirelement.FHIRElement):
         """
         
         self.period = None
-        """ The period during this EpisodeOfCare that the specific status
-        applied.
+        """ Period for the status.
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None

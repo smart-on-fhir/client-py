@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -33,7 +33,7 @@ class ClinicalImpression(domainresource.DomainResource):
         
         self.action = None
         """ Actions taken during assessment.
-        List of `FHIRReference` items referencing `ReferralRequest, ProcedureRequest, Procedure, MedicationPrescription, DiagnosticOrder, NutritionOrder, Supply, Appointment` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ReferralRequest, ProcedureRequest, Procedure, MedicationOrder, DiagnosticOrder, NutritionOrder, SupplyRequest, Appointment` (represented as `dict` in JSON). """
         
         self.assessor = None
         """ The clinician performing the assessment.
@@ -52,16 +52,16 @@ class ClinicalImpression(domainresource.DomainResource):
         List of `ClinicalImpressionFinding` items (represented as `dict` in JSON). """
         
         self.investigations = None
-        """ One or more sets of investigations (signs, symptions, etc).
+        """ One or more sets of investigations (signs, symptions, etc.).
         List of `ClinicalImpressionInvestigations` items (represented as `dict` in JSON). """
         
         self.patient = None
-        """ The patient being asssesed.
+        """ The patient being assessed.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.plan = None
         """ Plan of action after assessment.
-        List of `FHIRReference` items referencing `CarePlan, Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticOrder, MedicationPrescription, NutritionOrder, Order, ProcedureRequest, ProcessRequest, ReferralRequest, Supply, VisionPrescription` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `CarePlan, Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticOrder, MedicationOrder, NutritionOrder, Order, ProcedureRequest, ProcessRequest, ReferralRequest, SupplyRequest, VisionPrescription` (represented as `dict` in JSON). """
         
         self.previous = None
         """ Reference to last assessment.
@@ -80,7 +80,7 @@ class ClinicalImpression(domainresource.DomainResource):
         Type `str`. """
         
         self.resolved = None
-        """ Diagnosies/conditions resolved since previous assessment.
+        """ Diagnoses/conditions resolved since previous assessment.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.ruledOut = None
@@ -163,9 +163,9 @@ class ClinicalImpressionFinding(fhirelement.FHIRElement):
 
 
 class ClinicalImpressionInvestigations(fhirelement.FHIRElement):
-    """ One or more sets of investigations (signs, symptions, etc).
+    """ One or more sets of investigations (signs, symptions, etc.).
     
-    One or more sets of investigations (signs, symptions, etc). The actual
+    One or more sets of investigations (signs, symptions, etc.). The actual
     grouping of investigations vary greatly depending on the type and context
     of the assessment. These investigations may include data generated during
     the assessment process, or data previously generated and recorded that is
@@ -184,7 +184,7 @@ class ClinicalImpressionInvestigations(fhirelement.FHIRElement):
         
         self.item = None
         """ Record of a specific investigation.
-        List of `FHIRReference` items referencing `Observation, QuestionnaireAnswers, FamilyMemberHistory, DiagnosticReport` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Observation, QuestionnaireResponse, FamilyMemberHistory, DiagnosticReport` (represented as `dict` in JSON). """
         
         super(ClinicalImpressionInvestigations, self).__init__(jsondict)
     

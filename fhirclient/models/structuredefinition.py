@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -41,6 +41,10 @@ class StructureDefinition(domainresource.DomainResource):
         """ Assist with indexing and finding.
         List of `Coding` items (represented as `dict` in JSON). """
         
+        self.constrainedType = None
+        """ Any datatype or resource, including abstract ones.
+        Type `str`. """
+        
         self.contact = None
         """ Contact details of the publisher.
         List of `StructureDefinitionContact` items (represented as `dict` in JSON). """
@@ -54,7 +58,7 @@ class StructureDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.copyright = None
-        """ Use and/or Publishing restrictions.
+        """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
@@ -85,6 +89,10 @@ class StructureDefinition(domainresource.DomainResource):
         """ Other identifiers for the StructureDefinition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.kind = None
+        """ datatype | resource | logical.
+        Type `str`. """
+        
         self.mapping = None
         """ External specification that the content is mapped to.
         List of `StructureDefinitionMapping` items (represented as `dict` in JSON). """
@@ -109,12 +117,8 @@ class StructureDefinition(domainresource.DomainResource):
         """ draft | active | retired.
         Type `str`. """
         
-        self.type = None
-        """ type | resource | constraint | extension.
-        Type `str`. """
-        
         self.url = None
-        """ Literal URL used to reference this StructureDefinition.
+        """ Absolute URL used to reference this StructureDefinition.
         Type `str`. """
         
         self.useContext = None
@@ -133,6 +137,7 @@ class StructureDefinition(domainresource.DomainResource):
             ("abstract", "abstract", bool, False),
             ("base", "base", str, False),
             ("code", "code", coding.Coding, True),
+            ("constrainedType", "constrainedType", str, False),
             ("contact", "contact", StructureDefinitionContact, True),
             ("context", "context", str, True),
             ("contextType", "contextType", str, False),
@@ -144,13 +149,13 @@ class StructureDefinition(domainresource.DomainResource):
             ("experimental", "experimental", bool, False),
             ("fhirVersion", "fhirVersion", str, False),
             ("identifier", "identifier", identifier.Identifier, True),
+            ("kind", "kind", str, False),
             ("mapping", "mapping", StructureDefinitionMapping, True),
             ("name", "name", str, False),
             ("publisher", "publisher", str, False),
             ("requirements", "requirements", str, False),
             ("snapshot", "snapshot", StructureDefinitionSnapshot, False),
             ("status", "status", str, False),
-            ("type", "type", str, False),
             ("url", "url", str, False),
             ("useContext", "useContext", codeableconcept.CodeableConcept, True),
             ("version", "version", str, False),
@@ -229,7 +234,7 @@ class StructureDefinitionMapping(fhirelement.FHIRElement):
         """
         
         self.comments = None
-        """ Versions, Issues, Scope limitations etc.
+        """ Versions, Issues, Scope limitations etc..
         Type `str`. """
         
         self.identity = None

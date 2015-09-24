@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class SubscriptionTests(unittest.TestCase):
         return subscription.Subscription(js)
     
     def testSubscription1(self):
-        inst = self.instantiate_from("subscription-example.json")
+        inst = self.instantiate_from("subscription-example-error.json")
         self.assertIsNotNone(inst, "Must have instantiated a Subscription instance")
         self.implSubscription1(inst)
         
@@ -36,10 +36,45 @@ class SubscriptionTests(unittest.TestCase):
         self.assertEqual(inst.channel.header, "Authorization: Bearer secret-token-abc-123")
         self.assertEqual(inst.channel.payload, "application/json")
         self.assertEqual(inst.channel.type, "rest-hook")
-        self.assertEqual(inst.criteria, "/Observation?name=http://loinc.org|1975-2")
+        self.assertEqual(inst.contact[0].system, "phone")
+        self.assertEqual(inst.contact[0].value, "ext 4123")
+        self.assertEqual(inst.criteria, "Observation?name=http://loinc.org|1975-2")
+        self.assertEqual(inst.end.date, FHIRDate("2021-01-01T00:00:00Z").date)
+        self.assertEqual(inst.end.as_json(), "2021-01-01T00:00:00Z")
+        self.assertEqual(inst.error, "Socket Error 10060 - can't connect to host")
+        self.assertEqual(inst.id, "example-error")
+        self.assertEqual(inst.reason, "Monitor new neonatal function")
+        self.assertEqual(inst.status, "error")
+        self.assertEqual(inst.tag[0].code, "bili-done")
+        self.assertEqual(inst.tag[0].system, "http://example.org/fhir/cs/internal")
+        self.assertEqual(inst.text.div, "<div>[Put rendering here]</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testSubscription2(self):
+        inst = self.instantiate_from("subscription-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Subscription instance")
+        self.implSubscription2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Subscription", js["resourceType"])
+        inst2 = subscription.Subscription(js)
+        self.implSubscription2(inst2)
+    
+    def implSubscription2(self, inst):
+        self.assertEqual(inst.channel.endpoint, "https://biliwatch.com/customers/mount-auburn-miu/on-result")
+        self.assertEqual(inst.channel.header, "Authorization: Bearer secret-token-abc-123")
+        self.assertEqual(inst.channel.payload, "application/json")
+        self.assertEqual(inst.channel.type, "rest-hook")
+        self.assertEqual(inst.contact[0].system, "phone")
+        self.assertEqual(inst.contact[0].value, "ext 4123")
+        self.assertEqual(inst.criteria, "Observation?name=http://loinc.org|1975-2")
+        self.assertEqual(inst.end.date, FHIRDate("2021-01-01T00:00:00Z").date)
+        self.assertEqual(inst.end.as_json(), "2021-01-01T00:00:00Z")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.reason, "Monitor new neonatal function")
         self.assertEqual(inst.status, "requested")
+        self.assertEqual(inst.tag[0].code, "bili-done")
+        self.assertEqual(inst.tag[0].system, "http://example.org/fhir/cs/internal")
         self.assertEqual(inst.text.div, "<div>[Put rendering here]</div>")
         self.assertEqual(inst.text.status, "generated")
 

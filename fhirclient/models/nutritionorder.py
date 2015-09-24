@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -39,7 +39,7 @@ class NutritionOrder(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.encounter = None
-        """ The encounter associated with that this nutrition order.
+        """ The encounter associated with this nutrition order.
         Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
         
         self.enteralFormula = None
@@ -122,7 +122,11 @@ class NutritionOrderEnteralFormula(fhirelement.FHIRElement):
         """ Type of modular component to add to the feeding.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.administrationInstructions = None
+        self.administration = None
+        """ Formula feeding instruction as structured data.
+        List of `NutritionOrderEnteralFormulaAdministration` items (represented as `dict` in JSON). """
+        
+        self.administrationInstruction = None
         """ Formula feeding instructions expressed as text.
         Type `str`. """
         
@@ -136,31 +140,15 @@ class NutritionOrderEnteralFormula(fhirelement.FHIRElement):
         
         self.caloricDensity = None
         """ Amount of energy per specified volume that is required.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.maxVolumeToDeliver = None
         """ Upper limit on formula volume per unit of time.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
-        self.quantity = None
-        """ The volume of formula to provide.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
-        self.rate = None
-        """ Speed with which the formula is provided per period of time.
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.rateAdjustment = None
-        """ Change in the rate of administration over a given time.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.routeofAdministration = None
         """ How the formula should enter the patient's gastrointestinal tract.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.scheduled = None
-        """ Scheduled frequency of enteral feeding.
-        Type `Timing` (represented as `dict` in JSON). """
         
         super(NutritionOrderEnteralFormula, self).__init__(jsondict)
     
@@ -169,16 +157,57 @@ class NutritionOrderEnteralFormula(fhirelement.FHIRElement):
         js.extend([
             ("additiveProductName", "additiveProductName", str, False),
             ("additiveType", "additiveType", codeableconcept.CodeableConcept, False),
-            ("administrationInstructions", "administrationInstructions", str, False),
+            ("administration", "administration", NutritionOrderEnteralFormulaAdministration, True),
+            ("administrationInstruction", "administrationInstruction", str, False),
             ("baseFormulaProductName", "baseFormulaProductName", str, False),
             ("baseFormulaType", "baseFormulaType", codeableconcept.CodeableConcept, False),
             ("caloricDensity", "caloricDensity", quantity.Quantity, False),
             ("maxVolumeToDeliver", "maxVolumeToDeliver", quantity.Quantity, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("rate", "rate", ratio.Ratio, False),
-            ("rateAdjustment", "rateAdjustment", quantity.Quantity, False),
             ("routeofAdministration", "routeofAdministration", codeableconcept.CodeableConcept, False),
-            ("scheduled", "scheduled", timing.Timing, False),
+        ])
+        return js
+
+
+class NutritionOrderEnteralFormulaAdministration(fhirelement.FHIRElement):
+    """ Formula feeding instruction as structured data.
+    
+    Formula administration instructions as structured data.  This repeating
+    structure allows for changing the administration rate or volume over time
+    for both bolus and continuous feeding.  An example of this would be an
+    instruction to increase the rate of continuous feeding every 2 hours.
+    """
+    
+    resource_name = "NutritionOrderEnteralFormulaAdministration"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.quantity = None
+        """ The volume of formula to provide.
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        
+        self.rateQuantity = None
+        """ Speed with which the formula is provided per period of time.
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        
+        self.rateRatio = None
+        """ Speed with which the formula is provided per period of time.
+        Type `Ratio` (represented as `dict` in JSON). """
+        
+        self.schedule = None
+        """ Scheduled frequency of enteral feeding.
+        Type `Timing` (represented as `dict` in JSON). """
+        
+        super(NutritionOrderEnteralFormulaAdministration, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(NutritionOrderEnteralFormulaAdministration, self).elementProperties()
+        js.extend([
+            ("quantity", "quantity", quantity.Quantity, False),
+            ("rateQuantity", "rateQuantity", quantity.Quantity, False),
+            ("rateRatio", "rateRatio", ratio.Ratio, False),
+            ("schedule", "schedule", timing.Timing, False),
         ])
         return js
 
@@ -208,9 +237,9 @@ class NutritionOrderOralDiet(fhirelement.FHIRElement):
         """ Required  nutrient modifications.
         List of `NutritionOrderOralDietNutrient` items (represented as `dict` in JSON). """
         
-        self.scheduled = None
+        self.schedule = None
         """ Scheduled frequency of diet.
-        Type `Timing` (represented as `dict` in JSON). """
+        List of `Timing` items (represented as `dict` in JSON). """
         
         self.texture = None
         """ Required  texture modifications.
@@ -229,7 +258,7 @@ class NutritionOrderOralDiet(fhirelement.FHIRElement):
             ("fluidConsistencyType", "fluidConsistencyType", codeableconcept.CodeableConcept, True),
             ("instruction", "instruction", str, False),
             ("nutrient", "nutrient", NutritionOrderOralDietNutrient, True),
-            ("scheduled", "scheduled", timing.Timing, False),
+            ("schedule", "schedule", timing.Timing, True),
             ("texture", "texture", NutritionOrderOralDietTexture, True),
             ("type", "type", codeableconcept.CodeableConcept, True),
         ])
@@ -251,9 +280,9 @@ class NutritionOrderOralDietNutrient(fhirelement.FHIRElement):
         
         self.amount = None
         """ Quantity of the specified nutrient.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
-        self.mod = None
+        self.modifier = None
         """ Type of nutrient that is being modified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
@@ -263,7 +292,7 @@ class NutritionOrderOralDietNutrient(fhirelement.FHIRElement):
         js = super(NutritionOrderOralDietNutrient, self).elementProperties()
         js.extend([
             ("amount", "amount", quantity.Quantity, False),
-            ("mod", "modifier", codeableconcept.CodeableConcept, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, False),
         ])
         return js
 
@@ -286,9 +315,8 @@ class NutritionOrderOralDietTexture(fhirelement.FHIRElement):
         nutritional purposes.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.mod = None
-        """ Code to indicate how to alter the texture of the foods, e.g.,
-        pureed.
+        self.modifier = None
+        """ Code to indicate how to alter the texture of the foods, e.g. pureed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(NutritionOrderOralDietTexture, self).__init__(jsondict)
@@ -297,7 +325,7 @@ class NutritionOrderOralDietTexture(fhirelement.FHIRElement):
         js = super(NutritionOrderOralDietTexture, self).elementProperties()
         js.extend([
             ("foodType", "foodType", codeableconcept.CodeableConcept, False),
-            ("mod", "modifier", codeableconcept.CodeableConcept, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, False),
         ])
         return js
 
@@ -325,11 +353,11 @@ class NutritionOrderSupplement(fhirelement.FHIRElement):
         
         self.quantity = None
         """ Amount of the nutritional supplement.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
-        self.scheduled = None
+        self.schedule = None
         """ Scheduled frequency of supplement.
-        Type `Timing` (represented as `dict` in JSON). """
+        List of `Timing` items (represented as `dict` in JSON). """
         
         self.type = None
         """ Type of supplement product requested.
@@ -343,7 +371,7 @@ class NutritionOrderSupplement(fhirelement.FHIRElement):
             ("instruction", "instruction", str, False),
             ("productName", "productName", str, False),
             ("quantity", "quantity", quantity.Quantity, False),
-            ("scheduled", "scheduled", timing.Timing, False),
+            ("schedule", "schedule", timing.Timing, True),
             ("type", "type", codeableconcept.CodeableConcept, False),
         ])
         return js

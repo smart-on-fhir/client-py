@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class FlagTests(unittest.TestCase):
         return flag.Flag(js)
     
     def testFlag1(self):
-        inst = self.instantiate_from("flag-example.json")
+        inst = self.instantiate_from("flag-example-encounter.json")
         self.assertIsNotNone(inst, "Must have instantiated a Flag instance")
         self.implFlag1(inst)
         
@@ -32,21 +32,19 @@ class FlagTests(unittest.TestCase):
         self.implFlag1(inst2)
     
     def implFlag1(self, inst):
-        self.assertEqual(inst.category.coding[0].code, "admin")
-        self.assertEqual(inst.category.coding[0].display, "Admin")
+        self.assertEqual(inst.category.coding[0].code, "infection")
+        self.assertEqual(inst.category.coding[0].display, "Infection Control Level")
         self.assertEqual(inst.category.coding[0].system, "http://example.org/local")
-        self.assertEqual(inst.category.text, "admin")
-        self.assertEqual(inst.code.coding[0].code, "bigdog")
-        self.assertEqual(inst.code.coding[0].display, "Big dog")
-        self.assertEqual(inst.code.coding[0].system, "http://example.org/local")
-        self.assertEqual(inst.code.text, "Patient has a big dog at his home. Always always wear a suit of armor or take other active counter-measures")
-        self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.code.coding[0].code, "l3")
+        self.assertEqual(inst.code.coding[0].display, "Follow Level 3 Protocol")
+        self.assertEqual(inst.code.coding[0].system, "http://example.org/local/if1")
+        self.assertEqual(inst.id, "example-encounter")
         self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.div, "<div>Large Dog warning for Peter Patient</div>")
+        self.assertEqual(inst.text.div, "<div>Follow Infection Control Level 3 Protocol</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testFlag2(self):
-        inst = self.instantiate_from("flag-qicore-example.json")
+        inst = self.instantiate_from("flag-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Flag instance")
         self.implFlag2(inst)
         
@@ -64,12 +62,8 @@ class FlagTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Big dog")
         self.assertEqual(inst.code.coding[0].system, "http://example.org/local")
         self.assertEqual(inst.code.text, "Patient has a big dog at his home. Always always wear a suit of armor or take other active counter-measures")
-        self.assertEqual(inst.id, "qicore")
-        self.assertEqual(inst.period.end.date, FHIRDate("2015-02-28").date)
-        self.assertEqual(inst.period.end.as_json(), "2015-02-28")
-        self.assertEqual(inst.period.start.date, FHIRDate("2015-01-09").date)
-        self.assertEqual(inst.period.start.as_json(), "2015-01-09")
-        self.assertEqual(inst.status, "inactive")
+        self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div>Large Dog warning for Peter Patient</div>")
         self.assertEqual(inst.text.status, "generated")
 

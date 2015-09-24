@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Condition) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Condition) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
-from . import age
 from . import codeableconcept
 from . import domainresource
 from . import fhirdate
@@ -13,6 +12,7 @@ from . import fhirelement
 from . import fhirreference
 from . import identifier
 from . import period
+from . import quantity
 from . import range
 
 
@@ -21,8 +21,8 @@ class Condition(domainresource.DomainResource):
     
     Use to record detailed information about conditions, problems or diagnoses
     recognized by a clinician. There are many uses including: recording a
-    Diagnosis during an Encounter; populating a problem List or a Summary
-    Statement, such as a Discharge Summary.
+    diagnosis during an encounter; populating a problem list or a summary
+    statement, such as a discharge summary.
     """
     
     resource_name = "Condition"
@@ -31,21 +31,21 @@ class Condition(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.abatementAge = None
-        """ If/when in resolution/remission.
-        Type `Age` (represented as `dict` in JSON). """
-        
         self.abatementBoolean = None
         """ If/when in resolution/remission.
         Type `bool`. """
         
-        self.abatementDate = None
+        self.abatementDateTime = None
         """ If/when in resolution/remission.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.abatementPeriod = None
         """ If/when in resolution/remission.
         Type `Period` (represented as `dict` in JSON). """
+        
+        self.abatementQuantity = None
+        """ If/when in resolution/remission.
+        Type `Quantity` referencing `Age` (represented as `dict` in JSON). """
         
         self.abatementRange = None
         """ If/when in resolution/remission.
@@ -59,26 +59,25 @@ class Condition(domainresource.DomainResource):
         """ Person who asserts this condition.
         Type `FHIRReference` referencing `Practitioner, Patient` (represented as `dict` in JSON). """
         
+        self.bodySite = None
+        """ Anatomical location, if relevant.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.category = None
-        """ E.g. complaint | symptom | finding | diagnosis.
+        """ complaint | symptom | finding | diagnosis.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.clinicalStatus = None
-        """ provisional | working | confirmed | refuted | entered-in-error |
-        unknown.
+        """ active | relapse | remission | resolved.
         Type `str`. """
         
         self.code = None
         """ Identification of the condition, problem or diagnosis.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.dateAsserted = None
-        """ When first detected/suspected/entered.
+        self.dateRecorded = None
+        """ When first entered.
         Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.dueTo = None
-        """ Causes for this Condition.
-        List of `ConditionDueTo` items (represented as `dict` in JSON). """
         
         self.encounter = None
         """ Encounter when condition first asserted.
@@ -92,21 +91,9 @@ class Condition(domainresource.DomainResource):
         """ External Ids for this condition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.location = None
-        """ Anatomical location, if relevant.
-        List of `ConditionLocation` items (represented as `dict` in JSON). """
-        
         self.notes = None
         """ Additional information about the Condition.
         Type `str`. """
-        
-        self.occurredFollowing = None
-        """ Precedent for this Condition.
-        List of `ConditionOccurredFollowing` items (represented as `dict` in JSON). """
-        
-        self.onsetAge = None
-        """ Estimated or actual date,  date-time, or age.
-        Type `Age` (represented as `dict` in JSON). """
         
         self.onsetDateTime = None
         """ Estimated or actual date,  date-time, or age.
@@ -115,6 +102,10 @@ class Condition(domainresource.DomainResource):
         self.onsetPeriod = None
         """ Estimated or actual date,  date-time, or age.
         Type `Period` (represented as `dict` in JSON). """
+        
+        self.onsetQuantity = None
+        """ Estimated or actual date,  date-time, or age.
+        Type `Quantity` referencing `Age` (represented as `dict` in JSON). """
         
         self.onsetRange = None
         """ Estimated or actual date,  date-time, or age.
@@ -136,69 +127,41 @@ class Condition(domainresource.DomainResource):
         """ Stage/grade, usually assessed formally.
         Type `ConditionStage` (represented as `dict` in JSON). """
         
+        self.verificationStatus = None
+        """ provisional | differential | confirmed | refuted | entered-in-error
+        | unknown.
+        Type `str`. """
+        
         super(Condition, self).__init__(jsondict)
     
     def elementProperties(self):
         js = super(Condition, self).elementProperties()
         js.extend([
-            ("abatementAge", "abatementAge", age.Age, False),
             ("abatementBoolean", "abatementBoolean", bool, False),
-            ("abatementDate", "abatementDate", fhirdate.FHIRDate, False),
+            ("abatementDateTime", "abatementDateTime", fhirdate.FHIRDate, False),
             ("abatementPeriod", "abatementPeriod", period.Period, False),
+            ("abatementQuantity", "abatementQuantity", quantity.Quantity, False),
             ("abatementRange", "abatementRange", range.Range, False),
             ("abatementString", "abatementString", str, False),
             ("asserter", "asserter", fhirreference.FHIRReference, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True),
             ("category", "category", codeableconcept.CodeableConcept, False),
             ("clinicalStatus", "clinicalStatus", str, False),
             ("code", "code", codeableconcept.CodeableConcept, False),
-            ("dateAsserted", "dateAsserted", fhirdate.FHIRDate, False),
-            ("dueTo", "dueTo", ConditionDueTo, True),
+            ("dateRecorded", "dateRecorded", fhirdate.FHIRDate, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False),
             ("evidence", "evidence", ConditionEvidence, True),
             ("identifier", "identifier", identifier.Identifier, True),
-            ("location", "location", ConditionLocation, True),
             ("notes", "notes", str, False),
-            ("occurredFollowing", "occurredFollowing", ConditionOccurredFollowing, True),
-            ("onsetAge", "onsetAge", age.Age, False),
             ("onsetDateTime", "onsetDateTime", fhirdate.FHIRDate, False),
             ("onsetPeriod", "onsetPeriod", period.Period, False),
+            ("onsetQuantity", "onsetQuantity", quantity.Quantity, False),
             ("onsetRange", "onsetRange", range.Range, False),
             ("onsetString", "onsetString", str, False),
             ("patient", "patient", fhirreference.FHIRReference, False),
             ("severity", "severity", codeableconcept.CodeableConcept, False),
             ("stage", "stage", ConditionStage, False),
-        ])
-        return js
-
-
-class ConditionDueTo(fhirelement.FHIRElement):
-    """ Causes for this Condition.
-    
-    Further conditions, problems, diagnoses, procedures or events or the
-    substance that caused/triggered this Condition.
-    """
-    
-    resource_name = "ConditionDueTo"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.code = None
-        """ Relationship target by means of a predefined code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.target = None
-        """ Relationship target resource.
-        Type `FHIRReference` referencing `Condition, Procedure, MedicationAdministration, Immunization, MedicationStatement` (represented as `dict` in JSON). """
-        
-        super(ConditionDueTo, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(ConditionDueTo, self).elementProperties()
-        js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("target", "target", fhirreference.FHIRReference, False),
+            ("verificationStatus", "verificationStatus", str, False),
         ])
         return js
 
@@ -231,69 +194,6 @@ class ConditionEvidence(fhirelement.FHIRElement):
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False),
             ("detail", "detail", fhirreference.FHIRReference, True),
-        ])
-        return js
-
-
-class ConditionLocation(fhirelement.FHIRElement):
-    """ Anatomical location, if relevant.
-    
-    The anatomical location where this condition manifests itself.
-    """
-    
-    resource_name = "ConditionLocation"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.siteCodeableConcept = None
-        """ Location - may include laterality.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.siteReference = None
-        """ Location - may include laterality.
-        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
-        
-        super(ConditionLocation, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(ConditionLocation, self).elementProperties()
-        js.extend([
-            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("siteReference", "siteReference", fhirreference.FHIRReference, False),
-        ])
-        return js
-
-
-class ConditionOccurredFollowing(fhirelement.FHIRElement):
-    """ Precedent for this Condition.
-    
-    Further conditions, problems, diagnoses, procedures or events or the
-    substance that preceded this Condition.
-    """
-    
-    resource_name = "ConditionOccurredFollowing"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.code = None
-        """ Relationship target by means of a predefined code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.target = None
-        """ Relationship target resource.
-        Type `FHIRReference` referencing `Condition, Procedure, MedicationAdministration, Immunization, MedicationStatement` (represented as `dict` in JSON). """
-        
-        super(ConditionOccurredFollowing, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(ConditionOccurredFollowing, self).elementProperties()
-        js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("target", "target", fhirreference.FHIRReference, False),
         ])
         return js
 

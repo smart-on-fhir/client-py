@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Contraindication) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DetectedIssue) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -13,27 +13,27 @@ from . import fhirreference
 from . import identifier
 
 
-class Contraindication(domainresource.DomainResource):
+class DetectedIssue(domainresource.DomainResource):
     """ Clinical issue with action.
     
     Indicates an actual or potential clinical issue with or between one or more
-    active or proposed clinical actions for a patient.  E.g. Drug-drug
+    active or proposed clinical actions for a patient; e.g. Drug-drug
     interaction, Ineffective treatment frequency, Procedure-condition conflict,
     etc.
     """
     
-    resource_name = "Contraindication"
+    resource_name = "DetectedIssue"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
         self.author = None
-        """ Who found issue?.
+        """ The provider or device that identified the issue.
         Type `FHIRReference` referencing `Practitioner, Device` (represented as `dict` in JSON). """
         
         self.category = None
-        """ E.g. Drug-drug, duplicate therapy, etc..
+        """ Issue Category, e.g. drug-drug, duplicate therapy, etc..
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.date = None
@@ -45,7 +45,7 @@ class Contraindication(domainresource.DomainResource):
         Type `str`. """
         
         self.identifier = None
-        """ Unique id for the contraindication.
+        """ Unique id for the detected issue.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.implicated = None
@@ -54,7 +54,7 @@ class Contraindication(domainresource.DomainResource):
         
         self.mitigation = None
         """ Step taken to address.
-        List of `ContraindicationMitigation` items (represented as `dict` in JSON). """
+        List of `DetectedIssueMitigation` items (represented as `dict` in JSON). """
         
         self.patient = None
         """ Associated patient.
@@ -65,13 +65,13 @@ class Contraindication(domainresource.DomainResource):
         Type `str`. """
         
         self.severity = None
-        """ high | medium | low.
+        """ high | moderate | low.
         Type `str`. """
         
-        super(Contraindication, self).__init__(jsondict)
+        super(DetectedIssue, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(Contraindication, self).elementProperties()
+        js = super(DetectedIssue, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False),
             ("category", "category", codeableconcept.CodeableConcept, False),
@@ -79,7 +79,7 @@ class Contraindication(domainresource.DomainResource):
             ("detail", "detail", str, False),
             ("identifier", "identifier", identifier.Identifier, False),
             ("implicated", "implicated", fhirreference.FHIRReference, True),
-            ("mitigation", "mitigation", ContraindicationMitigation, True),
+            ("mitigation", "mitigation", DetectedIssueMitigation, True),
             ("patient", "patient", fhirreference.FHIRReference, False),
             ("reference", "reference", str, False),
             ("severity", "severity", str, False),
@@ -87,16 +87,16 @@ class Contraindication(domainresource.DomainResource):
         return js
 
 
-class ContraindicationMitigation(fhirelement.FHIRElement):
+class DetectedIssueMitigation(fhirelement.FHIRElement):
     """ Step taken to address.
     
     Indicates an action that has been taken or is committed to to reduce or
-    eliminate the likelihood of the risk identified by the contraindicaiton
-    from manifesting.  Can also reflect an observation of known mitigating
-    factors that may reduce/eliminate the need for any action.
+    eliminate the likelihood of the risk identified by the detected issue from
+    manifesting.  Can also reflect an observation of known mitigating factors
+    that may reduce/eliminate the need for any action.
     """
     
-    resource_name = "ContraindicationMitigation"
+    resource_name = "DetectedIssueMitigation"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -114,10 +114,10 @@ class ContraindicationMitigation(fhirelement.FHIRElement):
         """ Date committed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        super(ContraindicationMitigation, self).__init__(jsondict)
+        super(DetectedIssueMitigation, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(ContraindicationMitigation, self).elementProperties()
+        js = super(DetectedIssueMitigation, self).elementProperties()
         js.extend([
             ("action", "action", codeableconcept.CodeableConcept, False),
             ("author", "author", fhirreference.FHIRReference, False),

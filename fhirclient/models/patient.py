@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Patient) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Patient) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -40,7 +40,7 @@ class Patient(domainresource.DomainResource):
         List of `Address` items (represented as `dict` in JSON). """
         
         self.animal = None
-        """ If this patient is an animal (non-human).
+        """ This patient is known to be an animal (non-human).
         Type `PatientAnimal` (represented as `dict` in JSON). """
         
         self.birthDate = None
@@ -48,7 +48,7 @@ class Patient(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.careProvider = None
-        """ Patient's nominated care provider.
+        """ Patient's nominated primary care provider.
         List of `FHIRReference` items referencing `Organization, Practitioner` (represented as `dict` in JSON). """
         
         self.communication = None
@@ -138,9 +138,9 @@ class Patient(domainresource.DomainResource):
 
 
 class PatientAnimal(fhirelement.FHIRElement):
-    """ If this patient is an animal (non-human).
+    """ This patient is known to be an animal (non-human).
     
-    This element has a value if the patient is an animal.
+    This patient is known to be an animal.
     """
     
     resource_name = "PatientAnimal"

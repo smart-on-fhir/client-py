@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -11,6 +11,7 @@ from . import domainresource
 from . import fhirdate
 from . import fhirelement
 from . import fhirreference
+from . import identifier
 from . import period
 from . import signature
 
@@ -25,9 +26,9 @@ class Provenance(domainresource.DomainResource):
     assertions are a form of contextual metadata and can themselves become
     important records with their own provenance. Provenance statement indicates
     clinical significance in terms of confidence in authenticity, reliability,
-    and trustworthiness, integrity, and stage in lifecycle (e.g., Document
+    and trustworthiness, integrity, and stage in lifecycle (e.g. Document
     Completion - has the artifact been legally authenticated), all of which may
-    impact Security, Privacy, and Trust policies.
+    impact security, privacy, and trust policies.
     """
     
     resource_name = "Provenance"
@@ -35,6 +36,10 @@ class Provenance(domainresource.DomainResource):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.activity = None
+        """ Activity that occurred.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.agent = None
         """ Agents involved in creating resource.
@@ -58,7 +63,7 @@ class Provenance(domainresource.DomainResource):
         
         self.reason = None
         """ Reason the activity is occurring.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.recorded = None
         """ When the activity was recorded / updated.
@@ -77,12 +82,13 @@ class Provenance(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Provenance, self).elementProperties()
         js.extend([
+            ("activity", "activity", codeableconcept.CodeableConcept, False),
             ("agent", "agent", ProvenanceAgent, True),
             ("entity", "entity", ProvenanceEntity, True),
             ("location", "location", fhirreference.FHIRReference, False),
             ("period", "period", period.Period, False),
             ("policy", "policy", str, True),
-            ("reason", "reason", codeableconcept.CodeableConcept, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, True),
             ("recorded", "recorded", fhirdate.FHIRDate, False),
             ("signature", "signature", signature.Signature, True),
             ("target", "target", fhirreference.FHIRReference, True),
@@ -105,36 +111,65 @@ class ProvenanceAgent(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.display = None
-        """ Human description of participant.
-        Type `str`. """
+        self.actor = None
+        """ Individual, device or organization playing role.
+        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device, Organization` (represented as `dict` in JSON). """
         
-        self.referenceReference = None
-        """ Identity of agent.
-        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device` (represented as `dict` in JSON). """
-        
-        self.referenceUri = None
-        """ Identity of agent.
-        Type `str`. """
+        self.relatedAgent = None
+        """ Track delegation between agents.
+        List of `ProvenanceAgentRelatedAgent` items (represented as `dict` in JSON). """
         
         self.role = None
-        """ Agents Role.
+        """ What the agents involvement was.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.type = None
-        """ Agent Type.
-        Type `Coding` (represented as `dict` in JSON). """
+        self.userId = None
+        """ Authorization-system identifier for the agent.
+        Type `Identifier` (represented as `dict` in JSON). """
         
         super(ProvenanceAgent, self).__init__(jsondict)
     
     def elementProperties(self):
         js = super(ProvenanceAgent, self).elementProperties()
         js.extend([
-            ("display", "display", str, False),
-            ("referenceReference", "referenceReference", fhirreference.FHIRReference, False),
-            ("referenceUri", "referenceUri", str, False),
+            ("actor", "actor", fhirreference.FHIRReference, False),
+            ("relatedAgent", "relatedAgent", ProvenanceAgentRelatedAgent, True),
             ("role", "role", coding.Coding, False),
-            ("type", "type", coding.Coding, False),
+            ("userId", "userId", identifier.Identifier, False),
+        ])
+        return js
+
+
+class ProvenanceAgentRelatedAgent(fhirelement.FHIRElement):
+    """ Track delegation between agents.
+    
+    A relationship between two the agents referenced in this resource. This is
+    defined to allow for explicit description of the delegation between agents.
+    For example, this human author used this device, or one person acted on
+    another's behest.
+    """
+    
+    resource_name = "ProvenanceAgentRelatedAgent"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.target = None
+        """ Reference to other agent in this resource by identifier.
+        Type `str`. """
+        
+        self.type = None
+        """ Type of relationship between agents.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(ProvenanceAgentRelatedAgent, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ProvenanceAgentRelatedAgent, self).elementProperties()
+        js.extend([
+            ("target", "target", str, False),
+            ("type", "type", codeableconcept.CodeableConcept, False),
         ])
         return js
 
@@ -166,7 +201,7 @@ class ProvenanceEntity(fhirelement.FHIRElement):
         Type `str`. """
         
         self.type = None
-        """ Entity Type.
+        """ The type of resource in this entity.
         Type `Coding` (represented as `dict` in JSON). """
         
         super(ProvenanceEntity, self).__init__(jsondict)

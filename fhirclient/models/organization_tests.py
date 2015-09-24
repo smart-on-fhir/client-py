@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class OrganizationTests(unittest.TestCase):
         return organization.Organization(js)
     
     def testOrganization1(self):
-        inst = self.instantiate_from("org-uslab-example1.json")
+        inst = self.instantiate_from("organization-example-f001-burgers.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization1(inst)
         
@@ -32,103 +32,6 @@ class OrganizationTests(unittest.TestCase):
         self.implOrganization1(inst2)
     
     def implOrganization1(self, inst):
-        self.assertEqual(inst.address[0].city, "Harrisburg")
-        self.assertEqual(inst.address[0].country, "USA")
-        self.assertEqual(inst.address[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/us-core-county")
-        self.assertEqual(inst.address[0].extension[0].valueString, "42043")
-        self.assertEqual(inst.address[0].line[0], "Firstcare Way")
-        self.assertEqual(inst.address[0].line[1], "Building 1")
-        self.assertEqual(inst.address[0].postalCode, "17111")
-        self.assertEqual(inst.address[0].state, "PA")
-        self.assertEqual(inst.address[0].use, "work")
-        self.assertEqual(inst.id, "uslab-example1")
-        self.assertEqual(inst.identifier[0].system, "https://nppes.cms.hhs.gov/NPPES/")
-        self.assertEqual(inst.identifier[0].use, "official")
-        self.assertEqual(inst.identifier[0].value, "1235349085")
-        self.assertEqual(inst.name, "University Hospital")
-        self.assertEqual(inst.telecom[0].system, "phone")
-        self.assertEqual(inst.telecom[0].value, "(+1) 555-227-1234")
-        self.assertEqual(inst.telecom[1].system, "fax")
-        self.assertEqual(inst.telecom[1].value, "(+1) 555-227-6622")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testOrganization2(self):
-        inst = self.instantiate_from("org-uslab-example2.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
-        self.implOrganization2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Organization", js["resourceType"])
-        inst2 = organization.Organization(js)
-        self.implOrganization2(inst2)
-    
-    def implOrganization2(self, inst):
-        self.assertEqual(inst.address[0].city, "Boston")
-        self.assertEqual(inst.address[0].country, "USA")
-        self.assertEqual(inst.address[0].line[0], "Massachusetts Avenue")
-        self.assertEqual(inst.address[0].line[1], "Building 1")
-        self.assertEqual(inst.address[0].postalCode, "25025")
-        self.assertEqual(inst.address[0].state, "MA")
-        self.assertEqual(inst.address[0].use, "work")
-        self.assertEqual(inst.contact[0].name.family[0], "Fran")
-        self.assertEqual(inst.contact[0].name.given[0], "Desk")
-        self.assertEqual(inst.contact[0].name.given[1], "T")
-        self.assertEqual(inst.contact[0].name.prefix[0], "Dr")
-        self.assertEqual(inst.contact[0].name.suffix[0], "Jr")
-        self.assertEqual(inst.id, "uslab-example2")
-        self.assertEqual(inst.identifier[0].system, "https://nppes.cms.hhs.gov/NPPES/")
-        self.assertEqual(inst.identifier[0].use, "official")
-        self.assertEqual(inst.identifier[0].value, "8235849085")
-        self.assertEqual(inst.name, "Children's Hospital")
-        self.assertEqual(inst.telecom[0].system, "phone")
-        self.assertEqual(inst.telecom[0].value, "+1 617 555 1234")
-        self.assertEqual(inst.telecom[1].system, "fax")
-        self.assertEqual(inst.telecom[1].value, "+1 555 227 6622")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testOrganization3(self):
-        inst = self.instantiate_from("org-uslab-example3.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
-        self.implOrganization3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Organization", js["resourceType"])
-        inst2 = organization.Organization(js)
-        self.implOrganization3(inst2)
-    
-    def implOrganization3(self, inst):
-        self.assertEqual(inst.address[0].city, "Harrisburg")
-        self.assertEqual(inst.address[0].country, "USA")
-        self.assertEqual(inst.address[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/us-core-county")
-        self.assertEqual(inst.address[0].extension[0].valueString, "42043")
-        self.assertEqual(inst.address[0].line[0], "Firstcare Way")
-        self.assertEqual(inst.address[0].line[1], "Building 2")
-        self.assertEqual(inst.address[0].postalCode, "42043")
-        self.assertEqual(inst.address[0].state, "PA")
-        self.assertEqual(inst.address[0].use, "work")
-        self.assertEqual(inst.contact[0].name.family[0], "House")
-        self.assertEqual(inst.contact[0].name.given[0], "Gregory")
-        self.assertEqual(inst.contact[0].name.given[1], "F")
-        self.assertEqual(inst.contact[0].name.prefix[0], "Dr")
-        self.assertEqual(inst.contact[0].name.suffix[0], "PhD")
-        self.assertEqual(inst.id, "uslab-example3")
-        self.assertEqual(inst.identifier[0].system, "http://www.cms.gov/Regulations-and-Guidance/Legislation/CLIA/index.html")
-        self.assertEqual(inst.identifier[0].use, "official")
-        self.assertEqual(inst.identifier[0].value, "01D1111111")
-        self.assertEqual(inst.name, "Acme Labs")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testOrganization4(self):
-        inst = self.instantiate_from("organization-example-f001-burgers.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
-        self.implOrganization4(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Organization", js["resourceType"])
-        inst2 = organization.Organization(js)
-        self.implOrganization4(inst2)
-    
-    def implOrganization4(self, inst):
         self.assertEqual(inst.address[0].city, "Den Burg")
         self.assertEqual(inst.address[0].country, "NLD")
         self.assertEqual(inst.address[0].line[0], "Galapagosweg 91")
@@ -166,17 +69,17 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[1].display, "Healthcare Provider")
         self.assertEqual(inst.type.coding[1].system, "http://hl7.org/fhir/organization-type")
     
-    def testOrganization5(self):
+    def testOrganization2(self):
         inst = self.instantiate_from("organization-example-f002-burgers-card.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
-        self.implOrganization5(inst)
+        self.implOrganization2(inst)
         
         js = inst.as_json()
         self.assertEqual("Organization", js["resourceType"])
         inst2 = organization.Organization(js)
-        self.implOrganization5(inst2)
+        self.implOrganization2(inst2)
     
-    def implOrganization5(self, inst):
+    def implOrganization2(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].line[0], "South Wing, floor 2")
         self.assertEqual(inst.contact[0].address.line[0], "South Wing, floor 2")
@@ -198,17 +101,17 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].display, "Hospital Department")
         self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/organization-type")
     
-    def testOrganization6(self):
+    def testOrganization3(self):
         inst = self.instantiate_from("organization-example-f003-burgers-ENT.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
-        self.implOrganization6(inst)
+        self.implOrganization3(inst)
         
         js = inst.as_json()
         self.assertEqual("Organization", js["resourceType"])
         inst2 = organization.Organization(js)
-        self.implOrganization6(inst2)
+        self.implOrganization3(inst2)
     
-    def implOrganization6(self, inst):
+    def implOrganization3(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].line[0], "West Wing, floor 5")
         self.assertEqual(inst.contact[0].address.line[0], "West Wing, floor 5")
@@ -230,17 +133,17 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].display, "Hospital Department")
         self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/organization-type")
     
-    def testOrganization7(self):
+    def testOrganization4(self):
         inst = self.instantiate_from("organization-example-f201-aumc.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
-        self.implOrganization7(inst)
+        self.implOrganization4(inst)
         
         js = inst.as_json()
         self.assertEqual("Organization", js["resourceType"])
         inst2 = organization.Organization(js)
-        self.implOrganization7(inst2)
+        self.implOrganization4(inst2)
     
-    def implOrganization7(self, inst):
+    def implOrganization4(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].city, "Den Helder")
         self.assertEqual(inst.address[0].country, "NLD")
@@ -279,17 +182,17 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[2].display, "Healthcare Provider")
         self.assertEqual(inst.type.coding[2].system, "http://hl7.org/fhir/organization-type")
     
-    def testOrganization8(self):
+    def testOrganization5(self):
         inst = self.instantiate_from("organization-example-f203-bumc.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
-        self.implOrganization8(inst)
+        self.implOrganization5(inst)
         
         js = inst.as_json()
         self.assertEqual("Organization", js["resourceType"])
         inst2 = organization.Organization(js)
-        self.implOrganization8(inst2)
+        self.implOrganization5(inst2)
     
-    def implOrganization8(self, inst):
+    def implOrganization5(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].city, "Blijdorp")
         self.assertEqual(inst.address[0].country, "NLD")
@@ -312,17 +215,17 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[1].code, "prov")
         self.assertEqual(inst.type.coding[1].system, "http://hl7.org/fhir/organization-type")
     
-    def testOrganization9(self):
+    def testOrganization6(self):
         inst = self.instantiate_from("organization-example-gastro.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
-        self.implOrganization9(inst)
+        self.implOrganization6(inst)
         
         js = inst.as_json()
         self.assertEqual("Organization", js["resourceType"])
         inst2 = organization.Organization(js)
-        self.implOrganization9(inst2)
+        self.implOrganization6(inst2)
     
-    def implOrganization9(self, inst):
+    def implOrganization6(self, inst):
         self.assertEqual(inst.id, "1")
         self.assertEqual(inst.identifier[0].system, "http://www.acme.org.au/units")
         self.assertEqual(inst.identifier[0].value, "Gastro")
@@ -335,8 +238,65 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.telecom[1].value, "gastro@acme.org")
         self.assertEqual(inst.text.status, "generated")
     
-    def testOrganization10(self):
+    def testOrganization7(self):
         inst = self.instantiate_from("organization-example-good-health-care.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+        self.implOrganization7(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
+        self.implOrganization7(inst2)
+    
+    def implOrganization7(self, inst):
+        self.assertEqual(inst.id, "2.16.840.1.113883.19.5")
+        self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
+        self.assertEqual(inst.identifier[0].value, "2.16.840.1.113883.19.5")
+        self.assertEqual(inst.name, "Good Health Clinic")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testOrganization8(self):
+        inst = self.instantiate_from("organization-example-insurer.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+        self.implOrganization8(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
+        self.implOrganization8(inst2)
+    
+    def implOrganization8(self, inst):
+        self.assertEqual(inst.id, "2")
+        self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.840.1.113883.3.19.2.3")
+        self.assertEqual(inst.identifier[0].value, "666666")
+        self.assertEqual(inst.name, "XYZ Insurance")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testOrganization9(self):
+        inst = self.instantiate_from("organization-example-lab.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
+        self.implOrganization9(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Organization", js["resourceType"])
+        inst2 = organization.Organization(js)
+        self.implOrganization9(inst2)
+    
+    def implOrganization9(self, inst):
+        self.assertEqual(inst.id, "1832473e-2fe0-452d-abe9-3cdb9879522f")
+        self.assertEqual(inst.identifier[0].system, "http://www.acme.org.au/units")
+        self.assertEqual(inst.identifier[0].value, "ClinLab")
+        self.assertEqual(inst.name, "Clinical Lab")
+        self.assertEqual(inst.telecom[0].system, "phone")
+        self.assertEqual(inst.telecom[0].use, "work")
+        self.assertEqual(inst.telecom[0].value, "+1 555 234 1234")
+        self.assertEqual(inst.telecom[1].system, "email")
+        self.assertEqual(inst.telecom[1].use, "work")
+        self.assertEqual(inst.telecom[1].value, "contact@labs.acme.org")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testOrganization10(self):
+        inst = self.instantiate_from("organization-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization10(inst)
         
@@ -346,9 +306,20 @@ class OrganizationTests(unittest.TestCase):
         self.implOrganization10(inst2)
     
     def implOrganization10(self, inst):
-        self.assertEqual(inst.id, "2.16.840.1.113883.19.5")
-        self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
-        self.assertEqual(inst.identifier[0].value, "2.16.840.1.113883.19.5")
-        self.assertEqual(inst.name, "Good Health Clinic")
+        self.assertEqual(inst.address[0].city, "Ann Arbor")
+        self.assertEqual(inst.address[0].country, "USA")
+        self.assertEqual(inst.address[0].line[0], "3300 Washtenaw Avenue, Suite 227")
+        self.assertEqual(inst.address[0].postalCode, "48104")
+        self.assertEqual(inst.address[0].state, "MI")
+        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/organization-alias")
+        self.assertEqual(inst.extension[0].valueString, "HL7 International")
+        self.assertEqual(inst.id, "hl7")
+        self.assertEqual(inst.name, "Health Level Seven International")
+        self.assertEqual(inst.telecom[0].system, "phone")
+        self.assertEqual(inst.telecom[0].value, "(+1) 734-677-7777")
+        self.assertEqual(inst.telecom[1].system, "fax")
+        self.assertEqual(inst.telecom[1].value, "(+1) 734-677-6622")
+        self.assertEqual(inst.telecom[2].system, "email")
+        self.assertEqual(inst.telecom[2].value, "hq@HL7.org")
         self.assertEqual(inst.text.status, "generated")
 

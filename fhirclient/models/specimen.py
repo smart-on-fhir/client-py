@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -17,6 +17,8 @@ from . import quantity
 
 class Specimen(domainresource.DomainResource):
     """ Sample for analysis.
+    
+    A sample to be used for analysis.
     """
     
     resource_name = "Specimen"
@@ -34,7 +36,7 @@ class Specimen(domainresource.DomainResource):
         Type `SpecimenCollection` (represented as `dict` in JSON). """
         
         self.container = None
-        """ Direct container of specimen (tube/slide, etc).
+        """ Direct container of specimen (tube/slide, etc.).
         List of `SpecimenContainer` items (represented as `dict` in JSON). """
         
         self.identifier = None
@@ -48,6 +50,10 @@ class Specimen(domainresource.DomainResource):
         self.receivedTime = None
         """ The time when specimen was received for processing.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.status = None
+        """ available | unavailable | unsatisfactory | entered-in-error.
+        Type `str`. """
         
         self.subject = None
         """ Where the specimen came from. This may be from the patient(s) or
@@ -73,6 +79,7 @@ class Specimen(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True),
             ("parent", "parent", fhirreference.FHIRReference, True),
             ("receivedTime", "receivedTime", fhirdate.FHIRDate, False),
+            ("status", "status", str, False),
             ("subject", "subject", fhirreference.FHIRReference, False),
             ("treatment", "treatment", SpecimenTreatment, True),
             ("type", "type", codeableconcept.CodeableConcept, False),
@@ -92,13 +99,9 @@ class SpecimenCollection(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
-        self.bodySiteCodeableConcept = None
+        self.bodySite = None
         """ Anatomical collection site.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.bodySiteReference = None
-        """ Anatomical collection site.
-        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.collectedDateTime = None
         """ Collection time.
@@ -122,15 +125,14 @@ class SpecimenCollection(fhirelement.FHIRElement):
         
         self.quantity = None
         """ The quantity of specimen collected.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         super(SpecimenCollection, self).__init__(jsondict)
     
     def elementProperties(self):
         js = super(SpecimenCollection, self).elementProperties()
         js.extend([
-            ("bodySiteCodeableConcept", "bodySiteCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("bodySiteReference", "bodySiteReference", fhirreference.FHIRReference, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False),
             ("collectedDateTime", "collectedDateTime", fhirdate.FHIRDate, False),
             ("collectedPeriod", "collectedPeriod", period.Period, False),
             ("collector", "collector", fhirreference.FHIRReference, False),
@@ -142,7 +144,7 @@ class SpecimenCollection(fhirelement.FHIRElement):
 
 
 class SpecimenContainer(fhirelement.FHIRElement):
-    """ Direct container of specimen (tube/slide, etc).
+    """ Direct container of specimen (tube/slide, etc.).
     
     The container holding the specimen.  The recursive nature of containers;
     i.e. blood in tube in tray in rack is not addressed here.
@@ -164,7 +166,7 @@ class SpecimenContainer(fhirelement.FHIRElement):
         
         self.capacity = None
         """ Container volume or size.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.description = None
         """ Textual description of the container.
@@ -176,7 +178,7 @@ class SpecimenContainer(fhirelement.FHIRElement):
         
         self.specimenQuantity = None
         """ Quantity of specimen within container.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.type = None
         """ Kind of container directly associated with specimen.

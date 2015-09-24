@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -36,8 +36,9 @@ class MessageHeaderTests(unittest.TestCase):
         self.assertEqual(inst.destination[0].name, "Acme Message Gateway")
         self.assertEqual(inst.event.code, "admin-update")
         self.assertEqual(inst.event.system, "http://hl7.org/fhir/message-type")
-        self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.identifier, "1cbdfb97-5859-48a4-8301-d54eab818d68")
+        self.assertEqual(inst.id, "1cbdfb97-5859-48a4-8301-d54eab818d68")
+        self.assertEqual(inst.reason.coding[0].code, "admit")
+        self.assertEqual(inst.reason.coding[0].system, "http://hl7.org/fhir/message-reasons-encounter")
         self.assertEqual(inst.response.code, "ok")
         self.assertEqual(inst.response.identifier, "5015fe84-8e76-4526-89d8-44b322e8d4fb")
         self.assertEqual(inst.source.contact.system, "phone")

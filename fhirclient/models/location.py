@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Location) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Location) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -33,8 +33,7 @@ class Location(domainresource.DomainResource):
         Type `Address` (represented as `dict` in JSON). """
         
         self.description = None
-        """ Description of the Location, which helps in finding or referencing
-        the place.
+        """ Description of the location.
         Type `str`. """
         
         self.identifier = None
@@ -42,8 +41,7 @@ class Location(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.managingOrganization = None
-        """ The organization that is responsible for the provisioning and
-        upkeep of the location.
+        """ Organization responsible for provisioning and upkeep.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.mode = None
@@ -55,7 +53,7 @@ class Location(domainresource.DomainResource):
         Type `str`. """
         
         self.partOf = None
-        """ Another Location which this Location is physically part of.
+        """ Another Location this one is physically part of.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
         self.physicalType = None
@@ -75,7 +73,7 @@ class Location(domainresource.DomainResource):
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         self.type = None
-        """ Indicates the type of function performed at the location.
+        """ Type of function performed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Location, self).__init__(jsondict)
@@ -102,8 +100,8 @@ class Location(domainresource.DomainResource):
 class LocationPosition(fhirelement.FHIRElement):
     """ The absolute geographic location.
     
-    The absolute geographic location of the Location, expressed in with the
-    WGS84 datum (This is the same co-ordinate system used in KML).
+    The absolute geographic location of the Location, expressed using the WGS84
+    datum (This is the same co-ordinate system used in KML).
     """
     
     resource_name = "LocationPosition"

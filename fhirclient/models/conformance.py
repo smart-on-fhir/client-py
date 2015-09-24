@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -17,9 +17,9 @@ from . import fhirreference
 class Conformance(domainresource.DomainResource):
     """ A conformance statement.
     
-    A conformance statement is a set of requirements for a desired
-    implementation or a description of how a target application fulfills those
-    requirements in a particular implementation.
+    A conformance statement is a set of capabilities of a FHIR Server that may
+    be used as a statement of actual server functionality or a statement of
+    required or desired server implementation.
     """
     
     resource_name = "Conformance"
@@ -29,15 +29,15 @@ class Conformance(domainresource.DomainResource):
         """
         
         self.acceptUnknown = None
-        """ True if application accepts unknown elements.
-        Type `bool`. """
+        """ no | extensions | elements | both.
+        Type `str`. """
         
         self.contact = None
         """ Contact details of the publisher.
         List of `ConformanceContact` items (represented as `dict` in JSON). """
         
         self.copyright = None
-        """ Use and/or Publishing restrictions.
+        """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
@@ -57,7 +57,7 @@ class Conformance(domainresource.DomainResource):
         Type `bool`. """
         
         self.fhirVersion = None
-        """ FHIR Version.
+        """ FHIR Version the system uses.
         Type `str`. """
         
         self.format = None
@@ -68,6 +68,10 @@ class Conformance(domainresource.DomainResource):
         """ If this describes a specific instance.
         Type `ConformanceImplementation` (represented as `dict` in JSON). """
         
+        self.kind = None
+        """ instance | capability | requirements.
+        Type `str`. """
+        
         self.messaging = None
         """ If messaging is supported.
         List of `ConformanceMessaging` items (represented as `dict` in JSON). """
@@ -77,7 +81,7 @@ class Conformance(domainresource.DomainResource):
         Type `str`. """
         
         self.profile = None
-        """ Profiles supported by the system.
+        """ Profiles for use cases supported.
         List of `FHIRReference` items referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         self.publisher = None
@@ -113,7 +117,7 @@ class Conformance(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Conformance, self).elementProperties()
         js.extend([
-            ("acceptUnknown", "acceptUnknown", bool, False),
+            ("acceptUnknown", "acceptUnknown", str, False),
             ("contact", "contact", ConformanceContact, True),
             ("copyright", "copyright", str, False),
             ("date", "date", fhirdate.FHIRDate, False),
@@ -123,6 +127,7 @@ class Conformance(domainresource.DomainResource):
             ("fhirVersion", "fhirVersion", str, False),
             ("format", "format", str, True),
             ("implementation", "implementation", ConformanceImplementation, False),
+            ("kind", "kind", str, False),
             ("messaging", "messaging", ConformanceMessaging, True),
             ("name", "name", str, False),
             ("profile", "profile", fhirreference.FHIRReference, True),
@@ -254,8 +259,8 @@ class ConformanceMessaging(fhirelement.FHIRElement):
         Type `str`. """
         
         self.endpoint = None
-        """ Actual endpoint being described.
-        Type `str`. """
+        """ A messaging service end-point.
+        List of `ConformanceMessagingEndpoint` items (represented as `dict` in JSON). """
         
         self.event = None
         """ Declare support for this event.
@@ -271,9 +276,41 @@ class ConformanceMessaging(fhirelement.FHIRElement):
         js = super(ConformanceMessaging, self).elementProperties()
         js.extend([
             ("documentation", "documentation", str, False),
-            ("endpoint", "endpoint", str, False),
+            ("endpoint", "endpoint", ConformanceMessagingEndpoint, True),
             ("event", "event", ConformanceMessagingEvent, True),
             ("reliableCache", "reliableCache", int, False),
+        ])
+        return js
+
+
+class ConformanceMessagingEndpoint(fhirelement.FHIRElement):
+    """ A messaging service end-point.
+    
+    An endpoint (network accessible address) to which messages and/or replies
+    are to be sent.
+    """
+    
+    resource_name = "ConformanceMessagingEndpoint"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.address = None
+        """ Address of end-point.
+        Type `str`. """
+        
+        self.protocol = None
+        """ http | ftp | mllp +.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        super(ConformanceMessagingEndpoint, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ConformanceMessagingEndpoint, self).elementProperties()
+        js.extend([
+            ("address", "address", str, False),
+            ("protocol", "protocol", coding.Coding, False),
         ])
         return js
 
@@ -281,7 +318,7 @@ class ConformanceMessaging(fhirelement.FHIRElement):
 class ConformanceMessagingEvent(fhirelement.FHIRElement):
     """ Declare support for this event.
     
-    A description of the solution's support for an event at this end point.
+    A description of the solution's support for an event at this end-point.
     """
     
     resource_name = "ConformanceMessagingEvent"
@@ -310,10 +347,6 @@ class ConformanceMessagingEvent(fhirelement.FHIRElement):
         """ sender | receiver.
         Type `str`. """
         
-        self.protocol = None
-        """ http | ftp | mllp +.
-        List of `Coding` items (represented as `dict` in JSON). """
-        
         self.request = None
         """ Profile that describes the request.
         Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
@@ -332,7 +365,6 @@ class ConformanceMessagingEvent(fhirelement.FHIRElement):
             ("documentation", "documentation", str, False),
             ("focus", "focus", str, False),
             ("mode", "mode", str, False),
-            ("protocol", "protocol", coding.Coding, True),
             ("request", "request", fhirreference.FHIRReference, False),
             ("response", "response", fhirreference.FHIRReference, False),
         ])
@@ -355,10 +387,6 @@ class ConformanceRest(fhirelement.FHIRElement):
         """ Compartments served/used by system.
         List of `str` items. """
         
-        self.documentMailbox = None
-        """ How documents are accepted in /Mailbox.
-        List of `str` items. """
-        
         self.documentation = None
         """ General description of implementation.
         Type `str`. """
@@ -379,9 +407,17 @@ class ConformanceRest(fhirelement.FHIRElement):
         """ Resource served on the REST interface.
         List of `ConformanceRestResource` items (represented as `dict` in JSON). """
         
+        self.searchParam = None
+        """ Search params for searching all resources.
+        List of `ConformanceRestResourceSearchParam` items (represented as `dict` in JSON). """
+        
         self.security = None
         """ Information about security of implementation.
         Type `ConformanceRestSecurity` (represented as `dict` in JSON). """
+        
+        self.transactionMode = None
+        """ not-supported | batch | transaction | both.
+        Type `str`. """
         
         super(ConformanceRest, self).__init__(jsondict)
     
@@ -389,13 +425,14 @@ class ConformanceRest(fhirelement.FHIRElement):
         js = super(ConformanceRest, self).elementProperties()
         js.extend([
             ("compartment", "compartment", str, True),
-            ("documentMailbox", "documentMailbox", str, True),
             ("documentation", "documentation", str, False),
             ("interaction", "interaction", ConformanceRestInteraction, True),
             ("mode", "mode", str, False),
             ("operation", "operation", ConformanceRestOperation, True),
             ("resource", "resource", ConformanceRestResource, True),
+            ("searchParam", "searchParam", ConformanceRestResourceSearchParam, True),
             ("security", "security", ConformanceRestSecurity, False),
+            ("transactionMode", "transactionMode", str, False),
         ])
         return js
 
@@ -481,8 +518,9 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         Type `bool`. """
         
         self.conditionalDelete = None
-        """ If allows/uses conditional delete.
-        Type `bool`. """
+        """ not-supported | single | multiple - how conditional delete is
+        supported.
+        Type `str`. """
         
         self.conditionalUpdate = None
         """ If allows/uses conditional update.
@@ -493,7 +531,7 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         List of `ConformanceRestResourceInteraction` items (represented as `dict` in JSON). """
         
         self.profile = None
-        """ What structural features are supported.
+        """ Base System profile for all uses of resource.
         Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         self.readHistory = None
@@ -507,6 +545,10 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         self.searchParam = None
         """ Search params supported by implementation.
         List of `ConformanceRestResourceSearchParam` items (represented as `dict` in JSON). """
+        
+        self.searchRevInclude = None
+        """ _revinclude values supported by the server.
+        List of `str` items. """
         
         self.type = None
         """ A resource type that is supported.
@@ -526,13 +568,14 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         js = super(ConformanceRestResource, self).elementProperties()
         js.extend([
             ("conditionalCreate", "conditionalCreate", bool, False),
-            ("conditionalDelete", "conditionalDelete", bool, False),
+            ("conditionalDelete", "conditionalDelete", str, False),
             ("conditionalUpdate", "conditionalUpdate", bool, False),
             ("interaction", "interaction", ConformanceRestResourceInteraction, True),
             ("profile", "profile", fhirreference.FHIRReference, False),
             ("readHistory", "readHistory", bool, False),
             ("searchInclude", "searchInclude", str, True),
             ("searchParam", "searchParam", ConformanceRestResourceSearchParam, True),
+            ("searchRevInclude", "searchRevInclude", str, True),
             ("type", "type", str, False),
             ("updateCreate", "updateCreate", bool, False),
             ("versioning", "versioning", str, False),
@@ -598,6 +641,11 @@ class ConformanceRestResourceSearchParam(fhirelement.FHIRElement):
         """ Server-specific usage.
         Type `str`. """
         
+        self.modifier = None
+        """ missing | exact | contains | not | text | in | not-in | below |
+        above | type.
+        List of `str` items. """
+        
         self.name = None
         """ Name of search parameter.
         Type `str`. """
@@ -619,6 +667,7 @@ class ConformanceRestResourceSearchParam(fhirelement.FHIRElement):
             ("chain", "chain", str, True),
             ("definition", "definition", str, False),
             ("documentation", "documentation", str, False),
+            ("modifier", "modifier", str, True),
             ("name", "name", str, False),
             ("target", "target", str, True),
             ("type", "type", str, False),
@@ -652,7 +701,7 @@ class ConformanceRestSecurity(fhirelement.FHIRElement):
         Type `str`. """
         
         self.service = None
-        """ OAuth | OAuth2 | NTLM | Basic | Kerberos.
+        """ OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(ConformanceRestSecurity, self).__init__(jsondict)

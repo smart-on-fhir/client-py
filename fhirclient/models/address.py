@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Address) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Address) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -31,8 +31,12 @@ class Address(fhirelement.FHIRElement):
         """ Country (can be ISO 3166 3 letter code).
         Type `str`. """
         
+        self.district = None
+        """ District name (aka county).
+        Type `str`. """
+        
         self.line = None
-        """ Street name, number, direction & P.O. Box etc.
+        """ Street name, number, direction & P.O. Box etc..
         List of `str` items. """
         
         self.period = None
@@ -44,11 +48,15 @@ class Address(fhirelement.FHIRElement):
         Type `str`. """
         
         self.state = None
-        """ Sub-unit of country (abreviations ok).
+        """ Sub-unit of country (abbreviations ok).
         Type `str`. """
         
         self.text = None
         """ Text representation of the address.
+        Type `str`. """
+        
+        self.type = None
+        """ postal | physical | both.
         Type `str`. """
         
         self.use = None
@@ -62,11 +70,13 @@ class Address(fhirelement.FHIRElement):
         js.extend([
             ("city", "city", str, False),
             ("country", "country", str, False),
+            ("district", "district", str, False),
             ("line", "line", str, True),
             ("period", "period", period.Period, False),
             ("postalCode", "postalCode", str, False),
             ("state", "state", str, False),
             ("text", "text", str, False),
+            ("type", "type", str, False),
             ("use", "use", str, False),
         ])
         return js

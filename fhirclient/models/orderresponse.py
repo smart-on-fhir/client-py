@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/OrderResponse) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/OrderResponse) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
 from . import fhirdate
 from . import fhirreference
@@ -21,14 +20,6 @@ class OrderResponse(domainresource.DomainResource):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
-        
-        self.authorityCodeableConcept = None
-        """ If required by policy.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.authorityReference = None
-        """ If required by policy.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.date = None
         """ When the response was made.
@@ -65,8 +56,6 @@ class OrderResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(OrderResponse, self).elementProperties()
         js.extend([
-            ("authorityCodeableConcept", "authorityCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("authorityReference", "authorityReference", fhirreference.FHIRReference, False),
             ("date", "date", fhirdate.FHIRDate, False),
             ("description", "description", str, False),
             ("fulfillment", "fulfillment", fhirreference.FHIRReference, True),

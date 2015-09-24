@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Claim) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Claim) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -11,7 +11,6 @@ from . import fhirdate
 from . import fhirelement
 from . import fhirreference
 from . import identifier
-from . import money
 from . import quantity
 
 
@@ -95,7 +94,7 @@ class Claim(domainresource.DomainResource):
         
         self.originalPrescription = None
         """ Original Prescription.
-        Type `FHIRReference` referencing `MedicationPrescription` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `MedicationOrder` (represented as `dict` in JSON). """
         
         self.originalRuleset = None
         """ Original specification followed.
@@ -111,7 +110,7 @@ class Claim(domainresource.DomainResource):
         
         self.prescription = None
         """ Prescription.
-        Type `FHIRReference` referencing `MedicationPrescription, VisionPrescription` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `MedicationOrder, VisionPrescription` (represented as `dict` in JSON). """
         
         self.priority = None
         """ Desired processing priority.
@@ -208,7 +207,7 @@ class ClaimCoverage(fhirelement.FHIRElement):
         Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
         
         self.focal = None
-        """ Is the focal Coverage.
+        """ The focal Coverage.
         Type `bool`. """
         
         self.originalRuleset = None
@@ -303,13 +302,13 @@ class ClaimItem(fhirelement.FHIRElement):
         """ Price scaling factor.
         Type `float`. """
         
-        self.mod = None
+        self.modifier = None
         """ Service/Product billing modifiers.
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.net = None
         """ Total item cost.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.points = None
         """ Difficulty scaling factor.
@@ -325,7 +324,7 @@ class ClaimItem(fhirelement.FHIRElement):
         
         self.quantity = None
         """ Count of Products or Services.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.sequence = None
         """ Service instance.
@@ -353,7 +352,7 @@ class ClaimItem(fhirelement.FHIRElement):
         
         self.unitPrice = None
         """ Fee, charge or cost per point.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         super(ClaimItem, self).__init__(jsondict)
     
@@ -364,8 +363,8 @@ class ClaimItem(fhirelement.FHIRElement):
             ("detail", "detail", ClaimItemDetail, True),
             ("diagnosisLinkId", "diagnosisLinkId", int, True),
             ("factor", "factor", float, False),
-            ("mod", "modifier", coding.Coding, True),
-            ("net", "net", money.Money, False),
+            ("modifier", "modifier", coding.Coding, True),
+            ("net", "net", quantity.Quantity, False),
             ("points", "points", float, False),
             ("prosthesis", "prosthesis", ClaimItemProsthesis, False),
             ("provider", "provider", fhirreference.FHIRReference, False),
@@ -376,7 +375,7 @@ class ClaimItem(fhirelement.FHIRElement):
             ("subSite", "subSite", coding.Coding, True),
             ("type", "type", coding.Coding, False),
             ("udi", "udi", coding.Coding, False),
-            ("unitPrice", "unitPrice", money.Money, False),
+            ("unitPrice", "unitPrice", quantity.Quantity, False),
         ])
         return js
 
@@ -399,7 +398,7 @@ class ClaimItemDetail(fhirelement.FHIRElement):
         
         self.net = None
         """ Total additional item cost.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.points = None
         """ Difficulty scaling factor.
@@ -407,7 +406,7 @@ class ClaimItemDetail(fhirelement.FHIRElement):
         
         self.quantity = None
         """ Count of Products or Services.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.sequence = None
         """ Service instance.
@@ -431,7 +430,7 @@ class ClaimItemDetail(fhirelement.FHIRElement):
         
         self.unitPrice = None
         """ Fee, charge or cost per point.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         super(ClaimItemDetail, self).__init__(jsondict)
     
@@ -439,7 +438,7 @@ class ClaimItemDetail(fhirelement.FHIRElement):
         js = super(ClaimItemDetail, self).elementProperties()
         js.extend([
             ("factor", "factor", float, False),
-            ("net", "net", money.Money, False),
+            ("net", "net", quantity.Quantity, False),
             ("points", "points", float, False),
             ("quantity", "quantity", quantity.Quantity, False),
             ("sequence", "sequence", int, False),
@@ -447,7 +446,7 @@ class ClaimItemDetail(fhirelement.FHIRElement):
             ("subDetail", "subDetail", ClaimItemDetailSubDetail, True),
             ("type", "type", coding.Coding, False),
             ("udi", "udi", coding.Coding, False),
-            ("unitPrice", "unitPrice", money.Money, False),
+            ("unitPrice", "unitPrice", quantity.Quantity, False),
         ])
         return js
 
@@ -470,7 +469,7 @@ class ClaimItemDetailSubDetail(fhirelement.FHIRElement):
         
         self.net = None
         """ Net additional item cost.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         self.points = None
         """ Difficulty scaling factor.
@@ -478,7 +477,7 @@ class ClaimItemDetailSubDetail(fhirelement.FHIRElement):
         
         self.quantity = None
         """ Count of Products or Services.
-        Type `Quantity` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.sequence = None
         """ Service instance.
@@ -498,7 +497,7 @@ class ClaimItemDetailSubDetail(fhirelement.FHIRElement):
         
         self.unitPrice = None
         """ Fee, charge or cost per point.
-        Type `Money` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
         super(ClaimItemDetailSubDetail, self).__init__(jsondict)
     
@@ -506,14 +505,14 @@ class ClaimItemDetailSubDetail(fhirelement.FHIRElement):
         js = super(ClaimItemDetailSubDetail, self).elementProperties()
         js.extend([
             ("factor", "factor", float, False),
-            ("net", "net", money.Money, False),
+            ("net", "net", quantity.Quantity, False),
             ("points", "points", float, False),
             ("quantity", "quantity", quantity.Quantity, False),
             ("sequence", "sequence", int, False),
             ("service", "service", coding.Coding, False),
             ("type", "type", coding.Coding, False),
             ("udi", "udi", coding.Coding, False),
-            ("unitPrice", "unitPrice", money.Money, False),
+            ("unitPrice", "unitPrice", quantity.Quantity, False),
         ])
         return js
 

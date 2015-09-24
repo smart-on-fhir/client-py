@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -12,14 +12,15 @@ from . import fhirdate
 from . import fhirelement
 from . import fhirreference
 from . import identifier
+from . import period
 
 
 class CommunicationRequest(domainresource.DomainResource):
     """ A request for information to be sent to a receiver.
     
-    A request to convey information. E.g., the CDS system proposes that an
-    alert be sent to a responsible provider, the CDS system proposes that the
-    public health agency be notified about a reportable condition.
+    A request to convey information; e.g. the CDS system proposes that an alert
+    be sent to a responsible provider, the CDS system proposes that the public
+    health agency be notified about a reportable condition.
     """
     
     resource_name = "CommunicationRequest"
@@ -41,12 +42,8 @@ class CommunicationRequest(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.medium = None
-        """ Communication medium.
+        """ A channel of communication.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.orderedOn = None
-        """ When ordered or proposed.
-        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.payload = None
         """ Message payload.
@@ -64,13 +61,21 @@ class CommunicationRequest(domainresource.DomainResource):
         """ Message recipient.
         List of `FHIRReference` items referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
+        self.requestedOn = None
+        """ When ordered or proposed.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.requester = None
-        """ Requester of communication.
+        """ An individual who requested a communication.
         Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
-        self.scheduledTime = None
+        self.scheduledDateTime = None
         """ When scheduled.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.scheduledPeriod = None
+        """ When scheduled.
+        Type `Period` (represented as `dict` in JSON). """
         
         self.sender = None
         """ Message sender.
@@ -94,13 +99,14 @@ class CommunicationRequest(domainresource.DomainResource):
             ("encounter", "encounter", fhirreference.FHIRReference, False),
             ("identifier", "identifier", identifier.Identifier, True),
             ("medium", "medium", codeableconcept.CodeableConcept, True),
-            ("orderedOn", "orderedOn", fhirdate.FHIRDate, False),
             ("payload", "payload", CommunicationRequestPayload, True),
             ("priority", "priority", codeableconcept.CodeableConcept, False),
             ("reason", "reason", codeableconcept.CodeableConcept, True),
             ("recipient", "recipient", fhirreference.FHIRReference, True),
+            ("requestedOn", "requestedOn", fhirdate.FHIRDate, False),
             ("requester", "requester", fhirreference.FHIRReference, False),
-            ("scheduledTime", "scheduledTime", fhirdate.FHIRDate, False),
+            ("scheduledDateTime", "scheduledDateTime", fhirdate.FHIRDate, False),
+            ("scheduledPeriod", "scheduledPeriod", period.Period, False),
             ("sender", "sender", fhirreference.FHIRReference, False),
             ("status", "status", str, False),
             ("subject", "subject", fhirreference.FHIRReference, False),

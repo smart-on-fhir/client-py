@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
+from . import annotation
 from . import codeableconcept
 from . import domainresource
-from . import duration
 from . import fhirdate
 from . import fhirelement
 from . import fhirreference
@@ -28,32 +28,36 @@ class AllergyIntolerance(domainresource.DomainResource):
         """
         
         self.category = None
-        """ food | medication | environment - Category of Substance.
-        Type `str`. """
-        
-        self.comment = None
-        """ Additional text not captured in other fields.
+        """ food | medication | environment | other - Category of Substance.
         Type `str`. """
         
         self.criticality = None
-        """ low | high | unassessible - Estimated potential clinical harm.
+        """ CRITL | CRITH | CRITU.
         Type `str`. """
         
-        self.event = None
-        """ Adverse Reaction Events linked to exposure to substance.
-        List of `AllergyIntoleranceEvent` items (represented as `dict` in JSON). """
-        
         self.identifier = None
-        """ External Ids for this item.
+        """ External ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.lastOccurence = None
-        """ Date(/time) of last known occurence of a reaction.
+        """ Date(/time) of last known occurrence of a reaction.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.note = None
+        """ Additional text not captured in other fields.
+        Type `Annotation` (represented as `dict` in JSON). """
+        
+        self.onset = None
+        """ Date(/time) when manifestations showed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.patient = None
         """ Who the sensitivity is for.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
+        self.reaction = None
+        """ Adverse Reaction Events linked to exposure to substance.
+        List of `AllergyIntoleranceReaction` items (represented as `dict` in JSON). """
         
         self.recordedDate = None
         """ When recorded.
@@ -68,7 +72,8 @@ class AllergyIntolerance(domainresource.DomainResource):
         Type `FHIRReference` referencing `Patient, RelatedPerson, Practitioner` (represented as `dict` in JSON). """
         
         self.status = None
-        """ unconfirmed | confirmed | resolved | refuted | entered-in-error.
+        """ active | unconfirmed | confirmed | inactive | resolved | refuted |
+        entered-in-error.
         Type `str`. """
         
         self.substance = None
@@ -76,7 +81,7 @@ class AllergyIntolerance(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.type = None
-        """ immune | non-immune - Underlying mechanism (if known).
+        """ allergy | intolerance - Underlying mechanism (if known).
         Type `str`. """
         
         super(AllergyIntolerance, self).__init__(jsondict)
@@ -85,12 +90,13 @@ class AllergyIntolerance(domainresource.DomainResource):
         js = super(AllergyIntolerance, self).elementProperties()
         js.extend([
             ("category", "category", str, False),
-            ("comment", "comment", str, False),
             ("criticality", "criticality", str, False),
-            ("event", "event", AllergyIntoleranceEvent, True),
             ("identifier", "identifier", identifier.Identifier, True),
             ("lastOccurence", "lastOccurence", fhirdate.FHIRDate, False),
+            ("note", "note", annotation.Annotation, False),
+            ("onset", "onset", fhirdate.FHIRDate, False),
             ("patient", "patient", fhirreference.FHIRReference, False),
+            ("reaction", "reaction", AllergyIntoleranceReaction, True),
             ("recordedDate", "recordedDate", fhirdate.FHIRDate, False),
             ("recorder", "recorder", fhirreference.FHIRReference, False),
             ("reporter", "reporter", fhirreference.FHIRReference, False),
@@ -101,14 +107,14 @@ class AllergyIntolerance(domainresource.DomainResource):
         return js
 
 
-class AllergyIntoleranceEvent(fhirelement.FHIRElement):
+class AllergyIntoleranceReaction(fhirelement.FHIRElement):
     """ Adverse Reaction Events linked to exposure to substance.
     
-    Details about each Adverse Reaction Event linked to exposure to the
+    Details about each adverse reaction event linked to exposure to the
     identified Substance.
     """
     
-    resource_name = "AllergyIntoleranceEvent"
+    resource_name = "AllergyIntoleranceReaction"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -119,17 +125,9 @@ class AllergyIntoleranceEvent(fhirelement.FHIRElement):
         specific substance.
         Type `str`. """
         
-        self.comment = None
-        """ Text about event not captured in other fields.
-        Type `str`. """
-        
         self.description = None
         """ Description of the event as a whole.
         Type `str`. """
-        
-        self.duration = None
-        """ How long Manifestations persisted.
-        Type `Duration` (represented as `dict` in JSON). """
         
         self.exposureRoute = None
         """ How the subject was exposed to the substance.
@@ -138,6 +136,10 @@ class AllergyIntoleranceEvent(fhirelement.FHIRElement):
         self.manifestation = None
         """ Clinical symptoms/signs associated with the Event.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.note = None
+        """ Text about event not captured in other fields.
+        Type `Annotation` (represented as `dict` in JSON). """
         
         self.onset = None
         """ Date(/time) when manifestations showed.
@@ -151,17 +153,16 @@ class AllergyIntoleranceEvent(fhirelement.FHIRElement):
         """ Specific substance considered to be responsible for event.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(AllergyIntoleranceEvent, self).__init__(jsondict)
+        super(AllergyIntoleranceReaction, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(AllergyIntoleranceEvent, self).elementProperties()
+        js = super(AllergyIntoleranceReaction, self).elementProperties()
         js.extend([
             ("certainty", "certainty", str, False),
-            ("comment", "comment", str, False),
             ("description", "description", str, False),
-            ("duration", "duration", duration.Duration, False),
             ("exposureRoute", "exposureRoute", codeableconcept.CodeableConcept, False),
             ("manifestation", "manifestation", codeableconcept.CodeableConcept, True),
+            ("note", "note", annotation.Annotation, False),
             ("onset", "onset", fhirdate.FHIRDate, False),
             ("severity", "severity", str, False),
             ("substance", "substance", codeableconcept.CodeableConcept, False),

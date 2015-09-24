@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -55,10 +55,13 @@ class MediaTests(unittest.TestCase):
         self.assertEqual(inst.subtype.coding[0].system, "http://nema.org/dicom/dicm")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "photo")
+        self.assertEqual(inst.view.coding[0].code, "399067008")
+        self.assertEqual(inst.view.coding[0].display, "Lateral projection")
+        self.assertEqual(inst.view.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.width, 640)
     
     def testMedia2(self):
-        inst = self.instantiate_from("media-example.json")
+        inst = self.instantiate_from("media-example-sound.json")
         self.assertIsNotNone(inst, "Must have instantiated a Media instance")
         self.implMedia2(inst)
         
@@ -68,15 +71,37 @@ class MediaTests(unittest.TestCase):
         self.implMedia2(inst2)
     
     def implMedia2(self, inst):
+        self.assertEqual(inst.content.contentType, "audio/mpeg")
+        self.assertEqual(inst.content.data, "dG9vIGJpZyB0b28gaW5jbHVkZSB0aGUgd2hvbGU=")
+        self.assertEqual(inst.content.id, "a1")
+        self.assertEqual(inst.duration, 65)
+        self.assertEqual(inst.id, "sound")
+        self.assertEqual(inst.text.div, "<div>Sound recording of speech example for Patient Henry Levin (MRN 12345):<br/><img alt=\"diagram\" src=\"#11\"/></div>")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type, "video")
+    
+    def testMedia3(self):
+        inst = self.instantiate_from("media-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Media instance")
+        self.implMedia3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Media", js["resourceType"])
+        inst2 = media.Media(js)
+        self.implMedia3(inst2)
+    
+    def implMedia3(self, inst):
         self.assertEqual(inst.content.contentType, "image/gif")
         self.assertEqual(inst.content.creation.date, FHIRDate("2009-09-03").date)
         self.assertEqual(inst.content.creation.as_json(), "2009-09-03")
         self.assertEqual(inst.content.id, "a1")
         self.assertEqual(inst.deviceName, "Acme Camera")
+        self.assertEqual(inst.frames, 1)
         self.assertEqual(inst.height, 145)
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.subtype.coding[0].code, "diagram")
         self.assertEqual(inst.subtype.coding[0].system, "http://hl7.org/fhir/media-method")
+        self.assertEqual(inst.text.div, "<div>Diagram for Patient Henry Levin (MRN 12345):<br/><img alt=\"diagram\" src=\"#11\"/></div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "photo")
         self.assertEqual(inst.width, 126)

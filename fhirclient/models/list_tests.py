@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class ListTests(unittest.TestCase):
         return list.List(js)
     
     def testList1(self):
-        inst = self.instantiate_from("list-example-empty.json")
+        inst = self.instantiate_from("list-example-allergies.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList1(inst)
         
@@ -32,23 +32,22 @@ class ListTests(unittest.TestCase):
         self.implList1(inst2)
     
     def implList1(self, inst):
-        self.assertEqual(inst.code.coding[0].code, "182836005")
-        self.assertEqual(inst.code.coding[0].display, "Review of medication")
-        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.code.text, "Medication Review")
-        self.assertEqual(inst.date.date, FHIRDate("2012-11-26T07:30:23+11:00").date)
-        self.assertEqual(inst.date.as_json(), "2012-11-26T07:30:23+11:00")
-        self.assertEqual(inst.emptyReason.coding[0].code, "nil-known")
-        self.assertEqual(inst.emptyReason.coding[0].display, "Nil Known")
-        self.assertEqual(inst.emptyReason.coding[0].system, "http://hl7.org/fhir/special-values")
-        self.assertEqual(inst.emptyReason.text, "The patient is not on any medications")
-        self.assertEqual(inst.id, "example-empty")
-        self.assertEqual(inst.mode, "snapshot")
+        self.assertEqual(inst.code.coding[0].code, "52472-8")
+        self.assertEqual(inst.code.coding[0].display, "Allergies and Adverse Drug Reactions")
+        self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.code.text, "Current Allergy List")
+        self.assertEqual(inst.date.date, FHIRDate("2015-07-14T23:10:23+11:00").date)
+        self.assertEqual(inst.date.as_json(), "2015-07-14T23:10:23+11:00")
+        self.assertEqual(inst.id, "current-allergies")
+        self.assertEqual(inst.mode, "working")
+        self.assertEqual(inst.orderedBy.coding[0].code, "entry-date")
+        self.assertEqual(inst.orderedBy.coding[0].system, "http://hl7.org/fhir/list-order")
         self.assertEqual(inst.status, "current")
         self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.title, "Current Allergy List")
     
     def testList2(self):
-        inst = self.instantiate_from("list-example-familyhistory-f201-roel.json")
+        inst = self.instantiate_from("list-example-empty.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList2(inst)
         
@@ -58,17 +57,23 @@ class ListTests(unittest.TestCase):
         self.implList2(inst2)
     
     def implList2(self, inst):
-        self.assertEqual(inst.code.coding[0].code, "8670-2")
-        self.assertEqual(inst.code.coding[0].display, "History of family member diseases")
-        self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.id, "f201")
+        self.assertEqual(inst.code.coding[0].code, "182836005")
+        self.assertEqual(inst.code.coding[0].display, "Review of medication")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.code.text, "Medication Review")
+        self.assertEqual(inst.date.date, FHIRDate("2012-11-26T07:30:23+11:00").date)
+        self.assertEqual(inst.date.as_json(), "2012-11-26T07:30:23+11:00")
+        self.assertEqual(inst.emptyReason.coding[0].code, "nilknown")
+        self.assertEqual(inst.emptyReason.coding[0].display, "Nil Known")
+        self.assertEqual(inst.emptyReason.coding[0].system, "http://hl7.org/fhir/list-empty-reason")
+        self.assertEqual(inst.emptyReason.text, "The patient is not on any medications")
+        self.assertEqual(inst.id, "example-empty")
         self.assertEqual(inst.mode, "snapshot")
-        self.assertEqual(inst.note, "Both parents, both brothers and both children (twin) are still alive.")
         self.assertEqual(inst.status, "current")
         self.assertEqual(inst.text.status, "generated")
     
     def testList3(self):
-        inst = self.instantiate_from("list-example-familyhistory-genetics-profile-annie.json")
+        inst = self.instantiate_from("list-example-familyhistory-f201-roel.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList3(inst)
         
@@ -81,13 +86,14 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "8670-2")
         self.assertEqual(inst.code.coding[0].display, "History of family member diseases")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.id, "prognosis")
+        self.assertEqual(inst.id, "f201")
         self.assertEqual(inst.mode, "snapshot")
+        self.assertEqual(inst.note, "Both parents, both brothers and both children (twin) are still alive.")
         self.assertEqual(inst.status, "current")
         self.assertEqual(inst.text.status, "generated")
     
     def testList4(self):
-        inst = self.instantiate_from("list-example-familyhistory-genetics-profile.json")
+        inst = self.instantiate_from("list-example-familyhistory-genetics-profile-annie.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList4(inst)
         
@@ -100,14 +106,13 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "8670-2")
         self.assertEqual(inst.code.coding[0].display, "History of family member diseases")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.id, "genetic")
+        self.assertEqual(inst.id, "prognosis")
         self.assertEqual(inst.mode, "snapshot")
         self.assertEqual(inst.status, "current")
-        self.assertEqual(inst.text.div, "<div>To do</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testList5(self):
-        inst = self.instantiate_from("list-example-medlist.json")
+        inst = self.instantiate_from("list-example-familyhistory-genetics-profile.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList5(inst)
         
@@ -117,27 +122,17 @@ class ListTests(unittest.TestCase):
         self.implList5(inst2)
     
     def implList5(self, inst):
-        self.assertEqual(inst.code.coding[0].code, "182836005")
-        self.assertEqual(inst.code.coding[0].display, "Review of medication")
-        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.code.text, "Medication Review")
-        self.assertEqual(inst.date.date, FHIRDate("2013-11-20T23:10:23+11:00").date)
-        self.assertEqual(inst.date.as_json(), "2013-11-20T23:10:23+11:00")
-        self.assertEqual(inst.entry[0].flag[0].coding[0].code, "01")
-        self.assertEqual(inst.entry[0].flag[0].coding[0].display, "Prescribed")
-        self.assertEqual(inst.entry[0].flag[0].coding[0].system, "http://nehta.gov.au/codes/medications/changetype")
-        self.assertEqual(inst.entry[0].flag[1].text, "Review required")
-        self.assertTrue(inst.entry[1].deleted)
-        self.assertEqual(inst.entry[1].flag[0].coding[0].code, "02")
-        self.assertEqual(inst.entry[1].flag[0].coding[0].display, "Cancelled")
-        self.assertEqual(inst.entry[1].flag[0].coding[0].system, "http://nehta.gov.au/codes/medications/changetype")
-        self.assertEqual(inst.id, "med-list")
-        self.assertEqual(inst.mode, "changes")
+        self.assertEqual(inst.code.coding[0].code, "8670-2")
+        self.assertEqual(inst.code.coding[0].display, "History of family member diseases")
+        self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.id, "genetic")
+        self.assertEqual(inst.mode, "snapshot")
         self.assertEqual(inst.status, "current")
+        self.assertEqual(inst.text.div, "<div>To do</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testList6(self):
-        inst = self.instantiate_from("list-example.json")
+        inst = self.instantiate_from("list-example-medlist.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList6(inst)
         
@@ -147,12 +142,45 @@ class ListTests(unittest.TestCase):
         self.implList6(inst2)
     
     def implList6(self, inst):
+        self.assertEqual(inst.code.coding[0].code, "182836005")
+        self.assertEqual(inst.code.coding[0].display, "Review of medication")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.code.text, "Medication Review")
+        self.assertEqual(inst.date.date, FHIRDate("2013-11-20T23:10:23+11:00").date)
+        self.assertEqual(inst.date.as_json(), "2013-11-20T23:10:23+11:00")
+        self.assertEqual(inst.entry[0].flag.coding[0].code, "01")
+        self.assertEqual(inst.entry[0].flag.coding[0].display, "Prescribed")
+        self.assertEqual(inst.entry[0].flag.coding[0].system, "http://nehta.gov.au/codes/medications/changetype")
+        self.assertTrue(inst.entry[1].deleted)
+        self.assertEqual(inst.entry[1].flag.coding[0].code, "02")
+        self.assertEqual(inst.entry[1].flag.coding[0].display, "Cancelled")
+        self.assertEqual(inst.entry[1].flag.coding[0].system, "http://nehta.gov.au/codes/medications/changetype")
+        self.assertEqual(inst.id, "med-list")
+        self.assertEqual(inst.mode, "changes")
+        self.assertEqual(inst.status, "current")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testList7(self):
+        inst = self.instantiate_from("list-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a List instance")
+        self.implList7(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("List", js["resourceType"])
+        inst2 = list.List(js)
+        self.implList7(inst2)
+    
+    def implList7(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2012-11-25T22:17:00+11:00").date)
         self.assertEqual(inst.date.as_json(), "2012-11-25T22:17:00+11:00")
         self.assertTrue(inst.entry[0].deleted)
-        self.assertEqual(inst.entry[0].flag[0].text, "Deleted due to error")
-        self.assertEqual(inst.entry[1].flag[0].text, "Added")
+        self.assertEqual(inst.entry[0].flag.text, "Deleted due to error")
+        self.assertEqual(inst.entry[1].date.date, FHIRDate("2012-11-21").date)
+        self.assertEqual(inst.entry[1].date.as_json(), "2012-11-21")
+        self.assertEqual(inst.entry[1].flag.text, "Added")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.identifier[0].system, "urn:uuid:a9fcea7c-fcdf-4d17-a5e0-f26dda030b59")
+        self.assertEqual(inst.identifier[0].value, "23974652")
         self.assertEqual(inst.mode, "changes")
         self.assertEqual(inst.status, "current")
         self.assertEqual(inst.text.status, "generated")

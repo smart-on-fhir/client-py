@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -43,7 +43,7 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dispense[0].diameter, 14.0)
         self.assertEqual(inst.dispense[0].duration.code, "month")
         self.assertEqual(inst.dispense[0].duration.system, "http://unitsofmeasure.org")
-        self.assertEqual(inst.dispense[0].duration.units, "month")
+        self.assertEqual(inst.dispense[0].duration.unit, "month")
         self.assertEqual(inst.dispense[0].duration.value, 1)
         self.assertEqual(inst.dispense[0].eye, "right")
         self.assertEqual(inst.dispense[0].power, -2.75)
@@ -58,7 +58,7 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dispense[1].diameter, 14.0)
         self.assertEqual(inst.dispense[1].duration.code, "month")
         self.assertEqual(inst.dispense[1].duration.system, "http://unitsofmeasure.org")
-        self.assertEqual(inst.dispense[1].duration.units, "month")
+        self.assertEqual(inst.dispense[1].duration.unit, "month")
         self.assertEqual(inst.dispense[1].duration.value, 1)
         self.assertEqual(inst.dispense[1].eye, "left")
         self.assertEqual(inst.dispense[1].power, -2.75)

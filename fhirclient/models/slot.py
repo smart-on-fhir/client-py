@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Slot) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Slot) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -32,7 +32,7 @@ class Slot(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.freeBusyType = None
-        """ BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.
+        """ busy | free | busy-unavailable | busy-tentative.
         Type `str`. """
         
         self.identifier = None

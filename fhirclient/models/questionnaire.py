@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -37,7 +37,7 @@ class Questionnaire(domainresource.DomainResource):
         Type `QuestionnaireGroup` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ External Ids for this questionnaire.
+        """ External identifiers for this questionnaire.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.publisher = None
@@ -48,12 +48,16 @@ class Questionnaire(domainresource.DomainResource):
         """ draft | published | retired.
         Type `str`. """
         
+        self.subjectType = None
+        """ Resource that can be subject of QuestionnaireResponse.
+        List of `str` items. """
+        
         self.telecom = None
         """ Contact information of the publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Logical id for this version of Questionnaire.
+        """ Logical identifier for this version of Questionnaire.
         Type `str`. """
         
         super(Questionnaire, self).__init__(jsondict)
@@ -66,6 +70,7 @@ class Questionnaire(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True),
             ("publisher", "publisher", str, False),
             ("status", "status", str, False),
+            ("subjectType", "subjectType", str, True),
             ("telecom", "telecom", contactpoint.ContactPoint, True),
             ("version", "version", str, False),
         ])
@@ -85,7 +90,7 @@ class QuestionnaireGroup(fhirelement.FHIRElement):
         """
         
         self.concept = None
-        """ Concept that represents this section on a questionnaire.
+        """ Concept that represents this section in a questionnaire.
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.group = None
@@ -93,7 +98,7 @@ class QuestionnaireGroup(fhirelement.FHIRElement):
         List of `QuestionnaireGroup` items (represented as `dict` in JSON). """
         
         self.linkId = None
-        """ To link questionnaire with questionnaire answers.
+        """ To link questionnaire with questionnaire response.
         Type `str`. """
         
         self.question = None
@@ -105,7 +110,7 @@ class QuestionnaireGroup(fhirelement.FHIRElement):
         Type `bool`. """
         
         self.required = None
-        """ Must group be included in data results?.
+        """ Whether the group must be included in data results.
         Type `bool`. """
         
         self.text = None
@@ -155,19 +160,23 @@ class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
         List of `QuestionnaireGroup` items (represented as `dict` in JSON). """
         
         self.linkId = None
-        """ To link questionnaire with questionnaire answers.
+        """ To link questionnaire with questionnaire response.
         Type `str`. """
         
+        self.option = None
+        """ Permitted answer.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
         self.options = None
-        """ Valueset containing the possible options.
+        """ Valueset containing permitted answers.
         Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
         
         self.repeats = None
-        """ Can question  have multiple answers?.
+        """ Whether the question  can have multiple answers.
         Type `bool`. """
         
         self.required = None
-        """ Must question be answered in data results?.
+        """ Whether the question must be answered in data results.
         Type `bool`. """
         
         self.text = None
@@ -186,6 +195,7 @@ class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
             ("concept", "concept", coding.Coding, True),
             ("group", "group", QuestionnaireGroup, True),
             ("linkId", "linkId", str, False),
+            ("option", "option", coding.Coding, True),
             ("options", "options", fhirreference.FHIRReference, False),
             ("repeats", "repeats", bool, False),
             ("required", "required", bool, False),

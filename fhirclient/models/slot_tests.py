@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -35,7 +35,7 @@ class SlotTests(unittest.TestCase):
         self.assertEqual(inst.comment, "Assessments should be performed before requesting appointments in this slot.")
         self.assertEqual(inst.end.date, FHIRDate("2013-12-25T09:15:00Z").date)
         self.assertEqual(inst.end.as_json(), "2013-12-25T09:15:00Z")
-        self.assertEqual(inst.freeBusyType, "BUSY")
+        self.assertEqual(inst.freeBusyType, "busy")
         self.assertEqual(inst.id, "1")
         self.assertEqual(inst.identifier[0].system, "http://example.org/identifiers/slots")
         self.assertEqual(inst.identifier[0].value, "123132")
@@ -60,7 +60,7 @@ class SlotTests(unittest.TestCase):
         self.assertEqual(inst.comment, "Dr Careful is out of the office")
         self.assertEqual(inst.end.date, FHIRDate("2013-12-25T10:00:00Z").date)
         self.assertEqual(inst.end.as_json(), "2013-12-25T10:00:00Z")
-        self.assertEqual(inst.freeBusyType, "BUSY-TENTATIVE")
+        self.assertEqual(inst.freeBusyType, "busy-tentative")
         self.assertEqual(inst.id, "2")
         self.assertEqual(inst.start.date, FHIRDate("2013-12-25T09:45:00Z").date)
         self.assertEqual(inst.start.as_json(), "2013-12-25T09:45:00Z")
@@ -82,7 +82,7 @@ class SlotTests(unittest.TestCase):
         self.assertEqual(inst.comment, "Dr Careful is out of the office")
         self.assertEqual(inst.end.date, FHIRDate("2013-12-25T09:45:00Z").date)
         self.assertEqual(inst.end.as_json(), "2013-12-25T09:45:00Z")
-        self.assertEqual(inst.freeBusyType, "BUSY-UNAVAILABLE")
+        self.assertEqual(inst.freeBusyType, "busy-unavailable")
         self.assertEqual(inst.id, "3")
         self.assertEqual(inst.start.date, FHIRDate("2013-12-25T09:30:00Z").date)
         self.assertEqual(inst.start.as_json(), "2013-12-25T09:30:00Z")
@@ -104,7 +104,7 @@ class SlotTests(unittest.TestCase):
         self.assertEqual(inst.comment, "Assessments should be performed before requesting appointments in this slot.")
         self.assertEqual(inst.end.date, FHIRDate("2013-12-25T09:30:00Z").date)
         self.assertEqual(inst.end.as_json(), "2013-12-25T09:30:00Z")
-        self.assertEqual(inst.freeBusyType, "FREE")
+        self.assertEqual(inst.freeBusyType, "free")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.start.date, FHIRDate("2013-12-25T09:15:00Z").date)
         self.assertEqual(inst.start.as_json(), "2013-12-25T09:15:00Z")

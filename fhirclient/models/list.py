@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/List) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/List) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -37,6 +37,10 @@ class List(domainresource.DomainResource):
         """ Why list is empty.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.encounter = None
+        """ Context in which list created.
+        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        
         self.entry = None
         """ Entries in the list.
         List of `ListEntry` items (represented as `dict` in JSON). """
@@ -50,7 +54,7 @@ class List(domainresource.DomainResource):
         Type `str`. """
         
         self.note = None
-        """ Comments about the note.
+        """ Comments about the list.
         Type `str`. """
         
         self.orderedBy = None
@@ -58,7 +62,7 @@ class List(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.source = None
-        """ Who and/or what defined the list contents.
+        """ Who and/or what defined the list contents (aka Author).
         Type `FHIRReference` referencing `Practitioner, Patient, Device` (represented as `dict` in JSON). """
         
         self.status = None
@@ -81,6 +85,7 @@ class List(domainresource.DomainResource):
             ("code", "code", codeableconcept.CodeableConcept, False),
             ("date", "date", fhirdate.FHIRDate, False),
             ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False),
             ("entry", "entry", ListEntry, True),
             ("identifier", "identifier", identifier.Identifier, True),
             ("mode", "mode", str, False),
@@ -115,8 +120,8 @@ class ListEntry(fhirelement.FHIRElement):
         Type `bool`. """
         
         self.flag = None
-        """ Workflow information about this item.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        """ Status/Workflow information about this item.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.item = None
         """ Actual entry.
@@ -129,7 +134,7 @@ class ListEntry(fhirelement.FHIRElement):
         js.extend([
             ("date", "date", fhirdate.FHIRDate, False),
             ("deleted", "deleted", bool, False),
-            ("flag", "flag", codeableconcept.CodeableConcept, True),
+            ("flag", "flag", codeableconcept.CodeableConcept, False),
             ("item", "item", fhirreference.FHIRReference, False),
         ])
         return js

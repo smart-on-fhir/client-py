@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 0.5.0.5149 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2015-07-06.
+#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2015-09-24.
 #  2015, SMART Health IT.
 
 
@@ -32,12 +32,16 @@ class Practitioner(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
+        self.active = None
+        """ Whether this practitioner's record is in active use.
+        Type `bool`. """
+        
         self.address = None
         """ Where practitioner can be found/visited.
         List of `Address` items (represented as `dict` in JSON). """
         
         self.birthDate = None
-        """ The date  of birth for the practitioner.
+        """ The date  on which the practitioner was born.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.communication = None
@@ -61,8 +65,7 @@ class Practitioner(domainresource.DomainResource):
         List of `Attachment` items (represented as `dict` in JSON). """
         
         self.practitionerRole = None
-        """ The list of Roles/Organizations that the Practitioner is associated
-        with.
+        """ Roles/organizations the practitioner is associated with.
         List of `PractitionerPractitionerRole` items (represented as `dict` in JSON). """
         
         self.qualification = None
@@ -78,6 +81,7 @@ class Practitioner(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Practitioner, self).elementProperties()
         js.extend([
+            ("active", "active", bool, False),
             ("address", "address", address.Address, True),
             ("birthDate", "birthDate", fhirdate.FHIRDate, False),
             ("communication", "communication", codeableconcept.CodeableConcept, True),
@@ -93,7 +97,9 @@ class Practitioner(domainresource.DomainResource):
 
 
 class PractitionerPractitionerRole(fhirelement.FHIRElement):
-    """ The list of Roles/Organizations that the Practitioner is associated with.
+    """ Roles/organizations the practitioner is associated with.
+    
+    The list of roles/organizations that the practitioner is associated with.
     """
     
     resource_name = "PractitionerPractitionerRole"
@@ -112,8 +118,7 @@ class PractitionerPractitionerRole(fhirelement.FHIRElement):
         List of `FHIRReference` items referencing `Location` (represented as `dict` in JSON). """
         
         self.managingOrganization = None
-        """ The Organization where the Practitioner performs the roles
-        associated.
+        """ Organization where the roles are performed.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.period = None
