@@ -4,6 +4,17 @@ SMART FHIR Client
 This is _fhirclient_, a flexible Python client for [FHIR][] servers supporting the [SMART on FHIR][smart] protocol.
 The client is compatible with Python 2.7, possibly earlier, and Python 3.
 
+Client versioning is not identical to FHIR versioning.
+The `master` branch is usually on the latest version, possibly on bugfix releases thereof.
+
+   Version |          FHIR | &nbsp;
+-----------|---------------|---
+   **1.0** |       `1.0.1` | (DSTU 2)
+   **0.5** |  `0.5.0.5149` | (DSTU 2 Ballot, May 2015)
+ **0.0.4** | `0.0.82.2943` | (DSTU 1)
+ **0.0.3** | `0.0.82.2943` | (DSTU 1)
+ **0.0.2** | `0.0.82.2943` | (DSTU 1)
+
 
 Installation
 ------------
@@ -23,8 +34,10 @@ This app starts a webserver, listening on [_localhost:8000_](http://localhost:80
 It then goes on to retrieve the selected patient's demographics and med prescriptions and lists them in a simple HTML page.
 
 The Flask demo app has separate requirements.
-To go about installing needed packages (using _virtualenv_) and running the app you can issue these commands to your shell:
+Clone the _client-py_ repository, then best create a virtual environment and install the needed packages like so:
 
+    git clone https://github.com/smart-on-fhir/client-py.git
+    cd client-py
     virtualenv -p python3 env
     . env/bin/activate
     pip install -r requirements_flask_app.txt
