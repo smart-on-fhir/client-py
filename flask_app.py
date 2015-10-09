@@ -3,7 +3,7 @@
 import logging
 from fhirclient import client
 from fhirclient.models.medication import Medication
-from fhirclient.models.medicationprescription import MedicationPrescription
+from fhirclient.models.medicationorder import MedicationOrder
 
 from flask import Flask, request, redirect, session
 
@@ -36,18 +36,15 @@ def _reset():
         del session['state']
 
 def _get_prescriptions(smart):
-    bundle = MedicationPrescription.where({'patient': smart.patient_id}).perform(smart.server)
+    bundle = MedicationOrder.where({'patient': smart.patient_id}).perform(smart.server)
     pres = [be.resource for be in bundle.entry] if bundle is not None and bundle.entry is not None else None
     if pres is not None and len(pres) > 0:
         return pres
     return None
 
 def _med_name(prescription):
-    resolved = prescription.medication.resolved(Medication) if prescription.medication else None
-    if resolved is not None and resolved.name:
-        return resolved.name
-    if prescription.medication and prescription.medication.display:
-        return prescription.medication.display
+    if prescription.medicationCodeableConcept and prescription.medicationCodeableConcept.coding[0].display:
+        return prescription.medicationCodeableConcept.coding[0].display
     if prescription.text and prescription.text.div:
         return prescription.text.div
     return "Unnamed Medication(TM)"
