@@ -43,7 +43,7 @@ class FHIRResource(fhirelement.FHIRElement):
         return self.__class__.resource_name
     
     def relativePath(self):
-        return "{}/{}".format(self.relativeBase(), self.id)
+        return "{0}/{1}".format(self.relativeBase(), self.id)
     
     
     # MARK: Server Connection
@@ -79,7 +79,7 @@ class FHIRResource(fhirelement.FHIRElement):
         if not rem_id:
             raise Exception("Cannot read resource without remote id")
         
-        path = '{}/{}'.format(cls.resource_name, rem_id)
+        path = '{0}/{1}'.format(cls.resource_name, rem_id)
         instance = cls.read_from(path, server)
         instance._local_id = rem_id
         

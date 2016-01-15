@@ -64,17 +64,17 @@ def index():
         name = smart.human_name(smart.patient.name[0] if smart.patient.name and len(smart.patient.name) > 0 else 'Unknown')
         
         # generate simple body text
-        body += "<p>You are authorized and ready to make API requests for <em>{}</em>.</p>".format(name)
+        body += "<p>You are authorized and ready to make API requests for <em>{0}</em>.</p>".format(name)
         pres = _get_prescriptions(smart)
         if pres is not None:
-            body += "<p>{} prescriptions: <ul><li>{}</li></ul></p>".format("His" if 'male' == smart.patient.gender else "Her", '</li><li>'.join([_med_name(p) for p in pres]))
+            body += "<p>{0} prescriptions: <ul><li>{1}</li></ul></p>".format("His" if 'male' == smart.patient.gender else "Her", '</li><li>'.join([_med_name(p) for p in pres]))
         else:
-            body += "<p>(There are no prescriptions for {})</p>".format("him" if 'male' == smart.patient.gender else "her")
-        body += """<p><a href="/logout">Change patient</a></p>""".format(name)
+            body += "<p>(There are no prescriptions for {0})</p>".format("him" if 'male' == smart.patient.gender else "her")
+        body += """<p><a href="/logout">Change patient</a></p>"""
     else:
         auth_url = smart.authorize_url
         if auth_url is not None:
-            body += """<p>Please <a href="{}">authorize</a>.</p>""".format(auth_url)
+            body += """<p>Please <a href="{0}">authorize</a>.</p>""".format(auth_url)
         else:
             body += """<p>Running against a no-auth server, nothing to demo here. """
         body += """<p><a href="/reset" style="font-size:small;">Reset</a></p>"""
@@ -89,7 +89,7 @@ def callback():
     try:
         smart.handle_callback(request.url)
     except Exception as e:
-        return """<h1>Authorization Error</h1><p>{}</p><p><a href="/">Start over</a></p>""".format(e)
+        return """<h1>Authorization Error</h1><p>{0}</p><p><a href="/">Start over</a></p>""".format(e)
     return redirect('/')
 
 

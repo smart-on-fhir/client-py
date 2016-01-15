@@ -21,11 +21,11 @@ class FHIRAuth(object):
         """ Register this class to handle authorization types of the given
         type. """
         if not cls.auth_type:
-            raise Exception('Class {} does not specify the auth_type it supports'.format(cls))
+            raise Exception('Class {0} does not specify the auth_type it supports'.format(cls))
         if cls.auth_type not in FHIRAuth.auth_classes:
             FHIRAuth.auth_classes[cls.auth_type] = cls
         elif FHIRAuth.auth_classes[cls.auth_type] != cls:
-            raise Exception('Class {} is already registered for authorization type "{}"'.format(FHIRAuth.auth_classes[cls.auth_type], cls.auth_type))
+            raise Exception('Class {0} is already registered for authorization type "{1}"'.format(FHIRAuth.auth_classes[cls.auth_type], cls.auth_type))
     
     @classmethod
     def from_conformance_security(cls, security, state=None):
@@ -75,7 +75,7 @@ class FHIRAuth(object):
         if auth_type in FHIRAuth.auth_classes:
             klass = FHIRAuth.auth_classes[auth_type]
             return klass(state=state)
-        raise Exception('No class registered for authorization type "{}"'.format(auth_type))
+        raise Exception('No class registered for authorization type "{0}"'.format(auth_type))
     
     
     def __init__(self, state=None):
@@ -101,7 +101,7 @@ class FHIRAuth(object):
     
     def handle_callback(self, url, server):
         """ Return the launch context. """
-        raise Exception("{} cannot handle callback URL".format(self))
+        raise Exception("{0} cannot handle callback URL".format(self))
     
     def reauthorize(self):
         """ Perform a re-authorization of some form.
@@ -168,7 +168,7 @@ class FHIROAuth2Auth(FHIRAuth):
         
         if headers is None:
             headers = {}
-        headers['Authorization'] = "Bearer {}".format(self.access_token)
+        headers['Authorization'] = "Bearer {0}".format(self.access_token)
         
         return headers
     
@@ -181,7 +181,7 @@ class FHIROAuth2Auth(FHIRAuth):
         stored.
         """
         auth_params = self._authorize_params(server)
-        logging.debug("SMART AUTH: Will use parameters for `authorize_uri`: {}".format(auth_params))
+        logging.debug("SMART AUTH: Will use parameters for `authorize_uri`: {0}".format(auth_params))
         
         # the authorize uri may have params, make sure to not lose them
         parts = list(urlparse.urlsplit(self._authorize_uri))
@@ -228,7 +228,7 @@ class FHIROAuth2Auth(FHIRAuth):
         try:
             args = dict(urlparse.parse_qsl(urlparse.urlsplit(url)[3]))
         except Exception as e:
-            raise Exception("Invalid callback URL: {}".format(e))
+            raise Exception("Invalid callback URL: {0}".format(e))
         
         # verify response
         err = self.extract_oauth_error(args)
@@ -237,11 +237,11 @@ class FHIROAuth2Auth(FHIRAuth):
         
         stt = args.get('state')
         if stt is None or self.auth_state != stt:
-            raise Exception("Invalid state, will not use this code. Have: {}, want: {}".format(stt, self.auth_state))
+            raise Exception("Invalid state, will not use this code. Have: {0}, want: {1}".format(stt, self.auth_state))
         
         code = args.get('code')
         if code is None:
-            raise Exception("Did not receive a code, only have: {}".format(', '.join(args.keys())))
+            raise Exception("Did not receive a code, only have: {0}".format(', '.join(args.keys())))
         
         # exchange code for token
         exchange = self._code_exchange_params(code)
@@ -269,7 +269,7 @@ class FHIROAuth2Auth(FHIRAuth):
         if server is None:
             raise Exception("I need a server to request an access token")
         
-        logging.debug("SMART AUTH: Requesting access token from {}".format(self._token_uri))
+        logging.debug("SMART AUTH: Requesting access token from {0}".format(self._token_uri))
         ret_params = server.post_as_form(self._token_uri, params).json()
         
         self.access_token = ret_params.get('access_token')
@@ -283,7 +283,7 @@ class FHIROAuth2Auth(FHIRAuth):
         if self.refresh_token is not None:
             del ret_params['refresh_token']
         
-        logging.debug("SMART AUTH: Received access token: {}, refresh token: {}"
+        logging.debug("SMART AUTH: Received access token: {0}, refresh token: {1}"
             .format(self.access_token is not None, self.refresh_token is not None))
         return ret_params
     
@@ -377,7 +377,7 @@ class FHIROAuth2Auth(FHIRAuth):
                 return "The authorization server encountered an unexpected condition that prevented it from fulfilling the request."
             if 'temporarily_unavailable' == err_code:
                 return "The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
-            return "Authorization error: {}.".format(err_code)
+            return "Authorization error: {0}.".format(err_code)
         
         return None
     
