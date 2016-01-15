@@ -86,7 +86,7 @@ class FHIRElement(object):
         if jsondict is None:
             return
         if not isinstance(jsondict, dict):
-            logging.warning("Non-dict type {} fed to `update_with_json` on {}"
+            logging.warning("Non-dict type {0} fed to `update_with_json` on {1}"
                 .format(type(jsondict), type(self)))
             return
         
@@ -109,7 +109,7 @@ class FHIRElement(object):
                 if res.id:
                     self.contained[res.id] = res
                 else:
-                    logging.warning("Contained resource {} does not have an id, ignoring".format(res))
+                    logging.warning("Contained resource {0} does not have an id, ignoring".format(res))
     
     def as_json(self):
         """ Serializes to JSON by inspecting `elementProperties()` and creating

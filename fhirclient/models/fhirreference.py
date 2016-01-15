@@ -32,7 +32,7 @@ class FHIRReference(reference.Reference):
         if resolved is not None:
             if isinstance(resolved, klass):
                 return resolved
-            logging.warning("Reference {} is not a {} but a {}".format(refid, klass, resolved.__class__))
+            logging.warning("Reference {0} is not a {1} but a {2}".format(refid, klass, resolved.__class__))
             return None
         
         # not yet resolved, see if it's a contained resource
@@ -45,14 +45,14 @@ class FHIRReference(reference.Reference):
         # fetch remote resources
         server = self._owner.server()
         if server is None:
-            logging.warning("Reference owner {} does not have a server, cannot resolve reference {}"
+            logging.warning("Reference owner {0} does not have a server, cannot resolve reference {1}"
                 .format(self._owner, self.reference))
             return None
         
         if '://' not in self.reference:
             return self._referenced_class.read_from(self.reference, server)
         
-        logging.warning("Not implemented: resolving reference to foreign resource {}"
+        logging.warning("Not implemented: resolving reference to foreign resource {0}"
             .format(self.reference))
         return None
     

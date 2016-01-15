@@ -62,7 +62,7 @@ class FHIRServer(object):
         or forced.
         """
         if self._conformance is None or force:
-            logging.info('Fetching conformance statement from {}'.format(self.base_uri))
+            logging.info('Fetching conformance statement from {0}'.format(self.base_uri))
             from models import conformance
             conf = conformance.Conformance.read_from('metadata', self)
             self._conformance = conf

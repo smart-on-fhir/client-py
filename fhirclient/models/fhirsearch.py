@@ -26,7 +26,7 @@ class FHIRSearch(object):
         
         if struct is not None:
             if dict != type(struct):
-                raise Exception("Must pass a Python dictionary, but got a {}".format(type(struct)))
+                raise Exception("Must pass a Python dictionary, but got a {0}".format(type(struct)))
             self.wants_expand = True
             for key, val in struct.items():
                 self.params.append(FHIRSearchParam(key, val))
@@ -49,7 +49,7 @@ class FHIRSearch(object):
                 else:
                     parts.append(param.as_parameter())
         
-        return '{}?{}'.format(self.resource_type.resource_name, '&'.join(parts))
+        return '{0}?{1}'.format(self.resource_type.resource_name, '&'.join(parts))
     
     def perform(self, server):
         """ Construct the search URL and execute it against the given server.
@@ -114,7 +114,7 @@ class FHIRSearchParam(object):
     def as_parameter(self):
         """ Return a string that represents the reciever as "key=value".
         """
-        return '{}={}'.format(self.name, quote_plus(self.value, safe=',<=>'))
+        return '{0}={1}'.format(self.name, quote_plus(self.value, safe=',<=>'))
 
 
 class FHIRSearchParamHandler(object):
@@ -188,7 +188,7 @@ class FHIRSearchParamHandler(object):
     
     def apply(self, param):
         if self.key is not None:
-            param.name = '{}.{}'.format(param.name, self.key)
+            param.name = '{0}.{1}'.format(param.name, self.key)
         if 0 == len(self.multiplier):
             param.value = self.value
 
@@ -206,7 +206,7 @@ class FHIRSearchParamModifierHandler(FHIRSearchParamHandler):
     
     def apply(self, param):
         if self.key not in self.__class__.modifiers:
-            raise Exception('Unknown modifier "{}" for "{}"'.format(self.key, param.name))
+            raise Exception('Unknown modifier "{0}" for "{1}"'.format(self.key, param.name))
         param.name += self.__class__.modifiers[self.key]
         param.value = self.value
 
@@ -222,7 +222,7 @@ class FHIRSearchParamOperatorHandler(FHIRSearchParamHandler):
     
     def apply(self, param):
         if self.key not in self.__class__.operators:
-            raise Exception('Unknown operator "{}" for "{}"'.format(self.key, parent.name))
+            raise Exception('Unknown operator "{0}" for "{1}"'.format(self.key, parent.name))
         param.value = self.__class__.operators[self.key] + self.value
 
 
@@ -231,7 +231,7 @@ class FHIRSearchParamMultiHandler(FHIRSearchParamHandler):
     
     def prepare(self, parent):
         if list != type(self.value):
-            raise Exception('Expecting a list argument for "{}" but got {}'.format(parent.key, self.value))
+            raise Exception('Expecting a list argument for "{0}" but got {1}'.format(parent.key, self.value))
         
         handlers = []
         for val in self.value:
@@ -249,7 +249,7 @@ class FHIRSearchParamMultiHandler(FHIRSearchParamHandler):
             handler = FHIRSearchParamHandler.handler_for(parent.key)(None, ','.join(ors))
             handler.prepare(parent)
         else:
-            raise Exception('I cannot handle "{}"'.format(self.key))
+            raise Exception('I cannot handle "{1}"'.format(self.key))
 
 
 class FHIRSearchParamTypeHandler(FHIRSearchParamHandler):
@@ -259,7 +259,7 @@ class FHIRSearchParamTypeHandler(FHIRSearchParamHandler):
         parent.modifier.append(self)
     
     def apply(self, param):
-        param.name = '{}:{}'.format(param.name, self.value)
+        param.name = '{0}:{1}'.format(param.name, self.value)
     
 
 # announce all handlers
