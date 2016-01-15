@@ -40,10 +40,17 @@ class FHIRServer(object):
     def __init__(self, client, base_uri=None, state=None):
         self.client = client
         self.auth = None
-        self.base_uri = base_uri
+        
+        # A URI can't possibly be less than 11 chars
+        # make sure we end with "/", otherwise the last path component will be
+        # lost when creating URLs with urllib
+        if base_uri is not None and len(base_uri) > 10:
+            self.base_uri = base_uri if '/' == base_uri[-1] else base_uri + '/'
         self._conformance = None
         if state is not None:
             self.from_state(state)
+        if not self.base_uri or len(self.base_uri) <= 10:
+            raise Exception("FHIRServer must be initialized with `base_uri` or `state` containing the base-URI, but neither happened")
     
     def should_save_state(self):
         if self.client is not None:
