@@ -1,17 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class ImmunizationRecommendation(domainresource.DomainResource):
     """ Guidance or advice relating to an immunization.
@@ -51,7 +45,9 @@ class ImmunizationRecommendation(domainresource.DomainResource):
         return js
 
 
-class ImmunizationRecommendationRecommendation(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
     """ Vaccine administration recommendations.
     """
     
@@ -110,7 +106,7 @@ class ImmunizationRecommendationRecommendation(fhirelement.FHIRElement):
         return js
 
 
-class ImmunizationRecommendationRecommendationDateCriterion(fhirelement.FHIRElement):
+class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.BackboneElement):
     """ Dates governing proposed immunization.
     
     Vaccine date recommendations.  For example, earliest date to administer,
@@ -142,7 +138,7 @@ class ImmunizationRecommendationRecommendationDateCriterion(fhirelement.FHIRElem
         return js
 
 
-class ImmunizationRecommendationRecommendationProtocol(fhirelement.FHIRElement):
+class ImmunizationRecommendationRecommendationProtocol(backboneelement.BackboneElement):
     """ Protocol used by recommendation.
     
     Contains information about the protocol under which the vaccine was
@@ -183,3 +179,8 @@ class ImmunizationRecommendationRecommendationProtocol(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier

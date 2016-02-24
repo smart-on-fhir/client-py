@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class ConceptMap(domainresource.DomainResource):
     """ A map from one set of concepts to one or more other concepts.
@@ -127,7 +120,9 @@ class ConceptMap(domainresource.DomainResource):
         return js
 
 
-class ConceptMapContact(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ConceptMapContact(backboneelement.BackboneElement):
     """ Contact details of the publisher.
     
     Contacts to assist a user in finding and communicating with the publisher.
@@ -158,7 +153,7 @@ class ConceptMapContact(fhirelement.FHIRElement):
         return js
 
 
-class ConceptMapElement(fhirelement.FHIRElement):
+class ConceptMapElement(backboneelement.BackboneElement):
     """ Mappings for a concept from the source set.
     
     Mappings for an individual concept in the source to one or more concepts in
@@ -195,7 +190,7 @@ class ConceptMapElement(fhirelement.FHIRElement):
         return js
 
 
-class ConceptMapElementTarget(fhirelement.FHIRElement):
+class ConceptMapElementTarget(backboneelement.BackboneElement):
     """ Concept in target system for element.
     
     A concept from the target value set that this concept maps to.
@@ -247,7 +242,7 @@ class ConceptMapElementTarget(fhirelement.FHIRElement):
         return js
 
 
-class ConceptMapElementTargetDependsOn(fhirelement.FHIRElement):
+class ConceptMapElementTargetDependsOn(backboneelement.BackboneElement):
     """ Other elements required for this mapping (from context).
     
     A set of additional dependencies for this mapping to hold. This mapping is
@@ -284,3 +279,9 @@ class ConceptMapElementTargetDependsOn(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference
+from . import identifier

@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import attachment
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class DocumentManifest(domainresource.DomainResource):
     """ A manifest that defines a set of documents.
@@ -93,7 +86,9 @@ class DocumentManifest(domainresource.DomainResource):
         return js
 
 
-class DocumentManifestContent(fhirelement.FHIRElement):
+from . import backboneelement
+
+class DocumentManifestContent(backboneelement.BackboneElement):
     """ The items included.
     
     The list of Documents included in the manifest.
@@ -124,7 +119,7 @@ class DocumentManifestContent(fhirelement.FHIRElement):
         return js
 
 
-class DocumentManifestRelated(fhirelement.FHIRElement):
+class DocumentManifestRelated(backboneelement.BackboneElement):
     """ Related things.
     
     Related identifiers or resources associated with the DocumentManifest.
@@ -154,3 +149,9 @@ class DocumentManifestRelated(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import attachment
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier

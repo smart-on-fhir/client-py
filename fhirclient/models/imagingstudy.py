@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import attachment
-from . import coding
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class ImagingStudy(domainresource.DomainResource):
     """ A set of images produced in single study (one or more series of references
@@ -120,7 +113,9 @@ class ImagingStudy(domainresource.DomainResource):
         return js
 
 
-class ImagingStudySeries(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ImagingStudySeries(backboneelement.BackboneElement):
     """ Each study has one or more series of instances.
     
     Each study has one or more series of images or other content.
@@ -196,7 +191,7 @@ class ImagingStudySeries(fhirelement.FHIRElement):
         return js
 
 
-class ImagingStudySeriesInstance(fhirelement.FHIRElement):
+class ImagingStudySeriesInstance(backboneelement.BackboneElement):
     """ A single SOP instance from the series.
     
     A single SOP Instance within the series, e.g. an image, or presentation
@@ -247,3 +242,9 @@ class ImagingStudySeriesInstance(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import attachment
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import identifier

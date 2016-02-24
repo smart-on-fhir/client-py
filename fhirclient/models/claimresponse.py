@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import coding
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import quantity
-
 
 class ClaimResponse(domainresource.DomainResource):
     """ Remittance resource.
@@ -166,7 +159,9 @@ class ClaimResponse(domainresource.DomainResource):
         return js
 
 
-class ClaimResponseAddItem(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ClaimResponseAddItem(backboneelement.BackboneElement):
     """ Insurer added line items.
     
     The first tier service adjudications for payor added services.
@@ -217,7 +212,7 @@ class ClaimResponseAddItem(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseAddItemAdjudication(fhirelement.FHIRElement):
+class ClaimResponseAddItemAdjudication(backboneelement.BackboneElement):
     """ Added items adjudication.
     
     The adjudications results.
@@ -253,7 +248,7 @@ class ClaimResponseAddItemAdjudication(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseAddItemDetail(fhirelement.FHIRElement):
+class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
     """ Added items details.
     
     The second tier service adjudications for payor added services.
@@ -289,7 +284,7 @@ class ClaimResponseAddItemDetail(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseAddItemDetailAdjudication(fhirelement.FHIRElement):
+class ClaimResponseAddItemDetailAdjudication(backboneelement.BackboneElement):
     """ Added items detail adjudication.
     
     The adjudications results.
@@ -325,7 +320,7 @@ class ClaimResponseAddItemDetailAdjudication(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseCoverage(fhirelement.FHIRElement):
+class ClaimResponseCoverage(backboneelement.BackboneElement):
     """ Insurance or medical plan.
     
     Financial instrument by which payment information for health care.
@@ -386,7 +381,7 @@ class ClaimResponseCoverage(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseError(fhirelement.FHIRElement):
+class ClaimResponseError(backboneelement.BackboneElement):
     """ Processing errors.
     
     Mutually exclusive with Services Provided (Item).
@@ -427,7 +422,7 @@ class ClaimResponseError(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseItem(fhirelement.FHIRElement):
+class ClaimResponseItem(backboneelement.BackboneElement):
     """ Line items.
     
     The first tier service adjudications for submitted services.
@@ -468,7 +463,7 @@ class ClaimResponseItem(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseItemAdjudication(fhirelement.FHIRElement):
+class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
     """ Adjudication details.
     
     The adjudications results.
@@ -504,7 +499,7 @@ class ClaimResponseItemAdjudication(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseItemDetail(fhirelement.FHIRElement):
+class ClaimResponseItemDetail(backboneelement.BackboneElement):
     """ Detail line items.
     
     The second tier service adjudications for submitted services.
@@ -540,7 +535,7 @@ class ClaimResponseItemDetail(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseItemDetailAdjudication(fhirelement.FHIRElement):
+class ClaimResponseItemDetailAdjudication(backboneelement.BackboneElement):
     """ Detail adjudication.
     
     The adjudications results.
@@ -576,7 +571,7 @@ class ClaimResponseItemDetailAdjudication(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseItemDetailSubDetail(fhirelement.FHIRElement):
+class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
     """ Subdetail line items.
     
     The third tier service adjudications for submitted services.
@@ -607,7 +602,7 @@ class ClaimResponseItemDetailSubDetail(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseItemDetailSubDetailAdjudication(fhirelement.FHIRElement):
+class ClaimResponseItemDetailSubDetailAdjudication(backboneelement.BackboneElement):
     """ Subdetail adjudication.
     
     The adjudications results.
@@ -643,7 +638,7 @@ class ClaimResponseItemDetailSubDetailAdjudication(fhirelement.FHIRElement):
         return js
 
 
-class ClaimResponseNote(fhirelement.FHIRElement):
+class ClaimResponseNote(backboneelement.BackboneElement):
     """ Processing notes.
     
     Note text.
@@ -678,3 +673,9 @@ class ClaimResponseNote(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import quantity

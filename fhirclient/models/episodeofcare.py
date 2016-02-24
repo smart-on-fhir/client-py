@@ -1,17 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-
 
 class EpisodeOfCare(domainresource.DomainResource):
     """ An association of a Patient with an Organization and  Healthcare
@@ -94,7 +88,9 @@ class EpisodeOfCare(domainresource.DomainResource):
         return js
 
 
-class EpisodeOfCareCareTeam(fhirelement.FHIRElement):
+from . import backboneelement
+
+class EpisodeOfCareCareTeam(backboneelement.BackboneElement):
     """ Other practitioners facilitating this episode of care.
     
     The list of practitioners that may be facilitating this episode of care for
@@ -131,7 +127,7 @@ class EpisodeOfCareCareTeam(fhirelement.FHIRElement):
         return js
 
 
-class EpisodeOfCareStatusHistory(fhirelement.FHIRElement):
+class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
     """ Past list of status codes.
     
     The history of statuses that the EpisodeOfCare has been through (without
@@ -162,3 +158,8 @@ class EpisodeOfCareStatusHistory(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirreference
+from . import identifier
+from . import period

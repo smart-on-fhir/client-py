@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import coding
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-
 
 class ProcessRequest(domainresource.DomainResource):
     """ Process request.
@@ -116,7 +109,9 @@ class ProcessRequest(domainresource.DomainResource):
         return js
 
 
-class ProcessRequestItem(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ProcessRequestItem(backboneelement.BackboneElement):
     """ Items to re-adjudicate.
     
     List of top level items to be re-adjudicated, if none specified then the
@@ -142,3 +137,9 @@ class ProcessRequestItem(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period

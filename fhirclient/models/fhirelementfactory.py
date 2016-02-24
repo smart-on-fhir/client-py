@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
-from . import fhirelement
+from . import element
 
 
 class FHIRElementFactory(object):
@@ -13,6 +13,12 @@ class FHIRElementFactory(object):
     
     @classmethod
     def instantiate(cls, resource_name, jsondict):
+        """ Instantiate a resource of the type correlating to "resource_name".
+        
+        :param str resource_name: The name/type of the resource to instantiate
+        :param dict jsondict: The JSON dictionary to use for data
+        :returns: A resource of the respective type or `Element`
+        """
         if "Account" == resource_name:
             from . import account
             return account.Account(jsondict)
@@ -415,6 +421,9 @@ class FHIRElementFactory(object):
         if "Duration" == resource_name:
             from . import duration
             return duration.Duration(jsondict)
+        if "Element" == resource_name:
+            from . import element
+            return element.Element(jsondict)
         if "ElementDefinition" == resource_name:
             from . import elementdefinition
             return elementdefinition.ElementDefinition(jsondict)
@@ -1051,4 +1060,4 @@ class FHIRElementFactory(object):
         if "VisionPrescriptionDispense" == resource_name:
             from . import visionprescription
             return visionprescription.VisionPrescriptionDispense(jsondict)
-        return fhirelement.FHIRElement(json)
+        return element.Element(json)

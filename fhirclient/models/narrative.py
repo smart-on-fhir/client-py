@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Narrative) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Narrative) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import fhirelement
+from . import element
 
-
-class Narrative(fhirelement.FHIRElement):
+class Narrative(element.Element):
     """ A human-readable formatted text, including images.
     """
     
@@ -35,4 +34,5 @@ class Narrative(fhirelement.FHIRElement):
             ("status", "status", str, False),
         ])
         return js
+
 

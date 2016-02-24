@@ -1,19 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Timing) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Timing) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
-from . import fhirdate
-from . import fhirelement
-from . import period
-from . import quantity
-from . import range
+from . import element
 
-
-class Timing(fhirelement.FHIRElement):
+class Timing(element.Element):
     """ A timing schedule that specifies an event that may occur multiple times.
     
     Specifies an event that may occur multiple times. Timing schedules are used
@@ -52,7 +46,7 @@ class Timing(fhirelement.FHIRElement):
         return js
 
 
-class TimingRepeat(fhirelement.FHIRElement):
+class TimingRepeat(element.Element):
     """ When the event is to occur.
     
     A set of rules that describe when the event should occur.
@@ -137,3 +131,9 @@ class TimingRepeat(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import period
+from . import quantity
+from . import range

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -123,6 +123,9 @@ class QuestionnaireTests(unittest.TestCase):
         self.implQuestionnaire3(inst2)
     
     def implQuestionnaire3(self, inst):
+        self.assertEqual(inst.contained[0].id, "motor")
+        self.assertEqual(inst.contained[1].id, "verbal")
+        self.assertEqual(inst.contained[2].id, "eye")
         self.assertEqual(inst.date.date, FHIRDate("2015-08-03").date)
         self.assertEqual(inst.date.as_json(), "2015-08-03")
         self.assertEqual(inst.group.concept[0].code, "9269-2")
@@ -159,6 +162,7 @@ class QuestionnaireTests(unittest.TestCase):
         self.implQuestionnaire4(inst2)
     
     def implQuestionnaire4(self, inst):
+        self.assertEqual(inst.contained[0].id, "yesno")
         self.assertEqual(inst.date.date, FHIRDate("2012-01").date)
         self.assertEqual(inst.date.as_json(), "2012-01")
         self.assertEqual(inst.group.group[0].concept[0].code, "COMORBIDITY")

@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import annotation
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import quantity
-
 
 class Immunization(domainresource.DomainResource):
     """ Immunization event information.
@@ -144,7 +136,9 @@ class Immunization(domainresource.DomainResource):
         return js
 
 
-class ImmunizationExplanation(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ImmunizationExplanation(backboneelement.BackboneElement):
     """ Administration/non-administration reasons.
     
     Reasons why a vaccine was or was not administered.
@@ -175,7 +169,7 @@ class ImmunizationExplanation(fhirelement.FHIRElement):
         return js
 
 
-class ImmunizationReaction(fhirelement.FHIRElement):
+class ImmunizationReaction(backboneelement.BackboneElement):
     """ Details of a reaction that follows immunization.
     
     Categorical data indicating that an adverse event is associated in time to
@@ -212,7 +206,7 @@ class ImmunizationReaction(fhirelement.FHIRElement):
         return js
 
 
-class ImmunizationVaccinationProtocol(fhirelement.FHIRElement):
+class ImmunizationVaccinationProtocol(backboneelement.BackboneElement):
     """ What protocol was followed.
     
     Contains information about the protocol(s) under which the vaccine was
@@ -273,3 +267,10 @@ class ImmunizationVaccinationProtocol(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import annotation
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import quantity

@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/CodeableConcept) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/CodeableConcept) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import coding
-from . import fhirelement
+from . import element
 
-
-class CodeableConcept(fhirelement.FHIRElement):
+class CodeableConcept(element.Element):
     """ Concept - reference to a terminology or just  text.
     
     A concept that may be defined by a formal reference to a terminology or
@@ -40,3 +38,5 @@ class CodeableConcept(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import coding

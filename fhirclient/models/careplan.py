@@ -1,21 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import annotation
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
-from . import timing
-
 
 class CarePlan(domainresource.DomainResource):
     """ Healthcare plan for patient or group.
@@ -120,7 +110,9 @@ class CarePlan(domainresource.DomainResource):
         return js
 
 
-class CarePlanActivity(fhirelement.FHIRElement):
+from . import backboneelement
+
+class CarePlanActivity(backboneelement.BackboneElement):
     """ Action to occur as part of plan.
     
     Identifies a planned action to occur as part of the plan.  For example, a
@@ -163,7 +155,7 @@ class CarePlanActivity(fhirelement.FHIRElement):
         return js
 
 
-class CarePlanActivityDetail(fhirelement.FHIRElement):
+class CarePlanActivityDetail(backboneelement.BackboneElement):
     """ In-line definition of activity.
     
     A simple summary of a planned activity suitable for a general care plan
@@ -277,7 +269,7 @@ class CarePlanActivityDetail(fhirelement.FHIRElement):
         return js
 
 
-class CarePlanParticipant(fhirelement.FHIRElement):
+class CarePlanParticipant(backboneelement.BackboneElement):
     """ Who's involved in plan?.
     
     Identifies all people and organizations who are expected to be involved in
@@ -309,7 +301,7 @@ class CarePlanParticipant(fhirelement.FHIRElement):
         return js
 
 
-class CarePlanRelatedPlan(fhirelement.FHIRElement):
+class CarePlanRelatedPlan(backboneelement.BackboneElement):
     """ Plans related to this one.
     
     Identifies CarePlans with some sort of formal relationship to the current
@@ -340,3 +332,12 @@ class CarePlanRelatedPlan(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import annotation
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity
+from . import timing

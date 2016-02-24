@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Communication) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Communication) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import attachment
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class Communication(domainresource.DomainResource):
     """ A record of information transmitted from a sender to a receiver.
@@ -102,7 +95,9 @@ class Communication(domainresource.DomainResource):
         return js
 
 
-class CommunicationPayload(fhirelement.FHIRElement):
+from . import backboneelement
+
+class CommunicationPayload(backboneelement.BackboneElement):
     """ Message payload.
     
     Text, attachment(s), or resource(s) that was communicated to the recipient.
@@ -137,3 +132,9 @@ class CommunicationPayload(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import attachment
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier

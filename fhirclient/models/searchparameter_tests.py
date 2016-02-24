@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -44,7 +44,7 @@ class SearchParameterTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "reference")
         self.assertEqual(inst.url, "http://hl7.org/fhir/SearchParameter/example-extension")
-        self.assertEqual(inst.xpath, "http://example.org/fhir/StructureDefinition/participation-agreement")
+        self.assertEqual(inst.xpath, "f:DocumentReference/f:extension[@url='http://example.org/fhir/StructureDefinition/participation-agreement']")
         self.assertEqual(inst.xpathUsage, "normal")
     
     def testSearchParameter2(self):

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -149,7 +149,6 @@ class TestScriptTests(unittest.TestCase):
         self.assertEqual(inst.metadata.capability[0].link[2], "http://hl7.org/implement/standards/FHIR-Develop/http.html#update")
         self.assertTrue(inst.metadata.capability[0].required)
         self.assertEqual(inst.name, "Test Script 1")
-        self.assertEqual(inst.profile[0].id, "patient-profile")
         self.assertEqual(inst.publisher, "HL7")
         self.assertEqual(inst.requirements, "Patient Create, Read, and Update Operations")
         self.assertEqual(inst.setup.action[0].operation.accept, "json")

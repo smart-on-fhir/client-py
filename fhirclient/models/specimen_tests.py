@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -38,6 +38,7 @@ class SpecimenTests(unittest.TestCase):
         self.assertEqual(inst.collection.collectedDateTime.as_json(), "2015-08-16T07:03:00Z")
         self.assertEqual(inst.collection.method.coding[0].code, "BAP")
         self.assertEqual(inst.collection.method.coding[0].system, "http://hl7.org/fhir/v2/0488")
+        self.assertEqual(inst.contained[0].id, "stool")
         self.assertEqual(inst.id, "isolate")
         self.assertEqual(inst.receivedTime.date, FHIRDate("2015-08-18T07:03:00Z").date)
         self.assertEqual(inst.receivedTime.as_json(), "2015-08-18T07:03:00Z")
@@ -99,6 +100,7 @@ class SpecimenTests(unittest.TestCase):
         self.assertEqual(inst.collection.method.coding[0].system, "http://hl7.org/fhir/v2/0488")
         self.assertEqual(inst.collection.quantity.unit, "mL")
         self.assertEqual(inst.collection.quantity.value, 6)
+        self.assertEqual(inst.contained[0].id, "hep")
         self.assertEqual(inst.container[0].capacity.unit, "mL")
         self.assertEqual(inst.container[0].capacity.value, 10)
         self.assertEqual(inst.container[0].description, "Green Gel tube")

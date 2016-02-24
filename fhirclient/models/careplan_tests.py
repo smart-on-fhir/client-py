@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -40,6 +40,7 @@ class CarePlanTests(unittest.TestCase):
         self.assertTrue(inst.activity[0].detail.prohibited)
         self.assertEqual(inst.activity[0].detail.scheduledString, "2011-06-27T09:30:10+01:00")
         self.assertEqual(inst.activity[0].detail.status, "completed")
+        self.assertEqual(inst.contained[0].id, "goal")
         self.assertEqual(inst.id, "f001")
         self.assertEqual(inst.identifier[0].system, "http://www.bmc.nl/zorgportal/identifiers/careplans")
         self.assertEqual(inst.identifier[0].use, "official")
@@ -72,6 +73,7 @@ class CarePlanTests(unittest.TestCase):
         self.assertTrue(inst.activity[0].detail.prohibited)
         self.assertEqual(inst.activity[0].detail.scheduledString, "2011-07-07T09:30:10+01:00")
         self.assertEqual(inst.activity[0].detail.status, "completed")
+        self.assertEqual(inst.contained[0].id, "goal")
         self.assertEqual(inst.id, "f002")
         self.assertEqual(inst.identifier[0].system, "http://www.bmc.nl/zorgportal/identifiers/careplans")
         self.assertEqual(inst.identifier[0].use, "official")
@@ -104,6 +106,7 @@ class CarePlanTests(unittest.TestCase):
         self.assertTrue(inst.activity[0].detail.prohibited)
         self.assertEqual(inst.activity[0].detail.scheduledString, "2011-06-27T09:30:10+01:00")
         self.assertEqual(inst.activity[0].detail.status, "completed")
+        self.assertEqual(inst.contained[0].id, "goal")
         self.assertEqual(inst.id, "f003")
         self.assertEqual(inst.identifier[0].system, "http://www.bmc.nl/zorgportal/identifiers/careplans")
         self.assertEqual(inst.identifier[0].use, "official")
@@ -147,6 +150,7 @@ class CarePlanTests(unittest.TestCase):
         self.assertEqual(inst.activity[1].detail.code.coding[0].system, "http://snomed.info/sct")
         self.assertFalse(inst.activity[1].detail.prohibited)
         self.assertEqual(inst.activity[1].detail.status, "completed")
+        self.assertEqual(inst.contained[0].id, "goal")
         self.assertEqual(inst.id, "f201")
         self.assertEqual(inst.modified.date, FHIRDate("2013-03-11").date)
         self.assertEqual(inst.modified.as_json(), "2013-03-11")
@@ -181,6 +185,11 @@ class CarePlanTests(unittest.TestCase):
         self.assertEqual(inst.activity[0].detail.code.coding[0].system, "http://snomed.info/sct")
         self.assertFalse(inst.activity[0].detail.prohibited)
         self.assertEqual(inst.activity[0].detail.status, "in-progress")
+        self.assertEqual(inst.contained[0].id, "doce")
+        self.assertEqual(inst.contained[1].id, "cisp")
+        self.assertEqual(inst.contained[2].id, "fluo")
+        self.assertEqual(inst.contained[3].id, "tpf")
+        self.assertEqual(inst.contained[4].id, "goal")
         self.assertEqual(inst.id, "f202")
         self.assertEqual(inst.participant[0].role.coding[0].code, "28995006")
         self.assertEqual(inst.participant[0].role.coding[0].display, "Treated with")
@@ -206,6 +215,7 @@ class CarePlanTests(unittest.TestCase):
         self.assertEqual(inst.activity[0].detail.code.coding[0].system, "http://snomed.info/sct")
         self.assertFalse(inst.activity[0].detail.prohibited)
         self.assertEqual(inst.activity[0].detail.status, "not-started")
+        self.assertEqual(inst.contained[0].id, "goal")
         self.assertEqual(inst.id, "f203")
         self.assertEqual(inst.modified.date, FHIRDate("2013-03-11").date)
         self.assertEqual(inst.modified.as_json(), "2013-03-11")
@@ -251,6 +261,8 @@ class CarePlanTests(unittest.TestCase):
         self.assertEqual(inst.activity[1].detail.code.text, "Doctor Consultation")
         self.assertFalse(inst.activity[1].detail.prohibited)
         self.assertEqual(inst.activity[1].detail.status, "scheduled")
+        self.assertEqual(inst.contained[0].id, "p1")
+        self.assertEqual(inst.contained[1].id, "goal")
         self.assertEqual(inst.id, "gpvisit")
         self.assertEqual(inst.participant[0].id, "part1")
         self.assertEqual(inst.participant[0].role.coding[0].code, "nur")
@@ -409,6 +421,14 @@ class CarePlanTests(unittest.TestCase):
         self.assertEqual(inst.activity[9].detail.scheduledPeriod.start.date, FHIRDate("2012-07-10").date)
         self.assertEqual(inst.activity[9].detail.scheduledPeriod.start.as_json(), "2012-07-10")
         self.assertEqual(inst.activity[9].detail.status, "completed")
+        self.assertEqual(inst.contained[0].id, "p1")
+        self.assertEqual(inst.contained[1].id, "p2")
+        self.assertEqual(inst.contained[2].id, "p3")
+        self.assertEqual(inst.contained[3].id, "g1")
+        self.assertEqual(inst.contained[4].id, "g2")
+        self.assertEqual(inst.contained[5].id, "g3")
+        self.assertEqual(inst.contained[6].id, "g4")
+        self.assertEqual(inst.contained[7].id, "g5")
         self.assertEqual(inst.id, "integrate")
         self.assertEqual(inst.modified.date, FHIRDate("2012-09-10").date)
         self.assertEqual(inst.modified.as_json(), "2012-09-10")
@@ -465,6 +485,10 @@ class CarePlanTests(unittest.TestCase):
         self.assertEqual(inst.activity[2].detail.scheduledTiming.repeat.boundsPeriod.start.date, FHIRDate("2013-09-01").date)
         self.assertEqual(inst.activity[2].detail.scheduledTiming.repeat.boundsPeriod.start.as_json(), "2013-09-01")
         self.assertEqual(inst.activity[2].detail.status, "not-started")
+        self.assertEqual(inst.contained[0].id, "p1")
+        self.assertEqual(inst.contained[1].id, "pr1")
+        self.assertEqual(inst.contained[2].id, "pr2")
+        self.assertEqual(inst.contained[3].id, "goal")
         self.assertEqual(inst.extension[0].url, "http://example.org/DoNotUse/careplan#lmp")
         self.assertEqual(inst.extension[0].valueDateTime.date, FHIRDate("2013-01-01").date)
         self.assertEqual(inst.extension[0].valueDateTime.as_json(), "2013-01-01")
@@ -500,6 +524,9 @@ class CarePlanTests(unittest.TestCase):
         self.assertEqual(inst.activity[0].detail.scheduledTiming.repeat.frequency, 1)
         self.assertEqual(inst.activity[0].detail.scheduledTiming.repeat.period, 1)
         self.assertEqual(inst.activity[0].detail.scheduledTiming.repeat.periodUnits, "d")
+        self.assertEqual(inst.contained[0].id, "p1")
+        self.assertEqual(inst.contained[1].id, "pr1")
+        self.assertEqual(inst.contained[2].id, "goal")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.participant[0].role.text, "responsiblePerson")
         self.assertEqual(inst.participant[1].role.text, "adviser")

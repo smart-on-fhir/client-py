@@ -1,32 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Extension) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Extension) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import address
-from . import annotation
-from . import attachment
-from . import codeableconcept
-from . import coding
-from . import contactpoint
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import humanname
-from . import identifier
-from . import meta
-from . import period
-from . import quantity
-from . import range
-from . import ratio
-from . import sampleddata
-from . import signature
-from . import timing
+from . import element
 
-
-class Extension(fhirelement.FHIRElement):
+class Extension(element.Element):
     """ None.
     
     Optional Extensions Element - found in all resources.
@@ -216,3 +197,22 @@ class Extension(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import address
+from . import annotation
+from . import attachment
+from . import codeableconcept
+from . import coding
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference
+from . import humanname
+from . import identifier
+from . import meta
+from . import period
+from . import quantity
+from . import range
+from . import ratio
+from . import sampleddata
+from . import signature
+from . import timing

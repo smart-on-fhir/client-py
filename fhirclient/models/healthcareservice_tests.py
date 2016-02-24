@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -51,6 +51,7 @@ class HealthcareServiceTests(unittest.TestCase):
         self.assertEqual(inst.availableTime[1].daysOfWeek[1], "fri")
         self.assertEqual(inst.characteristic[0].coding[0].display, "Wheelchair access")
         self.assertEqual(inst.comment, "Providing Specialist psychology services to the greater Den Burg area, many years of experience dealing with PTSD issues")
+        self.assertEqual(inst.contained[0].id, "DenBurg")
         self.assertEqual(inst.eligibility.coding[0].display, "DVA Required")
         self.assertEqual(inst.eligibilityNote, "Evidence of application for DVA status may be sufficient for commencing assessment")
         self.assertEqual(inst.id, "example")

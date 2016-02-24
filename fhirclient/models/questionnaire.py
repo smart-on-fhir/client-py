@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import coding
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class Questionnaire(domainresource.DomainResource):
     """ A structured set of questions.
@@ -77,7 +70,9 @@ class Questionnaire(domainresource.DomainResource):
         return js
 
 
-class QuestionnaireGroup(fhirelement.FHIRElement):
+from . import backboneelement
+
+class QuestionnaireGroup(backboneelement.BackboneElement):
     """ Grouped questions.
     
     A collection of related questions (or further groupings of questions).
@@ -138,7 +133,7 @@ class QuestionnaireGroup(fhirelement.FHIRElement):
         return js
 
 
-class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
+class QuestionnaireGroupQuestion(backboneelement.BackboneElement):
     """ Questions in this group.
     
     Set of questions within this group. The order of questions within the group
@@ -204,3 +199,9 @@ class QuestionnaireGroupQuestion(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import coding
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference
+from . import identifier

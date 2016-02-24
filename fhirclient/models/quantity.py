@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Quantity) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Quantity) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import fhirelement
+from . import element
 
-
-class Quantity(fhirelement.FHIRElement):
+class Quantity(element.Element):
     """ A measured or measurable amount.
     
     A measured amount (or an amount that can potentially be measured). Note
@@ -54,4 +53,5 @@ class Quantity(fhirelement.FHIRElement):
             ("value", "value", float, False),
         ])
         return js
+
 

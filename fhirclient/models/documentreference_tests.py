@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -35,6 +35,7 @@ class DocumentReferenceTests(unittest.TestCase):
         self.assertEqual(inst.class_fhir.coding[0].code, "History and Physical")
         self.assertEqual(inst.class_fhir.coding[0].display, "History and Physical")
         self.assertEqual(inst.class_fhir.coding[0].system, "http://ihe.net/xds/connectathon/classCodes")
+        self.assertEqual(inst.contained[0].id, "a2")
         self.assertEqual(inst.content[0].attachment.contentType, "application/hl7-v3+xml")
         self.assertEqual(inst.content[0].attachment.hash, "2jmj7l5rSw0yVb/vlWAYkK/YBwk=")
         self.assertEqual(inst.content[0].attachment.language, "en-US")

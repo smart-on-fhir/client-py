@@ -1,17 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DetectedIssue) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DetectedIssue) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class DetectedIssue(domainresource.DomainResource):
     """ Clinical issue with action.
@@ -87,7 +81,9 @@ class DetectedIssue(domainresource.DomainResource):
         return js
 
 
-class DetectedIssueMitigation(fhirelement.FHIRElement):
+from . import backboneelement
+
+class DetectedIssueMitigation(backboneelement.BackboneElement):
     """ Step taken to address.
     
     Indicates an action that has been taken or is committed to to reduce or
@@ -125,3 +121,8 @@ class DetectedIssueMitigation(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier

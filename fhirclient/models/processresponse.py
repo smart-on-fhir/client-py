@@ -1,17 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import coding
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class ProcessResponse(domainresource.DomainResource):
     """ ProcessResponse resource.
@@ -100,7 +94,9 @@ class ProcessResponse(domainresource.DomainResource):
         return js
 
 
-class ProcessResponseNotes(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ProcessResponseNotes(backboneelement.BackboneElement):
     """ Notes.
     
     Suite of processing note or additional requirements is the processing has
@@ -131,3 +127,8 @@ class ProcessResponseNotes(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import identifier

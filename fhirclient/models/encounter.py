@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
-
 
 class Encounter(domainresource.DomainResource):
     """ An interaction during which services are provided to the patient.
@@ -132,7 +125,9 @@ class Encounter(domainresource.DomainResource):
         return js
 
 
-class EncounterHospitalization(fhirelement.FHIRElement):
+from . import backboneelement
+
+class EncounterHospitalization(backboneelement.BackboneElement):
     """ Details about the admission to a healthcare service.
     """
     
@@ -208,7 +203,7 @@ class EncounterHospitalization(fhirelement.FHIRElement):
         return js
 
 
-class EncounterLocation(fhirelement.FHIRElement):
+class EncounterLocation(backboneelement.BackboneElement):
     """ List of locations where the patient has been.
     
     List of locations where  the patient has been during this encounter.
@@ -244,7 +239,7 @@ class EncounterLocation(fhirelement.FHIRElement):
         return js
 
 
-class EncounterParticipant(fhirelement.FHIRElement):
+class EncounterParticipant(backboneelement.BackboneElement):
     """ List of participants involved in the encounter.
     
     The list of people responsible for providing the service.
@@ -280,7 +275,7 @@ class EncounterParticipant(fhirelement.FHIRElement):
         return js
 
 
-class EncounterStatusHistory(fhirelement.FHIRElement):
+class EncounterStatusHistory(backboneelement.BackboneElement):
     """ List of past encounter statuses.
     
     The status history permits the encounter resource to contain the status
@@ -312,3 +307,9 @@ class EncounterStatusHistory(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity

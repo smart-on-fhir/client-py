@@ -1,23 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Observation) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Observation) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import attachment
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
-from . import range
-from . import ratio
-from . import sampleddata
-
 
 class Observation(domainresource.DomainResource):
     """ Measurements and simple assertions.
@@ -191,7 +179,9 @@ class Observation(domainresource.DomainResource):
         return js
 
 
-class ObservationComponent(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ObservationComponent(backboneelement.BackboneElement):
     """ Component results.
     
     Some observations have multiple component observations.  These component
@@ -281,7 +271,7 @@ class ObservationComponent(fhirelement.FHIRElement):
         return js
 
 
-class ObservationReferenceRange(fhirelement.FHIRElement):
+class ObservationReferenceRange(backboneelement.BackboneElement):
     """ Provides guide for interpretation.
     
     Guidance on how to interpret the value by comparison to a normal or
@@ -328,7 +318,7 @@ class ObservationReferenceRange(fhirelement.FHIRElement):
         return js
 
 
-class ObservationRelated(fhirelement.FHIRElement):
+class ObservationRelated(backboneelement.BackboneElement):
     """ Resource related to this observation.
     
     A  reference to another resource (usually another Observation but could
@@ -361,3 +351,14 @@ class ObservationRelated(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import attachment
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity
+from . import range
+from . import ratio
+from . import sampleddata

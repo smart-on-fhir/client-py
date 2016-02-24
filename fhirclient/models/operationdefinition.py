@@ -1,16 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-
 
 class OperationDefinition(domainresource.DomainResource):
     """ Definition of an operation or a named query.
@@ -129,7 +124,9 @@ class OperationDefinition(domainresource.DomainResource):
         return js
 
 
-class OperationDefinitionContact(fhirelement.FHIRElement):
+from . import backboneelement
+
+class OperationDefinitionContact(backboneelement.BackboneElement):
     """ Contact details of the publisher.
     
     Contacts to assist a user in finding and communicating with the publisher.
@@ -160,7 +157,7 @@ class OperationDefinitionContact(fhirelement.FHIRElement):
         return js
 
 
-class OperationDefinitionParameter(fhirelement.FHIRElement):
+class OperationDefinitionParameter(backboneelement.BackboneElement):
     """ Parameters for the operation/query.
     
     The parameters for the operation/query.
@@ -226,7 +223,7 @@ class OperationDefinitionParameter(fhirelement.FHIRElement):
         return js
 
 
-class OperationDefinitionParameterBinding(fhirelement.FHIRElement):
+class OperationDefinitionParameterBinding(backboneelement.BackboneElement):
     """ ValueSet details if this is coded.
     
     Binds to a value set if this parameter is coded (code, Coding,
@@ -262,3 +259,7 @@ class OperationDefinitionParameterBinding(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference

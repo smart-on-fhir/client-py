@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import attachment
-from . import coding
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import quantity
-
 
 class QuestionnaireResponse(domainresource.DomainResource):
     """ A structured set of questions and their answers.
@@ -83,7 +75,9 @@ class QuestionnaireResponse(domainresource.DomainResource):
         return js
 
 
-class QuestionnaireResponseGroup(fhirelement.FHIRElement):
+from . import backboneelement
+
+class QuestionnaireResponseGroup(backboneelement.BackboneElement):
     """ Grouped questions.
     
     A group of questions to a possibly similarly grouped set of questions in
@@ -135,7 +129,7 @@ class QuestionnaireResponseGroup(fhirelement.FHIRElement):
         return js
 
 
-class QuestionnaireResponseGroupQuestion(fhirelement.FHIRElement):
+class QuestionnaireResponseGroupQuestion(backboneelement.BackboneElement):
     """ Questions in this group.
     
     Set of questions within this group. The order of questions within the group
@@ -172,7 +166,7 @@ class QuestionnaireResponseGroupQuestion(fhirelement.FHIRElement):
         return js
 
 
-class QuestionnaireResponseGroupQuestionAnswer(fhirelement.FHIRElement):
+class QuestionnaireResponseGroupQuestionAnswer(backboneelement.BackboneElement):
     """ The response(s) to the question.
     
     The respondent's answer(s) to the question.
@@ -262,3 +256,10 @@ class QuestionnaireResponseGroupQuestionAnswer(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import attachment
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import quantity

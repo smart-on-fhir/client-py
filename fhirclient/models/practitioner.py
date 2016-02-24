@@ -1,22 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import address
-from . import attachment
-from . import codeableconcept
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import humanname
-from . import identifier
-from . import period
-
 
 class Practitioner(domainresource.DomainResource):
     """ A person with a  formal responsibility in the provisioning of healthcare or
@@ -96,7 +85,9 @@ class Practitioner(domainresource.DomainResource):
         return js
 
 
-class PractitionerPractitionerRole(fhirelement.FHIRElement):
+from . import backboneelement
+
+class PractitionerPractitionerRole(backboneelement.BackboneElement):
     """ Roles/organizations the practitioner is associated with.
     
     The list of roles/organizations that the practitioner is associated with.
@@ -149,7 +140,7 @@ class PractitionerPractitionerRole(fhirelement.FHIRElement):
         return js
 
 
-class PractitionerQualification(fhirelement.FHIRElement):
+class PractitionerQualification(backboneelement.BackboneElement):
     """ Qualifications obtained by training and certification.
     """
     
@@ -187,3 +178,13 @@ class PractitionerQualification(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import address
+from . import attachment
+from . import codeableconcept
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference
+from . import humanname
+from . import identifier
+from . import period

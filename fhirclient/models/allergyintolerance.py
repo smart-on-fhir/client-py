@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import annotation
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class AllergyIntolerance(domainresource.DomainResource):
     """ Allergy or Intolerance (generally: Risk Of Adverse reaction to a substance).
@@ -107,7 +100,9 @@ class AllergyIntolerance(domainresource.DomainResource):
         return js
 
 
-class AllergyIntoleranceReaction(fhirelement.FHIRElement):
+from . import backboneelement
+
+class AllergyIntoleranceReaction(backboneelement.BackboneElement):
     """ Adverse Reaction Events linked to exposure to substance.
     
     Details about each adverse reaction event linked to exposure to the
@@ -169,3 +164,9 @@ class AllergyIntoleranceReaction(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import annotation
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier

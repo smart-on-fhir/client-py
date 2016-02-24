@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Resource) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Resource) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import fhirresource
-from . import meta
+from . import fhirabstractresource
 
-
-class Resource(fhirresource.FHIRResource):
+class Resource(fhirabstractresource.FHIRAbstractResource):
     """ Base Resource.
     
     This is the base resource type for everything.
@@ -20,6 +18,10 @@ class Resource(fhirresource.FHIRResource):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
+        
+        self.id = None
+        """ Logical id of this artifact.
+        Type `str`. """
         
         self.implicitRules = None
         """ A set of rules under which this content was created.
@@ -38,9 +40,12 @@ class Resource(fhirresource.FHIRResource):
     def elementProperties(self):
         js = super(Resource, self).elementProperties()
         js.extend([
+            ("id", "id", str, False),
             ("implicitRules", "implicitRules", str, False),
             ("language", "language", str, False),
             ("meta", "meta", meta.Meta, False),
         ])
         return js
 
+
+from . import meta

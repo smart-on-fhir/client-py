@@ -1,16 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import coding
 from . import domainresource
-from . import fhirreference
-from . import identifier
-from . import period
-
 
 class Coverage(domainresource.DomainResource):
     """ Insurance or medical plan.
@@ -103,3 +98,8 @@ class Coverage(domainresource.DomainResource):
         ])
         return js
 
+
+from . import coding
+from . import fhirreference
+from . import identifier
+from . import period

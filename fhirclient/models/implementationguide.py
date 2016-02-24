@@ -1,17 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-
 
 class ImplementationGuide(domainresource.DomainResource):
     """ A set of rules about how FHIR is used.
@@ -121,7 +115,9 @@ class ImplementationGuide(domainresource.DomainResource):
         return js
 
 
-class ImplementationGuideContact(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ImplementationGuideContact(backboneelement.BackboneElement):
     """ Contact details of the publisher.
     
     Contacts to assist a user in finding and communicating with the publisher.
@@ -152,7 +148,7 @@ class ImplementationGuideContact(fhirelement.FHIRElement):
         return js
 
 
-class ImplementationGuideDependency(fhirelement.FHIRElement):
+class ImplementationGuideDependency(backboneelement.BackboneElement):
     """ Another Implementation guide this depends on.
     
     Another implementation guide that this implementation depends on.
@@ -185,7 +181,7 @@ class ImplementationGuideDependency(fhirelement.FHIRElement):
         return js
 
 
-class ImplementationGuideGlobal(fhirelement.FHIRElement):
+class ImplementationGuideGlobal(backboneelement.BackboneElement):
     """ Profiles that apply globally.
     
     A set of profiles that all resources covered by this implementation guide
@@ -217,7 +213,7 @@ class ImplementationGuideGlobal(fhirelement.FHIRElement):
         return js
 
 
-class ImplementationGuidePackage(fhirelement.FHIRElement):
+class ImplementationGuidePackage(backboneelement.BackboneElement):
     """ Group of resources as used in .page.package.
     
     A logical group of resources. Logical groups can be used when building
@@ -254,7 +250,7 @@ class ImplementationGuidePackage(fhirelement.FHIRElement):
         return js
 
 
-class ImplementationGuidePackageResource(fhirelement.FHIRElement):
+class ImplementationGuidePackageResource(backboneelement.BackboneElement):
     """ Resource in the implementation guide.
     
     A resource that is part of the implementation guide. Conformance resources
@@ -313,7 +309,7 @@ class ImplementationGuidePackageResource(fhirelement.FHIRElement):
         return js
 
 
-class ImplementationGuidePage(fhirelement.FHIRElement):
+class ImplementationGuidePage(backboneelement.BackboneElement):
     """ Page/Section in the Guide.
     
     A page / section in the implementation guide. The root page is the
@@ -370,3 +366,8 @@ class ImplementationGuidePage(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference

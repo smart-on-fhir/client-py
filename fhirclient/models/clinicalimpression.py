@@ -1,16 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-
 
 class ClinicalImpression(domainresource.DomainResource):
     """ A clinical assessment performed when planning treatments and management
@@ -130,7 +125,9 @@ class ClinicalImpression(domainresource.DomainResource):
         return js
 
 
-class ClinicalImpressionFinding(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ClinicalImpressionFinding(backboneelement.BackboneElement):
     """ Possible or likely findings and diagnoses.
     
     Specific findings or diagnoses that was considered likely or relevant to
@@ -162,7 +159,7 @@ class ClinicalImpressionFinding(fhirelement.FHIRElement):
         return js
 
 
-class ClinicalImpressionInvestigations(fhirelement.FHIRElement):
+class ClinicalImpressionInvestigations(backboneelement.BackboneElement):
     """ One or more sets of investigations (signs, symptions, etc.).
     
     One or more sets of investigations (signs, symptions, etc.). The actual
@@ -197,7 +194,7 @@ class ClinicalImpressionInvestigations(fhirelement.FHIRElement):
         return js
 
 
-class ClinicalImpressionRuledOut(fhirelement.FHIRElement):
+class ClinicalImpressionRuledOut(backboneelement.BackboneElement):
     """ Diagnosis considered not possible.
     """
     
@@ -225,3 +222,7 @@ class ClinicalImpressionRuledOut(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference

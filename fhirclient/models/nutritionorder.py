@@ -1,20 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import quantity
-from . import ratio
-from . import timing
-
 
 class NutritionOrder(domainresource.DomainResource):
     """ A request for a diet, formula or nutritional supplement.
@@ -101,7 +92,9 @@ class NutritionOrder(domainresource.DomainResource):
         return js
 
 
-class NutritionOrderEnteralFormula(fhirelement.FHIRElement):
+from . import backboneelement
+
+class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
     """ Enteral formula components.
     
     Feeding provided through the gastrointestinal tract via a tube, catheter,
@@ -168,7 +161,7 @@ class NutritionOrderEnteralFormula(fhirelement.FHIRElement):
         return js
 
 
-class NutritionOrderEnteralFormulaAdministration(fhirelement.FHIRElement):
+class NutritionOrderEnteralFormulaAdministration(backboneelement.BackboneElement):
     """ Formula feeding instruction as structured data.
     
     Formula administration instructions as structured data.  This repeating
@@ -212,7 +205,7 @@ class NutritionOrderEnteralFormulaAdministration(fhirelement.FHIRElement):
         return js
 
 
-class NutritionOrderOralDiet(fhirelement.FHIRElement):
+class NutritionOrderOralDiet(backboneelement.BackboneElement):
     """ Oral diet components.
     
     Diet given orally in contrast to enteral (tube) feeding.
@@ -265,7 +258,7 @@ class NutritionOrderOralDiet(fhirelement.FHIRElement):
         return js
 
 
-class NutritionOrderOralDietNutrient(fhirelement.FHIRElement):
+class NutritionOrderOralDietNutrient(backboneelement.BackboneElement):
     """ Required  nutrient modifications.
     
     Class that defines the quantity and type of nutrient modifications required
@@ -297,7 +290,7 @@ class NutritionOrderOralDietNutrient(fhirelement.FHIRElement):
         return js
 
 
-class NutritionOrderOralDietTexture(fhirelement.FHIRElement):
+class NutritionOrderOralDietTexture(backboneelement.BackboneElement):
     """ Required  texture modifications.
     
     Class that describes any texture modifications required for the patient to
@@ -330,7 +323,7 @@ class NutritionOrderOralDietTexture(fhirelement.FHIRElement):
         return js
 
 
-class NutritionOrderSupplement(fhirelement.FHIRElement):
+class NutritionOrderSupplement(backboneelement.BackboneElement):
     """ Supplement components.
     
     Oral nutritional products given in order to add further nutritional value
@@ -376,3 +369,11 @@ class NutritionOrderSupplement(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import quantity
+from . import ratio
+from . import timing

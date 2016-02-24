@@ -1,21 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import annotation
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
-from . import range
-
 
 class FamilyMemberHistory(domainresource.DomainResource):
     """ Information about patient's relatives, relevant for patient.
@@ -139,7 +129,9 @@ class FamilyMemberHistory(domainresource.DomainResource):
         return js
 
 
-class FamilyMemberHistoryCondition(fhirelement.FHIRElement):
+from . import backboneelement
+
+class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
     """ Condition that the related person had.
     
     The significant Conditions (or condition) that the family member had. This
@@ -197,3 +189,12 @@ class FamilyMemberHistoryCondition(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import annotation
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity
+from . import range

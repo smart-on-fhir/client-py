@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Group) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Group) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
-from . import range
-
 
 class Group(domainresource.DomainResource):
     """ Group of multiple entities.
@@ -79,7 +71,9 @@ class Group(domainresource.DomainResource):
         return js
 
 
-class GroupCharacteristic(fhirelement.FHIRElement):
+from . import backboneelement
+
+class GroupCharacteristic(backboneelement.BackboneElement):
     """ Trait of group members.
     
     Identifies the traits shared by members of the group.
@@ -135,7 +129,7 @@ class GroupCharacteristic(fhirelement.FHIRElement):
         return js
 
 
-class GroupMember(fhirelement.FHIRElement):
+class GroupMember(backboneelement.BackboneElement):
     """ Who or what is in group.
     
     Identifies the resource instances that are members of the group.
@@ -170,3 +164,10 @@ class GroupMember(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity
+from . import range

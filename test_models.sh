@@ -22,7 +22,7 @@ python -m unittest ${tests[@]}
 # couple of custom tests
 echo 'import requests' | python 2>/dev/null
 if [ $? -eq 0 ]; then
-	python -m unittest server_tests.py
+	python -m unittest server_tests.py fhirreference_tests.py
 else
 	echo "You don't have the 'requests' module installed, will skip extra tests"
 fi

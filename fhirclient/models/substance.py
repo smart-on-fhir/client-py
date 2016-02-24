@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Substance) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Substance) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import quantity
-from . import ratio
-
 
 class Substance(domainresource.DomainResource):
     """ A homogeneous material with a definite composition.
@@ -64,7 +56,9 @@ class Substance(domainresource.DomainResource):
         return js
 
 
-class SubstanceIngredient(fhirelement.FHIRElement):
+from . import backboneelement
+
+class SubstanceIngredient(backboneelement.BackboneElement):
     """ Composition information about the substance.
     
     A substance can be composed of other substances.
@@ -95,7 +89,7 @@ class SubstanceIngredient(fhirelement.FHIRElement):
         return js
 
 
-class SubstanceInstance(fhirelement.FHIRElement):
+class SubstanceInstance(backboneelement.BackboneElement):
     """ If this describes a specific package/container of the substance.
     
     Substance may be used to describe a kind of substance, or a specific
@@ -131,3 +125,10 @@ class SubstanceInstance(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import quantity
+from . import ratio

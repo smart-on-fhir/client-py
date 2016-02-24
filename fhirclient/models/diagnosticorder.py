@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DiagnosticOrder) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DiagnosticOrder) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import annotation
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class DiagnosticOrder(domainresource.DomainResource):
     """ A request for a diagnostic service.
@@ -98,7 +91,9 @@ class DiagnosticOrder(domainresource.DomainResource):
         return js
 
 
-class DiagnosticOrderEvent(fhirelement.FHIRElement):
+from . import backboneelement
+
+class DiagnosticOrderEvent(backboneelement.BackboneElement):
     """ A list of events of interest in the lifecycle.
     
     A summary of the events of interest that have occurred as the request is
@@ -143,7 +138,7 @@ class DiagnosticOrderEvent(fhirelement.FHIRElement):
         return js
 
 
-class DiagnosticOrderItem(fhirelement.FHIRElement):
+class DiagnosticOrderItem(backboneelement.BackboneElement):
     """ The items the orderer requested.
     
     The specific diagnostic investigations that are requested as part of this
@@ -192,3 +187,9 @@ class DiagnosticOrderItem(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import annotation
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier

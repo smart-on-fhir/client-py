@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/BackboneElement) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/BackboneElement) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import fhirelement
+from . import element
 
-
-class BackboneElement(fhirelement.FHIRElement):
+class BackboneElement(element.Element):
     """ Base for elements defined inside a resource.
     
     Base definition for all elements that are defined inside a resource - but
@@ -21,5 +20,18 @@ class BackboneElement(fhirelement.FHIRElement):
         """ Initialize all valid properties.
         """
         
+        self.modifierExtension = None
+        """ Extensions that cannot be ignored.
+        List of `Extension` items (represented as `dict` in JSON). """
+        
         super(BackboneElement, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(BackboneElement, self).elementProperties()
+        js.extend([
+            ("modifierExtension", "modifierExtension", extension.Extension, True),
+        ])
+        return js
 
+
+from . import extension

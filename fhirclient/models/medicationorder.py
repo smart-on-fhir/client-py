@@ -1,22 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/MedicationOrder) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MedicationOrder) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
-from . import range
-from . import ratio
-from . import timing
-
 
 class MedicationOrder(domainresource.DomainResource):
     """ Prescription of medication to for patient.
@@ -128,7 +117,9 @@ class MedicationOrder(domainresource.DomainResource):
         return js
 
 
-class MedicationOrderDispenseRequest(fhirelement.FHIRElement):
+from . import backboneelement
+
+class MedicationOrderDispenseRequest(backboneelement.BackboneElement):
     """ Medication supply authorization.
     
     Indicates the specific details for the dispense or medication supply part
@@ -183,7 +174,7 @@ class MedicationOrderDispenseRequest(fhirelement.FHIRElement):
         return js
 
 
-class MedicationOrderDosageInstruction(fhirelement.FHIRElement):
+class MedicationOrderDosageInstruction(backboneelement.BackboneElement):
     """ How medication should be taken.
     
     Indicates how the medication is to be used by the patient.
@@ -274,7 +265,7 @@ class MedicationOrderDosageInstruction(fhirelement.FHIRElement):
         return js
 
 
-class MedicationOrderSubstitution(fhirelement.FHIRElement):
+class MedicationOrderSubstitution(backboneelement.BackboneElement):
     """ Any restrictions on medication substitution.
     
     Indicates whether or not substitution can or should be part of the
@@ -308,3 +299,13 @@ class MedicationOrderSubstitution(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity
+from . import range
+from . import ratio
+from . import timing

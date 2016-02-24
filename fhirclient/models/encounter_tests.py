@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -186,8 +186,6 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.id, "f202")
         self.assertEqual(inst.identifier[0].use, "temp")
         self.assertEqual(inst.identifier[0].value, "Encounter_Roel_20130128")
-        self.assertEqual(inst.indication[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/encounter-primaryDiagnosis")
-        self.assertEqual(inst.indication[0].extension[0].valueInteger, 1)
         self.assertEqual(inst.length.code, "258701004")
         self.assertEqual(inst.length.system, "http://snomed.info/sct")
         self.assertEqual(inst.length.unit, "minutes")
@@ -252,6 +250,7 @@ class EncounterTests(unittest.TestCase):
     
     def implEncounter7(self, inst):
         self.assertEqual(inst.class_fhir, "virtual")
+        self.assertEqual(inst.contained[0].id, "home")
         self.assertEqual(inst.id, "home")
         self.assertEqual(inst.location[0].period.end.date, FHIRDate("2015-01-17T16:30:00+10:00").date)
         self.assertEqual(inst.location[0].period.end.as_json(), "2015-01-17T16:30:00+10:00")

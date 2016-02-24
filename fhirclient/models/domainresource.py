@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DomainResource) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DomainResource) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import narrative
 from . import resource
-
 
 class DomainResource(resource.Resource):
     """ A resource with narrative, extensions, and contained resources.
@@ -21,6 +19,18 @@ class DomainResource(resource.Resource):
         """ Initialize all valid properties.
         """
         
+        self.contained = None
+        """ Contained, inline Resources.
+        List of `Resource` items (represented as `dict` in JSON). """
+        
+        self.extension = None
+        """ Additional Content defined by implementations.
+        List of `Extension` items (represented as `dict` in JSON). """
+        
+        self.modifierExtension = None
+        """ Extensions that cannot be ignored.
+        List of `Extension` items (represented as `dict` in JSON). """
+        
         self.text = None
         """ Text summary of the resource, for human interpretation.
         Type `Narrative` (represented as `dict` in JSON). """
@@ -30,7 +40,13 @@ class DomainResource(resource.Resource):
     def elementProperties(self):
         js = super(DomainResource, self).elementProperties()
         js.extend([
+            ("contained", "contained", resource.Resource, True),
+            ("extension", "extension", extension.Extension, True),
+            ("modifierExtension", "modifierExtension", extension.Extension, True),
             ("text", "text", narrative.Narrative, False),
         ])
         return js
 
+
+from . import extension
+from . import narrative

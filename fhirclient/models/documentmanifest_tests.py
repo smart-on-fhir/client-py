@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -32,6 +32,7 @@ class DocumentManifestTests(unittest.TestCase):
         self.implDocumentManifest1(inst2)
     
     def implDocumentManifest1(self, inst):
+        self.assertEqual(inst.contained[0].id, "a1")
         self.assertEqual(inst.created.date, FHIRDate("2004-12-25T23:50:50-05:00").date)
         self.assertEqual(inst.created.as_json(), "2004-12-25T23:50:50-05:00")
         self.assertEqual(inst.description, "Physical")

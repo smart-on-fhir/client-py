@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
-from . import contactpoint
 from . import domainresource
-from . import elementdefinition
-from . import fhirdate
-from . import fhirelement
-from . import identifier
-
 
 class DataElement(domainresource.DomainResource):
     """ Resource data element.
@@ -107,7 +100,9 @@ class DataElement(domainresource.DomainResource):
         return js
 
 
-class DataElementContact(fhirelement.FHIRElement):
+from . import backboneelement
+
+class DataElementContact(backboneelement.BackboneElement):
     """ Contact details of the publisher.
     
     Contacts to assist a user in finding and communicating with the publisher.
@@ -138,7 +133,7 @@ class DataElementContact(fhirelement.FHIRElement):
         return js
 
 
-class DataElementMapping(fhirelement.FHIRElement):
+class DataElementMapping(backboneelement.BackboneElement):
     """ External specification mapped to.
     
     Identifies a specification (other than a terminology) that the elements
@@ -179,3 +174,9 @@ class DataElementMapping(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import contactpoint
+from . import elementdefinition
+from . import fhirdate
+from . import identifier

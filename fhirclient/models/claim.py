@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Claim) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Claim) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import coding
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import quantity
-
 
 class Claim(domainresource.DomainResource):
     """ Claim, Pre-determination or Pre-authorization.
@@ -182,7 +175,9 @@ class Claim(domainresource.DomainResource):
         return js
 
 
-class ClaimCoverage(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ClaimCoverage(backboneelement.BackboneElement):
     """ Insurance or medical plan.
     
     Financial instrument by which payment information for health care.
@@ -243,7 +238,7 @@ class ClaimCoverage(fhirelement.FHIRElement):
         return js
 
 
-class ClaimDiagnosis(fhirelement.FHIRElement):
+class ClaimDiagnosis(backboneelement.BackboneElement):
     """ Diagnosis.
     
     Ordered list of patient diagnosis for which care is sought.
@@ -274,7 +269,7 @@ class ClaimDiagnosis(fhirelement.FHIRElement):
         return js
 
 
-class ClaimItem(fhirelement.FHIRElement):
+class ClaimItem(backboneelement.BackboneElement):
     """ Goods and Services.
     
     First tier of goods and services.
@@ -380,7 +375,7 @@ class ClaimItem(fhirelement.FHIRElement):
         return js
 
 
-class ClaimItemDetail(fhirelement.FHIRElement):
+class ClaimItemDetail(backboneelement.BackboneElement):
     """ Additional items.
     
     Second tier of goods and services.
@@ -451,7 +446,7 @@ class ClaimItemDetail(fhirelement.FHIRElement):
         return js
 
 
-class ClaimItemDetailSubDetail(fhirelement.FHIRElement):
+class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
     """ Additional items.
     
     Third tier of goods and services.
@@ -517,7 +512,7 @@ class ClaimItemDetailSubDetail(fhirelement.FHIRElement):
         return js
 
 
-class ClaimItemProsthesis(fhirelement.FHIRElement):
+class ClaimItemProsthesis(backboneelement.BackboneElement):
     """ Prosthetic details.
     
     The materials and placement date of prior fixed prosthesis.
@@ -553,7 +548,7 @@ class ClaimItemProsthesis(fhirelement.FHIRElement):
         return js
 
 
-class ClaimMissingTeeth(fhirelement.FHIRElement):
+class ClaimMissingTeeth(backboneelement.BackboneElement):
     """ Only if type = oral.
     
     A list of teeth which would be expected but are not found due to having
@@ -590,7 +585,7 @@ class ClaimMissingTeeth(fhirelement.FHIRElement):
         return js
 
 
-class ClaimPayee(fhirelement.FHIRElement):
+class ClaimPayee(backboneelement.BackboneElement):
     """ Payee.
     
     The party to be reimbursed for the services.
@@ -630,3 +625,9 @@ class ClaimPayee(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import quantity

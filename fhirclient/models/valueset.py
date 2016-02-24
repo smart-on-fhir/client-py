@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
-from . import coding
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import identifier
-
 
 class ValueSet(domainresource.DomainResource):
     """ A set of codes drawn from one or more code systems.
@@ -27,7 +20,7 @@ class ValueSet(domainresource.DomainResource):
         """
         
         self.codeSystem = None
-        """ An inline code system - part of this value set.
+        """ An inline code system, which is part of this value set.
         Type `ValueSetCodeSystem` (represented as `dict` in JSON). """
         
         self.compose = None
@@ -131,12 +124,14 @@ class ValueSet(domainresource.DomainResource):
         return js
 
 
-class ValueSetCodeSystem(fhirelement.FHIRElement):
-    """ An inline code system - part of this value set.
+from . import backboneelement
+
+class ValueSetCodeSystem(backboneelement.BackboneElement):
+    """ An inline code system, which is part of this value set.
     
     A definition of a code system, inlined into the value set (as a packaging
     convenience). Note that the inline code system may be used from other value
-    sets by referring to it's (codeSystem.system) directly.
+    sets by referring to its (codeSystem.system) directly.
     """
     
     resource_name = "ValueSetCodeSystem"
@@ -174,7 +169,7 @@ class ValueSetCodeSystem(fhirelement.FHIRElement):
         return js
 
 
-class ValueSetCodeSystemConcept(fhirelement.FHIRElement):
+class ValueSetCodeSystemConcept(backboneelement.BackboneElement):
     """ Concepts in the code system.
     
     Concepts that are in the code system. The concept definitions are
@@ -201,7 +196,7 @@ class ValueSetCodeSystemConcept(fhirelement.FHIRElement):
         List of `ValueSetCodeSystemConcept` items (represented as `dict` in JSON). """
         
         self.definition = None
-        """ Formal Definition.
+        """ Formal definition.
         Type `str`. """
         
         self.designation = None
@@ -209,7 +204,7 @@ class ValueSetCodeSystemConcept(fhirelement.FHIRElement):
         List of `ValueSetCodeSystemConceptDesignation` items (represented as `dict` in JSON). """
         
         self.display = None
-        """ Text to Display to the user.
+        """ Text to display to the user.
         Type `str`. """
         
         super(ValueSetCodeSystemConcept, self).__init__(jsondict)
@@ -227,7 +222,7 @@ class ValueSetCodeSystemConcept(fhirelement.FHIRElement):
         return js
 
 
-class ValueSetCodeSystemConceptDesignation(fhirelement.FHIRElement):
+class ValueSetCodeSystemConceptDesignation(backboneelement.BackboneElement):
     """ Additional representations for the concept.
     
     Additional representations for the concept - other languages, aliases,
@@ -264,7 +259,7 @@ class ValueSetCodeSystemConceptDesignation(fhirelement.FHIRElement):
         return js
 
 
-class ValueSetCompose(fhirelement.FHIRElement):
+class ValueSetCompose(backboneelement.BackboneElement):
     """ When value set includes codes from elsewhere.
     
     A set of criteria that provide the content logical definition of the value
@@ -301,7 +296,7 @@ class ValueSetCompose(fhirelement.FHIRElement):
         return js
 
 
-class ValueSetComposeInclude(fhirelement.FHIRElement):
+class ValueSetComposeInclude(backboneelement.BackboneElement):
     """ Include one or more codes from a code system.
     """
     
@@ -340,7 +335,7 @@ class ValueSetComposeInclude(fhirelement.FHIRElement):
         return js
 
 
-class ValueSetComposeIncludeConcept(fhirelement.FHIRElement):
+class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
     """ A concept defined in the system.
     
     Specifies a concept to be included or excluded.
@@ -376,7 +371,7 @@ class ValueSetComposeIncludeConcept(fhirelement.FHIRElement):
         return js
 
 
-class ValueSetComposeIncludeFilter(fhirelement.FHIRElement):
+class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
     """ Select codes/concepts by their properties (including relationships).
     
     Select concepts by specify a matching criteria based on the properties
@@ -414,7 +409,7 @@ class ValueSetComposeIncludeFilter(fhirelement.FHIRElement):
         return js
 
 
-class ValueSetContact(fhirelement.FHIRElement):
+class ValueSetContact(backboneelement.BackboneElement):
     """ Contact details of the publisher.
     
     Contacts to assist a user in finding and communicating with the publisher.
@@ -445,7 +440,7 @@ class ValueSetContact(fhirelement.FHIRElement):
         return js
 
 
-class ValueSetExpansion(fhirelement.FHIRElement):
+class ValueSetExpansion(backboneelement.BackboneElement):
     """ Used when the value set is "expanded".
     
     A value set can also be "expanded", where the value set is turned into a
@@ -498,7 +493,7 @@ class ValueSetExpansion(fhirelement.FHIRElement):
         return js
 
 
-class ValueSetExpansionContains(fhirelement.FHIRElement):
+class ValueSetExpansionContains(backboneelement.BackboneElement):
     """ Codes in the value set.
     
     The codes that are contained in the value set expansion.
@@ -549,10 +544,10 @@ class ValueSetExpansionContains(fhirelement.FHIRElement):
         return js
 
 
-class ValueSetExpansionParameter(fhirelement.FHIRElement):
+class ValueSetExpansionParameter(backboneelement.BackboneElement):
     """ Parameter that controlled the expansion process.
     
-    A Parameter that controlled the expansion process. These parameters may be
+    A parameter that controlled the expansion process. These parameters may be
     used by users of expanded value sets to check whether the expansion is
     suitable for a particular purpose, or to pick the correct expansion.
     """
@@ -564,7 +559,7 @@ class ValueSetExpansionParameter(fhirelement.FHIRElement):
         """
         
         self.name = None
-        """ Name as assigned by server.
+        """ Name as assigned by the server.
         Type `str`. """
         
         self.valueBoolean = None
@@ -606,3 +601,9 @@ class ValueSetExpansionParameter(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import coding
+from . import contactpoint
+from . import fhirdate
+from . import identifier

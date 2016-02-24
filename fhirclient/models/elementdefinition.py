@@ -1,32 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import address
-from . import annotation
-from . import attachment
-from . import codeableconcept
-from . import coding
-from . import contactpoint
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import humanname
-from . import identifier
-from . import meta
-from . import period
-from . import quantity
-from . import range
-from . import ratio
-from . import sampleddata
-from . import signature
-from . import timing
+from . import element
 
-
-class ElementDefinition(fhirelement.FHIRElement):
+class ElementDefinition(element.Element):
     """ Definition of an element in a resource or extension.
     
     Captures constraints on each element within the resource, profile, or
@@ -1163,7 +1144,7 @@ class ElementDefinition(fhirelement.FHIRElement):
         return js
 
 
-class ElementDefinitionBase(fhirelement.FHIRElement):
+class ElementDefinitionBase(element.Element):
     """ Base definition information for tools.
     
     Information about the base definition of the element, provided to make it
@@ -1203,7 +1184,7 @@ class ElementDefinitionBase(fhirelement.FHIRElement):
         return js
 
 
-class ElementDefinitionBinding(fhirelement.FHIRElement):
+class ElementDefinitionBinding(element.Element):
     """ ValueSet details if this is coded.
     
     Binds to a value set if this element is coded (code, Coding,
@@ -1245,7 +1226,7 @@ class ElementDefinitionBinding(fhirelement.FHIRElement):
         return js
 
 
-class ElementDefinitionConstraint(fhirelement.FHIRElement):
+class ElementDefinitionConstraint(element.Element):
     """ Condition that must evaluate to true.
     
     Formal constraints such as co-occurrence and other constraints that can be
@@ -1292,7 +1273,7 @@ class ElementDefinitionConstraint(fhirelement.FHIRElement):
         return js
 
 
-class ElementDefinitionMapping(fhirelement.FHIRElement):
+class ElementDefinitionMapping(element.Element):
     """ Map element to another set of definitions.
     
     Identifies a concept from an external specification that roughly
@@ -1329,7 +1310,7 @@ class ElementDefinitionMapping(fhirelement.FHIRElement):
         return js
 
 
-class ElementDefinitionSlicing(fhirelement.FHIRElement):
+class ElementDefinitionSlicing(element.Element):
     """ This element is sliced - slices follow.
     
     Indicates that the element is sliced into a set of alternative definitions
@@ -1376,7 +1357,7 @@ class ElementDefinitionSlicing(fhirelement.FHIRElement):
         return js
 
 
-class ElementDefinitionType(fhirelement.FHIRElement):
+class ElementDefinitionType(element.Element):
     """ Data type and Profile for this element.
     
     The data type or resource that the value of this element is permitted to
@@ -1412,3 +1393,22 @@ class ElementDefinitionType(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import address
+from . import annotation
+from . import attachment
+from . import codeableconcept
+from . import coding
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference
+from . import humanname
+from . import identifier
+from . import meta
+from . import period
+from . import quantity
+from . import range
+from . import ratio
+from . import sampleddata
+from . import signature
+from . import timing

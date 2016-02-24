@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Range) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Range) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import fhirelement
-from . import quantity
+from . import element
 
-
-class Range(fhirelement.FHIRElement):
+class Range(element.Element):
     """ Set of values bounded by low and high.
     
     A set of ordered Quantities defined by a low and high limit.
@@ -39,3 +37,5 @@ class Range(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import quantity

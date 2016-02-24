@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
-from . import coding
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class TestScript(domainresource.DomainResource):
     """ Describes a set of tests.
@@ -144,7 +136,9 @@ class TestScript(domainresource.DomainResource):
         return js
 
 
-class TestScriptContact(fhirelement.FHIRElement):
+from . import backboneelement
+
+class TestScriptContact(backboneelement.BackboneElement):
     """ Contact details of the publisher.
     
     Contacts to assist a user in finding and communicating with the publisher.
@@ -175,7 +169,7 @@ class TestScriptContact(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptFixture(fhirelement.FHIRElement):
+class TestScriptFixture(backboneelement.BackboneElement):
     """ Fixture in the test script - by reference (uri).
     
     Fixture in the test script - by reference (uri). All fixtures are required
@@ -212,7 +206,7 @@ class TestScriptFixture(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptMetadata(fhirelement.FHIRElement):
+class TestScriptMetadata(backboneelement.BackboneElement):
     """ Required capability that is assumed to function correctly on the FHIR
     server being tested.
     
@@ -246,7 +240,7 @@ class TestScriptMetadata(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptMetadataCapability(fhirelement.FHIRElement):
+class TestScriptMetadataCapability(backboneelement.BackboneElement):
     """ Capabilities  that are assumed to function correctly on the FHIR server
     being tested.
     
@@ -299,7 +293,7 @@ class TestScriptMetadataCapability(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptMetadataLink(fhirelement.FHIRElement):
+class TestScriptMetadataLink(backboneelement.BackboneElement):
     """ Links to the FHIR specification.
     
     A link to the FHIR specification that this test is covering.
@@ -330,7 +324,7 @@ class TestScriptMetadataLink(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptSetup(fhirelement.FHIRElement):
+class TestScriptSetup(backboneelement.BackboneElement):
     """ A series of required setup operations before tests are executed.
     """
     
@@ -360,7 +354,7 @@ class TestScriptSetup(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptSetupAction(fhirelement.FHIRElement):
+class TestScriptSetupAction(backboneelement.BackboneElement):
     """ A setup operation or assert to perform.
     
     Action would contain either an operation or an assertion.
@@ -391,7 +385,7 @@ class TestScriptSetupAction(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptSetupActionAssert(fhirelement.FHIRElement):
+class TestScriptSetupActionAssert(backboneelement.BackboneElement):
     """ The assertion to perform.
     
     Evaluates the results of previous operations to determine if the server
@@ -507,7 +501,7 @@ class TestScriptSetupActionAssert(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptSetupActionOperation(fhirelement.FHIRElement):
+class TestScriptSetupActionOperation(backboneelement.BackboneElement):
     """ The setup operation to perform.
     
     The operation to perform.
@@ -599,7 +593,7 @@ class TestScriptSetupActionOperation(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptSetupActionOperationRequestHeader(fhirelement.FHIRElement):
+class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElement):
     """ Each operation can have one ore more header elements.
     
     Header elements would be used to set HTTP headers.
@@ -630,7 +624,7 @@ class TestScriptSetupActionOperationRequestHeader(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptTeardown(fhirelement.FHIRElement):
+class TestScriptTeardown(backboneelement.BackboneElement):
     """ A series of required clean up steps.
     
     A series of operations required to clean up after the all the tests are
@@ -657,7 +651,7 @@ class TestScriptTeardown(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptTeardownAction(fhirelement.FHIRElement):
+class TestScriptTeardownAction(backboneelement.BackboneElement):
     """ One or more teardown operations to perform.
     
     The teardown action will only contain an operation.
@@ -683,7 +677,7 @@ class TestScriptTeardownAction(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptTest(fhirelement.FHIRElement):
+class TestScriptTest(backboneelement.BackboneElement):
     """ A test in this script.
     """
     
@@ -723,7 +717,7 @@ class TestScriptTest(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptTestAction(fhirelement.FHIRElement):
+class TestScriptTestAction(backboneelement.BackboneElement):
     """ A test operation or assert to perform.
     
     Action would contain either an operation or an assertion.
@@ -754,7 +748,7 @@ class TestScriptTestAction(fhirelement.FHIRElement):
         return js
 
 
-class TestScriptVariable(fhirelement.FHIRElement):
+class TestScriptVariable(backboneelement.BackboneElement):
     """ Placeholder for evaluated elements.
     
     Variable is set based either on element value in response body or on header
@@ -795,3 +789,10 @@ class TestScriptVariable(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import coding
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference
+from . import identifier

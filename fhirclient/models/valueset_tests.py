@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -304,20 +304,20 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.codeSystem.system, "http://hl7.org/fhir/list-example-use-codes")
         self.assertEqual(inst.contact[0].telecom[0].system, "other")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2015-09-22T13:47:23+10:00").date)
-        self.assertEqual(inst.date.as_json(), "2015-09-22T13:47:23+10:00")
+        self.assertEqual(inst.date.date, FHIRDate("2015-10-24T07:41:03+11:00").date)
+        self.assertEqual(inst.date.as_json(), "2015-10-24T07:41:03+11:00")
         self.assertEqual(inst.description, "Example use codes for the List resource - typical kinds of use.")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/valueset-oid")
         self.assertEqual(inst.extension[0].valueUri, "urn:oid:2.16.840.1.113883.4.642.2.173")
         self.assertEqual(inst.id, "list-example-codes")
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2015-09-22T13:47:23.514+10:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2015-09-22T13:47:23.514+10:00")
+        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2015-10-24T07:41:03.495+11:00").date)
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2015-10-24T07:41:03.495+11:00")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
         self.assertEqual(inst.name, "Example Use Codes for List")
         self.assertEqual(inst.publisher, "FHIR Project")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/list-example-codes")
-        self.assertEqual(inst.version, "1.0.1")
+        self.assertEqual(inst.version, "1.0.2")
 

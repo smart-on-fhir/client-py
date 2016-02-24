@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Composition) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Composition) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import narrative
-from . import period
-
 
 class Composition(domainresource.DomainResource):
     """ A set of resources composed into a single coherent clinical statement with
@@ -113,7 +105,9 @@ class Composition(domainresource.DomainResource):
         return js
 
 
-class CompositionAttester(fhirelement.FHIRElement):
+from . import backboneelement
+
+class CompositionAttester(backboneelement.BackboneElement):
     """ Attests to accuracy of composition.
     
     A participant who has attested to the accuracy of the composition/document.
@@ -149,7 +143,7 @@ class CompositionAttester(fhirelement.FHIRElement):
         return js
 
 
-class CompositionEvent(fhirelement.FHIRElement):
+class CompositionEvent(backboneelement.BackboneElement):
     """ The clinical service(s) being documented.
     
     The clinical service, such as a colonoscopy or an appendectomy, being
@@ -186,7 +180,7 @@ class CompositionEvent(fhirelement.FHIRElement):
         return js
 
 
-class CompositionSection(fhirelement.FHIRElement):
+class CompositionSection(backboneelement.BackboneElement):
     """ Composition is broken into sections.
     
     The root of the sections that make up the composition.
@@ -246,3 +240,10 @@ class CompositionSection(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import narrative
+from . import period

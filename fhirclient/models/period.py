@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Period) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Period) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import fhirdate
-from . import fhirelement
+from . import element
 
-
-class Period(fhirelement.FHIRElement):
+class Period(element.Element):
     """ Time range defined by start and end date/time.
     
     A time period defined by a start and end date and optionally time.
@@ -39,3 +37,5 @@ class Period(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import fhirdate

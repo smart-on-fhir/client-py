@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -38,7 +38,7 @@ class SubscriptionTests(unittest.TestCase):
         self.assertEqual(inst.channel.type, "rest-hook")
         self.assertEqual(inst.contact[0].system, "phone")
         self.assertEqual(inst.contact[0].value, "ext 4123")
-        self.assertEqual(inst.criteria, "Observation?name=http://loinc.org|1975-2")
+        self.assertEqual(inst.criteria, "Observation?code=http://loinc.org|1975-2")
         self.assertEqual(inst.end.date, FHIRDate("2021-01-01T00:00:00Z").date)
         self.assertEqual(inst.end.as_json(), "2021-01-01T00:00:00Z")
         self.assertEqual(inst.error, "Socket Error 10060 - can't connect to host")
@@ -67,7 +67,7 @@ class SubscriptionTests(unittest.TestCase):
         self.assertEqual(inst.channel.type, "rest-hook")
         self.assertEqual(inst.contact[0].system, "phone")
         self.assertEqual(inst.contact[0].value, "ext 4123")
-        self.assertEqual(inst.criteria, "Observation?name=http://loinc.org|1975-2")
+        self.assertEqual(inst.criteria, "Observation?code=http://loinc.org|1975-2")
         self.assertEqual(inst.end.date, FHIRDate("2021-01-01T00:00:00Z").date)
         self.assertEqual(inst.end.as_json(), "2021-01-01T00:00:00Z")
         self.assertEqual(inst.id, "example")

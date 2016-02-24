@@ -1,21 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Contract) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Contract) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import attachment
-from . import codeableconcept
-from . import coding
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
-
 
 class Contract(domainresource.DomainResource):
     """ Contract.
@@ -134,7 +124,9 @@ class Contract(domainresource.DomainResource):
         return js
 
 
-class ContractActor(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ContractActor(backboneelement.BackboneElement):
     """ Contract Actor.
     
     List of Contract actors.
@@ -165,7 +157,7 @@ class ContractActor(fhirelement.FHIRElement):
         return js
 
 
-class ContractFriendly(fhirelement.FHIRElement):
+class ContractFriendly(backboneelement.BackboneElement):
     """ Contract Friendly Language.
     
     The "patient friendly language" versionof the Contract in whole or in
@@ -202,7 +194,7 @@ class ContractFriendly(fhirelement.FHIRElement):
         return js
 
 
-class ContractLegal(fhirelement.FHIRElement):
+class ContractLegal(backboneelement.BackboneElement):
     """ Contract Legal Language.
     
     List of Legal expressions or representations of this Contract.
@@ -233,7 +225,7 @@ class ContractLegal(fhirelement.FHIRElement):
         return js
 
 
-class ContractRule(fhirelement.FHIRElement):
+class ContractRule(backboneelement.BackboneElement):
     """ Computable Contract Language.
     
     List of Computable Policy Rule Language Representations of this Contract.
@@ -264,7 +256,7 @@ class ContractRule(fhirelement.FHIRElement):
         return js
 
 
-class ContractSigner(fhirelement.FHIRElement):
+class ContractSigner(backboneelement.BackboneElement):
     """ Contract Signer.
     
     Party signing this Contract.
@@ -300,7 +292,7 @@ class ContractSigner(fhirelement.FHIRElement):
         return js
 
 
-class ContractTerm(fhirelement.FHIRElement):
+class ContractTerm(backboneelement.BackboneElement):
     """ Contract Term List.
     
     One or more Contract Provisions, which may be related and conveyed as a
@@ -382,7 +374,7 @@ class ContractTerm(fhirelement.FHIRElement):
         return js
 
 
-class ContractTermActor(fhirelement.FHIRElement):
+class ContractTermActor(backboneelement.BackboneElement):
     """ Contract Term Actor List.
     
     List of actors participating in this Contract Provision.
@@ -413,7 +405,7 @@ class ContractTermActor(fhirelement.FHIRElement):
         return js
 
 
-class ContractTermValuedItem(fhirelement.FHIRElement):
+class ContractTermValuedItem(backboneelement.BackboneElement):
     """ Contract Term Valued Item.
     
     Contract Provision Valued Item List.
@@ -479,7 +471,7 @@ class ContractTermValuedItem(fhirelement.FHIRElement):
         return js
 
 
-class ContractValuedItem(fhirelement.FHIRElement):
+class ContractValuedItem(backboneelement.BackboneElement):
     """ Contract Valued Item.
     
     Contract Valued Item List.
@@ -544,3 +536,12 @@ class ContractValuedItem(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import attachment
+from . import codeableconcept
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity

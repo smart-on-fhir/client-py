@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
-from . import coding
-from . import contactpoint
 from . import domainresource
-from . import elementdefinition
-from . import fhirdate
-from . import fhirelement
-from . import identifier
-
 
 class StructureDefinition(domainresource.DomainResource):
     """ Structural Definition.
@@ -163,7 +155,9 @@ class StructureDefinition(domainresource.DomainResource):
         return js
 
 
-class StructureDefinitionContact(fhirelement.FHIRElement):
+from . import backboneelement
+
+class StructureDefinitionContact(backboneelement.BackboneElement):
     """ Contact details of the publisher.
     
     Contacts to assist a user in finding and communicating with the publisher.
@@ -194,7 +188,7 @@ class StructureDefinitionContact(fhirelement.FHIRElement):
         return js
 
 
-class StructureDefinitionDifferential(fhirelement.FHIRElement):
+class StructureDefinitionDifferential(backboneelement.BackboneElement):
     """ Differential view of the structure.
     
     A differential view is expressed relative to the base StructureDefinition -
@@ -221,7 +215,7 @@ class StructureDefinitionDifferential(fhirelement.FHIRElement):
         return js
 
 
-class StructureDefinitionMapping(fhirelement.FHIRElement):
+class StructureDefinitionMapping(backboneelement.BackboneElement):
     """ External specification that the content is mapped to.
     
     An external specification that the content is mapped to.
@@ -262,7 +256,7 @@ class StructureDefinitionMapping(fhirelement.FHIRElement):
         return js
 
 
-class StructureDefinitionSnapshot(fhirelement.FHIRElement):
+class StructureDefinitionSnapshot(backboneelement.BackboneElement):
     """ Snapshot view of the structure.
     
     A snapshot view is expressed in a stand alone form that can be used and
@@ -288,3 +282,10 @@ class StructureDefinitionSnapshot(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import coding
+from . import contactpoint
+from . import elementdefinition
+from . import fhirdate
+from . import identifier

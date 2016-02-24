@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import coding
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
-
 
 class PaymentReconciliation(domainresource.DomainResource):
     """ PaymentReconciliation resource.
@@ -112,7 +104,9 @@ class PaymentReconciliation(domainresource.DomainResource):
         return js
 
 
-class PaymentReconciliationDetail(fhirelement.FHIRElement):
+from . import backboneelement
+
+class PaymentReconciliationDetail(backboneelement.BackboneElement):
     """ Details.
     
     List of individual settlement amounts and the corresponding transaction.
@@ -168,7 +162,7 @@ class PaymentReconciliationDetail(fhirelement.FHIRElement):
         return js
 
 
-class PaymentReconciliationNote(fhirelement.FHIRElement):
+class PaymentReconciliationNote(backboneelement.BackboneElement):
     """ Note text.
     
     Suite of notes.
@@ -198,3 +192,10 @@ class PaymentReconciliationNote(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity

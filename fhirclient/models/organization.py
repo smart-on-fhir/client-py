@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Organization) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Organization) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import address
-from . import codeableconcept
-from . import contactpoint
 from . import domainresource
-from . import fhirelement
-from . import fhirreference
-from . import humanname
-from . import identifier
-
 
 class Organization(domainresource.DomainResource):
     """ A grouping of people or organizations with a common purpose.
@@ -79,7 +71,9 @@ class Organization(domainresource.DomainResource):
         return js
 
 
-class OrganizationContact(fhirelement.FHIRElement):
+from . import backboneelement
+
+class OrganizationContact(backboneelement.BackboneElement):
     """ Contact for the organization for a certain purpose.
     """
     
@@ -117,3 +111,10 @@ class OrganizationContact(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import address
+from . import codeableconcept
+from . import contactpoint
+from . import fhirreference
+from . import humanname
+from . import identifier

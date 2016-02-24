@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -38,6 +38,8 @@ class SubstanceTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "392259005")
         self.assertEqual(inst.code.coding[0].display, "Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.contained[0].id, "ingr1")
+        self.assertEqual(inst.contained[1].id, "ingr2")
         self.assertEqual(inst.description, "Augmentin 875")
         self.assertEqual(inst.id, "f205")
         self.assertEqual(inst.ingredient[0].quantity.denominator.code, "mg")

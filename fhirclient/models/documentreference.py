@@ -1,20 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import attachment
-from . import codeableconcept
-from . import coding
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-
 
 class DocumentReference(domainresource.DomainResource):
     """ A reference to a document.
@@ -122,7 +113,9 @@ class DocumentReference(domainresource.DomainResource):
         return js
 
 
-class DocumentReferenceContent(fhirelement.FHIRElement):
+from . import backboneelement
+
+class DocumentReferenceContent(backboneelement.BackboneElement):
     """ Document referenced.
     
     The document and format referenced. There may be multiple content element
@@ -154,7 +147,7 @@ class DocumentReferenceContent(fhirelement.FHIRElement):
         return js
 
 
-class DocumentReferenceContext(fhirelement.FHIRElement):
+class DocumentReferenceContext(backboneelement.BackboneElement):
     """ Clinical context of document.
     
     The clinical context in which the document was prepared.
@@ -211,7 +204,7 @@ class DocumentReferenceContext(fhirelement.FHIRElement):
         return js
 
 
-class DocumentReferenceContextRelated(fhirelement.FHIRElement):
+class DocumentReferenceContextRelated(backboneelement.BackboneElement):
     """ Related identifiers or resources.
     
     Related identifiers or resources associated with the DocumentReference.
@@ -242,7 +235,7 @@ class DocumentReferenceContextRelated(fhirelement.FHIRElement):
         return js
 
 
-class DocumentReferenceRelatesTo(fhirelement.FHIRElement):
+class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
     """ Relationships to other documents.
     
     Relationships that this document has with other document references that
@@ -273,3 +266,11 @@ class DocumentReferenceRelatesTo(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import attachment
+from . import codeableconcept
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period

@@ -1,21 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import quantity
-from . import range
-from . import ratio
-from . import timing
-
 
 class MedicationDispense(domainresource.DomainResource):
     """ Dispensing a medication to a named patient.
@@ -127,7 +117,9 @@ class MedicationDispense(domainresource.DomainResource):
         return js
 
 
-class MedicationDispenseDosageInstruction(fhirelement.FHIRElement):
+from . import backboneelement
+
+class MedicationDispenseDosageInstruction(backboneelement.BackboneElement):
     """ Medicine administration instructions to the patient/caregiver.
     
     Indicates how the medication is to be used by the patient.
@@ -218,7 +210,7 @@ class MedicationDispenseDosageInstruction(fhirelement.FHIRElement):
         return js
 
 
-class MedicationDispenseSubstitution(fhirelement.FHIRElement):
+class MedicationDispenseSubstitution(backboneelement.BackboneElement):
     """ Deals with substitution of one medicine for another.
     
     Indicates whether or not substitution was made as part of the dispense.  In
@@ -256,3 +248,12 @@ class MedicationDispenseSubstitution(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import quantity
+from . import range
+from . import ratio
+from . import timing

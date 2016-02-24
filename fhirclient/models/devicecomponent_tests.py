@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -32,6 +32,7 @@ class DeviceComponentTests(unittest.TestCase):
         self.implDeviceComponent1(inst2)
     
     def implDeviceComponent1(self, inst):
+        self.assertEqual(inst.contained[0].id, "d1")
         self.assertEqual(inst.id, "example-prodspec")
         self.assertEqual(inst.identifier.type.text, "Handle ID")
         self.assertEqual(inst.identifier.value, "0")
@@ -70,6 +71,7 @@ class DeviceComponentTests(unittest.TestCase):
         self.implDeviceComponent2(inst2)
     
     def implDeviceComponent2(self, inst):
+        self.assertEqual(inst.contained[0].id, "d1")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier.type.text, "Handle ID")
         self.assertEqual(inst.identifier.value, "0")

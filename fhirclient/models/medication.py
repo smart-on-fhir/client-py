@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Medication) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Medication) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import quantity
-from . import ratio
-
 
 class Medication(domainresource.DomainResource):
     """ Definition of a Medication.
@@ -61,7 +54,9 @@ class Medication(domainresource.DomainResource):
         return js
 
 
-class MedicationPackage(fhirelement.FHIRElement):
+from . import backboneelement
+
+class MedicationPackage(backboneelement.BackboneElement):
     """ Details about packaged medications.
     
     Information that only applies to packages (not products).
@@ -92,7 +87,7 @@ class MedicationPackage(fhirelement.FHIRElement):
         return js
 
 
-class MedicationPackageContent(fhirelement.FHIRElement):
+class MedicationPackageContent(backboneelement.BackboneElement):
     """ What is  in the package.
     
     A set of components that go to make up the described item.
@@ -123,7 +118,7 @@ class MedicationPackageContent(fhirelement.FHIRElement):
         return js
 
 
-class MedicationProduct(fhirelement.FHIRElement):
+class MedicationProduct(backboneelement.BackboneElement):
     """ Administrable medication details.
     
     Information that only applies to products (not packages).
@@ -159,7 +154,7 @@ class MedicationProduct(fhirelement.FHIRElement):
         return js
 
 
-class MedicationProductBatch(fhirelement.FHIRElement):
+class MedicationProductBatch(backboneelement.BackboneElement):
     """ None.
     
     Information about a group of medication produced or packaged from one
@@ -191,7 +186,7 @@ class MedicationProductBatch(fhirelement.FHIRElement):
         return js
 
 
-class MedicationProductIngredient(fhirelement.FHIRElement):
+class MedicationProductIngredient(backboneelement.BackboneElement):
     """ Active or inactive ingredient.
     
     Identifies a particular constituent of interest in the product.
@@ -221,3 +216,9 @@ class MedicationProductIngredient(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import quantity
+from . import ratio

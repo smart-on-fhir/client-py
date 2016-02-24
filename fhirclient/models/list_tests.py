@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  2016, SMART Health IT.
 
 
 import os
@@ -86,6 +86,8 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "8670-2")
         self.assertEqual(inst.code.coding[0].display, "History of family member diseases")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.contained[0].id, "fmh-1")
+        self.assertEqual(inst.contained[1].id, "fmh-2")
         self.assertEqual(inst.id, "f201")
         self.assertEqual(inst.mode, "snapshot")
         self.assertEqual(inst.note, "Both parents, both brothers and both children (twin) are still alive.")
@@ -106,6 +108,16 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "8670-2")
         self.assertEqual(inst.code.coding[0].display, "History of family member diseases")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.contained[0].id, "image")
+        self.assertEqual(inst.contained[1].id, "2")
+        self.assertEqual(inst.contained[2].id, "3")
+        self.assertEqual(inst.contained[3].id, "4")
+        self.assertEqual(inst.contained[4].id, "5")
+        self.assertEqual(inst.contained[5].id, "6")
+        self.assertEqual(inst.contained[6].id, "7")
+        self.assertEqual(inst.contained[7].id, "8")
+        self.assertEqual(inst.contained[8].id, "9")
+        self.assertEqual(inst.contained[9].id, "10")
         self.assertEqual(inst.id, "prognosis")
         self.assertEqual(inst.mode, "snapshot")
         self.assertEqual(inst.status, "current")
@@ -125,6 +137,14 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "8670-2")
         self.assertEqual(inst.code.coding[0].display, "History of family member diseases")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.contained[0].id, "1")
+        self.assertEqual(inst.contained[1].id, "2")
+        self.assertEqual(inst.contained[2].id, "3")
+        self.assertEqual(inst.contained[3].id, "4")
+        self.assertEqual(inst.contained[4].id, "5")
+        self.assertEqual(inst.contained[5].id, "6")
+        self.assertEqual(inst.contained[6].id, "7")
+        self.assertEqual(inst.contained[7].id, "8")
         self.assertEqual(inst.id, "genetic")
         self.assertEqual(inst.mode, "snapshot")
         self.assertEqual(inst.status, "current")

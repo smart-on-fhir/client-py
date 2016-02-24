@@ -1,15 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import fhirdate
-from . import fhirelement
 from . import resource
-from . import signature
-
 
 class Bundle(resource.Resource):
     """ Contains a collection of resources.
@@ -58,7 +54,9 @@ class Bundle(resource.Resource):
         return js
 
 
-class BundleEntry(fhirelement.FHIRElement):
+from . import backboneelement
+
+class BundleEntry(backboneelement.BackboneElement):
     """ Entry in the bundle - will have a resource, or information.
     
     An entry in a bundle resource - will either contain a resource, or
@@ -110,7 +108,7 @@ class BundleEntry(fhirelement.FHIRElement):
         return js
 
 
-class BundleEntryRequest(fhirelement.FHIRElement):
+class BundleEntryRequest(backboneelement.BackboneElement):
     """ Transaction Related Information.
     
     Additional information about how this entry should be processed as part of
@@ -162,7 +160,7 @@ class BundleEntryRequest(fhirelement.FHIRElement):
         return js
 
 
-class BundleEntryResponse(fhirelement.FHIRElement):
+class BundleEntryResponse(backboneelement.BackboneElement):
     """ Transaction Related Information.
     
     Additional information about how this entry should be processed as part of
@@ -204,7 +202,7 @@ class BundleEntryResponse(fhirelement.FHIRElement):
         return js
 
 
-class BundleEntrySearch(fhirelement.FHIRElement):
+class BundleEntrySearch(backboneelement.BackboneElement):
     """ Search related information.
     
     Information about the search process that lead to the creation of this
@@ -236,7 +234,7 @@ class BundleEntrySearch(fhirelement.FHIRElement):
         return js
 
 
-class BundleLink(fhirelement.FHIRElement):
+class BundleLink(backboneelement.BackboneElement):
     """ Links related to this Bundle.
     
     A series of links that provide context to this bundle.
@@ -266,3 +264,6 @@ class BundleLink(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import fhirdate
+from . import signature

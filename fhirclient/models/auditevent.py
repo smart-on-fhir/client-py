@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
-from . import coding
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class AuditEvent(domainresource.DomainResource):
     """ Event record kept for security purposes.
@@ -57,7 +50,9 @@ class AuditEvent(domainresource.DomainResource):
         return js
 
 
-class AuditEventEvent(fhirelement.FHIRElement):
+from . import backboneelement
+
+class AuditEventEvent(backboneelement.BackboneElement):
     """ What was done.
     
     Identifies the name, action type, time, and disposition of the audited
@@ -114,7 +109,7 @@ class AuditEventEvent(fhirelement.FHIRElement):
         return js
 
 
-class AuditEventObject(fhirelement.FHIRElement):
+class AuditEventObject(backboneelement.BackboneElement):
     """ Specific instances of data or objects that have been accessed.
     """
     
@@ -183,7 +178,7 @@ class AuditEventObject(fhirelement.FHIRElement):
         return js
 
 
-class AuditEventObjectDetail(fhirelement.FHIRElement):
+class AuditEventObjectDetail(backboneelement.BackboneElement):
     """ Additional Information about the Object.
     """
     
@@ -212,7 +207,7 @@ class AuditEventObjectDetail(fhirelement.FHIRElement):
         return js
 
 
-class AuditEventParticipant(fhirelement.FHIRElement):
+class AuditEventParticipant(backboneelement.BackboneElement):
     """ A person, a hardware device or software process.
     """
     
@@ -286,7 +281,7 @@ class AuditEventParticipant(fhirelement.FHIRElement):
         return js
 
 
-class AuditEventParticipantNetwork(fhirelement.FHIRElement):
+class AuditEventParticipantNetwork(backboneelement.BackboneElement):
     """ Logical network location for application activity.
     
     Logical network location for application activity, if the activity has a
@@ -318,7 +313,7 @@ class AuditEventParticipantNetwork(fhirelement.FHIRElement):
         return js
 
 
-class AuditEventSource(fhirelement.FHIRElement):
+class AuditEventSource(backboneelement.BackboneElement):
     """ Application systems and processes.
     """
     
@@ -351,3 +346,9 @@ class AuditEventSource(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import identifier

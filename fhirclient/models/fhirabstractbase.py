@@ -6,25 +6,17 @@
 import logging
 
 
-class FHIRElement(object):
-    """ Base class for all FHIR elements.
+class FHIRAbstractBase(object):
+    """ Abstract base class for all FHIR elements.
     """
     
     def __init__(self, jsondict=None):
-        self.id = None
-        """ Logical id of this artefact. """
-        
-        self.contained = None
-        """ Contained resources. """
         
         self._resolved = None
         """ Dictionary of resolved resources. """
         
         self._owner = None
         """ Points to the parent resource, if there is one. """
-        
-        self.extension = None
-        self.modifierExtension = None
         
         if jsondict is not None:
             self.update_with_json(jsondict)
@@ -36,16 +28,27 @@ class FHIRElement(object):
     def with_json(cls, jsonobj):
         """ Initialize an element from a JSON dictionary or array.
         
+        If the JSON dictionary has a "resourceType" entry and the specified
+        resource type is not the receiving classes type, uses
+        `FHIRElementFactory` to return a correct class instance.
+        
         :param jsonobj: A dict or list of dicts to instantiate from
         :returns: An instance or a list of instances created from JSON data
         """
         if isinstance(jsonobj, dict):
-            return cls(jsonobj)
+            return cls._with_json_dict(jsonobj)
         
         arr = []
         for jsondict in jsonobj:
-            arr.append(cls(jsondict))
+            arr.append(cls._with_json_dict(jsondict))
         return arr
+    
+    @classmethod
+    def _with_json_dict(cls, jsondict):
+        if not isinstance(jsondict, dict):
+            raise Exception("Cannot use this method with anything but a JSON dictionary, got {}"
+                .format(jsondict))
+        return cls(jsondict)
     
     @classmethod
     def with_json_and_owner(cls, jsonobj, owner):
@@ -73,12 +76,7 @@ class FHIRElement(object):
         """ Returns a list of tuples, one tuple for each property that should
         be serialized, as: ("name", "json_name", type, is_list)
         """
-        from . import extension
-        return [
-            ("id", "id", str, False),
-            ("extension", "extension", extension.Extension, True),
-            ("modifierExtension", "modifierExtension", extension.Extension, True),
-        ]
+        return []
     
     def update_with_json(self, jsondict):
         """ Update the receiver with data in a JSON dictionary.
@@ -86,7 +84,7 @@ class FHIRElement(object):
         if jsondict is None:
             return
         if not isinstance(jsondict, dict):
-            logging.warning("Non-dict type {0} fed to `update_with_json` on {1}"
+            logging.warning("Non-dict type {} fed to `update_with_json` on {}"
                 .format(type(jsondict), type(self)))
             return
         
@@ -99,17 +97,6 @@ class FHIRElement(object):
                 setattr(self, prop, typ.with_json_and_owner(jsondict[name], self))
             else:
                 setattr(self, prop, jsondict[name])
-        
-        # extract contained resources
-        if 'contained' in jsondict:
-            from . import fhircontainedresource
-            self.contained = self.contained or {}
-            for js in jsondict['contained']:         # "contained" should be an array
-                res = fhircontainedresource.FHIRContainedResource(jsondict=js, owner=self)
-                if res.id:
-                    self.contained[res.id] = res
-                else:
-                    logging.warning("Contained resource {0} does not have an id, ignoring".format(res))
     
     def as_json(self):
         """ Serializes to JSON by inspecting `elementProperties()` and creating
@@ -127,37 +114,40 @@ class FHIRElement(object):
             else:
                 js[name] = val.as_json() if hasattr(val, 'as_json') else val
         
-        # handle contained resources
-        if self.contained is not None and len(self.contained) > 0:
-            # TODO: look at resolved (and newly added?) contained resources
-            js['contained'] = [v.as_json() for k, v in self.contained.items()]
-        
         return js
     
     
     # MARK: Handling References
     
-    def containedReference(self, refid):
-        """ Looks for the contained reference with the given id.
-        
-        :returns: An instance of FHIRContainedResource, if it was found
+    def owningResource(self):
+        """ Walks the owner hierarchy and returns the next parent that is a
+        `DomainResource` instance.
         """
-        if self.contained and refid in self.contained:
-            return self.contained[refid]
-        return self._owner.containedReference(refid) if self._owner is not None else None
+        owner = self._owner
+        while owner is not None and not hasattr(owner, "contained"):
+            owner = owner._owner
+        return owner
     
     def resolvedReference(self, refid):
         """ Returns the resolved reference with the given id, if it has been
-        resolved already.
+        resolved already. If it hasn't, forwards the call to its owner if it
+        has one.
+        
+        You should probably use `resolve()` on the `FHIRReference` itself.
+        
+        :param refid: The id of the resource to resolve
+        :returns: An instance of `Resource`, if it was found
         """
         if self._resolved and refid in self._resolved:
             return self._resolved[refid]
         return self._owner.resolvedReference(refid) if self._owner is not None else None
     
     def didResolveReference(self, refid, resolved):
-        """ Called by FHIRResource when it resolves a reference. Stores the
-        resolved reference into the `_resolved` dictionary of the topmost
-        owner.
+        """ Called by `FHIRResource` when it resolves a reference. Stores the
+        resolved reference into the `_resolved` dictionary.
+        
+        :param refid: The id of the resource that was resolved
+        :param refid: The resolved resource, ready to be cached
         """
         if self._resolved is not None:
             self._resolved[refid] = resolved

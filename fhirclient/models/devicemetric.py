@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import timing
-
 
 class DeviceMetric(domainresource.DomainResource):
     """ Measurement, calculation or setting capability of a medical device.
@@ -87,7 +80,9 @@ class DeviceMetric(domainresource.DomainResource):
         return js
 
 
-class DeviceMetricCalibration(fhirelement.FHIRElement):
+from . import backboneelement
+
+class DeviceMetricCalibration(backboneelement.BackboneElement):
     """ Describes the calibrations that have been performed or that are required to
     be performed.
     """
@@ -121,3 +116,9 @@ class DeviceMetricCalibration(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import timing

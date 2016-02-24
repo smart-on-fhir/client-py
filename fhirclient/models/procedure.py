@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import annotation
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-
 
 class Procedure(domainresource.DomainResource):
     """ An action that is being or was performed on a patient.
@@ -153,7 +145,9 @@ class Procedure(domainresource.DomainResource):
         return js
 
 
-class ProcedureFocalDevice(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ProcedureFocalDevice(backboneelement.BackboneElement):
     """ Device changed in procedure.
     
     A device that is implanted, removed or otherwise manipulated (calibration,
@@ -186,7 +180,7 @@ class ProcedureFocalDevice(fhirelement.FHIRElement):
         return js
 
 
-class ProcedurePerformer(fhirelement.FHIRElement):
+class ProcedurePerformer(backboneelement.BackboneElement):
     """ The people who performed the procedure.
     
     Limited to 'real' people rather than equipment.
@@ -216,3 +210,10 @@ class ProcedurePerformer(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import annotation
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period

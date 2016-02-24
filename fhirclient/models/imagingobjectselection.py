@@ -1,16 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-
 
 class ImagingObjectSelection(domainresource.DomainResource):
     """ Key Object Selection.
@@ -77,7 +72,9 @@ class ImagingObjectSelection(domainresource.DomainResource):
         return js
 
 
-class ImagingObjectSelectionStudy(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ImagingObjectSelectionStudy(backboneelement.BackboneElement):
     """ Study identity of the selected instances.
     
     Study identity and locating information of the DICOM SOP instances in the
@@ -119,7 +116,7 @@ class ImagingObjectSelectionStudy(fhirelement.FHIRElement):
         return js
 
 
-class ImagingObjectSelectionStudySeries(fhirelement.FHIRElement):
+class ImagingObjectSelectionStudySeries(backboneelement.BackboneElement):
     """ Series identity of the selected instances.
     
     Series identity and locating information of the DICOM SOP instances in the
@@ -156,7 +153,7 @@ class ImagingObjectSelectionStudySeries(fhirelement.FHIRElement):
         return js
 
 
-class ImagingObjectSelectionStudySeriesInstance(fhirelement.FHIRElement):
+class ImagingObjectSelectionStudySeriesInstance(backboneelement.BackboneElement):
     """ The selected instance.
     
     Identity and locating information of the selected DICOM SOP instances.
@@ -197,7 +194,7 @@ class ImagingObjectSelectionStudySeriesInstance(fhirelement.FHIRElement):
         return js
 
 
-class ImagingObjectSelectionStudySeriesInstanceFrames(fhirelement.FHIRElement):
+class ImagingObjectSelectionStudySeriesInstanceFrames(backboneelement.BackboneElement):
     """ The frame set.
     
     Identity and location information of the frames in the selected instance.
@@ -227,3 +224,7 @@ class ImagingObjectSelectionStudySeriesInstanceFrames(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference

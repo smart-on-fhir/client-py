@@ -1,14 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirelement
-
 
 class OperationOutcome(domainresource.DomainResource):
     """ Information about the success/failure of an action.
@@ -37,7 +34,9 @@ class OperationOutcome(domainresource.DomainResource):
         return js
 
 
-class OperationOutcomeIssue(fhirelement.FHIRElement):
+from . import backboneelement
+
+class OperationOutcomeIssue(backboneelement.BackboneElement):
     """ A single issue associated with the action.
     
     An error, warning or information message that results from a system action.
@@ -82,3 +81,5 @@ class OperationOutcomeIssue(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept

@@ -1,20 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Condition) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
-from . import range
-
 
 class Condition(domainresource.DomainResource):
     """ Detailed information about conditions, problems or diagnoses.
@@ -166,7 +157,9 @@ class Condition(domainresource.DomainResource):
         return js
 
 
-class ConditionEvidence(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ConditionEvidence(backboneelement.BackboneElement):
     """ Supporting evidence.
     
     Supporting Evidence / manifestations that are the basis on which this
@@ -198,7 +191,7 @@ class ConditionEvidence(fhirelement.FHIRElement):
         return js
 
 
-class ConditionStage(fhirelement.FHIRElement):
+class ConditionStage(backboneelement.BackboneElement):
     """ Stage/grade, usually assessed formally.
     
     Clinical stage or grade of a condition. May include formal severity
@@ -229,3 +222,11 @@ class ConditionStage(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period
+from . import quantity
+from . import range

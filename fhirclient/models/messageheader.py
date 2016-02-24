@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
-from . import coding
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-
 
 class MessageHeader(domainresource.DomainResource):
     """ A resource that describes a message that is exchanged between systems.
@@ -94,7 +87,9 @@ class MessageHeader(domainresource.DomainResource):
         return js
 
 
-class MessageHeaderDestination(fhirelement.FHIRElement):
+from . import backboneelement
+
+class MessageHeaderDestination(backboneelement.BackboneElement):
     """ Message Destination Application(s).
     
     The destination application which the message is intended for.
@@ -130,7 +125,7 @@ class MessageHeaderDestination(fhirelement.FHIRElement):
         return js
 
 
-class MessageHeaderResponse(fhirelement.FHIRElement):
+class MessageHeaderResponse(backboneelement.BackboneElement):
     """ If this is a reply to prior message.
     
     Information about the message that this message is a response to.  Only
@@ -167,7 +162,7 @@ class MessageHeaderResponse(fhirelement.FHIRElement):
         return js
 
 
-class MessageHeaderSource(fhirelement.FHIRElement):
+class MessageHeaderSource(backboneelement.BackboneElement):
     """ Message Source Application.
     
     The source application from which this message originated.
@@ -212,3 +207,9 @@ class MessageHeaderSource(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import coding
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference

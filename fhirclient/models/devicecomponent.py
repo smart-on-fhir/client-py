@@ -1,17 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/DeviceComponent) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DeviceComponent) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class DeviceComponent(domainresource.DomainResource):
     """ An instance of a medical-related component of a medical device.
@@ -87,7 +81,9 @@ class DeviceComponent(domainresource.DomainResource):
         return js
 
 
-class DeviceComponentProductionSpecification(fhirelement.FHIRElement):
+from . import backboneelement
+
+class DeviceComponentProductionSpecification(backboneelement.BackboneElement):
     """ Production specification of the component.
     
     Describes the production specification such as component revision, serial
@@ -123,3 +119,8 @@ class DeviceComponentProductionSpecification(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier

@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Goal) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Goal) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import annotation
-from . import codeableconcept
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import quantity
-
 
 class Goal(domainresource.DomainResource):
     """ Describes the intended objective(s) for a patient, group or organization.
@@ -120,7 +112,9 @@ class Goal(domainresource.DomainResource):
         return js
 
 
-class GoalOutcome(fhirelement.FHIRElement):
+from . import backboneelement
+
+class GoalOutcome(backboneelement.BackboneElement):
     """ What was end result of goal?.
     
     Identifies the change (or lack of change) at the point where the goal was
@@ -151,3 +145,10 @@ class GoalOutcome(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import annotation
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import quantity

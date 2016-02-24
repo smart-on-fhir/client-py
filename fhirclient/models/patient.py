@@ -1,22 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Patient) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Patient) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import address
-from . import attachment
-from . import codeableconcept
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import humanname
-from . import identifier
-from . import period
-
 
 class Patient(domainresource.DomainResource):
     """ Information about an individual or animal receiving health care services.
@@ -137,7 +126,9 @@ class Patient(domainresource.DomainResource):
         return js
 
 
-class PatientAnimal(fhirelement.FHIRElement):
+from . import backboneelement
+
+class PatientAnimal(backboneelement.BackboneElement):
     """ This patient is known to be an animal (non-human).
     
     This patient is known to be an animal.
@@ -173,7 +164,7 @@ class PatientAnimal(fhirelement.FHIRElement):
         return js
 
 
-class PatientCommunication(fhirelement.FHIRElement):
+class PatientCommunication(backboneelement.BackboneElement):
     """ A list of Languages which may be used to communicate with the patient about
     his or her health.
     
@@ -207,7 +198,7 @@ class PatientCommunication(fhirelement.FHIRElement):
         return js
 
 
-class PatientContact(fhirelement.FHIRElement):
+class PatientContact(backboneelement.BackboneElement):
     """ A contact party (e.g. guardian, partner, friend) for the patient.
     """
     
@@ -262,7 +253,7 @@ class PatientContact(fhirelement.FHIRElement):
         return js
 
 
-class PatientLink(fhirelement.FHIRElement):
+class PatientLink(backboneelement.BackboneElement):
     """ Link to another patient resource that concerns the same actual person.
     
     Link to another patient resource that concerns the same actual patient.
@@ -292,3 +283,13 @@ class PatientLink(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import address
+from . import attachment
+from . import codeableconcept
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference
+from . import humanname
+from . import identifier
+from . import period

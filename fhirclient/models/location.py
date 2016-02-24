@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Location) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Location) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import address
-from . import codeableconcept
-from . import contactpoint
 from . import domainresource
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-
 
 class Location(domainresource.DomainResource):
     """ Details and position information for a physical place.
@@ -97,7 +90,9 @@ class Location(domainresource.DomainResource):
         return js
 
 
-class LocationPosition(fhirelement.FHIRElement):
+from . import backboneelement
+
+class LocationPosition(backboneelement.BackboneElement):
     """ The absolute geographic location.
     
     The absolute geographic location of the Location, expressed using the WGS84
@@ -133,3 +128,9 @@ class LocationPosition(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import address
+from . import codeableconcept
+from . import contactpoint
+from . import fhirreference
+from . import identifier

@@ -1,15 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-
 
 class SearchParameter(domainresource.DomainResource):
     """ Search Parameter for a resource.
@@ -109,7 +105,9 @@ class SearchParameter(domainresource.DomainResource):
         return js
 
 
-class SearchParameterContact(fhirelement.FHIRElement):
+from . import backboneelement
+
+class SearchParameterContact(backboneelement.BackboneElement):
     """ Contact details of the publisher.
     
     Contacts to assist a user in finding and communicating with the publisher.
@@ -139,3 +137,6 @@ class SearchParameterContact(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import contactpoint
+from . import fhirdate

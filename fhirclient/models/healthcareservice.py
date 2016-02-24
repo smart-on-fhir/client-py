@@ -1,20 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import attachment
-from . import codeableconcept
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-from . import identifier
-from . import period
-
 
 class HealthcareService(domainresource.DomainResource):
     """ The details of a healthcare service available at a location.
@@ -147,7 +138,9 @@ class HealthcareService(domainresource.DomainResource):
         return js
 
 
-class HealthcareServiceAvailableTime(fhirelement.FHIRElement):
+from . import backboneelement
+
+class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
     """ Times the Service Site is available.
     
     A collection of times that the Service Site is available.
@@ -188,7 +181,7 @@ class HealthcareServiceAvailableTime(fhirelement.FHIRElement):
         return js
 
 
-class HealthcareServiceNotAvailable(fhirelement.FHIRElement):
+class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
     """ Not available during this time due to provided reason.
     
     The HealthcareService is not available during this period of time due to
@@ -220,7 +213,7 @@ class HealthcareServiceNotAvailable(fhirelement.FHIRElement):
         return js
 
 
-class HealthcareServiceServiceType(fhirelement.FHIRElement):
+class HealthcareServiceServiceType(backboneelement.BackboneElement):
     """ Specific service delivered or performed.
     
     A specific type of service that may be delivered or performed.
@@ -250,3 +243,11 @@ class HealthcareServiceServiceType(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import attachment
+from . import codeableconcept
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period

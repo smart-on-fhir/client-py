@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.1.7108 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2015-09-24.
-#  2015, SMART Health IT.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2016-02-24.
+#  2016, SMART Health IT.
 
 
-from . import codeableconcept
-from . import coding
-from . import contactpoint
 from . import domainresource
-from . import fhirdate
-from . import fhirelement
-from . import fhirreference
-
 
 class Conformance(domainresource.DomainResource):
     """ A conformance statement.
@@ -142,7 +135,9 @@ class Conformance(domainresource.DomainResource):
         return js
 
 
-class ConformanceContact(fhirelement.FHIRElement):
+from . import backboneelement
+
+class ConformanceContact(backboneelement.BackboneElement):
     """ Contact details of the publisher.
     
     Contacts to assist a user in finding and communicating with the publisher.
@@ -173,7 +168,7 @@ class ConformanceContact(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceDocument(fhirelement.FHIRElement):
+class ConformanceDocument(backboneelement.BackboneElement):
     """ Document definition.
     
     A document definition.
@@ -209,7 +204,7 @@ class ConformanceDocument(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceImplementation(fhirelement.FHIRElement):
+class ConformanceImplementation(backboneelement.BackboneElement):
     """ If this describes a specific instance.
     
     Identifies a specific implementation instance that is described by the
@@ -242,7 +237,7 @@ class ConformanceImplementation(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceMessaging(fhirelement.FHIRElement):
+class ConformanceMessaging(backboneelement.BackboneElement):
     """ If messaging is supported.
     
     A description of the messaging capabilities of the solution.
@@ -283,7 +278,7 @@ class ConformanceMessaging(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceMessagingEndpoint(fhirelement.FHIRElement):
+class ConformanceMessagingEndpoint(backboneelement.BackboneElement):
     """ A messaging service end-point.
     
     An endpoint (network accessible address) to which messages and/or replies
@@ -315,7 +310,7 @@ class ConformanceMessagingEndpoint(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceMessagingEvent(fhirelement.FHIRElement):
+class ConformanceMessagingEvent(backboneelement.BackboneElement):
     """ Declare support for this event.
     
     A description of the solution's support for an event at this end-point.
@@ -371,7 +366,7 @@ class ConformanceMessagingEvent(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceRest(fhirelement.FHIRElement):
+class ConformanceRest(backboneelement.BackboneElement):
     """ If the endpoint is a RESTful one.
     
     A definition of the restful capabilities of the solution, if any.
@@ -437,7 +432,7 @@ class ConformanceRest(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceRestInteraction(fhirelement.FHIRElement):
+class ConformanceRestInteraction(backboneelement.BackboneElement):
     """ What operations are supported?.
     
     A specification of restful operations supported by the system.
@@ -468,7 +463,7 @@ class ConformanceRestInteraction(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceRestOperation(fhirelement.FHIRElement):
+class ConformanceRestOperation(backboneelement.BackboneElement):
     """ Definition of an operation or a custom query.
     
     Definition of an operation or a named query and with its parameters and
@@ -500,7 +495,7 @@ class ConformanceRestOperation(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceRestResource(fhirelement.FHIRElement):
+class ConformanceRestResource(backboneelement.BackboneElement):
     """ Resource served on the REST interface.
     
     A specification of the restful capabilities of the solution for a specific
@@ -583,7 +578,7 @@ class ConformanceRestResource(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceRestResourceInteraction(fhirelement.FHIRElement):
+class ConformanceRestResourceInteraction(backboneelement.BackboneElement):
     """ What operations are supported?.
     
     Identifies a restful operation supported by the solution.
@@ -615,7 +610,7 @@ class ConformanceRestResourceInteraction(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceRestResourceSearchParam(fhirelement.FHIRElement):
+class ConformanceRestResourceSearchParam(backboneelement.BackboneElement):
     """ Search params supported by implementation.
     
     Search parameters for implementations to support and/or make use of -
@@ -675,7 +670,7 @@ class ConformanceRestResourceSearchParam(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceRestSecurity(fhirelement.FHIRElement):
+class ConformanceRestSecurity(backboneelement.BackboneElement):
     """ Information about security of implementation.
     
     Information about security implementation from an interface perspective -
@@ -717,7 +712,7 @@ class ConformanceRestSecurity(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceRestSecurityCertificate(fhirelement.FHIRElement):
+class ConformanceRestSecurityCertificate(backboneelement.BackboneElement):
     """ Certificates associated with security profiles.
     """
     
@@ -746,7 +741,7 @@ class ConformanceRestSecurityCertificate(fhirelement.FHIRElement):
         return js
 
 
-class ConformanceSoftware(fhirelement.FHIRElement):
+class ConformanceSoftware(backboneelement.BackboneElement):
     """ Software that is covered by this conformance statement.
     
     Software that is covered by this conformance statement.  It is used when
@@ -783,3 +778,9 @@ class ConformanceSoftware(fhirelement.FHIRElement):
         ])
         return js
 
+
+from . import codeableconcept
+from . import coding
+from . import contactpoint
+from . import fhirdate
+from . import fhirreference
