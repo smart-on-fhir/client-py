@@ -40,6 +40,7 @@ class FHIRServer(object):
     def __init__(self, client, base_uri=None, state=None):
         self.client = client
         self.auth = None
+        self.base_uri = None
         
         # A URI can't possibly be less than 11 chars
         # make sure we end with "/", otherwise the last path component will be

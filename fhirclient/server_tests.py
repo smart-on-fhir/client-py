@@ -40,7 +40,7 @@ class MockServer(server.FHIRServer):
     """
     
     def __init__(self):
-        super().__init__(None)
+        super().__init__(None, base_uri='https://fhir.smarthealthit.org')
     
     def request_json(self, path, nosign=False):
         assert path
