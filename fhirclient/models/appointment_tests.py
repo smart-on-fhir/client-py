@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -33,6 +33,8 @@ class AppointmentTests(unittest.TestCase):
     
     def implAppointment1(self, inst):
         self.assertEqual(inst.comment, "Further expand on the results of the MRI and determine the next actions that may be appropriate.")
+        self.assertEqual(inst.created.date, FHIRDate("2015-12-02").date)
+        self.assertEqual(inst.created.as_json(), "2015-12-02")
         self.assertEqual(inst.description, "Discussion on the results of your recent MRI")
         self.assertEqual(inst.id, "examplereq")
         self.assertEqual(inst.identifier[0].system, "http://example.org/sampleappointment-identifier")
@@ -42,10 +44,13 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.participant[0].status, "needs-action")
         self.assertEqual(inst.participant[1].required, "required")
         self.assertEqual(inst.participant[1].status, "needs-action")
-        self.assertEqual(inst.participant[1].type[0].coding[0].code, "attending")
+        self.assertEqual(inst.participant[1].type[0].coding[0].code, "ATND")
+        self.assertEqual(inst.participant[1].type[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.participant[2].required, "required")
         self.assertEqual(inst.participant[2].status, "accepted")
         self.assertEqual(inst.priority, 5)
+        self.assertEqual(inst.reason.coding[0].code, "413095006")
+        self.assertEqual(inst.reason.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.reason.text, "Clinical Review")
         self.assertEqual(inst.status, "proposed")
         self.assertEqual(inst.text.div, "<div>Brian MRI results discussion</div>")
@@ -65,6 +70,8 @@ class AppointmentTests(unittest.TestCase):
     
     def implAppointment2(self, inst):
         self.assertEqual(inst.comment, "Further expand on the results of the MRI and determine the next actions that may be appropriate.")
+        self.assertEqual(inst.created.date, FHIRDate("2013-10-10").date)
+        self.assertEqual(inst.created.as_json(), "2013-10-10")
         self.assertEqual(inst.description, "Discussion on the results of your recent MRI")
         self.assertEqual(inst.end.date, FHIRDate("2013-12-10T11:00:00Z").date)
         self.assertEqual(inst.end.as_json(), "2013-12-10T11:00:00Z")
@@ -73,7 +80,8 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.participant[0].status, "accepted")
         self.assertEqual(inst.participant[1].required, "required")
         self.assertEqual(inst.participant[1].status, "accepted")
-        self.assertEqual(inst.participant[1].type[0].coding[0].code, "attending")
+        self.assertEqual(inst.participant[1].type[0].coding[0].code, "ATND")
+        self.assertEqual(inst.participant[1].type[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.participant[2].required, "required")
         self.assertEqual(inst.participant[2].status, "accepted")
         self.assertEqual(inst.priority, 5)

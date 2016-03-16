@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Contract) on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Contract) on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -28,9 +28,9 @@ class Contract(domainresource.DomainResource):
         """ Contract Action Reason.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.actor = None
-        """ Contract Actor.
-        List of `ContractActor` items (represented as `dict` in JSON). """
+        self.agent = None
+        """ Contract Agent.
+        List of `ContractAgent` items (represented as `dict` in JSON). """
         
         self.applies = None
         """ Effective time.
@@ -80,13 +80,13 @@ class Contract(domainresource.DomainResource):
         """ Contract Subtype.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.subject = None
-        """ Subject of this Contract.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
-        
         self.term = None
         """ Contract Term List.
         List of `ContractTerm` items (represented as `dict` in JSON). """
+        
+        self.topic = None
+        """ Topic of this Contract.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.type = None
         """ Contract Tyoe.
@@ -101,58 +101,59 @@ class Contract(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Contract, self).elementProperties()
         js.extend([
-            ("action", "action", codeableconcept.CodeableConcept, True),
-            ("actionReason", "actionReason", codeableconcept.CodeableConcept, True),
-            ("actor", "actor", ContractActor, True),
-            ("applies", "applies", period.Period, False),
-            ("authority", "authority", fhirreference.FHIRReference, True),
-            ("bindingAttachment", "bindingAttachment", attachment.Attachment, False),
-            ("bindingReference", "bindingReference", fhirreference.FHIRReference, False),
-            ("domain", "domain", fhirreference.FHIRReference, True),
-            ("friendly", "friendly", ContractFriendly, True),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("issued", "issued", fhirdate.FHIRDate, False),
-            ("legal", "legal", ContractLegal, True),
-            ("rule", "rule", ContractRule, True),
-            ("signer", "signer", ContractSigner, True),
-            ("subType", "subType", codeableconcept.CodeableConcept, True),
-            ("subject", "subject", fhirreference.FHIRReference, True),
-            ("term", "term", ContractTerm, True),
-            ("type", "type", codeableconcept.CodeableConcept, False),
-            ("valuedItem", "valuedItem", ContractValuedItem, True),
+            ("action", "action", codeableconcept.CodeableConcept, True, None, False),
+            ("actionReason", "actionReason", codeableconcept.CodeableConcept, True, None, False),
+            ("agent", "agent", ContractAgent, True, None, False),
+            ("applies", "applies", period.Period, False, None, False),
+            ("authority", "authority", fhirreference.FHIRReference, True, None, False),
+            ("bindingAttachment", "bindingAttachment", attachment.Attachment, False, "binding", False),
+            ("bindingReference", "bindingReference", fhirreference.FHIRReference, False, "binding", False),
+            ("domain", "domain", fhirreference.FHIRReference, True, None, False),
+            ("friendly", "friendly", ContractFriendly, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("legal", "legal", ContractLegal, True, None, False),
+            ("rule", "rule", ContractRule, True, None, False),
+            ("signer", "signer", ContractSigner, True, None, False),
+            ("subType", "subType", codeableconcept.CodeableConcept, True, None, False),
+            ("term", "term", ContractTerm, True, None, False),
+            ("topic", "topic", fhirreference.FHIRReference, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("valuedItem", "valuedItem", ContractValuedItem, True, None, False),
         ])
         return js
 
 
 from . import backboneelement
 
-class ContractActor(backboneelement.BackboneElement):
-    """ Contract Actor.
+class ContractAgent(backboneelement.BackboneElement):
+    """ Contract Agent.
     
-    List of Contract actors.
+    An actor taking a role in an activity for which it can be assigned some
+    degree of responsibility for the activity taking place.
     """
     
-    resource_name = "ContractActor"
+    resource_name = "ContractAgent"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
-        self.entity = None
-        """ Contract Actor Type.
+        self.actor = None
+        """ Contract Agent Type.
         Type `FHIRReference` referencing `Contract, Device, Group, Location, Organization, Patient, Practitioner, RelatedPerson, Substance` (represented as `dict` in JSON). """
         
         self.role = None
-        """ Contract  Actor Role.
+        """ Contract  Agent Role.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(ContractActor, self).__init__(jsondict)
+        super(ContractAgent, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(ContractActor, self).elementProperties()
+        js = super(ContractAgent, self).elementProperties()
         js.extend([
-            ("entity", "entity", fhirreference.FHIRReference, False),
-            ("role", "role", codeableconcept.CodeableConcept, True),
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -188,8 +189,8 @@ class ContractFriendly(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractFriendly, self).elementProperties()
         js.extend([
-            ("contentAttachment", "contentAttachment", attachment.Attachment, False),
-            ("contentReference", "contentReference", fhirreference.FHIRReference, False),
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True),
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True),
         ])
         return js
 
@@ -219,8 +220,8 @@ class ContractLegal(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractLegal, self).elementProperties()
         js.extend([
-            ("contentAttachment", "contentAttachment", attachment.Attachment, False),
-            ("contentReference", "contentReference", fhirreference.FHIRReference, False),
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True),
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True),
         ])
         return js
 
@@ -250,8 +251,8 @@ class ContractRule(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractRule, self).elementProperties()
         js.extend([
-            ("contentAttachment", "contentAttachment", attachment.Attachment, False),
-            ("contentReference", "contentReference", fhirreference.FHIRReference, False),
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True),
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True),
         ])
         return js
 
@@ -259,7 +260,10 @@ class ContractRule(backboneelement.BackboneElement):
 class ContractSigner(backboneelement.BackboneElement):
     """ Contract Signer.
     
-    Party signing this Contract.
+    Parties with legal standing in the Contract, including the principal
+    parties, the grantor(s) and grantee(s), which are any person or
+    organization bound by the contract, and any ancillary parties, which
+    facilitate the execution of the contract such as a notary or witness.
     """
     
     resource_name = "ContractSigner"
@@ -274,7 +278,7 @@ class ContractSigner(backboneelement.BackboneElement):
         
         self.signature = None
         """ Contract Documentation Signature.
-        Type `str`. """
+        List of `Signature` items (represented as `dict` in JSON). """
         
         self.type = None
         """ Contract Signer Type.
@@ -285,9 +289,9 @@ class ContractSigner(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractSigner, self).elementProperties()
         js.extend([
-            ("party", "party", fhirreference.FHIRReference, False),
-            ("signature", "signature", str, False),
-            ("type", "type", coding.Coding, False),
+            ("party", "party", fhirreference.FHIRReference, False, None, True),
+            ("signature", "signature", signature.Signature, True, None, True),
+            ("type", "type", coding.Coding, False, None, True),
         ])
         return js
 
@@ -313,9 +317,9 @@ class ContractTerm(backboneelement.BackboneElement):
         """ Contract Term Action Reason.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.actor = None
-        """ Contract Term Actor List.
-        List of `ContractTermActor` items (represented as `dict` in JSON). """
+        self.agent = None
+        """ Contract Term Agent List.
+        List of `ContractTermAgent` items (represented as `dict` in JSON). """
         
         self.applies = None
         """ Contract Term Effective Time.
@@ -337,13 +341,13 @@ class ContractTerm(backboneelement.BackboneElement):
         """ Contract Term Subtype.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subject = None
-        """ Subject of this Contract Term.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
         self.text = None
         """ Human readable Contract term text.
         Type `str`. """
+        
+        self.topic = None
+        """ Topic of this Contract Term.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.type = None
         """ Contract Term Type.
@@ -358,49 +362,50 @@ class ContractTerm(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTerm, self).elementProperties()
         js.extend([
-            ("action", "action", codeableconcept.CodeableConcept, True),
-            ("actionReason", "actionReason", codeableconcept.CodeableConcept, True),
-            ("actor", "actor", ContractTermActor, True),
-            ("applies", "applies", period.Period, False),
-            ("group", "group", ContractTerm, True),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("issued", "issued", fhirdate.FHIRDate, False),
-            ("subType", "subType", codeableconcept.CodeableConcept, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("text", "text", str, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
-            ("valuedItem", "valuedItem", ContractTermValuedItem, True),
+            ("action", "action", codeableconcept.CodeableConcept, True, None, False),
+            ("actionReason", "actionReason", codeableconcept.CodeableConcept, True, None, False),
+            ("agent", "agent", ContractTermAgent, True, None, False),
+            ("applies", "applies", period.Period, False, None, False),
+            ("group", "group", ContractTerm, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
+            ("text", "text", str, False, None, False),
+            ("topic", "topic", fhirreference.FHIRReference, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("valuedItem", "valuedItem", ContractTermValuedItem, True, None, False),
         ])
         return js
 
 
-class ContractTermActor(backboneelement.BackboneElement):
-    """ Contract Term Actor List.
+class ContractTermAgent(backboneelement.BackboneElement):
+    """ Contract Term Agent List.
     
-    List of actors participating in this Contract Provision.
+    An actor taking a role in an activity for which it can be assigned some
+    degree of responsibility for the activity taking place.
     """
     
-    resource_name = "ContractTermActor"
+    resource_name = "ContractTermAgent"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
-        self.entity = None
-        """ Contract Term Actor.
+        self.actor = None
+        """ Contract Term Agent List.
         Type `FHIRReference` referencing `Contract, Device, Group, Location, Organization, Patient, Practitioner, RelatedPerson, Substance` (represented as `dict` in JSON). """
         
         self.role = None
-        """ Contract Term Actor Role.
+        """ Contract Term Agent Role.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(ContractTermActor, self).__init__(jsondict)
+        super(ContractTermAgent, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(ContractTermActor, self).elementProperties()
+        js = super(ContractTermAgent, self).elementProperties()
         js.extend([
-            ("entity", "entity", fhirreference.FHIRReference, False),
-            ("role", "role", codeableconcept.CodeableConcept, True),
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -458,15 +463,15 @@ class ContractTermValuedItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermValuedItem, self).elementProperties()
         js.extend([
-            ("effectiveTime", "effectiveTime", fhirdate.FHIRDate, False),
-            ("entityCodeableConcept", "entityCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("entityReference", "entityReference", fhirreference.FHIRReference, False),
-            ("factor", "factor", float, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("net", "net", quantity.Quantity, False),
-            ("points", "points", float, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("unitPrice", "unitPrice", quantity.Quantity, False),
+            ("effectiveTime", "effectiveTime", fhirdate.FHIRDate, False, None, False),
+            ("entityCodeableConcept", "entityCodeableConcept", codeableconcept.CodeableConcept, False, "entity", False),
+            ("entityReference", "entityReference", fhirreference.FHIRReference, False, "entity", False),
+            ("factor", "factor", float, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("net", "net", quantity.Quantity, False, None, False),
+            ("points", "points", float, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("unitPrice", "unitPrice", quantity.Quantity, False, None, False),
         ])
         return js
 
@@ -524,15 +529,15 @@ class ContractValuedItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractValuedItem, self).elementProperties()
         js.extend([
-            ("effectiveTime", "effectiveTime", fhirdate.FHIRDate, False),
-            ("entityCodeableConcept", "entityCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("entityReference", "entityReference", fhirreference.FHIRReference, False),
-            ("factor", "factor", float, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("net", "net", quantity.Quantity, False),
-            ("points", "points", float, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("unitPrice", "unitPrice", quantity.Quantity, False),
+            ("effectiveTime", "effectiveTime", fhirdate.FHIRDate, False, None, False),
+            ("entityCodeableConcept", "entityCodeableConcept", codeableconcept.CodeableConcept, False, "entity", False),
+            ("entityReference", "entityReference", fhirreference.FHIRReference, False, "entity", False),
+            ("factor", "factor", float, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("net", "net", quantity.Quantity, False, None, False),
+            ("points", "points", float, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("unitPrice", "unitPrice", quantity.Quantity, False, None, False),
         ])
         return js
 
@@ -545,3 +550,4 @@ from . import fhirreference
 from . import identifier
 from . import period
 from . import quantity
+from . import signature

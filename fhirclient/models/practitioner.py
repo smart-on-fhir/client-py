@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -26,7 +26,8 @@ class Practitioner(domainresource.DomainResource):
         Type `bool`. """
         
         self.address = None
-        """ Where practitioner can be found/visited.
+        """ Address(es) of the practitioner that are not role specific
+        (typically home address).
         List of `Address` items (represented as `dict` in JSON). """
         
         self.birthDate = None
@@ -46,8 +47,8 @@ class Practitioner(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ A name associated with the person.
-        Type `HumanName` (represented as `dict` in JSON). """
+        """ The name(s) associated with the practitioner.
+        List of `HumanName` items (represented as `dict` in JSON). """
         
         self.photo = None
         """ Image of the person.
@@ -62,7 +63,7 @@ class Practitioner(domainresource.DomainResource):
         List of `PractitionerQualification` items (represented as `dict` in JSON). """
         
         self.telecom = None
-        """ A contact detail for the practitioner.
+        """ A contact detail for the practitioner (that apply to all roles).
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(Practitioner, self).__init__(jsondict)
@@ -70,17 +71,17 @@ class Practitioner(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Practitioner, self).elementProperties()
         js.extend([
-            ("active", "active", bool, False),
-            ("address", "address", address.Address, True),
-            ("birthDate", "birthDate", fhirdate.FHIRDate, False),
-            ("communication", "communication", codeableconcept.CodeableConcept, True),
-            ("gender", "gender", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("name", "name", humanname.HumanName, False),
-            ("photo", "photo", attachment.Attachment, True),
-            ("practitionerRole", "practitionerRole", PractitionerPractitionerRole, True),
-            ("qualification", "qualification", PractitionerQualification, True),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("active", "active", bool, False, None, False),
+            ("address", "address", address.Address, True, None, False),
+            ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
+            ("communication", "communication", codeableconcept.CodeableConcept, True, None, False),
+            ("gender", "gender", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("name", "name", humanname.HumanName, True, None, False),
+            ("photo", "photo", attachment.Attachment, True, None, False),
+            ("practitionerRole", "practitionerRole", PractitionerPractitionerRole, True, None, False),
+            ("qualification", "qualification", PractitionerQualification, True, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -104,11 +105,15 @@ class PractitionerPractitionerRole(backboneelement.BackboneElement):
         role's Organization/Location(s).
         List of `FHIRReference` items referencing `HealthcareService` (represented as `dict` in JSON). """
         
+        self.identifier = None
+        """ Business Identifiers that are specific to a role/location.
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
         self.location = None
         """ The location(s) at which this practitioner provides care.
         List of `FHIRReference` items referencing `Location` (represented as `dict` in JSON). """
         
-        self.managingOrganization = None
+        self.organization = None
         """ Organization where the roles are performed.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
@@ -125,17 +130,23 @@ class PractitionerPractitionerRole(backboneelement.BackboneElement):
         """ Specific specialty of the practitioner.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.telecom = None
+        """ Contact details that are specific to the role/location/service.
+        List of `ContactPoint` items (represented as `dict` in JSON). """
+        
         super(PractitionerPractitionerRole, self).__init__(jsondict)
     
     def elementProperties(self):
         js = super(PractitionerPractitionerRole, self).elementProperties()
         js.extend([
-            ("healthcareService", "healthcareService", fhirreference.FHIRReference, True),
-            ("location", "location", fhirreference.FHIRReference, True),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
-            ("period", "period", period.Period, False),
-            ("role", "role", codeableconcept.CodeableConcept, False),
-            ("specialty", "specialty", codeableconcept.CodeableConcept, True),
+            ("healthcareService", "healthcareService", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("location", "location", fhirreference.FHIRReference, True, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -171,10 +182,10 @@ class PractitionerQualification(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PractitionerQualification, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("issuer", "issuer", fhirreference.FHIRReference, False),
-            ("period", "period", period.Period, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("issuer", "issuer", fhirreference.FHIRReference, False, None, False),
+            ("period", "period", period.Period, False, None, False),
         ])
         return js
 

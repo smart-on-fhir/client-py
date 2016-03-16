@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -33,13 +33,13 @@ class QuestionnaireResponse(domainresource.DomainResource):
         """ Primary encounter during which the answers were collected.
         Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
         
-        self.group = None
-        """ Grouped questions.
-        Type `QuestionnaireResponseGroup` (represented as `dict` in JSON). """
-        
         self.identifier = None
         """ Unique id for this set of answers.
         Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.item = None
+        """ Groups and questions.
+        List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
         
         self.questionnaire = None
         """ Form being answered.
@@ -62,81 +62,28 @@ class QuestionnaireResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(QuestionnaireResponse, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, False),
-            ("authored", "authored", fhirdate.FHIRDate, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("group", "group", QuestionnaireResponseGroup, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("questionnaire", "questionnaire", fhirreference.FHIRReference, False),
-            ("source", "source", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("authored", "authored", fhirdate.FHIRDate, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("item", "item", QuestionnaireResponseItem, True, None, False),
+            ("questionnaire", "questionnaire", fhirreference.FHIRReference, False, None, False),
+            ("source", "source", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
 from . import backboneelement
 
-class QuestionnaireResponseGroup(backboneelement.BackboneElement):
-    """ Grouped questions.
+class QuestionnaireResponseItem(backboneelement.BackboneElement):
+    """ Groups and questions.
     
-    A group of questions to a possibly similarly grouped set of questions in
-    the questionnaire response.
+    Corresponds to a group or question item from the original questionnaire.
     """
     
-    resource_name = "QuestionnaireResponseGroup"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.group = None
-        """ Nested questionnaire response group.
-        List of `QuestionnaireResponseGroup` items (represented as `dict` in JSON). """
-        
-        self.linkId = None
-        """ Corresponding group within Questionnaire.
-        Type `str`. """
-        
-        self.question = None
-        """ Questions in this group.
-        List of `QuestionnaireResponseGroupQuestion` items (represented as `dict` in JSON). """
-        
-        self.subject = None
-        """ The subject this group's answers are about.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Additional text for the group.
-        Type `str`. """
-        
-        self.title = None
-        """ Name for this group.
-        Type `str`. """
-        
-        super(QuestionnaireResponseGroup, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(QuestionnaireResponseGroup, self).elementProperties()
-        js.extend([
-            ("group", "group", QuestionnaireResponseGroup, True),
-            ("linkId", "linkId", str, False),
-            ("question", "question", QuestionnaireResponseGroupQuestion, True),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("text", "text", str, False),
-            ("title", "title", str, False),
-        ])
-        return js
-
-
-class QuestionnaireResponseGroupQuestion(backboneelement.BackboneElement):
-    """ Questions in this group.
-    
-    Set of questions within this group. The order of questions within the group
-    is relevant.
-    """
-    
-    resource_name = "QuestionnaireResponseGroupQuestion"
+    resource_name = "QuestionnaireResponseItem"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -144,43 +91,53 @@ class QuestionnaireResponseGroupQuestion(backboneelement.BackboneElement):
         
         self.answer = None
         """ The response(s) to the question.
-        List of `QuestionnaireResponseGroupQuestionAnswer` items (represented as `dict` in JSON). """
+        List of `QuestionnaireResponseItemAnswer` items (represented as `dict` in JSON). """
+        
+        self.item = None
+        """ Nested questionnaire response items.
+        List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
         
         self.linkId = None
-        """ Corresponding question within Questionnaire.
+        """ Corresponding item within Questionnaire.
         Type `str`. """
+        
+        self.subject = None
+        """ The subject this group's answers are about.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.text = None
-        """ Text of the question as it is shown to the user.
+        """ Name for group or question text.
         Type `str`. """
         
-        super(QuestionnaireResponseGroupQuestion, self).__init__(jsondict)
+        super(QuestionnaireResponseItem, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(QuestionnaireResponseGroupQuestion, self).elementProperties()
+        js = super(QuestionnaireResponseItem, self).elementProperties()
         js.extend([
-            ("answer", "answer", QuestionnaireResponseGroupQuestionAnswer, True),
-            ("linkId", "linkId", str, False),
-            ("text", "text", str, False),
+            ("answer", "answer", QuestionnaireResponseItemAnswer, True, None, False),
+            ("item", "item", QuestionnaireResponseItem, True, None, False),
+            ("linkId", "linkId", str, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("text", "text", str, False, None, False),
         ])
         return js
 
 
-class QuestionnaireResponseGroupQuestionAnswer(backboneelement.BackboneElement):
+class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
     """ The response(s) to the question.
     
     The respondent's answer(s) to the question.
     """
     
-    resource_name = "QuestionnaireResponseGroupQuestionAnswer"
+    resource_name = "QuestionnaireResponseItemAnswer"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
-        self.group = None
-        """ Nested questionnaire group.
-        List of `QuestionnaireResponseGroup` items (represented as `dict` in JSON). """
+        self.item = None
+        """ Nested groups and questions.
+        List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
         
         self.valueAttachment = None
         """ Single-valued answer to the question.
@@ -234,25 +191,25 @@ class QuestionnaireResponseGroupQuestionAnswer(backboneelement.BackboneElement):
         """ Single-valued answer to the question.
         Type `str`. """
         
-        super(QuestionnaireResponseGroupQuestionAnswer, self).__init__(jsondict)
+        super(QuestionnaireResponseItemAnswer, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(QuestionnaireResponseGroupQuestionAnswer, self).elementProperties()
+        js = super(QuestionnaireResponseItemAnswer, self).elementProperties()
         js.extend([
-            ("group", "group", QuestionnaireResponseGroup, True),
-            ("valueAttachment", "valueAttachment", attachment.Attachment, False),
-            ("valueBoolean", "valueBoolean", bool, False),
-            ("valueCoding", "valueCoding", coding.Coding, False),
-            ("valueDate", "valueDate", fhirdate.FHIRDate, False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False),
-            ("valueDecimal", "valueDecimal", float, False),
-            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False),
-            ("valueInteger", "valueInteger", int, False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
-            ("valueReference", "valueReference", fhirreference.FHIRReference, False),
-            ("valueString", "valueString", str, False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False),
-            ("valueUri", "valueUri", str, False),
+            ("item", "item", QuestionnaireResponseItem, True, None, False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
+            ("valueBoolean", "valueBoolean", bool, False, "value", False),
+            ("valueCoding", "valueCoding", coding.Coding, False, "value", False),
+            ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDecimal", "valueDecimal", float, False, "value", False),
+            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", False),
+            ("valueInteger", "valueInteger", int, False, "value", False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
+            ("valueString", "valueString", str, False, "value", False),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueUri", "valueUri", str, False, "value", False),
         ])
         return js
 

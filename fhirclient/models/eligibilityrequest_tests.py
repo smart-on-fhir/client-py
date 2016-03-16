@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -37,6 +37,8 @@ class EligibilityRequestTests(unittest.TestCase):
         self.assertEqual(inst.id, "52345")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/elegibilityrequest")
         self.assertEqual(inst.identifier[0].value, "52345")
+        self.assertEqual(inst.priority.code, "normal")
+        self.assertEqual(inst.relationship.code, "self")
         self.assertEqual(inst.text.div, "<div>A human-readable rendering of the EligibilityRequest</div>")
         self.assertEqual(inst.text.status, "generated")
 

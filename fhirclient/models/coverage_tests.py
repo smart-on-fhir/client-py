@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -41,6 +41,7 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(inst.period.start.date, FHIRDate("2011-03-17").date)
         self.assertEqual(inst.period.start.as_json(), "2011-03-17")
         self.assertEqual(inst.plan, "11024")
+        self.assertEqual(inst.relationship.code, "self")
         self.assertEqual(inst.subPlan, "D15C9")
         self.assertEqual(inst.text.div, "<div>A human-readable rendering of the coverage</div>")
         self.assertEqual(inst.text.status, "generated")
@@ -68,6 +69,7 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(inst.period.start.date, FHIRDate("2011-05-23").date)
         self.assertEqual(inst.period.start.as_json(), "2011-05-23")
         self.assertEqual(inst.plan, "CBI35")
+        self.assertEqual(inst.relationship.code, "self")
         self.assertEqual(inst.sequence, 1)
         self.assertEqual(inst.subPlan, "123")
         self.assertEqual(inst.text.div, "<div>A human-readable rendering of the coverage</div>")

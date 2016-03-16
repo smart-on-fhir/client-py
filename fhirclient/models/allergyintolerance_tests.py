@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -33,13 +33,20 @@ class AllergyIntoleranceTests(unittest.TestCase):
     
     def implAllergyIntolerance1(self, inst):
         self.assertEqual(inst.category, "food")
-        self.assertEqual(inst.criticality, "CRITH")
+        self.assertEqual(inst.criticality, "high")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://acme.com/ids/patients/risks")
         self.assertEqual(inst.identifier[0].value, "49476534")
         self.assertEqual(inst.lastOccurence.date, FHIRDate("2012-06").date)
         self.assertEqual(inst.lastOccurence.as_json(), "2012-06")
-        self.assertEqual(inst.reaction[0].description, "Challenge Protocol. Severe Reaction to 1/8 cashew. Epinephrine administered")
+        self.assertEqual(inst.note[0].text, "The criticality is high becasue of the observed anaphylactic reaction when challenged with cashew extract.")
+        self.assertEqual(inst.onset.date, FHIRDate("2004").date)
+        self.assertEqual(inst.onset.as_json(), "2004")
+        self.assertEqual(inst.reaction[0].certainty, "confirmed")
+        self.assertEqual(inst.reaction[0].description, "Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered")
+        self.assertEqual(inst.reaction[0].exposureRoute.coding[0].code, "34206005")
+        self.assertEqual(inst.reaction[0].exposureRoute.coding[0].display, "Subcutaneous route")
+        self.assertEqual(inst.reaction[0].exposureRoute.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.reaction[0].manifestation[0].coding[0].code, "39579001")
         self.assertEqual(inst.reaction[0].manifestation[0].coding[0].display, "Anaphylactic reaction")
         self.assertEqual(inst.reaction[0].manifestation[0].coding[0].system, "http://snomed.info/sct")
@@ -53,6 +60,7 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.assertEqual(inst.reaction[1].manifestation[0].coding[0].code, "64305001")
         self.assertEqual(inst.reaction[1].manifestation[0].coding[0].display, "Urticaria")
         self.assertEqual(inst.reaction[1].manifestation[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.reaction[1].note[0].text, "The patient reports that the onset of urticaria was within 15 minutes of eating cashews.")
         self.assertEqual(inst.reaction[1].onset.date, FHIRDate("2004").date)
         self.assertEqual(inst.reaction[1].onset.as_json(), "2004")
         self.assertEqual(inst.reaction[1].severity, "moderate")

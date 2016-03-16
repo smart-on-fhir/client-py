@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -21,57 +21,17 @@ class AuditEvent(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
-        self.event = None
-        """ What was done.
-        Type `AuditEventEvent` (represented as `dict` in JSON). """
-        
-        self.object = None
-        """ Specific instances of data or objects that have been accessed.
-        List of `AuditEventObject` items (represented as `dict` in JSON). """
-        
-        self.participant = None
-        """ A person, a hardware device or software process.
-        List of `AuditEventParticipant` items (represented as `dict` in JSON). """
-        
-        self.source = None
-        """ Application systems and processes.
-        Type `AuditEventSource` (represented as `dict` in JSON). """
-        
-        super(AuditEvent, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(AuditEvent, self).elementProperties()
-        js.extend([
-            ("event", "event", AuditEventEvent, False),
-            ("object", "object", AuditEventObject, True),
-            ("participant", "participant", AuditEventParticipant, True),
-            ("source", "source", AuditEventSource, False),
-        ])
-        return js
-
-
-from . import backboneelement
-
-class AuditEventEvent(backboneelement.BackboneElement):
-    """ What was done.
-    
-    Identifies the name, action type, time, and disposition of the audited
-    event.
-    """
-    
-    resource_name = "AuditEventEvent"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
         self.action = None
         """ Type of action performed during the event.
         Type `str`. """
         
-        self.dateTime = None
-        """ Time when the event occurred on source.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        self.agent = None
+        """ Actor involved in the event.
+        List of `AuditEventAgent` items (represented as `dict` in JSON). """
+        
+        self.entity = None
+        """ Specific instances of data or objects that have been accessed.
+        List of `AuditEventEntity` items (represented as `dict` in JSON). """
         
         self.outcome = None
         """ Whether the event succeeded or failed.
@@ -85,6 +45,14 @@ class AuditEventEvent(backboneelement.BackboneElement):
         """ The purposeOfUse of the event.
         List of `Coding` items (represented as `dict` in JSON). """
         
+        self.recorded = None
+        """ Time when the event occurred on source.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.source = None
+        """ Application systems and processes.
+        Type `AuditEventSource` (represented as `dict` in JSON). """
+        
         self.subtype = None
         """ More specific type/id for the event.
         List of `Coding` items (represented as `dict` in JSON). """
@@ -93,125 +61,34 @@ class AuditEventEvent(backboneelement.BackboneElement):
         """ Type/identifier of event.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(AuditEventEvent, self).__init__(jsondict)
+        super(AuditEvent, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(AuditEventEvent, self).elementProperties()
+        js = super(AuditEvent, self).elementProperties()
         js.extend([
-            ("action", "action", str, False),
-            ("dateTime", "dateTime", fhirdate.FHIRDate, False),
-            ("outcome", "outcome", str, False),
-            ("outcomeDesc", "outcomeDesc", str, False),
-            ("purposeOfEvent", "purposeOfEvent", coding.Coding, True),
-            ("subtype", "subtype", coding.Coding, True),
-            ("type", "type", coding.Coding, False),
+            ("action", "action", str, False, None, False),
+            ("agent", "agent", AuditEventAgent, True, None, True),
+            ("entity", "entity", AuditEventEntity, True, None, False),
+            ("outcome", "outcome", str, False, None, False),
+            ("outcomeDesc", "outcomeDesc", str, False, None, False),
+            ("purposeOfEvent", "purposeOfEvent", coding.Coding, True, None, False),
+            ("recorded", "recorded", fhirdate.FHIRDate, False, None, True),
+            ("source", "source", AuditEventSource, False, None, True),
+            ("subtype", "subtype", coding.Coding, True, None, False),
+            ("type", "type", coding.Coding, False, None, True),
         ])
         return js
 
 
-class AuditEventObject(backboneelement.BackboneElement):
-    """ Specific instances of data or objects that have been accessed.
+from . import backboneelement
+
+class AuditEventAgent(backboneelement.BackboneElement):
+    """ Actor involved in the event.
+    
+    An actor taking an active role in the event or activity that is logged.
     """
     
-    resource_name = "AuditEventObject"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.description = None
-        """ Descriptive text.
-        Type `str`. """
-        
-        self.detail = None
-        """ Additional Information about the Object.
-        List of `AuditEventObjectDetail` items (represented as `dict` in JSON). """
-        
-        self.identifier = None
-        """ Specific instance of object (e.g. versioned).
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.lifecycle = None
-        """ Life-cycle stage for the object.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.name = None
-        """ Instance-specific descriptor for Object.
-        Type `str`. """
-        
-        self.query = None
-        """ Actual query for object.
-        Type `str`. """
-        
-        self.reference = None
-        """ Specific instance of resource (e.g. versioned).
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        self.role = None
-        """ What role the Object played.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.securityLabel = None
-        """ Security labels applied to the object.
-        List of `Coding` items (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ Type of object involved.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        super(AuditEventObject, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(AuditEventObject, self).elementProperties()
-        js.extend([
-            ("description", "description", str, False),
-            ("detail", "detail", AuditEventObjectDetail, True),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("lifecycle", "lifecycle", coding.Coding, False),
-            ("name", "name", str, False),
-            ("query", "query", str, False),
-            ("reference", "reference", fhirreference.FHIRReference, False),
-            ("role", "role", coding.Coding, False),
-            ("securityLabel", "securityLabel", coding.Coding, True),
-            ("type", "type", coding.Coding, False),
-        ])
-        return js
-
-
-class AuditEventObjectDetail(backboneelement.BackboneElement):
-    """ Additional Information about the Object.
-    """
-    
-    resource_name = "AuditEventObjectDetail"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.type = None
-        """ Name of the property.
-        Type `str`. """
-        
-        self.value = None
-        """ Property value.
-        Type `str`. """
-        
-        super(AuditEventObjectDetail, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(AuditEventObjectDetail, self).elementProperties()
-        js.extend([
-            ("type", "type", str, False),
-            ("value", "value", str, False),
-        ])
-        return js
-
-
-class AuditEventParticipant(backboneelement.BackboneElement):
-    """ A person, a hardware device or software process.
-    """
-    
-    resource_name = "AuditEventParticipant"
+    resource_name = "AuditEventAgent"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -230,12 +107,12 @@ class AuditEventParticipant(backboneelement.BackboneElement):
         Type `Coding` (represented as `dict` in JSON). """
         
         self.name = None
-        """ Human-meaningful name for the user.
+        """ Human-meaningful name for the agent.
         Type `str`. """
         
         self.network = None
         """ Logical network location for application activity.
-        Type `AuditEventParticipantNetwork` (represented as `dict` in JSON). """
+        Type `AuditEventAgentNetwork` (represented as `dict` in JSON). """
         
         self.policy = None
         """ Policy that authorized event.
@@ -254,41 +131,41 @@ class AuditEventParticipant(backboneelement.BackboneElement):
         Type `bool`. """
         
         self.role = None
-        """ User roles (e.g. local RBAC codes).
+        """ Agent role in the event.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.userId = None
         """ Unique identifier for the user.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        super(AuditEventParticipant, self).__init__(jsondict)
+        super(AuditEventAgent, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(AuditEventParticipant, self).elementProperties()
+        js = super(AuditEventAgent, self).elementProperties()
         js.extend([
-            ("altId", "altId", str, False),
-            ("location", "location", fhirreference.FHIRReference, False),
-            ("media", "media", coding.Coding, False),
-            ("name", "name", str, False),
-            ("network", "network", AuditEventParticipantNetwork, False),
-            ("policy", "policy", str, True),
-            ("purposeOfUse", "purposeOfUse", coding.Coding, True),
-            ("reference", "reference", fhirreference.FHIRReference, False),
-            ("requestor", "requestor", bool, False),
-            ("role", "role", codeableconcept.CodeableConcept, True),
-            ("userId", "userId", identifier.Identifier, False),
+            ("altId", "altId", str, False, None, False),
+            ("location", "location", fhirreference.FHIRReference, False, None, False),
+            ("media", "media", coding.Coding, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("network", "network", AuditEventAgentNetwork, False, None, False),
+            ("policy", "policy", str, True, None, False),
+            ("purposeOfUse", "purposeOfUse", coding.Coding, True, None, False),
+            ("reference", "reference", fhirreference.FHIRReference, False, None, False),
+            ("requestor", "requestor", bool, False, None, True),
+            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
+            ("userId", "userId", identifier.Identifier, False, None, False),
         ])
         return js
 
 
-class AuditEventParticipantNetwork(backboneelement.BackboneElement):
+class AuditEventAgentNetwork(backboneelement.BackboneElement):
     """ Logical network location for application activity.
     
     Logical network location for application activity, if the activity has a
     network location.
     """
     
-    resource_name = "AuditEventParticipantNetwork"
+    resource_name = "AuditEventAgentNetwork"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
@@ -302,13 +179,111 @@ class AuditEventParticipantNetwork(backboneelement.BackboneElement):
         """ The type of network access point.
         Type `str`. """
         
-        super(AuditEventParticipantNetwork, self).__init__(jsondict)
+        super(AuditEventAgentNetwork, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(AuditEventParticipantNetwork, self).elementProperties()
+        js = super(AuditEventAgentNetwork, self).elementProperties()
         js.extend([
-            ("address", "address", str, False),
-            ("type", "type", str, False),
+            ("address", "address", str, False, None, False),
+            ("type", "type", str, False, None, False),
+        ])
+        return js
+
+
+class AuditEventEntity(backboneelement.BackboneElement):
+    """ Specific instances of data or objects that have been accessed.
+    """
+    
+    resource_name = "AuditEventEntity"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.description = None
+        """ Descriptive text.
+        Type `str`. """
+        
+        self.detail = None
+        """ Additional Information about the entity.
+        List of `AuditEventEntityDetail` items (represented as `dict` in JSON). """
+        
+        self.identifier = None
+        """ Specific instance of object (e.g. versioned).
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.lifecycle = None
+        """ Life-cycle stage for the object.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.name = None
+        """ Descriptor for entity.
+        Type `str`. """
+        
+        self.query = None
+        """ Query parameters.
+        Type `str`. """
+        
+        self.reference = None
+        """ Specific instance of resource (e.g. versioned).
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        
+        self.role = None
+        """ What role the entity played.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.securityLabel = None
+        """ Security labels applied to the object.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ Type of object involved.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        super(AuditEventEntity, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(AuditEventEntity, self).elementProperties()
+        js.extend([
+            ("description", "description", str, False, None, False),
+            ("detail", "detail", AuditEventEntityDetail, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("lifecycle", "lifecycle", coding.Coding, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("query", "query", str, False, None, False),
+            ("reference", "reference", fhirreference.FHIRReference, False, None, False),
+            ("role", "role", coding.Coding, False, None, False),
+            ("securityLabel", "securityLabel", coding.Coding, True, None, False),
+            ("type", "type", coding.Coding, False, None, False),
+        ])
+        return js
+
+
+class AuditEventEntityDetail(backboneelement.BackboneElement):
+    """ Additional Information about the entity.
+    """
+    
+    resource_name = "AuditEventEntityDetail"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.type = None
+        """ Name of the property.
+        Type `str`. """
+        
+        self.value = None
+        """ Property value.
+        Type `str`. """
+        
+        super(AuditEventEntityDetail, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(AuditEventEntityDetail, self).elementProperties()
+        js.extend([
+            ("type", "type", str, False, None, True),
+            ("value", "value", str, False, None, True),
         ])
         return js
 
@@ -340,9 +315,9 @@ class AuditEventSource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventSource, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("site", "site", str, False),
-            ("type", "type", coding.Coding, True),
+            ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("site", "site", str, False, None, False),
+            ("type", "type", coding.Coding, True, None, False),
         ])
         return js
 

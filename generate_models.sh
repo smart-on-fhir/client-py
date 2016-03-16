@@ -5,5 +5,5 @@ if [ ! -e fhir-parser ]; then
 fi
 cp generator_settings.py fhir-parser/settings.py
 cd fhir-parser
-python generate.py $1
+./generate.py $1
 cd ..

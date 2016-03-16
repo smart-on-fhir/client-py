@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -32,8 +32,8 @@ class DeviceTests(unittest.TestCase):
         self.implDevice1(inst2)
     
     def implDevice1(self, inst):
-        self.assertEqual(inst.expiry.date, FHIRDate("2020-08-08").date)
-        self.assertEqual(inst.expiry.as_json(), "2020-08-08")
+        self.assertEqual(inst.expirationDate.date, FHIRDate("2020-08-08").date)
+        self.assertEqual(inst.expirationDate.as_json(), "2020-08-08")
         self.assertEqual(inst.id, "f001")
         self.assertEqual(inst.identifier[0].system, "http:/goodhealthhospital/identifier/devices")
         self.assertEqual(inst.identifier[0].value, "12345")
@@ -44,7 +44,8 @@ class DeviceTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].code, "25062003")
         self.assertEqual(inst.type.coding[0].display, "Feeding tube, device")
         self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.udi, "(01)00000123000017(10)ABC123(17)120415")
+        self.assertEqual(inst.udiCarrier.system, "urn:oid:2.16.840.1.113883.3.3719")
+        self.assertEqual(inst.udiCarrier.value, "(01)00000123000017(10)ABC123(17)120415")
     
     def testDevice2(self):
         inst = self.instantiate_from("device-example-ihe-pcd.json")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -39,7 +39,8 @@ class AppointmentResponseTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "http://example.org/sampleappointmentresponse-identifier")
         self.assertEqual(inst.identifier[0].value, "response123")
         self.assertEqual(inst.participantStatus, "tentative")
-        self.assertEqual(inst.participantType[0].coding[0].code, "attending")
+        self.assertEqual(inst.participantType[0].coding[0].code, "ATND")
+        self.assertEqual(inst.participantType[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.start.date, FHIRDate("2013-12-25T13:15:00Z").date)
         self.assertEqual(inst.start.as_json(), "2013-12-25T13:15:00Z")
         self.assertEqual(inst.text.div, "<div>Accept Brian MRI results discussion</div>")

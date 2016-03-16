@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -53,9 +53,7 @@ class ImmunizationRecommendationTests(unittest.TestCase):
         self.assertEqual(inst.recommendation[0].dateCriterion[2].value.date, FHIRDate("2016-12-28T00:00:00-05:00").date)
         self.assertEqual(inst.recommendation[0].dateCriterion[2].value.as_json(), "2016-12-28T00:00:00-05:00")
         self.assertEqual(inst.recommendation[0].doseNumber, 1)
-        self.assertEqual(inst.recommendation[0].forecastStatus.coding[0].code, "Not Complete")
-        self.assertEqual(inst.recommendation[0].forecastStatus.coding[0].display, "Not Complete")
-        self.assertEqual(inst.recommendation[0].forecastStatus.coding[0].system, "http://hl7.org/fhir/immunization-recommendation-status")
+        self.assertEqual(inst.recommendation[0].forecastStatus.text, "Not Complete")
         self.assertEqual(inst.recommendation[0].protocol.description, "First sequence in protocol")
         self.assertEqual(inst.recommendation[0].protocol.doseSequence, 1)
         self.assertEqual(inst.recommendation[0].protocol.series, "Vaccination Series 1")

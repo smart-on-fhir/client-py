@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -96,6 +96,51 @@ class DiagnosticOrderTests(unittest.TestCase):
         self.assertEqual(inst.reason[0].coding[0].code, "V173")
         self.assertEqual(inst.reason[0].coding[0].display, "Fam hx-ischem heart dis")
         self.assertEqual(inst.reason[0].coding[0].system, "http://hl7.org/fhir/sid/icd-9")
+        self.assertEqual(inst.status, "received")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testDiagnosticOrder4(self):
+        inst = self.instantiate_from("diagnosticorder-genetics-example-1.json")
+        self.assertIsNotNone(inst, "Must have instantiated a DiagnosticOrder instance")
+        self.implDiagnosticOrder4(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticOrder", js["resourceType"])
+        inst2 = diagnosticorder.DiagnosticOrder(js)
+        self.implDiagnosticOrder4(inst2)
+    
+    def implDiagnosticOrder4(self, inst):
+        self.assertEqual(inst.event[0].dateTime.date, FHIRDate("2014-05-12T16:16:00-07:00").date)
+        self.assertEqual(inst.event[0].dateTime.as_json(), "2014-05-12T16:16:00-07:00")
+        self.assertEqual(inst.event[0].status, "requested")
+        self.assertEqual(inst.id, "og-example1")
+        self.assertEqual(inst.item[0].code.coding[0].code, "49874-1")
+        self.assertEqual(inst.item[0].code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.item[0].code.text, "ABCB4 gene mutation analysis")
+        self.assertEqual(inst.status, "received")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testDiagnosticOrder5(self):
+        inst = self.instantiate_from("diagnosticorder-genetics-example-2.json")
+        self.assertIsNotNone(inst, "Must have instantiated a DiagnosticOrder instance")
+        self.implDiagnosticOrder5(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticOrder", js["resourceType"])
+        inst2 = diagnosticorder.DiagnosticOrder(js)
+        self.implDiagnosticOrder5(inst2)
+    
+    def implDiagnosticOrder5(self, inst):
+        self.assertEqual(inst.event[0].dateTime.date, FHIRDate("2014-05-12T16:16:00-07:00").date)
+        self.assertEqual(inst.event[0].dateTime.as_json(), "2014-05-12T16:16:00-07:00")
+        self.assertEqual(inst.event[0].status, "requested")
+        self.assertEqual(inst.extension[0].extension[0].url, "code")
+        self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.coding[0].code, "49874-1")
+        self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.text, "ABCB4 gene mutation analysis")
+        self.assertEqual(inst.extension[0].extension[1].url, "sequence")
+        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/diagnosticorder-geneticsItem")
+        self.assertEqual(inst.id, "og-example2")
         self.assertEqual(inst.status, "received")
         self.assertEqual(inst.text.status, "generated")
 

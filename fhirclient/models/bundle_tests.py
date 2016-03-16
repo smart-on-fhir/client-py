@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -201,7 +201,7 @@ class BundleTests(unittest.TestCase):
         self.assertEqual(inst.meta.lastUpdated.as_json(), "2013-05-28T22:12:21Z")
         self.assertEqual(inst.signature.contentType, "image/jpg")
         self.assertEqual(inst.signature.type[0].code, "1.2.840.10065.1.12.1.1")
-        self.assertEqual(inst.signature.type[0].display, "AuthorID")
+        self.assertEqual(inst.signature.type[0].display, "Author's Signature")
         self.assertEqual(inst.signature.type[0].system, "http://hl7.org/fhir/valueset-signature-type")
         self.assertEqual(inst.signature.when.date, FHIRDate("2015-08-31T07:42:33+10:00").date)
         self.assertEqual(inst.signature.when.as_json(), "2015-08-31T07:42:33+10:00")

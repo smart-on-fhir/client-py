@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -20,17 +20,29 @@ class Coverage(domainresource.DomainResource):
         """ Initialize all valid properties.
         """
         
+        self.beneficiaryIdentifier = None
+        """ Plan Beneficiary.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.beneficiaryReference = None
+        """ Plan Beneficiary.
+        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
         self.bin = None
         """ BIN Number.
-        Type `Identifier` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.contract = None
         """ Contract details.
         List of `FHIRReference` items referencing `Contract` (represented as `dict` in JSON). """
         
         self.dependent = None
-        """ The dependent number.
+        """ Dependent number.
         Type `int`. """
+        
+        self.exception = None
+        """ Eligibility exceptions.
+        List of `Coding` items (represented as `dict` in JSON). """
         
         self.group = None
         """ An identifier for the group.
@@ -40,13 +52,17 @@ class Coverage(domainresource.DomainResource):
         """ The primary coverage ID.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.issuer = None
-        """ An identifier for the plan issuer.
+        self.issuerIdentifier = None
+        """ Identifier for the plan issuer.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.issuerReference = None
+        """ Identifier for the plan issuer.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.network = None
         """ Insurer network.
-        Type `Identifier` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.period = None
         """ Coverage start and end dates.
@@ -54,6 +70,22 @@ class Coverage(domainresource.DomainResource):
         
         self.plan = None
         """ An identifier for the plan.
+        Type `str`. """
+        
+        self.planholderIdentifier = None
+        """ Plan holder.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.planholderReference = None
+        """ Plan holder.
+        Type `FHIRReference` referencing `Patient, Organization` (represented as `dict` in JSON). """
+        
+        self.relationship = None
+        """ Patient relationship to planholder.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.school = None
+        """ Name of School.
         Type `str`. """
         
         self.sequence = None
@@ -64,14 +96,6 @@ class Coverage(domainresource.DomainResource):
         """ An identifier for the subsection of the plan.
         Type `str`. """
         
-        self.subscriber = None
-        """ Plan holder information.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.subscriberId = None
-        """ Subscriber ID.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
         self.type = None
         """ Type of coverage.
         Type `Coding` (represented as `dict` in JSON). """
@@ -81,20 +105,26 @@ class Coverage(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Coverage, self).elementProperties()
         js.extend([
-            ("bin", "bin", identifier.Identifier, False),
-            ("contract", "contract", fhirreference.FHIRReference, True),
-            ("dependent", "dependent", int, False),
-            ("group", "group", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("issuer", "issuer", fhirreference.FHIRReference, False),
-            ("network", "network", identifier.Identifier, False),
-            ("period", "period", period.Period, False),
-            ("plan", "plan", str, False),
-            ("sequence", "sequence", int, False),
-            ("subPlan", "subPlan", str, False),
-            ("subscriber", "subscriber", fhirreference.FHIRReference, False),
-            ("subscriberId", "subscriberId", identifier.Identifier, False),
-            ("type", "type", coding.Coding, False),
+            ("beneficiaryIdentifier", "beneficiaryIdentifier", identifier.Identifier, False, "beneficiary", True),
+            ("beneficiaryReference", "beneficiaryReference", fhirreference.FHIRReference, False, "beneficiary", True),
+            ("bin", "bin", str, False, None, False),
+            ("contract", "contract", fhirreference.FHIRReference, True, None, False),
+            ("dependent", "dependent", int, False, None, False),
+            ("exception", "exception", coding.Coding, True, None, False),
+            ("group", "group", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("issuerIdentifier", "issuerIdentifier", identifier.Identifier, False, "issuer", True),
+            ("issuerReference", "issuerReference", fhirreference.FHIRReference, False, "issuer", True),
+            ("network", "network", str, False, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("plan", "plan", str, False, None, False),
+            ("planholderIdentifier", "planholderIdentifier", identifier.Identifier, False, "planholder", True),
+            ("planholderReference", "planholderReference", fhirreference.FHIRReference, False, "planholder", True),
+            ("relationship", "relationship", coding.Coding, False, None, True),
+            ("school", "school", str, False, None, False),
+            ("sequence", "sequence", int, False, None, False),
+            ("subPlan", "subPlan", str, False, None, False),
+            ("type", "type", coding.Coding, False, None, False),
         ])
         return js
 

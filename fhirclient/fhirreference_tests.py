@@ -21,9 +21,9 @@ class TestContainedResource(unittest.TestCase):
         self.assertIsNotNone(q, "Must instantiate Questionnaire")
         self.assertEqual('Questionnaire', q.resource_name)
         
-        group = q.group.group[3]
+        group = q.item.item[3]
         self.assertEqual('Observation.subject', group.linkId)
-        question = group.question[0]
+        question = group.item[0]
         self.assertEqual('Observation.subject._type', question.linkId)
         self.assertIsNotNone(question.options)
         with self.assertRaises(Exception):

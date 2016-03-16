@@ -1,0 +1,140 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2016-03-16.
+#  2016, SMART Health IT.
+
+
+from . import element
+
+class DataRequirement(element.Element):
+    """ Describes a required data item.
+    
+    Describes a required data item for evaluation in terms of the type of data,
+    and optional code- or date-based filters of the data.
+    """
+    
+    resource_name = "DataRequirement"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.codeFilter = None
+        """ Code filters for the data.
+        List of `DataRequirementCodeFilter` items (represented as `dict` in JSON). """
+        
+        self.dateFilter = None
+        """ Date filters for the data.
+        List of `DataRequirementDateFilter` items (represented as `dict` in JSON). """
+        
+        self.mustSupport = None
+        """ Indicates that specific structure elements are referenced by the
+        knowledge module.
+        List of `str` items. """
+        
+        self.profile = None
+        """ The profile of the required data.
+        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ The type of the required data.
+        Type `str`. """
+        
+        super(DataRequirement, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(DataRequirement, self).elementProperties()
+        js.extend([
+            ("codeFilter", "codeFilter", DataRequirementCodeFilter, True, None, False),
+            ("dateFilter", "dateFilter", DataRequirementDateFilter, True, None, False),
+            ("mustSupport", "mustSupport", str, True, None, False),
+            ("profile", "profile", fhirreference.FHIRReference, False, None, False),
+            ("type", "type", str, False, None, True),
+        ])
+        return js
+
+
+class DataRequirementCodeFilter(element.Element):
+    """ Code filters for the data.
+    
+    Code filters specify additional constraints on the data, specifying the
+    value set of interest for a particular element of the data.
+    """
+    
+    resource_name = "DataRequirementCodeFilter"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.codeableConcept = None
+        """ The codeableConcepts for the filter.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.path = None
+        """ The code-valued attribute of the filter.
+        Type `str`. """
+        
+        self.valueSetReference = None
+        """ The valueset for the code filter.
+        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
+        
+        self.valueSetString = None
+        """ The valueset for the code filter.
+        Type `str`. """
+        
+        super(DataRequirementCodeFilter, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(DataRequirementCodeFilter, self).elementProperties()
+        js.extend([
+            ("codeableConcept", "codeableConcept", codeableconcept.CodeableConcept, True, None, False),
+            ("path", "path", str, False, None, True),
+            ("valueSetReference", "valueSetReference", fhirreference.FHIRReference, False, "valueSet", False),
+            ("valueSetString", "valueSetString", str, False, "valueSet", False),
+        ])
+        return js
+
+
+class DataRequirementDateFilter(element.Element):
+    """ Date filters for the data.
+    
+    Date filters specify additional constraints on the data in terms of the
+    applicable date range for specific elements.
+    """
+    
+    resource_name = "DataRequirementDateFilter"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.path = None
+        """ The date-valued attribute of the filter.
+        Type `str`. """
+        
+        self.valueDateTime = None
+        """ The value of the filter, as a Period or dateTime value.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.valuePeriod = None
+        """ The value of the filter, as a Period or dateTime value.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        super(DataRequirementDateFilter, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(DataRequirementDateFilter, self).elementProperties()
+        js.extend([
+            ("path", "path", str, False, None, True),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
+        ])
+        return js
+
+
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import period

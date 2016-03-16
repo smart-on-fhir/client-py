@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -33,7 +33,7 @@ class ImagingObjectSelection(domainresource.DomainResource):
         Type `FHIRReference` referencing `Practitioner, Device, Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.authoringTime = None
-        """ Authoring time of the selection.
+        """ Time when the imaging object selection was created.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
@@ -61,13 +61,13 @@ class ImagingObjectSelection(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ImagingObjectSelection, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, False),
-            ("authoringTime", "authoringTime", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("study", "study", ImagingObjectSelectionStudy, True),
-            ("title", "title", codeableconcept.CodeableConcept, False),
-            ("uid", "uid", str, False),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("authoringTime", "authoringTime", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("study", "study", ImagingObjectSelectionStudy, True, None, True),
+            ("title", "title", codeableconcept.CodeableConcept, False, None, True),
+            ("uid", "uid", str, False, None, True),
         ])
         return js
 
@@ -108,10 +108,10 @@ class ImagingObjectSelectionStudy(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudy, self).elementProperties()
         js.extend([
-            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, False),
-            ("series", "series", ImagingObjectSelectionStudySeries, True),
-            ("uid", "uid", str, False),
-            ("url", "url", str, False),
+            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, False, None, False),
+            ("series", "series", ImagingObjectSelectionStudySeries, True, None, True),
+            ("uid", "uid", str, False, None, True),
+            ("url", "url", str, False, None, False),
         ])
         return js
 
@@ -146,9 +146,9 @@ class ImagingObjectSelectionStudySeries(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudySeries, self).elementProperties()
         js.extend([
-            ("instance", "instance", ImagingObjectSelectionStudySeriesInstance, True),
-            ("uid", "uid", str, False),
-            ("url", "url", str, False),
+            ("instance", "instance", ImagingObjectSelectionStudySeriesInstance, True, None, True),
+            ("uid", "uid", str, False, None, True),
+            ("url", "url", str, False, None, False),
         ])
         return js
 
@@ -165,9 +165,9 @@ class ImagingObjectSelectionStudySeriesInstance(backboneelement.BackboneElement)
         """ Initialize all valid properties.
         """
         
-        self.frames = None
+        self.frame = None
         """ The frame set.
-        List of `ImagingObjectSelectionStudySeriesInstanceFrames` items (represented as `dict` in JSON). """
+        List of `ImagingObjectSelectionStudySeriesInstanceFrame` items (represented as `dict` in JSON). """
         
         self.sopClass = None
         """ SOP class UID of instance.
@@ -186,41 +186,41 @@ class ImagingObjectSelectionStudySeriesInstance(backboneelement.BackboneElement)
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudySeriesInstance, self).elementProperties()
         js.extend([
-            ("frames", "frames", ImagingObjectSelectionStudySeriesInstanceFrames, True),
-            ("sopClass", "sopClass", str, False),
-            ("uid", "uid", str, False),
-            ("url", "url", str, False),
+            ("frame", "frame", ImagingObjectSelectionStudySeriesInstanceFrame, True, None, False),
+            ("sopClass", "sopClass", str, False, None, True),
+            ("uid", "uid", str, False, None, True),
+            ("url", "url", str, False, None, True),
         ])
         return js
 
 
-class ImagingObjectSelectionStudySeriesInstanceFrames(backboneelement.BackboneElement):
+class ImagingObjectSelectionStudySeriesInstanceFrame(backboneelement.BackboneElement):
     """ The frame set.
     
     Identity and location information of the frames in the selected instance.
     """
     
-    resource_name = "ImagingObjectSelectionStudySeriesInstanceFrames"
+    resource_name = "ImagingObjectSelectionStudySeriesInstanceFrame"
     
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
         
-        self.frameNumbers = None
-        """ Frame numbers.
+        self.number = None
+        """ Frame reference number.
         List of `int` items. """
         
         self.url = None
         """ Retrieve frame URL.
         Type `str`. """
         
-        super(ImagingObjectSelectionStudySeriesInstanceFrames, self).__init__(jsondict)
+        super(ImagingObjectSelectionStudySeriesInstanceFrame, self).__init__(jsondict)
     
     def elementProperties(self):
-        js = super(ImagingObjectSelectionStudySeriesInstanceFrames, self).elementProperties()
+        js = super(ImagingObjectSelectionStudySeriesInstanceFrame, self).elementProperties()
         js.extend([
-            ("frameNumbers", "frameNumbers", int, True),
-            ("url", "url", str, False),
+            ("number", "number", int, True, None, True),
+            ("url", "url", str, False, None, True),
         ])
         return js
 

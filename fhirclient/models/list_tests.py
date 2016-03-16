@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -90,7 +90,7 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.contained[1].id, "fmh-2")
         self.assertEqual(inst.id, "f201")
         self.assertEqual(inst.mode, "snapshot")
-        self.assertEqual(inst.note, "Both parents, both brothers and both children (twin) are still alive.")
+        self.assertEqual(inst.note[0].text, "Both parents, both brothers and both children (twin) are still alive.")
         self.assertEqual(inst.status, "current")
         self.assertEqual(inst.text.status, "generated")
     

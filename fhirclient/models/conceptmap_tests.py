@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -164,7 +164,6 @@ class ConceptMapTests(unittest.TestCase):
         self.assertEqual(inst.publisher, "HL7, Inc")
         self.assertEqual(inst.requirements, "To help implementers map from HL7 v3/CDA to FHIR")
         self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/ConceptMap/101")
         self.assertEqual(inst.useContext[0].text, "for CDA Usage")
         self.assertEqual(inst.version, "20120613")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -33,8 +33,9 @@ class DataElementTests(unittest.TestCase):
     
     def implDataElement1(self, inst):
         self.assertEqual(inst.contained[0].id, "2179414")
-        self.assertEqual(inst.contained[1].id, "2179414-permitted")
-        self.assertEqual(inst.contained[2].id, "2179414-cm")
+        self.assertEqual(inst.contained[1].id, "2179414-permitted-cs")
+        self.assertEqual(inst.contained[2].id, "2179414-permitted")
+        self.assertEqual(inst.contained[3].id, "2179414-cm")
         self.assertEqual(inst.element[0].binding.strength, "required")
         self.assertEqual(inst.element[0].definition, "The code representing the gender of a person.")
         self.assertEqual(inst.element[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/minLength")
@@ -105,7 +106,7 @@ class DataElementTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "http://www.CenturyHospital/Laboratory/DirectoryofServices")
         self.assertEqual(inst.identifier[0].type.text, "Prothrombin Time, PT")
         self.assertEqual(inst.identifier[0].value, "11")
-        self.assertEqual(inst.mapping[0].comments, "Version 2.48 or later")
+        self.assertEqual(inst.mapping[0].comment, "Version 2.48 or later")
         self.assertEqual(inst.mapping[0].identity, "loinc")
         self.assertEqual(inst.mapping[0].name, "LOINC")
         self.assertEqual(inst.mapping[0].uri, "http://loinc.org/")

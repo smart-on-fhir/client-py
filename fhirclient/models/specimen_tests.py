@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -95,7 +95,7 @@ class SpecimenTests(unittest.TestCase):
         self.assertEqual(inst.accessionIdentifier.value, "X352356")
         self.assertEqual(inst.collection.collectedDateTime.date, FHIRDate("2011-05-30T06:15:00Z").date)
         self.assertEqual(inst.collection.collectedDateTime.as_json(), "2011-05-30T06:15:00Z")
-        self.assertEqual(inst.collection.comment[0], "Specimen is grossly lipemic")
+        self.assertEqual(inst.collection.comment, "Specimen is grossly lipemic")
         self.assertEqual(inst.collection.method.coding[0].code, "LNV")
         self.assertEqual(inst.collection.method.coding[0].system, "http://hl7.org/fhir/v2/0488")
         self.assertEqual(inst.collection.quantity.unit, "mL")

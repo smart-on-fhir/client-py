@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -25,7 +25,7 @@ class AllergyIntolerance(domainresource.DomainResource):
         Type `str`. """
         
         self.criticality = None
-        """ CRITL | CRITH | CRITU.
+        """ low | high | unable-to-assess.
         Type `str`. """
         
         self.identifier = None
@@ -38,7 +38,7 @@ class AllergyIntolerance(domainresource.DomainResource):
         
         self.note = None
         """ Additional text not captured in other fields.
-        Type `Annotation` (represented as `dict` in JSON). """
+        List of `Annotation` items (represented as `dict` in JSON). """
         
         self.onset = None
         """ Date(/time) when manifestations showed.
@@ -82,20 +82,20 @@ class AllergyIntolerance(domainresource.DomainResource):
     def elementProperties(self):
         js = super(AllergyIntolerance, self).elementProperties()
         js.extend([
-            ("category", "category", str, False),
-            ("criticality", "criticality", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("lastOccurence", "lastOccurence", fhirdate.FHIRDate, False),
-            ("note", "note", annotation.Annotation, False),
-            ("onset", "onset", fhirdate.FHIRDate, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("reaction", "reaction", AllergyIntoleranceReaction, True),
-            ("recordedDate", "recordedDate", fhirdate.FHIRDate, False),
-            ("recorder", "recorder", fhirreference.FHIRReference, False),
-            ("reporter", "reporter", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("substance", "substance", codeableconcept.CodeableConcept, False),
-            ("type", "type", str, False),
+            ("category", "category", str, False, None, False),
+            ("criticality", "criticality", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("lastOccurence", "lastOccurence", fhirdate.FHIRDate, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
+            ("onset", "onset", fhirdate.FHIRDate, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("reaction", "reaction", AllergyIntoleranceReaction, True, None, False),
+            ("recordedDate", "recordedDate", fhirdate.FHIRDate, False, None, False),
+            ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
+            ("reporter", "reporter", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("substance", "substance", codeableconcept.CodeableConcept, False, None, True),
+            ("type", "type", str, False, None, False),
         ])
         return js
 
@@ -134,7 +134,7 @@ class AllergyIntoleranceReaction(backboneelement.BackboneElement):
         
         self.note = None
         """ Text about event not captured in other fields.
-        Type `Annotation` (represented as `dict` in JSON). """
+        List of `Annotation` items (represented as `dict` in JSON). """
         
         self.onset = None
         """ Date(/time) when manifestations showed.
@@ -153,14 +153,14 @@ class AllergyIntoleranceReaction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AllergyIntoleranceReaction, self).elementProperties()
         js.extend([
-            ("certainty", "certainty", str, False),
-            ("description", "description", str, False),
-            ("exposureRoute", "exposureRoute", codeableconcept.CodeableConcept, False),
-            ("manifestation", "manifestation", codeableconcept.CodeableConcept, True),
-            ("note", "note", annotation.Annotation, False),
-            ("onset", "onset", fhirdate.FHIRDate, False),
-            ("severity", "severity", str, False),
-            ("substance", "substance", codeableconcept.CodeableConcept, False),
+            ("certainty", "certainty", str, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("exposureRoute", "exposureRoute", codeableconcept.CodeableConcept, False, None, False),
+            ("manifestation", "manifestation", codeableconcept.CodeableConcept, True, None, True),
+            ("note", "note", annotation.Annotation, True, None, False),
+            ("onset", "onset", fhirdate.FHIRDate, False, None, False),
+            ("severity", "severity", str, False, None, False),
+            ("substance", "substance", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

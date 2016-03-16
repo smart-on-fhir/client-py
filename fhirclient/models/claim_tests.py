@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -33,7 +33,6 @@ class ClaimTests(unittest.TestCase):
     
     def implClaim1(self, inst):
         self.assertTrue(inst.coverage[0].focal)
-        self.assertEqual(inst.coverage[0].relationship.code, "self")
         self.assertEqual(inst.coverage[0].sequence, 1)
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
@@ -48,8 +47,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[0].sequence, 1)
         self.assertEqual(inst.item[0].service.code, "exam")
         self.assertEqual(inst.item[0].service.system, "http://hl7.org/fhir/ex-serviceproduct")
-        self.assertEqual(inst.item[0].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[0].serviceDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[0].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[0].type.code, "service")
         self.assertEqual(inst.item[0].unitPrice.code, "USD")
         self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
@@ -73,7 +72,6 @@ class ClaimTests(unittest.TestCase):
     
     def implClaim2(self, inst):
         self.assertTrue(inst.coverage[0].focal)
-        self.assertEqual(inst.coverage[0].relationship.code, "self")
         self.assertEqual(inst.coverage[0].sequence, 1)
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
@@ -88,8 +86,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[0].sequence, 1)
         self.assertEqual(inst.item[0].service.code, "1200")
         self.assertEqual(inst.item[0].service.system, "http://hl7.org/fhir/oralservicecodes")
-        self.assertEqual(inst.item[0].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[0].serviceDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[0].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[0].type.code, "service")
         self.assertEqual(inst.item[0].unitPrice.code, "USD")
         self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
@@ -102,8 +100,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[1].sequence, 2)
         self.assertEqual(inst.item[1].service.code, "21211")
         self.assertEqual(inst.item[1].service.system, "http://hl7.org/fhir/oralservicecodes")
-        self.assertEqual(inst.item[1].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[1].serviceDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[1].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[1].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[1].subSite[0].code, "L")
         self.assertEqual(inst.item[1].subSite[0].system, "http://fdi.org/fhir/oralsurfacecodes")
         self.assertEqual(inst.item[1].type.code, "service")
@@ -138,8 +136,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[2].sequence, 3)
         self.assertEqual(inst.item[2].service.code, "27211")
         self.assertEqual(inst.item[2].service.system, "http://hl7.org/fhir/oralservicecodes")
-        self.assertEqual(inst.item[2].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[2].serviceDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[2].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[2].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[2].type.code, "group")
         self.assertEqual(inst.item[2].unitPrice.code, "USD")
         self.assertEqual(inst.item[2].unitPrice.system, "urn:iso:std:iso:4217")
@@ -152,7 +150,7 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.use, "complete")
     
     def testClaim3(self):
-        inst = self.instantiate_from("claim-example-oral-contained.json")
+        inst = self.instantiate_from("claim-example-oral-contained-identifier.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
         self.implClaim3(inst)
         
@@ -162,13 +160,59 @@ class ClaimTests(unittest.TestCase):
         self.implClaim3(inst2)
     
     def implClaim3(self, inst):
+        self.assertEqual(inst.contained[0].id, "patient-1")
+        self.assertEqual(inst.coverage[0].coverageIdentifier.system, "http://www.jurisdiction.com/nationalplan")
+        self.assertEqual(inst.coverage[0].coverageIdentifier.value, "123AB345")
+        self.assertTrue(inst.coverage[0].focal)
+        self.assertEqual(inst.coverage[0].sequence, 1)
+        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
+        self.assertEqual(inst.diagnosis[0].diagnosis.code, "123456")
+        self.assertEqual(inst.diagnosis[0].sequence, 1)
+        self.assertEqual(inst.id, "100155")
+        self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/claim")
+        self.assertEqual(inst.identifier[0].value, "12347")
+        self.assertEqual(inst.item[0].net.code, "USD")
+        self.assertEqual(inst.item[0].net.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.item[0].net.value, 135.57)
+        self.assertEqual(inst.item[0].providerIdentifier.system, "http://www.jurisdiction.com/providerId")
+        self.assertEqual(inst.item[0].providerIdentifier.value, "MD98765")
+        self.assertEqual(inst.item[0].sequence, 1)
+        self.assertEqual(inst.item[0].service.code, "1200")
+        self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[0].servicedDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[0].type.code, "service")
+        self.assertEqual(inst.item[0].unitPrice.code, "USD")
+        self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.item[0].unitPrice.value, 135.57)
+        self.assertEqual(inst.organizationIdentifier.system, "http://www.jurisdiction.com/careorganizations")
+        self.assertEqual(inst.organizationIdentifier.value, "HOSP12345")
+        self.assertEqual(inst.payee.type.code, "provider")
+        self.assertEqual(inst.priority.code, "normal")
+        self.assertEqual(inst.targetIdentifier.system, "http://www.jurisdiction.com/insurers")
+        self.assertEqual(inst.targetIdentifier.value, "123456")
+        self.assertEqual(inst.text.div, "<div>This example assumes a national health care scheme where patients, providers and organizations have known business identifiers.</div>")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type, "oral")
+        self.assertEqual(inst.use, "complete")
+    
+    def testClaim4(self):
+        inst = self.instantiate_from("claim-example-oral-contained.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
+        self.implClaim4(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Claim", js["resourceType"])
+        inst2 = claim.Claim(js)
+        self.implClaim4(inst2)
+    
+    def implClaim4(self, inst):
         self.assertEqual(inst.contained[0].id, "organization-1")
         self.assertEqual(inst.contained[1].id, "organization-2")
         self.assertEqual(inst.contained[2].id, "practitioner-1")
         self.assertEqual(inst.contained[3].id, "patient-1")
         self.assertEqual(inst.contained[4].id, "coverage-1")
         self.assertTrue(inst.coverage[0].focal)
-        self.assertEqual(inst.coverage[0].relationship.code, "self")
         self.assertEqual(inst.coverage[0].sequence, 1)
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
@@ -182,8 +226,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[0].net.value, 135.57)
         self.assertEqual(inst.item[0].sequence, 1)
         self.assertEqual(inst.item[0].service.code, "1200")
-        self.assertEqual(inst.item[0].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[0].serviceDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[0].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[0].type.code, "service")
         self.assertEqual(inst.item[0].unitPrice.code, "USD")
         self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
@@ -195,19 +239,66 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.type, "oral")
         self.assertEqual(inst.use, "complete")
     
-    def testClaim4(self):
-        inst = self.instantiate_from("claim-example-oral-orthoplan.json")
+    def testClaim5(self):
+        inst = self.instantiate_from("claim-example-oral-identifier.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
-        self.implClaim4(inst)
+        self.implClaim5(inst)
         
         js = inst.as_json()
         self.assertEqual("Claim", js["resourceType"])
         inst2 = claim.Claim(js)
-        self.implClaim4(inst2)
+        self.implClaim5(inst2)
     
-    def implClaim4(self, inst):
+    def implClaim5(self, inst):
+        self.assertEqual(inst.coverage[0].coverageIdentifier.system, "http://www.jurisdiction.com/nationalplan")
+        self.assertEqual(inst.coverage[0].coverageIdentifier.value, "123AB345")
         self.assertTrue(inst.coverage[0].focal)
-        self.assertEqual(inst.coverage[0].relationship.code, "self")
+        self.assertEqual(inst.coverage[0].sequence, 1)
+        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
+        self.assertEqual(inst.diagnosis[0].diagnosis.code, "123456")
+        self.assertEqual(inst.diagnosis[0].sequence, 1)
+        self.assertEqual(inst.id, "100154")
+        self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/claim")
+        self.assertEqual(inst.identifier[0].value, "12347")
+        self.assertEqual(inst.item[0].net.code, "USD")
+        self.assertEqual(inst.item[0].net.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.item[0].net.value, 135.57)
+        self.assertEqual(inst.item[0].providerIdentifier.system, "http://www.jurisdiction.com/providerId")
+        self.assertEqual(inst.item[0].providerIdentifier.value, "MD98765")
+        self.assertEqual(inst.item[0].sequence, 1)
+        self.assertEqual(inst.item[0].service.code, "1200")
+        self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[0].servicedDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[0].type.code, "service")
+        self.assertEqual(inst.item[0].unitPrice.code, "USD")
+        self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.item[0].unitPrice.value, 135.57)
+        self.assertEqual(inst.organizationIdentifier.system, "http://www.jurisdiction.com/careorganizations")
+        self.assertEqual(inst.organizationIdentifier.value, "HOSP12345")
+        self.assertEqual(inst.patientIdentifier.system, "http://www.jurisdiction.com/nationalId")
+        self.assertEqual(inst.patientIdentifier.value, "123AB345")
+        self.assertEqual(inst.payee.type.code, "provider")
+        self.assertEqual(inst.priority.code, "normal")
+        self.assertEqual(inst.targetIdentifier.system, "http://www.jurisdiction.com/insurers")
+        self.assertEqual(inst.targetIdentifier.value, "123456")
+        self.assertEqual(inst.text.div, "<div>This example assumes a national health care scheme where patients, providers and organizations have known business identifiers.</div>")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type, "oral")
+        self.assertEqual(inst.use, "complete")
+    
+    def testClaim6(self):
+        inst = self.instantiate_from("claim-example-oral-orthoplan.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
+        self.implClaim6(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Claim", js["resourceType"])
+        inst2 = claim.Claim(js)
+        self.implClaim6(inst2)
+    
+    def implClaim6(self, inst):
+        self.assertTrue(inst.coverage[0].focal)
         self.assertEqual(inst.coverage[0].sequence, 1)
         self.assertEqual(inst.created.date, FHIRDate("2015-03-16").date)
         self.assertEqual(inst.created.as_json(), "2015-03-16")
@@ -275,8 +366,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[0].sequence, 1)
         self.assertEqual(inst.item[0].service.code, "ORTHPLAN")
         self.assertEqual(inst.item[0].service.system, "http://hl7.org/fhir/oralservicecodes")
-        self.assertEqual(inst.item[0].serviceDate.date, FHIRDate("2015-05-16").date)
-        self.assertEqual(inst.item[0].serviceDate.as_json(), "2015-05-16")
+        self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2015-05-16").date)
+        self.assertEqual(inst.item[0].servicedDate.as_json(), "2015-05-16")
         self.assertEqual(inst.item[0].type.code, "FRAMEING")
         self.assertEqual(inst.item[0].type.system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.item[0].unitPrice.code, "USD")
@@ -290,8 +381,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[1].sequence, 2)
         self.assertEqual(inst.item[1].service.code, "21211")
         self.assertEqual(inst.item[1].service.system, "http://hl7.org/fhir/oralservicecodes")
-        self.assertEqual(inst.item[1].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[1].serviceDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[1].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[1].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[1].subSite[0].code, "L")
         self.assertEqual(inst.item[1].subSite[0].system, "http://fdi.org/fhir/oralsurfacecodes")
         self.assertEqual(inst.item[1].type.code, "service")
@@ -326,8 +417,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[2].sequence, 3)
         self.assertEqual(inst.item[2].service.code, "27211")
         self.assertEqual(inst.item[2].service.system, "http://hl7.org/fhir/oralservicecodes")
-        self.assertEqual(inst.item[2].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[2].serviceDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[2].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[2].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[2].type.code, "group")
         self.assertEqual(inst.item[2].unitPrice.code, "USD")
         self.assertEqual(inst.item[2].unitPrice.system, "urn:iso:std:iso:4217")
@@ -339,19 +430,18 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.type, "oral")
         self.assertEqual(inst.use, "proposed")
     
-    def testClaim5(self):
+    def testClaim7(self):
         inst = self.instantiate_from("claim-example-pharmacy.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
-        self.implClaim5(inst)
+        self.implClaim7(inst)
         
         js = inst.as_json()
         self.assertEqual("Claim", js["resourceType"])
         inst2 = claim.Claim(js)
-        self.implClaim5(inst2)
+        self.implClaim7(inst2)
     
-    def implClaim5(self, inst):
+    def implClaim7(self, inst):
         self.assertTrue(inst.coverage[0].focal)
-        self.assertEqual(inst.coverage[0].relationship.code, "self")
         self.assertEqual(inst.coverage[0].sequence, 1)
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
@@ -366,8 +456,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[0].sequence, 1)
         self.assertEqual(inst.item[0].service.code, "smokecess")
         self.assertEqual(inst.item[0].service.system, "http://hl7.org/fhir/ex-pharmaservice")
-        self.assertEqual(inst.item[0].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[0].serviceDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[0].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[0].type.code, "service")
         self.assertEqual(inst.item[0].unitPrice.code, "USD")
         self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
@@ -379,19 +469,18 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.type, "pharmacy")
         self.assertEqual(inst.use, "complete")
     
-    def testClaim6(self):
+    def testClaim8(self):
         inst = self.instantiate_from("claim-example-professional.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
-        self.implClaim6(inst)
+        self.implClaim8(inst)
         
         js = inst.as_json()
         self.assertEqual("Claim", js["resourceType"])
         inst2 = claim.Claim(js)
-        self.implClaim6(inst2)
+        self.implClaim8(inst2)
     
-    def implClaim6(self, inst):
+    def implClaim8(self, inst):
         self.assertTrue(inst.coverage[0].focal)
-        self.assertEqual(inst.coverage[0].relationship.code, "self")
         self.assertEqual(inst.coverage[0].sequence, 1)
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
@@ -406,8 +495,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[0].sequence, 1)
         self.assertEqual(inst.item[0].service.code, "exam")
         self.assertEqual(inst.item[0].service.system, "http://hl7.org/fhir/ex-serviceproduct")
-        self.assertEqual(inst.item[0].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[0].serviceDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[0].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[0].type.code, "service")
         self.assertEqual(inst.item[0].unitPrice.code, "USD")
         self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
@@ -419,19 +508,18 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.type, "professional")
         self.assertEqual(inst.use, "complete")
     
-    def testClaim7(self):
+    def testClaim9(self):
         inst = self.instantiate_from("claim-example-vision-glasses.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
-        self.implClaim7(inst)
+        self.implClaim9(inst)
         
         js = inst.as_json()
         self.assertEqual("Claim", js["resourceType"])
         inst2 = claim.Claim(js)
-        self.implClaim7(inst2)
+        self.implClaim9(inst2)
     
-    def implClaim7(self, inst):
+    def implClaim9(self, inst):
         self.assertTrue(inst.coverage[0].focal)
-        self.assertEqual(inst.coverage[0].relationship.code, "self")
         self.assertEqual(inst.coverage[0].sequence, 1)
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
@@ -478,8 +566,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[0].sequence, 1)
         self.assertEqual(inst.item[0].service.code, "glasses")
         self.assertEqual(inst.item[0].service.system, "http://hl7.org/fhir/ex-visionservice")
-        self.assertEqual(inst.item[0].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[0].serviceDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[0].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[0].type.code, "group")
         self.assertEqual(inst.item[0].unitPrice.code, "USD")
         self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
@@ -491,19 +579,18 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.type, "vision")
         self.assertEqual(inst.use, "complete")
     
-    def testClaim8(self):
+    def testClaim10(self):
         inst = self.instantiate_from("claim-example-vision.json")
         self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
-        self.implClaim8(inst)
+        self.implClaim10(inst)
         
         js = inst.as_json()
         self.assertEqual("Claim", js["resourceType"])
         inst2 = claim.Claim(js)
-        self.implClaim8(inst2)
+        self.implClaim10(inst2)
     
-    def implClaim8(self, inst):
+    def implClaim10(self, inst):
         self.assertTrue(inst.coverage[0].focal)
-        self.assertEqual(inst.coverage[0].relationship.code, "self")
         self.assertEqual(inst.coverage[0].sequence, 1)
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
@@ -518,8 +605,8 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[0].sequence, 1)
         self.assertEqual(inst.item[0].service.code, "exam")
         self.assertEqual(inst.item[0].service.system, "http://hl7.org/fhir/ex-visionservice")
-        self.assertEqual(inst.item[0].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[0].serviceDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[0].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[0].type.code, "service")
         self.assertEqual(inst.item[0].unitPrice.code, "USD")
         self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
@@ -529,44 +616,5 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Vision Claim</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "vision")
-        self.assertEqual(inst.use, "complete")
-    
-    def testClaim9(self):
-        inst = self.instantiate_from("claim-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Claim instance")
-        self.implClaim9(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Claim", js["resourceType"])
-        inst2 = claim.Claim(js)
-        self.implClaim9(inst2)
-    
-    def implClaim9(self, inst):
-        self.assertTrue(inst.coverage[0].focal)
-        self.assertEqual(inst.coverage[0].relationship.code, "self")
-        self.assertEqual(inst.coverage[0].sequence, 1)
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.as_json(), "2014-08-16")
-        self.assertEqual(inst.diagnosis[0].diagnosis.code, "123456")
-        self.assertEqual(inst.diagnosis[0].sequence, 1)
-        self.assertEqual(inst.id, "100150")
-        self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/claim")
-        self.assertEqual(inst.identifier[0].value, "12345")
-        self.assertEqual(inst.item[0].net.code, "USD")
-        self.assertEqual(inst.item[0].net.system, "urn:iso:std:iso:4217")
-        self.assertEqual(inst.item[0].net.value, 135.57)
-        self.assertEqual(inst.item[0].sequence, 1)
-        self.assertEqual(inst.item[0].service.code, "1200")
-        self.assertEqual(inst.item[0].serviceDate.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.item[0].serviceDate.as_json(), "2014-08-16")
-        self.assertEqual(inst.item[0].type.code, "service")
-        self.assertEqual(inst.item[0].unitPrice.code, "USD")
-        self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
-        self.assertEqual(inst.item[0].unitPrice.value, 135.57)
-        self.assertEqual(inst.payee.type.code, "provider")
-        self.assertEqual(inst.priority.code, "normal")
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Oral Health Claim</div>")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type, "oral")
         self.assertEqual(inst.use, "complete")
 

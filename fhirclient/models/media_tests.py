@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -76,7 +76,7 @@ class MediaTests(unittest.TestCase):
         self.assertEqual(inst.content.id, "a1")
         self.assertEqual(inst.duration, 65)
         self.assertEqual(inst.id, "sound")
-        self.assertEqual(inst.text.div, "<div>Sound recording of speech example for Patient Henry Levin (MRN 12345):<br/><img alt=\"diagram\" src=\"#11\"/></div>")
+        self.assertEqual(inst.text.div, "<div>Sound recording of speech example for Patient Henry Levin (MRN 12345):<br/><img src=\"#11\" alt=\"diagram\"/></div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "video")
     
@@ -101,7 +101,7 @@ class MediaTests(unittest.TestCase):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.subtype.coding[0].code, "diagram")
         self.assertEqual(inst.subtype.coding[0].system, "http://hl7.org/fhir/media-method")
-        self.assertEqual(inst.text.div, "<div>Diagram for Patient Henry Levin (MRN 12345):<br/><img alt=\"diagram\" src=\"#11\"/></div>")
+        self.assertEqual(inst.text.div, "<div>Diagram for Patient Henry Levin (MRN 12345):<br/><img src=\"#11\" alt=\"diagram\"/></div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "photo")
         self.assertEqual(inst.width, 126)

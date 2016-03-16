@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -32,13 +32,41 @@ class ExplanationOfBenefitTests(unittest.TestCase):
         self.implExplanationOfBenefit1(inst2)
     
     def implExplanationOfBenefit1(self, inst):
+        self.assertEqual(inst.claimTotal.code, "USD")
+        self.assertEqual(inst.claimTotal.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.claimTotal.value, 135.57)
+        self.assertEqual(inst.coverage.relationship.code, "self")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Claim settled as per contract.")
-        self.assertEqual(inst.id, "R3500")
-        self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/eob")
+        self.assertEqual(inst.id, "EB3500")
+        self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/explanationofbenefit")
         self.assertEqual(inst.identifier[0].value, "987654321")
-        self.assertEqual(inst.outcome, "complete")
+        self.assertEqual(inst.item[0].adjudication[0].amount.code, "USD")
+        self.assertEqual(inst.item[0].adjudication[0].amount.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.item[0].adjudication[0].amount.value, 120.0)
+        self.assertEqual(inst.item[0].adjudication[0].category.code, "eligible")
+        self.assertEqual(inst.item[0].adjudication[1].category.code, "eligpercent")
+        self.assertEqual(inst.item[0].adjudication[1].value, 0.8)
+        self.assertEqual(inst.item[0].adjudication[2].amount.code, "USD")
+        self.assertEqual(inst.item[0].adjudication[2].amount.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.item[0].adjudication[2].amount.value, 96.0)
+        self.assertEqual(inst.item[0].adjudication[2].category.code, "benefit")
+        self.assertEqual(inst.item[0].net.code, "USD")
+        self.assertEqual(inst.item[0].net.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.item[0].net.value, 135.57)
+        self.assertEqual(inst.item[0].sequence, 1)
+        self.assertEqual(inst.item[0].service.code, "1200")
+        self.assertEqual(inst.item[0].service.system, "http://hl7.org/fhir/ValueSet/service-uscls")
+        self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.item[0].servicedDate.as_json(), "2014-08-16")
+        self.assertEqual(inst.item[0].type.code, "service")
+        self.assertEqual(inst.item[0].unitPrice.code, "USD")
+        self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.item[0].unitPrice.value, 135.57)
         self.assertEqual(inst.text.div, "<div>A human-readable rendering of the ExplanationOfBenefit</div>")
         self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.totalBenefit.code, "USD")
+        self.assertEqual(inst.totalBenefit.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.totalBenefit.value, 96.0)
 

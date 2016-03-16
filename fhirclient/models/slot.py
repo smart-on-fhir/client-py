@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Slot) on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Slot) on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -26,10 +26,6 @@ class Slot(domainresource.DomainResource):
         """ Date/Time that the slot is to conclude.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.freeBusyType = None
-        """ busy | free | busy-unavailable | busy-tentative.
-        Type `str`. """
-        
         self.identifier = None
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
@@ -48,6 +44,10 @@ class Slot(domainresource.DomainResource):
         """ Date/Time that the slot is to begin.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.status = None
+        """ busy | free | busy-unavailable | busy-tentative.
+        Type `str`. """
+        
         self.type = None
         """ The type of appointments that can be booked into this slot (ideally
         this would be an identifiable service - which is at a location,
@@ -60,14 +60,14 @@ class Slot(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Slot, self).elementProperties()
         js.extend([
-            ("comment", "comment", str, False),
-            ("end", "end", fhirdate.FHIRDate, False),
-            ("freeBusyType", "freeBusyType", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("overbooked", "overbooked", bool, False),
-            ("schedule", "schedule", fhirreference.FHIRReference, False),
-            ("start", "start", fhirdate.FHIRDate, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("comment", "comment", str, False, None, False),
+            ("end", "end", fhirdate.FHIRDate, False, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("overbooked", "overbooked", bool, False, None, False),
+            ("schedule", "schedule", fhirreference.FHIRReference, False, None, True),
+            ("start", "start", fhirdate.FHIRDate, False, None, True),
+            ("status", "status", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

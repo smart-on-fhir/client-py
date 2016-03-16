@@ -44,13 +44,13 @@
   "status": "draft",
   "date": "2012-05-12T00:00:00+10:00",
   "publisher": "Grahame Grieve",
-  "group": {
+  "item": {
     "linkId": "Observation",
     "title": "Triglyceride Result",
     "text": "Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as lab reports, etc.",
     "required": true,
     "repeats": false,
-    "group": [
+    "item": [
       {
         "extension": [
           {
@@ -65,7 +65,7 @@
         "linkId": "Observation.id",
         "required": false,
         "repeats": true,
-        "question": [
+        "item": [
           {
             "linkId": "Observation.id.value",
             "text": "Logical id of this artifact",
@@ -102,7 +102,7 @@
         "text": "Triglyceride",
         "required": true,
         "repeats": true,
-        "question": [
+        "item": [
           {
             "linkId": "Observation.code.coding",
             "text": "code:",
@@ -130,7 +130,7 @@
         "text": "Who and/or what this is about",
         "required": false,
         "repeats": true,
-        "question": [
+        "item": [
           {
             "linkId": "Observation.subject._type",
             "text": "type",
@@ -140,7 +140,7 @@
             "options": {
               "reference": "#vs2"
             },
-            "group": [
+            "item": [
               {
                 "extension": [
                   {
@@ -149,7 +149,7 @@
                   }
                 ],
                 "linkId": "Observation.subject._Patient",
-                "question": [
+                "item": [
                   {
                     "extension": [
                       {

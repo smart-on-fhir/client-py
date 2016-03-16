@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -18,10 +18,6 @@ class ValueSet(domainresource.DomainResource):
     def __init__(self, jsondict=None):
         """ Initialize all valid properties.
         """
-        
-        self.codeSystem = None
-        """ An inline code system, which is part of this value set.
-        Type `ValueSetCodeSystem` (represented as `dict` in JSON). """
         
         self.compose = None
         """ When value set includes codes from elsewhere.
@@ -101,163 +97,29 @@ class ValueSet(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ValueSet, self).elementProperties()
         js.extend([
-            ("codeSystem", "codeSystem", ValueSetCodeSystem, False),
-            ("compose", "compose", ValueSetCompose, False),
-            ("contact", "contact", ValueSetContact, True),
-            ("copyright", "copyright", str, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("expansion", "expansion", ValueSetExpansion, False),
-            ("experimental", "experimental", bool, False),
-            ("extensible", "extensible", bool, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("immutable", "immutable", bool, False),
-            ("lockedDate", "lockedDate", fhirdate.FHIRDate, False),
-            ("name", "name", str, False),
-            ("publisher", "publisher", str, False),
-            ("requirements", "requirements", str, False),
-            ("status", "status", str, False),
-            ("url", "url", str, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
-            ("version", "version", str, False),
+            ("compose", "compose", ValueSetCompose, False, None, False),
+            ("contact", "contact", ValueSetContact, True, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("expansion", "expansion", ValueSetExpansion, False, None, False),
+            ("experimental", "experimental", bool, False, None, False),
+            ("extensible", "extensible", bool, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("immutable", "immutable", bool, False, None, False),
+            ("lockedDate", "lockedDate", fhirdate.FHIRDate, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("publisher", "publisher", str, False, None, False),
+            ("requirements", "requirements", str, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("url", "url", str, False, None, False),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
 
 from . import backboneelement
-
-class ValueSetCodeSystem(backboneelement.BackboneElement):
-    """ An inline code system, which is part of this value set.
-    
-    A definition of a code system, inlined into the value set (as a packaging
-    convenience). Note that the inline code system may be used from other value
-    sets by referring to its (codeSystem.system) directly.
-    """
-    
-    resource_name = "ValueSetCodeSystem"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.caseSensitive = None
-        """ If code comparison is case sensitive.
-        Type `bool`. """
-        
-        self.concept = None
-        """ Concepts in the code system.
-        List of `ValueSetCodeSystemConcept` items (represented as `dict` in JSON). """
-        
-        self.system = None
-        """ URI to identify the code system (e.g. in Coding.system).
-        Type `str`. """
-        
-        self.version = None
-        """ Version (for use in Coding.version).
-        Type `str`. """
-        
-        super(ValueSetCodeSystem, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(ValueSetCodeSystem, self).elementProperties()
-        js.extend([
-            ("caseSensitive", "caseSensitive", bool, False),
-            ("concept", "concept", ValueSetCodeSystemConcept, True),
-            ("system", "system", str, False),
-            ("version", "version", str, False),
-        ])
-        return js
-
-
-class ValueSetCodeSystemConcept(backboneelement.BackboneElement):
-    """ Concepts in the code system.
-    
-    Concepts that are in the code system. The concept definitions are
-    inherently hierarchical, but the definitions must be consulted to determine
-    what the meaning of the hierarchical relationships are.
-    """
-    
-    resource_name = "ValueSetCodeSystemConcept"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.abstract = None
-        """ If this code is not for use as a real concept.
-        Type `bool`. """
-        
-        self.code = None
-        """ Code that identifies concept.
-        Type `str`. """
-        
-        self.concept = None
-        """ Child Concepts (is-a/contains/categorizes).
-        List of `ValueSetCodeSystemConcept` items (represented as `dict` in JSON). """
-        
-        self.definition = None
-        """ Formal definition.
-        Type `str`. """
-        
-        self.designation = None
-        """ Additional representations for the concept.
-        List of `ValueSetCodeSystemConceptDesignation` items (represented as `dict` in JSON). """
-        
-        self.display = None
-        """ Text to display to the user.
-        Type `str`. """
-        
-        super(ValueSetCodeSystemConcept, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(ValueSetCodeSystemConcept, self).elementProperties()
-        js.extend([
-            ("abstract", "abstract", bool, False),
-            ("code", "code", str, False),
-            ("concept", "concept", ValueSetCodeSystemConcept, True),
-            ("definition", "definition", str, False),
-            ("designation", "designation", ValueSetCodeSystemConceptDesignation, True),
-            ("display", "display", str, False),
-        ])
-        return js
-
-
-class ValueSetCodeSystemConceptDesignation(backboneelement.BackboneElement):
-    """ Additional representations for the concept.
-    
-    Additional representations for the concept - other languages, aliases,
-    specialized purposes, used for particular purposes, etc.
-    """
-    
-    resource_name = "ValueSetCodeSystemConceptDesignation"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.language = None
-        """ Human language of the designation.
-        Type `str`. """
-        
-        self.use = None
-        """ Details how this designation would be used.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.value = None
-        """ The text value for this designation.
-        Type `str`. """
-        
-        super(ValueSetCodeSystemConceptDesignation, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(ValueSetCodeSystemConceptDesignation, self).elementProperties()
-        js.extend([
-            ("language", "language", str, False),
-            ("use", "use", coding.Coding, False),
-            ("value", "value", str, False),
-        ])
-        return js
-
 
 class ValueSetCompose(backboneelement.BackboneElement):
     """ When value set includes codes from elsewhere.
@@ -289,9 +151,9 @@ class ValueSetCompose(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetCompose, self).elementProperties()
         js.extend([
-            ("exclude", "exclude", ValueSetComposeInclude, True),
-            ("import_fhir", "import", str, True),
-            ("include", "include", ValueSetComposeInclude, True),
+            ("exclude", "exclude", ValueSetComposeInclude, True, None, False),
+            ("import_fhir", "import", str, True, None, False),
+            ("include", "include", ValueSetComposeInclude, True, None, False),
         ])
         return js
 
@@ -327,10 +189,10 @@ class ValueSetComposeInclude(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetComposeInclude, self).elementProperties()
         js.extend([
-            ("concept", "concept", ValueSetComposeIncludeConcept, True),
-            ("filter", "filter", ValueSetComposeIncludeFilter, True),
-            ("system", "system", str, False),
-            ("version", "version", str, False),
+            ("concept", "concept", ValueSetComposeIncludeConcept, True, None, False),
+            ("filter", "filter", ValueSetComposeIncludeFilter, True, None, False),
+            ("system", "system", str, False, None, True),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -353,7 +215,7 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
         
         self.designation = None
         """ Additional representations for this valueset.
-        List of `ValueSetCodeSystemConceptDesignation` items (represented as `dict` in JSON). """
+        List of `ValueSetComposeIncludeConceptDesignation` items (represented as `dict` in JSON). """
         
         self.display = None
         """ Test to display for this code for this value set.
@@ -364,9 +226,47 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetComposeIncludeConcept, self).elementProperties()
         js.extend([
-            ("code", "code", str, False),
-            ("designation", "designation", ValueSetCodeSystemConceptDesignation, True),
-            ("display", "display", str, False),
+            ("code", "code", str, False, None, True),
+            ("designation", "designation", ValueSetComposeIncludeConceptDesignation, True, None, False),
+            ("display", "display", str, False, None, False),
+        ])
+        return js
+
+
+class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
+    """ Additional representations for this valueset.
+    
+    Additional representations for this concept when used in this value set -
+    other languages, aliases, specialized purposes, used for particular
+    purposes, etc.
+    """
+    
+    resource_name = "ValueSetComposeIncludeConceptDesignation"
+    
+    def __init__(self, jsondict=None):
+        """ Initialize all valid properties.
+        """
+        
+        self.language = None
+        """ Human language of the designation.
+        Type `str`. """
+        
+        self.use = None
+        """ Details how this designation would be used.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.value = None
+        """ The text value for this designation.
+        Type `str`. """
+        
+        super(ValueSetComposeIncludeConceptDesignation, self).__init__(jsondict)
+    
+    def elementProperties(self):
+        js = super(ValueSetComposeIncludeConceptDesignation, self).elementProperties()
+        js.extend([
+            ("language", "language", str, False, None, False),
+            ("use", "use", coding.Coding, False, None, False),
+            ("value", "value", str, False, None, True),
         ])
         return js
 
@@ -402,9 +302,9 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetComposeIncludeFilter, self).elementProperties()
         js.extend([
-            ("op", "op", str, False),
-            ("property", "property", str, False),
-            ("value", "value", str, False),
+            ("op", "op", str, False, None, True),
+            ("property", "property", str, False, None, True),
+            ("value", "value", str, False, None, True),
         ])
         return js
 
@@ -434,8 +334,8 @@ class ValueSetContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetContact, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("name", "name", str, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -483,12 +383,12 @@ class ValueSetExpansion(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetExpansion, self).elementProperties()
         js.extend([
-            ("contains", "contains", ValueSetExpansionContains, True),
-            ("identifier", "identifier", str, False),
-            ("offset", "offset", int, False),
-            ("parameter", "parameter", ValueSetExpansionParameter, True),
-            ("timestamp", "timestamp", fhirdate.FHIRDate, False),
-            ("total", "total", int, False),
+            ("contains", "contains", ValueSetExpansionContains, True, None, False),
+            ("identifier", "identifier", str, False, None, True),
+            ("offset", "offset", int, False, None, False),
+            ("parameter", "parameter", ValueSetExpansionParameter, True, None, False),
+            ("timestamp", "timestamp", fhirdate.FHIRDate, False, None, True),
+            ("total", "total", int, False, None, False),
         ])
         return js
 
@@ -534,12 +434,12 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetExpansionContains, self).elementProperties()
         js.extend([
-            ("abstract", "abstract", bool, False),
-            ("code", "code", str, False),
-            ("contains", "contains", ValueSetExpansionContains, True),
-            ("display", "display", str, False),
-            ("system", "system", str, False),
-            ("version", "version", str, False),
+            ("abstract", "abstract", bool, False, None, False),
+            ("code", "code", str, False, None, False),
+            ("contains", "contains", ValueSetExpansionContains, True, None, False),
+            ("display", "display", str, False, None, False),
+            ("system", "system", str, False, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -591,13 +491,13 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetExpansionParameter, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("valueBoolean", "valueBoolean", bool, False),
-            ("valueCode", "valueCode", str, False),
-            ("valueDecimal", "valueDecimal", float, False),
-            ("valueInteger", "valueInteger", int, False),
-            ("valueString", "valueString", str, False),
-            ("valueUri", "valueUri", str, False),
+            ("name", "name", str, False, None, True),
+            ("valueBoolean", "valueBoolean", bool, False, "value", False),
+            ("valueCode", "valueCode", str, False, "value", False),
+            ("valueDecimal", "valueDecimal", float, False, "value", False),
+            ("valueInteger", "valueInteger", int, False, "value", False),
+            ("valueString", "valueString", str, False, "value", False),
+            ("valueUri", "valueUri", str, False, "value", False),
         ])
         return js
 

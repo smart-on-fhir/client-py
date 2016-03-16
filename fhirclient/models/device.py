@@ -1,23 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Device) on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Device) on 2016-03-16.
 #  2016, SMART Health IT.
 
 
 from . import domainresource
 
 class Device(domainresource.DomainResource):
-    """ An instance of a manufactured te that is used in the provision of
-    healthcare.
+    """ Item used in healthcare.
     
-    This resource identifies an instance of a manufactured item that is used in
-    the provision of healthcare without being substantially changed through
-    that activity. The device may be a medical or non-medical device.  Medical
-    devices includes durable (reusable) medical equipment, implantable devices,
-    as well as disposable equipment used for diagnostic, treatment, and
-    research for healthcare and public health.  Non-medical devices may include
-    items such as a machine, cellphone, computer, application, etc.
+    This resource identifies an instance or a type of a manufactured item that
+    is used in the provision of healthcare without being substantially changed
+    through that activity. The device may be a medical or non-medical device.
+    Medical devices includes durable (reusable) medical equipment, implantable
+    devices, as well as disposable equipment used for diagnostic, treatment,
+    and research for healthcare and public health.  Non-medical devices may
+    include items such as a machine, cellphone, computer, application, etc.
     """
     
     resource_name = "Device"
@@ -30,7 +29,7 @@ class Device(domainresource.DomainResource):
         """ Details for human/organization for support.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        self.expiry = None
+        self.expirationDate = None
         """ Date and time of expiry of this device (if applicable).
         Type `FHIRDate` (represented as `str` in JSON). """
         
@@ -47,7 +46,7 @@ class Device(domainresource.DomainResource):
         Type `str`. """
         
         self.manufactureDate = None
-        """ Manufacture date.
+        """ Date when the device was made.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.manufacturer = None
@@ -78,9 +77,9 @@ class Device(domainresource.DomainResource):
         """ What kind of device this is.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.udi = None
-        """ FDA mandated Unique Device Identifier.
-        Type `str`. """
+        self.udiCarrier = None
+        """ Unique Device Identifier (UDI) Barcode string.
+        Type `Identifier` (represented as `dict` in JSON). """
         
         self.url = None
         """ Network address to contact device.
@@ -95,22 +94,22 @@ class Device(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Device, self).elementProperties()
         js.extend([
-            ("contact", "contact", contactpoint.ContactPoint, True),
-            ("expiry", "expiry", fhirdate.FHIRDate, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("location", "location", fhirreference.FHIRReference, False),
-            ("lotNumber", "lotNumber", str, False),
-            ("manufactureDate", "manufactureDate", fhirdate.FHIRDate, False),
-            ("manufacturer", "manufacturer", str, False),
-            ("model", "model", str, False),
-            ("note", "note", annotation.Annotation, True),
-            ("owner", "owner", fhirreference.FHIRReference, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
-            ("udi", "udi", str, False),
-            ("url", "url", str, False),
-            ("version", "version", str, False),
+            ("contact", "contact", contactpoint.ContactPoint, True, None, False),
+            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("location", "location", fhirreference.FHIRReference, False, None, False),
+            ("lotNumber", "lotNumber", str, False, None, False),
+            ("manufactureDate", "manufactureDate", fhirdate.FHIRDate, False, None, False),
+            ("manufacturer", "manufacturer", str, False, None, False),
+            ("model", "model", str, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
+            ("owner", "owner", fhirreference.FHIRReference, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("udiCarrier", "udiCarrier", identifier.Identifier, False, None, False),
+            ("url", "url", str, False, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 

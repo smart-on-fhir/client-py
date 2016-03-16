@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 on 2016-02-24.
+#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
 #  2016, SMART Health IT.
 
 
@@ -139,7 +139,7 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.reason[0].coding[0].display, "Retropharyngeal abscess")
         self.assertEqual(inst.reason[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.reason[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/encounter-primaryDiagnosis")
-        self.assertEqual(inst.reason[0].extension[0].valueInteger, 1)
+        self.assertEqual(inst.reason[0].extension[0].valuePositiveInt, 1)
         self.assertEqual(inst.status, "finished")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type[0].coding[0].code, "270427003")
@@ -194,7 +194,7 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.priority.coding[0].display, "Urgent")
         self.assertEqual(inst.priority.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.reason[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/encounter-primaryDiagnosis")
-        self.assertEqual(inst.reason[0].extension[0].valueInteger, 2)
+        self.assertEqual(inst.reason[0].extension[0].valuePositiveInt, 2)
         self.assertEqual(inst.reason[0].text, "The patient is treated for a tumor.")
         self.assertEqual(inst.status, "finished")
         self.assertEqual(inst.text.status, "generated")
