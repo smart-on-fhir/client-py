@@ -37,14 +37,14 @@ It will initialize and handle a `FHIRServer` instance, your actual handle to the
 To read a given patient from an open FHIR server, you can use:
 
 ```python
-import client
+from fhirclient import client
 settings = {
     'app_id': 'my_web_app',
     'api_base': 'https://fhir-open-api-dstu2.smarthealthit.org'
 }
 smart = client.FHIRClient(settings=settings)
 
-import models.patient as p
+import fhirclient.models.patient as p
 patient = p.Patient.read('hca-pat-1', smart.server)
 patient.birthDate.isostring
 # '1963-06-12'
@@ -75,7 +75,7 @@ You can work with the `FHIRServer` class directly, without using `FHIRClient`, b
 
 ```python
 smart = server.FHIRServer(None, 'https://fhir-open-api-dstu2.smarthealthit.org')
-import models.patient as p
+import fhirclient.models.patient as p
 patient = p.Patient.read('hca-pat-1', smart)
 patient.name[0].given
 # ['Christy']
@@ -88,8 +88,8 @@ The client contains data model classes, built using [fhir-parser][], that handle
 #### Initialize Data Model
 
 ```python
-import models.patient as p
-import models.humanname as hn
+import fhirclient.models.patient as p
+import fhirclient.models.humanname as hn
 patient = p.Patient({'id': 'patient-1'})
 patient.id
 # prints `patient-1`
@@ -106,7 +106,7 @@ patient.as_json()
 
 ```python
 import json
-import models.patient as p
+import fhirclient.models.patient as p
 with open('path/to/patient.json', 'r') as h:
     pjs = json.load(h)
 patient = p.Patient(pjs)
