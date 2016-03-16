@@ -121,6 +121,23 @@ class FHIRServer(object):
     
     @property
     def ready(self):
+        """ Check whether the server is ready to make calls, i.e. is has
+        fetched its Conformance statement and its `auth` instance is ready.
+        
+        :returns: True if the server can make authenticated calls
+        """
+        return self.auth.ready if self.auth is not None else False
+    
+    def prepare(self):
+        """ Check whether the server is ready to make calls, i.e. is has
+        fetched its Conformance statement and its `auth` instance is ready.
+        This method will fetch the Conformance statement if it hasn't already
+        been fetched.
+        
+        :returns: True if the server can make authenticated calls
+        """
+        if self.auth is None:
+            self.get_conformance()
         return self.auth.ready if self.auth is not None else False
     
     def request_json(self, path, nosign=False):
