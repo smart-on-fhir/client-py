@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Signature(element.Element):
     """ A digital Signature - XML DigSig, JWT, Graphical image of signature, etc..

@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Coding(element.Element):
     """ A reference to a code defined by a terminology system.

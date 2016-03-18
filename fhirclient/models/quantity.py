@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Quantity(element.Element):
     """ A measured or measurable amount.

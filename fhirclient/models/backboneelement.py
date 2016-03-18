@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class BackboneElement(element.Element):
     """ Base for elements defined inside a resource.

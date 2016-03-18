@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Range(element.Element):
     """ Set of values bounded by low and high.

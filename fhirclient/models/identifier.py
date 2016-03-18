@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Identifier(element.Element):
     """ An identifier intended for computation.

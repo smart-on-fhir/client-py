@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class ContactPoint(element.Element):
     """ Details of a Technology mediated contact point (phone, fax, email, etc.).

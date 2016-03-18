@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Attachment(element.Element):
     """ Content in a format defined elsewhere.

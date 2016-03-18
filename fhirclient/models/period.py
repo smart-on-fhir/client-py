@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Period(element.Element):
     """ Time range defined by start and end date/time.
