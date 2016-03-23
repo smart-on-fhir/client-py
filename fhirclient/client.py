@@ -9,10 +9,10 @@ if abspath not in sys.path:
 
 from server import FHIRServer, FHIRUnauthorizedException, FHIRNotFoundException
 
-__version__ = '1.0.2'
+__version__ = '1.0.3'
 __author__ = 'SMART Platforms Team'
 __license__ = 'APACHE2'
-__copyright__ = "Copyright 2015 Boston Children's Hospital"
+__copyright__ = "Copyright 2016 Boston Children's Hospital"
 
 scope_default = 'user/*.* patient/*.read openid profile'
 scope_haslaunch = 'launch'

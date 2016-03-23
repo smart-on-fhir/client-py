@@ -5,10 +5,12 @@ This is _fhirclient_, a flexible Python client for [FHIR][] servers supporting t
 The client is compatible with Python 2.7, possibly earlier, and Python 3.
 
 Client versioning is not identical to FHIR versioning.
-The `master` branch is usually on the latest version, possibly on bugfix releases thereof.
+The `master` branch is usually on the latest version of the client as shown below, possibly on bugfix releases thereof.
+See the `develop` branch for models that are closer to the latest FHIR continuous integration builds.
 
    Version |          FHIR | &nbsp;
 -----------|---------------|---
+ **1.0.3** |       `1.0.2` | (DSTU 2)
    **1.0** |       `1.0.1` | (DSTU 2)
    **0.5** |  `0.5.0.5149` | (DSTU 2 Ballot, May 2015)
  **0.0.4** | `0.0.82.2943` | (DSTU 1)
