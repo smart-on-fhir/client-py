@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -81,20 +81,20 @@ class Coverage(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Coverage, self).elementProperties()
         js.extend([
-            ("bin", "bin", identifier.Identifier, False),
-            ("contract", "contract", fhirreference.FHIRReference, True),
-            ("dependent", "dependent", int, False),
-            ("group", "group", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("issuer", "issuer", fhirreference.FHIRReference, False),
-            ("network", "network", identifier.Identifier, False),
-            ("period", "period", period.Period, False),
-            ("plan", "plan", str, False),
-            ("sequence", "sequence", int, False),
-            ("subPlan", "subPlan", str, False),
-            ("subscriber", "subscriber", fhirreference.FHIRReference, False),
-            ("subscriberId", "subscriberId", identifier.Identifier, False),
-            ("type", "type", coding.Coding, False),
+            ("bin", "bin", identifier.Identifier, False, None, False),
+            ("contract", "contract", fhirreference.FHIRReference, True, None, False),
+            ("dependent", "dependent", int, False, None, False),
+            ("group", "group", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("issuer", "issuer", fhirreference.FHIRReference, False, None, False),
+            ("network", "network", identifier.Identifier, False, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("plan", "plan", str, False, None, False),
+            ("sequence", "sequence", int, False, None, False),
+            ("subPlan", "subPlan", str, False, None, False),
+            ("subscriber", "subscriber", fhirreference.FHIRReference, False, None, False),
+            ("subscriberId", "subscriberId", identifier.Identifier, False, None, False),
+            ("type", "type", coding.Coding, False, None, False),
         ])
         return js
 

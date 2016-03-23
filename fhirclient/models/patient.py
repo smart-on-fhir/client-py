@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Patient) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Patient) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -103,25 +103,25 @@ class Patient(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Patient, self).elementProperties()
         js.extend([
-            ("active", "active", bool, False),
-            ("address", "address", address.Address, True),
-            ("animal", "animal", PatientAnimal, False),
-            ("birthDate", "birthDate", fhirdate.FHIRDate, False),
-            ("careProvider", "careProvider", fhirreference.FHIRReference, True),
-            ("communication", "communication", PatientCommunication, True),
-            ("contact", "contact", PatientContact, True),
-            ("deceasedBoolean", "deceasedBoolean", bool, False),
-            ("deceasedDateTime", "deceasedDateTime", fhirdate.FHIRDate, False),
-            ("gender", "gender", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("link", "link", PatientLink, True),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
-            ("maritalStatus", "maritalStatus", codeableconcept.CodeableConcept, False),
-            ("multipleBirthBoolean", "multipleBirthBoolean", bool, False),
-            ("multipleBirthInteger", "multipleBirthInteger", int, False),
-            ("name", "name", humanname.HumanName, True),
-            ("photo", "photo", attachment.Attachment, True),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("active", "active", bool, False, None, False),
+            ("address", "address", address.Address, True, None, False),
+            ("animal", "animal", PatientAnimal, False, None, False),
+            ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
+            ("careProvider", "careProvider", fhirreference.FHIRReference, True, None, False),
+            ("communication", "communication", PatientCommunication, True, None, False),
+            ("contact", "contact", PatientContact, True, None, False),
+            ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
+            ("deceasedDateTime", "deceasedDateTime", fhirdate.FHIRDate, False, "deceased", False),
+            ("gender", "gender", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("link", "link", PatientLink, True, None, False),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
+            ("maritalStatus", "maritalStatus", codeableconcept.CodeableConcept, False, None, False),
+            ("multipleBirthBoolean", "multipleBirthBoolean", bool, False, "multipleBirth", False),
+            ("multipleBirthInteger", "multipleBirthInteger", int, False, "multipleBirth", False),
+            ("name", "name", humanname.HumanName, True, None, False),
+            ("photo", "photo", attachment.Attachment, True, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -157,9 +157,9 @@ class PatientAnimal(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PatientAnimal, self).elementProperties()
         js.extend([
-            ("breed", "breed", codeableconcept.CodeableConcept, False),
-            ("genderStatus", "genderStatus", codeableconcept.CodeableConcept, False),
-            ("species", "species", codeableconcept.CodeableConcept, False),
+            ("breed", "breed", codeableconcept.CodeableConcept, False, None, False),
+            ("genderStatus", "genderStatus", codeableconcept.CodeableConcept, False, None, False),
+            ("species", "species", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
@@ -192,8 +192,8 @@ class PatientCommunication(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PatientCommunication, self).elementProperties()
         js.extend([
-            ("language", "language", codeableconcept.CodeableConcept, False),
-            ("preferred", "preferred", bool, False),
+            ("language", "language", codeableconcept.CodeableConcept, False, None, True),
+            ("preferred", "preferred", bool, False, None, False),
         ])
         return js
 
@@ -242,13 +242,13 @@ class PatientContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PatientContact, self).elementProperties()
         js.extend([
-            ("address", "address", address.Address, False),
-            ("gender", "gender", str, False),
-            ("name", "name", humanname.HumanName, False),
-            ("organization", "organization", fhirreference.FHIRReference, False),
-            ("period", "period", period.Period, False),
-            ("relationship", "relationship", codeableconcept.CodeableConcept, True),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("address", "address", address.Address, False, None, False),
+            ("gender", "gender", str, False, None, False),
+            ("name", "name", humanname.HumanName, False, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("relationship", "relationship", codeableconcept.CodeableConcept, True, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -278,8 +278,8 @@ class PatientLink(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PatientLink, self).elementProperties()
         js.extend([
-            ("other", "other", fhirreference.FHIRReference, False),
-            ("type", "type", str, False),
+            ("other", "other", fhirreference.FHIRReference, False, None, True),
+            ("type", "type", str, False, None, True),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/BodySite) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/BodySite) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -50,12 +50,12 @@ class BodySite(domainresource.DomainResource):
     def elementProperties(self):
         js = super(BodySite, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("description", "description", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("image", "image", attachment.Attachment, True),
-            ("modifier", "modifier", codeableconcept.CodeableConcept, True),
-            ("patient", "patient", fhirreference.FHIRReference, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("image", "image", attachment.Attachment, True, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

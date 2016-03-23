@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -73,16 +73,16 @@ class Provenance(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Provenance, self).elementProperties()
         js.extend([
-            ("activity", "activity", codeableconcept.CodeableConcept, False),
-            ("agent", "agent", ProvenanceAgent, True),
-            ("entity", "entity", ProvenanceEntity, True),
-            ("location", "location", fhirreference.FHIRReference, False),
-            ("period", "period", period.Period, False),
-            ("policy", "policy", str, True),
-            ("reason", "reason", codeableconcept.CodeableConcept, True),
-            ("recorded", "recorded", fhirdate.FHIRDate, False),
-            ("signature", "signature", signature.Signature, True),
-            ("target", "target", fhirreference.FHIRReference, True),
+            ("activity", "activity", codeableconcept.CodeableConcept, False, None, False),
+            ("agent", "agent", ProvenanceAgent, True, None, False),
+            ("entity", "entity", ProvenanceEntity, True, None, False),
+            ("location", "location", fhirreference.FHIRReference, False, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("policy", "policy", str, True, None, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
+            ("recorded", "recorded", fhirdate.FHIRDate, False, None, True),
+            ("signature", "signature", signature.Signature, True, None, False),
+            ("target", "target", fhirreference.FHIRReference, True, None, True),
         ])
         return js
 
@@ -125,10 +125,10 @@ class ProvenanceAgent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProvenanceAgent, self).elementProperties()
         js.extend([
-            ("actor", "actor", fhirreference.FHIRReference, False),
-            ("relatedAgent", "relatedAgent", ProvenanceAgentRelatedAgent, True),
-            ("role", "role", coding.Coding, False),
-            ("userId", "userId", identifier.Identifier, False),
+            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
+            ("relatedAgent", "relatedAgent", ProvenanceAgentRelatedAgent, True, None, False),
+            ("role", "role", coding.Coding, False, None, True),
+            ("userId", "userId", identifier.Identifier, False, None, False),
         ])
         return js
 
@@ -161,8 +161,8 @@ class ProvenanceAgentRelatedAgent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProvenanceAgentRelatedAgent, self).elementProperties()
         js.extend([
-            ("target", "target", str, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("target", "target", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
@@ -202,11 +202,11 @@ class ProvenanceEntity(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProvenanceEntity, self).elementProperties()
         js.extend([
-            ("agent", "agent", ProvenanceAgent, False),
-            ("display", "display", str, False),
-            ("reference", "reference", str, False),
-            ("role", "role", str, False),
-            ("type", "type", coding.Coding, False),
+            ("agent", "agent", ProvenanceAgent, False, None, False),
+            ("display", "display", str, False, None, False),
+            ("reference", "reference", str, False, None, True),
+            ("role", "role", str, False, None, True),
+            ("type", "type", coding.Coding, False, None, True),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/CodeableConcept) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/CodeableConcept) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -33,8 +33,8 @@ class CodeableConcept(element.Element):
     def elementProperties(self):
         js = super(CodeableConcept, self).elementProperties()
         js.extend([
-            ("coding", "coding", coding.Coding, True),
-            ("text", "text", str, False),
+            ("coding", "coding", coding.Coding, True, None, False),
+            ("text", "text", str, False, None, False),
         ])
         return js
 

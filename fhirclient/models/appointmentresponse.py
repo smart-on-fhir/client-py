@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -56,14 +56,14 @@ class AppointmentResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(AppointmentResponse, self).elementProperties()
         js.extend([
-            ("actor", "actor", fhirreference.FHIRReference, False),
-            ("appointment", "appointment", fhirreference.FHIRReference, False),
-            ("comment", "comment", str, False),
-            ("end", "end", fhirdate.FHIRDate, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("participantStatus", "participantStatus", str, False),
-            ("participantType", "participantType", codeableconcept.CodeableConcept, True),
-            ("start", "start", fhirdate.FHIRDate, False),
+            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
+            ("appointment", "appointment", fhirreference.FHIRReference, False, None, True),
+            ("comment", "comment", str, False, None, False),
+            ("end", "end", fhirdate.FHIRDate, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("participantStatus", "participantStatus", str, False, None, True),
+            ("participantType", "participantType", codeableconcept.CodeableConcept, True, None, False),
+            ("start", "start", fhirdate.FHIRDate, False, None, False),
         ])
         return js
 

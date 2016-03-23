@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -73,18 +73,18 @@ class Appointment(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Appointment, self).elementProperties()
         js.extend([
-            ("comment", "comment", str, False),
-            ("description", "description", str, False),
-            ("end", "end", fhirdate.FHIRDate, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("minutesDuration", "minutesDuration", int, False),
-            ("participant", "participant", AppointmentParticipant, True),
-            ("priority", "priority", int, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, False),
-            ("slot", "slot", fhirreference.FHIRReference, True),
-            ("start", "start", fhirdate.FHIRDate, False),
-            ("status", "status", str, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("comment", "comment", str, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("end", "end", fhirdate.FHIRDate, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("minutesDuration", "minutesDuration", int, False, None, False),
+            ("participant", "participant", AppointmentParticipant, True, None, True),
+            ("priority", "priority", int, False, None, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("slot", "slot", fhirreference.FHIRReference, True, None, False),
+            ("start", "start", fhirdate.FHIRDate, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -124,10 +124,10 @@ class AppointmentParticipant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AppointmentParticipant, self).elementProperties()
         js.extend([
-            ("actor", "actor", fhirreference.FHIRReference, False),
-            ("required", "required", str, False),
-            ("status", "status", str, False),
-            ("type", "type", codeableconcept.CodeableConcept, True),
+            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
+            ("required", "required", str, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 

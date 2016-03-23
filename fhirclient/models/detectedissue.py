@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DetectedIssue) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DetectedIssue) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -67,16 +67,16 @@ class DetectedIssue(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DetectedIssue, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, False),
-            ("category", "category", codeableconcept.CodeableConcept, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("detail", "detail", str, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("implicated", "implicated", fhirreference.FHIRReference, True),
-            ("mitigation", "mitigation", DetectedIssueMitigation, True),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("reference", "reference", str, False),
-            ("severity", "severity", str, False),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("detail", "detail", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("implicated", "implicated", fhirreference.FHIRReference, True, None, False),
+            ("mitigation", "mitigation", DetectedIssueMitigation, True, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("reference", "reference", str, False, None, False),
+            ("severity", "severity", str, False, None, False),
         ])
         return js
 
@@ -115,9 +115,9 @@ class DetectedIssueMitigation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DetectedIssueMitigation, self).elementProperties()
         js.extend([
-            ("action", "action", codeableconcept.CodeableConcept, False),
-            ("author", "author", fhirreference.FHIRReference, False),
-            ("date", "date", fhirdate.FHIRDate, False),
+            ("action", "action", codeableconcept.CodeableConcept, False, None, True),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Annotation) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Annotation) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -41,10 +41,10 @@ class Annotation(element.Element):
     def elementProperties(self):
         js = super(Annotation, self).elementProperties()
         js.extend([
-            ("authorReference", "authorReference", fhirreference.FHIRReference, False),
-            ("authorString", "authorString", str, False),
-            ("text", "text", str, False),
-            ("time", "time", fhirdate.FHIRDate, False),
+            ("authorReference", "authorReference", fhirreference.FHIRReference, False, "author", False),
+            ("authorString", "authorString", str, False, "author", False),
+            ("text", "text", str, False, None, True),
+            ("time", "time", fhirdate.FHIRDate, False, None, False),
         ])
         return js
 

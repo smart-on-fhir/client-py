@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -110,27 +110,27 @@ class Conformance(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Conformance, self).elementProperties()
         js.extend([
-            ("acceptUnknown", "acceptUnknown", str, False),
-            ("contact", "contact", ConformanceContact, True),
-            ("copyright", "copyright", str, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("document", "document", ConformanceDocument, True),
-            ("experimental", "experimental", bool, False),
-            ("fhirVersion", "fhirVersion", str, False),
-            ("format", "format", str, True),
-            ("implementation", "implementation", ConformanceImplementation, False),
-            ("kind", "kind", str, False),
-            ("messaging", "messaging", ConformanceMessaging, True),
-            ("name", "name", str, False),
-            ("profile", "profile", fhirreference.FHIRReference, True),
-            ("publisher", "publisher", str, False),
-            ("requirements", "requirements", str, False),
-            ("rest", "rest", ConformanceRest, True),
-            ("software", "software", ConformanceSoftware, False),
-            ("status", "status", str, False),
-            ("url", "url", str, False),
-            ("version", "version", str, False),
+            ("acceptUnknown", "acceptUnknown", str, False, None, True),
+            ("contact", "contact", ConformanceContact, True, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("description", "description", str, False, None, False),
+            ("document", "document", ConformanceDocument, True, None, False),
+            ("experimental", "experimental", bool, False, None, False),
+            ("fhirVersion", "fhirVersion", str, False, None, True),
+            ("format", "format", str, True, None, True),
+            ("implementation", "implementation", ConformanceImplementation, False, None, False),
+            ("kind", "kind", str, False, None, True),
+            ("messaging", "messaging", ConformanceMessaging, True, None, False),
+            ("name", "name", str, False, None, False),
+            ("profile", "profile", fhirreference.FHIRReference, True, None, False),
+            ("publisher", "publisher", str, False, None, False),
+            ("requirements", "requirements", str, False, None, False),
+            ("rest", "rest", ConformanceRest, True, None, False),
+            ("software", "software", ConformanceSoftware, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("url", "url", str, False, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -162,8 +162,8 @@ class ConformanceContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceContact, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("name", "name", str, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -197,9 +197,9 @@ class ConformanceDocument(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceDocument, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", str, False),
-            ("mode", "mode", str, False),
-            ("profile", "profile", fhirreference.FHIRReference, False),
+            ("documentation", "documentation", str, False, None, False),
+            ("mode", "mode", str, False, None, True),
+            ("profile", "profile", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
@@ -231,8 +231,8 @@ class ConformanceImplementation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceImplementation, self).elementProperties()
         js.extend([
-            ("description", "description", str, False),
-            ("url", "url", str, False),
+            ("description", "description", str, False, None, True),
+            ("url", "url", str, False, None, False),
         ])
         return js
 
@@ -270,10 +270,10 @@ class ConformanceMessaging(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceMessaging, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", str, False),
-            ("endpoint", "endpoint", ConformanceMessagingEndpoint, True),
-            ("event", "event", ConformanceMessagingEvent, True),
-            ("reliableCache", "reliableCache", int, False),
+            ("documentation", "documentation", str, False, None, False),
+            ("endpoint", "endpoint", ConformanceMessagingEndpoint, True, None, False),
+            ("event", "event", ConformanceMessagingEvent, True, None, True),
+            ("reliableCache", "reliableCache", int, False, None, False),
         ])
         return js
 
@@ -304,8 +304,8 @@ class ConformanceMessagingEndpoint(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceMessagingEndpoint, self).elementProperties()
         js.extend([
-            ("address", "address", str, False),
-            ("protocol", "protocol", coding.Coding, False),
+            ("address", "address", str, False, None, True),
+            ("protocol", "protocol", coding.Coding, False, None, True),
         ])
         return js
 
@@ -355,13 +355,13 @@ class ConformanceMessagingEvent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceMessagingEvent, self).elementProperties()
         js.extend([
-            ("category", "category", str, False),
-            ("code", "code", coding.Coding, False),
-            ("documentation", "documentation", str, False),
-            ("focus", "focus", str, False),
-            ("mode", "mode", str, False),
-            ("request", "request", fhirreference.FHIRReference, False),
-            ("response", "response", fhirreference.FHIRReference, False),
+            ("category", "category", str, False, None, False),
+            ("code", "code", coding.Coding, False, None, True),
+            ("documentation", "documentation", str, False, None, False),
+            ("focus", "focus", str, False, None, True),
+            ("mode", "mode", str, False, None, True),
+            ("request", "request", fhirreference.FHIRReference, False, None, True),
+            ("response", "response", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
@@ -419,15 +419,15 @@ class ConformanceRest(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceRest, self).elementProperties()
         js.extend([
-            ("compartment", "compartment", str, True),
-            ("documentation", "documentation", str, False),
-            ("interaction", "interaction", ConformanceRestInteraction, True),
-            ("mode", "mode", str, False),
-            ("operation", "operation", ConformanceRestOperation, True),
-            ("resource", "resource", ConformanceRestResource, True),
-            ("searchParam", "searchParam", ConformanceRestResourceSearchParam, True),
-            ("security", "security", ConformanceRestSecurity, False),
-            ("transactionMode", "transactionMode", str, False),
+            ("compartment", "compartment", str, True, None, False),
+            ("documentation", "documentation", str, False, None, False),
+            ("interaction", "interaction", ConformanceRestInteraction, True, None, False),
+            ("mode", "mode", str, False, None, True),
+            ("operation", "operation", ConformanceRestOperation, True, None, False),
+            ("resource", "resource", ConformanceRestResource, True, None, True),
+            ("searchParam", "searchParam", ConformanceRestResourceSearchParam, True, None, False),
+            ("security", "security", ConformanceRestSecurity, False, None, False),
+            ("transactionMode", "transactionMode", str, False, None, False),
         ])
         return js
 
@@ -457,8 +457,8 @@ class ConformanceRestInteraction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceRestInteraction, self).elementProperties()
         js.extend([
-            ("code", "code", str, False),
-            ("documentation", "documentation", str, False),
+            ("code", "code", str, False, None, True),
+            ("documentation", "documentation", str, False, None, False),
         ])
         return js
 
@@ -489,8 +489,8 @@ class ConformanceRestOperation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceRestOperation, self).elementProperties()
         js.extend([
-            ("definition", "definition", fhirreference.FHIRReference, False),
-            ("name", "name", str, False),
+            ("definition", "definition", fhirreference.FHIRReference, False, None, True),
+            ("name", "name", str, False, None, True),
         ])
         return js
 
@@ -562,18 +562,18 @@ class ConformanceRestResource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceRestResource, self).elementProperties()
         js.extend([
-            ("conditionalCreate", "conditionalCreate", bool, False),
-            ("conditionalDelete", "conditionalDelete", str, False),
-            ("conditionalUpdate", "conditionalUpdate", bool, False),
-            ("interaction", "interaction", ConformanceRestResourceInteraction, True),
-            ("profile", "profile", fhirreference.FHIRReference, False),
-            ("readHistory", "readHistory", bool, False),
-            ("searchInclude", "searchInclude", str, True),
-            ("searchParam", "searchParam", ConformanceRestResourceSearchParam, True),
-            ("searchRevInclude", "searchRevInclude", str, True),
-            ("type", "type", str, False),
-            ("updateCreate", "updateCreate", bool, False),
-            ("versioning", "versioning", str, False),
+            ("conditionalCreate", "conditionalCreate", bool, False, None, False),
+            ("conditionalDelete", "conditionalDelete", str, False, None, False),
+            ("conditionalUpdate", "conditionalUpdate", bool, False, None, False),
+            ("interaction", "interaction", ConformanceRestResourceInteraction, True, None, True),
+            ("profile", "profile", fhirreference.FHIRReference, False, None, False),
+            ("readHistory", "readHistory", bool, False, None, False),
+            ("searchInclude", "searchInclude", str, True, None, False),
+            ("searchParam", "searchParam", ConformanceRestResourceSearchParam, True, None, False),
+            ("searchRevInclude", "searchRevInclude", str, True, None, False),
+            ("type", "type", str, False, None, True),
+            ("updateCreate", "updateCreate", bool, False, None, False),
+            ("versioning", "versioning", str, False, None, False),
         ])
         return js
 
@@ -604,8 +604,8 @@ class ConformanceRestResourceInteraction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceRestResourceInteraction, self).elementProperties()
         js.extend([
-            ("code", "code", str, False),
-            ("documentation", "documentation", str, False),
+            ("code", "code", str, False, None, True),
+            ("documentation", "documentation", str, False, None, False),
         ])
         return js
 
@@ -659,13 +659,13 @@ class ConformanceRestResourceSearchParam(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceRestResourceSearchParam, self).elementProperties()
         js.extend([
-            ("chain", "chain", str, True),
-            ("definition", "definition", str, False),
-            ("documentation", "documentation", str, False),
-            ("modifier", "modifier", str, True),
-            ("name", "name", str, False),
-            ("target", "target", str, True),
-            ("type", "type", str, False),
+            ("chain", "chain", str, True, None, False),
+            ("definition", "definition", str, False, None, False),
+            ("documentation", "documentation", str, False, None, False),
+            ("modifier", "modifier", str, True, None, False),
+            ("name", "name", str, False, None, True),
+            ("target", "target", str, True, None, False),
+            ("type", "type", str, False, None, True),
         ])
         return js
 
@@ -704,10 +704,10 @@ class ConformanceRestSecurity(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceRestSecurity, self).elementProperties()
         js.extend([
-            ("certificate", "certificate", ConformanceRestSecurityCertificate, True),
-            ("cors", "cors", bool, False),
-            ("description", "description", str, False),
-            ("service", "service", codeableconcept.CodeableConcept, True),
+            ("certificate", "certificate", ConformanceRestSecurityCertificate, True, None, False),
+            ("cors", "cors", bool, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("service", "service", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -735,8 +735,8 @@ class ConformanceRestSecurityCertificate(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceRestSecurityCertificate, self).elementProperties()
         js.extend([
-            ("blob", "blob", str, False),
-            ("type", "type", str, False),
+            ("blob", "blob", str, False, None, False),
+            ("type", "type", str, False, None, False),
         ])
         return js
 
@@ -772,9 +772,9 @@ class ConformanceSoftware(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConformanceSoftware, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("releaseDate", "releaseDate", fhirdate.FHIRDate, False),
-            ("version", "version", str, False),
+            ("name", "name", str, False, None, True),
+            ("releaseDate", "releaseDate", fhirdate.FHIRDate, False, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 

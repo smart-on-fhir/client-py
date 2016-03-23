@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -65,16 +65,16 @@ class Specimen(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Specimen, self).elementProperties()
         js.extend([
-            ("accessionIdentifier", "accessionIdentifier", identifier.Identifier, False),
-            ("collection", "collection", SpecimenCollection, False),
-            ("container", "container", SpecimenContainer, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("parent", "parent", fhirreference.FHIRReference, True),
-            ("receivedTime", "receivedTime", fhirdate.FHIRDate, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("treatment", "treatment", SpecimenTreatment, True),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("accessionIdentifier", "accessionIdentifier", identifier.Identifier, False, None, False),
+            ("collection", "collection", SpecimenCollection, False, None, False),
+            ("container", "container", SpecimenContainer, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
+            ("receivedTime", "receivedTime", fhirdate.FHIRDate, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("treatment", "treatment", SpecimenTreatment, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -126,13 +126,13 @@ class SpecimenCollection(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SpecimenCollection, self).elementProperties()
         js.extend([
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False),
-            ("collectedDateTime", "collectedDateTime", fhirdate.FHIRDate, False),
-            ("collectedPeriod", "collectedPeriod", period.Period, False),
-            ("collector", "collector", fhirreference.FHIRReference, False),
-            ("comment", "comment", str, True),
-            ("method", "method", codeableconcept.CodeableConcept, False),
-            ("quantity", "quantity", quantity.Quantity, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
+            ("collectedDateTime", "collectedDateTime", fhirdate.FHIRDate, False, "collected", False),
+            ("collectedPeriod", "collectedPeriod", period.Period, False, "collected", False),
+            ("collector", "collector", fhirreference.FHIRReference, False, None, False),
+            ("comment", "comment", str, True, None, False),
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
         ])
         return js
 
@@ -183,13 +183,13 @@ class SpecimenContainer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SpecimenContainer, self).elementProperties()
         js.extend([
-            ("additiveCodeableConcept", "additiveCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("additiveReference", "additiveReference", fhirreference.FHIRReference, False),
-            ("capacity", "capacity", quantity.Quantity, False),
-            ("description", "description", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("specimenQuantity", "specimenQuantity", quantity.Quantity, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("additiveCodeableConcept", "additiveCodeableConcept", codeableconcept.CodeableConcept, False, "additive", False),
+            ("additiveReference", "additiveReference", fhirreference.FHIRReference, False, "additive", False),
+            ("capacity", "capacity", quantity.Quantity, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("specimenQuantity", "specimenQuantity", quantity.Quantity, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -223,9 +223,9 @@ class SpecimenTreatment(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SpecimenTreatment, self).elementProperties()
         js.extend([
-            ("additive", "additive", fhirreference.FHIRReference, True),
-            ("description", "description", str, False),
-            ("procedure", "procedure", codeableconcept.CodeableConcept, False),
+            ("additive", "additive", fhirreference.FHIRReference, True, None, False),
+            ("description", "description", str, False, None, False),
+            ("procedure", "procedure", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

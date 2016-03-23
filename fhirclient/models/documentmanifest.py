@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -70,18 +70,18 @@ class DocumentManifest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DocumentManifest, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, True),
-            ("content", "content", DocumentManifestContent, True),
-            ("created", "created", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("masterIdentifier", "masterIdentifier", identifier.Identifier, False),
-            ("recipient", "recipient", fhirreference.FHIRReference, True),
-            ("related", "related", DocumentManifestRelated, True),
-            ("source", "source", str, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("author", "author", fhirreference.FHIRReference, True, None, False),
+            ("content", "content", DocumentManifestContent, True, None, True),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("masterIdentifier", "masterIdentifier", identifier.Identifier, False, None, False),
+            ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
+            ("related", "related", DocumentManifestRelated, True, None, False),
+            ("source", "source", str, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -113,8 +113,8 @@ class DocumentManifestContent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DocumentManifestContent, self).elementProperties()
         js.extend([
-            ("pAttachment", "pAttachment", attachment.Attachment, False),
-            ("pReference", "pReference", fhirreference.FHIRReference, False),
+            ("pAttachment", "pAttachment", attachment.Attachment, False, "p", True),
+            ("pReference", "pReference", fhirreference.FHIRReference, False, "p", True),
         ])
         return js
 
@@ -144,8 +144,8 @@ class DocumentManifestRelated(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DocumentManifestRelated, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("ref", "ref", fhirreference.FHIRReference, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("ref", "ref", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

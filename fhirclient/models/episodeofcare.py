@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -73,17 +73,17 @@ class EpisodeOfCare(domainresource.DomainResource):
     def elementProperties(self):
         js = super(EpisodeOfCare, self).elementProperties()
         js.extend([
-            ("careManager", "careManager", fhirreference.FHIRReference, False),
-            ("careTeam", "careTeam", EpisodeOfCareCareTeam, True),
-            ("condition", "condition", fhirreference.FHIRReference, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("period", "period", period.Period, False),
-            ("referralRequest", "referralRequest", fhirreference.FHIRReference, True),
-            ("status", "status", str, False),
-            ("statusHistory", "statusHistory", EpisodeOfCareStatusHistory, True),
-            ("type", "type", codeableconcept.CodeableConcept, True),
+            ("careManager", "careManager", fhirreference.FHIRReference, False, None, False),
+            ("careTeam", "careTeam", EpisodeOfCareCareTeam, True, None, False),
+            ("condition", "condition", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("period", "period", period.Period, False, None, False),
+            ("referralRequest", "referralRequest", fhirreference.FHIRReference, True, None, False),
+            ("status", "status", str, False, None, True),
+            ("statusHistory", "statusHistory", EpisodeOfCareStatusHistory, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -120,9 +120,9 @@ class EpisodeOfCareCareTeam(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(EpisodeOfCareCareTeam, self).elementProperties()
         js.extend([
-            ("member", "member", fhirreference.FHIRReference, False),
-            ("period", "period", period.Period, False),
-            ("role", "role", codeableconcept.CodeableConcept, True),
+            ("member", "member", fhirreference.FHIRReference, False, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -153,8 +153,8 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(EpisodeOfCareStatusHistory, self).elementProperties()
         js.extend([
-            ("period", "period", period.Period, False),
-            ("status", "status", str, False),
+            ("period", "period", period.Period, False, None, True),
+            ("status", "status", str, False, None, True),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Narrative) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Narrative) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -30,8 +30,8 @@ class Narrative(element.Element):
     def elementProperties(self):
         js = super(Narrative, self).elementProperties()
         js.extend([
-            ("div", "div", str, False),
-            ("status", "status", str, False),
+            ("div", "div", str, False, None, True),
+            ("status", "status", str, False, None, True),
         ])
         return js
 

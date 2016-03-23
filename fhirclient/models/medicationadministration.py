@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -92,22 +92,22 @@ class MedicationAdministration(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicationAdministration, self).elementProperties()
         js.extend([
-            ("device", "device", fhirreference.FHIRReference, True),
-            ("dosage", "dosage", MedicationAdministrationDosage, False),
-            ("effectiveTimeDateTime", "effectiveTimeDateTime", fhirdate.FHIRDate, False),
-            ("effectiveTimePeriod", "effectiveTimePeriod", period.Period, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False),
-            ("note", "note", str, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("practitioner", "practitioner", fhirreference.FHIRReference, False),
-            ("prescription", "prescription", fhirreference.FHIRReference, False),
-            ("reasonGiven", "reasonGiven", codeableconcept.CodeableConcept, True),
-            ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True),
-            ("status", "status", str, False),
-            ("wasNotGiven", "wasNotGiven", bool, False),
+            ("device", "device", fhirreference.FHIRReference, True, None, False),
+            ("dosage", "dosage", MedicationAdministrationDosage, False, None, False),
+            ("effectiveTimeDateTime", "effectiveTimeDateTime", fhirdate.FHIRDate, False, "effectiveTime", True),
+            ("effectiveTimePeriod", "effectiveTimePeriod", period.Period, False, "effectiveTime", True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
+            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
+            ("note", "note", str, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("practitioner", "practitioner", fhirreference.FHIRReference, False, None, False),
+            ("prescription", "prescription", fhirreference.FHIRReference, False, None, False),
+            ("reasonGiven", "reasonGiven", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True, None, False),
+            ("status", "status", str, False, None, True),
+            ("wasNotGiven", "wasNotGiven", bool, False, None, False),
         ])
         return js
 
@@ -164,14 +164,14 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationAdministrationDosage, self).elementProperties()
         js.extend([
-            ("method", "method", codeableconcept.CodeableConcept, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("rateRange", "rateRange", range.Range, False),
-            ("rateRatio", "rateRatio", ratio.Ratio, False),
-            ("route", "route", codeableconcept.CodeableConcept, False),
-            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("siteReference", "siteReference", fhirreference.FHIRReference, False),
-            ("text", "text", str, False),
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("rateRange", "rateRange", range.Range, False, "rate", False),
+            ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
+            ("route", "route", codeableconcept.CodeableConcept, False, None, False),
+            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False, "site", False),
+            ("siteReference", "siteReference", fhirreference.FHIRReference, False, "site", False),
+            ("text", "text", str, False, None, False),
         ])
         return js
 

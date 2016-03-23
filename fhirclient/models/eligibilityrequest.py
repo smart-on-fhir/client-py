@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -53,13 +53,13 @@ class EligibilityRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(EligibilityRequest, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdate.FHIRDate, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("organization", "organization", fhirreference.FHIRReference, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False),
-            ("provider", "provider", fhirreference.FHIRReference, False),
-            ("ruleset", "ruleset", coding.Coding, False),
-            ("target", "target", fhirreference.FHIRReference, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("target", "target", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

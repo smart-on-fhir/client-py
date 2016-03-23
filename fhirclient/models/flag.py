@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Flag) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Flag) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -57,14 +57,14 @@ class Flag(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Flag, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, False),
-            ("category", "category", codeableconcept.CodeableConcept, False),
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("period", "period", period.Period, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -93,22 +93,22 @@ class ImagingStudy(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ImagingStudy, self).elementProperties()
         js.extend([
-            ("accession", "accession", identifier.Identifier, False),
-            ("availability", "availability", str, False),
-            ("description", "description", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("interpreter", "interpreter", fhirreference.FHIRReference, False),
-            ("modalityList", "modalityList", coding.Coding, True),
-            ("numberOfInstances", "numberOfInstances", int, False),
-            ("numberOfSeries", "numberOfSeries", int, False),
-            ("order", "order", fhirreference.FHIRReference, True),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("procedure", "procedure", fhirreference.FHIRReference, True),
-            ("referrer", "referrer", fhirreference.FHIRReference, False),
-            ("series", "series", ImagingStudySeries, True),
-            ("started", "started", fhirdate.FHIRDate, False),
-            ("uid", "uid", str, False),
-            ("url", "url", str, False),
+            ("accession", "accession", identifier.Identifier, False, None, False),
+            ("availability", "availability", str, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("interpreter", "interpreter", fhirreference.FHIRReference, False, None, False),
+            ("modalityList", "modalityList", coding.Coding, True, None, False),
+            ("numberOfInstances", "numberOfInstances", int, False, None, True),
+            ("numberOfSeries", "numberOfSeries", int, False, None, True),
+            ("order", "order", fhirreference.FHIRReference, True, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("procedure", "procedure", fhirreference.FHIRReference, True, None, False),
+            ("referrer", "referrer", fhirreference.FHIRReference, False, None, False),
+            ("series", "series", ImagingStudySeries, True, None, False),
+            ("started", "started", fhirdate.FHIRDate, False, None, False),
+            ("uid", "uid", str, False, None, True),
+            ("url", "url", str, False, None, False),
         ])
         return js
 
@@ -176,17 +176,17 @@ class ImagingStudySeries(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImagingStudySeries, self).elementProperties()
         js.extend([
-            ("availability", "availability", str, False),
-            ("bodySite", "bodySite", coding.Coding, False),
-            ("description", "description", str, False),
-            ("instance", "instance", ImagingStudySeriesInstance, True),
-            ("laterality", "laterality", coding.Coding, False),
-            ("modality", "modality", coding.Coding, False),
-            ("number", "number", int, False),
-            ("numberOfInstances", "numberOfInstances", int, False),
-            ("started", "started", fhirdate.FHIRDate, False),
-            ("uid", "uid", str, False),
-            ("url", "url", str, False),
+            ("availability", "availability", str, False, None, False),
+            ("bodySite", "bodySite", coding.Coding, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("instance", "instance", ImagingStudySeriesInstance, True, None, False),
+            ("laterality", "laterality", coding.Coding, False, None, False),
+            ("modality", "modality", coding.Coding, False, None, True),
+            ("number", "number", int, False, None, False),
+            ("numberOfInstances", "numberOfInstances", int, False, None, True),
+            ("started", "started", fhirdate.FHIRDate, False, None, False),
+            ("uid", "uid", str, False, None, True),
+            ("url", "url", str, False, None, False),
         ])
         return js
 
@@ -233,12 +233,12 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImagingStudySeriesInstance, self).elementProperties()
         js.extend([
-            ("content", "content", attachment.Attachment, True),
-            ("number", "number", int, False),
-            ("sopClass", "sopClass", str, False),
-            ("title", "title", str, False),
-            ("type", "type", str, False),
-            ("uid", "uid", str, False),
+            ("content", "content", attachment.Attachment, True, None, False),
+            ("number", "number", int, False, None, False),
+            ("sopClass", "sopClass", str, False, None, True),
+            ("title", "title", str, False, None, False),
+            ("type", "type", str, False, None, False),
+            ("uid", "uid", str, False, None, True),
         ])
         return js
 

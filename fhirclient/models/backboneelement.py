@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/BackboneElement) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/BackboneElement) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -29,7 +29,7 @@ class BackboneElement(element.Element):
     def elementProperties(self):
         js = super(BackboneElement, self).elementProperties()
         js.extend([
-            ("modifierExtension", "modifierExtension", extension.Extension, True),
+            ("modifierExtension", "modifierExtension", extension.Extension, True, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Reference) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Reference) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -30,8 +30,8 @@ class Reference(element.Element):
     def elementProperties(self):
         js = super(Reference, self).elementProperties()
         js.extend([
-            ("display", "display", str, False),
-            ("reference", "reference", str, False),
+            ("display", "display", str, False, None, False),
+            ("reference", "reference", str, False, None, False),
         ])
         return js
 

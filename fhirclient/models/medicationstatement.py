@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -109,22 +109,22 @@ class MedicationStatement(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicationStatement, self).elementProperties()
         js.extend([
-            ("dateAsserted", "dateAsserted", fhirdate.FHIRDate, False),
-            ("dosage", "dosage", MedicationStatementDosage, True),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("informationSource", "informationSource", fhirreference.FHIRReference, False),
-            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False),
-            ("note", "note", str, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("reasonForUseCodeableConcept", "reasonForUseCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("reasonForUseReference", "reasonForUseReference", fhirreference.FHIRReference, False),
-            ("reasonNotTaken", "reasonNotTaken", codeableconcept.CodeableConcept, True),
-            ("status", "status", str, False),
-            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True),
-            ("wasNotTaken", "wasNotTaken", bool, False),
+            ("dateAsserted", "dateAsserted", fhirdate.FHIRDate, False, None, False),
+            ("dosage", "dosage", MedicationStatementDosage, True, None, False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
+            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("informationSource", "informationSource", fhirreference.FHIRReference, False, None, False),
+            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
+            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
+            ("note", "note", str, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("reasonForUseCodeableConcept", "reasonForUseCodeableConcept", codeableconcept.CodeableConcept, False, "reasonForUse", False),
+            ("reasonForUseReference", "reasonForUseReference", fhirreference.FHIRReference, False, "reasonForUse", False),
+            ("reasonNotTaken", "reasonNotTaken", codeableconcept.CodeableConcept, True, None, False),
+            ("status", "status", str, False, None, True),
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
+            ("wasNotTaken", "wasNotTaken", bool, False, None, False),
         ])
         return js
 
@@ -200,19 +200,19 @@ class MedicationStatementDosage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationStatementDosage, self).elementProperties()
         js.extend([
-            ("asNeededBoolean", "asNeededBoolean", bool, False),
-            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False),
-            ("method", "method", codeableconcept.CodeableConcept, False),
-            ("quantityQuantity", "quantityQuantity", quantity.Quantity, False),
-            ("quantityRange", "quantityRange", range.Range, False),
-            ("rateRange", "rateRange", range.Range, False),
-            ("rateRatio", "rateRatio", ratio.Ratio, False),
-            ("route", "route", codeableconcept.CodeableConcept, False),
-            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("siteReference", "siteReference", fhirreference.FHIRReference, False),
-            ("text", "text", str, False),
-            ("timing", "timing", timing.Timing, False),
+            ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False),
+            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False),
+            ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False, None, False),
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
+            ("quantityQuantity", "quantityQuantity", quantity.Quantity, False, "quantity", False),
+            ("quantityRange", "quantityRange", range.Range, False, "quantity", False),
+            ("rateRange", "rateRange", range.Range, False, "rate", False),
+            ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
+            ("route", "route", codeableconcept.CodeableConcept, False, None, False),
+            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False, "site", False),
+            ("siteReference", "siteReference", fhirreference.FHIRReference, False, "site", False),
+            ("text", "text", str, False, None, False),
+            ("timing", "timing", timing.Timing, False, None, False),
         ])
         return js
 

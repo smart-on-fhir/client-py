@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -60,14 +60,14 @@ class Subscription(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Subscription, self).elementProperties()
         js.extend([
-            ("channel", "channel", SubscriptionChannel, False),
-            ("contact", "contact", contactpoint.ContactPoint, True),
-            ("criteria", "criteria", str, False),
-            ("end", "end", fhirdate.FHIRDate, False),
-            ("error", "error", str, False),
-            ("reason", "reason", str, False),
-            ("status", "status", str, False),
-            ("tag", "tag", coding.Coding, True),
+            ("channel", "channel", SubscriptionChannel, False, None, True),
+            ("contact", "contact", contactpoint.ContactPoint, True, None, False),
+            ("criteria", "criteria", str, False, None, True),
+            ("end", "end", fhirdate.FHIRDate, False, None, False),
+            ("error", "error", str, False, None, False),
+            ("reason", "reason", str, False, None, True),
+            ("status", "status", str, False, None, True),
+            ("tag", "tag", coding.Coding, True, None, False),
         ])
         return js
 
@@ -108,10 +108,10 @@ class SubscriptionChannel(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubscriptionChannel, self).elementProperties()
         js.extend([
-            ("endpoint", "endpoint", str, False),
-            ("header", "header", str, False),
-            ("payload", "payload", str, False),
-            ("type", "type", str, False),
+            ("endpoint", "endpoint", str, False, None, False),
+            ("header", "header", str, False, None, False),
+            ("payload", "payload", str, False, None, True),
+            ("type", "type", str, False, None, True),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -66,16 +66,16 @@ class ExplanationOfBenefit(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ExplanationOfBenefit, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdate.FHIRDate, False),
-            ("disposition", "disposition", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("organization", "organization", fhirreference.FHIRReference, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False),
-            ("outcome", "outcome", str, False),
-            ("request", "request", fhirreference.FHIRReference, False),
-            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False),
-            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False),
-            ("ruleset", "ruleset", coding.Coding, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("disposition", "disposition", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
+            ("outcome", "outcome", str, False, None, False),
+            ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
+            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
+            ("ruleset", "ruleset", coding.Coding, False, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -103,24 +103,24 @@ class ClinicalImpression(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ClinicalImpression, self).elementProperties()
         js.extend([
-            ("action", "action", fhirreference.FHIRReference, True),
-            ("assessor", "assessor", fhirreference.FHIRReference, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("finding", "finding", ClinicalImpressionFinding, True),
-            ("investigations", "investigations", ClinicalImpressionInvestigations, True),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("plan", "plan", fhirreference.FHIRReference, True),
-            ("previous", "previous", fhirreference.FHIRReference, False),
-            ("problem", "problem", fhirreference.FHIRReference, True),
-            ("prognosis", "prognosis", str, False),
-            ("protocol", "protocol", str, False),
-            ("resolved", "resolved", codeableconcept.CodeableConcept, True),
-            ("ruledOut", "ruledOut", ClinicalImpressionRuledOut, True),
-            ("status", "status", str, False),
-            ("summary", "summary", str, False),
-            ("triggerCodeableConcept", "triggerCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("triggerReference", "triggerReference", fhirreference.FHIRReference, False),
+            ("action", "action", fhirreference.FHIRReference, True, None, False),
+            ("assessor", "assessor", fhirreference.FHIRReference, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("finding", "finding", ClinicalImpressionFinding, True, None, False),
+            ("investigations", "investigations", ClinicalImpressionInvestigations, True, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("plan", "plan", fhirreference.FHIRReference, True, None, False),
+            ("previous", "previous", fhirreference.FHIRReference, False, None, False),
+            ("problem", "problem", fhirreference.FHIRReference, True, None, False),
+            ("prognosis", "prognosis", str, False, None, False),
+            ("protocol", "protocol", str, False, None, False),
+            ("resolved", "resolved", codeableconcept.CodeableConcept, True, None, False),
+            ("ruledOut", "ruledOut", ClinicalImpressionRuledOut, True, None, False),
+            ("status", "status", str, False, None, True),
+            ("summary", "summary", str, False, None, False),
+            ("triggerCodeableConcept", "triggerCodeableConcept", codeableconcept.CodeableConcept, False, "trigger", False),
+            ("triggerReference", "triggerReference", fhirreference.FHIRReference, False, "trigger", False),
         ])
         return js
 
@@ -153,8 +153,8 @@ class ClinicalImpressionFinding(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClinicalImpressionFinding, self).elementProperties()
         js.extend([
-            ("cause", "cause", str, False),
-            ("item", "item", codeableconcept.CodeableConcept, False),
+            ("cause", "cause", str, False, None, False),
+            ("item", "item", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
@@ -188,8 +188,8 @@ class ClinicalImpressionInvestigations(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClinicalImpressionInvestigations, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("item", "item", fhirreference.FHIRReference, True),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("item", "item", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 
@@ -217,8 +217,8 @@ class ClinicalImpressionRuledOut(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClinicalImpressionRuledOut, self).elementProperties()
         js.extend([
-            ("item", "item", codeableconcept.CodeableConcept, False),
-            ("reason", "reason", str, False),
+            ("item", "item", codeableconcept.CodeableConcept, False, None, True),
+            ("reason", "reason", str, False, None, False),
         ])
         return js
 

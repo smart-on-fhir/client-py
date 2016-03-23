@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Binary) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Binary) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -33,8 +33,8 @@ class Binary(resource.Resource):
     def elementProperties(self):
         js = super(Binary, self).elementProperties()
         js.extend([
-            ("content", "content", str, False),
-            ("contentType", "contentType", str, False),
+            ("content", "content", str, False, None, True),
+            ("contentType", "contentType", str, False, None, True),
         ])
         return js
 

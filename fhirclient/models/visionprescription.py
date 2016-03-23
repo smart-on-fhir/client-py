@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -57,14 +57,14 @@ class VisionPrescription(domainresource.DomainResource):
     def elementProperties(self):
         js = super(VisionPrescription, self).elementProperties()
         js.extend([
-            ("dateWritten", "dateWritten", fhirdate.FHIRDate, False),
-            ("dispense", "dispense", VisionPrescriptionDispense, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("prescriber", "prescriber", fhirreference.FHIRReference, False),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
+            ("dateWritten", "dateWritten", fhirdate.FHIRDate, False, None, False),
+            ("dispense", "dispense", VisionPrescriptionDispense, True, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("prescriber", "prescriber", fhirreference.FHIRReference, False, None, False),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
         ])
         return js
 
@@ -148,21 +148,21 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(VisionPrescriptionDispense, self).elementProperties()
         js.extend([
-            ("add", "add", float, False),
-            ("axis", "axis", int, False),
-            ("backCurve", "backCurve", float, False),
-            ("base", "base", str, False),
-            ("brand", "brand", str, False),
-            ("color", "color", str, False),
-            ("cylinder", "cylinder", float, False),
-            ("diameter", "diameter", float, False),
-            ("duration", "duration", quantity.Quantity, False),
-            ("eye", "eye", str, False),
-            ("notes", "notes", str, False),
-            ("power", "power", float, False),
-            ("prism", "prism", float, False),
-            ("product", "product", coding.Coding, False),
-            ("sphere", "sphere", float, False),
+            ("add", "add", float, False, None, False),
+            ("axis", "axis", int, False, None, False),
+            ("backCurve", "backCurve", float, False, None, False),
+            ("base", "base", str, False, None, False),
+            ("brand", "brand", str, False, None, False),
+            ("color", "color", str, False, None, False),
+            ("cylinder", "cylinder", float, False, None, False),
+            ("diameter", "diameter", float, False, None, False),
+            ("duration", "duration", quantity.Quantity, False, None, False),
+            ("eye", "eye", str, False, None, False),
+            ("notes", "notes", str, False, None, False),
+            ("power", "power", float, False, None, False),
+            ("prism", "prism", float, False, None, False),
+            ("product", "product", coding.Coding, False, None, True),
+            ("sphere", "sphere", float, False, None, False),
         ])
         return js
 

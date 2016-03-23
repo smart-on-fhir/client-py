@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Person) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Person) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -65,16 +65,16 @@ class Person(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Person, self).elementProperties()
         js.extend([
-            ("active", "active", bool, False),
-            ("address", "address", address.Address, True),
-            ("birthDate", "birthDate", fhirdate.FHIRDate, False),
-            ("gender", "gender", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("link", "link", PersonLink, True),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
-            ("name", "name", humanname.HumanName, True),
-            ("photo", "photo", attachment.Attachment, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("active", "active", bool, False, None, False),
+            ("address", "address", address.Address, True, None, False),
+            ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
+            ("gender", "gender", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("link", "link", PersonLink, True, None, False),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
+            ("name", "name", humanname.HumanName, True, None, False),
+            ("photo", "photo", attachment.Attachment, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -104,8 +104,8 @@ class PersonLink(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PersonLink, self).elementProperties()
         js.extend([
-            ("assurance", "assurance", str, False),
-            ("target", "target", fhirreference.FHIRReference, False),
+            ("assurance", "assurance", str, False, None, False),
+            ("target", "target", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

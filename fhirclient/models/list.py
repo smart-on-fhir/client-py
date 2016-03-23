@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/List) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/List) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -76,19 +76,19 @@ class List(domainresource.DomainResource):
     def elementProperties(self):
         js = super(List, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("entry", "entry", ListEntry, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("mode", "mode", str, False),
-            ("note", "note", str, False),
-            ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False),
-            ("source", "source", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("title", "title", str, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("entry", "entry", ListEntry, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("mode", "mode", str, False, None, True),
+            ("note", "note", str, False, None, False),
+            ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False, None, False),
+            ("source", "source", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("title", "title", str, False, None, False),
         ])
         return js
 
@@ -128,10 +128,10 @@ class ListEntry(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ListEntry, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("deleted", "deleted", bool, False),
-            ("flag", "flag", codeableconcept.CodeableConcept, False),
-            ("item", "item", fhirreference.FHIRReference, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("deleted", "deleted", bool, False, None, False),
+            ("flag", "flag", codeableconcept.CodeableConcept, False, None, False),
+            ("item", "item", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

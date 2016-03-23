@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -105,26 +105,26 @@ class FamilyMemberHistory(domainresource.DomainResource):
     def elementProperties(self):
         js = super(FamilyMemberHistory, self).elementProperties()
         js.extend([
-            ("ageQuantity", "ageQuantity", quantity.Quantity, False),
-            ("ageRange", "ageRange", range.Range, False),
-            ("ageString", "ageString", str, False),
-            ("bornDate", "bornDate", fhirdate.FHIRDate, False),
-            ("bornPeriod", "bornPeriod", period.Period, False),
-            ("bornString", "bornString", str, False),
-            ("condition", "condition", FamilyMemberHistoryCondition, True),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("deceasedBoolean", "deceasedBoolean", bool, False),
-            ("deceasedDate", "deceasedDate", fhirdate.FHIRDate, False),
-            ("deceasedQuantity", "deceasedQuantity", quantity.Quantity, False),
-            ("deceasedRange", "deceasedRange", range.Range, False),
-            ("deceasedString", "deceasedString", str, False),
-            ("gender", "gender", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("name", "name", str, False),
-            ("note", "note", annotation.Annotation, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("relationship", "relationship", codeableconcept.CodeableConcept, False),
-            ("status", "status", str, False),
+            ("ageQuantity", "ageQuantity", quantity.Quantity, False, "age", False),
+            ("ageRange", "ageRange", range.Range, False, "age", False),
+            ("ageString", "ageString", str, False, "age", False),
+            ("bornDate", "bornDate", fhirdate.FHIRDate, False, "born", False),
+            ("bornPeriod", "bornPeriod", period.Period, False, "born", False),
+            ("bornString", "bornString", str, False, "born", False),
+            ("condition", "condition", FamilyMemberHistoryCondition, True, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
+            ("deceasedDate", "deceasedDate", fhirdate.FHIRDate, False, "deceased", False),
+            ("deceasedQuantity", "deceasedQuantity", quantity.Quantity, False, "deceased", False),
+            ("deceasedRange", "deceasedRange", range.Range, False, "deceased", False),
+            ("deceasedString", "deceasedString", str, False, "deceased", False),
+            ("gender", "gender", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("name", "name", str, False, None, False),
+            ("note", "note", annotation.Annotation, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, True),
+            ("status", "status", str, False, None, True),
         ])
         return js
 
@@ -179,13 +179,13 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(FamilyMemberHistoryCondition, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("note", "note", annotation.Annotation, False),
-            ("onsetPeriod", "onsetPeriod", period.Period, False),
-            ("onsetQuantity", "onsetQuantity", quantity.Quantity, False),
-            ("onsetRange", "onsetRange", range.Range, False),
-            ("onsetString", "onsetString", str, False),
-            ("outcome", "outcome", codeableconcept.CodeableConcept, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("note", "note", annotation.Annotation, False, None, False),
+            ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
+            ("onsetQuantity", "onsetQuantity", quantity.Quantity, False, "onset", False),
+            ("onsetRange", "onsetRange", range.Range, False, "onset", False),
+            ("onsetString", "onsetString", str, False, "onset", False),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

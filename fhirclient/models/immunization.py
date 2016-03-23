@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -111,27 +111,27 @@ class Immunization(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Immunization, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("doseQuantity", "doseQuantity", quantity.Quantity, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False),
-            ("explanation", "explanation", ImmunizationExplanation, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("location", "location", fhirreference.FHIRReference, False),
-            ("lotNumber", "lotNumber", str, False),
-            ("manufacturer", "manufacturer", fhirreference.FHIRReference, False),
-            ("note", "note", annotation.Annotation, True),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("performer", "performer", fhirreference.FHIRReference, False),
-            ("reaction", "reaction", ImmunizationReaction, True),
-            ("reported", "reported", bool, False),
-            ("requester", "requester", fhirreference.FHIRReference, False),
-            ("route", "route", codeableconcept.CodeableConcept, False),
-            ("site", "site", codeableconcept.CodeableConcept, False),
-            ("status", "status", str, False),
-            ("vaccinationProtocol", "vaccinationProtocol", ImmunizationVaccinationProtocol, True),
-            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, False),
-            ("wasNotGiven", "wasNotGiven", bool, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("doseQuantity", "doseQuantity", quantity.Quantity, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False, None, False),
+            ("explanation", "explanation", ImmunizationExplanation, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("location", "location", fhirreference.FHIRReference, False, None, False),
+            ("lotNumber", "lotNumber", str, False, None, False),
+            ("manufacturer", "manufacturer", fhirreference.FHIRReference, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
+            ("reaction", "reaction", ImmunizationReaction, True, None, False),
+            ("reported", "reported", bool, False, None, True),
+            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
+            ("route", "route", codeableconcept.CodeableConcept, False, None, False),
+            ("site", "site", codeableconcept.CodeableConcept, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("vaccinationProtocol", "vaccinationProtocol", ImmunizationVaccinationProtocol, True, None, False),
+            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, False, None, True),
+            ("wasNotGiven", "wasNotGiven", bool, False, None, True),
         ])
         return js
 
@@ -163,8 +163,8 @@ class ImmunizationExplanation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImmunizationExplanation, self).elementProperties()
         js.extend([
-            ("reason", "reason", codeableconcept.CodeableConcept, True),
-            ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True),
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -199,9 +199,9 @@ class ImmunizationReaction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImmunizationReaction, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("detail", "detail", fhirreference.FHIRReference, False),
-            ("reported", "reported", bool, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("detail", "detail", fhirreference.FHIRReference, False, None, False),
+            ("reported", "reported", bool, False, None, False),
         ])
         return js
 
@@ -256,14 +256,14 @@ class ImmunizationVaccinationProtocol(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImmunizationVaccinationProtocol, self).elementProperties()
         js.extend([
-            ("authority", "authority", fhirreference.FHIRReference, False),
-            ("description", "description", str, False),
-            ("doseSequence", "doseSequence", int, False),
-            ("doseStatus", "doseStatus", codeableconcept.CodeableConcept, False),
-            ("doseStatusReason", "doseStatusReason", codeableconcept.CodeableConcept, False),
-            ("series", "series", str, False),
-            ("seriesDoses", "seriesDoses", int, False),
-            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, True),
+            ("authority", "authority", fhirreference.FHIRReference, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("doseSequence", "doseSequence", int, False, None, True),
+            ("doseStatus", "doseStatus", codeableconcept.CodeableConcept, False, None, True),
+            ("doseStatusReason", "doseStatusReason", codeableconcept.CodeableConcept, False, None, False),
+            ("series", "series", str, False, None, False),
+            ("seriesDoses", "seriesDoses", int, False, None, False),
+            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, True, None, True),
         ])
         return js
 

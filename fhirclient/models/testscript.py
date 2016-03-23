@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -111,27 +111,27 @@ class TestScript(domainresource.DomainResource):
     def elementProperties(self):
         js = super(TestScript, self).elementProperties()
         js.extend([
-            ("contact", "contact", TestScriptContact, True),
-            ("copyright", "copyright", str, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("experimental", "experimental", bool, False),
-            ("fixture", "fixture", TestScriptFixture, True),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("metadata", "metadata", TestScriptMetadata, False),
-            ("multiserver", "multiserver", bool, False),
-            ("name", "name", str, False),
-            ("profile", "profile", fhirreference.FHIRReference, True),
-            ("publisher", "publisher", str, False),
-            ("requirements", "requirements", str, False),
-            ("setup", "setup", TestScriptSetup, False),
-            ("status", "status", str, False),
-            ("teardown", "teardown", TestScriptTeardown, False),
-            ("test", "test", TestScriptTest, True),
-            ("url", "url", str, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
-            ("variable", "variable", TestScriptVariable, True),
-            ("version", "version", str, False),
+            ("contact", "contact", TestScriptContact, True, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("experimental", "experimental", bool, False, None, False),
+            ("fixture", "fixture", TestScriptFixture, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("metadata", "metadata", TestScriptMetadata, False, None, False),
+            ("multiserver", "multiserver", bool, False, None, False),
+            ("name", "name", str, False, None, True),
+            ("profile", "profile", fhirreference.FHIRReference, True, None, False),
+            ("publisher", "publisher", str, False, None, False),
+            ("requirements", "requirements", str, False, None, False),
+            ("setup", "setup", TestScriptSetup, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("teardown", "teardown", TestScriptTeardown, False, None, False),
+            ("test", "test", TestScriptTest, True, None, False),
+            ("url", "url", str, False, None, True),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("variable", "variable", TestScriptVariable, True, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -163,8 +163,8 @@ class TestScriptContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptContact, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("name", "name", str, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -199,9 +199,9 @@ class TestScriptFixture(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptFixture, self).elementProperties()
         js.extend([
-            ("autocreate", "autocreate", bool, False),
-            ("autodelete", "autodelete", bool, False),
-            ("resource", "resource", fhirreference.FHIRReference, False),
+            ("autocreate", "autocreate", bool, False, None, False),
+            ("autodelete", "autodelete", bool, False, None, False),
+            ("resource", "resource", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -234,8 +234,8 @@ class TestScriptMetadata(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptMetadata, self).elementProperties()
         js.extend([
-            ("capability", "capability", TestScriptMetadataCapability, True),
-            ("link", "link", TestScriptMetadataLink, True),
+            ("capability", "capability", TestScriptMetadataCapability, True, None, True),
+            ("link", "link", TestScriptMetadataLink, True, None, False),
         ])
         return js
 
@@ -283,12 +283,12 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptMetadataCapability, self).elementProperties()
         js.extend([
-            ("conformance", "conformance", fhirreference.FHIRReference, False),
-            ("description", "description", str, False),
-            ("destination", "destination", int, False),
-            ("link", "link", str, True),
-            ("required", "required", bool, False),
-            ("validated", "validated", bool, False),
+            ("conformance", "conformance", fhirreference.FHIRReference, False, None, True),
+            ("description", "description", str, False, None, False),
+            ("destination", "destination", int, False, None, False),
+            ("link", "link", str, True, None, False),
+            ("required", "required", bool, False, None, False),
+            ("validated", "validated", bool, False, None, False),
         ])
         return js
 
@@ -318,8 +318,8 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptMetadataLink, self).elementProperties()
         js.extend([
-            ("description", "description", str, False),
-            ("url", "url", str, False),
+            ("description", "description", str, False, None, False),
+            ("url", "url", str, False, None, True),
         ])
         return js
 
@@ -348,8 +348,8 @@ class TestScriptSetup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptSetup, self).elementProperties()
         js.extend([
-            ("action", "action", TestScriptSetupAction, True),
-            ("metadata", "metadata", TestScriptMetadata, False),
+            ("action", "action", TestScriptSetupAction, True, None, True),
+            ("metadata", "metadata", TestScriptMetadata, False, None, False),
         ])
         return js
 
@@ -379,8 +379,8 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptSetupAction, self).elementProperties()
         js.extend([
-            ("assert_fhir", "assert", TestScriptSetupActionAssert, False),
-            ("operation", "operation", TestScriptSetupActionOperation, False),
+            ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False),
+            ("operation", "operation", TestScriptSetupActionOperation, False, None, False),
         ])
         return js
 
@@ -479,24 +479,24 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptSetupActionAssert, self).elementProperties()
         js.extend([
-            ("compareToSourceId", "compareToSourceId", str, False),
-            ("compareToSourcePath", "compareToSourcePath", str, False),
-            ("contentType", "contentType", str, False),
-            ("description", "description", str, False),
-            ("direction", "direction", str, False),
-            ("headerField", "headerField", str, False),
-            ("label", "label", str, False),
-            ("minimumId", "minimumId", str, False),
-            ("navigationLinks", "navigationLinks", bool, False),
-            ("operator", "operator", str, False),
-            ("path", "path", str, False),
-            ("resource", "resource", str, False),
-            ("response", "response", str, False),
-            ("responseCode", "responseCode", str, False),
-            ("sourceId", "sourceId", str, False),
-            ("validateProfileId", "validateProfileId", str, False),
-            ("value", "value", str, False),
-            ("warningOnly", "warningOnly", bool, False),
+            ("compareToSourceId", "compareToSourceId", str, False, None, False),
+            ("compareToSourcePath", "compareToSourcePath", str, False, None, False),
+            ("contentType", "contentType", str, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("direction", "direction", str, False, None, False),
+            ("headerField", "headerField", str, False, None, False),
+            ("label", "label", str, False, None, False),
+            ("minimumId", "minimumId", str, False, None, False),
+            ("navigationLinks", "navigationLinks", bool, False, None, False),
+            ("operator", "operator", str, False, None, False),
+            ("path", "path", str, False, None, False),
+            ("resource", "resource", str, False, None, False),
+            ("response", "response", str, False, None, False),
+            ("responseCode", "responseCode", str, False, None, False),
+            ("sourceId", "sourceId", str, False, None, False),
+            ("validateProfileId", "validateProfileId", str, False, None, False),
+            ("value", "value", str, False, None, False),
+            ("warningOnly", "warningOnly", bool, False, None, False),
         ])
         return js
 
@@ -575,20 +575,20 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptSetupActionOperation, self).elementProperties()
         js.extend([
-            ("accept", "accept", str, False),
-            ("contentType", "contentType", str, False),
-            ("description", "description", str, False),
-            ("destination", "destination", int, False),
-            ("encodeRequestUrl", "encodeRequestUrl", bool, False),
-            ("label", "label", str, False),
-            ("params", "params", str, False),
-            ("requestHeader", "requestHeader", TestScriptSetupActionOperationRequestHeader, True),
-            ("resource", "resource", str, False),
-            ("responseId", "responseId", str, False),
-            ("sourceId", "sourceId", str, False),
-            ("targetId", "targetId", str, False),
-            ("type", "type", coding.Coding, False),
-            ("url", "url", str, False),
+            ("accept", "accept", str, False, None, False),
+            ("contentType", "contentType", str, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("destination", "destination", int, False, None, False),
+            ("encodeRequestUrl", "encodeRequestUrl", bool, False, None, False),
+            ("label", "label", str, False, None, False),
+            ("params", "params", str, False, None, False),
+            ("requestHeader", "requestHeader", TestScriptSetupActionOperationRequestHeader, True, None, False),
+            ("resource", "resource", str, False, None, False),
+            ("responseId", "responseId", str, False, None, False),
+            ("sourceId", "sourceId", str, False, None, False),
+            ("targetId", "targetId", str, False, None, False),
+            ("type", "type", coding.Coding, False, None, False),
+            ("url", "url", str, False, None, False),
         ])
         return js
 
@@ -618,8 +618,8 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
     def elementProperties(self):
         js = super(TestScriptSetupActionOperationRequestHeader, self).elementProperties()
         js.extend([
-            ("field", "field", str, False),
-            ("value", "value", str, False),
+            ("field", "field", str, False, None, True),
+            ("value", "value", str, False, None, True),
         ])
         return js
 
@@ -646,7 +646,7 @@ class TestScriptTeardown(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptTeardown, self).elementProperties()
         js.extend([
-            ("action", "action", TestScriptTeardownAction, True),
+            ("action", "action", TestScriptTeardownAction, True, None, True),
         ])
         return js
 
@@ -672,7 +672,7 @@ class TestScriptTeardownAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptTeardownAction, self).elementProperties()
         js.extend([
-            ("operation", "operation", TestScriptSetupActionOperation, False),
+            ("operation", "operation", TestScriptSetupActionOperation, False, None, False),
         ])
         return js
 
@@ -709,10 +709,10 @@ class TestScriptTest(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptTest, self).elementProperties()
         js.extend([
-            ("action", "action", TestScriptTestAction, True),
-            ("description", "description", str, False),
-            ("metadata", "metadata", TestScriptMetadata, False),
-            ("name", "name", str, False),
+            ("action", "action", TestScriptTestAction, True, None, True),
+            ("description", "description", str, False, None, False),
+            ("metadata", "metadata", TestScriptMetadata, False, None, False),
+            ("name", "name", str, False, None, False),
         ])
         return js
 
@@ -742,8 +742,8 @@ class TestScriptTestAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptTestAction, self).elementProperties()
         js.extend([
-            ("assert_fhir", "assert", TestScriptSetupActionAssert, False),
-            ("operation", "operation", TestScriptSetupActionOperation, False),
+            ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False),
+            ("operation", "operation", TestScriptSetupActionOperation, False, None, False),
         ])
         return js
 
@@ -782,10 +782,10 @@ class TestScriptVariable(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptVariable, self).elementProperties()
         js.extend([
-            ("headerField", "headerField", str, False),
-            ("name", "name", str, False),
-            ("path", "path", str, False),
-            ("sourceId", "sourceId", str, False),
+            ("headerField", "headerField", str, False, None, False),
+            ("name", "name", str, False, None, True),
+            ("path", "path", str, False, None, False),
+            ("sourceId", "sourceId", str, False, None, False),
         ])
         return js
 

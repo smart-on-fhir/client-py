@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -61,13 +61,13 @@ class ImagingObjectSelection(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ImagingObjectSelection, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, False),
-            ("authoringTime", "authoringTime", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("study", "study", ImagingObjectSelectionStudy, True),
-            ("title", "title", codeableconcept.CodeableConcept, False),
-            ("uid", "uid", str, False),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("authoringTime", "authoringTime", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("study", "study", ImagingObjectSelectionStudy, True, None, True),
+            ("title", "title", codeableconcept.CodeableConcept, False, None, True),
+            ("uid", "uid", str, False, None, True),
         ])
         return js
 
@@ -108,10 +108,10 @@ class ImagingObjectSelectionStudy(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudy, self).elementProperties()
         js.extend([
-            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, False),
-            ("series", "series", ImagingObjectSelectionStudySeries, True),
-            ("uid", "uid", str, False),
-            ("url", "url", str, False),
+            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, False, None, False),
+            ("series", "series", ImagingObjectSelectionStudySeries, True, None, True),
+            ("uid", "uid", str, False, None, True),
+            ("url", "url", str, False, None, False),
         ])
         return js
 
@@ -146,9 +146,9 @@ class ImagingObjectSelectionStudySeries(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudySeries, self).elementProperties()
         js.extend([
-            ("instance", "instance", ImagingObjectSelectionStudySeriesInstance, True),
-            ("uid", "uid", str, False),
-            ("url", "url", str, False),
+            ("instance", "instance", ImagingObjectSelectionStudySeriesInstance, True, None, True),
+            ("uid", "uid", str, False, None, False),
+            ("url", "url", str, False, None, False),
         ])
         return js
 
@@ -186,10 +186,10 @@ class ImagingObjectSelectionStudySeriesInstance(backboneelement.BackboneElement)
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudySeriesInstance, self).elementProperties()
         js.extend([
-            ("frames", "frames", ImagingObjectSelectionStudySeriesInstanceFrames, True),
-            ("sopClass", "sopClass", str, False),
-            ("uid", "uid", str, False),
-            ("url", "url", str, False),
+            ("frames", "frames", ImagingObjectSelectionStudySeriesInstanceFrames, True, None, False),
+            ("sopClass", "sopClass", str, False, None, True),
+            ("uid", "uid", str, False, None, True),
+            ("url", "url", str, False, None, True),
         ])
         return js
 
@@ -219,8 +219,8 @@ class ImagingObjectSelectionStudySeriesInstanceFrames(backboneelement.BackboneEl
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudySeriesInstanceFrames, self).elementProperties()
         js.extend([
-            ("frameNumbers", "frameNumbers", int, True),
-            ("url", "url", str, False),
+            ("frameNumbers", "frameNumbers", int, True, None, True),
+            ("url", "url", str, False, None, True),
         ])
         return js
 

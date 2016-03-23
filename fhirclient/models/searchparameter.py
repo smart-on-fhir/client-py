@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -86,21 +86,21 @@ class SearchParameter(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SearchParameter, self).elementProperties()
         js.extend([
-            ("base", "base", str, False),
-            ("code", "code", str, False),
-            ("contact", "contact", SearchParameterContact, True),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("experimental", "experimental", bool, False),
-            ("name", "name", str, False),
-            ("publisher", "publisher", str, False),
-            ("requirements", "requirements", str, False),
-            ("status", "status", str, False),
-            ("target", "target", str, True),
-            ("type", "type", str, False),
-            ("url", "url", str, False),
-            ("xpath", "xpath", str, False),
-            ("xpathUsage", "xpathUsage", str, False),
+            ("base", "base", str, False, None, True),
+            ("code", "code", str, False, None, True),
+            ("contact", "contact", SearchParameterContact, True, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, True),
+            ("experimental", "experimental", bool, False, None, False),
+            ("name", "name", str, False, None, True),
+            ("publisher", "publisher", str, False, None, False),
+            ("requirements", "requirements", str, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("target", "target", str, True, None, False),
+            ("type", "type", str, False, None, True),
+            ("url", "url", str, False, None, True),
+            ("xpath", "xpath", str, False, None, False),
+            ("xpathUsage", "xpathUsage", str, False, None, False),
         ])
         return js
 
@@ -132,8 +132,8 @@ class SearchParameterContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SearchParameterContact, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("name", "name", str, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 

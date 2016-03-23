@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -93,22 +93,22 @@ class ReferralRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ReferralRequest, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("dateSent", "dateSent", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("fulfillmentTime", "fulfillmentTime", period.Period, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("priority", "priority", codeableconcept.CodeableConcept, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, False),
-            ("recipient", "recipient", fhirreference.FHIRReference, True),
-            ("requester", "requester", fhirreference.FHIRReference, False),
-            ("serviceRequested", "serviceRequested", codeableconcept.CodeableConcept, True),
-            ("specialty", "specialty", codeableconcept.CodeableConcept, False),
-            ("status", "status", str, False),
-            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("dateSent", "dateSent", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("fulfillmentTime", "fulfillmentTime", period.Period, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
+            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
+            ("serviceRequested", "serviceRequested", codeableconcept.CodeableConcept, True, None, False),
+            ("specialty", "specialty", codeableconcept.CodeableConcept, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -67,16 +67,16 @@ class RelatedPerson(domainresource.DomainResource):
     def elementProperties(self):
         js = super(RelatedPerson, self).elementProperties()
         js.extend([
-            ("address", "address", address.Address, True),
-            ("birthDate", "birthDate", fhirdate.FHIRDate, False),
-            ("gender", "gender", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("name", "name", humanname.HumanName, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("period", "period", period.Period, False),
-            ("photo", "photo", attachment.Attachment, True),
-            ("relationship", "relationship", codeableconcept.CodeableConcept, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("address", "address", address.Address, True, None, False),
+            ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
+            ("gender", "gender", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("name", "name", humanname.HumanName, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("period", "period", period.Period, False, None, False),
+            ("photo", "photo", attachment.Attachment, True, None, False),
+            ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 

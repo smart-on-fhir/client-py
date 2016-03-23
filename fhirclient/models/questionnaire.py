@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -58,14 +58,14 @@ class Questionnaire(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Questionnaire, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("group", "group", QuestionnaireGroup, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("publisher", "publisher", str, False),
-            ("status", "status", str, False),
-            ("subjectType", "subjectType", str, True),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
-            ("version", "version", str, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("group", "group", QuestionnaireGroup, False, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("publisher", "publisher", str, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("subjectType", "subjectType", str, True, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -121,14 +121,14 @@ class QuestionnaireGroup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(QuestionnaireGroup, self).elementProperties()
         js.extend([
-            ("concept", "concept", coding.Coding, True),
-            ("group", "group", QuestionnaireGroup, True),
-            ("linkId", "linkId", str, False),
-            ("question", "question", QuestionnaireGroupQuestion, True),
-            ("repeats", "repeats", bool, False),
-            ("required", "required", bool, False),
-            ("text", "text", str, False),
-            ("title", "title", str, False),
+            ("concept", "concept", coding.Coding, True, None, False),
+            ("group", "group", QuestionnaireGroup, True, None, False),
+            ("linkId", "linkId", str, False, None, False),
+            ("question", "question", QuestionnaireGroupQuestion, True, None, False),
+            ("repeats", "repeats", bool, False, None, False),
+            ("required", "required", bool, False, None, False),
+            ("text", "text", str, False, None, False),
+            ("title", "title", str, False, None, False),
         ])
         return js
 
@@ -187,15 +187,15 @@ class QuestionnaireGroupQuestion(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(QuestionnaireGroupQuestion, self).elementProperties()
         js.extend([
-            ("concept", "concept", coding.Coding, True),
-            ("group", "group", QuestionnaireGroup, True),
-            ("linkId", "linkId", str, False),
-            ("option", "option", coding.Coding, True),
-            ("options", "options", fhirreference.FHIRReference, False),
-            ("repeats", "repeats", bool, False),
-            ("required", "required", bool, False),
-            ("text", "text", str, False),
-            ("type", "type", str, False),
+            ("concept", "concept", coding.Coding, True, None, False),
+            ("group", "group", QuestionnaireGroup, True, None, False),
+            ("linkId", "linkId", str, False, None, False),
+            ("option", "option", coding.Coding, True, None, False),
+            ("options", "options", fhirreference.FHIRReference, False, None, False),
+            ("repeats", "repeats", bool, False, None, False),
+            ("required", "required", bool, False, None, False),
+            ("text", "text", str, False, None, False),
+            ("type", "type", str, False, None, False),
         ])
         return js
 

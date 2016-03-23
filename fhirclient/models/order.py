@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Order) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Order) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -59,15 +59,15 @@ class Order(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Order, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("detail", "detail", fhirreference.FHIRReference, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
-            ("source", "source", fhirreference.FHIRReference, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("target", "target", fhirreference.FHIRReference, False),
-            ("when", "when", OrderWhen, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("detail", "detail", fhirreference.FHIRReference, True, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
+            ("source", "source", fhirreference.FHIRReference, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("target", "target", fhirreference.FHIRReference, False, None, False),
+            ("when", "when", OrderWhen, False, None, False),
         ])
         return js
 
@@ -98,8 +98,8 @@ class OrderWhen(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(OrderWhen, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("schedule", "schedule", timing.Timing, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("schedule", "schedule", timing.Timing, False, None, False),
         ])
         return js
 

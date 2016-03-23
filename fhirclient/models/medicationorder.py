@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MedicationOrder) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MedicationOrder) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -96,23 +96,23 @@ class MedicationOrder(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicationOrder, self).elementProperties()
         js.extend([
-            ("dateEnded", "dateEnded", fhirdate.FHIRDate, False),
-            ("dateWritten", "dateWritten", fhirdate.FHIRDate, False),
-            ("dispenseRequest", "dispenseRequest", MedicationOrderDispenseRequest, False),
-            ("dosageInstruction", "dosageInstruction", MedicationOrderDosageInstruction, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False),
-            ("note", "note", str, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("prescriber", "prescriber", fhirreference.FHIRReference, False),
-            ("priorPrescription", "priorPrescription", fhirreference.FHIRReference, False),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("reasonEnded", "reasonEnded", codeableconcept.CodeableConcept, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("substitution", "substitution", MedicationOrderSubstitution, False),
+            ("dateEnded", "dateEnded", fhirdate.FHIRDate, False, None, False),
+            ("dateWritten", "dateWritten", fhirdate.FHIRDate, False, None, False),
+            ("dispenseRequest", "dispenseRequest", MedicationOrderDispenseRequest, False, None, False),
+            ("dosageInstruction", "dosageInstruction", MedicationOrderDosageInstruction, True, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
+            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
+            ("note", "note", str, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("prescriber", "prescriber", fhirreference.FHIRReference, False, None, False),
+            ("priorPrescription", "priorPrescription", fhirreference.FHIRReference, False, None, False),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
+            ("reasonEnded", "reasonEnded", codeableconcept.CodeableConcept, False, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
+            ("status", "status", str, False, None, False),
+            ("substitution", "substitution", MedicationOrderSubstitution, False, None, False),
         ])
         return js
 
@@ -164,12 +164,12 @@ class MedicationOrderDispenseRequest(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationOrderDispenseRequest, self).elementProperties()
         js.extend([
-            ("expectedSupplyDuration", "expectedSupplyDuration", quantity.Quantity, False),
-            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False),
-            ("numberOfRepeatsAllowed", "numberOfRepeatsAllowed", int, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("validityPeriod", "validityPeriod", period.Period, False),
+            ("expectedSupplyDuration", "expectedSupplyDuration", quantity.Quantity, False, None, False),
+            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", False),
+            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", False),
+            ("numberOfRepeatsAllowed", "numberOfRepeatsAllowed", int, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("validityPeriod", "validityPeriod", period.Period, False, None, False),
         ])
         return js
 
@@ -247,20 +247,20 @@ class MedicationOrderDosageInstruction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationOrderDosageInstruction, self).elementProperties()
         js.extend([
-            ("additionalInstructions", "additionalInstructions", codeableconcept.CodeableConcept, False),
-            ("asNeededBoolean", "asNeededBoolean", bool, False),
-            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("doseQuantity", "doseQuantity", quantity.Quantity, False),
-            ("doseRange", "doseRange", range.Range, False),
-            ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False),
-            ("method", "method", codeableconcept.CodeableConcept, False),
-            ("rateRange", "rateRange", range.Range, False),
-            ("rateRatio", "rateRatio", ratio.Ratio, False),
-            ("route", "route", codeableconcept.CodeableConcept, False),
-            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("siteReference", "siteReference", fhirreference.FHIRReference, False),
-            ("text", "text", str, False),
-            ("timing", "timing", timing.Timing, False),
+            ("additionalInstructions", "additionalInstructions", codeableconcept.CodeableConcept, False, None, False),
+            ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False),
+            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False),
+            ("doseQuantity", "doseQuantity", quantity.Quantity, False, "dose", False),
+            ("doseRange", "doseRange", range.Range, False, "dose", False),
+            ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False, None, False),
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
+            ("rateRange", "rateRange", range.Range, False, "rate", False),
+            ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
+            ("route", "route", codeableconcept.CodeableConcept, False, None, False),
+            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False, "site", False),
+            ("siteReference", "siteReference", fhirreference.FHIRReference, False, "site", False),
+            ("text", "text", str, False, None, False),
+            ("timing", "timing", timing.Timing, False, None, False),
         ])
         return js
 
@@ -294,8 +294,8 @@ class MedicationOrderSubstitution(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationOrderSubstitution, self).elementProperties()
         js.extend([
-            ("reason", "reason", codeableconcept.CodeableConcept, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Resource) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Resource) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -40,10 +40,10 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
     def elementProperties(self):
         js = super(Resource, self).elementProperties()
         js.extend([
-            ("id", "id", str, False),
-            ("implicitRules", "implicitRules", str, False),
-            ("language", "language", str, False),
-            ("meta", "meta", meta.Meta, False),
+            ("id", "id", str, False, None, False),
+            ("implicitRules", "implicitRules", str, False, None, False),
+            ("language", "language", str, False, None, False),
+            ("meta", "meta", meta.Meta, False, None, False),
         ])
         return js
 

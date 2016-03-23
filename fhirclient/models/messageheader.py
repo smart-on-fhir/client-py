@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -72,17 +72,17 @@ class MessageHeader(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MessageHeader, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, False),
-            ("data", "data", fhirreference.FHIRReference, True),
-            ("destination", "destination", MessageHeaderDestination, True),
-            ("enterer", "enterer", fhirreference.FHIRReference, False),
-            ("event", "event", coding.Coding, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, False),
-            ("receiver", "receiver", fhirreference.FHIRReference, False),
-            ("response", "response", MessageHeaderResponse, False),
-            ("responsible", "responsible", fhirreference.FHIRReference, False),
-            ("source", "source", MessageHeaderSource, False),
-            ("timestamp", "timestamp", fhirdate.FHIRDate, False),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("data", "data", fhirreference.FHIRReference, True, None, False),
+            ("destination", "destination", MessageHeaderDestination, True, None, False),
+            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
+            ("event", "event", coding.Coding, False, None, True),
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("receiver", "receiver", fhirreference.FHIRReference, False, None, False),
+            ("response", "response", MessageHeaderResponse, False, None, False),
+            ("responsible", "responsible", fhirreference.FHIRReference, False, None, False),
+            ("source", "source", MessageHeaderSource, False, None, True),
+            ("timestamp", "timestamp", fhirdate.FHIRDate, False, None, True),
         ])
         return js
 
@@ -118,9 +118,9 @@ class MessageHeaderDestination(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MessageHeaderDestination, self).elementProperties()
         js.extend([
-            ("endpoint", "endpoint", str, False),
-            ("name", "name", str, False),
-            ("target", "target", fhirreference.FHIRReference, False),
+            ("endpoint", "endpoint", str, False, None, True),
+            ("name", "name", str, False, None, False),
+            ("target", "target", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -155,9 +155,9 @@ class MessageHeaderResponse(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MessageHeaderResponse, self).elementProperties()
         js.extend([
-            ("code", "code", str, False),
-            ("details", "details", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", str, False),
+            ("code", "code", str, False, None, True),
+            ("details", "details", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", str, False, None, True),
         ])
         return js
 
@@ -199,11 +199,11 @@ class MessageHeaderSource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MessageHeaderSource, self).elementProperties()
         js.extend([
-            ("contact", "contact", contactpoint.ContactPoint, False),
-            ("endpoint", "endpoint", str, False),
-            ("name", "name", str, False),
-            ("software", "software", str, False),
-            ("version", "version", str, False),
+            ("contact", "contact", contactpoint.ContactPoint, False, None, False),
+            ("endpoint", "endpoint", str, False, None, True),
+            ("name", "name", str, False, None, False),
+            ("software", "software", str, False, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 

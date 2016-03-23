@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -85,21 +85,21 @@ class PaymentReconciliation(domainresource.DomainResource):
     def elementProperties(self):
         js = super(PaymentReconciliation, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdate.FHIRDate, False),
-            ("detail", "detail", PaymentReconciliationDetail, True),
-            ("disposition", "disposition", str, False),
-            ("form", "form", coding.Coding, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("note", "note", PaymentReconciliationNote, True),
-            ("organization", "organization", fhirreference.FHIRReference, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False),
-            ("outcome", "outcome", str, False),
-            ("period", "period", period.Period, False),
-            ("request", "request", fhirreference.FHIRReference, False),
-            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False),
-            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False),
-            ("ruleset", "ruleset", coding.Coding, False),
-            ("total", "total", quantity.Quantity, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("detail", "detail", PaymentReconciliationDetail, True, None, False),
+            ("disposition", "disposition", str, False, None, False),
+            ("form", "form", coding.Coding, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("note", "note", PaymentReconciliationNote, True, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
+            ("outcome", "outcome", str, False, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
+            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
+            ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("total", "total", quantity.Quantity, False, None, True),
         ])
         return js
 
@@ -151,13 +151,13 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PaymentReconciliationDetail, self).elementProperties()
         js.extend([
-            ("amount", "amount", quantity.Quantity, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("payee", "payee", fhirreference.FHIRReference, False),
-            ("request", "request", fhirreference.FHIRReference, False),
-            ("responce", "responce", fhirreference.FHIRReference, False),
-            ("submitter", "submitter", fhirreference.FHIRReference, False),
-            ("type", "type", coding.Coding, False),
+            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("payee", "payee", fhirreference.FHIRReference, False, None, False),
+            ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("responce", "responce", fhirreference.FHIRReference, False, None, False),
+            ("submitter", "submitter", fhirreference.FHIRReference, False, None, False),
+            ("type", "type", coding.Coding, False, None, True),
         ])
         return js
 
@@ -187,8 +187,8 @@ class PaymentReconciliationNote(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PaymentReconciliationNote, self).elementProperties()
         js.extend([
-            ("text", "text", str, False),
-            ("type", "type", coding.Coding, False),
+            ("text", "text", str, False, None, False),
+            ("type", "type", coding.Coding, False, None, False),
         ])
         return js
 

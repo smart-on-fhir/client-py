@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Account) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Account) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -70,17 +70,17 @@ class Account(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Account, self).elementProperties()
         js.extend([
-            ("activePeriod", "activePeriod", period.Period, False),
-            ("balance", "balance", quantity.Quantity, False),
-            ("coveragePeriod", "coveragePeriod", period.Period, False),
-            ("currency", "currency", coding.Coding, False),
-            ("description", "description", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("name", "name", str, False),
-            ("owner", "owner", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("activePeriod", "activePeriod", period.Period, False, None, False),
+            ("balance", "balance", quantity.Quantity, False, None, False),
+            ("coveragePeriod", "coveragePeriod", period.Period, False, None, False),
+            ("currency", "currency", coding.Coding, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("name", "name", str, False, None, False),
+            ("owner", "owner", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

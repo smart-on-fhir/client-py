@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Composition) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Composition) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -87,20 +87,20 @@ class Composition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Composition, self).elementProperties()
         js.extend([
-            ("attester", "attester", CompositionAttester, True),
-            ("author", "author", fhirreference.FHIRReference, True),
-            ("class_fhir", "class", codeableconcept.CodeableConcept, False),
-            ("confidentiality", "confidentiality", str, False),
-            ("custodian", "custodian", fhirreference.FHIRReference, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("event", "event", CompositionEvent, True),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("section", "section", CompositionSection, True),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("title", "title", str, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("attester", "attester", CompositionAttester, True, None, False),
+            ("author", "author", fhirreference.FHIRReference, True, None, True),
+            ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False),
+            ("confidentiality", "confidentiality", str, False, None, False),
+            ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("event", "event", CompositionEvent, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("section", "section", CompositionSection, True, None, False),
+            ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("title", "title", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
@@ -136,9 +136,9 @@ class CompositionAttester(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionAttester, self).elementProperties()
         js.extend([
-            ("mode", "mode", str, True),
-            ("party", "party", fhirreference.FHIRReference, False),
-            ("time", "time", fhirdate.FHIRDate, False),
+            ("mode", "mode", str, True, None, True),
+            ("party", "party", fhirreference.FHIRReference, False, None, False),
+            ("time", "time", fhirdate.FHIRDate, False, None, False),
         ])
         return js
 
@@ -173,9 +173,9 @@ class CompositionEvent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionEvent, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, True),
-            ("detail", "detail", fhirreference.FHIRReference, True),
-            ("period", "period", period.Period, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
+            ("detail", "detail", fhirreference.FHIRReference, True, None, False),
+            ("period", "period", period.Period, False, None, False),
         ])
         return js
 
@@ -229,14 +229,14 @@ class CompositionSection(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionSection, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False),
-            ("entry", "entry", fhirreference.FHIRReference, True),
-            ("mode", "mode", str, False),
-            ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False),
-            ("section", "section", CompositionSection, True),
-            ("text", "text", narrative.Narrative, False),
-            ("title", "title", str, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False, None, False),
+            ("entry", "entry", fhirreference.FHIRReference, True, None, False),
+            ("mode", "mode", str, False, None, False),
+            ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False, None, False),
+            ("section", "section", CompositionSection, True, None, False),
+            ("text", "text", narrative.Narrative, False, None, False),
+            ("title", "title", str, False, None, False),
         ])
         return js
 

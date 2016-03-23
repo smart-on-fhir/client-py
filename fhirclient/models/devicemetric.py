@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -66,16 +66,16 @@ class DeviceMetric(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DeviceMetric, self).elementProperties()
         js.extend([
-            ("calibration", "calibration", DeviceMetricCalibration, True),
-            ("category", "category", str, False),
-            ("color", "color", str, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("measurementPeriod", "measurementPeriod", timing.Timing, False),
-            ("operationalStatus", "operationalStatus", str, False),
-            ("parent", "parent", fhirreference.FHIRReference, False),
-            ("source", "source", fhirreference.FHIRReference, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
-            ("unit", "unit", codeableconcept.CodeableConcept, False),
+            ("calibration", "calibration", DeviceMetricCalibration, True, None, False),
+            ("category", "category", str, False, None, True),
+            ("color", "color", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("measurementPeriod", "measurementPeriod", timing.Timing, False, None, False),
+            ("operationalStatus", "operationalStatus", str, False, None, False),
+            ("parent", "parent", fhirreference.FHIRReference, False, None, False),
+            ("source", "source", fhirreference.FHIRReference, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("unit", "unit", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -110,9 +110,9 @@ class DeviceMetricCalibration(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DeviceMetricCalibration, self).elementProperties()
         js.extend([
-            ("state", "state", str, False),
-            ("time", "time", fhirdate.FHIRDate, False),
-            ("type", "type", str, False),
+            ("state", "state", str, False, None, False),
+            ("time", "time", fhirdate.FHIRDate, False, None, False),
+            ("type", "type", str, False, None, False),
         ])
         return js
 

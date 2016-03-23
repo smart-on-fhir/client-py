@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/SupplyDelivery) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/SupplyDelivery) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -68,17 +68,17 @@ class SupplyDelivery(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SupplyDelivery, self).elementProperties()
         js.extend([
-            ("destination", "destination", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("receiver", "receiver", fhirreference.FHIRReference, True),
-            ("status", "status", str, False),
-            ("suppliedItem", "suppliedItem", fhirreference.FHIRReference, False),
-            ("supplier", "supplier", fhirreference.FHIRReference, False),
-            ("time", "time", fhirdate.FHIRDate, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
-            ("whenPrepared", "whenPrepared", period.Period, False),
+            ("destination", "destination", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("receiver", "receiver", fhirreference.FHIRReference, True, None, False),
+            ("status", "status", str, False, None, False),
+            ("suppliedItem", "suppliedItem", fhirreference.FHIRReference, False, None, False),
+            ("supplier", "supplier", fhirreference.FHIRReference, False, None, False),
+            ("time", "time", fhirdate.FHIRDate, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("whenPrepared", "whenPrepared", period.Period, False, None, False),
         ])
         return js
 

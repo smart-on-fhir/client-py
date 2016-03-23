@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -82,20 +82,20 @@ class DataElement(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DataElement, self).elementProperties()
         js.extend([
-            ("contact", "contact", DataElementContact, True),
-            ("copyright", "copyright", str, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("element", "element", elementdefinition.ElementDefinition, True),
-            ("experimental", "experimental", bool, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("mapping", "mapping", DataElementMapping, True),
-            ("name", "name", str, False),
-            ("publisher", "publisher", str, False),
-            ("status", "status", str, False),
-            ("stringency", "stringency", str, False),
-            ("url", "url", str, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
-            ("version", "version", str, False),
+            ("contact", "contact", DataElementContact, True, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("element", "element", elementdefinition.ElementDefinition, True, None, True),
+            ("experimental", "experimental", bool, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("mapping", "mapping", DataElementMapping, True, None, False),
+            ("name", "name", str, False, None, False),
+            ("publisher", "publisher", str, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("stringency", "stringency", str, False, None, False),
+            ("url", "url", str, False, None, False),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -127,8 +127,8 @@ class DataElementContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DataElementContact, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("name", "name", str, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -167,10 +167,10 @@ class DataElementMapping(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DataElementMapping, self).elementProperties()
         js.extend([
-            ("comments", "comments", str, False),
-            ("identity", "identity", str, False),
-            ("name", "name", str, False),
-            ("uri", "uri", str, False),
+            ("comments", "comments", str, False, None, False),
+            ("identity", "identity", str, False, None, True),
+            ("name", "name", str, False, None, False),
+            ("uri", "uri", str, False, None, False),
         ])
         return js
 

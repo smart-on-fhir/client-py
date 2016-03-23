@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -129,32 +129,32 @@ class ClaimResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ClaimResponse, self).elementProperties()
         js.extend([
-            ("addItem", "addItem", ClaimResponseAddItem, True),
-            ("coverage", "coverage", ClaimResponseCoverage, True),
-            ("created", "created", fhirdate.FHIRDate, False),
-            ("disposition", "disposition", str, False),
-            ("error", "error", ClaimResponseError, True),
-            ("form", "form", coding.Coding, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("item", "item", ClaimResponseItem, True),
-            ("note", "note", ClaimResponseNote, True),
-            ("organization", "organization", fhirreference.FHIRReference, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False),
-            ("outcome", "outcome", str, False),
-            ("payeeType", "payeeType", coding.Coding, False),
-            ("paymentAdjustment", "paymentAdjustment", quantity.Quantity, False),
-            ("paymentAdjustmentReason", "paymentAdjustmentReason", coding.Coding, False),
-            ("paymentAmount", "paymentAmount", quantity.Quantity, False),
-            ("paymentDate", "paymentDate", fhirdate.FHIRDate, False),
-            ("paymentRef", "paymentRef", identifier.Identifier, False),
-            ("request", "request", fhirreference.FHIRReference, False),
-            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False),
-            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False),
-            ("reserved", "reserved", coding.Coding, False),
-            ("ruleset", "ruleset", coding.Coding, False),
-            ("totalBenefit", "totalBenefit", quantity.Quantity, False),
-            ("totalCost", "totalCost", quantity.Quantity, False),
-            ("unallocDeductable", "unallocDeductable", quantity.Quantity, False),
+            ("addItem", "addItem", ClaimResponseAddItem, True, None, False),
+            ("coverage", "coverage", ClaimResponseCoverage, True, None, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("disposition", "disposition", str, False, None, False),
+            ("error", "error", ClaimResponseError, True, None, False),
+            ("form", "form", coding.Coding, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("item", "item", ClaimResponseItem, True, None, False),
+            ("note", "note", ClaimResponseNote, True, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
+            ("outcome", "outcome", str, False, None, False),
+            ("payeeType", "payeeType", coding.Coding, False, None, False),
+            ("paymentAdjustment", "paymentAdjustment", quantity.Quantity, False, None, False),
+            ("paymentAdjustmentReason", "paymentAdjustmentReason", coding.Coding, False, None, False),
+            ("paymentAmount", "paymentAmount", quantity.Quantity, False, None, False),
+            ("paymentDate", "paymentDate", fhirdate.FHIRDate, False, None, False),
+            ("paymentRef", "paymentRef", identifier.Identifier, False, None, False),
+            ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
+            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
+            ("reserved", "reserved", coding.Coding, False, None, False),
+            ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("totalBenefit", "totalBenefit", quantity.Quantity, False, None, False),
+            ("totalCost", "totalCost", quantity.Quantity, False, None, False),
+            ("unallocDeductable", "unallocDeductable", quantity.Quantity, False, None, False),
         ])
         return js
 
@@ -202,12 +202,12 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseAddItem, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseAddItemAdjudication, True),
-            ("detail", "detail", ClaimResponseAddItemDetail, True),
-            ("fee", "fee", quantity.Quantity, False),
-            ("noteNumberLinkId", "noteNumberLinkId", int, True),
-            ("sequenceLinkId", "sequenceLinkId", int, True),
-            ("service", "service", coding.Coding, False),
+            ("adjudication", "adjudication", ClaimResponseAddItemAdjudication, True, None, False),
+            ("detail", "detail", ClaimResponseAddItemDetail, True, None, False),
+            ("fee", "fee", quantity.Quantity, False, None, False),
+            ("noteNumberLinkId", "noteNumberLinkId", int, True, None, False),
+            ("sequenceLinkId", "sequenceLinkId", int, True, None, False),
+            ("service", "service", coding.Coding, False, None, True),
         ])
         return js
 
@@ -241,9 +241,9 @@ class ClaimResponseAddItemAdjudication(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseAddItemAdjudication, self).elementProperties()
         js.extend([
-            ("amount", "amount", quantity.Quantity, False),
-            ("code", "code", coding.Coding, False),
-            ("value", "value", float, False),
+            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("code", "code", coding.Coding, False, None, True),
+            ("value", "value", float, False, None, False),
         ])
         return js
 
@@ -277,9 +277,9 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseAddItemDetail, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseAddItemDetailAdjudication, True),
-            ("fee", "fee", quantity.Quantity, False),
-            ("service", "service", coding.Coding, False),
+            ("adjudication", "adjudication", ClaimResponseAddItemDetailAdjudication, True, None, False),
+            ("fee", "fee", quantity.Quantity, False, None, False),
+            ("service", "service", coding.Coding, False, None, True),
         ])
         return js
 
@@ -313,9 +313,9 @@ class ClaimResponseAddItemDetailAdjudication(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseAddItemDetailAdjudication, self).elementProperties()
         js.extend([
-            ("amount", "amount", quantity.Quantity, False),
-            ("code", "code", coding.Coding, False),
-            ("value", "value", float, False),
+            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("code", "code", coding.Coding, False, None, True),
+            ("value", "value", float, False, None, False),
         ])
         return js
 
@@ -369,14 +369,14 @@ class ClaimResponseCoverage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseCoverage, self).elementProperties()
         js.extend([
-            ("businessArrangement", "businessArrangement", str, False),
-            ("claimResponse", "claimResponse", fhirreference.FHIRReference, False),
-            ("coverage", "coverage", fhirreference.FHIRReference, False),
-            ("focal", "focal", bool, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False),
-            ("preAuthRef", "preAuthRef", str, True),
-            ("relationship", "relationship", coding.Coding, False),
-            ("sequence", "sequence", int, False),
+            ("businessArrangement", "businessArrangement", str, False, None, False),
+            ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
+            ("focal", "focal", bool, False, None, True),
+            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
+            ("preAuthRef", "preAuthRef", str, True, None, False),
+            ("relationship", "relationship", coding.Coding, False, None, True),
+            ("sequence", "sequence", int, False, None, True),
         ])
         return js
 
@@ -414,10 +414,10 @@ class ClaimResponseError(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseError, self).elementProperties()
         js.extend([
-            ("code", "code", coding.Coding, False),
-            ("detailSequenceLinkId", "detailSequenceLinkId", int, False),
-            ("sequenceLinkId", "sequenceLinkId", int, False),
-            ("subdetailSequenceLinkId", "subdetailSequenceLinkId", int, False),
+            ("code", "code", coding.Coding, False, None, True),
+            ("detailSequenceLinkId", "detailSequenceLinkId", int, False, None, False),
+            ("sequenceLinkId", "sequenceLinkId", int, False, None, False),
+            ("subdetailSequenceLinkId", "subdetailSequenceLinkId", int, False, None, False),
         ])
         return js
 
@@ -455,10 +455,10 @@ class ClaimResponseItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItem, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True),
-            ("detail", "detail", ClaimResponseItemDetail, True),
-            ("noteNumber", "noteNumber", int, True),
-            ("sequenceLinkId", "sequenceLinkId", int, False),
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
+            ("detail", "detail", ClaimResponseItemDetail, True, None, False),
+            ("noteNumber", "noteNumber", int, True, None, False),
+            ("sequenceLinkId", "sequenceLinkId", int, False, None, True),
         ])
         return js
 
@@ -492,9 +492,9 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItemAdjudication, self).elementProperties()
         js.extend([
-            ("amount", "amount", quantity.Quantity, False),
-            ("code", "code", coding.Coding, False),
-            ("value", "value", float, False),
+            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("code", "code", coding.Coding, False, None, True),
+            ("value", "value", float, False, None, False),
         ])
         return js
 
@@ -528,9 +528,9 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItemDetail, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseItemDetailAdjudication, True),
-            ("sequenceLinkId", "sequenceLinkId", int, False),
-            ("subDetail", "subDetail", ClaimResponseItemDetailSubDetail, True),
+            ("adjudication", "adjudication", ClaimResponseItemDetailAdjudication, True, None, False),
+            ("sequenceLinkId", "sequenceLinkId", int, False, None, True),
+            ("subDetail", "subDetail", ClaimResponseItemDetailSubDetail, True, None, False),
         ])
         return js
 
@@ -564,9 +564,9 @@ class ClaimResponseItemDetailAdjudication(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItemDetailAdjudication, self).elementProperties()
         js.extend([
-            ("amount", "amount", quantity.Quantity, False),
-            ("code", "code", coding.Coding, False),
-            ("value", "value", float, False),
+            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("code", "code", coding.Coding, False, None, True),
+            ("value", "value", float, False, None, False),
         ])
         return js
 
@@ -596,8 +596,8 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItemDetailSubDetail, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseItemDetailSubDetailAdjudication, True),
-            ("sequenceLinkId", "sequenceLinkId", int, False),
+            ("adjudication", "adjudication", ClaimResponseItemDetailSubDetailAdjudication, True, None, False),
+            ("sequenceLinkId", "sequenceLinkId", int, False, None, True),
         ])
         return js
 
@@ -631,9 +631,9 @@ class ClaimResponseItemDetailSubDetailAdjudication(backboneelement.BackboneEleme
     def elementProperties(self):
         js = super(ClaimResponseItemDetailSubDetailAdjudication, self).elementProperties()
         js.extend([
-            ("amount", "amount", quantity.Quantity, False),
-            ("code", "code", coding.Coding, False),
-            ("value", "value", float, False),
+            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("code", "code", coding.Coding, False, None, True),
+            ("value", "value", float, False, None, False),
         ])
         return js
 
@@ -667,9 +667,9 @@ class ClaimResponseNote(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseNote, self).elementProperties()
         js.extend([
-            ("number", "number", int, False),
-            ("text", "text", str, False),
-            ("type", "type", coding.Coding, False),
+            ("number", "number", int, False, None, False),
+            ("text", "text", str, False, None, False),
+            ("type", "type", coding.Coding, False, None, False),
         ])
         return js
 

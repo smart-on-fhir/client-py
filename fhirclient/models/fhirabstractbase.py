@@ -74,7 +74,7 @@ class FHIRAbstractBase(object):
     
     def elementProperties(self):
         """ Returns a list of tuples, one tuple for each property that should
-        be serialized, as: ("name", "json_name", type, is_list)
+        be serialized, as: ("name", "json_name", type, is_list, "of_many", not_optional)
         """
         return []
     
@@ -89,14 +89,35 @@ class FHIRAbstractBase(object):
             return
         
         # loop all registered properties and instantiate
-        for prop, name, typ, is_list in self.elementProperties():
-            if not name in jsondict:
+        found = set(['resourceType', 'fhir_comments'])
+        nonoptionals = set()
+        for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
+            if not jsname in jsondict:
+                if not_optional:
+                    nonoptionals.add(of_many or jsname)
                 continue
             
             if hasattr(typ, 'with_json_and_owner'):
-                setattr(self, prop, typ.with_json_and_owner(jsondict[name], self))
+                setattr(self, name, typ.with_json_and_owner(jsondict[jsname], self))
             else:
-                setattr(self, prop, jsondict[name])
+                setattr(self, name, jsondict[jsname])
+                # TODO: look at `_name` if this is a primitive
+            found.add(jsname)
+            found.add('_'+jsname)
+            if of_many is not None:
+                found.add(of_many)
+        
+        # were there missing non-optional entries?
+        if len(nonoptionals - found) > 0:
+            for miss in nonoptionals - found:
+                logging.warning("Non-optional property '{}' on {} is missing from JSON"
+                    .format(miss, self))
+        
+        # were there superfluous dictionary keys?
+        if len(set(jsondict.keys()) - found) > 0:
+            for supflu in set(jsondict.keys()) - found:
+                logging.warning("Superfluous entry '{}' in JSON for {}"
+                    .format(supflu, self))
     
     def as_json(self):
         """ Serializes to JSON by inspecting `elementProperties()` and creating
@@ -105,15 +126,28 @@ class FHIRAbstractBase(object):
         js = {}
         
         # JSONify all registered properties
-        for prop, name, typ, is_list in self.elementProperties():
-            val = getattr(self, prop)
+        found = set()
+        nonoptionals = set()
+        for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
+            if not_optional:
+                nonoptionals.add(of_many or jsname)
+            
+            val = getattr(self, name)
             if val is None:
                 continue
             if is_list:
-                js[name] = [v.as_json() if hasattr(v, 'as_json') else v for v in val]
+                if len(val) > 0:
+                    found.add(of_many or jsname)
+                js[jsname] = [v.as_json() if hasattr(v, 'as_json') else v for v in val]
             else:
-                js[name] = val.as_json() if hasattr(val, 'as_json') else val
+                found.add(of_many or jsname)
+                js[jsname] = val.as_json() if hasattr(val, 'as_json') else val
         
+        # any missing non-optionals?
+        if len(nonoptionals - found) > 0:
+            for nonop in nonoptionals - found:
+                logging.warning("Element '{}' is not optional, you should provide a value for it on {}"
+                    .format(nonop, self))
         return js
     
     

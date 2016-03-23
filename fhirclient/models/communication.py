@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Communication) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Communication) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -78,19 +78,19 @@ class Communication(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Communication, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("medium", "medium", codeableconcept.CodeableConcept, True),
-            ("payload", "payload", CommunicationPayload, True),
-            ("reason", "reason", codeableconcept.CodeableConcept, True),
-            ("received", "received", fhirdate.FHIRDate, False),
-            ("recipient", "recipient", fhirreference.FHIRReference, True),
-            ("requestDetail", "requestDetail", fhirreference.FHIRReference, False),
-            ("sender", "sender", fhirreference.FHIRReference, False),
-            ("sent", "sent", fhirdate.FHIRDate, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("medium", "medium", codeableconcept.CodeableConcept, True, None, False),
+            ("payload", "payload", CommunicationPayload, True, None, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
+            ("received", "received", fhirdate.FHIRDate, False, None, False),
+            ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
+            ("requestDetail", "requestDetail", fhirreference.FHIRReference, False, None, False),
+            ("sender", "sender", fhirreference.FHIRReference, False, None, False),
+            ("sent", "sent", fhirdate.FHIRDate, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -126,9 +126,9 @@ class CommunicationPayload(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CommunicationPayload, self).elementProperties()
         js.extend([
-            ("contentAttachment", "contentAttachment", attachment.Attachment, False),
-            ("contentReference", "contentReference", fhirreference.FHIRReference, False),
-            ("contentString", "contentString", str, False),
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True),
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True),
+            ("contentString", "contentString", str, False, "content", True),
         ])
         return js
 

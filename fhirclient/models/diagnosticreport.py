@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -103,24 +103,24 @@ class DiagnosticReport(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DiagnosticReport, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, False),
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("codedDiagnosis", "codedDiagnosis", codeableconcept.CodeableConcept, True),
-            ("conclusion", "conclusion", str, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("image", "image", DiagnosticReportImage, True),
-            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True),
-            ("issued", "issued", fhirdate.FHIRDate, False),
-            ("performer", "performer", fhirreference.FHIRReference, False),
-            ("presentedForm", "presentedForm", attachment.Attachment, True),
-            ("request", "request", fhirreference.FHIRReference, True),
-            ("result", "result", fhirreference.FHIRReference, True),
-            ("specimen", "specimen", fhirreference.FHIRReference, True),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("codedDiagnosis", "codedDiagnosis", codeableconcept.CodeableConcept, True, None, False),
+            ("conclusion", "conclusion", str, False, None, False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", True),
+            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("image", "image", DiagnosticReportImage, True, None, False),
+            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True, None, False),
+            ("issued", "issued", fhirdate.FHIRDate, False, None, True),
+            ("performer", "performer", fhirreference.FHIRReference, False, None, True),
+            ("presentedForm", "presentedForm", attachment.Attachment, True, None, False),
+            ("request", "request", fhirreference.FHIRReference, True, None, False),
+            ("result", "result", fhirreference.FHIRReference, True, None, False),
+            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
+            ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
@@ -154,8 +154,8 @@ class DiagnosticReportImage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DiagnosticReportImage, self).elementProperties()
         js.extend([
-            ("comment", "comment", str, False),
-            ("link", "link", fhirreference.FHIRReference, False),
+            ("comment", "comment", str, False, None, False),
+            ("link", "link", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

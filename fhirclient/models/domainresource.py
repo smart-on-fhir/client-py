@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DomainResource) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DomainResource) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -40,10 +40,10 @@ class DomainResource(resource.Resource):
     def elementProperties(self):
         js = super(DomainResource, self).elementProperties()
         js.extend([
-            ("contained", "contained", resource.Resource, True),
-            ("extension", "extension", extension.Extension, True),
-            ("modifierExtension", "modifierExtension", extension.Extension, True),
-            ("text", "text", narrative.Narrative, False),
+            ("contained", "contained", resource.Resource, True, None, False),
+            ("extension", "extension", extension.Extension, True, None, False),
+            ("modifierExtension", "modifierExtension", extension.Extension, True, None, False),
+            ("text", "text", narrative.Narrative, False, None, False),
         ])
         return js
 

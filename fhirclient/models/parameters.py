@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -30,7 +30,7 @@ class Parameters(resource.Resource):
     def elementProperties(self):
         js = super(Parameters, self).elementProperties()
         js.extend([
-            ("parameter", "parameter", ParametersParameter, True),
+            ("parameter", "parameter", ParametersParameter, True, None, False),
         ])
         return js
 
@@ -198,42 +198,42 @@ class ParametersParameter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ParametersParameter, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("part", "part", ParametersParameter, True),
-            ("resource", "resource", resource.Resource, False),
-            ("valueAddress", "valueAddress", address.Address, False),
-            ("valueAnnotation", "valueAnnotation", annotation.Annotation, False),
-            ("valueAttachment", "valueAttachment", attachment.Attachment, False),
-            ("valueBase64Binary", "valueBase64Binary", str, False),
-            ("valueBoolean", "valueBoolean", bool, False),
-            ("valueCode", "valueCode", str, False),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("valueCoding", "valueCoding", coding.Coding, False),
-            ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False),
-            ("valueDate", "valueDate", fhirdate.FHIRDate, False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False),
-            ("valueDecimal", "valueDecimal", float, False),
-            ("valueHumanName", "valueHumanName", humanname.HumanName, False),
-            ("valueId", "valueId", str, False),
-            ("valueIdentifier", "valueIdentifier", identifier.Identifier, False),
-            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False),
-            ("valueInteger", "valueInteger", int, False),
-            ("valueMarkdown", "valueMarkdown", str, False),
-            ("valueMeta", "valueMeta", meta.Meta, False),
-            ("valueOid", "valueOid", str, False),
-            ("valuePeriod", "valuePeriod", period.Period, False),
-            ("valuePositiveInt", "valuePositiveInt", int, False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
-            ("valueRange", "valueRange", range.Range, False),
-            ("valueRatio", "valueRatio", ratio.Ratio, False),
-            ("valueReference", "valueReference", fhirreference.FHIRReference, False),
-            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False),
-            ("valueSignature", "valueSignature", signature.Signature, False),
-            ("valueString", "valueString", str, False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False),
-            ("valueTiming", "valueTiming", timing.Timing, False),
-            ("valueUnsignedInt", "valueUnsignedInt", int, False),
-            ("valueUri", "valueUri", str, False),
+            ("name", "name", str, False, None, True),
+            ("part", "part", ParametersParameter, True, None, False),
+            ("resource", "resource", resource.Resource, False, None, False),
+            ("valueAddress", "valueAddress", address.Address, False, "value", False),
+            ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
+            ("valueBase64Binary", "valueBase64Binary", str, False, "value", False),
+            ("valueBoolean", "valueBoolean", bool, False, "value", False),
+            ("valueCode", "valueCode", str, False, "value", False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
+            ("valueCoding", "valueCoding", coding.Coding, False, "value", False),
+            ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False, "value", False),
+            ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDecimal", "valueDecimal", float, False, "value", False),
+            ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", False),
+            ("valueId", "valueId", str, False, "value", False),
+            ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", False),
+            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", False),
+            ("valueInteger", "valueInteger", int, False, "value", False),
+            ("valueMarkdown", "valueMarkdown", str, False, "value", False),
+            ("valueMeta", "valueMeta", meta.Meta, False, "value", False),
+            ("valueOid", "valueOid", str, False, "value", False),
+            ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
+            ("valuePositiveInt", "valuePositiveInt", int, False, "value", False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
+            ("valueRange", "valueRange", range.Range, False, "value", False),
+            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
+            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
+            ("valueSignature", "valueSignature", signature.Signature, False, "value", False),
+            ("valueString", "valueString", str, False, "value", False),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueTiming", "valueTiming", timing.Timing, False, "value", False),
+            ("valueUnsignedInt", "valueUnsignedInt", int, False, "value", False),
+            ("valueUri", "valueUri", str, False, "value", False),
         ])
         return js
 

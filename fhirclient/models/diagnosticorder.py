@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DiagnosticOrder) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DiagnosticOrder) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -75,18 +75,18 @@ class DiagnosticOrder(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DiagnosticOrder, self).elementProperties()
         js.extend([
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("event", "event", DiagnosticOrderEvent, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("item", "item", DiagnosticOrderItem, True),
-            ("note", "note", annotation.Annotation, True),
-            ("orderer", "orderer", fhirreference.FHIRReference, False),
-            ("priority", "priority", str, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, True),
-            ("specimen", "specimen", fhirreference.FHIRReference, True),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("event", "event", DiagnosticOrderEvent, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("item", "item", DiagnosticOrderItem, True, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
+            ("orderer", "orderer", fhirreference.FHIRReference, False, None, False),
+            ("priority", "priority", str, False, None, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
+            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
+            ("status", "status", str, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 
@@ -130,10 +130,10 @@ class DiagnosticOrderEvent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DiagnosticOrderEvent, self).elementProperties()
         js.extend([
-            ("actor", "actor", fhirreference.FHIRReference, False),
-            ("dateTime", "dateTime", fhirdate.FHIRDate, False),
-            ("description", "description", codeableconcept.CodeableConcept, False),
-            ("status", "status", str, False),
+            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
+            ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, True),
+            ("description", "description", codeableconcept.CodeableConcept, False, None, False),
+            ("status", "status", str, False, None, True),
         ])
         return js
 
@@ -179,11 +179,11 @@ class DiagnosticOrderItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DiagnosticOrderItem, self).elementProperties()
         js.extend([
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False),
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("event", "event", DiagnosticOrderEvent, True),
-            ("specimen", "specimen", fhirreference.FHIRReference, True),
-            ("status", "status", str, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("event", "event", DiagnosticOrderEvent, True, None, False),
+            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
+            ("status", "status", str, False, None, False),
         ])
         return js
 

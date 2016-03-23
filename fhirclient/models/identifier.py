@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Identifier) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Identifier) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -48,12 +48,12 @@ class Identifier(element.Element):
     def elementProperties(self):
         js = super(Identifier, self).elementProperties()
         js.extend([
-            ("assigner", "assigner", fhirreference.FHIRReference, False),
-            ("period", "period", period.Period, False),
-            ("system", "system", str, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
-            ("use", "use", str, False),
-            ("value", "value", str, False),
+            ("assigner", "assigner", fhirreference.FHIRReference, False, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("system", "system", str, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("use", "use", str, False, None, False),
+            ("value", "value", str, False, None, False),
         ])
         return js
 

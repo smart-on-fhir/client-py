@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -98,24 +98,24 @@ class ConceptMap(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ConceptMap, self).elementProperties()
         js.extend([
-            ("contact", "contact", ConceptMapContact, True),
-            ("copyright", "copyright", str, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("element", "element", ConceptMapElement, True),
-            ("experimental", "experimental", bool, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("name", "name", str, False),
-            ("publisher", "publisher", str, False),
-            ("requirements", "requirements", str, False),
-            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False),
-            ("sourceUri", "sourceUri", str, False),
-            ("status", "status", str, False),
-            ("targetReference", "targetReference", fhirreference.FHIRReference, False),
-            ("targetUri", "targetUri", str, False),
-            ("url", "url", str, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
-            ("version", "version", str, False),
+            ("contact", "contact", ConceptMapContact, True, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("element", "element", ConceptMapElement, True, None, False),
+            ("experimental", "experimental", bool, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("publisher", "publisher", str, False, None, False),
+            ("requirements", "requirements", str, False, None, False),
+            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", True),
+            ("sourceUri", "sourceUri", str, False, "source", True),
+            ("status", "status", str, False, None, True),
+            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", True),
+            ("targetUri", "targetUri", str, False, "target", True),
+            ("url", "url", str, False, None, False),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -147,8 +147,8 @@ class ConceptMapContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapContact, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("name", "name", str, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -183,9 +183,9 @@ class ConceptMapElement(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapElement, self).elementProperties()
         js.extend([
-            ("code", "code", str, False),
-            ("codeSystem", "codeSystem", str, False),
-            ("target", "target", ConceptMapElementTarget, True),
+            ("code", "code", str, False, None, False),
+            ("codeSystem", "codeSystem", str, False, None, False),
+            ("target", "target", ConceptMapElementTarget, True, None, False),
         ])
         return js
 
@@ -232,12 +232,12 @@ class ConceptMapElementTarget(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapElementTarget, self).elementProperties()
         js.extend([
-            ("code", "code", str, False),
-            ("codeSystem", "codeSystem", str, False),
-            ("comments", "comments", str, False),
-            ("dependsOn", "dependsOn", ConceptMapElementTargetDependsOn, True),
-            ("equivalence", "equivalence", str, False),
-            ("product", "product", ConceptMapElementTargetDependsOn, True),
+            ("code", "code", str, False, None, False),
+            ("codeSystem", "codeSystem", str, False, None, False),
+            ("comments", "comments", str, False, None, False),
+            ("dependsOn", "dependsOn", ConceptMapElementTargetDependsOn, True, None, False),
+            ("equivalence", "equivalence", str, False, None, True),
+            ("product", "product", ConceptMapElementTargetDependsOn, True, None, False),
         ])
         return js
 
@@ -273,9 +273,9 @@ class ConceptMapElementTargetDependsOn(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapElementTargetDependsOn, self).elementProperties()
         js.extend([
-            ("code", "code", str, False),
-            ("codeSystem", "codeSystem", str, False),
-            ("element", "element", str, False),
+            ("code", "code", str, False, None, True),
+            ("codeSystem", "codeSystem", str, False, None, True),
+            ("element", "element", str, False, None, True),
         ])
         return js
 

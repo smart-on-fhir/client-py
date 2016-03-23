@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -112,28 +112,28 @@ class HealthcareService(domainresource.DomainResource):
     def elementProperties(self):
         js = super(HealthcareService, self).elementProperties()
         js.extend([
-            ("appointmentRequired", "appointmentRequired", bool, False),
-            ("availabilityExceptions", "availabilityExceptions", str, False),
-            ("availableTime", "availableTime", HealthcareServiceAvailableTime, True),
-            ("characteristic", "characteristic", codeableconcept.CodeableConcept, True),
-            ("comment", "comment", str, False),
-            ("coverageArea", "coverageArea", fhirreference.FHIRReference, True),
-            ("eligibility", "eligibility", codeableconcept.CodeableConcept, False),
-            ("eligibilityNote", "eligibilityNote", str, False),
-            ("extraDetails", "extraDetails", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("location", "location", fhirreference.FHIRReference, False),
-            ("notAvailable", "notAvailable", HealthcareServiceNotAvailable, True),
-            ("photo", "photo", attachment.Attachment, False),
-            ("programName", "programName", str, True),
-            ("providedBy", "providedBy", fhirreference.FHIRReference, False),
-            ("publicKey", "publicKey", str, False),
-            ("referralMethod", "referralMethod", codeableconcept.CodeableConcept, True),
-            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False),
-            ("serviceName", "serviceName", str, False),
-            ("serviceProvisionCode", "serviceProvisionCode", codeableconcept.CodeableConcept, True),
-            ("serviceType", "serviceType", HealthcareServiceServiceType, True),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("appointmentRequired", "appointmentRequired", bool, False, None, False),
+            ("availabilityExceptions", "availabilityExceptions", str, False, None, False),
+            ("availableTime", "availableTime", HealthcareServiceAvailableTime, True, None, False),
+            ("characteristic", "characteristic", codeableconcept.CodeableConcept, True, None, False),
+            ("comment", "comment", str, False, None, False),
+            ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False),
+            ("eligibility", "eligibility", codeableconcept.CodeableConcept, False, None, False),
+            ("eligibilityNote", "eligibilityNote", str, False, None, False),
+            ("extraDetails", "extraDetails", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("location", "location", fhirreference.FHIRReference, False, None, True),
+            ("notAvailable", "notAvailable", HealthcareServiceNotAvailable, True, None, False),
+            ("photo", "photo", attachment.Attachment, False, None, False),
+            ("programName", "programName", str, True, None, False),
+            ("providedBy", "providedBy", fhirreference.FHIRReference, False, None, False),
+            ("publicKey", "publicKey", str, False, None, False),
+            ("referralMethod", "referralMethod", codeableconcept.CodeableConcept, True, None, False),
+            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False, None, False),
+            ("serviceName", "serviceName", str, False, None, False),
+            ("serviceProvisionCode", "serviceProvisionCode", codeableconcept.CodeableConcept, True, None, False),
+            ("serviceType", "serviceType", HealthcareServiceServiceType, True, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -173,10 +173,10 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(HealthcareServiceAvailableTime, self).elementProperties()
         js.extend([
-            ("allDay", "allDay", bool, False),
-            ("availableEndTime", "availableEndTime", fhirdate.FHIRDate, False),
-            ("availableStartTime", "availableStartTime", fhirdate.FHIRDate, False),
-            ("daysOfWeek", "daysOfWeek", str, True),
+            ("allDay", "allDay", bool, False, None, False),
+            ("availableEndTime", "availableEndTime", fhirdate.FHIRDate, False, None, False),
+            ("availableStartTime", "availableStartTime", fhirdate.FHIRDate, False, None, False),
+            ("daysOfWeek", "daysOfWeek", str, True, None, False),
         ])
         return js
 
@@ -207,8 +207,8 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(HealthcareServiceNotAvailable, self).elementProperties()
         js.extend([
-            ("description", "description", str, False),
-            ("during", "during", period.Period, False),
+            ("description", "description", str, False, None, True),
+            ("during", "during", period.Period, False, None, False),
         ])
         return js
 
@@ -238,8 +238,8 @@ class HealthcareServiceServiceType(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(HealthcareServiceServiceType, self).elementProperties()
         js.extend([
-            ("specialty", "specialty", codeableconcept.CodeableConcept, True),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Goal) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Goal) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -92,22 +92,22 @@ class Goal(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Goal, self).elementProperties()
         js.extend([
-            ("addresses", "addresses", fhirreference.FHIRReference, True),
-            ("author", "author", fhirreference.FHIRReference, False),
-            ("category", "category", codeableconcept.CodeableConcept, True),
-            ("description", "description", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("note", "note", annotation.Annotation, True),
-            ("outcome", "outcome", GoalOutcome, True),
-            ("priority", "priority", codeableconcept.CodeableConcept, False),
-            ("startCodeableConcept", "startCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("startDate", "startDate", fhirdate.FHIRDate, False),
-            ("status", "status", str, False),
-            ("statusDate", "statusDate", fhirdate.FHIRDate, False),
-            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("targetDate", "targetDate", fhirdate.FHIRDate, False),
-            ("targetQuantity", "targetQuantity", quantity.Quantity, False),
+            ("addresses", "addresses", fhirreference.FHIRReference, True, None, False),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
+            ("description", "description", str, False, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
+            ("outcome", "outcome", GoalOutcome, True, None, False),
+            ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
+            ("startCodeableConcept", "startCodeableConcept", codeableconcept.CodeableConcept, False, "start", False),
+            ("startDate", "startDate", fhirdate.FHIRDate, False, "start", False),
+            ("status", "status", str, False, None, True),
+            ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("targetDate", "targetDate", fhirdate.FHIRDate, False, "target", False),
+            ("targetQuantity", "targetQuantity", quantity.Quantity, False, "target", False),
         ])
         return js
 
@@ -140,8 +140,8 @@ class GoalOutcome(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(GoalOutcome, self).elementProperties()
         js.extend([
-            ("resultCodeableConcept", "resultCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("resultReference", "resultReference", fhirreference.FHIRReference, False),
+            ("resultCodeableConcept", "resultCodeableConcept", codeableconcept.CodeableConcept, False, "result", False),
+            ("resultReference", "resultReference", fhirreference.FHIRReference, False, "result", False),
         ])
         return js
 

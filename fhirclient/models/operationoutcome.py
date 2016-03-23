@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -29,7 +29,7 @@ class OperationOutcome(domainresource.DomainResource):
     def elementProperties(self):
         js = super(OperationOutcome, self).elementProperties()
         js.extend([
-            ("issue", "issue", OperationOutcomeIssue, True),
+            ("issue", "issue", OperationOutcomeIssue, True, None, True),
         ])
         return js
 
@@ -73,11 +73,11 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(OperationOutcomeIssue, self).elementProperties()
         js.extend([
-            ("code", "code", str, False),
-            ("details", "details", codeableconcept.CodeableConcept, False),
-            ("diagnostics", "diagnostics", str, False),
-            ("location", "location", str, True),
-            ("severity", "severity", str, False),
+            ("code", "code", str, False, None, True),
+            ("details", "details", codeableconcept.CodeableConcept, False, None, False),
+            ("diagnostics", "diagnostics", str, False, None, False),
+            ("location", "location", str, True, None, False),
+            ("severity", "severity", str, False, None, True),
         ])
         return js
 

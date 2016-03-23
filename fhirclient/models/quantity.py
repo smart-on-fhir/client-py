@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Quantity) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Quantity) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -46,11 +46,11 @@ class Quantity(element.Element):
     def elementProperties(self):
         js = super(Quantity, self).elementProperties()
         js.extend([
-            ("code", "code", str, False),
-            ("comparator", "comparator", str, False),
-            ("system", "system", str, False),
-            ("unit", "unit", str, False),
-            ("value", "value", float, False),
+            ("code", "code", str, False, None, False),
+            ("comparator", "comparator", str, False, None, False),
+            ("system", "system", str, False, None, False),
+            ("unit", "unit", str, False, None, False),
+            ("value", "value", float, False, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -90,22 +90,22 @@ class CarePlan(domainresource.DomainResource):
     def elementProperties(self):
         js = super(CarePlan, self).elementProperties()
         js.extend([
-            ("activity", "activity", CarePlanActivity, True),
-            ("addresses", "addresses", fhirreference.FHIRReference, True),
-            ("author", "author", fhirreference.FHIRReference, True),
-            ("category", "category", codeableconcept.CodeableConcept, True),
-            ("context", "context", fhirreference.FHIRReference, False),
-            ("description", "description", str, False),
-            ("goal", "goal", fhirreference.FHIRReference, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("modified", "modified", fhirdate.FHIRDate, False),
-            ("note", "note", annotation.Annotation, False),
-            ("participant", "participant", CarePlanParticipant, True),
-            ("period", "period", period.Period, False),
-            ("relatedPlan", "relatedPlan", CarePlanRelatedPlan, True),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("support", "support", fhirreference.FHIRReference, True),
+            ("activity", "activity", CarePlanActivity, True, None, False),
+            ("addresses", "addresses", fhirreference.FHIRReference, True, None, False),
+            ("author", "author", fhirreference.FHIRReference, True, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("goal", "goal", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("modified", "modified", fhirdate.FHIRDate, False, None, False),
+            ("note", "note", annotation.Annotation, False, None, False),
+            ("participant", "participant", CarePlanParticipant, True, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("relatedPlan", "relatedPlan", CarePlanRelatedPlan, True, None, False),
+            ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("support", "support", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 
@@ -147,10 +147,10 @@ class CarePlanActivity(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CarePlanActivity, self).elementProperties()
         js.extend([
-            ("actionResulting", "actionResulting", fhirreference.FHIRReference, True),
-            ("detail", "detail", CarePlanActivityDetail, False),
-            ("progress", "progress", annotation.Annotation, True),
-            ("reference", "reference", fhirreference.FHIRReference, False),
+            ("actionResulting", "actionResulting", fhirreference.FHIRReference, True, None, False),
+            ("detail", "detail", CarePlanActivityDetail, False, None, False),
+            ("progress", "progress", annotation.Annotation, True, None, False),
+            ("reference", "reference", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -247,24 +247,24 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CarePlanActivityDetail, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, False),
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("dailyAmount", "dailyAmount", quantity.Quantity, False),
-            ("description", "description", str, False),
-            ("goal", "goal", fhirreference.FHIRReference, True),
-            ("location", "location", fhirreference.FHIRReference, False),
-            ("performer", "performer", fhirreference.FHIRReference, True),
-            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("productReference", "productReference", fhirreference.FHIRReference, False),
-            ("prohibited", "prohibited", bool, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True),
-            ("scheduledPeriod", "scheduledPeriod", period.Period, False),
-            ("scheduledString", "scheduledString", str, False),
-            ("scheduledTiming", "scheduledTiming", timing.Timing, False),
-            ("status", "status", str, False),
-            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("dailyAmount", "dailyAmount", quantity.Quantity, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("goal", "goal", fhirreference.FHIRReference, True, None, False),
+            ("location", "location", fhirreference.FHIRReference, False, None, False),
+            ("performer", "performer", fhirreference.FHIRReference, True, None, False),
+            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
+            ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
+            ("prohibited", "prohibited", bool, False, None, True),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
+            ("scheduledPeriod", "scheduledPeriod", period.Period, False, "scheduled", False),
+            ("scheduledString", "scheduledString", str, False, "scheduled", False),
+            ("scheduledTiming", "scheduledTiming", timing.Timing, False, "scheduled", False),
+            ("status", "status", str, False, None, False),
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -295,8 +295,8 @@ class CarePlanParticipant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CarePlanParticipant, self).elementProperties()
         js.extend([
-            ("member", "member", fhirreference.FHIRReference, False),
-            ("role", "role", codeableconcept.CodeableConcept, False),
+            ("member", "member", fhirreference.FHIRReference, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -327,8 +327,8 @@ class CarePlanRelatedPlan(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CarePlanRelatedPlan, self).elementProperties()
         js.extend([
-            ("code", "code", str, False),
-            ("plan", "plan", fhirreference.FHIRReference, False),
+            ("code", "code", str, False, None, False),
+            ("plan", "plan", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

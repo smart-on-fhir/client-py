@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -126,31 +126,31 @@ class StructureDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(StructureDefinition, self).elementProperties()
         js.extend([
-            ("abstract", "abstract", bool, False),
-            ("base", "base", str, False),
-            ("code", "code", coding.Coding, True),
-            ("constrainedType", "constrainedType", str, False),
-            ("contact", "contact", StructureDefinitionContact, True),
-            ("context", "context", str, True),
-            ("contextType", "contextType", str, False),
-            ("copyright", "copyright", str, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("differential", "differential", StructureDefinitionDifferential, False),
-            ("display", "display", str, False),
-            ("experimental", "experimental", bool, False),
-            ("fhirVersion", "fhirVersion", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("kind", "kind", str, False),
-            ("mapping", "mapping", StructureDefinitionMapping, True),
-            ("name", "name", str, False),
-            ("publisher", "publisher", str, False),
-            ("requirements", "requirements", str, False),
-            ("snapshot", "snapshot", StructureDefinitionSnapshot, False),
-            ("status", "status", str, False),
-            ("url", "url", str, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
-            ("version", "version", str, False),
+            ("abstract", "abstract", bool, False, None, True),
+            ("base", "base", str, False, None, False),
+            ("code", "code", coding.Coding, True, None, False),
+            ("constrainedType", "constrainedType", str, False, None, False),
+            ("contact", "contact", StructureDefinitionContact, True, None, False),
+            ("context", "context", str, True, None, False),
+            ("contextType", "contextType", str, False, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("differential", "differential", StructureDefinitionDifferential, False, None, False),
+            ("display", "display", str, False, None, False),
+            ("experimental", "experimental", bool, False, None, False),
+            ("fhirVersion", "fhirVersion", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("kind", "kind", str, False, None, True),
+            ("mapping", "mapping", StructureDefinitionMapping, True, None, False),
+            ("name", "name", str, False, None, True),
+            ("publisher", "publisher", str, False, None, False),
+            ("requirements", "requirements", str, False, None, False),
+            ("snapshot", "snapshot", StructureDefinitionSnapshot, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("url", "url", str, False, None, True),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -182,8 +182,8 @@ class StructureDefinitionContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureDefinitionContact, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("name", "name", str, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -210,7 +210,7 @@ class StructureDefinitionDifferential(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureDefinitionDifferential, self).elementProperties()
         js.extend([
-            ("element", "element", elementdefinition.ElementDefinition, True),
+            ("element", "element", elementdefinition.ElementDefinition, True, None, True),
         ])
         return js
 
@@ -248,10 +248,10 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureDefinitionMapping, self).elementProperties()
         js.extend([
-            ("comments", "comments", str, False),
-            ("identity", "identity", str, False),
-            ("name", "name", str, False),
-            ("uri", "uri", str, False),
+            ("comments", "comments", str, False, None, False),
+            ("identity", "identity", str, False, None, True),
+            ("name", "name", str, False, None, False),
+            ("uri", "uri", str, False, None, False),
         ])
         return js
 
@@ -278,7 +278,7 @@ class StructureDefinitionSnapshot(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureDefinitionSnapshot, self).elementProperties()
         js.extend([
-            ("element", "element", elementdefinition.ElementDefinition, True),
+            ("element", "element", elementdefinition.ElementDefinition, True, None, True),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -118,29 +118,29 @@ class Procedure(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Procedure, self).elementProperties()
         js.extend([
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True),
-            ("category", "category", codeableconcept.CodeableConcept, False),
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("complication", "complication", codeableconcept.CodeableConcept, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("focalDevice", "focalDevice", ProcedureFocalDevice, True),
-            ("followUp", "followUp", codeableconcept.CodeableConcept, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("location", "location", fhirreference.FHIRReference, False),
-            ("notPerformed", "notPerformed", bool, False),
-            ("notes", "notes", annotation.Annotation, True),
-            ("outcome", "outcome", codeableconcept.CodeableConcept, False),
-            ("performedDateTime", "performedDateTime", fhirdate.FHIRDate, False),
-            ("performedPeriod", "performedPeriod", period.Period, False),
-            ("performer", "performer", ProcedurePerformer, True),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("reasonNotPerformed", "reasonNotPerformed", codeableconcept.CodeableConcept, True),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
-            ("report", "report", fhirreference.FHIRReference, True),
-            ("request", "request", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("used", "used", fhirreference.FHIRReference, True),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("complication", "complication", codeableconcept.CodeableConcept, True, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("focalDevice", "focalDevice", ProcedureFocalDevice, True, None, False),
+            ("followUp", "followUp", codeableconcept.CodeableConcept, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("location", "location", fhirreference.FHIRReference, False, None, False),
+            ("notPerformed", "notPerformed", bool, False, None, False),
+            ("notes", "notes", annotation.Annotation, True, None, False),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
+            ("performedDateTime", "performedDateTime", fhirdate.FHIRDate, False, "performed", False),
+            ("performedPeriod", "performedPeriod", period.Period, False, "performed", False),
+            ("performer", "performer", ProcedurePerformer, True, None, False),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
+            ("reasonNotPerformed", "reasonNotPerformed", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
+            ("report", "report", fhirreference.FHIRReference, True, None, False),
+            ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("used", "used", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 
@@ -174,8 +174,8 @@ class ProcedureFocalDevice(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProcedureFocalDevice, self).elementProperties()
         js.extend([
-            ("action", "action", codeableconcept.CodeableConcept, False),
-            ("manipulated", "manipulated", fhirreference.FHIRReference, False),
+            ("action", "action", codeableconcept.CodeableConcept, False, None, False),
+            ("manipulated", "manipulated", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
@@ -205,8 +205,8 @@ class ProcedurePerformer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProcedurePerformer, self).elementProperties()
         js.extend([
-            ("actor", "actor", fhirreference.FHIRReference, False),
-            ("role", "role", codeableconcept.CodeableConcept, False),
+            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

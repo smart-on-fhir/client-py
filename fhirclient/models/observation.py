@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Observation) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Observation) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -145,36 +145,36 @@ class Observation(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Observation, self).elementProperties()
         js.extend([
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False),
-            ("category", "category", codeableconcept.CodeableConcept, False),
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("comments", "comments", str, False),
-            ("component", "component", ObservationComponent, True),
-            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False),
-            ("device", "device", fhirreference.FHIRReference, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("interpretation", "interpretation", codeableconcept.CodeableConcept, False),
-            ("issued", "issued", fhirdate.FHIRDate, False),
-            ("method", "method", codeableconcept.CodeableConcept, False),
-            ("performer", "performer", fhirreference.FHIRReference, True),
-            ("referenceRange", "referenceRange", ObservationReferenceRange, True),
-            ("related", "related", ObservationRelated, True),
-            ("specimen", "specimen", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("valueAttachment", "valueAttachment", attachment.Attachment, False),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False),
-            ("valuePeriod", "valuePeriod", period.Period, False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
-            ("valueRange", "valueRange", range.Range, False),
-            ("valueRatio", "valueRatio", ratio.Ratio, False),
-            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False),
-            ("valueString", "valueString", str, False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("comments", "comments", str, False, None, False),
+            ("component", "component", ObservationComponent, True, None, False),
+            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
+            ("device", "device", fhirreference.FHIRReference, False, None, False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
+            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("interpretation", "interpretation", codeableconcept.CodeableConcept, False, None, False),
+            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
+            ("performer", "performer", fhirreference.FHIRReference, True, None, False),
+            ("referenceRange", "referenceRange", ObservationReferenceRange, True, None, False),
+            ("related", "related", ObservationRelated, True, None, False),
+            ("specimen", "specimen", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
+            ("valueRange", "valueRange", range.Range, False, "value", False),
+            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
+            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
+            ("valueString", "valueString", str, False, "value", False),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
         ])
         return js
 
@@ -254,19 +254,19 @@ class ObservationComponent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ObservationComponent, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False),
-            ("referenceRange", "referenceRange", ObservationReferenceRange, True),
-            ("valueAttachment", "valueAttachment", attachment.Attachment, False),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False),
-            ("valuePeriod", "valuePeriod", period.Period, False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
-            ("valueRange", "valueRange", range.Range, False),
-            ("valueRatio", "valueRatio", ratio.Ratio, False),
-            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False),
-            ("valueString", "valueString", str, False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
+            ("referenceRange", "referenceRange", ObservationReferenceRange, True, None, False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
+            ("valueRange", "valueRange", range.Range, False, "value", False),
+            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
+            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
+            ("valueString", "valueString", str, False, "value", False),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
         ])
         return js
 
@@ -309,11 +309,11 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ObservationReferenceRange, self).elementProperties()
         js.extend([
-            ("age", "age", range.Range, False),
-            ("high", "high", quantity.Quantity, False),
-            ("low", "low", quantity.Quantity, False),
-            ("meaning", "meaning", codeableconcept.CodeableConcept, False),
-            ("text", "text", str, False),
+            ("age", "age", range.Range, False, None, False),
+            ("high", "high", quantity.Quantity, False, None, False),
+            ("low", "low", quantity.Quantity, False, None, False),
+            ("meaning", "meaning", codeableconcept.CodeableConcept, False, None, False),
+            ("text", "text", str, False, None, False),
         ])
         return js
 
@@ -346,8 +346,8 @@ class ObservationRelated(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ObservationRelated, self).elementProperties()
         js.extend([
-            ("target", "target", fhirreference.FHIRReference, False),
-            ("type", "type", str, False),
+            ("target", "target", fhirreference.FHIRReference, False, None, True),
+            ("type", "type", str, False, None, False),
         ])
         return js
 

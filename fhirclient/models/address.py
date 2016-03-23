@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Address) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Address) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -66,16 +66,16 @@ class Address(element.Element):
     def elementProperties(self):
         js = super(Address, self).elementProperties()
         js.extend([
-            ("city", "city", str, False),
-            ("country", "country", str, False),
-            ("district", "district", str, False),
-            ("line", "line", str, True),
-            ("period", "period", period.Period, False),
-            ("postalCode", "postalCode", str, False),
-            ("state", "state", str, False),
-            ("text", "text", str, False),
-            ("type", "type", str, False),
-            ("use", "use", str, False),
+            ("city", "city", str, False, None, False),
+            ("country", "country", str, False, None, False),
+            ("district", "district", str, False, None, False),
+            ("line", "line", str, True, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("postalCode", "postalCode", str, False, None, False),
+            ("state", "state", str, False, None, False),
+            ("text", "text", str, False, None, False),
+            ("type", "type", str, False, None, False),
+            ("use", "use", str, False, None, False),
         ])
         return js
 

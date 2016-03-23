@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Signature) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Signature) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -51,12 +51,12 @@ class Signature(element.Element):
     def elementProperties(self):
         js = super(Signature, self).elementProperties()
         js.extend([
-            ("blob", "blob", str, False),
-            ("contentType", "contentType", str, False),
-            ("type", "type", coding.Coding, True),
-            ("when", "when", fhirdate.FHIRDate, False),
-            ("whoReference", "whoReference", fhirreference.FHIRReference, False),
-            ("whoUri", "whoUri", str, False),
+            ("blob", "blob", str, False, None, True),
+            ("contentType", "contentType", str, False, None, True),
+            ("type", "type", coding.Coding, True, None, True),
+            ("when", "when", fhirdate.FHIRDate, False, None, True),
+            ("whoReference", "whoReference", fhirreference.FHIRReference, False, "who", True),
+            ("whoUri", "whoUri", str, False, "who", True),
         ])
         return js
 

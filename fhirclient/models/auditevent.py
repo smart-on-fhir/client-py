@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -42,10 +42,10 @@ class AuditEvent(domainresource.DomainResource):
     def elementProperties(self):
         js = super(AuditEvent, self).elementProperties()
         js.extend([
-            ("event", "event", AuditEventEvent, False),
-            ("object", "object", AuditEventObject, True),
-            ("participant", "participant", AuditEventParticipant, True),
-            ("source", "source", AuditEventSource, False),
+            ("event", "event", AuditEventEvent, False, None, True),
+            ("object", "object", AuditEventObject, True, None, False),
+            ("participant", "participant", AuditEventParticipant, True, None, True),
+            ("source", "source", AuditEventSource, False, None, True),
         ])
         return js
 
@@ -98,13 +98,13 @@ class AuditEventEvent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventEvent, self).elementProperties()
         js.extend([
-            ("action", "action", str, False),
-            ("dateTime", "dateTime", fhirdate.FHIRDate, False),
-            ("outcome", "outcome", str, False),
-            ("outcomeDesc", "outcomeDesc", str, False),
-            ("purposeOfEvent", "purposeOfEvent", coding.Coding, True),
-            ("subtype", "subtype", coding.Coding, True),
-            ("type", "type", coding.Coding, False),
+            ("action", "action", str, False, None, False),
+            ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, True),
+            ("outcome", "outcome", str, False, None, False),
+            ("outcomeDesc", "outcomeDesc", str, False, None, False),
+            ("purposeOfEvent", "purposeOfEvent", coding.Coding, True, None, False),
+            ("subtype", "subtype", coding.Coding, True, None, False),
+            ("type", "type", coding.Coding, False, None, True),
         ])
         return js
 
@@ -164,16 +164,16 @@ class AuditEventObject(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventObject, self).elementProperties()
         js.extend([
-            ("description", "description", str, False),
-            ("detail", "detail", AuditEventObjectDetail, True),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("lifecycle", "lifecycle", coding.Coding, False),
-            ("name", "name", str, False),
-            ("query", "query", str, False),
-            ("reference", "reference", fhirreference.FHIRReference, False),
-            ("role", "role", coding.Coding, False),
-            ("securityLabel", "securityLabel", coding.Coding, True),
-            ("type", "type", coding.Coding, False),
+            ("description", "description", str, False, None, False),
+            ("detail", "detail", AuditEventObjectDetail, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("lifecycle", "lifecycle", coding.Coding, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("query", "query", str, False, None, False),
+            ("reference", "reference", fhirreference.FHIRReference, False, None, False),
+            ("role", "role", coding.Coding, False, None, False),
+            ("securityLabel", "securityLabel", coding.Coding, True, None, False),
+            ("type", "type", coding.Coding, False, None, False),
         ])
         return js
 
@@ -201,8 +201,8 @@ class AuditEventObjectDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventObjectDetail, self).elementProperties()
         js.extend([
-            ("type", "type", str, False),
-            ("value", "value", str, False),
+            ("type", "type", str, False, None, True),
+            ("value", "value", str, False, None, True),
         ])
         return js
 
@@ -266,17 +266,17 @@ class AuditEventParticipant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventParticipant, self).elementProperties()
         js.extend([
-            ("altId", "altId", str, False),
-            ("location", "location", fhirreference.FHIRReference, False),
-            ("media", "media", coding.Coding, False),
-            ("name", "name", str, False),
-            ("network", "network", AuditEventParticipantNetwork, False),
-            ("policy", "policy", str, True),
-            ("purposeOfUse", "purposeOfUse", coding.Coding, True),
-            ("reference", "reference", fhirreference.FHIRReference, False),
-            ("requestor", "requestor", bool, False),
-            ("role", "role", codeableconcept.CodeableConcept, True),
-            ("userId", "userId", identifier.Identifier, False),
+            ("altId", "altId", str, False, None, False),
+            ("location", "location", fhirreference.FHIRReference, False, None, False),
+            ("media", "media", coding.Coding, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("network", "network", AuditEventParticipantNetwork, False, None, False),
+            ("policy", "policy", str, True, None, False),
+            ("purposeOfUse", "purposeOfUse", coding.Coding, True, None, False),
+            ("reference", "reference", fhirreference.FHIRReference, False, None, False),
+            ("requestor", "requestor", bool, False, None, True),
+            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
+            ("userId", "userId", identifier.Identifier, False, None, False),
         ])
         return js
 
@@ -307,8 +307,8 @@ class AuditEventParticipantNetwork(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventParticipantNetwork, self).elementProperties()
         js.extend([
-            ("address", "address", str, False),
-            ("type", "type", str, False),
+            ("address", "address", str, False, None, False),
+            ("type", "type", str, False, None, False),
         ])
         return js
 
@@ -340,9 +340,9 @@ class AuditEventSource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventSource, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("site", "site", str, False),
-            ("type", "type", coding.Coding, True),
+            ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("site", "site", str, False, None, False),
+            ("type", "type", coding.Coding, True, None, False),
         ])
         return js
 

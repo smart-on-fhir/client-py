@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -56,14 +56,14 @@ class Attachment(element.Element):
     def elementProperties(self):
         js = super(Attachment, self).elementProperties()
         js.extend([
-            ("contentType", "contentType", str, False),
-            ("creation", "creation", fhirdate.FHIRDate, False),
-            ("data", "data", str, False),
-            ("hash", "hash", str, False),
-            ("language", "language", str, False),
-            ("size", "size", int, False),
-            ("title", "title", str, False),
-            ("url", "url", str, False),
+            ("contentType", "contentType", str, False, None, False),
+            ("creation", "creation", fhirdate.FHIRDate, False, None, False),
+            ("data", "data", str, False, None, False),
+            ("hash", "hash", str, False, None, False),
+            ("language", "language", str, False, None, False),
+            ("size", "size", int, False, None, False),
+            ("title", "title", str, False, None, False),
+            ("url", "url", str, False, None, False),
         ])
         return js
 

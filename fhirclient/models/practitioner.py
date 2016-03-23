@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -70,17 +70,17 @@ class Practitioner(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Practitioner, self).elementProperties()
         js.extend([
-            ("active", "active", bool, False),
-            ("address", "address", address.Address, True),
-            ("birthDate", "birthDate", fhirdate.FHIRDate, False),
-            ("communication", "communication", codeableconcept.CodeableConcept, True),
-            ("gender", "gender", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("name", "name", humanname.HumanName, False),
-            ("photo", "photo", attachment.Attachment, True),
-            ("practitionerRole", "practitionerRole", PractitionerPractitionerRole, True),
-            ("qualification", "qualification", PractitionerQualification, True),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("active", "active", bool, False, None, False),
+            ("address", "address", address.Address, True, None, False),
+            ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
+            ("communication", "communication", codeableconcept.CodeableConcept, True, None, False),
+            ("gender", "gender", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("name", "name", humanname.HumanName, False, None, False),
+            ("photo", "photo", attachment.Attachment, True, None, False),
+            ("practitionerRole", "practitionerRole", PractitionerPractitionerRole, True, None, False),
+            ("qualification", "qualification", PractitionerQualification, True, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -130,12 +130,12 @@ class PractitionerPractitionerRole(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PractitionerPractitionerRole, self).elementProperties()
         js.extend([
-            ("healthcareService", "healthcareService", fhirreference.FHIRReference, True),
-            ("location", "location", fhirreference.FHIRReference, True),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
-            ("period", "period", period.Period, False),
-            ("role", "role", codeableconcept.CodeableConcept, False),
-            ("specialty", "specialty", codeableconcept.CodeableConcept, True),
+            ("healthcareService", "healthcareService", fhirreference.FHIRReference, True, None, False),
+            ("location", "location", fhirreference.FHIRReference, True, None, False),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -171,10 +171,10 @@ class PractitionerQualification(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PractitionerQualification, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("issuer", "issuer", fhirreference.FHIRReference, False),
-            ("period", "period", period.Period, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("issuer", "issuer", fhirreference.FHIRReference, False, None, False),
+            ("period", "period", period.Period, False, None, False),
         ])
         return js
 

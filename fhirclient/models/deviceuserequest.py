@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DeviceUseRequest) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DeviceUseRequest) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -91,22 +91,22 @@ class DeviceUseRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DeviceUseRequest, self).elementProperties()
         js.extend([
-            ("bodySiteCodeableConcept", "bodySiteCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("bodySiteReference", "bodySiteReference", fhirreference.FHIRReference, False),
-            ("device", "device", fhirreference.FHIRReference, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("indication", "indication", codeableconcept.CodeableConcept, True),
-            ("notes", "notes", str, True),
-            ("orderedOn", "orderedOn", fhirdate.FHIRDate, False),
-            ("priority", "priority", str, False),
-            ("prnReason", "prnReason", codeableconcept.CodeableConcept, True),
-            ("recordedOn", "recordedOn", fhirdate.FHIRDate, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False),
-            ("timingPeriod", "timingPeriod", period.Period, False),
-            ("timingTiming", "timingTiming", timing.Timing, False),
+            ("bodySiteCodeableConcept", "bodySiteCodeableConcept", codeableconcept.CodeableConcept, False, "bodySite", False),
+            ("bodySiteReference", "bodySiteReference", fhirreference.FHIRReference, False, "bodySite", False),
+            ("device", "device", fhirreference.FHIRReference, False, None, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("indication", "indication", codeableconcept.CodeableConcept, True, None, False),
+            ("notes", "notes", str, True, None, False),
+            ("orderedOn", "orderedOn", fhirdate.FHIRDate, False, None, False),
+            ("priority", "priority", str, False, None, False),
+            ("prnReason", "prnReason", codeableconcept.CodeableConcept, True, None, False),
+            ("recordedOn", "recordedOn", fhirdate.FHIRDate, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
+            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
+            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
         ])
         return js
 

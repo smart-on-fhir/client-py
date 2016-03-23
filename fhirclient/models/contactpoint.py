@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -45,11 +45,11 @@ class ContactPoint(element.Element):
     def elementProperties(self):
         js = super(ContactPoint, self).elementProperties()
         js.extend([
-            ("period", "period", period.Period, False),
-            ("rank", "rank", int, False),
-            ("system", "system", str, False),
-            ("use", "use", str, False),
-            ("value", "value", str, False),
+            ("period", "period", period.Period, False, None, False),
+            ("rank", "rank", int, False, None, False),
+            ("system", "system", str, False, None, False),
+            ("use", "use", str, False, None, False),
+            ("value", "value", str, False, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Medication) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Medication) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -45,11 +45,11 @@ class Medication(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Medication, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("isBrand", "isBrand", bool, False),
-            ("manufacturer", "manufacturer", fhirreference.FHIRReference, False),
-            ("package", "package", MedicationPackage, False),
-            ("product", "product", MedicationProduct, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("isBrand", "isBrand", bool, False, None, False),
+            ("manufacturer", "manufacturer", fhirreference.FHIRReference, False, None, False),
+            ("package", "package", MedicationPackage, False, None, False),
+            ("product", "product", MedicationProduct, False, None, False),
         ])
         return js
 
@@ -81,8 +81,8 @@ class MedicationPackage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationPackage, self).elementProperties()
         js.extend([
-            ("container", "container", codeableconcept.CodeableConcept, False),
-            ("content", "content", MedicationPackageContent, True),
+            ("container", "container", codeableconcept.CodeableConcept, False, None, False),
+            ("content", "content", MedicationPackageContent, True, None, False),
         ])
         return js
 
@@ -112,8 +112,8 @@ class MedicationPackageContent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationPackageContent, self).elementProperties()
         js.extend([
-            ("amount", "amount", quantity.Quantity, False),
-            ("item", "item", fhirreference.FHIRReference, False),
+            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("item", "item", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
@@ -147,9 +147,9 @@ class MedicationProduct(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationProduct, self).elementProperties()
         js.extend([
-            ("batch", "batch", MedicationProductBatch, True),
-            ("form", "form", codeableconcept.CodeableConcept, False),
-            ("ingredient", "ingredient", MedicationProductIngredient, True),
+            ("batch", "batch", MedicationProductBatch, True, None, False),
+            ("form", "form", codeableconcept.CodeableConcept, False, None, False),
+            ("ingredient", "ingredient", MedicationProductIngredient, True, None, False),
         ])
         return js
 
@@ -180,8 +180,8 @@ class MedicationProductBatch(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationProductBatch, self).elementProperties()
         js.extend([
-            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False),
-            ("lotNumber", "lotNumber", str, False),
+            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False, None, False),
+            ("lotNumber", "lotNumber", str, False, None, False),
         ])
         return js
 
@@ -211,8 +211,8 @@ class MedicationProductIngredient(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationProductIngredient, self).elementProperties()
         js.extend([
-            ("amount", "amount", ratio.Ratio, False),
-            ("item", "item", fhirreference.FHIRReference, False),
+            ("amount", "amount", ratio.Ratio, False, None, False),
+            ("item", "item", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

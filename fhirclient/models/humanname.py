@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/HumanName) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/HumanName) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -52,13 +52,13 @@ class HumanName(element.Element):
     def elementProperties(self):
         js = super(HumanName, self).elementProperties()
         js.extend([
-            ("family", "family", str, True),
-            ("given", "given", str, True),
-            ("period", "period", period.Period, False),
-            ("prefix", "prefix", str, True),
-            ("suffix", "suffix", str, True),
-            ("text", "text", str, False),
-            ("use", "use", str, False),
+            ("family", "family", str, True, None, False),
+            ("given", "given", str, True, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("prefix", "prefix", str, True, None, False),
+            ("suffix", "suffix", str, True, None, False),
+            ("text", "text", str, False, None, False),
+            ("use", "use", str, False, None, False),
         ])
         return js
 

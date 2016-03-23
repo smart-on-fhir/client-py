@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -94,23 +94,23 @@ class ImplementationGuide(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ImplementationGuide, self).elementProperties()
         js.extend([
-            ("binary", "binary", str, True),
-            ("contact", "contact", ImplementationGuideContact, True),
-            ("copyright", "copyright", str, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("dependency", "dependency", ImplementationGuideDependency, True),
-            ("description", "description", str, False),
-            ("experimental", "experimental", bool, False),
-            ("fhirVersion", "fhirVersion", str, False),
-            ("global_fhir", "global", ImplementationGuideGlobal, True),
-            ("name", "name", str, False),
-            ("package", "package", ImplementationGuidePackage, True),
-            ("page", "page", ImplementationGuidePage, False),
-            ("publisher", "publisher", str, False),
-            ("status", "status", str, False),
-            ("url", "url", str, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
-            ("version", "version", str, False),
+            ("binary", "binary", str, True, None, False),
+            ("contact", "contact", ImplementationGuideContact, True, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("dependency", "dependency", ImplementationGuideDependency, True, None, False),
+            ("description", "description", str, False, None, False),
+            ("experimental", "experimental", bool, False, None, False),
+            ("fhirVersion", "fhirVersion", str, False, None, False),
+            ("global_fhir", "global", ImplementationGuideGlobal, True, None, False),
+            ("name", "name", str, False, None, True),
+            ("package", "package", ImplementationGuidePackage, True, None, True),
+            ("page", "page", ImplementationGuidePage, False, None, True),
+            ("publisher", "publisher", str, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("url", "url", str, False, None, True),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -142,8 +142,8 @@ class ImplementationGuideContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideContact, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("name", "name", str, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -175,8 +175,8 @@ class ImplementationGuideDependency(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideDependency, self).elementProperties()
         js.extend([
-            ("type", "type", str, False),
-            ("uri", "uri", str, False),
+            ("type", "type", str, False, None, True),
+            ("uri", "uri", str, False, None, True),
         ])
         return js
 
@@ -207,8 +207,8 @@ class ImplementationGuideGlobal(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideGlobal, self).elementProperties()
         js.extend([
-            ("profile", "profile", fhirreference.FHIRReference, False),
-            ("type", "type", str, False),
+            ("profile", "profile", fhirreference.FHIRReference, False, None, True),
+            ("type", "type", str, False, None, True),
         ])
         return js
 
@@ -243,9 +243,9 @@ class ImplementationGuidePackage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuidePackage, self).elementProperties()
         js.extend([
-            ("description", "description", str, False),
-            ("name", "name", str, False),
-            ("resource", "resource", ImplementationGuidePackageResource, True),
+            ("description", "description", str, False, None, False),
+            ("name", "name", str, False, None, True),
+            ("resource", "resource", ImplementationGuidePackageResource, True, None, True),
         ])
         return js
 
@@ -298,13 +298,13 @@ class ImplementationGuidePackageResource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuidePackageResource, self).elementProperties()
         js.extend([
-            ("acronym", "acronym", str, False),
-            ("description", "description", str, False),
-            ("exampleFor", "exampleFor", fhirreference.FHIRReference, False),
-            ("name", "name", str, False),
-            ("purpose", "purpose", str, False),
-            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False),
-            ("sourceUri", "sourceUri", str, False),
+            ("acronym", "acronym", str, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("exampleFor", "exampleFor", fhirreference.FHIRReference, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("purpose", "purpose", str, False, None, True),
+            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", True),
+            ("sourceUri", "sourceUri", str, False, "source", True),
         ])
         return js
 
@@ -356,13 +356,13 @@ class ImplementationGuidePage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuidePage, self).elementProperties()
         js.extend([
-            ("format", "format", str, False),
-            ("kind", "kind", str, False),
-            ("name", "name", str, False),
-            ("package", "package", str, True),
-            ("page", "page", ImplementationGuidePage, True),
-            ("source", "source", str, False),
-            ("type", "type", str, True),
+            ("format", "format", str, False, None, False),
+            ("kind", "kind", str, False, None, True),
+            ("name", "name", str, False, None, True),
+            ("package", "package", str, True, None, False),
+            ("page", "page", ImplementationGuidePage, True, None, False),
+            ("source", "source", str, False, None, True),
+            ("type", "type", str, True, None, False),
         ])
         return js
 

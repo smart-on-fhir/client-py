@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Basic) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Basic) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -46,11 +46,11 @@ class Basic(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Basic, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, False),
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("created", "created", fhirdate.FHIRDate, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

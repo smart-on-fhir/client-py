@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -128,31 +128,31 @@ class Condition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Condition, self).elementProperties()
         js.extend([
-            ("abatementBoolean", "abatementBoolean", bool, False),
-            ("abatementDateTime", "abatementDateTime", fhirdate.FHIRDate, False),
-            ("abatementPeriod", "abatementPeriod", period.Period, False),
-            ("abatementQuantity", "abatementQuantity", quantity.Quantity, False),
-            ("abatementRange", "abatementRange", range.Range, False),
-            ("abatementString", "abatementString", str, False),
-            ("asserter", "asserter", fhirreference.FHIRReference, False),
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True),
-            ("category", "category", codeableconcept.CodeableConcept, False),
-            ("clinicalStatus", "clinicalStatus", str, False),
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("dateRecorded", "dateRecorded", fhirdate.FHIRDate, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("evidence", "evidence", ConditionEvidence, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("notes", "notes", str, False),
-            ("onsetDateTime", "onsetDateTime", fhirdate.FHIRDate, False),
-            ("onsetPeriod", "onsetPeriod", period.Period, False),
-            ("onsetQuantity", "onsetQuantity", quantity.Quantity, False),
-            ("onsetRange", "onsetRange", range.Range, False),
-            ("onsetString", "onsetString", str, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("severity", "severity", codeableconcept.CodeableConcept, False),
-            ("stage", "stage", ConditionStage, False),
-            ("verificationStatus", "verificationStatus", str, False),
+            ("abatementBoolean", "abatementBoolean", bool, False, "abatement", False),
+            ("abatementDateTime", "abatementDateTime", fhirdate.FHIRDate, False, "abatement", False),
+            ("abatementPeriod", "abatementPeriod", period.Period, False, "abatement", False),
+            ("abatementQuantity", "abatementQuantity", quantity.Quantity, False, "abatement", False),
+            ("abatementRange", "abatementRange", range.Range, False, "abatement", False),
+            ("abatementString", "abatementString", str, False, "abatement", False),
+            ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("clinicalStatus", "clinicalStatus", str, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("dateRecorded", "dateRecorded", fhirdate.FHIRDate, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("evidence", "evidence", ConditionEvidence, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("notes", "notes", str, False, None, False),
+            ("onsetDateTime", "onsetDateTime", fhirdate.FHIRDate, False, "onset", False),
+            ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
+            ("onsetQuantity", "onsetQuantity", quantity.Quantity, False, "onset", False),
+            ("onsetRange", "onsetRange", range.Range, False, "onset", False),
+            ("onsetString", "onsetString", str, False, "onset", False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("severity", "severity", codeableconcept.CodeableConcept, False, None, False),
+            ("stage", "stage", ConditionStage, False, None, False),
+            ("verificationStatus", "verificationStatus", str, False, None, True),
         ])
         return js
 
@@ -185,8 +185,8 @@ class ConditionEvidence(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConditionEvidence, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("detail", "detail", fhirreference.FHIRReference, True),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("detail", "detail", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 
@@ -217,8 +217,8 @@ class ConditionStage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConditionStage, self).elementProperties()
         js.extend([
-            ("assessment", "assessment", fhirreference.FHIRReference, True),
-            ("summary", "summary", codeableconcept.CodeableConcept, False),
+            ("assessment", "assessment", fhirreference.FHIRReference, True, None, False),
+            ("summary", "summary", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

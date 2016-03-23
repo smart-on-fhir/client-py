@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -62,15 +62,15 @@ class QuestionnaireResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(QuestionnaireResponse, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, False),
-            ("authored", "authored", fhirdate.FHIRDate, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("group", "group", QuestionnaireResponseGroup, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("questionnaire", "questionnaire", fhirreference.FHIRReference, False),
-            ("source", "source", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("authored", "authored", fhirdate.FHIRDate, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("group", "group", QuestionnaireResponseGroup, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("questionnaire", "questionnaire", fhirreference.FHIRReference, False, None, False),
+            ("source", "source", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -119,12 +119,12 @@ class QuestionnaireResponseGroup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(QuestionnaireResponseGroup, self).elementProperties()
         js.extend([
-            ("group", "group", QuestionnaireResponseGroup, True),
-            ("linkId", "linkId", str, False),
-            ("question", "question", QuestionnaireResponseGroupQuestion, True),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("text", "text", str, False),
-            ("title", "title", str, False),
+            ("group", "group", QuestionnaireResponseGroup, True, None, False),
+            ("linkId", "linkId", str, False, None, False),
+            ("question", "question", QuestionnaireResponseGroupQuestion, True, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("text", "text", str, False, None, False),
+            ("title", "title", str, False, None, False),
         ])
         return js
 
@@ -159,9 +159,9 @@ class QuestionnaireResponseGroupQuestion(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(QuestionnaireResponseGroupQuestion, self).elementProperties()
         js.extend([
-            ("answer", "answer", QuestionnaireResponseGroupQuestionAnswer, True),
-            ("linkId", "linkId", str, False),
-            ("text", "text", str, False),
+            ("answer", "answer", QuestionnaireResponseGroupQuestionAnswer, True, None, False),
+            ("linkId", "linkId", str, False, None, False),
+            ("text", "text", str, False, None, False),
         ])
         return js
 
@@ -239,20 +239,20 @@ class QuestionnaireResponseGroupQuestionAnswer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(QuestionnaireResponseGroupQuestionAnswer, self).elementProperties()
         js.extend([
-            ("group", "group", QuestionnaireResponseGroup, True),
-            ("valueAttachment", "valueAttachment", attachment.Attachment, False),
-            ("valueBoolean", "valueBoolean", bool, False),
-            ("valueCoding", "valueCoding", coding.Coding, False),
-            ("valueDate", "valueDate", fhirdate.FHIRDate, False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False),
-            ("valueDecimal", "valueDecimal", float, False),
-            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False),
-            ("valueInteger", "valueInteger", int, False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
-            ("valueReference", "valueReference", fhirreference.FHIRReference, False),
-            ("valueString", "valueString", str, False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False),
-            ("valueUri", "valueUri", str, False),
+            ("group", "group", QuestionnaireResponseGroup, True, None, False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
+            ("valueBoolean", "valueBoolean", bool, False, "value", False),
+            ("valueCoding", "valueCoding", coding.Coding, False, "value", False),
+            ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDecimal", "valueDecimal", float, False, "value", False),
+            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", False),
+            ("valueInteger", "valueInteger", int, False, "value", False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
+            ("valueString", "valueString", str, False, "value", False),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueUri", "valueUri", str, False, "value", False),
         ])
         return js
 

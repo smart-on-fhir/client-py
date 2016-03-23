@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Device) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Device) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -95,22 +95,22 @@ class Device(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Device, self).elementProperties()
         js.extend([
-            ("contact", "contact", contactpoint.ContactPoint, True),
-            ("expiry", "expiry", fhirdate.FHIRDate, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("location", "location", fhirreference.FHIRReference, False),
-            ("lotNumber", "lotNumber", str, False),
-            ("manufactureDate", "manufactureDate", fhirdate.FHIRDate, False),
-            ("manufacturer", "manufacturer", str, False),
-            ("model", "model", str, False),
-            ("note", "note", annotation.Annotation, True),
-            ("owner", "owner", fhirreference.FHIRReference, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
-            ("udi", "udi", str, False),
-            ("url", "url", str, False),
-            ("version", "version", str, False),
+            ("contact", "contact", contactpoint.ContactPoint, True, None, False),
+            ("expiry", "expiry", fhirdate.FHIRDate, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("location", "location", fhirreference.FHIRReference, False, None, False),
+            ("lotNumber", "lotNumber", str, False, None, False),
+            ("manufactureDate", "manufactureDate", fhirdate.FHIRDate, False, None, False),
+            ("manufacturer", "manufacturer", str, False, None, False),
+            ("model", "model", str, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
+            ("owner", "owner", fhirreference.FHIRReference, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("udi", "udi", str, False, None, False),
+            ("url", "url", str, False, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -78,19 +78,19 @@ class NamingSystem(domainresource.DomainResource):
     def elementProperties(self):
         js = super(NamingSystem, self).elementProperties()
         js.extend([
-            ("contact", "contact", NamingSystemContact, True),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("kind", "kind", str, False),
-            ("name", "name", str, False),
-            ("publisher", "publisher", str, False),
-            ("replacedBy", "replacedBy", fhirreference.FHIRReference, False),
-            ("responsible", "responsible", str, False),
-            ("status", "status", str, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
-            ("uniqueId", "uniqueId", NamingSystemUniqueId, True),
-            ("usage", "usage", str, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True),
+            ("contact", "contact", NamingSystemContact, True, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("description", "description", str, False, None, False),
+            ("kind", "kind", str, False, None, True),
+            ("name", "name", str, False, None, True),
+            ("publisher", "publisher", str, False, None, False),
+            ("replacedBy", "replacedBy", fhirreference.FHIRReference, False, None, False),
+            ("responsible", "responsible", str, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("uniqueId", "uniqueId", NamingSystemUniqueId, True, None, True),
+            ("usage", "usage", str, False, None, False),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -122,8 +122,8 @@ class NamingSystemContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NamingSystemContact, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("name", "name", str, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -162,10 +162,10 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NamingSystemUniqueId, self).elementProperties()
         js.extend([
-            ("period", "period", period.Period, False),
-            ("preferred", "preferred", bool, False),
-            ("type", "type", str, False),
-            ("value", "value", str, False),
+            ("period", "period", period.Period, False, None, False),
+            ("preferred", "preferred", bool, False, None, False),
+            ("type", "type", str, False, None, True),
+            ("value", "value", str, False, None, True),
         ])
         return js
 

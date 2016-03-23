@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Substance) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Substance) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -46,12 +46,12 @@ class Substance(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Substance, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, True),
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("description", "description", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("ingredient", "ingredient", SubstanceIngredient, True),
-            ("instance", "instance", SubstanceInstance, True),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("description", "description", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("ingredient", "ingredient", SubstanceIngredient, True, None, False),
+            ("instance", "instance", SubstanceInstance, True, None, False),
         ])
         return js
 
@@ -83,8 +83,8 @@ class SubstanceIngredient(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceIngredient, self).elementProperties()
         js.extend([
-            ("quantity", "quantity", ratio.Ratio, False),
-            ("substance", "substance", fhirreference.FHIRReference, False),
+            ("quantity", "quantity", ratio.Ratio, False, None, False),
+            ("substance", "substance", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
@@ -119,9 +119,9 @@ class SubstanceInstance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceInstance, self).elementProperties()
         js.extend([
-            ("expiry", "expiry", fhirdate.FHIRDate, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("quantity", "quantity", quantity.Quantity, False),
+            ("expiry", "expiry", fhirdate.FHIRDate, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
         ])
         return js
 

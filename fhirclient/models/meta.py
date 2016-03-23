@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Meta) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Meta) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -46,11 +46,11 @@ class Meta(element.Element):
     def elementProperties(self):
         js = super(Meta, self).elementProperties()
         js.extend([
-            ("lastUpdated", "lastUpdated", fhirdate.FHIRDate, False),
-            ("profile", "profile", str, True),
-            ("security", "security", coding.Coding, True),
-            ("tag", "tag", coding.Coding, True),
-            ("versionId", "versionId", str, False),
+            ("lastUpdated", "lastUpdated", fhirdate.FHIRDate, False, None, False),
+            ("profile", "profile", str, True, None, False),
+            ("security", "security", coding.Coding, True, None, False),
+            ("tag", "tag", coding.Coding, True, None, False),
+            ("versionId", "versionId", str, False, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -65,16 +65,16 @@ class RiskAssessment(domainresource.DomainResource):
     def elementProperties(self):
         js = super(RiskAssessment, self).elementProperties()
         js.extend([
-            ("basis", "basis", fhirreference.FHIRReference, True),
-            ("condition", "condition", fhirreference.FHIRReference, False),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("method", "method", codeableconcept.CodeableConcept, False),
-            ("mitigation", "mitigation", str, False),
-            ("performer", "performer", fhirreference.FHIRReference, False),
-            ("prediction", "prediction", RiskAssessmentPrediction, True),
-            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("basis", "basis", fhirreference.FHIRReference, True, None, False),
+            ("condition", "condition", fhirreference.FHIRReference, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
+            ("mitigation", "mitigation", str, False, None, False),
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
+            ("prediction", "prediction", RiskAssessmentPrediction, True, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -130,14 +130,14 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RiskAssessmentPrediction, self).elementProperties()
         js.extend([
-            ("outcome", "outcome", codeableconcept.CodeableConcept, False),
-            ("probabilityCodeableConcept", "probabilityCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("probabilityDecimal", "probabilityDecimal", float, False),
-            ("probabilityRange", "probabilityRange", range.Range, False),
-            ("rationale", "rationale", str, False),
-            ("relativeRisk", "relativeRisk", float, False),
-            ("whenPeriod", "whenPeriod", period.Period, False),
-            ("whenRange", "whenRange", range.Range, False),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, True),
+            ("probabilityCodeableConcept", "probabilityCodeableConcept", codeableconcept.CodeableConcept, False, "probability", False),
+            ("probabilityDecimal", "probabilityDecimal", float, False, "probability", False),
+            ("probabilityRange", "probabilityRange", range.Range, False, "probability", False),
+            ("rationale", "rationale", str, False, None, False),
+            ("relativeRisk", "relativeRisk", float, False, None, False),
+            ("whenPeriod", "whenPeriod", period.Period, False, "when", False),
+            ("whenRange", "whenRange", range.Range, False, "when", False),
         ])
         return js
 

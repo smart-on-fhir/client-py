@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -97,24 +97,24 @@ class ProcedureRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ProcedureRequest, self).elementProperties()
         js.extend([
-            ("asNeededBoolean", "asNeededBoolean", bool, False),
-            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True),
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("notes", "notes", annotation.Annotation, True),
-            ("orderedOn", "orderedOn", fhirdate.FHIRDate, False),
-            ("orderer", "orderer", fhirreference.FHIRReference, False),
-            ("performer", "performer", fhirreference.FHIRReference, False),
-            ("priority", "priority", str, False),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
-            ("scheduledDateTime", "scheduledDateTime", fhirdate.FHIRDate, False),
-            ("scheduledPeriod", "scheduledPeriod", period.Period, False),
-            ("scheduledTiming", "scheduledTiming", timing.Timing, False),
-            ("status", "status", str, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
+            ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False),
+            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("notes", "notes", annotation.Annotation, True, None, False),
+            ("orderedOn", "orderedOn", fhirdate.FHIRDate, False, None, False),
+            ("orderer", "orderer", fhirreference.FHIRReference, False, None, False),
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
+            ("priority", "priority", str, False, None, False),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
+            ("scheduledDateTime", "scheduledDateTime", fhirdate.FHIRDate, False, "scheduled", False),
+            ("scheduledPeriod", "scheduledPeriod", period.Period, False, "scheduled", False),
+            ("scheduledTiming", "scheduledTiming", timing.Timing, False, "scheduled", False),
+            ("status", "status", str, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

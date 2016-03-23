@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Period) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Period) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -32,8 +32,8 @@ class Period(element.Element):
     def elementProperties(self):
         js = super(Period, self).elementProperties()
         js.extend([
-            ("end", "end", fhirdate.FHIRDate, False),
-            ("start", "start", fhirdate.FHIRDate, False),
+            ("end", "end", fhirdate.FHIRDate, False, None, False),
+            ("start", "start", fhirdate.FHIRDate, False, None, False),
         ])
         return js
 

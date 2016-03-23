@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/OrderResponse) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/OrderResponse) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -52,13 +52,13 @@ class OrderResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(OrderResponse, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("fulfillment", "fulfillment", fhirreference.FHIRReference, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("orderStatus", "orderStatus", str, False),
-            ("request", "request", fhirreference.FHIRReference, False),
-            ("who", "who", fhirreference.FHIRReference, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("fulfillment", "fulfillment", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("orderStatus", "orderStatus", str, False, None, True),
+            ("request", "request", fhirreference.FHIRReference, False, None, True),
+            ("who", "who", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

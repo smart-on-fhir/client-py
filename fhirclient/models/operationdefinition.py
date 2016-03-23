@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -101,25 +101,25 @@ class OperationDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(OperationDefinition, self).elementProperties()
         js.extend([
-            ("base", "base", fhirreference.FHIRReference, False),
-            ("code", "code", str, False),
-            ("contact", "contact", OperationDefinitionContact, True),
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("description", "description", str, False),
-            ("experimental", "experimental", bool, False),
-            ("idempotent", "idempotent", bool, False),
-            ("instance", "instance", bool, False),
-            ("kind", "kind", str, False),
-            ("name", "name", str, False),
-            ("notes", "notes", str, False),
-            ("parameter", "parameter", OperationDefinitionParameter, True),
-            ("publisher", "publisher", str, False),
-            ("requirements", "requirements", str, False),
-            ("status", "status", str, False),
-            ("system", "system", bool, False),
-            ("type", "type", str, True),
-            ("url", "url", str, False),
-            ("version", "version", str, False),
+            ("base", "base", fhirreference.FHIRReference, False, None, False),
+            ("code", "code", str, False, None, True),
+            ("contact", "contact", OperationDefinitionContact, True, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("experimental", "experimental", bool, False, None, False),
+            ("idempotent", "idempotent", bool, False, None, False),
+            ("instance", "instance", bool, False, None, True),
+            ("kind", "kind", str, False, None, True),
+            ("name", "name", str, False, None, True),
+            ("notes", "notes", str, False, None, False),
+            ("parameter", "parameter", OperationDefinitionParameter, True, None, False),
+            ("publisher", "publisher", str, False, None, False),
+            ("requirements", "requirements", str, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("system", "system", bool, False, None, True),
+            ("type", "type", str, True, None, False),
+            ("url", "url", str, False, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -151,8 +151,8 @@ class OperationDefinitionContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(OperationDefinitionContact, self).elementProperties()
         js.extend([
-            ("name", "name", str, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("name", "name", str, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -210,15 +210,15 @@ class OperationDefinitionParameter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(OperationDefinitionParameter, self).elementProperties()
         js.extend([
-            ("binding", "binding", OperationDefinitionParameterBinding, False),
-            ("documentation", "documentation", str, False),
-            ("max", "max", str, False),
-            ("min", "min", int, False),
-            ("name", "name", str, False),
-            ("part", "part", OperationDefinitionParameter, True),
-            ("profile", "profile", fhirreference.FHIRReference, False),
-            ("type", "type", str, False),
-            ("use", "use", str, False),
+            ("binding", "binding", OperationDefinitionParameterBinding, False, None, False),
+            ("documentation", "documentation", str, False, None, False),
+            ("max", "max", str, False, None, True),
+            ("min", "min", int, False, None, True),
+            ("name", "name", str, False, None, True),
+            ("part", "part", OperationDefinitionParameter, True, None, False),
+            ("profile", "profile", fhirreference.FHIRReference, False, None, False),
+            ("type", "type", str, False, None, False),
+            ("use", "use", str, False, None, True),
         ])
         return js
 
@@ -253,9 +253,9 @@ class OperationDefinitionParameterBinding(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(OperationDefinitionParameterBinding, self).elementProperties()
         js.extend([
-            ("strength", "strength", str, False),
-            ("valueSetReference", "valueSetReference", fhirreference.FHIRReference, False),
-            ("valueSetUri", "valueSetUri", str, False),
+            ("strength", "strength", str, False, None, True),
+            ("valueSetReference", "valueSetReference", fhirreference.FHIRReference, False, "valueSet", True),
+            ("valueSetUri", "valueSetUri", str, False, "valueSet", True),
         ])
         return js
 

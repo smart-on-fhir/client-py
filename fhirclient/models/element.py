@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Element) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Element) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -31,11 +31,11 @@ class Element(fhirabstractbase.FHIRAbstractBase):
     
     def elementProperties(self):
         js = super(Element, self).elementProperties()
+        from . import extension
         js.extend([
-            ("extension", "extension", extension.Extension, True),
-            ("id", "id", str, False),
+            ("extension", "extension", extension.Extension, True, None, False),
+            ("id", "id", str, False, None, False),
         ])
         return js
 
 
-from . import extension

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Media) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Media) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -71,18 +71,18 @@ class Media(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Media, self).elementProperties()
         js.extend([
-            ("content", "content", attachment.Attachment, False),
-            ("deviceName", "deviceName", str, False),
-            ("duration", "duration", int, False),
-            ("frames", "frames", int, False),
-            ("height", "height", int, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("operator", "operator", fhirreference.FHIRReference, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("subtype", "subtype", codeableconcept.CodeableConcept, False),
-            ("type", "type", str, False),
-            ("view", "view", codeableconcept.CodeableConcept, False),
-            ("width", "width", int, False),
+            ("content", "content", attachment.Attachment, False, None, True),
+            ("deviceName", "deviceName", str, False, None, False),
+            ("duration", "duration", int, False, None, False),
+            ("frames", "frames", int, False, None, False),
+            ("height", "height", int, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("operator", "operator", fhirreference.FHIRReference, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("subtype", "subtype", codeableconcept.CodeableConcept, False, None, False),
+            ("type", "type", str, False, None, True),
+            ("view", "view", codeableconcept.CodeableConcept, False, None, False),
+            ("width", "width", int, False, None, False),
         ])
         return js
 

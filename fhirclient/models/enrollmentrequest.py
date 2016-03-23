@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -65,16 +65,16 @@ class EnrollmentRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(EnrollmentRequest, self).elementProperties()
         js.extend([
-            ("coverage", "coverage", fhirreference.FHIRReference, False),
-            ("created", "created", fhirdate.FHIRDate, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("organization", "organization", fhirreference.FHIRReference, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False),
-            ("provider", "provider", fhirreference.FHIRReference, False),
-            ("relationship", "relationship", coding.Coding, False),
-            ("ruleset", "ruleset", coding.Coding, False),
-            ("subject", "subject", fhirreference.FHIRReference, False),
-            ("target", "target", fhirreference.FHIRReference, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("relationship", "relationship", coding.Coding, False, None, True),
+            ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("target", "target", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

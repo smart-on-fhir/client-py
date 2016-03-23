@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -52,11 +52,11 @@ class Schedule(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Schedule, self).elementProperties()
         js.extend([
-            ("actor", "actor", fhirreference.FHIRReference, False),
-            ("comment", "comment", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("planningHorizon", "planningHorizon", period.Period, False),
-            ("type", "type", codeableconcept.CodeableConcept, True),
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("comment", "comment", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("planningHorizon", "planningHorizon", period.Period, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 

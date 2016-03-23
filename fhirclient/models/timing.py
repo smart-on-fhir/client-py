@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Timing) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Timing) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -39,9 +39,9 @@ class Timing(element.Element):
     def elementProperties(self):
         js = super(Timing, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("event", "event", fhirdate.FHIRDate, True),
-            ("repeat", "repeat", TimingRepeat, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("event", "event", fhirdate.FHIRDate, True, None, False),
+            ("repeat", "repeat", TimingRepeat, False, None, False),
         ])
         return js
 
@@ -115,19 +115,19 @@ class TimingRepeat(element.Element):
     def elementProperties(self):
         js = super(TimingRepeat, self).elementProperties()
         js.extend([
-            ("boundsPeriod", "boundsPeriod", period.Period, False),
-            ("boundsQuantity", "boundsQuantity", quantity.Quantity, False),
-            ("boundsRange", "boundsRange", range.Range, False),
-            ("count", "count", int, False),
-            ("duration", "duration", float, False),
-            ("durationMax", "durationMax", float, False),
-            ("durationUnits", "durationUnits", str, False),
-            ("frequency", "frequency", int, False),
-            ("frequencyMax", "frequencyMax", int, False),
-            ("period", "period", float, False),
-            ("periodMax", "periodMax", float, False),
-            ("periodUnits", "periodUnits", str, False),
-            ("when", "when", str, False),
+            ("boundsPeriod", "boundsPeriod", period.Period, False, "bounds", False),
+            ("boundsQuantity", "boundsQuantity", quantity.Quantity, False, "bounds", False),
+            ("boundsRange", "boundsRange", range.Range, False, "bounds", False),
+            ("count", "count", int, False, None, False),
+            ("duration", "duration", float, False, None, False),
+            ("durationMax", "durationMax", float, False, None, False),
+            ("durationUnits", "durationUnits", str, False, None, False),
+            ("frequency", "frequency", int, False, None, False),
+            ("frequencyMax", "frequencyMax", int, False, None, False),
+            ("period", "period", float, False, None, False),
+            ("periodMax", "periodMax", float, False, None, False),
+            ("periodUnits", "periodUnits", str, False, None, False),
+            ("when", "when", str, False, None, False),
         ])
         return js
 

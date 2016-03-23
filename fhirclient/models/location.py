@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Location) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Location) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -74,18 +74,18 @@ class Location(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Location, self).elementProperties()
         js.extend([
-            ("address", "address", address.Address, False),
-            ("description", "description", str, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False),
-            ("mode", "mode", str, False),
-            ("name", "name", str, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, False),
-            ("physicalType", "physicalType", codeableconcept.CodeableConcept, False),
-            ("position", "position", LocationPosition, False),
-            ("status", "status", str, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("address", "address", address.Address, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
+            ("mode", "mode", str, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
+            ("physicalType", "physicalType", codeableconcept.CodeableConcept, False, None, False),
+            ("position", "position", LocationPosition, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -122,9 +122,9 @@ class LocationPosition(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(LocationPosition, self).elementProperties()
         js.extend([
-            ("altitude", "altitude", float, False),
-            ("latitude", "latitude", float, False),
-            ("longitude", "longitude", float, False),
+            ("altitude", "altitude", float, False, None, False),
+            ("latitude", "latitude", float, False, None, True),
+            ("longitude", "longitude", float, False, None, True),
         ])
         return js
 

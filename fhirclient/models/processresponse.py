@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -77,19 +77,19 @@ class ProcessResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ProcessResponse, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdate.FHIRDate, False),
-            ("disposition", "disposition", str, False),
-            ("error", "error", coding.Coding, True),
-            ("form", "form", coding.Coding, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("notes", "notes", ProcessResponseNotes, True),
-            ("organization", "organization", fhirreference.FHIRReference, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False),
-            ("outcome", "outcome", coding.Coding, False),
-            ("request", "request", fhirreference.FHIRReference, False),
-            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False),
-            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False),
-            ("ruleset", "ruleset", coding.Coding, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("disposition", "disposition", str, False, None, False),
+            ("error", "error", coding.Coding, True, None, False),
+            ("form", "form", coding.Coding, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("notes", "notes", ProcessResponseNotes, True, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
+            ("outcome", "outcome", coding.Coding, False, None, False),
+            ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
+            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
+            ("ruleset", "ruleset", coding.Coding, False, None, False),
         ])
         return js
 
@@ -122,8 +122,8 @@ class ProcessResponseNotes(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProcessResponseNotes, self).elementProperties()
         js.extend([
-            ("text", "text", str, False),
-            ("type", "type", coding.Coding, False),
+            ("text", "text", str, False, None, False),
+            ("type", "type", coding.Coding, False, None, False),
         ])
         return js
 

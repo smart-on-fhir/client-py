@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Claim) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Claim) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -142,35 +142,35 @@ class Claim(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Claim, self).elementProperties()
         js.extend([
-            ("accident", "accident", fhirdate.FHIRDate, False),
-            ("accidentType", "accidentType", coding.Coding, False),
-            ("additionalMaterials", "additionalMaterials", coding.Coding, True),
-            ("condition", "condition", coding.Coding, True),
-            ("coverage", "coverage", ClaimCoverage, True),
-            ("created", "created", fhirdate.FHIRDate, False),
-            ("diagnosis", "diagnosis", ClaimDiagnosis, True),
-            ("enterer", "enterer", fhirreference.FHIRReference, False),
-            ("exception", "exception", coding.Coding, True),
-            ("facility", "facility", fhirreference.FHIRReference, False),
-            ("fundsReserve", "fundsReserve", coding.Coding, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("interventionException", "interventionException", coding.Coding, True),
-            ("item", "item", ClaimItem, True),
-            ("missingTeeth", "missingTeeth", ClaimMissingTeeth, True),
-            ("organization", "organization", fhirreference.FHIRReference, False),
-            ("originalPrescription", "originalPrescription", fhirreference.FHIRReference, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("payee", "payee", ClaimPayee, False),
-            ("prescription", "prescription", fhirreference.FHIRReference, False),
-            ("priority", "priority", coding.Coding, False),
-            ("provider", "provider", fhirreference.FHIRReference, False),
-            ("referral", "referral", fhirreference.FHIRReference, False),
-            ("ruleset", "ruleset", coding.Coding, False),
-            ("school", "school", str, False),
-            ("target", "target", fhirreference.FHIRReference, False),
-            ("type", "type", str, False),
-            ("use", "use", str, False),
+            ("accident", "accident", fhirdate.FHIRDate, False, None, False),
+            ("accidentType", "accidentType", coding.Coding, False, None, False),
+            ("additionalMaterials", "additionalMaterials", coding.Coding, True, None, False),
+            ("condition", "condition", coding.Coding, True, None, False),
+            ("coverage", "coverage", ClaimCoverage, True, None, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("diagnosis", "diagnosis", ClaimDiagnosis, True, None, False),
+            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
+            ("exception", "exception", coding.Coding, True, None, False),
+            ("facility", "facility", fhirreference.FHIRReference, False, None, False),
+            ("fundsReserve", "fundsReserve", coding.Coding, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("interventionException", "interventionException", coding.Coding, True, None, False),
+            ("item", "item", ClaimItem, True, None, False),
+            ("missingTeeth", "missingTeeth", ClaimMissingTeeth, True, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("originalPrescription", "originalPrescription", fhirreference.FHIRReference, False, None, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("payee", "payee", ClaimPayee, False, None, False),
+            ("prescription", "prescription", fhirreference.FHIRReference, False, None, False),
+            ("priority", "priority", coding.Coding, False, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("referral", "referral", fhirreference.FHIRReference, False, None, False),
+            ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("school", "school", str, False, None, False),
+            ("target", "target", fhirreference.FHIRReference, False, None, False),
+            ("type", "type", str, False, None, True),
+            ("use", "use", str, False, None, False),
         ])
         return js
 
@@ -226,14 +226,14 @@ class ClaimCoverage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimCoverage, self).elementProperties()
         js.extend([
-            ("businessArrangement", "businessArrangement", str, False),
-            ("claimResponse", "claimResponse", fhirreference.FHIRReference, False),
-            ("coverage", "coverage", fhirreference.FHIRReference, False),
-            ("focal", "focal", bool, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False),
-            ("preAuthRef", "preAuthRef", str, True),
-            ("relationship", "relationship", coding.Coding, False),
-            ("sequence", "sequence", int, False),
+            ("businessArrangement", "businessArrangement", str, False, None, False),
+            ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
+            ("focal", "focal", bool, False, None, True),
+            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
+            ("preAuthRef", "preAuthRef", str, True, None, False),
+            ("relationship", "relationship", coding.Coding, False, None, True),
+            ("sequence", "sequence", int, False, None, True),
         ])
         return js
 
@@ -263,8 +263,8 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimDiagnosis, self).elementProperties()
         js.extend([
-            ("diagnosis", "diagnosis", coding.Coding, False),
-            ("sequence", "sequence", int, False),
+            ("diagnosis", "diagnosis", coding.Coding, False, None, True),
+            ("sequence", "sequence", int, False, None, True),
         ])
         return js
 
@@ -354,23 +354,23 @@ class ClaimItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimItem, self).elementProperties()
         js.extend([
-            ("bodySite", "bodySite", coding.Coding, False),
-            ("detail", "detail", ClaimItemDetail, True),
-            ("diagnosisLinkId", "diagnosisLinkId", int, True),
-            ("factor", "factor", float, False),
-            ("modifier", "modifier", coding.Coding, True),
-            ("net", "net", quantity.Quantity, False),
-            ("points", "points", float, False),
-            ("prosthesis", "prosthesis", ClaimItemProsthesis, False),
-            ("provider", "provider", fhirreference.FHIRReference, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("sequence", "sequence", int, False),
-            ("service", "service", coding.Coding, False),
-            ("serviceDate", "serviceDate", fhirdate.FHIRDate, False),
-            ("subSite", "subSite", coding.Coding, True),
-            ("type", "type", coding.Coding, False),
-            ("udi", "udi", coding.Coding, False),
-            ("unitPrice", "unitPrice", quantity.Quantity, False),
+            ("bodySite", "bodySite", coding.Coding, False, None, False),
+            ("detail", "detail", ClaimItemDetail, True, None, False),
+            ("diagnosisLinkId", "diagnosisLinkId", int, True, None, False),
+            ("factor", "factor", float, False, None, False),
+            ("modifier", "modifier", coding.Coding, True, None, False),
+            ("net", "net", quantity.Quantity, False, None, False),
+            ("points", "points", float, False, None, False),
+            ("prosthesis", "prosthesis", ClaimItemProsthesis, False, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("sequence", "sequence", int, False, None, True),
+            ("service", "service", coding.Coding, False, None, True),
+            ("serviceDate", "serviceDate", fhirdate.FHIRDate, False, None, False),
+            ("subSite", "subSite", coding.Coding, True, None, False),
+            ("type", "type", coding.Coding, False, None, True),
+            ("udi", "udi", coding.Coding, False, None, False),
+            ("unitPrice", "unitPrice", quantity.Quantity, False, None, False),
         ])
         return js
 
@@ -432,16 +432,16 @@ class ClaimItemDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimItemDetail, self).elementProperties()
         js.extend([
-            ("factor", "factor", float, False),
-            ("net", "net", quantity.Quantity, False),
-            ("points", "points", float, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("sequence", "sequence", int, False),
-            ("service", "service", coding.Coding, False),
-            ("subDetail", "subDetail", ClaimItemDetailSubDetail, True),
-            ("type", "type", coding.Coding, False),
-            ("udi", "udi", coding.Coding, False),
-            ("unitPrice", "unitPrice", quantity.Quantity, False),
+            ("factor", "factor", float, False, None, False),
+            ("net", "net", quantity.Quantity, False, None, False),
+            ("points", "points", float, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("sequence", "sequence", int, False, None, True),
+            ("service", "service", coding.Coding, False, None, True),
+            ("subDetail", "subDetail", ClaimItemDetailSubDetail, True, None, False),
+            ("type", "type", coding.Coding, False, None, True),
+            ("udi", "udi", coding.Coding, False, None, False),
+            ("unitPrice", "unitPrice", quantity.Quantity, False, None, False),
         ])
         return js
 
@@ -499,15 +499,15 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimItemDetailSubDetail, self).elementProperties()
         js.extend([
-            ("factor", "factor", float, False),
-            ("net", "net", quantity.Quantity, False),
-            ("points", "points", float, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("sequence", "sequence", int, False),
-            ("service", "service", coding.Coding, False),
-            ("type", "type", coding.Coding, False),
-            ("udi", "udi", coding.Coding, False),
-            ("unitPrice", "unitPrice", quantity.Quantity, False),
+            ("factor", "factor", float, False, None, False),
+            ("net", "net", quantity.Quantity, False, None, False),
+            ("points", "points", float, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("sequence", "sequence", int, False, None, True),
+            ("service", "service", coding.Coding, False, None, True),
+            ("type", "type", coding.Coding, False, None, True),
+            ("udi", "udi", coding.Coding, False, None, False),
+            ("unitPrice", "unitPrice", quantity.Quantity, False, None, False),
         ])
         return js
 
@@ -541,9 +541,9 @@ class ClaimItemProsthesis(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimItemProsthesis, self).elementProperties()
         js.extend([
-            ("initial", "initial", bool, False),
-            ("priorDate", "priorDate", fhirdate.FHIRDate, False),
-            ("priorMaterial", "priorMaterial", coding.Coding, False),
+            ("initial", "initial", bool, False, None, False),
+            ("priorDate", "priorDate", fhirdate.FHIRDate, False, None, False),
+            ("priorMaterial", "priorMaterial", coding.Coding, False, None, False),
         ])
         return js
 
@@ -578,9 +578,9 @@ class ClaimMissingTeeth(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimMissingTeeth, self).elementProperties()
         js.extend([
-            ("extractionDate", "extractionDate", fhirdate.FHIRDate, False),
-            ("reason", "reason", coding.Coding, False),
-            ("tooth", "tooth", coding.Coding, False),
+            ("extractionDate", "extractionDate", fhirdate.FHIRDate, False, None, False),
+            ("reason", "reason", coding.Coding, False, None, False),
+            ("tooth", "tooth", coding.Coding, False, None, True),
         ])
         return js
 
@@ -618,10 +618,10 @@ class ClaimPayee(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimPayee, self).elementProperties()
         js.extend([
-            ("organization", "organization", fhirreference.FHIRReference, False),
-            ("person", "person", fhirreference.FHIRReference, False),
-            ("provider", "provider", fhirreference.FHIRReference, False),
-            ("type", "type", coding.Coding, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("person", "person", fhirreference.FHIRReference, False, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("type", "type", coding.Coding, False, None, False),
         ])
         return js
 

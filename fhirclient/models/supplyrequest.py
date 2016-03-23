@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/SupplyRequest) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/SupplyRequest) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -69,17 +69,17 @@ class SupplyRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SupplyRequest, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("kind", "kind", codeableconcept.CodeableConcept, False),
-            ("orderedItem", "orderedItem", fhirreference.FHIRReference, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False),
-            ("source", "source", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("supplier", "supplier", fhirreference.FHIRReference, True),
-            ("when", "when", SupplyRequestWhen, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("kind", "kind", codeableconcept.CodeableConcept, False, None, False),
+            ("orderedItem", "orderedItem", fhirreference.FHIRReference, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
+            ("source", "source", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("supplier", "supplier", fhirreference.FHIRReference, True, None, False),
+            ("when", "when", SupplyRequestWhen, False, None, False),
         ])
         return js
 
@@ -109,8 +109,8 @@ class SupplyRequestWhen(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SupplyRequestWhen, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("schedule", "schedule", timing.Timing, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("schedule", "schedule", timing.Timing, False, None, False),
         ])
         return js
 

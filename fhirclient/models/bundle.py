@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -45,11 +45,11 @@ class Bundle(resource.Resource):
     def elementProperties(self):
         js = super(Bundle, self).elementProperties()
         js.extend([
-            ("entry", "entry", BundleEntry, True),
-            ("link", "link", BundleLink, True),
-            ("signature", "signature", signature.Signature, False),
-            ("total", "total", int, False),
-            ("type", "type", str, False),
+            ("entry", "entry", BundleEntry, True, None, False),
+            ("link", "link", BundleLink, True, None, False),
+            ("signature", "signature", signature.Signature, False, None, False),
+            ("total", "total", int, False, None, False),
+            ("type", "type", str, False, None, True),
         ])
         return js
 
@@ -98,12 +98,12 @@ class BundleEntry(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleEntry, self).elementProperties()
         js.extend([
-            ("fullUrl", "fullUrl", str, False),
-            ("link", "link", BundleLink, True),
-            ("request", "request", BundleEntryRequest, False),
-            ("resource", "resource", resource.Resource, False),
-            ("response", "response", BundleEntryResponse, False),
-            ("search", "search", BundleEntrySearch, False),
+            ("fullUrl", "fullUrl", str, False, None, False),
+            ("link", "link", BundleLink, True, None, False),
+            ("request", "request", BundleEntryRequest, False, None, False),
+            ("resource", "resource", resource.Resource, False, None, False),
+            ("response", "response", BundleEntryResponse, False, None, False),
+            ("search", "search", BundleEntrySearch, False, None, False),
         ])
         return js
 
@@ -150,12 +150,12 @@ class BundleEntryRequest(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleEntryRequest, self).elementProperties()
         js.extend([
-            ("ifMatch", "ifMatch", str, False),
-            ("ifModifiedSince", "ifModifiedSince", fhirdate.FHIRDate, False),
-            ("ifNoneExist", "ifNoneExist", str, False),
-            ("ifNoneMatch", "ifNoneMatch", str, False),
-            ("method", "method", str, False),
-            ("url", "url", str, False),
+            ("ifMatch", "ifMatch", str, False, None, False),
+            ("ifModifiedSince", "ifModifiedSince", fhirdate.FHIRDate, False, None, False),
+            ("ifNoneExist", "ifNoneExist", str, False, None, False),
+            ("ifNoneMatch", "ifNoneMatch", str, False, None, False),
+            ("method", "method", str, False, None, True),
+            ("url", "url", str, False, None, True),
         ])
         return js
 
@@ -194,10 +194,10 @@ class BundleEntryResponse(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleEntryResponse, self).elementProperties()
         js.extend([
-            ("etag", "etag", str, False),
-            ("lastModified", "lastModified", fhirdate.FHIRDate, False),
-            ("location", "location", str, False),
-            ("status", "status", str, False),
+            ("etag", "etag", str, False, None, False),
+            ("lastModified", "lastModified", fhirdate.FHIRDate, False, None, False),
+            ("location", "location", str, False, None, False),
+            ("status", "status", str, False, None, True),
         ])
         return js
 
@@ -228,8 +228,8 @@ class BundleEntrySearch(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleEntrySearch, self).elementProperties()
         js.extend([
-            ("mode", "mode", str, False),
-            ("score", "score", float, False),
+            ("mode", "mode", str, False, None, False),
+            ("score", "score", float, False, None, False),
         ])
         return js
 
@@ -259,8 +259,8 @@ class BundleLink(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleLink, self).elementProperties()
         js.extend([
-            ("relation", "relation", str, False),
-            ("url", "url", str, False),
+            ("relation", "relation", str, False, None, True),
+            ("url", "url", str, False, None, True),
         ])
         return js
 

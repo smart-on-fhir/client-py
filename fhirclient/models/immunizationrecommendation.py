@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -38,9 +38,9 @@ class ImmunizationRecommendation(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ImmunizationRecommendation, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("recommendation", "recommendation", ImmunizationRecommendationRecommendation, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("recommendation", "recommendation", ImmunizationRecommendationRecommendation, True, None, True),
         ])
         return js
 
@@ -94,14 +94,14 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImmunizationRecommendationRecommendation, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False),
-            ("dateCriterion", "dateCriterion", ImmunizationRecommendationRecommendationDateCriterion, True),
-            ("doseNumber", "doseNumber", int, False),
-            ("forecastStatus", "forecastStatus", codeableconcept.CodeableConcept, False),
-            ("protocol", "protocol", ImmunizationRecommendationRecommendationProtocol, False),
-            ("supportingImmunization", "supportingImmunization", fhirreference.FHIRReference, True),
-            ("supportingPatientInformation", "supportingPatientInformation", fhirreference.FHIRReference, True),
-            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("dateCriterion", "dateCriterion", ImmunizationRecommendationRecommendationDateCriterion, True, None, False),
+            ("doseNumber", "doseNumber", int, False, None, False),
+            ("forecastStatus", "forecastStatus", codeableconcept.CodeableConcept, False, None, True),
+            ("protocol", "protocol", ImmunizationRecommendationRecommendationProtocol, False, None, False),
+            ("supportingImmunization", "supportingImmunization", fhirreference.FHIRReference, True, None, False),
+            ("supportingPatientInformation", "supportingPatientInformation", fhirreference.FHIRReference, True, None, False),
+            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
@@ -132,8 +132,8 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
     def elementProperties(self):
         js = super(ImmunizationRecommendationRecommendationDateCriterion, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("value", "value", fhirdate.FHIRDate, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("value", "value", fhirdate.FHIRDate, False, None, True),
         ])
         return js
 
@@ -172,10 +172,10 @@ class ImmunizationRecommendationRecommendationProtocol(backboneelement.BackboneE
     def elementProperties(self):
         js = super(ImmunizationRecommendationRecommendationProtocol, self).elementProperties()
         js.extend([
-            ("authority", "authority", fhirreference.FHIRReference, False),
-            ("description", "description", str, False),
-            ("doseSequence", "doseSequence", int, False),
-            ("series", "series", str, False),
+            ("authority", "authority", fhirreference.FHIRReference, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("doseSequence", "doseSequence", int, False, None, False),
+            ("series", "series", str, False, None, False),
         ])
         return js
 

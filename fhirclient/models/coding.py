@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Coding) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Coding) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -42,11 +42,11 @@ class Coding(element.Element):
     def elementProperties(self):
         js = super(Coding, self).elementProperties()
         js.extend([
-            ("code", "code", str, False),
-            ("display", "display", str, False),
-            ("system", "system", str, False),
-            ("userSelected", "userSelected", bool, False),
-            ("version", "version", str, False),
+            ("code", "code", str, False, None, False),
+            ("display", "display", str, False, None, False),
+            ("system", "system", str, False, None, False),
+            ("userSelected", "userSelected", bool, False, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 

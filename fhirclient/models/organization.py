@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Organization) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Organization) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -59,14 +59,14 @@ class Organization(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Organization, self).elementProperties()
         js.extend([
-            ("active", "active", bool, False),
-            ("address", "address", address.Address, True),
-            ("contact", "contact", OrganizationContact, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("name", "name", str, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("active", "active", bool, False, None, False),
+            ("address", "address", address.Address, True, None, False),
+            ("contact", "contact", OrganizationContact, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("name", "name", str, False, None, False),
+            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -104,10 +104,10 @@ class OrganizationContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(OrganizationContact, self).elementProperties()
         js.extend([
-            ("address", "address", address.Address, False),
-            ("name", "name", humanname.HumanName, False),
-            ("purpose", "purpose", codeableconcept.CodeableConcept, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True),
+            ("address", "address", address.Address, False, None, False),
+            ("name", "name", humanname.HumanName, False, None, False),
+            ("purpose", "purpose", codeableconcept.CodeableConcept, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 

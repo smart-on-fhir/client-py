@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Group) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Group) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -59,14 +59,14 @@ class Group(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Group, self).elementProperties()
         js.extend([
-            ("actual", "actual", bool, False),
-            ("characteristic", "characteristic", GroupCharacteristic, True),
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("member", "member", GroupMember, True),
-            ("name", "name", str, False),
-            ("quantity", "quantity", int, False),
-            ("type", "type", str, False),
+            ("actual", "actual", bool, False, None, True),
+            ("characteristic", "characteristic", GroupCharacteristic, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("member", "member", GroupMember, True, None, False),
+            ("name", "name", str, False, None, False),
+            ("quantity", "quantity", int, False, None, False),
+            ("type", "type", str, False, None, True),
         ])
         return js
 
@@ -118,13 +118,13 @@ class GroupCharacteristic(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(GroupCharacteristic, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False),
-            ("exclude", "exclude", bool, False),
-            ("period", "period", period.Period, False),
-            ("valueBoolean", "valueBoolean", bool, False),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False),
-            ("valueRange", "valueRange", range.Range, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("exclude", "exclude", bool, False, None, True),
+            ("period", "period", period.Period, False, None, False),
+            ("valueBoolean", "valueBoolean", bool, False, "value", True),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
+            ("valueRange", "valueRange", range.Range, False, "value", True),
         ])
         return js
 
@@ -158,9 +158,9 @@ class GroupMember(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(GroupMember, self).elementProperties()
         js.extend([
-            ("entity", "entity", fhirreference.FHIRReference, False),
-            ("inactive", "inactive", bool, False),
-            ("period", "period", period.Period, False),
+            ("entity", "entity", fhirreference.FHIRReference, False, None, True),
+            ("inactive", "inactive", bool, False, None, False),
+            ("period", "period", period.Period, False, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -89,22 +89,22 @@ class ProcessRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ProcessRequest, self).elementProperties()
         js.extend([
-            ("action", "action", str, False),
-            ("created", "created", fhirdate.FHIRDate, False),
-            ("exclude", "exclude", str, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("include", "include", str, True),
-            ("item", "item", ProcessRequestItem, True),
-            ("nullify", "nullify", bool, False),
-            ("organization", "organization", fhirreference.FHIRReference, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False),
-            ("period", "period", period.Period, False),
-            ("provider", "provider", fhirreference.FHIRReference, False),
-            ("reference", "reference", str, False),
-            ("request", "request", fhirreference.FHIRReference, False),
-            ("response", "response", fhirreference.FHIRReference, False),
-            ("ruleset", "ruleset", coding.Coding, False),
-            ("target", "target", fhirreference.FHIRReference, False),
+            ("action", "action", str, False, None, True),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("exclude", "exclude", str, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("include", "include", str, True, None, False),
+            ("item", "item", ProcessRequestItem, True, None, False),
+            ("nullify", "nullify", bool, False, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("reference", "reference", str, False, None, False),
+            ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("response", "response", fhirreference.FHIRReference, False, None, False),
+            ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("target", "target", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -133,7 +133,7 @@ class ProcessRequestItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProcessRequestItem, self).elementProperties()
         js.extend([
-            ("sequenceLinkId", "sequenceLinkId", int, False),
+            ("sequenceLinkId", "sequenceLinkId", int, False, None, True),
         ])
         return js
 

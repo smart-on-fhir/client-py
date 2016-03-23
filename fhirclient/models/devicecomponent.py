@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DeviceComponent) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DeviceComponent) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -67,16 +67,16 @@ class DeviceComponent(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DeviceComponent, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False),
-            ("languageCode", "languageCode", codeableconcept.CodeableConcept, False),
-            ("lastSystemChange", "lastSystemChange", fhirdate.FHIRDate, False),
-            ("measurementPrinciple", "measurementPrinciple", str, False),
-            ("operationalStatus", "operationalStatus", codeableconcept.CodeableConcept, True),
-            ("parameterGroup", "parameterGroup", codeableconcept.CodeableConcept, False),
-            ("parent", "parent", fhirreference.FHIRReference, False),
-            ("productionSpecification", "productionSpecification", DeviceComponentProductionSpecification, True),
-            ("source", "source", fhirreference.FHIRReference, False),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("languageCode", "languageCode", codeableconcept.CodeableConcept, False, None, False),
+            ("lastSystemChange", "lastSystemChange", fhirdate.FHIRDate, False, None, True),
+            ("measurementPrinciple", "measurementPrinciple", str, False, None, False),
+            ("operationalStatus", "operationalStatus", codeableconcept.CodeableConcept, True, None, False),
+            ("parameterGroup", "parameterGroup", codeableconcept.CodeableConcept, False, None, False),
+            ("parent", "parent", fhirreference.FHIRReference, False, None, False),
+            ("productionSpecification", "productionSpecification", DeviceComponentProductionSpecification, True, None, False),
+            ("source", "source", fhirreference.FHIRReference, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
@@ -113,9 +113,9 @@ class DeviceComponentProductionSpecification(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DeviceComponentProductionSpecification, self).elementProperties()
         js.extend([
-            ("componentId", "componentId", identifier.Identifier, False),
-            ("productionSpec", "productionSpec", str, False),
-            ("specType", "specType", codeableconcept.CodeableConcept, False),
+            ("componentId", "componentId", identifier.Identifier, False, None, False),
+            ("productionSpec", "productionSpec", str, False, None, False),
+            ("specType", "specType", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

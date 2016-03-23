@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2016-02-24.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2016-03-23.
 #  2016, SMART Health IT.
 
 
@@ -76,18 +76,18 @@ class NutritionOrder(domainresource.DomainResource):
     def elementProperties(self):
         js = super(NutritionOrder, self).elementProperties()
         js.extend([
-            ("allergyIntolerance", "allergyIntolerance", fhirreference.FHIRReference, True),
-            ("dateTime", "dateTime", fhirdate.FHIRDate, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False),
-            ("enteralFormula", "enteralFormula", NutritionOrderEnteralFormula, False),
-            ("excludeFoodModifier", "excludeFoodModifier", codeableconcept.CodeableConcept, True),
-            ("foodPreferenceModifier", "foodPreferenceModifier", codeableconcept.CodeableConcept, True),
-            ("identifier", "identifier", identifier.Identifier, True),
-            ("oralDiet", "oralDiet", NutritionOrderOralDiet, False),
-            ("orderer", "orderer", fhirreference.FHIRReference, False),
-            ("patient", "patient", fhirreference.FHIRReference, False),
-            ("status", "status", str, False),
-            ("supplement", "supplement", NutritionOrderSupplement, True),
+            ("allergyIntolerance", "allergyIntolerance", fhirreference.FHIRReference, True, None, False),
+            ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("enteralFormula", "enteralFormula", NutritionOrderEnteralFormula, False, None, False),
+            ("excludeFoodModifier", "excludeFoodModifier", codeableconcept.CodeableConcept, True, None, False),
+            ("foodPreferenceModifier", "foodPreferenceModifier", codeableconcept.CodeableConcept, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("oralDiet", "oralDiet", NutritionOrderOralDiet, False, None, False),
+            ("orderer", "orderer", fhirreference.FHIRReference, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("status", "status", str, False, None, False),
+            ("supplement", "supplement", NutritionOrderSupplement, True, None, False),
         ])
         return js
 
@@ -148,15 +148,15 @@ class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderEnteralFormula, self).elementProperties()
         js.extend([
-            ("additiveProductName", "additiveProductName", str, False),
-            ("additiveType", "additiveType", codeableconcept.CodeableConcept, False),
-            ("administration", "administration", NutritionOrderEnteralFormulaAdministration, True),
-            ("administrationInstruction", "administrationInstruction", str, False),
-            ("baseFormulaProductName", "baseFormulaProductName", str, False),
-            ("baseFormulaType", "baseFormulaType", codeableconcept.CodeableConcept, False),
-            ("caloricDensity", "caloricDensity", quantity.Quantity, False),
-            ("maxVolumeToDeliver", "maxVolumeToDeliver", quantity.Quantity, False),
-            ("routeofAdministration", "routeofAdministration", codeableconcept.CodeableConcept, False),
+            ("additiveProductName", "additiveProductName", str, False, None, False),
+            ("additiveType", "additiveType", codeableconcept.CodeableConcept, False, None, False),
+            ("administration", "administration", NutritionOrderEnteralFormulaAdministration, True, None, False),
+            ("administrationInstruction", "administrationInstruction", str, False, None, False),
+            ("baseFormulaProductName", "baseFormulaProductName", str, False, None, False),
+            ("baseFormulaType", "baseFormulaType", codeableconcept.CodeableConcept, False, None, False),
+            ("caloricDensity", "caloricDensity", quantity.Quantity, False, None, False),
+            ("maxVolumeToDeliver", "maxVolumeToDeliver", quantity.Quantity, False, None, False),
+            ("routeofAdministration", "routeofAdministration", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -197,10 +197,10 @@ class NutritionOrderEnteralFormulaAdministration(backboneelement.BackboneElement
     def elementProperties(self):
         js = super(NutritionOrderEnteralFormulaAdministration, self).elementProperties()
         js.extend([
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("rateQuantity", "rateQuantity", quantity.Quantity, False),
-            ("rateRatio", "rateRatio", ratio.Ratio, False),
-            ("schedule", "schedule", timing.Timing, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False),
+            ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
+            ("schedule", "schedule", timing.Timing, False, None, False),
         ])
         return js
 
@@ -248,12 +248,12 @@ class NutritionOrderOralDiet(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderOralDiet, self).elementProperties()
         js.extend([
-            ("fluidConsistencyType", "fluidConsistencyType", codeableconcept.CodeableConcept, True),
-            ("instruction", "instruction", str, False),
-            ("nutrient", "nutrient", NutritionOrderOralDietNutrient, True),
-            ("schedule", "schedule", timing.Timing, True),
-            ("texture", "texture", NutritionOrderOralDietTexture, True),
-            ("type", "type", codeableconcept.CodeableConcept, True),
+            ("fluidConsistencyType", "fluidConsistencyType", codeableconcept.CodeableConcept, True, None, False),
+            ("instruction", "instruction", str, False, None, False),
+            ("nutrient", "nutrient", NutritionOrderOralDietNutrient, True, None, False),
+            ("schedule", "schedule", timing.Timing, True, None, False),
+            ("texture", "texture", NutritionOrderOralDietTexture, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -284,8 +284,8 @@ class NutritionOrderOralDietNutrient(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderOralDietNutrient, self).elementProperties()
         js.extend([
-            ("amount", "amount", quantity.Quantity, False),
-            ("modifier", "modifier", codeableconcept.CodeableConcept, False),
+            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -317,8 +317,8 @@ class NutritionOrderOralDietTexture(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderOralDietTexture, self).elementProperties()
         js.extend([
-            ("foodType", "foodType", codeableconcept.CodeableConcept, False),
-            ("modifier", "modifier", codeableconcept.CodeableConcept, False),
+            ("foodType", "foodType", codeableconcept.CodeableConcept, False, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -361,11 +361,11 @@ class NutritionOrderSupplement(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderSupplement, self).elementProperties()
         js.extend([
-            ("instruction", "instruction", str, False),
-            ("productName", "productName", str, False),
-            ("quantity", "quantity", quantity.Quantity, False),
-            ("schedule", "schedule", timing.Timing, True),
-            ("type", "type", codeableconcept.CodeableConcept, False),
+            ("instruction", "instruction", str, False, None, False),
+            ("productName", "productName", str, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("schedule", "schedule", timing.Timing, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
