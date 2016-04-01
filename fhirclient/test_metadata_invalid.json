@@ -1,14 +1,16 @@
 {
-    "acceptUnknown": false,
-    "date": "2014-10-29T11:42:32.193-00:00",
+    "acceptUnknown": "no",
+    "date": ["2014-10-29T11:42:32.193-00:00"],
     "description": "Describes capabilities of this SMART on FHIR server",
     "fhirVersion": "0.0.82",
-    "format": [
+    "format": 66,
+    "formats": [
         "xml",
         "json"
     ],
-    "identifier": "https://fhir-api.smarthealthit.org/conformance",
+    "url": "https://fhir-api.smarthealthit.org/conformance",
     "name": "SMART on FHIR Conformance Statement",
+    "kind": "instance",
     "publisher": "SMART on FHIR",
     "resourceType": "Conformance",
     "rest": [
@@ -17,10 +19,16 @@
             "mode": "server",
             "operation": [
                 {
-                    "code": "transaction"
+                    "name": "transaction",
+                    "definition": {
+                        "reference": "#op-trans"
+                    }
                 },
                 {
-                    "code": "history-system"
+                    "name": "history-system",
+                    "definition": {
+                        "reference": {"key": "#op-hist"}
+                    }
                 }
             ],
             "resource": [],
@@ -31,7 +39,7 @@
                         "coding": [
                             {
                                 "code": "OAuth2",
-                                "system": "http://hl7.org/fhir/vs/restful-security-service"
+                                "systems": "http://hl7.org/fhir/vs/restful-security-service"
                             }
                         ],
                         "text": "OAuth version 2 (see oauth.net)."
@@ -41,12 +49,6 @@
         }
     ],
     "status": "draft",
-    "telecom": [
-        {
-            "system": "url",
-            "value": "https://fhir-api.smarthealthit.org"
-        }
-    ],
     "text": {
         "div": "<div>Generated Conformance Statement -- see structured representation.</div>",
         "status": "generated"

@@ -1,5 +1,5 @@
 {
-    "acceptUnknown": false,
+    "acceptUnknown": "no",
     "date": "2014-10-29T11:42:32.193-00:00",
     "description": "Describes capabilities of this SMART on FHIR server",
     "fhirVersion": "0.0.82",
@@ -7,8 +7,9 @@
         "xml",
         "json"
     ],
-    "identifier": "https://fhir-api.smarthealthit.org/conformance",
+    "url": "https://fhir-api.smarthealthit.org/conformance",
     "name": "SMART on FHIR Conformance Statement",
+    "kind": "instance",
     "publisher": "SMART on FHIR",
     "resourceType": "Conformance",
     "rest": [
@@ -17,10 +18,16 @@
             "mode": "server",
             "operation": [
                 {
-                    "code": "transaction"
+                    "name": "transaction",
+                    "definition": {
+                        "reference": "#op-trans"
+                    }
                 },
                 {
-                    "code": "history-system"
+                    "name": "history-system",
+                    "definition": {
+                        "reference": "#op-hist"
+                    }
                 }
             ],
             "resource": [],
@@ -55,12 +62,6 @@
         }
     ],
     "status": "draft",
-    "telecom": [
-        {
-            "system": "url",
-            "value": "https://fhir-api.smarthealthit.org"
-        }
-    ],
     "text": {
         "div": "<div>Generated Conformance Statement -- see structured representation.</div>",
         "status": "generated"
