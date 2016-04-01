@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ModuleMetadata) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ModuleMetadata) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -18,8 +18,12 @@ class ModuleMetadata(element.Element):
     
     resource_name = "ModuleMetadata"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contact = None
@@ -107,7 +111,7 @@ class ModuleMetadata(element.Element):
         """ The version of the module, if any.
         Type `str`. """
         
-        super(ModuleMetadata, self).__init__(jsondict)
+        super(ModuleMetadata, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleMetadata, self).elementProperties()
@@ -145,8 +149,12 @@ class ModuleMetadataContact(element.Element):
     
     resource_name = "ModuleMetadataContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -157,7 +165,7 @@ class ModuleMetadataContact(element.Element):
         """ Contact details for an individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(ModuleMetadataContact, self).__init__(jsondict)
+        super(ModuleMetadataContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleMetadataContact, self).elementProperties()
@@ -177,8 +185,12 @@ class ModuleMetadataContributor(element.Element):
     
     resource_name = "ModuleMetadataContributor"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contact = None
@@ -193,7 +205,7 @@ class ModuleMetadataContributor(element.Element):
         """ author | editor | reviewer | endorser.
         Type `str`. """
         
-        super(ModuleMetadataContributor, self).__init__(jsondict)
+        super(ModuleMetadataContributor, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleMetadataContributor, self).elementProperties()
@@ -214,8 +226,12 @@ class ModuleMetadataContributorContact(element.Element):
     
     resource_name = "ModuleMetadataContributorContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -226,7 +242,7 @@ class ModuleMetadataContributorContact(element.Element):
         """ Contact details for an individual or contributor.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(ModuleMetadataContributorContact, self).__init__(jsondict)
+        super(ModuleMetadataContributorContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleMetadataContributorContact, self).elementProperties()
@@ -246,8 +262,12 @@ class ModuleMetadataCoverage(element.Element):
     
     resource_name = "ModuleMetadataCoverage"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.focus = None
@@ -259,7 +279,7 @@ class ModuleMetadataCoverage(element.Element):
         """ Value of the coverage attribute.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ModuleMetadataCoverage, self).__init__(jsondict)
+        super(ModuleMetadataCoverage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleMetadataCoverage, self).elementProperties()
@@ -279,8 +299,12 @@ class ModuleMetadataRelatedResource(element.Element):
     
     resource_name = "ModuleMetadataRelatedResource"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.document = None
@@ -296,7 +320,7 @@ class ModuleMetadataRelatedResource(element.Element):
         | derived-from.
         Type `str`. """
         
-        super(ModuleMetadataRelatedResource, self).__init__(jsondict)
+        super(ModuleMetadataRelatedResource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleMetadataRelatedResource, self).elementProperties()

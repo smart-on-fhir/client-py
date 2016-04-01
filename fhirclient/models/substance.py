@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Substance) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Substance) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -13,8 +13,12 @@ class Substance(domainresource.DomainResource):
     
     resource_name = "Substance"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.category = None
@@ -41,7 +45,7 @@ class Substance(domainresource.DomainResource):
         """ If this describes a specific package/container of the substance.
         List of `SubstanceInstance` items (represented as `dict` in JSON). """
         
-        super(Substance, self).__init__(jsondict)
+        super(Substance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Substance, self).elementProperties()
@@ -66,8 +70,12 @@ class SubstanceIngredient(backboneelement.BackboneElement):
     
     resource_name = "SubstanceIngredient"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.quantity = None
@@ -78,7 +86,7 @@ class SubstanceIngredient(backboneelement.BackboneElement):
         """ A component of the substance.
         Type `FHIRReference` referencing `Substance` (represented as `dict` in JSON). """
         
-        super(SubstanceIngredient, self).__init__(jsondict)
+        super(SubstanceIngredient, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SubstanceIngredient, self).elementProperties()
@@ -98,8 +106,12 @@ class SubstanceInstance(backboneelement.BackboneElement):
     
     resource_name = "SubstanceInstance"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.expiry = None
@@ -114,7 +126,7 @@ class SubstanceInstance(backboneelement.BackboneElement):
         """ Amount of substance in the package.
         Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
-        super(SubstanceInstance, self).__init__(jsondict)
+        super(SubstanceInstance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SubstanceInstance, self).elementProperties()

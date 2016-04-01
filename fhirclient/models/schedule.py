@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -14,8 +14,12 @@ class Schedule(domainresource.DomainResource):
     
     resource_name = "Schedule"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.actor = None
@@ -42,12 +46,22 @@ class Schedule(domainresource.DomainResource):
         does not define a "template" for planning outside these dates.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.type = None
-        """ The schedule type can be used for the categorization of healthcare
-        services or other appointment types.
+        self.serviceCategory = None
+        """ A broad categorisation of the service that is to be performed
+        during this appointment.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.serviceType = None
+        """ The specific service that is to be performed during this
+        appointment.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(Schedule, self).__init__(jsondict)
+        self.specialty = None
+        """ The specialty of a practitioner that would be required to perform
+        the service requested in this appointment.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        super(Schedule, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Schedule, self).elementProperties()
@@ -56,7 +70,9 @@ class Schedule(domainresource.DomainResource):
             ("comment", "comment", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("planningHorizon", "planningHorizon", period.Period, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
+            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False, None, False),
+            ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 

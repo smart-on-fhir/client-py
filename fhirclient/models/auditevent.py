@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class AuditEvent(domainresource.DomainResource):
     
     resource_name = "AuditEvent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
@@ -61,7 +65,7 @@ class AuditEvent(domainresource.DomainResource):
         """ Type/identifier of event.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(AuditEvent, self).__init__(jsondict)
+        super(AuditEvent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(AuditEvent, self).elementProperties()
@@ -90,8 +94,12 @@ class AuditEventAgent(backboneelement.BackboneElement):
     
     resource_name = "AuditEventAgent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.altId = None
@@ -138,7 +146,7 @@ class AuditEventAgent(backboneelement.BackboneElement):
         """ Unique identifier for the user.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        super(AuditEventAgent, self).__init__(jsondict)
+        super(AuditEventAgent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(AuditEventAgent, self).elementProperties()
@@ -167,8 +175,12 @@ class AuditEventAgentNetwork(backboneelement.BackboneElement):
     
     resource_name = "AuditEventAgentNetwork"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.address = None
@@ -179,7 +191,7 @@ class AuditEventAgentNetwork(backboneelement.BackboneElement):
         """ The type of network access point.
         Type `str`. """
         
-        super(AuditEventAgentNetwork, self).__init__(jsondict)
+        super(AuditEventAgentNetwork, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(AuditEventAgentNetwork, self).elementProperties()
@@ -196,8 +208,12 @@ class AuditEventEntity(backboneelement.BackboneElement):
     
     resource_name = "AuditEventEntity"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
@@ -240,7 +256,7 @@ class AuditEventEntity(backboneelement.BackboneElement):
         """ Type of object involved.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(AuditEventEntity, self).__init__(jsondict)
+        super(AuditEventEntity, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(AuditEventEntity, self).elementProperties()
@@ -265,8 +281,12 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
     
     resource_name = "AuditEventEntityDetail"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.type = None
@@ -277,7 +297,7 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
         """ Property value.
         Type `str`. """
         
-        super(AuditEventEntityDetail, self).__init__(jsondict)
+        super(AuditEventEntityDetail, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(AuditEventEntityDetail, self).elementProperties()
@@ -294,8 +314,12 @@ class AuditEventSource(backboneelement.BackboneElement):
     
     resource_name = "AuditEventSource"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.identifier = None
@@ -310,7 +334,7 @@ class AuditEventSource(backboneelement.BackboneElement):
         """ The type of source where event originated.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        super(AuditEventSource, self).__init__(jsondict)
+        super(AuditEventSource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(AuditEventSource, self).elementProperties()

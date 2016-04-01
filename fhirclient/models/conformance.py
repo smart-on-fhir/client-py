@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class Conformance(domainresource.DomainResource):
     
     resource_name = "Conformance"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.acceptUnknown = None
@@ -82,7 +86,7 @@ class Conformance(domainresource.DomainResource):
         Type `str`. """
         
         self.requirements = None
-        """ Why is this needed?.
+        """ Why this resource has been created.
         Type `str`. """
         
         self.rest = None
@@ -101,11 +105,15 @@ class Conformance(domainresource.DomainResource):
         """ Logical uri to reference this statement.
         Type `str`. """
         
+        self.useContext = None
+        """ Content intends to support these contexts.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.version = None
         """ Logical id for this version of the statement.
         Type `str`. """
         
-        super(Conformance, self).__init__(jsondict)
+        super(Conformance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Conformance, self).elementProperties()
@@ -128,8 +136,9 @@ class Conformance(domainresource.DomainResource):
             ("requirements", "requirements", str, False, None, False),
             ("rest", "rest", ConformanceRest, True, None, False),
             ("software", "software", ConformanceSoftware, False, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", str, False, None, True),
             ("url", "url", str, False, None, False),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
@@ -145,19 +154,23 @@ class ConformanceContact(backboneelement.BackboneElement):
     
     resource_name = "ConformanceContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
-        """ Name of a individual to contact.
+        """ Name of an individual to contact.
         Type `str`. """
         
         self.telecom = None
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(ConformanceContact, self).__init__(jsondict)
+        super(ConformanceContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceContact, self).elementProperties()
@@ -176,8 +189,12 @@ class ConformanceDocument(backboneelement.BackboneElement):
     
     resource_name = "ConformanceDocument"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.documentation = None
@@ -192,7 +209,7 @@ class ConformanceDocument(backboneelement.BackboneElement):
         """ Constraint on a resource used in the document.
         Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
-        super(ConformanceDocument, self).__init__(jsondict)
+        super(ConformanceDocument, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceDocument, self).elementProperties()
@@ -214,8 +231,12 @@ class ConformanceImplementation(backboneelement.BackboneElement):
     
     resource_name = "ConformanceImplementation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
@@ -226,7 +247,7 @@ class ConformanceImplementation(backboneelement.BackboneElement):
         """ Base URL for the installation.
         Type `str`. """
         
-        super(ConformanceImplementation, self).__init__(jsondict)
+        super(ConformanceImplementation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceImplementation, self).elementProperties()
@@ -245,8 +266,12 @@ class ConformanceMessaging(backboneelement.BackboneElement):
     
     resource_name = "ConformanceMessaging"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.documentation = None
@@ -265,7 +290,7 @@ class ConformanceMessaging(backboneelement.BackboneElement):
         """ Reliable Message Cache Length (min).
         Type `int`. """
         
-        super(ConformanceMessaging, self).__init__(jsondict)
+        super(ConformanceMessaging, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceMessaging, self).elementProperties()
@@ -287,8 +312,12 @@ class ConformanceMessagingEndpoint(backboneelement.BackboneElement):
     
     resource_name = "ConformanceMessagingEndpoint"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.address = None
@@ -299,7 +328,7 @@ class ConformanceMessagingEndpoint(backboneelement.BackboneElement):
         """ http | ftp | mllp +.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ConformanceMessagingEndpoint, self).__init__(jsondict)
+        super(ConformanceMessagingEndpoint, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceMessagingEndpoint, self).elementProperties()
@@ -318,8 +347,12 @@ class ConformanceMessagingEvent(backboneelement.BackboneElement):
     
     resource_name = "ConformanceMessagingEvent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.category = None
@@ -350,7 +383,7 @@ class ConformanceMessagingEvent(backboneelement.BackboneElement):
         """ Profile that describes the response.
         Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
-        super(ConformanceMessagingEvent, self).__init__(jsondict)
+        super(ConformanceMessagingEvent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceMessagingEvent, self).elementProperties()
@@ -374,8 +407,12 @@ class ConformanceRest(backboneelement.BackboneElement):
     
     resource_name = "ConformanceRest"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.compartment = None
@@ -414,7 +451,7 @@ class ConformanceRest(backboneelement.BackboneElement):
         """ not-supported | batch | transaction | both.
         Type `str`. """
         
-        super(ConformanceRest, self).__init__(jsondict)
+        super(ConformanceRest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceRest, self).elementProperties()
@@ -424,7 +461,7 @@ class ConformanceRest(backboneelement.BackboneElement):
             ("interaction", "interaction", ConformanceRestInteraction, True, None, False),
             ("mode", "mode", str, False, None, True),
             ("operation", "operation", ConformanceRestOperation, True, None, False),
-            ("resource", "resource", ConformanceRestResource, True, None, True),
+            ("resource", "resource", ConformanceRestResource, True, None, False),
             ("searchParam", "searchParam", ConformanceRestResourceSearchParam, True, None, False),
             ("security", "security", ConformanceRestSecurity, False, None, False),
             ("transactionMode", "transactionMode", str, False, None, False),
@@ -440,8 +477,12 @@ class ConformanceRestInteraction(backboneelement.BackboneElement):
     
     resource_name = "ConformanceRestInteraction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -452,7 +493,7 @@ class ConformanceRestInteraction(backboneelement.BackboneElement):
         """ Anything special about operation behavior.
         Type `str`. """
         
-        super(ConformanceRestInteraction, self).__init__(jsondict)
+        super(ConformanceRestInteraction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceRestInteraction, self).elementProperties()
@@ -472,8 +513,12 @@ class ConformanceRestOperation(backboneelement.BackboneElement):
     
     resource_name = "ConformanceRestOperation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.definition = None
@@ -484,7 +529,7 @@ class ConformanceRestOperation(backboneelement.BackboneElement):
         """ Name by which the operation/query is invoked.
         Type `str`. """
         
-        super(ConformanceRestOperation, self).__init__(jsondict)
+        super(ConformanceRestOperation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceRestOperation, self).elementProperties()
@@ -504,8 +549,12 @@ class ConformanceRestResource(backboneelement.BackboneElement):
     
     resource_name = "ConformanceRestResource"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.conditionalCreate = None
@@ -557,7 +606,7 @@ class ConformanceRestResource(backboneelement.BackboneElement):
         """ no-version | versioned | versioned-update.
         Type `str`. """
         
-        super(ConformanceRestResource, self).__init__(jsondict)
+        super(ConformanceRestResource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceRestResource, self).elementProperties()
@@ -586,20 +635,24 @@ class ConformanceRestResourceInteraction(backboneelement.BackboneElement):
     
     resource_name = "ConformanceRestResourceInteraction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
-        """ read | vread | update | delete | history-instance | validate |
-        history-type | create | search-type.
+        """ read | vread | update | delete | history-instance | history-type |
+        create | search-type.
         Type `str`. """
         
         self.documentation = None
         """ Anything special about operation behavior.
         Type `str`. """
         
-        super(ConformanceRestResourceInteraction, self).__init__(jsondict)
+        super(ConformanceRestResourceInteraction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceRestResourceInteraction, self).elementProperties()
@@ -620,8 +673,12 @@ class ConformanceRestResourceSearchParam(backboneelement.BackboneElement):
     
     resource_name = "ConformanceRestResourceSearchParam"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.chain = None
@@ -654,7 +711,7 @@ class ConformanceRestResourceSearchParam(backboneelement.BackboneElement):
         uri.
         Type `str`. """
         
-        super(ConformanceRestResourceSearchParam, self).__init__(jsondict)
+        super(ConformanceRestResourceSearchParam, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceRestResourceSearchParam, self).elementProperties()
@@ -679,8 +736,12 @@ class ConformanceRestSecurity(backboneelement.BackboneElement):
     
     resource_name = "ConformanceRestSecurity"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.certificate = None
@@ -699,7 +760,7 @@ class ConformanceRestSecurity(backboneelement.BackboneElement):
         """ OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(ConformanceRestSecurity, self).__init__(jsondict)
+        super(ConformanceRestSecurity, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceRestSecurity, self).elementProperties()
@@ -718,8 +779,12 @@ class ConformanceRestSecurityCertificate(backboneelement.BackboneElement):
     
     resource_name = "ConformanceRestSecurityCertificate"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.blob = None
@@ -730,7 +795,7 @@ class ConformanceRestSecurityCertificate(backboneelement.BackboneElement):
         """ Mime type for certificate.
         Type `str`. """
         
-        super(ConformanceRestSecurityCertificate, self).__init__(jsondict)
+        super(ConformanceRestSecurityCertificate, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceRestSecurityCertificate, self).elementProperties()
@@ -751,8 +816,12 @@ class ConformanceSoftware(backboneelement.BackboneElement):
     
     resource_name = "ConformanceSoftware"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -767,7 +836,7 @@ class ConformanceSoftware(backboneelement.BackboneElement):
         """ Version covered by this statement.
         Type `str`. """
         
-        super(ConformanceSoftware, self).__init__(jsondict)
+        super(ConformanceSoftware, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConformanceSoftware, self).elementProperties()

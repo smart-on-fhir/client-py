@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Linkage) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Linkage) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class Linkage(domainresource.DomainResource):
     
     resource_name = "Linkage"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.author = None
@@ -28,7 +32,7 @@ class Linkage(domainresource.DomainResource):
         """ Item to be linked.
         List of `LinkageItem` items (represented as `dict` in JSON). """
         
-        super(Linkage, self).__init__(jsondict)
+        super(Linkage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Linkage, self).elementProperties()
@@ -51,8 +55,12 @@ class LinkageItem(backboneelement.BackboneElement):
     
     resource_name = "LinkageItem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.resource = None
@@ -63,7 +71,7 @@ class LinkageItem(backboneelement.BackboneElement):
         """ source | alternate | historical.
         Type `str`. """
         
-        super(LinkageItem, self).__init__(jsondict)
+        super(LinkageItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(LinkageItem, self).elementProperties()

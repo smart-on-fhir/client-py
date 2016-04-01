@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -36,8 +36,12 @@ class MedicationStatement(domainresource.DomainResource):
     
     resource_name = "MedicationStatement"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.dateAsserted = None
@@ -61,7 +65,8 @@ class MedicationStatement(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.informationSource = None
-        """ None.
+        """ Person who provided the information about the taking of this
+        medication.
         Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.medicationCodeableConcept = None
@@ -104,7 +109,7 @@ class MedicationStatement(domainresource.DomainResource):
         """ True if medication is/was not being taken.
         Type `bool`. """
         
-        super(MedicationStatement, self).__init__(jsondict)
+        super(MedicationStatement, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MedicationStatement, self).elementProperties()
@@ -139,8 +144,12 @@ class MedicationStatementDosage(backboneelement.BackboneElement):
     
     resource_name = "MedicationStatementDosage"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.asNeededBoolean = None
@@ -195,7 +204,7 @@ class MedicationStatementDosage(backboneelement.BackboneElement):
         """ When/how often was medication taken.
         Type `Timing` (represented as `dict` in JSON). """
         
-        super(MedicationStatementDosage, self).__init__(jsondict)
+        super(MedicationStatementDosage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MedicationStatementDosage, self).elementProperties()

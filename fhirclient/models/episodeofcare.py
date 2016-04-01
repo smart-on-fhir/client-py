@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -20,17 +20,17 @@ class EpisodeOfCare(domainresource.DomainResource):
     
     resource_name = "EpisodeOfCare"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.careManager = None
         """ Care manager/care co-ordinator for the patient.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.careTeam = None
-        """ Other practitioners facilitating this episode of care.
-        List of `EpisodeOfCareCareTeam` items (represented as `dict` in JSON). """
         
         self.condition = None
         """ Conditions/problems/diagnoses this episode of care is for.
@@ -64,17 +64,20 @@ class EpisodeOfCare(domainresource.DomainResource):
         """ Past list of status codes.
         List of `EpisodeOfCareStatusHistory` items (represented as `dict` in JSON). """
         
+        self.team = None
+        """ Other practitioners facilitating this episode of care.
+        List of `FHIRReference` items referencing `CareTeam` (represented as `dict` in JSON). """
+        
         self.type = None
         """ Type/class  - e.g. specialist referral, disease management.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(EpisodeOfCare, self).__init__(jsondict)
+        super(EpisodeOfCare, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EpisodeOfCare, self).elementProperties()
         js.extend([
             ("careManager", "careManager", fhirreference.FHIRReference, False, None, False),
-            ("careTeam", "careTeam", EpisodeOfCareCareTeam, True, None, False),
             ("condition", "condition", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
@@ -83,49 +86,13 @@ class EpisodeOfCare(domainresource.DomainResource):
             ("referralRequest", "referralRequest", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, True),
             ("statusHistory", "statusHistory", EpisodeOfCareStatusHistory, True, None, False),
+            ("team", "team", fhirreference.FHIRReference, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
 
 from . import backboneelement
-
-class EpisodeOfCareCareTeam(backboneelement.BackboneElement):
-    """ Other practitioners facilitating this episode of care.
-    
-    The list of practitioners that may be facilitating this episode of care for
-    specific purposes.
-    """
-    
-    resource_name = "EpisodeOfCareCareTeam"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.member = None
-        """ The practitioner (or Organization) within the team.
-        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
-        
-        self.period = None
-        """ Period of time for this role.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.role = None
-        """ Role taken by this team member.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        super(EpisodeOfCareCareTeam, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(EpisodeOfCareCareTeam, self).elementProperties()
-        js.extend([
-            ("member", "member", fhirreference.FHIRReference, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
-        ])
-        return js
-
 
 class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
     """ Past list of status codes.
@@ -136,8 +103,12 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
     
     resource_name = "EpisodeOfCareStatusHistory"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.period = None
@@ -148,7 +119,7 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
         """ planned | waitlist | active | onhold | finished | cancelled.
         Type `str`. """
         
-        super(EpisodeOfCareStatusHistory, self).__init__(jsondict)
+        super(EpisodeOfCareStatusHistory, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EpisodeOfCareStatusHistory, self).elementProperties()

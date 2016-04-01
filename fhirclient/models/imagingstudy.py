@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -20,8 +20,12 @@ class ImagingStudy(domainresource.DomainResource):
     
     resource_name = "ImagingStudy"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.accession = None
@@ -88,7 +92,7 @@ class ImagingStudy(domainresource.DomainResource):
         """ Retrieve URI.
         Type `str`. """
         
-        super(ImagingStudy, self).__init__(jsondict)
+        super(ImagingStudy, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImagingStudy, self).elementProperties()
@@ -123,8 +127,12 @@ class ImagingStudySeries(backboneelement.BackboneElement):
     
     resource_name = "ImagingStudySeries"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.availability = None
@@ -171,7 +179,7 @@ class ImagingStudySeries(backboneelement.BackboneElement):
         """ Location of the referenced instance(s).
         Type `str`. """
         
-        super(ImagingStudySeries, self).__init__(jsondict)
+        super(ImagingStudySeries, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImagingStudySeries, self).elementProperties()
@@ -200,8 +208,12 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
     
     resource_name = "ImagingStudySeriesInstance"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.content = None
@@ -228,7 +240,7 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
         """ Formal identifier for this instance.
         Type `str`. """
         
-        super(ImagingStudySeriesInstance, self).__init__(jsondict)
+        super(ImagingStudySeriesInstance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImagingStudySeriesInstance, self).elementProperties()

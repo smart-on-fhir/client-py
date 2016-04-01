@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class SearchParameter(domainresource.DomainResource):
     
     resource_name = "SearchParameter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.base = None
@@ -43,6 +47,10 @@ class SearchParameter(domainresource.DomainResource):
         self.experimental = None
         """ If for testing purposes, not real usage.
         Type `bool`. """
+        
+        self.expression = None
+        """ FluentPath expression that extracts the values.
+        Type `str`. """
         
         self.name = None
         """ Informal name for this search parameter.
@@ -73,6 +81,10 @@ class SearchParameter(domainresource.DomainResource):
         """ Absolute URL used to reference this search parameter.
         Type `str`. """
         
+        self.useContext = None
+        """ Content intends to support these contexts.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.xpath = None
         """ XPath that extracts the values.
         Type `str`. """
@@ -81,7 +93,7 @@ class SearchParameter(domainresource.DomainResource):
         """ normal | phonetic | nearby | distance | other.
         Type `str`. """
         
-        super(SearchParameter, self).__init__(jsondict)
+        super(SearchParameter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SearchParameter, self).elementProperties()
@@ -92,6 +104,7 @@ class SearchParameter(domainresource.DomainResource):
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, True),
             ("experimental", "experimental", bool, False, None, False),
+            ("expression", "expression", str, False, None, False),
             ("name", "name", str, False, None, True),
             ("publisher", "publisher", str, False, None, False),
             ("requirements", "requirements", str, False, None, False),
@@ -99,6 +112,7 @@ class SearchParameter(domainresource.DomainResource):
             ("target", "target", str, True, None, False),
             ("type", "type", str, False, None, True),
             ("url", "url", str, False, None, True),
+            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
             ("xpath", "xpath", str, False, None, False),
             ("xpathUsage", "xpathUsage", str, False, None, False),
         ])
@@ -115,19 +129,23 @@ class SearchParameterContact(backboneelement.BackboneElement):
     
     resource_name = "SearchParameterContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
-        """ Name of a individual to contact.
+        """ Name of an individual to contact.
         Type `str`. """
         
         self.telecom = None
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(SearchParameterContact, self).__init__(jsondict)
+        super(SearchParameterContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SearchParameterContact, self).elementProperties()
@@ -138,5 +156,6 @@ class SearchParameterContact(backboneelement.BackboneElement):
         return js
 
 
+from . import codeableconcept
 from . import contactpoint
 from . import fhirdate

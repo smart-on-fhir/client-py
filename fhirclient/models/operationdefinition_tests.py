@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -33,6 +33,7 @@ class OperationDefinitionTests(unittest.TestCase):
     
     def implOperationDefinition1(self, inst):
         self.assertEqual(inst.code, "populate")
+        self.assertEqual(inst.comment, "Only implemented for Labs and Medications so far")
         self.assertEqual(inst.contact[0].name, "System Administrator")
         self.assertEqual(inst.contact[0].telecom[0].system, "email")
         self.assertEqual(inst.contact[0].telecom[0].value, "beep@coyote.acme.com")
@@ -43,7 +44,6 @@ class OperationDefinitionTests(unittest.TestCase):
         self.assertTrue(inst.instance)
         self.assertEqual(inst.kind, "operation")
         self.assertEqual(inst.name, "Populate Questionnaire")
-        self.assertEqual(inst.notes, "Only implemented for Labs and Medications so far")
         self.assertEqual(inst.parameter[0].max, "1")
         self.assertEqual(inst.parameter[0].min, 1)
         self.assertEqual(inst.parameter[0].name, "subject")

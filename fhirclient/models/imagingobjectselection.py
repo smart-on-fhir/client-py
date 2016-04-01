@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -24,8 +24,12 @@ class ImagingObjectSelection(domainresource.DomainResource):
     
     resource_name = "ImagingObjectSelection"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.author = None
@@ -56,7 +60,7 @@ class ImagingObjectSelection(domainresource.DomainResource):
         """ Instance UID.
         Type `str`. """
         
-        super(ImagingObjectSelection, self).__init__(jsondict)
+        super(ImagingObjectSelection, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImagingObjectSelection, self).elementProperties()
@@ -83,8 +87,12 @@ class ImagingObjectSelectionStudy(backboneelement.BackboneElement):
     
     resource_name = "ImagingObjectSelectionStudy"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.imagingStudy = None
@@ -103,7 +111,7 @@ class ImagingObjectSelectionStudy(backboneelement.BackboneElement):
         """ Retrieve study URL.
         Type `str`. """
         
-        super(ImagingObjectSelectionStudy, self).__init__(jsondict)
+        super(ImagingObjectSelectionStudy, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudy, self).elementProperties()
@@ -125,8 +133,12 @@ class ImagingObjectSelectionStudySeries(backboneelement.BackboneElement):
     
     resource_name = "ImagingObjectSelectionStudySeries"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.instance = None
@@ -141,7 +153,7 @@ class ImagingObjectSelectionStudySeries(backboneelement.BackboneElement):
         """ Retrieve series URL.
         Type `str`. """
         
-        super(ImagingObjectSelectionStudySeries, self).__init__(jsondict)
+        super(ImagingObjectSelectionStudySeries, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudySeries, self).elementProperties()
@@ -161,8 +173,12 @@ class ImagingObjectSelectionStudySeriesInstance(backboneelement.BackboneElement)
     
     resource_name = "ImagingObjectSelectionStudySeriesInstance"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.frame = None
@@ -181,7 +197,7 @@ class ImagingObjectSelectionStudySeriesInstance(backboneelement.BackboneElement)
         """ Retrieve instance URL.
         Type `str`. """
         
-        super(ImagingObjectSelectionStudySeriesInstance, self).__init__(jsondict)
+        super(ImagingObjectSelectionStudySeriesInstance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudySeriesInstance, self).elementProperties()
@@ -202,8 +218,12 @@ class ImagingObjectSelectionStudySeriesInstanceFrame(backboneelement.BackboneEle
     
     resource_name = "ImagingObjectSelectionStudySeriesInstanceFrame"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.number = None
@@ -214,7 +234,7 @@ class ImagingObjectSelectionStudySeriesInstanceFrame(backboneelement.BackboneEle
         """ Retrieve frame URL.
         Type `str`. """
         
-        super(ImagingObjectSelectionStudySeriesInstanceFrame, self).__init__(jsondict)
+        super(ImagingObjectSelectionStudySeriesInstanceFrame, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImagingObjectSelectionStudySeriesInstanceFrame, self).elementProperties()

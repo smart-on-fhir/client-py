@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Medication) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Medication) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class Medication(domainresource.DomainResource):
     
     resource_name = "Medication"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -40,7 +44,7 @@ class Medication(domainresource.DomainResource):
         """ Administrable medication details.
         Type `MedicationProduct` (represented as `dict` in JSON). """
         
-        super(Medication, self).__init__(jsondict)
+        super(Medication, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Medication, self).elementProperties()
@@ -64,8 +68,12 @@ class MedicationPackage(backboneelement.BackboneElement):
     
     resource_name = "MedicationPackage"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.container = None
@@ -76,7 +84,7 @@ class MedicationPackage(backboneelement.BackboneElement):
         """ What is  in the package.
         List of `MedicationPackageContent` items (represented as `dict` in JSON). """
         
-        super(MedicationPackage, self).__init__(jsondict)
+        super(MedicationPackage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MedicationPackage, self).elementProperties()
@@ -95,25 +103,34 @@ class MedicationPackageContent(backboneelement.BackboneElement):
     
     resource_name = "MedicationPackageContent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.amount = None
         """ Quantity present in the package.
         Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
-        self.item = None
+        self.itemCodeableConcept = None
+        """ The item in the package.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.itemReference = None
         """ The item in the package.
         Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
         
-        super(MedicationPackageContent, self).__init__(jsondict)
+        super(MedicationPackageContent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MedicationPackageContent, self).elementProperties()
         js.extend([
             ("amount", "amount", quantity.Quantity, False, None, False),
-            ("item", "item", fhirreference.FHIRReference, False, None, True),
+            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),
+            ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True),
         ])
         return js
 
@@ -126,8 +143,12 @@ class MedicationProduct(backboneelement.BackboneElement):
     
     resource_name = "MedicationProduct"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.batch = None
@@ -142,7 +163,7 @@ class MedicationProduct(backboneelement.BackboneElement):
         """ Active or inactive ingredient.
         List of `MedicationProductIngredient` items (represented as `dict` in JSON). """
         
-        super(MedicationProduct, self).__init__(jsondict)
+        super(MedicationProduct, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MedicationProduct, self).elementProperties()
@@ -163,8 +184,12 @@ class MedicationProductBatch(backboneelement.BackboneElement):
     
     resource_name = "MedicationProductBatch"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.expirationDate = None
@@ -175,7 +200,7 @@ class MedicationProductBatch(backboneelement.BackboneElement):
         """ None.
         Type `str`. """
         
-        super(MedicationProductBatch, self).__init__(jsondict)
+        super(MedicationProductBatch, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MedicationProductBatch, self).elementProperties()
@@ -194,25 +219,34 @@ class MedicationProductIngredient(backboneelement.BackboneElement):
     
     resource_name = "MedicationProductIngredient"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.amount = None
         """ Quantity of ingredient present.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.item = None
+        self.itemCodeableConcept = None
+        """ The product contained.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.itemReference = None
         """ The product contained.
         Type `FHIRReference` referencing `Substance, Medication` (represented as `dict` in JSON). """
         
-        super(MedicationProductIngredient, self).__init__(jsondict)
+        super(MedicationProductIngredient, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MedicationProductIngredient, self).elementProperties()
         js.extend([
             ("amount", "amount", ratio.Ratio, False, None, False),
-            ("item", "item", fhirreference.FHIRReference, False, None, True),
+            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),
+            ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True),
         ])
         return js
 

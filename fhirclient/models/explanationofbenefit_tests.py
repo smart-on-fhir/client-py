@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -32,10 +32,6 @@ class ExplanationOfBenefitTests(unittest.TestCase):
         self.implExplanationOfBenefit1(inst2)
     
     def implExplanationOfBenefit1(self, inst):
-        self.assertEqual(inst.claimTotal.code, "USD")
-        self.assertEqual(inst.claimTotal.system, "urn:iso:std:iso:4217")
-        self.assertEqual(inst.claimTotal.value, 135.57)
-        self.assertEqual(inst.coverage.relationship.code, "self")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Claim settled as per contract.")
@@ -57,7 +53,7 @@ class ExplanationOfBenefitTests(unittest.TestCase):
         self.assertEqual(inst.item[0].net.value, 135.57)
         self.assertEqual(inst.item[0].sequence, 1)
         self.assertEqual(inst.item[0].service.code, "1200")
-        self.assertEqual(inst.item[0].service.system, "http://hl7.org/fhir/ValueSet/service-uscls")
+        self.assertEqual(inst.item[0].service.system, "http://hl7.org/fhir/service-uscls")
         self.assertEqual(inst.item[0].servicedDate.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.item[0].servicedDate.as_json(), "2014-08-16")
         self.assertEqual(inst.item[0].type.code, "service")
@@ -69,4 +65,7 @@ class ExplanationOfBenefitTests(unittest.TestCase):
         self.assertEqual(inst.totalBenefit.code, "USD")
         self.assertEqual(inst.totalBenefit.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.totalBenefit.value, 96.0)
+        self.assertEqual(inst.totalCost.code, "USD")
+        self.assertEqual(inst.totalCost.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.totalCost.value, 135.57)
 

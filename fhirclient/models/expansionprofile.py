@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ExpansionProfile) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ExpansionProfile) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -15,8 +15,12 @@ class ExpansionProfile(domainresource.DomainResource):
     
     resource_name = "ExpansionProfile"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.codeSystem = None
@@ -104,7 +108,7 @@ class ExpansionProfile(domainresource.DomainResource):
         """ Logical identifier for this version of the expansion profile.
         Type `str`. """
         
-        super(ExpansionProfile, self).__init__(jsondict)
+        super(ExpansionProfile, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfile, self).elementProperties()
@@ -145,8 +149,12 @@ class ExpansionProfileCodeSystem(backboneelement.BackboneElement):
     
     resource_name = "ExpansionProfileCodeSystem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.exclude = None
@@ -157,7 +165,7 @@ class ExpansionProfileCodeSystem(backboneelement.BackboneElement):
         """ Code systems to be included.
         Type `ExpansionProfileCodeSystemInclude` (represented as `dict` in JSON). """
         
-        super(ExpansionProfileCodeSystem, self).__init__(jsondict)
+        super(ExpansionProfileCodeSystem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfileCodeSystem, self).elementProperties()
@@ -176,15 +184,19 @@ class ExpansionProfileCodeSystemExclude(backboneelement.BackboneElement):
     
     resource_name = "ExpansionProfileCodeSystemExclude"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.codeSystem = None
         """ The code systems to be excluded.
         List of `ExpansionProfileCodeSystemExcludeCodeSystem` items (represented as `dict` in JSON). """
         
-        super(ExpansionProfileCodeSystemExclude, self).__init__(jsondict)
+        super(ExpansionProfileCodeSystemExclude, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfileCodeSystemExclude, self).elementProperties()
@@ -202,8 +214,12 @@ class ExpansionProfileCodeSystemExcludeCodeSystem(backboneelement.BackboneElemen
     
     resource_name = "ExpansionProfileCodeSystemExcludeCodeSystem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.system = None
@@ -214,7 +230,7 @@ class ExpansionProfileCodeSystemExcludeCodeSystem(backboneelement.BackboneElemen
         """ Specific version of the code system referred to.
         Type `str`. """
         
-        super(ExpansionProfileCodeSystemExcludeCodeSystem, self).__init__(jsondict)
+        super(ExpansionProfileCodeSystemExcludeCodeSystem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfileCodeSystemExcludeCodeSystem, self).elementProperties()
@@ -233,15 +249,19 @@ class ExpansionProfileCodeSystemInclude(backboneelement.BackboneElement):
     
     resource_name = "ExpansionProfileCodeSystemInclude"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.codeSystem = None
         """ The code systems to be included.
         List of `ExpansionProfileCodeSystemIncludeCodeSystem` items (represented as `dict` in JSON). """
         
-        super(ExpansionProfileCodeSystemInclude, self).__init__(jsondict)
+        super(ExpansionProfileCodeSystemInclude, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfileCodeSystemInclude, self).elementProperties()
@@ -259,8 +279,12 @@ class ExpansionProfileCodeSystemIncludeCodeSystem(backboneelement.BackboneElemen
     
     resource_name = "ExpansionProfileCodeSystemIncludeCodeSystem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.system = None
@@ -271,7 +295,7 @@ class ExpansionProfileCodeSystemIncludeCodeSystem(backboneelement.BackboneElemen
         """ Specific version of the code system referred to.
         Type `str`. """
         
-        super(ExpansionProfileCodeSystemIncludeCodeSystem, self).__init__(jsondict)
+        super(ExpansionProfileCodeSystemIncludeCodeSystem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfileCodeSystemIncludeCodeSystem, self).elementProperties()
@@ -290,8 +314,12 @@ class ExpansionProfileContact(backboneelement.BackboneElement):
     
     resource_name = "ExpansionProfileContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -302,7 +330,7 @@ class ExpansionProfileContact(backboneelement.BackboneElement):
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(ExpansionProfileContact, self).__init__(jsondict)
+        super(ExpansionProfileContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfileContact, self).elementProperties()
@@ -322,8 +350,12 @@ class ExpansionProfileDesignation(backboneelement.BackboneElement):
     
     resource_name = "ExpansionProfileDesignation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.exclude = None
@@ -334,7 +366,7 @@ class ExpansionProfileDesignation(backboneelement.BackboneElement):
         """ Designations to be included.
         Type `ExpansionProfileDesignationInclude` (represented as `dict` in JSON). """
         
-        super(ExpansionProfileDesignation, self).__init__(jsondict)
+        super(ExpansionProfileDesignation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfileDesignation, self).elementProperties()
@@ -351,15 +383,19 @@ class ExpansionProfileDesignationExclude(backboneelement.BackboneElement):
     
     resource_name = "ExpansionProfileDesignationExclude"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.designation = None
         """ The designation to be excluded.
         List of `ExpansionProfileDesignationExcludeDesignation` items (represented as `dict` in JSON). """
         
-        super(ExpansionProfileDesignationExclude, self).__init__(jsondict)
+        super(ExpansionProfileDesignationExclude, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfileDesignationExclude, self).elementProperties()
@@ -377,8 +413,12 @@ class ExpansionProfileDesignationExcludeDesignation(backboneelement.BackboneElem
     
     resource_name = "ExpansionProfileDesignationExcludeDesignation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.language = None
@@ -389,7 +429,7 @@ class ExpansionProfileDesignationExcludeDesignation(backboneelement.BackboneElem
         """ Designation use.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ExpansionProfileDesignationExcludeDesignation, self).__init__(jsondict)
+        super(ExpansionProfileDesignationExcludeDesignation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfileDesignationExcludeDesignation, self).elementProperties()
@@ -406,15 +446,19 @@ class ExpansionProfileDesignationInclude(backboneelement.BackboneElement):
     
     resource_name = "ExpansionProfileDesignationInclude"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.designation = None
         """ The designation to be included.
         List of `ExpansionProfileDesignationIncludeDesignation` items (represented as `dict` in JSON). """
         
-        super(ExpansionProfileDesignationInclude, self).__init__(jsondict)
+        super(ExpansionProfileDesignationInclude, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfileDesignationInclude, self).elementProperties()
@@ -432,8 +476,12 @@ class ExpansionProfileDesignationIncludeDesignation(backboneelement.BackboneElem
     
     resource_name = "ExpansionProfileDesignationIncludeDesignation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.language = None
@@ -444,7 +492,7 @@ class ExpansionProfileDesignationIncludeDesignation(backboneelement.BackboneElem
         """ Designation use.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ExpansionProfileDesignationIncludeDesignation, self).__init__(jsondict)
+        super(ExpansionProfileDesignationIncludeDesignation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExpansionProfileDesignationIncludeDesignation, self).elementProperties()

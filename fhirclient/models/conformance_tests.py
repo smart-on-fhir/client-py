@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -165,5 +165,6 @@ class ConformanceTests(unittest.TestCase):
         self.assertEqual(inst.rest[0].resource[3].type, "DiagnosticReport")
         self.assertEqual(inst.rest[0].security.service[0].text, "OAuth")
         self.assertEqual(inst.software.name, "ACME PHR Server")
+        self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
 

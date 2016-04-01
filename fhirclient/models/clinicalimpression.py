@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -22,8 +22,12 @@ class ClinicalImpression(domainresource.DomainResource):
     
     resource_name = "ClinicalImpression"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
@@ -98,7 +102,7 @@ class ClinicalImpression(domainresource.DomainResource):
         """ Request or event that necessitated this assessment.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        super(ClinicalImpression, self).__init__(jsondict)
+        super(ClinicalImpression, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClinicalImpression, self).elementProperties()
@@ -136,8 +140,12 @@ class ClinicalImpressionFinding(backboneelement.BackboneElement):
     
     resource_name = "ClinicalImpressionFinding"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.cause = None
@@ -148,7 +156,7 @@ class ClinicalImpressionFinding(backboneelement.BackboneElement):
         """ Specific text or code for finding.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ClinicalImpressionFinding, self).__init__(jsondict)
+        super(ClinicalImpressionFinding, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClinicalImpressionFinding, self).elementProperties()
@@ -171,8 +179,12 @@ class ClinicalImpressionInvestigations(backboneelement.BackboneElement):
     
     resource_name = "ClinicalImpressionInvestigations"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -183,7 +195,7 @@ class ClinicalImpressionInvestigations(backboneelement.BackboneElement):
         """ Record of a specific investigation.
         List of `FHIRReference` items referencing `Observation, QuestionnaireResponse, FamilyMemberHistory, DiagnosticReport` (represented as `dict` in JSON). """
         
-        super(ClinicalImpressionInvestigations, self).__init__(jsondict)
+        super(ClinicalImpressionInvestigations, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClinicalImpressionInvestigations, self).elementProperties()
@@ -200,8 +212,12 @@ class ClinicalImpressionRuledOut(backboneelement.BackboneElement):
     
     resource_name = "ClinicalImpressionRuledOut"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.item = None
@@ -212,7 +228,7 @@ class ClinicalImpressionRuledOut(backboneelement.BackboneElement):
         """ Grounds for elimination.
         Type `str`. """
         
-        super(ClinicalImpressionRuledOut, self).__init__(jsondict)
+        super(ClinicalImpressionRuledOut, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClinicalImpressionRuledOut, self).elementProperties()

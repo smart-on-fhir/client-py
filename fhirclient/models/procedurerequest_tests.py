@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -32,8 +32,8 @@ class ProcedureRequestTests(unittest.TestCase):
         self.implProcedureRequest1(inst2)
     
     def implProcedureRequest1(self, inst):
-        self.assertEqual(inst.code.coding[0].code, "323418000")
-        self.assertEqual(inst.code.coding[0].display, "Fix me up")
+        self.assertEqual(inst.code.coding[0].code, "303653007")
+        self.assertEqual(inst.code.coding[0].display, "Computed tomography of head")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.text.div, "<div>To be added</div>")

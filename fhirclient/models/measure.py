@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Measure) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Measure) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -15,32 +15,37 @@ class Measure(domainresource.DomainResource):
     
     resource_name = "Measure"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.clinicalRecommendationStatement = None
-        """ None.
+        """ Clinical recommendation.
         Type `str`. """
         
         self.definition = None
-        """ None.
+        """ A natural language definition of the measure.
         Type `str`. """
         
         self.disclaimer = None
-        """ None.
+        """ Disclaimer for the measure.
         Type `str`. """
         
         self.group = None
-        """ None.
+        """ Population criteria group.
         List of `MeasureGroup` items (represented as `dict` in JSON). """
         
         self.guidance = None
-        """ None.
+        """ The guidance for the measure.
         Type `str`. """
         
         self.improvementNotation = None
-        """ None.
+        """ Improvement notation for the measure, e.g. higher score indicates
+        better quality.
         Type `str`. """
         
         self.library = None
@@ -52,15 +57,15 @@ class Measure(domainresource.DomainResource):
         Type `ModuleMetadata` (represented as `dict` in JSON). """
         
         self.rateAggregation = None
-        """ None.
+        """ How is rate aggregation performed for this measure.
         Type `str`. """
         
         self.rationale = None
-        """ None.
+        """ Why does this measure exist.
         Type `str`. """
         
         self.riskAdjustment = None
-        """ None.
+        """ How is risk adjustment applied for this measure.
         Type `str`. """
         
         self.scoring = None
@@ -68,7 +73,7 @@ class Measure(domainresource.DomainResource):
         Type `str`. """
         
         self.set = None
-        """ None.
+        """ The measure set, e.g. Preventive Care and Screening.
         Type `str`. """
         
         self.supplementalData = None
@@ -79,7 +84,7 @@ class Measure(domainresource.DomainResource):
         """ process | outcome.
         List of `str` items. """
         
-        super(Measure, self).__init__(jsondict)
+        super(Measure, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Measure, self).elementProperties()
@@ -106,38 +111,42 @@ class Measure(domainresource.DomainResource):
 from . import backboneelement
 
 class MeasureGroup(backboneelement.BackboneElement):
-    """ None.
+    """ Population criteria group.
     
     A group of population criteria for the measure.
     """
     
     resource_name = "MeasureGroup"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
-        """ None.
+        """ Summary description.
         Type `str`. """
         
         self.identifier = None
-        """ None.
+        """ Unique identifier.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.name = None
-        """ None.
+        """ Short name.
         Type `str`. """
         
         self.population = None
-        """ None.
+        """ Population criteria.
         List of `MeasureGroupPopulation` items (represented as `dict` in JSON). """
         
         self.stratifier = None
-        """ None.
+        """ Stratifier criteria for the measure.
         List of `MeasureGroupStratifier` items (represented as `dict` in JSON). """
         
-        super(MeasureGroup, self).__init__(jsondict)
+        super(MeasureGroup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MeasureGroup, self).elementProperties()
@@ -152,31 +161,36 @@ class MeasureGroup(backboneelement.BackboneElement):
 
 
 class MeasureGroupPopulation(backboneelement.BackboneElement):
-    """ None.
+    """ Population criteria.
     
     A population criteria for the measure.
     """
     
     resource_name = "MeasureGroupPopulation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.criteria = None
-        """ None.
+        """ The name of a valid referenced CQL expression (may be namespaced)
+        that defines this population criteria.
         Type `str`. """
         
         self.description = None
-        """ None.
+        """ The human readable description of this population criteria.
         Type `str`. """
         
         self.identifier = None
-        """ None.
+        """ Unique identifier.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.name = None
-        """ None.
+        """ Short name.
         Type `str`. """
         
         self.type = None
@@ -185,7 +199,7 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
         population | measure-population-exclusion | measure-score.
         Type `str`. """
         
-        super(MeasureGroupPopulation, self).__init__(jsondict)
+        super(MeasureGroupPopulation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MeasureGroupPopulation, self).elementProperties()
@@ -200,33 +214,44 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
 
 
 class MeasureGroupStratifier(backboneelement.BackboneElement):
-    """ None.
+    """ Stratifier criteria for the measure.
     
     The stratifier criteria for the measure report, specified as either the
-    name of a valid referenced CQL expression or a valid FHIR Resource Path.
+    name of a valid CQL expression defined within a referenced library, or a
+    valid FHIR Resource Path.
     """
     
     resource_name = "MeasureGroupStratifier"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.criteria = None
-        """ None.
+        """ Stratifier criteria.
         Type `str`. """
         
         self.identifier = None
-        """ None.
+        """ The identifier for the stratifier used to coordinate the reported
+        data back to this stratifier.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        super(MeasureGroupStratifier, self).__init__(jsondict)
+        self.path = None
+        """ Path to the stratifier.
+        Type `str`. """
+        
+        super(MeasureGroupStratifier, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MeasureGroupStratifier, self).elementProperties()
         js.extend([
-            ("criteria", "criteria", str, False, None, True),
+            ("criteria", "criteria", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("path", "path", str, False, None, False),
         ])
         return js
 
@@ -234,14 +259,24 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
 class MeasureSupplementalData(backboneelement.BackboneElement):
     """ Supplemental data.
     
-    Supplemental data to be supplied with the measure report.
+    The supplemental data criteria for the measure report, specified as either
+    the name of a valid CQL expression within a referenced library, or a valid
+    FHIR Resource Path.
     """
     
     resource_name = "MeasureSupplementalData"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.criteria = None
+        """ Supplemental data criteria.
+        Type `str`. """
         
         self.identifier = None
         """ Identifier, unique within the measure.
@@ -251,13 +286,19 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
         """ Path to the supplemental data element.
         Type `str`. """
         
-        super(MeasureSupplementalData, self).__init__(jsondict)
+        self.usage = None
+        """ supplemental-data | risk-adjustment-factor.
+        List of `str` items. """
+        
+        super(MeasureSupplementalData, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MeasureSupplementalData, self).elementProperties()
         js.extend([
+            ("criteria", "criteria", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, True),
-            ("path", "path", str, False, None, True),
+            ("path", "path", str, False, None, False),
+            ("usage", "usage", str, True, None, False),
         ])
         return js
 

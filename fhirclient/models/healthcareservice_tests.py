@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -76,15 +76,15 @@ class HealthcareServiceTests(unittest.TestCase):
         self.assertEqual(inst.referralMethod[3].coding[0].code, "semail")
         self.assertEqual(inst.referralMethod[3].coding[0].display, "Secure Email")
         self.assertEqual(inst.serviceName, "Consulting psychologists and/or psychology services")
-        self.assertEqual(inst.serviceType[0].type.coding[0].code, "394913002")
-        self.assertEqual(inst.serviceType[0].type.coding[0].display, "Psychotherapy")
-        self.assertEqual(inst.serviceType[0].type.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.serviceType[1].specialty[0].coding[0].code, "47505003")
-        self.assertEqual(inst.serviceType[1].specialty[0].coding[0].display, "Posttraumatic stress disorder")
-        self.assertEqual(inst.serviceType[1].specialty[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.serviceType[1].type.coding[0].code, "394587001")
-        self.assertEqual(inst.serviceType[1].type.coding[0].display, "Psychiatry")
-        self.assertEqual(inst.serviceType[1].type.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.serviceType[0].coding[0].code, "394913002")
+        self.assertEqual(inst.serviceType[0].coding[0].display, "Psychotherapy")
+        self.assertEqual(inst.serviceType[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.serviceType[1].coding[0].code, "394587001")
+        self.assertEqual(inst.serviceType[1].coding[0].display, "Psychiatry")
+        self.assertEqual(inst.serviceType[1].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.specialty[0].coding[0].code, "47505003")
+        self.assertEqual(inst.specialty[0].coding[0].display, "Posttraumatic stress disorder")
+        self.assertEqual(inst.specialty[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.telecom[0].system, "phone")
         self.assertEqual(inst.telecom[0].use, "work")
         self.assertEqual(inst.telecom[0].value, "(555) silent")

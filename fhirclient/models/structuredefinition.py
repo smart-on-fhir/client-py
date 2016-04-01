@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -17,25 +17,29 @@ class StructureDefinition(domainresource.DomainResource):
     
     resource_name = "StructureDefinition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.abstract = None
         """ Whether the structure is abstract.
         Type `bool`. """
         
-        self.base = None
-        """ Structure that this set of constraints applies to.
+        self.baseDefinition = None
+        """ Definition that this type is constrained/specialized from.
+        Type `str`. """
+        
+        self.baseType = None
+        """ Any datatype or resource, including abstract ones.
         Type `str`. """
         
         self.code = None
         """ Assist with indexing and finding.
         List of `Coding` items (represented as `dict` in JSON). """
-        
-        self.constrainedType = None
-        """ Any datatype or resource, including abstract ones.
-        Type `str`. """
         
         self.contact = None
         """ Contact details of the publisher.
@@ -46,7 +50,7 @@ class StructureDefinition(domainresource.DomainResource):
         List of `str` items. """
         
         self.contextType = None
-        """ resource | datatype | mapping | extension.
+        """ resource | datatype | extension.
         Type `str`. """
         
         self.copyright = None
@@ -56,6 +60,10 @@ class StructureDefinition(domainresource.DomainResource):
         self.date = None
         """ Date for this version of the StructureDefinition.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.derivation = None
+        """ specialization | constraint - How relates to base definition.
+        Type `str`. """
         
         self.description = None
         """ Natural language description of the StructureDefinition.
@@ -121,20 +129,21 @@ class StructureDefinition(domainresource.DomainResource):
         """ Logical id for this version of the StructureDefinition.
         Type `str`. """
         
-        super(StructureDefinition, self).__init__(jsondict)
+        super(StructureDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinition, self).elementProperties()
         js.extend([
             ("abstract", "abstract", bool, False, None, True),
-            ("base", "base", str, False, None, False),
+            ("baseDefinition", "baseDefinition", str, False, None, False),
+            ("baseType", "baseType", str, False, None, False),
             ("code", "code", coding.Coding, True, None, False),
-            ("constrainedType", "constrainedType", str, False, None, False),
             ("contact", "contact", StructureDefinitionContact, True, None, False),
             ("context", "context", str, True, None, False),
             ("contextType", "contextType", str, False, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("derivation", "derivation", str, False, None, False),
             ("description", "description", str, False, None, False),
             ("differential", "differential", StructureDefinitionDifferential, False, None, False),
             ("display", "display", str, False, None, False),
@@ -165,19 +174,23 @@ class StructureDefinitionContact(backboneelement.BackboneElement):
     
     resource_name = "StructureDefinitionContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
-        """ Name of a individual to contact.
+        """ Name of an individual to contact.
         Type `str`. """
         
         self.telecom = None
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(StructureDefinitionContact, self).__init__(jsondict)
+        super(StructureDefinitionContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinitionContact, self).elementProperties()
@@ -197,15 +210,19 @@ class StructureDefinitionDifferential(backboneelement.BackboneElement):
     
     resource_name = "StructureDefinitionDifferential"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.element = None
         """ Definition of elements in the resource (if no StructureDefinition).
         List of `ElementDefinition` items (represented as `dict` in JSON). """
         
-        super(StructureDefinitionDifferential, self).__init__(jsondict)
+        super(StructureDefinitionDifferential, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinitionDifferential, self).elementProperties()
@@ -223,8 +240,12 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
     
     resource_name = "StructureDefinitionMapping"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.comments = None
@@ -243,7 +264,7 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
         """ Identifies what this mapping refers to.
         Type `str`. """
         
-        super(StructureDefinitionMapping, self).__init__(jsondict)
+        super(StructureDefinitionMapping, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinitionMapping, self).elementProperties()
@@ -265,15 +286,19 @@ class StructureDefinitionSnapshot(backboneelement.BackboneElement):
     
     resource_name = "StructureDefinitionSnapshot"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.element = None
         """ Definition of elements in the resource (if no StructureDefinition).
         List of `ElementDefinition` items (represented as `dict` in JSON). """
         
-        super(StructureDefinitionSnapshot, self).__init__(jsondict)
+        super(StructureDefinitionSnapshot, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinitionSnapshot, self).elementProperties()

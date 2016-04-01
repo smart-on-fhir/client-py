@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,15 +16,19 @@ class OperationOutcome(domainresource.DomainResource):
     
     resource_name = "OperationOutcome"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.issue = None
         """ A single issue associated with the action.
         List of `OperationOutcomeIssue` items (represented as `dict` in JSON). """
         
-        super(OperationOutcome, self).__init__(jsondict)
+        super(OperationOutcome, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(OperationOutcome, self).elementProperties()
@@ -44,8 +48,12 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
     
     resource_name = "OperationOutcomeIssue"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -60,6 +68,10 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         """ Additional diagnostic information about the issue.
         Type `str`. """
         
+        self.expression = None
+        """ FluentPath of element(s) related to issue.
+        List of `str` items. """
+        
         self.location = None
         """ XPath of element(s) related to issue.
         List of `str` items. """
@@ -68,7 +80,7 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         """ fatal | error | warning | information.
         Type `str`. """
         
-        super(OperationOutcomeIssue, self).__init__(jsondict)
+        super(OperationOutcomeIssue, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(OperationOutcomeIssue, self).elementProperties()
@@ -76,6 +88,7 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
             ("code", "code", str, False, None, True),
             ("details", "details", codeableconcept.CodeableConcept, False, None, False),
             ("diagnostics", "diagnostics", str, False, None, False),
+            ("expression", "expression", str, True, None, False),
             ("location", "location", str, True, None, False),
             ("severity", "severity", str, False, None, True),
         ])

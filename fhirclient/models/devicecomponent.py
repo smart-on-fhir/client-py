@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/DeviceComponent) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/DeviceComponent) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class DeviceComponent(domainresource.DomainResource):
     
     resource_name = "DeviceComponent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.identifier = None
@@ -62,7 +66,7 @@ class DeviceComponent(domainresource.DomainResource):
         """ What kind of component it is.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(DeviceComponent, self).__init__(jsondict)
+        super(DeviceComponent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DeviceComponent, self).elementProperties()
@@ -92,8 +96,12 @@ class DeviceComponentProductionSpecification(backboneelement.BackboneElement):
     
     resource_name = "DeviceComponentProductionSpecification"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.componentId = None
@@ -108,7 +116,7 @@ class DeviceComponentProductionSpecification(backboneelement.BackboneElement):
         """ Specification type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(DeviceComponentProductionSpecification, self).__init__(jsondict)
+        super(DeviceComponentProductionSpecification, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DeviceComponentProductionSpecification, self).elementProperties()

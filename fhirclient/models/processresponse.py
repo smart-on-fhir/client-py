@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class ProcessResponse(domainresource.DomainResource):
     
     resource_name = "ProcessResponse"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.created = None
@@ -44,7 +48,11 @@ class ProcessResponse(domainresource.DomainResource):
         """ Notes.
         List of `ProcessResponseNotes` items (represented as `dict` in JSON). """
         
-        self.organization = None
+        self.organizationIdentifier = None
+        """ Authoring Organization.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.organizationReference = None
         """ Authoring Organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
@@ -56,23 +64,35 @@ class ProcessResponse(domainresource.DomainResource):
         """ Processing outcome.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.request = None
+        self.requestIdentifier = None
         """ Request reference.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        Type `Identifier` (represented as `dict` in JSON). """
         
-        self.requestOrganization = None
+        self.requestOrganizationIdentifier = None
+        """ Responsible organization.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.requestOrganizationReference = None
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.requestProvider = None
+        self.requestProviderIdentifier = None
+        """ Responsible Practitioner.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.requestProviderReference = None
         """ Responsible Practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
+        self.requestReference = None
+        """ Request reference.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.ruleset = None
         """ Resource version.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ProcessResponse, self).__init__(jsondict)
+        super(ProcessResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProcessResponse, self).elementProperties()
@@ -83,12 +103,16 @@ class ProcessResponse(domainresource.DomainResource):
             ("form", "form", coding.Coding, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("notes", "notes", ProcessResponseNotes, True, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
+            ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
             ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
             ("outcome", "outcome", coding.Coding, False, None, False),
-            ("request", "request", fhirreference.FHIRReference, False, None, False),
-            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
-            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
+            ("requestIdentifier", "requestIdentifier", identifier.Identifier, False, "request", False),
+            ("requestOrganizationIdentifier", "requestOrganizationIdentifier", identifier.Identifier, False, "requestOrganization", False),
+            ("requestOrganizationReference", "requestOrganizationReference", fhirreference.FHIRReference, False, "requestOrganization", False),
+            ("requestProviderIdentifier", "requestProviderIdentifier", identifier.Identifier, False, "requestProvider", False),
+            ("requestProviderReference", "requestProviderReference", fhirreference.FHIRReference, False, "requestProvider", False),
+            ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
         ])
         return js
@@ -105,8 +129,12 @@ class ProcessResponseNotes(backboneelement.BackboneElement):
     
     resource_name = "ProcessResponseNotes"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.text = None
@@ -117,7 +145,7 @@ class ProcessResponseNotes(backboneelement.BackboneElement):
         """ display | print | printoper.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ProcessResponseNotes, self).__init__(jsondict)
+        super(ProcessResponseNotes, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProcessResponseNotes, self).elementProperties()

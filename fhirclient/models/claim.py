@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Claim) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Claim) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -17,12 +17,16 @@ class Claim(domainresource.DomainResource):
     
     resource_name = "Claim"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.accidentDate = None
-        """ Accident Date.
+        """ When the accident occurred.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.accidentLocationAddress = None
@@ -34,11 +38,11 @@ class Claim(domainresource.DomainResource):
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
         self.accidentType = None
-        """ Accident Type.
+        """ The nature of the accident.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.additionalMaterials = None
-        """ Additional materials, documents, etc..
+        self.additionalMaterial = None
+        """ Additional supporting materials and documents.
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.billablePeriod = None
@@ -109,13 +113,9 @@ class Claim(domainresource.DomainResource):
         """ Occurrence Codes.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.onsetDate = None
-        """ Illness, injury or treatable condition date.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.onsetPeriod = None
-        """ Illness, injury or treatable condition date.
-        Type `Period` (represented as `dict` in JSON). """
+        self.onset = None
+        """ Condition related Onset related dates and codes.
+        List of `ClaimOnset` items (represented as `dict` in JSON). """
         
         self.organizationIdentifier = None
         """ Responsible organization.
@@ -146,7 +146,7 @@ class Claim(domainresource.DomainResource):
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.payee = None
-        """ Payee.
+        """ Party to be paid any benefits payable.
         Type `ClaimPayee` (represented as `dict` in JSON). """
         
         self.prescriptionIdentifier = None
@@ -182,7 +182,7 @@ class Claim(domainresource.DomainResource):
         Type `FHIRReference` referencing `ReferralRequest` (represented as `dict` in JSON). """
         
         self.related = None
-        """ Related Claims.
+        """ Related Claims which may be revelant to processing this claimn.
         List of `ClaimRelated` items (represented as `dict` in JSON). """
         
         self.ruleset = None
@@ -221,7 +221,7 @@ class Claim(domainresource.DomainResource):
         """ Value Codes.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        super(Claim, self).__init__(jsondict)
+        super(Claim, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Claim, self).elementProperties()
@@ -230,7 +230,7 @@ class Claim(domainresource.DomainResource):
             ("accidentLocationAddress", "accidentLocationAddress", address.Address, False, "accidentLocation", False),
             ("accidentLocationReference", "accidentLocationReference", fhirreference.FHIRReference, False, "accidentLocation", False),
             ("accidentType", "accidentType", coding.Coding, False, None, False),
-            ("additionalMaterials", "additionalMaterials", coding.Coding, True, None, False),
+            ("additionalMaterial", "additionalMaterial", coding.Coding, True, None, False),
             ("billablePeriod", "billablePeriod", period.Period, False, None, False),
             ("coverage", "coverage", ClaimCoverage, True, None, False),
             ("created", "created", fhirdate.FHIRDate, False, None, False),
@@ -248,8 +248,7 @@ class Claim(domainresource.DomainResource):
             ("missingTeeth", "missingTeeth", ClaimMissingTeeth, True, None, False),
             ("occurenceSpanCode", "occurenceSpanCode", coding.Coding, True, None, False),
             ("occurrenceCode", "occurrenceCode", coding.Coding, True, None, False),
-            ("onsetDate", "onsetDate", fhirdate.FHIRDate, False, "onset", False),
-            ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
+            ("onset", "onset", ClaimOnset, True, None, False),
             ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
             ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
             ("originalPrescriptionIdentifier", "originalPrescriptionIdentifier", identifier.Identifier, False, "originalPrescription", False),
@@ -290,8 +289,12 @@ class ClaimCoverage(backboneelement.BackboneElement):
     
     resource_name = "ClaimCoverage"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.businessArrangement = None
@@ -326,7 +329,7 @@ class ClaimCoverage(backboneelement.BackboneElement):
         """ Service instance identifier.
         Type `int`. """
         
-        super(ClaimCoverage, self).__init__(jsondict)
+        super(ClaimCoverage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimCoverage, self).elementProperties()
@@ -351,8 +354,12 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
     
     resource_name = "ClaimDiagnosis"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.diagnosis = None
@@ -360,10 +367,10 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
         Type `Coding` (represented as `dict` in JSON). """
         
         self.sequence = None
-        """ Sequence of diagnosis.
+        """ Number to covey order of diagnosis.
         Type `int`. """
         
-        super(ClaimDiagnosis, self).__init__(jsondict)
+        super(ClaimDiagnosis, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimDiagnosis, self).elementProperties()
@@ -382,8 +389,12 @@ class ClaimItem(backboneelement.BackboneElement):
     
     resource_name = "ClaimItem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.bodySite = None
@@ -395,7 +406,7 @@ class ClaimItem(backboneelement.BackboneElement):
         List of `ClaimItemDetail` items (represented as `dict` in JSON). """
         
         self.diagnosisLinkId = None
-        """ Diagnosis Link.
+        """ Applicable diagnoses.
         List of `int` items. """
         
         self.factor = None
@@ -417,6 +428,10 @@ class ClaimItem(backboneelement.BackboneElement):
         self.points = None
         """ Difficulty scaling factor.
         Type `float`. """
+        
+        self.programCode = None
+        """ Program specific reason for item inclusion.
+        List of `Coding` items (represented as `dict` in JSON). """
         
         self.prosthesis = None
         """ Prosthetic details.
@@ -462,6 +477,14 @@ class ClaimItem(backboneelement.BackboneElement):
         """ Service Sub-location.
         List of `Coding` items (represented as `dict` in JSON). """
         
+        self.supervisorIdentifier = None
+        """ Supervising Practitioner.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.supervisorReference = None
+        """ Supervising Practitioner.
+        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
         self.type = None
         """ Group or type of product or service.
         Type `Coding` (represented as `dict` in JSON). """
@@ -474,7 +497,7 @@ class ClaimItem(backboneelement.BackboneElement):
         """ Fee, charge or cost per point.
         Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
-        super(ClaimItem, self).__init__(jsondict)
+        super(ClaimItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimItem, self).elementProperties()
@@ -487,6 +510,7 @@ class ClaimItem(backboneelement.BackboneElement):
             ("net", "net", quantity.Quantity, False, None, False),
             ("place", "place", coding.Coding, False, None, False),
             ("points", "points", float, False, None, False),
+            ("programCode", "programCode", coding.Coding, True, None, False),
             ("prosthesis", "prosthesis", ClaimItemProsthesis, False, None, False),
             ("providerIdentifier", "providerIdentifier", identifier.Identifier, False, "provider", False),
             ("providerQualification", "providerQualification", coding.Coding, False, None, False),
@@ -498,6 +522,8 @@ class ClaimItem(backboneelement.BackboneElement):
             ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
             ("subSite", "subSite", coding.Coding, True, None, False),
+            ("supervisorIdentifier", "supervisorIdentifier", identifier.Identifier, False, "supervisor", False),
+            ("supervisorReference", "supervisorReference", fhirreference.FHIRReference, False, "supervisor", False),
             ("type", "type", coding.Coding, False, None, True),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", quantity.Quantity, False, None, False),
@@ -513,8 +539,12 @@ class ClaimItemDetail(backboneelement.BackboneElement):
     
     resource_name = "ClaimItemDetail"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.factor = None
@@ -528,6 +558,10 @@ class ClaimItemDetail(backboneelement.BackboneElement):
         self.points = None
         """ Difficulty scaling factor.
         Type `float`. """
+        
+        self.programCode = None
+        """ Program specific reason for item inclusion.
+        List of `Coding` items (represented as `dict` in JSON). """
         
         self.quantity = None
         """ Count of Products or Services.
@@ -557,7 +591,7 @@ class ClaimItemDetail(backboneelement.BackboneElement):
         """ Fee, charge or cost per point.
         Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
-        super(ClaimItemDetail, self).__init__(jsondict)
+        super(ClaimItemDetail, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimItemDetail, self).elementProperties()
@@ -565,6 +599,7 @@ class ClaimItemDetail(backboneelement.BackboneElement):
             ("factor", "factor", float, False, None, False),
             ("net", "net", quantity.Quantity, False, None, False),
             ("points", "points", float, False, None, False),
+            ("programCode", "programCode", coding.Coding, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("sequence", "sequence", int, False, None, True),
             ("service", "service", coding.Coding, False, None, True),
@@ -584,8 +619,12 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
     
     resource_name = "ClaimItemDetailSubDetail"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.factor = None
@@ -599,6 +638,10 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
         self.points = None
         """ Difficulty scaling factor.
         Type `float`. """
+        
+        self.programCode = None
+        """ Program specific reason for item inclusion.
+        List of `Coding` items (represented as `dict` in JSON). """
         
         self.quantity = None
         """ Count of Products or Services.
@@ -624,7 +667,7 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
         """ Fee, charge or cost per point.
         Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
-        super(ClaimItemDetailSubDetail, self).__init__(jsondict)
+        super(ClaimItemDetailSubDetail, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimItemDetailSubDetail, self).elementProperties()
@@ -632,6 +675,7 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
             ("factor", "factor", float, False, None, False),
             ("net", "net", quantity.Quantity, False, None, False),
             ("points", "points", float, False, None, False),
+            ("programCode", "programCode", coding.Coding, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("sequence", "sequence", int, False, None, True),
             ("service", "service", coding.Coding, False, None, True),
@@ -650,8 +694,12 @@ class ClaimItemProsthesis(backboneelement.BackboneElement):
     
     resource_name = "ClaimItemProsthesis"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.initial = None
@@ -666,7 +714,7 @@ class ClaimItemProsthesis(backboneelement.BackboneElement):
         """ Prosthetic Material.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ClaimItemProsthesis, self).__init__(jsondict)
+        super(ClaimItemProsthesis, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimItemProsthesis, self).elementProperties()
@@ -687,23 +735,27 @@ class ClaimMissingTeeth(backboneelement.BackboneElement):
     
     resource_name = "ClaimMissingTeeth"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.extractionDate = None
-        """ Date of Extraction.
+        """ Date tooth was extracted if known.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.reason = None
-        """ Reason for missing.
+        """ Indicates whether it was extracted or other reason.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.tooth = None
         """ Tooth Code.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ClaimMissingTeeth, self).__init__(jsondict)
+        super(ClaimMissingTeeth, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimMissingTeeth, self).elementProperties()
@@ -715,31 +767,76 @@ class ClaimMissingTeeth(backboneelement.BackboneElement):
         return js
 
 
+class ClaimOnset(backboneelement.BackboneElement):
+    """ Condition related Onset related dates and codes.
+    
+    Period, start and last dates of aspects of the Condition or related
+    services.
+    """
+    
+    resource_name = "ClaimOnset"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.timeDate = None
+        """ Illness, injury or treatable condition date.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.timePeriod = None
+        """ Illness, injury or treatable condition date.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ Onset of what.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        super(ClaimOnset, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClaimOnset, self).elementProperties()
+        js.extend([
+            ("timeDate", "timeDate", fhirdate.FHIRDate, False, "time", False),
+            ("timePeriod", "timePeriod", period.Period, False, "time", False),
+            ("type", "type", coding.Coding, False, None, False),
+        ])
+        return js
+
+
 class ClaimPayee(backboneelement.BackboneElement):
-    """ Payee.
+    """ Party to be paid any benefits payable.
     
     The party to be reimbursed for the services.
     """
     
     resource_name = "ClaimPayee"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.partyIdentifier = None
-        """ Party to be paid any benefits payable.
+        """ Party to receive the payable.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.partyReference = None
-        """ Party to be paid any benefits payable.
+        """ Party to receive the payable.
         Type `FHIRReference` referencing `Practitioner, Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.type = None
-        """ Payee type.
+        """ Type of party: Subscriber, Provider, other.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ClaimPayee, self).__init__(jsondict)
+        super(ClaimPayee, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimPayee, self).elementProperties()
@@ -759,8 +856,12 @@ class ClaimProcedure(backboneelement.BackboneElement):
     
     resource_name = "ClaimProcedure"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.date = None
@@ -779,7 +880,7 @@ class ClaimProcedure(backboneelement.BackboneElement):
         """ Procedure sequence for reference.
         Type `int`. """
         
-        super(ClaimProcedure, self).__init__(jsondict)
+        super(ClaimProcedure, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimProcedure, self).elementProperties()
@@ -793,7 +894,7 @@ class ClaimProcedure(backboneelement.BackboneElement):
 
 
 class ClaimRelated(backboneelement.BackboneElement):
-    """ Related Claims.
+    """ Related Claims which may be revelant to processing this claimn.
     
     Other claims which are related to this claim such as prior claim versions
     or for related services.
@@ -801,16 +902,20 @@ class ClaimRelated(backboneelement.BackboneElement):
     
     resource_name = "ClaimRelated"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.claimIdentifier = None
-        """ Related Claims.
+        """ Reference to the related claim.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.claimReference = None
-        """ Related Claims.
+        """ Reference to the related claim.
         Type `FHIRReference` referencing `Claim` (represented as `dict` in JSON). """
         
         self.reference = None
@@ -821,7 +926,7 @@ class ClaimRelated(backboneelement.BackboneElement):
         """ How the reference claim is related.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ClaimRelated, self).__init__(jsondict)
+        super(ClaimRelated, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimRelated, self).elementProperties()

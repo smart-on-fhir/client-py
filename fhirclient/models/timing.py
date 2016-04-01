@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Timing) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Timing) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -18,8 +18,12 @@ class Timing(element.Element):
     
     resource_name = "Timing"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -34,7 +38,7 @@ class Timing(element.Element):
         """ When the event is to occur.
         Type `TimingRepeat` (represented as `dict` in JSON). """
         
-        super(Timing, self).__init__(jsondict)
+        super(Timing, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Timing, self).elementProperties()
@@ -54,8 +58,12 @@ class TimingRepeat(element.Element):
     
     resource_name = "TimingRepeat"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.boundsPeriod = None
@@ -74,6 +82,10 @@ class TimingRepeat(element.Element):
         """ Number of times to repeat.
         Type `int`. """
         
+        self.countMax = None
+        """ Maximum number of times to repeat.
+        Type `int`. """
+        
         self.duration = None
         """ How long when it happens.
         Type `float`. """
@@ -82,7 +94,7 @@ class TimingRepeat(element.Element):
         """ How long when it happens (Max).
         Type `float`. """
         
-        self.durationUnits = None
+        self.durationUnit = None
         """ s | min | h | d | wk | mo | a - unit of time (UCUM).
         Type `str`. """
         
@@ -94,6 +106,10 @@ class TimingRepeat(element.Element):
         """ Event occurs up to frequencyMax times per period.
         Type `int`. """
         
+        self.offset = None
+        """ Minutes from event (before or after).
+        Type `int`. """
+        
         self.period = None
         """ Event occurs frequency times per period.
         Type `float`. """
@@ -102,7 +118,7 @@ class TimingRepeat(element.Element):
         """ Upper limit of period (3-4 hours).
         Type `float`. """
         
-        self.periodUnits = None
+        self.periodUnit = None
         """ s | min | h | d | wk | mo | a - unit of time (UCUM).
         Type `str`. """
         
@@ -110,7 +126,7 @@ class TimingRepeat(element.Element):
         """ Regular life events the event is tied to.
         Type `str`. """
         
-        super(TimingRepeat, self).__init__(jsondict)
+        super(TimingRepeat, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TimingRepeat, self).elementProperties()
@@ -119,14 +135,16 @@ class TimingRepeat(element.Element):
             ("boundsQuantity", "boundsQuantity", quantity.Quantity, False, "bounds", False),
             ("boundsRange", "boundsRange", range.Range, False, "bounds", False),
             ("count", "count", int, False, None, False),
+            ("countMax", "countMax", int, False, None, False),
             ("duration", "duration", float, False, None, False),
             ("durationMax", "durationMax", float, False, None, False),
-            ("durationUnits", "durationUnits", str, False, None, False),
+            ("durationUnit", "durationUnit", str, False, None, False),
             ("frequency", "frequency", int, False, None, False),
             ("frequencyMax", "frequencyMax", int, False, None, False),
+            ("offset", "offset", int, False, None, False),
             ("period", "period", float, False, None, False),
             ("periodMax", "periodMax", float, False, None, False),
-            ("periodUnits", "periodUnits", str, False, None, False),
+            ("periodUnit", "periodUnit", str, False, None, False),
             ("when", "when", str, False, None, False),
         ])
         return js

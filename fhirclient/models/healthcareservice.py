@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -13,8 +13,12 @@ class HealthcareService(domainresource.DomainResource):
     
     resource_name = "HealthcareService"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.appointmentRequired = None
@@ -100,14 +104,18 @@ class HealthcareService(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.serviceType = None
-        """ Specific service delivered or performed.
-        List of `HealthcareServiceServiceType` items (represented as `dict` in JSON). """
+        """ Type of service that may be delivered or performed.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.specialty = None
+        """ Specialties handled by the HealthcareService.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.telecom = None
         """ Contacts related to the healthcare service.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(HealthcareService, self).__init__(jsondict)
+        super(HealthcareService, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(HealthcareService, self).elementProperties()
@@ -132,7 +140,8 @@ class HealthcareService(domainresource.DomainResource):
             ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False, None, False),
             ("serviceName", "serviceName", str, False, None, False),
             ("serviceProvisionCode", "serviceProvisionCode", codeableconcept.CodeableConcept, True, None, False),
-            ("serviceType", "serviceType", HealthcareServiceServiceType, True, None, False),
+            ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
@@ -148,8 +157,12 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
     
     resource_name = "HealthcareServiceAvailableTime"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.allDay = None
@@ -168,7 +181,7 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
         """ mon | tue | wed | thu | fri | sat | sun.
         List of `str` items. """
         
-        super(HealthcareServiceAvailableTime, self).__init__(jsondict)
+        super(HealthcareServiceAvailableTime, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(HealthcareServiceAvailableTime, self).elementProperties()
@@ -190,8 +203,12 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
     
     resource_name = "HealthcareServiceNotAvailable"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
@@ -202,44 +219,13 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
         """ Service not availablefrom this date.
         Type `Period` (represented as `dict` in JSON). """
         
-        super(HealthcareServiceNotAvailable, self).__init__(jsondict)
+        super(HealthcareServiceNotAvailable, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(HealthcareServiceNotAvailable, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, True),
             ("during", "during", period.Period, False, None, False),
-        ])
-        return js
-
-
-class HealthcareServiceServiceType(backboneelement.BackboneElement):
-    """ Specific service delivered or performed.
-    
-    A specific type of service that may be delivered or performed.
-    """
-    
-    resource_name = "HealthcareServiceServiceType"
-    
-    def __init__(self, jsondict=None):
-        """ Initialize all valid properties.
-        """
-        
-        self.specialty = None
-        """ Specialties handled by the Service Site.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ Type of service delivered or performed.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        super(HealthcareServiceServiceType, self).__init__(jsondict)
-    
-    def elementProperties(self):
-        js = super(HealthcareServiceServiceType, self).elementProperties()
-        js.extend([
-            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 

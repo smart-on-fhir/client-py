@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -37,8 +37,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.lastModified.date, FHIRDate("2016-03-10T22:39:32-04:00").date)
         self.assertEqual(inst.lastModified.as_json(), "2016-03-10T22:39:32-04:00")
-        self.assertEqual(inst.status, "created")
-        self.assertFalse(inst.suspended)
+        self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.text, "Refill Request")
 

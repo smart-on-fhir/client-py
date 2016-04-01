@@ -12,11 +12,11 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
     """
     resource_name = 'FHIRAbstractResource'
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         self._server = None
         """ The server the instance was read from. """
         
-        super(FHIRAbstractResource, self).__init__(jsondict)
+        super(FHIRAbstractResource, self).__init__(jsondict=jsondict, strict=strict)
     
     @classmethod
     def _with_json_dict(cls, jsondict):

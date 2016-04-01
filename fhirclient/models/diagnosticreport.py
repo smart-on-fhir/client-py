@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -20,8 +20,12 @@ class DiagnosticReport(domainresource.DomainResource):
     
     resource_name = "DiagnosticReport"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.category = None
@@ -98,7 +102,7 @@ class DiagnosticReport(domainresource.DomainResource):
         """ The subject of the report, usually, but not always, the patient.
         Type `FHIRReference` referencing `Patient, Group, Device, Location` (represented as `dict` in JSON). """
         
-        super(DiagnosticReport, self).__init__(jsondict)
+        super(DiagnosticReport, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DiagnosticReport, self).elementProperties()
@@ -137,8 +141,12 @@ class DiagnosticReportImage(backboneelement.BackboneElement):
     
     resource_name = "DiagnosticReportImage"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.comment = None
@@ -149,7 +157,7 @@ class DiagnosticReportImage(backboneelement.BackboneElement):
         """ Reference to the image source.
         Type `FHIRReference` referencing `Media` (represented as `dict` in JSON). """
         
-        super(DiagnosticReportImage, self).__init__(jsondict)
+        super(DiagnosticReportImage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DiagnosticReportImage, self).elementProperties()

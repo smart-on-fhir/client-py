@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -33,14 +33,15 @@ class StructureDefinitionTests(unittest.TestCase):
     
     def implStructureDefinition1(self, inst):
         self.assertFalse(inst.abstract)
-        self.assertEqual(inst.base, "http://hl7.org/fhir/StructureDefinition/Extension")
-        self.assertEqual(inst.constrainedType, "Extension")
+        self.assertEqual(inst.baseDefinition, "http://hl7.org/fhir/StructureDefinition/Extension")
+        self.assertEqual(inst.baseType, "Extension")
         self.assertEqual(inst.contact[0].telecom[0].system, "other")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/special/committees/FHIR")
         self.assertEqual(inst.contextType, "datatype")
         self.assertEqual(inst.context[0], "ElementDefinition")
         self.assertEqual(inst.date.date, FHIRDate("2014-01-31").date)
         self.assertEqual(inst.date.as_json(), "2014-01-31")
+        self.assertEqual(inst.derivation, "constraint")
         self.assertEqual(inst.description, "An additional example value.")
         self.assertEqual(inst.differential.element[0].definition, "An additional example value.")
         self.assertEqual(inst.differential.element[0].max, "*")
@@ -93,7 +94,7 @@ class StructureDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.differential.element[9].path, "Extension.url")
         self.assertEqual(inst.differential.element[9].type[0].code, "uri")
         self.assertEqual(inst.display, "example")
-        self.assertEqual(inst.fhirVersion, "1.3.0")
+        self.assertEqual(inst.fhirVersion, "1.4.0")
         self.assertEqual(inst.id, "structuredefinition-example")
         self.assertEqual(inst.kind, "datatype")
         self.assertEqual(inst.name, "An additional example value")
@@ -224,17 +225,18 @@ class StructureDefinitionTests(unittest.TestCase):
     
     def implStructureDefinition2(self, inst):
         self.assertFalse(inst.abstract)
-        self.assertEqual(inst.base, "http://hl7.org/fhir/StructureDefinition/DiagnosticReport")
+        self.assertEqual(inst.baseDefinition, "http://hl7.org/fhir/StructureDefinition/DiagnosticReport")
+        self.assertEqual(inst.baseType, "DiagnosticReport")
         self.assertEqual(inst.code[0].code, "314079002")
         self.assertEqual(inst.code[0].display, "314079002")
         self.assertEqual(inst.code[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.constrainedType, "DiagnosticReport")
         self.assertEqual(inst.contact[0].name, "Grahame Grieve")
         self.assertEqual(inst.contact[0].telecom[0].system, "email")
         self.assertEqual(inst.contact[0].telecom[0].value, "grahame@healthintersections.com.au")
         self.assertEqual(inst.copyright, "Createive Commons 0, per FHIR specification")
         self.assertEqual(inst.date.date, FHIRDate("2012-05-12").date)
         self.assertEqual(inst.date.as_json(), "2012-05-12")
+        self.assertEqual(inst.derivation, "constraint")
         self.assertEqual(inst.description, "Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes")
         self.assertEqual(inst.display, "Example Lipid Profile")
         self.assertTrue(inst.experimental)

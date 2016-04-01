@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Patient) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Patient) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class Patient(domainresource.DomainResource):
     
     resource_name = "Patient"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.active = None
@@ -98,7 +102,7 @@ class Patient(domainresource.DomainResource):
         """ A contact detail for the individual.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(Patient, self).__init__(jsondict)
+        super(Patient, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Patient, self).elementProperties()
@@ -136,8 +140,12 @@ class PatientAnimal(backboneelement.BackboneElement):
     
     resource_name = "PatientAnimal"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.breed = None
@@ -152,7 +160,7 @@ class PatientAnimal(backboneelement.BackboneElement):
         """ E.g. Dog, Cow.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(PatientAnimal, self).__init__(jsondict)
+        super(PatientAnimal, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(PatientAnimal, self).elementProperties()
@@ -174,8 +182,12 @@ class PatientCommunication(backboneelement.BackboneElement):
     
     resource_name = "PatientCommunication"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.language = None
@@ -187,7 +199,7 @@ class PatientCommunication(backboneelement.BackboneElement):
         """ Language preference indicator.
         Type `bool`. """
         
-        super(PatientCommunication, self).__init__(jsondict)
+        super(PatientCommunication, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(PatientCommunication, self).elementProperties()
@@ -204,8 +216,12 @@ class PatientContact(backboneelement.BackboneElement):
     
     resource_name = "PatientContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.address = None
@@ -237,7 +253,7 @@ class PatientContact(backboneelement.BackboneElement):
         """ A contact detail for the person.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(PatientContact, self).__init__(jsondict)
+        super(PatientContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(PatientContact, self).elementProperties()
@@ -261,8 +277,12 @@ class PatientLink(backboneelement.BackboneElement):
     
     resource_name = "PatientLink"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.other = None
@@ -273,7 +293,7 @@ class PatientLink(backboneelement.BackboneElement):
         """ replace | refer | seealso - type of link.
         Type `str`. """
         
-        super(PatientLink, self).__init__(jsondict)
+        super(PatientLink, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(PatientLink, self).elementProperties()

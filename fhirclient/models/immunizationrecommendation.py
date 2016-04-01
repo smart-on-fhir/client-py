@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class ImmunizationRecommendation(domainresource.DomainResource):
     
     resource_name = "ImmunizationRecommendation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.identifier = None
@@ -33,7 +37,7 @@ class ImmunizationRecommendation(domainresource.DomainResource):
         """ Vaccine administration recommendations.
         List of `ImmunizationRecommendationRecommendation` items (represented as `dict` in JSON). """
         
-        super(ImmunizationRecommendation, self).__init__(jsondict)
+        super(ImmunizationRecommendation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImmunizationRecommendation, self).elementProperties()
@@ -53,8 +57,12 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
     
     resource_name = "ImmunizationRecommendationRecommendation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.date = None
@@ -89,7 +97,7 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
         """ Vaccine recommendation applies to.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ImmunizationRecommendationRecommendation, self).__init__(jsondict)
+        super(ImmunizationRecommendationRecommendation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImmunizationRecommendationRecommendation, self).elementProperties()
@@ -115,8 +123,12 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
     
     resource_name = "ImmunizationRecommendationRecommendationDateCriterion"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -127,7 +139,7 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
         """ Recommended date.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        super(ImmunizationRecommendationRecommendationDateCriterion, self).__init__(jsondict)
+        super(ImmunizationRecommendationRecommendationDateCriterion, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImmunizationRecommendationRecommendationDateCriterion, self).elementProperties()
@@ -147,8 +159,12 @@ class ImmunizationRecommendationRecommendationProtocol(backboneelement.BackboneE
     
     resource_name = "ImmunizationRecommendationRecommendationProtocol"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.authority = None
@@ -167,7 +183,7 @@ class ImmunizationRecommendationRecommendationProtocol(backboneelement.BackboneE
         """ Name of vaccination series.
         Type `str`. """
         
-        super(ImmunizationRecommendationRecommendationProtocol, self).__init__(jsondict)
+        super(ImmunizationRecommendationRecommendationProtocol, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImmunizationRecommendationRecommendationProtocol, self).elementProperties()

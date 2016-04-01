@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -38,7 +38,7 @@ class StructureMapTests(unittest.TestCase):
         self.assertEqual(inst.group[0].rule[0].name, "rule1")
         self.assertEqual(inst.group[0].rule[0].source[0].context, "test")
         self.assertEqual(inst.group[0].rule[0].source[0].contextType, "variable")
-        self.assertEqual(inst.group[0].rule[0].source[0].field, "test")
+        self.assertEqual(inst.group[0].rule[0].source[0].element, "test")
         self.assertTrue(inst.group[0].rule[0].source[0].required)
         self.assertEqual(inst.group[0].rule[0].source[0].variable, "t")
         self.assertEqual(inst.id, "example")

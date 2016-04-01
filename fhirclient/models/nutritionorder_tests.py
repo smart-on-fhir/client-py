@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -108,7 +108,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.oralDiet.schedule[0].repeat.boundsPeriod.start.as_json(), "2015-02-10")
         self.assertEqual(inst.oralDiet.schedule[0].repeat.frequency, 3)
         self.assertEqual(inst.oralDiet.schedule[0].repeat.period, 1)
-        self.assertEqual(inst.oralDiet.schedule[0].repeat.periodUnits, "d")
+        self.assertEqual(inst.oralDiet.schedule[0].repeat.periodUnit, "d")
         self.assertEqual(inst.oralDiet.type[0].coding[0].code, "160670007")
         self.assertEqual(inst.oralDiet.type[0].coding[0].display, "Diabetic diet")
         self.assertEqual(inst.oralDiet.type[0].coding[0].system, "http://snomed.info/sct")
@@ -149,9 +149,9 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.supplement[0].schedule[0].repeat.boundsPeriod.start.as_json(), "2015-02-10T15:00:00Z")
         self.assertEqual(inst.supplement[0].schedule[0].repeat.frequency, 1)
         self.assertEqual(inst.supplement[0].schedule[0].repeat.period, 24)
-        self.assertEqual(inst.supplement[0].schedule[0].repeat.periodUnits, "h")
+        self.assertEqual(inst.supplement[0].schedule[0].repeat.periodUnit, "h")
         self.assertEqual(inst.supplement[0].schedule[1].repeat.duration, 1)
-        self.assertEqual(inst.supplement[0].schedule[1].repeat.durationUnits, "h")
+        self.assertEqual(inst.supplement[0].schedule[1].repeat.durationUnit, "h")
         self.assertEqual(inst.supplement[0].schedule[1].repeat.when, "HS")
         self.assertEqual(inst.supplement[0].type.coding[0].code, "443051000124104")
         self.assertEqual(inst.supplement[0].type.coding[0].display, "Adult diabetes specialty formula")
@@ -192,7 +192,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.supplement[0].schedule[0].repeat.boundsPeriod.start.as_json(), "2015-02-10")
         self.assertEqual(inst.supplement[0].schedule[0].repeat.frequency, 3)
         self.assertEqual(inst.supplement[0].schedule[0].repeat.period, 1)
-        self.assertEqual(inst.supplement[0].schedule[0].repeat.periodUnits, "d")
+        self.assertEqual(inst.supplement[0].schedule[0].repeat.periodUnit, "d")
         self.assertEqual(inst.supplement[0].type.coding[0].code, "442971000124100")
         self.assertEqual(inst.supplement[0].type.coding[0].display, "Adult high energy formula")
         self.assertEqual(inst.supplement[0].type.coding[0].system, "http://snomed.info/sct")
@@ -228,7 +228,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.enteralFormula.administration[0].schedule.repeat.boundsPeriod.start.as_json(), "2014-09-17T16:00:00Z")
         self.assertEqual(inst.enteralFormula.administration[0].schedule.repeat.frequency, 1)
         self.assertEqual(inst.enteralFormula.administration[0].schedule.repeat.period, 4)
-        self.assertEqual(inst.enteralFormula.administration[0].schedule.repeat.periodUnits, "h")
+        self.assertEqual(inst.enteralFormula.administration[0].schedule.repeat.periodUnit, "h")
         self.assertEqual(inst.enteralFormula.baseFormulaProductName, "Acme High Protein Formula")
         self.assertEqual(inst.enteralFormula.baseFormulaType.coding[0].code, "659311000124118")
         self.assertEqual(inst.enteralFormula.baseFormulaType.coding[0].display, "Adult high protein formula")
@@ -342,7 +342,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.oralDiet.schedule[0].repeat.boundsPeriod.start.as_json(), "2015-02-10")
         self.assertEqual(inst.oralDiet.schedule[0].repeat.frequency, 3)
         self.assertEqual(inst.oralDiet.schedule[0].repeat.period, 1)
-        self.assertEqual(inst.oralDiet.schedule[0].repeat.periodUnits, "d")
+        self.assertEqual(inst.oralDiet.schedule[0].repeat.periodUnit, "d")
         self.assertEqual(inst.oralDiet.type[0].coding[0].code, "15108003")
         self.assertEqual(inst.oralDiet.type[0].coding[0].display, "Restricted fiber diet")
         self.assertEqual(inst.oralDiet.type[0].coding[0].system, "http://snomed.info/sct")
@@ -386,7 +386,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.enteralFormula.administration[0].schedule.repeat.boundsPeriod.start.as_json(), "2014-09-17")
         self.assertEqual(inst.enteralFormula.administration[0].schedule.repeat.frequency, 1)
         self.assertEqual(inst.enteralFormula.administration[0].schedule.repeat.period, 3)
-        self.assertEqual(inst.enteralFormula.administration[0].schedule.repeat.periodUnits, "h")
+        self.assertEqual(inst.enteralFormula.administration[0].schedule.repeat.periodUnit, "h")
         self.assertEqual(inst.enteralFormula.baseFormulaProductName, "Acme Infant Formula + Iron")
         self.assertEqual(inst.enteralFormula.baseFormulaType.coding[0].code, "412414007")
         self.assertEqual(inst.enteralFormula.baseFormulaType.coding[0].display, "infant formula + iron")
@@ -468,7 +468,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.oralDiet.schedule[0].repeat.boundsPeriod.start.as_json(), "2015-02-10")
         self.assertEqual(inst.oralDiet.schedule[0].repeat.frequency, 3)
         self.assertEqual(inst.oralDiet.schedule[0].repeat.period, 1)
-        self.assertEqual(inst.oralDiet.schedule[0].repeat.periodUnits, "d")
+        self.assertEqual(inst.oralDiet.schedule[0].repeat.periodUnit, "d")
         self.assertEqual(inst.oralDiet.texture[0].modifier.coding[0].code, "228055009")
         self.assertEqual(inst.oralDiet.texture[0].modifier.coding[0].display, "Liquidized food")
         self.assertEqual(inst.oralDiet.texture[0].modifier.coding[0].system, "http://snomed.info/sct")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -15,9 +15,18 @@ class Appointment(domainresource.DomainResource):
     
     resource_name = "Appointment"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.appointmentType = None
+        """ The style of appointment or patient that has been booked in the
+        slot (not service type).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.comment = None
         """ Additional comments.
@@ -55,9 +64,24 @@ class Appointment(domainresource.DomainResource):
         """ Reason this appointment is scheduled.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.serviceCategory = None
+        """ A broad categorisation of the service that is to be performed
+        during this appointment.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.serviceType = None
+        """ The specific service that is to be performed during this
+        appointment.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.slot = None
         """ If provided, then no schedule and start/end values MUST match slot.
         List of `FHIRReference` items referencing `Slot` (represented as `dict` in JSON). """
+        
+        self.specialty = None
+        """ The specialty of a practitioner that would be required to perform
+        the service requested in this appointment.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.start = None
         """ When appointment is to take place.
@@ -68,15 +92,12 @@ class Appointment(domainresource.DomainResource):
         noshow.
         Type `str`. """
         
-        self.type = None
-        """ The type of appointment that is being booked.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        super(Appointment, self).__init__(jsondict)
+        super(Appointment, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Appointment, self).elementProperties()
         js.extend([
+            ("appointmentType", "appointmentType", codeableconcept.CodeableConcept, False, None, False),
             ("comment", "comment", str, False, None, False),
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
@@ -86,10 +107,12 @@ class Appointment(domainresource.DomainResource):
             ("participant", "participant", AppointmentParticipant, True, None, True),
             ("priority", "priority", int, False, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False, None, False),
+            ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
             ("slot", "slot", fhirreference.FHIRReference, True, None, False),
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
             ("start", "start", fhirdate.FHIRDate, False, None, False),
             ("status", "status", str, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -104,8 +127,12 @@ class AppointmentParticipant(backboneelement.BackboneElement):
     
     resource_name = "AppointmentParticipant"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.actor = None
@@ -124,7 +151,7 @@ class AppointmentParticipant(backboneelement.BackboneElement):
         """ Role of participant in the appointment.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(AppointmentParticipant, self).__init__(jsondict)
+        super(AppointmentParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(AppointmentParticipant, self).elementProperties()

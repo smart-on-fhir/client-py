@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Observation) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Observation) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class Observation(domainresource.DomainResource):
     
     resource_name = "Observation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.bodySite = None
@@ -140,7 +144,7 @@ class Observation(domainresource.DomainResource):
         """ Actual result.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        super(Observation, self).__init__(jsondict)
+        super(Observation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Observation, self).elementProperties()
@@ -193,8 +197,12 @@ class ObservationComponent(backboneelement.BackboneElement):
     
     resource_name = "ObservationComponent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -249,7 +257,7 @@ class ObservationComponent(backboneelement.BackboneElement):
         """ Actual component result.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        super(ObservationComponent, self).__init__(jsondict)
+        super(ObservationComponent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ObservationComponent, self).elementProperties()
@@ -280,8 +288,12 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
     
     resource_name = "ObservationReferenceRange"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.age = None
@@ -304,7 +316,7 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
         """ Text based reference range in an observation.
         Type `str`. """
         
-        super(ObservationReferenceRange, self).__init__(jsondict)
+        super(ObservationReferenceRange, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ObservationReferenceRange, self).elementProperties()
@@ -328,8 +340,12 @@ class ObservationRelated(backboneelement.BackboneElement):
     
     resource_name = "ObservationRelated"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.target = None
@@ -341,7 +357,7 @@ class ObservationRelated(backboneelement.BackboneElement):
         interfered-by.
         Type `str`. """
         
-        super(ObservationRelated, self).__init__(jsondict)
+        super(ObservationRelated, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ObservationRelated, self).elementProperties()

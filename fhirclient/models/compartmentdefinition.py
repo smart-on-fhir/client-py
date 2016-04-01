@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/CompartmentDefinition) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/CompartmentDefinition) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class CompartmentDefinition(domainresource.DomainResource):
     
     resource_name = "CompartmentDefinition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -68,7 +72,7 @@ class CompartmentDefinition(domainresource.DomainResource):
         """ Absolute URL used to reference this compartment definition.
         Type `str`. """
         
-        super(CompartmentDefinition, self).__init__(jsondict)
+        super(CompartmentDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CompartmentDefinition, self).elementProperties()
@@ -99,19 +103,23 @@ class CompartmentDefinitionContact(backboneelement.BackboneElement):
     
     resource_name = "CompartmentDefinitionContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
-        """ Name of a individual to contact.
+        """ Name of an individual to contact.
         Type `str`. """
         
         self.telecom = None
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(CompartmentDefinitionContact, self).__init__(jsondict)
+        super(CompartmentDefinitionContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CompartmentDefinitionContact, self).elementProperties()
@@ -130,8 +138,12 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
     
     resource_name = "CompartmentDefinitionResource"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -146,7 +158,7 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
         """ Search Parameter Name, or chained params.
         List of `str` items. """
         
-        super(CompartmentDefinitionResource, self).__init__(jsondict)
+        super(CompartmentDefinitionResource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CompartmentDefinitionResource, self).elementProperties()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Task) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Task) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -13,8 +13,12 @@ class Task(domainresource.DomainResource):
     
     resource_name = "Task"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.created = None
@@ -61,6 +65,10 @@ class Task(domainresource.DomainResource):
         """ Task Owner.
         Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
+        self.parent = None
+        """ Composite task.
+        Type `FHIRReference` referencing `Task` (represented as `dict` in JSON). """
+        
         self.performerType = None
         """ requester | dispatcher | scheduler | performer | monitor | manager
         | acquirer | reviewer.
@@ -71,26 +79,18 @@ class Task(domainresource.DomainResource):
         Type `str`. """
         
         self.status = None
-        """ cancelled | completed | created | failed | in-progress | ready.
+        """ draft | requested | received | accepted | +.
         Type `str`. """
         
         self.subject = None
         """ Task Subject.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        self.subtask = None
-        """ Subtasks.
-        List of `FHIRReference` items referencing `Task` (represented as `dict` in JSON). """
-        
-        self.suspended = None
-        """ Task Suspended.
-        Type `bool`. """
-        
         self.type = None
         """ Task Type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(Task, self).__init__(jsondict)
+        super(Task, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Task, self).elementProperties()
@@ -106,12 +106,11 @@ class Task(domainresource.DomainResource):
             ("lastModified", "lastModified", fhirdate.FHIRDate, False, None, True),
             ("output", "output", TaskOutput, True, None, False),
             ("owner", "owner", fhirreference.FHIRReference, False, None, False),
+            ("parent", "parent", fhirreference.FHIRReference, False, None, False),
             ("performerType", "performerType", coding.Coding, True, None, False),
             ("priority", "priority", str, False, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("subtask", "subtask", fhirreference.FHIRReference, True, None, False),
-            ("suspended", "suspended", bool, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
@@ -127,8 +126,12 @@ class TaskInput(backboneelement.BackboneElement):
     
     resource_name = "TaskInput"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -267,7 +270,7 @@ class TaskInput(backboneelement.BackboneElement):
         """ Input Value.
         Type `str`. """
         
-        super(TaskInput, self).__init__(jsondict)
+        super(TaskInput, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TaskInput, self).elementProperties()
@@ -318,8 +321,12 @@ class TaskOutput(backboneelement.BackboneElement):
     
     resource_name = "TaskOutput"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -458,7 +465,7 @@ class TaskOutput(backboneelement.BackboneElement):
         """ Output Value.
         Type `str`. """
         
-        super(TaskOutput, self).__init__(jsondict)
+        super(TaskOutput, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TaskOutput, self).elementProperties()

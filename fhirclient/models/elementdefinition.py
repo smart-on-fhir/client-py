@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class ElementDefinition(element.Element):
     
     resource_name = "ElementDefinition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.alias = None
@@ -48,136 +52,140 @@ class ElementDefinition(element.Element):
         """ Condition that must evaluate to true.
         List of `ElementDefinitionConstraint` items (represented as `dict` in JSON). """
         
+        self.contentReference = None
+        """ Reference to definition of content for the element.
+        Type `str`. """
+        
         self.defaultValueAddress = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Address` (represented as `dict` in JSON). """
         
         self.defaultValueAnnotation = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Annotation` (represented as `dict` in JSON). """
         
         self.defaultValueAttachment = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.defaultValueBase64Binary = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `str`. """
         
         self.defaultValueBoolean = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `bool`. """
         
         self.defaultValueCode = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `str`. """
         
         self.defaultValueCodeableConcept = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.defaultValueCoding = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.defaultValueContactPoint = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
         self.defaultValueDate = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.defaultValueDateTime = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.defaultValueDecimal = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `float`. """
         
         self.defaultValueHumanName = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `HumanName` (represented as `dict` in JSON). """
         
         self.defaultValueId = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `str`. """
         
         self.defaultValueIdentifier = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.defaultValueInstant = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.defaultValueInteger = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `int`. """
         
         self.defaultValueMarkdown = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `str`. """
         
         self.defaultValueMeta = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Meta` (represented as `dict` in JSON). """
         
         self.defaultValueOid = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `str`. """
         
         self.defaultValuePeriod = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Period` (represented as `dict` in JSON). """
         
         self.defaultValuePositiveInt = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `int`. """
         
         self.defaultValueQuantity = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.defaultValueRange = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Range` (represented as `dict` in JSON). """
         
         self.defaultValueRatio = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Ratio` (represented as `dict` in JSON). """
         
         self.defaultValueReference = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.defaultValueSampledData = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `SampledData` (represented as `dict` in JSON). """
         
         self.defaultValueSignature = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Signature` (represented as `dict` in JSON). """
         
         self.defaultValueString = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `str`. """
         
         self.defaultValueTime = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.defaultValueTiming = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `Timing` (represented as `dict` in JSON). """
         
         self.defaultValueUnsignedInt = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `int`. """
         
         self.defaultValueUri = None
-        """ Specified value it missing from instance.
+        """ Specified value if missing from instance.
         Type `str`. """
         
         self.definition = None
@@ -185,135 +193,135 @@ class ElementDefinition(element.Element):
         Type `str`. """
         
         self.exampleAddress = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Address` (represented as `dict` in JSON). """
         
         self.exampleAnnotation = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Annotation` (represented as `dict` in JSON). """
         
         self.exampleAttachment = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.exampleBase64Binary = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `str`. """
         
         self.exampleBoolean = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `bool`. """
         
         self.exampleCode = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `str`. """
         
         self.exampleCodeableConcept = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.exampleCoding = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Coding` (represented as `dict` in JSON). """
         
         self.exampleContactPoint = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `ContactPoint` (represented as `dict` in JSON). """
         
         self.exampleDate = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.exampleDateTime = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.exampleDecimal = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `float`. """
         
         self.exampleHumanName = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `HumanName` (represented as `dict` in JSON). """
         
         self.exampleId = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `str`. """
         
         self.exampleIdentifier = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.exampleInstant = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.exampleInteger = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `int`. """
         
         self.exampleMarkdown = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `str`. """
         
         self.exampleMeta = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Meta` (represented as `dict` in JSON). """
         
         self.exampleOid = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `str`. """
         
         self.examplePeriod = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Period` (represented as `dict` in JSON). """
         
         self.examplePositiveInt = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `int`. """
         
         self.exampleQuantity = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.exampleRange = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Range` (represented as `dict` in JSON). """
         
         self.exampleRatio = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Ratio` (represented as `dict` in JSON). """
         
         self.exampleReference = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.exampleSampledData = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `SampledData` (represented as `dict` in JSON). """
         
         self.exampleSignature = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Signature` (represented as `dict` in JSON). """
         
         self.exampleString = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `str`. """
         
         self.exampleTime = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.exampleTiming = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `Timing` (represented as `dict` in JSON). """
         
         self.exampleUnsignedInt = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `int`. """
         
         self.exampleUri = None
-        """ Example value: [as defined for type].
+        """ Example value (as defined for type).
         Type `str`. """
         
         self.fixedAddress = None
@@ -752,10 +760,6 @@ class ElementDefinition(element.Element):
         """ Name for this particular element definition (reference target).
         Type `str`. """
         
-        self.nameReference = None
-        """ To another element constraint (by element.name).
-        Type `str`. """
-        
         self.path = None
         """ The path of the element (see the Detailed Descriptions).
         Type `str`. """
@@ -897,7 +901,7 @@ class ElementDefinition(element.Element):
         List of `str` items. """
         
         self.requirements = None
-        """ Why is this needed?.
+        """ Why this resource has been created.
         Type `str`. """
         
         self.short = None
@@ -912,7 +916,7 @@ class ElementDefinition(element.Element):
         """ Data type and Profile for this element.
         List of `ElementDefinitionType` items (represented as `dict` in JSON). """
         
-        super(ElementDefinition, self).__init__(jsondict)
+        super(ElementDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinition, self).elementProperties()
@@ -924,6 +928,7 @@ class ElementDefinition(element.Element):
             ("comments", "comments", str, False, None, False),
             ("condition", "condition", str, True, None, False),
             ("constraint", "constraint", ElementDefinitionConstraint, True, None, False),
+            ("contentReference", "contentReference", str, False, None, False),
             ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False),
             ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False),
             ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
@@ -1100,7 +1105,6 @@ class ElementDefinition(element.Element):
             ("minValueUri", "minValueUri", str, False, "minValue", False),
             ("mustSupport", "mustSupport", bool, False, None, False),
             ("name", "name", str, False, None, False),
-            ("nameReference", "nameReference", str, False, None, False),
             ("path", "path", str, False, None, True),
             ("patternAddress", "patternAddress", address.Address, False, "pattern", False),
             ("patternAnnotation", "patternAnnotation", annotation.Annotation, False, "pattern", False),
@@ -1148,7 +1152,7 @@ class ElementDefinitionBase(element.Element):
     """ Base definition information for tools.
     
     Information about the base definition of the element, provided to make it
-    unncessary for tools to trace the deviation of the element through the
+    unnecessary for tools to trace the deviation of the element through the
     derived and related profiles. This information is only provided where the
     element definition represents a constraint on another element definition,
     and must be present if there is a base element definition.
@@ -1156,8 +1160,12 @@ class ElementDefinitionBase(element.Element):
     
     resource_name = "ElementDefinitionBase"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.max = None
@@ -1172,7 +1180,7 @@ class ElementDefinitionBase(element.Element):
         """ Path that identifies the base element.
         Type `str`. """
         
-        super(ElementDefinitionBase, self).__init__(jsondict)
+        super(ElementDefinitionBase, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionBase, self).elementProperties()
@@ -1193,8 +1201,12 @@ class ElementDefinitionBinding(element.Element):
     
     resource_name = "ElementDefinitionBinding"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
@@ -1213,7 +1225,7 @@ class ElementDefinitionBinding(element.Element):
         """ Source of value set.
         Type `str`. """
         
-        super(ElementDefinitionBinding, self).__init__(jsondict)
+        super(ElementDefinitionBinding, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionBinding, self).elementProperties()
@@ -1235,9 +1247,17 @@ class ElementDefinitionConstraint(element.Element):
     
     resource_name = "ElementDefinitionConstraint"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.expression = None
+        """ FluentPath expression of constraint.
+        Type `str`. """
         
         self.human = None
         """ Human description of constraint.
@@ -1248,7 +1268,7 @@ class ElementDefinitionConstraint(element.Element):
         Type `str`. """
         
         self.requirements = None
-        """ Why this constraint necessary or appropriate.
+        """ Why this constraint is necessary or appropriate.
         Type `str`. """
         
         self.severity = None
@@ -1259,11 +1279,12 @@ class ElementDefinitionConstraint(element.Element):
         """ XPath expression of constraint.
         Type `str`. """
         
-        super(ElementDefinitionConstraint, self).__init__(jsondict)
+        super(ElementDefinitionConstraint, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionConstraint, self).elementProperties()
         js.extend([
+            ("expression", "expression", str, False, None, False),
             ("human", "human", str, False, None, True),
             ("key", "key", str, False, None, True),
             ("requirements", "requirements", str, False, None, False),
@@ -1282,8 +1303,12 @@ class ElementDefinitionMapping(element.Element):
     
     resource_name = "ElementDefinitionMapping"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.identity = None
@@ -1298,7 +1323,7 @@ class ElementDefinitionMapping(element.Element):
         """ Details of the mapping.
         Type `str`. """
         
-        super(ElementDefinitionMapping, self).__init__(jsondict)
+        super(ElementDefinitionMapping, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionMapping, self).elementProperties()
@@ -1324,8 +1349,12 @@ class ElementDefinitionSlicing(element.Element):
     
     resource_name = "ElementDefinitionSlicing"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
@@ -1333,7 +1362,7 @@ class ElementDefinitionSlicing(element.Element):
         Type `str`. """
         
         self.discriminator = None
-        """ Element values that used to distinguish the slices.
+        """ Element values that are used to distinguish the slices.
         List of `str` items. """
         
         self.ordered = None
@@ -1344,7 +1373,7 @@ class ElementDefinitionSlicing(element.Element):
         """ closed | open | openAtEnd.
         Type `str`. """
         
-        super(ElementDefinitionSlicing, self).__init__(jsondict)
+        super(ElementDefinitionSlicing, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionSlicing, self).elementProperties()
@@ -1366,8 +1395,12 @@ class ElementDefinitionType(element.Element):
     
     resource_name = "ElementDefinitionType"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.aggregation = None
@@ -1382,7 +1415,11 @@ class ElementDefinitionType(element.Element):
         """ Profile (StructureDefinition) to apply (or IG).
         List of `str` items. """
         
-        super(ElementDefinitionType, self).__init__(jsondict)
+        self.versioning = None
+        """ either | independent | specific.
+        Type `str`. """
+        
+        super(ElementDefinitionType, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionType, self).elementProperties()
@@ -1390,6 +1427,7 @@ class ElementDefinitionType(element.Element):
             ("aggregation", "aggregation", str, True, None, False),
             ("code", "code", str, False, None, True),
             ("profile", "profile", str, True, None, False),
+            ("versioning", "versioning", str, False, None, False),
         ])
         return js
 

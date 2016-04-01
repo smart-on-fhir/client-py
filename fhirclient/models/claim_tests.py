@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -38,6 +38,10 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.diagnosis[0].diagnosis.code, "654456")
         self.assertEqual(inst.diagnosis[0].sequence, 1)
+        self.assertEqual(inst.entererIdentifier.system, "http://jurisdiction.org/facilities/HOSP1234/users")
+        self.assertEqual(inst.entererIdentifier.value, "UC1234")
+        self.assertEqual(inst.facilityIdentifier.system, "http://jurisdiction.org/facilities")
+        self.assertEqual(inst.facilityIdentifier.value, "HOSP1234")
         self.assertEqual(inst.id, "960150")
         self.assertEqual(inst.identifier[0].system, "http://happyhospital.com/claim")
         self.assertEqual(inst.identifier[0].value, "9612345")
@@ -57,6 +61,9 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.priority.code, "normal")
         self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Claim</div>")
         self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.total.code, "USD")
+        self.assertEqual(inst.total.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.total.value, 125.0)
         self.assertEqual(inst.type, "institutional")
         self.assertEqual(inst.use, "complete")
     
@@ -305,6 +312,7 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.diagnosis[0].diagnosis.code, "123457")
         self.assertEqual(inst.diagnosis[0].diagnosis.system, "http://hl7.org/fhir/sid/icd-10")
         self.assertEqual(inst.diagnosis[0].sequence, 1)
+        self.assertEqual(inst.fundsReserve.code, "provider")
         self.assertEqual(inst.id, "100153")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/claim")
         self.assertEqual(inst.identifier[0].value, "12355")

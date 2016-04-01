@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -32,8 +32,9 @@ class ReferralRequestTests(unittest.TestCase):
         self.implReferralRequest1(inst2)
     
     def implReferralRequest1(self, inst):
-        self.assertEqual(inst.dateSent.date, FHIRDate("2014-02-14").date)
-        self.assertEqual(inst.dateSent.as_json(), "2014-02-14")
+        self.assertEqual(inst.authored.date, FHIRDate("2014-02-14").date)
+        self.assertEqual(inst.authored.as_json(), "2014-02-14")
+        self.assertEqual(inst.category, "request")
         self.assertEqual(inst.description, "In the past 2 years Beverly has had 6 instances of r) sided Otitis media. She is     falling behind her peers at school, and displaying some learning difficulties.")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://orionhealth.com/fhir/apps/referralids")
@@ -49,7 +50,7 @@ class ReferralRequestTests(unittest.TestCase):
         self.assertEqual(inst.specialty.coding[0].code, "ent")
         self.assertEqual(inst.specialty.coding[0].display, "ENT")
         self.assertEqual(inst.specialty.coding[0].system, "http://orionhealth.com/fhir/apps/specialties")
-        self.assertEqual(inst.status, "requested")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div>Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "rfs")

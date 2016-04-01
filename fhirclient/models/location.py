@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Location) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Location) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class Location(domainresource.DomainResource):
     
     resource_name = "Location"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.address = None
@@ -26,7 +30,8 @@ class Location(domainresource.DomainResource):
         Type `Address` (represented as `dict` in JSON). """
         
         self.description = None
-        """ Description of the location.
+        """ Additional details about the location that could be displayed as
+        further information to identify the location beyond its name.
         Type `str`. """
         
         self.identifier = None
@@ -69,7 +74,7 @@ class Location(domainresource.DomainResource):
         """ Type of function performed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(Location, self).__init__(jsondict)
+        super(Location, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Location, self).elementProperties()
@@ -101,8 +106,12 @@ class LocationPosition(backboneelement.BackboneElement):
     
     resource_name = "LocationPosition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.altitude = None
@@ -117,7 +126,7 @@ class LocationPosition(backboneelement.BackboneElement):
         """ Longitude with WGS84 datum.
         Type `float`. """
         
-        super(LocationPosition, self).__init__(jsondict)
+        super(LocationPosition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(LocationPosition, self).elementProperties()

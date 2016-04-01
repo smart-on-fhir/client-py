@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -39,8 +39,8 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.item[0].item[0].item[0].text, "Name of child")
         self.assertEqual(inst.item[0].item[0].item[0].type, "string")
         self.assertEqual(inst.item[0].item[0].item[1].linkId, "sex")
-        self.assertEqual(inst.item[0].item[0].item[1].option[0].code, "F")
-        self.assertEqual(inst.item[0].item[0].item[1].option[1].code, "M")
+        self.assertEqual(inst.item[0].item[0].item[1].option[0].valueCoding.code, "F")
+        self.assertEqual(inst.item[0].item[0].item[1].option[1].valueCoding.code, "M")
         self.assertEqual(inst.item[0].item[0].item[1].text, "Sex")
         self.assertEqual(inst.item[0].item[0].item[1].type, "choice")
         self.assertEqual(inst.item[0].item[0].type, "group")
@@ -50,11 +50,6 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.item[0].item[1].item[1].linkId, "birthLength")
         self.assertEqual(inst.item[0].item[1].item[1].text, "Birth length (cm)")
         self.assertEqual(inst.item[0].item[1].item[1].type, "decimal")
-        self.assertEqual(inst.item[0].item[1].item[2].item[0].extension[0].extension[0].url, "question")
-        self.assertEqual(inst.item[0].item[1].item[2].item[0].extension[0].extension[0].valueString, "vitaminKgiven")
-        self.assertEqual(inst.item[0].item[1].item[2].item[0].extension[0].extension[1].url, "answered")
-        self.assertTrue(inst.item[0].item[1].item[2].item[0].extension[0].extension[1].valueBoolean)
-        self.assertEqual(inst.item[0].item[1].item[2].item[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen")
         self.assertEqual(inst.item[0].item[1].item[2].item[0].item[0].linkId, "vitaminiKDose1")
         self.assertEqual(inst.item[0].item[1].item[2].item[0].item[0].text, "1st dose")
         self.assertEqual(inst.item[0].item[1].item[2].item[0].item[0].type, "dateTime")
@@ -64,9 +59,9 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.item[0].item[1].item[2].item[0].linkId, "vitaminKgivenDoses")
         self.assertEqual(inst.item[0].item[1].item[2].item[0].type, "group")
         self.assertEqual(inst.item[0].item[1].item[2].linkId, "vitaminKgiven")
-        self.assertEqual(inst.item[0].item[1].item[2].option[0].code, "INJECTION")
-        self.assertEqual(inst.item[0].item[1].item[2].option[1].code, "INTRAVENOUS")
-        self.assertEqual(inst.item[0].item[1].item[2].option[2].code, "ORAL")
+        self.assertEqual(inst.item[0].item[1].item[2].option[0].valueCoding.code, "INJECTION")
+        self.assertEqual(inst.item[0].item[1].item[2].option[1].valueCoding.code, "INTRAVENOUS")
+        self.assertEqual(inst.item[0].item[1].item[2].option[2].valueCoding.code, "ORAL")
         self.assertEqual(inst.item[0].item[1].item[2].text, "Vitamin K given")
         self.assertEqual(inst.item[0].item[1].item[2].type, "choice")
         self.assertEqual(inst.item[0].item[1].item[3].item[0].linkId, "hepBgivenDate")

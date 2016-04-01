@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class CodeSystem(domainresource.DomainResource):
     
     resource_name = "CodeSystem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.caseSensitive = None
@@ -108,7 +112,7 @@ class CodeSystem(domainresource.DomainResource):
         """ If definitions are not stable.
         Type `bool`. """
         
-        super(CodeSystem, self).__init__(jsondict)
+        super(CodeSystem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CodeSystem, self).elementProperties()
@@ -151,8 +155,12 @@ class CodeSystemConcept(backboneelement.BackboneElement):
     
     resource_name = "CodeSystemConcept"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -179,7 +187,7 @@ class CodeSystemConcept(backboneelement.BackboneElement):
         """ Property value for the concept.
         List of `CodeSystemConceptProperty` items (represented as `dict` in JSON). """
         
-        super(CodeSystemConcept, self).__init__(jsondict)
+        super(CodeSystemConcept, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CodeSystemConcept, self).elementProperties()
@@ -203,8 +211,12 @@ class CodeSystemConceptDesignation(backboneelement.BackboneElement):
     
     resource_name = "CodeSystemConceptDesignation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.language = None
@@ -219,7 +231,7 @@ class CodeSystemConceptDesignation(backboneelement.BackboneElement):
         """ The text value for this designation.
         Type `str`. """
         
-        super(CodeSystemConceptDesignation, self).__init__(jsondict)
+        super(CodeSystemConceptDesignation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CodeSystemConceptDesignation, self).elementProperties()
@@ -239,8 +251,12 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
     
     resource_name = "CodeSystemConceptProperty"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -259,6 +275,10 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
         """ Value of the property for this concept.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.valueDateTime = None
+        """ Value of the property for this concept.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.valueInteger = None
         """ Value of the property for this concept.
         Type `int`. """
@@ -267,7 +287,7 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
         """ Value of the property for this concept.
         Type `str`. """
         
-        super(CodeSystemConceptProperty, self).__init__(jsondict)
+        super(CodeSystemConceptProperty, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CodeSystemConceptProperty, self).elementProperties()
@@ -276,6 +296,7 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
             ("valueBoolean", "valueBoolean", bool, False, "value", True),
             ("valueCode", "valueCode", str, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueString", "valueString", str, False, "value", True),
         ])
@@ -290,8 +311,12 @@ class CodeSystemContact(backboneelement.BackboneElement):
     
     resource_name = "CodeSystemContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -302,7 +327,7 @@ class CodeSystemContact(backboneelement.BackboneElement):
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(CodeSystemContact, self).__init__(jsondict)
+        super(CodeSystemContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CodeSystemContact, self).elementProperties()
@@ -322,8 +347,12 @@ class CodeSystemFilter(backboneelement.BackboneElement):
     
     resource_name = "CodeSystemFilter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -342,7 +371,7 @@ class CodeSystemFilter(backboneelement.BackboneElement):
         """ What to use for the value.
         Type `str`. """
         
-        super(CodeSystemFilter, self).__init__(jsondict)
+        super(CodeSystemFilter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CodeSystemFilter, self).elementProperties()
@@ -364,8 +393,12 @@ class CodeSystemProperty(backboneelement.BackboneElement):
     
     resource_name = "CodeSystemProperty"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -377,10 +410,10 @@ class CodeSystemProperty(backboneelement.BackboneElement):
         Type `str`. """
         
         self.type = None
-        """ code | Coding | string | integer | boolean.
+        """ code | Coding | string | integer | boolean | dateTime.
         Type `str`. """
         
-        super(CodeSystemProperty, self).__init__(jsondict)
+        super(CodeSystemProperty, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CodeSystemProperty, self).elementProperties()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Protocol) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Protocol) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class Protocol(domainresource.DomainResource):
     
     resource_name = "Protocol"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.author = None
@@ -56,7 +60,7 @@ class Protocol(domainresource.DomainResource):
         """ condition | device | drug | study.
         Type `str`. """
         
-        super(Protocol, self).__init__(jsondict)
+        super(Protocol, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Protocol, self).elementProperties()
@@ -82,8 +86,12 @@ class ProtocolStep(backboneelement.BackboneElement):
     
     resource_name = "ProtocolStep"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.activity = None
@@ -118,7 +126,7 @@ class ProtocolStep(backboneelement.BackboneElement):
         """ Rules prior to execution.
         Type `ProtocolStepPrecondition` (represented as `dict` in JSON). """
         
-        super(ProtocolStep, self).__init__(jsondict)
+        super(ProtocolStep, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProtocolStep, self).elementProperties()
@@ -141,8 +149,12 @@ class ProtocolStepActivity(backboneelement.BackboneElement):
     
     resource_name = "ProtocolStepActivity"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.alternative = None
@@ -165,7 +177,7 @@ class ProtocolStepActivity(backboneelement.BackboneElement):
         """ Pause before start.
         Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
         
-        super(ProtocolStepActivity, self).__init__(jsondict)
+        super(ProtocolStepActivity, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProtocolStepActivity, self).elementProperties()
@@ -185,8 +197,12 @@ class ProtocolStepActivityComponent(backboneelement.BackboneElement):
     
     resource_name = "ProtocolStepActivityComponent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.activity = None
@@ -197,7 +213,7 @@ class ProtocolStepActivityComponent(backboneelement.BackboneElement):
         """ Order of occurrence.
         Type `int`. """
         
-        super(ProtocolStepActivityComponent, self).__init__(jsondict)
+        super(ProtocolStepActivityComponent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProtocolStepActivityComponent, self).elementProperties()
@@ -217,8 +233,12 @@ class ProtocolStepActivityDetail(backboneelement.BackboneElement):
     
     resource_name = "ProtocolStepActivityDetail"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.category = None
@@ -257,7 +277,7 @@ class ProtocolStepActivityDetail(backboneelement.BackboneElement):
         """ When activity is to occur.
         Type `Timing` (represented as `dict` in JSON). """
         
-        super(ProtocolStepActivityDetail, self).__init__(jsondict)
+        super(ProtocolStepActivityDetail, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProtocolStepActivityDetail, self).elementProperties()
@@ -283,8 +303,12 @@ class ProtocolStepNext(backboneelement.BackboneElement):
     
     resource_name = "ProtocolStepNext"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.condition = None
@@ -299,7 +323,7 @@ class ProtocolStepNext(backboneelement.BackboneElement):
         """ Id of following step.
         Type `str`. """
         
-        super(ProtocolStepNext, self).__init__(jsondict)
+        super(ProtocolStepNext, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProtocolStepNext, self).elementProperties()
@@ -317,8 +341,12 @@ class ProtocolStepPrecondition(backboneelement.BackboneElement):
     
     resource_name = "ProtocolStepPrecondition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.condition = None
@@ -341,7 +369,7 @@ class ProtocolStepPrecondition(backboneelement.BackboneElement):
         """ Or conditions.
         List of `ProtocolStepPrecondition` items (represented as `dict` in JSON). """
         
-        super(ProtocolStepPrecondition, self).__init__(jsondict)
+        super(ProtocolStepPrecondition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProtocolStepPrecondition, self).elementProperties()
@@ -363,8 +391,12 @@ class ProtocolStepPreconditionCondition(backboneelement.BackboneElement):
     
     resource_name = "ProtocolStepPreconditionCondition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.type = None
@@ -387,7 +419,7 @@ class ProtocolStepPreconditionCondition(backboneelement.BackboneElement):
         """ Value needed to satisfy condition.
         Type `Range` (represented as `dict` in JSON). """
         
-        super(ProtocolStepPreconditionCondition, self).__init__(jsondict)
+        super(ProtocolStepPreconditionCondition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProtocolStepPreconditionCondition, self).elementProperties()

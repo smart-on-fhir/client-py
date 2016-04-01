@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class TestScript(domainresource.DomainResource):
     
     resource_name = "TestScript"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contact = None
@@ -59,10 +63,6 @@ class TestScript(domainresource.DomainResource):
         FHIR server being tested.
         Type `TestScriptMetadata` (represented as `dict` in JSON). """
         
-        self.multiserver = None
-        """ Whether or not the tests apply to more than one FHIR server.
-        Type `bool`. """
-        
         self.name = None
         """ Informal name for this TestScript.
         Type `str`. """
@@ -83,6 +83,14 @@ class TestScript(domainresource.DomainResource):
         self.requirements = None
         """ Scope and Usage this Test Script is for.
         Type `str`. """
+        
+        self.rule = None
+        """ Assert rule used within the test script.
+        List of `TestScriptRule` items (represented as `dict` in JSON). """
+        
+        self.ruleset = None
+        """ Assert ruleset used within the test script.
+        List of `TestScriptRuleset` items (represented as `dict` in JSON). """
         
         self.setup = None
         """ A series of required setup operations before tests are executed.
@@ -116,7 +124,7 @@ class TestScript(domainresource.DomainResource):
         """ Logical id for this version of the TestScript.
         Type `str`. """
         
-        super(TestScript, self).__init__(jsondict)
+        super(TestScript, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScript, self).elementProperties()
@@ -130,12 +138,13 @@ class TestScript(domainresource.DomainResource):
             ("fixture", "fixture", TestScriptFixture, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("metadata", "metadata", TestScriptMetadata, False, None, False),
-            ("multiserver", "multiserver", bool, False, None, False),
             ("name", "name", str, False, None, True),
             ("origin", "origin", TestScriptOrigin, True, None, False),
             ("profile", "profile", fhirreference.FHIRReference, True, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("requirements", "requirements", str, False, None, False),
+            ("rule", "rule", TestScriptRule, True, None, False),
+            ("ruleset", "ruleset", TestScriptRuleset, True, None, False),
             ("setup", "setup", TestScriptSetup, False, None, False),
             ("status", "status", str, False, None, True),
             ("teardown", "teardown", TestScriptTeardown, False, None, False),
@@ -158,19 +167,23 @@ class TestScriptContact(backboneelement.BackboneElement):
     
     resource_name = "TestScriptContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
-        """ Name of a individual to contact.
+        """ Name of an individual to contact.
         Type `str`. """
         
         self.telecom = None
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(TestScriptContact, self).__init__(jsondict)
+        super(TestScriptContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptContact, self).elementProperties()
@@ -191,8 +204,12 @@ class TestScriptDestination(backboneelement.BackboneElement):
     
     resource_name = "TestScriptDestination"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.index = None
@@ -200,17 +217,17 @@ class TestScriptDestination(backboneelement.BackboneElement):
         Type `int`. """
         
         self.profile = None
-        """ FHIR-DSTU2-Server | FHIR-DSTU2-SDC-FormManager | FHIR-DSTU2-SDC-
-        FormReceiver | FHIR-DSTU2-SDC-FormProcessor.
-        Type `str`. """
+        """ FHIR-Server | FHIR-SDC-FormManager | FHIR-SDC-FormReceiver | FHIR-
+        SDC-FormProcessor.
+        Type `Coding` (represented as `dict` in JSON). """
         
-        super(TestScriptDestination, self).__init__(jsondict)
+        super(TestScriptDestination, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptDestination, self).elementProperties()
         js.extend([
             ("index", "index", int, False, None, True),
-            ("profile", "profile", str, False, None, True),
+            ("profile", "profile", coding.Coding, False, None, True),
         ])
         return js
 
@@ -224,8 +241,12 @@ class TestScriptFixture(backboneelement.BackboneElement):
     
     resource_name = "TestScriptFixture"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.autocreate = None
@@ -240,7 +261,7 @@ class TestScriptFixture(backboneelement.BackboneElement):
         """ Reference of the resource.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        super(TestScriptFixture, self).__init__(jsondict)
+        super(TestScriptFixture, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptFixture, self).elementProperties()
@@ -262,8 +283,12 @@ class TestScriptMetadata(backboneelement.BackboneElement):
     
     resource_name = "TestScriptMetadata"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.capability = None
@@ -275,7 +300,7 @@ class TestScriptMetadata(backboneelement.BackboneElement):
         """ Links to the FHIR specification.
         List of `TestScriptMetadataLink` items (represented as `dict` in JSON). """
         
-        super(TestScriptMetadata, self).__init__(jsondict)
+        super(TestScriptMetadata, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptMetadata, self).elementProperties()
@@ -296,8 +321,12 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
     
     resource_name = "TestScriptMetadataCapability"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.conformance = None
@@ -328,7 +357,7 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
         """ Are the capabilities validated?.
         Type `bool`. """
         
-        super(TestScriptMetadataCapability, self).__init__(jsondict)
+        super(TestScriptMetadataCapability, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptMetadataCapability, self).elementProperties()
@@ -352,8 +381,12 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
     
     resource_name = "TestScriptMetadataLink"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
@@ -364,7 +397,7 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
         """ URL to the specification.
         Type `str`. """
         
-        super(TestScriptMetadataLink, self).__init__(jsondict)
+        super(TestScriptMetadataLink, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptMetadataLink, self).elementProperties()
@@ -384,8 +417,12 @@ class TestScriptOrigin(backboneelement.BackboneElement):
     
     resource_name = "TestScriptOrigin"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.index = None
@@ -393,16 +430,187 @@ class TestScriptOrigin(backboneelement.BackboneElement):
         Type `int`. """
         
         self.profile = None
-        """ FHIR-DSTU2-Client | FHIR-DSTU2-SDC-FormFiller.
-        Type `str`. """
+        """ FHIR-Client | FHIR-SDC-FormFiller.
+        Type `Coding` (represented as `dict` in JSON). """
         
-        super(TestScriptOrigin, self).__init__(jsondict)
+        super(TestScriptOrigin, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptOrigin, self).elementProperties()
         js.extend([
             ("index", "index", int, False, None, True),
-            ("profile", "profile", str, False, None, True),
+            ("profile", "profile", coding.Coding, False, None, True),
+        ])
+        return js
+
+
+class TestScriptRule(backboneelement.BackboneElement):
+    """ Assert rule used within the test script.
+    
+    Assert rule to be used in one or more asserts within the test script.
+    """
+    
+    resource_name = "TestScriptRule"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.param = None
+        """ Rule parameter template.
+        List of `TestScriptRuleParam` items (represented as `dict` in JSON). """
+        
+        self.resource = None
+        """ Assert rule resource reference.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        
+        super(TestScriptRule, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(TestScriptRule, self).elementProperties()
+        js.extend([
+            ("param", "param", TestScriptRuleParam, True, None, False),
+            ("resource", "resource", fhirreference.FHIRReference, False, None, True),
+        ])
+        return js
+
+
+class TestScriptRuleParam(backboneelement.BackboneElement):
+    """ Rule parameter template.
+    
+    Each rule template can take one or more parameters for rule evaluation.
+    """
+    
+    resource_name = "TestScriptRuleParam"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.name = None
+        """ Parameter name matching external assert rule parameter.
+        Type `str`. """
+        
+        self.value = None
+        """ Parameter value defined either explicitly or dynamically.
+        Type `str`. """
+        
+        super(TestScriptRuleParam, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(TestScriptRuleParam, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False, None, True),
+            ("value", "value", str, False, None, False),
+        ])
+        return js
+
+
+class TestScriptRuleset(backboneelement.BackboneElement):
+    """ Assert ruleset used within the test script.
+    
+    Contains one or more rules.  Offers a way to group rules so assertions
+    could reference the group of rules and have them all applied.
+    """
+    
+    resource_name = "TestScriptRuleset"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.resource = None
+        """ Assert ruleset resource reference.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        
+        self.rule = None
+        """ Id of referenced rule within the ruleset.
+        List of `TestScriptRulesetRule` items (represented as `dict` in JSON). """
+        
+        super(TestScriptRuleset, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(TestScriptRuleset, self).elementProperties()
+        js.extend([
+            ("resource", "resource", fhirreference.FHIRReference, False, None, True),
+            ("rule", "rule", TestScriptRulesetRule, True, None, True),
+        ])
+        return js
+
+
+class TestScriptRulesetRule(backboneelement.BackboneElement):
+    """ Id of referenced rule within the ruleset.
+    
+    Id of the referenced rule within the external ruleset template.
+    """
+    
+    resource_name = "TestScriptRulesetRule"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.param = None
+        """ Ruleset rule parameter template.
+        List of `TestScriptRulesetRuleParam` items (represented as `dict` in JSON). """
+        
+        super(TestScriptRulesetRule, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(TestScriptRulesetRule, self).elementProperties()
+        js.extend([
+            ("param", "param", TestScriptRulesetRuleParam, True, None, False),
+        ])
+        return js
+
+
+class TestScriptRulesetRuleParam(backboneelement.BackboneElement):
+    """ Ruleset rule parameter template.
+    
+    Each rule template can take one or more parameters for rule evaluation.
+    """
+    
+    resource_name = "TestScriptRulesetRuleParam"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.name = None
+        """ Parameter name matching external assert ruleset rule parameter.
+        Type `str`. """
+        
+        self.value = None
+        """ Parameter value defined either explicitly or dynamically.
+        Type `str`. """
+        
+        super(TestScriptRulesetRuleParam, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(TestScriptRulesetRuleParam, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False, None, True),
+            ("value", "value", str, False, None, False),
         ])
         return js
 
@@ -413,8 +621,12 @@ class TestScriptSetup(backboneelement.BackboneElement):
     
     resource_name = "TestScriptSetup"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
@@ -426,7 +638,7 @@ class TestScriptSetup(backboneelement.BackboneElement):
         server being tested.
         Type `TestScriptMetadata` (represented as `dict` in JSON). """
         
-        super(TestScriptSetup, self).__init__(jsondict)
+        super(TestScriptSetup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetup, self).elementProperties()
@@ -445,8 +657,12 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
     
     resource_name = "TestScriptSetupAction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.assert_fhir = None
@@ -457,7 +673,7 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
         """ The setup operation to perform.
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
-        super(TestScriptSetupAction, self).__init__(jsondict)
+        super(TestScriptSetupAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupAction, self).elementProperties()
@@ -477,8 +693,12 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
     
     resource_name = "TestScriptSetupActionAssert"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.compareToSourceId = None
@@ -541,6 +761,14 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         """ HTTP response code to test.
         Type `str`. """
         
+        self.rule = None
+        """ Id of the TestScript.rule.
+        Type `TestScriptSetupActionAssertRule` (represented as `dict` in JSON). """
+        
+        self.ruleset = None
+        """ Id of the TestScript.ruleset.
+        Type `TestScriptSetupActionAssertRuleset` (represented as `dict` in JSON). """
+        
         self.sourceId = None
         """ Fixture Id of source expression or headerField.
         Type `str`. """
@@ -557,7 +785,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         """ Will this assert produce a warning only on error?.
         Type `bool`. """
         
-        super(TestScriptSetupActionAssert, self).__init__(jsondict)
+        super(TestScriptSetupActionAssert, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupActionAssert, self).elementProperties()
@@ -576,10 +804,172 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
             ("resource", "resource", str, False, None, False),
             ("response", "response", str, False, None, False),
             ("responseCode", "responseCode", str, False, None, False),
+            ("rule", "rule", TestScriptSetupActionAssertRule, False, None, False),
+            ("ruleset", "ruleset", TestScriptSetupActionAssertRuleset, False, None, False),
             ("sourceId", "sourceId", str, False, None, False),
             ("validateProfileId", "validateProfileId", str, False, None, False),
             ("value", "value", str, False, None, False),
             ("warningOnly", "warningOnly", bool, False, None, False),
+        ])
+        return js
+
+
+class TestScriptSetupActionAssertRule(backboneelement.BackboneElement):
+    """ Id of the TestScript.rule.
+    
+    The TestScript.rule id value this assert will evaluate.
+    """
+    
+    resource_name = "TestScriptSetupActionAssertRule"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.param = None
+        """ Rule parameter template.
+        List of `TestScriptSetupActionAssertRuleParam` items (represented as `dict` in JSON). """
+        
+        super(TestScriptSetupActionAssertRule, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(TestScriptSetupActionAssertRule, self).elementProperties()
+        js.extend([
+            ("param", "param", TestScriptSetupActionAssertRuleParam, True, None, False),
+        ])
+        return js
+
+
+class TestScriptSetupActionAssertRuleParam(backboneelement.BackboneElement):
+    """ Rule parameter template.
+    
+    Each rule template can take one or more parameters for rule evaluation.
+    """
+    
+    resource_name = "TestScriptSetupActionAssertRuleParam"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.name = None
+        """ Parameter name matching external assert rule parameter.
+        Type `str`. """
+        
+        self.value = None
+        """ Parameter value defined either explicitly or dynamically.
+        Type `str`. """
+        
+        super(TestScriptSetupActionAssertRuleParam, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(TestScriptSetupActionAssertRuleParam, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False, None, True),
+            ("value", "value", str, False, None, True),
+        ])
+        return js
+
+
+class TestScriptSetupActionAssertRuleset(backboneelement.BackboneElement):
+    """ Id of the TestScript.ruleset.
+    
+    The TestScript.ruleset id value this assert will evaluate.
+    """
+    
+    resource_name = "TestScriptSetupActionAssertRuleset"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.rule = None
+        """ Id of referenced rule within the ruleset.
+        List of `TestScriptSetupActionAssertRulesetRule` items (represented as `dict` in JSON). """
+        
+        super(TestScriptSetupActionAssertRuleset, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(TestScriptSetupActionAssertRuleset, self).elementProperties()
+        js.extend([
+            ("rule", "rule", TestScriptSetupActionAssertRulesetRule, True, None, True),
+        ])
+        return js
+
+
+class TestScriptSetupActionAssertRulesetRule(backboneelement.BackboneElement):
+    """ Id of referenced rule within the ruleset.
+    
+    Id of the referenced rule within the external ruleset template.
+    """
+    
+    resource_name = "TestScriptSetupActionAssertRulesetRule"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.param = None
+        """ Rule parameter template.
+        List of `TestScriptSetupActionAssertRulesetRuleParam` items (represented as `dict` in JSON). """
+        
+        super(TestScriptSetupActionAssertRulesetRule, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(TestScriptSetupActionAssertRulesetRule, self).elementProperties()
+        js.extend([
+            ("param", "param", TestScriptSetupActionAssertRulesetRuleParam, True, None, False),
+        ])
+        return js
+
+
+class TestScriptSetupActionAssertRulesetRuleParam(backboneelement.BackboneElement):
+    """ Rule parameter template.
+    
+    Each rule template can take one or more parameters for rule evaluation.
+    """
+    
+    resource_name = "TestScriptSetupActionAssertRulesetRuleParam"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.name = None
+        """ Parameter name matching external assert ruleset rule parameter.
+        Type `str`. """
+        
+        self.value = None
+        """ Parameter value defined either explicitly or dynamically.
+        Type `str`. """
+        
+        super(TestScriptSetupActionAssertRulesetRuleParam, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(TestScriptSetupActionAssertRulesetRuleParam, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False, None, True),
+            ("value", "value", str, False, None, True),
         ])
         return js
 
@@ -592,8 +982,12 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
     
     resource_name = "TestScriptSetupActionOperation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.accept = None
@@ -650,14 +1044,14 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         Type `str`. """
         
         self.type = None
-        """ The setup operation type that will be executed.
+        """ The operation code type that will be executed.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.url = None
         """ Request URL.
         Type `str`. """
         
-        super(TestScriptSetupActionOperation, self).__init__(jsondict)
+        super(TestScriptSetupActionOperation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupActionOperation, self).elementProperties()
@@ -689,8 +1083,12 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
     
     resource_name = "TestScriptSetupActionOperationRequestHeader"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.field = None
@@ -701,7 +1099,7 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
         """ HTTP headerfield value.
         Type `str`. """
         
-        super(TestScriptSetupActionOperationRequestHeader, self).__init__(jsondict)
+        super(TestScriptSetupActionOperationRequestHeader, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupActionOperationRequestHeader, self).elementProperties()
@@ -721,15 +1119,19 @@ class TestScriptTeardown(backboneelement.BackboneElement):
     
     resource_name = "TestScriptTeardown"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
         """ One or more teardown operations to perform.
         List of `TestScriptTeardownAction` items (represented as `dict` in JSON). """
         
-        super(TestScriptTeardown, self).__init__(jsondict)
+        super(TestScriptTeardown, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptTeardown, self).elementProperties()
@@ -747,15 +1149,19 @@ class TestScriptTeardownAction(backboneelement.BackboneElement):
     
     resource_name = "TestScriptTeardownAction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.operation = None
         """ The teardown operation to perform.
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
-        super(TestScriptTeardownAction, self).__init__(jsondict)
+        super(TestScriptTeardownAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptTeardownAction, self).elementProperties()
@@ -771,8 +1177,12 @@ class TestScriptTest(backboneelement.BackboneElement):
     
     resource_name = "TestScriptTest"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
@@ -792,7 +1202,7 @@ class TestScriptTest(backboneelement.BackboneElement):
         """ Tracking/logging name of this test.
         Type `str`. """
         
-        super(TestScriptTest, self).__init__(jsondict)
+        super(TestScriptTest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptTest, self).elementProperties()
@@ -813,8 +1223,12 @@ class TestScriptTestAction(backboneelement.BackboneElement):
     
     resource_name = "TestScriptTestAction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.assert_fhir = None
@@ -825,7 +1239,7 @@ class TestScriptTestAction(backboneelement.BackboneElement):
         """ The setup operation to perform.
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
-        super(TestScriptTestAction, self).__init__(jsondict)
+        super(TestScriptTestAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptTestAction, self).elementProperties()
@@ -845,12 +1259,16 @@ class TestScriptVariable(backboneelement.BackboneElement):
     
     resource_name = "TestScriptVariable"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.defaultValue = None
-        """ Default value for this variable.
+        """ Default, hard-coded, or user-defined value for this variable.
         Type `str`. """
         
         self.headerField = None
@@ -869,7 +1287,7 @@ class TestScriptVariable(backboneelement.BackboneElement):
         """ Fixture Id of source expression or headerField within this variable.
         Type `str`. """
         
-        super(TestScriptVariable, self).__init__(jsondict)
+        super(TestScriptVariable, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptVariable, self).elementProperties()

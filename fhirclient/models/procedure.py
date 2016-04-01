@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class Procedure(domainresource.DomainResource):
     
     resource_name = "Procedure"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.bodySite = None
@@ -113,7 +117,7 @@ class Procedure(domainresource.DomainResource):
         """ Items used during procedure.
         List of `FHIRReference` items referencing `Device, Medication, Substance` (represented as `dict` in JSON). """
         
-        super(Procedure, self).__init__(jsondict)
+        super(Procedure, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Procedure, self).elementProperties()
@@ -157,8 +161,12 @@ class ProcedureFocalDevice(backboneelement.BackboneElement):
     
     resource_name = "ProcedureFocalDevice"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
@@ -169,7 +177,7 @@ class ProcedureFocalDevice(backboneelement.BackboneElement):
         """ Device that was changed.
         Type `FHIRReference` referencing `Device` (represented as `dict` in JSON). """
         
-        super(ProcedureFocalDevice, self).__init__(jsondict)
+        super(ProcedureFocalDevice, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProcedureFocalDevice, self).elementProperties()
@@ -188,8 +196,12 @@ class ProcedurePerformer(backboneelement.BackboneElement):
     
     resource_name = "ProcedurePerformer"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.actor = None
@@ -200,7 +212,7 @@ class ProcedurePerformer(backboneelement.BackboneElement):
         """ The role the actor was in.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ProcedurePerformer, self).__init__(jsondict)
+        super(ProcedurePerformer, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProcedurePerformer, self).elementProperties()

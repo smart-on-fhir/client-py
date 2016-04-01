@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -32,13 +32,6 @@ class EpisodeOfCareTests(unittest.TestCase):
         self.implEpisodeOfCare1(inst2)
     
     def implEpisodeOfCare1(self, inst):
-        self.assertEqual(inst.careTeam[0].period.end.date, FHIRDate("2014-09-16").date)
-        self.assertEqual(inst.careTeam[0].period.end.as_json(), "2014-09-16")
-        self.assertEqual(inst.careTeam[0].period.start.date, FHIRDate("2014-09-01").date)
-        self.assertEqual(inst.careTeam[0].period.start.as_json(), "2014-09-01")
-        self.assertEqual(inst.careTeam[0].role[0].coding[0].code, "AO")
-        self.assertEqual(inst.careTeam[0].role[0].coding[0].display, "Assessment Worker")
-        self.assertEqual(inst.careTeam[0].role[0].coding[0].system, "http://example.org/EpisodeOfCare/Role")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://example.org/sampleepisodeofcare-identifier")
         self.assertEqual(inst.identifier[0].value, "123")

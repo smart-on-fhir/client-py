@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -10,24 +10,27 @@ from . import domainresource
 class GuidanceResponse(domainresource.DomainResource):
     """ The formal response to a guidance request.
     
-    A guidance response is the formal response to a previous guidance request.
-    It is a derivative of the knowledge response that provides additional
-    information relevant specifically to clinical decision support such as a
+    A guidance response is the formal response to a guidance request, including
+    any output parameters returned by the evaluation, as well as the
     description of any proposed actions to be taken.
     """
     
     resource_name = "GuidanceResponse"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
-        """ None.
+        """ Proposed actions, if any.
         List of `GuidanceResponseAction` items (represented as `dict` in JSON). """
         
         self.dataRequirement = None
-        """ None.
+        """ Additional required data.
         List of `DataRequirement` items (represented as `dict` in JSON). """
         
         self.evaluationMessage = None
@@ -50,7 +53,7 @@ class GuidanceResponse(domainresource.DomainResource):
         """ success | data-requested | data-required | in-progress | failure.
         Type `str`. """
         
-        super(GuidanceResponse, self).__init__(jsondict)
+        super(GuidanceResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(GuidanceResponse, self).elementProperties()
@@ -69,77 +72,92 @@ class GuidanceResponse(domainresource.DomainResource):
 from . import backboneelement
 
 class GuidanceResponseAction(backboneelement.BackboneElement):
-    """ None.
+    """ Proposed actions, if any.
     
     The actions, if any, produced by the evaluation of the artifact.
     """
     
     resource_name = "GuidanceResponseAction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actionIdentifier = None
-        """ None.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.actions = None
-        """ None.
+        self.action = None
+        """ Sub action.
         List of `GuidanceResponseAction` items (represented as `dict` in JSON). """
         
+        self.actionIdentifier = None
+        """ Unique identifier.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.behavior = None
+        """ Defines behaviors such as selection and grouping.
+        List of `GuidanceResponseActionBehavior` items (represented as `dict` in JSON). """
+        
         self.concept = None
-        """ None.
+        """ The meaning of the action or its sub-actions.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.description = None
-        """ None.
+        """ Short description of the action.
         Type `str`. """
         
         self.documentation = None
-        """ None.
+        """ Supporting documentation for the intended performer of the action.
         List of `Attachment` items (represented as `dict` in JSON). """
         
-        self.number = None
-        """ None.
+        self.label = None
+        """ User-visible label for the action (e.g. 1. or A.).
         Type `str`. """
         
         self.participant = None
-        """ None.
+        """ Participant.
         List of `FHIRReference` items referencing `Patient, Person, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
+        self.relatedAction = None
+        """ Relationship to another action.
+        Type `GuidanceResponseActionRelatedAction` (represented as `dict` in JSON). """
+        
         self.resource = None
-        """ None.
+        """ The target of the action.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.supportingEvidence = None
-        """ None.
+        """ Evidence that supports taking the action.
         List of `Attachment` items (represented as `dict` in JSON). """
         
         self.textEquivalent = None
-        """ None.
+        """ Static text equivalent of the action, used if the dynamic aspects
+        cannot be interpreted by the receiving system.
         Type `str`. """
         
         self.title = None
-        """ None.
+        """ User-visible title.
         Type `str`. """
         
         self.type = None
         """ create | update | remove | fire-event.
         Type `str`. """
         
-        super(GuidanceResponseAction, self).__init__(jsondict)
+        super(GuidanceResponseAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(GuidanceResponseAction, self).elementProperties()
         js.extend([
+            ("action", "action", GuidanceResponseAction, True, None, False),
             ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, False),
-            ("actions", "actions", GuidanceResponseAction, True, None, False),
+            ("behavior", "behavior", GuidanceResponseActionBehavior, True, None, False),
             ("concept", "concept", codeableconcept.CodeableConcept, True, None, False),
             ("description", "description", str, False, None, False),
             ("documentation", "documentation", attachment.Attachment, True, None, False),
-            ("number", "number", str, False, None, False),
+            ("label", "label", str, False, None, False),
             ("participant", "participant", fhirreference.FHIRReference, True, None, False),
+            ("relatedAction", "relatedAction", GuidanceResponseActionRelatedAction, False, None, False),
             ("resource", "resource", fhirreference.FHIRReference, False, None, False),
             ("supportingEvidence", "supportingEvidence", attachment.Attachment, True, None, False),
             ("textEquivalent", "textEquivalent", str, False, None, False),
@@ -149,8 +167,99 @@ class GuidanceResponseAction(backboneelement.BackboneElement):
         return js
 
 
+class GuidanceResponseActionBehavior(backboneelement.BackboneElement):
+    """ Defines behaviors such as selection and grouping.
+    
+    A behavior associated with the action. Behaviors define how the action is
+    to be presented and/or executed within the receiving environment.
+    """
+    
+    resource_name = "GuidanceResponseActionBehavior"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.type = None
+        """ The type of behavior (grouping, precheck, selection, cardinality,
+        etc).
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.value = None
+        """ Specific behavior (e.g. required, at-most-one, single, etc).
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        super(GuidanceResponseActionBehavior, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(GuidanceResponseActionBehavior, self).elementProperties()
+        js.extend([
+            ("type", "type", coding.Coding, False, None, True),
+            ("value", "value", coding.Coding, False, None, True),
+        ])
+        return js
+
+
+class GuidanceResponseActionRelatedAction(backboneelement.BackboneElement):
+    """ Relationship to another action.
+    
+    A relationship to another action such as "before" or "30-60 minutes after
+    start of".
+    """
+    
+    resource_name = "GuidanceResponseActionRelatedAction"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.actionIdentifier = None
+        """ Identifier of the related action.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.anchor = None
+        """ start | end.
+        Type `str`. """
+        
+        self.offsetQuantity = None
+        """ Time offset for the relationship.
+        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
+        
+        self.offsetRange = None
+        """ Time offset for the relationship.
+        Type `Range` (represented as `dict` in JSON). """
+        
+        self.relationship = None
+        """ before | after.
+        Type `str`. """
+        
+        super(GuidanceResponseActionRelatedAction, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(GuidanceResponseActionRelatedAction, self).elementProperties()
+        js.extend([
+            ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, True),
+            ("anchor", "anchor", str, False, None, False),
+            ("offsetQuantity", "offsetQuantity", quantity.Quantity, False, "offset", False),
+            ("offsetRange", "offsetRange", range.Range, False, "offset", False),
+            ("relationship", "relationship", str, False, None, True),
+        ])
+        return js
+
+
 from . import attachment
 from . import codeableconcept
+from . import coding
 from . import datarequirement
 from . import fhirreference
 from . import identifier
+from . import quantity
+from . import range

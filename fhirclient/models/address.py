@@ -1,24 +1,31 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Address) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Address) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
 from . import element
 
 class Address(element.Element):
-    """ A postal address.
+    """ An address expressed using postal conventions (as opposed to GPS or other
+    location definition formats).
     
-    There is a variety of postal address formats defined around the world. This
-    format defines a superset that is the basis for all addresses around the
-    world.
+    An address expressed using postal conventions (as opposed to GPS or other
+    location definition formats).  This data type may be used to convey
+    addresses for use in delivering mail as well as for visiting locations and
+    which might not be valid for mail delivery.  There are a variety of postal
+    address formats defined around the world.
     """
     
     resource_name = "Address"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.city = None
@@ -61,7 +68,7 @@ class Address(element.Element):
         """ home | work | temp | old - purpose of this address.
         Type `str`. """
         
-        super(Address, self).__init__(jsondict)
+        super(Address, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Address, self).elementProperties()

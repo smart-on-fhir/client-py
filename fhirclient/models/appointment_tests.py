@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -32,6 +32,9 @@ class AppointmentTests(unittest.TestCase):
         self.implAppointment1(inst2)
     
     def implAppointment1(self, inst):
+        self.assertEqual(inst.appointmentType.coding[0].code, "wi")
+        self.assertEqual(inst.appointmentType.coding[0].display, "Walk in")
+        self.assertEqual(inst.appointmentType.coding[0].system, "http://example.org/appointment-type")
         self.assertEqual(inst.comment, "Further expand on the results of the MRI and determine the next actions that may be appropriate.")
         self.assertEqual(inst.created.date, FHIRDate("2015-12-02").date)
         self.assertEqual(inst.created.as_json(), "2015-12-02")
@@ -52,11 +55,15 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.reason.coding[0].code, "413095006")
         self.assertEqual(inst.reason.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.reason.text, "Clinical Review")
+        self.assertEqual(inst.serviceCategory.coding[0].code, "gp")
+        self.assertEqual(inst.serviceCategory.coding[0].display, "General Practice")
+        self.assertEqual(inst.serviceCategory.coding[0].system, "http://example.org/service-category")
+        self.assertEqual(inst.specialty[0].coding[0].code, "gp")
+        self.assertEqual(inst.specialty[0].coding[0].display, "General Practice")
+        self.assertEqual(inst.specialty[0].coding[0].system, "http://example.org/specialty")
         self.assertEqual(inst.status, "proposed")
         self.assertEqual(inst.text.div, "<div>Brian MRI results discussion</div>")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "52")
-        self.assertEqual(inst.type.coding[0].display, "General Discussion")
     
     def testAppointment2(self):
         inst = self.instantiate_from("appointment-example.json")
@@ -69,6 +76,9 @@ class AppointmentTests(unittest.TestCase):
         self.implAppointment2(inst2)
     
     def implAppointment2(self, inst):
+        self.assertEqual(inst.appointmentType.coding[0].code, "follow")
+        self.assertEqual(inst.appointmentType.coding[0].display, "Followup")
+        self.assertEqual(inst.appointmentType.coding[0].system, "http://example.org/appointment-type")
         self.assertEqual(inst.comment, "Further expand on the results of the MRI and determine the next actions that may be appropriate.")
         self.assertEqual(inst.created.date, FHIRDate("2013-10-10").date)
         self.assertEqual(inst.created.as_json(), "2013-10-10")
@@ -85,13 +95,19 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.participant[2].required, "required")
         self.assertEqual(inst.participant[2].status, "accepted")
         self.assertEqual(inst.priority, 5)
+        self.assertEqual(inst.serviceCategory.coding[0].code, "gp")
+        self.assertEqual(inst.serviceCategory.coding[0].display, "General Practice")
+        self.assertEqual(inst.serviceCategory.coding[0].system, "http://example.org/service-category")
+        self.assertEqual(inst.serviceType[0].coding[0].code, "52")
+        self.assertEqual(inst.serviceType[0].coding[0].display, "General Discussion")
+        self.assertEqual(inst.specialty[0].coding[0].code, "gp")
+        self.assertEqual(inst.specialty[0].coding[0].display, "General Practice")
+        self.assertEqual(inst.specialty[0].coding[0].system, "http://example.org/specialty")
         self.assertEqual(inst.start.date, FHIRDate("2013-12-10T09:00:00Z").date)
         self.assertEqual(inst.start.as_json(), "2013-12-10T09:00:00Z")
         self.assertEqual(inst.status, "booked")
         self.assertEqual(inst.text.div, "<div>Brian MRI results discussion</div>")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "52")
-        self.assertEqual(inst.type.coding[0].display, "General Discussion")
     
     def testAppointment3(self):
         inst = self.instantiate_from("appointment-example2doctors.json")
@@ -104,6 +120,9 @@ class AppointmentTests(unittest.TestCase):
         self.implAppointment3(inst2)
     
     def implAppointment3(self, inst):
+        self.assertEqual(inst.appointmentType.coding[0].code, "wi")
+        self.assertEqual(inst.appointmentType.coding[0].display, "Walk in")
+        self.assertEqual(inst.appointmentType.coding[0].system, "http://example.org/appointment-type")
         self.assertEqual(inst.comment, "Clarify the results of the MRI to ensure context of test was correct")
         self.assertEqual(inst.description, "Discussion about Peter Chalmers MRI results")
         self.assertEqual(inst.end.date, FHIRDate("2013-12-09T11:00:00Z").date)
@@ -118,11 +137,17 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.participant[3].required, "information-only")
         self.assertEqual(inst.participant[3].status, "accepted")
         self.assertEqual(inst.priority, 5)
+        self.assertEqual(inst.serviceCategory.coding[0].code, "gp")
+        self.assertEqual(inst.serviceCategory.coding[0].display, "General Practice")
+        self.assertEqual(inst.serviceCategory.coding[0].system, "http://example.org/service-category")
+        self.assertEqual(inst.serviceType[0].coding[0].code, "52")
+        self.assertEqual(inst.serviceType[0].coding[0].display, "General Discussion")
+        self.assertEqual(inst.specialty[0].coding[0].code, "gp")
+        self.assertEqual(inst.specialty[0].coding[0].display, "General Practice")
+        self.assertEqual(inst.specialty[0].coding[0].system, "http://example.org/specialty")
         self.assertEqual(inst.start.date, FHIRDate("2013-12-09T09:00:00Z").date)
         self.assertEqual(inst.start.as_json(), "2013-12-09T09:00:00Z")
         self.assertEqual(inst.status, "booked")
         self.assertEqual(inst.text.div, "<div>Brian MRI results discussion</div>")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "52")
-        self.assertEqual(inst.type.coding[0].display, "General Discussion")
 

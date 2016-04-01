@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Library) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Library) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class Library(domainresource.DomainResource):
     
     resource_name = "Library"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.codeSystem = None
@@ -53,7 +57,7 @@ class Library(domainresource.DomainResource):
         """ A value set used by the library.
         List of `LibraryValueSet` items (represented as `dict` in JSON). """
         
-        super(Library, self).__init__(jsondict)
+        super(Library, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Library, self).elementProperties()
@@ -80,8 +84,12 @@ class LibraryCodeSystem(backboneelement.BackboneElement):
     
     resource_name = "LibraryCodeSystem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.identifier = None
@@ -96,7 +104,7 @@ class LibraryCodeSystem(backboneelement.BackboneElement):
         """ The version of the code system, if any.
         Type `str`. """
         
-        super(LibraryCodeSystem, self).__init__(jsondict)
+        super(LibraryCodeSystem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(LibraryCodeSystem, self).elementProperties()
@@ -116,8 +124,12 @@ class LibraryLibrary(backboneelement.BackboneElement):
     
     resource_name = "LibraryLibrary"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.documentAttachment = None
@@ -140,7 +152,7 @@ class LibraryLibrary(backboneelement.BackboneElement):
         """ The version of the library, if any.
         Type `str`. """
         
-        super(LibraryLibrary, self).__init__(jsondict)
+        super(LibraryLibrary, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(LibraryLibrary, self).elementProperties()
@@ -162,8 +174,12 @@ class LibraryModel(backboneelement.BackboneElement):
     
     resource_name = "LibraryModel"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.identifier = None
@@ -178,7 +194,7 @@ class LibraryModel(backboneelement.BackboneElement):
         """ The version of the model, if any.
         Type `str`. """
         
-        super(LibraryModel, self).__init__(jsondict)
+        super(LibraryModel, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(LibraryModel, self).elementProperties()
@@ -198,8 +214,12 @@ class LibraryValueSet(backboneelement.BackboneElement):
     
     resource_name = "LibraryValueSet"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.codeSystem = None
@@ -218,7 +238,7 @@ class LibraryValueSet(backboneelement.BackboneElement):
         """ The version of the value set.
         Type `str`. """
         
-        super(LibraryValueSet, self).__init__(jsondict)
+        super(LibraryValueSet, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(LibraryValueSet, self).elementProperties()

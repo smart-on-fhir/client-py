@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -15,8 +15,12 @@ class Bundle(resource.Resource):
     
     resource_name = "Bundle"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.entry = None
@@ -40,7 +44,7 @@ class Bundle(resource.Resource):
         batch-response | history | searchset | collection.
         Type `str`. """
         
-        super(Bundle, self).__init__(jsondict)
+        super(Bundle, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Bundle, self).elementProperties()
@@ -65,8 +69,12 @@ class BundleEntry(backboneelement.BackboneElement):
     
     resource_name = "BundleEntry"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.fullUrl = None
@@ -93,7 +101,7 @@ class BundleEntry(backboneelement.BackboneElement):
         """ Search related information.
         Type `BundleEntrySearch` (represented as `dict` in JSON). """
         
-        super(BundleEntry, self).__init__(jsondict)
+        super(BundleEntry, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(BundleEntry, self).elementProperties()
@@ -117,8 +125,12 @@ class BundleEntryRequest(backboneelement.BackboneElement):
     
     resource_name = "BundleEntryRequest"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.ifMatch = None
@@ -145,7 +157,7 @@ class BundleEntryRequest(backboneelement.BackboneElement):
         """ URL for HTTP equivalent of this entry.
         Type `str`. """
         
-        super(BundleEntryRequest, self).__init__(jsondict)
+        super(BundleEntryRequest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(BundleEntryRequest, self).elementProperties()
@@ -169,8 +181,12 @@ class BundleEntryResponse(backboneelement.BackboneElement):
     
     resource_name = "BundleEntryResponse"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.etag = None
@@ -186,10 +202,10 @@ class BundleEntryResponse(backboneelement.BackboneElement):
         Type `str`. """
         
         self.status = None
-        """ Status return code for entry.
+        """ Status response code (text optional).
         Type `str`. """
         
-        super(BundleEntryResponse, self).__init__(jsondict)
+        super(BundleEntryResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(BundleEntryResponse, self).elementProperties()
@@ -211,8 +227,12 @@ class BundleEntrySearch(backboneelement.BackboneElement):
     
     resource_name = "BundleEntrySearch"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.mode = None
@@ -223,7 +243,7 @@ class BundleEntrySearch(backboneelement.BackboneElement):
         """ Search ranking (between 0 and 1).
         Type `float`. """
         
-        super(BundleEntrySearch, self).__init__(jsondict)
+        super(BundleEntrySearch, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(BundleEntrySearch, self).elementProperties()
@@ -242,8 +262,12 @@ class BundleLink(backboneelement.BackboneElement):
     
     resource_name = "BundleLink"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.relation = None
@@ -254,7 +278,7 @@ class BundleLink(backboneelement.BackboneElement):
         """ Reference details for the link.
         Type `str`. """
         
-        super(BundleLink, self).__init__(jsondict)
+        super(BundleLink, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(BundleLink, self).elementProperties()

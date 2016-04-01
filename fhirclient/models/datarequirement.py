@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class DataRequirement(element.Element):
     
     resource_name = "DataRequirement"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.codeFilter = None
@@ -41,7 +45,7 @@ class DataRequirement(element.Element):
         """ The type of the required data.
         Type `str`. """
         
-        super(DataRequirement, self).__init__(jsondict)
+        super(DataRequirement, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DataRequirement, self).elementProperties()
@@ -64,33 +68,47 @@ class DataRequirementCodeFilter(element.Element):
     
     resource_name = "DataRequirementCodeFilter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
-        """
         
-        self.codeableConcept = None
-        """ The codeableConcepts for the filter.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
         
         self.path = None
         """ The code-valued attribute of the filter.
         Type `str`. """
         
+        self.valueCode = None
+        """ Code value of the filter.
+        List of `str` items. """
+        
+        self.valueCodeableConcept = None
+        """ CodeableConcept value of the filter.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.valueCoding = None
+        """ Coding value of the filter.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
         self.valueSetReference = None
-        """ The valueset for the code filter.
+        """ Valueset for the filter.
         Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
         
         self.valueSetString = None
-        """ The valueset for the code filter.
+        """ Valueset for the filter.
         Type `str`. """
         
-        super(DataRequirementCodeFilter, self).__init__(jsondict)
+        super(DataRequirementCodeFilter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DataRequirementCodeFilter, self).elementProperties()
         js.extend([
-            ("codeableConcept", "codeableConcept", codeableconcept.CodeableConcept, True, None, False),
             ("path", "path", str, False, None, True),
+            ("valueCode", "valueCode", str, True, None, False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
+            ("valueCoding", "valueCoding", coding.Coding, True, None, False),
             ("valueSetReference", "valueSetReference", fhirreference.FHIRReference, False, "valueSet", False),
             ("valueSetString", "valueSetString", str, False, "valueSet", False),
         ])
@@ -106,8 +124,12 @@ class DataRequirementDateFilter(element.Element):
     
     resource_name = "DataRequirementDateFilter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.path = None
@@ -122,7 +144,7 @@ class DataRequirementDateFilter(element.Element):
         """ The value of the filter, as a Period or dateTime value.
         Type `Period` (represented as `dict` in JSON). """
         
-        super(DataRequirementDateFilter, self).__init__(jsondict)
+        super(DataRequirementDateFilter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DataRequirementDateFilter, self).elementProperties()
@@ -135,6 +157,7 @@ class DataRequirementDateFilter(element.Element):
 
 
 from . import codeableconcept
+from . import coding
 from . import fhirdate
 from . import fhirreference
 from . import period

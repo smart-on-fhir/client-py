@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -32,7 +32,7 @@ class ScheduleTests(unittest.TestCase):
         self.implSchedule1(inst2)
     
     def implSchedule1(self, inst):
-        self.assertEqual(inst.comment, "Assessments should be performed before requesting appointments in this slot.")
+        self.assertEqual(inst.comment, "The slots attached to this schedule should be specialized to cover immunizations within the clinic")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://example.org/scheduleid")
         self.assertEqual(inst.identifier[0].use, "usual")
@@ -41,7 +41,11 @@ class ScheduleTests(unittest.TestCase):
         self.assertEqual(inst.planningHorizon.end.as_json(), "2013-12-25T09:30:00Z")
         self.assertEqual(inst.planningHorizon.start.date, FHIRDate("2013-12-25T09:15:00Z").date)
         self.assertEqual(inst.planningHorizon.start.as_json(), "2013-12-25T09:15:00Z")
+        self.assertEqual(inst.serviceCategory.coding[0].code, "17")
+        self.assertEqual(inst.serviceCategory.coding[0].display, "General Practice")
+        self.assertEqual(inst.serviceType[0].coding[0].code, "57")
+        self.assertEqual(inst.serviceType[0].coding[0].display, "Immunisation")
+        self.assertEqual(inst.specialty[0].coding[0].code, "408480009")
+        self.assertEqual(inst.specialty[0].coding[0].display, "Clinical immunology")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type[0].coding[0].code, "45")
-        self.assertEqual(inst.type[0].coding[0].display, "Physiotherapy")
 

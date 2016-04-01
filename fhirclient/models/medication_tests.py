@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -156,12 +156,14 @@ class MedicationTests(unittest.TestCase):
         self.assertEqual(inst.product.ingredient[0].amount.numerator.code, "ug")
         self.assertEqual(inst.product.ingredient[0].amount.numerator.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.product.ingredient[0].amount.numerator.value, 25)
+        self.assertEqual(inst.product.ingredient[0].itemCodeableConcept.text, "flutacisone")
         self.assertEqual(inst.product.ingredient[1].amount.denominator.code, "PUFF")
         self.assertEqual(inst.product.ingredient[1].amount.denominator.system, "http://hl7.org/fhir/v3/orderableDrugForm")
         self.assertEqual(inst.product.ingredient[1].amount.denominator.value, 1)
         self.assertEqual(inst.product.ingredient[1].amount.numerator.code, "ug")
         self.assertEqual(inst.product.ingredient[1].amount.numerator.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.product.ingredient[1].amount.numerator.value, 250)
+        self.assertEqual(inst.product.ingredient[1].itemCodeableConcept.text, "salmeterol")
         self.assertEqual(inst.text.status, "generated")
     
     def testMedication7(self):

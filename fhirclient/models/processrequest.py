@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class ProcessRequest(domainresource.DomainResource):
     
     resource_name = "ProcessRequest"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
@@ -48,7 +52,11 @@ class ProcessRequest(domainresource.DomainResource):
         """ Nullify.
         Type `bool`. """
         
-        self.organization = None
+        self.organizationIdentifier = None
+        """ Responsible organization.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.organizationReference = None
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
@@ -60,7 +68,11 @@ class ProcessRequest(domainresource.DomainResource):
         """ Period.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.provider = None
+        self.providerIdentifier = None
+        """ Responsible practitioner.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.providerReference = None
         """ Responsible practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
@@ -68,11 +80,19 @@ class ProcessRequest(domainresource.DomainResource):
         """ Reference number/string.
         Type `str`. """
         
-        self.request = None
+        self.requestIdentifier = None
+        """ Request reference.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.requestReference = None
         """ Request reference.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        self.response = None
+        self.responseIdentifier = None
+        """ Response reference.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.responseReference = None
         """ Response reference.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
@@ -80,11 +100,15 @@ class ProcessRequest(domainresource.DomainResource):
         """ Resource version.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.target = None
+        self.targetIdentifier = None
+        """ Target of the request.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.targetReference = None
         """ Target of the request.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        super(ProcessRequest, self).__init__(jsondict)
+        super(ProcessRequest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProcessRequest, self).elementProperties()
@@ -96,15 +120,20 @@ class ProcessRequest(domainresource.DomainResource):
             ("include", "include", str, True, None, False),
             ("item", "item", ProcessRequestItem, True, None, False),
             ("nullify", "nullify", bool, False, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
+            ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
             ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
             ("period", "period", period.Period, False, None, False),
-            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("providerIdentifier", "providerIdentifier", identifier.Identifier, False, "provider", False),
+            ("providerReference", "providerReference", fhirreference.FHIRReference, False, "provider", False),
             ("reference", "reference", str, False, None, False),
-            ("request", "request", fhirreference.FHIRReference, False, None, False),
-            ("response", "response", fhirreference.FHIRReference, False, None, False),
+            ("requestIdentifier", "requestIdentifier", identifier.Identifier, False, "request", False),
+            ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
+            ("responseIdentifier", "responseIdentifier", identifier.Identifier, False, "response", False),
+            ("responseReference", "responseReference", fhirreference.FHIRReference, False, "response", False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
-            ("target", "target", fhirreference.FHIRReference, False, None, False),
+            ("targetIdentifier", "targetIdentifier", identifier.Identifier, False, "target", False),
+            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", False),
         ])
         return js
 
@@ -120,15 +149,19 @@ class ProcessRequestItem(backboneelement.BackboneElement):
     
     resource_name = "ProcessRequestItem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.sequenceLinkId = None
         """ Service instance.
         Type `int`. """
         
-        super(ProcessRequestItem, self).__init__(jsondict)
+        super(ProcessRequestItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProcessRequestItem, self).elementProperties()

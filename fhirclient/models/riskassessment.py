@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class RiskAssessment(domainresource.DomainResource):
     
     resource_name = "RiskAssessment"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.basis = None
@@ -60,7 +64,7 @@ class RiskAssessment(domainresource.DomainResource):
         """ Who/what does assessment apply to?.
         Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
-        super(RiskAssessment, self).__init__(jsondict)
+        super(RiskAssessment, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(RiskAssessment, self).elementProperties()
@@ -89,8 +93,12 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
     
     resource_name = "RiskAssessmentPrediction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.outcome = None
@@ -125,7 +133,7 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
         """ Timeframe or age range.
         Type `Range` (represented as `dict` in JSON). """
         
-        super(RiskAssessmentPrediction, self).__init__(jsondict)
+        super(RiskAssessmentPrediction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(RiskAssessmentPrediction, self).elementProperties()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -15,8 +15,12 @@ class DocumentReference(domainresource.DomainResource):
     
     resource_name = "DocumentReference"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.authenticator = None
@@ -87,7 +91,7 @@ class DocumentReference(domainresource.DomainResource):
         """ Kind of document (LOINC if possible).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(DocumentReference, self).__init__(jsondict)
+        super(DocumentReference, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DocumentReference, self).elementProperties()
@@ -124,8 +128,12 @@ class DocumentReferenceContent(backboneelement.BackboneElement):
     
     resource_name = "DocumentReferenceContent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.attachment = None
@@ -136,7 +144,7 @@ class DocumentReferenceContent(backboneelement.BackboneElement):
         """ Format/content rules for the document.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        super(DocumentReferenceContent, self).__init__(jsondict)
+        super(DocumentReferenceContent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DocumentReferenceContent, self).elementProperties()
@@ -155,8 +163,12 @@ class DocumentReferenceContext(backboneelement.BackboneElement):
     
     resource_name = "DocumentReferenceContext"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.encounter = None
@@ -188,7 +200,7 @@ class DocumentReferenceContext(backboneelement.BackboneElement):
         """ Patient demographics from source.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
-        super(DocumentReferenceContext, self).__init__(jsondict)
+        super(DocumentReferenceContext, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DocumentReferenceContext, self).elementProperties()
@@ -212,8 +224,12 @@ class DocumentReferenceContextRelated(backboneelement.BackboneElement):
     
     resource_name = "DocumentReferenceContextRelated"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.identifier = None
@@ -224,7 +240,7 @@ class DocumentReferenceContextRelated(backboneelement.BackboneElement):
         """ Related Resource.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        super(DocumentReferenceContextRelated, self).__init__(jsondict)
+        super(DocumentReferenceContextRelated, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DocumentReferenceContextRelated, self).elementProperties()
@@ -244,8 +260,12 @@ class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
     
     resource_name = "DocumentReferenceRelatesTo"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -256,7 +276,7 @@ class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
         """ Target of the relationship.
         Type `FHIRReference` referencing `DocumentReference` (represented as `dict` in JSON). """
         
-        super(DocumentReferenceRelatesTo, self).__init__(jsondict)
+        super(DocumentReferenceRelatesTo, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DocumentReferenceRelatesTo, self).elementProperties()

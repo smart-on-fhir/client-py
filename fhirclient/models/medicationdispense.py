@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -19,8 +19,12 @@ class MedicationDispense(domainresource.DomainResource):
     
     resource_name = "MedicationDispense"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.authorizingPrescription = None
@@ -91,7 +95,7 @@ class MedicationDispense(domainresource.DomainResource):
         """ Dispense processing time.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        super(MedicationDispense, self).__init__(jsondict)
+        super(MedicationDispense, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MedicationDispense, self).elementProperties()
@@ -129,8 +133,12 @@ class MedicationDispenseDosageInstruction(backboneelement.BackboneElement):
     
     resource_name = "MedicationDispenseDosageInstruction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.additionalInstructions = None
@@ -189,7 +197,7 @@ class MedicationDispenseDosageInstruction(backboneelement.BackboneElement):
         """ When medication should be administered.
         Type `Timing` (represented as `dict` in JSON). """
         
-        super(MedicationDispenseDosageInstruction, self).__init__(jsondict)
+        super(MedicationDispenseDosageInstruction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MedicationDispenseDosageInstruction, self).elementProperties()
@@ -223,8 +231,12 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
     
     resource_name = "MedicationDispenseSubstitution"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.reason = None
@@ -240,7 +252,7 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
         was prescribed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(MedicationDispenseSubstitution, self).__init__(jsondict)
+        super(MedicationDispenseSubstitution, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MedicationDispenseSubstitution, self).elementProperties()

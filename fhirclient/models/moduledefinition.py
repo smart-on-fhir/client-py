@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ModuleDefinition) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ModuleDefinition) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class ModuleDefinition(domainresource.DomainResource):
     
     resource_name = "ModuleDefinition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.codeSystem = None
@@ -52,7 +56,7 @@ class ModuleDefinition(domainresource.DomainResource):
         """ The version of the module, if any.
         Type `str`. """
         
-        super(ModuleDefinition, self).__init__(jsondict)
+        super(ModuleDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleDefinition, self).elementProperties()
@@ -79,8 +83,12 @@ class ModuleDefinitionCodeSystem(backboneelement.BackboneElement):
     
     resource_name = "ModuleDefinitionCodeSystem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.identifier = None
@@ -95,7 +103,7 @@ class ModuleDefinitionCodeSystem(backboneelement.BackboneElement):
         """ None.
         Type `str`. """
         
-        super(ModuleDefinitionCodeSystem, self).__init__(jsondict)
+        super(ModuleDefinitionCodeSystem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleDefinitionCodeSystem, self).elementProperties()
@@ -116,8 +124,12 @@ class ModuleDefinitionData(backboneelement.BackboneElement):
     
     resource_name = "ModuleDefinitionData"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.codeFilter = None
@@ -141,7 +153,7 @@ class ModuleDefinitionData(backboneelement.BackboneElement):
         """ The type of the required data.
         Type `str`. """
         
-        super(ModuleDefinitionData, self).__init__(jsondict)
+        super(ModuleDefinitionData, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleDefinitionData, self).elementProperties()
@@ -163,8 +175,12 @@ class ModuleDefinitionDataCodeFilter(backboneelement.BackboneElement):
     
     resource_name = "ModuleDefinitionDataCodeFilter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.codeableConcept = None
@@ -183,7 +199,7 @@ class ModuleDefinitionDataCodeFilter(backboneelement.BackboneElement):
         """ The valueset for the code filter.
         Type `str`. """
         
-        super(ModuleDefinitionDataCodeFilter, self).__init__(jsondict)
+        super(ModuleDefinitionDataCodeFilter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleDefinitionDataCodeFilter, self).elementProperties()
@@ -204,8 +220,12 @@ class ModuleDefinitionDataDateFilter(backboneelement.BackboneElement):
     
     resource_name = "ModuleDefinitionDataDateFilter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.path = None
@@ -220,7 +240,7 @@ class ModuleDefinitionDataDateFilter(backboneelement.BackboneElement):
         """ The value of the filter, as a Period or dateTime value.
         Type `Period` (represented as `dict` in JSON). """
         
-        super(ModuleDefinitionDataDateFilter, self).__init__(jsondict)
+        super(ModuleDefinitionDataDateFilter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleDefinitionDataDateFilter, self).elementProperties()
@@ -241,8 +261,12 @@ class ModuleDefinitionLibrary(backboneelement.BackboneElement):
     
     resource_name = "ModuleDefinitionLibrary"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.documentAttachment = None
@@ -265,7 +289,7 @@ class ModuleDefinitionLibrary(backboneelement.BackboneElement):
         """ None.
         Type `str`. """
         
-        super(ModuleDefinitionLibrary, self).__init__(jsondict)
+        super(ModuleDefinitionLibrary, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleDefinitionLibrary, self).elementProperties()
@@ -287,8 +311,12 @@ class ModuleDefinitionModel(backboneelement.BackboneElement):
     
     resource_name = "ModuleDefinitionModel"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.identifier = None
@@ -303,7 +331,7 @@ class ModuleDefinitionModel(backboneelement.BackboneElement):
         """ None.
         Type `str`. """
         
-        super(ModuleDefinitionModel, self).__init__(jsondict)
+        super(ModuleDefinitionModel, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleDefinitionModel, self).elementProperties()
@@ -323,8 +351,12 @@ class ModuleDefinitionParameter(backboneelement.BackboneElement):
     
     resource_name = "ModuleDefinitionParameter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.documentation = None
@@ -347,7 +379,7 @@ class ModuleDefinitionParameter(backboneelement.BackboneElement):
         """ None.
         Type `str`. """
         
-        super(ModuleDefinitionParameter, self).__init__(jsondict)
+        super(ModuleDefinitionParameter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleDefinitionParameter, self).elementProperties()
@@ -369,8 +401,12 @@ class ModuleDefinitionValueSet(backboneelement.BackboneElement):
     
     resource_name = "ModuleDefinitionValueSet"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.codeSystem = None
@@ -389,7 +425,7 @@ class ModuleDefinitionValueSet(backboneelement.BackboneElement):
         """ None.
         Type `str`. """
         
-        super(ModuleDefinitionValueSet, self).__init__(jsondict)
+        super(ModuleDefinitionValueSet, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ModuleDefinitionValueSet, self).elementProperties()

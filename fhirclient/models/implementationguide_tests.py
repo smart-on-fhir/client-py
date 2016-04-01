@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -53,8 +53,8 @@ class ImplementationGuideTests(unittest.TestCase):
         self.assertEqual(inst.package[0].name, "test")
         self.assertEqual(inst.package[0].resource[0].acronym, "daf-tst")
         self.assertEqual(inst.package[0].resource[0].description, "A test example to show how a package works")
+        self.assertTrue(inst.package[0].resource[0].example)
         self.assertEqual(inst.package[0].resource[0].name, "Test Example")
-        self.assertEqual(inst.package[0].resource[0].purpose, "example")
         self.assertEqual(inst.package[0].resource[0].sourceUri, "test.html")
         self.assertEqual(inst.page.kind, "page")
         self.assertEqual(inst.page.name, "Example Patient Page")

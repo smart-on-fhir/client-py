@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -14,8 +14,12 @@ class StructureMap(domainresource.DomainResource):
     
     resource_name = "StructureMap"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contact = None
@@ -82,7 +86,7 @@ class StructureMap(domainresource.DomainResource):
         """ Logical id for this version of the StructureMap.
         Type `str`. """
         
-        super(StructureMap, self).__init__(jsondict)
+        super(StructureMap, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMap, self).elementProperties()
@@ -117,19 +121,23 @@ class StructureMapContact(backboneelement.BackboneElement):
     
     resource_name = "StructureMapContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
-        """ Name of a individual to contact.
+        """ Name of an individual to contact.
         Type `str`. """
         
         self.telecom = None
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(StructureMapContact, self).__init__(jsondict)
+        super(StructureMapContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapContact, self).elementProperties()
@@ -146,8 +154,12 @@ class StructureMapGroup(backboneelement.BackboneElement):
     
     resource_name = "StructureMapGroup"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.documentation = None
@@ -170,7 +182,7 @@ class StructureMapGroup(backboneelement.BackboneElement):
         """ Transform Rule from source to target.
         List of `StructureMapGroupRule` items (represented as `dict` in JSON). """
         
-        super(StructureMapGroup, self).__init__(jsondict)
+        super(StructureMapGroup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroup, self).elementProperties()
@@ -193,8 +205,12 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
     
     resource_name = "StructureMapGroupInput"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.documentation = None
@@ -213,7 +229,7 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
         """ Type for this instance of data.
         Type `str`. """
         
-        super(StructureMapGroupInput, self).__init__(jsondict)
+        super(StructureMapGroupInput, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupInput, self).elementProperties()
@@ -232,8 +248,12 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
     
     resource_name = "StructureMapGroupRule"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.dependent = None
@@ -248,6 +268,10 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
         """ Name of the rule for internal references.
         Type `str`. """
         
+        self.rule = None
+        """ Rules contained in this rule.
+        List of `StructureMapGroupRule` items (represented as `dict` in JSON). """
+        
         self.source = None
         """ Source inputs to the mapping.
         List of `StructureMapGroupRuleSource` items (represented as `dict` in JSON). """
@@ -256,7 +280,7 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
         """ Content to create because of this mapping rule.
         List of `StructureMapGroupRuleTarget` items (represented as `dict` in JSON). """
         
-        super(StructureMapGroupRule, self).__init__(jsondict)
+        super(StructureMapGroupRule, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupRule, self).elementProperties()
@@ -264,6 +288,7 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
             ("dependent", "dependent", StructureMapGroupRuleDependent, True, None, False),
             ("documentation", "documentation", str, False, None, False),
             ("name", "name", str, False, None, True),
+            ("rule", "rule", StructureMapGroupRule, True, None, False),
             ("source", "source", StructureMapGroupRuleSource, True, None, True),
             ("target", "target", StructureMapGroupRuleTarget, True, None, False),
         ])
@@ -276,8 +301,12 @@ class StructureMapGroupRuleDependent(backboneelement.BackboneElement):
     
     resource_name = "StructureMapGroupRuleDependent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -288,7 +317,7 @@ class StructureMapGroupRuleDependent(backboneelement.BackboneElement):
         """ Names of variables to pass to the rule or group.
         List of `str` items. """
         
-        super(StructureMapGroupRuleDependent, self).__init__(jsondict)
+        super(StructureMapGroupRuleDependent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupRuleDependent, self).elementProperties()
@@ -305,8 +334,12 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
     
     resource_name = "StructureMapGroupRuleSource"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.check = None
@@ -315,7 +348,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         Type `str`. """
         
         self.condition = None
-        """ FluentPath expression - must be true for source to apply.
+        """ FluentPath expression  - must be true or the rule does not apply.
         Type `str`. """
         
         self.context = None
@@ -326,8 +359,12 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ type | variable.
         Type `str`. """
         
-        self.field = None
+        self.element = None
         """ Optional field for this source.
+        Type `str`. """
+        
+        self.listMode = None
+        """ first | share | last.
         Type `str`. """
         
         self.required = None
@@ -338,7 +375,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Named context for field, if a field is specified.
         Type `str`. """
         
-        super(StructureMapGroupRuleSource, self).__init__(jsondict)
+        super(StructureMapGroupRuleSource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupRuleSource, self).elementProperties()
@@ -347,7 +384,8 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
             ("condition", "condition", str, False, None, False),
             ("context", "context", str, False, None, True),
             ("contextType", "contextType", str, False, None, True),
-            ("field", "field", str, False, None, False),
+            ("element", "element", str, False, None, False),
+            ("listMode", "listMode", str, False, None, False),
             ("required", "required", bool, False, None, True),
             ("variable", "variable", str, False, None, False),
         ])
@@ -360,8 +398,12 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
     
     resource_name = "StructureMapGroupRuleTarget"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.context = None
@@ -372,12 +414,12 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
         """ type | variable.
         Type `str`. """
         
-        self.field = None
+        self.element = None
         """ Field to create in the context.
         Type `str`. """
         
         self.listMode = None
-        """ only_one | first | share.
+        """ first | share | last.
         List of `str` items. """
         
         self.listRuleId = None
@@ -396,14 +438,14 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
         """ Named context for field, if desired, and a field is specified.
         Type `str`. """
         
-        super(StructureMapGroupRuleTarget, self).__init__(jsondict)
+        super(StructureMapGroupRuleTarget, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupRuleTarget, self).elementProperties()
         js.extend([
             ("context", "context", str, False, None, True),
             ("contextType", "contextType", str, False, None, True),
-            ("field", "field", str, False, None, False),
+            ("element", "element", str, False, None, False),
             ("listMode", "listMode", str, True, None, False),
             ("listRuleId", "listRuleId", str, False, None, False),
             ("parameter", "parameter", StructureMapGroupRuleTargetParameter, True, None, False),
@@ -419,8 +461,12 @@ class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
     
     resource_name = "StructureMapGroupRuleTargetParameter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.valueBoolean = None
@@ -443,7 +489,7 @@ class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
         """ Parameter value - variable or literal.
         Type `str`. """
         
-        super(StructureMapGroupRuleTargetParameter, self).__init__(jsondict)
+        super(StructureMapGroupRuleTargetParameter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupRuleTargetParameter, self).elementProperties()
@@ -466,8 +512,12 @@ class StructureMapStructure(backboneelement.BackboneElement):
     
     resource_name = "StructureMapStructure"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.documentation = None
@@ -482,7 +532,7 @@ class StructureMapStructure(backboneelement.BackboneElement):
         """ Canonical URL for structure definition.
         Type `str`. """
         
-        super(StructureMapStructure, self).__init__(jsondict)
+        super(StructureMapStructure, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapStructure, self).elementProperties()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -15,8 +15,12 @@ class ValueSet(domainresource.DomainResource):
     
     resource_name = "ValueSet"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.compose = None
@@ -92,7 +96,7 @@ class ValueSet(domainresource.DomainResource):
         """ Logical identifier for this version of the value set.
         Type `str`. """
         
-        super(ValueSet, self).__init__(jsondict)
+        super(ValueSet, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSet, self).elementProperties()
@@ -130,8 +134,12 @@ class ValueSetCompose(backboneelement.BackboneElement):
     
     resource_name = "ValueSetCompose"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.exclude = None
@@ -146,7 +154,7 @@ class ValueSetCompose(backboneelement.BackboneElement):
         """ Include one or more codes from a code system.
         List of `ValueSetComposeInclude` items (represented as `dict` in JSON). """
         
-        super(ValueSetCompose, self).__init__(jsondict)
+        super(ValueSetCompose, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetCompose, self).elementProperties()
@@ -164,8 +172,12 @@ class ValueSetComposeInclude(backboneelement.BackboneElement):
     
     resource_name = "ValueSetComposeInclude"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.concept = None
@@ -184,7 +196,7 @@ class ValueSetComposeInclude(backboneelement.BackboneElement):
         """ Specific version of the code system referred to.
         Type `str`. """
         
-        super(ValueSetComposeInclude, self).__init__(jsondict)
+        super(ValueSetComposeInclude, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetComposeInclude, self).elementProperties()
@@ -205,8 +217,12 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
     
     resource_name = "ValueSetComposeIncludeConcept"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -221,7 +237,7 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
         """ Test to display for this code for this value set.
         Type `str`. """
         
-        super(ValueSetComposeIncludeConcept, self).__init__(jsondict)
+        super(ValueSetComposeIncludeConcept, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetComposeIncludeConcept, self).elementProperties()
@@ -243,8 +259,12 @@ class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
     
     resource_name = "ValueSetComposeIncludeConceptDesignation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.language = None
@@ -259,7 +279,7 @@ class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
         """ The text value for this designation.
         Type `str`. """
         
-        super(ValueSetComposeIncludeConceptDesignation, self).__init__(jsondict)
+        super(ValueSetComposeIncludeConceptDesignation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetComposeIncludeConceptDesignation, self).elementProperties()
@@ -281,8 +301,12 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
     
     resource_name = "ValueSetComposeIncludeFilter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.op = None
@@ -297,7 +321,7 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
         """ Code from the system, or regex criteria.
         Type `str`. """
         
-        super(ValueSetComposeIncludeFilter, self).__init__(jsondict)
+        super(ValueSetComposeIncludeFilter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetComposeIncludeFilter, self).elementProperties()
@@ -317,8 +341,12 @@ class ValueSetContact(backboneelement.BackboneElement):
     
     resource_name = "ValueSetContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -329,7 +357,7 @@ class ValueSetContact(backboneelement.BackboneElement):
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(ValueSetContact, self).__init__(jsondict)
+        super(ValueSetContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetContact, self).elementProperties()
@@ -350,8 +378,12 @@ class ValueSetExpansion(backboneelement.BackboneElement):
     
     resource_name = "ValueSetExpansion"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contains = None
@@ -378,7 +410,7 @@ class ValueSetExpansion(backboneelement.BackboneElement):
         """ Total number of codes in the expansion.
         Type `int`. """
         
-        super(ValueSetExpansion, self).__init__(jsondict)
+        super(ValueSetExpansion, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetExpansion, self).elementProperties()
@@ -401,8 +433,12 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
     
     resource_name = "ValueSetExpansionContains"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.abstract = None
@@ -429,7 +465,7 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
         """ Version in which this code/display is defined.
         Type `str`. """
         
-        super(ValueSetExpansionContains, self).__init__(jsondict)
+        super(ValueSetExpansionContains, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetExpansionContains, self).elementProperties()
@@ -454,8 +490,12 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
     
     resource_name = "ValueSetExpansionParameter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -486,7 +526,7 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
         """ Value of the named parameter.
         Type `str`. """
         
-        super(ValueSetExpansionParameter, self).__init__(jsondict)
+        super(ValueSetExpansionParameter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetExpansionParameter, self).elementProperties()

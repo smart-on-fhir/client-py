@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -17,15 +17,19 @@ class Parameters(resource.Resource):
     
     resource_name = "Parameters"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.parameter = None
         """ Operation Parameter.
         List of `ParametersParameter` items (represented as `dict` in JSON). """
         
-        super(Parameters, self).__init__(jsondict)
+        super(Parameters, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Parameters, self).elementProperties()
@@ -45,8 +49,12 @@ class ParametersParameter(backboneelement.BackboneElement):
     
     resource_name = "ParametersParameter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -193,7 +201,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         """ If parameter is a data type.
         Type `str`. """
         
-        super(ParametersParameter, self).__init__(jsondict)
+        super(ParametersParameter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ParametersParameter, self).elementProperties()

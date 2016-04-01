@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Device) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Device) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -21,8 +21,12 @@ class Device(domainresource.DomainResource):
     
     resource_name = "Device"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contact = None
@@ -34,7 +38,7 @@ class Device(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
-        """ Instance id from manufacturer, owner, and others.
+        """ Instance identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.location = None
@@ -66,7 +70,7 @@ class Device(domainresource.DomainResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.patient = None
-        """ If the resource is affixed to a person.
+        """ Patient to whom Device is affixed.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.status = None
@@ -89,7 +93,7 @@ class Device(domainresource.DomainResource):
         """ Version number (i.e. software).
         Type `str`. """
         
-        super(Device, self).__init__(jsondict)
+        super(Device, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Device, self).elementProperties()

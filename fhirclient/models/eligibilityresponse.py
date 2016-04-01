@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/EligibilityResponse) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/EligibilityResponse) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class EligibilityResponse(domainresource.DomainResource):
     
     resource_name = "EligibilityResponse"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.benefitBalance = None
@@ -52,7 +56,11 @@ class EligibilityResponse(domainresource.DomainResource):
         """ Coverage inforce.
         Type `bool`. """
         
-        self.organization = None
+        self.organizationIdentifier = None
+        """ Insurer.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.organizationReference = None
         """ Insurer.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
@@ -64,23 +72,35 @@ class EligibilityResponse(domainresource.DomainResource):
         """ complete | error.
         Type `str`. """
         
-        self.request = None
+        self.requestIdentifier = None
         """ Claim reference.
-        Type `FHIRReference` referencing `EligibilityRequest` (represented as `dict` in JSON). """
+        Type `Identifier` (represented as `dict` in JSON). """
         
-        self.requestOrganization = None
+        self.requestOrganizationIdentifier = None
+        """ Responsible organization.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.requestOrganizationReference = None
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.requestProvider = None
+        self.requestProviderIdentifier = None
+        """ Responsible practitioner.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.requestProviderReference = None
         """ Responsible practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
+        self.requestReference = None
+        """ Claim reference.
+        Type `FHIRReference` referencing `EligibilityRequest` (represented as `dict` in JSON). """
         
         self.ruleset = None
         """ Resource version.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(EligibilityResponse, self).__init__(jsondict)
+        super(EligibilityResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EligibilityResponse, self).elementProperties()
@@ -93,12 +113,16 @@ class EligibilityResponse(domainresource.DomainResource):
             ("form", "form", coding.Coding, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("inforce", "inforce", bool, False, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
+            ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
             ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
             ("outcome", "outcome", str, False, None, False),
-            ("request", "request", fhirreference.FHIRReference, False, None, False),
-            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
-            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
+            ("requestIdentifier", "requestIdentifier", identifier.Identifier, False, "request", False),
+            ("requestOrganizationIdentifier", "requestOrganizationIdentifier", identifier.Identifier, False, "requestOrganization", False),
+            ("requestOrganizationReference", "requestOrganizationReference", fhirreference.FHIRReference, False, "requestOrganization", False),
+            ("requestProviderIdentifier", "requestProviderIdentifier", identifier.Identifier, False, "requestProvider", False),
+            ("requestProviderReference", "requestProviderReference", fhirreference.FHIRReference, False, "requestProvider", False),
+            ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
         ])
         return js
@@ -114,8 +138,12 @@ class EligibilityResponseBenefitBalance(backboneelement.BackboneElement):
     
     resource_name = "EligibilityResponseBenefitBalance"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.category = None
@@ -142,7 +170,7 @@ class EligibilityResponseBenefitBalance(backboneelement.BackboneElement):
         """ Individual or family.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(EligibilityResponseBenefitBalance, self).__init__(jsondict)
+        super(EligibilityResponseBenefitBalance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EligibilityResponseBenefitBalance, self).elementProperties()
@@ -165,8 +193,12 @@ class EligibilityResponseBenefitBalanceFinancial(backboneelement.BackboneElement
     
     resource_name = "EligibilityResponseBenefitBalanceFinancial"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.benefitQuantity = None
@@ -189,7 +221,7 @@ class EligibilityResponseBenefitBalanceFinancial(backboneelement.BackboneElement
         """ Deductable, visits, benefit amount.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(EligibilityResponseBenefitBalanceFinancial, self).__init__(jsondict)
+        super(EligibilityResponseBenefitBalanceFinancial, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EligibilityResponseBenefitBalanceFinancial, self).elementProperties()
@@ -211,15 +243,19 @@ class EligibilityResponseError(backboneelement.BackboneElement):
     
     resource_name = "EligibilityResponseError"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
         """ Error code detailing processing issues.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(EligibilityResponseError, self).__init__(jsondict)
+        super(EligibilityResponseError, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EligibilityResponseError, self).elementProperties()

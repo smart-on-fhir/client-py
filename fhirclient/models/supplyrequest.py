@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/SupplyRequest) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/SupplyRequest) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class SupplyRequest(domainresource.DomainResource):
     
     resource_name = "SupplyRequest"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.date = None
@@ -64,7 +68,7 @@ class SupplyRequest(domainresource.DomainResource):
         """ When the request should be fulfilled.
         Type `SupplyRequestWhen` (represented as `dict` in JSON). """
         
-        super(SupplyRequest, self).__init__(jsondict)
+        super(SupplyRequest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SupplyRequest, self).elementProperties()
@@ -92,8 +96,12 @@ class SupplyRequestWhen(backboneelement.BackboneElement):
     
     resource_name = "SupplyRequestWhen"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -104,7 +112,7 @@ class SupplyRequestWhen(backboneelement.BackboneElement):
         """ Formal fulfillment schedule.
         Type `Timing` (represented as `dict` in JSON). """
         
-        super(SupplyRequestWhen, self).__init__(jsondict)
+        super(SupplyRequestWhen, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SupplyRequestWhen, self).elementProperties()

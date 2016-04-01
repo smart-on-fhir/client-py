@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -41,18 +41,20 @@ class ClaimResponseTests(unittest.TestCase):
         self.assertEqual(inst.item[0].adjudication[0].amount.code, "USD")
         self.assertEqual(inst.item[0].adjudication[0].amount.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.item[0].adjudication[0].amount.value, 135.57)
-        self.assertEqual(inst.item[0].adjudication[0].code.code, "eligible")
+        self.assertEqual(inst.item[0].adjudication[0].category.code, "eligible")
         self.assertEqual(inst.item[0].adjudication[1].amount.code, "USD")
         self.assertEqual(inst.item[0].adjudication[1].amount.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.item[0].adjudication[1].amount.value, 10.0)
-        self.assertEqual(inst.item[0].adjudication[1].code.code, "copay")
-        self.assertEqual(inst.item[0].adjudication[2].code.code, "eligpercent")
+        self.assertEqual(inst.item[0].adjudication[1].category.code, "copay")
+        self.assertEqual(inst.item[0].adjudication[2].category.code, "eligpercent")
         self.assertEqual(inst.item[0].adjudication[2].value, 80.0)
         self.assertEqual(inst.item[0].adjudication[3].amount.code, "USD")
         self.assertEqual(inst.item[0].adjudication[3].amount.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.item[0].adjudication[3].amount.value, 100.47)
-        self.assertEqual(inst.item[0].adjudication[3].code.code, "benefit")
+        self.assertEqual(inst.item[0].adjudication[3].category.code, "benefit")
         self.assertEqual(inst.item[0].sequenceLinkId, 1)
+        self.assertEqual(inst.organizationIdentifier.system, "http://www.jurisdiction.org/insurers")
+        self.assertEqual(inst.organizationIdentifier.value, "555123")
         self.assertEqual(inst.outcome, "complete")
         self.assertEqual(inst.payeeType.code, "provider")
         self.assertEqual(inst.payeeType.system, "http://hl7.org/fhir/payeetype")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -116,7 +116,7 @@ class DeviceTests(unittest.TestCase):
         self.assertEqual(inst.version, "10.23-23423")
     
     def testDevice5(self):
-        inst = self.instantiate_from("device-example.json")
+        inst = self.instantiate_from("device-example-udi1.json")
         self.assertIsNotNone(inst, "Must have instantiated a Device instance")
         self.implDevice5(inst)
         
@@ -126,6 +126,40 @@ class DeviceTests(unittest.TestCase):
         self.implDevice5(inst2)
     
     def implDevice5(self, inst):
+        self.assertEqual(inst.expirationDate.date, FHIRDate("2014-11-20").date)
+        self.assertEqual(inst.expirationDate.as_json(), "2014-11-20")
+        self.assertEqual(inst.id, "example-udi1")
+        self.assertEqual(inst.identifier[0].system, "http://acme.com/devices/pacemakers/octane/serial")
+        self.assertEqual(inst.identifier[0].value, "1234-5678-90AB-CDEF")
+        self.assertEqual(inst.identifier[1].type.coding[0].code, "SNO")
+        self.assertEqual(inst.identifier[1].type.coding[0].system, "http://hl7.org/fhir/identifier-type")
+        self.assertEqual(inst.identifier[1].value, "10987654d321")
+        self.assertEqual(inst.lotNumber, "7654321D")
+        self.assertEqual(inst.manufacturer, "Acme Devices, Inc")
+        self.assertEqual(inst.model, "PM/Octane 2014")
+        self.assertEqual(inst.status, "not-available")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "09504000059118")
+        self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/NamingSystem/gs1-di")
+        self.assertEqual(inst.type.coding[1].code, "468063009")
+        self.assertEqual(inst.type.coding[1].display, "Coated femoral stem prosthesis, modular")
+        self.assertEqual(inst.type.coding[1].system, "http://snomed.info/sct")
+        self.assertEqual(inst.udiCarrier.system, "http://hl7.org/fhir/NamingSystem/fda-udi")
+        self.assertEqual(inst.udiCarrier.type.coding[0].code, "UDI")
+        self.assertEqual(inst.udiCarrier.type.coding[0].system, "http://hl7.org/fhir/identifier-type")
+        self.assertEqual(inst.udiCarrier.value, "{01}09504000059118{17}141120{10}7654321D{21}10987654d321")
+    
+    def testDevice6(self):
+        inst = self.instantiate_from("device-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Device instance")
+        self.implDevice6(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Device", js["resourceType"])
+        inst2 = device.Device(js)
+        self.implDevice6(inst2)
+    
+    def implDevice6(self, inst):
         self.assertEqual(inst.contact[0].system, "phone")
         self.assertEqual(inst.contact[0].value, "ext 4352")
         self.assertEqual(inst.id, "example")

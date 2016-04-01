@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.3.0.7854 (http://hl7.org/fhir/StructureDefinition/Media) on 2016-03-16.
+#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Media) on 2016-04-01.
 #  2016, SMART Health IT.
 
 
@@ -14,8 +14,12 @@ class Media(domainresource.DomainResource):
     
     resource_name = "Media"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.content = None
@@ -66,7 +70,7 @@ class Media(domainresource.DomainResource):
         """ Width of the image in pixels (photo/video).
         Type `int`. """
         
-        super(Media, self).__init__(jsondict)
+        super(Media, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Media, self).elementProperties()
