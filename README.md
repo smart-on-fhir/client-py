@@ -2,7 +2,7 @@ SMART FHIR Client
 =================
 
 This is _fhirclient_, a flexible Python client for [FHIR][] servers supporting the [SMART on FHIR][smart] protocol.
-The client is compatible with Python 2.7, possibly earlier, and Python 3.
+The client is compatible with Python 2.7.10 and Python 3.
 
 Client versioning is not identical to FHIR versioning.
 The `master` branch is usually on the latest version of the client as shown below, possibly on bugfix releases thereof.
