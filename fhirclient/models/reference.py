@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Reference(element.Element):
     """ A reference from one resource to another.

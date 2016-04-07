@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Ratio(element.Element):
     """ A ratio of two Quantity values - a numerator and a denominator.

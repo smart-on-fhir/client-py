@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class SampledData(element.Element):
     """ A series of measurements taken by a device.

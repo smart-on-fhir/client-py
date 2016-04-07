@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Annotation(element.Element):
     """ Text node with attribution.

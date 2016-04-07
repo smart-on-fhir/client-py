@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Narrative(element.Element):
     """ A human-readable formatted text, including images.

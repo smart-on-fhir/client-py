@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class ElementDefinition(element.Element):
     """ Definition of an element in a resource or extension.

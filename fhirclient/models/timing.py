@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Timing(element.Element):
     """ A timing schedule that specifies an event that may occur multiple times.

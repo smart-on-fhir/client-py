@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class Meta(element.Element):
     """ Metadata about a resource.

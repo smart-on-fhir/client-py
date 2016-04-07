@@ -5,7 +5,7 @@
 #  2016, SMART Health IT.
 
 
-from . import element
+import element
 
 class CodeableConcept(element.Element):
     """ Concept - reference to a terminology or just  text.

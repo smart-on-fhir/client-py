@@ -4,7 +4,7 @@
 #  Generated from FHIR 1.0.2.7202 on 2016-03-23.
 #  2016, SMART Health IT.
 
-from . import element
+import element
 
 
 class FHIRElementFactory(object):
@@ -422,7 +422,7 @@ class FHIRElementFactory(object):
             from . import duration
             return duration.Duration(jsondict)
         if "Element" == resource_name:
-            from . import element
+            import element
             return element.Element(jsondict)
         if "ElementDefinition" == resource_name:
             from . import elementdefinition
