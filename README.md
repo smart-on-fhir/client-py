@@ -153,7 +153,7 @@ Docs Generation
 ---------------
 
 Docs are generated with [Doxygen][] and [doxypypy][].
-You will need to install doxypypy the old-fashioned way, checking out the repo and issuing `python setup.py install`.
+You can install doxypypy via pip: `pip install doxypypy`.
 Then you can just run Doxygen, configuration is stored in the `Doxyfile`.
 
 Running Doxygen will put the generated documentation into `docs`, the HTML files into `docs/html`.
