@@ -1,7 +1,8 @@
 var classfhirclient_1_1models_1_1practitioner_1_1_practitioner =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner.html#a61a96bd0d34c123b5249ec02395c84c6", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner.html#a9e7b49b89311c3a69c1e9e9bbb599c2b", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner.html#a3c268a59040e49fe895639005c22e578", null ],
+    [ "active", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner.html#a12347ef3dad34b0008fc80f33926df52", null ],
     [ "address", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner.html#a8a20ed90954cbda7ab422bcef6b92bb5", null ],
     [ "birthDate", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner.html#a68feb6cc61fba69f8298b3e7c8ed6489", null ],
     [ "communication", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner.html#a31dd6056fac579166a9eb00d16ff7f6f", null ],

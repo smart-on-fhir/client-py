@@ -1,7 +1,8 @@
 var classfhirclient_1_1models_1_1provenance_1_1_provenance =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1provenance_1_1_provenance.html#a0bfbc10300c69ff1f8bc26dde256547c", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1provenance_1_1_provenance.html#acf9cdad41451f8c359ad56b4862c9708", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1provenance_1_1_provenance.html#a34e3d73f4be96ee9397b30c7e841bd8c", null ],
+    [ "activity", "classfhirclient_1_1models_1_1provenance_1_1_provenance.html#a7b5cd287f35c10e3f6b11b98956f7462", null ],
     [ "agent", "classfhirclient_1_1models_1_1provenance_1_1_provenance.html#a2295a582c392c34b0c16eb07a8ead49a", null ],
     [ "entity", "classfhirclient_1_1models_1_1provenance_1_1_provenance.html#a7140269c24e91d5c6771c63fed213c86", null ],
     [ "location", "classfhirclient_1_1models_1_1provenance_1_1_provenance.html#af245f5e29dd12bd7fce6159ec23121e0", null ],

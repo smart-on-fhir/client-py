@@ -1,10 +1,11 @@
 var classfhirclient_1_1models_1_1list_1_1_list =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1list_1_1_list.html#ac7afebeaad00fb675abc73be141fccbb", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1list_1_1_list.html#aa3f18438ed5ec530f1fb48ffdb7fee12", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1list_1_1_list.html#a6f48c7239209ba02739f0c0ea1e6e6bf", null ],
     [ "code", "classfhirclient_1_1models_1_1list_1_1_list.html#a32eb2726c2b731e2a43e8e5b33444b3f", null ],
     [ "date", "classfhirclient_1_1models_1_1list_1_1_list.html#a92ccd70c7cd21d1840ca5938b27902a9", null ],
     [ "emptyReason", "classfhirclient_1_1models_1_1list_1_1_list.html#a81cb3194c90de2729689aefe44562acd", null ],
+    [ "encounter", "classfhirclient_1_1models_1_1list_1_1_list.html#adc062db5fa78776649ba338bc8baa104", null ],
     [ "entry", "classfhirclient_1_1models_1_1list_1_1_list.html#a69cddee1c3d295738c89c1bd6753885b", null ],
     [ "identifier", "classfhirclient_1_1models_1_1list_1_1_list.html#afb7ea59d1b354183e087730d46436e9c", null ],
     [ "mode", "classfhirclient_1_1models_1_1list_1_1_list.html#a190ad1ead3edb3f6e1eadd7c0c0fcc40", null ],

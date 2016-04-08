@@ -1,10 +1,11 @@
 var classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a89f640c06636d23ab5b5ef67adb893e9", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a22a322023c99a0470b6a3a75a32bdc1f", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#aec31dca3eb74569ff30b51a6c4319a90", null ],
     [ "abstract", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a080231a14c05e17ec931dfcc8e827f47", null ],
     [ "base", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a3442b9b2080aba9a64cf1327d4079c72", null ],
     [ "code", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a902ad6905dc1f8bfd7c6d05068124757", null ],
+    [ "constrainedType", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a627ba46769f104c0387876403adf2ec7", null ],
     [ "contact", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a576f1c7eb7993331893f6d3b76845120", null ],
     [ "context", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#ae8686e356bb5f37356eba34467a8f476", null ],
     [ "contextType", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a5902052c3e8a39bce2a028eba1fdf806", null ],
@@ -16,13 +17,13 @@ var classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition =
     [ "experimental", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a2a3a97c160300c37cf85b17ca5eee7e1", null ],
     [ "fhirVersion", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#ada1de538cfdcccb7068319612bbbac2b", null ],
     [ "identifier", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a98f73360fbc4f3fb688a857d5a64ec4d", null ],
+    [ "kind", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#ae84882b53f068362692a29bc9924e6d3", null ],
     [ "mapping", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a938fb7e8bbe3eb871d9fe294668a6d23", null ],
     [ "name", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#af5d0eb63e1d4b067cb353f2c58ec25a9", null ],
     [ "publisher", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a820e7f8c7cc8cf27ccadb377390a0a69", null ],
     [ "requirements", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a168cafead51ed32a9fb428064076e498", null ],
     [ "snapshot", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#aa98a979b0abc941ee5578a4f9ef3912d", null ],
     [ "status", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a7bf9b4c65d45d77d9869bce943d63a2b", null ],
-    [ "type", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a6b7b0737df12c00b00cd8b9b874b821e", null ],
     [ "url", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#a71d1bd6eeb99eb9e5e31d482ea05767a", null ],
     [ "useContext", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#aee09cb967e2f8fe501ba033864e051c9", null ],
     [ "version", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html#af7782cc17ac5d218c32d60a5662c74af", null ]

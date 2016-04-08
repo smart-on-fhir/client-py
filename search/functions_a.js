@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['owningresource',['owningResource',['../classfhirclient_1_1models_1_1fhirresource_1_1_f_h_i_r_resource.html#aa2ec5493c5e434eadb20df45e2e2f9e2',1,'fhirclient::models::fhirresource::FHIRResource']]]
+  ['owningresource',['owningResource',['../classfhirclient_1_1models_1_1fhirabstractbase_1_1_f_h_i_r_abstract_base.html#a424dd1bd5e5a4e79b13a4049fcf5e3e8',1,'fhirclient::models::fhirabstractbase::FHIRAbstractBase']]]
 ];

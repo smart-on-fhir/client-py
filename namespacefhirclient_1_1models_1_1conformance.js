@@ -5,6 +5,7 @@ var namespacefhirclient_1_1models_1_1conformance =
     [ "ConformanceDocument", "classfhirclient_1_1models_1_1conformance_1_1_conformance_document.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_document" ],
     [ "ConformanceImplementation", "classfhirclient_1_1models_1_1conformance_1_1_conformance_implementation.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_implementation" ],
     [ "ConformanceMessaging", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging" ],
+    [ "ConformanceMessagingEndpoint", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_endpoint.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_endpoint" ],
     [ "ConformanceMessagingEvent", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event" ],
     [ "ConformanceRest", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest" ],
     [ "ConformanceRestInteraction", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_interaction.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_interaction" ],

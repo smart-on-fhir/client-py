@@ -1,6 +1,12 @@
 var dir_1aede99a1a262d6209adc925155c919d =
 [
     [ "__init__.py", "models_2____init_____8py.html", null ],
+    [ "account.py", "account_8py.html", [
+      [ "Account", "classfhirclient_1_1models_1_1account_1_1_account.html", "classfhirclient_1_1models_1_1account_1_1_account" ]
+    ] ],
+    [ "account_tests.py", "account__tests_8py.html", [
+      [ "AccountTests", "classfhirclient_1_1models_1_1account__tests_1_1_account_tests.html", "classfhirclient_1_1models_1_1account__tests_1_1_account_tests" ]
+    ] ],
     [ "address.py", "address_8py.html", [
       [ "Address", "classfhirclient_1_1models_1_1address_1_1_address.html", "classfhirclient_1_1models_1_1address_1_1_address" ]
     ] ],
@@ -9,10 +15,13 @@ var dir_1aede99a1a262d6209adc925155c919d =
     ] ],
     [ "allergyintolerance.py", "allergyintolerance_8py.html", [
       [ "AllergyIntolerance", "classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance.html", "classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance" ],
-      [ "AllergyIntoleranceEvent", "classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance_event.html", "classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance_event" ]
+      [ "AllergyIntoleranceReaction", "classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance_reaction.html", "classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance_reaction" ]
     ] ],
     [ "allergyintolerance_tests.py", "allergyintolerance__tests_8py.html", [
       [ "AllergyIntoleranceTests", "classfhirclient_1_1models_1_1allergyintolerance__tests_1_1_allergy_intolerance_tests.html", "classfhirclient_1_1models_1_1allergyintolerance__tests_1_1_allergy_intolerance_tests" ]
+    ] ],
+    [ "annotation.py", "annotation_8py.html", [
+      [ "Annotation", "classfhirclient_1_1models_1_1annotation_1_1_annotation.html", "classfhirclient_1_1models_1_1annotation_1_1_annotation" ]
     ] ],
     [ "appointment.py", "appointment_8py.html", [
       [ "Appointment", "classfhirclient_1_1models_1_1appointment_1_1_appointment.html", "classfhirclient_1_1models_1_1appointment_1_1_appointment" ],
@@ -66,9 +75,9 @@ var dir_1aede99a1a262d6209adc925155c919d =
     [ "bundle.py", "bundle_8py.html", [
       [ "Bundle", "classfhirclient_1_1models_1_1bundle_1_1_bundle.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle" ],
       [ "BundleEntry", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry" ],
+      [ "BundleEntryRequest", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_request.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_request" ],
+      [ "BundleEntryResponse", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_response.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_response" ],
       [ "BundleEntrySearch", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_search.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_search" ],
-      [ "BundleEntryTransaction", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_transaction.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_transaction" ],
-      [ "BundleEntryTransactionResponse", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_transaction_response.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_transaction_response" ],
       [ "BundleLink", "classfhirclient_1_1models_1_1bundle_1_1_bundle_link.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_link" ]
     ] ],
     [ "bundle_tests.py", "bundle__tests_8py.html", [
@@ -78,7 +87,8 @@ var dir_1aede99a1a262d6209adc925155c919d =
       [ "CarePlan", "classfhirclient_1_1models_1_1careplan_1_1_care_plan.html", "classfhirclient_1_1models_1_1careplan_1_1_care_plan" ],
       [ "CarePlanActivity", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity.html", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity" ],
       [ "CarePlanActivityDetail", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail" ],
-      [ "CarePlanParticipant", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_participant.html", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_participant" ]
+      [ "CarePlanParticipant", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_participant.html", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_participant" ],
+      [ "CarePlanRelatedPlan", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_related_plan.html", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_related_plan" ]
     ] ],
     [ "careplan_tests.py", "careplan__tests_8py.html", [
       [ "CarePlanTests", "classfhirclient_1_1models_1_1careplan__tests_1_1_care_plan_tests.html", "classfhirclient_1_1models_1_1careplan__tests_1_1_care_plan_tests" ]
@@ -158,18 +168,15 @@ var dir_1aede99a1a262d6209adc925155c919d =
       [ "ConceptMap", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map" ],
       [ "ConceptMapContact", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_contact.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_contact" ],
       [ "ConceptMapElement", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element" ],
-      [ "ConceptMapElementDependsOn", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_depends_on.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_depends_on" ],
-      [ "ConceptMapElementMap", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_map.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_map" ]
+      [ "ConceptMapElementTarget", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_target.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_target" ],
+      [ "ConceptMapElementTargetDependsOn", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_target_depends_on.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_target_depends_on" ]
     ] ],
     [ "conceptmap_tests.py", "conceptmap__tests_8py.html", [
       [ "ConceptMapTests", "classfhirclient_1_1models_1_1conceptmap__tests_1_1_concept_map_tests.html", "classfhirclient_1_1models_1_1conceptmap__tests_1_1_concept_map_tests" ]
     ] ],
     [ "condition.py", "condition_8py.html", [
       [ "Condition", "classfhirclient_1_1models_1_1condition_1_1_condition.html", "classfhirclient_1_1models_1_1condition_1_1_condition" ],
-      [ "ConditionDueTo", "classfhirclient_1_1models_1_1condition_1_1_condition_due_to.html", "classfhirclient_1_1models_1_1condition_1_1_condition_due_to" ],
       [ "ConditionEvidence", "classfhirclient_1_1models_1_1condition_1_1_condition_evidence.html", "classfhirclient_1_1models_1_1condition_1_1_condition_evidence" ],
-      [ "ConditionLocation", "classfhirclient_1_1models_1_1condition_1_1_condition_location.html", "classfhirclient_1_1models_1_1condition_1_1_condition_location" ],
-      [ "ConditionOccurredFollowing", "classfhirclient_1_1models_1_1condition_1_1_condition_occurred_following.html", "classfhirclient_1_1models_1_1condition_1_1_condition_occurred_following" ],
       [ "ConditionStage", "classfhirclient_1_1models_1_1condition_1_1_condition_stage.html", "classfhirclient_1_1models_1_1condition_1_1_condition_stage" ]
     ] ],
     [ "condition_tests.py", "condition__tests_8py.html", [
@@ -181,6 +188,7 @@ var dir_1aede99a1a262d6209adc925155c919d =
       [ "ConformanceDocument", "classfhirclient_1_1models_1_1conformance_1_1_conformance_document.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_document" ],
       [ "ConformanceImplementation", "classfhirclient_1_1models_1_1conformance_1_1_conformance_implementation.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_implementation" ],
       [ "ConformanceMessaging", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging" ],
+      [ "ConformanceMessagingEndpoint", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_endpoint.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_endpoint" ],
       [ "ConformanceMessagingEvent", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event" ],
       [ "ConformanceRest", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest" ],
       [ "ConformanceRestInteraction", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_interaction.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_interaction" ],
@@ -213,13 +221,6 @@ var dir_1aede99a1a262d6209adc925155c919d =
     [ "contract_tests.py", "contract__tests_8py.html", [
       [ "ContractTests", "classfhirclient_1_1models_1_1contract__tests_1_1_contract_tests.html", "classfhirclient_1_1models_1_1contract__tests_1_1_contract_tests" ]
     ] ],
-    [ "contraindication.py", "contraindication_8py.html", [
-      [ "Contraindication", "classfhirclient_1_1models_1_1contraindication_1_1_contraindication.html", "classfhirclient_1_1models_1_1contraindication_1_1_contraindication" ],
-      [ "ContraindicationMitigation", "classfhirclient_1_1models_1_1contraindication_1_1_contraindication_mitigation.html", "classfhirclient_1_1models_1_1contraindication_1_1_contraindication_mitigation" ]
-    ] ],
-    [ "contraindication_tests.py", "contraindication__tests_8py.html", [
-      [ "ContraindicationTests", "classfhirclient_1_1models_1_1contraindication__tests_1_1_contraindication_tests.html", "classfhirclient_1_1models_1_1contraindication__tests_1_1_contraindication_tests" ]
-    ] ],
     [ "count.py", "count_8py.html", [
       [ "Count", "classfhirclient_1_1models_1_1count_1_1_count.html", "classfhirclient_1_1models_1_1count_1_1_count" ]
     ] ],
@@ -236,6 +237,13 @@ var dir_1aede99a1a262d6209adc925155c919d =
     ] ],
     [ "dataelement_tests.py", "dataelement__tests_8py.html", [
       [ "DataElementTests", "classfhirclient_1_1models_1_1dataelement__tests_1_1_data_element_tests.html", "classfhirclient_1_1models_1_1dataelement__tests_1_1_data_element_tests" ]
+    ] ],
+    [ "detectedissue.py", "detectedissue_8py.html", [
+      [ "DetectedIssue", "classfhirclient_1_1models_1_1detectedissue_1_1_detected_issue.html", "classfhirclient_1_1models_1_1detectedissue_1_1_detected_issue" ],
+      [ "DetectedIssueMitigation", "classfhirclient_1_1models_1_1detectedissue_1_1_detected_issue_mitigation.html", "classfhirclient_1_1models_1_1detectedissue_1_1_detected_issue_mitigation" ]
+    ] ],
+    [ "detectedissue_tests.py", "detectedissue__tests_8py.html", [
+      [ "DetectedIssueTests", "classfhirclient_1_1models_1_1detectedissue__tests_1_1_detected_issue_tests.html", "classfhirclient_1_1models_1_1detectedissue__tests_1_1_detected_issue_tests" ]
     ] ],
     [ "device.py", "device_8py.html", [
       [ "Device", "classfhirclient_1_1models_1_1device_1_1_device.html", "classfhirclient_1_1models_1_1device_1_1_device" ]
@@ -297,6 +305,7 @@ var dir_1aede99a1a262d6209adc925155c919d =
     ] ],
     [ "documentreference.py", "documentreference_8py.html", [
       [ "DocumentReference", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference.html", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference" ],
+      [ "DocumentReferenceContent", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_content.html", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_content" ],
       [ "DocumentReferenceContext", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_context.html", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_context" ],
       [ "DocumentReferenceContextRelated", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_context_related.html", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_context_related" ],
       [ "DocumentReferenceRelatesTo", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_relates_to.html", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_relates_to" ]
@@ -310,8 +319,12 @@ var dir_1aede99a1a262d6209adc925155c919d =
     [ "duration.py", "duration_8py.html", [
       [ "Duration", "classfhirclient_1_1models_1_1duration_1_1_duration.html", "classfhirclient_1_1models_1_1duration_1_1_duration" ]
     ] ],
+    [ "element.py", "element_8py.html", [
+      [ "Element", "classfhirclient_1_1models_1_1element_1_1_element.html", "classfhirclient_1_1models_1_1element_1_1_element" ]
+    ] ],
     [ "elementdefinition.py", "elementdefinition_8py.html", [
       [ "ElementDefinition", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition" ],
+      [ "ElementDefinitionBase", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_base.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_base" ],
       [ "ElementDefinitionBinding", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_binding.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_binding" ],
       [ "ElementDefinitionConstraint", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_constraint.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_constraint" ],
       [ "ElementDefinitionMapping", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_mapping.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_mapping" ],
@@ -376,23 +389,20 @@ var dir_1aede99a1a262d6209adc925155c919d =
     [ "familymemberhistory_tests.py", "familymemberhistory__tests_8py.html", [
       [ "FamilyMemberHistoryTests", "classfhirclient_1_1models_1_1familymemberhistory__tests_1_1_family_member_history_tests.html", "classfhirclient_1_1models_1_1familymemberhistory__tests_1_1_family_member_history_tests" ]
     ] ],
-    [ "fhircontainedresource.py", "fhircontainedresource_8py.html", [
-      [ "FHIRContainedResource", "classfhirclient_1_1models_1_1fhircontainedresource_1_1_f_h_i_r_contained_resource.html", "classfhirclient_1_1models_1_1fhircontainedresource_1_1_f_h_i_r_contained_resource" ]
+    [ "fhirabstractbase.py", "fhirabstractbase_8py.html", [
+      [ "FHIRAbstractBase", "classfhirclient_1_1models_1_1fhirabstractbase_1_1_f_h_i_r_abstract_base.html", "classfhirclient_1_1models_1_1fhirabstractbase_1_1_f_h_i_r_abstract_base" ]
+    ] ],
+    [ "fhirabstractresource.py", "fhirabstractresource_8py.html", [
+      [ "FHIRAbstractResource", "classfhirclient_1_1models_1_1fhirabstractresource_1_1_f_h_i_r_abstract_resource.html", "classfhirclient_1_1models_1_1fhirabstractresource_1_1_f_h_i_r_abstract_resource" ]
     ] ],
     [ "fhirdate.py", "fhirdate_8py.html", [
       [ "FHIRDate", "classfhirclient_1_1models_1_1fhirdate_1_1_f_h_i_r_date.html", "classfhirclient_1_1models_1_1fhirdate_1_1_f_h_i_r_date" ]
-    ] ],
-    [ "fhirelement.py", "fhirelement_8py.html", [
-      [ "FHIRElement", "classfhirclient_1_1models_1_1fhirelement_1_1_f_h_i_r_element.html", "classfhirclient_1_1models_1_1fhirelement_1_1_f_h_i_r_element" ]
     ] ],
     [ "fhirelementfactory.py", "fhirelementfactory_8py.html", [
       [ "FHIRElementFactory", "classfhirclient_1_1models_1_1fhirelementfactory_1_1_f_h_i_r_element_factory.html", "classfhirclient_1_1models_1_1fhirelementfactory_1_1_f_h_i_r_element_factory" ]
     ] ],
     [ "fhirreference.py", "fhirreference_8py.html", [
       [ "FHIRReference", "classfhirclient_1_1models_1_1fhirreference_1_1_f_h_i_r_reference.html", "classfhirclient_1_1models_1_1fhirreference_1_1_f_h_i_r_reference" ]
-    ] ],
-    [ "fhirresource.py", "fhirresource_8py.html", [
-      [ "FHIRResource", "classfhirclient_1_1models_1_1fhirresource_1_1_f_h_i_r_resource.html", "classfhirclient_1_1models_1_1fhirresource_1_1_f_h_i_r_resource" ]
     ] ],
     [ "fhirsearch.py", "fhirsearch_8py.html", [
       [ "FHIRSearch", "classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html", "classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search" ],
@@ -418,7 +428,8 @@ var dir_1aede99a1a262d6209adc925155c919d =
     ] ],
     [ "group.py", "group_8py.html", [
       [ "Group", "classfhirclient_1_1models_1_1group_1_1_group.html", "classfhirclient_1_1models_1_1group_1_1_group" ],
-      [ "GroupCharacteristic", "classfhirclient_1_1models_1_1group_1_1_group_characteristic.html", "classfhirclient_1_1models_1_1group_1_1_group_characteristic" ]
+      [ "GroupCharacteristic", "classfhirclient_1_1models_1_1group_1_1_group_characteristic.html", "classfhirclient_1_1models_1_1group_1_1_group_characteristic" ],
+      [ "GroupMember", "classfhirclient_1_1models_1_1group_1_1_group_member.html", "classfhirclient_1_1models_1_1group_1_1_group_member" ]
     ] ],
     [ "group_tests.py", "group__tests_8py.html", [
       [ "GroupTests", "classfhirclient_1_1models_1_1group__tests_1_1_group_tests.html", "classfhirclient_1_1models_1_1group__tests_1_1_group_tests" ]
@@ -474,6 +485,18 @@ var dir_1aede99a1a262d6209adc925155c919d =
     [ "immunizationrecommendation_tests.py", "immunizationrecommendation__tests_8py.html", [
       [ "ImmunizationRecommendationTests", "classfhirclient_1_1models_1_1immunizationrecommendation__tests_1_1_immunization_recommendation_tests.html", "classfhirclient_1_1models_1_1immunizationrecommendation__tests_1_1_immunization_recommendation_tests" ]
     ] ],
+    [ "implementationguide.py", "implementationguide_8py.html", [
+      [ "ImplementationGuide", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide" ],
+      [ "ImplementationGuideContact", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_contact.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_contact" ],
+      [ "ImplementationGuideDependency", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_dependency.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_dependency" ],
+      [ "ImplementationGuideGlobal", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_global.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_global" ],
+      [ "ImplementationGuidePackage", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_package.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_package" ],
+      [ "ImplementationGuidePackageResource", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_package_resource.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_package_resource" ],
+      [ "ImplementationGuidePage", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_page.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_page" ]
+    ] ],
+    [ "implementationguide_tests.py", "implementationguide__tests_8py.html", [
+      [ "ImplementationGuideTests", "classfhirclient_1_1models_1_1implementationguide__tests_1_1_implementation_guide_tests.html", "classfhirclient_1_1models_1_1implementationguide__tests_1_1_implementation_guide_tests" ]
+    ] ],
     [ "list.py", "list_8py.html", [
       [ "List", "classfhirclient_1_1models_1_1list_1_1_list.html", "classfhirclient_1_1models_1_1list_1_1_list" ],
       [ "ListEntry", "classfhirclient_1_1models_1_1list_1_1_list_entry.html", "classfhirclient_1_1models_1_1list_1_1_list_entry" ]
@@ -514,24 +537,18 @@ var dir_1aede99a1a262d6209adc925155c919d =
       [ "MedicationDispenseDosageInstruction", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_dosage_instruction.html", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_dosage_instruction" ],
       [ "MedicationDispenseSubstitution", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_substitution.html", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_substitution" ]
     ] ],
-    [ "medicationdispense_tests.py", "medicationdispense__tests_8py.html", [
-      [ "MedicationDispenseTests", "classfhirclient_1_1models_1_1medicationdispense__tests_1_1_medication_dispense_tests.html", "classfhirclient_1_1models_1_1medicationdispense__tests_1_1_medication_dispense_tests" ]
+    [ "medicationorder.py", "medicationorder_8py.html", [
+      [ "MedicationOrder", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order.html", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order" ],
+      [ "MedicationOrderDispenseRequest", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_dispense_request.html", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_dispense_request" ],
+      [ "MedicationOrderDosageInstruction", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_dosage_instruction.html", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_dosage_instruction" ],
+      [ "MedicationOrderSubstitution", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_substitution.html", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_substitution" ]
     ] ],
-    [ "medicationprescription.py", "medicationprescription_8py.html", [
-      [ "MedicationPrescription", "classfhirclient_1_1models_1_1medicationprescription_1_1_medication_prescription.html", "classfhirclient_1_1models_1_1medicationprescription_1_1_medication_prescription" ],
-      [ "MedicationPrescriptionDispense", "classfhirclient_1_1models_1_1medicationprescription_1_1_medication_prescription_dispense.html", "classfhirclient_1_1models_1_1medicationprescription_1_1_medication_prescription_dispense" ],
-      [ "MedicationPrescriptionDosageInstruction", "classfhirclient_1_1models_1_1medicationprescription_1_1_medication_prescription_dosage_instruction.html", "classfhirclient_1_1models_1_1medicationprescription_1_1_medication_prescription_dosage_instruction" ],
-      [ "MedicationPrescriptionSubstitution", "classfhirclient_1_1models_1_1medicationprescription_1_1_medication_prescription_substitution.html", "classfhirclient_1_1models_1_1medicationprescription_1_1_medication_prescription_substitution" ]
-    ] ],
-    [ "medicationprescription_tests.py", "medicationprescription__tests_8py.html", [
-      [ "MedicationPrescriptionTests", "classfhirclient_1_1models_1_1medicationprescription__tests_1_1_medication_prescription_tests.html", "classfhirclient_1_1models_1_1medicationprescription__tests_1_1_medication_prescription_tests" ]
+    [ "medicationorder_tests.py", "medicationorder__tests_8py.html", [
+      [ "MedicationOrderTests", "classfhirclient_1_1models_1_1medicationorder__tests_1_1_medication_order_tests.html", "classfhirclient_1_1models_1_1medicationorder__tests_1_1_medication_order_tests" ]
     ] ],
     [ "medicationstatement.py", "medicationstatement_8py.html", [
       [ "MedicationStatement", "classfhirclient_1_1models_1_1medicationstatement_1_1_medication_statement.html", "classfhirclient_1_1models_1_1medicationstatement_1_1_medication_statement" ],
       [ "MedicationStatementDosage", "classfhirclient_1_1models_1_1medicationstatement_1_1_medication_statement_dosage.html", "classfhirclient_1_1models_1_1medicationstatement_1_1_medication_statement_dosage" ]
-    ] ],
-    [ "medicationstatement_tests.py", "medicationstatement__tests_8py.html", [
-      [ "MedicationStatementTests", "classfhirclient_1_1models_1_1medicationstatement__tests_1_1_medication_statement_tests.html", "classfhirclient_1_1models_1_1medicationstatement__tests_1_1_medication_statement_tests" ]
     ] ],
     [ "messageheader.py", "messageheader_8py.html", [
       [ "MessageHeader", "classfhirclient_1_1models_1_1messageheader_1_1_message_header.html", "classfhirclient_1_1models_1_1messageheader_1_1_message_header" ],
@@ -562,6 +579,7 @@ var dir_1aede99a1a262d6209adc925155c919d =
     [ "nutritionorder.py", "nutritionorder_8py.html", [
       [ "NutritionOrder", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order" ],
       [ "NutritionOrderEnteralFormula", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_enteral_formula.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_enteral_formula" ],
+      [ "NutritionOrderEnteralFormulaAdministration", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_enteral_formula_administration.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_enteral_formula_administration" ],
       [ "NutritionOrderOralDiet", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet" ],
       [ "NutritionOrderOralDietNutrient", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet_nutrient.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet_nutrient" ],
       [ "NutritionOrderOralDietTexture", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet_texture.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet_texture" ],
@@ -572,6 +590,7 @@ var dir_1aede99a1a262d6209adc925155c919d =
     ] ],
     [ "observation.py", "observation_8py.html", [
       [ "Observation", "classfhirclient_1_1models_1_1observation_1_1_observation.html", "classfhirclient_1_1models_1_1observation_1_1_observation" ],
+      [ "ObservationComponent", "classfhirclient_1_1models_1_1observation_1_1_observation_component.html", "classfhirclient_1_1models_1_1observation_1_1_observation_component" ],
       [ "ObservationReferenceRange", "classfhirclient_1_1models_1_1observation_1_1_observation_reference_range.html", "classfhirclient_1_1models_1_1observation_1_1_observation_reference_range" ],
       [ "ObservationRelated", "classfhirclient_1_1models_1_1observation_1_1_observation_related.html", "classfhirclient_1_1models_1_1observation_1_1_observation_related" ]
     ] ],
@@ -582,7 +601,10 @@ var dir_1aede99a1a262d6209adc925155c919d =
       [ "OperationDefinition", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition" ],
       [ "OperationDefinitionContact", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_contact.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_contact" ],
       [ "OperationDefinitionParameter", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter" ],
-      [ "OperationDefinitionParameterPart", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter_part.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter_part" ]
+      [ "OperationDefinitionParameterBinding", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter_binding.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter_binding" ]
+    ] ],
+    [ "operationdefinition_tests.py", "operationdefinition__tests_8py.html", [
+      [ "OperationDefinitionTests", "classfhirclient_1_1models_1_1operationdefinition__tests_1_1_operation_definition_tests.html", "classfhirclient_1_1models_1_1operationdefinition__tests_1_1_operation_definition_tests" ]
     ] ],
     [ "operationoutcome.py", "operationoutcome_8py.html", [
       [ "OperationOutcome", "classfhirclient_1_1models_1_1operationoutcome_1_1_operation_outcome.html", "classfhirclient_1_1models_1_1operationoutcome_1_1_operation_outcome" ],
@@ -613,8 +635,7 @@ var dir_1aede99a1a262d6209adc925155c919d =
     ] ],
     [ "parameters.py", "parameters_8py.html", [
       [ "Parameters", "classfhirclient_1_1models_1_1parameters_1_1_parameters.html", "classfhirclient_1_1models_1_1parameters_1_1_parameters" ],
-      [ "ParametersParameter", "classfhirclient_1_1models_1_1parameters_1_1_parameters_parameter.html", "classfhirclient_1_1models_1_1parameters_1_1_parameters_parameter" ],
-      [ "ParametersParameterPart", "classfhirclient_1_1models_1_1parameters_1_1_parameters_parameter_part.html", "classfhirclient_1_1models_1_1parameters_1_1_parameters_parameter_part" ]
+      [ "ParametersParameter", "classfhirclient_1_1models_1_1parameters_1_1_parameters_parameter.html", "classfhirclient_1_1models_1_1parameters_1_1_parameters_parameter" ]
     ] ],
     [ "parameters_tests.py", "parameters__tests_8py.html", [
       [ "ParametersTests", "classfhirclient_1_1models_1_1parameters__tests_1_1_parameters_tests.html", "classfhirclient_1_1models_1_1parameters__tests_1_1_parameters_tests" ]
@@ -663,17 +684,14 @@ var dir_1aede99a1a262d6209adc925155c919d =
     ] ],
     [ "procedure.py", "procedure_8py.html", [
       [ "Procedure", "classfhirclient_1_1models_1_1procedure_1_1_procedure.html", "classfhirclient_1_1models_1_1procedure_1_1_procedure" ],
-      [ "ProcedureBodySite", "classfhirclient_1_1models_1_1procedure_1_1_procedure_body_site.html", "classfhirclient_1_1models_1_1procedure_1_1_procedure_body_site" ],
-      [ "ProcedureDevice", "classfhirclient_1_1models_1_1procedure_1_1_procedure_device.html", "classfhirclient_1_1models_1_1procedure_1_1_procedure_device" ],
-      [ "ProcedurePerformer", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer.html", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer" ],
-      [ "ProcedureRelatedItem", "classfhirclient_1_1models_1_1procedure_1_1_procedure_related_item.html", "classfhirclient_1_1models_1_1procedure_1_1_procedure_related_item" ]
+      [ "ProcedureFocalDevice", "classfhirclient_1_1models_1_1procedure_1_1_procedure_focal_device.html", "classfhirclient_1_1models_1_1procedure_1_1_procedure_focal_device" ],
+      [ "ProcedurePerformer", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer.html", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer" ]
     ] ],
     [ "procedure_tests.py", "procedure__tests_8py.html", [
       [ "ProcedureTests", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests" ]
     ] ],
     [ "procedurerequest.py", "procedurerequest_8py.html", [
-      [ "ProcedureRequest", "classfhirclient_1_1models_1_1procedurerequest_1_1_procedure_request.html", "classfhirclient_1_1models_1_1procedurerequest_1_1_procedure_request" ],
-      [ "ProcedureRequestBodySite", "classfhirclient_1_1models_1_1procedurerequest_1_1_procedure_request_body_site.html", "classfhirclient_1_1models_1_1procedurerequest_1_1_procedure_request_body_site" ]
+      [ "ProcedureRequest", "classfhirclient_1_1models_1_1procedurerequest_1_1_procedure_request.html", "classfhirclient_1_1models_1_1procedurerequest_1_1_procedure_request" ]
     ] ],
     [ "procedurerequest_tests.py", "procedurerequest__tests_8py.html", [
       [ "ProcedureRequestTests", "classfhirclient_1_1models_1_1procedurerequest__tests_1_1_procedure_request_tests.html", "classfhirclient_1_1models_1_1procedurerequest__tests_1_1_procedure_request_tests" ]
@@ -695,6 +713,7 @@ var dir_1aede99a1a262d6209adc925155c919d =
     [ "provenance.py", "provenance_8py.html", [
       [ "Provenance", "classfhirclient_1_1models_1_1provenance_1_1_provenance.html", "classfhirclient_1_1models_1_1provenance_1_1_provenance" ],
       [ "ProvenanceAgent", "classfhirclient_1_1models_1_1provenance_1_1_provenance_agent.html", "classfhirclient_1_1models_1_1provenance_1_1_provenance_agent" ],
+      [ "ProvenanceAgentRelatedAgent", "classfhirclient_1_1models_1_1provenance_1_1_provenance_agent_related_agent.html", "classfhirclient_1_1models_1_1provenance_1_1_provenance_agent_related_agent" ],
       [ "ProvenanceEntity", "classfhirclient_1_1models_1_1provenance_1_1_provenance_entity.html", "classfhirclient_1_1models_1_1provenance_1_1_provenance_entity" ]
     ] ],
     [ "provenance_tests.py", "provenance__tests_8py.html", [
@@ -711,14 +730,14 @@ var dir_1aede99a1a262d6209adc925155c919d =
     [ "questionnaire_tests.py", "questionnaire__tests_8py.html", [
       [ "QuestionnaireTests", "classfhirclient_1_1models_1_1questionnaire__tests_1_1_questionnaire_tests.html", "classfhirclient_1_1models_1_1questionnaire__tests_1_1_questionnaire_tests" ]
     ] ],
-    [ "questionnaireanswers.py", "questionnaireanswers_8py.html", [
-      [ "QuestionnaireAnswers", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers.html", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers" ],
-      [ "QuestionnaireAnswersGroup", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group.html", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group" ],
-      [ "QuestionnaireAnswersGroupQuestion", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group_question.html", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group_question" ],
-      [ "QuestionnaireAnswersGroupQuestionAnswer", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group_question_answer.html", "classfhirclient_1_1models_1_1questionnaireanswers_1_1_questionnaire_answers_group_question_answer" ]
+    [ "questionnaireresponse.py", "questionnaireresponse_8py.html", [
+      [ "QuestionnaireResponse", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response.html", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response" ],
+      [ "QuestionnaireResponseGroup", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group.html", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group" ],
+      [ "QuestionnaireResponseGroupQuestion", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group_question.html", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group_question" ],
+      [ "QuestionnaireResponseGroupQuestionAnswer", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group_question_answer.html", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group_question_answer" ]
     ] ],
-    [ "questionnaireanswers_tests.py", "questionnaireanswers__tests_8py.html", [
-      [ "QuestionnaireAnswersTests", "classfhirclient_1_1models_1_1questionnaireanswers__tests_1_1_questionnaire_answers_tests.html", "classfhirclient_1_1models_1_1questionnaireanswers__tests_1_1_questionnaire_answers_tests" ]
+    [ "questionnaireresponse_tests.py", "questionnaireresponse__tests_8py.html", [
+      [ "QuestionnaireResponseTests", "classfhirclient_1_1models_1_1questionnaireresponse__tests_1_1_questionnaire_response_tests.html", "classfhirclient_1_1models_1_1questionnaireresponse__tests_1_1_questionnaire_response_tests" ]
     ] ],
     [ "range.py", "range_8py.html", [
       [ "Range", "classfhirclient_1_1models_1_1range_1_1_range.html", "classfhirclient_1_1models_1_1range_1_1_range" ]
@@ -810,12 +829,39 @@ var dir_1aede99a1a262d6209adc925155c919d =
     [ "substance_tests.py", "substance__tests_8py.html", [
       [ "SubstanceTests", "classfhirclient_1_1models_1_1substance__tests_1_1_substance_tests.html", "classfhirclient_1_1models_1_1substance__tests_1_1_substance_tests" ]
     ] ],
-    [ "supply.py", "supply_8py.html", [
-      [ "Supply", "classfhirclient_1_1models_1_1supply_1_1_supply.html", "classfhirclient_1_1models_1_1supply_1_1_supply" ],
-      [ "SupplyDispense", "classfhirclient_1_1models_1_1supply_1_1_supply_dispense.html", "classfhirclient_1_1models_1_1supply_1_1_supply_dispense" ]
+    [ "supplydelivery.py", "supplydelivery_8py.html", [
+      [ "SupplyDelivery", "classfhirclient_1_1models_1_1supplydelivery_1_1_supply_delivery.html", "classfhirclient_1_1models_1_1supplydelivery_1_1_supply_delivery" ]
     ] ],
-    [ "supply_tests.py", "supply__tests_8py.html", [
-      [ "SupplyTests", "classfhirclient_1_1models_1_1supply__tests_1_1_supply_tests.html", "classfhirclient_1_1models_1_1supply__tests_1_1_supply_tests" ]
+    [ "supplydelivery_tests.py", "supplydelivery__tests_8py.html", [
+      [ "SupplyDeliveryTests", "classfhirclient_1_1models_1_1supplydelivery__tests_1_1_supply_delivery_tests.html", "classfhirclient_1_1models_1_1supplydelivery__tests_1_1_supply_delivery_tests" ]
+    ] ],
+    [ "supplyrequest.py", "supplyrequest_8py.html", [
+      [ "SupplyRequest", "classfhirclient_1_1models_1_1supplyrequest_1_1_supply_request.html", "classfhirclient_1_1models_1_1supplyrequest_1_1_supply_request" ],
+      [ "SupplyRequestWhen", "classfhirclient_1_1models_1_1supplyrequest_1_1_supply_request_when.html", "classfhirclient_1_1models_1_1supplyrequest_1_1_supply_request_when" ]
+    ] ],
+    [ "supplyrequest_tests.py", "supplyrequest__tests_8py.html", [
+      [ "SupplyRequestTests", "classfhirclient_1_1models_1_1supplyrequest__tests_1_1_supply_request_tests.html", "classfhirclient_1_1models_1_1supplyrequest__tests_1_1_supply_request_tests" ]
+    ] ],
+    [ "testscript.py", "testscript_8py.html", [
+      [ "TestScript", "classfhirclient_1_1models_1_1testscript_1_1_test_script.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script" ],
+      [ "TestScriptContact", "classfhirclient_1_1models_1_1testscript_1_1_test_script_contact.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_contact" ],
+      [ "TestScriptFixture", "classfhirclient_1_1models_1_1testscript_1_1_test_script_fixture.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_fixture" ],
+      [ "TestScriptMetadata", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata" ],
+      [ "TestScriptMetadataCapability", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata_capability.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata_capability" ],
+      [ "TestScriptMetadataLink", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata_link.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata_link" ],
+      [ "TestScriptSetup", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup" ],
+      [ "TestScriptSetupAction", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action" ],
+      [ "TestScriptSetupActionAssert", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_assert.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_assert" ],
+      [ "TestScriptSetupActionOperation", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_operation.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_operation" ],
+      [ "TestScriptSetupActionOperationRequestHeader", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_operation_request_header.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_operation_request_header" ],
+      [ "TestScriptTeardown", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown" ],
+      [ "TestScriptTeardownAction", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown_action.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown_action" ],
+      [ "TestScriptTest", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test" ],
+      [ "TestScriptTestAction", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test_action.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test_action" ],
+      [ "TestScriptVariable", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable" ]
+    ] ],
+    [ "testscript_tests.py", "testscript__tests_8py.html", [
+      [ "TestScriptTests", "classfhirclient_1_1models_1_1testscript__tests_1_1_test_script_tests.html", "classfhirclient_1_1models_1_1testscript__tests_1_1_test_script_tests" ]
     ] ],
     [ "timing.py", "timing_8py.html", [
       [ "Timing", "classfhirclient_1_1models_1_1timing_1_1_timing.html", "classfhirclient_1_1models_1_1timing_1_1_timing" ],
@@ -823,14 +869,14 @@ var dir_1aede99a1a262d6209adc925155c919d =
     ] ],
     [ "valueset.py", "valueset_8py.html", [
       [ "ValueSet", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set" ],
+      [ "ValueSetCodeSystem", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system" ],
+      [ "ValueSetCodeSystemConcept", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system_concept.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system_concept" ],
+      [ "ValueSetCodeSystemConceptDesignation", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system_concept_designation.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system_concept_designation" ],
       [ "ValueSetCompose", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose" ],
       [ "ValueSetComposeInclude", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include" ],
       [ "ValueSetComposeIncludeConcept", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include_concept.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include_concept" ],
       [ "ValueSetComposeIncludeFilter", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include_filter.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include_filter" ],
       [ "ValueSetContact", "classfhirclient_1_1models_1_1valueset_1_1_value_set_contact.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_contact" ],
-      [ "ValueSetDefine", "classfhirclient_1_1models_1_1valueset_1_1_value_set_define.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_define" ],
-      [ "ValueSetDefineConcept", "classfhirclient_1_1models_1_1valueset_1_1_value_set_define_concept.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_define_concept" ],
-      [ "ValueSetDefineConceptDesignation", "classfhirclient_1_1models_1_1valueset_1_1_value_set_define_concept_designation.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_define_concept_designation" ],
       [ "ValueSetExpansion", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion" ],
       [ "ValueSetExpansionContains", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion_contains.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion_contains" ],
       [ "ValueSetExpansionParameter", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion_parameter.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion_parameter" ]

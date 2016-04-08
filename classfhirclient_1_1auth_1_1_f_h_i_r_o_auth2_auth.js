@@ -1,6 +1,6 @@
 var classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth =
 [
-    [ "__init__", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#ae182c16b9d7d6e878ec51a9e922b8669", null ],
+    [ "__init__", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a646c7e9427a96e743162a9efe73b287f", null ],
     [ "authorize_uri", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a2ec837e87a44f39d89c9aa915e44ca48", null ],
     [ "can_sign_headers", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a3d09f4cdd17e7d05d5e8a1ff6803d909", null ],
     [ "extract_oauth_error", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a028b9aa7c85521f44802553ac206fae5", null ],

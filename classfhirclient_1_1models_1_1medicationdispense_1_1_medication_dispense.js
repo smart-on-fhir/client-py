@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#a937ae58969a8505611281a432a6141bd", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#aafa8368c6ebc77ae5cdd5ce343045c10", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#a778bd34db1d6107780dd5e0e84f4faf0", null ],
     [ "authorizingPrescription", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#ad61e40d520ffdb0db04709e102c1e394", null ],
     [ "daysSupply", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#aa8d40fb49608f6631297c7594b5626ec", null ],
@@ -8,7 +8,8 @@ var classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense =
     [ "dispenser", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#a58f96acda7fd9b380eca90104a1d5351", null ],
     [ "dosageInstruction", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#a802492f61e1f8cf92c83180a30d96404", null ],
     [ "identifier", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#ae4d4943fca0b62e8f93ace9380e8d1dd", null ],
-    [ "medication", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#aae3b1f8b8b1651a220cfcec39bc98024", null ],
+    [ "medicationCodeableConcept", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#a7ff1f8b3243375f1727f608336dbb620", null ],
+    [ "medicationReference", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#acac3329245c05f23fc4ed784f46b6042", null ],
     [ "note", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#a65dcaa150f81bcac9b6cf7ae64875be9", null ],
     [ "patient", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#a6d14e74986a174bc730806561f98bffd", null ],
     [ "quantity", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#a72d6421f13f62f5f4fa672f88b8daa5a", null ],

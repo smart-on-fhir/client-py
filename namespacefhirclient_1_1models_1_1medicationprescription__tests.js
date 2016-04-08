@@ -1,4 +1,0 @@
-var namespacefhirclient_1_1models_1_1medicationprescription__tests =
-[
-    [ "MedicationPrescriptionTests", "classfhirclient_1_1models_1_1medicationprescription__tests_1_1_medication_prescription_tests.html", "classfhirclient_1_1models_1_1medicationprescription__tests_1_1_medication_prescription_tests" ]
-];

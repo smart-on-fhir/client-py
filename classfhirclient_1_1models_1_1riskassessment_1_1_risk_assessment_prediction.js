@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment_prediction =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment_prediction.html#a469594ea52adc660978d32a43a2c306f", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment_prediction.html#a77d3e58261d9294ceeb50e914d6772af", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment_prediction.html#a013fc77e7c155b49536f937940d6567c", null ],
     [ "outcome", "classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment_prediction.html#a6871894fbf666c6a65a6343f33fbe29e", null ],
     [ "probabilityCodeableConcept", "classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment_prediction.html#af5236d37cf9579c0073c84a5d0d537cd", null ],

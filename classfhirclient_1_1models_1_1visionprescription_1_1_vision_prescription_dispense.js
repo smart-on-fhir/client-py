@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a379ca691a774be37b691a266962f4c2d", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#aa3f31224341a99ef7c93cbd9950c6aac", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a60db9726bfc5690fa3c6c90bc881dd09", null ],
     [ "add", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a90545b45ba6e0b88f85ef0e86f976fe2", null ],
     [ "axis", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a9b5753b27038dfed16ffbef35572d998", null ],

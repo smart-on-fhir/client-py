@@ -1,12 +1,12 @@
 var classfhirclient_1_1models_1_1valueset_1_1_value_set =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a23ca3816c584b18911274cf3c9feb263", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a0f91aeba5e7be2436d4d38921cde2f31", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a254ab38b293d7194358a2132ef3036ff", null ],
+    [ "codeSystem", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a5b37af0d93ffead9963344e4622603ef", null ],
     [ "compose", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#afbfa44ef04160f3b0a08cd0b417dd2a4", null ],
     [ "contact", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#ab9ac23003aa4076bf84a0a6ae7e0cd1b", null ],
     [ "copyright", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#afb400173fa3c3901db663da0e52d9a1e", null ],
     [ "date", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a769edaa7f8a1aca022e1ab796533c2a4", null ],
-    [ "define", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#ac27f258a456d230f761608726b136fd5", null ],
     [ "description", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a163f93cda3ed744e7ea3565435543502", null ],
     [ "expansion", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a7fb468a172a765c5f5144133f9295641", null ],
     [ "experimental", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#afb4e01b5a8986f271c287e83de28eaf1", null ],

@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1coverage_1_1_coverage =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1coverage_1_1_coverage.html#aa95b4ac9e2f7bc815921ac079b7ecf2b", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1coverage_1_1_coverage.html#ad52e3fa94609bc3e3d0998c7958a06b3", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1coverage_1_1_coverage.html#a1aacedfa89fbf8efe224d9130130db88", null ],
     [ "bin", "classfhirclient_1_1models_1_1coverage_1_1_coverage.html#adcb2723ceeac5b0f5ddbd815cabfec38", null ],
     [ "contract", "classfhirclient_1_1models_1_1coverage_1_1_coverage.html#a58b6dda85cd7b8e47d5f019ee8c8d73d", null ],

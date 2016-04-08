@@ -1,7 +1,8 @@
 var classfhirclient_1_1models_1_1referralrequest_1_1_referral_request =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1referralrequest_1_1_referral_request.html#a68ff6caf2d00974f8e9c7af94e4893cf", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1referralrequest_1_1_referral_request.html#a025bc33eaa927b674f0c8f972668b6f5", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1referralrequest_1_1_referral_request.html#ad0815c0269e2151bedf06bd3aa9de875", null ],
+    [ "date", "classfhirclient_1_1models_1_1referralrequest_1_1_referral_request.html#a26f360956405459a3fa2340f960e6f8b", null ],
     [ "dateSent", "classfhirclient_1_1models_1_1referralrequest_1_1_referral_request.html#ad72f573d49c05c096b71f40a263b45d7", null ],
     [ "description", "classfhirclient_1_1models_1_1referralrequest_1_1_referral_request.html#a5be27a00f99b9caafdf2f97a95ff67cc", null ],
     [ "encounter", "classfhirclient_1_1models_1_1referralrequest_1_1_referral_request.html#abc602c7da4a43137cd0d1d8ee3916a72", null ],

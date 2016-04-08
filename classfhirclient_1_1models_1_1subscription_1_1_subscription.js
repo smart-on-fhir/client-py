@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1subscription_1_1_subscription =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1subscription_1_1_subscription.html#a3246454899add23faf6c8e52e36f6050", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1subscription_1_1_subscription.html#af47d175cae5ac0b9f500363d76147ad4", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1subscription_1_1_subscription.html#ac72ae3dc51deffb2a7d919485d18b896", null ],
     [ "channel", "classfhirclient_1_1models_1_1subscription_1_1_subscription.html#a40f3236dd8e9bed3fc9b43ac72cec919", null ],
     [ "contact", "classfhirclient_1_1models_1_1subscription_1_1_subscription.html#a099794802b5639efbc4644cb47be6095", null ],

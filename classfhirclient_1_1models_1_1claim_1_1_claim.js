@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1claim_1_1_claim =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1claim_1_1_claim.html#a58e43c6675d04fbf538c95f94a4ab5ab", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1claim_1_1_claim.html#adfdc8845b06957fa5cecde176c6f5bfe", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1claim_1_1_claim.html#a3d4b90a4613711c247ccc502bfff3d53", null ],
     [ "accident", "classfhirclient_1_1models_1_1claim_1_1_claim.html#a9bfb16d9a243843dcea2182b28084958", null ],
     [ "accidentType", "classfhirclient_1_1models_1_1claim_1_1_claim.html#ad0ff54b4e1f9f5960d1bda4a49261206", null ],

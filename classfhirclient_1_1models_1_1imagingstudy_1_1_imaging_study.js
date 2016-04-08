@@ -1,10 +1,9 @@
 var classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study.html#a6c3ceae6339022d4e572e89bbd23ecce", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study.html#a6cdb1489145df6abfb1d795dbfdf92d3", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study.html#a9dbd1a8d8786da5fc253cd7ec56bc361", null ],
     [ "accession", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study.html#ad3f8194f86d7b4030905139cfe9638b9", null ],
     [ "availability", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study.html#a08dc561a0b52283cc651f746bb7aff59", null ],
-    [ "clinicalInformation", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study.html#a2259182c49f61e5c288ba7e00f5efab5", null ],
     [ "description", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study.html#a48def211f7309a2bd103a6ebb754aed1", null ],
     [ "identifier", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study.html#a17b00c7c9f6666fea0379562b5876b3f", null ],
     [ "interpreter", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study.html#a059a95e81cf81a66ff5d9272be76ca2c", null ],

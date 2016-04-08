@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#aabc51b01f51b0ba60fa23f87854ceaa3", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#acfb7b27ba59df2e86d22fd057c40f07d", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#a13261129d23f884b9d2dae1aebc0b233", null ],
     [ "conditionalCreate", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#aefd8391b93db3cff76914cab671b507b", null ],
     [ "conditionalDelete", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#ad85afb72b2e1e5f18c4df031350a8663", null ],
@@ -10,6 +10,7 @@ var classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource =
     [ "readHistory", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#a8eda5532be985e5f4649910415572ddd", null ],
     [ "searchInclude", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#a05a6a40488f23e13869be9bf656f716e", null ],
     [ "searchParam", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#af8d1af63ca7f0f568d30f25498e0d38d", null ],
+    [ "searchRevInclude", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#a8c4e74c9bb952d8bef59f1b7569c3aa0", null ],
     [ "type", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#afa052d8a4c7f950d905782c5a17cdc8c", null ],
     [ "updateCreate", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#a939ecb35ec770b4460b5f2533a7085a5", null ],
     [ "versioning", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html#adc691c8e96f7a3d1a5b5f6bd6cfa6d09", null ]

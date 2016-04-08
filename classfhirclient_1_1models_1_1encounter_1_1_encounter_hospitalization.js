@@ -1,8 +1,9 @@
 var classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a0db8dcae3f60d3b21eb1d57ff75069b5", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#ad1855087ad6c0b7a5222da52cc81f619", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a159da2f2b476f69b348900dced748a89", null ],
     [ "admitSource", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a43ccd2842b83b27890db066f501e64a0", null ],
+    [ "admittingDiagnosis", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a70de7233b33b8501296ecb281145bea7", null ],
     [ "destination", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a630178c4cc9795ebc3970b48e929a1c7", null ],
     [ "dietPreference", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a9c5585764a804a5c9f161b8869efce16", null ],
     [ "dischargeDiagnosis", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html#a5651c7570eb667fdcc50262c22980903", null ],

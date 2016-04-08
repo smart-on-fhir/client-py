@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care.html#a15cb749bd469d27fbe2286f7d3879d7e", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care.html#a5fb4ef8c59bfbef7d23f7460bcdf8d34", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care.html#ae40b617e963f50ba7dac35cf5b611ce7", null ],
     [ "careManager", "classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care.html#afbf99c00a0255f9b7365eb102b01fedc", null ],
     [ "careTeam", "classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care.html#a69ad012feec2f8c5877184399a2627fd", null ],

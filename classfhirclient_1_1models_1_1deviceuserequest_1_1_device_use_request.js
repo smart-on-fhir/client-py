@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1deviceuserequest_1_1_device_use_request =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1deviceuserequest_1_1_device_use_request.html#a4a40a7bec090a07353fd204750ed4451", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1deviceuserequest_1_1_device_use_request.html#a5a3786cd19f4cc8d8158526609003c58", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1deviceuserequest_1_1_device_use_request.html#a337ed562c1156430ffc7fa81d5f34186", null ],
     [ "bodySiteCodeableConcept", "classfhirclient_1_1models_1_1deviceuserequest_1_1_device_use_request.html#ad581453c96efbf89572d5145dfb36eff", null ],
     [ "bodySiteReference", "classfhirclient_1_1models_1_1deviceuserequest_1_1_device_use_request.html#a774dd9f90f99686d8a4ddd988c8f9d5f", null ],

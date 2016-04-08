@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1claim_1_1_claim_item_detail_sub_detail =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1claim_1_1_claim_item_detail_sub_detail.html#ab33b82874d725211adc2ba27774aee90", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1claim_1_1_claim_item_detail_sub_detail.html#ae6be58ebe70eb6a7d9b2e980f6592ec1", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1claim_1_1_claim_item_detail_sub_detail.html#aa259dd1b9eb80c607cf3c17b28b559c6", null ],
     [ "factor", "classfhirclient_1_1models_1_1claim_1_1_claim_item_detail_sub_detail.html#a12af09a9002750015eade65cd43e48dc", null ],
     [ "net", "classfhirclient_1_1models_1_1claim_1_1_claim_item_detail_sub_detail.html#ae8e8d25b68210ce4819ff869978b49ac", null ],

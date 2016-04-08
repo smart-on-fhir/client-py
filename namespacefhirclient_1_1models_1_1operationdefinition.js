@@ -3,5 +3,5 @@ var namespacefhirclient_1_1models_1_1operationdefinition =
     [ "OperationDefinition", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition" ],
     [ "OperationDefinitionContact", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_contact.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_contact" ],
     [ "OperationDefinitionParameter", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter" ],
-    [ "OperationDefinitionParameterPart", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter_part.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter_part" ]
+    [ "OperationDefinitionParameterBinding", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter_binding.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter_binding" ]
 ];

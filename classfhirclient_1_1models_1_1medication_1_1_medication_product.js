@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1medication_1_1_medication_product =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1medication_1_1_medication_product.html#a850c759e1d504d8437d65dedf6059ac8", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1medication_1_1_medication_product.html#a81a377be5692ef32e78fec261c3499d3", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1medication_1_1_medication_product.html#aac787f8d46aae40797bff73a15e1ae74", null ],
     [ "batch", "classfhirclient_1_1models_1_1medication_1_1_medication_product.html#af22c82a21e8cf24552b5ca90fe0e5e49", null ],
     [ "form", "classfhirclient_1_1models_1_1medication_1_1_medication_product.html#ad61a6a8ad4be578963276e8d744ae925", null ],

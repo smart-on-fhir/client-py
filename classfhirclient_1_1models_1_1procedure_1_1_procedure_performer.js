@@ -1,7 +1,7 @@
 var classfhirclient_1_1models_1_1procedure_1_1_procedure_performer =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer.html#a1ea3553d610f008f66d3dd2866c35a16", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer.html#ae40c8a93d515771ff34926da1412649a", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer.html#a523465c04b776600c917a4a7d6f147cb", null ],
-    [ "person", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer.html#aa52789768ec9855b2ecde5f6f429cc1b", null ],
+    [ "actor", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer.html#ab7ca025f29ff9f1ce2a276c603bf21bf", null ],
     [ "role", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer.html#a4c3c00f92e00b096e51aad9c65bfbcda", null ]
 ];

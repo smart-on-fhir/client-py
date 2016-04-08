@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a42b6e72f456a12a14c4be46e91bcb845", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a3d080d5272663566ec68005843752801", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#ad02327bfdf3683e188715698c9b7fdb1", null ],
     [ "action", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#ad7883612556f6013999a010f4cd1ff7d", null ],
     [ "assessor", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#acbc6e27f3316a306fa21b8d4dd194332", null ],

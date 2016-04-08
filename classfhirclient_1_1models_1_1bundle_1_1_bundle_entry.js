@@ -1,11 +1,11 @@
 var classfhirclient_1_1models_1_1bundle_1_1_bundle_entry =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#a8ada3b03de57292e135af2fbded5248f", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#a99fde59181f69ee3c0e6e2e9e54d6ce3", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#a7241e96799fd9ade22366d1afc31db2c", null ],
-    [ "base", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#a7d8b0d807556c35bd1ed2d1930d39c0e", null ],
+    [ "fullUrl", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#a343bb09af8c8a29f37d0b371bb6ab56c", null ],
     [ "link", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#a750b425b5a975d43b794df22c96b7aa2", null ],
+    [ "request", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#a2eb123d5d5f3e76ce6458d83bcd8a31a", null ],
     [ "resource", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#adacd521eece562a6d3ab6b69187ae9ab", null ],
-    [ "search", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#a6bfe21a7830cd6011c2afbd006b8563a", null ],
-    [ "transaction", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#ace2017fd3444f74afcd0b2f61b71e25b", null ],
-    [ "transactionResponse", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#abbf93ce51c799f0eb7617a81337f5570", null ]
+    [ "response", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#a8aa4de4ffc03b7da4e8d6128c0a3198b", null ],
+    [ "search", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html#a6bfe21a7830cd6011c2afbd006b8563a", null ]
 ];

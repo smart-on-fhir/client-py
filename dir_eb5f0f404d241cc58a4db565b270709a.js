@@ -7,6 +7,7 @@ var dir_eb5f0f404d241cc58a4db565b270709a =
       [ "FHIROAuth2Auth", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth" ]
     ] ],
     [ "client.py", "client_8py.html", "client_8py" ],
+    [ "fhirreference_tests.py", "fhirreference__tests_8py.html", "fhirreference__tests_8py" ],
     [ "server.py", "server_8py.html", [
       [ "FHIRUnauthorizedException", "classfhirclient_1_1server_1_1_f_h_i_r_unauthorized_exception.html", "classfhirclient_1_1server_1_1_f_h_i_r_unauthorized_exception" ],
       [ "FHIRPermissionDeniedException", "classfhirclient_1_1server_1_1_f_h_i_r_permission_denied_exception.html", "classfhirclient_1_1server_1_1_f_h_i_r_permission_denied_exception" ],

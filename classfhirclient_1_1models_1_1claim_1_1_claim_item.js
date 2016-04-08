@@ -1,12 +1,12 @@
 var classfhirclient_1_1models_1_1claim_1_1_claim_item =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#a581c68d1ff39ecb6b95bf3129e927fb6", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#a7aff57f47c3e80152143435f4860bdbb", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#a69bf3206ef72213e3d7daf06d5214f6c", null ],
     [ "bodySite", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#aea7d4f749bb23a0e619411d0f003d670", null ],
     [ "detail", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#a498fc0547e96a1c03ff0a4859addf8be", null ],
     [ "diagnosisLinkId", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#a5c7d70a1373153fd3acb14047834ef14", null ],
     [ "factor", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#aa02fa72df2f357c97305fef5f328de2e", null ],
-    [ "mod", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#afccd1c44876ba91913992e844b510bf3", null ],
+    [ "modifier", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#a4fb3a0d889a30096e4daa969885b324c", null ],
     [ "net", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#a60f6771ca18f45fc7f3ff1a586ae05ab", null ],
     [ "points", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#a7d7a991d0ee07d85813f2f4150c5aa65", null ],
     [ "prosthesis", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html#a99e722f28a2a65671afb4f942e8363e0", null ],

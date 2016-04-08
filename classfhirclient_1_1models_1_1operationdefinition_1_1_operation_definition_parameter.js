@@ -1,7 +1,8 @@
 var classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter.html#a4fdb57fb216f7fc2b0d8a7ec3ece12a9", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter.html#a71633cb55a623be30bca91662443b0b5", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter.html#ab788d06d5141d851587fef94eef79257", null ],
+    [ "binding", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter.html#a9428d595ff6ac91217cbf858dc52c6bd", null ],
     [ "documentation", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter.html#aef250aa93b2c2839f33c5cec31a7b976", null ],
     [ "max", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter.html#af1f4dfd6c7ac2c4b8afa34279b67bae0", null ],
     [ "min", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter.html#a368199dacb5a7f6580ce8e101bb256e1", null ],

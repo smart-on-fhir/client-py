@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit.html#a92ce4fd63196a7bfddd191a6e3ae075a", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit.html#a74161e2e1b31cfdb03c01d6ce78a12df", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit.html#a3d0f297bbc18b9df1f06ea89d1d2c70d", null ],
     [ "created", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit.html#a1a9158ea4d40a4c199e23299acdb9c6a", null ],
     [ "disposition", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit.html#acf88f472a57868c214ada8759a20f0d4", null ],

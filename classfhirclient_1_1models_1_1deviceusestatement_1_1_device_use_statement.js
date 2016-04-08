@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1deviceusestatement_1_1_device_use_statement =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1deviceusestatement_1_1_device_use_statement.html#ac440aaa7273212e6bf7d7212c08062c0", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1deviceusestatement_1_1_device_use_statement.html#a96c27d0d7acf5c8742e7207f75c07d18", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1deviceusestatement_1_1_device_use_statement.html#a8790491b131a540a3d2fc3477a633dea", null ],
     [ "bodySiteCodeableConcept", "classfhirclient_1_1models_1_1deviceusestatement_1_1_device_use_statement.html#a806c16421b13c0a41178684042b23464", null ],
     [ "bodySiteReference", "classfhirclient_1_1models_1_1deviceusestatement_1_1_device_use_statement.html#a469fa34fbbd5d9a2f3b26db51779dd98", null ],

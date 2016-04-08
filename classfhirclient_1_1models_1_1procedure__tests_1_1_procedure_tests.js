@@ -8,7 +8,6 @@ var classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests =
     [ "implProcedure6", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#aebb3a42c844dc30fc7f69362ac07988d", null ],
     [ "implProcedure7", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#a43f3399c494a285dc67a044392aff4a4", null ],
     [ "implProcedure8", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#a4b3cd20339c9f9691b66ca4c911354c0", null ],
-    [ "implProcedure9", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#af43a174fbf7e7ef8df30903a75f55e9c", null ],
     [ "instantiate_from", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#aab5d79e9330819b909c41326a6a44339", null ],
     [ "testProcedure1", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#a6afb0cd7dfd39314951931a774623fd9", null ],
     [ "testProcedure2", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#a1f1e3d9ae2f383ac3a7a98e2fc58c5e6", null ],
@@ -17,6 +16,5 @@ var classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests =
     [ "testProcedure5", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#a27299726fecd9901e2229fce2a115aff", null ],
     [ "testProcedure6", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#a81141fb19777aa234bd5404c2132d58f", null ],
     [ "testProcedure7", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#a9e98e1c29cbd655092019b5f70ad9f32", null ],
-    [ "testProcedure8", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#ab836ee9e4014a8dc2fac610f8ff4af57", null ],
-    [ "testProcedure9", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#a8dc4a67fec409de99d56b30bec68ac2e", null ]
+    [ "testProcedure8", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html#ab836ee9e4014a8dc2fac610f8ff4af57", null ]
 ];

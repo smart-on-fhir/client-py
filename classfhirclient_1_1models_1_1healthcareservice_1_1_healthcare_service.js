@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service.html#a84152b2c2b621a6675bd3fea942101e9", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service.html#aef81cf51bcb8538715c2e1b1be099764", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service.html#a7305f3f75ec94ed16cf0ba425a457d49", null ],
     [ "appointmentRequired", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service.html#a9bae805fcf94689bcb935ccbba651794", null ],
     [ "availabilityExceptions", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service.html#abab4b04713cbe6bb52d25abb27ce47ff", null ],

@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1device_1_1_device =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1device_1_1_device.html#a49deb853e78fd946aa9dcc6376874fee", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1device_1_1_device.html#a7a395ca7ef74d28a02e9c53f7c86c306", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1device_1_1_device.html#ab6cceb3283a330223758701e6cda8cd3", null ],
     [ "contact", "classfhirclient_1_1models_1_1device_1_1_device.html#ac0db989a381701a3fbec8bb566a97f3b", null ],
     [ "expiry", "classfhirclient_1_1models_1_1device_1_1_device.html#a17e9e424e9ee880040f559bd62697663", null ],
@@ -10,6 +10,7 @@ var classfhirclient_1_1models_1_1device_1_1_device =
     [ "manufactureDate", "classfhirclient_1_1models_1_1device_1_1_device.html#a66681858cf59dd62793f13928b31d8ce", null ],
     [ "manufacturer", "classfhirclient_1_1models_1_1device_1_1_device.html#a71910da374123d1a4068c8050dc1d562", null ],
     [ "model", "classfhirclient_1_1models_1_1device_1_1_device.html#a3e3dfab190a32e3af56d6c0605fd0435", null ],
+    [ "note", "classfhirclient_1_1models_1_1device_1_1_device.html#a40aafbde9e03837acef10414ab12f158", null ],
     [ "owner", "classfhirclient_1_1models_1_1device_1_1_device.html#a5ffd5a9e3e9a806bf57b39b50e112d73", null ],
     [ "patient", "classfhirclient_1_1models_1_1device_1_1_device.html#a7f90a8e49919abaa091e01d37e9607ad", null ],
     [ "status", "classfhirclient_1_1models_1_1device_1_1_device.html#a8e4f52cdf01ff91e2b379ec8664fa722", null ],

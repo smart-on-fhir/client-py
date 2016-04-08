@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#afa4f69f8de908c37c8f8ad92ea79c18e", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#aa5f963125603d5cbef7f10855ca72515", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#aff7d2afb1d11eb29f5f452615da0b1f2", null ],
     [ "adjudication", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#ab16325844c6acd783b90e6b24c2edd9f", null ],
     [ "detail", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#aae74b296f333a747bf1d5000a5da508a", null ],
