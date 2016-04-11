@@ -4,8 +4,6 @@
 #  Generated from FHIR 1.4.0.8139 on 2016-04-01.
 #  2016, SMART Health IT.
 
-from . import element
-
 
 class FHIRElementFactory(object):
     """ Factory class to instantiate resources by resource name.
@@ -1507,4 +1505,5 @@ class FHIRElementFactory(object):
         if "VisionPrescriptionDispense" == resource_name:
             from . import visionprescription
             return visionprescription.VisionPrescriptionDispense(jsondict)
-        return element.Element(json)
+        from . import element
+        return element.Element(jsondict)
