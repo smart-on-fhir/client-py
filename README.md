@@ -54,25 +54,6 @@ smart.human_name(patient.name[0])
 # 'Christy Ebert'
 ```
 
-You can also search for resources matching a particular set of criteria:
-
-```python
-from fhirclient import client
-settings = {
-    'app_id': 'my_web_app',
-    'api_base': 'https://fhir-open-api-dstu2.smarthealthit.org'
-}
-smart = client.FHIRClient(settings=settings)
-
-import fhirclient.models.procedure as p
-search = p.Procedure.where(struct={'subject': 'hca-pat-1', 'status': 'completed'})
-responses = search.perform(smart.server)
-# returns a Bundle whose entries are Procedure resources
-procedures = map(lambda(entry): entry.resource, responses.entry)
-procedures[0].as_json()
-# {'status': u'completed', 'code': {'text': u'Lumpectomy w/ SN', ...
-```
-
 If this is a protected server, you will first have to send your user to the authorize endpoint to log in.
 Just call `smart.authorize_url` to obtain the correct URL.
 You can use `smart.prepare()`, which will return `False` if the server is protected and you need to authorize.
@@ -100,6 +81,22 @@ import fhirclient.models.patient as p
 patient = p.Patient.read('hca-pat-1', smart)
 patient.name[0].given
 # ['Christy']
+```
+
+##### Search Records on Server
+
+You can also search for resources matching a particular set of criteria:
+
+```python
+smart = client.FHIRClient(settings=settings)
+import fhirclient.models.procedure as p
+search = p.Procedure.where(struct={'subject': 'hca-pat-1', 'status': 'completed'})
+bundle = search.perform(smart.server)
+# returns a Bundle whose entries are Procedure resources
+for entry in bundle.entry:
+    procedure = entry.resource
+    procedure.as_json()
+    # {'status': u'completed', 'code': {'text': u'Lumpectomy w/ SN', ...
 ```
 
 ### Data Model Use
@@ -134,7 +131,6 @@ patient = p.Patient(pjs)
 patient.name[0].given
 # prints patient's given name array in the first `name` property
 ```
-
 
 ### Flask App
 
