@@ -1,0 +1,33 @@
+{
+  "resourceType": "ValueSet",
+  "id": "vs2r",
+  "name": "Type options for Observation.subject",
+  "status": "active",
+  "description": "Type options for Observation.subject",
+  "expansion": {
+    "identifier": "urn:uuid:5200236f-20ea-40b1-9a6b-b22301238b9c",
+    "timestamp": "2015-10-24T07:43:40+11:00",
+    "contains": [
+      {
+        "system": "http://hl7.org/fhir/resource-types",
+        "code": "Patient",
+        "display": "Patient"
+      },
+      {
+        "system": "http://hl7.org/fhir/resource-types",
+        "code": "Group",
+        "display": "Group"
+      },
+      {
+        "system": "http://hl7.org/fhir/resource-types",
+        "code": "Device",
+        "display": "Device"
+      },
+      {
+        "system": "http://hl7.org/fhir/resource-types",
+        "code": "Location",
+        "display": "Location"
+      }
+    ]
+  }
+}
