@@ -1,0 +1,59 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "qs1",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986"
+    }
+  ],
+  "status": "draft",
+  "date": "2012-05-12T00:00:00+10:00",
+  "publisher": "Grahame Grieve",
+  "group": {
+    "linkId": "Observation",
+    "title": "Triglyceride Result",
+    "text": "Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as lab reports, etc.",
+    "required": true,
+    "repeats": false,
+    "group": [
+      {
+        "linkId": "Observation.subject",
+        "text": "Who and/or what this is about",
+        "required": false,
+        "repeats": true,
+        "question": [
+          {
+            "linkId": "Observation.subject._type",
+            "text": "type",
+            "type": "choice",
+            "required": false,
+            "repeats": false,
+            "options": {
+              "reference": "ValueSet/vs2r"
+            },
+            "group": [
+              {
+                "linkId": "Observation.subject._Patient",
+                "question": [
+                  {
+                    "extension": [
+                      {
+                        "url": "http://www.healthintersections.com.au/fhir/Profile/metadata#reference",
+                        "valueString": "/Patient?subject=$subj&patient=$subj&encounter=$encounter"
+                      }
+                    ],
+                    "linkId": "Observation.subject._Patient.value",
+                    "text": "Patient",
+                    "type": "reference",
+                    "required": false,
+                    "repeats": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

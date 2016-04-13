@@ -47,12 +47,13 @@ class FHIRReference(reference.Reference):
                     logging.warning("Contained resource {} is not a {} but a {}".format(refid, klass, contained.__class__))
                     return None
         
-        # fetch remote resources
+        # fetch remote resources; unable to verify klass since we use klass.read_from()
         if '://' not in self.reference:
-            server = owning_resource.server() if owning_resource else None
+            server = owning_resource.server if owning_resource and owning_resource else None
             if server is not None:
-                return self._referenced_class.read_from(self.reference, server)
-            
+                relative = klass.read_from(self.reference, server)
+                owning_resource.didResolveReference(refid, relative)
+                return relative
             logging.warning("Reference owner {} does not have a server, cannot resolve relative reference {}"
                 .format(self._owner, self.reference))
             return None
@@ -65,12 +66,7 @@ class FHIRReference(reference.Reference):
     def processedReferenceIdentifier(self):
         """ Normalizes the reference-id.
         """
-        if not self.reference:
-            return None
-        
-        if '#' == self.reference[0]:
+        if self.reference and '#' == self.reference[0]:
             return self.reference[1:]
-        
-        # TODO: distinguish absolute (has "://") and relative URLs
-        return None
-    
+        return self.reference
+
