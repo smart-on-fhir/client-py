@@ -83,6 +83,22 @@ patient.name[0].given
 # ['Christy']
 ```
 
+##### Search Records on Server
+
+You can also search for resources matching a particular set of criteria:
+
+```python
+smart = client.FHIRClient(settings=settings)
+import fhirclient.models.procedure as p
+search = p.Procedure.where(struct={'subject': 'hca-pat-1', 'status': 'completed'})
+bundle = search.perform(smart.server)
+# returns a Bundle whose entries are Procedure resources
+for entry in bundle.entry:
+    procedure = entry.resource
+    procedure.as_json()
+    # {'status': u'completed', 'code': {'text': u'Lumpectomy w/ SN', ...
+```
+
 ### Data Model Use
 
 The client contains data model classes, built using [fhir-parser][], that handle (de)serialization and allow to work with FHIR data in a Pythonic way.
@@ -115,7 +131,6 @@ patient = p.Patient(pjs)
 patient.name[0].given
 # prints patient's given name array in the first `name` property
 ```
-
 
 ### Flask App
 
