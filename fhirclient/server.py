@@ -6,7 +6,7 @@ import urllib
 import logging
 try:                                # Python 2.x
     import urlparse
-except Exception as e:              # Python 3
+except ImportError as e:            # Python 3
     import urllib.parse as urlparse
 
 from auth import FHIRAuth
