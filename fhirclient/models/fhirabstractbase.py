@@ -162,6 +162,15 @@ class FHIRAbstractBase(object):
             owner = owner._owner
         return owner
     
+    def owningBundle(self):
+        """ Walks the owner hierarchy and returns the next parent that is a
+        `Bundle` instance.
+        """
+        owner = self._owner
+        while owner is not None and not 'Bundle' == owner.resource_name:
+            owner = owner._owner
+        return owner
+    
     def resolvedReference(self, refid):
         """ Returns the resolved reference with the given id, if it has been
         resolved already. If it hasn't, forwards the call to its owner if it
