@@ -30,6 +30,7 @@ class FHIRReference(reference.Reference):
             logging.warning("No `reference` set, cannot resolve")
             return None
         
+        # already resolved and cached?
         resolved = owning_resource.resolvedReference(refid)
         if resolved is not None:
             if isinstance(resolved, klass):
@@ -47,21 +48,42 @@ class FHIRReference(reference.Reference):
                     logging.warning("Contained resource {} is not a {} but a {}".format(refid, klass, contained.__class__))
                     return None
         
-        # fetch remote resources; unable to verify klass since we use klass.read_from()
-        if '://' not in self.reference:
-            server = owning_resource.server if owning_resource and owning_resource else None
-            if server is not None:
-                relative = klass.read_from(self.reference, server)
-                owning_resource.didResolveReference(refid, relative)
-                return relative
-            logging.warning("Reference owner {} does not have a server, cannot resolve relative reference {}"
-                .format(self._owner, self.reference))
+        # are we in a bundle?
+        ref_is_relative = '://' not in self.reference and 'urn:' != self.reference[:4]
+        if (sys.version_info < (3, 0)):
+            from . import bundle
+        bundle = self.owningBundle()
+        while bundle is not None:
+            if bundle.entry is not None:
+                fullUrl = self.reference
+                if ref_is_relative:
+                    base = bundle.server.base_uri if bundle.server else ''
+                    fullUrl = base + self.reference
+                
+                for entry in bundle.entry:
+                    if entry.fullUrl == fullUrl:
+                        found = entry.resource
+                        if isinstance(found, klass):
+                            return found
+                        logging.warning("Bundled resource {} is not a {} but a {}".format(refid, klass, found.__class__))
+                        return None
+            bundle = bundle.owningBundle()
+        
+        # relative references, use the same server
+        server = None
+        if ref_is_relative:
+            server = owning_resource.server if owning_resource else None
+        
+        # TODO: instantiate server for absolute resource
+        if server is None:
+            logging.warning("Not implemented: resolving absolute reference to resource {}"
+                .format(self.reference))
             return None
         
-        # absolute resource
-        logging.warning("Not implemented: resolving absolute reference to resource {}"
-            .format(self.reference))
-        return None
+        # fetch remote resource; unable to verify klass since we use klass.read_from()
+        relative = klass.read_from(self.reference, server)
+        owning_resource.didResolveReference(refid, relative)
+        return relative
     
     def processedReferenceIdentifier(self):
         """ Normalizes the reference-id.
@@ -70,3 +92,7 @@ class FHIRReference(reference.Reference):
             return self.reference[1:]
         return self.reference
 
+
+import sys
+if (sys.version_info > (3, 0)):     # Python 2 imports are POS
+    from . import bundle

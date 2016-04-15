@@ -9,6 +9,8 @@ import models.questionnaire as questionnaire
 import models.medication as medication
 import models.resource as resource
 import models.valueset as valueset
+import models.patient as patient
+import models.bundle as bundle
 import server
 
 
@@ -76,6 +78,43 @@ class TestResourceReference(unittest.TestCase):
         self.assertIsNone(relative, "Must not resolve on resource type mismatch")
         relative = question.options.resolved(resource.Resource)
         self.assertIsNotNone(relative, "Must resolve relative ValueSet even if requesting `Resource`")
+    
+    def testBundleReferences(self):
+        with io.open('test_bundle.json', 'r', encoding='utf-8') as h:
+            data = json.load(h)
+        b = bundle.Bundle(data)
+        self.assertIsNotNone(b, "Must instantiate Bundle")
+        self.assertEqual('Bundle', b.resource_name)
+        #b._server = MockServer()
+        
+        # get resources
+        pat23 = b.entry[0].resource
+        self.assertEqual('Patient', pat23.resource_name)
+        self.assertEqual('Darth', pat23.name[0].given[0])
+        patURN = b.entry[1].resource
+        self.assertEqual('Patient', patURN.resource_name)
+        self.assertEqual('Ben', patURN.name[0].given[0])
+        obs123 = b.entry[2].resource
+        self.assertEqual('Observation', obs123.resource_name)
+        obs56 = b.entry[3].resource
+        self.assertEqual('Observation', obs56.resource_name)
+        obs34 = b.entry[4].resource
+        self.assertEqual('Observation', obs34.resource_name)
+        
+        # test resolving w/o server (won't work)
+        res = obs123.subject.resolved(patient.Patient)
+        self.assertIsNone(res)
+        
+        # test resolving with server
+        b._server = MockServer()
+        res = obs123.subject.resolved(patient.Patient)
+        self.assertEqual(res, pat23)
+        res = obs123.subject.resolved(medication.Medication)
+        self.assertIsNone(res, "Must not resolve on type mismatch")
+        res = obs56.subject.resolved(patient.Patient)
+        self.assertEqual(res, patURN)
+        res = obs34.subject.resolved(patient.Patient)
+        self.assertIsNone(res, "Must not resolve Patient on same server but different endpoint")
 
 
 class MockServer(server.FHIRServer):
