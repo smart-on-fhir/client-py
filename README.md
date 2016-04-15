@@ -91,12 +91,13 @@ You can also search for resources matching a particular set of criteria:
 smart = client.FHIRClient(settings=settings)
 import fhirclient.models.procedure as p
 search = p.Procedure.where(struct={'subject': 'hca-pat-1', 'status': 'completed'})
-bundle = search.perform(smart.server)
-# returns a Bundle whose entries are Procedure resources
-for entry in bundle.entry:
-    procedure = entry.resource
+procedures = search.perform_resources(smart.server)
+for procedure in procedures:
     procedure.as_json()
     # {'status': u'completed', 'code': {'text': u'Lumpectomy w/ SN', ...
+
+# to get the raw Bundle instead of resources only, you can use:
+bundle = search.perform(smart.server)
 ```
 
 ### Data Model Use
