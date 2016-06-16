@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -47,7 +47,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.performedDateTime.as_json(), "2014-02-03")
         self.assertEqual(inst.reasonCodeableConcept.text, "Dark lesion l) forearm. getting darker last 3 months.")
         self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.div, "<div>Biopsy of suspected melanoma L) arm</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Biopsy of suspected melanoma L) arm</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProcedure2(self):
@@ -256,6 +256,6 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.performedDateTime.as_json(), "2013-04-05")
         self.assertEqual(inst.reasonCodeableConcept.text, "Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding")
         self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.div, "<div>Routine Appendectomy</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Routine Appendectomy</div>")
         self.assertEqual(inst.text.status, "generated")
 

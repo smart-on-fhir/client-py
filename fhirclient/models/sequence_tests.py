@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -32,21 +32,20 @@ class SequenceTests(unittest.TestCase):
         self.implSequence1(inst2)
     
     def implSequence1(self, inst):
+        self.assertEqual(inst.coordinateSystem, 0)
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.referenceSeq[0].referenceSeqId.coding[0].code, "NC_000007.14")
-        self.assertEqual(inst.referenceSeq[0].referenceSeqId.coding[0].system, "http://www.ncbi.nlm.nih.gov/nuccore")
-        self.assertEqual(inst.referenceSeq[0].windowEnd, 55227980)
-        self.assertEqual(inst.referenceSeq[0].windowStart, 55227970)
+        self.assertEqual(inst.referenceSeq.referenceSeqId.coding[0].code, "NC_000007.14")
+        self.assertEqual(inst.referenceSeq.referenceSeqId.coding[0].system, "http://www.ncbi.nlm.nih.gov/nuccore")
+        self.assertEqual(inst.referenceSeq.strand, 1)
+        self.assertEqual(inst.referenceSeq.windowEnd, 55227980)
+        self.assertEqual(inst.referenceSeq.windowStart, 55227970)
         self.assertEqual(inst.repository[0].name, "ga4gh")
         self.assertEqual(inst.repository[0].url, "https://www.googleapis.com/genomics/v1beta2")
         self.assertEqual(inst.repository[0].variantId, "A1A2")
-        self.assertEqual(inst.species.coding[0].code, "337915000")
-        self.assertEqual(inst.species.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.species.text, "Homo sapiens")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "DNA")
-        self.assertEqual(inst.variation.end, 55227977)
-        self.assertEqual(inst.variation.observedAllele, "T")
-        self.assertEqual(inst.variation.referenceAllele, "A")
-        self.assertEqual(inst.variation.start, 55227976)
+        self.assertEqual(inst.variant[0].end, 55227977)
+        self.assertEqual(inst.variant[0].observedAllele, "T")
+        self.assertEqual(inst.variant[0].referenceAllele, "A")
+        self.assertEqual(inst.variant[0].start, 55227976)
 

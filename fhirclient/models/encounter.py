@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -31,7 +31,7 @@ class Encounter(domainresource.DomainResource):
         
         self.class_fhir = None
         """ inpatient | outpatient | ambulatory | emergency +.
-        Type `str`. """
+        Type `Coding` (represented as `dict` in JSON). """
         
         self.episodeOfCare = None
         """ Episode(s) of care that this encounter should be recorded against.
@@ -55,7 +55,7 @@ class Encounter(domainresource.DomainResource):
         
         self.length = None
         """ Quantity of time the encounter lasted (less time absent).
-        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.location = None
         """ List of locations where the patient has been.
@@ -107,13 +107,13 @@ class Encounter(domainresource.DomainResource):
         js = super(Encounter, self).elementProperties()
         js.extend([
             ("appointment", "appointment", fhirreference.FHIRReference, False, None, False),
-            ("class_fhir", "class", str, False, None, False),
+            ("class_fhir", "class", coding.Coding, False, None, False),
             ("episodeOfCare", "episodeOfCare", fhirreference.FHIRReference, True, None, False),
             ("hospitalization", "hospitalization", EncounterHospitalization, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("incomingReferral", "incomingReferral", fhirreference.FHIRReference, True, None, False),
             ("indication", "indication", fhirreference.FHIRReference, True, None, False),
-            ("length", "length", quantity.Quantity, False, None, False),
+            ("length", "length", duration.Duration, False, None, False),
             ("location", "location", EncounterLocation, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
             ("participant", "participant", EncounterParticipant, True, None, False),
@@ -329,7 +329,8 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
+from . import coding
+from . import duration
 from . import fhirreference
 from . import identifier
 from . import period
-from . import quantity

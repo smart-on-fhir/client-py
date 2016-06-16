@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -148,7 +148,7 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.id, "genetic")
         self.assertEqual(inst.mode, "snapshot")
         self.assertEqual(inst.status, "current")
-        self.assertEqual(inst.text.div, "<div>To do</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">To do</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testList6(self):

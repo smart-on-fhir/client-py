@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -60,6 +60,10 @@ class ElementDefinition(element.Element):
         """ Specified value if missing from instance.
         Type `Address` (represented as `dict` in JSON). """
         
+        self.defaultValueAge = None
+        """ Specified value if missing from instance.
+        Type `Age` (represented as `dict` in JSON). """
+        
         self.defaultValueAnnotation = None
         """ Specified value if missing from instance.
         Type `Annotation` (represented as `dict` in JSON). """
@@ -92,6 +96,10 @@ class ElementDefinition(element.Element):
         """ Specified value if missing from instance.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.defaultValueCount = None
+        """ Specified value if missing from instance.
+        Type `Count` (represented as `dict` in JSON). """
+        
         self.defaultValueDate = None
         """ Specified value if missing from instance.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -103,6 +111,14 @@ class ElementDefinition(element.Element):
         self.defaultValueDecimal = None
         """ Specified value if missing from instance.
         Type `float`. """
+        
+        self.defaultValueDistance = None
+        """ Specified value if missing from instance.
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.defaultValueDuration = None
+        """ Specified value if missing from instance.
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.defaultValueHumanName = None
         """ Specified value if missing from instance.
@@ -131,6 +147,10 @@ class ElementDefinition(element.Element):
         self.defaultValueMeta = None
         """ Specified value if missing from instance.
         Type `Meta` (represented as `dict` in JSON). """
+        
+        self.defaultValueMoney = None
+        """ Specified value if missing from instance.
+        Type `Money` (represented as `dict` in JSON). """
         
         self.defaultValueOid = None
         """ Specified value if missing from instance.
@@ -196,6 +216,10 @@ class ElementDefinition(element.Element):
         """ Example value (as defined for type).
         Type `Address` (represented as `dict` in JSON). """
         
+        self.exampleAge = None
+        """ Example value (as defined for type).
+        Type `Age` (represented as `dict` in JSON). """
+        
         self.exampleAnnotation = None
         """ Example value (as defined for type).
         Type `Annotation` (represented as `dict` in JSON). """
@@ -228,6 +252,10 @@ class ElementDefinition(element.Element):
         """ Example value (as defined for type).
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.exampleCount = None
+        """ Example value (as defined for type).
+        Type `Count` (represented as `dict` in JSON). """
+        
         self.exampleDate = None
         """ Example value (as defined for type).
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -239,6 +267,14 @@ class ElementDefinition(element.Element):
         self.exampleDecimal = None
         """ Example value (as defined for type).
         Type `float`. """
+        
+        self.exampleDistance = None
+        """ Example value (as defined for type).
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.exampleDuration = None
+        """ Example value (as defined for type).
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.exampleHumanName = None
         """ Example value (as defined for type).
@@ -267,6 +303,10 @@ class ElementDefinition(element.Element):
         self.exampleMeta = None
         """ Example value (as defined for type).
         Type `Meta` (represented as `dict` in JSON). """
+        
+        self.exampleMoney = None
+        """ Example value (as defined for type).
+        Type `Money` (represented as `dict` in JSON). """
         
         self.exampleOid = None
         """ Example value (as defined for type).
@@ -328,6 +368,10 @@ class ElementDefinition(element.Element):
         """ Value must be exactly this.
         Type `Address` (represented as `dict` in JSON). """
         
+        self.fixedAge = None
+        """ Value must be exactly this.
+        Type `Age` (represented as `dict` in JSON). """
+        
         self.fixedAnnotation = None
         """ Value must be exactly this.
         Type `Annotation` (represented as `dict` in JSON). """
@@ -360,6 +404,10 @@ class ElementDefinition(element.Element):
         """ Value must be exactly this.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.fixedCount = None
+        """ Value must be exactly this.
+        Type `Count` (represented as `dict` in JSON). """
+        
         self.fixedDate = None
         """ Value must be exactly this.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -371,6 +419,14 @@ class ElementDefinition(element.Element):
         self.fixedDecimal = None
         """ Value must be exactly this.
         Type `float`. """
+        
+        self.fixedDistance = None
+        """ Value must be exactly this.
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.fixedDuration = None
+        """ Value must be exactly this.
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.fixedHumanName = None
         """ Value must be exactly this.
@@ -399,6 +455,10 @@ class ElementDefinition(element.Element):
         self.fixedMeta = None
         """ Value must be exactly this.
         Type `Meta` (represented as `dict` in JSON). """
+        
+        self.fixedMoney = None
+        """ Value must be exactly this.
+        Type `Money` (represented as `dict` in JSON). """
         
         self.fixedOid = None
         """ Value must be exactly this.
@@ -484,6 +544,10 @@ class ElementDefinition(element.Element):
         """ Maximum Allowed Value (for some types).
         Type `Address` (represented as `dict` in JSON). """
         
+        self.maxValueAge = None
+        """ Maximum Allowed Value (for some types).
+        Type `Age` (represented as `dict` in JSON). """
+        
         self.maxValueAnnotation = None
         """ Maximum Allowed Value (for some types).
         Type `Annotation` (represented as `dict` in JSON). """
@@ -516,6 +580,10 @@ class ElementDefinition(element.Element):
         """ Maximum Allowed Value (for some types).
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.maxValueCount = None
+        """ Maximum Allowed Value (for some types).
+        Type `Count` (represented as `dict` in JSON). """
+        
         self.maxValueDate = None
         """ Maximum Allowed Value (for some types).
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -527,6 +595,14 @@ class ElementDefinition(element.Element):
         self.maxValueDecimal = None
         """ Maximum Allowed Value (for some types).
         Type `float`. """
+        
+        self.maxValueDistance = None
+        """ Maximum Allowed Value (for some types).
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.maxValueDuration = None
+        """ Maximum Allowed Value (for some types).
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.maxValueHumanName = None
         """ Maximum Allowed Value (for some types).
@@ -555,6 +631,10 @@ class ElementDefinition(element.Element):
         self.maxValueMeta = None
         """ Maximum Allowed Value (for some types).
         Type `Meta` (represented as `dict` in JSON). """
+        
+        self.maxValueMoney = None
+        """ Maximum Allowed Value (for some types).
+        Type `Money` (represented as `dict` in JSON). """
         
         self.maxValueOid = None
         """ Maximum Allowed Value (for some types).
@@ -624,6 +704,10 @@ class ElementDefinition(element.Element):
         """ Minimum Allowed Value (for some types).
         Type `Address` (represented as `dict` in JSON). """
         
+        self.minValueAge = None
+        """ Minimum Allowed Value (for some types).
+        Type `Age` (represented as `dict` in JSON). """
+        
         self.minValueAnnotation = None
         """ Minimum Allowed Value (for some types).
         Type `Annotation` (represented as `dict` in JSON). """
@@ -656,6 +740,10 @@ class ElementDefinition(element.Element):
         """ Minimum Allowed Value (for some types).
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.minValueCount = None
+        """ Minimum Allowed Value (for some types).
+        Type `Count` (represented as `dict` in JSON). """
+        
         self.minValueDate = None
         """ Minimum Allowed Value (for some types).
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -667,6 +755,14 @@ class ElementDefinition(element.Element):
         self.minValueDecimal = None
         """ Minimum Allowed Value (for some types).
         Type `float`. """
+        
+        self.minValueDistance = None
+        """ Minimum Allowed Value (for some types).
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.minValueDuration = None
+        """ Minimum Allowed Value (for some types).
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.minValueHumanName = None
         """ Minimum Allowed Value (for some types).
@@ -695,6 +791,10 @@ class ElementDefinition(element.Element):
         self.minValueMeta = None
         """ Minimum Allowed Value (for some types).
         Type `Meta` (represented as `dict` in JSON). """
+        
+        self.minValueMoney = None
+        """ Minimum Allowed Value (for some types).
+        Type `Money` (represented as `dict` in JSON). """
         
         self.minValueOid = None
         """ Minimum Allowed Value (for some types).
@@ -768,6 +868,10 @@ class ElementDefinition(element.Element):
         """ Value must have at least these property values.
         Type `Address` (represented as `dict` in JSON). """
         
+        self.patternAge = None
+        """ Value must have at least these property values.
+        Type `Age` (represented as `dict` in JSON). """
+        
         self.patternAnnotation = None
         """ Value must have at least these property values.
         Type `Annotation` (represented as `dict` in JSON). """
@@ -800,6 +904,10 @@ class ElementDefinition(element.Element):
         """ Value must have at least these property values.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.patternCount = None
+        """ Value must have at least these property values.
+        Type `Count` (represented as `dict` in JSON). """
+        
         self.patternDate = None
         """ Value must have at least these property values.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -811,6 +919,14 @@ class ElementDefinition(element.Element):
         self.patternDecimal = None
         """ Value must have at least these property values.
         Type `float`. """
+        
+        self.patternDistance = None
+        """ Value must have at least these property values.
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.patternDuration = None
+        """ Value must have at least these property values.
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.patternHumanName = None
         """ Value must have at least these property values.
@@ -839,6 +955,10 @@ class ElementDefinition(element.Element):
         self.patternMeta = None
         """ Value must have at least these property values.
         Type `Meta` (represented as `dict` in JSON). """
+        
+        self.patternMoney = None
+        """ Value must have at least these property values.
+        Type `Money` (represented as `dict` in JSON). """
         
         self.patternOid = None
         """ Value must have at least these property values.
@@ -897,7 +1017,7 @@ class ElementDefinition(element.Element):
         Type `str`. """
         
         self.representation = None
-        """ xmlAttr | xmlText | typeAttr | cdaText.
+        """ xmlAttr | xmlText | typeAttr | cdaText | xhtml.
         List of `str` items. """
         
         self.requirements = None
@@ -930,6 +1050,7 @@ class ElementDefinition(element.Element):
             ("constraint", "constraint", ElementDefinitionConstraint, True, None, False),
             ("contentReference", "contentReference", str, False, None, False),
             ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False),
+            ("defaultValueAge", "defaultValueAge", age.Age, False, "defaultValue", False),
             ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False),
             ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
             ("defaultValueBase64Binary", "defaultValueBase64Binary", str, False, "defaultValue", False),
@@ -938,9 +1059,12 @@ class ElementDefinition(element.Element):
             ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False),
             ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False),
             ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False),
+            ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
             ("defaultValueDate", "defaultValueDate", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueDateTime", "defaultValueDateTime", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False),
+            ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
+            ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False),
             ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
             ("defaultValueId", "defaultValueId", str, False, "defaultValue", False),
             ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
@@ -948,6 +1072,7 @@ class ElementDefinition(element.Element):
             ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
             ("defaultValueMarkdown", "defaultValueMarkdown", str, False, "defaultValue", False),
             ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
+            ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
             ("defaultValueOid", "defaultValueOid", str, False, "defaultValue", False),
             ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False),
             ("defaultValuePositiveInt", "defaultValuePositiveInt", int, False, "defaultValue", False),
@@ -964,6 +1089,7 @@ class ElementDefinition(element.Element):
             ("defaultValueUri", "defaultValueUri", str, False, "defaultValue", False),
             ("definition", "definition", str, False, None, False),
             ("exampleAddress", "exampleAddress", address.Address, False, "example", False),
+            ("exampleAge", "exampleAge", age.Age, False, "example", False),
             ("exampleAnnotation", "exampleAnnotation", annotation.Annotation, False, "example", False),
             ("exampleAttachment", "exampleAttachment", attachment.Attachment, False, "example", False),
             ("exampleBase64Binary", "exampleBase64Binary", str, False, "example", False),
@@ -972,9 +1098,12 @@ class ElementDefinition(element.Element):
             ("exampleCodeableConcept", "exampleCodeableConcept", codeableconcept.CodeableConcept, False, "example", False),
             ("exampleCoding", "exampleCoding", coding.Coding, False, "example", False),
             ("exampleContactPoint", "exampleContactPoint", contactpoint.ContactPoint, False, "example", False),
+            ("exampleCount", "exampleCount", count.Count, False, "example", False),
             ("exampleDate", "exampleDate", fhirdate.FHIRDate, False, "example", False),
             ("exampleDateTime", "exampleDateTime", fhirdate.FHIRDate, False, "example", False),
             ("exampleDecimal", "exampleDecimal", float, False, "example", False),
+            ("exampleDistance", "exampleDistance", distance.Distance, False, "example", False),
+            ("exampleDuration", "exampleDuration", duration.Duration, False, "example", False),
             ("exampleHumanName", "exampleHumanName", humanname.HumanName, False, "example", False),
             ("exampleId", "exampleId", str, False, "example", False),
             ("exampleIdentifier", "exampleIdentifier", identifier.Identifier, False, "example", False),
@@ -982,6 +1111,7 @@ class ElementDefinition(element.Element):
             ("exampleInteger", "exampleInteger", int, False, "example", False),
             ("exampleMarkdown", "exampleMarkdown", str, False, "example", False),
             ("exampleMeta", "exampleMeta", meta.Meta, False, "example", False),
+            ("exampleMoney", "exampleMoney", money.Money, False, "example", False),
             ("exampleOid", "exampleOid", str, False, "example", False),
             ("examplePeriod", "examplePeriod", period.Period, False, "example", False),
             ("examplePositiveInt", "examplePositiveInt", int, False, "example", False),
@@ -997,6 +1127,7 @@ class ElementDefinition(element.Element):
             ("exampleUnsignedInt", "exampleUnsignedInt", int, False, "example", False),
             ("exampleUri", "exampleUri", str, False, "example", False),
             ("fixedAddress", "fixedAddress", address.Address, False, "fixed", False),
+            ("fixedAge", "fixedAge", age.Age, False, "fixed", False),
             ("fixedAnnotation", "fixedAnnotation", annotation.Annotation, False, "fixed", False),
             ("fixedAttachment", "fixedAttachment", attachment.Attachment, False, "fixed", False),
             ("fixedBase64Binary", "fixedBase64Binary", str, False, "fixed", False),
@@ -1005,9 +1136,12 @@ class ElementDefinition(element.Element):
             ("fixedCodeableConcept", "fixedCodeableConcept", codeableconcept.CodeableConcept, False, "fixed", False),
             ("fixedCoding", "fixedCoding", coding.Coding, False, "fixed", False),
             ("fixedContactPoint", "fixedContactPoint", contactpoint.ContactPoint, False, "fixed", False),
+            ("fixedCount", "fixedCount", count.Count, False, "fixed", False),
             ("fixedDate", "fixedDate", fhirdate.FHIRDate, False, "fixed", False),
             ("fixedDateTime", "fixedDateTime", fhirdate.FHIRDate, False, "fixed", False),
             ("fixedDecimal", "fixedDecimal", float, False, "fixed", False),
+            ("fixedDistance", "fixedDistance", distance.Distance, False, "fixed", False),
+            ("fixedDuration", "fixedDuration", duration.Duration, False, "fixed", False),
             ("fixedHumanName", "fixedHumanName", humanname.HumanName, False, "fixed", False),
             ("fixedId", "fixedId", str, False, "fixed", False),
             ("fixedIdentifier", "fixedIdentifier", identifier.Identifier, False, "fixed", False),
@@ -1015,6 +1149,7 @@ class ElementDefinition(element.Element):
             ("fixedInteger", "fixedInteger", int, False, "fixed", False),
             ("fixedMarkdown", "fixedMarkdown", str, False, "fixed", False),
             ("fixedMeta", "fixedMeta", meta.Meta, False, "fixed", False),
+            ("fixedMoney", "fixedMoney", money.Money, False, "fixed", False),
             ("fixedOid", "fixedOid", str, False, "fixed", False),
             ("fixedPeriod", "fixedPeriod", period.Period, False, "fixed", False),
             ("fixedPositiveInt", "fixedPositiveInt", int, False, "fixed", False),
@@ -1036,6 +1171,7 @@ class ElementDefinition(element.Element):
             ("max", "max", str, False, None, False),
             ("maxLength", "maxLength", int, False, None, False),
             ("maxValueAddress", "maxValueAddress", address.Address, False, "maxValue", False),
+            ("maxValueAge", "maxValueAge", age.Age, False, "maxValue", False),
             ("maxValueAnnotation", "maxValueAnnotation", annotation.Annotation, False, "maxValue", False),
             ("maxValueAttachment", "maxValueAttachment", attachment.Attachment, False, "maxValue", False),
             ("maxValueBase64Binary", "maxValueBase64Binary", str, False, "maxValue", False),
@@ -1044,9 +1180,12 @@ class ElementDefinition(element.Element):
             ("maxValueCodeableConcept", "maxValueCodeableConcept", codeableconcept.CodeableConcept, False, "maxValue", False),
             ("maxValueCoding", "maxValueCoding", coding.Coding, False, "maxValue", False),
             ("maxValueContactPoint", "maxValueContactPoint", contactpoint.ContactPoint, False, "maxValue", False),
+            ("maxValueCount", "maxValueCount", count.Count, False, "maxValue", False),
             ("maxValueDate", "maxValueDate", fhirdate.FHIRDate, False, "maxValue", False),
             ("maxValueDateTime", "maxValueDateTime", fhirdate.FHIRDate, False, "maxValue", False),
             ("maxValueDecimal", "maxValueDecimal", float, False, "maxValue", False),
+            ("maxValueDistance", "maxValueDistance", distance.Distance, False, "maxValue", False),
+            ("maxValueDuration", "maxValueDuration", duration.Duration, False, "maxValue", False),
             ("maxValueHumanName", "maxValueHumanName", humanname.HumanName, False, "maxValue", False),
             ("maxValueId", "maxValueId", str, False, "maxValue", False),
             ("maxValueIdentifier", "maxValueIdentifier", identifier.Identifier, False, "maxValue", False),
@@ -1054,6 +1193,7 @@ class ElementDefinition(element.Element):
             ("maxValueInteger", "maxValueInteger", int, False, "maxValue", False),
             ("maxValueMarkdown", "maxValueMarkdown", str, False, "maxValue", False),
             ("maxValueMeta", "maxValueMeta", meta.Meta, False, "maxValue", False),
+            ("maxValueMoney", "maxValueMoney", money.Money, False, "maxValue", False),
             ("maxValueOid", "maxValueOid", str, False, "maxValue", False),
             ("maxValuePeriod", "maxValuePeriod", period.Period, False, "maxValue", False),
             ("maxValuePositiveInt", "maxValuePositiveInt", int, False, "maxValue", False),
@@ -1071,6 +1211,7 @@ class ElementDefinition(element.Element):
             ("meaningWhenMissing", "meaningWhenMissing", str, False, None, False),
             ("min", "min", int, False, None, False),
             ("minValueAddress", "minValueAddress", address.Address, False, "minValue", False),
+            ("minValueAge", "minValueAge", age.Age, False, "minValue", False),
             ("minValueAnnotation", "minValueAnnotation", annotation.Annotation, False, "minValue", False),
             ("minValueAttachment", "minValueAttachment", attachment.Attachment, False, "minValue", False),
             ("minValueBase64Binary", "minValueBase64Binary", str, False, "minValue", False),
@@ -1079,9 +1220,12 @@ class ElementDefinition(element.Element):
             ("minValueCodeableConcept", "minValueCodeableConcept", codeableconcept.CodeableConcept, False, "minValue", False),
             ("minValueCoding", "minValueCoding", coding.Coding, False, "minValue", False),
             ("minValueContactPoint", "minValueContactPoint", contactpoint.ContactPoint, False, "minValue", False),
+            ("minValueCount", "minValueCount", count.Count, False, "minValue", False),
             ("minValueDate", "minValueDate", fhirdate.FHIRDate, False, "minValue", False),
             ("minValueDateTime", "minValueDateTime", fhirdate.FHIRDate, False, "minValue", False),
             ("minValueDecimal", "minValueDecimal", float, False, "minValue", False),
+            ("minValueDistance", "minValueDistance", distance.Distance, False, "minValue", False),
+            ("minValueDuration", "minValueDuration", duration.Duration, False, "minValue", False),
             ("minValueHumanName", "minValueHumanName", humanname.HumanName, False, "minValue", False),
             ("minValueId", "minValueId", str, False, "minValue", False),
             ("minValueIdentifier", "minValueIdentifier", identifier.Identifier, False, "minValue", False),
@@ -1089,6 +1233,7 @@ class ElementDefinition(element.Element):
             ("minValueInteger", "minValueInteger", int, False, "minValue", False),
             ("minValueMarkdown", "minValueMarkdown", str, False, "minValue", False),
             ("minValueMeta", "minValueMeta", meta.Meta, False, "minValue", False),
+            ("minValueMoney", "minValueMoney", money.Money, False, "minValue", False),
             ("minValueOid", "minValueOid", str, False, "minValue", False),
             ("minValuePeriod", "minValuePeriod", period.Period, False, "minValue", False),
             ("minValuePositiveInt", "minValuePositiveInt", int, False, "minValue", False),
@@ -1107,6 +1252,7 @@ class ElementDefinition(element.Element):
             ("name", "name", str, False, None, False),
             ("path", "path", str, False, None, True),
             ("patternAddress", "patternAddress", address.Address, False, "pattern", False),
+            ("patternAge", "patternAge", age.Age, False, "pattern", False),
             ("patternAnnotation", "patternAnnotation", annotation.Annotation, False, "pattern", False),
             ("patternAttachment", "patternAttachment", attachment.Attachment, False, "pattern", False),
             ("patternBase64Binary", "patternBase64Binary", str, False, "pattern", False),
@@ -1115,9 +1261,12 @@ class ElementDefinition(element.Element):
             ("patternCodeableConcept", "patternCodeableConcept", codeableconcept.CodeableConcept, False, "pattern", False),
             ("patternCoding", "patternCoding", coding.Coding, False, "pattern", False),
             ("patternContactPoint", "patternContactPoint", contactpoint.ContactPoint, False, "pattern", False),
+            ("patternCount", "patternCount", count.Count, False, "pattern", False),
             ("patternDate", "patternDate", fhirdate.FHIRDate, False, "pattern", False),
             ("patternDateTime", "patternDateTime", fhirdate.FHIRDate, False, "pattern", False),
             ("patternDecimal", "patternDecimal", float, False, "pattern", False),
+            ("patternDistance", "patternDistance", distance.Distance, False, "pattern", False),
+            ("patternDuration", "patternDuration", duration.Duration, False, "pattern", False),
             ("patternHumanName", "patternHumanName", humanname.HumanName, False, "pattern", False),
             ("patternId", "patternId", str, False, "pattern", False),
             ("patternIdentifier", "patternIdentifier", identifier.Identifier, False, "pattern", False),
@@ -1125,6 +1274,7 @@ class ElementDefinition(element.Element):
             ("patternInteger", "patternInteger", int, False, "pattern", False),
             ("patternMarkdown", "patternMarkdown", str, False, "pattern", False),
             ("patternMeta", "patternMeta", meta.Meta, False, "pattern", False),
+            ("patternMoney", "patternMoney", money.Money, False, "pattern", False),
             ("patternOid", "patternOid", str, False, "pattern", False),
             ("patternPeriod", "patternPeriod", period.Period, False, "pattern", False),
             ("patternPositiveInt", "patternPositiveInt", int, False, "pattern", False),
@@ -1433,16 +1583,21 @@ class ElementDefinitionType(element.Element):
 
 
 from . import address
+from . import age
 from . import annotation
 from . import attachment
 from . import codeableconcept
 from . import coding
 from . import contactpoint
+from . import count
+from . import distance
+from . import duration
 from . import fhirdate
 from . import fhirreference
 from . import humanname
 from . import identifier
 from . import meta
+from . import money
 from . import period
 from . import quantity
 from . import range

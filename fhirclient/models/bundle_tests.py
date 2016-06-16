@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -208,7 +208,7 @@ class BundleTests(unittest.TestCase):
         self.assertEqual(inst.type, "document")
     
     def testBundle5(self):
-        inst = self.instantiate_from("patient-examples-cypress-template.json")
+        inst = self.instantiate_from("endpoint-examples-general-template.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
         self.implBundle5(inst)
         
@@ -218,6 +218,38 @@ class BundleTests(unittest.TestCase):
         self.implBundle5(inst2)
     
     def implBundle5(self, inst):
+        self.assertEqual(inst.entry[0].fullUrl, "http://hl7.org/fhir/Endpoint/71")
+        self.assertEqual(inst.entry[0].resource.id, "71")
+        self.assertEqual(inst.entry[1].fullUrl, "http://hl7.org/fhir/Endpoint/72")
+        self.assertEqual(inst.entry[1].resource.id, "72")
+        self.assertEqual(inst.entry[2].fullUrl, "http://hl7.org/fhir/Endpoint/73")
+        self.assertEqual(inst.entry[2].resource.id, "73")
+        self.assertEqual(inst.entry[3].fullUrl, "http://hl7.org/fhir/Endpoint/74")
+        self.assertEqual(inst.entry[3].resource.id, "74")
+        self.assertEqual(inst.entry[4].fullUrl, "http://hl7.org/fhir/Endpoint/75")
+        self.assertEqual(inst.entry[4].resource.id, "75")
+        self.assertEqual(inst.entry[5].fullUrl, "http://hl7.org/fhir/Endpoint/76")
+        self.assertEqual(inst.entry[5].resource.id, "76")
+        self.assertEqual(inst.entry[6].fullUrl, "http://hl7.org/fhir/Endpoint/77")
+        self.assertEqual(inst.entry[6].resource.id, "77")
+        self.assertEqual(inst.entry[7].fullUrl, "http://hl7.org/fhir/Endpoint/78")
+        self.assertEqual(inst.entry[7].resource.id, "78")
+        self.assertEqual(inst.id, "b0a5e4277-83c4-4adb-87e2-e3efe3369b6f")
+        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2012-05-29T23:45:32Z").date)
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2012-05-29T23:45:32Z")
+        self.assertEqual(inst.type, "collection")
+    
+    def testBundle6(self):
+        inst = self.instantiate_from("patient-examples-cypress-template.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
+        self.implBundle6(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Bundle", js["resourceType"])
+        inst2 = bundle.Bundle(js)
+        self.implBundle6(inst2)
+    
+    def implBundle6(self, inst):
         self.assertEqual(inst.entry[0].fullUrl, "http://hl7.org/fhir/Patient/71")
         self.assertEqual(inst.entry[0].resource.id, "71")
         self.assertEqual(inst.entry[0].resource.meta.lastUpdated.date, FHIRDate("2012-06-03T23:45:32Z").date)
@@ -263,17 +295,17 @@ class BundleTests(unittest.TestCase):
         self.assertEqual(inst.meta.lastUpdated.as_json(), "2012-05-29T23:45:32Z")
         self.assertEqual(inst.type, "collection")
     
-    def testBundle6(self):
+    def testBundle7(self):
         inst = self.instantiate_from("patient-examples-general.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
-        self.implBundle6(inst)
+        self.implBundle7(inst)
         
         js = inst.as_json()
         self.assertEqual("Bundle", js["resourceType"])
         inst2 = bundle.Bundle(js)
-        self.implBundle6(inst2)
+        self.implBundle7(inst2)
     
-    def implBundle6(self, inst):
+    def implBundle7(self, inst):
         self.assertEqual(inst.entry[0].fullUrl, "http://hl7.org/fhir/Patient/1")
         self.assertEqual(inst.entry[0].resource.id, "1")
         self.assertEqual(inst.entry[0].resource.meta.lastUpdated.date, FHIRDate("2012-05-29T23:45:32Z").date)
@@ -319,17 +351,17 @@ class BundleTests(unittest.TestCase):
         self.assertEqual(inst.meta.lastUpdated.as_json(), "2012-05-29T23:45:32Z")
         self.assertEqual(inst.type, "collection")
     
-    def testBundle7(self):
+    def testBundle8(self):
         inst = self.instantiate_from("practitioner-examples-general.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
-        self.implBundle7(inst)
+        self.implBundle8(inst)
         
         js = inst.as_json()
         self.assertEqual("Bundle", js["resourceType"])
         inst2 = bundle.Bundle(js)
-        self.implBundle7(inst2)
+        self.implBundle8(inst2)
     
-    def implBundle7(self, inst):
+    def implBundle8(self, inst):
         self.assertEqual(inst.entry[0].fullUrl, "http://hl7.org/fhir/Practitioner/13")
         self.assertEqual(inst.entry[0].resource.id, "13")
         self.assertEqual(inst.entry[0].resource.meta.lastUpdated.date, FHIRDate("2012-05-29T23:45:32Z").date)
@@ -375,17 +407,17 @@ class BundleTests(unittest.TestCase):
         self.assertEqual(inst.meta.lastUpdated.as_json(), "2012-05-29T23:45:32Z")
         self.assertEqual(inst.type, "collection")
     
-    def testBundle8(self):
+    def testBundle9(self):
         inst = self.instantiate_from("xds-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Bundle instance")
-        self.implBundle8(inst)
+        self.implBundle9(inst)
         
         js = inst.as_json()
         self.assertEqual("Bundle", js["resourceType"])
         inst2 = bundle.Bundle(js)
-        self.implBundle8(inst2)
+        self.implBundle9(inst2)
     
-    def implBundle8(self, inst):
+    def implBundle9(self, inst):
         self.assertEqual(inst.entry[0].fullUrl, "urn:uuid:3fdc72f4-a11d-4a9d-9260-a9f745779e1d")
         self.assertEqual(inst.entry[0].request.method, "POST")
         self.assertEqual(inst.entry[0].request.url, "DocumentReference")

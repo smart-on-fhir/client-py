@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -33,6 +33,6 @@ class CommunicationRequestTests(unittest.TestCase):
     
     def implCommunicationRequest1(self, inst):
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.text.div, "<div>To be filled out at a later time</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">To be filled out at a later time</div>")
         self.assertEqual(inst.text.status, "generated")
 

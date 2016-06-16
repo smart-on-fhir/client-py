@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -36,6 +36,6 @@ class ProcedureRequestTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Computed tomography of head")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.text.div, "<div>To be added</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">To be added</div>")
         self.assertEqual(inst.text.status, "generated")
 

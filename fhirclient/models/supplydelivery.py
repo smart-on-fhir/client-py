@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/SupplyDelivery) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/SupplyDelivery) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -47,7 +47,11 @@ class SupplyDelivery(domainresource.DomainResource):
         """ in-progress | completed | abandoned.
         Type `str`. """
         
-        self.suppliedItem = None
+        self.suppliedItemCodeableConcept = None
+        """ Medication, Substance, or Device supplied.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.suppliedItemReference = None
         """ Medication, Substance, or Device supplied.
         Type `FHIRReference` referencing `Medication, Substance, Device` (represented as `dict` in JSON). """
         
@@ -78,7 +82,8 @@ class SupplyDelivery(domainresource.DomainResource):
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("receiver", "receiver", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, False),
-            ("suppliedItem", "suppliedItem", fhirreference.FHIRReference, False, None, False),
+            ("suppliedItemCodeableConcept", "suppliedItemCodeableConcept", codeableconcept.CodeableConcept, False, "suppliedItem", False),
+            ("suppliedItemReference", "suppliedItemReference", fhirreference.FHIRReference, False, "suppliedItem", False),
             ("supplier", "supplier", fhirreference.FHIRReference, False, None, False),
             ("time", "time", fhirdate.FHIRDate, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),

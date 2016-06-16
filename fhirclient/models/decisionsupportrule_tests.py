@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -47,6 +47,6 @@ class DecisionSupportRuleTests(unittest.TestCase):
         self.assertEqual(inst.moduleMetadata.topic[0].text, "Chlamydia Screeening")
         self.assertEqual(inst.moduleMetadata.type, "module")
         self.assertEqual(inst.moduleMetadata.version, "2.0.0")
-        self.assertEqual(inst.text.div, "<div>Chalmydia Screening CDS Example Using Common</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Chalmydia Screening CDS Example Using Common</div>")
         self.assertEqual(inst.text.status, "generated")
 

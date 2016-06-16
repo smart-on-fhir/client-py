@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -355,7 +355,7 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.source.type[0].system, "http://hl7.org/fhir/security-source-type")
         self.assertEqual(inst.subtype[0].code, "Disclosure")
         self.assertEqual(inst.subtype[0].display, "HIPAA disclosure")
-        self.assertEqual(inst.text.div, "<div>Disclosure by some idiot, for marketing reasons, to places unknown, of a Poor Sap, data about Everthing important.</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Disclosure by some idiot, for marketing reasons, to places unknown, of a Poor Sap, data about Everthing important.</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.code, "110106")
         self.assertEqual(inst.type.display, "Export")
@@ -403,7 +403,7 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.subtype[0].code, "110120")
         self.assertEqual(inst.subtype[0].display, "Application Start")
         self.assertEqual(inst.subtype[0].system, "http://nema.org/dicom/dicm")
-        self.assertEqual(inst.text.div, "<div>Application Start for under service login &quot;Grahame&quot; (id: Grahame's Test HL7Connect)</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Application Start for under service login &quot;Grahame&quot; (id: Grahame's Test HL7Connect)</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.code, "110100")
         self.assertEqual(inst.type.display, "Application Activity")

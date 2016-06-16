@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -32,12 +32,14 @@ class TaskTests(unittest.TestCase):
         self.implTask1(inst2)
     
     def implTask1(self, inst):
+        self.assertEqual(inst.code.text, "Refill Request")
         self.assertEqual(inst.created.date, FHIRDate("2016-03-10T22:39:32-04:00").date)
         self.assertEqual(inst.created.as_json(), "2016-03-10T22:39:32-04:00")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.lastModified.date, FHIRDate("2016-03-10T22:39:32-04:00").date)
         self.assertEqual(inst.lastModified.as_json(), "2016-03-10T22:39:32-04:00")
+        self.assertEqual(inst.stage.coding[0].code, "actionable")
+        self.assertEqual(inst.stage.coding[0].system, "http://hl7.org/fhir/task-stage")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.text, "Refill Request")
 

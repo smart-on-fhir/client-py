@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Goal) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Goal) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -30,10 +30,6 @@ class Goal(domainresource.DomainResource):
         """ Issues addressed by this goal.
         List of `FHIRReference` items referencing `Condition, Observation, MedicationStatement, NutritionOrder, ProcedureRequest, RiskAssessment` (represented as `dict` in JSON). """
         
-        self.author = None
-        """ Who's responsible for creating Goal?.
-        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
-        
         self.category = None
         """ E.g. Treatment, dietary, behavioral, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
@@ -41,6 +37,10 @@ class Goal(domainresource.DomainResource):
         self.description = None
         """ What's the desired outcome?.
         Type `str`. """
+        
+        self.expressedBy = None
+        """ Who's responsible for creating Goal?.
+        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ External Ids for this goal.
@@ -87,9 +87,9 @@ class Goal(domainresource.DomainResource):
         """ Reach goal on or before.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.targetQuantity = None
+        self.targetDuration = None
         """ Reach goal on or before.
-        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
+        Type `Duration` (represented as `dict` in JSON). """
         
         super(Goal, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -97,9 +97,9 @@ class Goal(domainresource.DomainResource):
         js = super(Goal, self).elementProperties()
         js.extend([
             ("addresses", "addresses", fhirreference.FHIRReference, True, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("description", "description", str, False, None, True),
+            ("expressedBy", "expressedBy", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("outcome", "outcome", GoalOutcome, True, None, False),
@@ -111,7 +111,7 @@ class Goal(domainresource.DomainResource):
             ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("targetDate", "targetDate", fhirdate.FHIRDate, False, "target", False),
-            ("targetQuantity", "targetQuantity", quantity.Quantity, False, "target", False),
+            ("targetDuration", "targetDuration", duration.Duration, False, "target", False),
         ])
         return js
 
@@ -156,7 +156,7 @@ class GoalOutcome(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
+from . import duration
 from . import fhirdate
 from . import fhirreference
 from . import identifier
-from . import quantity

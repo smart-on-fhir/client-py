@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -41,13 +41,13 @@ class ConceptMap(domainresource.DomainResource):
         """ Human language description of the concept map.
         Type `str`. """
         
-        self.element = None
-        """ Mappings for a concept from the source set.
-        List of `ConceptMapElement` items (represented as `dict` in JSON). """
-        
         self.experimental = None
         """ If for testing purposes, not real usage.
         Type `bool`. """
+        
+        self.group = None
+        """ Same source and target systems.
+        List of `ConceptMapGroup` items (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Additional identifier for the concept map.
@@ -106,8 +106,8 @@ class ConceptMap(domainresource.DomainResource):
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
-            ("element", "element", ConceptMapElement, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
+            ("group", "group", ConceptMapGroup, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("name", "name", str, False, None, False),
             ("publisher", "publisher", str, False, None, False),
@@ -161,14 +161,64 @@ class ConceptMapContact(backboneelement.BackboneElement):
         return js
 
 
-class ConceptMapElement(backboneelement.BackboneElement):
+class ConceptMapGroup(backboneelement.BackboneElement):
+    """ Same source and target systems.
+    
+    A group of mappings that all have the same source and target system.
+    """
+    
+    resource_name = "ConceptMapGroup"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.element = None
+        """ Mappings for a concept from the source set.
+        List of `ConceptMapGroupElement` items (represented as `dict` in JSON). """
+        
+        self.source = None
+        """ Code System (if value set crosses code systems).
+        Type `str`. """
+        
+        self.sourceVersion = None
+        """ Specific version of the  code system.
+        Type `str`. """
+        
+        self.target = None
+        """ System of the target (if necessary).
+        Type `str`. """
+        
+        self.targetVersion = None
+        """ Specific version of the  code system.
+        Type `str`. """
+        
+        super(ConceptMapGroup, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ConceptMapGroup, self).elementProperties()
+        js.extend([
+            ("element", "element", ConceptMapGroupElement, True, None, True),
+            ("source", "source", str, False, None, True),
+            ("sourceVersion", "sourceVersion", str, False, None, False),
+            ("target", "target", str, False, None, False),
+            ("targetVersion", "targetVersion", str, False, None, False),
+        ])
+        return js
+
+
+class ConceptMapGroupElement(backboneelement.BackboneElement):
     """ Mappings for a concept from the source set.
     
     Mappings for an individual concept in the source to one or more concepts in
     the target.
     """
     
-    resource_name = "ConceptMapElement"
+    resource_name = "ConceptMapGroupElement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -182,38 +232,28 @@ class ConceptMapElement(backboneelement.BackboneElement):
         """ Identifies element being mapped.
         Type `str`. """
         
-        self.system = None
-        """ Code System (if value set crosses code systems).
-        Type `str`. """
-        
         self.target = None
         """ Concept in target system for element.
-        List of `ConceptMapElementTarget` items (represented as `dict` in JSON). """
+        List of `ConceptMapGroupElementTarget` items (represented as `dict` in JSON). """
         
-        self.version = None
-        """ Specific version of the  code system.
-        Type `str`. """
-        
-        super(ConceptMapElement, self).__init__(jsondict=jsondict, strict=strict)
+        super(ConceptMapGroupElement, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConceptMapElement, self).elementProperties()
+        js = super(ConceptMapGroupElement, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, False),
-            ("system", "system", str, False, None, False),
-            ("target", "target", ConceptMapElementTarget, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("target", "target", ConceptMapGroupElementTarget, True, None, False),
         ])
         return js
 
 
-class ConceptMapElementTarget(backboneelement.BackboneElement):
+class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
     """ Concept in target system for element.
     
     A concept from the target value set that this concept maps to.
     """
     
-    resource_name = "ConceptMapElementTarget"
+    resource_name = "ConceptMapGroupElementTarget"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -233,7 +273,7 @@ class ConceptMapElementTarget(backboneelement.BackboneElement):
         
         self.dependsOn = None
         """ Other elements required for this mapping (from context).
-        List of `ConceptMapElementTargetDependsOn` items (represented as `dict` in JSON). """
+        List of `ConceptMapGroupElementTargetDependsOn` items (represented as `dict` in JSON). """
         
         self.equivalence = None
         """ equivalent | equal | wider | subsumes | narrower | specializes |
@@ -242,33 +282,23 @@ class ConceptMapElementTarget(backboneelement.BackboneElement):
         
         self.product = None
         """ Other concepts that this mapping also produces.
-        List of `ConceptMapElementTargetDependsOn` items (represented as `dict` in JSON). """
+        List of `ConceptMapGroupElementTargetDependsOn` items (represented as `dict` in JSON). """
         
-        self.system = None
-        """ System of the target (if necessary).
-        Type `str`. """
-        
-        self.version = None
-        """ Specific version of the  code system.
-        Type `str`. """
-        
-        super(ConceptMapElementTarget, self).__init__(jsondict=jsondict, strict=strict)
+        super(ConceptMapGroupElementTarget, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConceptMapElementTarget, self).elementProperties()
+        js = super(ConceptMapGroupElementTarget, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, False),
             ("comments", "comments", str, False, None, False),
-            ("dependsOn", "dependsOn", ConceptMapElementTargetDependsOn, True, None, False),
-            ("equivalence", "equivalence", str, False, None, True),
-            ("product", "product", ConceptMapElementTargetDependsOn, True, None, False),
-            ("system", "system", str, False, None, False),
-            ("version", "version", str, False, None, False),
+            ("dependsOn", "dependsOn", ConceptMapGroupElementTargetDependsOn, True, None, False),
+            ("equivalence", "equivalence", str, False, None, False),
+            ("product", "product", ConceptMapGroupElementTargetDependsOn, True, None, False),
         ])
         return js
 
 
-class ConceptMapElementTargetDependsOn(backboneelement.BackboneElement):
+class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
     """ Other elements required for this mapping (from context).
     
     A set of additional dependencies for this mapping to hold. This mapping is
@@ -276,7 +306,7 @@ class ConceptMapElementTargetDependsOn(backboneelement.BackboneElement):
     specified value.
     """
     
-    resource_name = "ConceptMapElementTargetDependsOn"
+    resource_name = "ConceptMapGroupElementTargetDependsOn"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -290,21 +320,21 @@ class ConceptMapElementTargetDependsOn(backboneelement.BackboneElement):
         """ Value of the referenced element.
         Type `str`. """
         
-        self.element = None
-        """ Reference to element/field/ValueSet mapping depends on.
+        self.property = None
+        """ Reference to property mapping depends on.
         Type `str`. """
         
         self.system = None
         """ Code System (if necessary).
         Type `str`. """
         
-        super(ConceptMapElementTargetDependsOn, self).__init__(jsondict=jsondict, strict=strict)
+        super(ConceptMapGroupElementTargetDependsOn, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConceptMapElementTargetDependsOn, self).elementProperties()
+        js = super(ConceptMapGroupElementTargetDependsOn, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
-            ("element", "element", str, False, None, True),
+            ("property", "property", str, False, None, True),
             ("system", "system", str, False, None, True),
         ])
         return js

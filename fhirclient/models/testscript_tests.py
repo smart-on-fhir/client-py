@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -165,12 +165,12 @@ class TestScriptTests(unittest.TestCase):
         self.assertEqual(inst.rule[0].param[0].name, "expectedStatusCode")
         self.assertEqual(inst.rule[0].param[0].value, "200")
         self.assertEqual(inst.ruleset[0].id, "ruleset-responseResourcePatient")
-        self.assertEqual(inst.ruleset[0].rule[0].id, "RuleResponseContentType")
         self.assertEqual(inst.ruleset[0].rule[0].param[0].name, "expectedContentType")
         self.assertEqual(inst.ruleset[0].rule[0].param[0].value, "JSON")
-        self.assertEqual(inst.ruleset[0].rule[1].id, "RuleResponseStatusCode")
+        self.assertEqual(inst.ruleset[0].rule[0].ruleId, "RuleResponseContentType")
         self.assertEqual(inst.ruleset[0].rule[1].param[0].name, "expectedStatusCode")
         self.assertEqual(inst.ruleset[0].rule[1].param[0].value, "200")
+        self.assertEqual(inst.ruleset[0].rule[1].ruleId, "RuleResponseStatusCode")
         self.assertEqual(inst.setup.action[0].operation.accept, "json")
         self.assertEqual(inst.setup.action[0].operation.description, "Create patient resource on test server")
         self.assertEqual(inst.setup.action[0].operation.label, "SetupPatient")
@@ -178,21 +178,22 @@ class TestScriptTests(unittest.TestCase):
         self.assertEqual(inst.setup.action[0].operation.sourceId, "F1")
         self.assertEqual(inst.setup.action[0].operation.type.code, "create")
         self.assertEqual(inst.setup.action[1].assert_fhir.direction, "request")
-        self.assertEqual(inst.setup.action[1].assert_fhir.responseCode, "201")
+        self.assertEqual(inst.setup.action[1].assert_fhir.label, "RuleReadOK")
+        self.assertEqual(inst.setup.action[1].assert_fhir.rule.param[0].name, "expectedStatusCode")
+        self.assertEqual(inst.setup.action[1].assert_fhir.rule.param[0].value, "201")
+        self.assertEqual(inst.setup.action[1].assert_fhir.rule.ruleId, "ruleResponseOkay")
         self.assertEqual(inst.status, "draft")
         self.assertFalse(inst.test[0].action[0].operation.encodeRequestUrl)
         self.assertEqual(inst.test[0].action[0].operation.responseId, "F1-read")
         self.assertEqual(inst.test[0].action[0].operation.targetId, "F1")
         self.assertEqual(inst.test[0].action[0].operation.type.code, "read")
         self.assertEqual(inst.test[0].action[1].assert_fhir.label, "RuleReadOK")
-        self.assertEqual(inst.test[0].action[1].assert_fhir.rule.id, "ruleResponseOkay")
-        self.assertEqual(inst.test[0].action[1].assert_fhir.rule.param[0].name, "expectedStatusCode")
-        self.assertEqual(inst.test[0].action[1].assert_fhir.rule.param[0].value, "200")
+        self.assertEqual(inst.test[0].action[1].assert_fhir.rule.ruleId, "ruleResponseOkay")
         self.assertEqual(inst.test[0].action[2].assert_fhir.label, "RuleContentTypeResponse")
-        self.assertEqual(inst.test[0].action[2].assert_fhir.ruleset.id, "ruleset-responseResourcePatient")
-        self.assertEqual(inst.test[0].action[2].assert_fhir.ruleset.rule[0].id, "RuleResponseContentType")
         self.assertEqual(inst.test[0].action[2].assert_fhir.ruleset.rule[0].param[0].name, "expectedContentType")
         self.assertEqual(inst.test[0].action[2].assert_fhir.ruleset.rule[0].param[0].value, "XML")
+        self.assertEqual(inst.test[0].action[2].assert_fhir.ruleset.rule[0].ruleId, "RuleResponseContentType")
+        self.assertEqual(inst.test[0].action[2].assert_fhir.ruleset.rulesetId, "ruleset-responseResourcePatient")
         self.assertEqual(inst.test[0].action[3].assert_fhir.headerField, "Last-Modified")
         self.assertEqual(inst.test[0].action[3].assert_fhir.operator, "notEmpty")
         self.assertTrue(inst.test[0].action[3].assert_fhir.warningOnly)

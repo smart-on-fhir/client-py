@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -43,7 +43,7 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(inst.plan, "11024")
         self.assertEqual(inst.relationship.code, "self")
         self.assertEqual(inst.subPlan, "D15C9")
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the coverage</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the coverage</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.code, "EHCPOL")
         self.assertEqual(inst.type.display, "extended healthcare")
@@ -72,7 +72,7 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(inst.relationship.code, "self")
         self.assertEqual(inst.sequence, 1)
         self.assertEqual(inst.subPlan, "123")
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the coverage</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the coverage</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.code, "EHCPOL")
         self.assertEqual(inst.type.display, "extended healthcare")

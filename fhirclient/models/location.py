@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Location) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Location) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -33,6 +33,11 @@ class Location(domainresource.DomainResource):
         """ Additional details about the location that could be displayed as
         further information to identify the location beyond its name.
         Type `str`. """
+        
+        self.endpoint = None
+        """ Technical endpoints providing access to services operated for the
+        location.
+        List of `FHIRReference` items referencing `Endpoint` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Unique code or number identifying the location to its users.
@@ -81,6 +86,7 @@ class Location(domainresource.DomainResource):
         js.extend([
             ("address", "address", address.Address, False, None, False),
             ("description", "description", str, False, None, False),
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
             ("mode", "mode", str, False, None, False),

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -73,32 +73,16 @@ class ClaimResponse(domainresource.DomainResource):
         Type `Coding` (represented as `dict` in JSON). """
         
         self.outcome = None
-        """ complete | error.
-        Type `str`. """
+        """ complete | error | partial.
+        Type `Coding` (represented as `dict` in JSON). """
         
         self.payeeType = None
         """ Party to be paid any benefits payable.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.paymentAdjustment = None
-        """ Payment adjustment for non-Claim issues.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
-        
-        self.paymentAdjustmentReason = None
-        """ Reason for Payment adjustment.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.paymentAmount = None
-        """ Payment amount.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
-        
-        self.paymentDate = None
-        """ Expected data of Payment.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.paymentRef = None
-        """ Payment identifier.
-        Type `Identifier` (represented as `dict` in JSON). """
+        self.payment = None
+        """ None.
+        Type `ClaimResponsePayment` (represented as `dict` in JSON). """
         
         self.requestIdentifier = None
         """ Id of resource triggering adjudication.
@@ -134,15 +118,15 @@ class ClaimResponse(domainresource.DomainResource):
         
         self.totalBenefit = None
         """ Total benefit payable for the Claim.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         self.totalCost = None
         """ Total Cost of service from the Claim.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         self.unallocDeductable = None
         """ Unallocated deductible.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         super(ClaimResponse, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -161,13 +145,9 @@ class ClaimResponse(domainresource.DomainResource):
             ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
             ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
             ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
-            ("outcome", "outcome", str, False, None, False),
+            ("outcome", "outcome", coding.Coding, False, None, False),
             ("payeeType", "payeeType", coding.Coding, False, None, False),
-            ("paymentAdjustment", "paymentAdjustment", quantity.Quantity, False, None, False),
-            ("paymentAdjustmentReason", "paymentAdjustmentReason", coding.Coding, False, None, False),
-            ("paymentAmount", "paymentAmount", quantity.Quantity, False, None, False),
-            ("paymentDate", "paymentDate", fhirdate.FHIRDate, False, None, False),
-            ("paymentRef", "paymentRef", identifier.Identifier, False, None, False),
+            ("payment", "payment", ClaimResponsePayment, False, None, False),
             ("requestIdentifier", "requestIdentifier", identifier.Identifier, False, "request", False),
             ("requestOrganizationIdentifier", "requestOrganizationIdentifier", identifier.Identifier, False, "requestOrganization", False),
             ("requestOrganizationReference", "requestOrganizationReference", fhirreference.FHIRReference, False, "requestOrganization", False),
@@ -176,9 +156,9 @@ class ClaimResponse(domainresource.DomainResource):
             ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
             ("reserved", "reserved", coding.Coding, False, None, False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
-            ("totalBenefit", "totalBenefit", quantity.Quantity, False, None, False),
-            ("totalCost", "totalCost", quantity.Quantity, False, None, False),
-            ("unallocDeductable", "unallocDeductable", quantity.Quantity, False, None, False),
+            ("totalBenefit", "totalBenefit", money.Money, False, None, False),
+            ("totalCost", "totalCost", money.Money, False, None, False),
+            ("unallocDeductable", "unallocDeductable", money.Money, False, None, False),
         ])
         return js
 
@@ -203,7 +183,7 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         
         self.adjudication = None
         """ Added items adjudication.
-        List of `ClaimResponseAddItemAdjudication` items (represented as `dict` in JSON). """
+        List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
         self.detail = None
         """ Added items details.
@@ -211,7 +191,7 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         
         self.fee = None
         """ Professional fee or Product charge.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         self.noteNumberLinkId = None
         """ List of note numbers which apply.
@@ -230,57 +210,12 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseAddItem, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseAddItemAdjudication, True, None, False),
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
             ("detail", "detail", ClaimResponseAddItemDetail, True, None, False),
-            ("fee", "fee", quantity.Quantity, False, None, False),
+            ("fee", "fee", money.Money, False, None, False),
             ("noteNumberLinkId", "noteNumberLinkId", int, True, None, False),
             ("sequenceLinkId", "sequenceLinkId", int, True, None, False),
             ("service", "service", coding.Coding, False, None, True),
-        ])
-        return js
-
-
-class ClaimResponseAddItemAdjudication(backboneelement.BackboneElement):
-    """ Added items adjudication.
-    
-    The adjudications results.
-    """
-    
-    resource_name = "ClaimResponseAddItemAdjudication"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.amount = None
-        """ Monetary amount.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
-        
-        self.category = None
-        """ Adjudication category such as co-pay, eligible, benefit, etc..
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.reason = None
-        """ Adjudication reason.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.value = None
-        """ Non-monetary value.
-        Type `float`. """
-        
-        super(ClaimResponseAddItemAdjudication, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClaimResponseAddItemAdjudication, self).elementProperties()
-        js.extend([
-            ("amount", "amount", quantity.Quantity, False, None, False),
-            ("category", "category", coding.Coding, False, None, True),
-            ("reason", "reason", coding.Coding, False, None, False),
-            ("value", "value", float, False, None, False),
         ])
         return js
 
@@ -303,11 +238,11 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
         
         self.adjudication = None
         """ Added items detail adjudication.
-        List of `ClaimResponseAddItemDetailAdjudication` items (represented as `dict` in JSON). """
+        List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
         self.fee = None
         """ Professional fee or Product charge.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         self.service = None
         """ Service or Product.
@@ -318,54 +253,9 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseAddItemDetail, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseAddItemDetailAdjudication, True, None, False),
-            ("fee", "fee", quantity.Quantity, False, None, False),
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
+            ("fee", "fee", money.Money, False, None, False),
             ("service", "service", coding.Coding, False, None, True),
-        ])
-        return js
-
-
-class ClaimResponseAddItemDetailAdjudication(backboneelement.BackboneElement):
-    """ Added items detail adjudication.
-    
-    The adjudications results.
-    """
-    
-    resource_name = "ClaimResponseAddItemDetailAdjudication"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.amount = None
-        """ Monetary amount.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
-        
-        self.category = None
-        """ Adjudication category such as co-pay, eligible, benefit, etc..
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.reason = None
-        """ Adjudication reason.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.value = None
-        """ Non-monetary value.
-        Type `float`. """
-        
-        super(ClaimResponseAddItemDetailAdjudication, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClaimResponseAddItemDetailAdjudication, self).elementProperties()
-        js.extend([
-            ("amount", "amount", quantity.Quantity, False, None, False),
-            ("category", "category", coding.Coding, False, None, True),
-            ("reason", "reason", coding.Coding, False, None, False),
-            ("value", "value", float, False, None, False),
         ])
         return js
 
@@ -538,7 +428,7 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
         
         self.amount = None
         """ Monetary amount.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         self.category = None
         """ Adjudication category such as co-pay, eligible, benefit, etc..
@@ -557,7 +447,7 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItemAdjudication, self).elementProperties()
         js.extend([
-            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("amount", "amount", money.Money, False, None, False),
             ("category", "category", coding.Coding, False, None, True),
             ("reason", "reason", coding.Coding, False, None, False),
             ("value", "value", float, False, None, False),
@@ -583,7 +473,7 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
         
         self.adjudication = None
         """ Detail adjudication.
-        List of `ClaimResponseItemDetailAdjudication` items (represented as `dict` in JSON). """
+        List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
         self.sequenceLinkId = None
         """ Service instance.
@@ -598,54 +488,9 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItemDetail, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseItemDetailAdjudication, True, None, False),
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
             ("sequenceLinkId", "sequenceLinkId", int, False, None, True),
             ("subDetail", "subDetail", ClaimResponseItemDetailSubDetail, True, None, False),
-        ])
-        return js
-
-
-class ClaimResponseItemDetailAdjudication(backboneelement.BackboneElement):
-    """ Detail adjudication.
-    
-    The adjudications results.
-    """
-    
-    resource_name = "ClaimResponseItemDetailAdjudication"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.amount = None
-        """ Monetary amount.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
-        
-        self.category = None
-        """ Adjudication category such as co-pay, eligible, benefit, etc..
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.reason = None
-        """ Adjudication reason.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.value = None
-        """ Non-monetary value.
-        Type `float`. """
-        
-        super(ClaimResponseItemDetailAdjudication, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClaimResponseItemDetailAdjudication, self).elementProperties()
-        js.extend([
-            ("amount", "amount", quantity.Quantity, False, None, False),
-            ("category", "category", coding.Coding, False, None, True),
-            ("reason", "reason", coding.Coding, False, None, False),
-            ("value", "value", float, False, None, False),
         ])
         return js
 
@@ -668,7 +513,7 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
         
         self.adjudication = None
         """ Subdetail adjudication.
-        List of `ClaimResponseItemDetailSubDetailAdjudication` items (represented as `dict` in JSON). """
+        List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
         self.sequenceLinkId = None
         """ Service instance.
@@ -679,53 +524,8 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItemDetailSubDetail, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseItemDetailSubDetailAdjudication, True, None, False),
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
             ("sequenceLinkId", "sequenceLinkId", int, False, None, True),
-        ])
-        return js
-
-
-class ClaimResponseItemDetailSubDetailAdjudication(backboneelement.BackboneElement):
-    """ Subdetail adjudication.
-    
-    The adjudications results.
-    """
-    
-    resource_name = "ClaimResponseItemDetailSubDetailAdjudication"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.amount = None
-        """ Monetary amount.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
-        
-        self.category = None
-        """ Adjudication category such as co-pay, eligible, benefit, etc..
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.reason = None
-        """ Adjudication reason.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.value = None
-        """ Non-monetary value.
-        Type `float`. """
-        
-        super(ClaimResponseItemDetailSubDetailAdjudication, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClaimResponseItemDetailSubDetailAdjudication, self).elementProperties()
-        js.extend([
-            ("amount", "amount", quantity.Quantity, False, None, False),
-            ("category", "category", coding.Coding, False, None, True),
-            ("reason", "reason", coding.Coding, False, None, False),
-            ("value", "value", float, False, None, False),
         ])
         return js
 
@@ -770,8 +570,63 @@ class ClaimResponseNote(backboneelement.BackboneElement):
         return js
 
 
+class ClaimResponsePayment(backboneelement.BackboneElement):
+    """ None.
+    
+    Payment details for the claim if the claim has been paid.
+    """
+    
+    resource_name = "ClaimResponsePayment"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.adjustment = None
+        """ Payment adjustment for non-Claim issues.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.adjustmentReason = None
+        """ Reason for Payment adjustment.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.amount = None
+        """ Payment amount.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.date = None
+        """ Expected data of Payment.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.identifier = None
+        """ Payment identifier.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ Partial or Complete.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        super(ClaimResponsePayment, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClaimResponsePayment, self).elementProperties()
+        js.extend([
+            ("adjustment", "adjustment", money.Money, False, None, False),
+            ("adjustmentReason", "adjustmentReason", coding.Coding, False, None, False),
+            ("amount", "amount", money.Money, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("type", "type", coding.Coding, False, None, False),
+        ])
+        return js
+
+
 from . import coding
 from . import fhirdate
 from . import fhirreference
 from . import identifier
-from . import quantity
+from . import money

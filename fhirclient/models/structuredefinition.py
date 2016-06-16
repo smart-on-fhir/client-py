@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -90,7 +90,7 @@ class StructureDefinition(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.kind = None
-        """ datatype | resource | logical.
+        """ primitive-type | complex-type | resource | logical.
         Type `str`. """
         
         self.mapping = None

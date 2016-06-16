@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Protocol) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Protocol) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -104,7 +104,7 @@ class ProtocolStep(backboneelement.BackboneElement):
         
         self.duration = None
         """ How long does step last?.
-        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.exit = None
         """ Rules prior to completion.
@@ -133,7 +133,7 @@ class ProtocolStep(backboneelement.BackboneElement):
         js.extend([
             ("activity", "activity", ProtocolStepActivity, True, None, False),
             ("description", "description", str, False, None, False),
-            ("duration", "duration", quantity.Quantity, False, None, False),
+            ("duration", "duration", duration.Duration, False, None, False),
             ("exit", "exit", ProtocolStepPrecondition, False, None, False),
             ("firstActivity", "firstActivity", str, False, None, False),
             ("name", "name", str, False, None, False),
@@ -175,7 +175,7 @@ class ProtocolStepActivity(backboneelement.BackboneElement):
         
         self.wait = None
         """ Pause before start.
-        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
+        Type `Duration` (represented as `dict` in JSON). """
         
         super(ProtocolStepActivity, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -186,7 +186,7 @@ class ProtocolStepActivity(backboneelement.BackboneElement):
             ("component", "component", ProtocolStepActivityComponent, True, None, False),
             ("detail", "detail", ProtocolStepActivityDetail, False, None, True),
             ("following", "following", str, True, None, False),
-            ("wait", "wait", quantity.Quantity, False, None, False),
+            ("wait", "wait", duration.Duration, False, None, False),
         ])
         return js
 
@@ -242,7 +242,8 @@ class ProtocolStepActivityDetail(backboneelement.BackboneElement):
         """
         
         self.category = None
-        """ diet | drug | encounter | observation +.
+        """ communication | diet | drug | encounter | observation | procedure |
+        referral | supply | other.
         Type `str`. """
         
         self.code = None
@@ -261,7 +262,11 @@ class ProtocolStepActivityDetail(backboneelement.BackboneElement):
         """ Who's responsible?.
         List of `FHIRReference` items referencing `Practitioner, Organization, RelatedPerson, Patient` (represented as `dict` in JSON). """
         
-        self.product = None
+        self.productCodeableConcept = None
+        """ What's administered/supplied.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.productReference = None
         """ What's administered/supplied.
         Type `FHIRReference` referencing `Medication, Substance` (represented as `dict` in JSON). """
         
@@ -287,7 +292,8 @@ class ProtocolStepActivityDetail(backboneelement.BackboneElement):
             ("description", "description", str, False, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
             ("performer", "performer", fhirreference.FHIRReference, True, None, False),
-            ("product", "product", fhirreference.FHIRReference, False, None, False),
+            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
+            ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("timingCodeableConcept", "timingCodeableConcept", codeableconcept.CodeableConcept, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
@@ -434,6 +440,7 @@ class ProtocolStepPreconditionCondition(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
+from . import duration
 from . import fhirreference
 from . import identifier
 from . import quantity

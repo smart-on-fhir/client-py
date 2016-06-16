@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -85,20 +85,21 @@ class MedicationStatement(domainresource.DomainResource):
         """ Who is/was taking  the medication.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
-        self.reasonForUseCodeableConcept = None
-        """ None.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.reasonForUseCode = None
+        """ Reason for why the medication is being/was taken.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonForUseReference = None
-        """ None.
-        Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
+        """ Condition that supports why the medication is being/was taken.
+        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
         
         self.reasonNotTaken = None
         """ True if asserting medication was not given.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ active | completed | entered-in-error | intended.
+        """ active | completed | entered-in-error | intended | stopped | on-
+        hold.
         Type `str`. """
         
         self.supportingInformation = None
@@ -124,8 +125,8 @@ class MedicationStatement(domainresource.DomainResource):
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("reasonForUseCodeableConcept", "reasonForUseCodeableConcept", codeableconcept.CodeableConcept, False, "reasonForUse", False),
-            ("reasonForUseReference", "reasonForUseReference", fhirreference.FHIRReference, False, "reasonForUse", False),
+            ("reasonForUseCode", "reasonForUseCode", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonForUseReference", "reasonForUseReference", fhirreference.FHIRReference, True, None, False),
             ("reasonNotTaken", "reasonNotTaken", codeableconcept.CodeableConcept, True, None, False),
             ("status", "status", str, False, None, True),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
@@ -152,6 +153,10 @@ class MedicationStatementDosage(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.additionalInstructions = None
+        """ Supplemental instructions - e.g. "with meals".
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.asNeededBoolean = None
         """ Take "as needed" (for x).
         Type `bool`. """
@@ -159,6 +164,14 @@ class MedicationStatementDosage(backboneelement.BackboneElement):
         self.asNeededCodeableConcept = None
         """ Take "as needed" (for x).
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.doseQuantity = None
+        """ Amount of medication per dose.
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        
+        self.doseRange = None
+        """ Amount of medication per dose.
+        Type `Range` (represented as `dict` in JSON). """
         
         self.maxDosePerPeriod = None
         """ Maximum dose that was consumed per unit of time.
@@ -168,13 +181,9 @@ class MedicationStatementDosage(backboneelement.BackboneElement):
         """ Technique used to administer medication.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.quantityQuantity = None
-        """ Amount administered in one dose.
+        self.rateQuantity = None
+        """ Dose quantity per unit of time.
         Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
-        
-        self.quantityRange = None
-        """ Amount administered in one dose.
-        Type `Range` (represented as `dict` in JSON). """
         
         self.rateRange = None
         """ Dose quantity per unit of time.
@@ -209,12 +218,14 @@ class MedicationStatementDosage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationStatementDosage, self).elementProperties()
         js.extend([
+            ("additionalInstructions", "additionalInstructions", codeableconcept.CodeableConcept, True, None, False),
             ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False),
             ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False),
+            ("doseQuantity", "doseQuantity", quantity.Quantity, False, "dose", False),
+            ("doseRange", "doseRange", range.Range, False, "dose", False),
             ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("quantityQuantity", "quantityQuantity", quantity.Quantity, False, "quantity", False),
-            ("quantityRange", "quantityRange", range.Range, False, "quantity", False),
+            ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False),
             ("rateRange", "rateRange", range.Range, False, "rate", False),
             ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
             ("route", "route", codeableconcept.CodeableConcept, False, None, False),

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -60,7 +60,9 @@ class ExplanationOfBenefitTests(unittest.TestCase):
         self.assertEqual(inst.item[0].unitPrice.code, "USD")
         self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.item[0].unitPrice.value, 135.57)
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the ExplanationOfBenefit</div>")
+        self.assertEqual(inst.outcome.code, "complete")
+        self.assertEqual(inst.outcome.system, "http://hl7.org/fhir/remittance-outcome")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the ExplanationOfBenefit</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.totalBenefit.code, "USD")
         self.assertEqual(inst.totalBenefit.system, "urn:iso:std:iso:4217")
@@ -68,4 +70,5 @@ class ExplanationOfBenefitTests(unittest.TestCase):
         self.assertEqual(inst.totalCost.code, "USD")
         self.assertEqual(inst.totalCost.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.totalCost.value, 135.57)
+        self.assertEqual(inst.type, "oral")
 

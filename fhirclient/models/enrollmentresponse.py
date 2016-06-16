@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/EnrollmentResponse) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/EnrollmentResponse) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -45,7 +45,7 @@ class EnrollmentResponse(domainresource.DomainResource):
         Type `Coding` (represented as `dict` in JSON). """
         
         self.outcome = None
-        """ complete | error.
+        """ complete | error | partial.
         Type `str`. """
         
         self.request = None

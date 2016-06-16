@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -80,7 +80,7 @@ class OrganizationTests(unittest.TestCase):
         self.implOrganization2(inst2)
     
     def implOrganization2(self, inst):
-        self.assertFalse(inst.active)
+        self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].line[0], "South Wing, floor 2")
         self.assertEqual(inst.contact[0].address.line[0], "South Wing, floor 2")
         self.assertEqual(inst.contact[0].name.text, "mevr. D. de Haan")
@@ -112,7 +112,7 @@ class OrganizationTests(unittest.TestCase):
         self.implOrganization3(inst2)
     
     def implOrganization3(self, inst):
-        self.assertFalse(inst.active)
+        self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].line[0], "West Wing, floor 5")
         self.assertEqual(inst.contact[0].address.line[0], "West Wing, floor 5")
         self.assertEqual(inst.contact[0].name.text, "mr. F. de Hond")

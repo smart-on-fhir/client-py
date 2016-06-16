@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Contract) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Contract) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -485,7 +485,7 @@ class ContractTermValuedItem(backboneelement.BackboneElement):
         
         self.net = None
         """ Total Contract Term Valued Item Value.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         self.points = None
         """ Contract Term Valued Item Difficulty Scaling Factor.
@@ -497,7 +497,7 @@ class ContractTermValuedItem(backboneelement.BackboneElement):
         
         self.unitPrice = None
         """ Contract Term Valued Item fee, charge, or cost.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         super(ContractTermValuedItem, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -509,10 +509,10 @@ class ContractTermValuedItem(backboneelement.BackboneElement):
             ("entityReference", "entityReference", fhirreference.FHIRReference, False, "entity", False),
             ("factor", "factor", float, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("net", "net", quantity.Quantity, False, None, False),
+            ("net", "net", money.Money, False, None, False),
             ("points", "points", float, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("unitPrice", "unitPrice", quantity.Quantity, False, None, False),
+            ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
 
@@ -555,7 +555,7 @@ class ContractValuedItem(backboneelement.BackboneElement):
         
         self.net = None
         """ Total Contract Valued Item Value.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         self.points = None
         """ Contract Valued Item Difficulty Scaling Factor.
@@ -567,7 +567,7 @@ class ContractValuedItem(backboneelement.BackboneElement):
         
         self.unitPrice = None
         """ Contract Valued Item fee, charge, or cost.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         super(ContractValuedItem, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -579,10 +579,10 @@ class ContractValuedItem(backboneelement.BackboneElement):
             ("entityReference", "entityReference", fhirreference.FHIRReference, False, "entity", False),
             ("factor", "factor", float, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("net", "net", quantity.Quantity, False, None, False),
+            ("net", "net", money.Money, False, None, False),
             ("points", "points", float, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("unitPrice", "unitPrice", quantity.Quantity, False, None, False),
+            ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
 
@@ -593,6 +593,7 @@ from . import coding
 from . import fhirdate
 from . import fhirreference
 from . import identifier
+from . import money
 from . import period
 from . import quantity
 from . import signature

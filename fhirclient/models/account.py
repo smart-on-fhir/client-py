@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Account) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Account) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -31,7 +31,7 @@ class Account(domainresource.DomainResource):
         
         self.balance = None
         """ How much is in account?.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         self.coveragePeriod = None
         """ Transaction window.
@@ -75,7 +75,7 @@ class Account(domainresource.DomainResource):
         js = super(Account, self).elementProperties()
         js.extend([
             ("activePeriod", "activePeriod", period.Period, False, None, False),
-            ("balance", "balance", quantity.Quantity, False, None, False),
+            ("balance", "balance", money.Money, False, None, False),
             ("coveragePeriod", "coveragePeriod", period.Period, False, None, False),
             ("currency", "currency", coding.Coding, False, None, False),
             ("description", "description", str, False, None, False),
@@ -93,5 +93,5 @@ from . import codeableconcept
 from . import coding
 from . import fhirreference
 from . import identifier
+from . import money
 from . import period
-from . import quantity

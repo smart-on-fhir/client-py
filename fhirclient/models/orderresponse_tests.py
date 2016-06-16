@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -36,6 +36,6 @@ class OrderResponseTests(unittest.TestCase):
         self.assertEqual(inst.date.as_json(), "2012-12-28T13:10:56+11:00")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.orderStatus, "completed")
-        self.assertEqual(inst.text.div, "<div>Lab Report completed at 13:10 28-Dec 2012</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Lab Report completed at 13:10 28-Dec 2012</div>")
         self.assertEqual(inst.text.status, "generated")
 

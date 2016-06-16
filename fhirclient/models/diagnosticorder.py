@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/DiagnosticOrder) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/DiagnosticOrder) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -56,10 +56,6 @@ class DiagnosticOrder(domainresource.DomainResource):
         """ Explanation/Justification for test.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.specimen = None
-        """ If the whole order relates to specific specimens.
-        List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
-        
         self.status = None
         """ proposed | draft | planned | requested | received | accepted | in-
         progress | review | completed | cancelled | suspended | rejected |
@@ -87,7 +83,6 @@ class DiagnosticOrder(domainresource.DomainResource):
             ("orderer", "orderer", fhirreference.FHIRReference, False, None, False),
             ("priority", "priority", str, False, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
-            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
@@ -176,10 +171,6 @@ class DiagnosticOrderItem(backboneelement.BackboneElement):
         """ Events specific to this item.
         List of `DiagnosticOrderEvent` items (represented as `dict` in JSON). """
         
-        self.specimen = None
-        """ If this item relates to specific specimens.
-        List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
-        
         self.status = None
         """ proposed | draft | planned | requested | received | accepted | in-
         progress | review | completed | cancelled | suspended | rejected |
@@ -194,7 +185,6 @@ class DiagnosticOrderItem(backboneelement.BackboneElement):
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("event", "event", DiagnosticOrderEvent, True, None, False),
-            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, False),
         ])
         return js

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ActionDefinition) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/ActionDefinition) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -211,9 +211,9 @@ class ActionDefinitionRelatedAction(element.Element):
         """ start | end.
         Type `str`. """
         
-        self.offsetQuantity = None
+        self.offsetDuration = None
         """ Time offset for the relationship.
-        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.offsetRange = None
         """ Time offset for the relationship.
@@ -230,7 +230,7 @@ class ActionDefinitionRelatedAction(element.Element):
         js.extend([
             ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, True),
             ("anchor", "anchor", str, False, None, False),
-            ("offsetQuantity", "offsetQuantity", quantity.Quantity, False, "offset", False),
+            ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False),
             ("offsetRange", "offsetRange", range.Range, False, "offset", False),
             ("relationship", "relationship", str, False, None, True),
         ])
@@ -240,7 +240,7 @@ class ActionDefinitionRelatedAction(element.Element):
 from . import attachment
 from . import codeableconcept
 from . import coding
+from . import duration
 from . import fhirreference
 from . import identifier
-from . import quantity
 from . import range

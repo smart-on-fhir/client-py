@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -56,7 +56,7 @@ class OrderTests(unittest.TestCase):
         self.assertEqual(inst.date.as_json(), "2012-12-28T09:03:04+11:00")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.reasonCodeableConcept.text, "Standard admission testing")
-        self.assertEqual(inst.text.div, "<div>Request for Prescription (on patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321)</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Request for Prescription (on patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321)</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.when.code.coding[0].code, "today")
         self.assertEqual(inst.when.code.coding[0].system, "http://acme.com/codes/request-priority")

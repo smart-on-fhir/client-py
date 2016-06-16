@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -43,6 +43,6 @@ class CommunicationTests(unittest.TestCase):
         self.assertEqual(inst.sent.date, FHIRDate("2014-12-12T18:01:10-08:00").date)
         self.assertEqual(inst.sent.as_json(), "2014-12-12T18:01:10-08:00")
         self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.div, "<div>Patient has very high serum potassium</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient has very high serum potassium</div>")
         self.assertEqual(inst.text.status, "generated")
 

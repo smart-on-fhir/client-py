@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -229,9 +229,9 @@ class GuidanceResponseActionRelatedAction(backboneelement.BackboneElement):
         """ start | end.
         Type `str`. """
         
-        self.offsetQuantity = None
+        self.offsetDuration = None
         """ Time offset for the relationship.
-        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.offsetRange = None
         """ Time offset for the relationship.
@@ -248,7 +248,7 @@ class GuidanceResponseActionRelatedAction(backboneelement.BackboneElement):
         js.extend([
             ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, True),
             ("anchor", "anchor", str, False, None, False),
-            ("offsetQuantity", "offsetQuantity", quantity.Quantity, False, "offset", False),
+            ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False),
             ("offsetRange", "offsetRange", range.Range, False, "offset", False),
             ("relationship", "relationship", str, False, None, True),
         ])
@@ -259,7 +259,7 @@ from . import attachment
 from . import codeableconcept
 from . import coding
 from . import datarequirement
+from . import duration
 from . import fhirreference
 from . import identifier
-from . import quantity
 from . import range

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -277,8 +277,8 @@ class NutritionOrderOralDiet(backboneelement.BackboneElement):
 class NutritionOrderOralDietNutrient(backboneelement.BackboneElement):
     """ Required  nutrient modifications.
     
-    Class that defines the quantity and type of nutrient modifications required
-    for the oral diet.
+    Class that defines the quantity and type of nutrient modifications (for
+    example carbohydrate, fiber or sodium) required for the oral diet.
     """
     
     resource_name = "NutritionOrderOralDietNutrient"

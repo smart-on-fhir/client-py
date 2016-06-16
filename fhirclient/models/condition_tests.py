@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -190,10 +190,10 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.dateRecorded.date, FHIRDate("2012-12-01").date)
         self.assertEqual(inst.dateRecorded.as_json(), "2012-12-01")
         self.assertEqual(inst.id, "f202")
-        self.assertEqual(inst.onsetQuantity.code, "258707000")
-        self.assertEqual(inst.onsetQuantity.system, "http://snomed.info/sct")
-        self.assertEqual(inst.onsetQuantity.unit, "years")
-        self.assertEqual(inst.onsetQuantity.value, 52)
+        self.assertEqual(inst.onsetAge.code, "a")
+        self.assertEqual(inst.onsetAge.system, "http://unitsofmeasure.org")
+        self.assertEqual(inst.onsetAge.unit, "years")
+        self.assertEqual(inst.onsetAge.value, 52)
         self.assertEqual(inst.severity.coding[0].code, "24484000")
         self.assertEqual(inst.severity.coding[0].display, "Severe")
         self.assertEqual(inst.severity.coding[0].system, "http://snomed.info/sct")
@@ -316,7 +316,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.id, "stroke")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2010-07-18").date)
         self.assertEqual(inst.onsetDateTime.as_json(), "2010-07-18")
-        self.assertEqual(inst.text.div, "<div>Ischemic stroke, July 18, 2010</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Ischemic stroke, July 18, 2010</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.verificationStatus, "confirmed")
     
@@ -351,7 +351,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.severity.coding[0].code, "24484000")
         self.assertEqual(inst.severity.coding[0].display, "Severe")
         self.assertEqual(inst.severity.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.text.div, "<div>Severe burn of left ear (Date: 24-May 2012)</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Severe burn of left ear (Date: 24-May 2012)</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.verificationStatus, "confirmed")
 

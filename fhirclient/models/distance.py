@@ -1,17 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Distance) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Distance) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
 from . import quantity
 
 class Distance(quantity.Quantity):
-    """ A measure of distance.
-    
-    There SHALL be a code if there is a value and it SHALL be an expression of
-    length.  If system is present, it SHALL be UCUM.
+    """ A length - a value with a unit that is a physical distance.
     """
     
     resource_name = "Distance"

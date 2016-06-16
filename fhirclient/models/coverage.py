@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
 from . import domainresource
 
 class Coverage(domainresource.DomainResource):
-    """ Insurance or medical plan.
+    """ Insurance or medical plan or a payment agreement.
     
     Financial instrument which may be used to pay for or reimburse health care
     products and services.
@@ -56,13 +56,17 @@ class Coverage(domainresource.DomainResource):
         """ The primary coverage ID.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.isAgreement = None
+        """ Is a Payment Agreement.
+        Type `bool`. """
+        
         self.issuerIdentifier = None
-        """ Identifier for the plan issuer.
+        """ Identifier for the plan or agreement issuer.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.issuerReference = None
-        """ Identifier for the plan issuer.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ Identifier for the plan or agreement issuer.
+        Type `FHIRReference` referencing `Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.network = None
         """ Insurer network.
@@ -117,6 +121,7 @@ class Coverage(domainresource.DomainResource):
             ("exception", "exception", coding.Coding, True, None, False),
             ("group", "group", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("isAgreement", "isAgreement", bool, False, None, False),
             ("issuerIdentifier", "issuerIdentifier", identifier.Identifier, False, "issuer", True),
             ("issuerReference", "issuerReference", fhirreference.FHIRReference, False, "issuer", True),
             ("network", "network", str, False, None, False),

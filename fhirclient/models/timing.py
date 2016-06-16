@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Timing) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Timing) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -27,7 +27,7 @@ class Timing(element.Element):
         """
         
         self.code = None
-        """ QD | QOD | Q4H | Q6H | BID | TID | QID | AM | PM +.
+        """ BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.event = None
@@ -66,13 +66,13 @@ class TimingRepeat(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.boundsDuration = None
+        """ Length/Range of lengths, or (Start and/or end) limits.
+        Type `Duration` (represented as `dict` in JSON). """
+        
         self.boundsPeriod = None
         """ Length/Range of lengths, or (Start and/or end) limits.
         Type `Period` (represented as `dict` in JSON). """
-        
-        self.boundsQuantity = None
-        """ Length/Range of lengths, or (Start and/or end) limits.
-        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
         
         self.boundsRange = None
         """ Length/Range of lengths, or (Start and/or end) limits.
@@ -131,8 +131,8 @@ class TimingRepeat(element.Element):
     def elementProperties(self):
         js = super(TimingRepeat, self).elementProperties()
         js.extend([
+            ("boundsDuration", "boundsDuration", duration.Duration, False, "bounds", False),
             ("boundsPeriod", "boundsPeriod", period.Period, False, "bounds", False),
-            ("boundsQuantity", "boundsQuantity", quantity.Quantity, False, "bounds", False),
             ("boundsRange", "boundsRange", range.Range, False, "bounds", False),
             ("count", "count", int, False, None, False),
             ("countMax", "countMax", int, False, None, False),
@@ -151,7 +151,7 @@ class TimingRepeat(element.Element):
 
 
 from . import codeableconcept
+from . import duration
 from . import fhirdate
 from . import period
-from . import quantity
 from . import range

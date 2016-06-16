@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -32,6 +32,9 @@ class FHIRElementFactory(object):
         if "ActionDefinitionRelatedAction" == resource_name:
             from . import actiondefinition
             return actiondefinition.ActionDefinitionRelatedAction(jsondict)
+        if "ActivityDefinition" == resource_name:
+            from . import activitydefinition
+            return activitydefinition.ActivityDefinition(jsondict)
         if "Address" == resource_name:
             from . import address
             return address.Address(jsondict)
@@ -116,9 +119,6 @@ class FHIRElementFactory(object):
         if "CarePlanActivityDetail" == resource_name:
             from . import careplan
             return careplan.CarePlanActivityDetail(jsondict)
-        if "CarePlanParticipant" == resource_name:
-            from . import careplan
-            return careplan.CarePlanParticipant(jsondict)
         if "CarePlanRelatedPlan" == resource_name:
             from . import careplan
             return careplan.CarePlanRelatedPlan(jsondict)
@@ -131,15 +131,24 @@ class FHIRElementFactory(object):
         if "Claim" == resource_name:
             from . import claim
             return claim.Claim(jsondict)
+        if "ClaimAccident" == resource_name:
+            from . import claim
+            return claim.ClaimAccident(jsondict)
         if "ClaimCoverage" == resource_name:
             from . import claim
             return claim.ClaimCoverage(jsondict)
         if "ClaimDiagnosis" == resource_name:
             from . import claim
             return claim.ClaimDiagnosis(jsondict)
+        if "ClaimInformation" == resource_name:
+            from . import claim
+            return claim.ClaimInformation(jsondict)
         if "ClaimItem" == resource_name:
             from . import claim
             return claim.ClaimItem(jsondict)
+        if "ClaimItemCareTeam" == resource_name:
+            from . import claim
+            return claim.ClaimItemCareTeam(jsondict)
         if "ClaimItemDetail" == resource_name:
             from . import claim
             return claim.ClaimItemDetail(jsondict)
@@ -152,9 +161,6 @@ class FHIRElementFactory(object):
         if "ClaimMissingTeeth" == resource_name:
             from . import claim
             return claim.ClaimMissingTeeth(jsondict)
-        if "ClaimOnset" == resource_name:
-            from . import claim
-            return claim.ClaimOnset(jsondict)
         if "ClaimPayee" == resource_name:
             from . import claim
             return claim.ClaimPayee(jsondict)
@@ -170,15 +176,9 @@ class FHIRElementFactory(object):
         if "ClaimResponseAddItem" == resource_name:
             from . import claimresponse
             return claimresponse.ClaimResponseAddItem(jsondict)
-        if "ClaimResponseAddItemAdjudication" == resource_name:
-            from . import claimresponse
-            return claimresponse.ClaimResponseAddItemAdjudication(jsondict)
         if "ClaimResponseAddItemDetail" == resource_name:
             from . import claimresponse
             return claimresponse.ClaimResponseAddItemDetail(jsondict)
-        if "ClaimResponseAddItemDetailAdjudication" == resource_name:
-            from . import claimresponse
-            return claimresponse.ClaimResponseAddItemDetailAdjudication(jsondict)
         if "ClaimResponseCoverage" == resource_name:
             from . import claimresponse
             return claimresponse.ClaimResponseCoverage(jsondict)
@@ -194,18 +194,15 @@ class FHIRElementFactory(object):
         if "ClaimResponseItemDetail" == resource_name:
             from . import claimresponse
             return claimresponse.ClaimResponseItemDetail(jsondict)
-        if "ClaimResponseItemDetailAdjudication" == resource_name:
-            from . import claimresponse
-            return claimresponse.ClaimResponseItemDetailAdjudication(jsondict)
         if "ClaimResponseItemDetailSubDetail" == resource_name:
             from . import claimresponse
             return claimresponse.ClaimResponseItemDetailSubDetail(jsondict)
-        if "ClaimResponseItemDetailSubDetailAdjudication" == resource_name:
-            from . import claimresponse
-            return claimresponse.ClaimResponseItemDetailSubDetailAdjudication(jsondict)
         if "ClaimResponseNote" == resource_name:
             from . import claimresponse
             return claimresponse.ClaimResponseNote(jsondict)
+        if "ClaimResponsePayment" == resource_name:
+            from . import claimresponse
+            return claimresponse.ClaimResponsePayment(jsondict)
         if "ClinicalImpression" == resource_name:
             from . import clinicalimpression
             return clinicalimpression.ClinicalImpression(jsondict)
@@ -284,15 +281,18 @@ class FHIRElementFactory(object):
         if "ConceptMapContact" == resource_name:
             from . import conceptmap
             return conceptmap.ConceptMapContact(jsondict)
-        if "ConceptMapElement" == resource_name:
+        if "ConceptMapGroup" == resource_name:
             from . import conceptmap
-            return conceptmap.ConceptMapElement(jsondict)
-        if "ConceptMapElementTarget" == resource_name:
+            return conceptmap.ConceptMapGroup(jsondict)
+        if "ConceptMapGroupElement" == resource_name:
             from . import conceptmap
-            return conceptmap.ConceptMapElementTarget(jsondict)
-        if "ConceptMapElementTargetDependsOn" == resource_name:
+            return conceptmap.ConceptMapGroupElement(jsondict)
+        if "ConceptMapGroupElementTarget" == resource_name:
             from . import conceptmap
-            return conceptmap.ConceptMapElementTargetDependsOn(jsondict)
+            return conceptmap.ConceptMapGroupElementTarget(jsondict)
+        if "ConceptMapGroupElementTargetDependsOn" == resource_name:
+            from . import conceptmap
+            return conceptmap.ConceptMapGroupElementTargetDependsOn(jsondict)
         if "Condition" == resource_name:
             from . import condition
             return condition.Condition(jsondict)
@@ -350,6 +350,18 @@ class FHIRElementFactory(object):
         if "ConformanceSoftware" == resource_name:
             from . import conformance
             return conformance.ConformanceSoftware(jsondict)
+        if "Consent" == resource_name:
+            from . import consent
+            return consent.Consent(jsondict)
+        if "ConsentActor" == resource_name:
+            from . import consent
+            return consent.ConsentActor(jsondict)
+        if "ConsentData" == resource_name:
+            from . import consent
+            return consent.ConsentData(jsondict)
+        if "ConsentExcept" == resource_name:
+            from . import consent
+            return consent.ConsentExcept(jsondict)
         if "ContactPoint" == resource_name:
             from . import contactpoint
             return contactpoint.ContactPoint(jsondict)
@@ -542,6 +554,9 @@ class FHIRElementFactory(object):
         if "EncounterStatusHistory" == resource_name:
             from . import encounter
             return encounter.EncounterStatusHistory(jsondict)
+        if "Endpoint" == resource_name:
+            from . import endpoint
+            return endpoint.Endpoint(jsondict)
         if "EnrollmentRequest" == resource_name:
             from . import enrollmentrequest
             return enrollmentrequest.EnrollmentRequest(jsondict)
@@ -593,18 +608,15 @@ class FHIRElementFactory(object):
         if "ExplanationOfBenefit" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefit(jsondict)
+        if "ExplanationOfBenefitAccident" == resource_name:
+            from . import explanationofbenefit
+            return explanationofbenefit.ExplanationOfBenefitAccident(jsondict)
         if "ExplanationOfBenefitAddItem" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitAddItem(jsondict)
-        if "ExplanationOfBenefitAddItemAdjudication" == resource_name:
-            from . import explanationofbenefit
-            return explanationofbenefit.ExplanationOfBenefitAddItemAdjudication(jsondict)
         if "ExplanationOfBenefitAddItemDetail" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitAddItemDetail(jsondict)
-        if "ExplanationOfBenefitAddItemDetailAdjudication" == resource_name:
-            from . import explanationofbenefit
-            return explanationofbenefit.ExplanationOfBenefitAddItemDetailAdjudication(jsondict)
         if "ExplanationOfBenefitBenefitBalance" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitBenefitBalance(jsondict)
@@ -617,24 +629,24 @@ class FHIRElementFactory(object):
         if "ExplanationOfBenefitDiagnosis" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitDiagnosis(jsondict)
+        if "ExplanationOfBenefitInformation" == resource_name:
+            from . import explanationofbenefit
+            return explanationofbenefit.ExplanationOfBenefitInformation(jsondict)
         if "ExplanationOfBenefitItem" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitItem(jsondict)
         if "ExplanationOfBenefitItemAdjudication" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitItemAdjudication(jsondict)
+        if "ExplanationOfBenefitItemCareTeam" == resource_name:
+            from . import explanationofbenefit
+            return explanationofbenefit.ExplanationOfBenefitItemCareTeam(jsondict)
         if "ExplanationOfBenefitItemDetail" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitItemDetail(jsondict)
-        if "ExplanationOfBenefitItemDetailAdjudication" == resource_name:
-            from . import explanationofbenefit
-            return explanationofbenefit.ExplanationOfBenefitItemDetailAdjudication(jsondict)
         if "ExplanationOfBenefitItemDetailSubDetail" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitItemDetailSubDetail(jsondict)
-        if "ExplanationOfBenefitItemDetailSubDetailAdjudication" == resource_name:
-            from . import explanationofbenefit
-            return explanationofbenefit.ExplanationOfBenefitItemDetailSubDetailAdjudication(jsondict)
         if "ExplanationOfBenefitItemProsthesis" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitItemProsthesis(jsondict)
@@ -644,12 +656,12 @@ class FHIRElementFactory(object):
         if "ExplanationOfBenefitNote" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitNote(jsondict)
-        if "ExplanationOfBenefitOnset" == resource_name:
-            from . import explanationofbenefit
-            return explanationofbenefit.ExplanationOfBenefitOnset(jsondict)
         if "ExplanationOfBenefitPayee" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitPayee(jsondict)
+        if "ExplanationOfBenefitPayment" == resource_name:
+            from . import explanationofbenefit
+            return explanationofbenefit.ExplanationOfBenefitPayment(jsondict)
         if "ExplanationOfBenefitProcedure" == resource_name:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitProcedure(jsondict)
@@ -710,45 +722,24 @@ class FHIRElementFactory(object):
         if "Identifier" == resource_name:
             from . import identifier
             return identifier.Identifier(jsondict)
-        if "ImagingExcerpt" == resource_name:
-            from . import imagingexcerpt
-            return imagingexcerpt.ImagingExcerpt(jsondict)
-        if "ImagingExcerptStudy" == resource_name:
-            from . import imagingexcerpt
-            return imagingexcerpt.ImagingExcerptStudy(jsondict)
-        if "ImagingExcerptStudyDicom" == resource_name:
-            from . import imagingexcerpt
-            return imagingexcerpt.ImagingExcerptStudyDicom(jsondict)
-        if "ImagingExcerptStudySeries" == resource_name:
-            from . import imagingexcerpt
-            return imagingexcerpt.ImagingExcerptStudySeries(jsondict)
-        if "ImagingExcerptStudySeriesDicom" == resource_name:
-            from . import imagingexcerpt
-            return imagingexcerpt.ImagingExcerptStudySeriesDicom(jsondict)
-        if "ImagingExcerptStudySeriesInstance" == resource_name:
-            from . import imagingexcerpt
-            return imagingexcerpt.ImagingExcerptStudySeriesInstance(jsondict)
-        if "ImagingExcerptStudySeriesInstanceDicom" == resource_name:
-            from . import imagingexcerpt
-            return imagingexcerpt.ImagingExcerptStudySeriesInstanceDicom(jsondict)
-        if "ImagingExcerptStudyViewable" == resource_name:
-            from . import imagingexcerpt
-            return imagingexcerpt.ImagingExcerptStudyViewable(jsondict)
-        if "ImagingObjectSelection" == resource_name:
-            from . import imagingobjectselection
-            return imagingobjectselection.ImagingObjectSelection(jsondict)
-        if "ImagingObjectSelectionStudy" == resource_name:
-            from . import imagingobjectselection
-            return imagingobjectselection.ImagingObjectSelectionStudy(jsondict)
-        if "ImagingObjectSelectionStudySeries" == resource_name:
-            from . import imagingobjectselection
-            return imagingobjectselection.ImagingObjectSelectionStudySeries(jsondict)
-        if "ImagingObjectSelectionStudySeriesInstance" == resource_name:
-            from . import imagingobjectselection
-            return imagingobjectselection.ImagingObjectSelectionStudySeriesInstance(jsondict)
-        if "ImagingObjectSelectionStudySeriesInstanceFrame" == resource_name:
-            from . import imagingobjectselection
-            return imagingobjectselection.ImagingObjectSelectionStudySeriesInstanceFrame(jsondict)
+        if "ImagingManifest" == resource_name:
+            from . import imagingmanifest
+            return imagingmanifest.ImagingManifest(jsondict)
+        if "ImagingManifestStudy" == resource_name:
+            from . import imagingmanifest
+            return imagingmanifest.ImagingManifestStudy(jsondict)
+        if "ImagingManifestStudyBaseLocation" == resource_name:
+            from . import imagingmanifest
+            return imagingmanifest.ImagingManifestStudyBaseLocation(jsondict)
+        if "ImagingManifestStudySeries" == resource_name:
+            from . import imagingmanifest
+            return imagingmanifest.ImagingManifestStudySeries(jsondict)
+        if "ImagingManifestStudySeriesBaseLocation" == resource_name:
+            from . import imagingmanifest
+            return imagingmanifest.ImagingManifestStudySeriesBaseLocation(jsondict)
+        if "ImagingManifestStudySeriesInstance" == resource_name:
+            from . import imagingmanifest
+            return imagingmanifest.ImagingManifestStudySeriesInstance(jsondict)
         if "ImagingStudy" == resource_name:
             from . import imagingstudy
             return imagingstudy.ImagingStudy(jsondict)
@@ -887,12 +878,18 @@ class FHIRElementFactory(object):
         if "MedicationAdministrationDosage" == resource_name:
             from . import medicationadministration
             return medicationadministration.MedicationAdministrationDosage(jsondict)
+        if "MedicationAdministrationEventHistory" == resource_name:
+            from . import medicationadministration
+            return medicationadministration.MedicationAdministrationEventHistory(jsondict)
         if "MedicationDispense" == resource_name:
             from . import medicationdispense
             return medicationdispense.MedicationDispense(jsondict)
         if "MedicationDispenseDosageInstruction" == resource_name:
             from . import medicationdispense
             return medicationdispense.MedicationDispenseDosageInstruction(jsondict)
+        if "MedicationDispenseEventHistory" == resource_name:
+            from . import medicationdispense
+            return medicationdispense.MedicationDispenseEventHistory(jsondict)
         if "MedicationDispenseSubstitution" == resource_name:
             from . import medicationdispense
             return medicationdispense.MedicationDispenseSubstitution(jsondict)
@@ -905,6 +902,9 @@ class FHIRElementFactory(object):
         if "MedicationOrderDosageInstruction" == resource_name:
             from . import medicationorder
             return medicationorder.MedicationOrderDosageInstruction(jsondict)
+        if "MedicationOrderEventHistory" == resource_name:
+            from . import medicationorder
+            return medicationorder.MedicationOrderEventHistory(jsondict)
         if "MedicationOrderSubstitution" == resource_name:
             from . import medicationorder
             return medicationorder.MedicationOrderSubstitution(jsondict)
@@ -1118,6 +1118,21 @@ class FHIRElementFactory(object):
         if "PersonLink" == resource_name:
             from . import person
             return person.PersonLink(jsondict)
+        if "PlanDefinition" == resource_name:
+            from . import plandefinition
+            return plandefinition.PlanDefinition(jsondict)
+        if "PlanDefinitionActionDefinition" == resource_name:
+            from . import plandefinition
+            return plandefinition.PlanDefinitionActionDefinition(jsondict)
+        if "PlanDefinitionActionDefinitionBehavior" == resource_name:
+            from . import plandefinition
+            return plandefinition.PlanDefinitionActionDefinitionBehavior(jsondict)
+        if "PlanDefinitionActionDefinitionCustomization" == resource_name:
+            from . import plandefinition
+            return plandefinition.PlanDefinitionActionDefinitionCustomization(jsondict)
+        if "PlanDefinitionActionDefinitionRelatedAction" == resource_name:
+            from . import plandefinition
+            return plandefinition.PlanDefinitionActionDefinitionRelatedAction(jsondict)
         if "Practitioner" == resource_name:
             from . import practitioner
             return practitioner.Practitioner(jsondict)
@@ -1268,18 +1283,18 @@ class FHIRElementFactory(object):
         if "SequenceRepository" == resource_name:
             from . import sequence
             return sequence.SequenceRepository(jsondict)
-        if "SequenceStructureVariation" == resource_name:
+        if "SequenceStructureVariant" == resource_name:
             from . import sequence
-            return sequence.SequenceStructureVariation(jsondict)
-        if "SequenceStructureVariationInner" == resource_name:
+            return sequence.SequenceStructureVariant(jsondict)
+        if "SequenceStructureVariantInner" == resource_name:
             from . import sequence
-            return sequence.SequenceStructureVariationInner(jsondict)
-        if "SequenceStructureVariationOuter" == resource_name:
+            return sequence.SequenceStructureVariantInner(jsondict)
+        if "SequenceStructureVariantOuter" == resource_name:
             from . import sequence
-            return sequence.SequenceStructureVariationOuter(jsondict)
-        if "SequenceVariation" == resource_name:
+            return sequence.SequenceStructureVariantOuter(jsondict)
+        if "SequenceVariant" == resource_name:
             from . import sequence
-            return sequence.SequenceVariation(jsondict)
+            return sequence.SequenceVariant(jsondict)
         if "Signature" == resource_name:
             from . import signature
             return signature.Signature(jsondict)
@@ -1370,6 +1385,9 @@ class FHIRElementFactory(object):
         if "Task" == resource_name:
             from . import task
             return task.Task(jsondict)
+        if "TaskFulfillment" == resource_name:
+            from . import task
+            return task.TaskFulfillment(jsondict)
         if "TaskInput" == resource_name:
             from . import task
             return task.TaskInput(jsondict)

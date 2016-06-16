@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -73,6 +73,10 @@ class ParametersParameter(backboneelement.BackboneElement):
         """ If parameter is a data type.
         Type `Address` (represented as `dict` in JSON). """
         
+        self.valueAge = None
+        """ If parameter is a data type.
+        Type `Age` (represented as `dict` in JSON). """
+        
         self.valueAnnotation = None
         """ If parameter is a data type.
         Type `Annotation` (represented as `dict` in JSON). """
@@ -105,6 +109,10 @@ class ParametersParameter(backboneelement.BackboneElement):
         """ If parameter is a data type.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.valueCount = None
+        """ If parameter is a data type.
+        Type `Count` (represented as `dict` in JSON). """
+        
         self.valueDate = None
         """ If parameter is a data type.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -116,6 +124,14 @@ class ParametersParameter(backboneelement.BackboneElement):
         self.valueDecimal = None
         """ If parameter is a data type.
         Type `float`. """
+        
+        self.valueDistance = None
+        """ If parameter is a data type.
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.valueDuration = None
+        """ If parameter is a data type.
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.valueHumanName = None
         """ If parameter is a data type.
@@ -144,6 +160,10 @@ class ParametersParameter(backboneelement.BackboneElement):
         self.valueMeta = None
         """ If parameter is a data type.
         Type `Meta` (represented as `dict` in JSON). """
+        
+        self.valueMoney = None
+        """ If parameter is a data type.
+        Type `Money` (represented as `dict` in JSON). """
         
         self.valueOid = None
         """ If parameter is a data type.
@@ -210,6 +230,7 @@ class ParametersParameter(backboneelement.BackboneElement):
             ("part", "part", ParametersParameter, True, None, False),
             ("resource", "resource", resource.Resource, False, None, False),
             ("valueAddress", "valueAddress", address.Address, False, "value", False),
+            ("valueAge", "valueAge", age.Age, False, "value", False),
             ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", False),
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
             ("valueBase64Binary", "valueBase64Binary", str, False, "value", False),
@@ -218,9 +239,12 @@ class ParametersParameter(backboneelement.BackboneElement):
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", False),
             ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False, "value", False),
+            ("valueCount", "valueCount", count.Count, False, "value", False),
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", False),
             ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
             ("valueDecimal", "valueDecimal", float, False, "value", False),
+            ("valueDistance", "valueDistance", distance.Distance, False, "value", False),
+            ("valueDuration", "valueDuration", duration.Duration, False, "value", False),
             ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", False),
             ("valueId", "valueId", str, False, "value", False),
             ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", False),
@@ -228,6 +252,7 @@ class ParametersParameter(backboneelement.BackboneElement):
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valueMarkdown", "valueMarkdown", str, False, "value", False),
             ("valueMeta", "valueMeta", meta.Meta, False, "value", False),
+            ("valueMoney", "valueMoney", money.Money, False, "value", False),
             ("valueOid", "valueOid", str, False, "value", False),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
             ("valuePositiveInt", "valuePositiveInt", int, False, "value", False),
@@ -247,16 +272,21 @@ class ParametersParameter(backboneelement.BackboneElement):
 
 
 from . import address
+from . import age
 from . import annotation
 from . import attachment
 from . import codeableconcept
 from . import coding
 from . import contactpoint
+from . import count
+from . import distance
+from . import duration
 from . import fhirdate
 from . import fhirreference
 from . import humanname
 from . import identifier
 from . import meta
+from . import money
 from . import period
 from . import quantity
 from . import range

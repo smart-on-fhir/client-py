@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -35,19 +35,19 @@ class MedicationOrderTests(unittest.TestCase):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2013-05-25T19:32:52+01:00").date)
         self.assertEqual(inst.dateWritten.as_json(), "2013-05-25T19:32:52+01:00")
         self.assertEqual(inst.dispenseRequest.expectedSupplyDuration.code, "d")
-        self.assertEqual(inst.dispenseRequest.expectedSupplyDuration.system, "urn:oid:2.16.840.1.113883.6.8")
+        self.assertEqual(inst.dispenseRequest.expectedSupplyDuration.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dispenseRequest.expectedSupplyDuration.unit, "days")
         self.assertEqual(inst.dispenseRequest.expectedSupplyDuration.value, 40)
         self.assertEqual(inst.dispenseRequest.numberOfRepeatsAllowed, 20)
         self.assertEqual(inst.dispenseRequest.quantity.code, "ug")
-        self.assertEqual(inst.dispenseRequest.quantity.system, "urn:oid:2.16.840.1.113883.6.8")
+        self.assertEqual(inst.dispenseRequest.quantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dispenseRequest.quantity.unit, "mcg")
         self.assertEqual(inst.dispenseRequest.quantity.value, 100)
         self.assertEqual(inst.dispenseRequest.validityPeriod.end.date, FHIRDate("2013-05-30").date)
         self.assertEqual(inst.dispenseRequest.validityPeriod.end.as_json(), "2013-05-30")
         self.assertEqual(inst.dispenseRequest.validityPeriod.start.date, FHIRDate("2013-04-08").date)
         self.assertEqual(inst.dispenseRequest.validityPeriod.start.as_json(), "2013-04-08")
-        self.assertEqual(inst.dosageInstruction[0].additionalInstructions.text, "for use during pregnancy, contact physician")
+        self.assertEqual(inst.dosageInstruction[0].additionalInstructions[0].text, "for use during pregnancy, contact physician")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.code, "ml")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.unit, "ml")

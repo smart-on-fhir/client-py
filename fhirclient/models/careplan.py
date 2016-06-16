@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -37,6 +37,10 @@ class CarePlan(domainresource.DomainResource):
         """ Who is responsible for contents of the plan.
         List of `FHIRReference` items referencing `Patient, Practitioner, RelatedPerson, Organization` (represented as `dict` in JSON). """
         
+        self.careTeam = None
+        """ Who's involved in plan?.
+        Type `FHIRReference` referencing `CareTeam` (represented as `dict` in JSON). """
+        
         self.category = None
         """ Type of plan.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
@@ -64,10 +68,6 @@ class CarePlan(domainresource.DomainResource):
         self.note = None
         """ Comments about the plan.
         Type `Annotation` (represented as `dict` in JSON). """
-        
-        self.participant = None
-        """ Who's involved in plan?.
-        List of `CarePlanParticipant` items (represented as `dict` in JSON). """
         
         self.period = None
         """ Time period plan covers.
@@ -97,6 +97,7 @@ class CarePlan(domainresource.DomainResource):
             ("activity", "activity", CarePlanActivity, True, None, False),
             ("addresses", "addresses", fhirreference.FHIRReference, True, None, False),
             ("author", "author", fhirreference.FHIRReference, True, None, False),
+            ("careTeam", "careTeam", fhirreference.FHIRReference, False, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
@@ -104,7 +105,6 @@ class CarePlan(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("modified", "modified", fhirdate.FHIRDate, False, None, False),
             ("note", "note", annotation.Annotation, False, None, False),
-            ("participant", "participant", CarePlanParticipant, True, None, False),
             ("period", "period", period.Period, False, None, False),
             ("relatedPlan", "relatedPlan", CarePlanRelatedPlan, True, None, False),
             ("status", "status", str, False, None, True),
@@ -277,42 +277,6 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
             ("scheduledTiming", "scheduledTiming", timing.Timing, False, "scheduled", False),
             ("status", "status", str, False, None, False),
             ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
-        ])
-        return js
-
-
-class CarePlanParticipant(backboneelement.BackboneElement):
-    """ Who's involved in plan?.
-    
-    Identifies all people and organizations who are expected to be involved in
-    the care envisioned by this plan.
-    """
-    
-    resource_name = "CarePlanParticipant"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.member = None
-        """ Who is involved.
-        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Organization` (represented as `dict` in JSON). """
-        
-        self.role = None
-        """ Type of involvement.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        super(CarePlanParticipant, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(CarePlanParticipant, self).elementProperties()
-        js.extend([
-            ("member", "member", fhirreference.FHIRReference, False, None, False),
-            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -32,7 +32,9 @@ class EncounterTests(unittest.TestCase):
         self.implEncounter1(inst2)
     
     def implEncounter1(self, inst):
-        self.assertEqual(inst.class_fhir, "outpatient")
+        self.assertEqual(inst.class_fhir.code, "AMB")
+        self.assertEqual(inst.class_fhir.display, "ambulatory")
+        self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].code, "305956004")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].display, "Referral by physician")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].system, "http://snomed.info/sct")
@@ -73,7 +75,9 @@ class EncounterTests(unittest.TestCase):
         self.implEncounter2(inst2)
     
     def implEncounter2(self, inst):
-        self.assertEqual(inst.class_fhir, "outpatient")
+        self.assertEqual(inst.class_fhir.code, "AMB")
+        self.assertEqual(inst.class_fhir.display, "ambulatory")
+        self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].code, "305997006")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].display, "Referral by radiologist")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].system, "http://snomed.info/sct")
@@ -114,7 +118,9 @@ class EncounterTests(unittest.TestCase):
         self.implEncounter3(inst2)
     
     def implEncounter3(self, inst):
-        self.assertEqual(inst.class_fhir, "outpatient")
+        self.assertEqual(inst.class_fhir.code, "AMB")
+        self.assertEqual(inst.class_fhir.display, "ambulatory")
+        self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].code, "305956004")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].display, "Referral by physician")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].system, "http://snomed.info/sct")
@@ -157,7 +163,9 @@ class EncounterTests(unittest.TestCase):
         self.implEncounter4(inst2)
     
     def implEncounter4(self, inst):
-        self.assertEqual(inst.class_fhir, "outpatient")
+        self.assertEqual(inst.class_fhir.code, "AMB")
+        self.assertEqual(inst.class_fhir.display, "ambulatory")
+        self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.id, "f201")
         self.assertEqual(inst.identifier[0].use, "temp")
         self.assertEqual(inst.identifier[0].value, "Encounter_Roel_20130404")
@@ -182,12 +190,14 @@ class EncounterTests(unittest.TestCase):
         self.implEncounter5(inst2)
     
     def implEncounter5(self, inst):
-        self.assertEqual(inst.class_fhir, "outpatient")
+        self.assertEqual(inst.class_fhir.code, "AMB")
+        self.assertEqual(inst.class_fhir.display, "ambulatory")
+        self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.id, "f202")
         self.assertEqual(inst.identifier[0].use, "temp")
         self.assertEqual(inst.identifier[0].value, "Encounter_Roel_20130128")
-        self.assertEqual(inst.length.code, "258701004")
-        self.assertEqual(inst.length.system, "http://snomed.info/sct")
+        self.assertEqual(inst.length.code, "min")
+        self.assertEqual(inst.length.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.length.unit, "minutes")
         self.assertEqual(inst.length.value, 56)
         self.assertEqual(inst.priority.coding[0].code, "103391001")
@@ -213,7 +223,9 @@ class EncounterTests(unittest.TestCase):
         self.implEncounter6(inst2)
     
     def implEncounter6(self, inst):
-        self.assertEqual(inst.class_fhir, "inpatient")
+        self.assertEqual(inst.class_fhir.code, "IMP")
+        self.assertEqual(inst.class_fhir.display, "inpatient encounter")
+        self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].code, "309902002")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].display, "Clinical Oncology Department")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].system, "http://snomed.info/sct")
@@ -249,7 +261,9 @@ class EncounterTests(unittest.TestCase):
         self.implEncounter7(inst2)
     
     def implEncounter7(self, inst):
-        self.assertEqual(inst.class_fhir, "virtual")
+        self.assertEqual(inst.class_fhir.code, "HH")
+        self.assertEqual(inst.class_fhir.display, "home health")
+        self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.contained[0].id, "home")
         self.assertEqual(inst.id, "home")
         self.assertEqual(inst.location[0].period.end.date, FHIRDate("2015-01-17T16:30:00+10:00").date)
@@ -266,7 +280,7 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.period.start.date, FHIRDate("2015-01-17T16:00:00+10:00").date)
         self.assertEqual(inst.period.start.as_json(), "2015-01-17T16:00:00+10:00")
         self.assertEqual(inst.status, "finished")
-        self.assertEqual(inst.text.div, "<div>Encounter with patient @example who is at home</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Encounter with patient @example who is at home</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testEncounter8(self):
@@ -280,7 +294,9 @@ class EncounterTests(unittest.TestCase):
         self.implEncounter8(inst2)
     
     def implEncounter8(self, inst):
-        self.assertEqual(inst.class_fhir, "outpatient")
+        self.assertEqual(inst.class_fhir.code, "AMB")
+        self.assertEqual(inst.class_fhir.display, "ambulatory")
+        self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.id, "xcda")
         self.assertEqual(inst.identifier[0].system, "http://healthcare.example.org/identifiers/enocunter")
         self.assertEqual(inst.identifier[0].use, "official")
@@ -302,9 +318,11 @@ class EncounterTests(unittest.TestCase):
         self.implEncounter9(inst2)
     
     def implEncounter9(self, inst):
-        self.assertEqual(inst.class_fhir, "inpatient")
+        self.assertEqual(inst.class_fhir.code, "IMP")
+        self.assertEqual(inst.class_fhir.display, "inpatient encounter")
+        self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.status, "in-progress")
-        self.assertEqual(inst.text.div, "<div>Encounter with patient @example</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Encounter with patient @example</div>")
         self.assertEqual(inst.text.status, "generated")
 

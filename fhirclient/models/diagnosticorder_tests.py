@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -57,7 +57,6 @@ class DiagnosticOrderTests(unittest.TestCase):
         self.implDiagnosticOrder2(inst2)
     
     def implDiagnosticOrder2(self, inst):
-        self.assertEqual(inst.contained[0].id, "rtt")
         self.assertEqual(inst.event[0].dateTime.date, FHIRDate("2015-08-27T09:33:27+07:00").date)
         self.assertEqual(inst.event[0].dateTime.as_json(), "2015-08-27T09:33:27+07:00")
         self.assertEqual(inst.event[0].status, "requested")
@@ -138,7 +137,7 @@ class DiagnosticOrderTests(unittest.TestCase):
         self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.coding[0].code, "49874-1")
         self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.coding[0].system, "http://loinc.org")
         self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.text, "ABCB4 gene mutation analysis")
-        self.assertEqual(inst.extension[0].extension[1].url, "sequence")
+        self.assertEqual(inst.extension[0].extension[1].url, "geneticsObservation")
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/diagnosticorder-geneticsItem")
         self.assertEqual(inst.id, "og-example2")
         self.assertEqual(inst.status, "received")

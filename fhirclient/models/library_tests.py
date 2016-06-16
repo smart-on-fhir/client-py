@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -86,7 +86,7 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.moduleMetadata.title, "Appropriate Testing for Children with Pharyngitis")
         self.assertEqual(inst.moduleMetadata.type, "library")
         self.assertEqual(inst.moduleMetadata.version, "2.0.0")
-        self.assertEqual(inst.text.div, "<div>CMS 146 Logic</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">CMS 146 Logic</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.valueSet[0].identifier, "2.16.840.1.113883.3.560.100.2")
         self.assertEqual(inst.valueSet[0].name, "Female Administrative Sex")
@@ -119,7 +119,7 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.moduleMetadata.topic[0].text, "Chlamydia Screening")
         self.assertEqual(inst.moduleMetadata.type, "library")
         self.assertEqual(inst.moduleMetadata.version, "2.0.0")
-        self.assertEqual(inst.text.div, "<div>Chlamydia Screening Common Library</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Chlamydia Screening Common Library</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.valueSet[0].identifier, "2.16.840.1.113883.3.560.100.2")
         self.assertEqual(inst.valueSet[0].name, "Female Administrative Sex")

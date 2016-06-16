@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2016-04-01.
+#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2016-06-16.
 #  2016, SMART Health IT.
 
 
@@ -67,7 +67,7 @@ class DiagnosticReport(domainresource.DomainResource):
         self.imagingStudy = None
         """ Reference to full details of imaging associated with the diagnostic
         report.
-        List of `FHIRReference` items referencing `ImagingStudy, ImagingObjectSelection` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ImagingStudy, ImagingManifest` (represented as `dict` in JSON). """
         
         self.issued = None
         """ DateTime this version was released.
@@ -75,7 +75,7 @@ class DiagnosticReport(domainresource.DomainResource):
         
         self.performer = None
         """ Responsible Diagnostic Service.
-        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.presentedForm = None
         """ Entire report as issued.
@@ -118,7 +118,7 @@ class DiagnosticReport(domainresource.DomainResource):
             ("image", "image", DiagnosticReportImage, True, None, False),
             ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True, None, False),
             ("issued", "issued", fhirdate.FHIRDate, False, None, True),
-            ("performer", "performer", fhirreference.FHIRReference, False, None, True),
+            ("performer", "performer", fhirreference.FHIRReference, True, None, True),
             ("presentedForm", "presentedForm", attachment.Attachment, True, None, False),
             ("request", "request", fhirreference.FHIRReference, True, None, False),
             ("result", "result", fhirreference.FHIRReference, True, None, False),
