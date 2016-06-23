@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -18,8 +18,12 @@ class Immunization(domainresource.DomainResource):
     
     resource_name = "Immunization"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.date = None
@@ -106,7 +110,7 @@ class Immunization(domainresource.DomainResource):
         """ Flag for whether immunization was given.
         Type `bool`. """
         
-        super(Immunization, self).__init__(jsondict)
+        super(Immunization, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Immunization, self).elementProperties()
@@ -146,8 +150,12 @@ class ImmunizationExplanation(backboneelement.BackboneElement):
     
     resource_name = "ImmunizationExplanation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.reason = None
@@ -158,7 +166,7 @@ class ImmunizationExplanation(backboneelement.BackboneElement):
         """ Why immunization did not occur.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(ImmunizationExplanation, self).__init__(jsondict)
+        super(ImmunizationExplanation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImmunizationExplanation, self).elementProperties()
@@ -178,8 +186,12 @@ class ImmunizationReaction(backboneelement.BackboneElement):
     
     resource_name = "ImmunizationReaction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.date = None
@@ -194,7 +206,7 @@ class ImmunizationReaction(backboneelement.BackboneElement):
         """ Indicates self-reported reaction.
         Type `bool`. """
         
-        super(ImmunizationReaction, self).__init__(jsondict)
+        super(ImmunizationReaction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImmunizationReaction, self).elementProperties()
@@ -215,8 +227,12 @@ class ImmunizationVaccinationProtocol(backboneelement.BackboneElement):
     
     resource_name = "ImmunizationVaccinationProtocol"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.authority = None
@@ -251,7 +267,7 @@ class ImmunizationVaccinationProtocol(backboneelement.BackboneElement):
         """ Disease immunized against.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(ImmunizationVaccinationProtocol, self).__init__(jsondict)
+        super(ImmunizationVaccinationProtocol, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImmunizationVaccinationProtocol, self).elementProperties()

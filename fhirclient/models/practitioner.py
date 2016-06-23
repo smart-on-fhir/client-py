@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class Practitioner(domainresource.DomainResource):
     
     resource_name = "Practitioner"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.active = None
@@ -65,7 +69,7 @@ class Practitioner(domainresource.DomainResource):
         """ A contact detail for the practitioner.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(Practitioner, self).__init__(jsondict)
+        super(Practitioner, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Practitioner, self).elementProperties()
@@ -95,8 +99,12 @@ class PractitionerPractitionerRole(backboneelement.BackboneElement):
     
     resource_name = "PractitionerPractitionerRole"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.healthcareService = None
@@ -125,7 +133,7 @@ class PractitionerPractitionerRole(backboneelement.BackboneElement):
         """ Specific specialty of the practitioner.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(PractitionerPractitionerRole, self).__init__(jsondict)
+        super(PractitionerPractitionerRole, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(PractitionerPractitionerRole, self).elementProperties()
@@ -146,8 +154,12 @@ class PractitionerQualification(backboneelement.BackboneElement):
     
     resource_name = "PractitionerQualification"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -166,7 +178,7 @@ class PractitionerQualification(backboneelement.BackboneElement):
         """ Period during which the qualification is valid.
         Type `Period` (represented as `dict` in JSON). """
         
-        super(PractitionerQualification, self).__init__(jsondict)
+        super(PractitionerQualification, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(PractitionerQualification, self).elementProperties()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class Encounter(domainresource.DomainResource):
     
     resource_name = "Encounter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.appointment = None
@@ -97,7 +101,7 @@ class Encounter(domainresource.DomainResource):
         """ Specific type of encounter.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(Encounter, self).__init__(jsondict)
+        super(Encounter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Encounter, self).elementProperties()
@@ -133,8 +137,12 @@ class EncounterHospitalization(backboneelement.BackboneElement):
     
     resource_name = "EncounterHospitalization"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.admitSource = None
@@ -183,7 +191,7 @@ class EncounterHospitalization(backboneelement.BackboneElement):
         """ Special courtesies (VIP, board member).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(EncounterHospitalization, self).__init__(jsondict)
+        super(EncounterHospitalization, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EncounterHospitalization, self).elementProperties()
@@ -211,8 +219,12 @@ class EncounterLocation(backboneelement.BackboneElement):
     
     resource_name = "EncounterLocation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.location = None
@@ -227,7 +239,7 @@ class EncounterLocation(backboneelement.BackboneElement):
         """ planned | active | reserved | completed.
         Type `str`. """
         
-        super(EncounterLocation, self).__init__(jsondict)
+        super(EncounterLocation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EncounterLocation, self).elementProperties()
@@ -247,8 +259,12 @@ class EncounterParticipant(backboneelement.BackboneElement):
     
     resource_name = "EncounterParticipant"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.individual = None
@@ -263,7 +279,7 @@ class EncounterParticipant(backboneelement.BackboneElement):
         """ Role of participant in encounter.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(EncounterParticipant, self).__init__(jsondict)
+        super(EncounterParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EncounterParticipant, self).elementProperties()
@@ -285,8 +301,12 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
     
     resource_name = "EncounterStatusHistory"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.period = None
@@ -297,7 +317,7 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
         """ planned | arrived | in-progress | onleave | finished | cancelled.
         Type `str`. """
         
-        super(EncounterStatusHistory, self).__init__(jsondict)
+        super(EncounterStatusHistory, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EncounterStatusHistory, self).elementProperties()

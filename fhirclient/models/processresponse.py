@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class ProcessResponse(domainresource.DomainResource):
     
     resource_name = "ProcessResponse"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.created = None
@@ -72,7 +76,7 @@ class ProcessResponse(domainresource.DomainResource):
         """ Resource version.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ProcessResponse, self).__init__(jsondict)
+        super(ProcessResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProcessResponse, self).elementProperties()
@@ -105,8 +109,12 @@ class ProcessResponseNotes(backboneelement.BackboneElement):
     
     resource_name = "ProcessResponseNotes"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.text = None
@@ -117,7 +125,7 @@ class ProcessResponseNotes(backboneelement.BackboneElement):
         """ display | print | printoper.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ProcessResponseNotes, self).__init__(jsondict)
+        super(ProcessResponseNotes, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProcessResponseNotes, self).elementProperties()

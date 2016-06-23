@@ -12,11 +12,17 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
     """
     resource_name = 'FHIRAbstractResource'
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         self._server = None
         """ The server the instance was read from. """
         
-        super(FHIRAbstractResource, self).__init__(jsondict)
+        # raise if "resourceType" does not match
+        if jsondict is not None and 'resourceType' in jsondict \
+            and jsondict['resourceType'] != self.resource_name:
+            raise Exception("Attempting to instantiate {} with resource data that defines a resourceType of \"{}\""
+                .format(self.__class__, jsondict['resourceType']))
+        
+        super(FHIRAbstractResource, self).__init__(jsondict=jsondict, strict=strict)
     
     @classmethod
     def _with_json_dict(cls, jsondict):

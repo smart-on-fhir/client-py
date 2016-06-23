@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class ClaimResponse(domainresource.DomainResource):
     
     resource_name = "ClaimResponse"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.addItem = None
@@ -124,7 +128,7 @@ class ClaimResponse(domainresource.DomainResource):
         """ Unallocated deductible.
         Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
-        super(ClaimResponse, self).__init__(jsondict)
+        super(ClaimResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponse, self).elementProperties()
@@ -169,8 +173,12 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseAddItem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.adjudication = None
@@ -197,7 +205,7 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         """ Group, Service or Product.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ClaimResponseAddItem, self).__init__(jsondict)
+        super(ClaimResponseAddItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseAddItem, self).elementProperties()
@@ -220,8 +228,12 @@ class ClaimResponseAddItemAdjudication(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseAddItemAdjudication"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.amount = None
@@ -236,7 +248,7 @@ class ClaimResponseAddItemAdjudication(backboneelement.BackboneElement):
         """ Non-monetary value.
         Type `float`. """
         
-        super(ClaimResponseAddItemAdjudication, self).__init__(jsondict)
+        super(ClaimResponseAddItemAdjudication, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseAddItemAdjudication, self).elementProperties()
@@ -256,8 +268,12 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseAddItemDetail"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.adjudication = None
@@ -272,7 +288,7 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
         """ Service or Product.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ClaimResponseAddItemDetail, self).__init__(jsondict)
+        super(ClaimResponseAddItemDetail, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseAddItemDetail, self).elementProperties()
@@ -292,8 +308,12 @@ class ClaimResponseAddItemDetailAdjudication(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseAddItemDetailAdjudication"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.amount = None
@@ -308,7 +328,7 @@ class ClaimResponseAddItemDetailAdjudication(backboneelement.BackboneElement):
         """ Non-monetary value.
         Type `float`. """
         
-        super(ClaimResponseAddItemDetailAdjudication, self).__init__(jsondict)
+        super(ClaimResponseAddItemDetailAdjudication, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseAddItemDetailAdjudication, self).elementProperties()
@@ -328,8 +348,12 @@ class ClaimResponseCoverage(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseCoverage"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.businessArrangement = None
@@ -364,7 +388,7 @@ class ClaimResponseCoverage(backboneelement.BackboneElement):
         """ Service instance identifier.
         Type `int`. """
         
-        super(ClaimResponseCoverage, self).__init__(jsondict)
+        super(ClaimResponseCoverage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseCoverage, self).elementProperties()
@@ -389,8 +413,12 @@ class ClaimResponseError(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseError"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -409,7 +437,7 @@ class ClaimResponseError(backboneelement.BackboneElement):
         """ Subdetail sequence number.
         Type `int`. """
         
-        super(ClaimResponseError, self).__init__(jsondict)
+        super(ClaimResponseError, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseError, self).elementProperties()
@@ -430,8 +458,12 @@ class ClaimResponseItem(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseItem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.adjudication = None
@@ -450,7 +482,7 @@ class ClaimResponseItem(backboneelement.BackboneElement):
         """ Service instance.
         Type `int`. """
         
-        super(ClaimResponseItem, self).__init__(jsondict)
+        super(ClaimResponseItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseItem, self).elementProperties()
@@ -471,8 +503,12 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseItemAdjudication"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.amount = None
@@ -487,7 +523,7 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
         """ Non-monetary value.
         Type `float`. """
         
-        super(ClaimResponseItemAdjudication, self).__init__(jsondict)
+        super(ClaimResponseItemAdjudication, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseItemAdjudication, self).elementProperties()
@@ -507,8 +543,12 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseItemDetail"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.adjudication = None
@@ -523,7 +563,7 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
         """ Subdetail line items.
         List of `ClaimResponseItemDetailSubDetail` items (represented as `dict` in JSON). """
         
-        super(ClaimResponseItemDetail, self).__init__(jsondict)
+        super(ClaimResponseItemDetail, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseItemDetail, self).elementProperties()
@@ -543,8 +583,12 @@ class ClaimResponseItemDetailAdjudication(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseItemDetailAdjudication"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.amount = None
@@ -559,7 +603,7 @@ class ClaimResponseItemDetailAdjudication(backboneelement.BackboneElement):
         """ Non-monetary value.
         Type `float`. """
         
-        super(ClaimResponseItemDetailAdjudication, self).__init__(jsondict)
+        super(ClaimResponseItemDetailAdjudication, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseItemDetailAdjudication, self).elementProperties()
@@ -579,8 +623,12 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseItemDetailSubDetail"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.adjudication = None
@@ -591,7 +639,7 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
         """ Service instance.
         Type `int`. """
         
-        super(ClaimResponseItemDetailSubDetail, self).__init__(jsondict)
+        super(ClaimResponseItemDetailSubDetail, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseItemDetailSubDetail, self).elementProperties()
@@ -610,8 +658,12 @@ class ClaimResponseItemDetailSubDetailAdjudication(backboneelement.BackboneEleme
     
     resource_name = "ClaimResponseItemDetailSubDetailAdjudication"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.amount = None
@@ -626,7 +678,7 @@ class ClaimResponseItemDetailSubDetailAdjudication(backboneelement.BackboneEleme
         """ Non-monetary value.
         Type `float`. """
         
-        super(ClaimResponseItemDetailSubDetailAdjudication, self).__init__(jsondict)
+        super(ClaimResponseItemDetailSubDetailAdjudication, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseItemDetailSubDetailAdjudication, self).elementProperties()
@@ -646,8 +698,12 @@ class ClaimResponseNote(backboneelement.BackboneElement):
     
     resource_name = "ClaimResponseNote"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.number = None
@@ -662,7 +718,7 @@ class ClaimResponseNote(backboneelement.BackboneElement):
         """ display | print | printoper.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ClaimResponseNote, self).__init__(jsondict)
+        super(ClaimResponseNote, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseNote, self).elementProperties()

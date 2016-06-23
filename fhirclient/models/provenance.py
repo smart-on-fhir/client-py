@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -24,8 +24,12 @@ class Provenance(domainresource.DomainResource):
     
     resource_name = "Provenance"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.activity = None
@@ -68,7 +72,7 @@ class Provenance(domainresource.DomainResource):
         """ Target Reference(s) (usually version specific).
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
-        super(Provenance, self).__init__(jsondict)
+        super(Provenance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Provenance, self).elementProperties()
@@ -100,8 +104,12 @@ class ProvenanceAgent(backboneelement.BackboneElement):
     
     resource_name = "ProvenanceAgent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.actor = None
@@ -120,7 +128,7 @@ class ProvenanceAgent(backboneelement.BackboneElement):
         """ Authorization-system identifier for the agent.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        super(ProvenanceAgent, self).__init__(jsondict)
+        super(ProvenanceAgent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProvenanceAgent, self).elementProperties()
@@ -144,8 +152,12 @@ class ProvenanceAgentRelatedAgent(backboneelement.BackboneElement):
     
     resource_name = "ProvenanceAgentRelatedAgent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.target = None
@@ -156,7 +168,7 @@ class ProvenanceAgentRelatedAgent(backboneelement.BackboneElement):
         """ Type of relationship between agents.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ProvenanceAgentRelatedAgent, self).__init__(jsondict)
+        super(ProvenanceAgentRelatedAgent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProvenanceAgentRelatedAgent, self).elementProperties()
@@ -173,8 +185,12 @@ class ProvenanceEntity(backboneelement.BackboneElement):
     
     resource_name = "ProvenanceEntity"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.agent = None
@@ -197,7 +213,7 @@ class ProvenanceEntity(backboneelement.BackboneElement):
         """ The type of resource in this entity.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ProvenanceEntity, self).__init__(jsondict)
+        super(ProvenanceEntity, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProvenanceEntity, self).elementProperties()

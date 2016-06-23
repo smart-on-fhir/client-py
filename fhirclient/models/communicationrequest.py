@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class CommunicationRequest(domainresource.DomainResource):
     
     resource_name = "CommunicationRequest"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.category = None
@@ -82,7 +86,7 @@ class CommunicationRequest(domainresource.DomainResource):
         """ Focus of message.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
-        super(CommunicationRequest, self).__init__(jsondict)
+        super(CommunicationRequest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CommunicationRequest, self).elementProperties()
@@ -116,8 +120,12 @@ class CommunicationRequestPayload(backboneelement.BackboneElement):
     
     resource_name = "CommunicationRequestPayload"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contentAttachment = None
@@ -132,7 +140,7 @@ class CommunicationRequestPayload(backboneelement.BackboneElement):
         """ Message part content.
         Type `str`. """
         
-        super(CommunicationRequestPayload, self).__init__(jsondict)
+        super(CommunicationRequestPayload, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CommunicationRequestPayload, self).elementProperties()

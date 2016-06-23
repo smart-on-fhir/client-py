@@ -45,7 +45,7 @@
 				},
 				"code": {},
 				"status": "active",
-				"comment": "Observation 123, referencing subject relatively"
+				"comments": "Observation 123, referencing subject relatively"
 			}
 		},
 		{
@@ -58,7 +58,7 @@
 				},
 				"code": {},
 				"status": "active",
-				"comment": "Observation 56, referencing subject via UUID"
+				"comments": "Observation 56, referencing subject via UUID"
 			}
 		},
 		{
@@ -71,7 +71,7 @@
 				},
 				"code": {},
 				"status": "active",
-				"comment": "Observation 34 with absolute subject reference to different endpoint"
+				"comments": "Observation 34 with absolute subject reference to different endpoint"
 			}
 		}
 	]

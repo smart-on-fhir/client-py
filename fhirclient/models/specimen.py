@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -15,8 +15,12 @@ class Specimen(domainresource.DomainResource):
     
     resource_name = "Specimen"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.accessionIdentifier = None
@@ -60,7 +64,7 @@ class Specimen(domainresource.DomainResource):
         """ Kind of material that forms the specimen.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(Specimen, self).__init__(jsondict)
+        super(Specimen, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Specimen, self).elementProperties()
@@ -89,8 +93,12 @@ class SpecimenCollection(backboneelement.BackboneElement):
     
     resource_name = "SpecimenCollection"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.bodySite = None
@@ -121,7 +129,7 @@ class SpecimenCollection(backboneelement.BackboneElement):
         """ The quantity of specimen collected.
         Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
-        super(SpecimenCollection, self).__init__(jsondict)
+        super(SpecimenCollection, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SpecimenCollection, self).elementProperties()
@@ -146,8 +154,12 @@ class SpecimenContainer(backboneelement.BackboneElement):
     
     resource_name = "SpecimenContainer"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.additiveCodeableConcept = None
@@ -178,7 +190,7 @@ class SpecimenContainer(backboneelement.BackboneElement):
         """ Kind of container directly associated with specimen.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(SpecimenContainer, self).__init__(jsondict)
+        super(SpecimenContainer, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SpecimenContainer, self).elementProperties()
@@ -202,8 +214,12 @@ class SpecimenTreatment(backboneelement.BackboneElement):
     
     resource_name = "SpecimenTreatment"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.additive = None
@@ -218,7 +234,7 @@ class SpecimenTreatment(backboneelement.BackboneElement):
         """ Indicates the treatment or processing step  applied to the specimen.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(SpecimenTreatment, self).__init__(jsondict)
+        super(SpecimenTreatment, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SpecimenTreatment, self).elementProperties()

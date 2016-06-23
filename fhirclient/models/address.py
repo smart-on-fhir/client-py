@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Address) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Address) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class Address(element.Element):
     
     resource_name = "Address"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.city = None
@@ -61,7 +65,7 @@ class Address(element.Element):
         """ home | work | temp | old - purpose of this address.
         Type `str`. """
         
-        super(Address, self).__init__(jsondict)
+        super(Address, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Address, self).elementProperties()

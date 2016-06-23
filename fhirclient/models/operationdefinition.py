@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class OperationDefinition(domainresource.DomainResource):
     
     resource_name = "OperationDefinition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.base = None
@@ -96,7 +100,7 @@ class OperationDefinition(domainresource.DomainResource):
         """ Logical id for this version of the operation definition.
         Type `str`. """
         
-        super(OperationDefinition, self).__init__(jsondict)
+        super(OperationDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(OperationDefinition, self).elementProperties()
@@ -134,8 +138,12 @@ class OperationDefinitionContact(backboneelement.BackboneElement):
     
     resource_name = "OperationDefinitionContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -146,7 +154,7 @@ class OperationDefinitionContact(backboneelement.BackboneElement):
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(OperationDefinitionContact, self).__init__(jsondict)
+        super(OperationDefinitionContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(OperationDefinitionContact, self).elementProperties()
@@ -165,8 +173,12 @@ class OperationDefinitionParameter(backboneelement.BackboneElement):
     
     resource_name = "OperationDefinitionParameter"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.binding = None
@@ -205,7 +217,7 @@ class OperationDefinitionParameter(backboneelement.BackboneElement):
         """ in | out.
         Type `str`. """
         
-        super(OperationDefinitionParameter, self).__init__(jsondict)
+        super(OperationDefinitionParameter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(OperationDefinitionParameter, self).elementProperties()
@@ -232,8 +244,12 @@ class OperationDefinitionParameterBinding(backboneelement.BackboneElement):
     
     resource_name = "OperationDefinitionParameterBinding"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.strength = None
@@ -248,7 +264,7 @@ class OperationDefinitionParameterBinding(backboneelement.BackboneElement):
         """ Source of value set.
         Type `str`. """
         
-        super(OperationDefinitionParameterBinding, self).__init__(jsondict)
+        super(OperationDefinitionParameterBinding, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(OperationDefinitionParameterBinding, self).elementProperties()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class ImplementationGuide(domainresource.DomainResource):
     
     resource_name = "ImplementationGuide"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.binary = None
@@ -89,7 +93,7 @@ class ImplementationGuide(domainresource.DomainResource):
         """ Logical id for this version of the Implementation Guide.
         Type `str`. """
         
-        super(ImplementationGuide, self).__init__(jsondict)
+        super(ImplementationGuide, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImplementationGuide, self).elementProperties()
@@ -125,8 +129,12 @@ class ImplementationGuideContact(backboneelement.BackboneElement):
     
     resource_name = "ImplementationGuideContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -137,7 +145,7 @@ class ImplementationGuideContact(backboneelement.BackboneElement):
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(ImplementationGuideContact, self).__init__(jsondict)
+        super(ImplementationGuideContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImplementationGuideContact, self).elementProperties()
@@ -158,8 +166,12 @@ class ImplementationGuideDependency(backboneelement.BackboneElement):
     
     resource_name = "ImplementationGuideDependency"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.type = None
@@ -170,7 +182,7 @@ class ImplementationGuideDependency(backboneelement.BackboneElement):
         """ Where to find dependency.
         Type `str`. """
         
-        super(ImplementationGuideDependency, self).__init__(jsondict)
+        super(ImplementationGuideDependency, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImplementationGuideDependency, self).elementProperties()
@@ -190,8 +202,12 @@ class ImplementationGuideGlobal(backboneelement.BackboneElement):
     
     resource_name = "ImplementationGuideGlobal"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.profile = None
@@ -202,7 +218,7 @@ class ImplementationGuideGlobal(backboneelement.BackboneElement):
         """ Type this profiles applies to.
         Type `str`. """
         
-        super(ImplementationGuideGlobal, self).__init__(jsondict)
+        super(ImplementationGuideGlobal, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImplementationGuideGlobal, self).elementProperties()
@@ -222,8 +238,12 @@ class ImplementationGuidePackage(backboneelement.BackboneElement):
     
     resource_name = "ImplementationGuidePackage"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
@@ -238,7 +258,7 @@ class ImplementationGuidePackage(backboneelement.BackboneElement):
         """ Resource in the implementation guide.
         List of `ImplementationGuidePackageResource` items (represented as `dict` in JSON). """
         
-        super(ImplementationGuidePackage, self).__init__(jsondict)
+        super(ImplementationGuidePackage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImplementationGuidePackage, self).elementProperties()
@@ -261,8 +281,12 @@ class ImplementationGuidePackageResource(backboneelement.BackboneElement):
     
     resource_name = "ImplementationGuidePackageResource"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.acronym = None
@@ -293,7 +317,7 @@ class ImplementationGuidePackageResource(backboneelement.BackboneElement):
         """ Location of the resource.
         Type `str`. """
         
-        super(ImplementationGuidePackageResource, self).__init__(jsondict)
+        super(ImplementationGuidePackageResource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImplementationGuidePackageResource, self).elementProperties()
@@ -318,8 +342,12 @@ class ImplementationGuidePage(backboneelement.BackboneElement):
     
     resource_name = "ImplementationGuidePage"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.format = None
@@ -351,7 +379,7 @@ class ImplementationGuidePage(backboneelement.BackboneElement):
         """ Kind of resource to include in the list.
         List of `str` items. """
         
-        super(ImplementationGuidePage, self).__init__(jsondict)
+        super(ImplementationGuidePage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImplementationGuidePage, self).elementProperties()

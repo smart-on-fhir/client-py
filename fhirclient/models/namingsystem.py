@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class NamingSystem(domainresource.DomainResource):
     
     resource_name = "NamingSystem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contact = None
@@ -73,7 +77,7 @@ class NamingSystem(domainresource.DomainResource):
         """ Content intends to support these contexts.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(NamingSystem, self).__init__(jsondict)
+        super(NamingSystem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NamingSystem, self).elementProperties()
@@ -105,8 +109,12 @@ class NamingSystemContact(backboneelement.BackboneElement):
     
     resource_name = "NamingSystemContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -117,7 +125,7 @@ class NamingSystemContact(backboneelement.BackboneElement):
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(NamingSystemContact, self).__init__(jsondict)
+        super(NamingSystemContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NamingSystemContact, self).elementProperties()
@@ -137,8 +145,12 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
     
     resource_name = "NamingSystemUniqueId"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.period = None
@@ -157,7 +169,7 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
         """ The unique identifier.
         Type `str`. """
         
-        super(NamingSystemUniqueId, self).__init__(jsondict)
+        super(NamingSystemUniqueId, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NamingSystemUniqueId, self).elementProperties()

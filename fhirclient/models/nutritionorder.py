@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class NutritionOrder(domainresource.DomainResource):
     
     resource_name = "NutritionOrder"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.allergyIntolerance = None
@@ -71,7 +75,7 @@ class NutritionOrder(domainresource.DomainResource):
         """ Supplement components.
         List of `NutritionOrderSupplement` items (represented as `dict` in JSON). """
         
-        super(NutritionOrder, self).__init__(jsondict)
+        super(NutritionOrder, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NutritionOrder, self).elementProperties()
@@ -103,8 +107,12 @@ class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
     
     resource_name = "NutritionOrderEnteralFormula"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.additiveProductName = None
@@ -143,7 +151,7 @@ class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
         """ How the formula should enter the patient's gastrointestinal tract.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(NutritionOrderEnteralFormula, self).__init__(jsondict)
+        super(NutritionOrderEnteralFormula, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NutritionOrderEnteralFormula, self).elementProperties()
@@ -172,8 +180,12 @@ class NutritionOrderEnteralFormulaAdministration(backboneelement.BackboneElement
     
     resource_name = "NutritionOrderEnteralFormulaAdministration"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.quantity = None
@@ -192,7 +204,7 @@ class NutritionOrderEnteralFormulaAdministration(backboneelement.BackboneElement
         """ Scheduled frequency of enteral feeding.
         Type `Timing` (represented as `dict` in JSON). """
         
-        super(NutritionOrderEnteralFormulaAdministration, self).__init__(jsondict)
+        super(NutritionOrderEnteralFormulaAdministration, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NutritionOrderEnteralFormulaAdministration, self).elementProperties()
@@ -213,8 +225,12 @@ class NutritionOrderOralDiet(backboneelement.BackboneElement):
     
     resource_name = "NutritionOrderOralDiet"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.fluidConsistencyType = None
@@ -243,7 +259,7 @@ class NutritionOrderOralDiet(backboneelement.BackboneElement):
         consumed orally.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(NutritionOrderOralDiet, self).__init__(jsondict)
+        super(NutritionOrderOralDiet, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NutritionOrderOralDiet, self).elementProperties()
@@ -267,8 +283,12 @@ class NutritionOrderOralDietNutrient(backboneelement.BackboneElement):
     
     resource_name = "NutritionOrderOralDietNutrient"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.amount = None
@@ -279,7 +299,7 @@ class NutritionOrderOralDietNutrient(backboneelement.BackboneElement):
         """ Type of nutrient that is being modified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(NutritionOrderOralDietNutrient, self).__init__(jsondict)
+        super(NutritionOrderOralDietNutrient, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NutritionOrderOralDietNutrient, self).elementProperties()
@@ -299,8 +319,12 @@ class NutritionOrderOralDietTexture(backboneelement.BackboneElement):
     
     resource_name = "NutritionOrderOralDietTexture"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.foodType = None
@@ -312,7 +336,7 @@ class NutritionOrderOralDietTexture(backboneelement.BackboneElement):
         """ Code to indicate how to alter the texture of the foods, e.g. pureed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(NutritionOrderOralDietTexture, self).__init__(jsondict)
+        super(NutritionOrderOralDietTexture, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NutritionOrderOralDietTexture, self).elementProperties()
@@ -332,8 +356,12 @@ class NutritionOrderSupplement(backboneelement.BackboneElement):
     
     resource_name = "NutritionOrderSupplement"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.instruction = None
@@ -356,7 +384,7 @@ class NutritionOrderSupplement(backboneelement.BackboneElement):
         """ Type of supplement product requested.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(NutritionOrderSupplement, self).__init__(jsondict)
+        super(NutritionOrderSupplement, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NutritionOrderSupplement, self).elementProperties()

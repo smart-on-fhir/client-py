@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class TestScript(domainresource.DomainResource):
     
     resource_name = "TestScript"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contact = None
@@ -106,7 +110,7 @@ class TestScript(domainresource.DomainResource):
         """ Logical id for this version of the TestScript.
         Type `str`. """
         
-        super(TestScript, self).__init__(jsondict)
+        super(TestScript, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScript, self).elementProperties()
@@ -146,8 +150,12 @@ class TestScriptContact(backboneelement.BackboneElement):
     
     resource_name = "TestScriptContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -158,7 +166,7 @@ class TestScriptContact(backboneelement.BackboneElement):
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(TestScriptContact, self).__init__(jsondict)
+        super(TestScriptContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptContact, self).elementProperties()
@@ -178,8 +186,12 @@ class TestScriptFixture(backboneelement.BackboneElement):
     
     resource_name = "TestScriptFixture"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.autocreate = None
@@ -194,7 +206,7 @@ class TestScriptFixture(backboneelement.BackboneElement):
         """ Reference of the resource.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        super(TestScriptFixture, self).__init__(jsondict)
+        super(TestScriptFixture, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptFixture, self).elementProperties()
@@ -216,8 +228,12 @@ class TestScriptMetadata(backboneelement.BackboneElement):
     
     resource_name = "TestScriptMetadata"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.capability = None
@@ -229,7 +245,7 @@ class TestScriptMetadata(backboneelement.BackboneElement):
         """ Links to the FHIR specification.
         List of `TestScriptMetadataLink` items (represented as `dict` in JSON). """
         
-        super(TestScriptMetadata, self).__init__(jsondict)
+        super(TestScriptMetadata, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptMetadata, self).elementProperties()
@@ -250,8 +266,12 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
     
     resource_name = "TestScriptMetadataCapability"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.conformance = None
@@ -278,7 +298,7 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
         """ Are the capabilities validated?.
         Type `bool`. """
         
-        super(TestScriptMetadataCapability, self).__init__(jsondict)
+        super(TestScriptMetadataCapability, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptMetadataCapability, self).elementProperties()
@@ -301,8 +321,12 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
     
     resource_name = "TestScriptMetadataLink"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
@@ -313,7 +337,7 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
         """ URL to the specification.
         Type `str`. """
         
-        super(TestScriptMetadataLink, self).__init__(jsondict)
+        super(TestScriptMetadataLink, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptMetadataLink, self).elementProperties()
@@ -330,8 +354,12 @@ class TestScriptSetup(backboneelement.BackboneElement):
     
     resource_name = "TestScriptSetup"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
@@ -343,7 +371,7 @@ class TestScriptSetup(backboneelement.BackboneElement):
         server being tested.
         Type `TestScriptMetadata` (represented as `dict` in JSON). """
         
-        super(TestScriptSetup, self).__init__(jsondict)
+        super(TestScriptSetup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetup, self).elementProperties()
@@ -362,8 +390,12 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
     
     resource_name = "TestScriptSetupAction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.assert_fhir = None
@@ -374,7 +406,7 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
         """ The setup operation to perform.
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
-        super(TestScriptSetupAction, self).__init__(jsondict)
+        super(TestScriptSetupAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupAction, self).elementProperties()
@@ -394,8 +426,12 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
     
     resource_name = "TestScriptSetupActionAssert"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.compareToSourceId = None
@@ -474,7 +510,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         """ Will this assert produce a warning only on error?.
         Type `bool`. """
         
-        super(TestScriptSetupActionAssert, self).__init__(jsondict)
+        super(TestScriptSetupActionAssert, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupActionAssert, self).elementProperties()
@@ -509,8 +545,12 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
     
     resource_name = "TestScriptSetupActionOperation"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.accept = None
@@ -570,7 +610,7 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         """ Request URL.
         Type `str`. """
         
-        super(TestScriptSetupActionOperation, self).__init__(jsondict)
+        super(TestScriptSetupActionOperation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupActionOperation, self).elementProperties()
@@ -601,8 +641,12 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
     
     resource_name = "TestScriptSetupActionOperationRequestHeader"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.field = None
@@ -613,7 +657,7 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
         """ HTTP headerfield value.
         Type `str`. """
         
-        super(TestScriptSetupActionOperationRequestHeader, self).__init__(jsondict)
+        super(TestScriptSetupActionOperationRequestHeader, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupActionOperationRequestHeader, self).elementProperties()
@@ -633,15 +677,19 @@ class TestScriptTeardown(backboneelement.BackboneElement):
     
     resource_name = "TestScriptTeardown"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
         """ One or more teardown operations to perform.
         List of `TestScriptTeardownAction` items (represented as `dict` in JSON). """
         
-        super(TestScriptTeardown, self).__init__(jsondict)
+        super(TestScriptTeardown, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptTeardown, self).elementProperties()
@@ -659,15 +707,19 @@ class TestScriptTeardownAction(backboneelement.BackboneElement):
     
     resource_name = "TestScriptTeardownAction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.operation = None
         """ The teardown operation to perform.
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
-        super(TestScriptTeardownAction, self).__init__(jsondict)
+        super(TestScriptTeardownAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptTeardownAction, self).elementProperties()
@@ -683,8 +735,12 @@ class TestScriptTest(backboneelement.BackboneElement):
     
     resource_name = "TestScriptTest"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
@@ -704,7 +760,7 @@ class TestScriptTest(backboneelement.BackboneElement):
         """ Tracking/logging name of this test.
         Type `str`. """
         
-        super(TestScriptTest, self).__init__(jsondict)
+        super(TestScriptTest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptTest, self).elementProperties()
@@ -725,8 +781,12 @@ class TestScriptTestAction(backboneelement.BackboneElement):
     
     resource_name = "TestScriptTestAction"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.assert_fhir = None
@@ -737,7 +797,7 @@ class TestScriptTestAction(backboneelement.BackboneElement):
         """ The setup operation to perform.
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
-        super(TestScriptTestAction, self).__init__(jsondict)
+        super(TestScriptTestAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptTestAction, self).elementProperties()
@@ -757,8 +817,12 @@ class TestScriptVariable(backboneelement.BackboneElement):
     
     resource_name = "TestScriptVariable"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.headerField = None
@@ -777,7 +841,7 @@ class TestScriptVariable(backboneelement.BackboneElement):
         """ Fixture Id of source expression or headerField within this variable.
         Type `str`. """
         
-        super(TestScriptVariable, self).__init__(jsondict)
+        super(TestScriptVariable, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptVariable, self).elementProperties()

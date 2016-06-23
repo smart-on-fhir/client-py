@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class CarePlan(domainresource.DomainResource):
     
     resource_name = "CarePlan"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.activity = None
@@ -85,7 +89,7 @@ class CarePlan(domainresource.DomainResource):
         """ Information considered as part of plan.
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
-        super(CarePlan, self).__init__(jsondict)
+        super(CarePlan, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CarePlan, self).elementProperties()
@@ -122,8 +126,12 @@ class CarePlanActivity(backboneelement.BackboneElement):
     
     resource_name = "CarePlanActivity"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.actionResulting = None
@@ -142,7 +150,7 @@ class CarePlanActivity(backboneelement.BackboneElement):
         """ Activity details defined in specific resource.
         Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticOrder, MedicationOrder, NutritionOrder, Order, ProcedureRequest, ProcessRequest, ReferralRequest, SupplyRequest, VisionPrescription` (represented as `dict` in JSON). """
         
-        super(CarePlanActivity, self).__init__(jsondict)
+        super(CarePlanActivity, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CarePlanActivity, self).elementProperties()
@@ -165,8 +173,12 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
     
     resource_name = "CarePlanActivityDetail"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.category = None
@@ -242,7 +254,7 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
         """ Reason for current status.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(CarePlanActivityDetail, self).__init__(jsondict)
+        super(CarePlanActivityDetail, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CarePlanActivityDetail, self).elementProperties()
@@ -278,8 +290,12 @@ class CarePlanParticipant(backboneelement.BackboneElement):
     
     resource_name = "CarePlanParticipant"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.member = None
@@ -290,7 +306,7 @@ class CarePlanParticipant(backboneelement.BackboneElement):
         """ Type of involvement.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(CarePlanParticipant, self).__init__(jsondict)
+        super(CarePlanParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CarePlanParticipant, self).elementProperties()
@@ -310,8 +326,12 @@ class CarePlanRelatedPlan(backboneelement.BackboneElement):
     
     resource_name = "CarePlanRelatedPlan"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -322,7 +342,7 @@ class CarePlanRelatedPlan(backboneelement.BackboneElement):
         """ Plan relationship exists with.
         Type `FHIRReference` referencing `CarePlan` (represented as `dict` in JSON). """
         
-        super(CarePlanRelatedPlan, self).__init__(jsondict)
+        super(CarePlanRelatedPlan, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CarePlanRelatedPlan, self).elementProperties()

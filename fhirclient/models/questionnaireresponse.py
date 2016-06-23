@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class QuestionnaireResponse(domainresource.DomainResource):
     
     resource_name = "QuestionnaireResponse"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.author = None
@@ -57,7 +61,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         """ The subject of the questions.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        super(QuestionnaireResponse, self).__init__(jsondict)
+        super(QuestionnaireResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(QuestionnaireResponse, self).elementProperties()
@@ -86,8 +90,12 @@ class QuestionnaireResponseGroup(backboneelement.BackboneElement):
     
     resource_name = "QuestionnaireResponseGroup"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.group = None
@@ -114,7 +122,7 @@ class QuestionnaireResponseGroup(backboneelement.BackboneElement):
         """ Name for this group.
         Type `str`. """
         
-        super(QuestionnaireResponseGroup, self).__init__(jsondict)
+        super(QuestionnaireResponseGroup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(QuestionnaireResponseGroup, self).elementProperties()
@@ -138,8 +146,12 @@ class QuestionnaireResponseGroupQuestion(backboneelement.BackboneElement):
     
     resource_name = "QuestionnaireResponseGroupQuestion"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.answer = None
@@ -154,7 +166,7 @@ class QuestionnaireResponseGroupQuestion(backboneelement.BackboneElement):
         """ Text of the question as it is shown to the user.
         Type `str`. """
         
-        super(QuestionnaireResponseGroupQuestion, self).__init__(jsondict)
+        super(QuestionnaireResponseGroupQuestion, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(QuestionnaireResponseGroupQuestion, self).elementProperties()
@@ -174,8 +186,12 @@ class QuestionnaireResponseGroupQuestionAnswer(backboneelement.BackboneElement):
     
     resource_name = "QuestionnaireResponseGroupQuestionAnswer"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.group = None
@@ -234,7 +250,7 @@ class QuestionnaireResponseGroupQuestionAnswer(backboneelement.BackboneElement):
         """ Single-valued answer to the question.
         Type `str`. """
         
-        super(QuestionnaireResponseGroupQuestionAnswer, self).__init__(jsondict)
+        super(QuestionnaireResponseGroupQuestionAnswer, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(QuestionnaireResponseGroupQuestionAnswer, self).elementProperties()

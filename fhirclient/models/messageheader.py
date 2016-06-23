@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -19,8 +19,12 @@ class MessageHeader(domainresource.DomainResource):
     
     resource_name = "MessageHeader"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.author = None
@@ -67,7 +71,7 @@ class MessageHeader(domainresource.DomainResource):
         """ Time that the message was sent.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        super(MessageHeader, self).__init__(jsondict)
+        super(MessageHeader, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MessageHeader, self).elementProperties()
@@ -97,8 +101,12 @@ class MessageHeaderDestination(backboneelement.BackboneElement):
     
     resource_name = "MessageHeaderDestination"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.endpoint = None
@@ -113,7 +121,7 @@ class MessageHeaderDestination(backboneelement.BackboneElement):
         """ Particular delivery destination within the destination.
         Type `FHIRReference` referencing `Device` (represented as `dict` in JSON). """
         
-        super(MessageHeaderDestination, self).__init__(jsondict)
+        super(MessageHeaderDestination, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MessageHeaderDestination, self).elementProperties()
@@ -134,8 +142,12 @@ class MessageHeaderResponse(backboneelement.BackboneElement):
     
     resource_name = "MessageHeaderResponse"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -150,7 +162,7 @@ class MessageHeaderResponse(backboneelement.BackboneElement):
         """ Id of original message.
         Type `str`. """
         
-        super(MessageHeaderResponse, self).__init__(jsondict)
+        super(MessageHeaderResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MessageHeaderResponse, self).elementProperties()
@@ -170,8 +182,12 @@ class MessageHeaderSource(backboneelement.BackboneElement):
     
     resource_name = "MessageHeaderSource"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contact = None
@@ -194,7 +210,7 @@ class MessageHeaderSource(backboneelement.BackboneElement):
         """ Version of software running.
         Type `str`. """
         
-        super(MessageHeaderSource, self).__init__(jsondict)
+        super(MessageHeaderSource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MessageHeaderSource, self).elementProperties()

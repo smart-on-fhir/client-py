@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -20,8 +20,12 @@ class EpisodeOfCare(domainresource.DomainResource):
     
     resource_name = "EpisodeOfCare"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.careManager = None
@@ -68,7 +72,7 @@ class EpisodeOfCare(domainresource.DomainResource):
         """ Type/class  - e.g. specialist referral, disease management.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(EpisodeOfCare, self).__init__(jsondict)
+        super(EpisodeOfCare, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EpisodeOfCare, self).elementProperties()
@@ -99,8 +103,12 @@ class EpisodeOfCareCareTeam(backboneelement.BackboneElement):
     
     resource_name = "EpisodeOfCareCareTeam"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.member = None
@@ -115,7 +123,7 @@ class EpisodeOfCareCareTeam(backboneelement.BackboneElement):
         """ Role taken by this team member.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(EpisodeOfCareCareTeam, self).__init__(jsondict)
+        super(EpisodeOfCareCareTeam, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EpisodeOfCareCareTeam, self).elementProperties()
@@ -136,8 +144,12 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
     
     resource_name = "EpisodeOfCareStatusHistory"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.period = None
@@ -148,7 +160,7 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
         """ planned | waitlist | active | onhold | finished | cancelled.
         Type `str`. """
         
-        super(EpisodeOfCareStatusHistory, self).__init__(jsondict)
+        super(EpisodeOfCareStatusHistory, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EpisodeOfCareStatusHistory, self).elementProperties()

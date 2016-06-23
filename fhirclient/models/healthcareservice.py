@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -13,8 +13,12 @@ class HealthcareService(domainresource.DomainResource):
     
     resource_name = "HealthcareService"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.appointmentRequired = None
@@ -107,7 +111,7 @@ class HealthcareService(domainresource.DomainResource):
         """ Contacts related to the healthcare service.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(HealthcareService, self).__init__(jsondict)
+        super(HealthcareService, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(HealthcareService, self).elementProperties()
@@ -148,8 +152,12 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
     
     resource_name = "HealthcareServiceAvailableTime"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.allDay = None
@@ -168,7 +176,7 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
         """ mon | tue | wed | thu | fri | sat | sun.
         List of `str` items. """
         
-        super(HealthcareServiceAvailableTime, self).__init__(jsondict)
+        super(HealthcareServiceAvailableTime, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(HealthcareServiceAvailableTime, self).elementProperties()
@@ -190,8 +198,12 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
     
     resource_name = "HealthcareServiceNotAvailable"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
@@ -202,7 +214,7 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
         """ Service not availablefrom this date.
         Type `Period` (represented as `dict` in JSON). """
         
-        super(HealthcareServiceNotAvailable, self).__init__(jsondict)
+        super(HealthcareServiceNotAvailable, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(HealthcareServiceNotAvailable, self).elementProperties()
@@ -221,8 +233,12 @@ class HealthcareServiceServiceType(backboneelement.BackboneElement):
     
     resource_name = "HealthcareServiceServiceType"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.specialty = None
@@ -233,7 +249,7 @@ class HealthcareServiceServiceType(backboneelement.BackboneElement):
         """ Type of service delivered or performed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(HealthcareServiceServiceType, self).__init__(jsondict)
+        super(HealthcareServiceServiceType, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(HealthcareServiceServiceType, self).elementProperties()

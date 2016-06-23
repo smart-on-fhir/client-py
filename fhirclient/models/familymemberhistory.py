@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class FamilyMemberHistory(domainresource.DomainResource):
     
     resource_name = "FamilyMemberHistory"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.ageQuantity = None
@@ -100,7 +104,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ partial | completed | entered-in-error | health-unknown.
         Type `str`. """
         
-        super(FamilyMemberHistory, self).__init__(jsondict)
+        super(FamilyMemberHistory, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(FamilyMemberHistory, self).elementProperties()
@@ -142,8 +146,12 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
     
     resource_name = "FamilyMemberHistoryCondition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -174,7 +182,7 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
         """ deceased | permanent disability | etc..
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(FamilyMemberHistoryCondition, self).__init__(jsondict)
+        super(FamilyMemberHistoryCondition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(FamilyMemberHistoryCondition, self).elementProperties()

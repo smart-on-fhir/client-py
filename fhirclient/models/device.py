@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Device) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Device) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -22,8 +22,12 @@ class Device(domainresource.DomainResource):
     
     resource_name = "Device"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contact = None
@@ -90,7 +94,7 @@ class Device(domainresource.DomainResource):
         """ Version number (i.e. software).
         Type `str`. """
         
-        super(Device, self).__init__(jsondict)
+        super(Device, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Device, self).elementProperties()

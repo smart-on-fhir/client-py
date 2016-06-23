@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -18,8 +18,12 @@ class Condition(domainresource.DomainResource):
     
     resource_name = "Condition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.abatementBoolean = None
@@ -123,7 +127,7 @@ class Condition(domainresource.DomainResource):
         | unknown.
         Type `str`. """
         
-        super(Condition, self).__init__(jsondict)
+        super(Condition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Condition, self).elementProperties()
@@ -168,8 +172,12 @@ class ConditionEvidence(backboneelement.BackboneElement):
     
     resource_name = "ConditionEvidence"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -180,7 +188,7 @@ class ConditionEvidence(backboneelement.BackboneElement):
         """ Supporting information found elsewhere.
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
-        super(ConditionEvidence, self).__init__(jsondict)
+        super(ConditionEvidence, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConditionEvidence, self).elementProperties()
@@ -200,8 +208,12 @@ class ConditionStage(backboneelement.BackboneElement):
     
     resource_name = "ConditionStage"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.assessment = None
@@ -212,7 +224,7 @@ class ConditionStage(backboneelement.BackboneElement):
         """ Simple summary (disease specific).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ConditionStage, self).__init__(jsondict)
+        super(ConditionStage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConditionStage, self).elementProperties()

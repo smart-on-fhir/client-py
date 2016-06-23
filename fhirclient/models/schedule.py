@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -14,8 +14,12 @@ class Schedule(domainresource.DomainResource):
     
     resource_name = "Schedule"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.actor = None
@@ -47,7 +51,7 @@ class Schedule(domainresource.DomainResource):
         services or other appointment types.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(Schedule, self).__init__(jsondict)
+        super(Schedule, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Schedule, self).elementProperties()

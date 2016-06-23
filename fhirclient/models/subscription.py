@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -19,8 +19,12 @@ class Subscription(domainresource.DomainResource):
     
     resource_name = "Subscription"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.channel = None
@@ -55,7 +59,7 @@ class Subscription(domainresource.DomainResource):
         """ A tag to add to matching resources.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        super(Subscription, self).__init__(jsondict)
+        super(Subscription, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Subscription, self).elementProperties()
@@ -83,8 +87,12 @@ class SubscriptionChannel(backboneelement.BackboneElement):
     
     resource_name = "SubscriptionChannel"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.endpoint = None
@@ -103,7 +111,7 @@ class SubscriptionChannel(backboneelement.BackboneElement):
         """ rest-hook | websocket | email | sms | message.
         Type `str`. """
         
-        super(SubscriptionChannel, self).__init__(jsondict)
+        super(SubscriptionChannel, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SubscriptionChannel, self).elementProperties()

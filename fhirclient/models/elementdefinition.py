@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class ElementDefinition(element.Element):
     
     resource_name = "ElementDefinition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.alias = None
@@ -912,7 +916,7 @@ class ElementDefinition(element.Element):
         """ Data type and Profile for this element.
         List of `ElementDefinitionType` items (represented as `dict` in JSON). """
         
-        super(ElementDefinition, self).__init__(jsondict)
+        super(ElementDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinition, self).elementProperties()
@@ -1156,8 +1160,12 @@ class ElementDefinitionBase(element.Element):
     
     resource_name = "ElementDefinitionBase"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.max = None
@@ -1172,7 +1180,7 @@ class ElementDefinitionBase(element.Element):
         """ Path that identifies the base element.
         Type `str`. """
         
-        super(ElementDefinitionBase, self).__init__(jsondict)
+        super(ElementDefinitionBase, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionBase, self).elementProperties()
@@ -1193,8 +1201,12 @@ class ElementDefinitionBinding(element.Element):
     
     resource_name = "ElementDefinitionBinding"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
@@ -1213,7 +1225,7 @@ class ElementDefinitionBinding(element.Element):
         """ Source of value set.
         Type `str`. """
         
-        super(ElementDefinitionBinding, self).__init__(jsondict)
+        super(ElementDefinitionBinding, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionBinding, self).elementProperties()
@@ -1235,8 +1247,12 @@ class ElementDefinitionConstraint(element.Element):
     
     resource_name = "ElementDefinitionConstraint"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.human = None
@@ -1259,7 +1275,7 @@ class ElementDefinitionConstraint(element.Element):
         """ XPath expression of constraint.
         Type `str`. """
         
-        super(ElementDefinitionConstraint, self).__init__(jsondict)
+        super(ElementDefinitionConstraint, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionConstraint, self).elementProperties()
@@ -1282,8 +1298,12 @@ class ElementDefinitionMapping(element.Element):
     
     resource_name = "ElementDefinitionMapping"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.identity = None
@@ -1298,7 +1318,7 @@ class ElementDefinitionMapping(element.Element):
         """ Details of the mapping.
         Type `str`. """
         
-        super(ElementDefinitionMapping, self).__init__(jsondict)
+        super(ElementDefinitionMapping, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionMapping, self).elementProperties()
@@ -1324,8 +1344,12 @@ class ElementDefinitionSlicing(element.Element):
     
     resource_name = "ElementDefinitionSlicing"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.description = None
@@ -1344,7 +1368,7 @@ class ElementDefinitionSlicing(element.Element):
         """ closed | open | openAtEnd.
         Type `str`. """
         
-        super(ElementDefinitionSlicing, self).__init__(jsondict)
+        super(ElementDefinitionSlicing, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionSlicing, self).elementProperties()
@@ -1366,8 +1390,12 @@ class ElementDefinitionType(element.Element):
     
     resource_name = "ElementDefinitionType"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.aggregation = None
@@ -1382,7 +1410,7 @@ class ElementDefinitionType(element.Element):
         """ Profile (StructureDefinition) to apply (or IG).
         List of `str` items. """
         
-        super(ElementDefinitionType, self).__init__(jsondict)
+        super(ElementDefinitionType, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ElementDefinitionType, self).elementProperties()

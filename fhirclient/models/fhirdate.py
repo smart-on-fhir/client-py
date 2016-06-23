@@ -5,6 +5,7 @@
 #  2014, SMART Health IT.
 
 import sys
+import logging
 import isodate
 import datetime
 
@@ -18,10 +19,21 @@ class FHIRDate(object):
     def __init__(self, jsonval=None):
         self.date = None
         if jsonval is not None:
-            if 'T' in jsonval:
-                self.date = isodate.parse_datetime(jsonval)
-            else:
-                self.date = isodate.parse_date(jsonval)
+            isstr = isinstance(jsonval, str)
+            if not isstr and sys.version_info[0] < 3:       # Python 2.x has 'str' and 'unicode'
+                isstr = isinstance(jsonval, basestring)
+            if not isstr:
+                raise TypeError("Expecting string when initializing {}, but got {}"
+                    .format(type(self), type(jsonval)))
+            try:
+                if 'T' in jsonval:
+                    self.date = isodate.parse_datetime(jsonval)
+                else:
+                    self.date = isodate.parse_date(jsonval)
+            except Exception as e:
+                logging.warning("Failed to initialize FHIRDate from \"{}\": {}"
+                    .format(jsonval, e))
+        
         self.origval = jsonval
     
     def __setattr__(self, prop, value):
@@ -47,10 +59,11 @@ class FHIRDate(object):
         if isstr:
             return cls(jsonobj)
         
-        arr = []
-        for jsonval in jsonobj:
-            arr.append(cls(jsonval))
-        return arr
+        if isinstance(jsonobj, list):
+            return [cls(jsonval) for jsonval in jsonobj]
+        
+        raise TypeError("`cls.with_json()` only takes string or list of strings, but you provided {}"
+            .format(type(jsonobj)))
     
     @classmethod
     def with_json_and_owner(cls, jsonobj, owner):

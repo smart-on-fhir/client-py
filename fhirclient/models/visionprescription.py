@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class VisionPrescription(domainresource.DomainResource):
     
     resource_name = "VisionPrescription"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.dateWritten = None
@@ -52,7 +56,7 @@ class VisionPrescription(domainresource.DomainResource):
         """ Reason or indication for writing the prescription.
         Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
         
-        super(VisionPrescription, self).__init__(jsondict)
+        super(VisionPrescription, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(VisionPrescription, self).elementProperties()
@@ -79,8 +83,12 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
     
     resource_name = "VisionPrescriptionDispense"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.add = None
@@ -143,7 +151,7 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
         """ Lens sphere.
         Type `float`. """
         
-        super(VisionPrescriptionDispense, self).__init__(jsondict)
+        super(VisionPrescriptionDispense, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(VisionPrescriptionDispense, self).elementProperties()

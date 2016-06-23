@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class Questionnaire(domainresource.DomainResource):
     
     resource_name = "Questionnaire"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.date = None
@@ -53,7 +57,7 @@ class Questionnaire(domainresource.DomainResource):
         """ Logical identifier for this version of Questionnaire.
         Type `str`. """
         
-        super(Questionnaire, self).__init__(jsondict)
+        super(Questionnaire, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Questionnaire, self).elementProperties()
@@ -80,8 +84,12 @@ class QuestionnaireGroup(backboneelement.BackboneElement):
     
     resource_name = "QuestionnaireGroup"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.concept = None
@@ -116,7 +124,7 @@ class QuestionnaireGroup(backboneelement.BackboneElement):
         """ Name to be displayed for group.
         Type `str`. """
         
-        super(QuestionnaireGroup, self).__init__(jsondict)
+        super(QuestionnaireGroup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(QuestionnaireGroup, self).elementProperties()
@@ -142,8 +150,12 @@ class QuestionnaireGroupQuestion(backboneelement.BackboneElement):
     
     resource_name = "QuestionnaireGroupQuestion"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.concept = None
@@ -182,7 +194,7 @@ class QuestionnaireGroupQuestion(backboneelement.BackboneElement):
         """ boolean | decimal | integer | date | dateTime +.
         Type `str`. """
         
-        super(QuestionnaireGroupQuestion, self).__init__(jsondict)
+        super(QuestionnaireGroupQuestion, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(QuestionnaireGroupQuestion, self).elementProperties()

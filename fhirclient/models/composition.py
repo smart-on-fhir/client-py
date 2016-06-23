@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Composition) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Composition) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -22,8 +22,12 @@ class Composition(domainresource.DomainResource):
     
     resource_name = "Composition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.attester = None
@@ -82,7 +86,7 @@ class Composition(domainresource.DomainResource):
         """ Kind of composition (LOINC if possible).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(Composition, self).__init__(jsondict)
+        super(Composition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Composition, self).elementProperties()
@@ -115,8 +119,12 @@ class CompositionAttester(backboneelement.BackboneElement):
     
     resource_name = "CompositionAttester"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.mode = None
@@ -131,7 +139,7 @@ class CompositionAttester(backboneelement.BackboneElement):
         """ When composition attested.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        super(CompositionAttester, self).__init__(jsondict)
+        super(CompositionAttester, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CompositionAttester, self).elementProperties()
@@ -152,8 +160,12 @@ class CompositionEvent(backboneelement.BackboneElement):
     
     resource_name = "CompositionEvent"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -168,7 +180,7 @@ class CompositionEvent(backboneelement.BackboneElement):
         """ The period covered by the documentation.
         Type `Period` (represented as `dict` in JSON). """
         
-        super(CompositionEvent, self).__init__(jsondict)
+        super(CompositionEvent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CompositionEvent, self).elementProperties()
@@ -188,8 +200,12 @@ class CompositionSection(backboneelement.BackboneElement):
     
     resource_name = "CompositionSection"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -224,7 +240,7 @@ class CompositionSection(backboneelement.BackboneElement):
         """ Label for section (e.g. for ToC).
         Type `str`. """
         
-        super(CompositionSection, self).__init__(jsondict)
+        super(CompositionSection, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CompositionSection, self).elementProperties()

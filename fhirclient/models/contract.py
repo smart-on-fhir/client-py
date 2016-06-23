@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Contract) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Contract) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -16,8 +16,12 @@ class Contract(domainresource.DomainResource):
     
     resource_name = "Contract"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
@@ -96,7 +100,7 @@ class Contract(domainresource.DomainResource):
         """ Contract Valued Item.
         List of `ContractValuedItem` items (represented as `dict` in JSON). """
         
-        super(Contract, self).__init__(jsondict)
+        super(Contract, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Contract, self).elementProperties()
@@ -134,8 +138,12 @@ class ContractActor(backboneelement.BackboneElement):
     
     resource_name = "ContractActor"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.entity = None
@@ -146,7 +154,7 @@ class ContractActor(backboneelement.BackboneElement):
         """ Contract  Actor Role.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(ContractActor, self).__init__(jsondict)
+        super(ContractActor, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ContractActor, self).elementProperties()
@@ -171,8 +179,12 @@ class ContractFriendly(backboneelement.BackboneElement):
     
     resource_name = "ContractFriendly"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contentAttachment = None
@@ -183,7 +195,7 @@ class ContractFriendly(backboneelement.BackboneElement):
         """ Easily comprehended representation of this Contract.
         Type `FHIRReference` referencing `Composition, DocumentReference, QuestionnaireResponse` (represented as `dict` in JSON). """
         
-        super(ContractFriendly, self).__init__(jsondict)
+        super(ContractFriendly, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ContractFriendly, self).elementProperties()
@@ -202,8 +214,12 @@ class ContractLegal(backboneelement.BackboneElement):
     
     resource_name = "ContractLegal"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contentAttachment = None
@@ -214,7 +230,7 @@ class ContractLegal(backboneelement.BackboneElement):
         """ Contract Legal Text.
         Type `FHIRReference` referencing `Composition, DocumentReference, QuestionnaireResponse` (represented as `dict` in JSON). """
         
-        super(ContractLegal, self).__init__(jsondict)
+        super(ContractLegal, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ContractLegal, self).elementProperties()
@@ -233,8 +249,12 @@ class ContractRule(backboneelement.BackboneElement):
     
     resource_name = "ContractRule"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contentAttachment = None
@@ -245,7 +265,7 @@ class ContractRule(backboneelement.BackboneElement):
         """ Computable Contract Rules.
         Type `FHIRReference` referencing `DocumentReference` (represented as `dict` in JSON). """
         
-        super(ContractRule, self).__init__(jsondict)
+        super(ContractRule, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ContractRule, self).elementProperties()
@@ -264,8 +284,12 @@ class ContractSigner(backboneelement.BackboneElement):
     
     resource_name = "ContractSigner"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.party = None
@@ -280,7 +304,7 @@ class ContractSigner(backboneelement.BackboneElement):
         """ Contract Signer Type.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ContractSigner, self).__init__(jsondict)
+        super(ContractSigner, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ContractSigner, self).elementProperties()
@@ -301,8 +325,12 @@ class ContractTerm(backboneelement.BackboneElement):
     
     resource_name = "ContractTerm"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.action = None
@@ -353,7 +381,7 @@ class ContractTerm(backboneelement.BackboneElement):
         """ Contract Term Valued Item.
         List of `ContractTermValuedItem` items (represented as `dict` in JSON). """
         
-        super(ContractTerm, self).__init__(jsondict)
+        super(ContractTerm, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ContractTerm, self).elementProperties()
@@ -382,8 +410,12 @@ class ContractTermActor(backboneelement.BackboneElement):
     
     resource_name = "ContractTermActor"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.entity = None
@@ -394,7 +426,7 @@ class ContractTermActor(backboneelement.BackboneElement):
         """ Contract Term Actor Role.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(ContractTermActor, self).__init__(jsondict)
+        super(ContractTermActor, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ContractTermActor, self).elementProperties()
@@ -413,8 +445,12 @@ class ContractTermValuedItem(backboneelement.BackboneElement):
     
     resource_name = "ContractTermValuedItem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.effectiveTime = None
@@ -453,7 +489,7 @@ class ContractTermValuedItem(backboneelement.BackboneElement):
         """ Contract Term Valued Item fee, charge, or cost.
         Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
-        super(ContractTermValuedItem, self).__init__(jsondict)
+        super(ContractTermValuedItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ContractTermValuedItem, self).elementProperties()
@@ -479,8 +515,12 @@ class ContractValuedItem(backboneelement.BackboneElement):
     
     resource_name = "ContractValuedItem"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.effectiveTime = None
@@ -519,7 +559,7 @@ class ContractValuedItem(backboneelement.BackboneElement):
         """ Contract Valued Item fee, charge, or cost.
         Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
         
-        super(ContractValuedItem, self).__init__(jsondict)
+        super(ContractValuedItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ContractValuedItem, self).elementProperties()

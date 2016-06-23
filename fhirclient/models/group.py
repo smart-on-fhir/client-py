@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Group) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Group) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -18,8 +18,12 @@ class Group(domainresource.DomainResource):
     
     resource_name = "Group"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.actual = None
@@ -54,7 +58,7 @@ class Group(domainresource.DomainResource):
         """ person | animal | practitioner | device | medication | substance.
         Type `str`. """
         
-        super(Group, self).__init__(jsondict)
+        super(Group, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Group, self).elementProperties()
@@ -81,8 +85,12 @@ class GroupCharacteristic(backboneelement.BackboneElement):
     
     resource_name = "GroupCharacteristic"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -113,7 +121,7 @@ class GroupCharacteristic(backboneelement.BackboneElement):
         """ Value held by characteristic.
         Type `Range` (represented as `dict` in JSON). """
         
-        super(GroupCharacteristic, self).__init__(jsondict)
+        super(GroupCharacteristic, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(GroupCharacteristic, self).elementProperties()
@@ -137,8 +145,12 @@ class GroupMember(backboneelement.BackboneElement):
     
     resource_name = "GroupMember"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.entity = None
@@ -153,7 +165,7 @@ class GroupMember(backboneelement.BackboneElement):
         """ Period member belonged to the group.
         Type `Period` (represented as `dict` in JSON). """
         
-        super(GroupMember, self).__init__(jsondict)
+        super(GroupMember, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(GroupMember, self).elementProperties()

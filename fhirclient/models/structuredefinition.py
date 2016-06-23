@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class StructureDefinition(domainresource.DomainResource):
     
     resource_name = "StructureDefinition"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.abstract = None
@@ -121,7 +125,7 @@ class StructureDefinition(domainresource.DomainResource):
         """ Logical id for this version of the StructureDefinition.
         Type `str`. """
         
-        super(StructureDefinition, self).__init__(jsondict)
+        super(StructureDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinition, self).elementProperties()
@@ -165,8 +169,12 @@ class StructureDefinitionContact(backboneelement.BackboneElement):
     
     resource_name = "StructureDefinitionContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -177,7 +185,7 @@ class StructureDefinitionContact(backboneelement.BackboneElement):
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(StructureDefinitionContact, self).__init__(jsondict)
+        super(StructureDefinitionContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinitionContact, self).elementProperties()
@@ -197,15 +205,19 @@ class StructureDefinitionDifferential(backboneelement.BackboneElement):
     
     resource_name = "StructureDefinitionDifferential"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.element = None
         """ Definition of elements in the resource (if no StructureDefinition).
         List of `ElementDefinition` items (represented as `dict` in JSON). """
         
-        super(StructureDefinitionDifferential, self).__init__(jsondict)
+        super(StructureDefinitionDifferential, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinitionDifferential, self).elementProperties()
@@ -223,8 +235,12 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
     
     resource_name = "StructureDefinitionMapping"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.comments = None
@@ -243,7 +259,7 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
         """ Identifies what this mapping refers to.
         Type `str`. """
         
-        super(StructureDefinitionMapping, self).__init__(jsondict)
+        super(StructureDefinitionMapping, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinitionMapping, self).elementProperties()
@@ -265,15 +281,19 @@ class StructureDefinitionSnapshot(backboneelement.BackboneElement):
     
     resource_name = "StructureDefinitionSnapshot"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.element = None
         """ Definition of elements in the resource (if no StructureDefinition).
         List of `ElementDefinition` items (represented as `dict` in JSON). """
         
-        super(StructureDefinitionSnapshot, self).__init__(jsondict)
+        super(StructureDefinitionSnapshot, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinitionSnapshot, self).elementProperties()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-03-23.
+#  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-06-23.
 #  2016, SMART Health IT.
 
 
@@ -17,8 +17,12 @@ class ConceptMap(domainresource.DomainResource):
     
     resource_name = "ConceptMap"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.contact = None
@@ -93,7 +97,7 @@ class ConceptMap(domainresource.DomainResource):
         """ Logical id for this version of the concept map.
         Type `str`. """
         
-        super(ConceptMap, self).__init__(jsondict)
+        super(ConceptMap, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConceptMap, self).elementProperties()
@@ -130,8 +134,12 @@ class ConceptMapContact(backboneelement.BackboneElement):
     
     resource_name = "ConceptMapContact"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.name = None
@@ -142,7 +150,7 @@ class ConceptMapContact(backboneelement.BackboneElement):
         """ Contact details for individual or publisher.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        super(ConceptMapContact, self).__init__(jsondict)
+        super(ConceptMapContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConceptMapContact, self).elementProperties()
@@ -162,8 +170,12 @@ class ConceptMapElement(backboneelement.BackboneElement):
     
     resource_name = "ConceptMapElement"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -178,7 +190,7 @@ class ConceptMapElement(backboneelement.BackboneElement):
         """ Concept in target system for element.
         List of `ConceptMapElementTarget` items (represented as `dict` in JSON). """
         
-        super(ConceptMapElement, self).__init__(jsondict)
+        super(ConceptMapElement, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConceptMapElement, self).elementProperties()
@@ -198,8 +210,12 @@ class ConceptMapElementTarget(backboneelement.BackboneElement):
     
     resource_name = "ConceptMapElementTarget"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -227,7 +243,7 @@ class ConceptMapElementTarget(backboneelement.BackboneElement):
         """ Other concepts that this mapping also produces.
         List of `ConceptMapElementTargetDependsOn` items (represented as `dict` in JSON). """
         
-        super(ConceptMapElementTarget, self).__init__(jsondict)
+        super(ConceptMapElementTarget, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConceptMapElementTarget, self).elementProperties()
@@ -252,8 +268,12 @@ class ConceptMapElementTargetDependsOn(backboneelement.BackboneElement):
     
     resource_name = "ConceptMapElementTargetDependsOn"
     
-    def __init__(self, jsondict=None):
+    def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
         self.code = None
@@ -268,7 +288,7 @@ class ConceptMapElementTargetDependsOn(backboneelement.BackboneElement):
         """ Reference to element/field/ValueSet mapping depends on.
         Type `str`. """
         
-        super(ConceptMapElementTargetDependsOn, self).__init__(jsondict)
+        super(ConceptMapElementTargetDependsOn, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConceptMapElementTargetDependsOn, self).elementProperties()
