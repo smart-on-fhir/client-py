@@ -4,7 +4,7 @@ import logging
 
 from server import FHIRServer, FHIRUnauthorizedException, FHIRNotFoundException
 
-__version__ = '1.0.4'
+__version__ = '1.0.5'
 __author__ = 'SMART Platforms Team'
 __license__ = 'APACHE2'
 __copyright__ = "Copyright 2016 Boston Children's Hospital"

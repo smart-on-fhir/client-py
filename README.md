@@ -103,6 +103,7 @@ bundle = search.perform(smart.server)
 ### Data Model Use
 
 The client contains data model classes, built using [fhir-parser][], that handle (de)serialization and allow to work with FHIR data in a Pythonic way.
+Starting with version 1.0.5, data model validity are enforced to a certain degree.
 
 #### Initialize Data Model
 
@@ -119,6 +120,14 @@ name.family = ['Parker']
 patient.name = [name]
 patient.as_json()
 # prints patient's JSON representation, now with id and name
+
+name.given = 'Peter'
+patient.as_json()
+# throws FHIRValidationError:
+# {root}:
+#   name:
+#     given:
+#       Expecting property "given" on <class 'fhirclient.models.humanname.HumanName'> to be list, but is <class 'str'>
 ```
 
 #### Initialize from JSON file
