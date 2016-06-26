@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -36,13 +36,14 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
         self.assertEqual(inst.except_fhir[0].actor[0].role.coding[0].code, "CST")
         self.assertEqual(inst.except_fhir[0].actor[0].role.coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
-        self.assertEqual(inst.except_fhir[0].type, "deny")
+        self.assertEqual(inst.except_fhir[0].purpose[0].code, "ETREAT")
+        self.assertEqual(inst.except_fhir[0].purpose[0].system, "http://hl7.org/fhir/v3/ActReason")
+        self.assertEqual(inst.except_fhir[0].type, "permit")
         self.assertEqual(inst.except_fhir[1].actor[0].role.coding[0].code, "CST")
         self.assertEqual(inst.except_fhir[1].actor[0].role.coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
-        self.assertEqual(inst.except_fhir[1].purpose[0].code, "ETREAT")
-        self.assertEqual(inst.except_fhir[1].purpose[0].system, "http://hl7.org/fhir/v3/ActReason")
-        self.assertEqual(inst.except_fhir[1].type, "permit")
+        self.assertEqual(inst.except_fhir[1].type, "deny")
         self.assertEqual(inst.id, "consent-example-Emergency")
+        self.assertEqual(inst.policy, "http://hl7.org/fhir/ConsentPolicy/opt-in")
         self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
@@ -68,6 +69,7 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.except_fhir[0].actor[1].role.coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.except_fhir[0].type, "permit")
         self.assertEqual(inst.id, "consent-example-grantor")
+        self.assertEqual(inst.policy, "http://hl7.org/fhir/ConsentPolicy/opt-in")
         self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
@@ -89,6 +91,7 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.except_fhir[0].actor[0].role.coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.except_fhir[0].type, "deny")
         self.assertEqual(inst.id, "consent-example-notAuthor")
+        self.assertEqual(inst.policy, "http://hl7.org/fhir/ConsentPolicy/opt-out")
         self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
@@ -114,6 +117,7 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.except_fhir[0].actor[0].role.coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.except_fhir[0].type, "deny")
         self.assertEqual(inst.id, "consent-example-notOrg")
+        self.assertEqual(inst.policy, "http://hl7.org/fhir/ConsentPolicy/opt-out")
         self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
@@ -139,6 +143,7 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.except_fhir[0].actor[0].role.coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.except_fhir[0].type, "deny")
         self.assertEqual(inst.id, "consent-example-notThem")
+        self.assertEqual(inst.policy, "http://hl7.org/fhir/ConsentPolicy/opt-out")
         self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
@@ -159,6 +164,7 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.except_fhir[0].data[0].meaning, "related")
         self.assertEqual(inst.except_fhir[0].type, "deny")
         self.assertEqual(inst.id, "consent-example-notThis")
+        self.assertEqual(inst.policy, "http://hl7.org/fhir/ConsentPolicy/opt-out")
         self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
@@ -182,6 +188,7 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.except_fhir[0].period.start.as_json(), "2015-01-01")
         self.assertEqual(inst.except_fhir[0].type, "deny")
         self.assertEqual(inst.id, "consent-example-notTime")
+        self.assertEqual(inst.policy, "http://hl7.org/fhir/ConsentPolicy/opt-out")
         self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
@@ -203,6 +210,7 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.except_fhir[0].actor[0].role.coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.except_fhir[0].type, "deny")
         self.assertEqual(inst.id, "consent-example-Out")
+        self.assertEqual(inst.policy, "http://hl7.org/fhir/ConsentPolicy/opt-out")
         self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
@@ -291,11 +299,12 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.except_fhir[9].securityLabel[0].system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.except_fhir[9].type, "permit")
         self.assertEqual(inst.id, "consent-example-pkb")
+        self.assertEqual(inst.policy, "http://hl7.org/fhir/ConsentPolicy/opt-in")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
     def testConsent10(self):
-        inst = self.instantiate_from("consent-example.json")
+        inst = self.instantiate_from("consent-example-smartonfhir.json")
         self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
         self.implConsent10(inst)
         
@@ -305,15 +314,21 @@ class ConsentTests(unittest.TestCase):
         self.implConsent10(inst2)
     
     def implConsent10(self, inst):
-        self.assertEqual(inst.dateTime.date, FHIRDate("2016-05-11").date)
-        self.assertEqual(inst.dateTime.as_json(), "2016-05-11")
-        self.assertEqual(inst.id, "consent-example-basic")
-        self.assertEqual(inst.period.end.date, FHIRDate("2016-01-01").date)
-        self.assertEqual(inst.period.end.as_json(), "2016-01-01")
-        self.assertEqual(inst.period.start.date, FHIRDate("1964-01-01").date)
-        self.assertEqual(inst.period.start.as_json(), "1964-01-01")
-        self.assertEqual(inst.policy, "http://goodhealth.org/consent/policy/opt-in")
-        self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
+        self.assertEqual(inst.category[0].coding[0].code, "smart-on-fhir")
+        self.assertEqual(inst.category[0].coding[0].display, "SMART on FHIR Authorization")
+        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/consentcategorycodes")
+        self.assertEqual(inst.dateTime.date, FHIRDate("2016-06-23T17:02:33+10:00").date)
+        self.assertEqual(inst.dateTime.as_json(), "2016-06-23T17:02:33+10:00")
+        self.assertEqual(inst.except_fhir[0].action[0].coding[0].code, "read")
+        self.assertEqual(inst.except_fhir[0].action[0].coding[0].system, "http://hl7.org/fhir/consentaction")
+        self.assertEqual(inst.except_fhir[0].data[0].meaning, "profile")
+        self.assertEqual(inst.except_fhir[0].type, "permit")
+        self.assertEqual(inst.id, "consent-example-smartonfhir")
+        self.assertEqual(inst.period.end.date, FHIRDate("2016-06-23T17:32:33+10:00").date)
+        self.assertEqual(inst.period.end.as_json(), "2016-06-23T17:32:33+10:00")
+        self.assertEqual(inst.period.start.date, FHIRDate("2016-06-23T17:02:33+10:00").date)
+        self.assertEqual(inst.period.start.as_json(), "2016-06-23T17:02:33+10:00")
+        self.assertEqual(inst.policy, "http://hl7.org/fhir/ConsentPolicy/opt-in")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
 

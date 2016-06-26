@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -96,6 +96,10 @@ class PaymentReconciliation(domainresource.DomainResource):
         """ Resource version.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
+        
         self.total = None
         """ Total amount of Payment.
         Type `Money` (represented as `dict` in JSON). """
@@ -123,6 +127,7 @@ class PaymentReconciliation(domainresource.DomainResource):
             ("requestProviderReference", "requestProviderReference", fhirreference.FHIRReference, False, "requestProvider", False),
             ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("status", "status", str, False, None, True),
             ("total", "total", money.Money, False, None, True),
         ])
         return js

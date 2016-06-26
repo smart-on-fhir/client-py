@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -44,10 +44,6 @@ class Coverage(domainresource.DomainResource):
         """ Dependent number.
         Type `int`. """
         
-        self.exception = None
-        """ Eligibility exceptions.
-        List of `Coding` items (represented as `dict` in JSON). """
-        
         self.group = None
         """ An identifier for the group.
         Type `str`. """
@@ -89,16 +85,16 @@ class Coverage(domainresource.DomainResource):
         Type `FHIRReference` referencing `Patient, Organization` (represented as `dict` in JSON). """
         
         self.relationship = None
-        """ Patient relationship to planholder.
+        """ Beneficiary relationship to Planholder.
         Type `Coding` (represented as `dict` in JSON). """
-        
-        self.school = None
-        """ Name of School.
-        Type `str`. """
         
         self.sequence = None
         """ The plan instance or sequence counter.
         Type `int`. """
+        
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
         
         self.subPlan = None
         """ An identifier for the subsection of the plan.
@@ -118,7 +114,6 @@ class Coverage(domainresource.DomainResource):
             ("bin", "bin", str, False, None, False),
             ("contract", "contract", fhirreference.FHIRReference, True, None, False),
             ("dependent", "dependent", int, False, None, False),
-            ("exception", "exception", coding.Coding, True, None, False),
             ("group", "group", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("isAgreement", "isAgreement", bool, False, None, False),
@@ -130,8 +125,8 @@ class Coverage(domainresource.DomainResource):
             ("planholderIdentifier", "planholderIdentifier", identifier.Identifier, False, "planholder", True),
             ("planholderReference", "planholderReference", fhirreference.FHIRReference, False, "planholder", True),
             ("relationship", "relationship", coding.Coding, False, None, True),
-            ("school", "school", str, False, None, False),
             ("sequence", "sequence", int, False, None, False),
+            ("status", "status", str, False, None, True),
             ("subPlan", "subPlan", str, False, None, False),
             ("type", "type", coding.Coding, False, None, False),
         ])

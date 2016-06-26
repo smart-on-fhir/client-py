@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Claim) on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Claim) on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -80,6 +80,14 @@ class Claim(domainresource.DomainResource):
         self.information = None
         """ None.
         List of `ClaimInformation` items (represented as `dict` in JSON). """
+        
+        self.insurerIdentifier = None
+        """ Target.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.insurerReference = None
+        """ Target.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.item = None
         """ Goods and Services.
@@ -161,25 +169,21 @@ class Claim(domainresource.DomainResource):
         """ Current specification followed.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
+        
         self.subType = None
         """ Finer grained claim type information.
         List of `Coding` items (represented as `dict` in JSON). """
-        
-        self.targetIdentifier = None
-        """ Insurer.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.targetReference = None
-        """ Insurer.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.total = None
         """ Total claim cost.
         Type `Money` (represented as `dict` in JSON). """
         
         self.type = None
-        """ institutional | oral | pharmacy | professional | vision.
-        Type `str`. """
+        """ Type or discipline.
+        Type `Coding` (represented as `dict` in JSON). """
         
         self.use = None
         """ complete | proposed | exploratory | other.
@@ -204,6 +208,8 @@ class Claim(domainresource.DomainResource):
             ("hospitalization", "hospitalization", period.Period, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("information", "information", ClaimInformation, True, None, False),
+            ("insurerIdentifier", "insurerIdentifier", identifier.Identifier, False, "insurer", False),
+            ("insurerReference", "insurerReference", fhirreference.FHIRReference, False, "insurer", False),
             ("item", "item", ClaimItem, True, None, False),
             ("missingTeeth", "missingTeeth", ClaimMissingTeeth, True, None, False),
             ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
@@ -224,11 +230,10 @@ class Claim(domainresource.DomainResource):
             ("referralReference", "referralReference", fhirreference.FHIRReference, False, "referral", False),
             ("related", "related", ClaimRelated, True, None, False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("status", "status", str, False, None, True),
             ("subType", "subType", coding.Coding, True, None, False),
-            ("targetIdentifier", "targetIdentifier", identifier.Identifier, False, "target", False),
-            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", False),
             ("total", "total", money.Money, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("type", "type", coding.Coding, False, None, True),
             ("use", "use", str, False, None, False),
         ])
         return js
@@ -411,6 +416,10 @@ class ClaimInformation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.category = None
+        """ Category of information.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.code = None
         """ Type of information.
         Type `Coding` (represented as `dict` in JSON). """
@@ -436,6 +445,7 @@ class ClaimInformation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimInformation, self).elementProperties()
         js.extend([
+            ("category", "category", coding.Coding, False, None, True),
             ("code", "code", coding.Coding, False, None, False),
             ("timingDate", "timingDate", fhirdate.FHIRDate, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
@@ -469,6 +479,10 @@ class ClaimItem(backboneelement.BackboneElement):
         """ None.
         List of `ClaimItemCareTeam` items (represented as `dict` in JSON). """
         
+        self.category = None
+        """ Type of service or product.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.detail = None
         """ Additional items.
         List of `ClaimItemDetail` items (represented as `dict` in JSON). """
@@ -480,6 +494,18 @@ class ClaimItem(backboneelement.BackboneElement):
         self.factor = None
         """ Price scaling factor.
         Type `float`. """
+        
+        self.locationAddress = None
+        """ Place of service.
+        Type `Address` (represented as `dict` in JSON). """
+        
+        self.locationCoding = None
+        """ Place of service.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.locationReference = None
+        """ Place of service.
+        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
         self.modifier = None
         """ Service/Product billing modifiers.
@@ -505,29 +531,17 @@ class ClaimItem(backboneelement.BackboneElement):
         """ Count of Products or Services.
         Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
+        self.revenue = None
+        """ Revenue or cost center code.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.sequence = None
         """ Service instance.
         Type `int`. """
         
         self.service = None
-        """ Item Code.
+        """ Billing Code.
         Type `Coding` (represented as `dict` in JSON). """
-        
-        self.serviceLocationAddress = None
-        """ Place of service.
-        Type `Address` (represented as `dict` in JSON). """
-        
-        self.serviceLocationCoding = None
-        """ Place of service.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.serviceLocationReference = None
-        """ Place of service.
-        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
-        
-        self.serviceModifier = None
-        """ Service/Product modifiers.
-        List of `Coding` items (represented as `dict` in JSON). """
         
         self.servicedDate = None
         """ Date or dates of Service.
@@ -540,10 +554,6 @@ class ClaimItem(backboneelement.BackboneElement):
         self.subSite = None
         """ Service Sub-location.
         List of `Coding` items (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ Group or type of product or service.
-        Type `Coding` (represented as `dict` in JSON). """
         
         self.udi = None
         """ Unique Device Identifier.
@@ -560,25 +570,25 @@ class ClaimItem(backboneelement.BackboneElement):
         js.extend([
             ("bodySite", "bodySite", coding.Coding, False, None, False),
             ("careTeam", "careTeam", ClaimItemCareTeam, True, None, False),
+            ("category", "category", coding.Coding, False, None, False),
             ("detail", "detail", ClaimItemDetail, True, None, False),
             ("diagnosisLinkId", "diagnosisLinkId", int, True, None, False),
             ("factor", "factor", float, False, None, False),
+            ("locationAddress", "locationAddress", address.Address, False, "location", False),
+            ("locationCoding", "locationCoding", coding.Coding, False, "location", False),
+            ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
             ("modifier", "modifier", coding.Coding, True, None, False),
             ("net", "net", money.Money, False, None, False),
             ("points", "points", float, False, None, False),
             ("programCode", "programCode", coding.Coding, True, None, False),
             ("prosthesis", "prosthesis", ClaimItemProsthesis, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("revenue", "revenue", coding.Coding, False, None, False),
             ("sequence", "sequence", int, False, None, True),
-            ("service", "service", coding.Coding, False, None, True),
-            ("serviceLocationAddress", "serviceLocationAddress", address.Address, False, "serviceLocation", False),
-            ("serviceLocationCoding", "serviceLocationCoding", coding.Coding, False, "serviceLocation", False),
-            ("serviceLocationReference", "serviceLocationReference", fhirreference.FHIRReference, False, "serviceLocation", False),
-            ("serviceModifier", "serviceModifier", coding.Coding, True, None, False),
+            ("service", "service", coding.Coding, False, None, False),
             ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
             ("subSite", "subSite", coding.Coding, True, None, False),
-            ("type", "type", coding.Coding, False, None, True),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
@@ -603,19 +613,19 @@ class ClaimItemCareTeam(backboneelement.BackboneElement):
         """
         
         self.providerIdentifier = None
-        """ None.
+        """ Provider individual or organization.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.providerReference = None
-        """ None.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        """ Provider individual or organization.
+        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.qualification = None
         """ Type, classification or Specialization.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.responsible = None
-        """ Billing practitioner.
+        """ Billing provider.
         Type `bool`. """
         
         self.role = None
@@ -652,9 +662,17 @@ class ClaimItemDetail(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.category = None
+        """ Type of service or product.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.factor = None
         """ Price scaling factor.
         Type `float`. """
+        
+        self.modifier = None
+        """ Service/Product billing modifiers.
+        List of `Coding` items (represented as `dict` in JSON). """
         
         self.net = None
         """ Total additional item cost.
@@ -672,21 +690,21 @@ class ClaimItemDetail(backboneelement.BackboneElement):
         """ Count of Products or Services.
         Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
+        self.revenue = None
+        """ Revenue or cost center code.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.sequence = None
         """ Service instance.
         Type `int`. """
         
         self.service = None
-        """ Additional item codes.
+        """ Billing Code.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.subDetail = None
         """ Additional items.
         List of `ClaimItemDetailSubDetail` items (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ Group or type of product or service.
-        Type `Coding` (represented as `dict` in JSON). """
         
         self.udi = None
         """ Unique Device Identifier.
@@ -701,15 +719,17 @@ class ClaimItemDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimItemDetail, self).elementProperties()
         js.extend([
+            ("category", "category", coding.Coding, False, None, False),
             ("factor", "factor", float, False, None, False),
+            ("modifier", "modifier", coding.Coding, True, None, False),
             ("net", "net", money.Money, False, None, False),
             ("points", "points", float, False, None, False),
             ("programCode", "programCode", coding.Coding, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("revenue", "revenue", coding.Coding, False, None, False),
             ("sequence", "sequence", int, False, None, True),
-            ("service", "service", coding.Coding, False, None, True),
+            ("service", "service", coding.Coding, False, None, False),
             ("subDetail", "subDetail", ClaimItemDetailSubDetail, True, None, False),
-            ("type", "type", coding.Coding, False, None, True),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
@@ -732,9 +752,17 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.category = None
+        """ Type of service or product.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.factor = None
         """ Price scaling factor.
         Type `float`. """
+        
+        self.modifier = None
+        """ Service/Product billing modifiers.
+        List of `Coding` items (represented as `dict` in JSON). """
         
         self.net = None
         """ Net additional item cost.
@@ -752,16 +780,16 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
         """ Count of Products or Services.
         Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
+        self.revenue = None
+        """ Revenue or cost center code.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.sequence = None
         """ Service instance.
         Type `int`. """
         
         self.service = None
-        """ Additional item codes.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ Type of product or service.
+        """ Billing Code.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.udi = None
@@ -777,14 +805,16 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimItemDetailSubDetail, self).elementProperties()
         js.extend([
+            ("category", "category", coding.Coding, False, None, False),
             ("factor", "factor", float, False, None, False),
+            ("modifier", "modifier", coding.Coding, True, None, False),
             ("net", "net", money.Money, False, None, False),
             ("points", "points", float, False, None, False),
             ("programCode", "programCode", coding.Coding, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("revenue", "revenue", coding.Coding, False, None, False),
             ("sequence", "sequence", int, False, None, True),
-            ("service", "service", coding.Coding, False, None, True),
-            ("type", "type", coding.Coding, False, None, True),
+            ("service", "service", coding.Coding, False, None, False),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])

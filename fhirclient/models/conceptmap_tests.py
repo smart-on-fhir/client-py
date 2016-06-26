@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -82,6 +82,7 @@ class ConceptMapTests(unittest.TestCase):
         self.assertEqual(inst.name, "Specimen mapping from v2 table 0487 to SNOMED CT")
         self.assertEqual(inst.publisher, "FHIR project team (original source: LabMCoP)")
         self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/ConceptMap/102")
         self.assertEqual(inst.version, "20130725")
     

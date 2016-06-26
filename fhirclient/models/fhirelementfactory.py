@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -362,6 +362,9 @@ class FHIRElementFactory(object):
         if "ConsentExcept" == resource_name:
             from . import consent
             return consent.ConsentExcept(jsondict)
+        if "ContactDetail" == resource_name:
+            from . import contactdetail
+            return contactdetail.ContactDetail(jsondict)
         if "ContactPoint" == resource_name:
             from . import contactpoint
             return contactpoint.ContactPoint(jsondict)
@@ -395,6 +398,9 @@ class FHIRElementFactory(object):
         if "ContractValuedItem" == resource_name:
             from . import contract
             return contract.ContractValuedItem(jsondict)
+        if "Contributor" == resource_name:
+            from . import contributor
+            return contributor.Contributor(jsondict)
         if "Count" == resource_name:
             from . import count
             return count.Count(jsondict)
@@ -974,21 +980,6 @@ class FHIRElementFactory(object):
         if "ModuleMetadata" == resource_name:
             from . import modulemetadata
             return modulemetadata.ModuleMetadata(jsondict)
-        if "ModuleMetadataContact" == resource_name:
-            from . import modulemetadata
-            return modulemetadata.ModuleMetadataContact(jsondict)
-        if "ModuleMetadataContributor" == resource_name:
-            from . import modulemetadata
-            return modulemetadata.ModuleMetadataContributor(jsondict)
-        if "ModuleMetadataContributorContact" == resource_name:
-            from . import modulemetadata
-            return modulemetadata.ModuleMetadataContributorContact(jsondict)
-        if "ModuleMetadataCoverage" == resource_name:
-            from . import modulemetadata
-            return modulemetadata.ModuleMetadataCoverage(jsondict)
-        if "ModuleMetadataRelatedResource" == resource_name:
-            from . import modulemetadata
-            return modulemetadata.ModuleMetadataRelatedResource(jsondict)
         if "Money" == resource_name:
             from . import money
             return money.Money(jsondict)
@@ -1250,6 +1241,9 @@ class FHIRElementFactory(object):
         if "RelatedPerson" == resource_name:
             from . import relatedperson
             return relatedperson.RelatedPerson(jsondict)
+        if "RelatedResource" == resource_name:
+            from . import relatedresource
+            return relatedresource.RelatedResource(jsondict)
         if "Resource" == resource_name:
             from . import resource
             return resource.Resource(jsondict)
@@ -1487,6 +1481,9 @@ class FHIRElementFactory(object):
         if "TriggerDefinition" == resource_name:
             from . import triggerdefinition
             return triggerdefinition.TriggerDefinition(jsondict)
+        if "UsageContext" == resource_name:
+            from . import usagecontext
+            return usagecontext.UsageContext(jsondict)
         if "ValueSet" == resource_name:
             from . import valueset
             return valueset.ValueSet(jsondict)

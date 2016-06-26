@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -142,7 +142,7 @@ class StructureDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.snapshot.element[2].path, "Extension.extension")
         self.assertEqual(inst.snapshot.element[2].short, "Extension")
         self.assertEqual(inst.snapshot.element[2].slicing.discriminator[0], "url")
-        self.assertEqual(inst.snapshot.element[2].slicing.id, "54")
+        self.assertEqual(inst.snapshot.element[2].slicing.id, "68")
         self.assertFalse(inst.snapshot.element[2].slicing.ordered)
         self.assertEqual(inst.snapshot.element[2].slicing.rules, "open")
         self.assertEqual(inst.snapshot.element[2].type[0].code, "Extension")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -716,7 +716,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         Type `str`. """
         
         self.contentType = None
-        """ xml | json.
+        """ xml | json | ttl | none.
         Type `str`. """
         
         self.description = None
@@ -750,6 +750,10 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         
         self.path = None
         """ XPath or JSONPath expression.
+        Type `str`. """
+        
+        self.requestURL = None
+        """ Request URL comparison value.
         Type `str`. """
         
         self.resource = None
@@ -806,6 +810,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
             ("navigationLinks", "navigationLinks", bool, False, None, False),
             ("operator", "operator", str, False, None, False),
             ("path", "path", str, False, None, False),
+            ("requestURL", "requestURL", str, False, None, False),
             ("resource", "resource", str, False, None, False),
             ("response", "response", str, False, None, False),
             ("responseCode", "responseCode", str, False, None, False),
@@ -1011,11 +1016,11 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         """
         
         self.accept = None
-        """ xml | json.
+        """ xml | json | ttl | none.
         Type `str`. """
         
         self.contentType = None
-        """ xml | json.
+        """ xml | json | ttl | none.
         Type `str`. """
         
         self.description = None

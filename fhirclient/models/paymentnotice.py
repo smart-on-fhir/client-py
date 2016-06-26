@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -76,6 +76,10 @@ class PaymentNotice(domainresource.DomainResource):
         """ Resource version.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
+        
         self.statusDate = None
         """ Payment or clearing date.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -106,6 +110,7 @@ class PaymentNotice(domainresource.DomainResource):
             ("responseIdentifier", "responseIdentifier", identifier.Identifier, False, "response", False),
             ("responseReference", "responseReference", fhirreference.FHIRReference, False, "response", False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("status", "status", str, False, None, True),
             ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
             ("targetIdentifier", "targetIdentifier", identifier.Identifier, False, "target", False),
             ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", False),

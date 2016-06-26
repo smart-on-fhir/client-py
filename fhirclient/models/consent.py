@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/Consent) on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Consent) on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -55,7 +55,7 @@ class Consent(domainresource.DomainResource):
         List of `ConsentExcept` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Consent identifier for this record.
+        """ Identifier for this record (external references).
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.organization = None
@@ -92,7 +92,7 @@ class Consent(domainresource.DomainResource):
         
         self.sourceReference = None
         """ Source from which this consent is taken.
-        Type `FHIRReference` referencing `Consent, DocumentReference` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Consent, DocumentReference, Contract, Questionnaire` (represented as `dict` in JSON). """
         
         self.status = None
         """ draft | proposed | active | rejected | inactive | entered-in-error.
@@ -112,9 +112,9 @@ class Consent(domainresource.DomainResource):
             ("except_fhir", "except", ConsentExcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("period", "period", period.Period, False, None, False),
-            ("policy", "policy", str, False, None, False),
+            ("policy", "policy", str, False, None, True),
             ("purpose", "purpose", coding.Coding, True, None, False),
             ("securityLabel", "securityLabel", coding.Coding, True, None, False),
             ("sourceAttachment", "sourceAttachment", attachment.Attachment, False, "source", False),

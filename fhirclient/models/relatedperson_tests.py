@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -37,9 +37,9 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.840.1.113883.2.4.6.3")
         self.assertEqual(inst.identifier[0].type.text, "BSN")
         self.assertEqual(inst.identifier[0].use, "official")
-        self.assertEqual(inst.name.family[0], "Abels")
-        self.assertEqual(inst.name.given[0], "Sarah")
-        self.assertEqual(inst.name.use, "usual")
+        self.assertEqual(inst.name[0].family[0], "Abels")
+        self.assertEqual(inst.name[0].given[0], "Sarah")
+        self.assertEqual(inst.name[0].use, "usual")
         self.assertEqual(inst.relationship.coding[0].code, "SIGOTHR")
         self.assertEqual(inst.relationship.coding[0].system, "http://hl7.org/fhir/v3/RoleCode")
         self.assertEqual(inst.telecom[0].system, "phone")
@@ -65,8 +65,8 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.birthDate.as_json(), "1963")
         self.assertEqual(inst.gender, "female")
         self.assertEqual(inst.id, "f002")
-        self.assertEqual(inst.name.text, "Ariadne Bor-Jansma")
-        self.assertEqual(inst.name.use, "usual")
+        self.assertEqual(inst.name[0].text, "Ariadne Bor-Jansma")
+        self.assertEqual(inst.name[0].use, "usual")
         self.assertEqual(inst.period.start.date, FHIRDate("1975").date)
         self.assertEqual(inst.period.start.as_json(), "1975")
         self.assertEqual(inst.photo[0].contentType, "image/jpeg")
@@ -95,10 +95,10 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.address[0].use, "home")
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "peter")
-        self.assertEqual(inst.name.family[0], "Chalmers")
-        self.assertEqual(inst.name.given[0], "Peter")
-        self.assertEqual(inst.name.given[1], "James")
-        self.assertEqual(inst.name.use, "official")
+        self.assertEqual(inst.name[0].family[0], "Chalmers")
+        self.assertEqual(inst.name[0].given[0], "Peter")
+        self.assertEqual(inst.name[0].given[1], "James")
+        self.assertEqual(inst.name[0].use, "official")
         self.assertEqual(inst.period.start.date, FHIRDate("2012-03-11").date)
         self.assertEqual(inst.period.start.as_json(), "2012-03-11")
         self.assertEqual(inst.photo[0].contentType, "image/jpeg")
@@ -131,9 +131,9 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].type.text, "INSEE")
         self.assertEqual(inst.identifier[0].use, "usual")
         self.assertEqual(inst.identifier[0].value, "272117510400399")
-        self.assertEqual(inst.name.family[0], "du")
-        self.assertEqual(inst.name.family[1], "Marché")
-        self.assertEqual(inst.name.given[0], "Bénédicte")
+        self.assertEqual(inst.name[0].family[0], "du")
+        self.assertEqual(inst.name[0].family[1], "Marché")
+        self.assertEqual(inst.name[0].given[0], "Bénédicte")
         self.assertEqual(inst.photo[0].contentType, "image/jpeg")
         self.assertEqual(inst.photo[0].url, "Binary/f016")
         self.assertEqual(inst.relationship.coding[0].code, "partner")

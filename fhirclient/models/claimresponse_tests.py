@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -68,6 +68,7 @@ class ClaimResponseTests(unittest.TestCase):
         self.assertEqual(inst.payment.identifier.value, "201408-2-1569478")
         self.assertEqual(inst.payment.type.code, "complete")
         self.assertEqual(inst.payment.type.system, "http://hl7.org/fhir/ValueSet/ex-paymenttype")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the ClaimResponse</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.totalBenefit.code, "USD")

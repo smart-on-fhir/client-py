@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -116,6 +116,10 @@ class ClaimResponse(domainresource.DomainResource):
         """ Resource version.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
+        
         self.totalBenefit = None
         """ Total benefit payable for the Claim.
         Type `Money` (represented as `dict` in JSON). """
@@ -156,6 +160,7 @@ class ClaimResponse(domainresource.DomainResource):
             ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
             ("reserved", "reserved", coding.Coding, False, None, False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("status", "status", str, False, None, True),
             ("totalBenefit", "totalBenefit", money.Money, False, None, False),
             ("totalCost", "totalCost", money.Money, False, None, False),
             ("unallocDeductable", "unallocDeductable", money.Money, False, None, False),
@@ -185,6 +190,10 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         """ Added items adjudication.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
+        self.category = None
+        """ Type of service or product.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.detail = None
         """ Added items details.
         List of `ClaimResponseAddItemDetail` items (represented as `dict` in JSON). """
@@ -193,9 +202,17 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         """ Professional fee or Product charge.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.noteNumberLinkId = None
+        self.modifier = None
+        """ Service/Product billing modifiers.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
+        self.noteNumber = None
         """ List of note numbers which apply.
         List of `int` items. """
+        
+        self.revenue = None
+        """ Revenue or cost center code.
+        Type `Coding` (represented as `dict` in JSON). """
         
         self.sequenceLinkId = None
         """ Service instances.
@@ -211,11 +228,14 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         js = super(ClaimResponseAddItem, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
+            ("category", "category", coding.Coding, False, None, False),
             ("detail", "detail", ClaimResponseAddItemDetail, True, None, False),
             ("fee", "fee", money.Money, False, None, False),
-            ("noteNumberLinkId", "noteNumberLinkId", int, True, None, False),
+            ("modifier", "modifier", coding.Coding, True, None, False),
+            ("noteNumber", "noteNumber", int, True, None, False),
+            ("revenue", "revenue", coding.Coding, False, None, False),
             ("sequenceLinkId", "sequenceLinkId", int, True, None, False),
-            ("service", "service", coding.Coding, False, None, True),
+            ("service", "service", coding.Coding, False, None, False),
         ])
         return js
 
@@ -240,9 +260,25 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
         """ Added items detail adjudication.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
+        self.category = None
+        """ Type of service or product.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.fee = None
         """ Professional fee or Product charge.
         Type `Money` (represented as `dict` in JSON). """
+        
+        self.modifier = None
+        """ Service/Product billing modifiers.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
+        self.noteNumber = None
+        """ List of note numbers which apply.
+        List of `int` items. """
+        
+        self.revenue = None
+        """ Revenue or cost center code.
+        Type `Coding` (represented as `dict` in JSON). """
         
         self.service = None
         """ Service or Product.
@@ -254,8 +290,12 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
         js = super(ClaimResponseAddItemDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
+            ("category", "category", coding.Coding, False, None, False),
             ("fee", "fee", money.Money, False, None, False),
-            ("service", "service", coding.Coding, False, None, True),
+            ("modifier", "modifier", coding.Coding, True, None, False),
+            ("noteNumber", "noteNumber", int, True, None, False),
+            ("revenue", "revenue", coding.Coding, False, None, False),
+            ("service", "service", coding.Coding, False, None, False),
         ])
         return js
 
@@ -475,6 +515,10 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
         """ Detail adjudication.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
+        self.noteNumber = None
+        """ List of note numbers which apply.
+        List of `int` items. """
+        
         self.sequenceLinkId = None
         """ Service instance.
         Type `int`. """
@@ -489,6 +533,7 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
         js = super(ClaimResponseItemDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
+            ("noteNumber", "noteNumber", int, True, None, False),
             ("sequenceLinkId", "sequenceLinkId", int, False, None, True),
             ("subDetail", "subDetail", ClaimResponseItemDetailSubDetail, True, None, False),
         ])
@@ -515,6 +560,10 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
         """ Subdetail adjudication.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
+        self.noteNumber = None
+        """ List of note numbers which apply.
+        List of `int` items. """
+        
         self.sequenceLinkId = None
         """ Service instance.
         Type `int`. """
@@ -525,6 +574,7 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
         js = super(ClaimResponseItemDetailSubDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
+            ("noteNumber", "noteNumber", int, True, None, False),
             ("sequenceLinkId", "sequenceLinkId", int, False, None, True),
         ])
         return js
@@ -546,6 +596,10 @@ class ClaimResponseNote(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.language = None
+        """ Language.
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.number = None
         """ Note Number for this note.
         Type `int`. """
@@ -563,6 +617,7 @@ class ClaimResponseNote(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseNote, self).elementProperties()
         js.extend([
+            ("language", "language", coding.Coding, False, None, False),
             ("number", "number", int, False, None, False),
             ("text", "text", str, False, None, False),
             ("type", "type", coding.Coding, False, None, False),

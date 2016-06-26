@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -44,7 +44,7 @@ class RelatedPerson(domainresource.DomainResource):
         
         self.name = None
         """ A name associated with the person.
-        Type `HumanName` (represented as `dict` in JSON). """
+        List of `HumanName` items (represented as `dict` in JSON). """
         
         self.patient = None
         """ The patient this person is related to.
@@ -75,7 +75,7 @@ class RelatedPerson(domainresource.DomainResource):
             ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
             ("gender", "gender", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("name", "name", humanname.HumanName, False, None, False),
+            ("name", "name", humanname.HumanName, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("period", "period", period.Period, False, None, False),
             ("photo", "photo", attachment.Attachment, True, None, False),

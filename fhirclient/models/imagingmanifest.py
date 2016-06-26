@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8522 (http://hl7.org/fhir/StructureDefinition/ImagingManifest) on 2016-06-16.
+#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/ImagingManifest) on 2016-06-26.
 #  2016, SMART Health IT.
 
 
@@ -13,11 +13,11 @@ class ImagingManifest(domainresource.DomainResource):
     A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).
     The referenced SOP Instances (images or other content) are for a single
     patient, and may be from one or more studies. The referenced SOP Instances
-    have been selected for a purpose, such as quality assurance, conference, or
-    consult. Reflecting that range of purposes, typical ImagingManifest
-    resources may include all SOP Instances in a study (perhaps for sharing
-    through a Health Information Exchange); key images from multiple studies
-    (for reference by a referring or treating physician); a multi-frame
+    may have been selected for a purpose, such as  conference, or consult.
+    Reflecting a range of sharing purposes, typical ImagingManifest resources
+    may include all SOP Instances in a study (perhaps for sharing through a
+    Health Information Exchange); key images from multiple studies (for
+    reference by a referring or treating physician); both a multi-frame
     ultrasound instance ("cine" video clip) and a set of measurements taken
     from that instance (for inclusion in a teaching file); and so on.
     """
@@ -37,7 +37,7 @@ class ImagingManifest(domainresource.DomainResource):
         Type `FHIRReference` referencing `Practitioner, Device, Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.authoringTime = None
-        """ Time when the imaging object selection was created.
+        """ Time when the selection of instances was made.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
@@ -57,7 +57,7 @@ class ImagingManifest(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.uid = None
-        """ Instance UID.
+        """ SOP Instance UID.
         Type `str`. """
         
         super(ImagingManifest, self).__init__(jsondict=jsondict, strict=strict)
@@ -71,7 +71,7 @@ class ImagingManifest(domainresource.DomainResource):
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("study", "study", ImagingManifestStudy, True, None, True),
             ("title", "title", codeableconcept.CodeableConcept, False, None, True),
-            ("uid", "uid", str, False, None, True),
+            ("uid", "uid", str, False, None, False),
         ])
         return js
 
@@ -96,7 +96,7 @@ class ImagingManifestStudy(backboneelement.BackboneElement):
         """
         
         self.baseLocation = None
-        """ Dicom web access.
+        """ Study access service endpoint.
         List of `ImagingManifestStudyBaseLocation` items (represented as `dict` in JSON). """
         
         self.imagingStudy = None
@@ -125,9 +125,9 @@ class ImagingManifestStudy(backboneelement.BackboneElement):
 
 
 class ImagingManifestStudyBaseLocation(backboneelement.BackboneElement):
-    """ Dicom web access.
+    """ Study access service endpoint.
     
-    Methods of accessing using DICOM web technologies.
+    Methods of accessing  (e.g., retrieving, viewing) the study.
     """
     
     resource_name = "ImagingManifestStudyBaseLocation"
@@ -141,11 +141,11 @@ class ImagingManifestStudyBaseLocation(backboneelement.BackboneElement):
         """
         
         self.type = None
-        """ WADO-RS | WADO-URI | IID | WADO-WS.
+        """ WADO-RS | WADO-URI | IID.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.url = None
-        """ Retrieve study URL.
+        """ Study access URL.
         Type `str`. """
         
         super(ImagingManifestStudyBaseLocation, self).__init__(jsondict=jsondict, strict=strict)
@@ -177,7 +177,7 @@ class ImagingManifestStudySeries(backboneelement.BackboneElement):
         """
         
         self.baseLocation = None
-        """ Dicom web access.
+        """ Series access endpoint.
         List of `ImagingManifestStudySeriesBaseLocation` items (represented as `dict` in JSON). """
         
         self.instance = None
@@ -201,9 +201,9 @@ class ImagingManifestStudySeries(backboneelement.BackboneElement):
 
 
 class ImagingManifestStudySeriesBaseLocation(backboneelement.BackboneElement):
-    """ Dicom web access.
+    """ Series access endpoint.
     
-    Methods of accessing using DICOM web technologies.
+    Methods of accessing (e.g. retrieving) the series.
     """
     
     resource_name = "ImagingManifestStudySeriesBaseLocation"
@@ -217,11 +217,11 @@ class ImagingManifestStudySeriesBaseLocation(backboneelement.BackboneElement):
         """
         
         self.type = None
-        """ WADO-RS | WADO-URI | IID | WADO-WS.
+        """ WADO-RS | WADO-URI | IID.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.url = None
-        """ Retrieve study URL.
+        """ Series access URL.
         Type `str`. """
         
         super(ImagingManifestStudySeriesBaseLocation, self).__init__(jsondict=jsondict, strict=strict)
