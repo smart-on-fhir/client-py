@@ -189,6 +189,26 @@ I usually perform a second checkout of the _gh-pages_ branch and copy the html f
     rsync -a docs/html/ ../client-py-web/
 
 
+PyPi Publishing (notes for SMART team)
+--------------------------------------
+
+Using setuptools (*Note*: Alternatively, you can use twine https://pypi.python.org/pypi/twine/):
+
+### Make sure that you have the PyPi account credentials in your account
+
+    copy server.smarthealthit.org:/home/fhir/.pypirc to ~/.pypirc
+
+### Test the build
+
+    python setup.py sdist
+    python setup.py bdist_wheel
+
+### Upload the packages to PyPi
+
+    python setup.py sdist upload -r pypi
+    python setup.py bdist_wheel upload -r pypi
+
+
 [fhir]: http://www.hl7.org/implement/standards/fhir/
 [smart]: http://docs.smarthealthit.org
 [fhir-parser]: https://github.com/smart-on-fhir/fhir-parser
