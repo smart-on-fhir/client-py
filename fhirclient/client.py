@@ -134,7 +134,7 @@ class FHIRClient(object):
         
         :returns: A bool indicating reauthorization success
         """
-        ctx = self.server.reauthorize(self.server) if self.server is not None else None
+        ctx = self.server.reauthorize() if self.server is not None else None
         self._handle_launch_context(ctx)
         return self.launch_context is not None
     
