@@ -229,7 +229,14 @@ class FHIRServer(object):
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
             'Accept': 'application/json',
         }
-        res = requests.post(url, data=formdata)
+        if self.client.app_secret:
+            auth = requests.auth.HTTPBasicAuth(
+                self.client.app_id,
+                self.client.app_secret,
+            )
+            res = requests.post(url, data=formdata, auth=auth)
+        else:
+            res = requests.post(url, data=formdata)
         self.raise_for_status(res)
         return res
     
