@@ -41,6 +41,9 @@ class FHIRServer(object):
         self.client = client
         self.auth = None
         self.base_uri = None
+
+        # Use a single requests Session for all "requests"
+        self.session = requests.Session()
         
         # A URI can't possibly be less than 11 chars
         # make sure we end with "/", otherwise the last path component will be
@@ -84,6 +87,7 @@ class FHIRServer(object):
             settings = {
                 'aud': self.base_uri,
                 'app_id': self.client.app_id if self.client is not None else None,
+                'app_secret': self.client.app_secret if self.client is not None else None,
                 'redirect_uri': self.client.redirect if self.client is not None else None,
             }
             self.auth = FHIRAuth.from_conformance_security(security, settings)
@@ -177,7 +181,7 @@ class FHIRServer(object):
             headers = self.auth.signed_headers(headers)
         
         # perform the request but intercept 401 responses, raising our own Exception
-        res = requests.get(url, headers=headers)
+        res = self.session.get(url, headers=headers)
         self.raise_for_status(res)
         return res
     
@@ -195,7 +199,7 @@ class FHIRServer(object):
             'Content-type': 'application/json+fhir',
             'Accept': 'application/json+fhir',
         }
-        res = requests.put(url, headers=headers, data=json.dumps(resource_json))
+        res = self.session.put(url, headers=headers, data=json.dumps(resource_json))
         self.raise_for_status(res)
         return res
     
@@ -213,11 +217,11 @@ class FHIRServer(object):
             'Content-type': 'application/json+fhir',
             'Accept': 'application/json+fhir',
         }
-        res = requests.post(url, headers=headers, data=json.dumps(resource_json))
+        res = self.session.post(url, headers=headers, data=json.dumps(resource_json))
         self.raise_for_status(res)
         return res
     
-    def post_as_form(self, url, formdata):
+    def post_as_form(self, url, formdata, auth=None):
         """ Performs a POST request with form-data, expecting to receive JSON.
         This method is used in the OAuth2 token exchange and thus doesn't
         request json+fhir.
@@ -229,14 +233,7 @@ class FHIRServer(object):
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
             'Accept': 'application/json',
         }
-        if self.client.app_secret:
-            auth = requests.auth.HTTPBasicAuth(
-                self.client.app_id,
-                self.client.app_secret,
-            )
-            res = requests.post(url, data=formdata, auth=auth)
-        else:
-            res = requests.post(url, data=formdata)
+        res = self.session.post(url, data=formdata, auth=auth)
         self.raise_for_status(res)
         return res
     
@@ -251,7 +248,7 @@ class FHIRServer(object):
         headers = {
             'Accept': 'application/json',
         }
-        res = requests.delete(url)
+        res = self.session.delete(url)
         self.raise_for_status(res)
         return res
     
