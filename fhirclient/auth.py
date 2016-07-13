@@ -139,6 +139,7 @@ class FHIROAuth2Auth(FHIRAuth):
         self._token_uri = None
         
         self.auth_state = None
+        self.app_secret = None
         self.access_token = None
         self.refresh_token = None
         
@@ -270,7 +271,10 @@ class FHIROAuth2Auth(FHIRAuth):
             raise Exception("I need a server to request an access token")
         
         logging.debug("SMART AUTH: Requesting access token from {0}".format(self._token_uri))
-        ret_params = server.post_as_form(self._token_uri, params).json()
+        auth = None
+        if self.app_secret:
+            auth = (self.app_id, self.app_secret)
+        ret_params = server.post_as_form(self._token_uri, params, auth).json()
         
         self.access_token = ret_params.get('access_token')
         if self.access_token is None:
@@ -329,6 +333,8 @@ class FHIROAuth2Auth(FHIRAuth):
         s['token_uri'] = self._token_uri
         if self.auth_state is not None:
             s['auth_state'] = self.auth_state
+        if self.app_secret is not None:
+            s['app_secret'] = self.app_secret
         if self.access_token is not None:
             s['access_token'] = self.access_token
         if self.refresh_token is not None:
@@ -346,6 +352,7 @@ class FHIROAuth2Auth(FHIRAuth):
         self._redirect_uri = state.get('redirect_uri') or self._redirect_uri
         self._token_uri = state.get('token_uri') or self._token_uri
         self.auth_state = state.get('auth_state') or self.auth_state
+        self.app_secret = state.get('app_secret') or self.app_secret
         
         self.access_token = state.get('access_token') or self.access_token
         self.refresh_token = state.get('refresh_token') or self.refresh_token
