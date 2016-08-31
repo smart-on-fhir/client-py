@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -92,6 +92,10 @@ class ProcessResponse(domainresource.DomainResource):
         """ Resource version.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
+        
         super(ProcessResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -114,6 +118,7 @@ class ProcessResponse(domainresource.DomainResource):
             ("requestProviderReference", "requestProviderReference", fhirreference.FHIRReference, False, "requestProvider", False),
             ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("status", "status", str, False, None, True),
         ])
         return js
 

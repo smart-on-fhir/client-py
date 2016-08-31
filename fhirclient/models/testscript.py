@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -536,7 +536,7 @@ class TestScriptRuleset(backboneelement.BackboneElement):
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.rule = None
-        """ Id of referenced rule within the ruleset.
+        """ The referenced rule within the ruleset.
         List of `TestScriptRulesetRule` items (represented as `dict` in JSON). """
         
         super(TestScriptRuleset, self).__init__(jsondict=jsondict, strict=strict)
@@ -551,9 +551,9 @@ class TestScriptRuleset(backboneelement.BackboneElement):
 
 
 class TestScriptRulesetRule(backboneelement.BackboneElement):
-    """ Id of referenced rule within the ruleset.
+    """ The referenced rule within the ruleset.
     
-    Id of the referenced rule within the external ruleset template.
+    The referenced rule within the external ruleset template.
     """
     
     resource_name = "TestScriptRulesetRule"
@@ -570,12 +570,17 @@ class TestScriptRulesetRule(backboneelement.BackboneElement):
         """ Ruleset rule parameter template.
         List of `TestScriptRulesetRuleParam` items (represented as `dict` in JSON). """
         
+        self.ruleId = None
+        """ Id of referenced rule within the ruleset.
+        Type `str`. """
+        
         super(TestScriptRulesetRule, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptRulesetRule, self).elementProperties()
         js.extend([
             ("param", "param", TestScriptRulesetRuleParam, True, None, False),
+            ("ruleId", "ruleId", str, False, None, True),
         ])
         return js
 
@@ -633,18 +638,12 @@ class TestScriptSetup(backboneelement.BackboneElement):
         """ A setup operation or assert to perform.
         List of `TestScriptSetupAction` items (represented as `dict` in JSON). """
         
-        self.metadata = None
-        """ Capabilities  that are assumed to function correctly on the FHIR
-        server being tested.
-        Type `TestScriptMetadata` (represented as `dict` in JSON). """
-        
         super(TestScriptSetup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetup, self).elementProperties()
         js.extend([
             ("action", "action", TestScriptSetupAction, True, None, True),
-            ("metadata", "metadata", TestScriptMetadata, False, None, False),
         ])
         return js
 
@@ -711,7 +710,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         Type `str`. """
         
         self.contentType = None
-        """ xml | json.
+        """ xml | json | ttl | none.
         Type `str`. """
         
         self.description = None
@@ -747,6 +746,10 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         """ XPath or JSONPath expression.
         Type `str`. """
         
+        self.requestURL = None
+        """ Request URL comparison value.
+        Type `str`. """
+        
         self.resource = None
         """ Resource type.
         Type `str`. """
@@ -762,11 +765,11 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         Type `str`. """
         
         self.rule = None
-        """ Id of the TestScript.rule.
+        """ The reference to a TestScript.rule.
         Type `TestScriptSetupActionAssertRule` (represented as `dict` in JSON). """
         
         self.ruleset = None
-        """ Id of the TestScript.ruleset.
+        """ The reference to a TestScript.ruleset.
         Type `TestScriptSetupActionAssertRuleset` (represented as `dict` in JSON). """
         
         self.sourceId = None
@@ -801,6 +804,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
             ("navigationLinks", "navigationLinks", bool, False, None, False),
             ("operator", "operator", str, False, None, False),
             ("path", "path", str, False, None, False),
+            ("requestURL", "requestURL", str, False, None, False),
             ("resource", "resource", str, False, None, False),
             ("response", "response", str, False, None, False),
             ("responseCode", "responseCode", str, False, None, False),
@@ -815,9 +819,9 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
 
 
 class TestScriptSetupActionAssertRule(backboneelement.BackboneElement):
-    """ Id of the TestScript.rule.
+    """ The reference to a TestScript.rule.
     
-    The TestScript.rule id value this assert will evaluate.
+    The TestScript.rule this assert will evaluate.
     """
     
     resource_name = "TestScriptSetupActionAssertRule"
@@ -834,12 +838,17 @@ class TestScriptSetupActionAssertRule(backboneelement.BackboneElement):
         """ Rule parameter template.
         List of `TestScriptSetupActionAssertRuleParam` items (represented as `dict` in JSON). """
         
+        self.ruleId = None
+        """ Id of the TestScript.rule.
+        Type `str`. """
+        
         super(TestScriptSetupActionAssertRule, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupActionAssertRule, self).elementProperties()
         js.extend([
             ("param", "param", TestScriptSetupActionAssertRuleParam, True, None, False),
+            ("ruleId", "ruleId", str, False, None, True),
         ])
         return js
 
@@ -880,9 +889,9 @@ class TestScriptSetupActionAssertRuleParam(backboneelement.BackboneElement):
 
 
 class TestScriptSetupActionAssertRuleset(backboneelement.BackboneElement):
-    """ Id of the TestScript.ruleset.
+    """ The reference to a TestScript.ruleset.
     
-    The TestScript.ruleset id value this assert will evaluate.
+    The TestScript.ruleset this assert will evaluate.
     """
     
     resource_name = "TestScriptSetupActionAssertRuleset"
@@ -896,23 +905,28 @@ class TestScriptSetupActionAssertRuleset(backboneelement.BackboneElement):
         """
         
         self.rule = None
-        """ Id of referenced rule within the ruleset.
+        """ The referenced rule within the ruleset.
         List of `TestScriptSetupActionAssertRulesetRule` items (represented as `dict` in JSON). """
+        
+        self.rulesetId = None
+        """ Id of the TestScript.ruleset.
+        Type `str`. """
         
         super(TestScriptSetupActionAssertRuleset, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupActionAssertRuleset, self).elementProperties()
         js.extend([
-            ("rule", "rule", TestScriptSetupActionAssertRulesetRule, True, None, True),
+            ("rule", "rule", TestScriptSetupActionAssertRulesetRule, True, None, False),
+            ("rulesetId", "rulesetId", str, False, None, True),
         ])
         return js
 
 
 class TestScriptSetupActionAssertRulesetRule(backboneelement.BackboneElement):
-    """ Id of referenced rule within the ruleset.
+    """ The referenced rule within the ruleset.
     
-    Id of the referenced rule within the external ruleset template.
+    The referenced rule within the external ruleset template.
     """
     
     resource_name = "TestScriptSetupActionAssertRulesetRule"
@@ -929,12 +943,17 @@ class TestScriptSetupActionAssertRulesetRule(backboneelement.BackboneElement):
         """ Rule parameter template.
         List of `TestScriptSetupActionAssertRulesetRuleParam` items (represented as `dict` in JSON). """
         
+        self.ruleId = None
+        """ Id of referenced rule within the ruleset.
+        Type `str`. """
+        
         super(TestScriptSetupActionAssertRulesetRule, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupActionAssertRulesetRule, self).elementProperties()
         js.extend([
             ("param", "param", TestScriptSetupActionAssertRulesetRuleParam, True, None, False),
+            ("ruleId", "ruleId", str, False, None, True),
         ])
         return js
 
@@ -991,11 +1010,11 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         """
         
         self.accept = None
-        """ xml | json.
+        """ xml | json | ttl | none.
         Type `str`. """
         
         self.contentType = None
-        """ xml | json.
+        """ xml | json | ttl | none.
         Type `str`. """
         
         self.description = None
@@ -1193,11 +1212,6 @@ class TestScriptTest(backboneelement.BackboneElement):
         """ Tracking/reporting short description of the test.
         Type `str`. """
         
-        self.metadata = None
-        """ Capabilities  that are expected to function correctly on the FHIR
-        server being tested.
-        Type `TestScriptMetadata` (represented as `dict` in JSON). """
-        
         self.name = None
         """ Tracking/logging name of this test.
         Type `str`. """
@@ -1209,7 +1223,6 @@ class TestScriptTest(backboneelement.BackboneElement):
         js.extend([
             ("action", "action", TestScriptTestAction, True, None, True),
             ("description", "description", str, False, None, False),
-            ("metadata", "metadata", TestScriptMetadata, False, None, False),
             ("name", "name", str, False, None, False),
         ])
         return js

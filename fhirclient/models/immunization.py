@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -274,7 +274,7 @@ class ImmunizationVaccinationProtocol(backboneelement.BackboneElement):
         js.extend([
             ("authority", "authority", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
-            ("doseSequence", "doseSequence", int, False, None, True),
+            ("doseSequence", "doseSequence", int, False, None, False),
             ("doseStatus", "doseStatus", codeableconcept.CodeableConcept, False, None, True),
             ("doseStatusReason", "doseStatusReason", codeableconcept.CodeableConcept, False, None, False),
             ("series", "series", str, False, None, False),

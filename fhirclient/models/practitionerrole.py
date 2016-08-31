@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/PractitionerRole) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/PractitionerRole) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -36,6 +36,15 @@ class PractitionerRole(domainresource.DomainResource):
         """ Times the Service Site is available.
         List of `PractitionerRoleAvailableTime` items (represented as `dict` in JSON). """
         
+        self.code = None
+        """ Roles which this practitioner may perform.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.endpoint = None
+        """ Technical endpoints providing access to services operated for the
+        practitioner with this role.
+        List of `FHIRReference` items referencing `Endpoint` (represented as `dict` in JSON). """
+        
         self.healthcareService = None
         """ The list of healthcare services that this worker provides for this
         role's Organization/Location(s).
@@ -67,10 +76,6 @@ class PractitionerRole(domainresource.DomainResource):
         organation.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.role = None
-        """ Roles which this practitioner may perform.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
         self.specialty = None
         """ Specific specialty of the practitioner.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
@@ -87,6 +92,8 @@ class PractitionerRole(domainresource.DomainResource):
             ("active", "active", bool, False, None, False),
             ("availabilityExceptions", "availabilityExceptions", str, False, None, False),
             ("availableTime", "availableTime", PractitionerRoleAvailableTime, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
             ("healthcareService", "healthcareService", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("location", "location", fhirreference.FHIRReference, True, None, False),
@@ -94,7 +101,6 @@ class PractitionerRole(domainresource.DomainResource):
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("practitioner", "practitioner", fhirreference.FHIRReference, False, None, False),
-            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])

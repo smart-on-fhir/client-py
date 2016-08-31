@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -213,7 +213,8 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         Type `str`. """
         
         self.type = None
-        """ group | display | boolean | decimal | integer | date | dateTime +.
+        """ group | display | question | boolean | decimal | integer | date |
+        dateTime +.
         Type `str`. """
         
         super(QuestionnaireItem, self).__init__(jsondict=jsondict, strict=strict)
@@ -321,7 +322,7 @@ class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
         """ Value question must have.
         Type `str`. """
         
-        self.answered = None
+        self.hasAnswer = None
         """ Enable when answered or not.
         Type `bool`. """
         
@@ -347,7 +348,7 @@ class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
             ("answerString", "answerString", str, False, "answer", False),
             ("answerTime", "answerTime", fhirdate.FHIRDate, False, "answer", False),
             ("answerUri", "answerUri", str, False, "answer", False),
-            ("answered", "answered", bool, False, None, False),
+            ("hasAnswer", "hasAnswer", bool, False, None, False),
             ("question", "question", str, False, None, True),
         ])
         return js

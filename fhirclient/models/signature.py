@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Signature) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Signature) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -34,6 +34,14 @@ class Signature(element.Element):
         """ The technical format of the signature.
         Type `str`. """
         
+        self.onBehalfOfReference = None
+        """ The party represented.
+        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device, Organization` (represented as `dict` in JSON). """
+        
+        self.onBehalfOfUri = None
+        """ The party represented.
+        Type `str`. """
+        
         self.type = None
         """ Indication of the reason the entity signed the object(s).
         List of `Coding` items (represented as `dict` in JSON). """
@@ -43,11 +51,11 @@ class Signature(element.Element):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.whoReference = None
-        """ Who signed the signature.
+        """ Who signed.
         Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device, Organization` (represented as `dict` in JSON). """
         
         self.whoUri = None
-        """ Who signed the signature.
+        """ Who signed.
         Type `str`. """
         
         super(Signature, self).__init__(jsondict=jsondict, strict=strict)
@@ -57,6 +65,8 @@ class Signature(element.Element):
         js.extend([
             ("blob", "blob", str, False, None, False),
             ("contentType", "contentType", str, False, None, False),
+            ("onBehalfOfReference", "onBehalfOfReference", fhirreference.FHIRReference, False, "onBehalfOf", False),
+            ("onBehalfOfUri", "onBehalfOfUri", str, False, "onBehalfOf", False),
             ("type", "type", coding.Coding, True, None, True),
             ("when", "when", fhirdate.FHIRDate, False, None, True),
             ("whoReference", "whoReference", fhirreference.FHIRReference, False, "who", True),

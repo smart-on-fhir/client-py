@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -43,7 +43,7 @@ class LocationTests(unittest.TestCase):
         self.assertEqual(inst.telecom[0].system, "phone")
         self.assertEqual(inst.telecom[0].use, "mobile")
         self.assertEqual(inst.telecom[0].value, "2329")
-        self.assertEqual(inst.text.div, "<div>Mobile Clinic</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Mobile Clinic</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "AMB")
         self.assertEqual(inst.type.coding[0].display, "Ambulance")
@@ -105,7 +105,7 @@ class LocationTests(unittest.TestCase):
         self.assertEqual(inst.physicalType.coding[0].display, "House")
         self.assertEqual(inst.physicalType.coding[0].system, "http://hl7.org/fhir/location-physical-type")
         self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.div, "<div>Patient's Home</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient's Home</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "PTRES")
         self.assertEqual(inst.type.coding[0].display, "Patient's Residence")
@@ -122,6 +122,8 @@ class LocationTests(unittest.TestCase):
         self.implLocation4(inst2)
     
     def implLocation4(self, inst):
+        self.assertEqual(inst.alias[0], "South Wing OR 5")
+        self.assertEqual(inst.alias[1], "Main Wing OR 2")
         self.assertEqual(inst.description, "Old South Wing, Neuro Radiology Operation Room 1 on second floor")
         self.assertEqual(inst.id, "2")
         self.assertEqual(inst.identifier[0].value, "B1-S.F2.1.00")
@@ -133,7 +135,7 @@ class LocationTests(unittest.TestCase):
         self.assertEqual(inst.status, "suspended")
         self.assertEqual(inst.telecom[0].system, "phone")
         self.assertEqual(inst.telecom[0].value, "2329")
-        self.assertEqual(inst.text.div, "<div>Burgers UMC, South Wing, second floor, Neuro Radiology Operation Room 1</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Burgers UMC, South Wing, second floor, Neuro Radiology Operation Room 1</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "RNEU")
         self.assertEqual(inst.type.coding[0].display, "Neuroradiology unit")
@@ -158,7 +160,7 @@ class LocationTests(unittest.TestCase):
         self.assertEqual(inst.physicalType.coding[0].display, "Jurisdiction")
         self.assertEqual(inst.physicalType.coding[0].system, "http://hl7.org/fhir/location-physical-type")
         self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.div, "<div>UK Pharmacies</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">UK Pharmacies</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "PHARM")
         self.assertEqual(inst.type.coding[0].display, "Pharmacy")
@@ -207,6 +209,6 @@ class LocationTests(unittest.TestCase):
         self.assertEqual(inst.telecom[3].system, "other")
         self.assertEqual(inst.telecom[3].use, "work")
         self.assertEqual(inst.telecom[3].value, "http://sampleorg.com/southwing")
-        self.assertEqual(inst.text.div, "<div>Burgers UMC, South Wing, second floor</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Burgers UMC, South Wing, second floor</div>")
         self.assertEqual(inst.text.status, "generated")
 

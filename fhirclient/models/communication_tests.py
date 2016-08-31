@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class CommunicationTests(unittest.TestCase):
         return communication.Communication(js)
     
     def testCommunication1(self):
-        inst = self.instantiate_from("communication-example.json")
+        inst = self.instantiate_from("communication-example-fm-attachment.json")
         self.assertIsNotNone(inst, "Must have instantiated a Communication instance")
         self.implCommunication1(inst)
         
@@ -32,6 +32,79 @@ class CommunicationTests(unittest.TestCase):
         self.implCommunication1(inst2)
     
     def implCommunication1(self, inst):
+        self.assertEqual(inst.category.coding[0].code, "SolicitedAttachment")
+        self.assertEqual(inst.category.coding[0].system, "http://acme.org/messagetypes")
+        self.assertEqual(inst.contained[0].id, "provider")
+        self.assertEqual(inst.contained[1].id, "payor")
+        self.assertEqual(inst.contained[2].id, "claim")
+        self.assertEqual(inst.contained[3].id, "claimresponse")
+        self.assertEqual(inst.id, "fm-attachment")
+        self.assertEqual(inst.identifier[0].system, "http://www.providerco.com/communication")
+        self.assertEqual(inst.identifier[0].value, "12345")
+        self.assertEqual(inst.payload[0].contentAttachment.contentType, "application/pdf")
+        self.assertEqual(inst.payload[0].contentAttachment.creation.date, FHIRDate("2010-02-01T11:50:23-05:00").date)
+        self.assertEqual(inst.payload[0].contentAttachment.creation.as_json(), "2010-02-01T11:50:23-05:00")
+        self.assertEqual(inst.payload[0].contentAttachment.data, "SGVsbG8=")
+        self.assertEqual(inst.payload[0].contentAttachment.title, "accident notes 20100201.pdf")
+        self.assertEqual(inst.payload[1].contentAttachment.contentType, "application/pdf")
+        self.assertEqual(inst.payload[1].contentAttachment.creation.date, FHIRDate("2010-02-01T10:57:34+01:00").date)
+        self.assertEqual(inst.payload[1].contentAttachment.creation.as_json(), "2010-02-01T10:57:34+01:00")
+        self.assertEqual(inst.payload[1].contentAttachment.hash, "SGVsbG8gdGhlcmU=")
+        self.assertEqual(inst.payload[1].contentAttachment.size, 104274)
+        self.assertEqual(inst.payload[1].contentAttachment.url, "http://happyvalley.com/docs/AB12345")
+        self.assertEqual(inst.sent.date, FHIRDate("2016-06-12T18:01:10-08:00").date)
+        self.assertEqual(inst.sent.as_json(), "2016-06-12T18:01:10-08:00")
+        self.assertEqual(inst.status, "completed")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Attachment which is unsolicited</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testCommunication2(self):
+        inst = self.instantiate_from("communication-example-fm-solicited-attachment.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Communication instance")
+        self.implCommunication2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Communication", js["resourceType"])
+        inst2 = communication.Communication(js)
+        self.implCommunication2(inst2)
+    
+    def implCommunication2(self, inst):
+        self.assertEqual(inst.category.coding[0].code, "SolicitedAttachment")
+        self.assertEqual(inst.category.coding[0].system, "http://acme.org/messagetypes")
+        self.assertEqual(inst.contained[0].id, "provider")
+        self.assertEqual(inst.contained[1].id, "payor")
+        self.assertEqual(inst.contained[2].id, "request")
+        self.assertEqual(inst.id, "fm-solicited")
+        self.assertEqual(inst.identifier[0].system, "http://www.providerco.com/communication")
+        self.assertEqual(inst.identifier[0].value, "12345")
+        self.assertEqual(inst.payload[0].contentAttachment.contentType, "application/pdf")
+        self.assertEqual(inst.payload[0].contentAttachment.creation.date, FHIRDate("2010-02-01T11:50:23-05:00").date)
+        self.assertEqual(inst.payload[0].contentAttachment.creation.as_json(), "2010-02-01T11:50:23-05:00")
+        self.assertEqual(inst.payload[0].contentAttachment.data, "SGVsbG8=")
+        self.assertEqual(inst.payload[0].contentAttachment.title, "accident notes 20100201.pdf")
+        self.assertEqual(inst.payload[1].contentAttachment.contentType, "application/pdf")
+        self.assertEqual(inst.payload[1].contentAttachment.creation.date, FHIRDate("2010-02-01T10:57:34+01:00").date)
+        self.assertEqual(inst.payload[1].contentAttachment.creation.as_json(), "2010-02-01T10:57:34+01:00")
+        self.assertEqual(inst.payload[1].contentAttachment.hash, "SGVsbG8gdGhlcmU=")
+        self.assertEqual(inst.payload[1].contentAttachment.size, 104274)
+        self.assertEqual(inst.payload[1].contentAttachment.url, "http://happyvalley.com/docs/AB12345")
+        self.assertEqual(inst.sent.date, FHIRDate("2016-06-12T18:01:10-08:00").date)
+        self.assertEqual(inst.sent.as_json(), "2016-06-12T18:01:10-08:00")
+        self.assertEqual(inst.status, "completed")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Attachment in response to a Request</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testCommunication3(self):
+        inst = self.instantiate_from("communication-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Communication instance")
+        self.implCommunication3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Communication", js["resourceType"])
+        inst2 = communication.Communication(js)
+        self.implCommunication3(inst2)
+    
+    def implCommunication3(self, inst):
         self.assertEqual(inst.category.coding[0].code, "Alert")
         self.assertEqual(inst.category.coding[0].system, "http://acme.org/messagetypes")
         self.assertEqual(inst.category.text, "Alert")
@@ -43,6 +116,6 @@ class CommunicationTests(unittest.TestCase):
         self.assertEqual(inst.sent.date, FHIRDate("2014-12-12T18:01:10-08:00").date)
         self.assertEqual(inst.sent.as_json(), "2014-12-12T18:01:10-08:00")
         self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.div, "<div>Patient has very high serum potassium</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient has very high serum potassium</div>")
         self.assertEqual(inst.text.status, "generated")
 

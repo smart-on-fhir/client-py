@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -32,9 +32,9 @@ class RiskAssessmentTests(unittest.TestCase):
         self.implRiskAssessment1(inst2)
     
     def implRiskAssessment1(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2014-07-19T16:04:00Z").date)
-        self.assertEqual(inst.date.as_json(), "2014-07-19T16:04:00Z")
         self.assertEqual(inst.id, "cardiac")
+        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2014-07-19T16:04:00Z").date)
+        self.assertEqual(inst.occurrenceDateTime.as_json(), "2014-07-19T16:04:00Z")
         self.assertEqual(inst.prediction[0].outcome.text, "Heart Attack")
         self.assertEqual(inst.prediction[0].probabilityDecimal, 0.02)
         self.assertEqual(inst.prediction[0].whenRange.high.code, "a")
@@ -45,6 +45,7 @@ class RiskAssessmentTests(unittest.TestCase):
         self.assertEqual(inst.prediction[0].whenRange.low.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.prediction[0].whenRange.low.unit, "years")
         self.assertEqual(inst.prediction[0].whenRange.low.value, 39)
+        self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "additional")
     
     def testRiskAssessment2(self):
@@ -59,6 +60,7 @@ class RiskAssessmentTests(unittest.TestCase):
     
     def implRiskAssessment2(self, inst):
         self.assertEqual(inst.id, "population")
+        self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
     
     def testRiskAssessment3(self):
@@ -72,15 +74,16 @@ class RiskAssessmentTests(unittest.TestCase):
         self.implRiskAssessment3(inst2)
     
     def implRiskAssessment3(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2010-11-22").date)
-        self.assertEqual(inst.date.as_json(), "2010-11-22")
         self.assertEqual(inst.id, "prognosis")
+        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2010-11-22").date)
+        self.assertEqual(inst.occurrenceDateTime.as_json(), "2010-11-22")
         self.assertEqual(inst.prediction[0].outcome.coding[0].code, "249943000:363698007=72098002,260868000=6934004")
         self.assertEqual(inst.prediction[0].outcome.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.prediction[0].outcome.text, "permanent weakness of the left arm")
         self.assertEqual(inst.prediction[0].probabilityCodeableConcept.coding[0].code, "moderate")
         self.assertEqual(inst.prediction[0].probabilityCodeableConcept.coding[0].display, "moderate likelihood")
         self.assertEqual(inst.prediction[0].probabilityCodeableConcept.coding[0].system, "http://hl7.org/fhir/risk-probability")
+        self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "additional")
     
     def testRiskAssessment4(self):
@@ -94,10 +97,10 @@ class RiskAssessmentTests(unittest.TestCase):
         self.implRiskAssessment4(inst2)
     
     def implRiskAssessment4(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2006-01-13T23:01:00Z").date)
-        self.assertEqual(inst.date.as_json(), "2006-01-13T23:01:00Z")
         self.assertEqual(inst.id, "genetic")
         self.assertEqual(inst.method.coding[0].code, "BRCAPRO")
+        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2006-01-13T23:01:00Z").date)
+        self.assertEqual(inst.occurrenceDateTime.as_json(), "2006-01-13T23:01:00Z")
         self.assertEqual(inst.prediction[0].outcome.text, "Breast Cancer")
         self.assertEqual(inst.prediction[0].probabilityDecimal, 0.000168)
         self.assertEqual(inst.prediction[0].whenRange.high.code, "a")
@@ -174,5 +177,6 @@ class RiskAssessmentTests(unittest.TestCase):
         self.assertEqual(inst.prediction[7].whenRange.low.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.prediction[7].whenRange.low.unit, "years")
         self.assertEqual(inst.prediction[7].whenRange.low.value, 83)
+        self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -31,10 +31,6 @@ class StructureDefinition(domainresource.DomainResource):
         
         self.baseDefinition = None
         """ Definition that this type is constrained/specialized from.
-        Type `str`. """
-        
-        self.baseType = None
-        """ Any datatype or resource, including abstract ones.
         Type `str`. """
         
         self.code = None
@@ -90,7 +86,7 @@ class StructureDefinition(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.kind = None
-        """ datatype | resource | logical.
+        """ primitive-type | complex-type | resource | logical.
         Type `str`. """
         
         self.mapping = None
@@ -117,6 +113,10 @@ class StructureDefinition(domainresource.DomainResource):
         """ draft | active | retired.
         Type `str`. """
         
+        self.type = None
+        """ Type defined or constrained by this structure.
+        Type `str`. """
+        
         self.url = None
         """ Absolute URL used to reference this StructureDefinition.
         Type `str`. """
@@ -136,7 +136,6 @@ class StructureDefinition(domainresource.DomainResource):
         js.extend([
             ("abstract", "abstract", bool, False, None, True),
             ("baseDefinition", "baseDefinition", str, False, None, False),
-            ("baseType", "baseType", str, False, None, False),
             ("code", "code", coding.Coding, True, None, False),
             ("contact", "contact", StructureDefinitionContact, True, None, False),
             ("context", "context", str, True, None, False),
@@ -157,6 +156,7 @@ class StructureDefinition(domainresource.DomainResource):
             ("requirements", "requirements", str, False, None, False),
             ("snapshot", "snapshot", StructureDefinitionSnapshot, False, None, False),
             ("status", "status", str, False, None, True),
+            ("type", "type", str, False, None, True),
             ("url", "url", str, False, None, True),
             ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
             ("version", "version", str, False, None, False),

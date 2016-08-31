@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -80,7 +80,7 @@ class OrganizationTests(unittest.TestCase):
         self.implOrganization2(inst2)
     
     def implOrganization2(self, inst):
-        self.assertFalse(inst.active)
+        self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].line[0], "South Wing, floor 2")
         self.assertEqual(inst.contact[0].address.line[0], "South Wing, floor 2")
         self.assertEqual(inst.contact[0].name.text, "mevr. D. de Haan")
@@ -112,7 +112,7 @@ class OrganizationTests(unittest.TestCase):
         self.implOrganization3(inst2)
     
     def implOrganization3(self, inst):
-        self.assertFalse(inst.active)
+        self.assertTrue(inst.active)
         self.assertEqual(inst.address[0].line[0], "West Wing, floor 5")
         self.assertEqual(inst.contact[0].address.line[0], "West Wing, floor 5")
         self.assertEqual(inst.contact[0].name.text, "mr. F. de Hond")
@@ -266,6 +266,7 @@ class OrganizationTests(unittest.TestCase):
         self.implOrganization8(inst2)
     
     def implOrganization8(self, inst):
+        self.assertEqual(inst.alias[0], "ABC Insurance")
         self.assertEqual(inst.id, "2")
         self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.840.1.113883.3.19.2.3")
         self.assertEqual(inst.identifier[0].value, "666666")
@@ -296,7 +297,7 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testOrganization10(self):
-        inst = self.instantiate_from("organization-example.json")
+        inst = self.instantiate_from("organization-example-mmanu.json")
         self.assertIsNotNone(inst, "Must have instantiated a Organization instance")
         self.implOrganization10(inst)
         
@@ -306,20 +307,9 @@ class OrganizationTests(unittest.TestCase):
         self.implOrganization10(inst2)
     
     def implOrganization10(self, inst):
-        self.assertEqual(inst.address[0].city, "Ann Arbor")
-        self.assertEqual(inst.address[0].country, "USA")
-        self.assertEqual(inst.address[0].line[0], "3300 Washtenaw Avenue, Suite 227")
-        self.assertEqual(inst.address[0].postalCode, "48104")
-        self.assertEqual(inst.address[0].state, "MI")
-        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/organization-alias")
-        self.assertEqual(inst.extension[0].valueString, "HL7 International")
-        self.assertEqual(inst.id, "hl7")
-        self.assertEqual(inst.name, "Health Level Seven International")
-        self.assertEqual(inst.telecom[0].system, "phone")
-        self.assertEqual(inst.telecom[0].value, "(+1) 734-677-7777")
-        self.assertEqual(inst.telecom[1].system, "fax")
-        self.assertEqual(inst.telecom[1].value, "(+1) 734-677-6622")
-        self.assertEqual(inst.telecom[2].system, "email")
-        self.assertEqual(inst.telecom[2].value, "hq@HL7.org")
+        self.assertTrue(inst.active)
+        self.assertEqual(inst.address[0].country, "Swizterland")
+        self.assertEqual(inst.id, "mmanu")
+        self.assertEqual(inst.name, "Acme Corporation")
         self.assertEqual(inst.text.status, "generated")
 

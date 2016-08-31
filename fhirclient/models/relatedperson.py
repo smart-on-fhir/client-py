@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -26,6 +26,10 @@ class RelatedPerson(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.active = None
+        """ Whether this related person's record is in active use.
+        Type `bool`. """
+        
         self.address = None
         """ Address where the related person can be contacted or visited.
         List of `Address` items (represented as `dict` in JSON). """
@@ -44,7 +48,7 @@ class RelatedPerson(domainresource.DomainResource):
         
         self.name = None
         """ A name associated with the person.
-        Type `HumanName` (represented as `dict` in JSON). """
+        List of `HumanName` items (represented as `dict` in JSON). """
         
         self.patient = None
         """ The patient this person is related to.
@@ -71,11 +75,12 @@ class RelatedPerson(domainresource.DomainResource):
     def elementProperties(self):
         js = super(RelatedPerson, self).elementProperties()
         js.extend([
+            ("active", "active", bool, False, None, False),
             ("address", "address", address.Address, True, None, False),
             ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
             ("gender", "gender", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("name", "name", humanname.HumanName, False, None, False),
+            ("name", "name", humanname.HumanName, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("period", "period", period.Period, False, None, False),
             ("photo", "photo", attachment.Attachment, True, None, False),

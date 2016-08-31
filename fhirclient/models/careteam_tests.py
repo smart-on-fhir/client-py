@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -38,6 +38,6 @@ class CareTeamTests(unittest.TestCase):
         self.assertEqual(inst.participant[1].role.text, "adviser")
         self.assertEqual(inst.period.end.date, FHIRDate("2013-01-01").date)
         self.assertEqual(inst.period.end.as_json(), "2013-01-01")
-        self.assertEqual(inst.text.div, "<div>Care Team</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Care Team</div>")
         self.assertEqual(inst.text.status, "generated")
 

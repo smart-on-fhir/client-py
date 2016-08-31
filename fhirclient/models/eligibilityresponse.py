@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/EligibilityResponse) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/EligibilityResponse) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -69,7 +69,7 @@ class EligibilityResponse(domainresource.DomainResource):
         Type `Coding` (represented as `dict` in JSON). """
         
         self.outcome = None
-        """ complete | error.
+        """ complete | error | partial.
         Type `str`. """
         
         self.requestIdentifier = None
@@ -100,6 +100,10 @@ class EligibilityResponse(domainresource.DomainResource):
         """ Resource version.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
+        
         super(EligibilityResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -124,6 +128,7 @@ class EligibilityResponse(domainresource.DomainResource):
             ("requestProviderReference", "requestProviderReference", fhirreference.FHIRReference, False, "requestProvider", False),
             ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
+            ("status", "status", str, False, None, True),
         ])
         return js
 
@@ -150,9 +155,17 @@ class EligibilityResponseBenefitBalance(backboneelement.BackboneElement):
         """ Benefit Category.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.description = None
+        """ Description of the benefit.
+        Type `str`. """
+        
         self.financial = None
         """ Benefit Summary.
         List of `EligibilityResponseBenefitBalanceFinancial` items (represented as `dict` in JSON). """
+        
+        self.name = None
+        """ Short name for the benefit.
+        Type `str`. """
         
         self.network = None
         """ In or out of network.
@@ -176,7 +189,9 @@ class EligibilityResponseBenefitBalance(backboneelement.BackboneElement):
         js = super(EligibilityResponseBenefitBalance, self).elementProperties()
         js.extend([
             ("category", "category", coding.Coding, False, None, True),
+            ("description", "description", str, False, None, False),
             ("financial", "financial", EligibilityResponseBenefitBalanceFinancial, True, None, False),
+            ("name", "name", str, False, None, False),
             ("network", "network", coding.Coding, False, None, False),
             ("subCategory", "subCategory", coding.Coding, False, None, False),
             ("term", "term", coding.Coding, False, None, False),
@@ -201,17 +216,21 @@ class EligibilityResponseBenefitBalanceFinancial(backboneelement.BackboneElement
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.benefitQuantity = None
+        self.benefitMoney = None
         """ Benefits allowed.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.benefitString = None
+        """ Benefits allowed.
+        Type `str`. """
         
         self.benefitUnsignedInt = None
         """ Benefits allowed.
         Type `int`. """
         
-        self.benefitUsedQuantity = None
+        self.benefitUsedMoney = None
         """ Benefits used.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         self.benefitUsedUnsignedInt = None
         """ Benefits used.
@@ -226,9 +245,10 @@ class EligibilityResponseBenefitBalanceFinancial(backboneelement.BackboneElement
     def elementProperties(self):
         js = super(EligibilityResponseBenefitBalanceFinancial, self).elementProperties()
         js.extend([
-            ("benefitQuantity", "benefitQuantity", quantity.Quantity, False, "benefit", False),
+            ("benefitMoney", "benefitMoney", money.Money, False, "benefit", False),
+            ("benefitString", "benefitString", str, False, "benefit", False),
             ("benefitUnsignedInt", "benefitUnsignedInt", int, False, "benefit", False),
-            ("benefitUsedQuantity", "benefitUsedQuantity", quantity.Quantity, False, "benefitUsed", False),
+            ("benefitUsedMoney", "benefitUsedMoney", money.Money, False, "benefitUsed", False),
             ("benefitUsedUnsignedInt", "benefitUsedUnsignedInt", int, False, "benefitUsed", False),
             ("type", "type", coding.Coding, False, None, True),
         ])
@@ -269,4 +289,4 @@ from . import coding
 from . import fhirdate
 from . import fhirreference
 from . import identifier
-from . import quantity
+from . import money

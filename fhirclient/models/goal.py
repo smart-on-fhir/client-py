@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Goal) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Goal) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -28,19 +28,19 @@ class Goal(domainresource.DomainResource):
         
         self.addresses = None
         """ Issues addressed by this goal.
-        List of `FHIRReference` items referencing `Condition, Observation, MedicationStatement, NutritionOrder, ProcedureRequest, RiskAssessment` (represented as `dict` in JSON). """
-        
-        self.author = None
-        """ Who's responsible for creating Goal?.
-        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Condition, Observation, MedicationStatement, NutritionRequest, ProcedureRequest, RiskAssessment` (represented as `dict` in JSON). """
         
         self.category = None
         """ E.g. Treatment, dietary, behavioral, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.description = None
-        """ What's the desired outcome?.
-        Type `str`. """
+        """ Code or text describing goal.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.expressedBy = None
+        """ Who's responsible for creating Goal?.
+        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ External Ids for this goal.
@@ -68,7 +68,8 @@ class Goal(domainresource.DomainResource):
         
         self.status = None
         """ proposed | planned | accepted | rejected | in-progress | achieved |
-        sustaining | on-hold | cancelled.
+        sustaining | on-hold | cancelled | on-target | ahead-of-target |
+        behind-target.
         Type `str`. """
         
         self.statusDate = None
@@ -77,7 +78,7 @@ class Goal(domainresource.DomainResource):
         
         self.statusReason = None
         """ Reason for current status.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.subject = None
         """ Who this goal is intended for.
@@ -87,9 +88,9 @@ class Goal(domainresource.DomainResource):
         """ Reach goal on or before.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.targetQuantity = None
+        self.targetDuration = None
         """ Reach goal on or before.
-        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
+        Type `Duration` (represented as `dict` in JSON). """
         
         super(Goal, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -97,9 +98,9 @@ class Goal(domainresource.DomainResource):
         js = super(Goal, self).elementProperties()
         js.extend([
             ("addresses", "addresses", fhirreference.FHIRReference, True, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("description", "description", str, False, None, True),
+            ("description", "description", codeableconcept.CodeableConcept, False, None, True),
+            ("expressedBy", "expressedBy", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("outcome", "outcome", GoalOutcome, True, None, False),
@@ -108,10 +109,10 @@ class Goal(domainresource.DomainResource):
             ("startDate", "startDate", fhirdate.FHIRDate, False, "start", False),
             ("status", "status", str, False, None, True),
             ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
-            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, True, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("targetDate", "targetDate", fhirdate.FHIRDate, False, "target", False),
-            ("targetQuantity", "targetQuantity", quantity.Quantity, False, "target", False),
+            ("targetDuration", "targetDuration", duration.Duration, False, "target", False),
         ])
         return js
 
@@ -122,7 +123,7 @@ class GoalOutcome(backboneelement.BackboneElement):
     """ What was end result of goal?.
     
     Identifies the change (or lack of change) at the point where the goal was
-    deepmed to be cancelled or achieved.
+    deemed to be cancelled or achieved.
     """
     
     resource_name = "GoalOutcome"
@@ -156,7 +157,7 @@ class GoalOutcome(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
+from . import duration
 from . import fhirdate
 from . import fhirreference
 from . import identifier
-from . import quantity

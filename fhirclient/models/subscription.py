@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -104,7 +104,7 @@ class SubscriptionChannel(backboneelement.BackboneElement):
         Type `str`. """
         
         self.payload = None
-        """ Mimetype to send, or blank for no payload.
+        """ Mimetype to send, or omit for no payload.
         Type `str`. """
         
         self.type = None
@@ -118,7 +118,7 @@ class SubscriptionChannel(backboneelement.BackboneElement):
         js.extend([
             ("endpoint", "endpoint", str, False, None, False),
             ("header", "header", str, False, None, False),
-            ("payload", "payload", str, False, None, True),
+            ("payload", "payload", str, False, None, False),
             ("type", "type", str, False, None, True),
         ])
         return js

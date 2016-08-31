@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -57,7 +57,7 @@ class ValueSet(domainresource.DomainResource):
         
         self.identifier = None
         """ Additional identifier for the value set (e.g. HL7 v2 / CDA).
-        Type `Identifier` (represented as `dict` in JSON). """
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.immutable = None
         """ Indicates whether or not any change to the content logical
@@ -109,7 +109,7 @@ class ValueSet(domainresource.DomainResource):
             ("expansion", "expansion", ValueSetExpansion, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("extensible", "extensible", bool, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("immutable", "immutable", bool, False, None, False),
             ("lockedDate", "lockedDate", fhirdate.FHIRDate, False, None, False),
             ("name", "name", str, False, None, False),
@@ -234,7 +234,7 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
         List of `ValueSetComposeIncludeConceptDesignation` items (represented as `dict` in JSON). """
         
         self.display = None
-        """ Test to display for this code for this value set.
+        """ Text to display for this code for this value set.
         Type `str`. """
         
         super(ValueSetComposeIncludeConcept, self).__init__(jsondict=jsondict, strict=strict)
@@ -310,7 +310,7 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
         """
         
         self.op = None
-        """ = | is-a | is-not-a | regex | in | not-in.
+        """ = | is-a | is-not-a | regex | in | not-in | generalizes.
         Type `str`. """
         
         self.property = None

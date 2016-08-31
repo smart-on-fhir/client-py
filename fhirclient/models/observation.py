@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Observation) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Observation) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -30,7 +30,7 @@ class Observation(domainresource.DomainResource):
         
         self.category = None
         """ Classification of  type of observation.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.code = None
         """ Type of observation (code / type).
@@ -150,7 +150,7 @@ class Observation(domainresource.DomainResource):
         js = super(Observation, self).elementProperties()
         js.extend([
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("comment", "comment", str, False, None, False),
             ("component", "component", ObservationComponent, True, None, False),
@@ -213,6 +213,10 @@ class ObservationComponent(backboneelement.BackboneElement):
         """ Why the component result is missing.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.interpretation = None
+        """ High, low, normal, etc..
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.referenceRange = None
         """ Provides guide for interpretation of component result.
         List of `ObservationReferenceRange` items (represented as `dict` in JSON). """
@@ -264,6 +268,7 @@ class ObservationComponent(backboneelement.BackboneElement):
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
+            ("interpretation", "interpretation", codeableconcept.CodeableConcept, False, None, False),
             ("referenceRange", "referenceRange", ObservationReferenceRange, True, None, False),
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
@@ -309,8 +314,8 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
         Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.meaning = None
-        """ Indicates the meaning/use of this range of this range.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ Reference range qualifier.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.text = None
         """ Text based reference range in an observation.
@@ -324,7 +329,7 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
             ("age", "age", range.Range, False, None, False),
             ("high", "high", quantity.Quantity, False, None, False),
             ("low", "low", quantity.Quantity, False, None, False),
-            ("meaning", "meaning", codeableconcept.CodeableConcept, False, None, False),
+            ("meaning", "meaning", codeableconcept.CodeableConcept, True, None, False),
             ("text", "text", str, False, None, False),
         ])
         return js
@@ -333,9 +338,8 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
 class ObservationRelated(backboneelement.BackboneElement):
     """ Resource related to this observation.
     
-    A  reference to another resource (usually another Observation but could
-    also be a QuestionnaireAnswer) whose relationship is defined by the
-    relationship type code.
+    A  reference to another resource (usually another Observation) whose
+    relationship is defined by the relationship type code.
     """
     
     resource_name = "ObservationRelated"
@@ -350,7 +354,7 @@ class ObservationRelated(backboneelement.BackboneElement):
         
         self.target = None
         """ Resource that is related to this one.
-        Type `FHIRReference` referencing `Observation, QuestionnaireResponse` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Observation, QuestionnaireResponse, Sequence` (represented as `dict` in JSON). """
         
         self.type = None
         """ has-member | derived-from | sequel-to | replaces | qualified-by |

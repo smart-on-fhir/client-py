@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Substance) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Substance) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -82,7 +82,11 @@ class SubstanceIngredient(backboneelement.BackboneElement):
         """ Optional amount (concentration).
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.substance = None
+        self.substanceCodeableConcept = None
+        """ A component of the substance.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.substanceReference = None
         """ A component of the substance.
         Type `FHIRReference` referencing `Substance` (represented as `dict` in JSON). """
         
@@ -92,7 +96,8 @@ class SubstanceIngredient(backboneelement.BackboneElement):
         js = super(SubstanceIngredient, self).elementProperties()
         js.extend([
             ("quantity", "quantity", ratio.Ratio, False, None, False),
-            ("substance", "substance", fhirreference.FHIRReference, False, None, True),
+            ("substanceCodeableConcept", "substanceCodeableConcept", codeableconcept.CodeableConcept, False, "substance", True),
+            ("substanceReference", "substanceReference", fhirreference.FHIRReference, False, "substance", True),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -39,6 +39,10 @@ class Specimen(domainresource.DomainResource):
         """ External Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.note = None
+        """ Comments.
+        List of `Annotation` items (represented as `dict` in JSON). """
+        
         self.parent = None
         """ Specimen from which this specimen originated.
         List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
@@ -46,6 +50,10 @@ class Specimen(domainresource.DomainResource):
         self.receivedTime = None
         """ The time when specimen was received for processing.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.request = None
+        """ Why the specimen was collected.
+        List of `FHIRReference` items referencing `DiagnosticRequest, ProcedureRequest` (represented as `dict` in JSON). """
         
         self.status = None
         """ available | unavailable | unsatisfactory | entered-in-error.
@@ -73,8 +81,10 @@ class Specimen(domainresource.DomainResource):
             ("collection", "collection", SpecimenCollection, False, None, False),
             ("container", "container", SpecimenContainer, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("parent", "parent", fhirreference.FHIRReference, True, None, False),
             ("receivedTime", "receivedTime", fhirdate.FHIRDate, False, None, False),
+            ("request", "request", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("treatment", "treatment", SpecimenTreatment, True, None, False),
@@ -117,10 +127,6 @@ class SpecimenCollection(backboneelement.BackboneElement):
         """ Who collected the specimen.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.comment = None
-        """ Collector comments.
-        Type `str`. """
-        
         self.method = None
         """ Technique used to perform collection.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -138,7 +144,6 @@ class SpecimenCollection(backboneelement.BackboneElement):
             ("collectedDateTime", "collectedDateTime", fhirdate.FHIRDate, False, "collected", False),
             ("collectedPeriod", "collectedPeriod", period.Period, False, "collected", False),
             ("collector", "collector", fhirreference.FHIRReference, False, None, False),
-            ("comment", "comment", str, False, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
         ])
@@ -234,6 +239,14 @@ class SpecimenTreatment(backboneelement.BackboneElement):
         """ Indicates the treatment or processing step  applied to the specimen.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.timeDateTime = None
+        """ Date and time of specimen treatment.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.timePeriod = None
+        """ Date and time of specimen treatment.
+        Type `Period` (represented as `dict` in JSON). """
+        
         super(SpecimenTreatment, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -242,10 +255,13 @@ class SpecimenTreatment(backboneelement.BackboneElement):
             ("additive", "additive", fhirreference.FHIRReference, True, None, False),
             ("description", "description", str, False, None, False),
             ("procedure", "procedure", codeableconcept.CodeableConcept, False, None, False),
+            ("timeDateTime", "timeDateTime", fhirdate.FHIRDate, False, "time", False),
+            ("timePeriod", "timePeriod", period.Period, False, "time", False),
         ])
         return js
 
 
+from . import annotation
 from . import codeableconcept
 from . import fhirdate
 from . import fhirreference

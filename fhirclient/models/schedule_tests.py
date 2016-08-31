@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -32,6 +32,7 @@ class ScheduleTests(unittest.TestCase):
         self.implSchedule1(inst2)
     
     def implSchedule1(self, inst):
+        self.assertTrue(inst.active)
         self.assertEqual(inst.comment, "The slots attached to this schedule should be specialized to cover immunizations within the clinic")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://example.org/scheduleid")

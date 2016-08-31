@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -124,8 +124,8 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.description, "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "example-intensional")
-        self.assertEqual(inst.identifier.system, "http://acme.com/identifiers/valuesets")
-        self.assertEqual(inst.identifier.value, "loinc-cholesterol-ext")
+        self.assertEqual(inst.identifier[0].system, "http://acme.com/identifiers/valuesets")
+        self.assertEqual(inst.identifier[0].value, "loinc-cholesterol-ext")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
         self.assertEqual(inst.name, "LOINC Codes for Cholesterol in Serum/Plasma")
         self.assertEqual(inst.publisher, "HL7 International")
@@ -198,8 +198,8 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.description, "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "example-extensional")
-        self.assertEqual(inst.identifier.system, "http://acme.com/identifiers/valuesets")
-        self.assertEqual(inst.identifier.value, "loinc-cholesterol-int")
+        self.assertEqual(inst.identifier[0].system, "http://acme.com/identifiers/valuesets")
+        self.assertEqual(inst.identifier[0].value, "loinc-cholesterol-int")
         self.assertEqual(inst.lockedDate.date, FHIRDate("2012-06-13").date)
         self.assertEqual(inst.lockedDate.as_json(), "2012-06-13")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
@@ -224,20 +224,20 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.compose.include[0].system, "http://hl7.org/fhir/list-example-use-codes")
         self.assertEqual(inst.contact[0].telecom[0].system, "other")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2016-03-31T08:01:25+11:00").date)
-        self.assertEqual(inst.date.as_json(), "2016-03-31T08:01:25+11:00")
+        self.assertEqual(inst.date.date, FHIRDate("2016-08-15T16:12:42+10:00").date)
+        self.assertEqual(inst.date.as_json(), "2016-08-15T16:12:42+10:00")
         self.assertEqual(inst.description, "Example use codes for the List resource - typical kinds of use.")
         self.assertTrue(inst.experimental)
-        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/valueset-oid")
-        self.assertEqual(inst.extension[0].valueUri, "urn:oid:2.16.840.1.113883.4.642.2.173")
         self.assertEqual(inst.id, "list-example-codes")
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2016-03-31T08:01:25.570+11:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2016-03-31T08:01:25.570+11:00")
+        self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
+        self.assertEqual(inst.identifier[0].value, "urn:oid:2.16.840.1.113883.4.642.2.173")
+        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2016-08-15T16:12:42.052+10:00").date)
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2016-08-15T16:12:42.052+10:00")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
         self.assertEqual(inst.name, "Example Use Codes for List")
         self.assertEqual(inst.publisher, "FHIR Project")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/list-example-codes")
-        self.assertEqual(inst.version, "1.4.0")
+        self.assertEqual(inst.version, "1.6.0")
 

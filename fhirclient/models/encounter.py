@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -25,13 +25,17 @@ class Encounter(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.account = None
+        """ The set of accounts that may be used for billing for this Encounter.
+        List of `FHIRReference` items referencing `Account` (represented as `dict` in JSON). """
+        
         self.appointment = None
         """ The appointment that scheduled this encounter.
         Type `FHIRReference` referencing `Appointment` (represented as `dict` in JSON). """
         
         self.class_fhir = None
         """ inpatient | outpatient | ambulatory | emergency +.
-        Type `str`. """
+        Type `Coding` (represented as `dict` in JSON). """
         
         self.episodeOfCare = None
         """ Episode(s) of care that this encounter should be recorded against.
@@ -55,7 +59,7 @@ class Encounter(domainresource.DomainResource):
         
         self.length = None
         """ Quantity of time the encounter lasted (less time absent).
-        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.location = None
         """ List of locations where the patient has been.
@@ -90,7 +94,8 @@ class Encounter(domainresource.DomainResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | arrived | in-progress | onleave | finished | cancelled.
+        """ planned | arrived | in-progress | onleave | finished | cancelled |
+        entered-in-error.
         Type `str`. """
         
         self.statusHistory = None
@@ -106,14 +111,15 @@ class Encounter(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Encounter, self).elementProperties()
         js.extend([
+            ("account", "account", fhirreference.FHIRReference, True, None, False),
             ("appointment", "appointment", fhirreference.FHIRReference, False, None, False),
-            ("class_fhir", "class", str, False, None, False),
+            ("class_fhir", "class", coding.Coding, False, None, False),
             ("episodeOfCare", "episodeOfCare", fhirreference.FHIRReference, True, None, False),
             ("hospitalization", "hospitalization", EncounterHospitalization, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("incomingReferral", "incomingReferral", fhirreference.FHIRReference, True, None, False),
             ("indication", "indication", fhirreference.FHIRReference, True, None, False),
-            ("length", "length", quantity.Quantity, False, None, False),
+            ("length", "length", duration.Duration, False, None, False),
             ("location", "location", EncounterLocation, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
             ("participant", "participant", EncounterParticipant, True, None, False),
@@ -314,7 +320,8 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | arrived | in-progress | onleave | finished | cancelled.
+        """ planned | arrived | in-progress | onleave | finished | cancelled |
+        entered-in-error.
         Type `str`. """
         
         super(EncounterStatusHistory, self).__init__(jsondict=jsondict, strict=strict)
@@ -329,7 +336,8 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
+from . import coding
+from . import duration
 from . import fhirreference
 from . import identifier
 from . import period
-from . import quantity

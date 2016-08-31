@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -108,8 +108,8 @@ class ImplementationGuide(domainresource.DomainResource):
             ("fhirVersion", "fhirVersion", str, False, None, False),
             ("global_fhir", "global", ImplementationGuideGlobal, True, None, False),
             ("name", "name", str, False, None, True),
-            ("package", "package", ImplementationGuidePackage, True, None, True),
-            ("page", "page", ImplementationGuidePage, False, None, True),
+            ("package", "package", ImplementationGuidePackage, True, None, False),
+            ("page", "page", ImplementationGuidePage, False, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("status", "status", str, False, None, True),
             ("url", "url", str, False, None, True),
@@ -359,10 +359,6 @@ class ImplementationGuidePage(backboneelement.BackboneElement):
         resource.
         Type `str`. """
         
-        self.name = None
-        """ Short name shown for navigational assistance.
-        Type `str`. """
-        
         self.package = None
         """ Name of package to include.
         List of `str` items. """
@@ -373,6 +369,10 @@ class ImplementationGuidePage(backboneelement.BackboneElement):
         
         self.source = None
         """ Where to find that page.
+        Type `str`. """
+        
+        self.title = None
+        """ Short title shown for navigational assistance.
         Type `str`. """
         
         self.type = None
@@ -386,10 +386,10 @@ class ImplementationGuidePage(backboneelement.BackboneElement):
         js.extend([
             ("format", "format", str, False, None, False),
             ("kind", "kind", str, False, None, True),
-            ("name", "name", str, False, None, True),
             ("package", "package", str, True, None, False),
             ("page", "page", ImplementationGuidePage, True, None, False),
             ("source", "source", str, False, None, True),
+            ("title", "title", str, False, None, True),
             ("type", "type", str, True, None, False),
         ])
         return js

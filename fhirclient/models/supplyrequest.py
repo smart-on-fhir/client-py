@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/SupplyRequest) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/SupplyRequest) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -36,7 +36,11 @@ class SupplyRequest(domainresource.DomainResource):
         """ The kind of supply (central, non-stock, etc.).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.orderedItem = None
+        self.orderedItemCodeableConcept = None
+        """ Medication, Substance, or Device requested to be supplied.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.orderedItemReference = None
         """ Medication, Substance, or Device requested to be supplied.
         Type `FHIRReference` referencing `Medication, Substance, Device` (represented as `dict` in JSON). """
         
@@ -76,7 +80,8 @@ class SupplyRequest(domainresource.DomainResource):
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("kind", "kind", codeableconcept.CodeableConcept, False, None, False),
-            ("orderedItem", "orderedItem", fhirreference.FHIRReference, False, None, False),
+            ("orderedItemCodeableConcept", "orderedItemCodeableConcept", codeableconcept.CodeableConcept, False, "orderedItem", False),
+            ("orderedItemReference", "orderedItemReference", fhirreference.FHIRReference, False, "orderedItem", False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),

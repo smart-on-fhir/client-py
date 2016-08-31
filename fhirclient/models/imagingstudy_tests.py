@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -39,7 +39,6 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.series[0].bodySite.display, "Upper Trunk Structure")
         self.assertEqual(inst.series[0].bodySite.system, "http://snomed.info/sct")
         self.assertEqual(inst.series[0].description, "CT Surview 180")
-        self.assertEqual(inst.series[0].instance[0].content[0].url, "http://localhost/fhir/Binary/1.2.840.11361907579238403408700.3.0.14.19970327150033")
         self.assertEqual(inst.series[0].instance[0].number, 1)
         self.assertEqual(inst.series[0].instance[0].sopClass, "urn:oid:1.2.840.10008.5.1.4.1.1.2")
         self.assertEqual(inst.series[0].instance[0].uid, "urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903")
@@ -50,7 +49,7 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.series[0].uid, "urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630")
         self.assertEqual(inst.started.date, FHIRDate("2011-01-01T11:01:20+03:00").date)
         self.assertEqual(inst.started.as_json(), "2011-01-01T11:01:20+03:00")
-        self.assertEqual(inst.text.div, "<div>Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.uid, "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045")
 

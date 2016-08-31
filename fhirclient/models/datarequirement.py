@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -39,7 +39,7 @@ class DataRequirement(element.Element):
         
         self.profile = None
         """ The profile of the required data.
-        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         self.type = None
         """ The type of the required data.
@@ -53,7 +53,7 @@ class DataRequirement(element.Element):
             ("codeFilter", "codeFilter", DataRequirementCodeFilter, True, None, False),
             ("dateFilter", "dateFilter", DataRequirementDateFilter, True, None, False),
             ("mustSupport", "mustSupport", str, True, None, False),
-            ("profile", "profile", fhirreference.FHIRReference, False, None, False),
+            ("profile", "profile", fhirreference.FHIRReference, True, None, False),
             ("type", "type", str, False, None, True),
         ])
         return js
@@ -137,11 +137,15 @@ class DataRequirementDateFilter(element.Element):
         Type `str`. """
         
         self.valueDateTime = None
-        """ The value of the filter, as a Period or dateTime value.
+        """ The value of the filter, as a Period, DateTime, or Duration value.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.valueDuration = None
+        """ The value of the filter, as a Period, DateTime, or Duration value.
+        Type `Duration` (represented as `dict` in JSON). """
+        
         self.valuePeriod = None
-        """ The value of the filter, as a Period or dateTime value.
+        """ The value of the filter, as a Period, DateTime, or Duration value.
         Type `Period` (represented as `dict` in JSON). """
         
         super(DataRequirementDateFilter, self).__init__(jsondict=jsondict, strict=strict)
@@ -151,6 +155,7 @@ class DataRequirementDateFilter(element.Element):
         js.extend([
             ("path", "path", str, False, None, True),
             ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDuration", "valueDuration", duration.Duration, False, "value", False),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
         ])
         return js
@@ -158,6 +163,7 @@ class DataRequirementDateFilter(element.Element):
 
 from . import codeableconcept
 from . import coding
+from . import duration
 from . import fhirdate
 from . import fhirreference
 from . import period

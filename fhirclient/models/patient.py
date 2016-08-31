@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Patient) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Patient) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -40,10 +40,6 @@ class Patient(domainresource.DomainResource):
         """ The date of birth for the individual.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.careProvider = None
-        """ Patient's nominated primary care provider.
-        List of `FHIRReference` items referencing `Organization, Practitioner` (represented as `dict` in JSON). """
-        
         self.communication = None
         """ A list of Languages which may be used to communicate with the
         patient about his or her health.
@@ -64,6 +60,10 @@ class Patient(domainresource.DomainResource):
         self.gender = None
         """ male | female | other | unknown.
         Type `str`. """
+        
+        self.generalPractitioner = None
+        """ Patient's nominated primary care provider.
+        List of `FHIRReference` items referencing `Organization, Practitioner` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ An identifier for this patient.
@@ -111,12 +111,12 @@ class Patient(domainresource.DomainResource):
             ("address", "address", address.Address, True, None, False),
             ("animal", "animal", PatientAnimal, False, None, False),
             ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
-            ("careProvider", "careProvider", fhirreference.FHIRReference, True, None, False),
             ("communication", "communication", PatientCommunication, True, None, False),
             ("contact", "contact", PatientContact, True, None, False),
             ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
             ("deceasedDateTime", "deceasedDateTime", fhirdate.FHIRDate, False, "deceased", False),
             ("gender", "gender", str, False, None, False),
+            ("generalPractitioner", "generalPractitioner", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("link", "link", PatientLink, True, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
@@ -286,8 +286,9 @@ class PatientLink(backboneelement.BackboneElement):
         """
         
         self.other = None
-        """ The other patient resource that the link refers to.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        """ The other patient or related person resource that the link refers
+        to.
+        Type `FHIRReference` referencing `Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.type = None
         """ replace | refer | seealso - type of link.

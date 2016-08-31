@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -32,6 +32,7 @@ class HealthcareServiceTests(unittest.TestCase):
         self.implHealthcareService1(inst2)
     
     def implHealthcareService1(self, inst):
+        self.assertTrue(inst.active)
         self.assertFalse(inst.appointmentRequired)
         self.assertEqual(inst.availabilityExceptions, "Reduced capacity is available during the Christmas period")
         self.assertEqual(inst.availableTime[0].availableEndTime.date, FHIRDate("05:30:00").date)

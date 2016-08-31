@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -50,6 +50,8 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.item[0].item[1].item[1].linkId, "birthLength")
         self.assertEqual(inst.item[0].item[1].item[1].text, "Birth length (cm)")
         self.assertEqual(inst.item[0].item[1].item[1].type, "decimal")
+        self.assertTrue(inst.item[0].item[1].item[2].item[0].enableWhen[0].hasAnswer)
+        self.assertEqual(inst.item[0].item[1].item[2].item[0].enableWhen[0].question, "vitaminKgiven")
         self.assertEqual(inst.item[0].item[1].item[2].item[0].item[0].linkId, "vitaminiKDose1")
         self.assertEqual(inst.item[0].item[1].item[2].item[0].item[0].text, "1st dose")
         self.assertEqual(inst.item[0].item[1].item[2].item[0].item[0].type, "dateTime")
@@ -84,6 +86,7 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.subjectType[0], "Patient")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "NSW Government My Personal Health Record")
+        self.assertEqual(inst.url, "http://hl7.org/fhir/Questionnaire/bb")
     
     def testQuestionnaire2(self):
         inst = self.instantiate_from("questionnaire-example-f201-lifelines.json")
@@ -132,6 +135,7 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.status, "published")
         self.assertEqual(inst.subjectType[0], "Patient")
         self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.url, "http://hl7.org/fhir/Questionnaire/f201")
     
     def testQuestionnaire3(self):
         inst = self.instantiate_from("questionnaire-example-gcs.json")
@@ -169,6 +173,7 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.subjectType[0], "Patient")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "Glasgow Coma Score")
+        self.assertEqual(inst.url, "http://hl7.org/fhir/Questionnaire/gcs")
     
     def testQuestionnaire4(self):
         inst = self.instantiate_from("questionnaire-example.json")
@@ -230,4 +235,5 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.subjectType[0], "Patient")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "Cancer Quality Forum Questionnaire 2012")
+        self.assertEqual(inst.url, "http://hl7.org/fhir/Questionnaire/3141")
 

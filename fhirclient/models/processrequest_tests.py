@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -39,7 +39,8 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "http://www.phr.com/patient/12345/processrequest")
         self.assertEqual(inst.identifier[0].value, "115")
         self.assertEqual(inst.include[0], "ExplanationOfBenefit")
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Poll ProcessRequest</div>")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Poll ProcessRequest</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProcessRequest2(self):
@@ -61,7 +62,8 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.id, "1113")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "113")
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Poll ProcessRequest</div>")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Poll ProcessRequest</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProcessRequest3(self):
@@ -82,7 +84,8 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "112")
         self.assertEqual(inst.include[0], "Reconciliation")
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Poll ProcessRequest</div>")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Poll ProcessRequest</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProcessRequest4(self):
@@ -107,7 +110,8 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.period.end.as_json(), "2014-08-20")
         self.assertEqual(inst.period.start.date, FHIRDate("2014-08-10").date)
         self.assertEqual(inst.period.start.as_json(), "2014-08-10")
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Poll ProcessRequest</div>")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Poll ProcessRequest</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProcessRequest5(self):
@@ -127,7 +131,8 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.id, "1111")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "111")
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Poll ProcessRequest</div>")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Poll ProcessRequest</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProcessRequest6(self):
@@ -149,7 +154,8 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].value, "44543")
         self.assertEqual(inst.item[0].sequenceLinkId, 1)
         self.assertEqual(inst.reference, "ABC12345G")
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the ReProcess ProcessRequest resource.</div>")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the ReProcess ProcessRequest resource.</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProcessRequest7(self):
@@ -170,7 +176,8 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "76543")
         self.assertFalse(inst.nullify)
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Reversal ProcessRequest</div>")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Reversal ProcessRequest</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProcessRequest8(self):
@@ -190,7 +197,8 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.id, "87655")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "1776543")
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Status ProcessRequest</div>")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Status ProcessRequest</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProcessRequest9(self):
@@ -210,6 +218,7 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.id, "1110")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "110")
-        self.assertEqual(inst.text.div, "<div>A human-readable rendering of the Poll ProcessRequest</div>")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Poll ProcessRequest</div>")
         self.assertEqual(inst.text.status, "generated")
 

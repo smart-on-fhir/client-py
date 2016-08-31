@@ -9,6 +9,7 @@ The `master` branch is usually on the latest version, possibly on bugfix release
 
    Version |          FHIR | &nbsp;
 -----------|---------------|---
+   **x.x** |       `1.6.0` | (STU-3 Ballot, Sep 2016)
    **1.0** |       `1.0.1` | (DSTU 2)
    **0.5** |  `0.5.0.5149` | (DSTU 2 Ballot, May 2015)
  **0.0.4** | `0.0.82.2943` | (DSTU 1)

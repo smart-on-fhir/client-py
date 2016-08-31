@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -89,7 +89,7 @@ class Appointment(domainresource.DomainResource):
         
         self.status = None
         """ proposed | pending | booked | arrived | fulfilled | cancelled |
-        noshow.
+        noshow | entered-in-error.
         Type `str`. """
         
         super(Appointment, self).__init__(jsondict=jsondict, strict=strict)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -34,7 +34,7 @@ class SubscriptionTests(unittest.TestCase):
     def implSubscription1(self, inst):
         self.assertEqual(inst.channel.endpoint, "https://biliwatch.com/customers/mount-auburn-miu/on-result")
         self.assertEqual(inst.channel.header, "Authorization: Bearer secret-token-abc-123")
-        self.assertEqual(inst.channel.payload, "application/json")
+        self.assertEqual(inst.channel.payload, "application/fhir+json")
         self.assertEqual(inst.channel.type, "rest-hook")
         self.assertEqual(inst.contact[0].system, "phone")
         self.assertEqual(inst.contact[0].value, "ext 4123")
@@ -47,7 +47,7 @@ class SubscriptionTests(unittest.TestCase):
         self.assertEqual(inst.status, "error")
         self.assertEqual(inst.tag[0].code, "bili-done")
         self.assertEqual(inst.tag[0].system, "http://example.org/fhir/cs/internal")
-        self.assertEqual(inst.text.div, "<div>[Put rendering here]</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testSubscription2(self):
@@ -63,7 +63,7 @@ class SubscriptionTests(unittest.TestCase):
     def implSubscription2(self, inst):
         self.assertEqual(inst.channel.endpoint, "https://biliwatch.com/customers/mount-auburn-miu/on-result")
         self.assertEqual(inst.channel.header, "Authorization: Bearer secret-token-abc-123")
-        self.assertEqual(inst.channel.payload, "application/json")
+        self.assertEqual(inst.channel.payload, "application/fhir+json")
         self.assertEqual(inst.channel.type, "rest-hook")
         self.assertEqual(inst.contact[0].system, "phone")
         self.assertEqual(inst.contact[0].value, "ext 4123")
@@ -75,6 +75,6 @@ class SubscriptionTests(unittest.TestCase):
         self.assertEqual(inst.status, "requested")
         self.assertEqual(inst.tag[0].code, "bili-done")
         self.assertEqual(inst.tag[0].system, "http://example.org/fhir/cs/internal")
-        self.assertEqual(inst.text.div, "<div>[Put rendering here]</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
         self.assertEqual(inst.text.status, "generated")
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -35,8 +35,8 @@ class ClinicalImpressionTests(unittest.TestCase):
         self.assertEqual(inst.date.date, FHIRDate("2014-12-06T22:33:00+11:00").date)
         self.assertEqual(inst.date.as_json(), "2014-12-06T22:33:00+11:00")
         self.assertEqual(inst.description, "This 26 yo male patient is brought into ER by ambulance after being involved in a motor vehicle accident")
-        self.assertEqual(inst.finding[0].item.coding[0].code, "850.0")
-        self.assertEqual(inst.finding[0].item.coding[0].system, "http://hl7.org/fhir/sid/icd-9")
+        self.assertEqual(inst.finding[0].itemCodeableConcept.coding[0].code, "850.0")
+        self.assertEqual(inst.finding[0].itemCodeableConcept.coding[0].system, "http://hl7.org/fhir/sid/icd-9")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.investigations[0].code.text, "Initial Examination")
         self.assertEqual(inst.status, "completed")

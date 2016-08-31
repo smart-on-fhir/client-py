@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -27,6 +27,11 @@ class EpisodeOfCare(domainresource.DomainResource):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.account = None
+        """ The set of accounts that may be used for billing for this
+        EpisodeOfCare.
+        List of `FHIRReference` items referencing `Account` (represented as `dict` in JSON). """
         
         self.careManager = None
         """ Care manager/care co-ordinator for the patient.
@@ -57,7 +62,8 @@ class EpisodeOfCare(domainresource.DomainResource):
         List of `FHIRReference` items referencing `ReferralRequest` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | waitlist | active | onhold | finished | cancelled.
+        """ planned | waitlist | active | onhold | finished | cancelled |
+        entered-in-error.
         Type `str`. """
         
         self.statusHistory = None
@@ -77,6 +83,7 @@ class EpisodeOfCare(domainresource.DomainResource):
     def elementProperties(self):
         js = super(EpisodeOfCare, self).elementProperties()
         js.extend([
+            ("account", "account", fhirreference.FHIRReference, True, None, False),
             ("careManager", "careManager", fhirreference.FHIRReference, False, None, False),
             ("condition", "condition", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -116,7 +123,8 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | waitlist | active | onhold | finished | cancelled.
+        """ planned | waitlist | active | onhold | finished | cancelled |
+        entered-in-error.
         Type `str`. """
         
         super(EpisodeOfCareStatusHistory, self).__init__(jsondict=jsondict, strict=strict)

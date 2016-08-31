@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -61,7 +61,7 @@ class PaymentReconciliation(domainresource.DomainResource):
         Type `Coding` (represented as `dict` in JSON). """
         
         self.outcome = None
-        """ complete | error.
+        """ complete | error | partial.
         Type `str`. """
         
         self.period = None
@@ -96,9 +96,13 @@ class PaymentReconciliation(domainresource.DomainResource):
         """ Resource version.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
+        
         self.total = None
         """ Total amount of Payment.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         super(PaymentReconciliation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -123,7 +127,8 @@ class PaymentReconciliation(domainresource.DomainResource):
             ("requestProviderReference", "requestProviderReference", fhirreference.FHIRReference, False, "requestProvider", False),
             ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
-            ("total", "total", quantity.Quantity, False, None, True),
+            ("status", "status", str, False, None, True),
+            ("total", "total", money.Money, False, None, True),
         ])
         return js
 
@@ -148,7 +153,7 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
         
         self.amount = None
         """ Detail amount.
-        Type `Quantity` referencing `Money` (represented as `dict` in JSON). """
+        Type `Money` (represented as `dict` in JSON). """
         
         self.date = None
         """ Invoice date.
@@ -170,11 +175,11 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
         """ Claim.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        self.responceIdentifier = None
+        self.responseIdentifier = None
         """ Claim Response.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.responceReference = None
+        self.responseReference = None
         """ Claim Response.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
@@ -195,14 +200,14 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PaymentReconciliationDetail, self).elementProperties()
         js.extend([
-            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("amount", "amount", money.Money, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("payeeIdentifier", "payeeIdentifier", identifier.Identifier, False, "payee", False),
             ("payeeReference", "payeeReference", fhirreference.FHIRReference, False, "payee", False),
             ("requestIdentifier", "requestIdentifier", identifier.Identifier, False, "request", False),
             ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
-            ("responceIdentifier", "responceIdentifier", identifier.Identifier, False, "responce", False),
-            ("responceReference", "responceReference", fhirreference.FHIRReference, False, "responce", False),
+            ("responseIdentifier", "responseIdentifier", identifier.Identifier, False, "response", False),
+            ("responseReference", "responseReference", fhirreference.FHIRReference, False, "response", False),
             ("submitterIdentifier", "submitterIdentifier", identifier.Identifier, False, "submitter", False),
             ("submitterReference", "submitterReference", fhirreference.FHIRReference, False, "submitter", False),
             ("type", "type", coding.Coding, False, None, True),
@@ -249,5 +254,5 @@ from . import coding
 from . import fhirdate
 from . import fhirreference
 from . import identifier
+from . import money
 from . import period
-from . import quantity

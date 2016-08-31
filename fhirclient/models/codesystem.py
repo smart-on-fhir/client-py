@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -68,6 +68,10 @@ class CodeSystem(domainresource.DomainResource):
         """ Filter that can be used in a value set.
         List of `CodeSystemFilter` items (represented as `dict` in JSON). """
         
+        self.hierarchyMeaning = None
+        """ grouped-by | subsumes | part-of | classified-with.
+        Type `str`. """
+        
         self.identifier = None
         """ Additional identifier for the code system (e.g. HL7 v2 / CDA).
         Type `Identifier` (represented as `dict` in JSON). """
@@ -128,6 +132,7 @@ class CodeSystem(domainresource.DomainResource):
             ("description", "description", str, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("filter", "filter", CodeSystemFilter, True, None, False),
+            ("hierarchyMeaning", "hierarchyMeaning", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("name", "name", str, False, None, False),
             ("property", "property", CodeSystemProperty, True, None, False),
@@ -402,7 +407,8 @@ class CodeSystemProperty(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Identifies the property, both internally and externally.
+        """ Identifies the property on the concepts, and when referred to in
+        operations.
         Type `str`. """
         
         self.description = None
@@ -413,6 +419,10 @@ class CodeSystemProperty(backboneelement.BackboneElement):
         """ code | Coding | string | integer | boolean | dateTime.
         Type `str`. """
         
+        self.uri = None
+        """ Formal identifier for the property.
+        Type `str`. """
+        
         super(CodeSystemProperty, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -421,6 +431,7 @@ class CodeSystemProperty(backboneelement.BackboneElement):
             ("code", "code", str, False, None, True),
             ("description", "description", str, False, None, False),
             ("type", "type", str, False, None, True),
+            ("uri", "uri", str, False, None, False),
         ])
         return js
 

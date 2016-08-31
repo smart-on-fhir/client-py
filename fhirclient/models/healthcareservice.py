@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -20,6 +20,10 @@ class HealthcareService(domainresource.DomainResource):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.active = None
+        """ Whether this healthcareservice is in active use.
+        Type `bool`. """
         
         self.appointmentRequired = None
         """ If an appointment is required for access to this service.
@@ -120,6 +124,7 @@ class HealthcareService(domainresource.DomainResource):
     def elementProperties(self):
         js = super(HealthcareService, self).elementProperties()
         js.extend([
+            ("active", "active", bool, False, None, False),
             ("appointmentRequired", "appointmentRequired", bool, False, None, False),
             ("availabilityExceptions", "availabilityExceptions", str, False, None, False),
             ("availableTime", "availableTime", HealthcareServiceAvailableTime, True, None, False),

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -24,9 +24,9 @@ class FamilyMemberHistory(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.ageQuantity = None
+        self.ageAge = None
         """ (approximate) age.
-        Type `Quantity` referencing `Age` (represented as `dict` in JSON). """
+        Type `Age` (represented as `dict` in JSON). """
         
         self.ageRange = None
         """ (approximate) age.
@@ -56,6 +56,10 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ When history was captured/updated.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.deceasedAge = None
+        """ Dead? How old/when?.
+        Type `Age` (represented as `dict` in JSON). """
+        
         self.deceasedBoolean = None
         """ Dead? How old/when?.
         Type `bool`. """
@@ -64,10 +68,6 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ Dead? How old/when?.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.deceasedQuantity = None
-        """ Dead? How old/when?.
-        Type `Quantity` referencing `Age` (represented as `dict` in JSON). """
-        
         self.deceasedRange = None
         """ Dead? How old/when?.
         Type `Range` (represented as `dict` in JSON). """
@@ -75,6 +75,10 @@ class FamilyMemberHistory(domainresource.DomainResource):
         self.deceasedString = None
         """ Dead? How old/when?.
         Type `str`. """
+        
+        self.estimatedAge = None
+        """ Age is estimated?.
+        Type `bool`. """
         
         self.gender = None
         """ male | female | other | unknown.
@@ -109,7 +113,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
     def elementProperties(self):
         js = super(FamilyMemberHistory, self).elementProperties()
         js.extend([
-            ("ageQuantity", "ageQuantity", quantity.Quantity, False, "age", False),
+            ("ageAge", "ageAge", age.Age, False, "age", False),
             ("ageRange", "ageRange", range.Range, False, "age", False),
             ("ageString", "ageString", str, False, "age", False),
             ("bornDate", "bornDate", fhirdate.FHIRDate, False, "born", False),
@@ -117,11 +121,12 @@ class FamilyMemberHistory(domainresource.DomainResource):
             ("bornString", "bornString", str, False, "born", False),
             ("condition", "condition", FamilyMemberHistoryCondition, True, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("deceasedAge", "deceasedAge", age.Age, False, "deceased", False),
             ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
             ("deceasedDate", "deceasedDate", fhirdate.FHIRDate, False, "deceased", False),
-            ("deceasedQuantity", "deceasedQuantity", quantity.Quantity, False, "deceased", False),
             ("deceasedRange", "deceasedRange", range.Range, False, "deceased", False),
             ("deceasedString", "deceasedString", str, False, "deceased", False),
+            ("estimatedAge", "estimatedAge", bool, False, None, False),
             ("gender", "gender", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("name", "name", str, False, None, False),
@@ -162,13 +167,13 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
         """ Extra information about condition.
         Type `Annotation` (represented as `dict` in JSON). """
         
+        self.onsetAge = None
+        """ When condition first manifested.
+        Type `Age` (represented as `dict` in JSON). """
+        
         self.onsetPeriod = None
         """ When condition first manifested.
         Type `Period` (represented as `dict` in JSON). """
-        
-        self.onsetQuantity = None
-        """ When condition first manifested.
-        Type `Quantity` referencing `Age` (represented as `dict` in JSON). """
         
         self.onsetRange = None
         """ When condition first manifested.
@@ -189,8 +194,8 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("note", "note", annotation.Annotation, False, None, False),
+            ("onsetAge", "onsetAge", age.Age, False, "onset", False),
             ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
-            ("onsetQuantity", "onsetQuantity", quantity.Quantity, False, "onset", False),
             ("onsetRange", "onsetRange", range.Range, False, "onset", False),
             ("onsetString", "onsetString", str, False, "onset", False),
             ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
@@ -198,11 +203,11 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
         return js
 
 
+from . import age
 from . import annotation
 from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
 from . import identifier
 from . import period
-from . import quantity
 from . import range

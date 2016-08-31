@@ -1,28 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ImagingObjectSelection) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ImagingManifest) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
 from . import domainresource
 
-class ImagingObjectSelection(domainresource.DomainResource):
+class ImagingManifest(domainresource.DomainResource):
     """ Key Object Selection.
     
     A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).
     The referenced SOP Instances (images or other content) are for a single
     patient, and may be from one or more studies. The referenced SOP Instances
-    have been selected for a purpose, such as quality assurance, conference, or
-    consult. Reflecting that range of purposes, typical ImagingObjectSelection
-    resources may include all SOP Instances in a study (perhaps for sharing
-    through a Health Information Exchange); key images from multiple studies
-    (for reference by a referring or treating physician); a multi-frame
+    may have been selected for a purpose, such as  conference, or consult.
+    Reflecting a range of sharing purposes, typical ImagingManifest resources
+    may include all SOP Instances in a study (perhaps for sharing through a
+    Health Information Exchange); key images from multiple studies (for
+    reference by a referring or treating physician); both a multi-frame
     ultrasound instance ("cine" video clip) and a set of measurements taken
     from that instance (for inclusion in a teaching file); and so on.
     """
     
-    resource_name = "ImagingObjectSelection"
+    resource_name = "ImagingManifest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -37,7 +37,7 @@ class ImagingObjectSelection(domainresource.DomainResource):
         Type `FHIRReference` referencing `Practitioner, Device, Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.authoringTime = None
-        """ Time when the imaging object selection was created.
+        """ Time when the selection of instances was made.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
@@ -50,42 +50,42 @@ class ImagingObjectSelection(domainresource.DomainResource):
         
         self.study = None
         """ Study identity of the selected instances.
-        List of `ImagingObjectSelectionStudy` items (represented as `dict` in JSON). """
+        List of `ImagingManifestStudy` items (represented as `dict` in JSON). """
         
         self.title = None
         """ Reason for selection.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.uid = None
-        """ Instance UID.
+        """ SOP Instance UID.
         Type `str`. """
         
-        super(ImagingObjectSelection, self).__init__(jsondict=jsondict, strict=strict)
+        super(ImagingManifest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ImagingObjectSelection, self).elementProperties()
+        js = super(ImagingManifest, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("authoringTime", "authoringTime", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("study", "study", ImagingObjectSelectionStudy, True, None, True),
+            ("study", "study", ImagingManifestStudy, True, None, True),
             ("title", "title", codeableconcept.CodeableConcept, False, None, True),
-            ("uid", "uid", str, False, None, True),
+            ("uid", "uid", str, False, None, False),
         ])
         return js
 
 
 from . import backboneelement
 
-class ImagingObjectSelectionStudy(backboneelement.BackboneElement):
+class ImagingManifestStudy(backboneelement.BackboneElement):
     """ Study identity of the selected instances.
     
     Study identity and locating information of the DICOM SOP instances in the
     selection.
     """
     
-    resource_name = "ImagingObjectSelectionStudy"
+    resource_name = "ImagingManifestStudy"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -94,6 +94,10 @@ class ImagingObjectSelectionStudy(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.baseLocation = None
+        """ Study access service endpoint.
+        List of `ImagingManifestStudyBaseLocation` items (represented as `dict` in JSON). """
         
         self.imagingStudy = None
         """ Reference to ImagingStudy.
@@ -101,37 +105,68 @@ class ImagingObjectSelectionStudy(backboneelement.BackboneElement):
         
         self.series = None
         """ Series identity of the selected instances.
-        List of `ImagingObjectSelectionStudySeries` items (represented as `dict` in JSON). """
+        List of `ImagingManifestStudySeries` items (represented as `dict` in JSON). """
         
         self.uid = None
         """ Study instance UID.
         Type `str`. """
         
-        self.url = None
-        """ Retrieve study URL.
-        Type `str`. """
-        
-        super(ImagingObjectSelectionStudy, self).__init__(jsondict=jsondict, strict=strict)
+        super(ImagingManifestStudy, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ImagingObjectSelectionStudy, self).elementProperties()
+        js = super(ImagingManifestStudy, self).elementProperties()
         js.extend([
+            ("baseLocation", "baseLocation", ImagingManifestStudyBaseLocation, True, None, False),
             ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, False, None, False),
-            ("series", "series", ImagingObjectSelectionStudySeries, True, None, True),
+            ("series", "series", ImagingManifestStudySeries, True, None, True),
             ("uid", "uid", str, False, None, True),
-            ("url", "url", str, False, None, False),
         ])
         return js
 
 
-class ImagingObjectSelectionStudySeries(backboneelement.BackboneElement):
+class ImagingManifestStudyBaseLocation(backboneelement.BackboneElement):
+    """ Study access service endpoint.
+    
+    Methods of accessing  (e.g., retrieving, viewing) the study.
+    """
+    
+    resource_name = "ImagingManifestStudyBaseLocation"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.type = None
+        """ WADO-RS | WADO-URI | IID.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.url = None
+        """ Study access URL.
+        Type `str`. """
+        
+        super(ImagingManifestStudyBaseLocation, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ImagingManifestStudyBaseLocation, self).elementProperties()
+        js.extend([
+            ("type", "type", coding.Coding, False, None, True),
+            ("url", "url", str, False, None, True),
+        ])
+        return js
+
+
+class ImagingManifestStudySeries(backboneelement.BackboneElement):
     """ Series identity of the selected instances.
     
     Series identity and locating information of the DICOM SOP instances in the
     selection.
     """
     
-    resource_name = "ImagingObjectSelectionStudySeries"
+    resource_name = "ImagingManifestStudySeries"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -141,37 +176,37 @@ class ImagingObjectSelectionStudySeries(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.baseLocation = None
+        """ Series access endpoint.
+        List of `ImagingManifestStudySeriesBaseLocation` items (represented as `dict` in JSON). """
+        
         self.instance = None
         """ The selected instance.
-        List of `ImagingObjectSelectionStudySeriesInstance` items (represented as `dict` in JSON). """
+        List of `ImagingManifestStudySeriesInstance` items (represented as `dict` in JSON). """
         
         self.uid = None
         """ Series instance UID.
         Type `str`. """
         
-        self.url = None
-        """ Retrieve series URL.
-        Type `str`. """
-        
-        super(ImagingObjectSelectionStudySeries, self).__init__(jsondict=jsondict, strict=strict)
+        super(ImagingManifestStudySeries, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ImagingObjectSelectionStudySeries, self).elementProperties()
+        js = super(ImagingManifestStudySeries, self).elementProperties()
         js.extend([
-            ("instance", "instance", ImagingObjectSelectionStudySeriesInstance, True, None, True),
+            ("baseLocation", "baseLocation", ImagingManifestStudySeriesBaseLocation, True, None, False),
+            ("instance", "instance", ImagingManifestStudySeriesInstance, True, None, True),
             ("uid", "uid", str, False, None, True),
-            ("url", "url", str, False, None, False),
         ])
         return js
 
 
-class ImagingObjectSelectionStudySeriesInstance(backboneelement.BackboneElement):
-    """ The selected instance.
+class ImagingManifestStudySeriesBaseLocation(backboneelement.BackboneElement):
+    """ Series access endpoint.
     
-    Identity and locating information of the selected DICOM SOP instances.
+    Methods of accessing (e.g. retrieving) the series.
     """
     
-    resource_name = "ImagingObjectSelectionStudySeriesInstance"
+    resource_name = "ImagingManifestStudySeriesBaseLocation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -181,9 +216,40 @@ class ImagingObjectSelectionStudySeriesInstance(backboneelement.BackboneElement)
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.frame = None
-        """ The frame set.
-        List of `ImagingObjectSelectionStudySeriesInstanceFrame` items (represented as `dict` in JSON). """
+        self.type = None
+        """ WADO-RS | WADO-URI | IID.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.url = None
+        """ Series access URL.
+        Type `str`. """
+        
+        super(ImagingManifestStudySeriesBaseLocation, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ImagingManifestStudySeriesBaseLocation, self).elementProperties()
+        js.extend([
+            ("type", "type", coding.Coding, False, None, True),
+            ("url", "url", str, False, None, True),
+        ])
+        return js
+
+
+class ImagingManifestStudySeriesInstance(backboneelement.BackboneElement):
+    """ The selected instance.
+    
+    Identity and locating information of the selected DICOM SOP instances.
+    """
+    
+    resource_name = "ImagingManifestStudySeriesInstance"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
         
         self.sopClass = None
         """ SOP class UID of instance.
@@ -193,58 +259,18 @@ class ImagingObjectSelectionStudySeriesInstance(backboneelement.BackboneElement)
         """ Selected instance UID.
         Type `str`. """
         
-        self.url = None
-        """ Retrieve instance URL.
-        Type `str`. """
-        
-        super(ImagingObjectSelectionStudySeriesInstance, self).__init__(jsondict=jsondict, strict=strict)
+        super(ImagingManifestStudySeriesInstance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ImagingObjectSelectionStudySeriesInstance, self).elementProperties()
+        js = super(ImagingManifestStudySeriesInstance, self).elementProperties()
         js.extend([
-            ("frame", "frame", ImagingObjectSelectionStudySeriesInstanceFrame, True, None, False),
             ("sopClass", "sopClass", str, False, None, True),
             ("uid", "uid", str, False, None, True),
-            ("url", "url", str, False, None, True),
-        ])
-        return js
-
-
-class ImagingObjectSelectionStudySeriesInstanceFrame(backboneelement.BackboneElement):
-    """ The frame set.
-    
-    Identity and location information of the frames in the selected instance.
-    """
-    
-    resource_name = "ImagingObjectSelectionStudySeriesInstanceFrame"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.number = None
-        """ Frame reference number.
-        List of `int` items. """
-        
-        self.url = None
-        """ Retrieve frame URL.
-        Type `str`. """
-        
-        super(ImagingObjectSelectionStudySeriesInstanceFrame, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ImagingObjectSelectionStudySeriesInstanceFrame, self).elementProperties()
-        js.extend([
-            ("number", "number", int, True, None, True),
-            ("url", "url", str, False, None, True),
         ])
         return js
 
 
 from . import codeableconcept
+from . import coding
 from . import fhirdate
 from . import fhirreference

@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Measure) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Measure) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
 from . import domainresource
 
 class Measure(domainresource.DomainResource):
-    """ A quality measure.
+    """ A quality measure definition.
     
     The Measure resource provides the definition of a quality measure.
     """
@@ -27,13 +27,41 @@ class Measure(domainresource.DomainResource):
         """ Clinical recommendation.
         Type `str`. """
         
+        self.contact = None
+        """ Contact details of the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
+        self.contributor = None
+        """ A content contributor.
+        List of `Contributor` items (represented as `dict` in JSON). """
+        
+        self.copyright = None
+        """ Use and/or publishing restrictions.
+        Type `str`. """
+        
+        self.coverage = None
+        """ Describes the context of use for this measure.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+        
         self.definition = None
         """ A natural language definition of the measure.
+        Type `str`. """
+        
+        self.description = None
+        """ Natural language description of the measure.
         Type `str`. """
         
         self.disclaimer = None
         """ Disclaimer for the measure.
         Type `str`. """
+        
+        self.effectivePeriod = None
+        """ The effective date range for the measure.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.experimental = None
+        """ If for testing purposes, not real usage.
+        Type `bool`. """
         
         self.group = None
         """ Population criteria group.
@@ -43,18 +71,38 @@ class Measure(domainresource.DomainResource):
         """ The guidance for the measure.
         Type `str`. """
         
+        self.identifier = None
+        """ Logical identifier(s) for the measure.
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
         self.improvementNotation = None
         """ Improvement notation for the measure, e.g. higher score indicates
         better quality.
         Type `str`. """
         
+        self.lastReviewDate = None
+        """ Last review date for the measure.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.library = None
         """ Logic used by the measure.
         List of `FHIRReference` items referencing `Library` (represented as `dict` in JSON). """
         
-        self.moduleMetadata = None
-        """ Metadata for the measure.
-        Type `ModuleMetadata` (represented as `dict` in JSON). """
+        self.name = None
+        """ A machine-friendly name for the measure.
+        Type `str`. """
+        
+        self.publicationDate = None
+        """ Publication date for this version of the measure.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.publisher = None
+        """ Name of the publisher (Organization or individual).
+        Type `str`. """
+        
+        self.purpose = None
+        """ Describes the purpose of the measure.
+        Type `str`. """
         
         self.rateAggregation = None
         """ How is rate aggregation performed for this measure.
@@ -63,6 +111,10 @@ class Measure(domainresource.DomainResource):
         self.rationale = None
         """ Why does this measure exist.
         Type `str`. """
+        
+        self.relatedResource = None
+        """ Related resources for the measure.
+        List of `RelatedResource` items (represented as `dict` in JSON). """
         
         self.riskAdjustment = None
         """ How is risk adjustment applied for this measure.
@@ -76,13 +128,37 @@ class Measure(domainresource.DomainResource):
         """ The measure set, e.g. Preventive Care and Screening.
         Type `str`. """
         
+        self.status = None
+        """ draft | active | inactive.
+        Type `str`. """
+        
         self.supplementalData = None
         """ Supplemental data.
         List of `MeasureSupplementalData` items (represented as `dict` in JSON). """
         
+        self.title = None
+        """ A user-friendly title for the measure.
+        Type `str`. """
+        
+        self.topic = None
+        """ Descriptional topics for the measure.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.type = None
         """ process | outcome.
         List of `str` items. """
+        
+        self.url = None
+        """ Logical URL to reference this measure.
+        Type `str`. """
+        
+        self.usage = None
+        """ Describes the clinical usage of the measure.
+        Type `str`. """
+        
+        self.version = None
+        """ The version of the measure, if any.
+        Type `str`. """
         
         super(Measure, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -90,20 +166,39 @@ class Measure(domainresource.DomainResource):
         js = super(Measure, self).elementProperties()
         js.extend([
             ("clinicalRecommendationStatement", "clinicalRecommendationStatement", str, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("contributor", "contributor", contributor.Contributor, True, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("coverage", "coverage", usagecontext.UsageContext, True, None, False),
             ("definition", "definition", str, False, None, False),
+            ("description", "description", str, False, None, False),
             ("disclaimer", "disclaimer", str, False, None, False),
+            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
+            ("experimental", "experimental", bool, False, None, False),
             ("group", "group", MeasureGroup, True, None, False),
             ("guidance", "guidance", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("improvementNotation", "improvementNotation", str, False, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
             ("library", "library", fhirreference.FHIRReference, True, None, False),
-            ("moduleMetadata", "moduleMetadata", modulemetadata.ModuleMetadata, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("publicationDate", "publicationDate", fhirdate.FHIRDate, False, None, False),
+            ("publisher", "publisher", str, False, None, False),
+            ("purpose", "purpose", str, False, None, False),
             ("rateAggregation", "rateAggregation", str, False, None, False),
             ("rationale", "rationale", str, False, None, False),
+            ("relatedResource", "relatedResource", relatedresource.RelatedResource, True, None, False),
             ("riskAdjustment", "riskAdjustment", str, False, None, False),
             ("scoring", "scoring", str, False, None, False),
             ("set", "set", str, False, None, False),
+            ("status", "status", str, False, None, True),
             ("supplementalData", "supplementalData", MeasureSupplementalData, True, None, False),
+            ("title", "title", str, False, None, False),
+            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
             ("type", "type", str, True, None, False),
+            ("url", "url", str, False, None, False),
+            ("usage", "usage", str, False, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -303,6 +398,12 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
         return js
 
 
+from . import codeableconcept
+from . import contactdetail
+from . import contributor
+from . import fhirdate
 from . import fhirreference
 from . import identifier
-from . import modulemetadata
+from . import period
+from . import relatedresource
+from . import usagecontext

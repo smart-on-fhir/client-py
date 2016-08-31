@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Task) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Task) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -21,41 +21,61 @@ class Task(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.basedOn = None
+        """ Request fulfilled by this task.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
+        self.businessStatus = None
+        """ E.g. "Specimen collected", "IV prepped".
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.code = None
+        """ Task Type.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.context = None
+        """ Healthcare event during which this task originated.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        
         self.created = None
         """ Task Creation Date.
         Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.creator = None
-        """ Task Creator.
-        Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.definition = None
         """ Task Definition.
         Type `str`. """
         
         self.description = None
-        """ Task Description.
+        """ Human-readable explanation of task.
         Type `str`. """
         
-        self.failureReason = None
-        """ Task Failure Reason.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.focus = None
+        """ What task is acting on.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.for_fhir = None
         """ Beneficiary of the Task.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        
+        self.fulfillment = None
+        """ Constraints on fulfillment tasks.
+        Type `TaskFulfillment` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Task Instance Identifier.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.input = None
-        """ Task Input.
+        """ Supporting information.
         List of `TaskInput` items (represented as `dict` in JSON). """
         
         self.lastModified = None
         """ Task Last Modified Date.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.note = None
+        """ Comments made about the task.
+        List of `Annotation` items (represented as `dict` in JSON). """
         
         self.output = None
         """ Task Output.
@@ -67,27 +87,39 @@ class Task(domainresource.DomainResource):
         
         self.parent = None
         """ Composite task.
-        Type `FHIRReference` referencing `Task` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Task` (represented as `dict` in JSON). """
         
         self.performerType = None
         """ requester | dispatcher | scheduler | performer | monitor | manager
         | acquirer | reviewer.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.priority = None
         """ low | normal | high.
         Type `str`. """
         
+        self.reason = None
+        """ Why task is needed.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.requester = None
+        """ Task Creator.
+        Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        
+        self.requisition = None
+        """ Requisition or grouper id.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.stage = None
+        """ proposed | planned | actionable +.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.status = None
         """ draft | requested | received | accepted | +.
         Type `str`. """
         
-        self.subject = None
-        """ Task Subject.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ Task Type.
+        self.statusReason = None
+        """ Reason for current status.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Task, self).__init__(jsondict=jsondict, strict=strict)
@@ -95,33 +127,82 @@ class Task(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Task, self).elementProperties()
         js.extend([
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
+            ("businessStatus", "businessStatus", codeableconcept.CodeableConcept, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("created", "created", fhirdate.FHIRDate, False, None, True),
-            ("creator", "creator", fhirreference.FHIRReference, False, None, True),
             ("definition", "definition", str, False, None, False),
             ("description", "description", str, False, None, False),
-            ("failureReason", "failureReason", codeableconcept.CodeableConcept, False, None, False),
+            ("focus", "focus", fhirreference.FHIRReference, False, None, False),
             ("for_fhir", "for", fhirreference.FHIRReference, False, None, False),
+            ("fulfillment", "fulfillment", TaskFulfillment, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("input", "input", TaskInput, True, None, False),
             ("lastModified", "lastModified", fhirdate.FHIRDate, False, None, True),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("output", "output", TaskOutput, True, None, False),
             ("owner", "owner", fhirreference.FHIRReference, False, None, False),
-            ("parent", "parent", fhirreference.FHIRReference, False, None, False),
-            ("performerType", "performerType", coding.Coding, True, None, False),
+            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
+            ("performerType", "performerType", codeableconcept.CodeableConcept, True, None, False),
             ("priority", "priority", str, False, None, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("requester", "requester", fhirreference.FHIRReference, False, None, True),
+            ("requisition", "requisition", identifier.Identifier, False, None, False),
+            ("stage", "stage", codeableconcept.CodeableConcept, False, None, True),
             ("status", "status", str, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
 
 from . import backboneelement
 
-class TaskInput(backboneelement.BackboneElement):
-    """ Task Input.
+class TaskFulfillment(backboneelement.BackboneElement):
+    """ Constraints on fulfillment tasks.
     
-    Inputs to the task.
+    Identifies any limitations on what part of a referenced task subject
+    request should be actioned.
+    """
+    
+    resource_name = "TaskFulfillment"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.period = None
+        """ Over what time-period is fulfillment sought.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.recipients = None
+        """ For whom is fulfillment sought?.
+        List of `FHIRReference` items referencing `Patient, Practitioner, RelatedPerson, Group, Organization` (represented as `dict` in JSON). """
+        
+        self.repetitions = None
+        """ How many times to repeat.
+        Type `int`. """
+        
+        super(TaskFulfillment, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(TaskFulfillment, self).elementProperties()
+        js.extend([
+            ("period", "period", period.Period, False, None, False),
+            ("recipients", "recipients", fhirreference.FHIRReference, True, None, False),
+            ("repetitions", "repetitions", int, False, None, False),
+        ])
+        return js
+
+
+class TaskInput(backboneelement.BackboneElement):
+    """ Supporting information.
+    
+    Additional information that may be needed in the execution of the task.
     """
     
     resource_name = "TaskInput"
@@ -134,13 +215,17 @@ class TaskInput(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.name = None
-        """ Input Name.
-        Type `str`. """
+        self.type = None
+        """ Label for the input.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.valueAddress = None
         """ Input Value.
         Type `Address` (represented as `dict` in JSON). """
+        
+        self.valueAge = None
+        """ Input Value.
+        Type `Age` (represented as `dict` in JSON). """
         
         self.valueAnnotation = None
         """ Input Value.
@@ -174,6 +259,10 @@ class TaskInput(backboneelement.BackboneElement):
         """ Input Value.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.valueCount = None
+        """ Input Value.
+        Type `Count` (represented as `dict` in JSON). """
+        
         self.valueDate = None
         """ Input Value.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -185,6 +274,14 @@ class TaskInput(backboneelement.BackboneElement):
         self.valueDecimal = None
         """ Input Value.
         Type `float`. """
+        
+        self.valueDistance = None
+        """ Input Value.
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.valueDuration = None
+        """ Input Value.
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.valueHumanName = None
         """ Input Value.
@@ -213,6 +310,10 @@ class TaskInput(backboneelement.BackboneElement):
         self.valueMeta = None
         """ Input Value.
         Type `Meta` (represented as `dict` in JSON). """
+        
+        self.valueMoney = None
+        """ Input Value.
+        Type `Money` (represented as `dict` in JSON). """
         
         self.valueOid = None
         """ Input Value.
@@ -275,8 +376,9 @@ class TaskInput(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TaskInput, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("valueAddress", "valueAddress", address.Address, False, "value", True),
+            ("valueAge", "valueAge", age.Age, False, "value", True),
             ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", True),
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", True),
             ("valueBase64Binary", "valueBase64Binary", str, False, "value", True),
@@ -285,9 +387,12 @@ class TaskInput(backboneelement.BackboneElement):
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
             ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False, "value", True),
+            ("valueCount", "valueCount", count.Count, False, "value", True),
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
             ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
             ("valueDecimal", "valueDecimal", float, False, "value", True),
+            ("valueDistance", "valueDistance", distance.Distance, False, "value", True),
+            ("valueDuration", "valueDuration", duration.Duration, False, "value", True),
             ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", True),
             ("valueId", "valueId", str, False, "value", True),
             ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", True),
@@ -295,6 +400,7 @@ class TaskInput(backboneelement.BackboneElement):
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueMarkdown", "valueMarkdown", str, False, "value", True),
             ("valueMeta", "valueMeta", meta.Meta, False, "value", True),
+            ("valueMoney", "valueMoney", money.Money, False, "value", True),
             ("valueOid", "valueOid", str, False, "value", True),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", True),
             ("valuePositiveInt", "valuePositiveInt", int, False, "value", True),
@@ -329,13 +435,17 @@ class TaskOutput(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.name = None
+        self.type = None
         """ Output Name.
-        Type `str`. """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.valueAddress = None
         """ Output Value.
         Type `Address` (represented as `dict` in JSON). """
+        
+        self.valueAge = None
+        """ Output Value.
+        Type `Age` (represented as `dict` in JSON). """
         
         self.valueAnnotation = None
         """ Output Value.
@@ -369,6 +479,10 @@ class TaskOutput(backboneelement.BackboneElement):
         """ Output Value.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.valueCount = None
+        """ Output Value.
+        Type `Count` (represented as `dict` in JSON). """
+        
         self.valueDate = None
         """ Output Value.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -380,6 +494,14 @@ class TaskOutput(backboneelement.BackboneElement):
         self.valueDecimal = None
         """ Output Value.
         Type `float`. """
+        
+        self.valueDistance = None
+        """ Output Value.
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.valueDuration = None
+        """ Output Value.
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.valueHumanName = None
         """ Output Value.
@@ -408,6 +530,10 @@ class TaskOutput(backboneelement.BackboneElement):
         self.valueMeta = None
         """ Output Value.
         Type `Meta` (represented as `dict` in JSON). """
+        
+        self.valueMoney = None
+        """ Output Value.
+        Type `Money` (represented as `dict` in JSON). """
         
         self.valueOid = None
         """ Output Value.
@@ -470,8 +596,9 @@ class TaskOutput(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TaskOutput, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("valueAddress", "valueAddress", address.Address, False, "value", True),
+            ("valueAge", "valueAge", age.Age, False, "value", True),
             ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", True),
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", True),
             ("valueBase64Binary", "valueBase64Binary", str, False, "value", True),
@@ -480,9 +607,12 @@ class TaskOutput(backboneelement.BackboneElement):
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
             ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False, "value", True),
+            ("valueCount", "valueCount", count.Count, False, "value", True),
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
             ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
             ("valueDecimal", "valueDecimal", float, False, "value", True),
+            ("valueDistance", "valueDistance", distance.Distance, False, "value", True),
+            ("valueDuration", "valueDuration", duration.Duration, False, "value", True),
             ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", True),
             ("valueId", "valueId", str, False, "value", True),
             ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", True),
@@ -490,6 +620,7 @@ class TaskOutput(backboneelement.BackboneElement):
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueMarkdown", "valueMarkdown", str, False, "value", True),
             ("valueMeta", "valueMeta", meta.Meta, False, "value", True),
+            ("valueMoney", "valueMoney", money.Money, False, "value", True),
             ("valueOid", "valueOid", str, False, "value", True),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", True),
             ("valuePositiveInt", "valuePositiveInt", int, False, "value", True),
@@ -509,16 +640,21 @@ class TaskOutput(backboneelement.BackboneElement):
 
 
 from . import address
+from . import age
 from . import annotation
 from . import attachment
 from . import codeableconcept
 from . import coding
 from . import contactpoint
+from . import count
+from . import distance
+from . import duration
 from . import fhirdate
 from . import fhirreference
 from . import humanname
 from . import identifier
 from . import meta
+from . import money
 from . import period
 from . import quantity
 from . import range

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -31,6 +31,10 @@ class SearchParameter(domainresource.DomainResource):
         self.code = None
         """ Code used in URL.
         Type `str`. """
+        
+        self.component = None
+        """ For Composite resources to define the parts.
+        List of `FHIRReference` items referencing `SearchParameter` (represented as `dict` in JSON). """
         
         self.contact = None
         """ Contact details of the publisher.
@@ -100,6 +104,7 @@ class SearchParameter(domainresource.DomainResource):
         js.extend([
             ("base", "base", str, False, None, True),
             ("code", "code", str, False, None, True),
+            ("component", "component", fhirreference.FHIRReference, True, None, False),
             ("contact", "contact", SearchParameterContact, True, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, True),
@@ -159,3 +164,4 @@ class SearchParameterContact(backboneelement.BackboneElement):
 from . import codeableconcept
 from . import contactpoint
 from . import fhirdate
+from . import fhirreference

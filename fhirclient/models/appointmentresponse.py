@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -44,7 +44,7 @@ class AppointmentResponse(domainresource.DomainResource):
         
         self.participantStatus = None
         """ accepted | declined | tentative | in-process | completed | needs-
-        action.
+        action | entered-in-error.
         Type `str`. """
         
         self.participantType = None

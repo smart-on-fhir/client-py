@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/MedicationOrder) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/MedicationOrder) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -27,12 +27,12 @@ class MedicationOrder(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.dateEnded = None
-        """ When prescription was stopped.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        self.category = None
+        """ Type of medication usage.
+        Type `str`. """
         
         self.dateWritten = None
-        """ When prescription was authorized.
+        """ When prescription was initially authorized.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.dispenseRequest = None
@@ -46,6 +46,10 @@ class MedicationOrder(domainresource.DomainResource):
         self.encounter = None
         """ Created during encounter/admission/stay.
         Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        
+        self.eventHistory = None
+        """ A list of events of interest in the lifecycle.
+        List of `MedicationOrderEventHistory` items (represented as `dict` in JSON). """
         
         self.identifier = None
         """ External identifier.
@@ -68,7 +72,7 @@ class MedicationOrder(domainresource.DomainResource):
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.prescriber = None
-        """ Who ordered the medication(s).
+        """ Who ordered the initial medication(s).
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.priorPrescription = None
@@ -78,10 +82,6 @@ class MedicationOrder(domainresource.DomainResource):
         self.reasonCode = None
         """ Reason or indication for writing the prescription.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.reasonEnded = None
-        """ Why prescription was stopped.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.reasonReference = None
         """ Condition that supports why the prescription is being written.
@@ -100,11 +100,12 @@ class MedicationOrder(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicationOrder, self).elementProperties()
         js.extend([
-            ("dateEnded", "dateEnded", fhirdate.FHIRDate, False, None, False),
+            ("category", "category", str, False, None, False),
             ("dateWritten", "dateWritten", fhirdate.FHIRDate, False, None, False),
             ("dispenseRequest", "dispenseRequest", MedicationOrderDispenseRequest, False, None, False),
             ("dosageInstruction", "dosageInstruction", MedicationOrderDosageInstruction, True, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("eventHistory", "eventHistory", MedicationOrderEventHistory, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
@@ -113,7 +114,6 @@ class MedicationOrder(domainresource.DomainResource):
             ("prescriber", "prescriber", fhirreference.FHIRReference, False, None, False),
             ("priorPrescription", "priorPrescription", fhirreference.FHIRReference, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonEnded", "reasonEnded", codeableconcept.CodeableConcept, False, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, False),
             ("substitution", "substitution", MedicationOrderSubstitution, False, None, False),
@@ -145,15 +145,7 @@ class MedicationOrderDispenseRequest(backboneelement.BackboneElement):
         
         self.expectedSupplyDuration = None
         """ Number of days supply per dispense.
-        Type `Quantity` referencing `Duration` (represented as `dict` in JSON). """
-        
-        self.medicationCodeableConcept = None
-        """ Product to be supplied.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.medicationReference = None
-        """ Product to be supplied.
-        Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.numberOfRepeatsAllowed = None
         """ Number of refills authorized.
@@ -172,9 +164,7 @@ class MedicationOrderDispenseRequest(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationOrderDispenseRequest, self).elementProperties()
         js.extend([
-            ("expectedSupplyDuration", "expectedSupplyDuration", quantity.Quantity, False, None, False),
-            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", False),
-            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", False),
+            ("expectedSupplyDuration", "expectedSupplyDuration", duration.Duration, False, None, False),
             ("numberOfRepeatsAllowed", "numberOfRepeatsAllowed", int, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("validityPeriod", "validityPeriod", period.Period, False, None, False),
@@ -200,7 +190,7 @@ class MedicationOrderDosageInstruction(backboneelement.BackboneElement):
         
         self.additionalInstructions = None
         """ Supplemental instructions - e.g. "with meals".
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.asNeededBoolean = None
         """ Take "as needed" (for x).
@@ -217,6 +207,14 @@ class MedicationOrderDosageInstruction(backboneelement.BackboneElement):
         self.doseRange = None
         """ Amount of medication per dose.
         Type `Range` (represented as `dict` in JSON). """
+        
+        self.maxDosePerAdministration = None
+        """ Upper limit on medication per administration.
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        
+        self.maxDosePerLifetime = None
+        """ Upper limit on medication per lifetime of the patient.
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.maxDosePerPeriod = None
         """ Upper limit on medication per unit of time.
@@ -263,11 +261,13 @@ class MedicationOrderDosageInstruction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationOrderDosageInstruction, self).elementProperties()
         js.extend([
-            ("additionalInstructions", "additionalInstructions", codeableconcept.CodeableConcept, False, None, False),
+            ("additionalInstructions", "additionalInstructions", codeableconcept.CodeableConcept, True, None, False),
             ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False),
             ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False),
             ("doseQuantity", "doseQuantity", quantity.Quantity, False, "dose", False),
             ("doseRange", "doseRange", range.Range, False, "dose", False),
+            ("maxDosePerAdministration", "maxDosePerAdministration", quantity.Quantity, False, None, False),
+            ("maxDosePerLifetime", "maxDosePerLifetime", quantity.Quantity, False, None, False),
             ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
             ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False),
@@ -278,6 +278,57 @@ class MedicationOrderDosageInstruction(backboneelement.BackboneElement):
             ("siteReference", "siteReference", fhirreference.FHIRReference, False, "site", False),
             ("text", "text", str, False, None, False),
             ("timing", "timing", timing.Timing, False, None, False),
+        ])
+        return js
+
+
+class MedicationOrderEventHistory(backboneelement.BackboneElement):
+    """ A list of events of interest in the lifecycle.
+    
+    A summary of the events of interest that have occurred as the request is
+    processed; e.g. when the order was verified or when it was completed.
+    """
+    
+    resource_name = "MedicationOrderEventHistory"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.action = None
+        """ Action taken (e.g. verify, discontinue).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.actor = None
+        """ Who took the action.
+        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
+        self.dateTime = None
+        """ The date at which the event happened.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.reason = None
+        """ Reason the action was taken.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ active | on-hold | completed | entered-in-error | stopped | draft.
+        Type `str`. """
+        
+        super(MedicationOrderEventHistory, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(MedicationOrderEventHistory, self).elementProperties()
+        js.extend([
+            ("action", "action", codeableconcept.CodeableConcept, False, None, False),
+            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
+            ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, True),
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("status", "status", str, False, None, True),
         ])
         return js
 
@@ -302,12 +353,12 @@ class MedicationOrderSubstitution(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.allowed = None
+        """ Whether substitution is allowed or not.
+        Type `bool`. """
+        
         self.reason = None
         """ Why should (not) substitution be made.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ generic | formulary +.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationOrderSubstitution, self).__init__(jsondict=jsondict, strict=strict)
@@ -315,14 +366,15 @@ class MedicationOrderSubstitution(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationOrderSubstitution, self).elementProperties()
         js.extend([
+            ("allowed", "allowed", bool, False, None, True),
             ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
 
 from . import annotation
 from . import codeableconcept
+from . import duration
 from . import fhirdate
 from . import fhirreference
 from . import identifier

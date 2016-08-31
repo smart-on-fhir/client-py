@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -58,12 +58,16 @@ class Conformance(domainresource.DomainResource):
         Type `str`. """
         
         self.format = None
-        """ formats supported (xml | json | mime type).
+        """ formats supported (xml | json | ttl | mime type).
         List of `str` items. """
         
         self.implementation = None
         """ If this describes a specific instance.
         Type `ConformanceImplementation` (represented as `dict` in JSON). """
+        
+        self.instantiates = None
+        """ Canonical URL of service implemented/used by software.
+        List of `str` items. """
         
         self.kind = None
         """ instance | capability | requirements.
@@ -128,6 +132,7 @@ class Conformance(domainresource.DomainResource):
             ("fhirVersion", "fhirVersion", str, False, None, True),
             ("format", "format", str, True, None, True),
             ("implementation", "implementation", ConformanceImplementation, False, None, False),
+            ("instantiates", "instantiates", str, True, None, False),
             ("kind", "kind", str, False, None, True),
             ("messaging", "messaging", ConformanceMessaging, True, None, False),
             ("name", "name", str, False, None, False),
@@ -447,10 +452,6 @@ class ConformanceRest(backboneelement.BackboneElement):
         """ Information about security of implementation.
         Type `ConformanceRestSecurity` (represented as `dict` in JSON). """
         
-        self.transactionMode = None
-        """ not-supported | batch | transaction | both.
-        Type `str`. """
-        
         super(ConformanceRest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -464,7 +465,6 @@ class ConformanceRest(backboneelement.BackboneElement):
             ("resource", "resource", ConformanceRestResource, True, None, False),
             ("searchParam", "searchParam", ConformanceRestResourceSearchParam, True, None, False),
             ("security", "security", ConformanceRestSecurity, False, None, False),
-            ("transactionMode", "transactionMode", str, False, None, False),
         ])
         return js
 
@@ -486,7 +486,7 @@ class ConformanceRestInteraction(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ transaction | search-system | history-system.
+        """ transaction | batch | search-system | history-system.
         Type `str`. """
         
         self.documentation = None
@@ -566,9 +566,17 @@ class ConformanceRestResource(backboneelement.BackboneElement):
         supported.
         Type `str`. """
         
+        self.conditionalRead = None
+        """ not-supported | modified-since | not-match | full-support.
+        Type `str`. """
+        
         self.conditionalUpdate = None
         """ If allows/uses conditional update.
         Type `bool`. """
+        
+        self.documentation = None
+        """ Additional information about the use of the resource type.
+        Type `str`. """
         
         self.interaction = None
         """ What operations are supported?.
@@ -613,7 +621,9 @@ class ConformanceRestResource(backboneelement.BackboneElement):
         js.extend([
             ("conditionalCreate", "conditionalCreate", bool, False, None, False),
             ("conditionalDelete", "conditionalDelete", str, False, None, False),
+            ("conditionalRead", "conditionalRead", str, False, None, False),
             ("conditionalUpdate", "conditionalUpdate", bool, False, None, False),
+            ("documentation", "documentation", str, False, None, False),
             ("interaction", "interaction", ConformanceRestResourceInteraction, True, None, True),
             ("profile", "profile", fhirreference.FHIRReference, False, None, False),
             ("readHistory", "readHistory", bool, False, None, False),

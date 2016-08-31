@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -193,7 +193,7 @@ class ProvenanceEntity(backboneelement.BackboneElement):
         
         self.agent = None
         """ Entity is attributed to this agent.
-        Type `ProvenanceAgent` (represented as `dict` in JSON). """
+        List of `ProvenanceAgent` items (represented as `dict` in JSON). """
         
         self.display = None
         """ Human description of entity.
@@ -216,7 +216,7 @@ class ProvenanceEntity(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProvenanceEntity, self).elementProperties()
         js.extend([
-            ("agent", "agent", ProvenanceAgent, False, None, False),
+            ("agent", "agent", ProvenanceAgent, True, None, False),
             ("display", "display", str, False, None, False),
             ("reference", "reference", str, False, None, True),
             ("role", "role", str, False, None, True),

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -40,7 +40,7 @@ class FlagTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://example.org/local/if1")
         self.assertEqual(inst.id, "example-encounter")
         self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.div, "<div>Follow Infection Control Level 3 Protocol</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Follow Infection Control Level 3 Protocol</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testFlag2(self):
@@ -64,6 +64,6 @@ class FlagTests(unittest.TestCase):
         self.assertEqual(inst.code.text, "Patient has a big dog at his home. Always always wear a suit of armor or take other active counter-measures")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.div, "<div>Large Dog warning for Peter Patient</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Large Dog warning for Peter Patient</div>")
         self.assertEqual(inst.text.status, "generated")
 

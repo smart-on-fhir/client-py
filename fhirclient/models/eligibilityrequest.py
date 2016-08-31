@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -68,6 +68,14 @@ class EligibilityRequest(domainresource.DomainResource):
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.insurerIdentifier = None
+        """ Target.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.insurerReference = None
+        """ Target.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
         self.organizationIdentifier = None
         """ Responsible organization.
         Type `Identifier` (represented as `dict` in JSON). """
@@ -112,13 +120,9 @@ class EligibilityRequest(domainresource.DomainResource):
         """ Estimated date or dates of Service.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.targetIdentifier = None
-        """ Insurer.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.targetReference = None
-        """ Insurer.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
         
         super(EligibilityRequest, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -136,6 +140,8 @@ class EligibilityRequest(domainresource.DomainResource):
             ("facilityIdentifier", "facilityIdentifier", identifier.Identifier, False, "facility", False),
             ("facilityReference", "facilityReference", fhirreference.FHIRReference, False, "facility", False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("insurerIdentifier", "insurerIdentifier", identifier.Identifier, False, "insurer", False),
+            ("insurerReference", "insurerReference", fhirreference.FHIRReference, False, "insurer", False),
             ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
             ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
             ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
@@ -147,8 +153,7 @@ class EligibilityRequest(domainresource.DomainResource):
             ("ruleset", "ruleset", coding.Coding, False, None, False),
             ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
-            ("targetIdentifier", "targetIdentifier", identifier.Identifier, False, "target", False),
-            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", False),
+            ("status", "status", str, False, None, True),
         ])
         return js
 

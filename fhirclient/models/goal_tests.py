@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -32,7 +32,7 @@ class GoalTests(unittest.TestCase):
         self.implGoal1(inst2)
     
     def implGoal1(self, inst):
-        self.assertEqual(inst.description, "Target weight is 160 to 180 lbs.")
+        self.assertEqual(inst.description.text, "Target weight is 160 to 180 lbs.")
         self.assertEqual(inst.extension[0].extension[0].url, "measure")
         self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.coding[0].code, "3141-9")
         self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.coding[0].display, "Weight Measured")

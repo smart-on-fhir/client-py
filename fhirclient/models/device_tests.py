@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -144,13 +144,14 @@ class DeviceTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[1].code, "468063009")
         self.assertEqual(inst.type.coding[1].display, "Coated femoral stem prosthesis, modular")
         self.assertEqual(inst.type.coding[1].system, "http://snomed.info/sct")
+        self.assertEqual(inst.type.text, "Coated femoral stem prosthesis, modular")
         self.assertEqual(inst.udiCarrier.system, "http://hl7.org/fhir/NamingSystem/fda-udi")
         self.assertEqual(inst.udiCarrier.type.coding[0].code, "UDI")
         self.assertEqual(inst.udiCarrier.type.coding[0].system, "http://hl7.org/fhir/identifier-type")
         self.assertEqual(inst.udiCarrier.value, "{01}09504000059118{17}141120{10}7654321D{21}10987654d321")
     
     def testDevice6(self):
-        inst = self.instantiate_from("device-example.json")
+        inst = self.instantiate_from("device-example-udi2.json")
         self.assertIsNotNone(inst, "Must have instantiated a Device instance")
         self.implDevice6(inst)
         
@@ -160,6 +161,93 @@ class DeviceTests(unittest.TestCase):
         self.implDevice6(inst2)
     
     def implDevice6(self, inst):
+        self.assertEqual(inst.expirationDate.date, FHIRDate("2014-02-01").date)
+        self.assertEqual(inst.expirationDate.as_json(), "2014-02-01")
+        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/device-din")
+        self.assertEqual(inst.extension[0].valueIdentifier.system, "http://hl7.org/fhir/NamingSystem/iccbba-din")
+        self.assertEqual(inst.extension[0].valueIdentifier.value, "A99971312345600")
+        self.assertEqual(inst.id, "example-udi2")
+        self.assertEqual(inst.manufactureDate.date, FHIRDate("2013-02-01").date)
+        self.assertEqual(inst.manufactureDate.as_json(), "2013-02-01")
+        self.assertEqual(inst.manufacturer, "Acme Devices, Inc")
+        self.assertEqual(inst.model, "Bone,Putty Demineralized")
+        self.assertEqual(inst.status, "not-available")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "A9999XYZ100T0474")
+        self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/NamingSystem/iccbba-other-di")
+        self.assertEqual(inst.type.text, "DI = A9999XYZ100T0474")
+        self.assertEqual(inst.udiCarrier.system, "http://hl7.org/fhir/NamingSystem/fda-udi")
+        self.assertEqual(inst.udiCarrier.type.coding[0].code, "UDI")
+        self.assertEqual(inst.udiCarrier.type.coding[0].system, "http://hl7.org/fhir/identifier-type")
+        self.assertEqual(inst.udiCarrier.value, "=+05037=/A9999XYZ100T0474=,000025=A99971312345600=>014032=}013032")
+    
+    def testDevice7(self):
+        inst = self.instantiate_from("device-example-udi3.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Device instance")
+        self.implDevice7(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Device", js["resourceType"])
+        inst2 = device.Device(js)
+        self.implDevice7(inst2)
+    
+    def implDevice7(self, inst):
+        self.assertEqual(inst.expirationDate.date, FHIRDate("2020-02-02").date)
+        self.assertEqual(inst.expirationDate.as_json(), "2020-02-02")
+        self.assertEqual(inst.id, "example-udi3")
+        self.assertEqual(inst.identifier[0].type.coding[0].code, "SNO")
+        self.assertEqual(inst.identifier[0].type.coding[0].system, "http://hl7.org/fhir/identifier-type")
+        self.assertEqual(inst.identifier[0].value, "XYZ4567890123 45678")
+        self.assertEqual(inst.lotNumber, "LOT123456789012345")
+        self.assertEqual(inst.manufactureDate.date, FHIRDate("2013-02-02").date)
+        self.assertEqual(inst.manufactureDate.as_json(), "2013-02-02")
+        self.assertEqual(inst.manufacturer, "GlobalMed, Inc")
+        self.assertEqual(inst.model, "Ultra Implantable")
+        self.assertEqual(inst.status, "not-available")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "H123PARTNO1234567890120")
+        self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/NamingSystem/hibcc-di")
+        self.assertEqual(inst.type.text, "DI =H123PARTNO1234567890120")
+        self.assertEqual(inst.udiCarrier.system, "http://hl7.org/fhir/NamingSystem/fda-udi")
+        self.assertEqual(inst.udiCarrier.type.coding[0].code, "UDI")
+        self.assertEqual(inst.udiCarrier.type.coding[0].system, "http://hl7.org/fhir/identifier-type")
+        self.assertEqual(inst.udiCarrier.value, "+H123PARTNO1234567890120/$$420020216LOT123456789012345/SXYZ4567890123 45678/16D20130202C")
+    
+    def testDevice8(self):
+        inst = self.instantiate_from("device-example-udi4.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Device instance")
+        self.implDevice8(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Device", js["resourceType"])
+        inst2 = device.Device(js)
+        self.implDevice8(inst2)
+    
+    def implDevice8(self, inst):
+        self.assertEqual(inst.id, "example-udi4")
+        self.assertEqual(inst.lotNumber, "RZ12345678")
+        self.assertEqual(inst.manufacturer, "GlobalMed, Inc")
+        self.assertEqual(inst.status, "not-available")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "1TE123456A")
+        self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/NamingSystem/iccbba-blood-di")
+        self.assertEqual(inst.type.text, "DI = 1TE123456A")
+        self.assertEqual(inst.udiCarrier.system, "http://hl7.org/fhir/NamingSystem/fda-udi")
+        self.assertEqual(inst.udiCarrier.type.coding[0].code, "UDI")
+        self.assertEqual(inst.udiCarrier.type.coding[0].system, "http://hl7.org/fhir/identifier-type")
+        self.assertEqual(inst.udiCarrier.value, "=)1TE123456A&)RZ12345678")
+    
+    def testDevice9(self):
+        inst = self.instantiate_from("device-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Device instance")
+        self.implDevice9(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Device", js["resourceType"])
+        inst2 = device.Device(js)
+        self.implDevice9(inst2)
+    
+    def implDevice9(self, inst):
         self.assertEqual(inst.contact[0].system, "phone")
         self.assertEqual(inst.contact[0].value, "ext 4352")
         self.assertEqual(inst.id, "example")

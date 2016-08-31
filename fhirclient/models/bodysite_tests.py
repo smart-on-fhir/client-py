@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class BodySiteTests(unittest.TestCase):
         return bodysite.BodySite(js)
     
     def testBodySite1(self):
-        inst = self.instantiate_from("bodysite-example.json")
+        inst = self.instantiate_from("bodysite-example-fetus.json")
         self.assertIsNotNone(inst, "Must have instantiated a BodySite instance")
         self.implBodySite1(inst)
         
@@ -32,28 +32,61 @@ class BodySiteTests(unittest.TestCase):
         self.implBodySite1(inst2)
     
     def implBodySite1(self, inst):
-        self.assertEqual(inst.code.coding[0].code, "53120007")
-        self.assertEqual(inst.code.coding[0].display, "Arm")
+        self.assertEqual(inst.code.coding[0].code, "83418008")
+        self.assertEqual(inst.code.coding[0].display, "Entire fetus (body structure)")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.code.text, "Arm")
-        self.assertEqual(inst.description, "front of upper left arm directly below the tattoo")
-        self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.identifier[0].system, "http://www.acmehosp.com/bodysites")
-        self.assertEqual(inst.identifier[0].use, "official")
+        self.assertEqual(inst.code.text, "Fetus")
+        self.assertEqual(inst.description, "EDD 1/1/2017 confirmation by LMP")
+        self.assertEqual(inst.id, "fetus")
+        self.assertEqual(inst.identifier[0].system, "http://goodhealth.org/bodysite/identifiers")
         self.assertEqual(inst.identifier[0].value, "12345")
-        self.assertEqual(inst.image[0].contentType, "image/png;base64")
-        self.assertEqual(inst.image[0].title, "ARM")
-        self.assertEqual(inst.modifier[0].coding[0].code, "419161000")
-        self.assertEqual(inst.modifier[0].coding[0].display, "Unilateral left")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testBodySite2(self):
+        inst = self.instantiate_from("bodysite-example-skin-patch.json")
+        self.assertIsNotNone(inst, "Must have instantiated a BodySite instance")
+        self.implBodySite2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("BodySite", js["resourceType"])
+        inst2 = bodysite.BodySite(js)
+        self.implBodySite2(inst2)
+    
+    def implBodySite2(self, inst):
+        self.assertEqual(inst.code.coding[0].code, "39937001")
+        self.assertEqual(inst.code.coding[0].display, "Skin structure (body structure)")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.code.text, "Skin patch")
+        self.assertEqual(inst.description, "inner surface (volar) of the left forearm")
+        self.assertEqual(inst.id, "skin-patch")
+        self.assertEqual(inst.identifier[0].system, "http://goodhealth.org/bodysite/identifiers")
+        self.assertEqual(inst.identifier[0].value, "12345")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testBodySite3(self):
+        inst = self.instantiate_from("bodysite-example-tumor.json")
+        self.assertIsNotNone(inst, "Must have instantiated a BodySite instance")
+        self.implBodySite3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("BodySite", js["resourceType"])
+        inst2 = bodysite.BodySite(js)
+        self.implBodySite3(inst2)
+    
+    def implBodySite3(self, inst):
+        self.assertEqual(inst.code.coding[0].code, "4147007")
+        self.assertEqual(inst.code.coding[0].display, "Mass (morphologic abnormality)")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.code.text, "Splenic mass")
+        self.assertEqual(inst.description, "7 cm maximum diameter")
+        self.assertEqual(inst.id, "tumor")
+        self.assertEqual(inst.identifier[0].system, "http://goodhealth.org/bodysite/identifiers")
+        self.assertEqual(inst.identifier[0].value, "12345")
+        self.assertEqual(inst.image[0].contentType, "application/dicom")
+        self.assertEqual(inst.image[0].url, "http://10.1.2.3:1000/wado?requestType=WADO&amp;wado_details…")
+        self.assertEqual(inst.modifier[0].coding[0].code, "78961009")
+        self.assertEqual(inst.modifier[0].coding[0].display, "Splenic structure (body structure)")
         self.assertEqual(inst.modifier[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.modifier[0].text, "Left")
-        self.assertEqual(inst.modifier[1].coding[0].code, "261183002")
-        self.assertEqual(inst.modifier[1].coding[0].display, "Upper")
-        self.assertEqual(inst.modifier[1].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.modifier[1].text, "Upper")
-        self.assertEqual(inst.modifier[2].coding[0].code, "255549009")
-        self.assertEqual(inst.modifier[2].coding[0].display, "Anterior")
-        self.assertEqual(inst.modifier[2].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.modifier[2].text, "Anterior")
+        self.assertEqual(inst.modifier[0].text, "Splenic mass")
         self.assertEqual(inst.text.status, "generated")
 

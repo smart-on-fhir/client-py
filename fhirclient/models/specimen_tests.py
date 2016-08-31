@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -40,6 +40,7 @@ class SpecimenTests(unittest.TestCase):
         self.assertEqual(inst.collection.method.coding[0].system, "http://hl7.org/fhir/v2/0488")
         self.assertEqual(inst.contained[0].id, "stool")
         self.assertEqual(inst.id, "isolate")
+        self.assertEqual(inst.note[0].text, "Patient dropped off specimen")
         self.assertEqual(inst.receivedTime.date, FHIRDate("2015-08-18T07:03:00Z").date)
         self.assertEqual(inst.receivedTime.as_json(), "2015-08-18T07:03:00Z")
         self.assertEqual(inst.status, "available")
@@ -49,7 +50,7 @@ class SpecimenTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
     
     def testSpecimen2(self):
-        inst = self.instantiate_from("specimen-example-urine.json")
+        inst = self.instantiate_from("specimen-example-serum.json")
         self.assertIsNotNone(inst, "Must have instantiated a Specimen instance")
         self.implSpecimen2(inst)
         
@@ -59,6 +60,30 @@ class SpecimenTests(unittest.TestCase):
         self.implSpecimen2(inst2)
     
     def implSpecimen2(self, inst):
+        self.assertEqual(inst.accessionIdentifier.system, "http://acme.com/labs/accession-ids")
+        self.assertEqual(inst.accessionIdentifier.value, "20150816-00124")
+        self.assertEqual(inst.collection.collectedDateTime.date, FHIRDate("2015-08-16T06:40:17Z").date)
+        self.assertEqual(inst.collection.collectedDateTime.as_json(), "2015-08-16T06:40:17Z")
+        self.assertEqual(inst.container[0].type.coding[0].code, "SST")
+        self.assertEqual(inst.container[0].type.coding[0].display, "Serum Separator Tube")
+        self.assertEqual(inst.container[0].type.coding[0].system, "http://acme.com/labs")
+        self.assertEqual(inst.id, "sst")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "119364003")
+        self.assertEqual(inst.type.coding[0].display, "Serum sample")
+        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
+    
+    def testSpecimen3(self):
+        inst = self.instantiate_from("specimen-example-urine.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Specimen instance")
+        self.implSpecimen3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Specimen", js["resourceType"])
+        inst2 = specimen.Specimen(js)
+        self.implSpecimen3(inst2)
+    
+    def implSpecimen3(self, inst):
         self.assertEqual(inst.accessionIdentifier.system, "http://lab.acme.org/specimens/2015")
         self.assertEqual(inst.accessionIdentifier.value, "X352356")
         self.assertEqual(inst.collection.collectedDateTime.date, FHIRDate("2015-08-18T07:03:00Z").date)
@@ -80,22 +105,21 @@ class SpecimenTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].display, "Urine, Random")
         self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/v2/0487")
     
-    def testSpecimen3(self):
+    def testSpecimen4(self):
         inst = self.instantiate_from("specimen-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Specimen instance")
-        self.implSpecimen3(inst)
+        self.implSpecimen4(inst)
         
         js = inst.as_json()
         self.assertEqual("Specimen", js["resourceType"])
         inst2 = specimen.Specimen(js)
-        self.implSpecimen3(inst2)
+        self.implSpecimen4(inst2)
     
-    def implSpecimen3(self, inst):
+    def implSpecimen4(self, inst):
         self.assertEqual(inst.accessionIdentifier.system, "http://lab.acme.org/specimens/2011")
         self.assertEqual(inst.accessionIdentifier.value, "X352356")
         self.assertEqual(inst.collection.collectedDateTime.date, FHIRDate("2011-05-30T06:15:00Z").date)
         self.assertEqual(inst.collection.collectedDateTime.as_json(), "2011-05-30T06:15:00Z")
-        self.assertEqual(inst.collection.comment, "Specimen is grossly lipemic")
         self.assertEqual(inst.collection.method.coding[0].code, "LNV")
         self.assertEqual(inst.collection.method.coding[0].system, "http://hl7.org/fhir/v2/0488")
         self.assertEqual(inst.collection.quantity.unit, "mL")
@@ -111,6 +135,7 @@ class SpecimenTests(unittest.TestCase):
         self.assertEqual(inst.id, "101")
         self.assertEqual(inst.identifier[0].system, "http://ehr.acme.org/identifiers/collections")
         self.assertEqual(inst.identifier[0].value, "23234352356")
+        self.assertEqual(inst.note[0].text, "Specimen is grossly lipemic")
         self.assertEqual(inst.receivedTime.date, FHIRDate("2011-03-04T07:03:00Z").date)
         self.assertEqual(inst.receivedTime.as_json(), "2011-03-04T07:03:00Z")
         self.assertEqual(inst.status, "available")

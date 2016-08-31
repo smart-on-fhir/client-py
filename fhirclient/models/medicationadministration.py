@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -47,6 +47,10 @@ class MedicationAdministration(domainresource.DomainResource):
         """ Encounter administered as part of.
         Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
         
+        self.eventHistory = None
+        """ A list of events of interest in the lifecycle.
+        List of `MedicationAdministrationEventHistory` items (represented as `dict` in JSON). """
+        
         self.identifier = None
         """ External identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
@@ -67,7 +71,7 @@ class MedicationAdministration(domainresource.DomainResource):
         """ Who received medication.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
-        self.practitioner = None
+        self.performer = None
         """ Who administered substance.
         Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
@@ -101,12 +105,13 @@ class MedicationAdministration(domainresource.DomainResource):
             ("effectiveTimeDateTime", "effectiveTimeDateTime", fhirdate.FHIRDate, False, "effectiveTime", True),
             ("effectiveTimePeriod", "effectiveTimePeriod", period.Period, False, "effectiveTime", True),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("eventHistory", "eventHistory", MedicationAdministrationEventHistory, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("practitioner", "practitioner", fhirreference.FHIRReference, False, None, False),
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("prescription", "prescription", fhirreference.FHIRReference, False, None, False),
             ("reasonGiven", "reasonGiven", codeableconcept.CodeableConcept, True, None, False),
             ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True, None, False),
@@ -135,17 +140,17 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.dose = None
+        """ Amount of medication per dose.
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        
         self.method = None
         """ How drug was administered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.quantity = None
-        """ Amount administered in one dose.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
-        
-        self.rateRange = None
+        self.rateQuantity = None
         """ Dose quantity per unit of time.
-        Type `Range` (represented as `dict` in JSON). """
+        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
         
         self.rateRatio = None
         """ Dose quantity per unit of time.
@@ -172,14 +177,65 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationAdministrationDosage, self).elementProperties()
         js.extend([
+            ("dose", "dose", quantity.Quantity, False, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("rateRange", "rateRange", range.Range, False, "rate", False),
+            ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False),
             ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
             ("route", "route", codeableconcept.CodeableConcept, False, None, False),
             ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False, "site", False),
             ("siteReference", "siteReference", fhirreference.FHIRReference, False, "site", False),
             ("text", "text", str, False, None, False),
+        ])
+        return js
+
+
+class MedicationAdministrationEventHistory(backboneelement.BackboneElement):
+    """ A list of events of interest in the lifecycle.
+    
+    A summary of the events of interest that have occurred, such as when the
+    administration was verified.
+    """
+    
+    resource_name = "MedicationAdministrationEventHistory"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.action = None
+        """ Action taken (e.g. verify).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.actor = None
+        """ Who took the action.
+        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
+        self.dateTime = None
+        """ The date at which the event happened.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.reason = None
+        """ Reason the action was taken.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ in-progress | on-hold | completed | entered-in-error | stopped.
+        Type `str`. """
+        
+        super(MedicationAdministrationEventHistory, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(MedicationAdministrationEventHistory, self).elementProperties()
+        js.extend([
+            ("action", "action", codeableconcept.CodeableConcept, False, None, False),
+            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
+            ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, True),
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("status", "status", str, False, None, True),
         ])
         return js
 
@@ -191,5 +247,4 @@ from . import fhirreference
 from . import identifier
 from . import period
 from . import quantity
-from . import range
 from . import ratio

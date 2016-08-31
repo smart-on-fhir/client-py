@@ -156,15 +156,11 @@ class FHIRAbstractBase(object):
         found = set(['resourceType', 'fhir_comments'])
         nonoptionals = set()
         for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
-            if not jsname in jsondict:
-                if not_optional:
-                    nonoptionals.add(of_many or jsname)
-                continue
             
             # bring the value in shape
             err = None
-            value = jsondict[jsname]
-            if hasattr(typ, 'with_json_and_owner'):
+            value = jsondict.get(jsname)
+            if value is not None and hasattr(typ, 'with_json_and_owner'):
                 try:
                     value = typ.with_json_and_owner(value, self)
                 except Exception as e:
@@ -187,13 +183,20 @@ class FHIRAbstractBase(object):
                         .format(type(testval), name, type(self), typ))
                 else:
                     setattr(self, name, value)
-                    # TODO: look at `_name` if this is a primitive
+            elif not_optional:
+                nonoptionals.add(of_many or jsname)
             
+            # TODO: look at `_name` if this is a primitive
+            _jsname = '_'+jsname
+            _value = jsondict.get(_jsname)
+            if _value is not None:
+                found.add(_jsname)
+            
+            # report errors
             if err is not None:
                 errs.append(err.prefixed(name) if isinstance(err, FHIRValidationError) else FHIRValidationError([err], name))
-
+            
             found.add(jsname)
-            found.add('_'+jsname)
             if of_many is not None:
                 found.add(of_many)
         

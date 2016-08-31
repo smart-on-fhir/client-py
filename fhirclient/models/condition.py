@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -26,6 +26,10 @@ class Condition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.abatementAge = None
+        """ If/when in resolution/remission.
+        Type `Age` (represented as `dict` in JSON). """
+        
         self.abatementBoolean = None
         """ If/when in resolution/remission.
         Type `bool`. """
@@ -37,10 +41,6 @@ class Condition(domainresource.DomainResource):
         self.abatementPeriod = None
         """ If/when in resolution/remission.
         Type `Period` (represented as `dict` in JSON). """
-        
-        self.abatementQuantity = None
-        """ If/when in resolution/remission.
-        Type `Quantity` referencing `Age` (represented as `dict` in JSON). """
         
         self.abatementRange = None
         """ If/when in resolution/remission.
@@ -70,13 +70,13 @@ class Condition(domainresource.DomainResource):
         """ Identification of the condition, problem or diagnosis.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.context = None
+        """ Encounter when condition first asserted.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        
         self.dateRecorded = None
         """ When first entered.
         Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.encounter = None
-        """ Encounter when condition first asserted.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
         
         self.evidence = None
         """ Supporting evidence.
@@ -86,9 +86,13 @@ class Condition(domainresource.DomainResource):
         """ External Ids for this condition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.notes = None
+        self.note = None
         """ Additional information about the Condition.
-        Type `str`. """
+        List of `Annotation` items (represented as `dict` in JSON). """
+        
+        self.onsetAge = None
+        """ Estimated or actual date,  date-time, or age.
+        Type `Age` (represented as `dict` in JSON). """
         
         self.onsetDateTime = None
         """ Estimated or actual date,  date-time, or age.
@@ -98,10 +102,6 @@ class Condition(domainresource.DomainResource):
         """ Estimated or actual date,  date-time, or age.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.onsetQuantity = None
-        """ Estimated or actual date,  date-time, or age.
-        Type `Quantity` referencing `Age` (represented as `dict` in JSON). """
-        
         self.onsetRange = None
         """ Estimated or actual date,  date-time, or age.
         Type `Range` (represented as `dict` in JSON). """
@@ -110,10 +110,6 @@ class Condition(domainresource.DomainResource):
         """ Estimated or actual date,  date-time, or age.
         Type `str`. """
         
-        self.patient = None
-        """ Who has the condition?.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
         self.severity = None
         """ Subjective severity of condition.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -121,6 +117,10 @@ class Condition(domainresource.DomainResource):
         self.stage = None
         """ Stage/grade, usually assessed formally.
         Type `ConditionStage` (represented as `dict` in JSON). """
+        
+        self.subject = None
+        """ Who has the condition?.
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         self.verificationStatus = None
         """ provisional | differential | confirmed | refuted | entered-in-error
@@ -132,10 +132,10 @@ class Condition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Condition, self).elementProperties()
         js.extend([
+            ("abatementAge", "abatementAge", age.Age, False, "abatement", False),
             ("abatementBoolean", "abatementBoolean", bool, False, "abatement", False),
             ("abatementDateTime", "abatementDateTime", fhirdate.FHIRDate, False, "abatement", False),
             ("abatementPeriod", "abatementPeriod", period.Period, False, "abatement", False),
-            ("abatementQuantity", "abatementQuantity", quantity.Quantity, False, "abatement", False),
             ("abatementRange", "abatementRange", range.Range, False, "abatement", False),
             ("abatementString", "abatementString", str, False, "abatement", False),
             ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
@@ -143,19 +143,19 @@ class Condition(domainresource.DomainResource):
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("clinicalStatus", "clinicalStatus", str, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("dateRecorded", "dateRecorded", fhirdate.FHIRDate, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("evidence", "evidence", ConditionEvidence, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("notes", "notes", str, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
+            ("onsetAge", "onsetAge", age.Age, False, "onset", False),
             ("onsetDateTime", "onsetDateTime", fhirdate.FHIRDate, False, "onset", False),
             ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
-            ("onsetQuantity", "onsetQuantity", quantity.Quantity, False, "onset", False),
             ("onsetRange", "onsetRange", range.Range, False, "onset", False),
             ("onsetString", "onsetString", str, False, "onset", False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("severity", "severity", codeableconcept.CodeableConcept, False, None, False),
             ("stage", "stage", ConditionStage, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("verificationStatus", "verificationStatus", str, False, None, True),
         ])
         return js
@@ -235,10 +235,11 @@ class ConditionStage(backboneelement.BackboneElement):
         return js
 
 
+from . import age
+from . import annotation
 from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
 from . import identifier
 from . import period
-from . import quantity
 from . import range

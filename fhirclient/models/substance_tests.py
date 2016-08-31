@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -112,7 +112,7 @@ class SubstanceTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Potassium")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f203")
-        self.assertEqual(inst.identifier[0].system, "http://acme.org/indentifiers/substances")
+        self.assertEqual(inst.identifier[0].system, "http://acme.org/identifiers/substances")
         self.assertEqual(inst.identifier[0].value, "1234")
         self.assertEqual(inst.text.status, "generated")
     
@@ -135,11 +135,11 @@ class SubstanceTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.description, "Solution for silver nitrate stain")
         self.assertEqual(inst.id, "f204")
-        self.assertEqual(inst.identifier[0].system, "http://acme.org/indentifiers/substances")
+        self.assertEqual(inst.identifier[0].system, "http://acme.org/identifiers/substances")
         self.assertEqual(inst.identifier[0].value, "15970")
         self.assertEqual(inst.instance[0].expiry.date, FHIRDate("2018-01-01").date)
         self.assertEqual(inst.instance[0].expiry.as_json(), "2018-01-01")
-        self.assertEqual(inst.instance[0].identifier.system, "http://acme.org/indentifiers/substances/lot")
+        self.assertEqual(inst.instance[0].identifier.system, "http://acme.org/identifiers/substances/lot")
         self.assertEqual(inst.instance[0].identifier.value, "AB94687")
         self.assertEqual(inst.instance[0].quantity.code, "mL")
         self.assertEqual(inst.instance[0].quantity.system, "http://unitsofmeasure.org")
@@ -163,7 +163,7 @@ class SubstanceTests(unittest.TestCase):
         self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org.fhir/substance-category")
         self.assertEqual(inst.code.text, "apitoxin (Honey Bee Venom)")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.identifier[0].system, "http://acme.org/indentifiers/substances")
+        self.assertEqual(inst.identifier[0].system, "http://acme.org/identifiers/substances")
         self.assertEqual(inst.identifier[0].value, "1463")
         self.assertEqual(inst.text.status, "generated")
 

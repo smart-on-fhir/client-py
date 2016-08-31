@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -45,9 +45,9 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.notes[0].text, "Standard Biopsy")
         self.assertEqual(inst.performedDateTime.date, FHIRDate("2014-02-03").date)
         self.assertEqual(inst.performedDateTime.as_json(), "2014-02-03")
-        self.assertEqual(inst.reasonCodeableConcept.text, "Dark lesion l) forearm. getting darker last 3 months.")
+        self.assertEqual(inst.reasonCode[0].text, "Dark lesion l) forearm. getting darker last 3 months.")
         self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.div, "<div>Biopsy of suspected melanoma L) arm</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Biopsy of suspected melanoma L) arm</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProcedure2(self):
@@ -78,7 +78,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.performer[0].role.coding[0].display, "Arts")
         self.assertEqual(inst.performer[0].role.coding[0].system, "urn:oid:2.16.840.1.113883.2.4.15.111")
         self.assertEqual(inst.performer[0].role.text, "Care role")
-        self.assertEqual(inst.reasonCodeableConcept.text, "Heart valve disorder")
+        self.assertEqual(inst.reasonCode[0].text, "Heart valve disorder")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
     
@@ -110,7 +110,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.performer[0].role.coding[0].display, "Arts")
         self.assertEqual(inst.performer[0].role.coding[0].system, "urn:oid:2.16.840.1.113883.2.4.15.111")
         self.assertEqual(inst.performer[0].role.text, "Care role")
-        self.assertEqual(inst.reasonCodeableConcept.text, "Malignant tumor of lung")
+        self.assertEqual(inst.reasonCode[0].text, "Malignant tumor of lung")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
     
@@ -142,7 +142,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.performer[0].role.coding[0].display, "Arts")
         self.assertEqual(inst.performer[0].role.coding[0].system, "urn:oid:2.16.840.1.113883.2.4.15.111")
         self.assertEqual(inst.performer[0].role.text, "Care role")
-        self.assertEqual(inst.reasonCodeableConcept.text, "abcess in retropharyngeal area")
+        self.assertEqual(inst.reasonCode[0].text, "abcess in retropharyngeal area")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
     
@@ -174,7 +174,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.performer[0].role.coding[0].display, "Arts")
         self.assertEqual(inst.performer[0].role.coding[0].system, "urn:oid:2.16.840.1.113883.2.4.15.111")
         self.assertEqual(inst.performer[0].role.text, "Care role")
-        self.assertEqual(inst.reasonCodeableConcept.text, "ensure breathing during surgery")
+        self.assertEqual(inst.reasonCode[0].text, "ensure breathing during surgery")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
     
@@ -204,7 +204,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.performer[0].role.coding[0].code, "310512001")
         self.assertEqual(inst.performer[0].role.coding[0].display, "Medical oncologist")
         self.assertEqual(inst.performer[0].role.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.reasonCodeableConcept.text, "DiagnosticReport/f201")
+        self.assertEqual(inst.reasonCode[0].text, "DiagnosticReport/f201")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
     
@@ -230,7 +230,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.notes[0].text, "Routine Appendectomy. Appendix was inflamed and in retro-caecal position")
         self.assertEqual(inst.performedDateTime.date, FHIRDate("2015-04-05").date)
         self.assertEqual(inst.performedDateTime.as_json(), "2015-04-05")
-        self.assertEqual(inst.reasonCodeableConcept.text, "Bradycardia")
+        self.assertEqual(inst.reasonCode[0].text, "Bradycardia")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
     
@@ -254,8 +254,8 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.notes[0].text, "Routine Appendectomy. Appendix was inflamed and in retro-caecal position")
         self.assertEqual(inst.performedDateTime.date, FHIRDate("2013-04-05").date)
         self.assertEqual(inst.performedDateTime.as_json(), "2013-04-05")
-        self.assertEqual(inst.reasonCodeableConcept.text, "Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding")
+        self.assertEqual(inst.reasonCode[0].text, "Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding")
         self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.div, "<div>Routine Appendectomy</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Routine Appendectomy</div>")
         self.assertEqual(inst.text.status, "generated")
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -49,6 +49,7 @@ class NamingSystemTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].display, "National unique individual identifier")
         self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/v2/0203")
         self.assertEqual(inst.type.text, "IHI")
+        self.assertEqual(inst.uniqueId[0].comment, "This value is used in Australian CDA documents")
         self.assertEqual(inst.uniqueId[0].type, "oid")
         self.assertEqual(inst.uniqueId[0].value, "1.2.36.1.2001.1003.0")
         self.assertEqual(inst.uniqueId[1].period.start.date, FHIRDate("2015-08-21").date)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -57,14 +57,14 @@ class ImplementationGuideTests(unittest.TestCase):
         self.assertEqual(inst.package[0].resource[0].name, "Test Example")
         self.assertEqual(inst.package[0].resource[0].sourceUri, "test.html")
         self.assertEqual(inst.page.kind, "page")
-        self.assertEqual(inst.page.name, "Example Patient Page")
         self.assertEqual(inst.page.page[0].format, "text/html")
         self.assertEqual(inst.page.page[0].kind, "list")
-        self.assertEqual(inst.page.page[0].name, "Value Set Page")
         self.assertEqual(inst.page.page[0].package[0], "test")
         self.assertEqual(inst.page.page[0].source, "list.html")
+        self.assertEqual(inst.page.page[0].title, "Value Set Page")
         self.assertEqual(inst.page.page[0].type[0], "ValueSet")
         self.assertEqual(inst.page.source, "patient-example.html")
+        self.assertEqual(inst.page.title, "Example Patient Page")
         self.assertEqual(inst.publisher, "ONC / HL7 Joint project")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")

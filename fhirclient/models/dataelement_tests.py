@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -33,9 +33,8 @@ class DataElementTests(unittest.TestCase):
     
     def implDataElement1(self, inst):
         self.assertEqual(inst.contained[0].id, "2179414")
-        self.assertEqual(inst.contained[1].id, "2179414-permitted-cs")
-        self.assertEqual(inst.contained[2].id, "2179414-permitted")
-        self.assertEqual(inst.contained[3].id, "2179414-cm")
+        self.assertEqual(inst.contained[1].id, "2179414-permitted")
+        self.assertEqual(inst.contained[2].id, "2179414-cm")
         self.assertEqual(inst.element[0].binding.strength, "required")
         self.assertEqual(inst.element[0].definition, "The code representing the gender of a person.")
         self.assertEqual(inst.element[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/minLength")

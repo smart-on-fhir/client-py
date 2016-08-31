@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -32,30 +32,29 @@ class DecisionSupportServiceModuleTests(unittest.TestCase):
         self.implDecisionSupportServiceModule1(inst2)
     
     def implDecisionSupportServiceModule1(self, inst):
+        self.assertEqual(inst.description, "Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications.")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.moduleMetadata.description, "Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications.")
-        self.assertEqual(inst.moduleMetadata.identifier[0].use, "official")
-        self.assertEqual(inst.moduleMetadata.identifier[0].value, "guildeline-appropriate-ordering")
-        self.assertEqual(inst.moduleMetadata.publicationDate.date, FHIRDate("2015-07-22").date)
-        self.assertEqual(inst.moduleMetadata.publicationDate.as_json(), "2015-07-22")
-        self.assertEqual(inst.moduleMetadata.status, "draft")
-        self.assertEqual(inst.moduleMetadata.title, "Guideline Appropriate Ordering Module")
-        self.assertEqual(inst.moduleMetadata.topic[0].text, "Guideline Appropriate Ordering")
-        self.assertEqual(inst.moduleMetadata.topic[1].text, "Appropriate Use Criteria")
-        self.assertEqual(inst.moduleMetadata.type, "module")
-        self.assertEqual(inst.moduleMetadata.version, "1.0.0")
+        self.assertEqual(inst.identifier[0].use, "official")
+        self.assertEqual(inst.identifier[0].value, "guildeline-appropriate-ordering")
         self.assertEqual(inst.parameter[0].name, "patient")
         self.assertEqual(inst.parameter[0].type, "Patient")
         self.assertEqual(inst.parameter[0].use, "in")
         self.assertEqual(inst.parameter[1].name, "order")
-        self.assertEqual(inst.parameter[1].type, "Order")
+        self.assertEqual(inst.parameter[1].type, "Task")
         self.assertEqual(inst.parameter[1].use, "in")
         self.assertEqual(inst.parameter[2].name, "order")
-        self.assertEqual(inst.parameter[2].type, "Order")
+        self.assertEqual(inst.parameter[2].type, "Task")
         self.assertEqual(inst.parameter[2].use, "out")
         self.assertEqual(inst.parameter[3].name, "result")
         self.assertEqual(inst.parameter[3].type, "Basic")
         self.assertEqual(inst.parameter[3].use, "out")
-        self.assertEqual(inst.text.div, "<div>Guideline Appropriate Ordering Module</div>")
+        self.assertEqual(inst.publicationDate.date, FHIRDate("2015-07-22").date)
+        self.assertEqual(inst.publicationDate.as_json(), "2015-07-22")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Guideline Appropriate Ordering Module</div>")
         self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.title, "Guideline Appropriate Ordering Module")
+        self.assertEqual(inst.topic[0].text, "Guideline Appropriate Ordering")
+        self.assertEqual(inst.topic[1].text, "Appropriate Use Criteria")
+        self.assertEqual(inst.version, "1.0.0")
 

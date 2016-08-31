@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -31,7 +31,7 @@ class ReferralRequest(domainresource.DomainResource):
         
         self.basedOn = None
         """ Request fulfilled by this request.
-        List of `FHIRReference` items referencing `ReferralRequest, CarePlan, DiagnosticOrder, ProcedureRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ReferralRequest, CarePlan, DiagnosticRequest, ProcedureRequest` (represented as `dict` in JSON). """
         
         self.category = None
         """ proposal | plan | request.

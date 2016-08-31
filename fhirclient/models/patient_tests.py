@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -343,7 +343,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].value, "AB60001")
         self.assertEqual(inst.name[0].family[0], "BROOKS")
         self.assertEqual(inst.name[0].given[0], "ALBERT")
-        self.assertEqual(inst.text.div, "<div>Albert Brooks, Id: AB60001</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Albert Brooks, Id: AB60001</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testPatient10(self):

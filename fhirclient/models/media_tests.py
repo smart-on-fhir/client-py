@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -76,7 +76,7 @@ class MediaTests(unittest.TestCase):
         self.assertEqual(inst.content.id, "a1")
         self.assertEqual(inst.duration, 65)
         self.assertEqual(inst.id, "sound")
-        self.assertEqual(inst.text.div, "<div>Sound recording of speech example for Patient Henry Levin (MRN 12345):<br/><img alt=\"diagram\" src=\"#11\"/></div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Sound recording of speech example for Patient Henry Levin (MRN 12345):<br/><img src=\"#11\" alt=\"diagram\"/></div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "video")
     
@@ -101,7 +101,7 @@ class MediaTests(unittest.TestCase):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.subtype.coding[0].code, "diagram")
         self.assertEqual(inst.subtype.coding[0].system, "http://hl7.org/fhir/media-method")
-        self.assertEqual(inst.text.div, "<div>Diagram for Patient Henry Levin (MRN 12345):<br/><img alt=\"diagram\" src=\"#11\"/></div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Diagram for Patient Henry Levin (MRN 12345):<br/><img src=\"#11\" alt=\"diagram\"/></div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "photo")
         self.assertEqual(inst.width, 126)

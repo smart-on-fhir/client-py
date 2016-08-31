@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -51,7 +51,7 @@ class ReferralRequestTests(unittest.TestCase):
         self.assertEqual(inst.specialty.coding[0].display, "ENT")
         self.assertEqual(inst.specialty.coding[0].system, "http://orionhealth.com/fhir/apps/specialties")
         self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.div, "<div>Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "rfs")
         self.assertEqual(inst.type.coding[0].display, "Referral for service")

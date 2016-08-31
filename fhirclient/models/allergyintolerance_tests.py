@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8139 on 2016-04-01.
+#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
 #  2016, SMART Health IT.
 
 
@@ -32,13 +32,18 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.implAllergyIntolerance1(inst2)
     
     def implAllergyIntolerance1(self, inst):
+        self.assertEqual(inst.attestedDate.date, FHIRDate("2014-10-09T14:58:00+11:00").date)
+        self.assertEqual(inst.attestedDate.as_json(), "2014-10-09T14:58:00+11:00")
         self.assertEqual(inst.category, "food")
+        self.assertEqual(inst.code.coding[0].code, "227493005")
+        self.assertEqual(inst.code.coding[0].display, "Cashew nuts")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.criticality, "high")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://acme.com/ids/patients/risks")
         self.assertEqual(inst.identifier[0].value, "49476534")
-        self.assertEqual(inst.lastOccurence.date, FHIRDate("2012-06").date)
-        self.assertEqual(inst.lastOccurence.as_json(), "2012-06")
+        self.assertEqual(inst.lastOccurrence.date, FHIRDate("2012-06").date)
+        self.assertEqual(inst.lastOccurrence.as_json(), "2012-06")
         self.assertEqual(inst.note[0].text, "The criticality is high becasue of the observed anaphylactic reaction when challenged with cashew extract.")
         self.assertEqual(inst.onset.date, FHIRDate("2004").date)
         self.assertEqual(inst.onset.as_json(), "2004")
@@ -53,7 +58,7 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.assertEqual(inst.reaction[0].onset.date, FHIRDate("2012-06-12").date)
         self.assertEqual(inst.reaction[0].onset.as_json(), "2012-06-12")
         self.assertEqual(inst.reaction[0].severity, "severe")
-        self.assertEqual(inst.reaction[0].substance.coding[0].code, "C3214954")
+        self.assertEqual(inst.reaction[0].substance.coding[0].code, "1160593")
         self.assertEqual(inst.reaction[0].substance.coding[0].display, "cashew nut allergenic extract Injectable Product")
         self.assertEqual(inst.reaction[0].substance.coding[0].system, "http://www.nlm.nih.gov/research/umls/rxnorm")
         self.assertEqual(inst.reaction[1].certainty, "likely")
@@ -64,12 +69,7 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.assertEqual(inst.reaction[1].onset.date, FHIRDate("2004").date)
         self.assertEqual(inst.reaction[1].onset.as_json(), "2004")
         self.assertEqual(inst.reaction[1].severity, "moderate")
-        self.assertEqual(inst.recordedDate.date, FHIRDate("2014-10-09T14:58:00+11:00").date)
-        self.assertEqual(inst.recordedDate.as_json(), "2014-10-09T14:58:00+11:00")
-        self.assertEqual(inst.status, "confirmed")
-        self.assertEqual(inst.substance.coding[0].code, "227493005")
-        self.assertEqual(inst.substance.coding[0].display, "Cashew nuts")
-        self.assertEqual(inst.substance.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.status, "active-confirmed")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "allergy")
 
