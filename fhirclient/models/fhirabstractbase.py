@@ -201,8 +201,8 @@ class FHIRAbstractBase(object):
                 found.add(of_many)
         
         # were there missing non-optional entries?
-        if len(nonoptionals - found) > 0:
-            for miss in nonoptionals - found:
+        if len(nonoptionals) > 0:
+            for miss in nonoptionals:
                 errs.append(KeyError("Non-optional property \"{}\" on {} is missing"
                     .format(miss, self)))
         
