@@ -89,7 +89,13 @@ class FHIRAbstractBase(object):
             return cls._with_json_dict(jsonobj)
         
         if isinstance(jsonobj, list):
-            return [cls._with_json_dict(jsondict) for jsondict in jsonobj]
+            arr = []
+            for jsondict in jsonobj:
+                try:
+                    arr.append(cls._with_json_dict(jsondict))
+                except FHIRValidationError as e:
+                    raise e.prefixed(str(len(arr)))
+            return arr
         
         raise TypeError("`with_json()` on {} only takes dict or list of dict, but you provided {}"
             .format(cls, type(jsonobj)))
@@ -255,7 +261,7 @@ class FHIRAbstractBase(object):
                             try:
                                 lst.append(v.as_json() if hasattr(v, 'as_json') else v)
                             except FHIRValidationError as e:
-                                err = e.prefixed(name)
+                                err = e.prefixed(str(len(lst))).prefixed(name)
                         found.add(of_many or jsname)
                         js[jsname] = lst
             else:
