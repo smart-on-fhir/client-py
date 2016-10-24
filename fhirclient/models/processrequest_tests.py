@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -57,8 +57,8 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.action, "poll")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
-        self.assertEqual(inst.exclude[0], "SupportingDocumentation")
-        self.assertEqual(inst.exclude[1], "Reconciliation")
+        self.assertEqual(inst.exclude[0], "Communication")
+        self.assertEqual(inst.exclude[1], "PaymentReconciliation")
         self.assertEqual(inst.id, "1113")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "113")
@@ -83,7 +83,7 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.id, "1112")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "112")
-        self.assertEqual(inst.include[0], "Reconciliation")
+        self.assertEqual(inst.include[0], "PaymentReconciliation")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Poll ProcessRequest</div>")
         self.assertEqual(inst.text.status, "generated")
@@ -105,7 +105,7 @@ class ProcessRequestTests(unittest.TestCase):
         self.assertEqual(inst.id, "1114")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/processrequest")
         self.assertEqual(inst.identifier[0].value, "114")
-        self.assertEqual(inst.include[0], "Reconciliation")
+        self.assertEqual(inst.include[0], "PaymentReconciliation")
         self.assertEqual(inst.period.end.date, FHIRDate("2014-08-20").date)
         self.assertEqual(inst.period.end.as_json(), "2014-08-20")
         self.assertEqual(inst.period.start.date, FHIRDate("2014-08-10").date)

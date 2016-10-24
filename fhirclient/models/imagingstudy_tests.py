@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -49,7 +49,7 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.series[0].uid, "urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630")
         self.assertEqual(inst.started.date, FHIRDate("2011-01-01T11:01:20+03:00").date)
         self.assertEqual(inst.started.as_json(), "2011-01-01T11:01:20+03:00")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.uid, "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045")
 

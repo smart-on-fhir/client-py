@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Sequence) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Sequence) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -73,7 +73,7 @@ class Sequence(domainresource.DomainResource):
         Type `FHIRReference` referencing `Specimen` (represented as `dict` in JSON). """
         
         self.structureVariant = None
-        """ None.
+        """ Structural variant.
         List of `SequenceStructureVariant` items (represented as `dict` in JSON). """
         
         self.type = None
@@ -316,9 +316,7 @@ class SequenceRepository(backboneelement.BackboneElement):
 
 
 class SequenceStructureVariant(backboneelement.BackboneElement):
-    """ None.
-    
-    Structural variant.
+    """ Structural variant.
     """
     
     resource_name = "SequenceStructureVariant"
@@ -332,7 +330,7 @@ class SequenceStructureVariant(backboneelement.BackboneElement):
         """
         
         self.inner = None
-        """ None.
+        """ Structural variant inner.
         Type `SequenceStructureVariantInner` (represented as `dict` in JSON). """
         
         self.length = None
@@ -340,7 +338,7 @@ class SequenceStructureVariant(backboneelement.BackboneElement):
         Type `int`. """
         
         self.outer = None
-        """ None.
+        """ Structural variant outer.
         Type `SequenceStructureVariantOuter` (represented as `dict` in JSON). """
         
         self.precisionOfBoundaries = None
@@ -366,9 +364,7 @@ class SequenceStructureVariant(backboneelement.BackboneElement):
 
 
 class SequenceStructureVariantInner(backboneelement.BackboneElement):
-    """ None.
-    
-    Structural variant inner.
+    """ Structural variant inner.
     """
     
     resource_name = "SequenceStructureVariantInner"
@@ -401,9 +397,7 @@ class SequenceStructureVariantInner(backboneelement.BackboneElement):
 
 
 class SequenceStructureVariantOuter(backboneelement.BackboneElement):
-    """ None.
-    
-    Structural variant outer.
+    """ Structural variant outer.
     """
     
     resource_name = "SequenceStructureVariantOuter"

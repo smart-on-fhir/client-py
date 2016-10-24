@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -31,8 +31,12 @@ class PlanDefinition(domainresource.DomainResource):
         """ Action defined by the plan.
         List of `PlanDefinitionActionDefinition` items (represented as `dict` in JSON). """
         
+        self.approvalDate = None
+        """ When plan definition approved by publisher.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.contact = None
-        """ Contact details of the publisher.
+        """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.contributor = None
@@ -43,16 +47,16 @@ class PlanDefinition(domainresource.DomainResource):
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.coverage = None
-        """ Describes the context of use for this asset.
-        List of `UsageContext` items (represented as `dict` in JSON). """
+        self.date = None
+        """ Date this was last changed.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Natural language description of the asset.
+        """ Natural language description of the plan definition.
         Type `str`. """
         
         self.effectivePeriod = None
-        """ The effective date range for the asset.
+        """ The effective date range for the plan definition.
         Type `Period` (represented as `dict` in JSON). """
         
         self.experimental = None
@@ -60,11 +64,15 @@ class PlanDefinition(domainresource.DomainResource):
         Type `bool`. """
         
         self.identifier = None
-        """ Logical identifier(s) for the asset.
+        """ Additional identifier for the plan definition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.jurisdiction = None
+        """ Intended jurisdiction for plan definition (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.lastReviewDate = None
-        """ Last review date for the asset.
+        """ Last review date for the plan definition.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.library = None
@@ -72,31 +80,27 @@ class PlanDefinition(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Library` (represented as `dict` in JSON). """
         
         self.name = None
-        """ A machine-friendly name for the asset.
+        """ Name for this plan definition (Computer friendly).
         Type `str`. """
-        
-        self.publicationDate = None
-        """ Publication date for this version of the asset.
-        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
         self.purpose = None
-        """ Describes the purpose of the asset.
+        """ Why this plan definition is defined.
         Type `str`. """
         
-        self.relatedResource = None
-        """ Related resources for the asset.
-        List of `RelatedResource` items (represented as `dict` in JSON). """
+        self.relatedArtifact = None
+        """ Related artifacts for the asset.
+        List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | inactive.
+        """ draft | active | retired.
         Type `str`. """
         
         self.title = None
-        """ A user-friendly title for the asset.
+        """ Name for this plan definition (Human friendly).
         Type `str`. """
         
         self.topic = None
@@ -108,15 +112,19 @@ class PlanDefinition(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.url = None
-        """ Logical URL to reference this asset.
+        """ Logical uri to reference this plan definition (globally unique).
         Type `str`. """
         
         self.usage = None
         """ Describes the clinical usage of the asset.
         Type `str`. """
         
+        self.useContext = None
+        """ Content intends to support these contexts.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+        
         self.version = None
-        """ The version of the asset, if any.
+        """ Business version of the plan definition.
         Type `str`. """
         
         super(PlanDefinition, self).__init__(jsondict=jsondict, strict=strict)
@@ -125,27 +133,29 @@ class PlanDefinition(domainresource.DomainResource):
         js = super(PlanDefinition, self).elementProperties()
         js.extend([
             ("actionDefinition", "actionDefinition", PlanDefinitionActionDefinition, True, None, False),
+            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("contributor", "contributor", contributor.Contributor, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("coverage", "coverage", usagecontext.UsageContext, True, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
             ("library", "library", fhirreference.FHIRReference, True, None, False),
             ("name", "name", str, False, None, False),
-            ("publicationDate", "publicationDate", fhirdate.FHIRDate, False, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
-            ("relatedResource", "relatedResource", relatedresource.RelatedResource, True, None, False),
+            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("status", "status", str, False, None, True),
             ("title", "title", str, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
             ("url", "url", str, False, None, False),
             ("usage", "usage", str, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
@@ -199,7 +209,7 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         
         self.documentation = None
         """ Supporting documentation for the intended performer of the action.
-        List of `RelatedResource` items (represented as `dict` in JSON). """
+        List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.dynamicValue = None
         """ Dynamic aspects of the definition.
@@ -286,7 +296,7 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
             ("concept", "concept", codeableconcept.CodeableConcept, True, None, False),
             ("condition", "condition", PlanDefinitionActionDefinitionCondition, False, None, False),
             ("description", "description", str, False, None, False),
-            ("documentation", "documentation", relatedresource.RelatedResource, True, None, False),
+            ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
             ("dynamicValue", "dynamicValue", PlanDefinitionActionDefinitionDynamicValue, True, None, False),
             ("groupingBehavior", "groupingBehavior", str, False, None, False),
             ("label", "label", str, False, None, False),
@@ -460,7 +470,7 @@ from . import fhirreference
 from . import identifier
 from . import period
 from . import range
-from . import relatedresource
+from . import relatedartifact
 from . import timing
 from . import triggerdefinition
 from . import usagecontext

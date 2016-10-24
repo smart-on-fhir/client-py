@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Claim) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Claim) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -26,7 +26,7 @@ class Claim(domainresource.DomainResource):
         """
         
         self.accident = None
-        """ None.
+        """ Details about an accident.
         Type `ClaimAccident` (represented as `dict` in JSON). """
         
         self.billablePeriod = None
@@ -49,19 +49,11 @@ class Claim(domainresource.DomainResource):
         """ Period unable to work.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.entererIdentifier = None
-        """ Author.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.entererReference = None
+        self.enterer = None
         """ Author.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.facilityIdentifier = None
-        """ Servicing Facility.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.facilityReference = None
+        self.facility = None
         """ Servicing Facility.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
@@ -78,14 +70,11 @@ class Claim(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.information = None
-        """ None.
+        """ Exceptions, special considerations, the condition, situation, prior
+        or concurrent issues.
         List of `ClaimInformation` items (represented as `dict` in JSON). """
         
-        self.insurerIdentifier = None
-        """ Target.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.insurerReference = None
+        self.insurer = None
         """ Target.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
@@ -97,19 +86,11 @@ class Claim(domainresource.DomainResource):
         """ Only if type = oral.
         List of `ClaimMissingTeeth` items (represented as `dict` in JSON). """
         
-        self.organizationIdentifier = None
-        """ Responsible organization.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.organizationReference = None
+        self.organization = None
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.originalPrescriptionIdentifier = None
-        """ Original Prescription.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.originalPrescriptionReference = None
+        self.originalPrescription = None
         """ Original Prescription.
         Type `FHIRReference` referencing `MedicationOrder` (represented as `dict` in JSON). """
         
@@ -117,11 +98,7 @@ class Claim(domainresource.DomainResource):
         """ Original specification followed.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.patientIdentifier = None
-        """ The subject of the Products and Services.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.patientReference = None
+        self.patient = None
         """ The subject of the Products and Services.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
@@ -129,11 +106,7 @@ class Claim(domainresource.DomainResource):
         """ Party to be paid any benefits payable.
         Type `ClaimPayee` (represented as `dict` in JSON). """
         
-        self.prescriptionIdentifier = None
-        """ Prescription.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.prescriptionReference = None
+        self.prescription = None
         """ Prescription.
         Type `FHIRReference` referencing `MedicationOrder, VisionPrescription` (represented as `dict` in JSON). """
         
@@ -145,19 +118,11 @@ class Claim(domainresource.DomainResource):
         """ Procedures performed.
         List of `ClaimProcedure` items (represented as `dict` in JSON). """
         
-        self.providerIdentifier = None
-        """ Responsible provider.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.providerReference = None
+        self.provider = None
         """ Responsible provider.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.referralIdentifier = None
-        """ Treatment Referral.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.referralReference = None
+        self.referral = None
         """ Treatment Referral.
         Type `FHIRReference` referencing `ReferralRequest` (represented as `dict` in JSON). """
         
@@ -200,34 +165,25 @@ class Claim(domainresource.DomainResource):
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("diagnosis", "diagnosis", ClaimDiagnosis, True, None, False),
             ("employmentImpacted", "employmentImpacted", period.Period, False, None, False),
-            ("entererIdentifier", "entererIdentifier", identifier.Identifier, False, "enterer", False),
-            ("entererReference", "entererReference", fhirreference.FHIRReference, False, "enterer", False),
-            ("facilityIdentifier", "facilityIdentifier", identifier.Identifier, False, "facility", False),
-            ("facilityReference", "facilityReference", fhirreference.FHIRReference, False, "facility", False),
+            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
+            ("facility", "facility", fhirreference.FHIRReference, False, None, False),
             ("fundsReserve", "fundsReserve", coding.Coding, False, None, False),
             ("hospitalization", "hospitalization", period.Period, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("information", "information", ClaimInformation, True, None, False),
-            ("insurerIdentifier", "insurerIdentifier", identifier.Identifier, False, "insurer", False),
-            ("insurerReference", "insurerReference", fhirreference.FHIRReference, False, "insurer", False),
+            ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
             ("item", "item", ClaimItem, True, None, False),
             ("missingTeeth", "missingTeeth", ClaimMissingTeeth, True, None, False),
-            ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
-            ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
-            ("originalPrescriptionIdentifier", "originalPrescriptionIdentifier", identifier.Identifier, False, "originalPrescription", False),
-            ("originalPrescriptionReference", "originalPrescriptionReference", fhirreference.FHIRReference, False, "originalPrescription", False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("originalPrescription", "originalPrescription", fhirreference.FHIRReference, False, None, False),
             ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
-            ("patientIdentifier", "patientIdentifier", identifier.Identifier, False, "patient", True),
-            ("patientReference", "patientReference", fhirreference.FHIRReference, False, "patient", True),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("payee", "payee", ClaimPayee, False, None, False),
-            ("prescriptionIdentifier", "prescriptionIdentifier", identifier.Identifier, False, "prescription", False),
-            ("prescriptionReference", "prescriptionReference", fhirreference.FHIRReference, False, "prescription", False),
+            ("prescription", "prescription", fhirreference.FHIRReference, False, None, False),
             ("priority", "priority", coding.Coding, False, None, False),
             ("procedure", "procedure", ClaimProcedure, True, None, False),
-            ("providerIdentifier", "providerIdentifier", identifier.Identifier, False, "provider", False),
-            ("providerReference", "providerReference", fhirreference.FHIRReference, False, "provider", False),
-            ("referralIdentifier", "referralIdentifier", identifier.Identifier, False, "referral", False),
-            ("referralReference", "referralReference", fhirreference.FHIRReference, False, "referral", False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("referral", "referral", fhirreference.FHIRReference, False, None, False),
             ("related", "related", ClaimRelated, True, None, False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
             ("status", "status", str, False, None, True),
@@ -242,7 +198,7 @@ class Claim(domainresource.DomainResource):
 from . import backboneelement
 
 class ClaimAccident(backboneelement.BackboneElement):
-    """ None.
+    """ Details about an accident.
     
     An accident which resulted in the need for healthcare services.
     """
@@ -312,11 +268,7 @@ class ClaimCoverage(backboneelement.BackboneElement):
         """ Adjudication results.
         Type `FHIRReference` referencing `ClaimResponse` (represented as `dict` in JSON). """
         
-        self.coverageIdentifier = None
-        """ Insurance information.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.coverageReference = None
+        self.coverage = None
         """ Insurance information.
         Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
         
@@ -343,8 +295,7 @@ class ClaimCoverage(backboneelement.BackboneElement):
         js.extend([
             ("businessArrangement", "businessArrangement", str, False, None, False),
             ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
-            ("coverageIdentifier", "coverageIdentifier", identifier.Identifier, False, "coverage", True),
-            ("coverageReference", "coverageReference", fhirreference.FHIRReference, False, "coverage", True),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
             ("focal", "focal", bool, False, None, True),
             ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
             ("preAuthRef", "preAuthRef", str, True, None, False),
@@ -399,7 +350,8 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
 
 
 class ClaimInformation(backboneelement.BackboneElement):
-    """ None.
+    """ Exceptions, special considerations, the condition, situation, prior or
+    concurrent issues.
     
     Additional information codes regarding exceptions, special considerations,
     the condition, situation, prior or concurrent issues. Often there are
@@ -476,7 +428,7 @@ class ClaimItem(backboneelement.BackboneElement):
         Type `Coding` (represented as `dict` in JSON). """
         
         self.careTeam = None
-        """ None.
+        """ Members of the care team.
         List of `ClaimItemCareTeam` items (represented as `dict` in JSON). """
         
         self.category = None
@@ -529,7 +481,7 @@ class ClaimItem(backboneelement.BackboneElement):
         
         self.quantity = None
         """ Count of Products or Services.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.revenue = None
         """ Revenue or cost center code.
@@ -596,7 +548,7 @@ class ClaimItem(backboneelement.BackboneElement):
 
 
 class ClaimItemCareTeam(backboneelement.BackboneElement):
-    """ None.
+    """ Members of the care team.
     
     The members of the team who provided the overall service as well as their
     role and whether responsible and qualifications.
@@ -612,11 +564,7 @@ class ClaimItemCareTeam(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.providerIdentifier = None
-        """ Provider individual or organization.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.providerReference = None
+        self.provider = None
         """ Provider individual or organization.
         Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
@@ -637,8 +585,7 @@ class ClaimItemCareTeam(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimItemCareTeam, self).elementProperties()
         js.extend([
-            ("providerIdentifier", "providerIdentifier", identifier.Identifier, False, "provider", True),
-            ("providerReference", "providerReference", fhirreference.FHIRReference, False, "provider", True),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, True),
             ("qualification", "qualification", coding.Coding, False, None, False),
             ("responsible", "responsible", bool, False, None, False),
             ("role", "role", coding.Coding, False, None, False),
@@ -688,7 +635,7 @@ class ClaimItemDetail(backboneelement.BackboneElement):
         
         self.quantity = None
         """ Count of Products or Services.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.revenue = None
         """ Revenue or cost center code.
@@ -778,7 +725,7 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
         
         self.quantity = None
         """ Count of Products or Services.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.revenue = None
         """ Revenue or cost center code.
@@ -918,11 +865,7 @@ class ClaimPayee(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.partyIdentifier = None
-        """ Party to receive the payable.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.partyReference = None
+        self.party = None
         """ Party to receive the payable.
         Type `FHIRReference` referencing `Practitioner, Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
@@ -939,8 +882,7 @@ class ClaimPayee(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimPayee, self).elementProperties()
         js.extend([
-            ("partyIdentifier", "partyIdentifier", identifier.Identifier, False, "party", False),
-            ("partyReference", "partyReference", fhirreference.FHIRReference, False, "party", False),
+            ("party", "party", fhirreference.FHIRReference, False, None, False),
             ("resourceType", "resourceType", coding.Coding, False, None, False),
             ("type", "type", coding.Coding, False, None, True),
         ])
@@ -1009,11 +951,7 @@ class ClaimRelated(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.claimIdentifier = None
-        """ Reference to the related claim.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.claimReference = None
+        self.claim = None
         """ Reference to the related claim.
         Type `FHIRReference` referencing `Claim` (represented as `dict` in JSON). """
         
@@ -1030,8 +968,7 @@ class ClaimRelated(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimRelated, self).elementProperties()
         js.extend([
-            ("claimIdentifier", "claimIdentifier", identifier.Identifier, False, "claim", False),
-            ("claimReference", "claimReference", fhirreference.FHIRReference, False, "claim", False),
+            ("claim", "claim", fhirreference.FHIRReference, False, None, False),
             ("reference", "reference", identifier.Identifier, False, None, False),
             ("relationship", "relationship", coding.Coding, False, None, False),
         ])

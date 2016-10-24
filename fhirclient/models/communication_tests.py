@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -34,10 +34,6 @@ class CommunicationTests(unittest.TestCase):
     def implCommunication1(self, inst):
         self.assertEqual(inst.category.coding[0].code, "SolicitedAttachment")
         self.assertEqual(inst.category.coding[0].system, "http://acme.org/messagetypes")
-        self.assertEqual(inst.contained[0].id, "provider")
-        self.assertEqual(inst.contained[1].id, "payor")
-        self.assertEqual(inst.contained[2].id, "claim")
-        self.assertEqual(inst.contained[3].id, "claimresponse")
         self.assertEqual(inst.id, "fm-attachment")
         self.assertEqual(inst.identifier[0].system, "http://www.providerco.com/communication")
         self.assertEqual(inst.identifier[0].value, "12345")

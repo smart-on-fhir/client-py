@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -58,7 +58,7 @@ class ImagingStudy(domainresource.DomainResource):
         
         self.interpreter = None
         """ Who interpreted images.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.modalityList = None
         """ All series modality if actual acquisition modalities.
@@ -112,7 +112,7 @@ class ImagingStudy(domainresource.DomainResource):
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("interpreter", "interpreter", fhirreference.FHIRReference, False, None, False),
+            ("interpreter", "interpreter", fhirreference.FHIRReference, True, None, False),
             ("modalityList", "modalityList", coding.Coding, True, None, False),
             ("numberOfInstances", "numberOfInstances", int, False, None, True),
             ("numberOfSeries", "numberOfSeries", int, False, None, True),

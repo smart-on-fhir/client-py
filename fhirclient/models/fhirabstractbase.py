@@ -159,9 +159,13 @@ class FHIRAbstractBase(object):
         
         # loop all registered properties and instantiate
         errs = []
-        found = set(['resourceType', 'fhir_comments'])
+        valid = set(['resourceType', 'fhir_comments'])
+        found = set()
         nonoptionals = set()
         for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
+            valid.add(jsname)
+            if of_many is not None:
+                valid.add(of_many)
             
             # bring the value in shape
             err = None
@@ -189,32 +193,35 @@ class FHIRAbstractBase(object):
                         .format(type(testval), name, type(self), typ))
                 else:
                     setattr(self, name, value)
+                
+                found.add(jsname)
+                if of_many is not None:
+                    found.add(of_many)
+            
+            # not optional and missing, report (we clean `of_many` later on)
             elif not_optional:
                 nonoptionals.add(of_many or jsname)
             
-            # TODO: look at `_name` if this is a primitive
+            # TODO: look at `_name` only if this is a primitive!
             _jsname = '_'+jsname
             _value = jsondict.get(_jsname)
             if _value is not None:
+                valid.add(_jsname)
                 found.add(_jsname)
             
             # report errors
             if err is not None:
                 errs.append(err.prefixed(name) if isinstance(err, FHIRValidationError) else FHIRValidationError([err], name))
-            
-            found.add(jsname)
-            if of_many is not None:
-                found.add(of_many)
         
         # were there missing non-optional entries?
         if len(nonoptionals) > 0:
-            for miss in nonoptionals:
+            for miss in nonoptionals - found:
                 errs.append(KeyError("Non-optional property \"{}\" on {} is missing"
                     .format(miss, self)))
         
         # were there superfluous dictionary keys?
-        if len(set(jsondict.keys()) - found) > 0:
-            for supflu in set(jsondict.keys()) - found:
+        if len(set(jsondict.keys()) - valid) > 0:
+            for supflu in set(jsondict.keys()) - valid:
                 errs.append(AttributeError("Superfluous entry \"{}\" in data for {}"
                     .format(supflu, self)))
         

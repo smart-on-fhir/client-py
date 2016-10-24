@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/RelatedResource) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/RelatedArtifact) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
 from . import element
 
-class RelatedResource(element.Element):
-    """ Related resources for the module.
+class RelatedArtifact(element.Element):
+    """ Related artifacts for a knowledge resource.
     
-    Related resources such as additional documentation, justification, or
+    Related artifacts such as additional documentation, justification, or
     bibliographic references.
     """
     
-    resource_name = "RelatedResource"
+    resource_name = "RelatedArtifact"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -25,11 +25,11 @@ class RelatedResource(element.Element):
         """
         
         self.citation = None
-        """ Bibliographic citation for the resource.
+        """ Bibliographic citation for the artifact.
         Type `str`. """
         
         self.display = None
-        """ Brief description of the related resource.
+        """ Brief description of the related artifact.
         Type `str`. """
         
         self.document = None
@@ -46,13 +46,13 @@ class RelatedResource(element.Element):
         Type `str`. """
         
         self.url = None
-        """ Url for the related resource.
+        """ Url for the related artifact.
         Type `str`. """
         
-        super(RelatedResource, self).__init__(jsondict=jsondict, strict=strict)
+        super(RelatedArtifact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(RelatedResource, self).elementProperties()
+        js = super(RelatedArtifact, self).elementProperties()
         js.extend([
             ("citation", "citation", str, False, None, False),
             ("display", "display", str, False, None, False),

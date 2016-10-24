@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Observation) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Observation) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -307,11 +307,11 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
         
         self.high = None
         """ High Range, if relevant.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.low = None
         """ Low Range, if relevant.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.meaning = None
         """ Reference range qualifier.

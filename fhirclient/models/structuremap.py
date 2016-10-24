@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -23,19 +23,19 @@ class StructureMap(domainresource.DomainResource):
         """
         
         self.contact = None
-        """ Contact details of the publisher.
-        List of `StructureMapContact` items (represented as `dict` in JSON). """
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.copyright = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
-        """ Date for this version of the StructureMap.
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Natural language description of the StructureMap.
+        """ Natural language description of the structure map.
         Type `str`. """
         
         self.experimental = None
@@ -47,23 +47,27 @@ class StructureMap(domainresource.DomainResource):
         List of `StructureMapGroup` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Other identifiers for the StructureMap.
+        """ Additional identifier for the structure map.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.import_fhir = None
         """ Other maps used by this map (canonical URLs).
         List of `str` items. """
         
+        self.jurisdiction = None
+        """ Intended jurisdiction for structure map (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.name = None
-        """ Informal name for this StructureMap.
+        """ Name for this structure map (Computer friendly).
         Type `str`. """
         
         self.publisher = None
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
-        self.requirements = None
-        """ Scope and Usage this structure map is for.
+        self.purpose = None
+        """ Why this structure map is defined.
         Type `str`. """
         
         self.status = None
@@ -74,16 +78,20 @@ class StructureMap(domainresource.DomainResource):
         """ Structure Definition used by this map.
         List of `StructureMapStructure` items (represented as `dict` in JSON). """
         
+        self.title = None
+        """ Name for this structure map (Human friendly).
+        Type `str`. """
+        
         self.url = None
-        """ Absolute URL used to reference this StructureMap.
+        """ Logical uri to reference this structure map (globally unique).
         Type `str`. """
         
         self.useContext = None
         """ Content intends to support these contexts.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Logical id for this version of the StructureMap.
+        """ Business version of the structure map.
         Type `str`. """
         
         super(StructureMap, self).__init__(jsondict=jsondict, strict=strict)
@@ -91,7 +99,7 @@ class StructureMap(domainresource.DomainResource):
     def elementProperties(self):
         js = super(StructureMap, self).elementProperties()
         js.extend([
-            ("contact", "contact", StructureMapContact, True, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
@@ -99,54 +107,21 @@ class StructureMap(domainresource.DomainResource):
             ("group", "group", StructureMapGroup, True, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("import_fhir", "import", str, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, True),
             ("publisher", "publisher", str, False, None, False),
-            ("requirements", "requirements", str, False, None, False),
+            ("purpose", "purpose", str, False, None, False),
             ("status", "status", str, False, None, True),
             ("structure", "structure", StructureMapStructure, True, None, False),
+            ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, True),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
 
 
 from . import backboneelement
-
-class StructureMapContact(backboneelement.BackboneElement):
-    """ Contact details of the publisher.
-    
-    Contacts to assist a user in finding and communicating with the publisher.
-    """
-    
-    resource_name = "StructureMapContact"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Name of an individual to contact.
-        Type `str`. """
-        
-        self.telecom = None
-        """ Contact details for individual or publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        super(StructureMapContact, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(StructureMapContact, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-        ])
-        return js
-
 
 class StructureMapGroup(backboneelement.BackboneElement):
     """ Named sections for reader convenience.
@@ -443,8 +418,8 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureMapGroupRuleTarget, self).elementProperties()
         js.extend([
-            ("context", "context", str, False, None, True),
-            ("contextType", "contextType", str, False, None, True),
+            ("context", "context", str, False, None, False),
+            ("contextType", "contextType", str, False, None, False),
             ("element", "element", str, False, None, False),
             ("listMode", "listMode", str, True, None, False),
             ("listRuleId", "listRuleId", str, False, None, False),
@@ -545,6 +520,7 @@ class StructureMapStructure(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import contactpoint
+from . import contactdetail
 from . import fhirdate
 from . import identifier
+from . import usagecontext

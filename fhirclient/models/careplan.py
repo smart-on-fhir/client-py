@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -152,7 +152,7 @@ class CarePlanActivity(backboneelement.BackboneElement):
         
         self.reference = None
         """ Activity details defined in specific resource.
-        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticRequest, MedicationOrder, NutritionRequest, ProcedureRequest, ProcessRequest, ReferralRequest, SupplyRequest, VisionPrescription` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticRequest, MedicationOrder, NutritionRequest, ProcedureRequest, ProcessRequest, ReferralRequest, VisionPrescription` (represented as `dict` in JSON). """
         
         super(CarePlanActivity, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -196,7 +196,7 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
         
         self.dailyAmount = None
         """ How to consume/day?.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.definition = None
         """ Protocol or definition.
@@ -232,7 +232,7 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
         
         self.quantity = None
         """ How much to administer/supply/consume.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.reasonCode = None
         """ Why activity should be done.

@@ -58,14 +58,14 @@ smart.human_name(patient.name[0])
 If this is a protected server, you will first have to send your user to the authorize endpoint to log in.
 Just call `smart.authorize_url` to obtain the correct URL.
 You can use `smart.prepare()`, which will return `False` if the server is protected and you need to authorize.
-The `smart.ready` property has the same purpose, it will however not retrieve the server's _Conformance_ statement and hence is only useful as a quick check whether the server instance is ready.
+The `smart.ready` property has the same purpose, it will however not retrieve the server's _CapabilityStatement_ resource and hence is only useful as a quick check whether the server instance is ready.
 
 ```python
 smart = client.FHIRClient(settings=settings)
 smart.ready
 # prints `False`
 smart.prepare()
-# prints `True` after fetching Conformance
+# prints `True` after fetching CapabilityStatement
 smart.ready
 # prints `True`
 smart.prepare()

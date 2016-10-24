@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
 from . import domainresource
 
 class DeviceUseStatement(domainresource.DomainResource):
-    """ None.
+    """ Record of use of a device.
     
     A record of a device being used by a patient where the record is the result
     of a report from the patient or another clinician.
@@ -33,43 +33,43 @@ class DeviceUseStatement(domainresource.DomainResource):
         Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.device = None
-        """ None.
+        """ Reference to device used.
         Type `FHIRReference` referencing `Device` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ None.
+        """ External identifier for this record.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.indication = None
-        """ None.
+        """ Why device was used.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.notes = None
-        """ None.
+        """ Addition details (comments, instructions).
         List of `str` items. """
         
         self.recordedOn = None
-        """ None.
+        """ When statement was recorded.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.subject = None
-        """ None.
+        """ Patient using device.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.timingDateTime = None
-        """ None.
+        """ How often  the device was used.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.timingPeriod = None
-        """ None.
+        """ How often  the device was used.
         Type `Period` (represented as `dict` in JSON). """
         
         self.timingTiming = None
-        """ None.
+        """ How often  the device was used.
         Type `Timing` (represented as `dict` in JSON). """
         
         self.whenUsed = None
-        """ None.
+        """ Period device was used.
         Type `Period` (represented as `dict` in JSON). """
         
         super(DeviceUseStatement, self).__init__(jsondict=jsondict, strict=strict)

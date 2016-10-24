@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ExpansionProfile) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ExpansionProfile) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -23,20 +23,20 @@ class ExpansionProfile(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.codeSystem = None
-        """ When the expansion profile imposes code system contraints.
-        Type `ExpansionProfileCodeSystem` (represented as `dict` in JSON). """
+        self.activeOnly = None
+        """ Include or exclude inactive concepts in the expansion.
+        Type `bool`. """
         
         self.contact = None
-        """ Contact details of the publisher.
-        List of `ExpansionProfileContact` items (represented as `dict` in JSON). """
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.date = None
-        """ Date for given status.
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Human language description of the expansion profile.
+        """ Natural language description of the expansion profile.
         Type `str`. """
         
         self.designation = None
@@ -62,13 +62,20 @@ class ExpansionProfile(domainresource.DomainResource):
         the value set expansion.
         Type `bool`. """
         
+        self.excludedSystem = None
+        """ Systems/Versions to be exclude.
+        Type `ExpansionProfileExcludedSystem` (represented as `dict` in JSON). """
+        
         self.experimental = None
         """ If for testing purposes, not real usage.
         Type `bool`. """
         
+        self.fixedVersion = None
+        """ Fix use of a code system to a particular version.
+        List of `ExpansionProfileFixedVersion` items (represented as `dict` in JSON). """
+        
         self.identifier = None
-        """ Additional identifier for the expansion profile (e.g. an Object
-        Identifier).
+        """ Additional identifier for the expansion profile.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.includeDefinition = None
@@ -79,9 +86,9 @@ class ExpansionProfile(domainresource.DomainResource):
         """ Whether the expansion should include concept designations.
         Type `bool`. """
         
-        self.includeInactive = None
-        """ Include or exclude inactive concepts in the expansion.
-        Type `bool`. """
+        self.jurisdiction = None
+        """ Intended jurisdiction for expansion profile (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.limitedExpansion = None
         """ Controls behaviour of the value set expand operation when value
@@ -89,11 +96,11 @@ class ExpansionProfile(domainresource.DomainResource):
         Type `bool`. """
         
         self.name = None
-        """ Informal name for this expansion profile.
+        """ Name for this expansion profile (Computer friendly).
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (organization or individual).
+        """ Name of the publisher (Organization or individual).
         Type `str`. """
         
         self.status = None
@@ -101,11 +108,15 @@ class ExpansionProfile(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Globally unique logical identifier for  expansion profile.
+        """ Logical uri to reference this expansion profile (globally unique).
         Type `str`. """
         
+        self.useContext = None
+        """ Content intends to support these contexts.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+        
         self.version = None
-        """ Logical identifier for this version of the expansion profile.
+        """ Business version of the expansion profile.
         Type `str`. """
         
         super(ExpansionProfile, self).__init__(jsondict=jsondict, strict=strict)
@@ -113,8 +124,8 @@ class ExpansionProfile(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ExpansionProfile, self).elementProperties()
         js.extend([
-            ("codeSystem", "codeSystem", ExpansionProfileCodeSystem, False, None, False),
-            ("contact", "contact", ExpansionProfileContact, True, None, False),
+            ("activeOnly", "activeOnly", bool, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
             ("designation", "designation", ExpansionProfileDesignation, False, None, False),
@@ -122,224 +133,25 @@ class ExpansionProfile(domainresource.DomainResource):
             ("excludeNested", "excludeNested", bool, False, None, False),
             ("excludeNotForUI", "excludeNotForUI", bool, False, None, False),
             ("excludePostCoordinated", "excludePostCoordinated", bool, False, None, False),
+            ("excludedSystem", "excludedSystem", ExpansionProfileExcludedSystem, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
+            ("fixedVersion", "fixedVersion", ExpansionProfileFixedVersion, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("includeDefinition", "includeDefinition", bool, False, None, False),
             ("includeDesignations", "includeDesignations", bool, False, None, False),
-            ("includeInactive", "includeInactive", bool, False, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("limitedExpansion", "limitedExpansion", bool, False, None, False),
             ("name", "name", str, False, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("status", "status", str, False, None, True),
             ("url", "url", str, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
 
 
 from . import backboneelement
-
-class ExpansionProfileCodeSystem(backboneelement.BackboneElement):
-    """ When the expansion profile imposes code system contraints.
-    
-    A set of criteria that provide the constraints imposed on the value set
-    expansion by including or excluding codes from specific code systems (or
-    versions).
-    """
-    
-    resource_name = "ExpansionProfileCodeSystem"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.exclude = None
-        """ Code systems to be excluded.
-        Type `ExpansionProfileCodeSystemExclude` (represented as `dict` in JSON). """
-        
-        self.include = None
-        """ Code systems to be included.
-        Type `ExpansionProfileCodeSystemInclude` (represented as `dict` in JSON). """
-        
-        super(ExpansionProfileCodeSystem, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ExpansionProfileCodeSystem, self).elementProperties()
-        js.extend([
-            ("exclude", "exclude", ExpansionProfileCodeSystemExclude, False, None, False),
-            ("include", "include", ExpansionProfileCodeSystemInclude, False, None, False),
-        ])
-        return js
-
-
-class ExpansionProfileCodeSystemExclude(backboneelement.BackboneElement):
-    """ Code systems to be excluded.
-    
-    Code systems to be excluded from value set expansions.
-    """
-    
-    resource_name = "ExpansionProfileCodeSystemExclude"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.codeSystem = None
-        """ The code systems to be excluded.
-        List of `ExpansionProfileCodeSystemExcludeCodeSystem` items (represented as `dict` in JSON). """
-        
-        super(ExpansionProfileCodeSystemExclude, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ExpansionProfileCodeSystemExclude, self).elementProperties()
-        js.extend([
-            ("codeSystem", "codeSystem", ExpansionProfileCodeSystemExcludeCodeSystem, True, None, True),
-        ])
-        return js
-
-
-class ExpansionProfileCodeSystemExcludeCodeSystem(backboneelement.BackboneElement):
-    """ The code systems to be excluded.
-    
-    A data group for each code system to be excluded.
-    """
-    
-    resource_name = "ExpansionProfileCodeSystemExcludeCodeSystem"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.system = None
-        """ The specific code system to be excluded.
-        Type `str`. """
-        
-        self.version = None
-        """ Specific version of the code system referred to.
-        Type `str`. """
-        
-        super(ExpansionProfileCodeSystemExcludeCodeSystem, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ExpansionProfileCodeSystemExcludeCodeSystem, self).elementProperties()
-        js.extend([
-            ("system", "system", str, False, None, True),
-            ("version", "version", str, False, None, False),
-        ])
-        return js
-
-
-class ExpansionProfileCodeSystemInclude(backboneelement.BackboneElement):
-    """ Code systems to be included.
-    
-    Code systems to be included in value set expansions.
-    """
-    
-    resource_name = "ExpansionProfileCodeSystemInclude"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.codeSystem = None
-        """ The code systems to be included.
-        List of `ExpansionProfileCodeSystemIncludeCodeSystem` items (represented as `dict` in JSON). """
-        
-        super(ExpansionProfileCodeSystemInclude, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ExpansionProfileCodeSystemInclude, self).elementProperties()
-        js.extend([
-            ("codeSystem", "codeSystem", ExpansionProfileCodeSystemIncludeCodeSystem, True, None, True),
-        ])
-        return js
-
-
-class ExpansionProfileCodeSystemIncludeCodeSystem(backboneelement.BackboneElement):
-    """ The code systems to be included.
-    
-    A data group for each code system to be included.
-    """
-    
-    resource_name = "ExpansionProfileCodeSystemIncludeCodeSystem"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.system = None
-        """ The specific code system to be included.
-        Type `str`. """
-        
-        self.version = None
-        """ Specific version of the code system referred to.
-        Type `str`. """
-        
-        super(ExpansionProfileCodeSystemIncludeCodeSystem, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ExpansionProfileCodeSystemIncludeCodeSystem, self).elementProperties()
-        js.extend([
-            ("system", "system", str, False, None, True),
-            ("version", "version", str, False, None, False),
-        ])
-        return js
-
-
-class ExpansionProfileContact(backboneelement.BackboneElement):
-    """ Contact details of the publisher.
-    
-    Contacts to assist a user in finding and communicating with the publisher.
-    """
-    
-    resource_name = "ExpansionProfileContact"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Name of an individual to contact.
-        Type `str`. """
-        
-        self.telecom = None
-        """ Contact details for individual or publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        super(ExpansionProfileContact, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ExpansionProfileContact, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-        ])
-        return js
-
 
 class ExpansionProfileDesignation(backboneelement.BackboneElement):
     """ When the expansion profile imposes designation contraints.
@@ -503,7 +315,85 @@ class ExpansionProfileDesignationIncludeDesignation(backboneelement.BackboneElem
         return js
 
 
+class ExpansionProfileExcludedSystem(backboneelement.BackboneElement):
+    """ Systems/Versions to be exclude.
+    
+    Code system, or a particular version of a code system to be excluded from
+    value set expansions.
+    """
+    
+    resource_name = "ExpansionProfileExcludedSystem"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.system = None
+        """ The specific code system to be excluded.
+        Type `str`. """
+        
+        self.version = None
+        """ Specific version of the code system referred to.
+        Type `str`. """
+        
+        super(ExpansionProfileExcludedSystem, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ExpansionProfileExcludedSystem, self).elementProperties()
+        js.extend([
+            ("system", "system", str, False, None, True),
+            ("version", "version", str, False, None, False),
+        ])
+        return js
+
+
+class ExpansionProfileFixedVersion(backboneelement.BackboneElement):
+    """ Fix use of a code system to a particular version.
+    
+    Fix use of a particular code system to a particular version.
+    """
+    
+    resource_name = "ExpansionProfileFixedVersion"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.mode = None
+        """ default | check | override.
+        Type `str`. """
+        
+        self.system = None
+        """ System to have it's version fixed.
+        Type `str`. """
+        
+        self.version = None
+        """ Specific version of the code system referred to.
+        Type `str`. """
+        
+        super(ExpansionProfileFixedVersion, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ExpansionProfileFixedVersion, self).elementProperties()
+        js.extend([
+            ("mode", "mode", str, False, None, True),
+            ("system", "system", str, False, None, True),
+            ("version", "version", str, False, None, True),
+        ])
+        return js
+
+
+from . import codeableconcept
 from . import coding
-from . import contactpoint
+from . import contactdetail
 from . import fhirdate
 from . import identifier
+from . import usagecontext

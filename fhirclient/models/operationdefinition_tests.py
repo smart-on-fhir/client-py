@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -56,10 +56,11 @@ class OperationDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.parameter[1].type, "QuestionnaireResponse")
         self.assertEqual(inst.parameter[1].use, "out")
         self.assertEqual(inst.publisher, "Acme Healthcare Services")
+        self.assertEqual(inst.resource[0], "Questionnaire")
         self.assertEqual(inst.status, "draft")
         self.assertFalse(inst.system)
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type[0], "Questionnaire")
+        self.assertFalse(inst.type)
         self.assertEqual(inst.url, "http://h7.org/fhir/OperationDefinition/example")
         self.assertEqual(inst.version, "B")
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -30,15 +30,15 @@ class ImplementationGuide(domainresource.DomainResource):
         List of `str` items. """
         
         self.contact = None
-        """ Contact details of the publisher.
-        List of `ImplementationGuideContact` items (represented as `dict` in JSON). """
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.copyright = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
-        """ Date for this version of the Implementation Guide.
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.dependency = None
@@ -46,7 +46,7 @@ class ImplementationGuide(domainresource.DomainResource):
         List of `ImplementationGuideDependency` items (represented as `dict` in JSON). """
         
         self.description = None
-        """ Natural language description of the Implementation Guide.
+        """ Natural language description of the implementation guide.
         Type `str`. """
         
         self.experimental = None
@@ -61,8 +61,12 @@ class ImplementationGuide(domainresource.DomainResource):
         """ Profiles that apply globally.
         List of `ImplementationGuideGlobal` items (represented as `dict` in JSON). """
         
+        self.jurisdiction = None
+        """ Intended jurisdiction for implementation guide (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.name = None
-        """ Informal name for this Implementation Guide.
+        """ Name for this implementation guide (Computer friendly).
         Type `str`. """
         
         self.package = None
@@ -82,15 +86,16 @@ class ImplementationGuide(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Absolute URL used to reference this Implementation Guide.
+        """ Logical uri to reference this implementation guide (globally
+        unique).
         Type `str`. """
         
         self.useContext = None
-        """ The implementation guide is intended to support these contexts.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        """ Content intends to support these contexts.
+        List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Logical id for this version of the Implementation Guide.
+        """ Business version of the implementation guide.
         Type `str`. """
         
         super(ImplementationGuide, self).__init__(jsondict=jsondict, strict=strict)
@@ -99,7 +104,7 @@ class ImplementationGuide(domainresource.DomainResource):
         js = super(ImplementationGuide, self).elementProperties()
         js.extend([
             ("binary", "binary", str, True, None, False),
-            ("contact", "contact", ImplementationGuideContact, True, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("dependency", "dependency", ImplementationGuideDependency, True, None, False),
@@ -107,54 +112,20 @@ class ImplementationGuide(domainresource.DomainResource):
             ("experimental", "experimental", bool, False, None, False),
             ("fhirVersion", "fhirVersion", str, False, None, False),
             ("global_fhir", "global", ImplementationGuideGlobal, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, True),
             ("package", "package", ImplementationGuidePackage, True, None, False),
             ("page", "page", ImplementationGuidePage, False, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("status", "status", str, False, None, True),
             ("url", "url", str, False, None, True),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
 
 
 from . import backboneelement
-
-class ImplementationGuideContact(backboneelement.BackboneElement):
-    """ Contact details of the publisher.
-    
-    Contacts to assist a user in finding and communicating with the publisher.
-    """
-    
-    resource_name = "ImplementationGuideContact"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Name of an individual to contact.
-        Type `str`. """
-        
-        self.telecom = None
-        """ Contact details for individual or publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        super(ImplementationGuideContact, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ImplementationGuideContact, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-        ])
-        return js
-
 
 class ImplementationGuideDependency(backboneelement.BackboneElement):
     """ Another Implementation guide this depends on.
@@ -274,7 +245,7 @@ class ImplementationGuidePackageResource(backboneelement.BackboneElement):
     """ Resource in the implementation guide.
     
     A resource that is part of the implementation guide. Conformance resources
-    (value set, structure definition, conformance statements etc.) are obvious
+    (value set, structure definition, capability statements etc.) are obvious
     candidates for inclusion, but any kind of resource can be included as an
     example resource.
     """
@@ -396,6 +367,7 @@ class ImplementationGuidePage(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import contactpoint
+from . import contactdetail
 from . import fhirdate
 from . import fhirreference
+from . import usagecontext

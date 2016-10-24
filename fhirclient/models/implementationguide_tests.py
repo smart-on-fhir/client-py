@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -48,6 +48,8 @@ class ImplementationGuideTests(unittest.TestCase):
         self.assertEqual(inst.fhirVersion, "1.0.0")
         self.assertEqual(inst.global_fhir[0].type, "Patient")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.jurisdiction[0].coding[0].code, "US")
+        self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.name, "Data Access Framework (DAF)")
         self.assertEqual(inst.package[0].description, "Base package (not broken up into multiple packages)")
         self.assertEqual(inst.package[0].name, "test")
@@ -69,7 +71,5 @@ class ImplementationGuideTests(unittest.TestCase):
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/daf")
-        self.assertEqual(inst.useContext[0].coding[0].code, "US")
-        self.assertEqual(inst.useContext[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.version, "0")
 

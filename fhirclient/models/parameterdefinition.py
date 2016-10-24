@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -47,11 +47,11 @@ class ParameterDefinition(element.Element):
         Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         self.type = None
-        """ None.
+        """ Type for the parameter.
         Type `str`. """
         
         self.use = None
-        """ None.
+        """ input | output.
         Type `str`. """
         
         super(ParameterDefinition, self).__init__(jsondict=jsondict, strict=strict)

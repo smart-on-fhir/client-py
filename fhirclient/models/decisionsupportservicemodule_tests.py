@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -32,6 +32,8 @@ class DecisionSupportServiceModuleTests(unittest.TestCase):
         self.implDecisionSupportServiceModule1(inst2)
     
     def implDecisionSupportServiceModule1(self, inst):
+        self.assertEqual(inst.date.date, FHIRDate("2015-07-22").date)
+        self.assertEqual(inst.date.as_json(), "2015-07-22")
         self.assertEqual(inst.description, "Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications.")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].use, "official")
@@ -48,8 +50,6 @@ class DecisionSupportServiceModuleTests(unittest.TestCase):
         self.assertEqual(inst.parameter[3].name, "result")
         self.assertEqual(inst.parameter[3].type, "Basic")
         self.assertEqual(inst.parameter[3].use, "out")
-        self.assertEqual(inst.publicationDate.date, FHIRDate("2015-07-22").date)
-        self.assertEqual(inst.publicationDate.as_json(), "2015-07-22")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Guideline Appropriate Ordering Module</div>")
         self.assertEqual(inst.text.status, "generated")

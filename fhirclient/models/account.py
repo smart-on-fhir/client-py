@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Account) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Account) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
 from . import domainresource
 
 class Account(domainresource.DomainResource):
-    """ None.
+    """ Tracks balance, charges, for patient or cost center.
     
     A financial tool for tracking value accrued for a particular purpose.  In
-    the healthcare field, used to track charges for a patient, cost centres,
+    the healthcare field, used to track charges for a patient, cost centers,
     etc.
     """
     

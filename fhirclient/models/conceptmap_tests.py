@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -124,10 +124,12 @@ class ConceptMapTests(unittest.TestCase):
         self.assertEqual(inst.identifier.value, "urn:uuid:53cd62ee-033e-414c-9f58-3ca97b5ffc3b")
         self.assertEqual(inst.name, "FHIR/v3 Address Use Mapping")
         self.assertEqual(inst.publisher, "HL7, Inc")
-        self.assertEqual(inst.requirements, "To help implementers map from HL7 v3/CDA to FHIR")
+        self.assertEqual(inst.purpose, "To help implementers map from HL7 v3/CDA to FHIR")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/ConceptMap/101")
-        self.assertEqual(inst.useContext[0].text, "for CDA Usage")
+        self.assertEqual(inst.useContext[0].code.code, "venue")
+        self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.text, "for CDA Usage")
         self.assertEqual(inst.version, "20120613")
 

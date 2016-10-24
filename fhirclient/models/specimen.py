@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -133,7 +133,7 @@ class SpecimenCollection(backboneelement.BackboneElement):
         
         self.quantity = None
         """ The quantity of specimen collected.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         super(SpecimenCollection, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -177,7 +177,7 @@ class SpecimenContainer(backboneelement.BackboneElement):
         
         self.capacity = None
         """ Container volume or size.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.description = None
         """ Textual description of the container.
@@ -189,7 +189,7 @@ class SpecimenContainer(backboneelement.BackboneElement):
         
         self.specimenQuantity = None
         """ Quantity of specimen within container.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.type = None
         """ Kind of container directly associated with specimen.

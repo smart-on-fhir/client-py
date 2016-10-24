@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -37,9 +37,11 @@ class SearchParameterTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].system, "other")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.description, "Search by url for a participation agreement, which is stored in a DocumentReference")
+        self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "example-extension")
         self.assertEqual(inst.name, "Example Search Parameter on an extension")
         self.assertEqual(inst.publisher, "Health Level Seven International (FHIR Infrastructure)")
+        self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.target[0], "DocumentReference")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "reference")
@@ -66,11 +68,11 @@ class SearchParameterTests(unittest.TestCase):
         self.assertEqual(inst.date.date, FHIRDate("2013-10-23").date)
         self.assertEqual(inst.date.as_json(), "2013-10-23")
         self.assertEqual(inst.description, "Search by resource identifier - e.g. same as the read interaction, but can return included resources")
-        self.assertFalse(inst.experimental)
+        self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.name, "Example Search Parameter")
         self.assertEqual(inst.publisher, "Health Level Seven International (FHIR Infrastructure)")
-        self.assertEqual(inst.requirements, "Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain")
+        self.assertEqual(inst.purpose, "Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "token")

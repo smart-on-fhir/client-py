@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -149,7 +149,7 @@ class GuidanceResponseAction(backboneelement.BackboneElement):
         
         self.documentation = None
         """ Supporting documentation for the intended performer of the action.
-        List of `RelatedResource` items (represented as `dict` in JSON). """
+        List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.groupingBehavior = None
         """ visual-group | logical-group | sentence-group.
@@ -222,7 +222,7 @@ class GuidanceResponseAction(backboneelement.BackboneElement):
             ("cardinalityBehavior", "cardinalityBehavior", str, False, None, False),
             ("concept", "concept", codeableconcept.CodeableConcept, True, None, False),
             ("description", "description", str, False, None, False),
-            ("documentation", "documentation", relatedresource.RelatedResource, True, None, False),
+            ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
             ("groupingBehavior", "groupingBehavior", str, False, None, False),
             ("label", "label", str, False, None, False),
             ("participant", "participant", fhirreference.FHIRReference, True, None, False),
@@ -303,4 +303,4 @@ from . import fhirreference
 from . import identifier
 from . import period
 from . import range
-from . import relatedresource
+from . import relatedartifact

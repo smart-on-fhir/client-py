@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -278,7 +278,8 @@ class EncounterParticipant(backboneelement.BackboneElement):
         Type `FHIRReference` referencing `Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.period = None
-        """ Period of time during the encounter participant was present.
+        """ Period of time during the encounter that the participant
+        participated.
         Type `Period` (represented as `dict` in JSON). """
         
         self.type = None

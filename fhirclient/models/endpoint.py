@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Endpoint) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Endpoint) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -27,11 +27,11 @@ class Endpoint(domainresource.DomainResource):
         """
         
         self.address = None
-        """ Where the channel points to.
+        """ The technical address for conneccting to this endpoint.
         Type `str`. """
         
         self.connectionType = None
-        """ rest-hook | websocket | email | sms | message.
+        """ Protocol/Profile/Standard to be used with this endpoint connection.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.contact = None
@@ -51,17 +51,14 @@ class Endpoint(domainresource.DomainResource):
         organization that exposes the endpoint).
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.method = None
-        """ The http verb to be used when calling this endpoint.
-        List of `Coding` items (represented as `dict` in JSON). """
-        
         self.name = None
         """ A name that this endpoint can be identified by.
         Type `str`. """
         
-        self.payloadFormat = None
-        """ Mimetype to send, or blank for no payload.
-        Type `str`. """
+        self.payloadMimeType = None
+        """ Mimetype to send. If not specified, the content could be anything
+        (including no payload, if the connectionType defined this).
+        List of `str` items. """
         
         self.payloadType = None
         """ The type of content that may be used at this endpoint (e.g. XDS
@@ -69,7 +66,7 @@ class Endpoint(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.period = None
-        """ Interval during responsibility is assumed.
+        """ Interval the endpoint is expected to be operational.
         Type `Period` (represented as `dict` in JSON). """
         
         self.publicKey = None
@@ -77,7 +74,7 @@ class Endpoint(domainresource.DomainResource):
         Type `str`. """
         
         self.status = None
-        """ active | suspended | error | off | entered-in-error.
+        """ active | suspended | error | off | entered-in-error | test.
         Type `str`. """
         
         super(Endpoint, self).__init__(jsondict=jsondict, strict=strict)
@@ -91,9 +88,8 @@ class Endpoint(domainresource.DomainResource):
             ("header", "header", str, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("method", "method", coding.Coding, True, None, False),
             ("name", "name", str, False, None, False),
-            ("payloadFormat", "payloadFormat", str, False, None, True),
+            ("payloadMimeType", "payloadMimeType", str, True, None, False),
             ("payloadType", "payloadType", codeableconcept.CodeableConcept, True, None, True),
             ("period", "period", period.Period, False, None, False),
             ("publicKey", "publicKey", str, False, None, False),

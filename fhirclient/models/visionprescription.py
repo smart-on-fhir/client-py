@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -56,6 +56,10 @@ class VisionPrescription(domainresource.DomainResource):
         """ Reason or indication for writing the prescription.
         Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
+        
         super(VisionPrescription, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -69,6 +73,7 @@ class VisionPrescription(domainresource.DomainResource):
             ("prescriber", "prescriber", fhirreference.FHIRReference, False, None, False),
             ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
+            ("status", "status", str, False, None, True),
         ])
         return js
 
@@ -125,7 +130,7 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
         
         self.duration = None
         """ Lens wear duration.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.eye = None
         """ right | left.

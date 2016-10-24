@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -33,7 +33,7 @@ class MedicationDispense(domainresource.DomainResource):
         
         self.daysSupply = None
         """ Amount of medication expressed as a timing amount.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.destination = None
         """ Where the medication was sent.
@@ -49,11 +49,11 @@ class MedicationDispense(domainresource.DomainResource):
         
         self.dosageInstruction = None
         """ Medicine administration instructions to the patient/caregiver.
-        List of `MedicationDispenseDosageInstruction` items (represented as `dict` in JSON). """
+        List of `DosageInstruction` items (represented as `dict` in JSON). """
         
         self.eventHistory = None
         """ A list of events of interest in the lifecycle.
-        List of `MedicationDispenseEventHistory` items (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Provenance` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ External identifier.
@@ -77,7 +77,7 @@ class MedicationDispense(domainresource.DomainResource):
         
         self.quantity = None
         """ Amount dispensed.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.receiver = None
         """ Who collected the medication.
@@ -90,6 +90,10 @@ class MedicationDispense(domainresource.DomainResource):
         self.substitution = None
         """ Deals with substitution of one medicine for another.
         Type `MedicationDispenseSubstitution` (represented as `dict` in JSON). """
+        
+        self.supportingInformation = None
+        """ Information that supports the dispensing of the medication.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.type = None
         """ Trial fill, partial fill, emergency fill, etc..
@@ -113,8 +117,8 @@ class MedicationDispense(domainresource.DomainResource):
             ("destination", "destination", fhirreference.FHIRReference, False, None, False),
             ("dispenser", "dispenser", fhirreference.FHIRReference, False, None, False),
             ("dispensingOrganization", "dispensingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("dosageInstruction", "dosageInstruction", MedicationDispenseDosageInstruction, True, None, False),
-            ("eventHistory", "eventHistory", MedicationDispenseEventHistory, True, None, False),
+            ("dosageInstruction", "dosageInstruction", dosageinstruction.DosageInstruction, True, None, False),
+            ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
@@ -124,6 +128,7 @@ class MedicationDispense(domainresource.DomainResource):
             ("receiver", "receiver", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, False),
             ("substitution", "substitution", MedicationDispenseSubstitution, False, None, False),
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
             ("whenHandedOver", "whenHandedOver", fhirdate.FHIRDate, False, None, False),
             ("whenPrepared", "whenPrepared", fhirdate.FHIRDate, False, None, False),
@@ -132,159 +137,6 @@ class MedicationDispense(domainresource.DomainResource):
 
 
 from . import backboneelement
-
-class MedicationDispenseDosageInstruction(backboneelement.BackboneElement):
-    """ Medicine administration instructions to the patient/caregiver.
-    
-    Indicates how the medication is to be used by the patient.  The pharmacist
-    reviews the medication order prior to dispense and updates the
-    dosageInstruction based on the actual product being dispensed.
-    """
-    
-    resource_name = "MedicationDispenseDosageInstruction"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.additionalInstructions = None
-        """ E.g. "Take with food".
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.asNeededBoolean = None
-        """ Take "as needed" f(or x).
-        Type `bool`. """
-        
-        self.asNeededCodeableConcept = None
-        """ Take "as needed" f(or x).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.doseQuantity = None
-        """ Amount of medication per dose.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
-        
-        self.doseRange = None
-        """ Amount of medication per dose.
-        Type `Range` (represented as `dict` in JSON). """
-        
-        self.maxDosePerPeriod = None
-        """ Upper limit on medication per unit of time.
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.method = None
-        """ Technique for administering medication.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.rateQuantity = None
-        """ Amount of medication per unit of time.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
-        
-        self.rateRange = None
-        """ Amount of medication per unit of time.
-        Type `Range` (represented as `dict` in JSON). """
-        
-        self.rateRatio = None
-        """ Amount of medication per unit of time.
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.route = None
-        """ How drug should enter body.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.siteCodeableConcept = None
-        """ Body site to administer to.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.siteReference = None
-        """ Body site to administer to.
-        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
-        
-        self.text = None
-        """ Free text dosage instructions e.g. SIG.
-        Type `str`. """
-        
-        self.timing = None
-        """ When medication should be administered.
-        Type `Timing` (represented as `dict` in JSON). """
-        
-        super(MedicationDispenseDosageInstruction, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(MedicationDispenseDosageInstruction, self).elementProperties()
-        js.extend([
-            ("additionalInstructions", "additionalInstructions", codeableconcept.CodeableConcept, True, None, False),
-            ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False),
-            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False),
-            ("doseQuantity", "doseQuantity", quantity.Quantity, False, "dose", False),
-            ("doseRange", "doseRange", range.Range, False, "dose", False),
-            ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False, None, False),
-            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False),
-            ("rateRange", "rateRange", range.Range, False, "rate", False),
-            ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
-            ("route", "route", codeableconcept.CodeableConcept, False, None, False),
-            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False, "site", False),
-            ("siteReference", "siteReference", fhirreference.FHIRReference, False, "site", False),
-            ("text", "text", str, False, None, False),
-            ("timing", "timing", timing.Timing, False, None, False),
-        ])
-        return js
-
-
-class MedicationDispenseEventHistory(backboneelement.BackboneElement):
-    """ A list of events of interest in the lifecycle.
-    
-    A summary of the events of interest that have occurred, such as when the
-    dispense was verified.
-    """
-    
-    resource_name = "MedicationDispenseEventHistory"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.action = None
-        """ Action taken (e.g. verify).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.actor = None
-        """ Who took the action.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.dateTime = None
-        """ The date at which the event happened.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.reason = None
-        """ Reason the action was taken.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.status = None
-        """ in-progress | on-hold | completed | entered-in-error | stopped.
-        Type `str`. """
-        
-        super(MedicationDispenseEventHistory, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(MedicationDispenseEventHistory, self).elementProperties()
-        js.extend([
-            ("action", "action", codeableconcept.CodeableConcept, False, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
-            ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, True),
-            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", str, False, None, True),
-        ])
-        return js
-
 
 class MedicationDispenseSubstitution(backboneelement.BackboneElement):
     """ Deals with substitution of one medicine for another.
@@ -332,10 +184,8 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
+from . import dosageinstruction
 from . import fhirdate
 from . import fhirreference
 from . import identifier
 from . import quantity
-from . import range
-from . import ratio
-from . import timing

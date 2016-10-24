@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -39,6 +39,8 @@ class NamingSystemTests(unittest.TestCase):
         self.assertEqual(inst.date.as_json(), "2015-08-31")
         self.assertEqual(inst.description, "Australian HI Identifier as established by relevant regulations etc")
         self.assertEqual(inst.id, "example-id")
+        self.assertEqual(inst.jurisdiction[0].coding[0].code, "AU")
+        self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.kind, "identifier")
         self.assertEqual(inst.name, "Austalian Healthcare Identifier - Individual")
         self.assertEqual(inst.publisher, "HL7 Australia on behalf of NEHTA")
@@ -58,8 +60,6 @@ class NamingSystemTests(unittest.TestCase):
         self.assertEqual(inst.uniqueId[1].type, "uri")
         self.assertEqual(inst.uniqueId[1].value, "http://ns.electronichealth.net.au/id/hi/ihi/1.0")
         self.assertEqual(inst.usage, "Used in Australia for identifying patients")
-        self.assertEqual(inst.useContext[0].coding[0].code, "AU")
-        self.assertEqual(inst.useContext[0].coding[0].system, "urn:iso:std:iso:3166")
     
     def testNamingSystem2(self):
         inst = self.instantiate_from("namingsystem-example-replaced.json")

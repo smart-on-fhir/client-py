@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -32,11 +32,7 @@ class PaymentNotice(domainresource.DomainResource):
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.organizationIdentifier = None
-        """ Responsible organization.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.organizationReference = None
+        self.organization = None
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
@@ -48,27 +44,15 @@ class PaymentNotice(domainresource.DomainResource):
         """ Status of the payment.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.providerIdentifier = None
-        """ Responsible practitioner.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.providerReference = None
+        self.provider = None
         """ Responsible practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.requestIdentifier = None
-        """ Request reference.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.requestReference = None
+        self.request = None
         """ Request reference.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        self.responseIdentifier = None
-        """ Response reference.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.responseReference = None
+        self.response = None
         """ Response reference.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
@@ -84,11 +68,7 @@ class PaymentNotice(domainresource.DomainResource):
         """ Payment or clearing date.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.targetIdentifier = None
-        """ Insurer or Regulatory body.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.targetReference = None
+        self.target = None
         """ Insurer or Regulatory body.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
@@ -99,21 +79,16 @@ class PaymentNotice(domainresource.DomainResource):
         js.extend([
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
-            ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
             ("paymentStatus", "paymentStatus", coding.Coding, False, None, True),
-            ("providerIdentifier", "providerIdentifier", identifier.Identifier, False, "provider", False),
-            ("providerReference", "providerReference", fhirreference.FHIRReference, False, "provider", False),
-            ("requestIdentifier", "requestIdentifier", identifier.Identifier, False, "request", False),
-            ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
-            ("responseIdentifier", "responseIdentifier", identifier.Identifier, False, "response", False),
-            ("responseReference", "responseReference", fhirreference.FHIRReference, False, "response", False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("response", "response", fhirreference.FHIRReference, False, None, False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
             ("status", "status", str, False, None, True),
             ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
-            ("targetIdentifier", "targetIdentifier", identifier.Identifier, False, "target", False),
-            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", False),
+            ("target", "target", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

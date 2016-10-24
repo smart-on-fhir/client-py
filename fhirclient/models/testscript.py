@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -26,19 +26,19 @@ class TestScript(domainresource.DomainResource):
         """
         
         self.contact = None
-        """ Contact details of the publisher.
-        List of `TestScriptContact` items (represented as `dict` in JSON). """
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.copyright = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
-        """ Date for this version of the TestScript.
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Natural language description of the TestScript.
+        """ Natural language description of the test script.
         Type `str`. """
         
         self.destination = None
@@ -55,8 +55,12 @@ class TestScript(domainresource.DomainResource):
         List of `TestScriptFixture` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ External identifier.
+        """ Additional identifier for the test script.
         Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.jurisdiction = None
+        """ Intended jurisdiction for test script (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.metadata = None
         """ Required capability that is assumed to function correctly on the
@@ -64,7 +68,7 @@ class TestScript(domainresource.DomainResource):
         Type `TestScriptMetadata` (represented as `dict` in JSON). """
         
         self.name = None
-        """ Informal name for this TestScript.
+        """ Name for this test script (Computer friendly).
         Type `str`. """
         
         self.origin = None
@@ -80,8 +84,8 @@ class TestScript(domainresource.DomainResource):
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
-        self.requirements = None
-        """ Scope and Usage this Test Script is for.
+        self.purpose = None
+        """ Why this test script is defined.
         Type `str`. """
         
         self.rule = None
@@ -108,20 +112,24 @@ class TestScript(domainresource.DomainResource):
         """ A test in this script.
         List of `TestScriptTest` items (represented as `dict` in JSON). """
         
+        self.title = None
+        """ Name for this test script (Human friendly).
+        Type `str`. """
+        
         self.url = None
-        """ Absolute URL used to reference this TestScript.
+        """ Logical uri to reference this test script (globally unique).
         Type `str`. """
         
         self.useContext = None
         """ Content intends to support these contexts.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.variable = None
         """ Placeholder for evaluated elements.
         List of `TestScriptVariable` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Logical id for this version of the TestScript.
+        """ Business version of the test script.
         Type `str`. """
         
         super(TestScript, self).__init__(jsondict=jsondict, strict=strict)
@@ -129,7 +137,7 @@ class TestScript(domainresource.DomainResource):
     def elementProperties(self):
         js = super(TestScript, self).elementProperties()
         js.extend([
-            ("contact", "contact", TestScriptContact, True, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
@@ -137,20 +145,22 @@ class TestScript(domainresource.DomainResource):
             ("experimental", "experimental", bool, False, None, False),
             ("fixture", "fixture", TestScriptFixture, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("metadata", "metadata", TestScriptMetadata, False, None, False),
             ("name", "name", str, False, None, True),
             ("origin", "origin", TestScriptOrigin, True, None, False),
             ("profile", "profile", fhirreference.FHIRReference, True, None, False),
             ("publisher", "publisher", str, False, None, False),
-            ("requirements", "requirements", str, False, None, False),
+            ("purpose", "purpose", str, False, None, False),
             ("rule", "rule", TestScriptRule, True, None, False),
             ("ruleset", "ruleset", TestScriptRuleset, True, None, False),
             ("setup", "setup", TestScriptSetup, False, None, False),
             ("status", "status", str, False, None, True),
             ("teardown", "teardown", TestScriptTeardown, False, None, False),
             ("test", "test", TestScriptTest, True, None, False),
+            ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, True),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("variable", "variable", TestScriptVariable, True, None, False),
             ("version", "version", str, False, None, False),
         ])
@@ -158,41 +168,6 @@ class TestScript(domainresource.DomainResource):
 
 
 from . import backboneelement
-
-class TestScriptContact(backboneelement.BackboneElement):
-    """ Contact details of the publisher.
-    
-    Contacts to assist a user in finding and communicating with the publisher.
-    """
-    
-    resource_name = "TestScriptContact"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Name of an individual to contact.
-        Type `str`. """
-        
-        self.telecom = None
-        """ Contact details for individual or publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        super(TestScriptContact, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptContact, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-        ])
-        return js
-
 
 class TestScriptDestination(backboneelement.BackboneElement):
     """ An abstract server representing a destination or receiver in a message
@@ -329,9 +304,9 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.conformance = None
-        """ Required Conformance.
-        Type `FHIRReference` referencing `Conformance` (represented as `dict` in JSON). """
+        self.capabilities = None
+        """ Required Capability Statement.
+        Type `FHIRReference` referencing `CapabilityStatement` (represented as `dict` in JSON). """
         
         self.description = None
         """ The expected capabilities of the server.
@@ -362,7 +337,7 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptMetadataCapability, self).elementProperties()
         js.extend([
-            ("conformance", "conformance", fhirreference.FHIRReference, False, None, True),
+            ("capabilities", "capabilities", fhirreference.FHIRReference, False, None, True),
             ("description", "description", str, False, None, False),
             ("destination", "destination", int, False, None, False),
             ("link", "link", str, True, None, False),
@@ -700,13 +675,16 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.compareToSourceExpression = None
+        """ The fhirpath expression to evaluate against the source fixture.
+        Type `str`. """
+        
         self.compareToSourceId = None
-        """ Id of fixture used to compare the "sourceId/path" evaluations to.
+        """ Id of the source fixture to be evaluated.
         Type `str`. """
         
         self.compareToSourcePath = None
-        """ XPath or JSONPath expression against fixture used to compare the
-        "sourceId/path" evaluations to.
+        """ XPath or JSONPath expression to evaluate against the source fixture.
         Type `str`. """
         
         self.contentType = None
@@ -719,6 +697,10 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         
         self.direction = None
         """ response | request.
+        Type `str`. """
+        
+        self.expression = None
+        """ The fhirpath expression to be evaluated.
         Type `str`. """
         
         self.headerField = None
@@ -793,11 +775,13 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptSetupActionAssert, self).elementProperties()
         js.extend([
+            ("compareToSourceExpression", "compareToSourceExpression", str, False, None, False),
             ("compareToSourceId", "compareToSourceId", str, False, None, False),
             ("compareToSourcePath", "compareToSourcePath", str, False, None, False),
             ("contentType", "contentType", str, False, None, False),
             ("description", "description", str, False, None, False),
             ("direction", "direction", str, False, None, False),
+            ("expression", "expression", str, False, None, False),
             ("headerField", "headerField", str, False, None, False),
             ("label", "label", str, False, None, False),
             ("minimumId", "minimumId", str, False, None, False),
@@ -1045,6 +1029,10 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         """ Each operation can have one ore more header elements.
         List of `TestScriptSetupActionOperationRequestHeader` items (represented as `dict` in JSON). """
         
+        self.requestId = None
+        """ Fixture Id of mapped request.
+        Type `str`. """
+        
         self.resource = None
         """ Resource type.
         Type `str`. """
@@ -1084,6 +1072,7 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
             ("origin", "origin", int, False, None, False),
             ("params", "params", str, False, None, False),
             ("requestHeader", "requestHeader", TestScriptSetupActionOperationRequestHeader, True, None, False),
+            ("requestId", "requestId", str, False, None, False),
             ("resource", "resource", str, False, None, False),
             ("responseId", "responseId", str, False, None, False),
             ("sourceId", "sourceId", str, False, None, False),
@@ -1185,7 +1174,7 @@ class TestScriptTeardownAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptTeardownAction, self).elementProperties()
         js.extend([
-            ("operation", "operation", TestScriptSetupActionOperation, False, None, False),
+            ("operation", "operation", TestScriptSetupActionOperation, False, None, True),
         ])
         return js
 
@@ -1284,6 +1273,10 @@ class TestScriptVariable(backboneelement.BackboneElement):
         """ Default, hard-coded, or user-defined value for this variable.
         Type `str`. """
         
+        self.expression = None
+        """ The fhirpath expression against the fixture body.
+        Type `str`. """
+        
         self.headerField = None
         """ HTTP header field name for source.
         Type `str`. """
@@ -1306,6 +1299,7 @@ class TestScriptVariable(backboneelement.BackboneElement):
         js = super(TestScriptVariable, self).elementProperties()
         js.extend([
             ("defaultValue", "defaultValue", str, False, None, False),
+            ("expression", "expression", str, False, None, False),
             ("headerField", "headerField", str, False, None, False),
             ("name", "name", str, False, None, True),
             ("path", "path", str, False, None, False),
@@ -1316,7 +1310,8 @@ class TestScriptVariable(backboneelement.BackboneElement):
 
 from . import codeableconcept
 from . import coding
-from . import contactpoint
+from . import contactdetail
 from . import fhirdate
 from . import fhirreference
 from . import identifier
+from . import usagecontext

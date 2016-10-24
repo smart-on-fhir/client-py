@@ -103,7 +103,7 @@ class FHIRClient(object):
     def prepare(self):
         """ Returns True if the client is ready to make API calls (e.g. there
         is an access token or this is an open server). In contrast to the
-        `ready` property, this method will fetch the server's Conformance
+        `ready` property, this method will fetch the server's capability
         statement if it hasn't yet been fetched.
         
         :returns: True if the server can make authenticated calls

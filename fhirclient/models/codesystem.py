@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -37,8 +37,8 @@ class CodeSystem(domainresource.DomainResource):
         List of `CodeSystemConcept` items (represented as `dict` in JSON). """
         
         self.contact = None
-        """ Contact details of the publisher.
-        List of `CodeSystemContact` items (represented as `dict` in JSON). """
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.content = None
         """ not-present | examplar | fragment | complete.
@@ -53,11 +53,11 @@ class CodeSystem(domainresource.DomainResource):
         Type `int`. """
         
         self.date = None
-        """ Date for given status.
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Human language description of the code system.
+        """ Natural language description of the code system.
         Type `str`. """
         
         self.experimental = None
@@ -73,11 +73,15 @@ class CodeSystem(domainresource.DomainResource):
         Type `str`. """
         
         self.identifier = None
-        """ Additional identifier for the code system (e.g. HL7 v2 / CDA).
+        """ Additional identifier for the code system.
         Type `Identifier` (represented as `dict` in JSON). """
         
+        self.jurisdiction = None
+        """ Intended jurisdiction for code system (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.name = None
-        """ Informal name for this code system.
+        """ Name for this code system (Computer friendly).
         Type `str`. """
         
         self.property = None
@@ -85,31 +89,36 @@ class CodeSystem(domainresource.DomainResource):
         List of `CodeSystemProperty` items (represented as `dict` in JSON). """
         
         self.publisher = None
-        """ Name of the publisher (organization or individual).
+        """ Name of the publisher (Organization or individual).
         Type `str`. """
         
-        self.requirements = None
-        """ Why needed.
+        self.purpose = None
+        """ Why this code system is defined.
         Type `str`. """
         
         self.status = None
         """ draft | active | retired.
         Type `str`. """
         
+        self.title = None
+        """ Name for this code system (Human friendly).
+        Type `str`. """
+        
         self.url = None
-        """ Globally unique logical identifier for  code system (Coding.system).
+        """ Logical uri to reference this code system (globally unique)
+        (Coding.system).
         Type `str`. """
         
         self.useContext = None
         """ Content intends to support these contexts.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.valueSet = None
         """ Canonical URL for value set with entire code system.
         Type `str`. """
         
         self.version = None
-        """ Logical identifier for this version (Coding.version).
+        """ Business version of the code system (Coding.version).
         Type `str`. """
         
         self.versionNeeded = None
@@ -124,7 +133,7 @@ class CodeSystem(domainresource.DomainResource):
             ("caseSensitive", "caseSensitive", bool, False, None, False),
             ("compositional", "compositional", bool, False, None, False),
             ("concept", "concept", CodeSystemConcept, True, None, False),
-            ("contact", "contact", CodeSystemContact, True, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("content", "content", str, False, None, True),
             ("copyright", "copyright", str, False, None, False),
             ("count", "count", int, False, None, False),
@@ -134,13 +143,15 @@ class CodeSystem(domainresource.DomainResource):
             ("filter", "filter", CodeSystemFilter, True, None, False),
             ("hierarchyMeaning", "hierarchyMeaning", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, False),
             ("property", "property", CodeSystemProperty, True, None, False),
             ("publisher", "publisher", str, False, None, False),
-            ("requirements", "requirements", str, False, None, False),
+            ("purpose", "purpose", str, False, None, False),
             ("status", "status", str, False, None, True),
+            ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("valueSet", "valueSet", str, False, None, False),
             ("version", "version", str, False, None, False),
             ("versionNeeded", "versionNeeded", bool, False, None, False),
@@ -308,41 +319,6 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
         return js
 
 
-class CodeSystemContact(backboneelement.BackboneElement):
-    """ Contact details of the publisher.
-    
-    Contacts to assist a user in finding and communicating with the publisher.
-    """
-    
-    resource_name = "CodeSystemContact"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Name of an individual to contact.
-        Type `str`. """
-        
-        self.telecom = None
-        """ Contact details for individual or publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        super(CodeSystemContact, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(CodeSystemContact, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-        ])
-        return js
-
-
 class CodeSystemFilter(backboneelement.BackboneElement):
     """ Filter that can be used in a value set.
     
@@ -438,6 +414,7 @@ class CodeSystemProperty(backboneelement.BackboneElement):
 
 from . import codeableconcept
 from . import coding
-from . import contactpoint
+from . import contactdetail
 from . import fhirdate
 from . import identifier
+from . import usagecontext

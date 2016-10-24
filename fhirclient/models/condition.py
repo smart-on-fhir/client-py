@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -59,8 +59,8 @@ class Condition(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.category = None
-        """ complaint | symptom | finding | diagnosis.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ problem-list-item | encounter-diagnosis.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.clinicalStatus = None
         """ active | relapse | remission | resolved.
@@ -140,7 +140,7 @@ class Condition(domainresource.DomainResource):
             ("abatementString", "abatementString", str, False, "abatement", False),
             ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("clinicalStatus", "clinicalStatus", str, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("context", "context", fhirreference.FHIRReference, False, None, False),

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -32,7 +32,7 @@ class Immunization(domainresource.DomainResource):
         
         self.doseQuantity = None
         """ Amount of vaccine administered.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.encounter = None
         """ Encounter administered as part of.

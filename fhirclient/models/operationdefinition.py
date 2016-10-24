@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -37,15 +37,15 @@ class OperationDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.contact = None
-        """ Contact details of the publisher.
-        List of `OperationDefinitionContact` items (represented as `dict` in JSON). """
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.date = None
-        """ Date for this version of the operation definition.
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Natural language description of the operation.
+        """ Natural language description of the operation definition.
         Type `str`. """
         
         self.experimental = None
@@ -60,13 +60,21 @@ class OperationDefinition(domainresource.DomainResource):
         """ Invoke on an instance?.
         Type `bool`. """
         
+        self.jurisdiction = None
+        """ Intended jurisdiction for operation definition (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.kind = None
         """ operation | query.
         Type `str`. """
         
         self.name = None
-        """ Informal name for this operation.
+        """ Name for this operation definition (Computer friendly).
         Type `str`. """
+        
+        self.overload = None
+        """ For generating overloaded methods in code.
+        List of `OperationDefinitionOverload` items (represented as `dict` in JSON). """
         
         self.parameter = None
         """ Parameters for the operation/query.
@@ -76,9 +84,13 @@ class OperationDefinition(domainresource.DomainResource):
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
-        self.requirements = None
-        """ Why this resource has been created.
+        self.purpose = None
+        """ Why this operation definition is defined.
         Type `str`. """
+        
+        self.resource = None
+        """ Types this operation applies to.
+        List of `str` items. """
         
         self.status = None
         """ draft | active | retired.
@@ -89,19 +101,20 @@ class OperationDefinition(domainresource.DomainResource):
         Type `bool`. """
         
         self.type = None
-        """ Invoke at resource level for these type.
-        List of `str` items. """
+        """ Invole at the type level?.
+        Type `bool`. """
         
         self.url = None
-        """ Logical URL to reference this operation definition.
+        """ Logical uri to reference this operation definition (globally
+        unique).
         Type `str`. """
         
         self.useContext = None
         """ Content intends to support these contexts.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Logical id for this version of the operation definition.
+        """ Business version of the operation definition.
         Type `str`. """
         
         super(OperationDefinition, self).__init__(jsondict=jsondict, strict=strict)
@@ -112,22 +125,25 @@ class OperationDefinition(domainresource.DomainResource):
             ("base", "base", fhirreference.FHIRReference, False, None, False),
             ("code", "code", str, False, None, True),
             ("comment", "comment", str, False, None, False),
-            ("contact", "contact", OperationDefinitionContact, True, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("idempotent", "idempotent", bool, False, None, False),
             ("instance", "instance", bool, False, None, True),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("kind", "kind", str, False, None, True),
             ("name", "name", str, False, None, True),
+            ("overload", "overload", OperationDefinitionOverload, True, None, False),
             ("parameter", "parameter", OperationDefinitionParameter, True, None, False),
             ("publisher", "publisher", str, False, None, False),
-            ("requirements", "requirements", str, False, None, False),
+            ("purpose", "purpose", str, False, None, False),
+            ("resource", "resource", str, True, None, False),
             ("status", "status", str, False, None, True),
             ("system", "system", bool, False, None, True),
-            ("type", "type", str, True, None, False),
+            ("type", "type", bool, False, None, True),
             ("url", "url", str, False, None, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
@@ -135,13 +151,14 @@ class OperationDefinition(domainresource.DomainResource):
 
 from . import backboneelement
 
-class OperationDefinitionContact(backboneelement.BackboneElement):
-    """ Contact details of the publisher.
+class OperationDefinitionOverload(backboneelement.BackboneElement):
+    """ For generating overloaded methods in code.
     
-    Contacts to assist a user in finding and communicating with the publisher.
+    Defines an appropriate combination of parameters to use when invoking this
+    operation.
     """
     
-    resource_name = "OperationDefinitionContact"
+    resource_name = "OperationDefinitionOverload"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -151,21 +168,21 @@ class OperationDefinitionContact(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.name = None
-        """ Name of an individual to contact.
+        self.comment = None
+        """ Comments to go on overload.
         Type `str`. """
         
-        self.telecom = None
-        """ Contact details for individual or publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
+        self.parameterName = None
+        """ Name of parameter to include in overload.
+        List of `str` items. """
         
-        super(OperationDefinitionContact, self).__init__(jsondict=jsondict, strict=strict)
+        super(OperationDefinitionOverload, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(OperationDefinitionContact, self).elementProperties()
+        js = super(OperationDefinitionOverload, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("comment", "comment", str, False, None, False),
+            ("parameterName", "parameterName", str, True, None, False),
         ])
         return js
 
@@ -288,6 +305,7 @@ class OperationDefinitionParameterBinding(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import contactpoint
+from . import contactdetail
 from . import fhirdate
 from . import fhirreference
+from . import usagecontext

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/NutritionRequest) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/NutritionRequest) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -141,11 +141,11 @@ class NutritionRequestEnteralFormula(backboneelement.BackboneElement):
         
         self.caloricDensity = None
         """ Amount of energy per specified volume that is required.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.maxVolumeToDeliver = None
         """ Upper limit on formula volume per unit of time.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.routeofAdministration = None
         """ How the formula should enter the patient's gastrointestinal tract.
@@ -190,11 +190,11 @@ class NutritionRequestEnteralFormulaAdministration(backboneelement.BackboneEleme
         
         self.quantity = None
         """ The volume of formula to provide.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.rateQuantity = None
         """ Speed with which the formula is provided per period of time.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.rateRatio = None
         """ Speed with which the formula is provided per period of time.
@@ -293,7 +293,7 @@ class NutritionRequestOralDietNutrient(backboneelement.BackboneElement):
         
         self.amount = None
         """ Quantity of the specified nutrient.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.modifier = None
         """ Type of nutrient that is being modified.
@@ -374,7 +374,7 @@ class NutritionRequestSupplement(backboneelement.BackboneElement):
         
         self.quantity = None
         """ Amount of the nutritional supplement.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.schedule = None
         """ Scheduled frequency of supplement.

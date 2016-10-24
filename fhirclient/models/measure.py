@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Measure) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Measure) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -23,12 +23,16 @@ class Measure(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.approvalDate = None
+        """ When measure approved by publisher.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.clinicalRecommendationStatement = None
         """ Clinical recommendation.
         Type `str`. """
         
         self.contact = None
-        """ Contact details of the publisher.
+        """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.contributor = None
@@ -39,9 +43,9 @@ class Measure(domainresource.DomainResource):
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.coverage = None
-        """ Describes the context of use for this measure.
-        List of `UsageContext` items (represented as `dict` in JSON). """
+        self.date = None
+        """ Date this was last changed.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.definition = None
         """ A natural language definition of the measure.
@@ -72,13 +76,17 @@ class Measure(domainresource.DomainResource):
         Type `str`. """
         
         self.identifier = None
-        """ Logical identifier(s) for the measure.
+        """ Additional identifier for the measure.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.improvementNotation = None
         """ Improvement notation for the measure, e.g. higher score indicates
         better quality.
         Type `str`. """
+        
+        self.jurisdiction = None
+        """ Intended jurisdiction for measure (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.lastReviewDate = None
         """ Last review date for the measure.
@@ -89,19 +97,15 @@ class Measure(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Library` (represented as `dict` in JSON). """
         
         self.name = None
-        """ A machine-friendly name for the measure.
+        """ Name for this measure (Computer friendly).
         Type `str`. """
-        
-        self.publicationDate = None
-        """ Publication date for this version of the measure.
-        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
         self.purpose = None
-        """ Describes the purpose of the measure.
+        """ Why this measure is defined.
         Type `str`. """
         
         self.rateAggregation = None
@@ -112,9 +116,9 @@ class Measure(domainresource.DomainResource):
         """ Why does this measure exist.
         Type `str`. """
         
-        self.relatedResource = None
-        """ Related resources for the measure.
-        List of `RelatedResource` items (represented as `dict` in JSON). """
+        self.relatedArtifact = None
+        """ Related artifacts for the measure.
+        List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.riskAdjustment = None
         """ How is risk adjustment applied for this measure.
@@ -129,7 +133,7 @@ class Measure(domainresource.DomainResource):
         Type `str`. """
         
         self.status = None
-        """ draft | active | inactive.
+        """ draft | active | retired.
         Type `str`. """
         
         self.supplementalData = None
@@ -137,7 +141,7 @@ class Measure(domainresource.DomainResource):
         List of `MeasureSupplementalData` items (represented as `dict` in JSON). """
         
         self.title = None
-        """ A user-friendly title for the measure.
+        """ Name for this measure (Human friendly).
         Type `str`. """
         
         self.topic = None
@@ -149,15 +153,19 @@ class Measure(domainresource.DomainResource):
         List of `str` items. """
         
         self.url = None
-        """ Logical URL to reference this measure.
+        """ Logical uri to reference this measure (globally unique).
         Type `str`. """
         
         self.usage = None
         """ Describes the clinical usage of the measure.
         Type `str`. """
         
+        self.useContext = None
+        """ Content intends to support these contexts.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+        
         self.version = None
-        """ The version of the measure, if any.
+        """ Business version of the measure.
         Type `str`. """
         
         super(Measure, self).__init__(jsondict=jsondict, strict=strict)
@@ -165,11 +173,12 @@ class Measure(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Measure, self).elementProperties()
         js.extend([
+            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
             ("clinicalRecommendationStatement", "clinicalRecommendationStatement", str, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("contributor", "contributor", contributor.Contributor, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("coverage", "coverage", usagecontext.UsageContext, True, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("definition", "definition", str, False, None, False),
             ("description", "description", str, False, None, False),
             ("disclaimer", "disclaimer", str, False, None, False),
@@ -179,15 +188,15 @@ class Measure(domainresource.DomainResource):
             ("guidance", "guidance", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("improvementNotation", "improvementNotation", str, False, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
             ("library", "library", fhirreference.FHIRReference, True, None, False),
             ("name", "name", str, False, None, False),
-            ("publicationDate", "publicationDate", fhirdate.FHIRDate, False, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
             ("rateAggregation", "rateAggregation", str, False, None, False),
             ("rationale", "rationale", str, False, None, False),
-            ("relatedResource", "relatedResource", relatedresource.RelatedResource, True, None, False),
+            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("riskAdjustment", "riskAdjustment", str, False, None, False),
             ("scoring", "scoring", str, False, None, False),
             ("set", "set", str, False, None, False),
@@ -198,6 +207,7 @@ class Measure(domainresource.DomainResource):
             ("type", "type", str, True, None, False),
             ("url", "url", str, False, None, False),
             ("usage", "usage", str, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
@@ -405,5 +415,5 @@ from . import fhirdate
 from . import fhirreference
 from . import identifier
 from . import period
-from . import relatedresource
+from . import relatedartifact
 from . import usagecontext

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -624,10 +624,6 @@ class ElementDefinition(element.Element):
         """ If the element must supported.
         Type `bool`. """
         
-        self.name = None
-        """ Name for this particular element definition (reference target).
-        Type `str`. """
-        
         self.path = None
         """ Path of the element in the heirarchy of elements.
         Type `str`. """
@@ -796,6 +792,10 @@ class ElementDefinition(element.Element):
         """ Concise definition for xml presentation.
         Type `str`. """
         
+        self.sliceName = None
+        """ Name for this particular element (in a set of slices).
+        Type `str`. """
+        
         self.slicing = None
         """ This element is sliced - slices follow.
         Type `ElementDefinitionSlicing` (represented as `dict` in JSON). """
@@ -959,7 +959,6 @@ class ElementDefinition(element.Element):
             ("minValueTime", "minValueTime", fhirdate.FHIRDate, False, "minValue", False),
             ("minValueUnsignedInt", "minValueUnsignedInt", int, False, "minValue", False),
             ("mustSupport", "mustSupport", bool, False, None, False),
-            ("name", "name", str, False, None, False),
             ("path", "path", str, False, None, True),
             ("patternAddress", "patternAddress", address.Address, False, "pattern", False),
             ("patternAge", "patternAge", age.Age, False, "pattern", False),
@@ -1002,6 +1001,7 @@ class ElementDefinition(element.Element):
             ("representation", "representation", str, True, None, False),
             ("requirements", "requirements", str, False, None, False),
             ("short", "short", str, False, None, False),
+            ("sliceName", "sliceName", str, False, None, False),
             ("slicing", "slicing", ElementDefinitionSlicing, False, None, False),
             ("type", "type", ElementDefinitionType, True, None, False),
         ])
@@ -1136,6 +1136,10 @@ class ElementDefinitionConstraint(element.Element):
         """ error | warning.
         Type `str`. """
         
+        self.source = None
+        """ Reference to original source of constraint.
+        Type `str`. """
+        
         self.xpath = None
         """ XPath expression of constraint.
         Type `str`. """
@@ -1145,12 +1149,13 @@ class ElementDefinitionConstraint(element.Element):
     def elementProperties(self):
         js = super(ElementDefinitionConstraint, self).elementProperties()
         js.extend([
-            ("expression", "expression", str, False, None, False),
+            ("expression", "expression", str, False, None, True),
             ("human", "human", str, False, None, True),
             ("key", "key", str, False, None, True),
             ("requirements", "requirements", str, False, None, False),
             ("severity", "severity", str, False, None, True),
-            ("xpath", "xpath", str, False, None, True),
+            ("source", "source", str, False, None, False),
+            ("xpath", "xpath", str, False, None, False),
         ])
         return js
 
@@ -1269,7 +1274,7 @@ class ElementDefinitionType(element.Element):
         List of `str` items. """
         
         self.code = None
-        """ Name of Data type or Resource.
+        """ Data type or Resource (reference to definition).
         Type `str`. """
         
         self.profile = None

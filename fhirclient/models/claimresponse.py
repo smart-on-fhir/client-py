@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -60,11 +60,7 @@ class ClaimResponse(domainresource.DomainResource):
         """ Processing notes.
         List of `ClaimResponseNote` items (represented as `dict` in JSON). """
         
-        self.organizationIdentifier = None
-        """ Insurer.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.organizationReference = None
+        self.organization = None
         """ Insurer.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
@@ -81,32 +77,20 @@ class ClaimResponse(domainresource.DomainResource):
         Type `Coding` (represented as `dict` in JSON). """
         
         self.payment = None
-        """ None.
+        """ Payment details, if paid.
         Type `ClaimResponsePayment` (represented as `dict` in JSON). """
         
-        self.requestIdentifier = None
+        self.request = None
         """ Id of resource triggering adjudication.
-        Type `Identifier` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Claim` (represented as `dict` in JSON). """
         
-        self.requestOrganizationIdentifier = None
-        """ Responsible organization.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.requestOrganizationReference = None
+        self.requestOrganization = None
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.requestProviderIdentifier = None
-        """ Responsible practitioner.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.requestProviderReference = None
+        self.requestProvider = None
         """ Responsible practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.requestReference = None
-        """ Id of resource triggering adjudication.
-        Type `FHIRReference` referencing `Claim` (represented as `dict` in JSON). """
         
         self.reserved = None
         """ Funds reserved status.
@@ -146,18 +130,14 @@ class ClaimResponse(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("item", "item", ClaimResponseItem, True, None, False),
             ("note", "note", ClaimResponseNote, True, None, False),
-            ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
-            ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
             ("outcome", "outcome", coding.Coding, False, None, False),
             ("payeeType", "payeeType", coding.Coding, False, None, False),
             ("payment", "payment", ClaimResponsePayment, False, None, False),
-            ("requestIdentifier", "requestIdentifier", identifier.Identifier, False, "request", False),
-            ("requestOrganizationIdentifier", "requestOrganizationIdentifier", identifier.Identifier, False, "requestOrganization", False),
-            ("requestOrganizationReference", "requestOrganizationReference", fhirreference.FHIRReference, False, "requestOrganization", False),
-            ("requestProviderIdentifier", "requestProviderIdentifier", identifier.Identifier, False, "requestProvider", False),
-            ("requestProviderReference", "requestProviderReference", fhirreference.FHIRReference, False, "requestProvider", False),
-            ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
+            ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
+            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
             ("reserved", "reserved", coding.Coding, False, None, False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
             ("status", "status", str, False, None, True),
@@ -324,11 +304,7 @@ class ClaimResponseCoverage(backboneelement.BackboneElement):
         """ Adjudication results.
         Type `FHIRReference` referencing `ClaimResponse` (represented as `dict` in JSON). """
         
-        self.coverageIdentifier = None
-        """ Insurance information.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.coverageReference = None
+        self.coverage = None
         """ Insurance information.
         Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
         
@@ -351,8 +327,7 @@ class ClaimResponseCoverage(backboneelement.BackboneElement):
         js.extend([
             ("businessArrangement", "businessArrangement", str, False, None, False),
             ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
-            ("coverageIdentifier", "coverageIdentifier", identifier.Identifier, False, "coverage", True),
-            ("coverageReference", "coverageReference", fhirreference.FHIRReference, False, "coverage", True),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
             ("focal", "focal", bool, False, None, True),
             ("preAuthRef", "preAuthRef", str, True, None, False),
             ("sequence", "sequence", int, False, None, True),
@@ -626,7 +601,7 @@ class ClaimResponseNote(backboneelement.BackboneElement):
 
 
 class ClaimResponsePayment(backboneelement.BackboneElement):
-    """ None.
+    """ Payment details, if paid.
     
     Payment details for the claim if the claim has been paid.
     """

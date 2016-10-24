@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Medication) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Medication) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -113,7 +113,7 @@ class MedicationPackageContent(backboneelement.BackboneElement):
         
         self.amount = None
         """ Quantity present in the package.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.itemCodeableConcept = None
         """ The item in the package.
@@ -152,11 +152,11 @@ class MedicationProduct(backboneelement.BackboneElement):
         """
         
         self.batch = None
-        """ None.
+        """ Identifies a single production run.
         List of `MedicationProductBatch` items (represented as `dict` in JSON). """
         
         self.form = None
-        """ powder | tablets | carton +.
+        """ powder | tablets | capsule +.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.ingredient = None
@@ -176,7 +176,7 @@ class MedicationProduct(backboneelement.BackboneElement):
 
 
 class MedicationProductBatch(backboneelement.BackboneElement):
-    """ None.
+    """ Identifies a single production run.
     
     Information about a group of medication produced or packaged from one
     production run.
@@ -193,11 +193,11 @@ class MedicationProductBatch(backboneelement.BackboneElement):
         """
         
         self.expirationDate = None
-        """ None.
+        """ When batch will expire.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.lotNumber = None
-        """ None.
+        """ Identifier assigned to batch.
         Type `str`. """
         
         super(MedicationProductBatch, self).__init__(jsondict=jsondict, strict=strict)

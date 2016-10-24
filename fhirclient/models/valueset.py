@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -24,23 +24,23 @@ class ValueSet(domainresource.DomainResource):
         """
         
         self.compose = None
-        """ When value set includes codes from elsewhere.
+        """ Definition of the content of the value set (CLD).
         Type `ValueSetCompose` (represented as `dict` in JSON). """
         
         self.contact = None
-        """ Contact details of the publisher.
-        List of `ValueSetContact` items (represented as `dict` in JSON). """
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.copyright = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
-        """ Date for given status.
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Human language description of the value set.
+        """ Natural language description of the value set.
         Type `str`. """
         
         self.expansion = None
@@ -56,7 +56,7 @@ class ValueSet(domainresource.DomainResource):
         Type `bool`. """
         
         self.identifier = None
-        """ Additional identifier for the value set (e.g. HL7 v2 / CDA).
+        """ Additional identifier for the value set.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.immutable = None
@@ -64,36 +64,40 @@ class ValueSet(domainresource.DomainResource):
         definition may occur.
         Type `bool`. """
         
-        self.lockedDate = None
-        """ Fixed date for all referenced code systems and value sets.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        self.jurisdiction = None
+        """ Intended jurisdiction for value set (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Informal name for this value set.
+        """ Name for this value set (Computer friendly).
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (organization or individual).
+        """ Name of the publisher (Organization or individual).
         Type `str`. """
         
-        self.requirements = None
-        """ Why needed.
+        self.purpose = None
+        """ Why this value set is defined.
         Type `str`. """
         
         self.status = None
         """ draft | active | retired.
         Type `str`. """
         
+        self.title = None
+        """ Name for this value set (Human friendly).
+        Type `str`. """
+        
         self.url = None
-        """ Globally unique logical identifier for  value set.
+        """ Logical uri to reference this value set (globally unique).
         Type `str`. """
         
         self.useContext = None
         """ Content intends to support these contexts.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Logical identifier for this version of the value set.
+        """ Business version of the value set.
         Type `str`. """
         
         super(ValueSet, self).__init__(jsondict=jsondict, strict=strict)
@@ -102,7 +106,7 @@ class ValueSet(domainresource.DomainResource):
         js = super(ValueSet, self).elementProperties()
         js.extend([
             ("compose", "compose", ValueSetCompose, False, None, False),
-            ("contact", "contact", ValueSetContact, True, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
@@ -111,13 +115,14 @@ class ValueSet(domainresource.DomainResource):
             ("extensible", "extensible", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("immutable", "immutable", bool, False, None, False),
-            ("lockedDate", "lockedDate", fhirdate.FHIRDate, False, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, False),
             ("publisher", "publisher", str, False, None, False),
-            ("requirements", "requirements", str, False, None, False),
+            ("purpose", "purpose", str, False, None, False),
             ("status", "status", str, False, None, True),
+            ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
@@ -126,10 +131,11 @@ class ValueSet(domainresource.DomainResource):
 from . import backboneelement
 
 class ValueSetCompose(backboneelement.BackboneElement):
-    """ When value set includes codes from elsewhere.
+    """ Definition of the content of the value set (CLD).
     
-    A set of criteria that provide the content logical definition of the value
-    set by including or excluding codes from outside this value set.
+    A set of criteria that define the content logical definition of the value
+    set by including or excluding codes from outside this value set. This I
+    also known as the "Content Logical Definition" (CLD).
     """
     
     resource_name = "ValueSetCompose"
@@ -143,16 +149,16 @@ class ValueSetCompose(backboneelement.BackboneElement):
         """
         
         self.exclude = None
-        """ Explicitly exclude codes.
+        """ Explicitly exclude codes from a code system or other value sets.
         List of `ValueSetComposeInclude` items (represented as `dict` in JSON). """
-        
-        self.import_fhir = None
-        """ Import the contents of another value set.
-        List of `str` items. """
         
         self.include = None
-        """ Include one or more codes from a code system.
+        """ Include one or more codes from a code system or other value set(s).
         List of `ValueSetComposeInclude` items (represented as `dict` in JSON). """
+        
+        self.lockedDate = None
+        """ Fixed date for all referenced code systems and value sets.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         super(ValueSetCompose, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -160,14 +166,14 @@ class ValueSetCompose(backboneelement.BackboneElement):
         js = super(ValueSetCompose, self).elementProperties()
         js.extend([
             ("exclude", "exclude", ValueSetComposeInclude, True, None, False),
-            ("import_fhir", "import", str, True, None, False),
-            ("include", "include", ValueSetComposeInclude, True, None, False),
+            ("include", "include", ValueSetComposeInclude, True, None, True),
+            ("lockedDate", "lockedDate", fhirdate.FHIRDate, False, None, False),
         ])
         return js
 
 
 class ValueSetComposeInclude(backboneelement.BackboneElement):
-    """ Include one or more codes from a code system.
+    """ Include one or more codes from a code system or other value set(s).
     """
     
     resource_name = "ValueSetComposeInclude"
@@ -192,6 +198,10 @@ class ValueSetComposeInclude(backboneelement.BackboneElement):
         """ The system the codes come from.
         Type `str`. """
         
+        self.valueSet = None
+        """ Select only contents included in this value set.
+        List of `str` items. """
+        
         self.version = None
         """ Specific version of the code system referred to.
         Type `str`. """
@@ -203,7 +213,8 @@ class ValueSetComposeInclude(backboneelement.BackboneElement):
         js.extend([
             ("concept", "concept", ValueSetComposeIncludeConcept, True, None, False),
             ("filter", "filter", ValueSetComposeIncludeFilter, True, None, False),
-            ("system", "system", str, False, None, True),
+            ("system", "system", str, False, None, False),
+            ("valueSet", "valueSet", str, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
@@ -230,7 +241,7 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
         Type `str`. """
         
         self.designation = None
-        """ Additional representations for this valueset.
+        """ Additional representations for this concept.
         List of `ValueSetComposeIncludeConceptDesignation` items (represented as `dict` in JSON). """
         
         self.display = None
@@ -250,7 +261,7 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
 
 
 class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
-    """ Additional representations for this valueset.
+    """ Additional representations for this concept.
     
     Additional representations for this concept when used in this value set -
     other languages, aliases, specialized purposes, used for particular
@@ -329,41 +340,6 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
             ("op", "op", str, False, None, True),
             ("property", "property", str, False, None, True),
             ("value", "value", str, False, None, True),
-        ])
-        return js
-
-
-class ValueSetContact(backboneelement.BackboneElement):
-    """ Contact details of the publisher.
-    
-    Contacts to assist a user in finding and communicating with the publisher.
-    """
-    
-    resource_name = "ValueSetContact"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Name of an individual to contact.
-        Type `str`. """
-        
-        self.telecom = None
-        """ Contact details for individual or publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        super(ValueSetContact, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ValueSetContact, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -453,6 +429,10 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
         """ Codes contained under this entry.
         List of `ValueSetExpansionContains` items (represented as `dict` in JSON). """
         
+        self.designation = None
+        """ Additional representations for this item.
+        List of `ValueSetComposeIncludeConceptDesignation` items (represented as `dict` in JSON). """
+        
         self.display = None
         """ User display for the concept.
         Type `str`. """
@@ -473,6 +453,7 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
             ("abstract", "abstract", bool, False, None, False),
             ("code", "code", str, False, None, False),
             ("contains", "contains", ValueSetExpansionContains, True, None, False),
+            ("designation", "designation", ValueSetComposeIncludeConceptDesignation, True, None, False),
             ("display", "display", str, False, None, False),
             ("system", "system", str, False, None, False),
             ("version", "version", str, False, None, False),
@@ -544,6 +525,7 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
 
 from . import codeableconcept
 from . import coding
-from . import contactpoint
+from . import contactdetail
 from . import fhirdate
 from . import identifier
+from . import usagecontext

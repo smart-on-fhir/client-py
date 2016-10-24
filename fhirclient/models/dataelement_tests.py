@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -50,26 +50,6 @@ class DataElementTests(unittest.TestCase):
         self.assertEqual(inst.publisher, "DCP")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.useContext[0].coding[0].display, "FBPP Pooled Database")
-        self.assertEqual(inst.useContext[0].coding[0].system, "http://example.org/FBPP")
-        self.assertEqual(inst.useContext[0].coding[1].display, "Demographics")
-        self.assertEqual(inst.useContext[0].coding[1].system, "http://example.org/PhenX")
-        self.assertEqual(inst.useContext[0].coding[2].display, "Pt. Administrative")
-        self.assertEqual(inst.useContext[0].coding[2].system, "http://example.org/EligibilityCriteria")
-        self.assertEqual(inst.useContext[0].coding[3].display, "UAMS New CDEs")
-        self.assertEqual(inst.useContext[0].coding[3].system, "http://example.org/UAMSClinicalResearch")
-        self.assertEqual(inst.useContext[0].coding[4].display, "Substance Abuse and ")
-        self.assertEqual(inst.useContext[0].coding[4].system, "http://example.org/PhenX")
-        self.assertEqual(inst.useContext[0].coding[5].display, "CSAERS Adverse Event")
-        self.assertEqual(inst.useContext[0].coding[5].system, "http://example.org/Category")
-        self.assertEqual(inst.useContext[0].coding[6].display, "Core: Tier 1")
-        self.assertEqual(inst.useContext[0].coding[6].system, "http://example.org/PhenX")
-        self.assertEqual(inst.useContext[0].coding[7].display, "Case Report Forms")
-        self.assertEqual(inst.useContext[0].coding[7].system, "http://example.org/Category")
-        self.assertEqual(inst.useContext[0].coding[8].display, "CSAERS Review Set")
-        self.assertEqual(inst.useContext[0].coding[8].system, "http://example.org/Category")
-        self.assertEqual(inst.useContext[0].coding[9].display, "CIAF")
-        self.assertEqual(inst.useContext[0].coding[9].system, "http://example.org/Demonstration%20Applications")
         self.assertEqual(inst.version, "1.0")
     
     def testDataElement2(self):

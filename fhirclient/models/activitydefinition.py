@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -26,6 +26,10 @@ class ActivityDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.approvalDate = None
+        """ When activity definition approved by publisher.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.category = None
         """ communication | device | diagnostic | diet | drug | encounter |
         immunization | observation | procedure | referral | supply | vision
@@ -37,7 +41,7 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.contact = None
-        """ Contact details of the publisher.
+        """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.contributor = None
@@ -48,12 +52,12 @@ class ActivityDefinition(domainresource.DomainResource):
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.coverage = None
-        """ Describes the context of use for this asset.
-        List of `UsageContext` items (represented as `dict` in JSON). """
+        self.date = None
+        """ Date this was last changed.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Natural language description of the asset.
+        """ Natural language description of the activity definition.
         Type `str`. """
         
         self.dynamicValue = None
@@ -61,7 +65,7 @@ class ActivityDefinition(domainresource.DomainResource):
         List of `ActivityDefinitionDynamicValue` items (represented as `dict` in JSON). """
         
         self.effectivePeriod = None
-        """ The effective date range for the asset.
+        """ The effective date range for the activity definition.
         Type `Period` (represented as `dict` in JSON). """
         
         self.experimental = None
@@ -69,11 +73,15 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `bool`. """
         
         self.identifier = None
-        """ Logical identifier(s) for the asset.
+        """ Additional identifier for the activity definition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.jurisdiction = None
+        """ Intended jurisdiction for activity definition (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.lastReviewDate = None
-        """ Last review date for the asset.
+        """ Last review date for the activity definition.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.library = None
@@ -85,7 +93,7 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
         self.name = None
-        """ A machine-friendly name for the asset.
+        """ Name for this activity definition (Computer friendly).
         Type `str`. """
         
         self.participantType = None
@@ -100,28 +108,24 @@ class ActivityDefinition(domainresource.DomainResource):
         """ What's administered/supplied.
         Type `FHIRReference` referencing `Medication, Substance` (represented as `dict` in JSON). """
         
-        self.publicationDate = None
-        """ Publication date for this version of the asset.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
         self.publisher = None
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
         self.purpose = None
-        """ Describes the purpose of the asset.
+        """ Why this activity definition is defined.
         Type `str`. """
         
         self.quantity = None
         """ How much is administered/consumed/supplied.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
-        self.relatedResource = None
-        """ Related resources for the asset.
-        List of `RelatedResource` items (represented as `dict` in JSON). """
+        self.relatedArtifact = None
+        """ Related artifacts for the asset.
+        List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | inactive.
+        """ draft | active | retired.
         Type `str`. """
         
         self.timingCodeableConcept = None
@@ -133,7 +137,7 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `Timing` (represented as `dict` in JSON). """
         
         self.title = None
-        """ A user-friendly title for the asset.
+        """ Name for this activity definition (Human friendly).
         Type `str`. """
         
         self.topic = None
@@ -145,15 +149,19 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `FHIRReference` referencing `StructureMap` (represented as `dict` in JSON). """
         
         self.url = None
-        """ Logical URL to reference this asset.
+        """ Logical uri to reference this activity definition (globally unique).
         Type `str`. """
         
         self.usage = None
         """ Describes the clinical usage of the asset.
         Type `str`. """
         
+        self.useContext = None
+        """ Content intends to support these contexts.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+        
         self.version = None
-        """ The version of the asset, if any.
+        """ Business version of the activity definition.
         Type `str`. """
         
         super(ActivityDefinition, self).__init__(jsondict=jsondict, strict=strict)
@@ -161,17 +169,19 @@ class ActivityDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ActivityDefinition, self).elementProperties()
         js.extend([
+            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
             ("category", "category", str, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("contributor", "contributor", contributor.Contributor, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("coverage", "coverage", usagecontext.UsageContext, True, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
             ("dynamicValue", "dynamicValue", ActivityDefinitionDynamicValue, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
             ("library", "library", fhirreference.FHIRReference, True, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
@@ -179,11 +189,10 @@ class ActivityDefinition(domainresource.DomainResource):
             ("participantType", "participantType", str, True, None, False),
             ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
             ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
-            ("publicationDate", "publicationDate", fhirdate.FHIRDate, False, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("relatedResource", "relatedResource", relatedresource.RelatedResource, True, None, False),
+            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("status", "status", str, False, None, True),
             ("timingCodeableConcept", "timingCodeableConcept", codeableconcept.CodeableConcept, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
@@ -192,6 +201,7 @@ class ActivityDefinition(domainresource.DomainResource):
             ("transform", "transform", fhirreference.FHIRReference, False, None, False),
             ("url", "url", str, False, None, False),
             ("usage", "usage", str, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
@@ -256,6 +266,6 @@ from . import fhirreference
 from . import identifier
 from . import period
 from . import quantity
-from . import relatedresource
+from . import relatedartifact
 from . import timing
 from . import usagecontext

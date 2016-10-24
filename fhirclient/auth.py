@@ -28,11 +28,11 @@ class FHIRAuth(object):
             raise Exception('Class {0} is already registered for authorization type "{1}"'.format(FHIRAuth.auth_classes[cls.auth_type], cls.auth_type))
     
     @classmethod
-    def from_conformance_security(cls, security, state=None):
-        """ Supply a conformance.rest.security statement and this method will
-        figure out which type of security should be instantiated.
+    def from_capability_security(cls, security, state=None):
+        """ Supply a capabilitystatement.rest.security statement and this
+        method will figure out which type of security should be instantiated.
         
-        :param security: A ConformanceRestSecurity instance
+        :param security: A CapabilityStatementRestSecurity instance
         :param state: A settings/state dictionary
         :returns: A FHIRAuth instance or subclass thereof
         """

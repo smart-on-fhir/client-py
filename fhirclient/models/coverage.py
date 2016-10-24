@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -24,21 +24,9 @@ class Coverage(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.beneficiaryIdentifier = None
-        """ Plan Beneficiary.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.beneficiaryReference = None
+        self.beneficiary = None
         """ Plan Beneficiary.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.bin = None
-        """ BIN Number.
-        Type `str`. """
-        
-        self.class_fhir = None
-        """ An identifier for the class.
-        Type `str`. """
         
         self.contract = None
         """ Contract details.
@@ -48,10 +36,6 @@ class Coverage(domainresource.DomainResource):
         """ Dependent number.
         Type `int`. """
         
-        self.group = None
-        """ An identifier for the group.
-        Type `str`. """
-        
         self.identifier = None
         """ The primary coverage ID.
         List of `Identifier` items (represented as `dict` in JSON). """
@@ -60,13 +44,13 @@ class Coverage(domainresource.DomainResource):
         """ Is a Payment Agreement.
         Type `bool`. """
         
-        self.issuerIdentifier = None
-        """ Identifier for the plan or agreement issuer.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.issuerReference = None
+        self.issuer = None
         """ Identifier for the plan or agreement issuer.
         Type `FHIRReference` referencing `Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
+        
+        self.level = None
+        """ Additional coverage classifications.
+        List of `Coding` items (represented as `dict` in JSON). """
         
         self.network = None
         """ Insurer network.
@@ -76,15 +60,7 @@ class Coverage(domainresource.DomainResource):
         """ Coverage start and end dates.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.plan = None
-        """ An identifier for the plan.
-        Type `str`. """
-        
-        self.planholderIdentifier = None
-        """ Plan holder.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.planholderReference = None
+        self.planholder = None
         """ Plan holder.
         Type `FHIRReference` referencing `Patient, Organization` (represented as `dict` in JSON). """
         
@@ -100,14 +76,6 @@ class Coverage(domainresource.DomainResource):
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
         
-        self.subGroup = None
-        """ An identifier for the subsection of the group.
-        Type `str`. """
-        
-        self.subPlan = None
-        """ An identifier for the subsection of the plan.
-        Type `str`. """
-        
         self.type = None
         """ Type of coverage.
         Type `Coding` (represented as `dict` in JSON). """
@@ -117,27 +85,19 @@ class Coverage(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Coverage, self).elementProperties()
         js.extend([
-            ("beneficiaryIdentifier", "beneficiaryIdentifier", identifier.Identifier, False, "beneficiary", True),
-            ("beneficiaryReference", "beneficiaryReference", fhirreference.FHIRReference, False, "beneficiary", True),
-            ("bin", "bin", str, False, None, False),
-            ("class_fhir", "class", str, False, None, False),
+            ("beneficiary", "beneficiary", fhirreference.FHIRReference, False, None, True),
             ("contract", "contract", fhirreference.FHIRReference, True, None, False),
             ("dependent", "dependent", int, False, None, False),
-            ("group", "group", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("isAgreement", "isAgreement", bool, False, None, False),
-            ("issuerIdentifier", "issuerIdentifier", identifier.Identifier, False, "issuer", True),
-            ("issuerReference", "issuerReference", fhirreference.FHIRReference, False, "issuer", True),
+            ("issuer", "issuer", fhirreference.FHIRReference, False, None, True),
+            ("level", "level", coding.Coding, True, None, False),
             ("network", "network", str, False, None, False),
             ("period", "period", period.Period, False, None, False),
-            ("plan", "plan", str, False, None, False),
-            ("planholderIdentifier", "planholderIdentifier", identifier.Identifier, False, "planholder", True),
-            ("planholderReference", "planholderReference", fhirreference.FHIRReference, False, "planholder", True),
+            ("planholder", "planholder", fhirreference.FHIRReference, False, None, True),
             ("relationship", "relationship", coding.Coding, False, None, True),
             ("sequence", "sequence", int, False, None, False),
             ("status", "status", str, False, None, True),
-            ("subGroup", "subGroup", str, False, None, False),
-            ("subPlan", "subPlan", str, False, None, False),
             ("type", "type", coding.Coding, False, None, False),
         ])
         return js

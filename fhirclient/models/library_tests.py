@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -75,13 +75,13 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.dataRequirement[8].codeFilter[1].path, "medication.code")
         self.assertEqual(inst.dataRequirement[8].codeFilter[1].valueSetString, "2.16.840.1.113883.3.464.1003.196.12.1001")
         self.assertEqual(inst.dataRequirement[8].type, "MedicationStatement")
+        self.assertEqual(inst.date.date, FHIRDate("2015-07-22").date)
+        self.assertEqual(inst.date.as_json(), "2015-07-22")
         self.assertEqual(inst.description, "Logic for CMS 146: Appropriate Testing for Children with Pharyngitis")
         self.assertEqual(inst.id, "library-cms146-example")
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "CMS146")
-        self.assertEqual(inst.publicationDate.date, FHIRDate("2015-07-22").date)
-        self.assertEqual(inst.publicationDate.as_json(), "2015-07-22")
-        self.assertEqual(inst.relatedResource[0].type, "depends-on")
+        self.assertEqual(inst.relatedArtifact[0].type, "depends-on")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">CMS 146 Logic</div>")
         self.assertEqual(inst.text.status, "generated")
@@ -105,13 +105,13 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].path, "code")
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].valueSetString, "Other Female Reproductive Conditions")
         self.assertEqual(inst.dataRequirement[0].type, "Condition")
+        self.assertEqual(inst.date.date, FHIRDate("2015-07-22").date)
+        self.assertEqual(inst.date.as_json(), "2015-07-22")
         self.assertEqual(inst.description, "Common Logic for adherence to Chlamydia Screening guidelines")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "ChalmydiaScreening_Common")
-        self.assertEqual(inst.publicationDate.date, FHIRDate("2015-07-22").date)
-        self.assertEqual(inst.publicationDate.as_json(), "2015-07-22")
-        self.assertEqual(inst.relatedResource[0].type, "depends-on")
+        self.assertEqual(inst.relatedArtifact[0].type, "depends-on")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Chlamydia Screening Common Library</div>")
         self.assertEqual(inst.text.status, "generated")

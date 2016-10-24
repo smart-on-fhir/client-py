@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.6.0.9663 on 2016-08-31.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -361,10 +361,11 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.birthDate.date, FHIRDate("1966-04-04").date)
         self.assertEqual(inst.birthDate.as_json(), "1966-04-04")
         self.assertFalse(inst.deceasedBoolean)
+        self.assertEqual(inst.extension[0].extension[0].url, "ombCategory")
+        self.assertEqual(inst.extension[0].extension[0].valueCoding.code, "2106-3")
+        self.assertEqual(inst.extension[0].extension[0].valueCoding.display, "White")
+        self.assertEqual(inst.extension[0].extension[0].valueCoding.system, "http://hl7.org/fhir/v3/Race")
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/us-core-race")
-        self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].code, "2106-3")
-        self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].display, "white")
-        self.assertEqual(inst.extension[0].valueCodeableConcept.coding[0].system, "urn:oid:2.16.840.1.113883.6.238")
         self.assertEqual(inst.gender, "female")
         self.assertEqual(inst.id, "proband")
         self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.840.1.113883.6.117")
