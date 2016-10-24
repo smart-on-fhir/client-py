@@ -2,14 +2,16 @@ SMART FHIR Client
 =================
 
 This is _fhirclient_, a flexible Python client for [FHIR][] servers supporting the [SMART on FHIR][smart] protocol.
-The client is compatible with Python 2.7, possibly earlier, and Python 3.
+The client is compatible with Python 2.7.10 and Python 3.
 
 Client versioning is not identical to FHIR versioning.
-The `master` branch is usually on the latest version, possibly on bugfix releases thereof.
+The `master` branch is usually on the latest version of the client as shown below, possibly on bugfix releases thereof.
+See the `develop` branch for models that are closer to the latest FHIR continuous integration builds.
 
    Version |          FHIR | &nbsp;
 -----------|---------------|---
    **x.x** |       `1.6.0` | (STU-3 Ballot, Sep 2016)
+ **1.0.3** |       `1.0.2` | (DSTU 2)
    **1.0** |       `1.0.1` | (DSTU 2)
    **0.5** |  `0.5.0.5149` | (DSTU 2 Ballot, May 2015)
  **0.0.4** | `0.0.82.2943` | (DSTU 1)
@@ -82,9 +84,27 @@ patient.name[0].given
 # ['Christy']
 ```
 
+##### Search Records on Server
+
+You can also search for resources matching a particular set of criteria:
+
+```python
+smart = client.FHIRClient(settings=settings)
+import fhirclient.models.procedure as p
+search = p.Procedure.where(struct={'subject': 'hca-pat-1', 'status': 'completed'})
+procedures = search.perform_resources(smart.server)
+for procedure in procedures:
+    procedure.as_json()
+    # {'status': u'completed', 'code': {'text': u'Lumpectomy w/ SN', ...
+
+# to get the raw Bundle instead of resources only, you can use:
+bundle = search.perform(smart.server)
+```
+
 ### Data Model Use
 
 The client contains data model classes, built using [fhir-parser][], that handle (de)serialization and allow to work with FHIR data in a Pythonic way.
+Starting with version 1.0.5, data model validity are enforced to a certain degree.
 
 #### Initialize Data Model
 
@@ -101,6 +121,14 @@ name.family = ['Parker']
 patient.name = [name]
 patient.as_json()
 # prints patient's JSON representation, now with id and name
+
+name.given = 'Peter'
+patient.as_json()
+# throws FHIRValidationError:
+# {root}:
+#   name:
+#     given:
+#       Expecting property "given" on <class 'fhirclient.models.humanname.HumanName'> to be list, but is <class 'str'>
 ```
 
 #### Initialize from JSON file
@@ -114,7 +142,6 @@ patient = p.Patient(pjs)
 patient.name[0].given
 # prints patient's given name array in the first `name` property
 ```
-
 
 ### Flask App
 
@@ -152,7 +179,7 @@ Docs Generation
 ---------------
 
 Docs are generated with [Doxygen][] and [doxypypy][].
-You will need to install doxypypy the old-fashioned way, checking out the repo and issuing `python setup.py install`.
+You can install doxypypy via pip: `pip install doxypypy`.
 Then you can just run Doxygen, configuration is stored in the `Doxyfile`.
 
 Running Doxygen will put the generated documentation into `docs`, the HTML files into `docs/html`.
@@ -161,6 +188,26 @@ I usually perform a second checkout of the _gh-pages_ branch and copy the html f
 
     doxygen
     rsync -a docs/html/ ../client-py-web/
+
+
+PyPi Publishing (notes for SMART team)
+--------------------------------------
+
+Using setuptools (*Note*: Alternatively, you can use twine https://pypi.python.org/pypi/twine/):
+
+### Make sure that you have the PyPi account credentials in your account
+
+    copy server.smarthealthit.org:/home/fhir/.pypirc to ~/.pypirc
+
+### Test the build
+
+    python setup.py sdist
+    python setup.py bdist_wheel
+
+### Upload the packages to PyPi
+
+    python setup.py sdist upload -r pypi
+    python setup.py bdist_wheel upload -r pypi
 
 
 [fhir]: http://www.hl7.org/implement/standards/fhir/
