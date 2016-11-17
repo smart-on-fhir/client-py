@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -83,5 +83,8 @@ class PersonTests(unittest.TestCase):
         self.assertEqual(inst.telecom[1].system, "phone")
         self.assertEqual(inst.telecom[1].use, "work")
         self.assertEqual(inst.telecom[1].value, "(03) 5555 6473")
+        self.assertEqual(inst.telecom[2].system, "email")
+        self.assertEqual(inst.telecom[2].use, "home")
+        self.assertEqual(inst.telecom[2].value, "Jim@example.org")
         self.assertEqual(inst.text.status, "generated")
 

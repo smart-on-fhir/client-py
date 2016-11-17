@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Communication) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Communication) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -25,13 +25,17 @@ class Communication(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.basedOn = None
+        """ Request fulfilled by this communication.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
         self.category = None
         """ Message category.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.encounter = None
-        """ Encounter leading to message.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        self.context = None
+        """ Encounter or episode leading to message.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Unique identifier.
@@ -40,6 +44,14 @@ class Communication(domainresource.DomainResource):
         self.medium = None
         """ A channel of communication.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.note = None
+        """ Comments made about the communication.
+        List of `Annotation` items (represented as `dict` in JSON). """
+        
+        self.parent = None
+        """ Part of this action.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.payload = None
         """ Message payload.
@@ -57,10 +69,6 @@ class Communication(domainresource.DomainResource):
         """ Message recipient.
         List of `FHIRReference` items referencing `Device, Organization, Patient, Practitioner, RelatedPerson, Group` (represented as `dict` in JSON). """
         
-        self.requestDetail = None
-        """ CommunicationRequest producing this message.
-        Type `FHIRReference` referencing `CommunicationRequest` (represented as `dict` in JSON). """
-        
         self.sender = None
         """ Message sender.
         Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
@@ -75,26 +83,33 @@ class Communication(domainresource.DomainResource):
         
         self.subject = None
         """ Focus of message.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
+        
+        self.topic = None
+        """ Focal resources.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         super(Communication, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Communication, self).elementProperties()
         js.extend([
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("medium", "medium", codeableconcept.CodeableConcept, True, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
+            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
             ("payload", "payload", CommunicationPayload, True, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("received", "received", fhirdate.FHIRDate, False, None, False),
             ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
-            ("requestDetail", "requestDetail", fhirreference.FHIRReference, False, None, False),
             ("sender", "sender", fhirreference.FHIRReference, False, None, False),
             ("sent", "sent", fhirdate.FHIRDate, False, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("topic", "topic", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 
@@ -141,6 +156,7 @@ class CommunicationPayload(backboneelement.BackboneElement):
         return js
 
 
+from . import annotation
 from . import attachment
 from . import codeableconcept
 from . import fhirdate

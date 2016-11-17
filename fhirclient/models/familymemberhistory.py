@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -76,6 +76,10 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ Dead? How old/when?.
         Type `str`. """
         
+        self.estimatedAge = None
+        """ Age is estimated?.
+        Type `bool`. """
+        
         self.gender = None
         """ male | female | other | unknown.
         Type `str`. """
@@ -122,6 +126,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
             ("deceasedDate", "deceasedDate", fhirdate.FHIRDate, False, "deceased", False),
             ("deceasedRange", "deceasedRange", range.Range, False, "deceased", False),
             ("deceasedString", "deceasedString", str, False, "deceased", False),
+            ("estimatedAge", "estimatedAge", bool, False, None, False),
             ("gender", "gender", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("name", "name", str, False, None, False),

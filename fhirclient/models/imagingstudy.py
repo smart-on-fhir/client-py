@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -33,8 +33,20 @@ class ImagingStudy(domainresource.DomainResource):
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.availability = None
-        """ ONLINE | OFFLINE | NEARLINE | UNAVAILABLE (0008,0056).
+        """ ONLINE | OFFLINE | NEARLINE | UNAVAILABLE.
         Type `str`. """
+        
+        self.baseLocation = None
+        """ Study access service endpoint.
+        List of `ImagingStudyBaseLocation` items (represented as `dict` in JSON). """
+        
+        self.basedOn = None
+        """ Request fulfilled.
+        List of `FHIRReference` items referencing `ReferralRequest, CarePlan, DiagnosticRequest, ProcedureRequest` (represented as `dict` in JSON). """
+        
+        self.context = None
+        """ Originating context.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
         self.description = None
         """ Institution-generated description.
@@ -46,7 +58,7 @@ class ImagingStudy(domainresource.DomainResource):
         
         self.interpreter = None
         """ Who interpreted images.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.modalityList = None
         """ All series modality if actual acquisition modalities.
@@ -60,10 +72,6 @@ class ImagingStudy(domainresource.DomainResource):
         """ Number of Study Related Series.
         Type `int`. """
         
-        self.order = None
-        """ Order(s) that caused this study to be performed.
-        List of `FHIRReference` items referencing `DiagnosticOrder` (represented as `dict` in JSON). """
-        
         self.patient = None
         """ Who the images are of.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
@@ -72,8 +80,12 @@ class ImagingStudy(domainresource.DomainResource):
         """ Type of procedure performed.
         List of `FHIRReference` items referencing `Procedure` (represented as `dict` in JSON). """
         
+        self.reason = None
+        """ Reason for study.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.referrer = None
-        """ Referring physician (0008,0090).
+        """ Referring physician.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.series = None
@@ -85,11 +97,7 @@ class ImagingStudy(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.uid = None
-        """ Formal identifier for the study.
-        Type `str`. """
-        
-        self.url = None
-        """ Retrieve URI.
+        """ Formal DICOM identifier for the study.
         Type `str`. """
         
         super(ImagingStudy, self).__init__(jsondict=jsondict, strict=strict)
@@ -99,25 +107,62 @@ class ImagingStudy(domainresource.DomainResource):
         js.extend([
             ("accession", "accession", identifier.Identifier, False, None, False),
             ("availability", "availability", str, False, None, False),
+            ("baseLocation", "baseLocation", ImagingStudyBaseLocation, True, None, False),
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("interpreter", "interpreter", fhirreference.FHIRReference, False, None, False),
+            ("interpreter", "interpreter", fhirreference.FHIRReference, True, None, False),
             ("modalityList", "modalityList", coding.Coding, True, None, False),
             ("numberOfInstances", "numberOfInstances", int, False, None, True),
             ("numberOfSeries", "numberOfSeries", int, False, None, True),
-            ("order", "order", fhirreference.FHIRReference, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("procedure", "procedure", fhirreference.FHIRReference, True, None, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
             ("referrer", "referrer", fhirreference.FHIRReference, False, None, False),
             ("series", "series", ImagingStudySeries, True, None, False),
             ("started", "started", fhirdate.FHIRDate, False, None, False),
             ("uid", "uid", str, False, None, True),
-            ("url", "url", str, False, None, False),
         ])
         return js
 
 
 from . import backboneelement
+
+class ImagingStudyBaseLocation(backboneelement.BackboneElement):
+    """ Study access service endpoint.
+    
+    Methods of accessing  (e.g., retrieving, viewing) the study.
+    """
+    
+    resource_name = "ImagingStudyBaseLocation"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.type = None
+        """ WADO-RS | WADO-URI | IID.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.url = None
+        """ Study access URL.
+        Type `str`. """
+        
+        super(ImagingStudyBaseLocation, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ImagingStudyBaseLocation, self).elementProperties()
+        js.extend([
+            ("type", "type", coding.Coding, False, None, True),
+            ("url", "url", str, False, None, True),
+        ])
+        return js
+
 
 class ImagingStudySeries(backboneelement.BackboneElement):
     """ Each study has one or more series of instances.
@@ -138,6 +183,10 @@ class ImagingStudySeries(backboneelement.BackboneElement):
         self.availability = None
         """ ONLINE | OFFLINE | NEARLINE | UNAVAILABLE.
         Type `str`. """
+        
+        self.baseLocation = None
+        """ Series access endpoint.
+        List of `ImagingStudySeriesBaseLocation` items (represented as `dict` in JSON). """
         
         self.bodySite = None
         """ Body part examined.
@@ -172,11 +221,7 @@ class ImagingStudySeries(backboneelement.BackboneElement):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.uid = None
-        """ Formal identifier for this series.
-        Type `str`. """
-        
-        self.url = None
-        """ Location of the referenced instance(s).
+        """ Formal DICOM identifier for this series.
         Type `str`. """
         
         super(ImagingStudySeries, self).__init__(jsondict=jsondict, strict=strict)
@@ -185,6 +230,7 @@ class ImagingStudySeries(backboneelement.BackboneElement):
         js = super(ImagingStudySeries, self).elementProperties()
         js.extend([
             ("availability", "availability", str, False, None, False),
+            ("baseLocation", "baseLocation", ImagingStudySeriesBaseLocation, True, None, False),
             ("bodySite", "bodySite", coding.Coding, False, None, False),
             ("description", "description", str, False, None, False),
             ("instance", "instance", ImagingStudySeriesInstance, True, None, False),
@@ -194,7 +240,41 @@ class ImagingStudySeries(backboneelement.BackboneElement):
             ("numberOfInstances", "numberOfInstances", int, False, None, True),
             ("started", "started", fhirdate.FHIRDate, False, None, False),
             ("uid", "uid", str, False, None, True),
-            ("url", "url", str, False, None, False),
+        ])
+        return js
+
+
+class ImagingStudySeriesBaseLocation(backboneelement.BackboneElement):
+    """ Series access endpoint.
+    
+    Methods of accessing (e.g. retrieving) the series.
+    """
+    
+    resource_name = "ImagingStudySeriesBaseLocation"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.type = None
+        """ WADO-RS | WADO-URI | IID.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.url = None
+        """ Series access URL.
+        Type `str`. """
+        
+        super(ImagingStudySeriesBaseLocation, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ImagingStudySeriesBaseLocation, self).elementProperties()
+        js.extend([
+            ("type", "type", coding.Coding, False, None, True),
+            ("url", "url", str, False, None, True),
         ])
         return js
 
@@ -216,10 +296,6 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.content = None
-        """ The instance payload, such as the image binary data or URL to it.
-        List of `Attachment` items (represented as `dict` in JSON). """
-        
         self.number = None
         """ The number of this instance in the series.
         Type `int`. """
@@ -232,12 +308,8 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
         """ Description of instance.
         Type `str`. """
         
-        self.type = None
-        """ Type of instance (image etc.).
-        Type `str`. """
-        
         self.uid = None
-        """ Formal identifier for this instance.
+        """ Formal DICOM identifier for this instance.
         Type `str`. """
         
         super(ImagingStudySeriesInstance, self).__init__(jsondict=jsondict, strict=strict)
@@ -245,17 +317,15 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImagingStudySeriesInstance, self).elementProperties()
         js.extend([
-            ("content", "content", attachment.Attachment, True, None, False),
             ("number", "number", int, False, None, False),
             ("sopClass", "sopClass", str, False, None, True),
             ("title", "title", str, False, None, False),
-            ("type", "type", str, False, None, False),
             ("uid", "uid", str, False, None, True),
         ])
         return js
 
 
-from . import attachment
+from . import codeableconcept
 from . import coding
 from . import fhirdate
 from . import fhirreference

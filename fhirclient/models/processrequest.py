@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -52,11 +52,7 @@ class ProcessRequest(domainresource.DomainResource):
         """ Nullify.
         Type `bool`. """
         
-        self.organizationIdentifier = None
-        """ Responsible organization.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.organizationReference = None
+        self.organization = None
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
@@ -68,11 +64,7 @@ class ProcessRequest(domainresource.DomainResource):
         """ Period.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.providerIdentifier = None
-        """ Responsible practitioner.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.providerReference = None
+        self.provider = None
         """ Responsible practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
@@ -80,19 +72,11 @@ class ProcessRequest(domainresource.DomainResource):
         """ Reference number/string.
         Type `str`. """
         
-        self.requestIdentifier = None
-        """ Request reference.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.requestReference = None
+        self.request = None
         """ Request reference.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        self.responseIdentifier = None
-        """ Response reference.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.responseReference = None
+        self.response = None
         """ Response reference.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
@@ -104,11 +88,7 @@ class ProcessRequest(domainresource.DomainResource):
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
         
-        self.targetIdentifier = None
-        """ Target of the request.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.targetReference = None
+        self.target = None
         """ Target of the request.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
@@ -124,21 +104,16 @@ class ProcessRequest(domainresource.DomainResource):
             ("include", "include", str, True, None, False),
             ("item", "item", ProcessRequestItem, True, None, False),
             ("nullify", "nullify", bool, False, None, False),
-            ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
-            ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
             ("period", "period", period.Period, False, None, False),
-            ("providerIdentifier", "providerIdentifier", identifier.Identifier, False, "provider", False),
-            ("providerReference", "providerReference", fhirreference.FHIRReference, False, "provider", False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
             ("reference", "reference", str, False, None, False),
-            ("requestIdentifier", "requestIdentifier", identifier.Identifier, False, "request", False),
-            ("requestReference", "requestReference", fhirreference.FHIRReference, False, "request", False),
-            ("responseIdentifier", "responseIdentifier", identifier.Identifier, False, "response", False),
-            ("responseReference", "responseReference", fhirreference.FHIRReference, False, "response", False),
+            ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("response", "response", fhirreference.FHIRReference, False, None, False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
             ("status", "status", str, False, None, True),
-            ("targetIdentifier", "targetIdentifier", identifier.Identifier, False, "target", False),
-            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", False),
+            ("target", "target", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -201,6 +201,10 @@ class BundleEntryResponse(backboneelement.BackboneElement):
         """ The location, if the operation returns a location.
         Type `str`. """
         
+        self.outcome = None
+        """ OperationOutcome with hints and warnings (for batch/transaction).
+        Type `Resource` (represented as `dict` in JSON). """
+        
         self.status = None
         """ Status response code (text optional).
         Type `str`. """
@@ -213,6 +217,7 @@ class BundleEntryResponse(backboneelement.BackboneElement):
             ("etag", "etag", str, False, None, False),
             ("lastModified", "lastModified", fhirdate.FHIRDate, False, None, False),
             ("location", "location", str, False, None, False),
+            ("outcome", "outcome", resource.Resource, False, None, False),
             ("status", "status", str, False, None, True),
         ])
         return js

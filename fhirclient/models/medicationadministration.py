@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -49,7 +49,7 @@ class MedicationAdministration(domainresource.DomainResource):
         
         self.eventHistory = None
         """ A list of events of interest in the lifecycle.
-        List of `MedicationAdministrationEventHistory` items (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Provenance` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ External identifier.
@@ -62,6 +62,10 @@ class MedicationAdministration(domainresource.DomainResource):
         self.medicationReference = None
         """ What was administered.
         Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
+        
+        self.notGiven = None
+        """ True if medication not administered.
+        Type `bool`. """
         
         self.note = None
         """ Information about the administration.
@@ -87,13 +91,18 @@ class MedicationAdministration(domainresource.DomainResource):
         """ Reason administration not performed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.reasonReference = None
+        """ Condition or Observation that supports why the medication was
+        administered.
+        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
+        
         self.status = None
         """ in-progress | on-hold | completed | entered-in-error | stopped.
         Type `str`. """
         
-        self.wasNotGiven = None
-        """ True if medication not administered.
-        Type `bool`. """
+        self.supportingInformation = None
+        """ Additional information to support administration.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         super(MedicationAdministration, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -105,18 +114,20 @@ class MedicationAdministration(domainresource.DomainResource):
             ("effectiveTimeDateTime", "effectiveTimeDateTime", fhirdate.FHIRDate, False, "effectiveTime", True),
             ("effectiveTimePeriod", "effectiveTimePeriod", period.Period, False, "effectiveTime", True),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("eventHistory", "eventHistory", MedicationAdministrationEventHistory, True, None, False),
+            ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
+            ("notGiven", "notGiven", bool, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("prescription", "prescription", fhirreference.FHIRReference, False, None, False),
             ("reasonGiven", "reasonGiven", codeableconcept.CodeableConcept, True, None, False),
             ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, True),
-            ("wasNotGiven", "wasNotGiven", bool, False, None, False),
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 
@@ -142,7 +153,7 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
         
         self.dose = None
         """ Amount of medication per dose.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.method = None
         """ How drug was administered.
@@ -150,7 +161,7 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
         
         self.rateQuantity = None
         """ Dose quantity per unit of time.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.rateRatio = None
         """ Dose quantity per unit of time.
@@ -185,57 +196,6 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
             ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False, "site", False),
             ("siteReference", "siteReference", fhirreference.FHIRReference, False, "site", False),
             ("text", "text", str, False, None, False),
-        ])
-        return js
-
-
-class MedicationAdministrationEventHistory(backboneelement.BackboneElement):
-    """ A list of events of interest in the lifecycle.
-    
-    A summary of the events of interest that have occurred, such as when the
-    administration was verified.
-    """
-    
-    resource_name = "MedicationAdministrationEventHistory"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.action = None
-        """ Action taken (e.g. verify).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.actor = None
-        """ Who took the action.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.dateTime = None
-        """ The date at which the event happened.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.reason = None
-        """ Reason the action was taken.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.status = None
-        """ in-progress | on-hold | completed | entered-in-error | stopped.
-        Type `str`. """
-        
-        super(MedicationAdministrationEventHistory, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(MedicationAdministrationEventHistory, self).elementProperties()
-        js.extend([
-            ("action", "action", codeableconcept.CodeableConcept, False, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
-            ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, True),
-            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", str, False, None, True),
         ])
         return js
 

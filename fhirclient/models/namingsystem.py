@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -26,23 +26,27 @@ class NamingSystem(domainresource.DomainResource):
         """
         
         self.contact = None
-        """ Contact details of the publisher.
-        List of `NamingSystemContact` items (represented as `dict` in JSON). """
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.date = None
-        """ Publication Date(/time).
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ What does naming system identify?.
+        """ Natural language description of the naming system.
         Type `str`. """
+        
+        self.jurisdiction = None
+        """ Intended jurisdiction for naming system (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.kind = None
         """ codesystem | identifier | root.
         Type `str`. """
         
         self.name = None
-        """ Human-readable label.
+        """ Name for this naming system (Computer friendly).
         Type `str`. """
         
         self.publisher = None
@@ -75,16 +79,17 @@ class NamingSystem(domainresource.DomainResource):
         
         self.useContext = None
         """ Content intends to support these contexts.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        List of `UsageContext` items (represented as `dict` in JSON). """
         
         super(NamingSystem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NamingSystem, self).elementProperties()
         js.extend([
-            ("contact", "contact", NamingSystemContact, True, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, True),
             ("description", "description", str, False, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("kind", "kind", str, False, None, True),
             ("name", "name", str, False, None, True),
             ("publisher", "publisher", str, False, None, False),
@@ -94,47 +99,12 @@ class NamingSystem(domainresource.DomainResource):
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
             ("uniqueId", "uniqueId", NamingSystemUniqueId, True, None, True),
             ("usage", "usage", str, False, None, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
         ])
         return js
 
 
 from . import backboneelement
-
-class NamingSystemContact(backboneelement.BackboneElement):
-    """ Contact details of the publisher.
-    
-    Contacts to assist a user in finding and communicating with the publisher.
-    """
-    
-    resource_name = "NamingSystemContact"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Name of an individual to contact.
-        Type `str`. """
-        
-        self.telecom = None
-        """ Contact details for individual or publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        super(NamingSystemContact, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(NamingSystemContact, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-        ])
-        return js
-
 
 class NamingSystemUniqueId(backboneelement.BackboneElement):
     """ Unique identifiers used for system.
@@ -152,6 +122,10 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.comment = None
+        """ Notes about identifier usage.
+        Type `str`. """
         
         self.period = None
         """ When is identifier valid?.
@@ -174,6 +148,7 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NamingSystemUniqueId, self).elementProperties()
         js.extend([
+            ("comment", "comment", str, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("preferred", "preferred", bool, False, None, False),
             ("type", "type", str, False, None, True),
@@ -183,7 +158,8 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import contactpoint
+from . import contactdetail
 from . import fhirdate
 from . import fhirreference
 from . import period
+from . import usagecontext

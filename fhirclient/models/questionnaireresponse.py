@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -33,9 +33,13 @@ class QuestionnaireResponse(domainresource.DomainResource):
         """ Date this version was authored.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.encounter = None
-        """ Primary encounter during which the answers were collected.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        self.basedOn = None
+        """ Request fulfilled by this Questionnaire.
+        List of `FHIRReference` items referencing `DiagnosticRequest, ReferralRequest, CarePlan` (represented as `dict` in JSON). """
+        
+        self.context = None
+        """ Encounter or Episode during which questionnaire was completed.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Unique id for this set of answers.
@@ -44,6 +48,10 @@ class QuestionnaireResponse(domainresource.DomainResource):
         self.item = None
         """ Groups and questions.
         List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
+        
+        self.parent = None
+        """ Part of this action.
+        List of `FHIRReference` items referencing `Observation, Procedure` (represented as `dict` in JSON). """
         
         self.questionnaire = None
         """ Form being answered.
@@ -68,9 +76,11 @@ class QuestionnaireResponse(domainresource.DomainResource):
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("authored", "authored", fhirdate.FHIRDate, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("item", "item", QuestionnaireResponseItem, True, None, False),
+            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
             ("questionnaire", "questionnaire", fhirreference.FHIRReference, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),

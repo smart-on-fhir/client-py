@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -24,21 +24,25 @@ class RiskAssessment(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.basedOn = None
+        """ Request fulfilled by this assessment.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        
         self.basis = None
         """ Information used in assessment.
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
+        self.code = None
+        """ Type of assessment.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.condition = None
         """ Condition assessed.
         Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
         
-        self.date = None
-        """ When was assessment made?.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.encounter = None
+        self.context = None
         """ Where was assessment performed?.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Unique identifier for the assessment.
@@ -52,6 +56,22 @@ class RiskAssessment(domainresource.DomainResource):
         """ How to reduce risk.
         Type `str`. """
         
+        self.note = None
+        """ Comments on the risk assessment.
+        Type `Annotation` (represented as `dict` in JSON). """
+        
+        self.occurrenceDateTime = None
+        """ When was assessment made?.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.occurrencePeriod = None
+        """ When was assessment made?.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.parent = None
+        """ Part of this occurrence.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        
         self.performer = None
         """ Who did assessment?.
         Type `FHIRReference` referencing `Practitioner, Device` (represented as `dict` in JSON). """
@@ -59,6 +79,18 @@ class RiskAssessment(domainresource.DomainResource):
         self.prediction = None
         """ Outcome predicted.
         List of `RiskAssessmentPrediction` items (represented as `dict` in JSON). """
+        
+        self.reasonCodeableConcept = None
+        """ Why the assessment was necessary?.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.reasonReference = None
+        """ Why the assessment was necessary?.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ registered | preliminary | final | amended +.
+        Type `str`. """
         
         self.subject = None
         """ Who/what does assessment apply to?.
@@ -69,15 +101,23 @@ class RiskAssessment(domainresource.DomainResource):
     def elementProperties(self):
         js = super(RiskAssessment, self).elementProperties()
         js.extend([
+            ("basedOn", "basedOn", fhirreference.FHIRReference, False, None, False),
             ("basis", "basis", fhirreference.FHIRReference, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("condition", "condition", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
             ("mitigation", "mitigation", str, False, None, False),
+            ("note", "note", annotation.Annotation, False, None, False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
+            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
+            ("parent", "parent", fhirreference.FHIRReference, False, None, False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("prediction", "prediction", RiskAssessmentPrediction, True, None, False),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
+            ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
@@ -150,6 +190,7 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
         return js
 
 
+from . import annotation
 from . import codeableconcept
 from . import fhirdate
 from . import fhirreference

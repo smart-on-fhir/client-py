@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -32,7 +32,7 @@ class Immunization(domainresource.DomainResource):
         
         self.doseQuantity = None
         """ Amount of vaccine administered.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.encounter = None
         """ Encounter administered as part of.
@@ -274,7 +274,7 @@ class ImmunizationVaccinationProtocol(backboneelement.BackboneElement):
         js.extend([
             ("authority", "authority", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
-            ("doseSequence", "doseSequence", int, False, None, True),
+            ("doseSequence", "doseSequence", int, False, None, False),
             ("doseStatus", "doseStatus", codeableconcept.CodeableConcept, False, None, True),
             ("doseStatusReason", "doseStatusReason", codeableconcept.CodeableConcept, False, None, False),
             ("series", "series", str, False, None, False),

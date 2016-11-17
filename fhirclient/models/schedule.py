@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -21,6 +21,10 @@ class Schedule(domainresource.DomainResource):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.active = None
+        """ Whether this schedule is in active use.
+        Type `bool`. """
         
         self.actor = None
         """ The resource this Schedule resource is providing availability
@@ -66,6 +70,7 @@ class Schedule(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Schedule, self).elementProperties()
         js.extend([
+            ("active", "active", bool, False, None, False),
             ("actor", "actor", fhirreference.FHIRReference, False, None, True),
             ("comment", "comment", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),

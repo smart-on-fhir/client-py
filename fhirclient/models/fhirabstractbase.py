@@ -89,7 +89,13 @@ class FHIRAbstractBase(object):
             return cls._with_json_dict(jsonobj)
         
         if isinstance(jsonobj, list):
-            return [cls._with_json_dict(jsondict) for jsondict in jsonobj]
+            arr = []
+            for jsondict in jsonobj:
+                try:
+                    arr.append(cls._with_json_dict(jsondict))
+                except FHIRValidationError as e:
+                    raise e.prefixed(str(len(arr)))
+            return arr
         
         raise TypeError("`with_json()` on {} only takes dict or list of dict, but you provided {}"
             .format(cls, type(jsonobj)))
@@ -153,18 +159,18 @@ class FHIRAbstractBase(object):
         
         # loop all registered properties and instantiate
         errs = []
-        found = set(['resourceType', 'fhir_comments'])
+        valid = set(['resourceType', 'fhir_comments'])
+        found = set()
         nonoptionals = set()
         for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
-            if not jsname in jsondict:
-                if not_optional:
-                    nonoptionals.add(of_many or jsname)
-                continue
+            valid.add(jsname)
+            if of_many is not None:
+                valid.add(of_many)
             
             # bring the value in shape
             err = None
-            value = jsondict[jsname]
-            if hasattr(typ, 'with_json_and_owner'):
+            value = jsondict.get(jsname)
+            if value is not None and hasattr(typ, 'with_json_and_owner'):
                 try:
                     value = typ.with_json_and_owner(value, self)
                 except Exception as e:
@@ -187,25 +193,35 @@ class FHIRAbstractBase(object):
                         .format(type(testval), name, type(self), typ))
                 else:
                     setattr(self, name, value)
-                    # TODO: look at `_name` if this is a primitive
+                
+                found.add(jsname)
+                if of_many is not None:
+                    found.add(of_many)
             
+            # not optional and missing, report (we clean `of_many` later on)
+            elif not_optional:
+                nonoptionals.add(of_many or jsname)
+            
+            # TODO: look at `_name` only if this is a primitive!
+            _jsname = '_'+jsname
+            _value = jsondict.get(_jsname)
+            if _value is not None:
+                valid.add(_jsname)
+                found.add(_jsname)
+            
+            # report errors
             if err is not None:
                 errs.append(err.prefixed(name) if isinstance(err, FHIRValidationError) else FHIRValidationError([err], name))
-
-            found.add(jsname)
-            found.add('_'+jsname)
-            if of_many is not None:
-                found.add(of_many)
         
         # were there missing non-optional entries?
-        if len(nonoptionals - found) > 0:
+        if len(nonoptionals) > 0:
             for miss in nonoptionals - found:
                 errs.append(KeyError("Non-optional property \"{}\" on {} is missing"
                     .format(miss, self)))
         
         # were there superfluous dictionary keys?
-        if len(set(jsondict.keys()) - found) > 0:
-            for supflu in set(jsondict.keys()) - found:
+        if len(set(jsondict.keys()) - valid) > 0:
+            for supflu in set(jsondict.keys()) - valid:
                 errs.append(AttributeError("Superfluous entry \"{}\" in data for {}"
                     .format(supflu, self)))
         
@@ -252,7 +268,7 @@ class FHIRAbstractBase(object):
                             try:
                                 lst.append(v.as_json() if hasattr(v, 'as_json') else v)
                             except FHIRValidationError as e:
-                                err = e.prefixed(name)
+                                err = e.prefixed(str(len(lst))).prefixed(name)
                         found.add(of_many or jsname)
                         js[jsname] = lst
             else:

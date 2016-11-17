@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -64,6 +64,11 @@ class Appointment(domainresource.DomainResource):
         """ Reason this appointment is scheduled.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.requestedPeriod = None
+        """ Potential date/time interval(s) requested to allocate the
+        appointment during.
+        List of `Period` items (represented as `dict` in JSON). """
+        
         self.serviceCategory = None
         """ A broad categorisation of the service that is to be performed
         during this appointment.
@@ -89,7 +94,7 @@ class Appointment(domainresource.DomainResource):
         
         self.status = None
         """ proposed | pending | booked | arrived | fulfilled | cancelled |
-        noshow.
+        noshow | entered-in-error.
         Type `str`. """
         
         super(Appointment, self).__init__(jsondict=jsondict, strict=strict)
@@ -107,6 +112,7 @@ class Appointment(domainresource.DomainResource):
             ("participant", "participant", AppointmentParticipant, True, None, True),
             ("priority", "priority", int, False, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("requestedPeriod", "requestedPeriod", period.Period, True, None, False),
             ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False, None, False),
             ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
             ("slot", "slot", fhirreference.FHIRReference, True, None, False),
@@ -168,3 +174,4 @@ from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
 from . import identifier
+from . import period

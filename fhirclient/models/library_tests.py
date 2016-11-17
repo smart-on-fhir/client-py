@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -32,6 +32,8 @@ class LibraryTests(unittest.TestCase):
         self.implLibrary1(inst2)
     
     def implLibrary1(self, inst):
+        self.assertEqual(inst.content.contentType, "text/cql")
+        self.assertEqual(inst.content.url, "http://cqlrepository.org/CMS146.cql")
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].path, "code")
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].valueSetString, "Other Female Reproductive Conditions")
         self.assertEqual(inst.dataRequirement[0].type, "Condition")
@@ -73,23 +75,19 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.dataRequirement[8].codeFilter[1].path, "medication.code")
         self.assertEqual(inst.dataRequirement[8].codeFilter[1].valueSetString, "2.16.840.1.113883.3.464.1003.196.12.1001")
         self.assertEqual(inst.dataRequirement[8].type, "MedicationStatement")
-        self.assertEqual(inst.document.contentType, "application/cql+text")
-        self.assertEqual(inst.document.url, "http://cqlrepository.org/CMS146.cql")
+        self.assertEqual(inst.date.date, FHIRDate("2015-07-22").date)
+        self.assertEqual(inst.date.as_json(), "2015-07-22")
+        self.assertEqual(inst.description, "Logic for CMS 146: Appropriate Testing for Children with Pharyngitis")
         self.assertEqual(inst.id, "library-cms146-example")
-        self.assertEqual(inst.model[0].identifier, "QUICK")
-        self.assertEqual(inst.moduleMetadata.description, "Logic for CMS 146: Appropriate Testing for Children with Pharyngitis")
-        self.assertEqual(inst.moduleMetadata.identifier[0].use, "official")
-        self.assertEqual(inst.moduleMetadata.identifier[0].value, "CMS146")
-        self.assertEqual(inst.moduleMetadata.publicationDate.date, FHIRDate("2015-07-22").date)
-        self.assertEqual(inst.moduleMetadata.publicationDate.as_json(), "2015-07-22")
-        self.assertEqual(inst.moduleMetadata.status, "draft")
-        self.assertEqual(inst.moduleMetadata.title, "Appropriate Testing for Children with Pharyngitis")
-        self.assertEqual(inst.moduleMetadata.type, "library")
-        self.assertEqual(inst.moduleMetadata.version, "2.0.0")
+        self.assertEqual(inst.identifier[0].use, "official")
+        self.assertEqual(inst.identifier[0].value, "CMS146")
+        self.assertEqual(inst.relatedArtifact[0].type, "depends-on")
+        self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">CMS 146 Logic</div>")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.valueSet[0].identifier, "2.16.840.1.113883.3.560.100.2")
-        self.assertEqual(inst.valueSet[0].name, "Female Administrative Sex")
+        self.assertEqual(inst.title, "Appropriate Testing for Children with Pharyngitis")
+        self.assertEqual(inst.type.coding[0].code, "logic-library")
+        self.assertEqual(inst.version, "2.0.0")
     
     def testLibrary2(self):
         inst = self.instantiate_from("library-example.json")
@@ -102,25 +100,23 @@ class LibraryTests(unittest.TestCase):
         self.implLibrary2(inst2)
     
     def implLibrary2(self, inst):
+        self.assertEqual(inst.content.contentType, "text/cql")
+        self.assertEqual(inst.content.url, "http://cqlrepository.org/ChlamydiaScreening_Common.cql")
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].path, "code")
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].valueSetString, "Other Female Reproductive Conditions")
         self.assertEqual(inst.dataRequirement[0].type, "Condition")
-        self.assertEqual(inst.document.contentType, "application/cql+text")
-        self.assertEqual(inst.document.url, "http://cqlrepository.org/ChlamydiaScreening_Common.cql")
+        self.assertEqual(inst.date.date, FHIRDate("2015-07-22").date)
+        self.assertEqual(inst.date.as_json(), "2015-07-22")
+        self.assertEqual(inst.description, "Common Logic for adherence to Chlamydia Screening guidelines")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.model[0].identifier, "QUICK")
-        self.assertEqual(inst.moduleMetadata.description, "Common Logic for adherence to Chlamydia Screening guidelines")
-        self.assertEqual(inst.moduleMetadata.identifier[0].use, "official")
-        self.assertEqual(inst.moduleMetadata.identifier[0].value, "ChalmydiaScreening_Common")
-        self.assertEqual(inst.moduleMetadata.publicationDate.date, FHIRDate("2015-07-22").date)
-        self.assertEqual(inst.moduleMetadata.publicationDate.as_json(), "2015-07-22")
-        self.assertEqual(inst.moduleMetadata.status, "draft")
-        self.assertEqual(inst.moduleMetadata.title, "Chlamydia Screening Common Library")
-        self.assertEqual(inst.moduleMetadata.topic[0].text, "Chlamydia Screening")
-        self.assertEqual(inst.moduleMetadata.type, "library")
-        self.assertEqual(inst.moduleMetadata.version, "2.0.0")
+        self.assertEqual(inst.identifier[0].use, "official")
+        self.assertEqual(inst.identifier[0].value, "ChalmydiaScreening_Common")
+        self.assertEqual(inst.relatedArtifact[0].type, "depends-on")
+        self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Chlamydia Screening Common Library</div>")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.valueSet[0].identifier, "2.16.840.1.113883.3.560.100.2")
-        self.assertEqual(inst.valueSet[0].name, "Female Administrative Sex")
+        self.assertEqual(inst.title, "Chlamydia Screening Common Library")
+        self.assertEqual(inst.topic[0].text, "Chlamydia Screening")
+        self.assertEqual(inst.type.coding[0].code, "logic-library")
+        self.assertEqual(inst.version, "2.0.0")
 

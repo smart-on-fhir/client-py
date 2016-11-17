@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -38,10 +38,6 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.diagnosis[0].diagnosis.code, "654456")
         self.assertEqual(inst.diagnosis[0].sequence, 1)
-        self.assertEqual(inst.entererIdentifier.system, "http://jurisdiction.org/facilities/HOSP1234/users")
-        self.assertEqual(inst.entererIdentifier.value, "UC1234")
-        self.assertEqual(inst.facilityIdentifier.system, "http://jurisdiction.org/facilities")
-        self.assertEqual(inst.facilityIdentifier.value, "HOSP1234")
         self.assertEqual(inst.id, "960150")
         self.assertEqual(inst.identifier[0].system, "http://happyhospital.com/claim")
         self.assertEqual(inst.identifier[0].value, "9612345")
@@ -166,8 +162,6 @@ class ClaimTests(unittest.TestCase):
     
     def implClaim3(self, inst):
         self.assertEqual(inst.contained[0].id, "patient-1")
-        self.assertEqual(inst.coverage[0].coverageIdentifier.system, "http://www.jurisdiction.com/nationalplan")
-        self.assertEqual(inst.coverage[0].coverageIdentifier.value, "123AB345")
         self.assertTrue(inst.coverage[0].focal)
         self.assertEqual(inst.coverage[0].sequence, 1)
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
@@ -177,10 +171,6 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.id, "100155")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/claim")
         self.assertEqual(inst.identifier[0].value, "12347")
-        self.assertEqual(inst.insurerIdentifier.system, "http://www.jurisdiction.com/insurers")
-        self.assertEqual(inst.insurerIdentifier.value, "123456")
-        self.assertEqual(inst.item[0].careTeam[0].providerIdentifier.system, "http://www.jurisdiction.com/providerId")
-        self.assertEqual(inst.item[0].careTeam[0].providerIdentifier.value, "MD98765")
         self.assertEqual(inst.item[0].net.code, "USD")
         self.assertEqual(inst.item[0].net.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.item[0].net.value, 135.57)
@@ -191,8 +181,6 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[0].unitPrice.code, "USD")
         self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.item[0].unitPrice.value, 135.57)
-        self.assertEqual(inst.organizationIdentifier.system, "http://www.jurisdiction.com/careorganizations")
-        self.assertEqual(inst.organizationIdentifier.value, "HOSP12345")
         self.assertEqual(inst.payee.type.code, "provider")
         self.assertEqual(inst.priority.code, "normal")
         self.assertEqual(inst.status, "active")
@@ -213,9 +201,9 @@ class ClaimTests(unittest.TestCase):
         self.implClaim4(inst2)
     
     def implClaim4(self, inst):
-        self.assertEqual(inst.contained[0].id, "organization-1")
-        self.assertEqual(inst.contained[1].id, "organization-2")
-        self.assertEqual(inst.contained[2].id, "practitioner-1")
+        self.assertEqual(inst.contained[0].id, "org-insurer")
+        self.assertEqual(inst.contained[1].id, "org-org")
+        self.assertEqual(inst.contained[2].id, "provider-1")
         self.assertEqual(inst.contained[3].id, "patient-1")
         self.assertEqual(inst.contained[4].id, "coverage-1")
         self.assertTrue(inst.coverage[0].focal)
@@ -257,8 +245,6 @@ class ClaimTests(unittest.TestCase):
         self.implClaim5(inst2)
     
     def implClaim5(self, inst):
-        self.assertEqual(inst.coverage[0].coverageIdentifier.system, "http://www.jurisdiction.com/nationalplan")
-        self.assertEqual(inst.coverage[0].coverageIdentifier.value, "123AB345")
         self.assertTrue(inst.coverage[0].focal)
         self.assertEqual(inst.coverage[0].sequence, 1)
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
@@ -268,10 +254,6 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.id, "100154")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/claim")
         self.assertEqual(inst.identifier[0].value, "12347")
-        self.assertEqual(inst.insurerIdentifier.system, "http://www.jurisdiction.com/insurers")
-        self.assertEqual(inst.insurerIdentifier.value, "123456")
-        self.assertEqual(inst.item[0].careTeam[0].providerIdentifier.system, "http://www.jurisdiction.com/providerId")
-        self.assertEqual(inst.item[0].careTeam[0].providerIdentifier.value, "MD98765")
         self.assertEqual(inst.item[0].net.code, "USD")
         self.assertEqual(inst.item[0].net.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.item[0].net.value, 135.57)
@@ -282,10 +264,6 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.item[0].unitPrice.code, "USD")
         self.assertEqual(inst.item[0].unitPrice.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.item[0].unitPrice.value, 135.57)
-        self.assertEqual(inst.organizationIdentifier.system, "http://www.jurisdiction.com/careorganizations")
-        self.assertEqual(inst.organizationIdentifier.value, "HOSP12345")
-        self.assertEqual(inst.patientIdentifier.system, "http://www.jurisdiction.com/nationalId")
-        self.assertEqual(inst.patientIdentifier.value, "123AB345")
         self.assertEqual(inst.payee.type.code, "provider")
         self.assertEqual(inst.priority.code, "normal")
         self.assertEqual(inst.status, "active")

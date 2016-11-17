@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -170,7 +170,6 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.assertEqual(inst.authored.as_json(), "2013-02-19T14:15:00-05:00")
         self.assertEqual(inst.contained[0].id, "patsub")
         self.assertEqual(inst.contained[1].id, "questauth")
-        self.assertEqual(inst.contained[2].id, "obs.pt-category")
         self.assertEqual(inst.id, "3141")
         self.assertEqual(inst.item[0].item[0].answer[0].item[0].item[0].answer[0].valueCoding.code, "1")
         self.assertEqual(inst.item[0].item[0].answer[0].item[0].item[0].answer[0].valueCoding.system, "http://cancer.questionnaire.org/system/code/yesno")

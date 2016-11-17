@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -26,19 +26,19 @@ class ConceptMap(domainresource.DomainResource):
         """
         
         self.contact = None
-        """ Contact details of the publisher.
-        List of `ConceptMapContact` items (represented as `dict` in JSON). """
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.copyright = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
-        """ Date for given status.
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Human language description of the concept map.
+        """ Natural language description of the concept map.
         Type `str`. """
         
         self.experimental = None
@@ -53,16 +53,20 @@ class ConceptMap(domainresource.DomainResource):
         """ Additional identifier for the concept map.
         Type `Identifier` (represented as `dict` in JSON). """
         
+        self.jurisdiction = None
+        """ Intended jurisdiction for concept map (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.name = None
-        """ Informal name for this concept map.
+        """ Name for this concept map (Computer friendly).
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (organization or individual).
+        """ Name of the publisher (Organization or individual).
         Type `str`. """
         
-        self.requirements = None
-        """ Why needed.
+        self.purpose = None
+        """ Why this concept map is defined.
         Type `str`. """
         
         self.sourceReference = None
@@ -85,16 +89,20 @@ class ConceptMap(domainresource.DomainResource):
         """ Provides context to the mappings.
         Type `str`. """
         
+        self.title = None
+        """ Name for this concept map (Human friendly).
+        Type `str`. """
+        
         self.url = None
-        """ Globally unique logical id for concept map.
+        """ Logical uri to reference this concept map (globally unique).
         Type `str`. """
         
         self.useContext = None
         """ Content intends to support these contexts.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Logical id for this version of the concept map.
+        """ Business version of the concept map.
         Type `str`. """
         
         super(ConceptMap, self).__init__(jsondict=jsondict, strict=strict)
@@ -102,64 +110,31 @@ class ConceptMap(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ConceptMap, self).elementProperties()
         js.extend([
-            ("contact", "contact", ConceptMapContact, True, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("group", "group", ConceptMapGroup, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, False),
             ("publisher", "publisher", str, False, None, False),
-            ("requirements", "requirements", str, False, None, False),
+            ("purpose", "purpose", str, False, None, False),
             ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", True),
             ("sourceUri", "sourceUri", str, False, "source", True),
             ("status", "status", str, False, None, True),
             ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", True),
             ("targetUri", "targetUri", str, False, "target", True),
+            ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
 
 
 from . import backboneelement
-
-class ConceptMapContact(backboneelement.BackboneElement):
-    """ Contact details of the publisher.
-    
-    Contacts to assist a user in finding and communicating with the publisher.
-    """
-    
-    resource_name = "ConceptMapContact"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Name of an individual to contact.
-        Type `str`. """
-        
-        self.telecom = None
-        """ Contact details for individual or publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        super(ConceptMapContact, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ConceptMapContact, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-        ])
-        return js
-
 
 class ConceptMapGroup(backboneelement.BackboneElement):
     """ Same source and target systems.
@@ -276,8 +251,8 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
         List of `ConceptMapGroupElementTargetDependsOn` items (represented as `dict` in JSON). """
         
         self.equivalence = None
-        """ equivalent | equal | wider | subsumes | narrower | specializes |
-        inexact | unmatched | disjoint.
+        """ relatedto | equivalent | equal | wider | subsumes | narrower |
+        specializes | inexact | unmatched | disjoint.
         Type `str`. """
         
         self.product = None
@@ -335,13 +310,14 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
         js.extend([
             ("code", "code", str, False, None, True),
             ("property", "property", str, False, None, True),
-            ("system", "system", str, False, None, True),
+            ("system", "system", str, False, None, False),
         ])
         return js
 
 
 from . import codeableconcept
-from . import contactpoint
+from . import contactdetail
 from . import fhirdate
 from . import fhirreference
 from . import identifier
+from . import usagecontext

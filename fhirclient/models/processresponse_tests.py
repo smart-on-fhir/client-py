@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -34,7 +34,7 @@ class ProcessResponseTests(unittest.TestCase):
     def implProcessResponse1(self, inst):
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
-        self.assertEqual(inst.disposition, "Specified coverage is currently in-force.")
+        self.assertEqual(inst.disposition, "Adjudication processing completed, ClaimResponse and EOB ready for retrieval.")
         self.assertEqual(inst.id, "SR2500")
         self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/processresponse")
         self.assertEqual(inst.identifier[0].value, "881234")

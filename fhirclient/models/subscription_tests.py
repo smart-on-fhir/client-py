@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -34,7 +34,7 @@ class SubscriptionTests(unittest.TestCase):
     def implSubscription1(self, inst):
         self.assertEqual(inst.channel.endpoint, "https://biliwatch.com/customers/mount-auburn-miu/on-result")
         self.assertEqual(inst.channel.header, "Authorization: Bearer secret-token-abc-123")
-        self.assertEqual(inst.channel.payload, "application/json")
+        self.assertEqual(inst.channel.payload, "application/fhir+json")
         self.assertEqual(inst.channel.type, "rest-hook")
         self.assertEqual(inst.contact[0].system, "phone")
         self.assertEqual(inst.contact[0].value, "ext 4123")
@@ -63,7 +63,7 @@ class SubscriptionTests(unittest.TestCase):
     def implSubscription2(self, inst):
         self.assertEqual(inst.channel.endpoint, "https://biliwatch.com/customers/mount-auburn-miu/on-result")
         self.assertEqual(inst.channel.header, "Authorization: Bearer secret-token-abc-123")
-        self.assertEqual(inst.channel.payload, "application/json")
+        self.assertEqual(inst.channel.payload, "application/fhir+json")
         self.assertEqual(inst.channel.type, "rest-hook")
         self.assertEqual(inst.contact[0].system, "phone")
         self.assertEqual(inst.contact[0].value, "ext 4123")

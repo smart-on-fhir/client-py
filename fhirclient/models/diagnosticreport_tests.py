@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -303,7 +303,7 @@ class DiagnosticReportTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testDiagnosticReport10(self):
-        inst = self.instantiate_from("diagnosticreport-genetics-example-2 with familyhistory.json")
+        inst = self.instantiate_from("diagnosticreport-genetics-example-2-familyhistory.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
         self.implDiagnosticReport10(inst)
         

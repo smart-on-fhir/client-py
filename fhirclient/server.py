@@ -41,13 +41,16 @@ class FHIRServer(object):
         self.client = client
         self.auth = None
         self.base_uri = None
+
+        # Use a single requests Session for all "requests"
+        self.session = requests.Session()
         
         # A URI can't possibly be less than 11 chars
         # make sure we end with "/", otherwise the last path component will be
         # lost when creating URLs with urllib
         if base_uri is not None and len(base_uri) > 10:
             self.base_uri = base_uri if '/' == base_uri[-1] else base_uri + '/'
-        self._conformance = None
+        self._capability = None
         if state is not None:
             self.from_state(state)
         if not self.base_uri or len(self.base_uri) <= 10:
@@ -58,35 +61,36 @@ class FHIRServer(object):
             self.client.save_state()
     
     
-    # MARK: Server Conformance Statement
+    # MARK: Server CapabilityStatement
     
     @property
-    def conformance(self):
-        self.get_conformance()
-        return self._conformance
+    def capabilityStatement(self):
+        self.get_capability()
+        return self._capability
     
-    def get_conformance(self, force=False):
-        """ Returns the server's conformance statement, retrieving it if needed
+    def get_capability(self, force=False):
+        """ Returns the server's CapabilityStatement, retrieving it if needed
         or forced.
         """
-        if self._conformance is None or force:
-            logging.info('Fetching conformance statement from {0}'.format(self.base_uri))
-            from models import conformance
-            conf = conformance.Conformance.read_from('metadata', self)
-            self._conformance = conf
+        if self._capability is None or force:
+            logging.info('Fetching CapabilityStatement from {0}'.format(self.base_uri))
+            from models import capabilitystatement
+            conf = capabilitystatement.CapabilityStatement.read_from('metadata', self)
+            self._capability = conf
             
             security = None
             try:
                 security = conf.rest[0].security
             except Exception as e:
-                logging.info("No REST security statement found in server conformance statement")
+                logging.info("No REST security statement found in server capability statement")
             
             settings = {
                 'aud': self.base_uri,
                 'app_id': self.client.app_id if self.client is not None else None,
+                'app_secret': self.client.app_secret if self.client is not None else None,
                 'redirect_uri': self.client.redirect if self.client is not None else None,
             }
-            self.auth = FHIRAuth.from_conformance_security(security, settings)
+            self.auth = FHIRAuth.from_capability_security(security, settings)
             self.should_save_state()
     
     
@@ -103,7 +107,7 @@ class FHIRServer(object):
     @property
     def authorize_uri(self):
         if self.auth is None:
-            self.get_conformance()
+            self.get_capability()
         return self.auth.authorize_uri(self)
     
     def handle_callback(self, url):
@@ -122,7 +126,7 @@ class FHIRServer(object):
     @property
     def ready(self):
         """ Check whether the server is ready to make calls, i.e. is has
-        fetched its Conformance statement and its `auth` instance is ready.
+        fetched its capability statement and its `auth` instance is ready.
         
         :returns: True if the server can make authenticated calls
         """
@@ -130,14 +134,14 @@ class FHIRServer(object):
     
     def prepare(self):
         """ Check whether the server is ready to make calls, i.e. is has
-        fetched its Conformance statement and its `auth` instance is ready.
-        This method will fetch the Conformance statement if it hasn't already
+        fetched its capability statement and its `auth` instance is ready.
+        This method will fetch the capability statement if it hasn't already
         been fetched.
         
         :returns: True if the server can make authenticated calls
         """
         if self.auth is None:
-            self.get_conformance()
+            self.get_capability()
         return self.auth.ready if self.auth is not None else False
     
     def request_json(self, path, nosign=False):
@@ -177,7 +181,7 @@ class FHIRServer(object):
             headers = self.auth.signed_headers(headers)
         
         # perform the request but intercept 401 responses, raising our own Exception
-        res = requests.get(url, headers=headers)
+        res = self.session.get(url, headers=headers)
         self.raise_for_status(res)
         return res
     
@@ -195,7 +199,7 @@ class FHIRServer(object):
             'Content-type': 'application/json+fhir',
             'Accept': 'application/json+fhir',
         }
-        res = requests.put(url, headers=headers, data=json.dumps(resource_json))
+        res = self.session.put(url, headers=headers, data=json.dumps(resource_json))
         self.raise_for_status(res)
         return res
     
@@ -213,11 +217,11 @@ class FHIRServer(object):
             'Content-type': 'application/json+fhir',
             'Accept': 'application/json+fhir',
         }
-        res = requests.post(url, headers=headers, data=json.dumps(resource_json))
+        res = self.session.post(url, headers=headers, data=json.dumps(resource_json))
         self.raise_for_status(res)
         return res
     
-    def post_as_form(self, url, formdata):
+    def post_as_form(self, url, formdata, auth=None):
         """ Performs a POST request with form-data, expecting to receive JSON.
         This method is used in the OAuth2 token exchange and thus doesn't
         request json+fhir.
@@ -229,7 +233,7 @@ class FHIRServer(object):
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
             'Accept': 'application/json',
         }
-        res = requests.post(url, data=formdata)
+        res = self.session.post(url, data=formdata, auth=auth)
         self.raise_for_status(res)
         return res
     
@@ -244,7 +248,7 @@ class FHIRServer(object):
         headers = {
             'Accept': 'application/json',
         }
-        res = requests.delete(url)
+        res = self.session.delete(url)
         self.raise_for_status(res)
         return res
     

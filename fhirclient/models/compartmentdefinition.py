@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/CompartmentDefinition) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/CompartmentDefinition) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -29,30 +29,34 @@ class CompartmentDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.contact = None
-        """ Contact details of the publisher.
-        List of `CompartmentDefinitionContact` items (represented as `dict` in JSON). """
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.date = None
-        """ Publication Date(/time).
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Natural language description of the CompartmentDefinition.
+        """ Natural language description of the compartment definition.
         Type `str`. """
         
         self.experimental = None
         """ If for testing purposes, not real usage.
         Type `bool`. """
         
+        self.jurisdiction = None
+        """ Intended jurisdiction for compartment definition (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.name = None
-        """ Informal name for this compartment definition.
+        """ Name for this compartment definition (Computer friendly).
         Type `str`. """
         
         self.publisher = None
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
-        self.requirements = None
+        self.purpose = None
         """ Why this compartment definition is defined.
         Type `str`. """
         
@@ -68,9 +72,18 @@ class CompartmentDefinition(domainresource.DomainResource):
         """ draft | active | retired.
         Type `str`. """
         
-        self.url = None
-        """ Absolute URL used to reference this compartment definition.
+        self.title = None
+        """ Name for this compartment definition (Human friendly).
         Type `str`. """
+        
+        self.url = None
+        """ Logical uri to reference this compartment definition (globally
+        unique).
+        Type `str`. """
+        
+        self.useContext = None
+        """ Content intends to support these contexts.
+        List of `UsageContext` items (represented as `dict` in JSON). """
         
         super(CompartmentDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -78,57 +91,25 @@ class CompartmentDefinition(domainresource.DomainResource):
         js = super(CompartmentDefinition, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
-            ("contact", "contact", CompartmentDefinitionContact, True, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, True),
             ("publisher", "publisher", str, False, None, False),
-            ("requirements", "requirements", str, False, None, False),
+            ("purpose", "purpose", str, False, None, False),
             ("resource", "resource", CompartmentDefinitionResource, True, None, False),
             ("search", "search", bool, False, None, True),
-            ("status", "status", str, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, True),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
         ])
         return js
 
 
 from . import backboneelement
-
-class CompartmentDefinitionContact(backboneelement.BackboneElement):
-    """ Contact details of the publisher.
-    
-    Contacts to assist a user in finding and communicating with the publisher.
-    """
-    
-    resource_name = "CompartmentDefinitionContact"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Name of an individual to contact.
-        Type `str`. """
-        
-        self.telecom = None
-        """ Contact details for individual or publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        super(CompartmentDefinitionContact, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(CompartmentDefinitionContact, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-        ])
-        return js
-
 
 class CompartmentDefinitionResource(backboneelement.BackboneElement):
     """ How resource is related to the compartment.
@@ -170,5 +151,7 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
         return js
 
 
-from . import contactpoint
+from . import codeableconcept
+from . import contactdetail
 from . import fhirdate
+from . import usagecontext

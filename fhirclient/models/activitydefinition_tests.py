@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -32,7 +32,12 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.implActivityDefinition1(inst2)
     
     def implActivityDefinition1(self, inst):
+        self.assertEqual(inst.category, "referral")
+        self.assertEqual(inst.code.coding[0].code, "306206005")
+        self.assertEqual(inst.description, "refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.participantType[0], "practitioner")
+        self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Referral definition</div>")
         self.assertEqual(inst.text.status, "generated")
 

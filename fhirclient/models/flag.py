@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Flag) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Flag) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -33,7 +33,7 @@ class Flag(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.code = None
-        """ Partially deaf, Requires easy open caps, No permanent address, etc..
+        """ Message to display to user.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.encounter = None
@@ -54,7 +54,7 @@ class Flag(domainresource.DomainResource):
         
         self.subject = None
         """ Who/What is flag about?.
-        Type `FHIRReference` referencing `Patient, Location, Group, Organization, Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Patient, Location, Group, Organization, Practitioner, PlanDefinition, Medication, Procedure` (represented as `dict` in JSON). """
         
         super(Flag, self).__init__(jsondict=jsondict, strict=strict)
     

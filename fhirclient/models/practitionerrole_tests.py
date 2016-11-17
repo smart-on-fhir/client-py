@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -33,6 +33,8 @@ class PractitionerRoleTests(unittest.TestCase):
     
     def implPractitionerRole1(self, inst):
         self.assertTrue(inst.active)
+        self.assertEqual(inst.code[0].coding[0].code, "RP")
+        self.assertEqual(inst.code[0].coding[0].system, "http://hl7.org/fhir/v2/0286")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://www.acme.org/practitioners")
         self.assertEqual(inst.identifier[0].value, "23")
@@ -40,8 +42,6 @@ class PractitionerRoleTests(unittest.TestCase):
         self.assertEqual(inst.period.end.as_json(), "2012-03-31")
         self.assertEqual(inst.period.start.date, FHIRDate("2012-01-01").date)
         self.assertEqual(inst.period.start.as_json(), "2012-01-01")
-        self.assertEqual(inst.role[0].coding[0].code, "RP")
-        self.assertEqual(inst.role[0].coding[0].system, "http://hl7.org/fhir/v2/0286")
         self.assertEqual(inst.telecom[0].system, "phone")
         self.assertEqual(inst.telecom[0].use, "home")
         self.assertEqual(inst.telecom[0].value, "(03) 5555 6473")

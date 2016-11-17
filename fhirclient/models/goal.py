@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Goal) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Goal) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -28,15 +28,15 @@ class Goal(domainresource.DomainResource):
         
         self.addresses = None
         """ Issues addressed by this goal.
-        List of `FHIRReference` items referencing `Condition, Observation, MedicationStatement, NutritionOrder, ProcedureRequest, RiskAssessment` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Condition, Observation, MedicationStatement, NutritionRequest, ProcedureRequest, RiskAssessment` (represented as `dict` in JSON). """
         
         self.category = None
         """ E.g. Treatment, dietary, behavioral, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.description = None
-        """ What's the desired outcome?.
-        Type `str`. """
+        """ Code or text describing goal.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.expressedBy = None
         """ Who's responsible for creating Goal?.
@@ -68,7 +68,8 @@ class Goal(domainresource.DomainResource):
         
         self.status = None
         """ proposed | planned | accepted | rejected | in-progress | achieved |
-        sustaining | on-hold | cancelled.
+        sustaining | on-hold | cancelled | on-target | ahead-of-target |
+        behind-target.
         Type `str`. """
         
         self.statusDate = None
@@ -77,7 +78,7 @@ class Goal(domainresource.DomainResource):
         
         self.statusReason = None
         """ Reason for current status.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.subject = None
         """ Who this goal is intended for.
@@ -98,7 +99,7 @@ class Goal(domainresource.DomainResource):
         js.extend([
             ("addresses", "addresses", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("description", "description", str, False, None, True),
+            ("description", "description", codeableconcept.CodeableConcept, False, None, True),
             ("expressedBy", "expressedBy", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
@@ -108,7 +109,7 @@ class Goal(domainresource.DomainResource):
             ("startDate", "startDate", fhirdate.FHIRDate, False, "start", False),
             ("status", "status", str, False, None, True),
             ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
-            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, True, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("targetDate", "targetDate", fhirdate.FHIRDate, False, "target", False),
             ("targetDuration", "targetDuration", duration.Duration, False, "target", False),
@@ -122,7 +123,7 @@ class GoalOutcome(backboneelement.BackboneElement):
     """ What was end result of goal?.
     
     Identifies the change (or lack of change) at the point where the goal was
-    deepmed to be cancelled or achieved.
+    deemed to be cancelled or achieved.
     """
     
     resource_name = "GoalOutcome"

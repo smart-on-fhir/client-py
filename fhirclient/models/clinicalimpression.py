@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -32,75 +32,87 @@ class ClinicalImpression(domainresource.DomainResource):
         
         self.action = None
         """ Actions taken during assessment.
-        List of `FHIRReference` items referencing `ReferralRequest, ProcedureRequest, Procedure, MedicationOrder, DiagnosticOrder, NutritionOrder, SupplyRequest, Appointment` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ReferralRequest, ProcedureRequest, Procedure, MedicationOrder, DiagnosticRequest, NutritionRequest, DeviceUseRequest, Appointment` (represented as `dict` in JSON). """
         
         self.assessor = None
         """ The clinician performing the assessment.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
+        self.code = None
+        """ Kind of impression performed.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.context = None
+        """ Encounter or Episode created from.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        
         self.date = None
-        """ When the assessment occurred.
+        """ When the assessment was documented.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
         """ Why/how the assessment was performed.
         Type `str`. """
         
+        self.effectiveDateTime = None
+        """ Time of assessment.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.effectivePeriod = None
+        """ Time of assessment.
+        Type `Period` (represented as `dict` in JSON). """
+        
         self.finding = None
         """ Possible or likely findings and diagnoses.
         List of `ClinicalImpressionFinding` items (represented as `dict` in JSON). """
+        
+        self.identifier = None
+        """ Business identifier.
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.investigations = None
         """ One or more sets of investigations (signs, symptions, etc.).
         List of `ClinicalImpressionInvestigations` items (represented as `dict` in JSON). """
         
-        self.patient = None
-        """ The patient being assessed.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        self.note = None
+        """ Comments made about the ClinicalImpression.
+        List of `Annotation` items (represented as `dict` in JSON). """
         
         self.plan = None
         """ Plan of action after assessment.
-        List of `FHIRReference` items referencing `CarePlan, Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticOrder, MedicationOrder, NutritionOrder, Order, ProcedureRequest, ProcessRequest, ReferralRequest, SupplyRequest, VisionPrescription` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `CarePlan, Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticRequest, MedicationOrder, NutritionRequest, ProcedureRequest, ProcessRequest, ReferralRequest, VisionPrescription` (represented as `dict` in JSON). """
         
         self.previous = None
         """ Reference to last assessment.
         Type `FHIRReference` referencing `ClinicalImpression` (represented as `dict` in JSON). """
         
         self.problem = None
-        """ General assessment of patient state.
+        """ Relevant impressions of patient state.
         List of `FHIRReference` items referencing `Condition, AllergyIntolerance` (represented as `dict` in JSON). """
         
-        self.prognosis = None
+        self.prognosisCodeableConcept = None
         """ Estimate of likely outcome.
-        Type `str`. """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.prognosisReference = None
+        """ RiskAssessment expressing likely outcome.
+        List of `FHIRReference` items referencing `RiskAssessment` (represented as `dict` in JSON). """
         
         self.protocol = None
         """ Clinical Protocol followed.
-        Type `str`. """
-        
-        self.resolved = None
-        """ Diagnoses/conditions resolved since previous assessment.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.ruledOut = None
-        """ Diagnosis considered not possible.
-        List of `ClinicalImpressionRuledOut` items (represented as `dict` in JSON). """
+        List of `str` items. """
         
         self.status = None
-        """ in-progress | completed | entered-in-error.
+        """ draft | completed | entered-in-error.
         Type `str`. """
+        
+        self.subject = None
+        """ Patient or group assessed.
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         self.summary = None
         """ Summary of the assessment.
         Type `str`. """
-        
-        self.triggerCodeableConcept = None
-        """ Request or event that necessitated this assessment.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.triggerReference = None
-        """ Request or event that necessitated this assessment.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         super(ClinicalImpression, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -109,22 +121,25 @@ class ClinicalImpression(domainresource.DomainResource):
         js.extend([
             ("action", "action", fhirreference.FHIRReference, True, None, False),
             ("assessor", "assessor", fhirreference.FHIRReference, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
+            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
             ("finding", "finding", ClinicalImpressionFinding, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("investigations", "investigations", ClinicalImpressionInvestigations, True, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("plan", "plan", fhirreference.FHIRReference, True, None, False),
             ("previous", "previous", fhirreference.FHIRReference, False, None, False),
             ("problem", "problem", fhirreference.FHIRReference, True, None, False),
-            ("prognosis", "prognosis", str, False, None, False),
-            ("protocol", "protocol", str, False, None, False),
-            ("resolved", "resolved", codeableconcept.CodeableConcept, True, None, False),
-            ("ruledOut", "ruledOut", ClinicalImpressionRuledOut, True, None, False),
+            ("prognosisCodeableConcept", "prognosisCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
+            ("prognosisReference", "prognosisReference", fhirreference.FHIRReference, True, None, False),
+            ("protocol", "protocol", str, True, None, False),
             ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("summary", "summary", str, False, None, False),
-            ("triggerCodeableConcept", "triggerCodeableConcept", codeableconcept.CodeableConcept, False, "trigger", False),
-            ("triggerReference", "triggerReference", fhirreference.FHIRReference, False, "trigger", False),
         ])
         return js
 
@@ -152,9 +167,13 @@ class ClinicalImpressionFinding(backboneelement.BackboneElement):
         """ Which investigations support finding.
         Type `str`. """
         
-        self.item = None
-        """ Specific text or code for finding.
+        self.itemCodeableConcept = None
+        """ What was found.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.itemReference = None
+        """ What was found.
+        Type `FHIRReference` referencing `Condition, Observation` (represented as `dict` in JSON). """
         
         super(ClinicalImpressionFinding, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -162,7 +181,8 @@ class ClinicalImpressionFinding(backboneelement.BackboneElement):
         js = super(ClinicalImpressionFinding, self).elementProperties()
         js.extend([
             ("cause", "cause", str, False, None, False),
-            ("item", "item", codeableconcept.CodeableConcept, False, None, True),
+            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),
+            ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True),
         ])
         return js
 
@@ -193,7 +213,7 @@ class ClinicalImpressionInvestigations(backboneelement.BackboneElement):
         
         self.item = None
         """ Record of a specific investigation.
-        List of `FHIRReference` items referencing `Observation, QuestionnaireResponse, FamilyMemberHistory, DiagnosticReport` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Observation, QuestionnaireResponse, FamilyMemberHistory, DiagnosticReport, RiskAssessment, ImagingStudy` (represented as `dict` in JSON). """
         
         super(ClinicalImpressionInvestigations, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -206,39 +226,9 @@ class ClinicalImpressionInvestigations(backboneelement.BackboneElement):
         return js
 
 
-class ClinicalImpressionRuledOut(backboneelement.BackboneElement):
-    """ Diagnosis considered not possible.
-    """
-    
-    resource_name = "ClinicalImpressionRuledOut"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.item = None
-        """ Specific text of code for diagnosis.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.reason = None
-        """ Grounds for elimination.
-        Type `str`. """
-        
-        super(ClinicalImpressionRuledOut, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClinicalImpressionRuledOut, self).elementProperties()
-        js.extend([
-            ("item", "item", codeableconcept.CodeableConcept, False, None, True),
-            ("reason", "reason", str, False, None, False),
-        ])
-        return js
-
-
+from . import annotation
 from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
+from . import identifier
+from . import period

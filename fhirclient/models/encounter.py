@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -24,6 +24,10 @@ class Encounter(domainresource.DomainResource):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.account = None
+        """ The set of accounts that may be used for billing for this Encounter.
+        List of `FHIRReference` items referencing `Account` (represented as `dict` in JSON). """
         
         self.appointment = None
         """ The appointment that scheduled this encounter.
@@ -90,7 +94,8 @@ class Encounter(domainresource.DomainResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | arrived | in-progress | onleave | finished | cancelled.
+        """ planned | arrived | in-progress | onleave | finished | cancelled |
+        entered-in-error.
         Type `str`. """
         
         self.statusHistory = None
@@ -106,6 +111,7 @@ class Encounter(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Encounter, self).elementProperties()
         js.extend([
+            ("account", "account", fhirreference.FHIRReference, True, None, False),
             ("appointment", "appointment", fhirreference.FHIRReference, False, None, False),
             ("class_fhir", "class", coding.Coding, False, None, False),
             ("episodeOfCare", "episodeOfCare", fhirreference.FHIRReference, True, None, False),
@@ -272,7 +278,8 @@ class EncounterParticipant(backboneelement.BackboneElement):
         Type `FHIRReference` referencing `Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.period = None
-        """ Period of time during the encounter participant was present.
+        """ Period of time during the encounter that the participant
+        participated.
         Type `Period` (represented as `dict` in JSON). """
         
         self.type = None
@@ -314,7 +321,8 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | arrived | in-progress | onleave | finished | cancelled.
+        """ planned | arrived | in-progress | onleave | finished | cancelled |
+        entered-in-error.
         Type `str`. """
         
         super(EncounterStatusHistory, self).__init__(jsondict=jsondict, strict=strict)

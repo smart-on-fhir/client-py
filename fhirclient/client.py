@@ -4,10 +4,10 @@ import logging
 
 from server import FHIRServer, FHIRUnauthorizedException, FHIRNotFoundException
 
-__version__ = '1.0.2'
+__version__ = '1.0.6'
 __author__ = 'SMART Platforms Team'
 __license__ = 'APACHE2'
-__copyright__ = "Copyright 2015 Boston Children's Hospital"
+__copyright__ = "Copyright 2016 Boston Children's Hospital"
 
 scope_default = 'user/*.* patient/*.read openid profile'
 scope_haslaunch = 'launch'
@@ -20,6 +20,7 @@ class FHIRClient(object):
     The settings dictionary supports:
     
         - `app_id`*: Your app/client-id, e.g. 'my_web_app'
+        - `app_secret`*: Your app/client-secret
         - `api_base`*: The FHIR service to connect to, e.g. 'https://fhir-api-dstu2.smarthealthit.org'
         - `redirect_uri`: The callback/redirect URL for your app, e.g. 'http://localhost:8000/fhir-app/' when testing locally
         - `patient_id`: The patient id against which to operate, if already known
@@ -29,6 +30,7 @@ class FHIRClient(object):
     
     def __init__(self, settings=None, state=None, save_func=lambda x:x):
         self.app_id = None
+        self.app_secret = None
         """ The app-id for the app this client is used in. """
         
         self.server = None
@@ -65,6 +67,7 @@ class FHIRClient(object):
                 raise Exception("Must provide 'api_base' in settings dictionary")
             
             self.app_id = settings['app_id']
+            self.app_secret = settings.get('app_secret')
             self.redirect = settings.get('redirect_uri')
             self.patient_id = settings.get('patient_id')
             self.scope = settings.get('scope', self.scope)
@@ -100,7 +103,7 @@ class FHIRClient(object):
     def prepare(self):
         """ Returns True if the client is ready to make API calls (e.g. there
         is an access token or this is an open server). In contrast to the
-        `ready` property, this method will fetch the server's Conformance
+        `ready` property, this method will fetch the server's capability
         statement if it hasn't yet been fetched.
         
         :returns: True if the server can make authenticated calls
@@ -131,7 +134,7 @@ class FHIRClient(object):
         
         :returns: A bool indicating reauthorization success
         """
-        ctx = self.server.reauthorize(self.server) if self.server is not None else None
+        ctx = self.server.reauthorize() if self.server is not None else None
         self._handle_launch_context(ctx)
         return self.launch_context is not None
     
@@ -174,9 +177,13 @@ class FHIRClient(object):
             return 'Unknown'
         
         parts = []
-        for n in [human_name_instance.prefix, human_name_instance.given, human_name_instance.family, human_name_instance.suffix]:
+        for n in [human_name_instance.prefix, human_name_instance.given, human_name_instance.family]:
             if n is not None:
                 parts.extend(n)
+        if len(human_name_instance.suffix) > 0:
+            if len(parts) > 0:
+                parts[len(parts)-1] = parts[len(parts)-1]+','
+            parts.extend(human_name_instance.suffix)
         
         return ' '.join(parts) if len(parts) > 0 else 'Unnamed'
     
@@ -194,6 +201,7 @@ class FHIRClient(object):
     def state(self):
         return {
             'app_id': self.app_id,
+            'app_secret': self.app_secret,
             'scope': self.scope,
             'redirect': self.redirect,
             'patient_id': self.patient_id,
@@ -205,6 +213,7 @@ class FHIRClient(object):
     def from_state(self, state):
         assert state
         self.app_id = state.get('app_id') or self.app_id
+        self.app_secret = state.get('app_secret') or self.app_secret
         self.scope = state.get('scope') or self.scope
         self.redirect = state.get('redirect') or self.redirect
         self.patient_id = state.get('patient_id') or self.patient_id

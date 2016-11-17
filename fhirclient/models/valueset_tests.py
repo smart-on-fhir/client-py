@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -124,8 +124,8 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.description, "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "example-intensional")
-        self.assertEqual(inst.identifier.system, "http://acme.com/identifiers/valuesets")
-        self.assertEqual(inst.identifier.value, "loinc-cholesterol-ext")
+        self.assertEqual(inst.identifier[0].system, "http://acme.com/identifiers/valuesets")
+        self.assertEqual(inst.identifier[0].value, "loinc-cholesterol-ext")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
         self.assertEqual(inst.name, "LOINC Codes for Cholesterol in Serum/Plasma")
         self.assertEqual(inst.publisher, "HL7 International")
@@ -145,10 +145,10 @@ class ValueSetTests(unittest.TestCase):
         self.implValueSet3(inst2)
     
     def implValueSet3(self, inst):
-        self.assertEqual(inst.compose.import_fhir[0], "http://hl7.org/fhir/ValueSet/v2-0136")
-        self.assertEqual(inst.compose.include[0].concept[0].code, "asked")
-        self.assertEqual(inst.compose.include[0].concept[0].display, "Don't know")
-        self.assertEqual(inst.compose.include[0].system, "http://hl7.org/fhir/data-absent-reason")
+        self.assertEqual(inst.compose.include[0].valueSet[0], "http://hl7.org/fhir/ValueSet/v2-0136")
+        self.assertEqual(inst.compose.include[1].concept[0].code, "asked")
+        self.assertEqual(inst.compose.include[1].concept[0].display, "Don't know")
+        self.assertEqual(inst.compose.include[1].system, "http://hl7.org/fhir/data-absent-reason")
         self.assertEqual(inst.description, "For Capturing simple yes-no-don't know answers")
         self.assertEqual(inst.expansion.contains[0].code, "Y")
         self.assertEqual(inst.expansion.contains[0].display, "Yes")
@@ -189,6 +189,8 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.compose.include[0].concept[3].display, "Cholesterol [Percentile]")
         self.assertEqual(inst.compose.include[0].system, "http://loinc.org")
         self.assertEqual(inst.compose.include[0].version, "2.36")
+        self.assertEqual(inst.compose.lockedDate.date, FHIRDate("2012-06-13").date)
+        self.assertEqual(inst.compose.lockedDate.as_json(), "2012-06-13")
         self.assertEqual(inst.contact[0].name, "FHIR project team")
         self.assertEqual(inst.contact[0].telecom[0].system, "other")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
@@ -198,10 +200,8 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.description, "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "example-extensional")
-        self.assertEqual(inst.identifier.system, "http://acme.com/identifiers/valuesets")
-        self.assertEqual(inst.identifier.value, "loinc-cholesterol-int")
-        self.assertEqual(inst.lockedDate.date, FHIRDate("2012-06-13").date)
-        self.assertEqual(inst.lockedDate.as_json(), "2012-06-13")
+        self.assertEqual(inst.identifier[0].system, "http://acme.com/identifiers/valuesets")
+        self.assertEqual(inst.identifier[0].value, "loinc-cholesterol-int")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
         self.assertEqual(inst.name, "LOINC Codes for Cholesterol in Serum/Plasma")
         self.assertEqual(inst.publisher, "HL7 International")
@@ -224,20 +224,20 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.compose.include[0].system, "http://hl7.org/fhir/list-example-use-codes")
         self.assertEqual(inst.contact[0].telecom[0].system, "other")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2016-06-26T14:41:18+00:00").date)
-        self.assertEqual(inst.date.as_json(), "2016-06-26T14:41:18+00:00")
+        self.assertEqual(inst.date.date, FHIRDate("2016-10-23T09:34:26+00:00").date)
+        self.assertEqual(inst.date.as_json(), "2016-10-23T09:34:26+00:00")
         self.assertEqual(inst.description, "Example use codes for the List resource - typical kinds of use.")
         self.assertTrue(inst.experimental)
-        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/valueset-oid")
-        self.assertEqual(inst.extension[0].valueUri, "urn:oid:2.16.840.1.113883.4.642.2.173")
         self.assertEqual(inst.id, "list-example-codes")
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2016-06-26T14:41:18.418+00:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2016-06-26T14:41:18.418+00:00")
+        self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
+        self.assertEqual(inst.identifier[0].value, "urn:oid:2.16.840.1.113883.4.642.2.173")
+        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2016-10-23T09:34:26.019+00:00").date)
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2016-10-23T09:34:26.019+00:00")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
         self.assertEqual(inst.name, "Example Use Codes for List")
         self.assertEqual(inst.publisher, "FHIR Project")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/list-example-codes")
-        self.assertEqual(inst.version, "1.4.0")
+        self.assertEqual(inst.version, "1.7.0")
 

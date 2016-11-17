@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Task) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Task) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class Task(domainresource.DomainResource):
         """
         
         self.basedOn = None
-        """ Request fulfilled by this request.
+        """ Request fulfilled by this task.
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.businessStatus = None
@@ -46,7 +46,7 @@ class Task(domainresource.DomainResource):
         Type `str`. """
         
         self.description = None
-        """ Task Description.
+        """ Human-readable explanation of task.
         Type `str`. """
         
         self.focus = None
@@ -66,7 +66,7 @@ class Task(domainresource.DomainResource):
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.input = None
-        """ Task Input.
+        """ Supporting information.
         List of `TaskInput` items (represented as `dict` in JSON). """
         
         self.lastModified = None
@@ -107,7 +107,7 @@ class Task(domainresource.DomainResource):
         Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.requisition = None
-        """ Composite request this is part of.
+        """ Requisition or grouper id.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.stage = None
@@ -200,9 +200,9 @@ class TaskFulfillment(backboneelement.BackboneElement):
 
 
 class TaskInput(backboneelement.BackboneElement):
-    """ Task Input.
+    """ Supporting information.
     
-    Inputs to the task.
+    Additional information that may be needed in the execution of the task.
     """
     
     resource_name = "TaskInput"
@@ -215,9 +215,9 @@ class TaskInput(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.name = None
-        """ Input Name.
-        Type `str`. """
+        self.type = None
+        """ Label for the input.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.valueAddress = None
         """ Input Value.
@@ -376,7 +376,7 @@ class TaskInput(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TaskInput, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("valueAddress", "valueAddress", address.Address, False, "value", True),
             ("valueAge", "valueAge", age.Age, False, "value", True),
             ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", True),
@@ -435,9 +435,9 @@ class TaskOutput(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.name = None
+        self.type = None
         """ Output Name.
-        Type `str`. """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.valueAddress = None
         """ Output Value.
@@ -596,7 +596,7 @@ class TaskOutput(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TaskOutput, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("valueAddress", "valueAddress", address.Address, False, "value", True),
             ("valueAge", "valueAge", age.Age, False, "value", True),
             ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", True),

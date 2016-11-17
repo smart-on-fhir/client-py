@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -55,6 +55,10 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.reason.coding[0].code, "413095006")
         self.assertEqual(inst.reason.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.reason.text, "Clinical Review")
+        self.assertEqual(inst.requestedPeriod[0].end.date, FHIRDate("2016-06-09").date)
+        self.assertEqual(inst.requestedPeriod[0].end.as_json(), "2016-06-09")
+        self.assertEqual(inst.requestedPeriod[0].start.date, FHIRDate("2016-06-02").date)
+        self.assertEqual(inst.requestedPeriod[0].start.as_json(), "2016-06-02")
         self.assertEqual(inst.serviceCategory.coding[0].code, "gp")
         self.assertEqual(inst.serviceCategory.coding[0].display, "General Practice")
         self.assertEqual(inst.serviceCategory.coding[0].system, "http://example.org/service-category")

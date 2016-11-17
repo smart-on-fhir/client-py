@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Observation) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Observation) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -307,11 +307,11 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
         
         self.high = None
         """ High Range, if relevant.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.low = None
         """ Low Range, if relevant.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.meaning = None
         """ Reference range qualifier.
@@ -338,9 +338,8 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
 class ObservationRelated(backboneelement.BackboneElement):
     """ Resource related to this observation.
     
-    A  reference to another resource (usually another Observation but could
-    also be a QuestionnaireAnswer) whose relationship is defined by the
-    relationship type code.
+    A  reference to another resource (usually another Observation) whose
+    relationship is defined by the relationship type code.
     """
     
     resource_name = "ObservationRelated"
@@ -355,7 +354,7 @@ class ObservationRelated(backboneelement.BackboneElement):
         
         self.target = None
         """ Resource that is related to this one.
-        Type `FHIRReference` referencing `Observation, QuestionnaireResponse` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Observation, QuestionnaireResponse, Sequence` (represented as `dict` in JSON). """
         
         self.type = None
         """ has-member | derived-from | sequel-to | replaces | qualified-by |

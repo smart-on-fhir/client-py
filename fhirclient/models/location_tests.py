@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -122,6 +122,8 @@ class LocationTests(unittest.TestCase):
         self.implLocation4(inst2)
     
     def implLocation4(self, inst):
+        self.assertEqual(inst.alias[0], "South Wing OR 5")
+        self.assertEqual(inst.alias[1], "Main Wing OR 2")
         self.assertEqual(inst.description, "Old South Wing, Neuro Radiology Operation Room 1 on second floor")
         self.assertEqual(inst.id, "2")
         self.assertEqual(inst.identifier[0].value, "B1-S.F2.1.00")

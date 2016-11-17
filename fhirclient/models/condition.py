@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -59,8 +59,8 @@ class Condition(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.category = None
-        """ complaint | symptom | finding | diagnosis.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ problem-list-item | encounter-diagnosis.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.clinicalStatus = None
         """ active | relapse | remission | resolved.
@@ -70,13 +70,13 @@ class Condition(domainresource.DomainResource):
         """ Identification of the condition, problem or diagnosis.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.context = None
+        """ Encounter when condition first asserted.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        
         self.dateRecorded = None
         """ When first entered.
         Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.encounter = None
-        """ Encounter when condition first asserted.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
         
         self.evidence = None
         """ Supporting evidence.
@@ -110,10 +110,6 @@ class Condition(domainresource.DomainResource):
         """ Estimated or actual date,  date-time, or age.
         Type `str`. """
         
-        self.patient = None
-        """ Who has the condition?.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
         self.severity = None
         """ Subjective severity of condition.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -121,6 +117,10 @@ class Condition(domainresource.DomainResource):
         self.stage = None
         """ Stage/grade, usually assessed formally.
         Type `ConditionStage` (represented as `dict` in JSON). """
+        
+        self.subject = None
+        """ Who has the condition?.
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         self.verificationStatus = None
         """ provisional | differential | confirmed | refuted | entered-in-error
@@ -140,11 +140,11 @@ class Condition(domainresource.DomainResource):
             ("abatementString", "abatementString", str, False, "abatement", False),
             ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("clinicalStatus", "clinicalStatus", str, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("dateRecorded", "dateRecorded", fhirdate.FHIRDate, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("evidence", "evidence", ConditionEvidence, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
@@ -153,9 +153,9 @@ class Condition(domainresource.DomainResource):
             ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
             ("onsetRange", "onsetRange", range.Range, False, "onset", False),
             ("onsetString", "onsetString", str, False, "onset", False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("severity", "severity", codeableconcept.CodeableConcept, False, None, False),
             ("stage", "stage", ConditionStage, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("verificationStatus", "verificationStatus", str, False, None, True),
         ])
         return js

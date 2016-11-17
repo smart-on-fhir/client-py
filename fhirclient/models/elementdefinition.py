@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -540,50 +540,6 @@ class ElementDefinition(element.Element):
         """ Max length for strings.
         Type `int`. """
         
-        self.maxValueAddress = None
-        """ Maximum Allowed Value (for some types).
-        Type `Address` (represented as `dict` in JSON). """
-        
-        self.maxValueAge = None
-        """ Maximum Allowed Value (for some types).
-        Type `Age` (represented as `dict` in JSON). """
-        
-        self.maxValueAnnotation = None
-        """ Maximum Allowed Value (for some types).
-        Type `Annotation` (represented as `dict` in JSON). """
-        
-        self.maxValueAttachment = None
-        """ Maximum Allowed Value (for some types).
-        Type `Attachment` (represented as `dict` in JSON). """
-        
-        self.maxValueBase64Binary = None
-        """ Maximum Allowed Value (for some types).
-        Type `str`. """
-        
-        self.maxValueBoolean = None
-        """ Maximum Allowed Value (for some types).
-        Type `bool`. """
-        
-        self.maxValueCode = None
-        """ Maximum Allowed Value (for some types).
-        Type `str`. """
-        
-        self.maxValueCodeableConcept = None
-        """ Maximum Allowed Value (for some types).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.maxValueCoding = None
-        """ Maximum Allowed Value (for some types).
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.maxValueContactPoint = None
-        """ Maximum Allowed Value (for some types).
-        Type `ContactPoint` (represented as `dict` in JSON). """
-        
-        self.maxValueCount = None
-        """ Maximum Allowed Value (for some types).
-        Type `Count` (represented as `dict` in JSON). """
-        
         self.maxValueDate = None
         """ Maximum Allowed Value (for some types).
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -596,26 +552,6 @@ class ElementDefinition(element.Element):
         """ Maximum Allowed Value (for some types).
         Type `float`. """
         
-        self.maxValueDistance = None
-        """ Maximum Allowed Value (for some types).
-        Type `Distance` (represented as `dict` in JSON). """
-        
-        self.maxValueDuration = None
-        """ Maximum Allowed Value (for some types).
-        Type `Duration` (represented as `dict` in JSON). """
-        
-        self.maxValueHumanName = None
-        """ Maximum Allowed Value (for some types).
-        Type `HumanName` (represented as `dict` in JSON). """
-        
-        self.maxValueId = None
-        """ Maximum Allowed Value (for some types).
-        Type `str`. """
-        
-        self.maxValueIdentifier = None
-        """ Maximum Allowed Value (for some types).
-        Type `Identifier` (represented as `dict` in JSON). """
-        
         self.maxValueInstant = None
         """ Maximum Allowed Value (for some types).
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -623,26 +559,6 @@ class ElementDefinition(element.Element):
         self.maxValueInteger = None
         """ Maximum Allowed Value (for some types).
         Type `int`. """
-        
-        self.maxValueMarkdown = None
-        """ Maximum Allowed Value (for some types).
-        Type `str`. """
-        
-        self.maxValueMeta = None
-        """ Maximum Allowed Value (for some types).
-        Type `Meta` (represented as `dict` in JSON). """
-        
-        self.maxValueMoney = None
-        """ Maximum Allowed Value (for some types).
-        Type `Money` (represented as `dict` in JSON). """
-        
-        self.maxValueOid = None
-        """ Maximum Allowed Value (for some types).
-        Type `str`. """
-        
-        self.maxValuePeriod = None
-        """ Maximum Allowed Value (for some types).
-        Type `Period` (represented as `dict` in JSON). """
         
         self.maxValuePositiveInt = None
         """ Maximum Allowed Value (for some types).
@@ -652,45 +568,13 @@ class ElementDefinition(element.Element):
         """ Maximum Allowed Value (for some types).
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.maxValueRange = None
-        """ Maximum Allowed Value (for some types).
-        Type `Range` (represented as `dict` in JSON). """
-        
-        self.maxValueRatio = None
-        """ Maximum Allowed Value (for some types).
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.maxValueReference = None
-        """ Maximum Allowed Value (for some types).
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.maxValueSampledData = None
-        """ Maximum Allowed Value (for some types).
-        Type `SampledData` (represented as `dict` in JSON). """
-        
-        self.maxValueSignature = None
-        """ Maximum Allowed Value (for some types).
-        Type `Signature` (represented as `dict` in JSON). """
-        
-        self.maxValueString = None
-        """ Maximum Allowed Value (for some types).
-        Type `str`. """
-        
         self.maxValueTime = None
         """ Maximum Allowed Value (for some types).
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.maxValueTiming = None
-        """ Maximum Allowed Value (for some types).
-        Type `Timing` (represented as `dict` in JSON). """
-        
         self.maxValueUnsignedInt = None
         """ Maximum Allowed Value (for some types).
         Type `int`. """
-        
-        self.maxValueUri = None
-        """ Maximum Allowed Value (for some types).
-        Type `str`. """
         
         self.meaningWhenMissing = None
         """ Implicit meaning when this element is missing.
@@ -699,50 +583,6 @@ class ElementDefinition(element.Element):
         self.min = None
         """ Minimum Cardinality.
         Type `int`. """
-        
-        self.minValueAddress = None
-        """ Minimum Allowed Value (for some types).
-        Type `Address` (represented as `dict` in JSON). """
-        
-        self.minValueAge = None
-        """ Minimum Allowed Value (for some types).
-        Type `Age` (represented as `dict` in JSON). """
-        
-        self.minValueAnnotation = None
-        """ Minimum Allowed Value (for some types).
-        Type `Annotation` (represented as `dict` in JSON). """
-        
-        self.minValueAttachment = None
-        """ Minimum Allowed Value (for some types).
-        Type `Attachment` (represented as `dict` in JSON). """
-        
-        self.minValueBase64Binary = None
-        """ Minimum Allowed Value (for some types).
-        Type `str`. """
-        
-        self.minValueBoolean = None
-        """ Minimum Allowed Value (for some types).
-        Type `bool`. """
-        
-        self.minValueCode = None
-        """ Minimum Allowed Value (for some types).
-        Type `str`. """
-        
-        self.minValueCodeableConcept = None
-        """ Minimum Allowed Value (for some types).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.minValueCoding = None
-        """ Minimum Allowed Value (for some types).
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.minValueContactPoint = None
-        """ Minimum Allowed Value (for some types).
-        Type `ContactPoint` (represented as `dict` in JSON). """
-        
-        self.minValueCount = None
-        """ Minimum Allowed Value (for some types).
-        Type `Count` (represented as `dict` in JSON). """
         
         self.minValueDate = None
         """ Minimum Allowed Value (for some types).
@@ -756,26 +596,6 @@ class ElementDefinition(element.Element):
         """ Minimum Allowed Value (for some types).
         Type `float`. """
         
-        self.minValueDistance = None
-        """ Minimum Allowed Value (for some types).
-        Type `Distance` (represented as `dict` in JSON). """
-        
-        self.minValueDuration = None
-        """ Minimum Allowed Value (for some types).
-        Type `Duration` (represented as `dict` in JSON). """
-        
-        self.minValueHumanName = None
-        """ Minimum Allowed Value (for some types).
-        Type `HumanName` (represented as `dict` in JSON). """
-        
-        self.minValueId = None
-        """ Minimum Allowed Value (for some types).
-        Type `str`. """
-        
-        self.minValueIdentifier = None
-        """ Minimum Allowed Value (for some types).
-        Type `Identifier` (represented as `dict` in JSON). """
-        
         self.minValueInstant = None
         """ Minimum Allowed Value (for some types).
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -783,26 +603,6 @@ class ElementDefinition(element.Element):
         self.minValueInteger = None
         """ Minimum Allowed Value (for some types).
         Type `int`. """
-        
-        self.minValueMarkdown = None
-        """ Minimum Allowed Value (for some types).
-        Type `str`. """
-        
-        self.minValueMeta = None
-        """ Minimum Allowed Value (for some types).
-        Type `Meta` (represented as `dict` in JSON). """
-        
-        self.minValueMoney = None
-        """ Minimum Allowed Value (for some types).
-        Type `Money` (represented as `dict` in JSON). """
-        
-        self.minValueOid = None
-        """ Minimum Allowed Value (for some types).
-        Type `str`. """
-        
-        self.minValuePeriod = None
-        """ Minimum Allowed Value (for some types).
-        Type `Period` (represented as `dict` in JSON). """
         
         self.minValuePositiveInt = None
         """ Minimum Allowed Value (for some types).
@@ -812,56 +612,20 @@ class ElementDefinition(element.Element):
         """ Minimum Allowed Value (for some types).
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.minValueRange = None
-        """ Minimum Allowed Value (for some types).
-        Type `Range` (represented as `dict` in JSON). """
-        
-        self.minValueRatio = None
-        """ Minimum Allowed Value (for some types).
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.minValueReference = None
-        """ Minimum Allowed Value (for some types).
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.minValueSampledData = None
-        """ Minimum Allowed Value (for some types).
-        Type `SampledData` (represented as `dict` in JSON). """
-        
-        self.minValueSignature = None
-        """ Minimum Allowed Value (for some types).
-        Type `Signature` (represented as `dict` in JSON). """
-        
-        self.minValueString = None
-        """ Minimum Allowed Value (for some types).
-        Type `str`. """
-        
         self.minValueTime = None
         """ Minimum Allowed Value (for some types).
         Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.minValueTiming = None
-        """ Minimum Allowed Value (for some types).
-        Type `Timing` (represented as `dict` in JSON). """
         
         self.minValueUnsignedInt = None
         """ Minimum Allowed Value (for some types).
         Type `int`. """
         
-        self.minValueUri = None
-        """ Minimum Allowed Value (for some types).
-        Type `str`. """
-        
         self.mustSupport = None
         """ If the element must supported.
         Type `bool`. """
         
-        self.name = None
-        """ Name for this particular element definition (reference target).
-        Type `str`. """
-        
         self.path = None
-        """ The path of the element (see the Detailed Descriptions).
+        """ Path of the element in the heirarchy of elements.
         Type `str`. """
         
         self.patternAddress = None
@@ -1028,6 +792,10 @@ class ElementDefinition(element.Element):
         """ Concise definition for xml presentation.
         Type `str`. """
         
+        self.sliceName = None
+        """ Name for this particular element (in a set of slices).
+        Type `str`. """
+        
         self.slicing = None
         """ This element is sliced - slices follow.
         Type `ElementDefinitionSlicing` (represented as `dict` in JSON). """
@@ -1170,86 +938,27 @@ class ElementDefinition(element.Element):
             ("mapping", "mapping", ElementDefinitionMapping, True, None, False),
             ("max", "max", str, False, None, False),
             ("maxLength", "maxLength", int, False, None, False),
-            ("maxValueAddress", "maxValueAddress", address.Address, False, "maxValue", False),
-            ("maxValueAge", "maxValueAge", age.Age, False, "maxValue", False),
-            ("maxValueAnnotation", "maxValueAnnotation", annotation.Annotation, False, "maxValue", False),
-            ("maxValueAttachment", "maxValueAttachment", attachment.Attachment, False, "maxValue", False),
-            ("maxValueBase64Binary", "maxValueBase64Binary", str, False, "maxValue", False),
-            ("maxValueBoolean", "maxValueBoolean", bool, False, "maxValue", False),
-            ("maxValueCode", "maxValueCode", str, False, "maxValue", False),
-            ("maxValueCodeableConcept", "maxValueCodeableConcept", codeableconcept.CodeableConcept, False, "maxValue", False),
-            ("maxValueCoding", "maxValueCoding", coding.Coding, False, "maxValue", False),
-            ("maxValueContactPoint", "maxValueContactPoint", contactpoint.ContactPoint, False, "maxValue", False),
-            ("maxValueCount", "maxValueCount", count.Count, False, "maxValue", False),
             ("maxValueDate", "maxValueDate", fhirdate.FHIRDate, False, "maxValue", False),
             ("maxValueDateTime", "maxValueDateTime", fhirdate.FHIRDate, False, "maxValue", False),
             ("maxValueDecimal", "maxValueDecimal", float, False, "maxValue", False),
-            ("maxValueDistance", "maxValueDistance", distance.Distance, False, "maxValue", False),
-            ("maxValueDuration", "maxValueDuration", duration.Duration, False, "maxValue", False),
-            ("maxValueHumanName", "maxValueHumanName", humanname.HumanName, False, "maxValue", False),
-            ("maxValueId", "maxValueId", str, False, "maxValue", False),
-            ("maxValueIdentifier", "maxValueIdentifier", identifier.Identifier, False, "maxValue", False),
             ("maxValueInstant", "maxValueInstant", fhirdate.FHIRDate, False, "maxValue", False),
             ("maxValueInteger", "maxValueInteger", int, False, "maxValue", False),
-            ("maxValueMarkdown", "maxValueMarkdown", str, False, "maxValue", False),
-            ("maxValueMeta", "maxValueMeta", meta.Meta, False, "maxValue", False),
-            ("maxValueMoney", "maxValueMoney", money.Money, False, "maxValue", False),
-            ("maxValueOid", "maxValueOid", str, False, "maxValue", False),
-            ("maxValuePeriod", "maxValuePeriod", period.Period, False, "maxValue", False),
             ("maxValuePositiveInt", "maxValuePositiveInt", int, False, "maxValue", False),
             ("maxValueQuantity", "maxValueQuantity", quantity.Quantity, False, "maxValue", False),
-            ("maxValueRange", "maxValueRange", range.Range, False, "maxValue", False),
-            ("maxValueRatio", "maxValueRatio", ratio.Ratio, False, "maxValue", False),
-            ("maxValueReference", "maxValueReference", fhirreference.FHIRReference, False, "maxValue", False),
-            ("maxValueSampledData", "maxValueSampledData", sampleddata.SampledData, False, "maxValue", False),
-            ("maxValueSignature", "maxValueSignature", signature.Signature, False, "maxValue", False),
-            ("maxValueString", "maxValueString", str, False, "maxValue", False),
             ("maxValueTime", "maxValueTime", fhirdate.FHIRDate, False, "maxValue", False),
-            ("maxValueTiming", "maxValueTiming", timing.Timing, False, "maxValue", False),
             ("maxValueUnsignedInt", "maxValueUnsignedInt", int, False, "maxValue", False),
-            ("maxValueUri", "maxValueUri", str, False, "maxValue", False),
             ("meaningWhenMissing", "meaningWhenMissing", str, False, None, False),
             ("min", "min", int, False, None, False),
-            ("minValueAddress", "minValueAddress", address.Address, False, "minValue", False),
-            ("minValueAge", "minValueAge", age.Age, False, "minValue", False),
-            ("minValueAnnotation", "minValueAnnotation", annotation.Annotation, False, "minValue", False),
-            ("minValueAttachment", "minValueAttachment", attachment.Attachment, False, "minValue", False),
-            ("minValueBase64Binary", "minValueBase64Binary", str, False, "minValue", False),
-            ("minValueBoolean", "minValueBoolean", bool, False, "minValue", False),
-            ("minValueCode", "minValueCode", str, False, "minValue", False),
-            ("minValueCodeableConcept", "minValueCodeableConcept", codeableconcept.CodeableConcept, False, "minValue", False),
-            ("minValueCoding", "minValueCoding", coding.Coding, False, "minValue", False),
-            ("minValueContactPoint", "minValueContactPoint", contactpoint.ContactPoint, False, "minValue", False),
-            ("minValueCount", "minValueCount", count.Count, False, "minValue", False),
             ("minValueDate", "minValueDate", fhirdate.FHIRDate, False, "minValue", False),
             ("minValueDateTime", "minValueDateTime", fhirdate.FHIRDate, False, "minValue", False),
             ("minValueDecimal", "minValueDecimal", float, False, "minValue", False),
-            ("minValueDistance", "minValueDistance", distance.Distance, False, "minValue", False),
-            ("minValueDuration", "minValueDuration", duration.Duration, False, "minValue", False),
-            ("minValueHumanName", "minValueHumanName", humanname.HumanName, False, "minValue", False),
-            ("minValueId", "minValueId", str, False, "minValue", False),
-            ("minValueIdentifier", "minValueIdentifier", identifier.Identifier, False, "minValue", False),
             ("minValueInstant", "minValueInstant", fhirdate.FHIRDate, False, "minValue", False),
             ("minValueInteger", "minValueInteger", int, False, "minValue", False),
-            ("minValueMarkdown", "minValueMarkdown", str, False, "minValue", False),
-            ("minValueMeta", "minValueMeta", meta.Meta, False, "minValue", False),
-            ("minValueMoney", "minValueMoney", money.Money, False, "minValue", False),
-            ("minValueOid", "minValueOid", str, False, "minValue", False),
-            ("minValuePeriod", "minValuePeriod", period.Period, False, "minValue", False),
             ("minValuePositiveInt", "minValuePositiveInt", int, False, "minValue", False),
             ("minValueQuantity", "minValueQuantity", quantity.Quantity, False, "minValue", False),
-            ("minValueRange", "minValueRange", range.Range, False, "minValue", False),
-            ("minValueRatio", "minValueRatio", ratio.Ratio, False, "minValue", False),
-            ("minValueReference", "minValueReference", fhirreference.FHIRReference, False, "minValue", False),
-            ("minValueSampledData", "minValueSampledData", sampleddata.SampledData, False, "minValue", False),
-            ("minValueSignature", "minValueSignature", signature.Signature, False, "minValue", False),
-            ("minValueString", "minValueString", str, False, "minValue", False),
             ("minValueTime", "minValueTime", fhirdate.FHIRDate, False, "minValue", False),
-            ("minValueTiming", "minValueTiming", timing.Timing, False, "minValue", False),
             ("minValueUnsignedInt", "minValueUnsignedInt", int, False, "minValue", False),
-            ("minValueUri", "minValueUri", str, False, "minValue", False),
             ("mustSupport", "mustSupport", bool, False, None, False),
-            ("name", "name", str, False, None, False),
             ("path", "path", str, False, None, True),
             ("patternAddress", "patternAddress", address.Address, False, "pattern", False),
             ("patternAge", "patternAge", age.Age, False, "pattern", False),
@@ -1292,6 +1001,7 @@ class ElementDefinition(element.Element):
             ("representation", "representation", str, True, None, False),
             ("requirements", "requirements", str, False, None, False),
             ("short", "short", str, False, None, False),
+            ("sliceName", "sliceName", str, False, None, False),
             ("slicing", "slicing", ElementDefinitionSlicing, False, None, False),
             ("type", "type", ElementDefinitionType, True, None, False),
         ])
@@ -1303,9 +1013,10 @@ class ElementDefinitionBase(element.Element):
     
     Information about the base definition of the element, provided to make it
     unnecessary for tools to trace the deviation of the element through the
-    derived and related profiles. This information is only provided where the
-    element definition represents a constraint on another element definition,
-    and must be present if there is a base element definition.
+    derived and related profiles. This information is provided when the element
+    definition is not the original definition of an element - i.g. either in a
+    constraint on another type, or for elements from a super type in a snap
+    shot.
     """
     
     resource_name = "ElementDefinitionBase"
@@ -1425,6 +1136,10 @@ class ElementDefinitionConstraint(element.Element):
         """ error | warning.
         Type `str`. """
         
+        self.source = None
+        """ Reference to original source of constraint.
+        Type `str`. """
+        
         self.xpath = None
         """ XPath expression of constraint.
         Type `str`. """
@@ -1434,12 +1149,13 @@ class ElementDefinitionConstraint(element.Element):
     def elementProperties(self):
         js = super(ElementDefinitionConstraint, self).elementProperties()
         js.extend([
-            ("expression", "expression", str, False, None, False),
+            ("expression", "expression", str, False, None, True),
             ("human", "human", str, False, None, True),
             ("key", "key", str, False, None, True),
             ("requirements", "requirements", str, False, None, False),
             ("severity", "severity", str, False, None, True),
-            ("xpath", "xpath", str, False, None, True),
+            ("source", "source", str, False, None, False),
+            ("xpath", "xpath", str, False, None, False),
         ])
         return js
 
@@ -1558,12 +1274,16 @@ class ElementDefinitionType(element.Element):
         List of `str` items. """
         
         self.code = None
-        """ Name of Data type or Resource.
+        """ Data type or Resource (reference to definition).
         Type `str`. """
         
         self.profile = None
         """ Profile (StructureDefinition) to apply (or IG).
-        List of `str` items. """
+        Type `str`. """
+        
+        self.targetProfile = None
+        """ Profile (StructureDefinition) to apply to reference target (or IG).
+        Type `str`. """
         
         self.versioning = None
         """ either | independent | specific.
@@ -1576,7 +1296,8 @@ class ElementDefinitionType(element.Element):
         js.extend([
             ("aggregation", "aggregation", str, True, None, False),
             ("code", "code", str, False, None, True),
-            ("profile", "profile", str, True, None, False),
+            ("profile", "profile", str, False, None, False),
+            ("targetProfile", "targetProfile", str, False, None, False),
             ("versioning", "versioning", str, False, None, False),
         ])
         return js

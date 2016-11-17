@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Reference) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Reference) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -25,8 +25,12 @@ class Reference(element.Element):
         """ Text alternative for the resource.
         Type `str`. """
         
+        self.identifier = None
+        """ Logical reference, when literal reference is not known.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
         self.reference = None
-        """ Relative, internal or absolute URL reference.
+        """ Literal reference, Relative, internal or absolute URL.
         Type `str`. """
         
         super(Reference, self).__init__(jsondict=jsondict, strict=strict)
@@ -35,8 +39,10 @@ class Reference(element.Element):
         js = super(Reference, self).elementProperties()
         js.extend([
             ("display", "display", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("reference", "reference", str, False, None, False),
         ])
         return js
 
 
+from . import identifier

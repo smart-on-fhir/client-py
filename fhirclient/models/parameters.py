@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -62,7 +62,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         Type `str`. """
         
         self.part = None
-        """ Named part of a parameter (e.g. Tuple).
+        """ Named part of a multi-part parameter.
         List of `ParametersParameter` items (represented as `dict` in JSON). """
         
         self.resource = None

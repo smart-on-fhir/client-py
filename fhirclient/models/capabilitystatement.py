@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Conformance) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
 from . import domainresource
 
-class Conformance(domainresource.DomainResource):
-    """ A conformance statement.
+class CapabilityStatement(domainresource.DomainResource):
+    """ A statement of system Capabilities.
     
-    A conformance statement is a set of capabilities of a FHIR Server that may
-    be used as a statement of actual server functionality or a statement of
-    required or desired server implementation.
+    A Capability Statement documents a set of capabilities (behaviors) of a
+    FHIR Server that may be used as a statement of actual server functionality
+    or a statement of required or desired server implementation.
     """
     
-    resource_name = "Conformance"
+    resource_name = "CapabilityStatement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -30,24 +30,24 @@ class Conformance(domainresource.DomainResource):
         Type `str`. """
         
         self.contact = None
-        """ Contact details of the publisher.
-        List of `ConformanceContact` items (represented as `dict` in JSON). """
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.copyright = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
-        """ Publication Date(/time).
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Human description of the conformance statement.
+        """ Natural language description of the capability statement.
         Type `str`. """
         
         self.document = None
         """ Document definition.
-        List of `ConformanceDocument` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementDocument` items (represented as `dict` in JSON). """
         
         self.experimental = None
         """ If for testing purposes, not real usage.
@@ -58,12 +58,20 @@ class Conformance(domainresource.DomainResource):
         Type `str`. """
         
         self.format = None
-        """ formats supported (xml | json | mime type).
+        """ formats supported (xml | json | ttl | mime type).
         List of `str` items. """
         
         self.implementation = None
         """ If this describes a specific instance.
-        Type `ConformanceImplementation` (represented as `dict` in JSON). """
+        Type `CapabilityStatementImplementation` (represented as `dict` in JSON). """
+        
+        self.instantiates = None
+        """ Canonical URL of service implemented/used by software.
+        List of `str` items. """
+        
+        self.jurisdiction = None
+        """ Intended jurisdiction for capability statement (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.kind = None
         """ instance | capability | requirements.
@@ -71,10 +79,10 @@ class Conformance(domainresource.DomainResource):
         
         self.messaging = None
         """ If messaging is supported.
-        List of `ConformanceMessaging` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementMessaging` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Informal name for this conformance statement.
+        """ Name for this capability statement (Computer friendly).
         Type `str`. """
         
         self.profile = None
@@ -85,60 +93,68 @@ class Conformance(domainresource.DomainResource):
         """ Name of the publisher (Organization or individual).
         Type `str`. """
         
-        self.requirements = None
-        """ Why this resource has been created.
+        self.purpose = None
+        """ Why this capability statement is defined.
         Type `str`. """
         
         self.rest = None
         """ If the endpoint is a RESTful one.
-        List of `ConformanceRest` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementRest` items (represented as `dict` in JSON). """
         
         self.software = None
-        """ Software that is covered by this conformance statement.
-        Type `ConformanceSoftware` (represented as `dict` in JSON). """
+        """ Software that is covered by this capability statement.
+        Type `CapabilityStatementSoftware` (represented as `dict` in JSON). """
         
         self.status = None
         """ draft | active | retired.
         Type `str`. """
         
+        self.title = None
+        """ Name for this capability statement (Human friendly).
+        Type `str`. """
+        
         self.url = None
-        """ Logical uri to reference this statement.
+        """ Logical uri to reference this capability statement (globally
+        unique).
         Type `str`. """
         
         self.useContext = None
         """ Content intends to support these contexts.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Logical id for this version of the statement.
+        """ Business version of the capability statement.
         Type `str`. """
         
-        super(Conformance, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatement, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(Conformance, self).elementProperties()
+        js = super(CapabilityStatement, self).elementProperties()
         js.extend([
             ("acceptUnknown", "acceptUnknown", str, False, None, True),
-            ("contact", "contact", ConformanceContact, True, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, True),
             ("description", "description", str, False, None, False),
-            ("document", "document", ConformanceDocument, True, None, False),
+            ("document", "document", CapabilityStatementDocument, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("fhirVersion", "fhirVersion", str, False, None, True),
             ("format", "format", str, True, None, True),
-            ("implementation", "implementation", ConformanceImplementation, False, None, False),
+            ("implementation", "implementation", CapabilityStatementImplementation, False, None, False),
+            ("instantiates", "instantiates", str, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("kind", "kind", str, False, None, True),
-            ("messaging", "messaging", ConformanceMessaging, True, None, False),
+            ("messaging", "messaging", CapabilityStatementMessaging, True, None, False),
             ("name", "name", str, False, None, False),
             ("profile", "profile", fhirreference.FHIRReference, True, None, False),
             ("publisher", "publisher", str, False, None, False),
-            ("requirements", "requirements", str, False, None, False),
-            ("rest", "rest", ConformanceRest, True, None, False),
-            ("software", "software", ConformanceSoftware, False, None, False),
+            ("purpose", "purpose", str, False, None, False),
+            ("rest", "rest", CapabilityStatementRest, True, None, False),
+            ("software", "software", CapabilityStatementSoftware, False, None, False),
             ("status", "status", str, False, None, True),
+            ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
@@ -146,48 +162,13 @@ class Conformance(domainresource.DomainResource):
 
 from . import backboneelement
 
-class ConformanceContact(backboneelement.BackboneElement):
-    """ Contact details of the publisher.
-    
-    Contacts to assist a user in finding and communicating with the publisher.
-    """
-    
-    resource_name = "ConformanceContact"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Name of an individual to contact.
-        Type `str`. """
-        
-        self.telecom = None
-        """ Contact details for individual or publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        super(ConformanceContact, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ConformanceContact, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-        ])
-        return js
-
-
-class ConformanceDocument(backboneelement.BackboneElement):
+class CapabilityStatementDocument(backboneelement.BackboneElement):
     """ Document definition.
     
     A document definition.
     """
     
-    resource_name = "ConformanceDocument"
+    resource_name = "CapabilityStatementDocument"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -209,10 +190,10 @@ class ConformanceDocument(backboneelement.BackboneElement):
         """ Constraint on a resource used in the document.
         Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
-        super(ConformanceDocument, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementDocument, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceDocument, self).elementProperties()
+        js = super(CapabilityStatementDocument, self).elementProperties()
         js.extend([
             ("documentation", "documentation", str, False, None, False),
             ("mode", "mode", str, False, None, True),
@@ -221,15 +202,15 @@ class ConformanceDocument(backboneelement.BackboneElement):
         return js
 
 
-class ConformanceImplementation(backboneelement.BackboneElement):
+class CapabilityStatementImplementation(backboneelement.BackboneElement):
     """ If this describes a specific instance.
     
     Identifies a specific implementation instance that is described by the
-    conformance statement - i.e. a particular installation, rather than the
+    capability statement - i.e. a particular installation, rather than the
     capabilities of a software program.
     """
     
-    resource_name = "ConformanceImplementation"
+    resource_name = "CapabilityStatementImplementation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -247,10 +228,10 @@ class ConformanceImplementation(backboneelement.BackboneElement):
         """ Base URL for the installation.
         Type `str`. """
         
-        super(ConformanceImplementation, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementImplementation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceImplementation, self).elementProperties()
+        js = super(CapabilityStatementImplementation, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, True),
             ("url", "url", str, False, None, False),
@@ -258,13 +239,13 @@ class ConformanceImplementation(backboneelement.BackboneElement):
         return js
 
 
-class ConformanceMessaging(backboneelement.BackboneElement):
+class CapabilityStatementMessaging(backboneelement.BackboneElement):
     """ If messaging is supported.
     
     A description of the messaging capabilities of the solution.
     """
     
-    resource_name = "ConformanceMessaging"
+    resource_name = "CapabilityStatementMessaging"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -280,37 +261,37 @@ class ConformanceMessaging(backboneelement.BackboneElement):
         
         self.endpoint = None
         """ Where messages should be sent.
-        List of `ConformanceMessagingEndpoint` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementMessagingEndpoint` items (represented as `dict` in JSON). """
         
         self.event = None
         """ Declare support for this event.
-        List of `ConformanceMessagingEvent` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementMessagingEvent` items (represented as `dict` in JSON). """
         
         self.reliableCache = None
         """ Reliable Message Cache Length (min).
         Type `int`. """
         
-        super(ConformanceMessaging, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementMessaging, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceMessaging, self).elementProperties()
+        js = super(CapabilityStatementMessaging, self).elementProperties()
         js.extend([
             ("documentation", "documentation", str, False, None, False),
-            ("endpoint", "endpoint", ConformanceMessagingEndpoint, True, None, False),
-            ("event", "event", ConformanceMessagingEvent, True, None, True),
+            ("endpoint", "endpoint", CapabilityStatementMessagingEndpoint, True, None, False),
+            ("event", "event", CapabilityStatementMessagingEvent, True, None, True),
             ("reliableCache", "reliableCache", int, False, None, False),
         ])
         return js
 
 
-class ConformanceMessagingEndpoint(backboneelement.BackboneElement):
+class CapabilityStatementMessagingEndpoint(backboneelement.BackboneElement):
     """ Where messages should be sent.
     
     An endpoint (network accessible address) to which messages and/or replies
     are to be sent.
     """
     
-    resource_name = "ConformanceMessagingEndpoint"
+    resource_name = "CapabilityStatementMessagingEndpoint"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -328,10 +309,10 @@ class ConformanceMessagingEndpoint(backboneelement.BackboneElement):
         """ http | ftp | mllp +.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ConformanceMessagingEndpoint, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementMessagingEndpoint, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceMessagingEndpoint, self).elementProperties()
+        js = super(CapabilityStatementMessagingEndpoint, self).elementProperties()
         js.extend([
             ("address", "address", str, False, None, True),
             ("protocol", "protocol", coding.Coding, False, None, True),
@@ -339,13 +320,13 @@ class ConformanceMessagingEndpoint(backboneelement.BackboneElement):
         return js
 
 
-class ConformanceMessagingEvent(backboneelement.BackboneElement):
+class CapabilityStatementMessagingEvent(backboneelement.BackboneElement):
     """ Declare support for this event.
     
     A description of the solution's support for an event at this end-point.
     """
     
-    resource_name = "ConformanceMessagingEvent"
+    resource_name = "CapabilityStatementMessagingEvent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -383,10 +364,10 @@ class ConformanceMessagingEvent(backboneelement.BackboneElement):
         """ Profile that describes the response.
         Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
-        super(ConformanceMessagingEvent, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementMessagingEvent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceMessagingEvent, self).elementProperties()
+        js = super(CapabilityStatementMessagingEvent, self).elementProperties()
         js.extend([
             ("category", "category", str, False, None, False),
             ("code", "code", coding.Coding, False, None, True),
@@ -399,13 +380,13 @@ class ConformanceMessagingEvent(backboneelement.BackboneElement):
         return js
 
 
-class ConformanceRest(backboneelement.BackboneElement):
+class CapabilityStatementRest(backboneelement.BackboneElement):
     """ If the endpoint is a RESTful one.
     
     A definition of the restful capabilities of the solution, if any.
     """
     
-    resource_name = "ConformanceRest"
+    resource_name = "CapabilityStatementRest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -425,7 +406,7 @@ class ConformanceRest(backboneelement.BackboneElement):
         
         self.interaction = None
         """ What operations are supported?.
-        List of `ConformanceRestInteraction` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementRestInteraction` items (represented as `dict` in JSON). """
         
         self.mode = None
         """ client | server.
@@ -433,49 +414,44 @@ class ConformanceRest(backboneelement.BackboneElement):
         
         self.operation = None
         """ Definition of an operation or a custom query.
-        List of `ConformanceRestOperation` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementRestOperation` items (represented as `dict` in JSON). """
         
         self.resource = None
         """ Resource served on the REST interface.
-        List of `ConformanceRestResource` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementRestResource` items (represented as `dict` in JSON). """
         
         self.searchParam = None
         """ Search params for searching all resources.
-        List of `ConformanceRestResourceSearchParam` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementRestResourceSearchParam` items (represented as `dict` in JSON). """
         
         self.security = None
         """ Information about security of implementation.
-        Type `ConformanceRestSecurity` (represented as `dict` in JSON). """
+        Type `CapabilityStatementRestSecurity` (represented as `dict` in JSON). """
         
-        self.transactionMode = None
-        """ not-supported | batch | transaction | both.
-        Type `str`. """
-        
-        super(ConformanceRest, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementRest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceRest, self).elementProperties()
+        js = super(CapabilityStatementRest, self).elementProperties()
         js.extend([
             ("compartment", "compartment", str, True, None, False),
             ("documentation", "documentation", str, False, None, False),
-            ("interaction", "interaction", ConformanceRestInteraction, True, None, False),
+            ("interaction", "interaction", CapabilityStatementRestInteraction, True, None, False),
             ("mode", "mode", str, False, None, True),
-            ("operation", "operation", ConformanceRestOperation, True, None, False),
-            ("resource", "resource", ConformanceRestResource, True, None, False),
-            ("searchParam", "searchParam", ConformanceRestResourceSearchParam, True, None, False),
-            ("security", "security", ConformanceRestSecurity, False, None, False),
-            ("transactionMode", "transactionMode", str, False, None, False),
+            ("operation", "operation", CapabilityStatementRestOperation, True, None, False),
+            ("resource", "resource", CapabilityStatementRestResource, True, None, False),
+            ("searchParam", "searchParam", CapabilityStatementRestResourceSearchParam, True, None, False),
+            ("security", "security", CapabilityStatementRestSecurity, False, None, False),
         ])
         return js
 
 
-class ConformanceRestInteraction(backboneelement.BackboneElement):
+class CapabilityStatementRestInteraction(backboneelement.BackboneElement):
     """ What operations are supported?.
     
     A specification of restful operations supported by the system.
     """
     
-    resource_name = "ConformanceRestInteraction"
+    resource_name = "CapabilityStatementRestInteraction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -486,17 +462,17 @@ class ConformanceRestInteraction(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ transaction | search-system | history-system.
+        """ transaction | batch | search-system | history-system.
         Type `str`. """
         
         self.documentation = None
         """ Anything special about operation behavior.
         Type `str`. """
         
-        super(ConformanceRestInteraction, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementRestInteraction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceRestInteraction, self).elementProperties()
+        js = super(CapabilityStatementRestInteraction, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
             ("documentation", "documentation", str, False, None, False),
@@ -504,14 +480,14 @@ class ConformanceRestInteraction(backboneelement.BackboneElement):
         return js
 
 
-class ConformanceRestOperation(backboneelement.BackboneElement):
+class CapabilityStatementRestOperation(backboneelement.BackboneElement):
     """ Definition of an operation or a custom query.
     
     Definition of an operation or a named query and with its parameters and
     their meaning and type.
     """
     
-    resource_name = "ConformanceRestOperation"
+    resource_name = "CapabilityStatementRestOperation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -529,10 +505,10 @@ class ConformanceRestOperation(backboneelement.BackboneElement):
         """ Name by which the operation/query is invoked.
         Type `str`. """
         
-        super(ConformanceRestOperation, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementRestOperation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceRestOperation, self).elementProperties()
+        js = super(CapabilityStatementRestOperation, self).elementProperties()
         js.extend([
             ("definition", "definition", fhirreference.FHIRReference, False, None, True),
             ("name", "name", str, False, None, True),
@@ -540,14 +516,14 @@ class ConformanceRestOperation(backboneelement.BackboneElement):
         return js
 
 
-class ConformanceRestResource(backboneelement.BackboneElement):
+class CapabilityStatementRestResource(backboneelement.BackboneElement):
     """ Resource served on the REST interface.
     
     A specification of the restful capabilities of the solution for a specific
     resource type.
     """
     
-    resource_name = "ConformanceRestResource"
+    resource_name = "CapabilityStatementRestResource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -566,13 +542,21 @@ class ConformanceRestResource(backboneelement.BackboneElement):
         supported.
         Type `str`. """
         
+        self.conditionalRead = None
+        """ not-supported | modified-since | not-match | full-support.
+        Type `str`. """
+        
         self.conditionalUpdate = None
         """ If allows/uses conditional update.
         Type `bool`. """
         
+        self.documentation = None
+        """ Additional information about the use of the resource type.
+        Type `str`. """
+        
         self.interaction = None
         """ What operations are supported?.
-        List of `ConformanceRestResourceInteraction` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementRestResourceInteraction` items (represented as `dict` in JSON). """
         
         self.profile = None
         """ Base System profile for all uses of resource.
@@ -582,13 +566,17 @@ class ConformanceRestResource(backboneelement.BackboneElement):
         """ Whether vRead can return past versions.
         Type `bool`. """
         
+        self.referencePolicy = None
+        """ literal | logical | resolves | enforced | local.
+        List of `str` items. """
+        
         self.searchInclude = None
         """ _include values supported by the server.
         List of `str` items. """
         
         self.searchParam = None
         """ Search params supported by implementation.
-        List of `ConformanceRestResourceSearchParam` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementRestResourceSearchParam` items (represented as `dict` in JSON). """
         
         self.searchRevInclude = None
         """ _revinclude values supported by the server.
@@ -606,19 +594,22 @@ class ConformanceRestResource(backboneelement.BackboneElement):
         """ no-version | versioned | versioned-update.
         Type `str`. """
         
-        super(ConformanceRestResource, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementRestResource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceRestResource, self).elementProperties()
+        js = super(CapabilityStatementRestResource, self).elementProperties()
         js.extend([
             ("conditionalCreate", "conditionalCreate", bool, False, None, False),
             ("conditionalDelete", "conditionalDelete", str, False, None, False),
+            ("conditionalRead", "conditionalRead", str, False, None, False),
             ("conditionalUpdate", "conditionalUpdate", bool, False, None, False),
-            ("interaction", "interaction", ConformanceRestResourceInteraction, True, None, True),
+            ("documentation", "documentation", str, False, None, False),
+            ("interaction", "interaction", CapabilityStatementRestResourceInteraction, True, None, True),
             ("profile", "profile", fhirreference.FHIRReference, False, None, False),
             ("readHistory", "readHistory", bool, False, None, False),
+            ("referencePolicy", "referencePolicy", str, True, None, False),
             ("searchInclude", "searchInclude", str, True, None, False),
-            ("searchParam", "searchParam", ConformanceRestResourceSearchParam, True, None, False),
+            ("searchParam", "searchParam", CapabilityStatementRestResourceSearchParam, True, None, False),
             ("searchRevInclude", "searchRevInclude", str, True, None, False),
             ("type", "type", str, False, None, True),
             ("updateCreate", "updateCreate", bool, False, None, False),
@@ -627,13 +618,13 @@ class ConformanceRestResource(backboneelement.BackboneElement):
         return js
 
 
-class ConformanceRestResourceInteraction(backboneelement.BackboneElement):
+class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement):
     """ What operations are supported?.
     
     Identifies a restful operation supported by the solution.
     """
     
-    resource_name = "ConformanceRestResourceInteraction"
+    resource_name = "CapabilityStatementRestResourceInteraction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -652,10 +643,10 @@ class ConformanceRestResourceInteraction(backboneelement.BackboneElement):
         """ Anything special about operation behavior.
         Type `str`. """
         
-        super(ConformanceRestResourceInteraction, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementRestResourceInteraction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceRestResourceInteraction, self).elementProperties()
+        js = super(CapabilityStatementRestResourceInteraction, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
             ("documentation", "documentation", str, False, None, False),
@@ -663,7 +654,7 @@ class ConformanceRestResourceInteraction(backboneelement.BackboneElement):
         return js
 
 
-class ConformanceRestResourceSearchParam(backboneelement.BackboneElement):
+class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement):
     """ Search params supported by implementation.
     
     Search parameters for implementations to support and/or make use of -
@@ -671,7 +662,7 @@ class ConformanceRestResourceSearchParam(backboneelement.BackboneElement):
     defined for/by the implementation.
     """
     
-    resource_name = "ConformanceRestResourceSearchParam"
+    resource_name = "CapabilityStatementRestResourceSearchParam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -711,10 +702,10 @@ class ConformanceRestResourceSearchParam(backboneelement.BackboneElement):
         uri.
         Type `str`. """
         
-        super(ConformanceRestResourceSearchParam, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementRestResourceSearchParam, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceRestResourceSearchParam, self).elementProperties()
+        js = super(CapabilityStatementRestResourceSearchParam, self).elementProperties()
         js.extend([
             ("chain", "chain", str, True, None, False),
             ("definition", "definition", str, False, None, False),
@@ -727,14 +718,14 @@ class ConformanceRestResourceSearchParam(backboneelement.BackboneElement):
         return js
 
 
-class ConformanceRestSecurity(backboneelement.BackboneElement):
+class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
     """ Information about security of implementation.
     
     Information about security implementation from an interface perspective -
     what a client needs to know.
     """
     
-    resource_name = "ConformanceRestSecurity"
+    resource_name = "CapabilityStatementRestSecurity"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -746,7 +737,7 @@ class ConformanceRestSecurity(backboneelement.BackboneElement):
         
         self.certificate = None
         """ Certificates associated with security profiles.
-        List of `ConformanceRestSecurityCertificate` items (represented as `dict` in JSON). """
+        List of `CapabilityStatementRestSecurityCertificate` items (represented as `dict` in JSON). """
         
         self.cors = None
         """ Adds CORS Headers (http://enable-cors.org/).
@@ -760,12 +751,12 @@ class ConformanceRestSecurity(backboneelement.BackboneElement):
         """ OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(ConformanceRestSecurity, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementRestSecurity, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceRestSecurity, self).elementProperties()
+        js = super(CapabilityStatementRestSecurity, self).elementProperties()
         js.extend([
-            ("certificate", "certificate", ConformanceRestSecurityCertificate, True, None, False),
+            ("certificate", "certificate", CapabilityStatementRestSecurityCertificate, True, None, False),
             ("cors", "cors", bool, False, None, False),
             ("description", "description", str, False, None, False),
             ("service", "service", codeableconcept.CodeableConcept, True, None, False),
@@ -773,11 +764,11 @@ class ConformanceRestSecurity(backboneelement.BackboneElement):
         return js
 
 
-class ConformanceRestSecurityCertificate(backboneelement.BackboneElement):
+class CapabilityStatementRestSecurityCertificate(backboneelement.BackboneElement):
     """ Certificates associated with security profiles.
     """
     
-    resource_name = "ConformanceRestSecurityCertificate"
+    resource_name = "CapabilityStatementRestSecurityCertificate"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -795,10 +786,10 @@ class ConformanceRestSecurityCertificate(backboneelement.BackboneElement):
         """ Mime type for certificate.
         Type `str`. """
         
-        super(ConformanceRestSecurityCertificate, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementRestSecurityCertificate, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceRestSecurityCertificate, self).elementProperties()
+        js = super(CapabilityStatementRestSecurityCertificate, self).elementProperties()
         js.extend([
             ("blob", "blob", str, False, None, False),
             ("type", "type", str, False, None, False),
@@ -806,15 +797,15 @@ class ConformanceRestSecurityCertificate(backboneelement.BackboneElement):
         return js
 
 
-class ConformanceSoftware(backboneelement.BackboneElement):
-    """ Software that is covered by this conformance statement.
+class CapabilityStatementSoftware(backboneelement.BackboneElement):
+    """ Software that is covered by this capability statement.
     
-    Software that is covered by this conformance statement.  It is used when
-    the conformance statement describes the capabilities of a particular
-    software version, independent of an installation.
+    Software that is covered by this capability statement.  It is used when the
+    capability statement describes the capabilities of a particular software
+    version, independent of an installation.
     """
     
-    resource_name = "ConformanceSoftware"
+    resource_name = "CapabilityStatementSoftware"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -836,10 +827,10 @@ class ConformanceSoftware(backboneelement.BackboneElement):
         """ Version covered by this statement.
         Type `str`. """
         
-        super(ConformanceSoftware, self).__init__(jsondict=jsondict, strict=strict)
+        super(CapabilityStatementSoftware, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ConformanceSoftware, self).elementProperties()
+        js = super(CapabilityStatementSoftware, self).elementProperties()
         js.extend([
             ("name", "name", str, False, None, True),
             ("releaseDate", "releaseDate", fhirdate.FHIRDate, False, None, False),
@@ -850,6 +841,7 @@ class ConformanceSoftware(backboneelement.BackboneElement):
 
 from . import codeableconcept
 from . import coding
-from . import contactpoint
+from . import contactdetail
 from . import fhirdate
 from . import fhirreference
+from . import usagecontext

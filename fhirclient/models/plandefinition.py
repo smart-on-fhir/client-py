@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -9,11 +9,12 @@ from . import domainresource
 
 class PlanDefinition(domainresource.DomainResource):
     """ The definition of a plan for a series of actions, independent of any
-    specific patient.
+    specific patient or context.
     
-    This resource allows for the definition of an order set as a sharable,
-    consumable, and executable artifact in support of clinical decision
-    support.
+    This resource allows for the definition of various types of plans as a
+    sharable, consumable, and executable artifact. The resource is general
+    enough to support the description of a broad range of clinical artifacts
+    such as clinical decision support rules, order sets and protocols.
     """
     
     resource_name = "PlanDefinition"
@@ -30,13 +31,101 @@ class PlanDefinition(domainresource.DomainResource):
         """ Action defined by the plan.
         List of `PlanDefinitionActionDefinition` items (represented as `dict` in JSON). """
         
+        self.approvalDate = None
+        """ When plan definition approved by publisher.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.contact = None
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
+        self.contributor = None
+        """ A content contributor.
+        List of `Contributor` items (represented as `dict` in JSON). """
+        
+        self.copyright = None
+        """ Use and/or publishing restrictions.
+        Type `str`. """
+        
+        self.date = None
+        """ Date this was last changed.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.description = None
+        """ Natural language description of the plan definition.
+        Type `str`. """
+        
+        self.effectivePeriod = None
+        """ The effective date range for the plan definition.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.experimental = None
+        """ If for testing purposes, not real usage.
+        Type `bool`. """
+        
+        self.identifier = None
+        """ Additional identifier for the plan definition.
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.jurisdiction = None
+        """ Intended jurisdiction for plan definition (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.lastReviewDate = None
+        """ Last review date for the plan definition.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.library = None
         """ Logic used by the plan definition.
         List of `FHIRReference` items referencing `Library` (represented as `dict` in JSON). """
         
-        self.moduleMetadata = None
-        """ The metadata for the plan definition.
-        Type `ModuleMetadata` (represented as `dict` in JSON). """
+        self.name = None
+        """ Name for this plan definition (Computer friendly).
+        Type `str`. """
+        
+        self.publisher = None
+        """ Name of the publisher (Organization or individual).
+        Type `str`. """
+        
+        self.purpose = None
+        """ Why this plan definition is defined.
+        Type `str`. """
+        
+        self.relatedArtifact = None
+        """ Related artifacts for the asset.
+        List of `RelatedArtifact` items (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ draft | active | retired.
+        Type `str`. """
+        
+        self.title = None
+        """ Name for this plan definition (Human friendly).
+        Type `str`. """
+        
+        self.topic = None
+        """ Descriptional topics for the asset.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ order-set | protocol | eca-rule.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.url = None
+        """ Logical uri to reference this plan definition (globally unique).
+        Type `str`. """
+        
+        self.usage = None
+        """ Describes the clinical usage of the asset.
+        Type `str`. """
+        
+        self.useContext = None
+        """ Content intends to support these contexts.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+        
+        self.version = None
+        """ Business version of the plan definition.
+        Type `str`. """
         
         super(PlanDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -44,8 +133,30 @@ class PlanDefinition(domainresource.DomainResource):
         js = super(PlanDefinition, self).elementProperties()
         js.extend([
             ("actionDefinition", "actionDefinition", PlanDefinitionActionDefinition, True, None, False),
+            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("contributor", "contributor", contributor.Contributor, True, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
+            ("experimental", "experimental", bool, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
             ("library", "library", fhirreference.FHIRReference, True, None, False),
-            ("moduleMetadata", "moduleMetadata", modulemetadata.ModuleMetadata, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("publisher", "publisher", str, False, None, False),
+            ("purpose", "purpose", str, False, None, False),
+            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
+            ("status", "status", str, False, None, True),
+            ("title", "title", str, False, None, False),
+            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("url", "url", str, False, None, False),
+            ("usage", "usage", str, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -80,9 +191,9 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         """ Description of the activity to be performed.
         Type `FHIRReference` referencing `ActivityDefinition` (represented as `dict` in JSON). """
         
-        self.behavior = None
-        """ Defines behaviors such as selection and grouping.
-        List of `PlanDefinitionActionDefinitionBehavior` items (represented as `dict` in JSON). """
+        self.cardinalityBehavior = None
+        """ single | multiple.
+        Type `str`. """
         
         self.concept = None
         """ The meaning of the action or its sub-actions.
@@ -90,11 +201,7 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         
         self.condition = None
         """ Whether or not the action is applicable.
-        Type `str`. """
-        
-        self.customization = None
-        """ Dynamic aspects of the definition.
-        List of `PlanDefinitionActionDefinitionCustomization` items (represented as `dict` in JSON). """
+        Type `PlanDefinitionActionDefinitionCondition` (represented as `dict` in JSON). """
         
         self.description = None
         """ Short description of the action.
@@ -102,36 +209,80 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         
         self.documentation = None
         """ Supporting documentation for the intended performer of the action.
-        List of `Attachment` items (represented as `dict` in JSON). """
+        List of `RelatedArtifact` items (represented as `dict` in JSON). """
+        
+        self.dynamicValue = None
+        """ Dynamic aspects of the definition.
+        List of `PlanDefinitionActionDefinitionDynamicValue` items (represented as `dict` in JSON). """
+        
+        self.groupingBehavior = None
+        """ visual-group | logical-group | sentence-group.
+        Type `str`. """
         
         self.label = None
         """ User-visible label for the action (e.g. 1. or A.).
         Type `str`. """
         
+        self.participantType = None
+        """ patient | practitioner | related-person.
+        List of `str` items. """
+        
+        self.precheckBehavior = None
+        """ yes | no.
+        Type `str`. """
+        
         self.relatedAction = None
         """ Relationship to another action.
-        Type `PlanDefinitionActionDefinitionRelatedAction` (represented as `dict` in JSON). """
+        List of `PlanDefinitionActionDefinitionRelatedAction` items (represented as `dict` in JSON). """
         
-        self.supportingEvidence = None
-        """ Evidence that supports taking the action.
-        List of `Attachment` items (represented as `dict` in JSON). """
+        self.requiredBehavior = None
+        """ must | could | must-unless-documented.
+        Type `str`. """
+        
+        self.selectionBehavior = None
+        """ any | all | all-or-none | exactly-one | at-most-one | one-or-more.
+        Type `str`. """
         
         self.textEquivalent = None
         """ Static text equivalent of the action, used if the dynamic aspects
         cannot be interpreted by the receiving system.
         Type `str`. """
         
+        self.timingDateTime = None
+        """ When the action should take place.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.timingDuration = None
+        """ When the action should take place.
+        Type `Duration` (represented as `dict` in JSON). """
+        
+        self.timingPeriod = None
+        """ When the action should take place.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.timingRange = None
+        """ When the action should take place.
+        Type `Range` (represented as `dict` in JSON). """
+        
+        self.timingTiming = None
+        """ When the action should take place.
+        Type `Timing` (represented as `dict` in JSON). """
+        
         self.title = None
         """ User-visible title.
         Type `str`. """
         
+        self.transform = None
+        """ Transform to apply the template.
+        Type `FHIRReference` referencing `StructureMap` (represented as `dict` in JSON). """
+        
         self.triggerDefinition = None
         """ When the action should be triggered.
-        Type `TriggerDefinition` (represented as `dict` in JSON). """
+        List of `TriggerDefinition` items (represented as `dict` in JSON). """
         
         self.type = None
         """ create | update | remove | fire-event.
-        Type `str`. """
+        Type `Coding` (represented as `dict` in JSON). """
         
         super(PlanDefinitionActionDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -141,31 +292,41 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
             ("actionDefinition", "actionDefinition", PlanDefinitionActionDefinition, True, None, False),
             ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, False),
             ("activityDefinition", "activityDefinition", fhirreference.FHIRReference, False, None, False),
-            ("behavior", "behavior", PlanDefinitionActionDefinitionBehavior, True, None, False),
+            ("cardinalityBehavior", "cardinalityBehavior", str, False, None, False),
             ("concept", "concept", codeableconcept.CodeableConcept, True, None, False),
-            ("condition", "condition", str, False, None, False),
-            ("customization", "customization", PlanDefinitionActionDefinitionCustomization, True, None, False),
+            ("condition", "condition", PlanDefinitionActionDefinitionCondition, False, None, False),
             ("description", "description", str, False, None, False),
-            ("documentation", "documentation", attachment.Attachment, True, None, False),
+            ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
+            ("dynamicValue", "dynamicValue", PlanDefinitionActionDefinitionDynamicValue, True, None, False),
+            ("groupingBehavior", "groupingBehavior", str, False, None, False),
             ("label", "label", str, False, None, False),
-            ("relatedAction", "relatedAction", PlanDefinitionActionDefinitionRelatedAction, False, None, False),
-            ("supportingEvidence", "supportingEvidence", attachment.Attachment, True, None, False),
+            ("participantType", "participantType", str, True, None, False),
+            ("precheckBehavior", "precheckBehavior", str, False, None, False),
+            ("relatedAction", "relatedAction", PlanDefinitionActionDefinitionRelatedAction, True, None, False),
+            ("requiredBehavior", "requiredBehavior", str, False, None, False),
+            ("selectionBehavior", "selectionBehavior", str, False, None, False),
             ("textEquivalent", "textEquivalent", str, False, None, False),
+            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
+            ("timingDuration", "timingDuration", duration.Duration, False, "timing", False),
+            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
+            ("timingRange", "timingRange", range.Range, False, "timing", False),
+            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
             ("title", "title", str, False, None, False),
-            ("triggerDefinition", "triggerDefinition", triggerdefinition.TriggerDefinition, False, None, False),
-            ("type", "type", str, False, None, False),
+            ("transform", "transform", fhirreference.FHIRReference, False, None, False),
+            ("triggerDefinition", "triggerDefinition", triggerdefinition.TriggerDefinition, True, None, False),
+            ("type", "type", coding.Coding, False, None, False),
         ])
         return js
 
 
-class PlanDefinitionActionDefinitionBehavior(backboneelement.BackboneElement):
-    """ Defines behaviors such as selection and grouping.
+class PlanDefinitionActionDefinitionCondition(backboneelement.BackboneElement):
+    """ Whether or not the action is applicable.
     
-    A behavior associated with the action. Behaviors define how the action is
-    to be presented and/or executed within the receiving environment.
+    An expression specifying whether or not the action is applicable in a given
+    context.
     """
     
-    resource_name = "PlanDefinitionActionDefinitionBehavior"
+    resource_name = "PlanDefinitionActionDefinitionCondition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -175,27 +336,31 @@ class PlanDefinitionActionDefinitionBehavior(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.type = None
-        """ The type of behavior (grouping, precheck, selection, cardinality,
-        etc).
-        Type `Coding` (represented as `dict` in JSON). """
+        self.description = None
+        """ Natural language description of the condition.
+        Type `str`. """
         
-        self.value = None
-        """ Specific behavior (e.g. required, at-most-one, single, etc).
-        Type `Coding` (represented as `dict` in JSON). """
+        self.expression = None
+        """ Boolean-valued expression.
+        Type `str`. """
         
-        super(PlanDefinitionActionDefinitionBehavior, self).__init__(jsondict=jsondict, strict=strict)
+        self.language = None
+        """ Language of the expression.
+        Type `str`. """
+        
+        super(PlanDefinitionActionDefinitionCondition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(PlanDefinitionActionDefinitionBehavior, self).elementProperties()
+        js = super(PlanDefinitionActionDefinitionCondition, self).elementProperties()
         js.extend([
-            ("type", "type", coding.Coding, False, None, True),
-            ("value", "value", coding.Coding, False, None, True),
+            ("description", "description", str, False, None, False),
+            ("expression", "expression", str, False, None, False),
+            ("language", "language", str, False, None, False),
         ])
         return js
 
 
-class PlanDefinitionActionDefinitionCustomization(backboneelement.BackboneElement):
+class PlanDefinitionActionDefinitionDynamicValue(backboneelement.BackboneElement):
     """ Dynamic aspects of the definition.
     
     Customizations that should be applied to the statically defined resource.
@@ -205,7 +370,7 @@ class PlanDefinitionActionDefinitionCustomization(backboneelement.BackboneElemen
     the result.
     """
     
-    resource_name = "PlanDefinitionActionDefinitionCustomization"
+    resource_name = "PlanDefinitionActionDefinitionDynamicValue"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -215,21 +380,31 @@ class PlanDefinitionActionDefinitionCustomization(backboneelement.BackboneElemen
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.description = None
+        """ Natural language description of the dynamic value.
+        Type `str`. """
+        
         self.expression = None
         """ An expression that provides the dynamic value for the customization.
+        Type `str`. """
+        
+        self.language = None
+        """ Language of the expression.
         Type `str`. """
         
         self.path = None
         """ The path to the element to be set dynamically.
         Type `str`. """
         
-        super(PlanDefinitionActionDefinitionCustomization, self).__init__(jsondict=jsondict, strict=strict)
+        super(PlanDefinitionActionDefinitionDynamicValue, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(PlanDefinitionActionDefinitionCustomization, self).elementProperties()
+        js = super(PlanDefinitionActionDefinitionDynamicValue, self).elementProperties()
         js.extend([
-            ("expression", "expression", str, False, None, True),
-            ("path", "path", str, False, None, True),
+            ("description", "description", str, False, None, False),
+            ("expression", "expression", str, False, None, False),
+            ("language", "language", str, False, None, False),
+            ("path", "path", str, False, None, False),
         ])
         return js
 
@@ -268,7 +443,7 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
         Type `Range` (represented as `dict` in JSON). """
         
         self.relationship = None
-        """ before | after.
+        """ before | after | concurrent.
         Type `str`. """
         
         super(PlanDefinitionActionDefinitionRelatedAction, self).__init__(jsondict=jsondict, strict=strict)
@@ -285,12 +460,17 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
         return js
 
 
-from . import attachment
 from . import codeableconcept
 from . import coding
+from . import contactdetail
+from . import contributor
 from . import duration
+from . import fhirdate
 from . import fhirreference
 from . import identifier
-from . import modulemetadata
+from . import period
 from . import range
+from . import relatedartifact
+from . import timing
 from . import triggerdefinition
+from . import usagecontext

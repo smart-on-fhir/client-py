@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -233,9 +233,17 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.hospitalization.dietPreference[0].coding[0].display, "Fluid balance regulation")
         self.assertEqual(inst.hospitalization.dietPreference[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.hospitalization.reAdmission.coding[0].display, "readmitted")
+        self.assertEqual(inst.hospitalization.specialArrangement[0].coding[0].code, "wheel")
+        self.assertEqual(inst.hospitalization.specialArrangement[0].coding[0].display, "Wheelchair")
+        self.assertEqual(inst.hospitalization.specialArrangement[0].coding[0].system, "http://hl7.org/fhir/encounter-special-arrangements")
+        self.assertEqual(inst.hospitalization.specialCourtesy[0].coding[0].code, "NRM")
+        self.assertEqual(inst.hospitalization.specialCourtesy[0].coding[0].display, "normal courtesy")
+        self.assertEqual(inst.hospitalization.specialCourtesy[0].coding[0].system, "http://hl7.org/fhir/v3/EncounterSpecialCourtesy")
         self.assertEqual(inst.id, "f203")
         self.assertEqual(inst.identifier[0].use, "temp")
         self.assertEqual(inst.identifier[0].value, "Encounter_Roel_20130311")
+        self.assertEqual(inst.participant[0].type[0].coding[0].code, "PART")
+        self.assertEqual(inst.participant[0].type[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.period.end.date, FHIRDate("2013-03-20").date)
         self.assertEqual(inst.period.end.as_json(), "2013-03-20")
         self.assertEqual(inst.period.start.date, FHIRDate("2013-03-11").date)
@@ -245,6 +253,9 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.priority.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.reason[0].text, "The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy.")
         self.assertEqual(inst.status, "finished")
+        self.assertEqual(inst.statusHistory[0].period.start.date, FHIRDate("2013-03-08").date)
+        self.assertEqual(inst.statusHistory[0].period.start.as_json(), "2013-03-08")
+        self.assertEqual(inst.statusHistory[0].status, "arrived")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type[0].coding[0].code, "183807002")
         self.assertEqual(inst.type[0].coding[0].display, "Inpatient stay for nine days")

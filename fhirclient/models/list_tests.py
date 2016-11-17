@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -181,7 +181,7 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testList7(self):
-        inst = self.instantiate_from("list-example.json")
+        inst = self.instantiate_from("list-example-simple-empty.json")
         self.assertIsNotNone(inst, "Must have instantiated a List instance")
         self.implList7(inst)
         
@@ -191,6 +191,27 @@ class ListTests(unittest.TestCase):
         self.implList7(inst2)
     
     def implList7(self, inst):
+        self.assertEqual(inst.code.coding[0].code, "346638")
+        self.assertEqual(inst.code.coding[0].display, "Patient Admission List")
+        self.assertEqual(inst.code.coding[0].system, "http://acme.com/list-codes")
+        self.assertEqual(inst.date.date, FHIRDate("2016-07-14T11:54:05+10:00").date)
+        self.assertEqual(inst.date.as_json(), "2016-07-14T11:54:05+10:00")
+        self.assertEqual(inst.id, "example-simple-empty")
+        self.assertEqual(inst.mode, "snapshot")
+        self.assertEqual(inst.status, "current")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testList8(self):
+        inst = self.instantiate_from("list-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a List instance")
+        self.implList8(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("List", js["resourceType"])
+        inst2 = list.List(js)
+        self.implList8(inst2)
+    
+    def implList8(self, inst):
         self.assertEqual(inst.date.date, FHIRDate("2012-11-25T22:17:00+11:00").date)
         self.assertEqual(inst.date.as_json(), "2012-11-25T22:17:00+11:00")
         self.assertTrue(inst.entry[0].deleted)

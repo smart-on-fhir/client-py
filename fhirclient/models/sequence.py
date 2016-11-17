@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Sequence) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Sequence) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -73,8 +73,8 @@ class Sequence(domainresource.DomainResource):
         Type `FHIRReference` referencing `Specimen` (represented as `dict` in JSON). """
         
         self.structureVariant = None
-        """ None.
-        Type `SequenceStructureVariant` (represented as `dict` in JSON). """
+        """ Structural variant.
+        List of `SequenceStructureVariant` items (represented as `dict` in JSON). """
         
         self.type = None
         """ AA | DNA | RNA.
@@ -101,7 +101,7 @@ class Sequence(domainresource.DomainResource):
             ("referenceSeq", "referenceSeq", SequenceReferenceSeq, False, None, False),
             ("repository", "repository", SequenceRepository, True, None, False),
             ("specimen", "specimen", fhirreference.FHIRReference, False, None, False),
-            ("structureVariant", "structureVariant", SequenceStructureVariant, False, None, False),
+            ("structureVariant", "structureVariant", SequenceStructureVariant, True, None, False),
             ("type", "type", str, False, None, True),
             ("variant", "variant", SequenceVariant, True, None, False),
         ])
@@ -132,40 +132,53 @@ class SequenceQuality(backboneelement.BackboneElement):
         """ End position (exclusive) of the sequence.
         Type `int`. """
         
-        self.fMeasure = None
-        """ F-measure.
+        self.fScore = None
+        """ F-score.
         Type `float`. """
         
-        self.falseNegatives = None
-        """ False negatives.
-        Type `float`. """
-        
-        self.falsePositives = None
-        """ False positives.
+        self.gtFP = None
+        """ False positives where the non-REF alleles in the Truth and Query
+        Call Sets match.
         Type `float`. """
         
         self.method = None
         """ Method for quality.
-        Type `str`. """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.precision = None
-        """ Precision (PPV).
+        """ Precision.
+        Type `float`. """
+        
+        self.queryFP = None
+        """ False positives.
+        Type `float`. """
+        
+        self.queryTP = None
+        """ True positives from the perspective of the query data.
         Type `float`. """
         
         self.recall = None
-        """ Recall (sensitivity).
+        """ Recall.
         Type `float`. """
         
         self.score = None
         """ Quality score.
         Type `Quantity` (represented as `dict` in JSON). """
         
+        self.standardSequence = None
+        """ Standard sequence for comparison.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.start = None
         """ Start position (inclusive) of the sequence.
         Type `int`. """
         
-        self.truePositives = None
-        """ True positives.
+        self.truthFN = None
+        """ False negatives.
+        Type `float`. """
+        
+        self.truthTP = None
+        """ True positives from the perspective of the truth data.
         Type `float`. """
         
         super(SequenceQuality, self).__init__(jsondict=jsondict, strict=strict)
@@ -174,15 +187,18 @@ class SequenceQuality(backboneelement.BackboneElement):
         js = super(SequenceQuality, self).elementProperties()
         js.extend([
             ("end", "end", int, False, None, False),
-            ("fMeasure", "fMeasure", float, False, None, False),
-            ("falseNegatives", "falseNegatives", float, False, None, False),
-            ("falsePositives", "falsePositives", float, False, None, False),
-            ("method", "method", str, False, None, False),
+            ("fScore", "fScore", float, False, None, False),
+            ("gtFP", "gtFP", float, False, None, False),
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
             ("precision", "precision", float, False, None, False),
+            ("queryFP", "queryFP", float, False, None, False),
+            ("queryTP", "queryTP", float, False, None, False),
             ("recall", "recall", float, False, None, False),
             ("score", "score", quantity.Quantity, False, None, False),
+            ("standardSequence", "standardSequence", codeableconcept.CodeableConcept, False, None, False),
             ("start", "start", int, False, None, False),
-            ("truePositives", "truePositives", float, False, None, False),
+            ("truthFN", "truthFN", float, False, None, False),
+            ("truthTP", "truthTP", float, False, None, False),
         ])
         return js
 
@@ -300,9 +316,7 @@ class SequenceRepository(backboneelement.BackboneElement):
 
 
 class SequenceStructureVariant(backboneelement.BackboneElement):
-    """ None.
-    
-    Structural variant.
+    """ Structural variant.
     """
     
     resource_name = "SequenceStructureVariant"
@@ -316,7 +330,7 @@ class SequenceStructureVariant(backboneelement.BackboneElement):
         """
         
         self.inner = None
-        """ None.
+        """ Structural variant inner.
         Type `SequenceStructureVariantInner` (represented as `dict` in JSON). """
         
         self.length = None
@@ -324,7 +338,7 @@ class SequenceStructureVariant(backboneelement.BackboneElement):
         Type `int`. """
         
         self.outer = None
-        """ None.
+        """ Structural variant outer.
         Type `SequenceStructureVariantOuter` (represented as `dict` in JSON). """
         
         self.precisionOfBoundaries = None
@@ -350,9 +364,7 @@ class SequenceStructureVariant(backboneelement.BackboneElement):
 
 
 class SequenceStructureVariantInner(backboneelement.BackboneElement):
-    """ None.
-    
-    Structural variant inner.
+    """ Structural variant inner.
     """
     
     resource_name = "SequenceStructureVariantInner"
@@ -385,9 +397,7 @@ class SequenceStructureVariantInner(backboneelement.BackboneElement):
 
 
 class SequenceStructureVariantOuter(backboneelement.BackboneElement):
-    """ None.
-    
-    Structural variant outer.
+    """ Structural variant outer.
     """
     
     resource_name = "SequenceStructureVariantOuter"

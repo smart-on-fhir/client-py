@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -39,7 +39,7 @@ class CarePlan(domainresource.DomainResource):
         
         self.careTeam = None
         """ Who's involved in plan?.
-        Type `FHIRReference` referencing `CareTeam` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `CareTeam` (represented as `dict` in JSON). """
         
         self.category = None
         """ Type of plan.
@@ -97,7 +97,7 @@ class CarePlan(domainresource.DomainResource):
             ("activity", "activity", CarePlanActivity, True, None, False),
             ("addresses", "addresses", fhirreference.FHIRReference, True, None, False),
             ("author", "author", fhirreference.FHIRReference, True, None, False),
-            ("careTeam", "careTeam", fhirreference.FHIRReference, False, None, False),
+            ("careTeam", "careTeam", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
@@ -142,13 +142,17 @@ class CarePlanActivity(backboneelement.BackboneElement):
         """ In-line definition of activity.
         Type `CarePlanActivityDetail` (represented as `dict` in JSON). """
         
+        self.outcome = None
+        """ Results of the activity.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.progress = None
         """ Comments about the activity status/progress.
         List of `Annotation` items (represented as `dict` in JSON). """
         
         self.reference = None
         """ Activity details defined in specific resource.
-        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticOrder, MedicationOrder, NutritionOrder, Order, ProcedureRequest, ProcessRequest, ReferralRequest, SupplyRequest, VisionPrescription` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticRequest, MedicationOrder, NutritionRequest, ProcedureRequest, ProcessRequest, ReferralRequest, VisionPrescription` (represented as `dict` in JSON). """
         
         super(CarePlanActivity, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -157,6 +161,7 @@ class CarePlanActivity(backboneelement.BackboneElement):
         js.extend([
             ("actionResulting", "actionResulting", fhirreference.FHIRReference, True, None, False),
             ("detail", "detail", CarePlanActivityDetail, False, None, False),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
             ("progress", "progress", annotation.Annotation, True, None, False),
             ("reference", "reference", fhirreference.FHIRReference, False, None, False),
         ])
@@ -191,7 +196,11 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
         
         self.dailyAmount = None
         """ How to consume/day?.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.definition = None
+        """ Protocol or definition.
+        Type `FHIRReference` referencing `PlanDefinition, Questionnaire` (represented as `dict` in JSON). """
         
         self.description = None
         """ Extra info describing activity to perform.
@@ -223,7 +232,7 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
         
         self.quantity = None
         """ How much to administer/supply/consume.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.reasonCode = None
         """ Why activity should be done.
@@ -262,6 +271,7 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("dailyAmount", "dailyAmount", quantity.Quantity, False, None, False),
+            ("definition", "definition", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
             ("goal", "goal", fhirreference.FHIRReference, True, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),

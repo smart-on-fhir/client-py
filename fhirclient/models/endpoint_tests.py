@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -33,12 +33,17 @@ class EndpointTests(unittest.TestCase):
     
     def implEndpoint1(self, inst):
         self.assertEqual(inst.address, "http://fhir3.healthintersections.com.au/open/CarePlan")
-        self.assertEqual(inst.connectionType, "rest-hook")
+        self.assertEqual(inst.connectionType.code, "hl7-fhir-rest")
+        self.assertEqual(inst.connectionType.system, "http://hl7.org/fhir/endpoint-connection-type")
+        self.assertEqual(inst.contact[0].system, "email")
+        self.assertEqual(inst.contact[0].use, "work")
+        self.assertEqual(inst.contact[0].value, "endpointmanager@example.org")
+        self.assertEqual(inst.header[0], "bearer-code BASGS534s4")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.method[0].code, "PUT")
-        self.assertEqual(inst.method[0].system, "http://hl7.org/fhir/ValueSet/http-verb")
+        self.assertEqual(inst.identifier[0].system, "http://example.org/enpoint-identifier")
+        self.assertEqual(inst.identifier[0].value, "epcp12")
         self.assertEqual(inst.name, "Health Intersections CarePlan Hub")
-        self.assertEqual(inst.payloadFormat, "application/xml+fhir")
+        self.assertEqual(inst.payloadMimeType[0], "application/fhir+xml")
         self.assertEqual(inst.payloadType[0].coding[0].code, "CarePlan")
         self.assertEqual(inst.payloadType[0].coding[0].system, "http://hl7.org/fhir/resource-types")
         self.assertEqual(inst.period.start.date, FHIRDate("2014-09-01").date)

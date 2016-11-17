@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -9,29 +9,29 @@ import os
 import io
 import unittest
 import json
-from . import conformance
+from . import capabilitystatement
 from .fhirdate import FHIRDate
 
 
-class ConformanceTests(unittest.TestCase):
+class CapabilityStatementTests(unittest.TestCase):
     def instantiate_from(self, filename):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-            self.assertEqual("Conformance", js["resourceType"])
-        return conformance.Conformance(js)
+            self.assertEqual("CapabilityStatement", js["resourceType"])
+        return capabilitystatement.CapabilityStatement(js)
     
-    def testConformance1(self):
-        inst = self.instantiate_from("conformance-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Conformance instance")
-        self.implConformance1(inst)
+    def testCapabilityStatement1(self):
+        inst = self.instantiate_from("capabilitystatement-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a CapabilityStatement instance")
+        self.implCapabilityStatement1(inst)
         
         js = inst.as_json()
-        self.assertEqual("Conformance", js["resourceType"])
-        inst2 = conformance.Conformance(js)
-        self.implConformance1(inst2)
+        self.assertEqual("CapabilityStatement", js["resourceType"])
+        inst2 = capabilitystatement.CapabilityStatement(js)
+        self.implCapabilityStatement1(inst2)
     
-    def implConformance1(self, inst):
+    def implCapabilityStatement1(self, inst):
         self.assertEqual(inst.acceptUnknown, "both")
         self.assertEqual(inst.contact[0].name, "System Administrator")
         self.assertEqual(inst.contact[0].telecom[0].system, "email")
@@ -39,7 +39,7 @@ class ConformanceTests(unittest.TestCase):
         self.assertEqual(inst.copyright, "Copyright © Acme Healthcare and GoodCorp EHR Systems")
         self.assertEqual(inst.date.date, FHIRDate("2012-01-04").date)
         self.assertEqual(inst.date.as_json(), "2012-01-04")
-        self.assertEqual(inst.description, "This is the FHIR conformance statement for the main EHR at ACME for the private interface - it does not describe the public interface")
+        self.assertEqual(inst.description, "This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface")
         self.assertEqual(inst.document[0].documentation, "Basic rules for all documents in the EHR system")
         self.assertEqual(inst.document[0].mode, "consumer")
         self.assertTrue(inst.experimental)
@@ -61,9 +61,9 @@ class ConformanceTests(unittest.TestCase):
         self.assertEqual(inst.messaging[0].event[0].focus, "Patient")
         self.assertEqual(inst.messaging[0].event[0].mode, "receiver")
         self.assertEqual(inst.messaging[0].reliableCache, 30)
-        self.assertEqual(inst.name, "ACME EHR Conformance statement")
+        self.assertEqual(inst.name, "ACME EHR capability statement")
         self.assertEqual(inst.publisher, "ACME Corporation")
-        self.assertEqual(inst.requirements, "Main EHR conformance statement, published for contracting and operational support")
+        self.assertEqual(inst.purpose, "Main EHR capability statement, published for contracting and operational support")
         self.assertEqual(inst.rest[0].compartment[0], "http://hl7.org/fhir/compartment/Patient")
         self.assertEqual(inst.rest[0].documentation, "Main FHIR endpoint for acem health")
         self.assertEqual(inst.rest[0].interaction[0].code, "transaction")
@@ -112,23 +112,23 @@ class ConformanceTests(unittest.TestCase):
         self.assertEqual(inst.url, "68D043B5-9ECF-4559-A57A-396E0D452311")
         self.assertEqual(inst.version, "20130510")
     
-    def testConformance2(self):
-        inst = self.instantiate_from("conformance-phr-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Conformance instance")
-        self.implConformance2(inst)
+    def testCapabilityStatement2(self):
+        inst = self.instantiate_from("capabilitystatement-phr-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a CapabilityStatement instance")
+        self.implCapabilityStatement2(inst)
         
         js = inst.as_json()
-        self.assertEqual("Conformance", js["resourceType"])
-        inst2 = conformance.Conformance(js)
-        self.implConformance2(inst2)
+        self.assertEqual("CapabilityStatement", js["resourceType"])
+        inst2 = capabilitystatement.CapabilityStatement(js)
+        self.implCapabilityStatement2(inst2)
     
-    def implConformance2(self, inst):
+    def implCapabilityStatement2(self, inst):
         self.assertEqual(inst.acceptUnknown, "no")
         self.assertEqual(inst.contact[0].telecom[0].system, "other")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.date.date, FHIRDate("2013-06-18").date)
         self.assertEqual(inst.date.as_json(), "2013-06-18")
-        self.assertEqual(inst.description, "Prototype Conformance Statement for September 2013 Connectathon")
+        self.assertEqual(inst.description, "Prototype Capability Statement for September 2013 Connectathon")
         self.assertEqual(inst.fhirVersion, "1.0.0")
         self.assertEqual(inst.format[0], "json")
         self.assertEqual(inst.format[1], "xml")
@@ -136,7 +136,7 @@ class ConformanceTests(unittest.TestCase):
         self.assertEqual(inst.kind, "capability")
         self.assertEqual(inst.name, "PHR Template")
         self.assertEqual(inst.publisher, "FHIR Project")
-        self.assertEqual(inst.rest[0].documentation, "Protoype server conformance statement for September 2013 Connectathon")
+        self.assertEqual(inst.rest[0].documentation, "Protoype server Capability Statement for September 2013 Connectathon")
         self.assertEqual(inst.rest[0].mode, "server")
         self.assertEqual(inst.rest[0].resource[0].interaction[0].code, "read")
         self.assertEqual(inst.rest[0].resource[0].interaction[1].code, "search-type")

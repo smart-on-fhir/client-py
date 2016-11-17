@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -114,11 +114,11 @@ class CodeSystemTests(unittest.TestCase):
         self.assertEqual(inst.content, "complete")
         self.assertEqual(inst.description, "Example use codes for the List resource - typical kinds of use.")
         self.assertTrue(inst.experimental)
-        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/valueset-oid")
-        self.assertEqual(inst.extension[0].valueUri, "urn:oid:2.16.840.1.113883.4.642.1.173")
         self.assertEqual(inst.id, "list-example-codes")
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2016-06-26T14:41:18.418+00:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2016-06-26T14:41:18.418+00:00")
+        self.assertEqual(inst.identifier.system, "urn:ietf:rfc:3986")
+        self.assertEqual(inst.identifier.value, "urn:oid:2.16.840.1.113883.4.642.1.173")
+        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2016-10-23T09:34:26.019+00:00").date)
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2016-10-23T09:34:26.019+00:00")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/codesystem-shareable-definition")
         self.assertEqual(inst.name, "Example Use Codes for List")
         self.assertEqual(inst.publisher, "FHIR Project")
@@ -126,5 +126,5 @@ class CodeSystemTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/list-example-use-codes")
         self.assertEqual(inst.valueSet, "http://hl7.org/fhir/ValueSet/list-example-codes")
-        self.assertEqual(inst.version, "1.4.0")
+        self.assertEqual(inst.version, "1.7.0")
 

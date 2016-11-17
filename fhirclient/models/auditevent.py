@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -34,7 +34,7 @@ class AuditEvent(domainresource.DomainResource):
         List of `AuditEventAgent` items (represented as `dict` in JSON). """
         
         self.entity = None
-        """ Specific instances of data or objects that have been accessed.
+        """ Data or objects used.
         List of `AuditEventEntity` items (represented as `dict` in JSON). """
         
         self.outcome = None
@@ -54,7 +54,7 @@ class AuditEvent(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.source = None
-        """ Application systems and processes.
+        """ Audit Event Reporter.
         Type `AuditEventSource` (represented as `dict` in JSON). """
         
         self.subtype = None
@@ -203,7 +203,9 @@ class AuditEventAgentNetwork(backboneelement.BackboneElement):
 
 
 class AuditEventEntity(backboneelement.BackboneElement):
-    """ Specific instances of data or objects that have been accessed.
+    """ Data or objects used.
+    
+    Specific instances of data or objects that have been accessed.
     """
     
     resource_name = "AuditEventEntity"
@@ -225,11 +227,11 @@ class AuditEventEntity(backboneelement.BackboneElement):
         List of `AuditEventEntityDetail` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Specific instance of object (e.g. versioned).
+        """ Specific instance of object.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.lifecycle = None
-        """ Life-cycle stage for the object.
+        """ Life-cycle stage for the entity.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.name = None
@@ -241,7 +243,7 @@ class AuditEventEntity(backboneelement.BackboneElement):
         Type `str`. """
         
         self.reference = None
-        """ Specific instance of resource (e.g. versioned).
+        """ Specific instance of resource.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.role = None
@@ -249,11 +251,11 @@ class AuditEventEntity(backboneelement.BackboneElement):
         Type `Coding` (represented as `dict` in JSON). """
         
         self.securityLabel = None
-        """ Security labels applied to the object.
+        """ Security labels on the entity.
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.type = None
-        """ Type of object involved.
+        """ Type of entity involved.
         Type `Coding` (represented as `dict` in JSON). """
         
         super(AuditEventEntity, self).__init__(jsondict=jsondict, strict=strict)
@@ -309,7 +311,9 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
 
 
 class AuditEventSource(backboneelement.BackboneElement):
-    """ Application systems and processes.
+    """ Audit Event Reporter.
+    
+    The system that is reporting the event.
     """
     
     resource_name = "AuditEventSource"

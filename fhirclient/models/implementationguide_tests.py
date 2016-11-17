@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -48,6 +48,8 @@ class ImplementationGuideTests(unittest.TestCase):
         self.assertEqual(inst.fhirVersion, "1.0.0")
         self.assertEqual(inst.global_fhir[0].type, "Patient")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.jurisdiction[0].coding[0].code, "US")
+        self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.name, "Data Access Framework (DAF)")
         self.assertEqual(inst.package[0].description, "Base package (not broken up into multiple packages)")
         self.assertEqual(inst.package[0].name, "test")
@@ -57,19 +59,17 @@ class ImplementationGuideTests(unittest.TestCase):
         self.assertEqual(inst.package[0].resource[0].name, "Test Example")
         self.assertEqual(inst.package[0].resource[0].sourceUri, "test.html")
         self.assertEqual(inst.page.kind, "page")
-        self.assertEqual(inst.page.name, "Example Patient Page")
         self.assertEqual(inst.page.page[0].format, "text/html")
         self.assertEqual(inst.page.page[0].kind, "list")
-        self.assertEqual(inst.page.page[0].name, "Value Set Page")
         self.assertEqual(inst.page.page[0].package[0], "test")
         self.assertEqual(inst.page.page[0].source, "list.html")
+        self.assertEqual(inst.page.page[0].title, "Value Set Page")
         self.assertEqual(inst.page.page[0].type[0], "ValueSet")
         self.assertEqual(inst.page.source, "patient-example.html")
+        self.assertEqual(inst.page.title, "Example Patient Page")
         self.assertEqual(inst.publisher, "ONC / HL7 Joint project")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/daf")
-        self.assertEqual(inst.useContext[0].coding[0].code, "US")
-        self.assertEqual(inst.useContext[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.version, "0")
 

@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Account) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Account) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
 from . import domainresource
 
 class Account(domainresource.DomainResource):
-    """ None.
+    """ Tracks balance, charges, for patient or cost center.
     
     A financial tool for tracking value accrued for a particular purpose.  In
-    the healthcare field, used to track charges for a patient, cost centres,
+    the healthcare field, used to track charges for a patient, cost centers,
     etc.
     """
     
@@ -25,13 +25,18 @@ class Account(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.activePeriod = None
-        """ Valid from..to.
+        self.active = None
+        """ Time window that transactions may be posted to this account.
         Type `Period` (represented as `dict` in JSON). """
         
         self.balance = None
         """ How much is in account?.
         Type `Money` (represented as `dict` in JSON). """
+        
+        self.coverage = None
+        """ The party(s) that are responsible for covering the payment of this
+        account.
+        List of `FHIRReference` items referencing `Coverage` (represented as `dict` in JSON). """
         
         self.coveragePeriod = None
         """ Transaction window.
@@ -58,7 +63,7 @@ class Account(domainresource.DomainResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.status = None
-        """ active | inactive.
+        """ active | inactive | entered-in-error.
         Type `str`. """
         
         self.subject = None
@@ -74,8 +79,9 @@ class Account(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Account, self).elementProperties()
         js.extend([
-            ("activePeriod", "activePeriod", period.Period, False, None, False),
+            ("active", "active", period.Period, False, None, False),
             ("balance", "balance", money.Money, False, None, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, True, None, False),
             ("coveragePeriod", "coveragePeriod", period.Period, False, None, False),
             ("currency", "currency", coding.Coding, False, None, False),
             ("description", "description", str, False, None, False),

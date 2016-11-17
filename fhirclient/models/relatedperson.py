@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -25,6 +25,10 @@ class RelatedPerson(domainresource.DomainResource):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.active = None
+        """ Whether this related person's record is in active use.
+        Type `bool`. """
         
         self.address = None
         """ Address where the related person can be contacted or visited.
@@ -71,6 +75,7 @@ class RelatedPerson(domainresource.DomainResource):
     def elementProperties(self):
         js = super(RelatedPerson, self).elementProperties()
         js.extend([
+            ("active", "active", bool, False, None, False),
             ("address", "address", address.Address, True, None, False),
             ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
             ("gender", "gender", str, False, None, False),

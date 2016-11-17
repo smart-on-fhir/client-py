@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Organization) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Organization) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -33,6 +33,11 @@ class Organization(domainresource.DomainResource):
         self.address = None
         """ An address for the organization.
         List of `Address` items (represented as `dict` in JSON). """
+        
+        self.alias = None
+        """ A list of alternate names that the organization is known as, or was
+        known as in the past.
+        List of `str` items. """
         
         self.contact = None
         """ Contact for the organization for a certain purpose.
@@ -70,6 +75,7 @@ class Organization(domainresource.DomainResource):
         js.extend([
             ("active", "active", bool, False, None, False),
             ("address", "address", address.Address, True, None, False),
+            ("alias", "alias", str, True, None, False),
             ("contact", "contact", OrganizationContact, True, None, False),
             ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),

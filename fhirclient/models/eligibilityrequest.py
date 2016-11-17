@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -36,11 +36,7 @@ class EligibilityRequest(domainresource.DomainResource):
         """ Business agreement.
         Type `str`. """
         
-        self.coverageIdentifier = None
-        """ Insurance or medical plan.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.coverageReference = None
+        self.coverage = None
         """ Insurance or medical plan.
         Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
         
@@ -48,19 +44,11 @@ class EligibilityRequest(domainresource.DomainResource):
         """ Creation date.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.entererIdentifier = None
-        """ Author.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.entererReference = None
+        self.enterer = None
         """ Author.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.facilityIdentifier = None
-        """ Servicing Facility.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.facilityReference = None
+        self.facility = None
         """ Servicing Facility.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
@@ -68,19 +56,11 @@ class EligibilityRequest(domainresource.DomainResource):
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.insurerIdentifier = None
-        """ Target.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.insurerReference = None
+        self.insurer = None
         """ Target.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.organizationIdentifier = None
-        """ Responsible organization.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.organizationReference = None
+        self.organization = None
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
@@ -88,11 +68,7 @@ class EligibilityRequest(domainresource.DomainResource):
         """ Original version.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.patientIdentifier = None
-        """ The subject of the Products and Services.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.patientReference = None
+        self.patient = None
         """ The subject of the Products and Services.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
@@ -100,11 +76,7 @@ class EligibilityRequest(domainresource.DomainResource):
         """ Desired processing priority.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.providerIdentifier = None
-        """ Responsible practitioner.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.providerReference = None
+        self.provider = None
         """ Responsible practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
@@ -132,24 +104,17 @@ class EligibilityRequest(domainresource.DomainResource):
             ("benefitCategory", "benefitCategory", coding.Coding, False, None, False),
             ("benefitSubCategory", "benefitSubCategory", coding.Coding, False, None, False),
             ("businessArrangement", "businessArrangement", str, False, None, False),
-            ("coverageIdentifier", "coverageIdentifier", identifier.Identifier, False, "coverage", False),
-            ("coverageReference", "coverageReference", fhirreference.FHIRReference, False, "coverage", False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
             ("created", "created", fhirdate.FHIRDate, False, None, False),
-            ("entererIdentifier", "entererIdentifier", identifier.Identifier, False, "enterer", False),
-            ("entererReference", "entererReference", fhirreference.FHIRReference, False, "enterer", False),
-            ("facilityIdentifier", "facilityIdentifier", identifier.Identifier, False, "facility", False),
-            ("facilityReference", "facilityReference", fhirreference.FHIRReference, False, "facility", False),
+            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
+            ("facility", "facility", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("insurerIdentifier", "insurerIdentifier", identifier.Identifier, False, "insurer", False),
-            ("insurerReference", "insurerReference", fhirreference.FHIRReference, False, "insurer", False),
-            ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
-            ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
+            ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
-            ("patientIdentifier", "patientIdentifier", identifier.Identifier, False, "patient", False),
-            ("patientReference", "patientReference", fhirreference.FHIRReference, False, "patient", False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("priority", "priority", coding.Coding, False, None, False),
-            ("providerIdentifier", "providerIdentifier", identifier.Identifier, False, "provider", False),
-            ("providerReference", "providerReference", fhirreference.FHIRReference, False, "provider", False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
             ("ruleset", "ruleset", coding.Coding, False, None, False),
             ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),

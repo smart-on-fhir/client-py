@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/UsageContext) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/UsageContext) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
 from . import element
 
 class UsageContext(element.Element):
-    """ Describes the context of use for a module.
+    """ Describes the context of use for a knowledge resource.
     
-    Specifies various attributes of the patient population for whom and/or
-    environment of care in which a knowledge module is applicable.
+    Specifies clinical/business/etc metadata that can be used to retrieve,
+    index and/or categorize an artifact. This metadata can either be specific
+    to the applicable population (e.g., age category, DRG) or the specific
+    context of care (e.g., venue, care setting, provider of care).
     """
     
     resource_name = "UsageContext"
@@ -24,25 +26,36 @@ class UsageContext(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.focus = None
-        """ patient-gender | patient-age-group | clinical-focus | target-user |
-        workflow-setting | workflow-task | clinical-venue | jurisdiction.
+        self.code = None
+        """ Type of context being specified.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.value = None
-        """ Value of the usage attribute.
+        self.valueCodeableConcept = None
+        """ Value that defines the context.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.valueQuantity = None
+        """ Value that defines the context.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.valueRange = None
+        """ Value that defines the context.
+        Type `Range` (represented as `dict` in JSON). """
         
         super(UsageContext, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(UsageContext, self).elementProperties()
         js.extend([
-            ("focus", "focus", coding.Coding, False, None, True),
-            ("value", "value", codeableconcept.CodeableConcept, False, None, True),
+            ("code", "code", coding.Coding, False, None, True),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
+            ("valueRange", "valueRange", range.Range, False, "value", True),
         ])
         return js
 
 
 from . import codeableconcept
 from . import coding
+from . import quantity
+from . import range

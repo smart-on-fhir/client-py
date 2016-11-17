@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Location) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Location) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -28,6 +28,11 @@ class Location(domainresource.DomainResource):
         self.address = None
         """ Physical location.
         Type `Address` (represented as `dict` in JSON). """
+        
+        self.alias = None
+        """ A list of alternate names that the location is known as, or was
+        known as in the past.
+        List of `str` items. """
         
         self.description = None
         """ Additional details about the location that could be displayed as
@@ -85,6 +90,7 @@ class Location(domainresource.DomainResource):
         js = super(Location, self).elementProperties()
         js.extend([
             ("address", "address", address.Address, False, None, False),
+            ("alias", "alias", str, True, None, False),
             ("description", "description", str, False, None, False),
             ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),

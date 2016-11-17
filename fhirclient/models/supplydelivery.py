@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/SupplyDelivery) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/SupplyDelivery) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -37,7 +37,7 @@ class SupplyDelivery(domainresource.DomainResource):
         
         self.quantity = None
         """ Amount dispensed.
-        Type `Quantity` referencing `SimpleQuantity` (represented as `dict` in JSON). """
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.receiver = None
         """ Who collected the Supply.

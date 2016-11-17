@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -40,6 +40,10 @@ class Procedure(domainresource.DomainResource):
         self.complication = None
         """ Complication following the procedure.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.component = None
+        """ Events related to the procedure.
+        List of `FHIRReference` items referencing `MedicationAdministration, Procedure, Observation` (represented as `dict` in JSON). """
         
         self.encounter = None
         """ The encounter associated with the procedure.
@@ -85,17 +89,17 @@ class Procedure(domainresource.DomainResource):
         """ The people who performed the procedure.
         List of `ProcedurePerformer` items (represented as `dict` in JSON). """
         
-        self.reasonCodeableConcept = None
-        """ Reason procedure performed.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.reasonCode = None
+        """ Coded reason procedure performed.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonNotPerformed = None
         """ Reason procedure was not performed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonReference = None
-        """ Reason procedure performed.
-        Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
+        """ Condition that is the reason the procedure performed.
+        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
         
         self.report = None
         """ Any report resulting from the procedure.
@@ -103,7 +107,7 @@ class Procedure(domainresource.DomainResource):
         
         self.request = None
         """ A request for this procedure.
-        Type `FHIRReference` referencing `CarePlan, DiagnosticOrder, ProcedureRequest, ReferralRequest` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `CarePlan, DiagnosticRequest, ProcedureRequest, ReferralRequest` (represented as `dict` in JSON). """
         
         self.status = None
         """ in-progress | aborted | completed | entered-in-error.
@@ -113,7 +117,11 @@ class Procedure(domainresource.DomainResource):
         """ Who the procedure was performed on.
         Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
-        self.used = None
+        self.usedCode = None
+        """ Coded items used during the procedure.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.usedReference = None
         """ Items used during procedure.
         List of `FHIRReference` items referencing `Device, Medication, Substance` (represented as `dict` in JSON). """
         
@@ -126,6 +134,7 @@ class Procedure(domainresource.DomainResource):
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("complication", "complication", codeableconcept.CodeableConcept, True, None, False),
+            ("component", "component", fhirreference.FHIRReference, True, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("focalDevice", "focalDevice", ProcedureFocalDevice, True, None, False),
             ("followUp", "followUp", codeableconcept.CodeableConcept, True, None, False),
@@ -137,14 +146,15 @@ class Procedure(domainresource.DomainResource):
             ("performedDateTime", "performedDateTime", fhirdate.FHIRDate, False, "performed", False),
             ("performedPeriod", "performedPeriod", period.Period, False, "performed", False),
             ("performer", "performer", ProcedurePerformer, True, None, False),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonNotPerformed", "reasonNotPerformed", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("report", "report", fhirreference.FHIRReference, True, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("used", "used", fhirreference.FHIRReference, True, None, False),
+            ("usedCode", "usedCode", codeableconcept.CodeableConcept, True, None, False),
+            ("usedReference", "usedReference", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -39,6 +39,8 @@ class NamingSystemTests(unittest.TestCase):
         self.assertEqual(inst.date.as_json(), "2015-08-31")
         self.assertEqual(inst.description, "Australian HI Identifier as established by relevant regulations etc")
         self.assertEqual(inst.id, "example-id")
+        self.assertEqual(inst.jurisdiction[0].coding[0].code, "AU")
+        self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.kind, "identifier")
         self.assertEqual(inst.name, "Austalian Healthcare Identifier - Individual")
         self.assertEqual(inst.publisher, "HL7 Australia on behalf of NEHTA")
@@ -49,6 +51,7 @@ class NamingSystemTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].display, "National unique individual identifier")
         self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/v2/0203")
         self.assertEqual(inst.type.text, "IHI")
+        self.assertEqual(inst.uniqueId[0].comment, "This value is used in Australian CDA documents")
         self.assertEqual(inst.uniqueId[0].type, "oid")
         self.assertEqual(inst.uniqueId[0].value, "1.2.36.1.2001.1003.0")
         self.assertEqual(inst.uniqueId[1].period.start.date, FHIRDate("2015-08-21").date)
@@ -57,8 +60,6 @@ class NamingSystemTests(unittest.TestCase):
         self.assertEqual(inst.uniqueId[1].type, "uri")
         self.assertEqual(inst.uniqueId[1].value, "http://ns.electronichealth.net.au/id/hi/ihi/1.0")
         self.assertEqual(inst.usage, "Used in Australia for identifying patients")
-        self.assertEqual(inst.useContext[0].coding[0].code, "AU")
-        self.assertEqual(inst.useContext[0].coding[0].system, "urn:iso:std:iso:3166")
     
     def testNamingSystem2(self):
         inst = self.instantiate_from("namingsystem-example-replaced.json")

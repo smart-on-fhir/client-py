@@ -8,11 +8,11 @@
         "xml",
         "json"
     ],
-    "url": "https://fhir-api.smarthealthit.org/conformance",
-    "name": "SMART on FHIR Conformance Statement",
+    "url": "https://fhir-api.smarthealthit.org/metadata",
+    "name": "SMART on FHIR CapabilityStatement",
     "kind": "instance",
     "publisher": "SMART on FHIR",
-    "resourceType": "Conformance",
+    "resourceType": "CapabilityStatement",
     "rest": [
         {
             "documentation": "All the functionality defined in FHIR",
@@ -50,7 +50,7 @@
     ],
     "status": "draft",
     "text": {
-        "div": "<div>Generated Conformance Statement -- see structured representation.</div>",
+        "div": "<div>Generated CapabilityStatement -- see structured representation.</div>",
         "status": "generated"
     },
     "version": "0.0.82.????"

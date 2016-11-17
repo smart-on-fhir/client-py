@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -111,7 +111,7 @@ class SlotTests(unittest.TestCase):
         self.assertEqual(inst.serviceCategory.coding[0].code, "17")
         self.assertEqual(inst.serviceCategory.coding[0].display, "General Practice")
         self.assertEqual(inst.serviceType[0].coding[0].code, "57")
-        self.assertEqual(inst.serviceType[0].coding[0].display, "Immunisation")
+        self.assertEqual(inst.serviceType[0].coding[0].display, "Immunization")
         self.assertEqual(inst.specialty[0].coding[0].code, "408480009")
         self.assertEqual(inst.specialty[0].coding[0].display, "Clinical immunology")
         self.assertEqual(inst.start.date, FHIRDate("2013-12-25T09:15:00Z").date)

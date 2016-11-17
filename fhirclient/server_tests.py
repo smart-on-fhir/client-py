@@ -16,10 +16,10 @@ class TestServer(unittest.TestCase):
         if os.path.exists('metadata'):
             os.remove('metadata')
     
-    def testValidConformance(self):
+    def testValidCapabilityStatement(self):
         shutil.copyfile('test_metadata_valid.json', 'metadata')
         mock = MockServer()
-        mock.get_conformance()
+        mock.get_capability()
         
         self.assertIsNotNone(mock.auth._registration_uri)
         self.assertIsNotNone(mock.auth._authorize_uri)
@@ -28,31 +28,31 @@ class TestServer(unittest.TestCase):
     def testStateConservation(self):
         shutil.copyfile('test_metadata_valid.json', 'metadata')
         mock = MockServer()
-        self.assertIsNotNone(mock.conformance)
+        self.assertIsNotNone(mock.capabilityStatement)
         
         fhir = server.FHIRServer(None, state=mock.state)
         self.assertIsNotNone(fhir.auth._registration_uri)
         self.assertIsNotNone(fhir.auth._authorize_uri)
         self.assertIsNotNone(fhir.auth._token_uri)
     
-    def testInvalidConformance(self):
+    def testInvalidCapabilityStatement(self):
         shutil.copyfile('test_metadata_invalid.json', 'metadata')
         mock = MockServer()
         try:
-            mock.get_conformance()
+            mock.get_capability()
             self.assertTrue(False, "Must have thrown exception")
         except fabst.FHIRValidationError as e:
             self.assertTrue(4 == len(e.errors))
             self.assertEqual("date:", str(e.errors[0])[:5])
             self.assertEqual("format:", str(e.errors[1])[:7])
-            self.assertEqual("rest:", str(e.errors[2])[:5])
-            self.assertEqual("operation:", str(e.errors[2].errors[0])[:10])
+            self.assertEqual("rest.0:", str(e.errors[2])[:7])
+            self.assertEqual("operation.1:", str(e.errors[2].errors[0])[:12])
             self.assertEqual("definition:", str(e.errors[2].errors[0].errors[0])[:11])
             self.assertEqual("reference:", str(e.errors[2].errors[0].errors[0].errors[0])[:10])
             self.assertEqual("Wrong type <class 'dict'>", str(e.errors[2].errors[0].errors[0].errors[0].errors[0])[:25])
             self.assertEqual("security:", str(e.errors[2].errors[1])[:9])
-            self.assertEqual("service:", str(e.errors[2].errors[1].errors[0])[:8])
-            self.assertEqual("coding:", str(e.errors[2].errors[1].errors[0].errors[0])[:7])
+            self.assertEqual("service.0:", str(e.errors[2].errors[1].errors[0])[:10])
+            self.assertEqual("coding.0:", str(e.errors[2].errors[1].errors[0].errors[0])[:9])
             self.assertEqual("Superfluous entry \"systems\"", str(e.errors[2].errors[1].errors[0].errors[0].errors[0])[:27])
             self.assertEqual("Superfluous entry \"formats\"", str(e.errors[3])[:27])
 

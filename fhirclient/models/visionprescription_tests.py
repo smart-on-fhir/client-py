@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.4.0.8595 on 2016-06-26.
+#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
 #  2016, SMART Health IT.
 
 
@@ -67,6 +67,7 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.id, "33124")
         self.assertEqual(inst.identifier[0].system, "http://www.happysight.com/prescription")
         self.assertEqual(inst.identifier[0].value, "15014")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Sample Contract Lens prescription</div>")
         self.assertEqual(inst.text.status, "generated")
     
@@ -102,5 +103,6 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.id, "33123")
         self.assertEqual(inst.identifier[0].system, "http://www.happysight.com/prescription")
         self.assertEqual(inst.identifier[0].value, "15013")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
 
