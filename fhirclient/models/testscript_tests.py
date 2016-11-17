@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -543,9 +543,11 @@ class TestScriptTests(unittest.TestCase):
         self.assertEqual(inst.variable[0].headerField, "Location")
         self.assertEqual(inst.variable[0].name, "PatientCreateLocation")
         self.assertEqual(inst.variable[0].sourceId, "PatientCreateResponse")
-        self.assertEqual(inst.variable[1].defaultValue, "Chalmers")
+        self.assertEqual(inst.variable[1].description, "Enter patient search criteria for a known family name on the target system")
+        self.assertEqual(inst.variable[1].hint, "[Family name]")
         self.assertEqual(inst.variable[1].name, "PatientSearchFamilyName")
-        self.assertEqual(inst.variable[2].defaultValue, "Peter")
+        self.assertEqual(inst.variable[2].description, "Enter patient search criteria for a known given name on the target system")
+        self.assertEqual(inst.variable[2].hint, "[Given name]")
         self.assertEqual(inst.variable[2].name, "PatientSearchGivenName")
         self.assertEqual(inst.version, "1.0")
     

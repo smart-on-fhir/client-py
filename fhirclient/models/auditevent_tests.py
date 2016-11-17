@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -337,9 +337,9 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.agent[0].userId.value, "SomeIdiot@nowhere.com")
         self.assertEqual(inst.agent[1].network.address, "marketing.land")
         self.assertEqual(inst.agent[1].network.type, "1")
-        self.assertEqual(inst.agent[1].purposeOfUse[0].code, "HMARKT")
-        self.assertEqual(inst.agent[1].purposeOfUse[0].display, "healthcare marketing")
-        self.assertEqual(inst.agent[1].purposeOfUse[0].system, "http://hl7.org/fhir/v3/ActReason")
+        self.assertEqual(inst.agent[1].purposeOfUse[0].coding[0].code, "HMARKT")
+        self.assertEqual(inst.agent[1].purposeOfUse[0].coding[0].display, "healthcare marketing")
+        self.assertEqual(inst.agent[1].purposeOfUse[0].coding[0].system, "http://hl7.org/fhir/v3/ActReason")
         self.assertFalse(inst.agent[1].requestor)
         self.assertEqual(inst.agent[1].role[0].coding[0].code, "110152")
         self.assertEqual(inst.agent[1].role[0].coding[0].display, "Destination Role ID")
@@ -375,9 +375,9 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.id, "example-disclosure")
         self.assertEqual(inst.outcome, "0")
         self.assertEqual(inst.outcomeDesc, "Successful  Disclosure")
-        self.assertEqual(inst.purposeOfEvent[0].code, "HMARKT")
-        self.assertEqual(inst.purposeOfEvent[0].display, "healthcare marketing")
-        self.assertEqual(inst.purposeOfEvent[0].system, "http://hl7.org/fhir/v3/ActReason")
+        self.assertEqual(inst.purposeOfEvent[0].coding[0].code, "HMARKT")
+        self.assertEqual(inst.purposeOfEvent[0].coding[0].display, "healthcare marketing")
+        self.assertEqual(inst.purposeOfEvent[0].coding[0].system, "http://hl7.org/fhir/v3/ActReason")
         self.assertEqual(inst.recorded.date, FHIRDate("2013-09-22T00:08:00Z").date)
         self.assertEqual(inst.recorded.as_json(), "2013-09-22T00:08:00Z")
         self.assertEqual(inst.source.identifier.value, "Watchers Accounting of Disclosures Application")

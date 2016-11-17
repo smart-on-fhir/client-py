@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -29,9 +29,9 @@ class CommunicationRequest(domainresource.DomainResource):
         """ Message category.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.encounter = None
-        """ Encounter leading to message.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        self.context = None
+        """ Encounter or episode leading to message.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Unique identifier.
@@ -86,13 +86,17 @@ class CommunicationRequest(domainresource.DomainResource):
         """ Focus of message.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
+        self.topic = None
+        """ Focal resources.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
         super(CommunicationRequest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CommunicationRequest, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("medium", "medium", codeableconcept.CodeableConcept, True, None, False),
             ("payload", "payload", CommunicationRequestPayload, True, None, False),
@@ -106,6 +110,7 @@ class CommunicationRequest(domainresource.DomainResource):
             ("sender", "sender", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("topic", "topic", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 

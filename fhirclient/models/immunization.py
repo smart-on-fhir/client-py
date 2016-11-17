@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -95,7 +95,7 @@ class Immunization(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.status = None
-        """ in-progress | on-hold | completed | entered-in-error | stopped.
+        """ completed | entered-in-error.
         Type `str`. """
         
         self.vaccinationProtocol = None

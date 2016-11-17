@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -80,8 +80,8 @@ class MedicationAdministration(domainresource.DomainResource):
         Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.prescription = None
-        """ Order administration performed against.
-        Type `FHIRReference` referencing `MedicationOrder` (represented as `dict` in JSON). """
+        """ Request administration performed against.
+        Type `FHIRReference` referencing `MedicationRequest` (represented as `dict` in JSON). """
         
         self.reasonGiven = None
         """ Reason administration performed.

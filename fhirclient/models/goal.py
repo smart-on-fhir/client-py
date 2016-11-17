@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Goal) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/Goal) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -51,7 +51,7 @@ class Goal(domainresource.DomainResource):
         List of `Annotation` items (represented as `dict` in JSON). """
         
         self.outcome = None
-        """ What was end result of goal?.
+        """ What result was achieved regarding the goal?.
         List of `GoalOutcome` items (represented as `dict` in JSON). """
         
         self.priority = None
@@ -69,7 +69,7 @@ class Goal(domainresource.DomainResource):
         self.status = None
         """ proposed | planned | accepted | rejected | in-progress | achieved |
         sustaining | on-hold | cancelled | on-target | ahead-of-target |
-        behind-target.
+        behind-target | entered-in-error.
         Type `str`. """
         
         self.statusDate = None
@@ -120,7 +120,7 @@ class Goal(domainresource.DomainResource):
 from . import backboneelement
 
 class GoalOutcome(backboneelement.BackboneElement):
-    """ What was end result of goal?.
+    """ What result was achieved regarding the goal?.
     
     Identifies the change (or lack of change) at the point where the goal was
     deemed to be cancelled or achieved.

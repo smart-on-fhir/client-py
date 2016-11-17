@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -566,7 +566,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testObservation7(self):
-        inst = self.instantiate_from("observation-example-bloodpressure.json")
+        inst = self.instantiate_from("observation-example-bloodpressure-dar.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation7(inst)
         
@@ -576,6 +576,57 @@ class ObservationTests(unittest.TestCase):
         self.implObservation7(inst2)
     
     def implObservation7(self, inst):
+        self.assertEqual(inst.bodySite.coding[0].code, "368209003")
+        self.assertEqual(inst.bodySite.coding[0].display, "Right arm")
+        self.assertEqual(inst.bodySite.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.category[0].coding[0].code, "vital-signs")
+        self.assertEqual(inst.category[0].coding[0].display, "Vital Signs")
+        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/observation-category")
+        self.assertEqual(inst.code.coding[0].code, "55284-4")
+        self.assertEqual(inst.code.coding[0].display, "Blood pressure systolic & diastolic")
+        self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.component[0].code.coding[0].code, "8480-6")
+        self.assertEqual(inst.component[0].code.coding[0].display, "Systolic blood pressure")
+        self.assertEqual(inst.component[0].code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.component[0].code.coding[1].code, "271649006")
+        self.assertEqual(inst.component[0].code.coding[1].display, "Systolic blood pressure")
+        self.assertEqual(inst.component[0].code.coding[1].system, "http://snomed.info/sct")
+        self.assertEqual(inst.component[0].code.coding[2].code, "bp-s")
+        self.assertEqual(inst.component[0].code.coding[2].display, "Systolic Blood pressure")
+        self.assertEqual(inst.component[0].code.coding[2].system, "http://acme.org/devices/clinical-codes")
+        self.assertEqual(inst.component[0].valueQuantity.code, "mm[Hg]")
+        self.assertEqual(inst.component[0].valueQuantity.system, "http://unitsofmeasure.org")
+        self.assertEqual(inst.component[0].valueQuantity.unit, "mmHg")
+        self.assertEqual(inst.component[0].valueQuantity.value, 107)
+        self.assertEqual(inst.component[1].code.coding[0].code, "8462-4")
+        self.assertEqual(inst.component[1].code.coding[0].display, "Diastolic blood pressure")
+        self.assertEqual(inst.component[1].code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.component[1].dataAbsentReason.coding[0].code, "not-performed")
+        self.assertEqual(inst.component[1].dataAbsentReason.coding[0].display, "Not Performed")
+        self.assertEqual(inst.component[1].dataAbsentReason.coding[0].system, "http://hl7.org/fhir/data-absent-reason")
+        self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2012-09-17").date)
+        self.assertEqual(inst.effectiveDateTime.as_json(), "2012-09-17")
+        self.assertEqual(inst.id, "blood-pressure-dar")
+        self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
+        self.assertEqual(inst.identifier[0].value, "urn:uuid:187e0c12-8dd2-67e2-99b2-bf273c878281")
+        self.assertEqual(inst.interpretation.coding[0].code, "L")
+        self.assertEqual(inst.interpretation.coding[0].display, "low")
+        self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
+        self.assertEqual(inst.interpretation.text, "Below low normal")
+        self.assertEqual(inst.status, "final")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testObservation8(self):
+        inst = self.instantiate_from("observation-example-bloodpressure.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
+        self.implObservation8(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Observation", js["resourceType"])
+        inst2 = observation.Observation(js)
+        self.implObservation8(inst2)
+    
+    def implObservation8(self, inst):
         self.assertEqual(inst.bodySite.coding[0].code, "368209003")
         self.assertEqual(inst.bodySite.coding[0].display, "Right arm")
         self.assertEqual(inst.bodySite.coding[0].system, "http://snomed.info/sct")
@@ -614,22 +665,20 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.interpretation.coding[0].display, "low")
         self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
         self.assertEqual(inst.interpretation.text, "Below low normal")
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2014-01-30T22:35:23+11:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2014-01-30T22:35:23+11:00")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
     
-    def testObservation8(self):
+    def testObservation9(self):
         inst = self.instantiate_from("observation-example-bmd.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
-        self.implObservation8(inst)
+        self.implObservation9(inst)
         
         js = inst.as_json()
         self.assertEqual("Observation", js["resourceType"])
         inst2 = observation.Observation(js)
-        self.implObservation8(inst2)
+        self.implObservation9(inst2)
     
-    def implObservation8(self, inst):
+    def implObservation9(self, inst):
         self.assertEqual(inst.bodySite.coding[0].code, "71341001:272741003=7771000")
         self.assertEqual(inst.bodySite.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.bodySite.text, "Left Femur")
@@ -645,27 +694,8 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.valueQuantity.unit, "g/cm²")
         self.assertEqual(inst.valueQuantity.value, 0.887)
     
-    def testObservation9(self):
-        inst = self.instantiate_from("observation-example-eye-color.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
-        self.implObservation9(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Observation", js["resourceType"])
-        inst2 = observation.Observation(js)
-        self.implObservation9(inst2)
-    
-    def implObservation9(self, inst):
-        self.assertEqual(inst.code.text, "eye color")
-        self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2016-05-18").date)
-        self.assertEqual(inst.effectiveDateTime.as_json(), "2016-05-18")
-        self.assertEqual(inst.id, "eye-color")
-        self.assertEqual(inst.status, "final")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.valueString, "blue")
-    
     def testObservation10(self):
-        inst = self.instantiate_from("observation-example-f001-glucose.json")
+        inst = self.instantiate_from("observation-example-bmi.json")
         self.assertIsNotNone(inst, "Must have instantiated a Observation instance")
         self.implObservation10(inst)
         
@@ -675,32 +705,21 @@ class ObservationTests(unittest.TestCase):
         self.implObservation10(inst2)
     
     def implObservation10(self, inst):
-        self.assertEqual(inst.code.coding[0].code, "15074-8")
-        self.assertEqual(inst.code.coding[0].display, "Glucose [Moles/volume] in Blood")
+        self.assertEqual(inst.category[0].coding[0].code, "vital-signs")
+        self.assertEqual(inst.category[0].coding[0].display, "Vital Signs")
+        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/observation-category")
+        self.assertEqual(inst.category[0].text, "Vital Signs")
+        self.assertEqual(inst.code.coding[0].code, "39156-5")
+        self.assertEqual(inst.code.coding[0].display, "Body mass index (BMI) [Ratio]")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2013-04-02T09:30:10+01:00").date)
-        self.assertEqual(inst.effectivePeriod.start.as_json(), "2013-04-02T09:30:10+01:00")
-        self.assertEqual(inst.id, "f001")
-        self.assertEqual(inst.identifier[0].system, "http://www.bmc.nl/zorgportal/identifiers/observations")
-        self.assertEqual(inst.identifier[0].use, "official")
-        self.assertEqual(inst.identifier[0].value, "6323")
-        self.assertEqual(inst.interpretation.coding[0].code, "H")
-        self.assertEqual(inst.interpretation.coding[0].display, "High")
-        self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
-        self.assertEqual(inst.issued.date, FHIRDate("2013-04-03T15:30:10+01:00").date)
-        self.assertEqual(inst.issued.as_json(), "2013-04-03T15:30:10+01:00")
-        self.assertEqual(inst.referenceRange[0].high.code, "mmol/L")
-        self.assertEqual(inst.referenceRange[0].high.system, "http://unitsofmeasure.org")
-        self.assertEqual(inst.referenceRange[0].high.unit, "mmol/l")
-        self.assertEqual(inst.referenceRange[0].high.value, 6.2)
-        self.assertEqual(inst.referenceRange[0].low.code, "mmol/L")
-        self.assertEqual(inst.referenceRange[0].low.system, "http://unitsofmeasure.org")
-        self.assertEqual(inst.referenceRange[0].low.unit, "mmol/l")
-        self.assertEqual(inst.referenceRange[0].low.value, 3.1)
+        self.assertEqual(inst.code.text, "BMI")
+        self.assertEqual(inst.effectiveDateTime.date, FHIRDate("1999-07-02").date)
+        self.assertEqual(inst.effectiveDateTime.as_json(), "1999-07-02")
+        self.assertEqual(inst.id, "bmi")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.valueQuantity.code, "mmol/L")
+        self.assertEqual(inst.valueQuantity.code, "kg/m2")
         self.assertEqual(inst.valueQuantity.system, "http://unitsofmeasure.org")
-        self.assertEqual(inst.valueQuantity.unit, "mmol/l")
-        self.assertEqual(inst.valueQuantity.value, 6.3)
+        self.assertEqual(inst.valueQuantity.unit, "kg/m2")
+        self.assertEqual(inst.valueQuantity.value, 16.2)
 

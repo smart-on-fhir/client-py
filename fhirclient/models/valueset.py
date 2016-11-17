@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -152,6 +152,10 @@ class ValueSetCompose(backboneelement.BackboneElement):
         """ Explicitly exclude codes from a code system or other value sets.
         List of `ValueSetComposeInclude` items (represented as `dict` in JSON). """
         
+        self.inactive = None
+        """ Whether inactive codes are in the value set.
+        Type `bool`. """
+        
         self.include = None
         """ Include one or more codes from a code system or other value set(s).
         List of `ValueSetComposeInclude` items (represented as `dict` in JSON). """
@@ -166,6 +170,7 @@ class ValueSetCompose(backboneelement.BackboneElement):
         js = super(ValueSetCompose, self).elementProperties()
         js.extend([
             ("exclude", "exclude", ValueSetComposeInclude, True, None, False),
+            ("inactive", "inactive", bool, False, None, False),
             ("include", "include", ValueSetComposeInclude, True, None, True),
             ("lockedDate", "lockedDate", fhirdate.FHIRDate, False, None, False),
         ])
@@ -321,7 +326,8 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
         """
         
         self.op = None
-        """ = | is-a | is-not-a | regex | in | not-in | generalizes.
+        """ = | is-a | descendent-of | is-not-a | regex | in | not-in |
+        generalizes.
         Type `str`. """
         
         self.property = None
@@ -437,6 +443,10 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
         """ User display for the concept.
         Type `str`. """
         
+        self.inactive = None
+        """ If concept is inactive in the code system.
+        Type `bool`. """
+        
         self.system = None
         """ System value for the code.
         Type `str`. """
@@ -455,6 +465,7 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
             ("contains", "contains", ValueSetExpansionContains, True, None, False),
             ("designation", "designation", ValueSetComposeIncludeConceptDesignation, True, None, False),
             ("display", "display", str, False, None, False),
+            ("inactive", "inactive", bool, False, None, False),
             ("system", "system", str, False, None, False),
             ("version", "version", str, False, None, False),
         ])

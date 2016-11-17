@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -41,6 +41,7 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.assertEqual(inst.item[0].item[0].item[1].answer[0].valueCoding.code, "f")
         self.assertEqual(inst.item[0].item[0].item[1].linkId, "sex")
         self.assertEqual(inst.item[0].item[0].item[1].text, "Sex")
+        self.assertEqual(inst.item[0].item[0].linkId, "group")
         self.assertEqual(inst.item[0].item[1].item[0].answer[0].valueDecimal, 3.25)
         self.assertEqual(inst.item[0].item[1].item[0].linkId, "birthWeight")
         self.assertEqual(inst.item[0].item[1].item[0].text, "Birth weight (kg)")
@@ -59,10 +60,10 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.assertEqual(inst.item[0].item[1].item[2].answer[0].valueCoding.code, "INJECTION")
         self.assertEqual(inst.item[0].item[1].item[2].linkId, "vitaminKgiven")
         self.assertEqual(inst.item[0].item[1].item[2].text, "Vitamin K given")
-        self.assertEqual(inst.item[0].item[1].item[3].answer[0].item[0].item[0].answer[0].valueDate.date, FHIRDate("1972-12-04").date)
-        self.assertEqual(inst.item[0].item[1].item[3].answer[0].item[0].item[0].answer[0].valueDate.as_json(), "1972-12-04")
-        self.assertEqual(inst.item[0].item[1].item[3].answer[0].item[0].item[0].text, "Date given")
+        self.assertEqual(inst.item[0].item[1].item[3].answer[0].item[0].answer[0].valueDate.date, FHIRDate("1972-12-04").date)
+        self.assertEqual(inst.item[0].item[1].item[3].answer[0].item[0].answer[0].valueDate.as_json(), "1972-12-04")
         self.assertEqual(inst.item[0].item[1].item[3].answer[0].item[0].linkId, "hepBgivenDate")
+        self.assertEqual(inst.item[0].item[1].item[3].answer[0].item[0].text, "Date given")
         self.assertTrue(inst.item[0].item[1].item[3].answer[0].valueBoolean)
         self.assertEqual(inst.item[0].item[1].item[3].linkId, "hepBgiven")
         self.assertEqual(inst.item[0].item[1].item[3].text, "Hep B given y / n")
@@ -152,6 +153,7 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.assertEqual(inst.item[2].answer[0].valueCoding.extension[0].valueDecimal, 4)
         self.assertEqual(inst.item[2].answer[0].valueCoding.system, "http://loinc.org")
         self.assertEqual(inst.item[2].linkId, "1.3")
+        self.assertEqual(inst.questionnaire, "http://hl7.org/fhir/Questionnaire/gcs")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
     
@@ -173,13 +175,19 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.assertEqual(inst.id, "3141")
         self.assertEqual(inst.item[0].item[0].answer[0].item[0].item[0].answer[0].valueCoding.code, "1")
         self.assertEqual(inst.item[0].item[0].answer[0].item[0].item[0].answer[0].valueCoding.system, "http://cancer.questionnaire.org/system/code/yesno")
+        self.assertEqual(inst.item[0].item[0].answer[0].item[0].item[0].linkId, "1.1.1.1")
         self.assertEqual(inst.item[0].item[0].answer[0].item[0].item[1].answer[0].valueCoding.code, "1")
         self.assertEqual(inst.item[0].item[0].answer[0].item[0].item[1].answer[0].valueCoding.system, "http://cancer.questionnaire.org/system/code/yesno")
+        self.assertEqual(inst.item[0].item[0].answer[0].item[0].item[1].linkId, "1.1.1.2")
         self.assertEqual(inst.item[0].item[0].answer[0].item[0].item[2].answer[0].valueCoding.code, "0")
         self.assertEqual(inst.item[0].item[0].answer[0].item[0].item[2].answer[0].valueCoding.system, "http://cancer.questionnaire.org/system/code/yesno")
+        self.assertEqual(inst.item[0].item[0].answer[0].item[0].item[2].linkId, "1.1.1.3")
+        self.assertEqual(inst.item[0].item[0].answer[0].item[0].linkId, "1.1.1")
         self.assertEqual(inst.item[0].item[0].answer[0].valueCoding.code, "1")
         self.assertEqual(inst.item[0].item[0].answer[0].valueCoding.display, "Yes")
         self.assertEqual(inst.item[0].item[0].answer[0].valueCoding.system, "http://cancer.questionnaire.org/system/code/yesno")
+        self.assertEqual(inst.item[0].item[0].linkId, "1.1")
+        self.assertEqual(inst.item[0].linkId, "1")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
 

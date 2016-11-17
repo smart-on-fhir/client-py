@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -33,18 +33,15 @@ class CoverageTests(unittest.TestCase):
     
     def implCoverage1(self, inst):
         self.assertEqual(inst.dependent, 1)
+        self.assertEqual(inst.group.group, "WESTAIR")
+        self.assertEqual(inst.group.groupDisplay, "Western Airlines")
+        self.assertEqual(inst.group.plan, "WESTAIR")
+        self.assertEqual(inst.group.planDisplay, "Western Airlines")
+        self.assertEqual(inst.group.subPlan, "D15C9")
+        self.assertEqual(inst.group.subPlanDisplay, "Platinum")
         self.assertEqual(inst.id, "7546D")
         self.assertEqual(inst.identifier[0].system, "http://xyz.com/codes/identifier")
         self.assertEqual(inst.identifier[0].value, "AB9876")
-        self.assertEqual(inst.level[0].code, "WESTAIR")
-        self.assertEqual(inst.level[0].display, "Western Airlines")
-        self.assertEqual(inst.level[0].system, "http://xyz.com/codes/group")
-        self.assertEqual(inst.level[1].code, "11024")
-        self.assertEqual(inst.level[1].display, "Aircraft Maintenance Division")
-        self.assertEqual(inst.level[1].system, "http://xyz.com/codes/plan")
-        self.assertEqual(inst.level[2].code, "D15C9")
-        self.assertEqual(inst.level[2].display, "Platinum")
-        self.assertEqual(inst.level[2].system, "http://xyz.com/codes/subplan")
         self.assertEqual(inst.period.end.date, FHIRDate("2012-03-17").date)
         self.assertEqual(inst.period.end.as_json(), "2012-03-17")
         self.assertEqual(inst.period.start.date, FHIRDate("2011-03-17").date)
@@ -93,15 +90,13 @@ class CoverageTests(unittest.TestCase):
     
     def implCoverage3(self, inst):
         self.assertEqual(inst.dependent, 1)
+        self.assertEqual(inst.group.plan, "CBI35")
+        self.assertEqual(inst.group.planDisplay, "Corporate Baker's Inc. Plan#35")
+        self.assertEqual(inst.group.subPlan, "123")
+        self.assertEqual(inst.group.subPlanDisplay, "Trainee Part-time Benefits")
         self.assertEqual(inst.id, "9876B1")
         self.assertEqual(inst.identifier[0].system, "http://benefitsinc.com/certificate")
         self.assertEqual(inst.identifier[0].value, "12345")
-        self.assertEqual(inst.level[0].code, "CBI35")
-        self.assertEqual(inst.level[0].display, "Corporate Baker's Inc. Plan#35")
-        self.assertEqual(inst.level[0].system, "http://benefitsinc.com/plan")
-        self.assertEqual(inst.level[1].code, "123")
-        self.assertEqual(inst.level[1].display, "Trainee Part-time Benefits")
-        self.assertEqual(inst.level[1].system, "http://benefitsinc.com/subplan")
         self.assertEqual(inst.period.end.date, FHIRDate("2012-05-23").date)
         self.assertEqual(inst.period.end.as_json(), "2012-05-23")
         self.assertEqual(inst.period.start.date, FHIRDate("2011-05-23").date)

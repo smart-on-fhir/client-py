@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -32,7 +32,7 @@ class SearchParameterTests(unittest.TestCase):
         self.implSearchParameter1(inst2)
     
     def implSearchParameter1(self, inst):
-        self.assertEqual(inst.base, "Patient")
+        self.assertEqual(inst.base[0], "Patient")
         self.assertEqual(inst.code, "part-agree")
         self.assertEqual(inst.contact[0].telecom[0].system, "other")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
@@ -60,7 +60,7 @@ class SearchParameterTests(unittest.TestCase):
         self.implSearchParameter2(inst2)
     
     def implSearchParameter2(self, inst):
-        self.assertEqual(inst.base, "Resource")
+        self.assertEqual(inst.base[0], "Resource")
         self.assertEqual(inst.code, "_id")
         self.assertEqual(inst.contact[0].name, "[string]")
         self.assertEqual(inst.contact[0].telecom[0].system, "other")

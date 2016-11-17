@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -43,6 +43,7 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.item[0].item[0].item[1].option[1].valueCoding.code, "M")
         self.assertEqual(inst.item[0].item[0].item[1].text, "Sex")
         self.assertEqual(inst.item[0].item[0].item[1].type, "choice")
+        self.assertEqual(inst.item[0].item[0].linkId, "group")
         self.assertEqual(inst.item[0].item[0].type, "group")
         self.assertEqual(inst.item[0].item[1].item[0].linkId, "birthWeight")
         self.assertEqual(inst.item[0].item[1].item[0].text, "Birth weight (kg)")

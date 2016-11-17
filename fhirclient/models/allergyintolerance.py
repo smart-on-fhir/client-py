@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -24,12 +24,20 @@ class AllergyIntolerance(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.attestedDate = None
+        self.assertedDate = None
         """ Date record was believed accurate.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.asserter = None
+        """ Source of the information about the allergy.
+        Type `FHIRReference` referencing `Patient, RelatedPerson, Practitioner` (represented as `dict` in JSON). """
+        
         self.category = None
         """ food | medication | biologic | environment.
+        List of `str` items. """
+        
+        self.clinicalStatus = None
+        """ active | inactive | resolved.
         Type `str`. """
         
         self.code = None
@@ -52,9 +60,25 @@ class AllergyIntolerance(domainresource.DomainResource):
         """ Additional text not captured in other fields.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.onset = None
-        """ Date(/time) when manifestations showed.
+        self.onsetAge = None
+        """ When allergy or intolerance was identified.
+        Type `Age` (represented as `dict` in JSON). """
+        
+        self.onsetDateTime = None
+        """ When allergy or intolerance was identified.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.onsetPeriod = None
+        """ When allergy or intolerance was identified.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.onsetRange = None
+        """ When allergy or intolerance was identified.
+        Type `Range` (represented as `dict` in JSON). """
+        
+        self.onsetString = None
+        """ When allergy or intolerance was identified.
+        Type `str`. """
         
         self.patient = None
         """ Who the sensitivity is for.
@@ -68,17 +92,12 @@ class AllergyIntolerance(domainresource.DomainResource):
         """ Who recorded the sensitivity.
         Type `FHIRReference` referencing `Practitioner, Patient` (represented as `dict` in JSON). """
         
-        self.reporter = None
-        """ Source of the information about the allergy.
-        Type `FHIRReference` referencing `Patient, RelatedPerson, Practitioner` (represented as `dict` in JSON). """
-        
-        self.status = None
-        """ active | active-confirmed | inactive | resolved | refuted |
-        entered-in-error.
-        Type `str`. """
-        
         self.type = None
         """ allergy | intolerance - Underlying mechanism (if known).
+        Type `str`. """
+        
+        self.verificationStatus = None
+        """ unconfirmed | confirmed | refuted | entered-in-error.
         Type `str`. """
         
         super(AllergyIntolerance, self).__init__(jsondict=jsondict, strict=strict)
@@ -86,20 +105,25 @@ class AllergyIntolerance(domainresource.DomainResource):
     def elementProperties(self):
         js = super(AllergyIntolerance, self).elementProperties()
         js.extend([
-            ("attestedDate", "attestedDate", fhirdate.FHIRDate, False, None, False),
-            ("category", "category", str, False, None, False),
+            ("assertedDate", "assertedDate", fhirdate.FHIRDate, False, None, False),
+            ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
+            ("category", "category", str, True, None, False),
+            ("clinicalStatus", "clinicalStatus", str, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("criticality", "criticality", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("lastOccurrence", "lastOccurrence", fhirdate.FHIRDate, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("onset", "onset", fhirdate.FHIRDate, False, None, False),
+            ("onsetAge", "onsetAge", age.Age, False, "onset", False),
+            ("onsetDateTime", "onsetDateTime", fhirdate.FHIRDate, False, "onset", False),
+            ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
+            ("onsetRange", "onsetRange", range.Range, False, "onset", False),
+            ("onsetString", "onsetString", str, False, "onset", False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("reaction", "reaction", AllergyIntoleranceReaction, True, None, False),
             ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
-            ("reporter", "reporter", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, False),
             ("type", "type", str, False, None, False),
+            ("verificationStatus", "verificationStatus", str, False, None, True),
         ])
         return js
 
@@ -124,8 +148,7 @@ class AllergyIntoleranceReaction(backboneelement.BackboneElement):
         """
         
         self.certainty = None
-        """ unlikely | likely | confirmed - clinical certainty about the
-        specific substance.
+        """ unlikely | likely | confirmed | unknown.
         Type `str`. """
         
         self.description = None
@@ -174,8 +197,11 @@ class AllergyIntoleranceReaction(backboneelement.BackboneElement):
         return js
 
 
+from . import age
 from . import annotation
 from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
 from . import identifier
+from . import period
+from . import range

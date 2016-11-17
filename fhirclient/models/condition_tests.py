@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -32,6 +32,8 @@ class ConditionTests(unittest.TestCase):
         self.implCondition1(inst2)
     
     def implCondition1(self, inst):
+        self.assertEqual(inst.assertedDate.date, FHIRDate("2011-10-05").date)
+        self.assertEqual(inst.assertedDate.as_json(), "2011-10-05")
         self.assertEqual(inst.bodySite[0].coding[0].code, "40768004")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Left thorax")
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
@@ -43,8 +45,6 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "368009")
         self.assertEqual(inst.code.coding[0].display, "Heart valve disorder")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.dateRecorded.date, FHIRDate("2011-10-05").date)
-        self.assertEqual(inst.dateRecorded.as_json(), "2011-10-05")
         self.assertEqual(inst.evidence[0].code.coding[0].code, "426396005")
         self.assertEqual(inst.evidence[0].code.coding[0].display, "Cardiac chest pain")
         self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
@@ -68,6 +68,8 @@ class ConditionTests(unittest.TestCase):
         self.implCondition2(inst2)
     
     def implCondition2(self, inst):
+        self.assertEqual(inst.assertedDate.date, FHIRDate("2012-06-03").date)
+        self.assertEqual(inst.assertedDate.as_json(), "2012-06-03")
         self.assertEqual(inst.bodySite[0].coding[0].code, "51185008")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Thorax")
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
@@ -78,8 +80,6 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "254637007")
         self.assertEqual(inst.code.coding[0].display, "NSCLC - Non-small cell lung cancer")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.dateRecorded.date, FHIRDate("2012-06-03").date)
-        self.assertEqual(inst.dateRecorded.as_json(), "2012-06-03")
         self.assertEqual(inst.evidence[0].code.coding[0].code, "169069000")
         self.assertEqual(inst.evidence[0].code.coding[0].display, "CT of thorax")
         self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
@@ -106,6 +106,8 @@ class ConditionTests(unittest.TestCase):
         self.implCondition3(inst2)
     
     def implCondition3(self, inst):
+        self.assertEqual(inst.assertedDate.date, FHIRDate("2012-02-20").date)
+        self.assertEqual(inst.assertedDate.as_json(), "2012-02-20")
         self.assertEqual(inst.bodySite[0].coding[0].code, "280193007")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Entire retropharyngeal area")
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
@@ -116,8 +118,6 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "18099001")
         self.assertEqual(inst.code.coding[0].display, "Retropharyngeal abscess")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.dateRecorded.date, FHIRDate("2012-02-20").date)
-        self.assertEqual(inst.dateRecorded.as_json(), "2012-02-20")
         self.assertEqual(inst.evidence[0].code.coding[0].code, "169068008")
         self.assertEqual(inst.evidence[0].code.coding[0].display, "CT of neck")
         self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
@@ -141,6 +141,8 @@ class ConditionTests(unittest.TestCase):
         self.implCondition4(inst2)
     
     def implCondition4(self, inst):
+        self.assertEqual(inst.assertedDate.date, FHIRDate("2013-04-04").date)
+        self.assertEqual(inst.assertedDate.as_json(), "2013-04-04")
         self.assertEqual(inst.bodySite[0].coding[0].code, "38266002")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Entire body as a whole")
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
@@ -153,8 +155,6 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "386661006")
         self.assertEqual(inst.code.coding[0].display, "Fever")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.dateRecorded.date, FHIRDate("2013-04-04").date)
-        self.assertEqual(inst.dateRecorded.as_json(), "2013-04-04")
         self.assertEqual(inst.evidence[0].code.coding[0].code, "258710007")
         self.assertEqual(inst.evidence[0].code.coding[0].display, "degrees C")
         self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
@@ -178,6 +178,8 @@ class ConditionTests(unittest.TestCase):
         self.implCondition5(inst2)
     
     def implCondition5(self, inst):
+        self.assertEqual(inst.assertedDate.date, FHIRDate("2012-12-01").date)
+        self.assertEqual(inst.assertedDate.as_json(), "2012-12-01")
         self.assertEqual(inst.bodySite[0].coding[0].code, "361355005")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Entire head and neck")
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
@@ -187,8 +189,6 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "363346000")
         self.assertEqual(inst.code.coding[0].display, "Malignant neoplastic disease")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.dateRecorded.date, FHIRDate("2012-12-01").date)
-        self.assertEqual(inst.dateRecorded.as_json(), "2012-12-01")
         self.assertEqual(inst.id, "f202")
         self.assertEqual(inst.onsetAge.code, "a")
         self.assertEqual(inst.onsetAge.system, "http://unitsofmeasure.org")
@@ -211,6 +211,8 @@ class ConditionTests(unittest.TestCase):
         self.implCondition6(inst2)
     
     def implCondition6(self, inst):
+        self.assertEqual(inst.assertedDate.date, FHIRDate("2013-03-11").date)
+        self.assertEqual(inst.assertedDate.as_json(), "2013-03-11")
         self.assertEqual(inst.bodySite[0].coding[0].code, "281158006")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Pulmonary vascular structure")
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
@@ -223,8 +225,6 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "10001005")
         self.assertEqual(inst.code.coding[0].display, "Bacterial sepsis")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.dateRecorded.date, FHIRDate("2013-03-11").date)
-        self.assertEqual(inst.dateRecorded.as_json(), "2013-03-11")
         self.assertEqual(inst.id, "f203")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2013-03-08").date)
         self.assertEqual(inst.onsetDateTime.as_json(), "2013-03-08")
@@ -247,6 +247,8 @@ class ConditionTests(unittest.TestCase):
     def implCondition7(self, inst):
         self.assertEqual(inst.abatementDateTime.date, FHIRDate("2013-03-20").date)
         self.assertEqual(inst.abatementDateTime.as_json(), "2013-03-20")
+        self.assertEqual(inst.assertedDate.date, FHIRDate("2013-03-11").date)
+        self.assertEqual(inst.assertedDate.as_json(), "2013-03-11")
         self.assertEqual(inst.bodySite[0].coding[0].code, "181414000")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Kidney")
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
@@ -259,8 +261,6 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "36225005")
         self.assertEqual(inst.code.coding[0].display, "Acute renal insufficiency specified as due to procedure")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.dateRecorded.date, FHIRDate("2013-03-11").date)
-        self.assertEqual(inst.dateRecorded.as_json(), "2013-03-11")
         self.assertEqual(inst.id, "f204")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2013-03-11").date)
         self.assertEqual(inst.onsetDateTime.as_json(), "2013-03-11")
@@ -284,12 +284,12 @@ class ConditionTests(unittest.TestCase):
         self.implCondition8(inst2)
     
     def implCondition8(self, inst):
+        self.assertEqual(inst.assertedDate.date, FHIRDate("2013-04-04").date)
+        self.assertEqual(inst.assertedDate.as_json(), "2013-04-04")
         self.assertEqual(inst.clinicalStatus, "active")
         self.assertEqual(inst.code.coding[0].code, "87628006")
         self.assertEqual(inst.code.coding[0].display, "Bacterial infectious disease")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.dateRecorded.date, FHIRDate("2013-04-04").date)
-        self.assertEqual(inst.dateRecorded.as_json(), "2013-04-04")
         self.assertEqual(inst.id, "f205")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.verificationStatus, "differential")
@@ -341,6 +341,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.category[0].coding[1].code, "439401001")
         self.assertEqual(inst.category[0].coding[1].display, "Diagnosis")
         self.assertEqual(inst.category[0].coding[1].system, "http://snomed.info/sct")
+        self.assertEqual(inst.clinicalStatus, "active")
         self.assertEqual(inst.code.coding[0].code, "39065001")
         self.assertEqual(inst.code.coding[0].display, "Burn of ear")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -110,69 +110,41 @@ class ProvenanceAgent(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actor = None
-        """ Individual, device or organization playing role.
+        self.onBehalfOfReference = None
+        """ On behalf of.
         Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device, Organization` (represented as `dict` in JSON). """
         
-        self.relatedAgent = None
-        """ Track delegation between agents.
-        List of `ProvenanceAgentRelatedAgent` items (represented as `dict` in JSON). """
+        self.onBehalfOfUri = None
+        """ On behalf of.
+        Type `str`. """
+        
+        self.relatedAgentType = None
+        """ Type of relationship between agents.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.role = None
         """ What the agents involvement was.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.userId = None
-        """ Authorization-system identifier for the agent.
-        Type `Identifier` (represented as `dict` in JSON). """
+        self.whoReference = None
+        """ Who participated.
+        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device, Organization` (represented as `dict` in JSON). """
+        
+        self.whoUri = None
+        """ Who participated.
+        Type `str`. """
         
         super(ProvenanceAgent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProvenanceAgent, self).elementProperties()
         js.extend([
-            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
-            ("relatedAgent", "relatedAgent", ProvenanceAgentRelatedAgent, True, None, False),
+            ("onBehalfOfReference", "onBehalfOfReference", fhirreference.FHIRReference, False, "onBehalfOf", False),
+            ("onBehalfOfUri", "onBehalfOfUri", str, False, "onBehalfOf", False),
+            ("relatedAgentType", "relatedAgentType", codeableconcept.CodeableConcept, False, None, False),
             ("role", "role", coding.Coding, False, None, True),
-            ("userId", "userId", identifier.Identifier, False, None, False),
-        ])
-        return js
-
-
-class ProvenanceAgentRelatedAgent(backboneelement.BackboneElement):
-    """ Track delegation between agents.
-    
-    A relationship between two the agents referenced in this resource. This is
-    defined to allow for explicit description of the delegation between agents.
-    For example, this human author used this device, or one person acted on
-    another's behest.
-    """
-    
-    resource_name = "ProvenanceAgentRelatedAgent"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.target = None
-        """ Reference to other agent in this resource by identifier.
-        Type `str`. """
-        
-        self.type = None
-        """ Type of relationship between agents.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        super(ProvenanceAgentRelatedAgent, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ProvenanceAgentRelatedAgent, self).elementProperties()
-        js.extend([
-            ("target", "target", str, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("whoReference", "whoReference", fhirreference.FHIRReference, False, "who", True),
+            ("whoUri", "whoUri", str, False, "who", True),
         ])
         return js
 
@@ -195,21 +167,13 @@ class ProvenanceEntity(backboneelement.BackboneElement):
         """ Entity is attributed to this agent.
         List of `ProvenanceAgent` items (represented as `dict` in JSON). """
         
-        self.display = None
-        """ Human description of entity.
-        Type `str`. """
-        
         self.reference = None
         """ Identity of entity.
-        Type `str`. """
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.role = None
         """ derivation | revision | quotation | source | removal.
         Type `str`. """
-        
-        self.type = None
-        """ The type of resource in this entity.
-        Type `Coding` (represented as `dict` in JSON). """
         
         super(ProvenanceEntity, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -217,10 +181,8 @@ class ProvenanceEntity(backboneelement.BackboneElement):
         js = super(ProvenanceEntity, self).elementProperties()
         js.extend([
             ("agent", "agent", ProvenanceAgent, True, None, False),
-            ("display", "display", str, False, None, False),
-            ("reference", "reference", str, False, None, True),
+            ("reference", "reference", fhirreference.FHIRReference, False, None, True),
             ("role", "role", str, False, None, True),
-            ("type", "type", coding.Coding, False, None, True),
         ])
         return js
 
@@ -229,6 +191,5 @@ from . import codeableconcept
 from . import coding
 from . import fhirdate
 from . import fhirreference
-from . import identifier
 from . import period
 from . import signature

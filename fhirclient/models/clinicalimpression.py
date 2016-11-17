@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -31,15 +31,15 @@ class ClinicalImpression(domainresource.DomainResource):
         """
         
         self.action = None
-        """ Actions taken during assessment.
-        List of `FHIRReference` items referencing `ReferralRequest, ProcedureRequest, Procedure, MedicationOrder, DiagnosticRequest, NutritionRequest, DeviceUseRequest, Appointment` (represented as `dict` in JSON). """
+        """ Action taken as part of assessment procedure.
+        List of `FHIRReference` items referencing `ReferralRequest, ProcedureRequest, Procedure, MedicationRequest, DiagnosticRequest, Appointment` (represented as `dict` in JSON). """
         
         self.assessor = None
         """ The clinician performing the assessment.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.code = None
-        """ Kind of impression performed.
+        """ Kind of assessment performed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.context = None
@@ -70,17 +70,13 @@ class ClinicalImpression(domainresource.DomainResource):
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.investigations = None
+        self.investigation = None
         """ One or more sets of investigations (signs, symptions, etc.).
-        List of `ClinicalImpressionInvestigations` items (represented as `dict` in JSON). """
+        List of `ClinicalImpressionInvestigation` items (represented as `dict` in JSON). """
         
         self.note = None
         """ Comments made about the ClinicalImpression.
         List of `Annotation` items (represented as `dict` in JSON). """
-        
-        self.plan = None
-        """ Plan of action after assessment.
-        List of `FHIRReference` items referencing `CarePlan, Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticRequest, MedicationOrder, NutritionRequest, ProcedureRequest, ProcessRequest, ReferralRequest, VisionPrescription` (represented as `dict` in JSON). """
         
         self.previous = None
         """ Reference to last assessment.
@@ -129,9 +125,8 @@ class ClinicalImpression(domainresource.DomainResource):
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
             ("finding", "finding", ClinicalImpressionFinding, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("investigations", "investigations", ClinicalImpressionInvestigations, True, None, False),
+            ("investigation", "investigation", ClinicalImpressionInvestigation, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("plan", "plan", fhirreference.FHIRReference, True, None, False),
             ("previous", "previous", fhirreference.FHIRReference, False, None, False),
             ("problem", "problem", fhirreference.FHIRReference, True, None, False),
             ("prognosisCodeableConcept", "prognosisCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
@@ -163,7 +158,7 @@ class ClinicalImpressionFinding(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.cause = None
+        self.basis = None
         """ Which investigations support finding.
         Type `str`. """
         
@@ -180,14 +175,14 @@ class ClinicalImpressionFinding(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClinicalImpressionFinding, self).elementProperties()
         js.extend([
-            ("cause", "cause", str, False, None, False),
+            ("basis", "basis", str, False, None, False),
             ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),
             ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True),
         ])
         return js
 
 
-class ClinicalImpressionInvestigations(backboneelement.BackboneElement):
+class ClinicalImpressionInvestigation(backboneelement.BackboneElement):
     """ One or more sets of investigations (signs, symptions, etc.).
     
     One or more sets of investigations (signs, symptions, etc.). The actual
@@ -197,7 +192,7 @@ class ClinicalImpressionInvestigations(backboneelement.BackboneElement):
     pertinent to the outcomes.
     """
     
-    resource_name = "ClinicalImpressionInvestigations"
+    resource_name = "ClinicalImpressionInvestigation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -215,10 +210,10 @@ class ClinicalImpressionInvestigations(backboneelement.BackboneElement):
         """ Record of a specific investigation.
         List of `FHIRReference` items referencing `Observation, QuestionnaireResponse, FamilyMemberHistory, DiagnosticReport, RiskAssessment, ImagingStudy` (represented as `dict` in JSON). """
         
-        super(ClinicalImpressionInvestigations, self).__init__(jsondict=jsondict, strict=strict)
+        super(ClinicalImpressionInvestigation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ClinicalImpressionInvestigations, self).elementProperties()
+        js = super(ClinicalImpressionInvestigation, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("item", "item", fhirreference.FHIRReference, True, None, False),

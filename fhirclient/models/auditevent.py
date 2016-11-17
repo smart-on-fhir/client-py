@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -47,7 +47,7 @@ class AuditEvent(domainresource.DomainResource):
         
         self.purposeOfEvent = None
         """ The purposeOfUse of the event.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.recorded = None
         """ Time when the event occurred on source.
@@ -75,7 +75,7 @@ class AuditEvent(domainresource.DomainResource):
             ("entity", "entity", AuditEventEntity, True, None, False),
             ("outcome", "outcome", str, False, None, False),
             ("outcomeDesc", "outcomeDesc", str, False, None, False),
-            ("purposeOfEvent", "purposeOfEvent", coding.Coding, True, None, False),
+            ("purposeOfEvent", "purposeOfEvent", codeableconcept.CodeableConcept, True, None, False),
             ("recorded", "recorded", fhirdate.FHIRDate, False, None, True),
             ("source", "source", AuditEventSource, False, None, True),
             ("subtype", "subtype", coding.Coding, True, None, False),
@@ -128,7 +128,7 @@ class AuditEventAgent(backboneelement.BackboneElement):
         
         self.purposeOfUse = None
         """ Reason given for this user.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reference = None
         """ Direct reference to resource.
@@ -157,7 +157,7 @@ class AuditEventAgent(backboneelement.BackboneElement):
             ("name", "name", str, False, None, False),
             ("network", "network", AuditEventAgentNetwork, False, None, False),
             ("policy", "policy", str, True, None, False),
-            ("purposeOfUse", "purposeOfUse", coding.Coding, True, None, False),
+            ("purposeOfUse", "purposeOfUse", codeableconcept.CodeableConcept, True, None, False),
             ("reference", "reference", fhirreference.FHIRReference, False, None, False),
             ("requestor", "requestor", bool, False, None, True),
             ("role", "role", codeableconcept.CodeableConcept, True, None, False),

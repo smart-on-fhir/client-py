@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -29,7 +29,7 @@ class MedicationDispense(domainresource.DomainResource):
         
         self.authorizingPrescription = None
         """ Medication order that authorizes the dispense.
-        List of `FHIRReference` items referencing `MedicationOrder` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `MedicationRequest` (represented as `dict` in JSON). """
         
         self.daysSupply = None
         """ Amount of medication expressed as a timing amount.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -25,8 +25,8 @@ class SearchParameter(domainresource.DomainResource):
         """
         
         self.base = None
-        """ The resource type this search parameter applies to.
-        Type `str`. """
+        """ The resource type(s) this search parameter applies to.
+        List of `str` items. """
         
         self.code = None
         """ Code used in URL.
@@ -110,7 +110,7 @@ class SearchParameter(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SearchParameter, self).elementProperties()
         js.extend([
-            ("base", "base", str, False, None, True),
+            ("base", "base", str, True, None, True),
             ("code", "code", str, False, None, True),
             ("component", "component", fhirreference.FHIRReference, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),

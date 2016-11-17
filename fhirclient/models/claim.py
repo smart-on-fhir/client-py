@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Claim) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/Claim) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -92,7 +92,7 @@ class Claim(domainresource.DomainResource):
         
         self.originalPrescription = None
         """ Original Prescription.
-        Type `FHIRReference` referencing `MedicationOrder` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `MedicationRequest` (represented as `dict` in JSON). """
         
         self.originalRuleset = None
         """ Original specification followed.
@@ -108,7 +108,7 @@ class Claim(domainresource.DomainResource):
         
         self.prescription = None
         """ Prescription.
-        Type `FHIRReference` referencing `MedicationOrder, VisionPrescription` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `MedicationRequest, VisionPrescription` (represented as `dict` in JSON). """
         
         self.priority = None
         """ Desired processing priority.

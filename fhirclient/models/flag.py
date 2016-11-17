@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Flag) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/Flag) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -33,7 +33,7 @@ class Flag(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.code = None
-        """ Message to display to user.
+        """ Coded or textual message to display to user.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.encounter = None

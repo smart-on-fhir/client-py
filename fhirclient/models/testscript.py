@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -721,7 +721,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         
         self.operator = None
         """ equals | notEquals | in | notIn | greaterThan | lessThan | empty |
-        notEmpty | contains | notContains.
+        notEmpty | contains | notContains | eval.
         Type `str`. """
         
         self.path = None
@@ -1273,12 +1273,20 @@ class TestScriptVariable(backboneelement.BackboneElement):
         """ Default, hard-coded, or user-defined value for this variable.
         Type `str`. """
         
+        self.description = None
+        """ Natural language description of the variable.
+        Type `str`. """
+        
         self.expression = None
         """ The fhirpath expression against the fixture body.
         Type `str`. """
         
         self.headerField = None
         """ HTTP header field name for source.
+        Type `str`. """
+        
+        self.hint = None
+        """ Hint help text for default value to enter.
         Type `str`. """
         
         self.name = None
@@ -1299,8 +1307,10 @@ class TestScriptVariable(backboneelement.BackboneElement):
         js = super(TestScriptVariable, self).elementProperties()
         js.extend([
             ("defaultValue", "defaultValue", str, False, None, False),
+            ("description", "description", str, False, None, False),
             ("expression", "expression", str, False, None, False),
             ("headerField", "headerField", str, False, None, False),
+            ("hint", "hint", str, False, None, False),
             ("name", "name", str, False, None, True),
             ("path", "path", str, False, None, False),
             ("sourceId", "sourceId", str, False, None, False),

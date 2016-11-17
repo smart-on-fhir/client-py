@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -503,6 +503,7 @@ class CarePlanTests(unittest.TestCase):
         self.assertEqual(inst.activity[0].detail.scheduledTiming.repeat.frequency, 1)
         self.assertEqual(inst.activity[0].detail.scheduledTiming.repeat.period, 1)
         self.assertEqual(inst.activity[0].detail.scheduledTiming.repeat.periodUnit, "d")
+        self.assertEqual(inst.activity[0].detail.status, "completed")
         self.assertEqual(inst.contained[0].id, "p1")
         self.assertEqual(inst.contained[1].id, "goal")
         self.assertEqual(inst.id, "example")

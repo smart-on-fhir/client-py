@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -71,7 +71,7 @@ class ConceptMap(domainresource.DomainResource):
         
         self.sourceReference = None
         """ Identifies the source of the concepts which are being mapped.
-        Type `FHIRReference` referencing `ValueSet, StructureDefinition` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
         
         self.sourceUri = None
         """ Identifies the source of the concepts which are being mapped.
@@ -83,7 +83,7 @@ class ConceptMap(domainresource.DomainResource):
         
         self.targetReference = None
         """ Provides context to the mappings.
-        Type `FHIRReference` referencing `ValueSet, StructureDefinition` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
         
         self.targetUri = None
         """ Provides context to the mappings.
@@ -121,11 +121,11 @@ class ConceptMap(domainresource.DomainResource):
             ("name", "name", str, False, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
-            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", True),
-            ("sourceUri", "sourceUri", str, False, "source", True),
+            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", False),
+            ("sourceUri", "sourceUri", str, False, "source", False),
             ("status", "status", str, False, None, True),
-            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", True),
-            ("targetUri", "targetUri", str, False, "target", True),
+            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", False),
+            ("targetUri", "targetUri", str, False, "target", False),
             ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -116,60 +116,64 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         """ Concept that represents this item within in a questionnaire.
         List of `Coding` items (represented as `dict` in JSON). """
         
+        self.definition = None
+        """ ElementDefinition - details for the item.
+        Type `str`. """
+        
         self.enableWhen = None
         """ Only allow data when:.
         List of `QuestionnaireItemEnableWhen` items (represented as `dict` in JSON). """
         
         self.initialAttachment = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.initialBoolean = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `bool`. """
         
         self.initialCoding = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.initialDate = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.initialDateTime = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.initialDecimal = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `float`. """
         
         self.initialInstant = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.initialInteger = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `int`. """
         
         self.initialQuantity = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.initialReference = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.initialString = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `str`. """
         
         self.initialTime = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.initialUri = None
-        """ Initial presumed answer for question.
+        """ Default value when item is first rendered.
         Type `str`. """
         
         self.item = None
@@ -177,7 +181,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         List of `QuestionnaireItem` items (represented as `dict` in JSON). """
         
         self.linkId = None
-        """ To link questionnaire with questionnaire response.
+        """ Unique id for item in questionnaire.
         Type `str`. """
         
         self.maxLength = None
@@ -223,6 +227,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         js = super(QuestionnaireItem, self).elementProperties()
         js.extend([
             ("concept", "concept", coding.Coding, True, None, False),
+            ("definition", "definition", str, False, None, False),
             ("enableWhen", "enableWhen", QuestionnaireItemEnableWhen, True, None, False),
             ("initialAttachment", "initialAttachment", attachment.Attachment, False, "initial", False),
             ("initialBoolean", "initialBoolean", bool, False, "initial", False),
@@ -238,7 +243,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
             ("initialTime", "initialTime", fhirdate.FHIRDate, False, "initial", False),
             ("initialUri", "initialUri", str, False, "initial", False),
             ("item", "item", QuestionnaireItem, True, None, False),
-            ("linkId", "linkId", str, False, None, False),
+            ("linkId", "linkId", str, False, None, True),
             ("maxLength", "maxLength", int, False, None, False),
             ("option", "option", QuestionnaireItemOption, True, None, False),
             ("options", "options", fhirreference.FHIRReference, False, None, False),
@@ -247,7 +252,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
             ("repeats", "repeats", bool, False, None, False),
             ("required", "required", bool, False, None, False),
             ("text", "text", str, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("type", "type", str, False, None, False),
         ])
         return js
 

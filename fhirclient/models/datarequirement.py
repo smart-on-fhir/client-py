@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -39,7 +39,7 @@ class DataRequirement(element.Element):
         
         self.profile = None
         """ The profile of the required data.
-        List of `FHIRReference` items referencing `StructureDefinition` (represented as `dict` in JSON). """
+        List of `str` items. """
         
         self.type = None
         """ The type of the required data.
@@ -53,7 +53,7 @@ class DataRequirement(element.Element):
             ("codeFilter", "codeFilter", DataRequirementCodeFilter, True, None, False),
             ("dateFilter", "dateFilter", DataRequirementDateFilter, True, None, False),
             ("mustSupport", "mustSupport", str, True, None, False),
-            ("profile", "profile", fhirreference.FHIRReference, True, None, False),
+            ("profile", "profile", str, True, None, False),
             ("type", "type", str, False, None, True),
         ])
         return js

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -109,15 +109,15 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "History of family member diseases")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
         self.assertEqual(inst.contained[0].id, "image")
-        self.assertEqual(inst.contained[1].id, "2")
-        self.assertEqual(inst.contained[2].id, "3")
-        self.assertEqual(inst.contained[3].id, "4")
-        self.assertEqual(inst.contained[4].id, "5")
-        self.assertEqual(inst.contained[5].id, "6")
-        self.assertEqual(inst.contained[6].id, "7")
-        self.assertEqual(inst.contained[7].id, "8")
-        self.assertEqual(inst.contained[8].id, "9")
-        self.assertEqual(inst.contained[9].id, "10")
+        self.assertEqual(inst.contained[1].id, "1")
+        self.assertEqual(inst.contained[2].id, "2")
+        self.assertEqual(inst.contained[3].id, "3")
+        self.assertEqual(inst.contained[4].id, "4")
+        self.assertEqual(inst.contained[5].id, "5")
+        self.assertEqual(inst.contained[6].id, "6")
+        self.assertEqual(inst.contained[7].id, "7")
+        self.assertEqual(inst.contained[8].id, "8")
+        self.assertEqual(inst.contained[9].id, "9")
         self.assertEqual(inst.id, "prognosis")
         self.assertEqual(inst.mode, "snapshot")
         self.assertEqual(inst.status, "current")

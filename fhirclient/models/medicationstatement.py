@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -19,9 +19,11 @@ class MedicationStatement(domainresource.DomainResource):
     the history taking process during a patient visit or stay.   The medication
     information may come from e.g. the patient's memory, from a prescription
     bottle,  or from a list of medications the patient, clinician or other
-    party maintains The primary difference between a medication statement and
-    a medication administration is that the medication administration has
-    complete administration information and is based on actual administration
+    party maintains
+    
+    The primary difference between a medication statement and a medication
+    administration is that the medication administration has complete
+    administration information and is based on actual administration
     information from the person who administered the medication.  A medication
     statement is often, if not always, less specific.  There is no required
     date/time when the medication was administered, in fact we only know that a
@@ -86,7 +88,7 @@ class MedicationStatement(domainresource.DomainResource):
         Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
         
         self.notTaken = None
-        """ Y | N | UNK.
+        """ y | n | unk.
         Type `str`. """
         
         self.note = None

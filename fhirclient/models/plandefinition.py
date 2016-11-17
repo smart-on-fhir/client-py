@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -195,13 +195,13 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         """ single | multiple.
         Type `str`. """
         
-        self.concept = None
+        self.code = None
         """ The meaning of the action or its sub-actions.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.condition = None
         """ Whether or not the action is applicable.
-        Type `PlanDefinitionActionDefinitionCondition` (represented as `dict` in JSON). """
+        List of `PlanDefinitionActionDefinitionCondition` items (represented as `dict` in JSON). """
         
         self.description = None
         """ Short description of the action.
@@ -293,8 +293,8 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
             ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, False),
             ("activityDefinition", "activityDefinition", fhirreference.FHIRReference, False, None, False),
             ("cardinalityBehavior", "cardinalityBehavior", str, False, None, False),
-            ("concept", "concept", codeableconcept.CodeableConcept, True, None, False),
-            ("condition", "condition", PlanDefinitionActionDefinitionCondition, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
+            ("condition", "condition", PlanDefinitionActionDefinitionCondition, True, None, False),
             ("description", "description", str, False, None, False),
             ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
             ("dynamicValue", "dynamicValue", PlanDefinitionActionDefinitionDynamicValue, True, None, False),
@@ -322,8 +322,8 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
 class PlanDefinitionActionDefinitionCondition(backboneelement.BackboneElement):
     """ Whether or not the action is applicable.
     
-    An expression specifying whether or not the action is applicable in a given
-    context.
+    An expression that describes applicability criteria, or start/stop
+    conditions for the action.
     """
     
     resource_name = "PlanDefinitionActionDefinitionCondition"
@@ -344,6 +344,10 @@ class PlanDefinitionActionDefinitionCondition(backboneelement.BackboneElement):
         """ Boolean-valued expression.
         Type `str`. """
         
+        self.kind = None
+        """ applicability | start | stop.
+        Type `str`. """
+        
         self.language = None
         """ Language of the expression.
         Type `str`. """
@@ -355,6 +359,7 @@ class PlanDefinitionActionDefinitionCondition(backboneelement.BackboneElement):
         js.extend([
             ("description", "description", str, False, None, False),
             ("expression", "expression", str, False, None, False),
+            ("kind", "kind", str, False, None, True),
             ("language", "language", str, False, None, False),
         ])
         return js
@@ -430,10 +435,6 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
         """ Identifier of the related action.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.anchor = None
-        """ start | end.
-        Type `str`. """
-        
         self.offsetDuration = None
         """ Time offset for the relationship.
         Type `Duration` (represented as `dict` in JSON). """
@@ -443,7 +444,8 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
         Type `Range` (represented as `dict` in JSON). """
         
         self.relationship = None
-        """ before | after | concurrent.
+        """ before-start | before | before-end | concurrent-with-start |
+        concurrent | concurrent-with-end | after-start | after | after-end.
         Type `str`. """
         
         super(PlanDefinitionActionDefinitionRelatedAction, self).__init__(jsondict=jsondict, strict=strict)
@@ -452,7 +454,6 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
         js = super(PlanDefinitionActionDefinitionRelatedAction, self).elementProperties()
         js.extend([
             ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, True),
-            ("anchor", "anchor", str, False, None, False),
             ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False),
             ("offsetRange", "offsetRange", range.Range, False, "offset", False),
             ("relationship", "relationship", str, False, None, True),

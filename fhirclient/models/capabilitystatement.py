@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -85,6 +85,10 @@ class CapabilityStatement(domainresource.DomainResource):
         """ Name for this capability statement (Computer friendly).
         Type `str`. """
         
+        self.patchFormat = None
+        """ Patch formats supported.
+        List of `str` items. """
+        
         self.profile = None
         """ Profiles for use cases supported.
         List of `FHIRReference` items referencing `StructureDefinition` (represented as `dict` in JSON). """
@@ -146,6 +150,7 @@ class CapabilityStatement(domainresource.DomainResource):
             ("kind", "kind", str, False, None, True),
             ("messaging", "messaging", CapabilityStatementMessaging, True, None, False),
             ("name", "name", str, False, None, False),
+            ("patchFormat", "patchFormat", str, True, None, False),
             ("profile", "profile", fhirreference.FHIRReference, True, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
@@ -635,8 +640,8 @@ class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement
         """
         
         self.code = None
-        """ read | vread | update | delete | history-instance | history-type |
-        create | search-type.
+        """ read | vread | update | patch | delete | history-instance |
+        history-type | create | search-type.
         Type `str`. """
         
         self.documentation = None

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
+#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
 #  2016, SMART Health IT.
 
 
@@ -32,8 +32,8 @@ class LibraryTests(unittest.TestCase):
         self.implLibrary1(inst2)
     
     def implLibrary1(self, inst):
-        self.assertEqual(inst.content.contentType, "text/cql")
-        self.assertEqual(inst.content.url, "http://cqlrepository.org/CMS146.cql")
+        self.assertEqual(inst.content[0].contentType, "text/cql")
+        self.assertEqual(inst.content[0].url, "http://cqlrepository.org/CMS146.cql")
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].path, "code")
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].valueSetString, "Other Female Reproductive Conditions")
         self.assertEqual(inst.dataRequirement[0].type, "Condition")
@@ -69,7 +69,7 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.dataRequirement[7].codeFilter[0].valueCode[0], "active")
         self.assertEqual(inst.dataRequirement[7].codeFilter[1].path, "medication.code")
         self.assertEqual(inst.dataRequirement[7].codeFilter[1].valueSetString, "2.16.840.1.113883.3.464.1003.196.12.1001")
-        self.assertEqual(inst.dataRequirement[7].type, "MedicationOrder")
+        self.assertEqual(inst.dataRequirement[7].type, "MedicationRequest")
         self.assertEqual(inst.dataRequirement[8].codeFilter[0].path, "status")
         self.assertEqual(inst.dataRequirement[8].codeFilter[0].valueCode[0], "completed")
         self.assertEqual(inst.dataRequirement[8].codeFilter[1].path, "medication.code")
@@ -100,8 +100,8 @@ class LibraryTests(unittest.TestCase):
         self.implLibrary2(inst2)
     
     def implLibrary2(self, inst):
-        self.assertEqual(inst.content.contentType, "text/cql")
-        self.assertEqual(inst.content.url, "http://cqlrepository.org/ChlamydiaScreening_Common.cql")
+        self.assertEqual(inst.content[0].contentType, "text/cql")
+        self.assertEqual(inst.content[0].url, "http://cqlrepository.org/ChlamydiaScreening_Common.cql")
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].path, "code")
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].valueSetString, "Other Female Reproductive Conditions")
         self.assertEqual(inst.dataRequirement[0].type, "Condition")
