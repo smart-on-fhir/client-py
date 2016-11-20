@@ -50,7 +50,11 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         return self.__class__.resource_name
     
     def relativePath(self):
-        return "{}/{}".format(self.relativeBase(), self.id)
+        if self.id is None:
+            rel_path = "{}".format(self.relativeBase())
+        else:
+            rel_path = "{}/{}".format(self.relativeBase(), self.id)
+        return rel_path
     
     
     # MARK: Server Connection
