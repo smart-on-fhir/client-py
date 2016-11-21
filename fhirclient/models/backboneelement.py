@@ -14,7 +14,7 @@ class BackboneElement(element.Element):
     not those in a data type.
     """
     
-    resource_name = "BackboneElement"
+    resource_type = "BackboneElement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

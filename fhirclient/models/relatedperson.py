@@ -16,7 +16,7 @@ class RelatedPerson(domainresource.DomainResource):
     care process.
     """
     
-    resource_name = "RelatedPerson"
+    resource_type = "RelatedPerson"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

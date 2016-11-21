@@ -17,7 +17,7 @@ class PlanDefinition(domainresource.DomainResource):
     such as clinical decision support rules, order sets and protocols.
     """
     
-    resource_name = "PlanDefinition"
+    resource_type = "PlanDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -169,7 +169,7 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
     An action to be taken as part of the plan.
     """
     
-    resource_name = "PlanDefinitionActionDefinition"
+    resource_type = "PlanDefinitionActionDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -326,7 +326,7 @@ class PlanDefinitionActionDefinitionCondition(backboneelement.BackboneElement):
     conditions for the action.
     """
     
-    resource_name = "PlanDefinitionActionDefinitionCondition"
+    resource_type = "PlanDefinitionActionDefinitionCondition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -375,7 +375,7 @@ class PlanDefinitionActionDefinitionDynamicValue(backboneelement.BackboneElement
     the result.
     """
     
-    resource_name = "PlanDefinitionActionDefinitionDynamicValue"
+    resource_type = "PlanDefinitionActionDefinitionDynamicValue"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -421,7 +421,7 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
     start of".
     """
     
-    resource_name = "PlanDefinitionActionDefinitionRelatedAction"
+    resource_type = "PlanDefinitionActionDefinitionRelatedAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

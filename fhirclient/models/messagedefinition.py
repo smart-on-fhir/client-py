@@ -16,7 +16,7 @@ class MessageDefinition(domainresource.DomainResource):
     content to be transmitted and what response(s), if any, are permitted.
     """
     
-    resource_name = "MessageDefinition"
+    resource_type = "MessageDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -154,7 +154,7 @@ class MessageDefinitionAllowedResponse(backboneelement.BackboneElement):
     response to this message.
     """
     
-    resource_name = "MessageDefinitionAllowedResponse"
+    resource_type = "MessageDefinitionAllowedResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -191,7 +191,7 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
     records for a merge.
     """
     
-    resource_name = "MessageDefinitionFocus"
+    resource_type = "MessageDefinitionFocus"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

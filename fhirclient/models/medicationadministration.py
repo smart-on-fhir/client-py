@@ -17,7 +17,7 @@ class MedicationAdministration(domainresource.DomainResource):
     practitioner.
     """
     
-    resource_name = "MedicationAdministration"
+    resource_type = "MedicationAdministration"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -141,7 +141,7 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
     route, etc.
     """
     
-    resource_name = "MedicationAdministrationDosage"
+    resource_type = "MedicationAdministrationDosage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

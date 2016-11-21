@@ -14,7 +14,7 @@ class AllergyIntolerance(domainresource.DomainResource):
     an individual and associated with exposure to a substance.
     """
     
-    resource_name = "AllergyIntolerance"
+    resource_type = "AllergyIntolerance"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -137,7 +137,7 @@ class AllergyIntoleranceReaction(backboneelement.BackboneElement):
     identified substance.
     """
     
-    resource_name = "AllergyIntoleranceReaction"
+    resource_type = "AllergyIntoleranceReaction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

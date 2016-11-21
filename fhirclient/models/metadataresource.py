@@ -14,7 +14,7 @@ class MetadataResource(domainresource.DomainResource):
     resources.
     """
     
-    resource_name = "MetadataResource"
+    resource_type = "MetadataResource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

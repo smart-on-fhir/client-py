@@ -15,7 +15,7 @@ class Communication(domainresource.DomainResource):
     reportable condition.
     """
     
-    resource_name = "Communication"
+    resource_type = "Communication"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -122,7 +122,7 @@ class CommunicationPayload(backboneelement.BackboneElement):
     Text, attachment(s), or resource(s) that was communicated to the recipient.
     """
     
-    resource_name = "CommunicationPayload"
+    resource_type = "CommunicationPayload"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

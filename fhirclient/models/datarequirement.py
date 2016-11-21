@@ -14,7 +14,7 @@ class DataRequirement(element.Element):
     and optional code- or date-based filters of the data.
     """
     
-    resource_name = "DataRequirement"
+    resource_type = "DataRequirement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -66,7 +66,7 @@ class DataRequirementCodeFilter(element.Element):
     value set of interest for a particular element of the data.
     """
     
-    resource_name = "DataRequirementCodeFilter"
+    resource_type = "DataRequirementCodeFilter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -122,7 +122,7 @@ class DataRequirementDateFilter(element.Element):
     applicable date range for specific elements.
     """
     
-    resource_name = "DataRequirementDateFilter"
+    resource_type = "DataRequirementDateFilter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

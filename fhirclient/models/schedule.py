@@ -12,7 +12,7 @@ class Schedule(domainresource.DomainResource):
     appointments.
     """
     
-    resource_name = "Schedule"
+    resource_type = "Schedule"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -18,7 +18,7 @@ class EpisodeOfCare(domainresource.DomainResource):
     time.
     """
     
-    resource_name = "EpisodeOfCare"
+    resource_type = "EpisodeOfCare"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -108,7 +108,7 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
     requiring processing the history of the resource).
     """
     
-    resource_name = "EpisodeOfCareStatusHistory"
+    resource_type = "EpisodeOfCareStatusHistory"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

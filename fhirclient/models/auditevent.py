@@ -15,7 +15,7 @@ class AuditEvent(domainresource.DomainResource):
     inappropriate usage.
     """
     
-    resource_name = "AuditEvent"
+    resource_type = "AuditEvent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -92,7 +92,7 @@ class AuditEventAgent(backboneelement.BackboneElement):
     An actor taking an active role in the event or activity that is logged.
     """
     
-    resource_name = "AuditEventAgent"
+    resource_type = "AuditEventAgent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -173,7 +173,7 @@ class AuditEventAgentNetwork(backboneelement.BackboneElement):
     network location.
     """
     
-    resource_name = "AuditEventAgentNetwork"
+    resource_type = "AuditEventAgentNetwork"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -208,7 +208,7 @@ class AuditEventEntity(backboneelement.BackboneElement):
     Specific instances of data or objects that have been accessed.
     """
     
-    resource_name = "AuditEventEntity"
+    resource_type = "AuditEventEntity"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -281,7 +281,7 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
     """ Additional Information about the entity.
     """
     
-    resource_name = "AuditEventEntityDetail"
+    resource_type = "AuditEventEntityDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -316,7 +316,7 @@ class AuditEventSource(backboneelement.BackboneElement):
     The system that is reporting the event.
     """
     
-    resource_name = "AuditEventSource"
+    resource_type = "AuditEventSource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -14,7 +14,7 @@ class DeviceMetric(domainresource.DomainResource):
     device.
     """
     
-    resource_name = "DeviceMetric"
+    resource_type = "DeviceMetric"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -91,7 +91,7 @@ class DeviceMetricCalibration(backboneelement.BackboneElement):
     be performed.
     """
     
-    resource_name = "DeviceMetricCalibration"
+    resource_type = "DeviceMetricCalibration"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

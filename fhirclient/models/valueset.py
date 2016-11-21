@@ -13,7 +13,7 @@ class ValueSet(domainresource.DomainResource):
     A value set specifies a set of codes drawn from one or more code systems.
     """
     
-    resource_name = "ValueSet"
+    resource_type = "ValueSet"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -138,7 +138,7 @@ class ValueSetCompose(backboneelement.BackboneElement):
     also known as the "Content Logical Definition" (CLD).
     """
     
-    resource_name = "ValueSetCompose"
+    resource_type = "ValueSetCompose"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -181,7 +181,7 @@ class ValueSetComposeInclude(backboneelement.BackboneElement):
     """ Include one or more codes from a code system or other value set(s).
     """
     
-    resource_name = "ValueSetComposeInclude"
+    resource_type = "ValueSetComposeInclude"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -231,7 +231,7 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
     Specifies a concept to be included or excluded.
     """
     
-    resource_name = "ValueSetComposeIncludeConcept"
+    resource_type = "ValueSetComposeIncludeConcept"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -273,7 +273,7 @@ class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
     purposes, etc.
     """
     
-    resource_name = "ValueSetComposeIncludeConceptDesignation"
+    resource_type = "ValueSetComposeIncludeConceptDesignation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -315,7 +315,7 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
     specified, they SHALL all be true.
     """
     
-    resource_name = "ValueSetComposeIncludeFilter"
+    resource_type = "ValueSetComposeIncludeFilter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -358,7 +358,7 @@ class ValueSetExpansion(backboneelement.BackboneElement):
     it has been performed.
     """
     
-    resource_name = "ValueSetExpansion"
+    resource_type = "ValueSetExpansion"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -413,7 +413,7 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
     The codes that are contained in the value set expansion.
     """
     
-    resource_name = "ValueSetExpansionContains"
+    resource_type = "ValueSetExpansionContains"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -480,7 +480,7 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
     suitable for a particular purpose, or to pick the correct expansion.
     """
     
-    resource_name = "ValueSetExpansionParameter"
+    resource_type = "ValueSetExpansionParameter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

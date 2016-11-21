@@ -16,7 +16,7 @@ class UsageContext(element.Element):
     context of care (e.g., venue, care setting, provider of care).
     """
     
-    resource_name = "UsageContext"
+    resource_type = "UsageContext"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

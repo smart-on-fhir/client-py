@@ -14,7 +14,7 @@ class DeviceComponent(domainresource.DomainResource):
     medical-related component of a medical device.
     """
     
-    resource_name = "DeviceComponent"
+    resource_type = "DeviceComponent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -94,7 +94,7 @@ class DeviceComponentProductionSpecification(backboneelement.BackboneElement):
     number, etc.
     """
     
-    resource_name = "DeviceComponentProductionSpecification"
+    resource_type = "DeviceComponentProductionSpecification"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

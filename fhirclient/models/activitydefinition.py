@@ -16,7 +16,7 @@ class ActivityDefinition(domainresource.DomainResource):
     context.
     """
     
-    resource_name = "ActivityDefinition"
+    resource_type = "ActivityDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -229,7 +229,7 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
     intent resource that would contain the result.
     """
     
-    resource_name = "ActivityDefinitionDynamicValue"
+    resource_type = "ActivityDefinitionDynamicValue"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

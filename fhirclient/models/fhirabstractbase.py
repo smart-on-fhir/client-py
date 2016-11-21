@@ -323,7 +323,7 @@ class FHIRAbstractBase(object):
         `Bundle` instance.
         """
         owner = self._owner
-        while owner is not None and not 'Bundle' == owner.resource_name:
+        while owner is not None and not 'Bundle' == owner.resource_type:
             owner = owner._owner
         return owner
     

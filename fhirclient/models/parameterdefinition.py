@@ -16,7 +16,7 @@ class ParameterDefinition(element.Element):
     GuidanceResponse.
     """
     
-    resource_name = "ParameterDefinition"
+    resource_type = "ParameterDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

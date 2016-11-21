@@ -11,7 +11,7 @@ class HealthcareService(domainresource.DomainResource):
     """ The details of a healthcare service available at a location.
     """
     
-    resource_name = "HealthcareService"
+    resource_type = "HealthcareService"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -160,7 +160,7 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
     A collection of times that the Service Site is available.
     """
     
-    resource_name = "HealthcareServiceAvailableTime"
+    resource_type = "HealthcareServiceAvailableTime"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -206,7 +206,7 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
     the provided reason.
     """
     
-    resource_name = "HealthcareServiceNotAvailable"
+    resource_type = "HealthcareServiceNotAvailable"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

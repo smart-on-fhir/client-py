@@ -15,7 +15,7 @@ class CareTeam(domainresource.DomainResource):
     participate in the coordination and delivery of care for a patient.
     """
     
-    resource_name = "CareTeam"
+    resource_type = "CareTeam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -83,7 +83,7 @@ class CareTeamParticipant(backboneelement.BackboneElement):
     the care team.
     """
     
-    resource_name = "CareTeamParticipant"
+    resource_type = "CareTeamParticipant"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

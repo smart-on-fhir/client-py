@@ -18,7 +18,7 @@ class Address(element.Element):
     address formats defined around the world.
     """
     
-    resource_name = "Address"
+    resource_type = "Address"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

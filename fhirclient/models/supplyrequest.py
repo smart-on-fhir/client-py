@@ -14,7 +14,7 @@ class SupplyRequest(domainresource.DomainResource):
     healthcare setting.
     """
     
-    resource_name = "SupplyRequest"
+    resource_type = "SupplyRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -99,7 +99,7 @@ class SupplyRequestWhen(backboneelement.BackboneElement):
     """ When the request should be fulfilled.
     """
     
-    resource_name = "SupplyRequestWhen"
+    resource_type = "SupplyRequestWhen"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

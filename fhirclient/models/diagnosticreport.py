@@ -18,7 +18,7 @@ class DiagnosticReport(domainresource.DomainResource):
     interpretations, and formatted representation of diagnostic reports.
     """
     
-    resource_name = "DiagnosticReport"
+    resource_type = "DiagnosticReport"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -139,7 +139,7 @@ class DiagnosticReportImage(backboneelement.BackboneElement):
     or of treated specimens (i.e. slides of interest).
     """
     
-    resource_name = "DiagnosticReportImage"
+    resource_type = "DiagnosticReportImage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -11,7 +11,7 @@ class Duration(quantity.Quantity):
     """ A length of time.
     """
     
-    resource_name = "Duration"
+    resource_type = "Duration"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

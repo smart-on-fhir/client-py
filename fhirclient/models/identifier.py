@@ -13,7 +13,7 @@ class Identifier(element.Element):
     A technical identifier - identifies some entity uniquely and unambiguously.
     """
     
-    resource_name = "Identifier"
+    resource_type = "Identifier"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

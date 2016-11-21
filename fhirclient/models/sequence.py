@@ -13,7 +13,7 @@ class Sequence(domainresource.DomainResource):
     Raw data describing a biological sequence.
     """
     
-    resource_name = "Sequence"
+    resource_type = "Sequence"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -118,7 +118,7 @@ class SequenceQuality(backboneelement.BackboneElement):
     ww.sequenceontology.org/browser/current_svn/term/SO:0001686)).
     """
     
-    resource_name = "SequenceQuality"
+    resource_type = "SequenceQuality"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -210,7 +210,7 @@ class SequenceReferenceSeq(backboneelement.BackboneElement):
     variant.
     """
     
-    resource_name = "SequenceReferenceSeq"
+    resource_type = "SequenceReferenceSeq"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -276,7 +276,7 @@ class SequenceRepository(backboneelement.BackboneElement):
     Configurations of the external repository.
     """
     
-    resource_name = "SequenceRepository"
+    resource_type = "SequenceRepository"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -319,7 +319,7 @@ class SequenceStructureVariant(backboneelement.BackboneElement):
     """ Structural variant.
     """
     
-    resource_name = "SequenceStructureVariant"
+    resource_type = "SequenceStructureVariant"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -367,7 +367,7 @@ class SequenceStructureVariantInner(backboneelement.BackboneElement):
     """ Structural variant inner.
     """
     
-    resource_name = "SequenceStructureVariantInner"
+    resource_type = "SequenceStructureVariantInner"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -400,7 +400,7 @@ class SequenceStructureVariantOuter(backboneelement.BackboneElement):
     """ Structural variant outer.
     """
     
-    resource_name = "SequenceStructureVariantOuter"
+    resource_type = "SequenceStructureVariantOuter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -438,7 +438,7 @@ class SequenceVariant(backboneelement.BackboneElement):
     (http://www.sequenceontology.org/browser/current_svn/term/variant_of)).
     """
     
-    resource_name = "SequenceVariant"
+    resource_type = "SequenceVariant"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

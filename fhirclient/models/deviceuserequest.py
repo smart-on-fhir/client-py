@@ -15,7 +15,7 @@ class DeviceUseRequest(domainresource.DomainResource):
     walker.
     """
     
-    resource_name = "DeviceUseRequest"
+    resource_type = "DeviceUseRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

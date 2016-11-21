@@ -14,7 +14,7 @@ class PaymentNotice(domainresource.DomainResource):
     rendered, and the request and response resource references.
     """
     
-    resource_name = "PaymentNotice"
+    resource_type = "PaymentNotice"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

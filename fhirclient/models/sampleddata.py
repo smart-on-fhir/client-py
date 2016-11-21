@@ -14,7 +14,7 @@ class SampledData(element.Element):
     There may be more than one dimension in the data.
     """
     
-    resource_name = "SampledData"
+    resource_type = "SampledData"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

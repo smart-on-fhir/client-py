@@ -15,7 +15,7 @@ class Quantity(element.Element):
     including amounts involving arbitrary units and floating currencies.
     """
     
-    resource_name = "Quantity"
+    resource_type = "Quantity"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

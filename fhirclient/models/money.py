@@ -11,7 +11,7 @@ class Money(quantity.Quantity):
     """ An amount of economic utility in some recognised currency.
     """
     
-    resource_name = "Money"
+    resource_type = "Money"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

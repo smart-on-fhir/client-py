@@ -11,7 +11,7 @@ class Task(domainresource.DomainResource):
     """ A task to be performed.
     """
     
-    resource_name = "Task"
+    resource_type = "Task"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -165,7 +165,7 @@ class TaskFulfillment(backboneelement.BackboneElement):
     request should be actioned.
     """
     
-    resource_name = "TaskFulfillment"
+    resource_type = "TaskFulfillment"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -205,7 +205,7 @@ class TaskInput(backboneelement.BackboneElement):
     Additional information that may be needed in the execution of the task.
     """
     
-    resource_name = "TaskInput"
+    resource_type = "TaskInput"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -425,7 +425,7 @@ class TaskOutput(backboneelement.BackboneElement):
     Outputs produced by the Task.
     """
     
-    resource_name = "TaskOutput"
+    resource_type = "TaskOutput"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

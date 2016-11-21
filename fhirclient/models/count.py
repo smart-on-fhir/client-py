@@ -15,7 +15,7 @@ class Count(quantity.Quantity):
     including amounts involving arbitrary units and floating currencies.
     """
     
-    resource_name = "Count"
+    resource_type = "Count"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

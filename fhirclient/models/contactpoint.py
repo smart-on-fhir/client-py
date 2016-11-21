@@ -14,7 +14,7 @@ class ContactPoint(element.Element):
     organization, including telephone, email, etc.
     """
     
-    resource_name = "ContactPoint"
+    resource_type = "ContactPoint"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

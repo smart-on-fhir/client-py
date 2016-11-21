@@ -18,7 +18,7 @@ class MedicationRequest(domainresource.DomainResource):
     patterns.
     """
     
-    resource_name = "MedicationRequest"
+    resource_type = "MedicationRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -161,7 +161,7 @@ class MedicationRequestDispenseRequest(backboneelement.BackboneElement):
     the dispense details in the pharmacy department.
     """
     
-    resource_name = "MedicationRequestDispenseRequest"
+    resource_type = "MedicationRequestDispenseRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -215,7 +215,7 @@ class MedicationRequestSubstitution(backboneelement.BackboneElement):
     be done.
     """
     
-    resource_name = "MedicationRequestSubstitution"
+    resource_type = "MedicationRequestSubstitution"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

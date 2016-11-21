@@ -13,7 +13,7 @@ class Bundle(resource.Resource):
     A container for a collection of resources.
     """
     
-    resource_name = "Bundle"
+    resource_type = "Bundle"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -67,7 +67,7 @@ class BundleEntry(backboneelement.BackboneElement):
     information about a resource (transactions and history only).
     """
     
-    resource_name = "BundleEntry"
+    resource_type = "BundleEntry"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -123,7 +123,7 @@ class BundleEntryRequest(backboneelement.BackboneElement):
     a transaction.
     """
     
-    resource_name = "BundleEntryRequest"
+    resource_type = "BundleEntryRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -179,7 +179,7 @@ class BundleEntryResponse(backboneelement.BackboneElement):
     a transaction.
     """
     
-    resource_name = "BundleEntryResponse"
+    resource_type = "BundleEntryResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -230,7 +230,7 @@ class BundleEntrySearch(backboneelement.BackboneElement):
     entry.
     """
     
-    resource_name = "BundleEntrySearch"
+    resource_type = "BundleEntrySearch"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -265,7 +265,7 @@ class BundleLink(backboneelement.BackboneElement):
     A series of links that provide context to this bundle.
     """
     
-    resource_name = "BundleLink"
+    resource_type = "BundleLink"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

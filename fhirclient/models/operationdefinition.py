@@ -14,7 +14,7 @@ class OperationDefinition(domainresource.DomainResource):
     or a named query (using the search interaction).
     """
     
-    resource_name = "OperationDefinition"
+    resource_type = "OperationDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -158,7 +158,7 @@ class OperationDefinitionOverload(backboneelement.BackboneElement):
     operation.
     """
     
-    resource_name = "OperationDefinitionOverload"
+    resource_type = "OperationDefinitionOverload"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -193,7 +193,7 @@ class OperationDefinitionParameter(backboneelement.BackboneElement):
     The parameters for the operation/query.
     """
     
-    resource_name = "OperationDefinitionParameter"
+    resource_type = "OperationDefinitionParameter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -270,7 +270,7 @@ class OperationDefinitionParameterBinding(backboneelement.BackboneElement):
     CodeableConcept).
     """
     
-    resource_name = "OperationDefinitionParameterBinding"
+    resource_type = "OperationDefinitionParameterBinding"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

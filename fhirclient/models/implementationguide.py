@@ -15,7 +15,7 @@ class ImplementationGuide(domainresource.DomainResource):
     logical whole, and to publish a computable definition of all the parts.
     """
     
-    resource_name = "ImplementationGuide"
+    resource_type = "ImplementationGuide"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -135,7 +135,7 @@ class ImplementationGuideDependency(backboneelement.BackboneElement):
     other implementation guides.
     """
     
-    resource_name = "ImplementationGuideDependency"
+    resource_type = "ImplementationGuideDependency"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -171,7 +171,7 @@ class ImplementationGuideGlobal(backboneelement.BackboneElement):
     must conform to.
     """
     
-    resource_name = "ImplementationGuideGlobal"
+    resource_type = "ImplementationGuideGlobal"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -207,7 +207,7 @@ class ImplementationGuidePackage(backboneelement.BackboneElement):
     pages.
     """
     
-    resource_name = "ImplementationGuidePackage"
+    resource_type = "ImplementationGuidePackage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -250,7 +250,7 @@ class ImplementationGuidePackageResource(backboneelement.BackboneElement):
     example resource.
     """
     
-    resource_name = "ImplementationGuidePackageResource"
+    resource_type = "ImplementationGuidePackageResource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -311,7 +311,7 @@ class ImplementationGuidePage(backboneelement.BackboneElement):
     implementation guide home page.
     """
     
-    resource_name = "ImplementationGuidePage"
+    resource_type = "ImplementationGuidePage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

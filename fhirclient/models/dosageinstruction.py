@@ -13,7 +13,7 @@ class DosageInstruction(element.Element):
     Indicates how the medication is to be used by the patient.
     """
     
-    resource_name = "DosageInstruction"
+    resource_type = "DosageInstruction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

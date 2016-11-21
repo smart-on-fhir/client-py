@@ -15,7 +15,7 @@ class Questionnaire(domainresource.DomainResource):
     to the structure of the grouping of the underlying questions.
     """
     
-    resource_name = "Questionnaire"
+    resource_type = "Questionnaire"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -102,7 +102,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
     The questions and groupings of questions that make up the questionnaire.
     """
     
-    resource_name = "QuestionnaireItem"
+    resource_type = "QuestionnaireItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -265,7 +265,7 @@ class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
     true.
     """
     
-    resource_name = "QuestionnaireItemEnableWhen"
+    resource_type = "QuestionnaireItemEnableWhen"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -366,7 +366,7 @@ class QuestionnaireItemOption(backboneelement.BackboneElement):
     question.
     """
     
-    resource_name = "QuestionnaireItemOption"
+    resource_type = "QuestionnaireItemOption"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

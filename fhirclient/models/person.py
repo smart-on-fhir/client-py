@@ -14,7 +14,7 @@ class Person(domainresource.DomainResource):
     specific health-related context.
     """
     
-    resource_name = "Person"
+    resource_type = "Person"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -89,7 +89,7 @@ class PersonLink(backboneelement.BackboneElement):
     """ Link to a resource that concerns the same actual person.
     """
     
-    resource_name = "PersonLink"
+    resource_type = "PersonLink"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

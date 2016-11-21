@@ -17,7 +17,7 @@ class MedicationDispense(domainresource.DomainResource):
     responding to a medication order.
     """
     
-    resource_name = "MedicationDispense"
+    resource_type = "MedicationDispense"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -147,7 +147,7 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
     what substitution did or did not happen and why.
     """
     
-    resource_name = "MedicationDispenseSubstitution"
+    resource_type = "MedicationDispenseSubstitution"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

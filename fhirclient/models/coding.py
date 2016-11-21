@@ -11,7 +11,7 @@ class Coding(element.Element):
     """ A reference to a code defined by a terminology system.
     """
     
-    resource_name = "Coding"
+    resource_type = "Coding"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

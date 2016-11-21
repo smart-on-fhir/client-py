@@ -15,7 +15,7 @@ class CommunicationRequest(domainresource.DomainResource):
     health agency be notified about a reportable condition.
     """
     
-    resource_name = "CommunicationRequest"
+    resource_type = "CommunicationRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -123,7 +123,7 @@ class CommunicationRequestPayload(backboneelement.BackboneElement):
     Text, attachment(s), or resource(s) to be communicated to the recipient.
     """
     
-    resource_name = "CommunicationRequestPayload"
+    resource_type = "CommunicationRequestPayload"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

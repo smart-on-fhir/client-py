@@ -14,7 +14,7 @@ class DataElement(domainresource.DomainResource):
     gathered and reported.
     """
     
-    resource_name = "DataElement"
+    resource_type = "DataElement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -123,7 +123,7 @@ class DataElementMapping(backboneelement.BackboneElement):
     which make up the DataElement have some correspondence with.
     """
     
-    resource_name = "DataElementMapping"
+    resource_type = "DataElementMapping"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

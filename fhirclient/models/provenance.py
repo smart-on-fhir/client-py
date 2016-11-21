@@ -22,7 +22,7 @@ class Provenance(domainresource.DomainResource):
     impact security, privacy, and trust policies.
     """
     
-    resource_name = "Provenance"
+    resource_type = "Provenance"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -100,7 +100,7 @@ class ProvenanceAgent(backboneelement.BackboneElement):
     degree of responsibility for the activity taking place.
     """
     
-    resource_name = "ProvenanceAgent"
+    resource_type = "ProvenanceAgent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -153,7 +153,7 @@ class ProvenanceEntity(backboneelement.BackboneElement):
     """ An entity used in this activity.
     """
     
-    resource_name = "ProvenanceEntity"
+    resource_type = "ProvenanceEntity"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

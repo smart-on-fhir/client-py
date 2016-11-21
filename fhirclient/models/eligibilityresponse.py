@@ -14,7 +14,7 @@ class EligibilityResponse(domainresource.DomainResource):
     an Eligibility resource.
     """
     
-    resource_name = "EligibilityResponse"
+    resource_type = "EligibilityResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -121,7 +121,7 @@ class EligibilityResponseBenefitBalance(backboneelement.BackboneElement):
     Benefits and optionally current balances by Category.
     """
     
-    resource_name = "EligibilityResponseBenefitBalance"
+    resource_type = "EligibilityResponseBenefitBalance"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -186,7 +186,7 @@ class EligibilityResponseBenefitBalanceFinancial(backboneelement.BackboneElement
     Benefits Used to date.
     """
     
-    resource_name = "EligibilityResponseBenefitBalanceFinancial"
+    resource_type = "EligibilityResponseBenefitBalanceFinancial"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -241,7 +241,7 @@ class EligibilityResponseError(backboneelement.BackboneElement):
     Mutually exclusive with Services Provided (Item).
     """
     
-    resource_name = "EligibilityResponseError"
+    resource_type = "EligibilityResponseError"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

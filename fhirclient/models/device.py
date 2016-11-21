@@ -19,7 +19,7 @@ class Device(domainresource.DomainResource):
     include items such as a machine, cellphone, computer, application, etc.
     """
     
-    resource_name = "Device"
+    resource_type = "Device"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

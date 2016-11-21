@@ -16,7 +16,7 @@ class Immunization(domainresource.DomainResource):
     protocol was followed.
     """
     
-    resource_name = "Immunization"
+    resource_type = "Immunization"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -148,7 +148,7 @@ class ImmunizationExplanation(backboneelement.BackboneElement):
     Reasons why a vaccine was or was not administered.
     """
     
-    resource_name = "ImmunizationExplanation"
+    resource_type = "ImmunizationExplanation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -184,7 +184,7 @@ class ImmunizationReaction(backboneelement.BackboneElement):
     an immunization.
     """
     
-    resource_name = "ImmunizationReaction"
+    resource_type = "ImmunizationReaction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -225,7 +225,7 @@ class ImmunizationVaccinationProtocol(backboneelement.BackboneElement):
     administered.
     """
     
-    resource_name = "ImmunizationVaccinationProtocol"
+    resource_type = "ImmunizationVaccinationProtocol"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

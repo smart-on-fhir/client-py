@@ -13,7 +13,7 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
     This is the base resource type for everything.
     """
     
-    resource_name = "Resource"
+    resource_type = "Resource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

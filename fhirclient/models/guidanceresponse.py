@@ -15,7 +15,7 @@ class GuidanceResponse(domainresource.DomainResource):
     description of any proposed actions to be taken.
     """
     
-    resource_name = "GuidanceResponse"
+    resource_type = "GuidanceResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

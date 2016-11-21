@@ -15,7 +15,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
     grouping of the underlying questions.
     """
     
-    resource_name = "QuestionnaireResponse"
+    resource_type = "QuestionnaireResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -97,7 +97,7 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
     Corresponds to a group or question item from the original questionnaire.
     """
     
-    resource_name = "QuestionnaireResponseItem"
+    resource_type = "QuestionnaireResponseItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -152,7 +152,7 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
     The respondent's answer(s) to the question.
     """
     
-    resource_name = "QuestionnaireResponseItemAnswer"
+    resource_type = "QuestionnaireResponseItemAnswer"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -13,7 +13,7 @@ class Attachment(element.Element):
     For referring to data content defined in other formats.
     """
     
-    resource_name = "Attachment"
+    resource_type = "Attachment"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

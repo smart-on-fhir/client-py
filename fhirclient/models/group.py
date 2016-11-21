@@ -16,7 +16,7 @@ class Group(domainresource.DomainResource):
     isn't an Organization.
     """
     
-    resource_name = "Group"
+    resource_type = "Group"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -88,7 +88,7 @@ class GroupCharacteristic(backboneelement.BackboneElement):
     Identifies the traits shared by members of the group.
     """
     
-    resource_name = "GroupCharacteristic"
+    resource_type = "GroupCharacteristic"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -148,7 +148,7 @@ class GroupMember(backboneelement.BackboneElement):
     Identifies the resource instances that are members of the group.
     """
     
-    resource_name = "GroupMember"
+    resource_type = "GroupMember"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

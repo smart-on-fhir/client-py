@@ -12,7 +12,7 @@ class StructureMap(domainresource.DomainResource):
     data.
     """
     
-    resource_name = "StructureMap"
+    resource_type = "StructureMap"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -127,7 +127,7 @@ class StructureMapGroup(backboneelement.BackboneElement):
     """ Named sections for reader convenience.
     """
     
-    resource_name = "StructureMapGroup"
+    resource_type = "StructureMapGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -178,7 +178,7 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
     the mapping is invoked.
     """
     
-    resource_name = "StructureMapGroupInput"
+    resource_type = "StructureMapGroupInput"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -221,7 +221,7 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
     """ Transform Rule from source to target.
     """
     
-    resource_name = "StructureMapGroupRule"
+    resource_type = "StructureMapGroupRule"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -274,7 +274,7 @@ class StructureMapGroupRuleDependent(backboneelement.BackboneElement):
     """ Which other rules to apply in the context of this rule.
     """
     
-    resource_name = "StructureMapGroupRuleDependent"
+    resource_type = "StructureMapGroupRuleDependent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -307,7 +307,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
     """ Source inputs to the mapping.
     """
     
-    resource_name = "StructureMapGroupRuleSource"
+    resource_type = "StructureMapGroupRuleSource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -371,7 +371,7 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
     """ Content to create because of this mapping rule.
     """
     
-    resource_name = "StructureMapGroupRuleTarget"
+    resource_type = "StructureMapGroupRuleTarget"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -434,7 +434,7 @@ class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
     """ Parameters to the transform.
     """
     
-    resource_name = "StructureMapGroupRuleTargetParameter"
+    resource_type = "StructureMapGroupRuleTargetParameter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -485,7 +485,7 @@ class StructureMapStructure(backboneelement.BackboneElement):
     describe instances that are converted, or the instances that are produced.
     """
     
-    resource_name = "StructureMapStructure"
+    resource_type = "StructureMapStructure"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

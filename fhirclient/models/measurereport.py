@@ -13,7 +13,7 @@ class MeasureReport(domainresource.DomainResource):
     The MeasureReport resource contains the results of evaluating a measure.
     """
     
-    resource_name = "MeasureReport"
+    resource_type = "MeasureReport"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -86,7 +86,7 @@ class MeasureReportGroup(backboneelement.BackboneElement):
     measure.
     """
     
-    resource_name = "MeasureReportGroup"
+    resource_type = "MeasureReportGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -137,7 +137,7 @@ class MeasureReportGroupPopulation(backboneelement.BackboneElement):
     population appropriate for the measure.
     """
     
-    resource_name = "MeasureReportGroupPopulation"
+    resource_type = "MeasureReportGroupPopulation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -180,7 +180,7 @@ class MeasureReportGroupStratifier(backboneelement.BackboneElement):
     group for each stratifier defined by the measure.
     """
     
-    resource_name = "MeasureReportGroupStratifier"
+    resource_type = "MeasureReportGroupStratifier"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -217,7 +217,7 @@ class MeasureReportGroupStratifierGroup(backboneelement.BackboneElement):
     will be four strata, one for each possible gender value.
     """
     
-    resource_name = "MeasureReportGroupStratifierGroup"
+    resource_type = "MeasureReportGroupStratifierGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -258,7 +258,7 @@ class MeasureReportGroupStratifierGroupPopulation(backboneelement.BackboneElemen
     appropriate to the measure.
     """
     
-    resource_name = "MeasureReportGroupStratifierGroupPopulation"
+    resource_type = "MeasureReportGroupStratifierGroupPopulation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -301,7 +301,7 @@ class MeasureReportGroupSupplementalData(backboneelement.BackboneElement):
     requested by the measure for each patient involved in the populations.
     """
     
-    resource_name = "MeasureReportGroupSupplementalData"
+    resource_type = "MeasureReportGroupSupplementalData"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -340,7 +340,7 @@ class MeasureReportGroupSupplementalDataGroup(backboneelement.BackboneElement):
     gender value.
     """
     
-    resource_name = "MeasureReportGroupSupplementalDataGroup"
+    resource_type = "MeasureReportGroupSupplementalDataGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -17,7 +17,7 @@ class Subscription(domainresource.DomainResource):
     "channel" so that another system is able to take an appropriate action.
     """
     
-    resource_name = "Subscription"
+    resource_type = "Subscription"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -85,7 +85,7 @@ class SubscriptionChannel(backboneelement.BackboneElement):
     the criteria.
     """
     
-    resource_name = "SubscriptionChannel"
+    resource_type = "SubscriptionChannel"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

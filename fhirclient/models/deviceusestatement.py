@@ -14,7 +14,7 @@ class DeviceUseStatement(domainresource.DomainResource):
     of a report from the patient or another clinician.
     """
     
-    resource_name = "DeviceUseStatement"
+    resource_type = "DeviceUseStatement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

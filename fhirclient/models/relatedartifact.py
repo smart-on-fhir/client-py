@@ -14,7 +14,7 @@ class RelatedArtifact(element.Element):
     bibliographic references.
     """
     
-    resource_name = "RelatedArtifact"
+    resource_type = "RelatedArtifact"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

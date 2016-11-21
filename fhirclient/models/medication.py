@@ -14,7 +14,7 @@ class Medication(domainresource.DomainResource):
     medication. It covers the ingredients and the packaging for a medication.
     """
     
-    resource_name = "Medication"
+    resource_type = "Medication"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -66,7 +66,7 @@ class MedicationPackage(backboneelement.BackboneElement):
     Information that only applies to packages (not products).
     """
     
-    resource_name = "MedicationPackage"
+    resource_type = "MedicationPackage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -101,7 +101,7 @@ class MedicationPackageContent(backboneelement.BackboneElement):
     A set of components that go to make up the described item.
     """
     
-    resource_name = "MedicationPackageContent"
+    resource_type = "MedicationPackageContent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -141,7 +141,7 @@ class MedicationProduct(backboneelement.BackboneElement):
     Information that only applies to products (not packages).
     """
     
-    resource_name = "MedicationProduct"
+    resource_type = "MedicationProduct"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -182,7 +182,7 @@ class MedicationProductBatch(backboneelement.BackboneElement):
     production run.
     """
     
-    resource_name = "MedicationProductBatch"
+    resource_type = "MedicationProductBatch"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -217,7 +217,7 @@ class MedicationProductIngredient(backboneelement.BackboneElement):
     Identifies a particular constituent of interest in the product.
     """
     
-    resource_name = "MedicationProductIngredient"
+    resource_type = "MedicationProductIngredient"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

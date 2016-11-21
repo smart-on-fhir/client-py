@@ -36,7 +36,7 @@ class MedicationStatement(domainresource.DomainResource):
     missing detailed information.
     """
     
-    resource_name = "MedicationStatement"
+    resource_type = "MedicationStatement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

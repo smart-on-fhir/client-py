@@ -13,7 +13,7 @@ class HumanName(element.Element):
     A human's name with the ability to identify parts and usage.
     """
     
-    resource_name = "HumanName"
+    resource_type = "HumanName"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -16,7 +16,7 @@ class Goal(domainresource.DomainResource):
     objective, etc.
     """
     
-    resource_name = "Goal"
+    resource_type = "Goal"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -126,7 +126,7 @@ class GoalOutcome(backboneelement.BackboneElement):
     deemed to be cancelled or achieved.
     """
     
-    resource_name = "GoalOutcome"
+    resource_type = "GoalOutcome"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

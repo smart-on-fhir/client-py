@@ -14,7 +14,7 @@ class ProcessRequest(domainresource.DomainResource):
     for an action to be performed by the target on or about existing resources.
     """
     
-    resource_name = "ProcessRequest"
+    resource_type = "ProcessRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -127,7 +127,7 @@ class ProcessRequestItem(backboneelement.BackboneElement):
     entire submission is re-adjudicated.
     """
     
-    resource_name = "ProcessRequestItem"
+    resource_type = "ProcessRequestItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

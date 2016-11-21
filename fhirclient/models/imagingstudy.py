@@ -18,7 +18,7 @@ class ImagingStudy(domainresource.DomainResource):
     ultrasound), but a study may have multiple series of different modalities.
     """
     
-    resource_name = "ImagingStudy"
+    resource_type = "ImagingStudy"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -135,7 +135,7 @@ class ImagingStudyBaseLocation(backboneelement.BackboneElement):
     Methods of accessing  (e.g., retrieving, viewing) the study.
     """
     
-    resource_name = "ImagingStudyBaseLocation"
+    resource_type = "ImagingStudyBaseLocation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -170,7 +170,7 @@ class ImagingStudySeries(backboneelement.BackboneElement):
     Each study has one or more series of images or other content.
     """
     
-    resource_name = "ImagingStudySeries"
+    resource_type = "ImagingStudySeries"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -250,7 +250,7 @@ class ImagingStudySeriesBaseLocation(backboneelement.BackboneElement):
     Methods of accessing (e.g. retrieving) the series.
     """
     
-    resource_name = "ImagingStudySeriesBaseLocation"
+    resource_type = "ImagingStudySeriesBaseLocation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -286,7 +286,7 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
     state.
     """
     
-    resource_name = "ImagingStudySeriesInstance"
+    resource_type = "ImagingStudySeriesInstance"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

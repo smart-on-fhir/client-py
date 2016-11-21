@@ -14,7 +14,7 @@ class TestReport(domainresource.DomainResource):
     of executing a TestScript.
     """
     
-    resource_name = "TestReport"
+    resource_type = "TestReport"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -100,7 +100,7 @@ class TestReportParticipant(backboneelement.BackboneElement):
     or a server.
     """
     
-    resource_name = "TestReportParticipant"
+    resource_type = "TestReportParticipant"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -139,7 +139,7 @@ class TestReportSetup(backboneelement.BackboneElement):
     were executed.
     """
     
-    resource_name = "TestReportSetup"
+    resource_type = "TestReportSetup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -169,7 +169,7 @@ class TestReportSetupAction(backboneelement.BackboneElement):
     Action would contain either an operation or an assertion.
     """
     
-    resource_name = "TestReportSetupAction"
+    resource_type = "TestReportSetupAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -204,7 +204,7 @@ class TestReportSetupActionAssert(backboneelement.BackboneElement):
     The results of the assertion performed on the previous operations.
     """
     
-    resource_name = "TestReportSetupActionAssert"
+    resource_type = "TestReportSetupActionAssert"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -244,7 +244,7 @@ class TestReportSetupActionOperation(backboneelement.BackboneElement):
     The operation performed.
     """
     
-    resource_name = "TestReportSetupActionOperation"
+    resource_type = "TestReportSetupActionOperation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -285,7 +285,7 @@ class TestReportTeardown(backboneelement.BackboneElement):
     the tests were executed (successfully or otherwise).
     """
     
-    resource_name = "TestReportTeardown"
+    resource_type = "TestReportTeardown"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -315,7 +315,7 @@ class TestReportTeardownAction(backboneelement.BackboneElement):
     The teardown action will only contain an operation.
     """
     
-    resource_name = "TestReportTeardownAction"
+    resource_type = "TestReportTeardownAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -343,7 +343,7 @@ class TestReportTest(backboneelement.BackboneElement):
     """ A test executed from the test script.
     """
     
-    resource_name = "TestReportTest"
+    resource_type = "TestReportTest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -383,7 +383,7 @@ class TestReportTestAction(backboneelement.BackboneElement):
     Action would contain either an operation or an assertion.
     """
     
-    resource_name = "TestReportTestAction"
+    resource_type = "TestReportTestAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -14,7 +14,7 @@ class Linkage(domainresource.DomainResource):
     the same real-world "occurrence".
     """
     
-    resource_name = "Linkage"
+    resource_type = "Linkage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -53,7 +53,7 @@ class LinkageItem(backboneelement.BackboneElement):
     collection of linked items.
     """
     
-    resource_name = "LinkageItem"
+    resource_type = "LinkageItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -16,7 +16,7 @@ class Library(domainresource.DomainResource):
     describe a collection of knowledge assets.
     """
     
-    resource_name = "Library"
+    resource_type = "Library"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

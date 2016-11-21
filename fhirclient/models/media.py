@@ -12,7 +12,7 @@ class Media(domainresource.DomainResource):
     actual content may be inline or provided by direct reference.
     """
     
-    resource_name = "Media"
+    resource_type = "Media"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

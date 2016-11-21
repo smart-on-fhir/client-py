@@ -15,7 +15,7 @@ class StructureDefinition(domainresource.DomainResource):
     extensions, and constraints on resources and data types.
     """
     
-    resource_name = "StructureDefinition"
+    resource_type = "StructureDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -184,7 +184,7 @@ class StructureDefinitionDifferential(backboneelement.BackboneElement):
     a statement of differences that it applies.
     """
     
-    resource_name = "StructureDefinitionDifferential"
+    resource_type = "StructureDefinitionDifferential"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -214,7 +214,7 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
     An external specification that the content is mapped to.
     """
     
-    resource_name = "StructureDefinitionMapping"
+    resource_type = "StructureDefinitionMapping"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -260,7 +260,7 @@ class StructureDefinitionSnapshot(backboneelement.BackboneElement):
     interpreted without considering the base StructureDefinition.
     """
     
-    resource_name = "StructureDefinitionSnapshot"
+    resource_type = "StructureDefinitionSnapshot"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

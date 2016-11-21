@@ -15,7 +15,7 @@ class Basic(domainresource.DomainResource):
     appropriate for inclusion in the FHIR specification.
     """
     
-    resource_name = "Basic"
+    resource_type = "Basic"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

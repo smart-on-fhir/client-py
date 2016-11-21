@@ -49,7 +49,7 @@ class FHIRSearch(object):
                 else:
                     parts.append(param.as_parameter())
         
-        return '{}?{}'.format(self.resource_type.resource_name, '&'.join(parts))
+        return '{}?{}'.format(self.resource_type.resource_type, '&'.join(parts))
     
     def perform(self, server):
         """ Construct the search URL and execute it against the given server.

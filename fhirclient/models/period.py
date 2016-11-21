@@ -13,7 +13,7 @@ class Period(element.Element):
     A time period defined by a start and end date and optionally time.
     """
     
-    resource_name = "Period"
+    resource_type = "Period"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

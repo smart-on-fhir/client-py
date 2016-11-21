@@ -11,7 +11,7 @@ class Slot(domainresource.DomainResource):
     """ A slot of time on a schedule that may be available for booking appointments.
     """
     
-    resource_name = "Slot"
+    resource_type = "Slot"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

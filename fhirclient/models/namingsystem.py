@@ -15,7 +15,7 @@ class NamingSystem(domainresource.DomainResource):
     "System" used within the Identifier and Coding data types.
     """
     
-    resource_name = "NamingSystem"
+    resource_type = "NamingSystem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -113,7 +113,7 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
     exchange.
     """
     
-    resource_name = "NamingSystemUniqueId"
+    resource_type = "NamingSystemUniqueId"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

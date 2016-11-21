@@ -16,7 +16,7 @@ class DetectedIssue(domainresource.DomainResource):
     etc.
     """
     
-    resource_name = "DetectedIssue"
+    resource_type = "DetectedIssue"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -96,7 +96,7 @@ class DetectedIssueMitigation(backboneelement.BackboneElement):
     that may reduce/eliminate the need for any action.
     """
     
-    resource_name = "DetectedIssueMitigation"
+    resource_type = "DetectedIssueMitigation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

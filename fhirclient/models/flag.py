@@ -14,7 +14,7 @@ class Flag(domainresource.DomainResource):
     patient.
     """
     
-    resource_name = "Flag"
+    resource_type = "Flag"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

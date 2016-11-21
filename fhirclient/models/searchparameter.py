@@ -14,7 +14,7 @@ class SearchParameter(domainresource.DomainResource):
     search/filter on a resource.
     """
     
-    resource_name = "SearchParameter"
+    resource_type = "SearchParameter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

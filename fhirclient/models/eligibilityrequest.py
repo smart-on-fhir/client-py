@@ -14,7 +14,7 @@ class EligibilityRequest(domainresource.DomainResource):
     regarding a specified coverage and optionally some class of service.
     """
     
-    resource_name = "EligibilityRequest"
+    resource_type = "EligibilityRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

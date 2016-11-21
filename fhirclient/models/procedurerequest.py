@@ -13,7 +13,7 @@ class ProcedureRequest(domainresource.DomainResource):
     A request for a procedure to be performed. May be a proposal or an order.
     """
     
-    resource_name = "ProcedureRequest"
+    resource_type = "ProcedureRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -14,7 +14,7 @@ class VisionPrescription(domainresource.DomainResource):
     patient.
     """
     
-    resource_name = "VisionPrescription"
+    resource_type = "VisionPrescription"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -86,7 +86,7 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
     Deals with details of the dispense part of the supply specification.
     """
     
-    resource_name = "VisionPrescriptionDispense"
+    resource_type = "VisionPrescriptionDispense"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

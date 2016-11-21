@@ -16,7 +16,7 @@ class Signature(element.Element):
     approaches have different utilities.
     """
     
-    resource_name = "Signature"
+    resource_type = "Signature"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

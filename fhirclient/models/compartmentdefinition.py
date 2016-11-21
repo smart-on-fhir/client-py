@@ -14,7 +14,7 @@ class CompartmentDefinition(domainresource.DomainResource):
     server.
     """
     
-    resource_name = "CompartmentDefinition"
+    resource_type = "CompartmentDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -117,7 +117,7 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
     Information about how a resource it related to the compartment.
     """
     
-    resource_name = "CompartmentDefinitionResource"
+    resource_type = "CompartmentDefinitionResource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

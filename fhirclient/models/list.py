@@ -13,7 +13,7 @@ class List(domainresource.DomainResource):
     A set of information summarized from a list of other resources.
     """
     
-    resource_name = "List"
+    resource_type = "List"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -105,7 +105,7 @@ class ListEntry(backboneelement.BackboneElement):
     Entries in this list.
     """
     
-    resource_name = "ListEntry"
+    resource_type = "ListEntry"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

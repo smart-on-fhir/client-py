@@ -13,7 +13,7 @@ class Measure(domainresource.DomainResource):
     The Measure resource provides the definition of a quality measure.
     """
     
-    resource_name = "Measure"
+    resource_type = "Measure"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -227,7 +227,7 @@ class MeasureGroup(backboneelement.BackboneElement):
     A group of population criteria for the measure.
     """
     
-    resource_name = "MeasureGroup"
+    resource_type = "MeasureGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -277,7 +277,7 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
     A population criteria for the measure.
     """
     
-    resource_name = "MeasureGroupPopulation"
+    resource_type = "MeasureGroupPopulation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -332,7 +332,7 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
     valid FHIR Resource Path.
     """
     
-    resource_name = "MeasureGroupStratifier"
+    resource_type = "MeasureGroupStratifier"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -375,7 +375,7 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
     FHIR Resource Path.
     """
     
-    resource_name = "MeasureSupplementalData"
+    resource_type = "MeasureSupplementalData"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -18,7 +18,7 @@ class ResearchSubject(domainresource.DomainResource):
     involve the gathering of information about human or animal subjects.
     """
     
-    resource_name = "ResearchSubject"
+    resource_type = "ResearchSubject"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

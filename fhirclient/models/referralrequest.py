@@ -15,7 +15,7 @@ class ReferralRequest(domainresource.DomainResource):
     organization.
     """
     
-    resource_name = "ReferralRequest"
+    resource_type = "ReferralRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

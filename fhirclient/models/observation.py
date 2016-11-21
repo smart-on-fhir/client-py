@@ -14,7 +14,7 @@ class Observation(domainresource.DomainResource):
     subject.
     """
     
-    resource_name = "Observation"
+    resource_type = "Observation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -195,7 +195,7 @@ class ObservationComponent(backboneelement.BackboneElement):
     genetics observations.
     """
     
-    resource_name = "ObservationComponent"
+    resource_type = "ObservationComponent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -291,7 +291,7 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
     recommended range.
     """
     
-    resource_name = "ObservationReferenceRange"
+    resource_type = "ObservationReferenceRange"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -342,7 +342,7 @@ class ObservationRelated(backboneelement.BackboneElement):
     relationship is defined by the relationship type code.
     """
     
-    resource_name = "ObservationRelated"
+    resource_type = "ObservationRelated"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

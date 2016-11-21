@@ -15,7 +15,7 @@ class ConceptMap(domainresource.DomainResource):
     models.
     """
     
-    resource_name = "ConceptMap"
+    resource_type = "ConceptMap"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -142,7 +142,7 @@ class ConceptMapGroup(backboneelement.BackboneElement):
     A group of mappings that all have the same source and target system.
     """
     
-    resource_name = "ConceptMapGroup"
+    resource_type = "ConceptMapGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -193,7 +193,7 @@ class ConceptMapGroupElement(backboneelement.BackboneElement):
     the target.
     """
     
-    resource_name = "ConceptMapGroupElement"
+    resource_type = "ConceptMapGroupElement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -228,7 +228,7 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
     A concept from the target value set that this concept maps to.
     """
     
-    resource_name = "ConceptMapGroupElementTarget"
+    resource_type = "ConceptMapGroupElementTarget"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -281,7 +281,7 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
     specified value.
     """
     
-    resource_name = "ConceptMapGroupElementTargetDependsOn"
+    resource_type = "ConceptMapGroupElementTargetDependsOn"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -13,7 +13,7 @@ class Element(fhirabstractbase.FHIRAbstractBase):
     Base definition for all elements in a resource.
     """
     
-    resource_name = "Element"
+    resource_type = "Element"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

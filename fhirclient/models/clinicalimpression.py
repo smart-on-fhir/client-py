@@ -20,7 +20,7 @@ class ClinicalImpression(domainresource.DomainResource):
     with the recording of assessment tools such as Apgar score.
     """
     
-    resource_name = "ClinicalImpression"
+    resource_type = "ClinicalImpression"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -148,7 +148,7 @@ class ClinicalImpressionFinding(backboneelement.BackboneElement):
     ongoing treatment.
     """
     
-    resource_name = "ClinicalImpressionFinding"
+    resource_type = "ClinicalImpressionFinding"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -192,7 +192,7 @@ class ClinicalImpressionInvestigation(backboneelement.BackboneElement):
     pertinent to the outcomes.
     """
     
-    resource_name = "ClinicalImpressionInvestigation"
+    resource_type = "ClinicalImpressionInvestigation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

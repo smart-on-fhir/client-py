@@ -13,7 +13,7 @@ class Range(element.Element):
     A set of ordered Quantities defined by a low and high limit.
     """
     
-    resource_name = "Range"
+    resource_type = "Range"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

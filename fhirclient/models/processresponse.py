@@ -14,7 +14,7 @@ class ProcessResponse(domainresource.DomainResource):
     processing of a resource.
     """
     
-    resource_name = "ProcessResponse"
+    resource_type = "ProcessResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -112,7 +112,7 @@ class ProcessResponseNotes(backboneelement.BackboneElement):
     been held.
     """
     
-    resource_name = "ProcessResponseNotes"
+    resource_type = "ProcessResponseNotes"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

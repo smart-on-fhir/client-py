@@ -15,7 +15,7 @@ class Parameters(resource.Resource):
     endpoint associated with it.
     """
     
-    resource_name = "Parameters"
+    resource_type = "Parameters"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -47,7 +47,7 @@ class ParametersParameter(backboneelement.BackboneElement):
     A parameter passed to or received from the operation.
     """
     
-    resource_name = "ParametersParameter"
+    resource_type = "ParametersParameter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

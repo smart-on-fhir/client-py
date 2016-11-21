@@ -15,7 +15,7 @@ class Location(domainresource.DomainResource):
     accommodated.
     """
     
-    resource_name = "Location"
+    resource_type = "Location"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -116,7 +116,7 @@ class LocationPosition(backboneelement.BackboneElement):
     datum (This is the same co-ordinate system used in KML).
     """
     
-    resource_name = "LocationPosition"
+    resource_type = "LocationPosition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

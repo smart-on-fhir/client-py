@@ -13,7 +13,7 @@ class Appointment(domainresource.DomainResource):
     or more Encounter(s).
     """
     
-    resource_name = "Appointment"
+    resource_type = "Appointment"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -131,7 +131,7 @@ class AppointmentParticipant(backboneelement.BackboneElement):
     List of participants involved in the appointment.
     """
     
-    resource_name = "AppointmentParticipant"
+    resource_type = "AppointmentParticipant"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

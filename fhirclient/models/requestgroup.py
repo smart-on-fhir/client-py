@@ -14,7 +14,7 @@ class RequestGroup(domainresource.DomainResource):
     that have inter-dependencies such as "give this medication after that one".
     """
     
-    resource_name = "RequestGroup"
+    resource_type = "RequestGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -86,7 +86,7 @@ class RequestGroupAction(backboneelement.BackboneElement):
     The actions, if any, produced by the evaluation of the artifact.
     """
     
-    resource_name = "RequestGroupAction"
+    resource_type = "RequestGroupAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -228,7 +228,7 @@ class RequestGroupActionCondition(backboneelement.BackboneElement):
     conditions for the action.
     """
     
-    resource_name = "RequestGroupActionCondition"
+    resource_type = "RequestGroupActionCondition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -274,7 +274,7 @@ class RequestGroupActionRelatedAction(backboneelement.BackboneElement):
     start of".
     """
     
-    resource_name = "RequestGroupActionRelatedAction"
+    resource_type = "RequestGroupActionRelatedAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

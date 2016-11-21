@@ -16,7 +16,7 @@ class Timing(element.Element):
     planning care of various kinds.
     """
     
-    resource_name = "Timing"
+    resource_type = "Timing"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -56,7 +56,7 @@ class TimingRepeat(element.Element):
     A set of rules that describe when the event should occur.
     """
     
-    resource_name = "TimingRepeat"
+    resource_type = "TimingRepeat"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

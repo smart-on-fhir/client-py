@@ -16,7 +16,7 @@ class Endpoint(domainresource.DomainResource):
     another FHIR server. This may include any security context information.
     """
     
-    resource_name = "Endpoint"
+    resource_type = "Endpoint"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

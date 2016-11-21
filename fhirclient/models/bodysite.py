@@ -15,7 +15,7 @@ class BodySite(domainresource.DomainResource):
     necessary detail needed for the use case.
     """
     
-    resource_name = "BodySite"
+    resource_type = "BodySite"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

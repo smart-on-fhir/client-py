@@ -14,7 +14,7 @@ class Coverage(domainresource.DomainResource):
     products and services.
     """
     
-    resource_name = "Coverage"
+    resource_type = "Coverage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -112,7 +112,7 @@ class CoverageGroup(backboneelement.BackboneElement):
     identify a class of coverage or employer group, Policy, Plan.
     """
     
-    resource_name = "CoverageGroup"
+    resource_type = "CoverageGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

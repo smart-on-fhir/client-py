@@ -14,7 +14,7 @@ class Annotation(element.Element):
     and when.
     """
     
-    resource_name = "Annotation"
+    resource_type = "Annotation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

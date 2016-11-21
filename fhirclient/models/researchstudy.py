@@ -18,7 +18,7 @@ class ResearchStudy(domainresource.DomainResource):
     involve the gathering of information about human or animal subjects.
     """
     
-    resource_name = "ResearchStudy"
+    resource_type = "ResearchStudy"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -148,7 +148,7 @@ class ResearchStudyArm(backboneelement.BackboneElement):
     follow-up.
     """
     
-    resource_name = "ResearchStudyArm"
+    resource_type = "ResearchStudyArm"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

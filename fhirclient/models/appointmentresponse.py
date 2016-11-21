@@ -12,7 +12,7 @@ class AppointmentResponse(domainresource.DomainResource):
     such as a confirmation or rejection.
     """
     
-    resource_name = "AppointmentResponse"
+    resource_type = "AppointmentResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

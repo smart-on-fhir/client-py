@@ -15,7 +15,7 @@ class Encounter(domainresource.DomainResource):
     patient.
     """
     
-    resource_name = "Encounter"
+    resource_type = "Encounter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -141,7 +141,7 @@ class EncounterHospitalization(backboneelement.BackboneElement):
     """ Details about the admission to a healthcare service.
     """
     
-    resource_name = "EncounterHospitalization"
+    resource_type = "EncounterHospitalization"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -223,7 +223,7 @@ class EncounterLocation(backboneelement.BackboneElement):
     List of locations where  the patient has been during this encounter.
     """
     
-    resource_name = "EncounterLocation"
+    resource_type = "EncounterLocation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -263,7 +263,7 @@ class EncounterParticipant(backboneelement.BackboneElement):
     The list of people responsible for providing the service.
     """
     
-    resource_name = "EncounterParticipant"
+    resource_type = "EncounterParticipant"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -306,7 +306,7 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
     resource, or even have the server store them.
     """
     
-    resource_name = "EncounterStatusHistory"
+    resource_type = "EncounterStatusHistory"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

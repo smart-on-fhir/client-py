@@ -14,7 +14,7 @@ class EnrollmentRequest(domainresource.DomainResource):
     regarding a specified coverage.
     """
     
-    resource_name = "EnrollmentRequest"
+    resource_type = "EnrollmentRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -13,7 +13,7 @@ class DomainResource(resource.Resource):
     A resource that includes narrative, extensions, and contained resources.
     """
     
-    resource_name = "DomainResource"
+    resource_type = "DomainResource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

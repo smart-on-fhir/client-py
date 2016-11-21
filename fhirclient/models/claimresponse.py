@@ -14,7 +14,7 @@ class ClaimResponse(domainresource.DomainResource):
     Claim resource.
     """
     
-    resource_name = "ClaimResponse"
+    resource_type = "ClaimResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -156,7 +156,7 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
     The first tier service adjudications for payor added services.
     """
     
-    resource_name = "ClaimResponseAddItem"
+    resource_type = "ClaimResponseAddItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -226,7 +226,7 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
     The second tier service adjudications for payor added services.
     """
     
-    resource_name = "ClaimResponseAddItemDetail"
+    resource_type = "ClaimResponseAddItemDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -286,7 +286,7 @@ class ClaimResponseCoverage(backboneelement.BackboneElement):
     Financial instrument by which payment information for health care.
     """
     
-    resource_name = "ClaimResponseCoverage"
+    resource_type = "ClaimResponseCoverage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -341,7 +341,7 @@ class ClaimResponseError(backboneelement.BackboneElement):
     Mutually exclusive with Services Provided (Item).
     """
     
-    resource_name = "ClaimResponseError"
+    resource_type = "ClaimResponseError"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -386,7 +386,7 @@ class ClaimResponseItem(backboneelement.BackboneElement):
     The first tier service adjudications for submitted services.
     """
     
-    resource_name = "ClaimResponseItem"
+    resource_type = "ClaimResponseItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -431,7 +431,7 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
     The adjudications results.
     """
     
-    resource_name = "ClaimResponseItemAdjudication"
+    resource_type = "ClaimResponseItemAdjudication"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -476,7 +476,7 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
     The second tier service adjudications for submitted services.
     """
     
-    resource_name = "ClaimResponseItemDetail"
+    resource_type = "ClaimResponseItemDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -521,7 +521,7 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
     The third tier service adjudications for submitted services.
     """
     
-    resource_name = "ClaimResponseItemDetailSubDetail"
+    resource_type = "ClaimResponseItemDetailSubDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -561,7 +561,7 @@ class ClaimResponseNote(backboneelement.BackboneElement):
     Note text.
     """
     
-    resource_name = "ClaimResponseNote"
+    resource_type = "ClaimResponseNote"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -606,7 +606,7 @@ class ClaimResponsePayment(backboneelement.BackboneElement):
     Payment details for the claim if the claim has been paid.
     """
     
-    resource_name = "ClaimResponsePayment"
+    resource_type = "ClaimResponsePayment"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -13,7 +13,7 @@ class TriggerDefinition(element.Element):
     A description of a triggering event.
     """
     
-    resource_name = "TriggerDefinition"
+    resource_type = "TriggerDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -14,7 +14,7 @@ class Ratio(element.Element):
     denominator.
     """
     
-    resource_name = "Ratio"
+    resource_type = "Ratio"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

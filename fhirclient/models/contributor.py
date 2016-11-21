@@ -14,7 +14,7 @@ class Contributor(element.Element):
     editors, reviewers, and endorsers.
     """
     
-    resource_name = "Contributor"
+    resource_type = "Contributor"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

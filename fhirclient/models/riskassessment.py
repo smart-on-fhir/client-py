@@ -14,7 +14,7 @@ class RiskAssessment(domainresource.DomainResource):
     well as the likelihood of each outcome.
     """
     
-    resource_name = "RiskAssessment"
+    resource_type = "RiskAssessment"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -131,7 +131,7 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
     Describes the expected outcome for the subject.
     """
     
-    resource_name = "RiskAssessmentPrediction"
+    resource_type = "RiskAssessmentPrediction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

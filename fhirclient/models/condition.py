@@ -16,7 +16,7 @@ class Condition(domainresource.DomainResource):
     statement, such as a discharge summary.
     """
     
-    resource_name = "Condition"
+    resource_type = "Condition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -170,7 +170,7 @@ class ConditionEvidence(backboneelement.BackboneElement):
     condition is suspected or confirmed.
     """
     
-    resource_name = "ConditionEvidence"
+    resource_type = "ConditionEvidence"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -206,7 +206,7 @@ class ConditionStage(backboneelement.BackboneElement):
     assessments.
     """
     
-    resource_name = "ConditionStage"
+    resource_type = "ConditionStage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

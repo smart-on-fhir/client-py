@@ -11,7 +11,7 @@ class Distance(quantity.Quantity):
     """ A length - a value with a unit that is a physical distance.
     """
     
-    resource_name = "Distance"
+    resource_type = "Distance"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

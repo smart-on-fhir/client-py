@@ -11,7 +11,7 @@ class Reference(element.Element):
     """ A reference from one resource to another.
     """
     
-    resource_name = "Reference"
+    resource_type = "Reference"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

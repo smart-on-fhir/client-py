@@ -15,7 +15,7 @@ class CapabilityStatement(domainresource.DomainResource):
     or a statement of required or desired server implementation.
     """
     
-    resource_name = "CapabilityStatement"
+    resource_type = "CapabilityStatement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -173,7 +173,7 @@ class CapabilityStatementDocument(backboneelement.BackboneElement):
     A document definition.
     """
     
-    resource_name = "CapabilityStatementDocument"
+    resource_type = "CapabilityStatementDocument"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -215,7 +215,7 @@ class CapabilityStatementImplementation(backboneelement.BackboneElement):
     capabilities of a software program.
     """
     
-    resource_name = "CapabilityStatementImplementation"
+    resource_type = "CapabilityStatementImplementation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -250,7 +250,7 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
     A description of the messaging capabilities of the solution.
     """
     
-    resource_name = "CapabilityStatementMessaging"
+    resource_type = "CapabilityStatementMessaging"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -296,7 +296,7 @@ class CapabilityStatementMessagingEndpoint(backboneelement.BackboneElement):
     are to be sent.
     """
     
-    resource_name = "CapabilityStatementMessagingEndpoint"
+    resource_type = "CapabilityStatementMessagingEndpoint"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -331,7 +331,7 @@ class CapabilityStatementMessagingEvent(backboneelement.BackboneElement):
     A description of the solution's support for an event at this end-point.
     """
     
-    resource_name = "CapabilityStatementMessagingEvent"
+    resource_type = "CapabilityStatementMessagingEvent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -391,7 +391,7 @@ class CapabilityStatementRest(backboneelement.BackboneElement):
     A definition of the restful capabilities of the solution, if any.
     """
     
-    resource_name = "CapabilityStatementRest"
+    resource_type = "CapabilityStatementRest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -456,7 +456,7 @@ class CapabilityStatementRestInteraction(backboneelement.BackboneElement):
     A specification of restful operations supported by the system.
     """
     
-    resource_name = "CapabilityStatementRestInteraction"
+    resource_type = "CapabilityStatementRestInteraction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -492,7 +492,7 @@ class CapabilityStatementRestOperation(backboneelement.BackboneElement):
     their meaning and type.
     """
     
-    resource_name = "CapabilityStatementRestOperation"
+    resource_type = "CapabilityStatementRestOperation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -528,7 +528,7 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
     resource type.
     """
     
-    resource_name = "CapabilityStatementRestResource"
+    resource_type = "CapabilityStatementRestResource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -629,7 +629,7 @@ class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement
     Identifies a restful operation supported by the solution.
     """
     
-    resource_name = "CapabilityStatementRestResourceInteraction"
+    resource_type = "CapabilityStatementRestResourceInteraction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -667,7 +667,7 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
     defined for/by the implementation.
     """
     
-    resource_name = "CapabilityStatementRestResourceSearchParam"
+    resource_type = "CapabilityStatementRestResourceSearchParam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -730,7 +730,7 @@ class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
     what a client needs to know.
     """
     
-    resource_name = "CapabilityStatementRestSecurity"
+    resource_type = "CapabilityStatementRestSecurity"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -773,7 +773,7 @@ class CapabilityStatementRestSecurityCertificate(backboneelement.BackboneElement
     """ Certificates associated with security profiles.
     """
     
-    resource_name = "CapabilityStatementRestSecurityCertificate"
+    resource_type = "CapabilityStatementRestSecurityCertificate"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -810,7 +810,7 @@ class CapabilityStatementSoftware(backboneelement.BackboneElement):
     version, independent of an installation.
     """
     
-    resource_name = "CapabilityStatementSoftware"
+    resource_type = "CapabilityStatementSoftware"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

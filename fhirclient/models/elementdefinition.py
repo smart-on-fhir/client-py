@@ -14,7 +14,7 @@ class ElementDefinition(element.Element):
     extension.
     """
     
-    resource_name = "ElementDefinition"
+    resource_type = "ElementDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1019,7 +1019,7 @@ class ElementDefinitionBase(element.Element):
     shot.
     """
     
-    resource_name = "ElementDefinitionBase"
+    resource_type = "ElementDefinitionBase"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1060,7 +1060,7 @@ class ElementDefinitionBinding(element.Element):
     CodeableConcept).
     """
     
-    resource_name = "ElementDefinitionBinding"
+    resource_type = "ElementDefinitionBinding"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1106,7 +1106,7 @@ class ElementDefinitionConstraint(element.Element):
     computationally evaluated within the context of the instance.
     """
     
-    resource_name = "ElementDefinitionConstraint"
+    resource_type = "ElementDefinitionConstraint"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1167,7 +1167,7 @@ class ElementDefinitionMapping(element.Element):
     corresponds to this element.
     """
     
-    resource_name = "ElementDefinitionMapping"
+    resource_type = "ElementDefinitionMapping"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1213,7 +1213,7 @@ class ElementDefinitionSlicing(element.Element):
     occurs (the shorter path terminates the set).
     """
     
-    resource_name = "ElementDefinitionSlicing"
+    resource_type = "ElementDefinitionSlicing"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1259,7 +1259,7 @@ class ElementDefinitionType(element.Element):
     be.
     """
     
-    resource_name = "ElementDefinitionType"
+    resource_type = "ElementDefinitionType"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

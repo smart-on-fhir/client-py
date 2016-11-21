@@ -14,7 +14,7 @@ class PaymentReconciliation(domainresource.DomainResource):
     bulk payment.
     """
     
-    resource_name = "PaymentReconciliation"
+    resource_type = "PaymentReconciliation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -121,7 +121,7 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
     List of individual settlement amounts and the corresponding transaction.
     """
     
-    resource_name = "PaymentReconciliationDetail"
+    resource_type = "PaymentReconciliationDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -181,7 +181,7 @@ class PaymentReconciliationNote(backboneelement.BackboneElement):
     Suite of notes.
     """
     
-    resource_name = "PaymentReconciliationNote"
+    resource_type = "PaymentReconciliationNote"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -15,7 +15,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
     informing the subscriber of the benefits provided.
     """
     
-    resource_name = "ExplanationOfBenefit"
+    resource_type = "ExplanationOfBenefit"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -243,7 +243,7 @@ class ExplanationOfBenefitAccident(backboneelement.BackboneElement):
     An accident which resulted in the need for healthcare services.
     """
     
-    resource_name = "ExplanationOfBenefitAccident"
+    resource_type = "ExplanationOfBenefitAccident"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -288,7 +288,7 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
     The first tier service adjudications for payor added services.
     """
     
-    resource_name = "ExplanationOfBenefitAddItem"
+    resource_type = "ExplanationOfBenefitAddItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -358,7 +358,7 @@ class ExplanationOfBenefitAddItemDetail(backboneelement.BackboneElement):
     The second tier service adjudications for payor added services.
     """
     
-    resource_name = "ExplanationOfBenefitAddItemDetail"
+    resource_type = "ExplanationOfBenefitAddItemDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -416,7 +416,7 @@ class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
     """ Balance by Benefit Category.
     """
     
-    resource_name = "ExplanationOfBenefitBenefitBalance"
+    resource_type = "ExplanationOfBenefitBenefitBalance"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -481,7 +481,7 @@ class ExplanationOfBenefitBenefitBalanceFinancial(backboneelement.BackboneElemen
     Benefits Used to date.
     """
     
-    resource_name = "ExplanationOfBenefitBenefitBalanceFinancial"
+    resource_type = "ExplanationOfBenefitBenefitBalanceFinancial"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -536,7 +536,7 @@ class ExplanationOfBenefitCoverage(backboneelement.BackboneElement):
     Financial instrument by which payment information for health care.
     """
     
-    resource_name = "ExplanationOfBenefitCoverage"
+    resource_type = "ExplanationOfBenefitCoverage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -571,7 +571,7 @@ class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
     Ordered list of patient diagnosis for which care is sought.
     """
     
-    resource_name = "ExplanationOfBenefitDiagnosis"
+    resource_type = "ExplanationOfBenefitDiagnosis"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -619,7 +619,7 @@ class ExplanationOfBenefitInformation(backboneelement.BackboneElement):
     mutiple jurisdiction specific valuesets which are required.
     """
     
-    resource_name = "ExplanationOfBenefitInformation"
+    resource_type = "ExplanationOfBenefitInformation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -674,7 +674,7 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
     First tier of goods and services.
     """
     
-    resource_name = "ExplanationOfBenefitItem"
+    resource_type = "ExplanationOfBenefitItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -824,7 +824,7 @@ class ExplanationOfBenefitItemAdjudication(backboneelement.BackboneElement):
     The adjudications results.
     """
     
-    resource_name = "ExplanationOfBenefitItemAdjudication"
+    resource_type = "ExplanationOfBenefitItemAdjudication"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -870,7 +870,7 @@ class ExplanationOfBenefitItemCareTeam(backboneelement.BackboneElement):
     role and whether responsible and qualifications.
     """
     
-    resource_name = "ExplanationOfBenefitItemCareTeam"
+    resource_type = "ExplanationOfBenefitItemCareTeam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -915,7 +915,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
     Second tier of goods and services.
     """
     
-    resource_name = "ExplanationOfBenefitItemDetail"
+    resource_type = "ExplanationOfBenefitItemDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1020,7 +1020,7 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
     Third tier of goods and services.
     """
     
-    resource_name = "ExplanationOfBenefitItemDetailSubDetail"
+    resource_type = "ExplanationOfBenefitItemDetailSubDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1120,7 +1120,7 @@ class ExplanationOfBenefitItemProsthesis(backboneelement.BackboneElement):
     The materials and placement date of prior fixed prosthesis.
     """
     
-    resource_name = "ExplanationOfBenefitItemProsthesis"
+    resource_type = "ExplanationOfBenefitItemProsthesis"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1161,7 +1161,7 @@ class ExplanationOfBenefitMissingTeeth(backboneelement.BackboneElement):
     been previously  extracted or for other reasons.
     """
     
-    resource_name = "ExplanationOfBenefitMissingTeeth"
+    resource_type = "ExplanationOfBenefitMissingTeeth"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1201,7 +1201,7 @@ class ExplanationOfBenefitNote(backboneelement.BackboneElement):
     Note text.
     """
     
-    resource_name = "ExplanationOfBenefitNote"
+    resource_type = "ExplanationOfBenefitNote"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1246,7 +1246,7 @@ class ExplanationOfBenefitPayee(backboneelement.BackboneElement):
     The party to be reimbursed for the services.
     """
     
-    resource_name = "ExplanationOfBenefitPayee"
+    resource_type = "ExplanationOfBenefitPayee"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1291,7 +1291,7 @@ class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
     Payment details for the claim if the claim has been paid.
     """
     
-    resource_name = "ExplanationOfBenefitPayment"
+    resource_type = "ExplanationOfBenefitPayment"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1346,7 +1346,7 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
     Ordered list of patient procedures performed to support the adjudication.
     """
     
-    resource_name = "ExplanationOfBenefitProcedure"
+    resource_type = "ExplanationOfBenefitProcedure"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1392,7 +1392,7 @@ class ExplanationOfBenefitRelated(backboneelement.BackboneElement):
     or for related services.
     """
     
-    resource_name = "ExplanationOfBenefitRelated"
+    resource_type = "ExplanationOfBenefitRelated"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

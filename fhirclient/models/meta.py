@@ -15,7 +15,7 @@ class Meta(element.Element):
     associated with version changes to the resource.
     """
     
-    resource_name = "Meta"
+    resource_type = "Meta"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

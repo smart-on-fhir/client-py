@@ -15,7 +15,7 @@ class ServiceDefinition(domainresource.DomainResource):
     drug interaction checking.
     """
     
-    resource_name = "ServiceDefinition"
+    resource_type = "ServiceDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

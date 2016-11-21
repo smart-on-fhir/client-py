@@ -14,7 +14,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
     patient relevant in the context of care for the patient.
     """
     
-    resource_name = "FamilyMemberHistory"
+    resource_type = "FamilyMemberHistory"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -149,7 +149,7 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
     - one per condition.
     """
     
-    resource_name = "FamilyMemberHistoryCondition"
+    resource_type = "FamilyMemberHistoryCondition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

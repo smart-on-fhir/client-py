@@ -14,7 +14,7 @@ class DiagnosticRequest(domainresource.DomainResource):
     performed.
     """
     
-    resource_name = "DiagnosticRequest"
+    resource_type = "DiagnosticRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

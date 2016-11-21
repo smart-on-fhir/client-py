@@ -14,7 +14,7 @@ class Binary(resource.Resource):
     archive, etc.
     """
     
-    resource_name = "Binary"
+    resource_type = "Binary"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

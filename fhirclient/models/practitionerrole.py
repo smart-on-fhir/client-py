@@ -14,7 +14,7 @@ class PractitionerRole(domainresource.DomainResource):
     may perform at an organization for a period of time.
     """
     
-    resource_name = "PractitionerRole"
+    resource_type = "PractitionerRole"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -115,7 +115,7 @@ class PractitionerRoleAvailableTime(backboneelement.BackboneElement):
     A collection of times that the Service Site is available.
     """
     
-    resource_name = "PractitionerRoleAvailableTime"
+    resource_type = "PractitionerRoleAvailableTime"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -161,7 +161,7 @@ class PractitionerRoleNotAvailable(backboneelement.BackboneElement):
     the provided reason.
     """
     
-    resource_name = "PractitionerRoleNotAvailable"
+    resource_type = "PractitionerRoleNotAvailable"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

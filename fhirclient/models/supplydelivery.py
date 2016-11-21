@@ -13,7 +13,7 @@ class SupplyDelivery(domainresource.DomainResource):
     Record of delivery of what is supplied.
     """
     
-    resource_name = "SupplyDelivery"
+    resource_type = "SupplyDelivery"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

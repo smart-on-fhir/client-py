@@ -11,7 +11,7 @@ class Narrative(element.Element):
     """ A human-readable formatted text, including images.
     """
     
-    resource_name = "Narrative"
+    resource_type = "Narrative"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

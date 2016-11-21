@@ -14,7 +14,7 @@ class NutritionRequest(domainresource.DomainResource):
     supplement to a patient/resident.
     """
     
-    resource_name = "NutritionRequest"
+    resource_type = "NutritionRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -105,7 +105,7 @@ class NutritionRequestEnteralFormula(backboneelement.BackboneElement):
     or stoma that delivers nutrition distal to the oral cavity.
     """
     
-    resource_name = "NutritionRequestEnteralFormula"
+    resource_type = "NutritionRequestEnteralFormula"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -178,7 +178,7 @@ class NutritionRequestEnteralFormulaAdministration(backboneelement.BackboneEleme
     instruction to increase the rate of continuous feeding every 2 hours.
     """
     
-    resource_name = "NutritionRequestEnteralFormulaAdministration"
+    resource_type = "NutritionRequestEnteralFormulaAdministration"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -223,7 +223,7 @@ class NutritionRequestOralDiet(backboneelement.BackboneElement):
     Diet given orally in contrast to enteral (tube) feeding.
     """
     
-    resource_name = "NutritionRequestOralDiet"
+    resource_type = "NutritionRequestOralDiet"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -281,7 +281,7 @@ class NutritionRequestOralDietNutrient(backboneelement.BackboneElement):
     example carbohydrate, fiber or sodium) required for the oral diet.
     """
     
-    resource_name = "NutritionRequestOralDietNutrient"
+    resource_type = "NutritionRequestOralDietNutrient"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -317,7 +317,7 @@ class NutritionRequestOralDietTexture(backboneelement.BackboneElement):
     safely consume various types of solid foods.
     """
     
-    resource_name = "NutritionRequestOralDietTexture"
+    resource_type = "NutritionRequestOralDietTexture"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -354,7 +354,7 @@ class NutritionRequestSupplement(backboneelement.BackboneElement):
     to the patient's diet.
     """
     
-    resource_name = "NutritionRequestSupplement"
+    resource_type = "NutritionRequestSupplement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

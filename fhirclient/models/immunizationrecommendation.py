@@ -15,7 +15,7 @@ class ImmunizationRecommendation(domainresource.DomainResource):
     with optional supporting justification.
     """
     
-    resource_name = "ImmunizationRecommendation"
+    resource_type = "ImmunizationRecommendation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -55,7 +55,7 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
     """ Vaccine administration recommendations.
     """
     
-    resource_name = "ImmunizationRecommendationRecommendation"
+    resource_type = "ImmunizationRecommendationRecommendation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -121,7 +121,7 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
     latest date to administer, etc.
     """
     
-    resource_name = "ImmunizationRecommendationRecommendationDateCriterion"
+    resource_type = "ImmunizationRecommendationRecommendationDateCriterion"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -157,7 +157,7 @@ class ImmunizationRecommendationRecommendationProtocol(backboneelement.BackboneE
     administered.
     """
     
-    resource_name = "ImmunizationRecommendationRecommendationProtocol"
+    resource_type = "ImmunizationRecommendationRecommendationProtocol"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

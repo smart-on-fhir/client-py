@@ -15,7 +15,7 @@ class CarePlan(domainresource.DomainResource):
     possibly limited to care for a specific condition or set of conditions.
     """
     
-    resource_name = "CarePlan"
+    resource_type = "CarePlan"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -130,7 +130,7 @@ class CarePlanActivity(backboneelement.BackboneElement):
     etc.
     """
     
-    resource_name = "CarePlanActivity"
+    resource_type = "CarePlanActivity"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -182,7 +182,7 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
     as procedure etc.
     """
     
-    resource_name = "CarePlanActivityDetail"
+    resource_type = "CarePlanActivityDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -304,7 +304,7 @@ class CarePlanRelatedPlan(backboneelement.BackboneElement):
     plan.
     """
     
-    resource_name = "CarePlanRelatedPlan"
+    resource_type = "CarePlanRelatedPlan"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

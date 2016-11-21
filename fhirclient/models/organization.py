@@ -16,7 +16,7 @@ class Organization(domainresource.DomainResource):
     groups, healthcare practice groups, etc.
     """
     
-    resource_name = "Organization"
+    resource_type = "Organization"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -93,7 +93,7 @@ class OrganizationContact(backboneelement.BackboneElement):
     """ Contact for the organization for a certain purpose.
     """
     
-    resource_name = "OrganizationContact"
+    resource_type = "OrganizationContact"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

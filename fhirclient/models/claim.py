@@ -15,7 +15,7 @@ class Claim(domainresource.DomainResource):
     recovery.
     """
     
-    resource_name = "Claim"
+    resource_type = "Claim"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -203,7 +203,7 @@ class ClaimAccident(backboneelement.BackboneElement):
     An accident which resulted in the need for healthcare services.
     """
     
-    resource_name = "ClaimAccident"
+    resource_type = "ClaimAccident"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -250,7 +250,7 @@ class ClaimCoverage(backboneelement.BackboneElement):
     Financial instrument by which payment information for health care.
     """
     
-    resource_name = "ClaimCoverage"
+    resource_type = "ClaimCoverage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -310,7 +310,7 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
     Ordered list of patient diagnosis for which care is sought.
     """
     
-    resource_name = "ClaimDiagnosis"
+    resource_type = "ClaimDiagnosis"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -358,7 +358,7 @@ class ClaimInformation(backboneelement.BackboneElement):
     mutiple jurisdiction specific valuesets which are required.
     """
     
-    resource_name = "ClaimInformation"
+    resource_type = "ClaimInformation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -413,7 +413,7 @@ class ClaimItem(backboneelement.BackboneElement):
     First tier of goods and services.
     """
     
-    resource_name = "ClaimItem"
+    resource_type = "ClaimItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -554,7 +554,7 @@ class ClaimItemCareTeam(backboneelement.BackboneElement):
     role and whether responsible and qualifications.
     """
     
-    resource_name = "ClaimItemCareTeam"
+    resource_type = "ClaimItemCareTeam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -599,7 +599,7 @@ class ClaimItemDetail(backboneelement.BackboneElement):
     Second tier of goods and services.
     """
     
-    resource_name = "ClaimItemDetail"
+    resource_type = "ClaimItemDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -689,7 +689,7 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
     Third tier of goods and services.
     """
     
-    resource_name = "ClaimItemDetailSubDetail"
+    resource_type = "ClaimItemDetailSubDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -774,7 +774,7 @@ class ClaimItemProsthesis(backboneelement.BackboneElement):
     The materials and placement date of prior fixed prosthesis.
     """
     
-    resource_name = "ClaimItemProsthesis"
+    resource_type = "ClaimItemProsthesis"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -815,7 +815,7 @@ class ClaimMissingTeeth(backboneelement.BackboneElement):
     been previously  extracted or for other reasons.
     """
     
-    resource_name = "ClaimMissingTeeth"
+    resource_type = "ClaimMissingTeeth"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -855,7 +855,7 @@ class ClaimPayee(backboneelement.BackboneElement):
     The party to be reimbursed for the services.
     """
     
-    resource_name = "ClaimPayee"
+    resource_type = "ClaimPayee"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -895,7 +895,7 @@ class ClaimProcedure(backboneelement.BackboneElement):
     Ordered list of patient procedures performed to support the adjudication.
     """
     
-    resource_name = "ClaimProcedure"
+    resource_type = "ClaimProcedure"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -941,7 +941,7 @@ class ClaimRelated(backboneelement.BackboneElement):
     or for related services.
     """
     
-    resource_name = "ClaimRelated"
+    resource_type = "ClaimRelated"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

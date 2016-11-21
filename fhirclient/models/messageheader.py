@@ -17,7 +17,7 @@ class MessageHeader(domainresource.DomainResource):
     in the bundle.
     """
     
-    resource_name = "MessageHeader"
+    resource_type = "MessageHeader"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -99,7 +99,7 @@ class MessageHeaderDestination(backboneelement.BackboneElement):
     The destination application which the message is intended for.
     """
     
-    resource_name = "MessageHeaderDestination"
+    resource_type = "MessageHeaderDestination"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -140,7 +140,7 @@ class MessageHeaderResponse(backboneelement.BackboneElement):
     present if this message is a response.
     """
     
-    resource_name = "MessageHeaderResponse"
+    resource_type = "MessageHeaderResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -180,7 +180,7 @@ class MessageHeaderSource(backboneelement.BackboneElement):
     The source application from which this message originated.
     """
     
-    resource_name = "MessageHeaderSource"
+    resource_type = "MessageHeaderSource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
