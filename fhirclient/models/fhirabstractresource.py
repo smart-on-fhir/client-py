@@ -50,6 +50,8 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         return self.__class__.resource_name
     
     def relativePath(self):
+        if self.id is None:
+            return self.relativeBase()
         return "{}/{}".format(self.relativeBase(), self.id)
     
     
@@ -115,7 +117,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         if self.id:
             raise Exception("This resource already has an id, cannot create")
         
-        ret = srv.post_json(self.relativePath(), self.as_json())
+        ret = srv.post_json(self.relativeBase(), self.as_json())
         if len(ret.text) > 0:
             return ret.json()
         return None
