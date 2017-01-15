@@ -10,7 +10,7 @@ See the `develop` branch for models that are closer to the latest FHIR continuou
 
    Version |          FHIR | &nbsp;
 -----------|---------------|---
-   **x.x** |       `1.6.0` | (STU-3 Ballot, Sep 2016)
+   **x.x** |       `1.8.0` | (STU-3 Ballot, Jan 2017)
  **1.0.3** |       `1.0.2` | (DSTU 2)
    **1.0** |       `1.0.1` | (DSTU 2)
    **0.5** |  `0.5.0.5149` | (DSTU 2 Ballot, May 2015)
