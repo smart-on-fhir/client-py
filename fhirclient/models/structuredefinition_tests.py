@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -34,7 +34,7 @@ class StructureDefinitionTests(unittest.TestCase):
     def implStructureDefinition1(self, inst):
         self.assertFalse(inst.abstract)
         self.assertEqual(inst.baseDefinition, "http://hl7.org/fhir/StructureDefinition/Extension")
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/special/committees/FHIR")
         self.assertEqual(inst.contextType, "datatype")
         self.assertEqual(inst.context[0], "ElementDefinition")
@@ -101,7 +101,7 @@ class StructureDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.differential.element[9].id, "Extension:anadditionalexamplevalue.url")
         self.assertEqual(inst.differential.element[9].path, "Extension.url")
         self.assertEqual(inst.differential.element[9].type[0].code, "uri")
-        self.assertEqual(inst.fhirVersion, "1.7.0")
+        self.assertEqual(inst.fhirVersion, "1.8.0")
         self.assertEqual(inst.id, "structuredefinition-example")
         self.assertEqual(inst.kind, "complex-type")
         self.assertEqual(inst.mapping[0].identity, "rim")
@@ -154,7 +154,7 @@ class StructureDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.snapshot.element[2].path, "Extension.extension")
         self.assertEqual(inst.snapshot.element[2].short, "Extension")
         self.assertEqual(inst.snapshot.element[2].slicing.discriminator[0], "url")
-        self.assertEqual(inst.snapshot.element[2].slicing.id, "80")
+        self.assertEqual(inst.snapshot.element[2].slicing.id, "83")
         self.assertFalse(inst.snapshot.element[2].slicing.ordered)
         self.assertEqual(inst.snapshot.element[2].slicing.rules, "open")
         self.assertEqual(inst.snapshot.element[2].type[0].code, "Extension")

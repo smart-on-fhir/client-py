@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -219,9 +219,17 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         """ visual-group | logical-group | sentence-group.
         Type `str`. """
         
+        self.input = None
+        """ Input data requirements.
+        List of `DataRequirement` items (represented as `dict` in JSON). """
+        
         self.label = None
         """ User-visible label for the action (e.g. 1. or A.).
         Type `str`. """
+        
+        self.output = None
+        """ Output data definition.
+        List of `DataRequirement` items (represented as `dict` in JSON). """
         
         self.participantType = None
         """ patient | practitioner | related-person.
@@ -299,7 +307,9 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
             ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
             ("dynamicValue", "dynamicValue", PlanDefinitionActionDefinitionDynamicValue, True, None, False),
             ("groupingBehavior", "groupingBehavior", str, False, None, False),
+            ("input", "input", datarequirement.DataRequirement, True, None, False),
             ("label", "label", str, False, None, False),
+            ("output", "output", datarequirement.DataRequirement, True, None, False),
             ("participantType", "participantType", str, True, None, False),
             ("precheckBehavior", "precheckBehavior", str, False, None, False),
             ("relatedAction", "relatedAction", PlanDefinitionActionDefinitionRelatedAction, True, None, False),
@@ -465,6 +475,7 @@ from . import codeableconcept
 from . import coding
 from . import contactdetail
 from . import contributor
+from . import datarequirement
 from . import duration
 from . import fhirdate
 from . import fhirreference

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -83,15 +83,10 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.rest[0].resource[0].searchInclude[0], "Organization")
         self.assertEqual(inst.rest[0].resource[0].searchParam[0].definition, "http://hl7.org/fhir/SearchParameter/Patient-identifier")
         self.assertEqual(inst.rest[0].resource[0].searchParam[0].documentation, "Only supports search by institution MRN")
-        self.assertEqual(inst.rest[0].resource[0].searchParam[0].modifier[0], "missing")
         self.assertEqual(inst.rest[0].resource[0].searchParam[0].name, "identifier")
         self.assertEqual(inst.rest[0].resource[0].searchParam[0].type, "token")
-        self.assertEqual(inst.rest[0].resource[0].searchParam[1].chain[0], "name")
-        self.assertEqual(inst.rest[0].resource[0].searchParam[1].chain[1], "identifier")
         self.assertEqual(inst.rest[0].resource[0].searchParam[1].definition, "http://hl7.org/fhir/SearchParameter/Patient-careprovider")
-        self.assertEqual(inst.rest[0].resource[0].searchParam[1].modifier[0], "missing")
         self.assertEqual(inst.rest[0].resource[0].searchParam[1].name, "careprovider")
-        self.assertEqual(inst.rest[0].resource[0].searchParam[1].target[0], "Organization")
         self.assertEqual(inst.rest[0].resource[0].searchParam[1].type, "reference")
         self.assertEqual(inst.rest[0].resource[0].searchRevInclude[0], "Person")
         self.assertEqual(inst.rest[0].resource[0].type, "Patient")
@@ -124,7 +119,7 @@ class CapabilityStatementTests(unittest.TestCase):
     
     def implCapabilityStatement2(self, inst):
         self.assertEqual(inst.acceptUnknown, "no")
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.date.date, FHIRDate("2013-06-18").date)
         self.assertEqual(inst.date.as_json(), "2013-06-18")

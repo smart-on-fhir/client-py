@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/HumanName) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/HumanName) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import element
@@ -25,7 +25,7 @@ class HumanName(element.Element):
         
         self.family = None
         """ Family name (often called 'Surname').
-        List of `str` items. """
+        Type `str`. """
         
         self.given = None
         """ Given names (not always 'first'). Includes middle names.
@@ -56,7 +56,7 @@ class HumanName(element.Element):
     def elementProperties(self):
         js = super(HumanName, self).elementProperties()
         js.extend([
-            ("family", "family", str, True, None, False),
+            ("family", "family", str, False, None, False),
             ("given", "given", str, True, None, False),
             ("period", "period", period.Period, False, None, False),
             ("prefix", "prefix", str, True, None, False),

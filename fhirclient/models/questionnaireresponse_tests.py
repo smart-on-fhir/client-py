@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -153,7 +153,6 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.assertEqual(inst.item[2].answer[0].valueCoding.extension[0].valueDecimal, 4)
         self.assertEqual(inst.item[2].answer[0].valueCoding.system, "http://loinc.org")
         self.assertEqual(inst.item[2].linkId, "1.3")
-        self.assertEqual(inst.questionnaire, "http://hl7.org/fhir/Questionnaire/gcs")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
     

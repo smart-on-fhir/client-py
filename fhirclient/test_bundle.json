@@ -10,11 +10,11 @@
 				"name": [
 					{
 						"given": ["Darth"],
-						"family": ["Vader"]
+						"family": "Vader"
 					},
 					{
 						"given": ["Anakin"],
-						"family": ["Skywalker"]
+						"family": "Skywalker"
 					}
 				]
 			}
@@ -26,11 +26,11 @@
 				"name": [
 					{
 						"given": ["Ben"],
-						"family": ["Kenobi"]
+						"family": "Kenobi"
 					},
 					{
 						"given": ["Obi-Wan"],
-						"family": ["Kenobi"]
+						"family": "Kenobi"
 					}
 				]
 			}

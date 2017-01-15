@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/Contract) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Contract) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -80,6 +80,10 @@ class Contract(domainresource.DomainResource):
         """ Contract Signer.
         List of `ContractSigner` items (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
+        
         self.subType = None
         """ Contract Subtype.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
@@ -123,6 +127,7 @@ class Contract(domainresource.DomainResource):
             ("legal", "legal", ContractLegal, True, None, False),
             ("rule", "rule", ContractRule, True, None, False),
             ("signer", "signer", ContractSigner, True, None, False),
+            ("status", "status", str, False, None, False),
             ("subType", "subType", codeableconcept.CodeableConcept, True, None, False),
             ("subject", "subject", fhirreference.FHIRReference, True, None, False),
             ("term", "term", ContractTerm, True, None, False),

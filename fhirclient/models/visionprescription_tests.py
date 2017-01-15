@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -45,10 +45,10 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dispense[0].duration.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dispense[0].duration.unit, "month")
         self.assertEqual(inst.dispense[0].duration.value, 1)
-        self.assertEqual(inst.dispense[0].eye, "right")
+        self.assertEqual(inst.dispense[0].eye.coding[0].code, "right")
         self.assertEqual(inst.dispense[0].power, -2.75)
-        self.assertEqual(inst.dispense[0].product.code, "contact")
-        self.assertEqual(inst.dispense[0].product.system, "http://hl7.org/fhir/ex-visionprescriptionproduct")
+        self.assertEqual(inst.dispense[0].product.coding[0].code, "contact")
+        self.assertEqual(inst.dispense[0].product.coding[0].system, "http://hl7.org/fhir/ex-visionprescriptionproduct")
         self.assertEqual(inst.dispense[1].add, 1.75)
         self.assertEqual(inst.dispense[1].axis, 160)
         self.assertEqual(inst.dispense[1].backCurve, 8.7)
@@ -60,10 +60,10 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dispense[1].duration.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.dispense[1].duration.unit, "month")
         self.assertEqual(inst.dispense[1].duration.value, 1)
-        self.assertEqual(inst.dispense[1].eye, "left")
+        self.assertEqual(inst.dispense[1].eye.coding[0].code, "left")
         self.assertEqual(inst.dispense[1].power, -2.75)
-        self.assertEqual(inst.dispense[1].product.code, "contact")
-        self.assertEqual(inst.dispense[1].product.system, "http://hl7.org/fhir/ex-visionprescriptionproduct")
+        self.assertEqual(inst.dispense[1].product.coding[0].code, "contact")
+        self.assertEqual(inst.dispense[1].product.coding[0].system, "http://hl7.org/fhir/ex-visionprescriptionproduct")
         self.assertEqual(inst.id, "33124")
         self.assertEqual(inst.identifier[0].system, "http://www.happysight.com/prescription")
         self.assertEqual(inst.identifier[0].value, "15014")
@@ -85,20 +85,20 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.dateWritten.date, FHIRDate("2014-06-15").date)
         self.assertEqual(inst.dateWritten.as_json(), "2014-06-15")
         self.assertEqual(inst.dispense[0].add, 2.0)
-        self.assertEqual(inst.dispense[0].base, "down")
-        self.assertEqual(inst.dispense[0].eye, "right")
+        self.assertEqual(inst.dispense[0].base.coding[0].code, "down")
+        self.assertEqual(inst.dispense[0].eye.coding[0].code, "right")
         self.assertEqual(inst.dispense[0].prism, 0.5)
-        self.assertEqual(inst.dispense[0].product.code, "lens")
-        self.assertEqual(inst.dispense[0].product.system, "http://hl7.org/fhir/ex-visionprescriptionproduct")
+        self.assertEqual(inst.dispense[0].product.coding[0].code, "lens")
+        self.assertEqual(inst.dispense[0].product.coding[0].system, "http://hl7.org/fhir/ex-visionprescriptionproduct")
         self.assertEqual(inst.dispense[0].sphere, -2.0)
         self.assertEqual(inst.dispense[1].add, 2.0)
         self.assertEqual(inst.dispense[1].axis, 180)
-        self.assertEqual(inst.dispense[1].base, "up")
+        self.assertEqual(inst.dispense[1].base.coding[0].code, "up")
         self.assertEqual(inst.dispense[1].cylinder, -0.5)
-        self.assertEqual(inst.dispense[1].eye, "left")
+        self.assertEqual(inst.dispense[1].eye.coding[0].code, "left")
         self.assertEqual(inst.dispense[1].prism, 0.5)
-        self.assertEqual(inst.dispense[1].product.code, "lens")
-        self.assertEqual(inst.dispense[1].product.system, "http://hl7.org/fhir/ex-visionprescriptionproduct")
+        self.assertEqual(inst.dispense[1].product.coding[0].code, "lens")
+        self.assertEqual(inst.dispense[1].product.coding[0].system, "http://hl7.org/fhir/ex-visionprescriptionproduct")
         self.assertEqual(inst.dispense[1].sphere, -1.0)
         self.assertEqual(inst.id, "33123")
         self.assertEqual(inst.identifier[0].system, "http://www.happysight.com/prescription")

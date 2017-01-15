@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -34,7 +34,7 @@ class Coverage(domainresource.DomainResource):
         
         self.dependent = None
         """ Dependent number.
-        Type `int`. """
+        Type `str`. """
         
         self.group = None
         """ Additional coverage classifications.
@@ -44,41 +44,49 @@ class Coverage(domainresource.DomainResource):
         """ The primary coverage ID.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.isAgreement = None
-        """ Is a Payment Agreement.
-        Type `bool`. """
-        
-        self.issuer = None
-        """ Identifier for the plan or agreement issuer.
-        Type `FHIRReference` referencing `Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
-        
         self.network = None
         """ Insurer network.
         Type `str`. """
+        
+        self.order = None
+        """ Relative order of the coverage.
+        Type `int`. """
+        
+        self.payor = None
+        """ Identifier for the plan or agreement issuer.
+        List of `FHIRReference` items referencing `Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.period = None
         """ Coverage start and end dates.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.planholder = None
-        """ Plan holder.
+        self.policyHolder = None
+        """ Owner of the policy.
         Type `FHIRReference` referencing `Patient, RelatedPerson, Organization` (represented as `dict` in JSON). """
         
         self.relationship = None
-        """ Beneficiary relationship to Planholder.
-        Type `Coding` (represented as `dict` in JSON). """
+        """ Beneficiary relationship to the Subscriber.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sequence = None
         """ The plan instance or sequence counter.
-        Type `int`. """
+        Type `str`. """
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
         
+        self.subscriber = None
+        """ Subscriber to the policy.
+        Type `FHIRReference` referencing `Patient, RelatedPerson` (represented as `dict` in JSON). """
+        
+        self.subscriberId = None
+        """ ID assigned to the Subscriber.
+        Type `str`. """
+        
         self.type = None
         """ Type of coverage.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Coverage, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -87,18 +95,20 @@ class Coverage(domainresource.DomainResource):
         js.extend([
             ("beneficiary", "beneficiary", fhirreference.FHIRReference, False, None, False),
             ("contract", "contract", fhirreference.FHIRReference, True, None, False),
-            ("dependent", "dependent", int, False, None, False),
+            ("dependent", "dependent", str, False, None, False),
             ("group", "group", CoverageGroup, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("isAgreement", "isAgreement", bool, False, None, False),
-            ("issuer", "issuer", fhirreference.FHIRReference, False, None, False),
             ("network", "network", str, False, None, False),
+            ("order", "order", int, False, None, False),
+            ("payor", "payor", fhirreference.FHIRReference, True, None, False),
             ("period", "period", period.Period, False, None, False),
-            ("planholder", "planholder", fhirreference.FHIRReference, False, None, False),
-            ("relationship", "relationship", coding.Coding, False, None, False),
-            ("sequence", "sequence", int, False, None, False),
+            ("policyHolder", "policyHolder", fhirreference.FHIRReference, False, None, False),
+            ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, False),
+            ("sequence", "sequence", str, False, None, False),
             ("status", "status", str, False, None, False),
-            ("type", "type", coding.Coding, False, None, False),
+            ("subscriber", "subscriber", fhirreference.FHIRReference, False, None, False),
+            ("subscriberId", "subscriberId", str, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -191,7 +201,7 @@ class CoverageGroup(backboneelement.BackboneElement):
         return js
 
 
-from . import coding
+from . import codeableconcept
 from . import fhirreference
 from . import identifier
 from . import period

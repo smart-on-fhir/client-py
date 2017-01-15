@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -36,47 +36,23 @@ class EnrollmentRequest(domainresource.DomainResource):
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.insurerIdentifier = None
-        """ Target.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.insurerReference = None
+        self.insurer = None
         """ Target.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.organizationIdentifier = None
-        """ Responsible organization.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.organizationReference = None
+        self.organization = None
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.originalRuleset = None
-        """ Original version.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.providerIdentifier = None
-        """ Responsible practitioner.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.providerReference = None
+        self.provider = None
         """ Responsible practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.ruleset = None
-        """ Resource version.
-        Type `Coding` (represented as `dict` in JSON). """
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
         
-        self.subjectIdentifier = None
-        """ The subject of the Products and Services.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.subjectReference = None
+        self.subject = None
         """ The subject of the Products and Services.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
@@ -85,25 +61,18 @@ class EnrollmentRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(EnrollmentRequest, self).elementProperties()
         js.extend([
-            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("insurerIdentifier", "insurerIdentifier", identifier.Identifier, False, "insurer", False),
-            ("insurerReference", "insurerReference", fhirreference.FHIRReference, False, "insurer", False),
-            ("organizationIdentifier", "organizationIdentifier", identifier.Identifier, False, "organization", False),
-            ("organizationReference", "organizationReference", fhirreference.FHIRReference, False, "organization", False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
-            ("providerIdentifier", "providerIdentifier", identifier.Identifier, False, "provider", False),
-            ("providerReference", "providerReference", fhirreference.FHIRReference, False, "provider", False),
-            ("ruleset", "ruleset", coding.Coding, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("subjectIdentifier", "subjectIdentifier", identifier.Identifier, False, "subject", True),
-            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", True),
+            ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
-from . import coding
 from . import fhirdate
 from . import fhirreference
 from . import identifier

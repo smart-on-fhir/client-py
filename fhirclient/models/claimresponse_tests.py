@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -41,22 +41,22 @@ class ClaimResponseTests(unittest.TestCase):
         self.assertEqual(inst.item[0].adjudication[0].amount.code, "USD")
         self.assertEqual(inst.item[0].adjudication[0].amount.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.item[0].adjudication[0].amount.value, 135.57)
-        self.assertEqual(inst.item[0].adjudication[0].category.code, "eligible")
+        self.assertEqual(inst.item[0].adjudication[0].category.coding[0].code, "eligible")
         self.assertEqual(inst.item[0].adjudication[1].amount.code, "USD")
         self.assertEqual(inst.item[0].adjudication[1].amount.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.item[0].adjudication[1].amount.value, 10.0)
-        self.assertEqual(inst.item[0].adjudication[1].category.code, "copay")
-        self.assertEqual(inst.item[0].adjudication[2].category.code, "eligpercent")
+        self.assertEqual(inst.item[0].adjudication[1].category.coding[0].code, "copay")
+        self.assertEqual(inst.item[0].adjudication[2].category.coding[0].code, "eligpercent")
         self.assertEqual(inst.item[0].adjudication[2].value, 80.0)
         self.assertEqual(inst.item[0].adjudication[3].amount.code, "USD")
         self.assertEqual(inst.item[0].adjudication[3].amount.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.item[0].adjudication[3].amount.value, 100.47)
-        self.assertEqual(inst.item[0].adjudication[3].category.code, "benefit")
+        self.assertEqual(inst.item[0].adjudication[3].category.coding[0].code, "benefit")
         self.assertEqual(inst.item[0].sequenceLinkId, 1)
-        self.assertEqual(inst.outcome.code, "complete")
-        self.assertEqual(inst.outcome.system, "http://hl7.org/fhir/remittance-outcome")
-        self.assertEqual(inst.payeeType.code, "provider")
-        self.assertEqual(inst.payeeType.system, "http://hl7.org/fhir/payeetype")
+        self.assertEqual(inst.outcome.coding[0].code, "complete")
+        self.assertEqual(inst.outcome.coding[0].system, "http://hl7.org/fhir/remittance-outcome")
+        self.assertEqual(inst.payeeType.coding[0].code, "provider")
+        self.assertEqual(inst.payeeType.coding[0].system, "http://hl7.org/fhir/payeetype")
         self.assertEqual(inst.payment.amount.code, "USD")
         self.assertEqual(inst.payment.amount.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.payment.amount.value, 100.47)
@@ -64,8 +64,8 @@ class ClaimResponseTests(unittest.TestCase):
         self.assertEqual(inst.payment.date.as_json(), "2014-08-31")
         self.assertEqual(inst.payment.identifier.system, "http://www.BenefitsInc.com/fhir/paymentidentifier")
         self.assertEqual(inst.payment.identifier.value, "201408-2-1569478")
-        self.assertEqual(inst.payment.type.code, "complete")
-        self.assertEqual(inst.payment.type.system, "http://hl7.org/fhir/ValueSet/ex-paymenttype")
+        self.assertEqual(inst.payment.type.coding[0].code, "complete")
+        self.assertEqual(inst.payment.type.coding[0].system, "http://hl7.org/fhir/ValueSet/ex-paymenttype")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the ClaimResponse</div>")
         self.assertEqual(inst.text.status, "generated")

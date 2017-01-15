@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -191,8 +191,8 @@ class DiagnosticReportTests(unittest.TestCase):
     def implDiagnosticReport6(self, inst):
         self.assertEqual(inst.category.coding[0].code, "HM")
         self.assertEqual(inst.category.coding[0].system, "http://hl7.org/fhir/v2/0074")
-        self.assertEqual(inst.code.coding[0].code, "57698-3")
-        self.assertEqual(inst.code.coding[0].display, "Lipid panel with direct LDL - Serum or Plasma")
+        self.assertEqual(inst.code.coding[0].code, "24331-1")
+        self.assertEqual(inst.code.coding[0].display, "Lipid 1996 panel - Serum or Plasma")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
         self.assertEqual(inst.code.text, "Lipid Panel")
         self.assertEqual(inst.contained[0].id, "cholesterol")
@@ -231,7 +231,7 @@ class DiagnosticReportTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "additional")
     
     def testDiagnosticReport8(self):
-        inst = self.instantiate_from("diagnosticreport-example-ultrasound.json")
+        inst = self.instantiate_from("diagnosticreport-example-pgx.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
         self.implDiagnosticReport8(inst)
         
@@ -241,6 +241,36 @@ class DiagnosticReportTests(unittest.TestCase):
         self.implDiagnosticReport8(inst2)
     
     def implDiagnosticReport8(self, inst):
+        self.assertEqual(inst.code.coding[0].code, "PGxReport")
+        self.assertEqual(inst.code.coding[0].display, "Pharmacogenetics Report")
+        self.assertEqual(inst.code.coding[0].system, "https://system/PGxReport")
+        self.assertEqual(inst.code.text, "Pharmacogenetics Report")
+        self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2016-10-15T12:34:56+11:00").date)
+        self.assertEqual(inst.effectiveDateTime.as_json(), "2016-10-15T12:34:56+11:00")
+        self.assertEqual(inst.id, "example-pgx")
+        self.assertEqual(inst.issued.date, FHIRDate("2016-10-20T14:00:05+11:00").date)
+        self.assertEqual(inst.issued.as_json(), "2016-10-20T14:00:05+11:00")
+        self.assertEqual(inst.presentedForm[0].contentType, "PDF")
+        self.assertEqual(inst.presentedForm[0].creation.date, FHIRDate("2016-10-20T20:00:00+11:00").date)
+        self.assertEqual(inst.presentedForm[0].creation.as_json(), "2016-10-20T20:00:00+11:00")
+        self.assertEqual(inst.presentedForm[0].data, "cGRmSW5CYXNlNjRCaW5hcnk=")
+        self.assertEqual(inst.presentedForm[0].hash, "571ef9c5655840f324e679072ed62b1b95eef8a0")
+        self.assertEqual(inst.presentedForm[0].language, "en-us")
+        self.assertEqual(inst.presentedForm[0].title, "Pharmacogenetics Report")
+        self.assertEqual(inst.status, "final")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testDiagnosticReport9(self):
+        inst = self.instantiate_from("diagnosticreport-example-ultrasound.json")
+        self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
+        self.implDiagnosticReport9(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("DiagnosticReport", js["resourceType"])
+        inst2 = diagnosticreport.DiagnosticReport(js)
+        self.implDiagnosticReport9(inst2)
+    
+    def implDiagnosticReport9(self, inst):
         self.assertEqual(inst.category.coding[0].code, "394914008")
         self.assertEqual(inst.category.coding[0].display, "Radiology")
         self.assertEqual(inst.category.coding[0].system, "http://snomed.info/sct")
@@ -260,17 +290,17 @@ class DiagnosticReportTests(unittest.TestCase):
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
     
-    def testDiagnosticReport9(self):
+    def testDiagnosticReport10(self):
         inst = self.instantiate_from("diagnosticreport-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
-        self.implDiagnosticReport9(inst)
+        self.implDiagnosticReport10(inst)
         
         js = inst.as_json()
         self.assertEqual("DiagnosticReport", js["resourceType"])
         inst2 = diagnosticreport.DiagnosticReport(js)
-        self.implDiagnosticReport9(inst2)
+        self.implDiagnosticReport10(inst2)
     
-    def implDiagnosticReport9(self, inst):
+    def implDiagnosticReport10(self, inst):
         self.assertEqual(inst.category.coding[0].code, "HM")
         self.assertEqual(inst.category.coding[0].system, "http://hl7.org/fhir/v2/0074")
         self.assertEqual(inst.code.coding[0].code, "58410-2")
@@ -299,35 +329,6 @@ class DiagnosticReportTests(unittest.TestCase):
         self.assertEqual(inst.presentedForm[0].contentType, "application/pdf")
         self.assertEqual(inst.presentedForm[0].language, "en-AU")
         self.assertEqual(inst.presentedForm[0].title, "HTML Report")
-        self.assertEqual(inst.status, "final")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testDiagnosticReport10(self):
-        inst = self.instantiate_from("diagnosticreport-genetics-example-2-familyhistory.json")
-        self.assertIsNotNone(inst, "Must have instantiated a DiagnosticReport instance")
-        self.implDiagnosticReport10(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("DiagnosticReport", js["resourceType"])
-        inst2 = diagnosticreport.DiagnosticReport(js)
-        self.implDiagnosticReport10(inst2)
-    
-    def implDiagnosticReport10(self, inst):
-        self.assertEqual(inst.category.coding[0].code, "15220000")
-        self.assertEqual(inst.category.coding[0].display, "Laboratory test")
-        self.assertEqual(inst.category.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.category.coding[1].code, "LAB")
-        self.assertEqual(inst.category.coding[1].system, "http://hl7.org/fhir/v2/0074")
-        self.assertEqual(inst.code.coding[0].code, "55233-1")
-        self.assertEqual(inst.code.coding[0].display, "Genetic analysis master panel")
-        self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.contained[0].id, "f1-genetics")
-        self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2015-05-26T15:30:10+01:00").date)
-        self.assertEqual(inst.effectiveDateTime.as_json(), "2015-05-26T15:30:10+01:00")
-        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory")
-        self.assertEqual(inst.id, "dg2")
-        self.assertEqual(inst.issued.date, FHIRDate("2014-05-16T10:28:00+01:00").date)
-        self.assertEqual(inst.issued.as_json(), "2014-05-16T10:28:00+01:00")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
 

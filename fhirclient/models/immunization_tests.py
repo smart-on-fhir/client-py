@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -38,7 +38,7 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.explanation.reasonNotGiven[0].coding[0].display, "medical precaution")
         self.assertEqual(inst.explanation.reasonNotGiven[0].coding[0].system, "http://hl7.org/fhir/v3/ActReason")
         self.assertEqual(inst.id, "notGiven")
-        self.assertFalse(inst.reported)
+        self.assertTrue(inst.primarySource)
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.vaccineCode.coding[0].code, "01")
@@ -71,10 +71,10 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].value, "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234")
         self.assertEqual(inst.lotNumber, "AAJN11K")
         self.assertEqual(inst.note[0].text, "Notes on adminstration of vaccine")
+        self.assertTrue(inst.primarySource)
         self.assertEqual(inst.reaction[0].date.date, FHIRDate("2013-01-10").date)
         self.assertEqual(inst.reaction[0].date.as_json(), "2013-01-10")
         self.assertTrue(inst.reaction[0].reported)
-        self.assertFalse(inst.reported)
         self.assertEqual(inst.route.coding[0].code, "IM")
         self.assertEqual(inst.route.coding[0].display, "Injection, intramuscular")
         self.assertEqual(inst.route.coding[0].system, "http://hl7.org/fhir/v3/RouteOfAdministration")

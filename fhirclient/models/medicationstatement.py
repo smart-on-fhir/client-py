@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -95,17 +95,14 @@ class MedicationStatement(domainresource.DomainResource):
         """ Further information about the statement.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.patient = None
-        """ Who is/was taking  the medication.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.reasonForUseCode = None
+        self.reasonForUseCodeableConcept = None
         """ Reason for why the medication is being/was taken.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonForUseReference = None
-        """ Condition that supports why the medication is being/was taken.
-        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
+        """ Condition or observation that supports why the medication is
+        being/was taken.
+        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
         
         self.reasonNotTaken = None
         """ True if asserting medication was not given.
@@ -115,6 +112,10 @@ class MedicationStatement(domainresource.DomainResource):
         """ active | completed | entered-in-error | intended | stopped | on-
         hold.
         Type `str`. """
+        
+        self.subject = None
+        """ Who is/was taking  the medication.
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         super(MedicationStatement, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -133,11 +134,11 @@ class MedicationStatement(domainresource.DomainResource):
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
             ("notTaken", "notTaken", str, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("reasonForUseCode", "reasonForUseCode", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonForUseCodeableConcept", "reasonForUseCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
             ("reasonForUseReference", "reasonForUseReference", fhirreference.FHIRReference, True, None, False),
             ("reasonNotTaken", "reasonNotTaken", codeableconcept.CodeableConcept, True, None, False),
             ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

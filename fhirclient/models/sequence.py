@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/Sequence) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Sequence) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -24,7 +24,9 @@ class Sequence(domainresource.DomainResource):
         """
         
         self.coordinateSystem = None
-        """ Numbering used for sequence (0-based or 1-based).
+        """ Base number of coordinate system (0 for 0-based numbering or
+        coordinates, inclusive start, exclusive end, 1 for 1-based
+        numbering, inclusive start, inclusive end).
         Type `int`. """
         
         self.device = None
@@ -32,7 +34,7 @@ class Sequence(domainresource.DomainResource):
         Type `FHIRReference` referencing `Device` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Unique ID for this particular sequence.
+        """ Unique ID for this particular sequence. This is a FHIR-defined id.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.observedSeq = None
@@ -43,6 +45,10 @@ class Sequence(domainresource.DomainResource):
         """ Who and/or what this is about.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
+        self.performer = None
+        """ Who should be responsible for test result.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
         self.pointer = None
         """ Pointer to next atomic sequence.
         List of `FHIRReference` items referencing `Sequence` (represented as `dict` in JSON). """
@@ -52,7 +58,7 @@ class Sequence(domainresource.DomainResource):
         List of `SequenceQuality` items (represented as `dict` in JSON). """
         
         self.quantity = None
-        """ Quantity of the sequence.
+        """ The number of copies of the seqeunce of interest.  (RNASeq).
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.readCoverage = None
@@ -65,7 +71,8 @@ class Sequence(domainresource.DomainResource):
         Type `SequenceReferenceSeq` (represented as `dict` in JSON). """
         
         self.repository = None
-        """ External repository.
+        """ External repository which contains detailed report related with
+        observedSeq in this resource.
         List of `SequenceRepository` items (represented as `dict` in JSON). """
         
         self.specimen = None
@@ -94,6 +101,7 @@ class Sequence(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("observedSeq", "observedSeq", str, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("pointer", "pointer", fhirreference.FHIRReference, True, None, False),
             ("quality", "quality", SequenceQuality, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
@@ -102,7 +110,7 @@ class Sequence(domainresource.DomainResource):
             ("repository", "repository", SequenceRepository, True, None, False),
             ("specimen", "specimen", fhirreference.FHIRReference, False, None, False),
             ("structureVariant", "structureVariant", SequenceStructureVariant, True, None, False),
-            ("type", "type", str, False, None, True),
+            ("type", "type", str, False, None, False),
             ("variant", "variant", SequenceVariant, True, None, False),
         ])
         return js
@@ -129,7 +137,7 @@ class SequenceQuality(backboneelement.BackboneElement):
         """
         
         self.end = None
-        """ End position (exclusive) of the sequence.
+        """ End position of the sequence.
         Type `int`. """
         
         self.fScore = None
@@ -170,7 +178,7 @@ class SequenceQuality(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.start = None
-        """ Start position (inclusive) of the sequence.
+        """ Start position of the sequence.
         Type `int`. """
         
         self.truthFN = None
@@ -180,6 +188,10 @@ class SequenceQuality(backboneelement.BackboneElement):
         self.truthTP = None
         """ True positives from the perspective of the truth data.
         Type `float`. """
+        
+        self.type = None
+        """ INDEL | SNP | UNKNOWN.
+        Type `str`. """
         
         super(SequenceQuality, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -199,6 +211,7 @@ class SequenceQuality(backboneelement.BackboneElement):
             ("start", "start", int, False, None, False),
             ("truthFN", "truthFN", float, False, None, False),
             ("truthTP", "truthTP", float, False, None, False),
+            ("type", "type", str, False, None, True),
         ])
         return js
 
@@ -206,8 +219,8 @@ class SequenceQuality(backboneelement.BackboneElement):
 class SequenceReferenceSeq(backboneelement.BackboneElement):
     """ Reference sequence.
     
-    A reference sequence is a sequence that is used to represent an allele or
-    variant.
+    A sequence that is used as a reference to describe variants that are
+    present in a sequence analyzed.
     """
     
     resource_type = "SequenceReferenceSeq"
@@ -234,7 +247,7 @@ class SequenceReferenceSeq(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.referenceSeqPointer = None
-        """ A Pointer to another Sequence entity as refence sequence.
+        """ A Pointer to another Sequence entity as reference sequence.
         Type `FHIRReference` referencing `Sequence` (represented as `dict` in JSON). """
         
         self.referenceSeqString = None
@@ -242,15 +255,15 @@ class SequenceReferenceSeq(backboneelement.BackboneElement):
         Type `str`. """
         
         self.strand = None
-        """ Strand of DNA.
+        """ Directionality of DNA ( +1/-1).
         Type `int`. """
         
         self.windowEnd = None
-        """ End position (exclusive) of the window on the reference sequence.
+        """ End position of the window on the reference sequence.
         Type `int`. """
         
         self.windowStart = None
-        """ Start position (inclusive) of the window on the  reference sequence.
+        """ Start position of the window on the  reference sequence.
         Type `int`. """
         
         super(SequenceReferenceSeq, self).__init__(jsondict=jsondict, strict=strict)
@@ -260,10 +273,10 @@ class SequenceReferenceSeq(backboneelement.BackboneElement):
         js.extend([
             ("chromosome", "chromosome", codeableconcept.CodeableConcept, False, None, False),
             ("genomeBuild", "genomeBuild", str, False, None, False),
-            ("referenceSeqId", "referenceSeqId", codeableconcept.CodeableConcept, False, None, True),
+            ("referenceSeqId", "referenceSeqId", codeableconcept.CodeableConcept, False, None, False),
             ("referenceSeqPointer", "referenceSeqPointer", fhirreference.FHIRReference, False, None, False),
             ("referenceSeqString", "referenceSeqString", str, False, None, False),
-            ("strand", "strand", int, False, None, True),
+            ("strand", "strand", int, False, None, False),
             ("windowEnd", "windowEnd", int, False, None, True),
             ("windowStart", "windowStart", int, False, None, True),
         ])
@@ -271,9 +284,11 @@ class SequenceReferenceSeq(backboneelement.BackboneElement):
 
 
 class SequenceRepository(backboneelement.BackboneElement):
-    """ External repository.
+    """ External repository which contains detailed report related with observedSeq
+    in this resource.
     
-    Configurations of the external repository.
+    Configurations of the external repository. The repository shall store
+    target's observedSeq or records related with target's observedSeq.
     """
     
     resource_type = "SequenceRepository"
@@ -286,20 +301,28 @@ class SequenceRepository(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.datasetId = None
+        """ Id of the dataset that used to call for dataset in repository.
+        Type `str`. """
+        
         self.name = None
         """ Name of the repository.
         Type `str`. """
         
-        self.readId = None
+        self.readsetId = None
         """ Id of the read.
+        Type `str`. """
+        
+        self.type = None
+        """ directlink | openapi | login | oauth | other.
         Type `str`. """
         
         self.url = None
         """ URI of the repository.
         Type `str`. """
         
-        self.variantId = None
-        """ Id of the variant.
+        self.variantsetId = None
+        """ Id of the variantset that used to call for variantset in repository.
         Type `str`. """
         
         super(SequenceRepository, self).__init__(jsondict=jsondict, strict=strict)
@@ -307,10 +330,12 @@ class SequenceRepository(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SequenceRepository, self).elementProperties()
         js.extend([
+            ("datasetId", "datasetId", str, False, None, False),
             ("name", "name", str, False, None, False),
-            ("readId", "readId", str, False, None, False),
+            ("readsetId", "readsetId", str, False, None, False),
+            ("type", "type", str, False, None, True),
             ("url", "url", str, False, None, False),
-            ("variantId", "variantId", str, False, None, False),
+            ("variantsetId", "variantsetId", str, False, None, False),
         ])
         return js
 
@@ -378,11 +403,11 @@ class SequenceStructureVariantInner(backboneelement.BackboneElement):
         """
         
         self.end = None
-        """ Structural Variant Inner Start-End.
+        """ Structural Variant Inner End.
         Type `int`. """
         
         self.start = None
-        """ Structural Variant Inner Start-End.
+        """ Structural Variant Inner Start.
         Type `int`. """
         
         super(SequenceStructureVariantInner, self).__init__(jsondict=jsondict, strict=strict)
@@ -411,11 +436,11 @@ class SequenceStructureVariantOuter(backboneelement.BackboneElement):
         """
         
         self.end = None
-        """ Structural Variant Outer Start-End.
+        """ Structural Variant Outer End.
         Type `int`. """
         
         self.start = None
-        """ Structural Variant Outer Start-End.
+        """ Structural Variant Outer Start.
         Type `int`. """
         
         super(SequenceStructureVariantOuter, self).__init__(jsondict=jsondict, strict=strict)
@@ -432,10 +457,11 @@ class SequenceStructureVariantOuter(backboneelement.BackboneElement):
 class SequenceVariant(backboneelement.BackboneElement):
     """ Sequence variant.
     
-    A' is a variant (mutation) of A = definition every instance of A' is either
-    an immediate mutation of some instance of A, or there is a chain of
-    immediate mutation processes linking A' to some instance of A ([variant_of]
-    (http://www.sequenceontology.org/browser/current_svn/term/variant_of)).
+    The definition of variant here originates from Sequence ontology ([variant_
+    of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)).
+    This element can represent amino acid or nucleic sequence change(including
+    insertion,deletion,SNP,etc.)  It can represent some complex mutation or
+    segment variation with the assist of CIGAR string.
     """
     
     resource_type = "SequenceVariant"
@@ -454,7 +480,7 @@ class SequenceVariant(backboneelement.BackboneElement):
         Type `str`. """
         
         self.end = None
-        """ End position (exclusive) of the variant on the reference sequence.
+        """ End position of the variant on the reference sequence.
         Type `int`. """
         
         self.observedAllele = None
@@ -466,8 +492,7 @@ class SequenceVariant(backboneelement.BackboneElement):
         Type `str`. """
         
         self.start = None
-        """ Start position (inclusive) of the variant on the  reference
-        sequence.
+        """ Start position of the variant on the  reference sequence.
         Type `int`. """
         
         self.variantPointer = None

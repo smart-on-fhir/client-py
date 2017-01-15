@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -69,13 +69,13 @@ class GuidanceResponse(domainresource.DomainResource):
         """ Reason for the response.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        self.requestGroup = None
-        """ Proposed actions, if any.
-        Type `FHIRReference` referencing `RequestGroup` (represented as `dict` in JSON). """
-        
         self.requestId = None
         """ The id of the request associated with this response, if any.
         Type `str`. """
+        
+        self.result = None
+        """ Proposed actions, if any.
+        Type `FHIRReference` referencing `CarePlan, RequestGroup` (represented as `dict` in JSON). """
         
         self.status = None
         """ success | data-requested | data-required | in-progress | failure.
@@ -101,8 +101,8 @@ class GuidanceResponse(domainresource.DomainResource):
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
-            ("requestGroup", "requestGroup", fhirreference.FHIRReference, False, None, False),
             ("requestId", "requestId", str, False, None, False),
+            ("result", "result", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])

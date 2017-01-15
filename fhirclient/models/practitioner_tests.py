@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -47,7 +47,7 @@ class PractitionerTests(unittest.TestCase):
         self.assertEqual(inst.identifier[1].system, "urn:oid:2.16.840.1.113883.2.4.6.3")
         self.assertEqual(inst.identifier[1].use, "usual")
         self.assertEqual(inst.identifier[1].value, "129IDH4OP733")
-        self.assertEqual(inst.name[0].family[0], "van den broek")
+        self.assertEqual(inst.name[0].family, "van den broek")
         self.assertEqual(inst.name[0].given[0], "Eric")
         self.assertEqual(inst.name[0].suffix[0], "MD")
         self.assertEqual(inst.name[0].use, "official")
@@ -96,7 +96,7 @@ class PractitionerTests(unittest.TestCase):
         self.assertEqual(inst.identifier[1].system, "urn:oid:2.16.840.1.113883.2.4.6.3")
         self.assertEqual(inst.identifier[1].use, "usual")
         self.assertEqual(inst.identifier[1].value, "174BIP3JH438")
-        self.assertEqual(inst.name[0].family[0], "Voigt")
+        self.assertEqual(inst.name[0].family, "Voigt")
         self.assertEqual(inst.name[0].given[0], "Pieter")
         self.assertEqual(inst.name[0].suffix[0], "MD")
         self.assertEqual(inst.name[0].use, "official")
@@ -148,7 +148,7 @@ class PractitionerTests(unittest.TestCase):
         self.assertEqual(inst.identifier[1].system, "urn:oid:2.16.840.1.113883.2.4.6.3")
         self.assertEqual(inst.identifier[1].use, "usual")
         self.assertEqual(inst.identifier[1].value, "243HID3RT938")
-        self.assertEqual(inst.name[0].family[0], "Versteegh")
+        self.assertEqual(inst.name[0].family, "Versteegh")
         self.assertEqual(inst.name[0].given[0], "Marc")
         self.assertEqual(inst.name[0].suffix[0], "MD")
         self.assertEqual(inst.name[0].use, "official")
@@ -201,7 +201,7 @@ class PractitionerTests(unittest.TestCase):
         self.assertEqual(inst.identifier[1].system, "urn:oid:2.16.840.1.113883.2.4.6.3")
         self.assertEqual(inst.identifier[1].use, "usual")
         self.assertEqual(inst.identifier[1].value, "523ASA1LK927")
-        self.assertEqual(inst.name[0].family[0], "Briet")
+        self.assertEqual(inst.name[0].family, "Briet")
         self.assertEqual(inst.name[0].given[0], "Ronald")
         self.assertEqual(inst.name[0].suffix[0], "MD")
         self.assertEqual(inst.name[0].use, "official")
@@ -253,7 +253,7 @@ class PractitionerTests(unittest.TestCase):
         self.assertEqual(inst.identifier[1].system, "urn:oid:2.16.840.1.113883.2.4.6.3")
         self.assertEqual(inst.identifier[1].use, "usual")
         self.assertEqual(inst.identifier[1].value, "191REW8WE916")
-        self.assertEqual(inst.name[0].family[0], "Anne")
+        self.assertEqual(inst.name[0].family, "Anne")
         self.assertEqual(inst.name[0].given[0], "Langeveld")
         self.assertEqual(inst.name[0].suffix[0], "MD")
         self.assertEqual(inst.name[0].use, "official")
@@ -303,7 +303,7 @@ class PractitionerTests(unittest.TestCase):
         self.assertEqual(inst.identifier[1].system, "urn:oid:2.16.840.1.113883.2.4.6.3")
         self.assertEqual(inst.identifier[1].use, "usual")
         self.assertEqual(inst.identifier[1].value, "134IDY41W988")
-        self.assertEqual(inst.name[0].family[0], "van den Berk")
+        self.assertEqual(inst.name[0].family, "van den Berk")
         self.assertEqual(inst.name[0].given[0], "Rob")
         self.assertEqual(inst.name[0].suffix[0], "MD")
         self.assertEqual(inst.name[0].use, "official")
@@ -352,7 +352,7 @@ class PractitionerTests(unittest.TestCase):
         self.assertEqual(inst.identifier[1].system, "urn:oid:2.16.840.1.113883.2.4.6.3")
         self.assertEqual(inst.identifier[1].use, "usual")
         self.assertEqual(inst.identifier[1].value, "567IUI51C154")
-        self.assertEqual(inst.name[0].family[0], "Heps")
+        self.assertEqual(inst.name[0].family, "Heps")
         self.assertEqual(inst.name[0].given[0], "Simone")
         self.assertEqual(inst.name[0].suffix[0], "MD")
         self.assertEqual(inst.name[0].use, "official")
@@ -401,7 +401,7 @@ class PractitionerTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].type.text, "UZI-nummer")
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "12345678901")
-        self.assertEqual(inst.name[0].family[0], "Bronsig")
+        self.assertEqual(inst.name[0].family, "Bronsig")
         self.assertEqual(inst.name[0].given[0], "Arend")
         self.assertEqual(inst.name[0].prefix[0], "Dr.")
         self.assertEqual(inst.name[0].text, "Dokter Bronsig")
@@ -450,7 +450,7 @@ class PractitionerTests(unittest.TestCase):
         self.assertEqual(inst.identifier[1].type.text, "BIG-nummer")
         self.assertEqual(inst.identifier[1].use, "official")
         self.assertEqual(inst.identifier[1].value, "12345678902")
-        self.assertEqual(inst.name[0].family[0], "Maas")
+        self.assertEqual(inst.name[0].family, "Maas")
         self.assertEqual(inst.name[0].given[0], "Luigi")
         self.assertEqual(inst.name[0].prefix[0], "Dr.")
         self.assertEqual(inst.name[0].text, "Luigi Maas")

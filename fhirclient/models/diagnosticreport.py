@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -111,20 +111,20 @@ class DiagnosticReport(domainresource.DomainResource):
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("codedDiagnosis", "codedDiagnosis", codeableconcept.CodeableConcept, True, None, False),
             ("conclusion", "conclusion", str, False, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", True),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", True),
+            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
+            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("image", "image", DiagnosticReportImage, True, None, False),
             ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True, None, False),
-            ("issued", "issued", fhirdate.FHIRDate, False, None, True),
-            ("performer", "performer", fhirreference.FHIRReference, True, None, True),
+            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("performer", "performer", fhirreference.FHIRReference, True, None, False),
             ("presentedForm", "presentedForm", attachment.Attachment, True, None, False),
             ("request", "request", fhirreference.FHIRReference, True, None, False),
             ("result", "result", fhirreference.FHIRReference, True, None, False),
             ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -55,7 +55,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         
         self.questionnaire = None
         """ Form being answered.
-        Type `str`. """
+        Type `FHIRReference` referencing `Questionnaire` (represented as `dict` in JSON). """
         
         self.source = None
         """ The person who answered the questions.
@@ -81,7 +81,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("item", "item", QuestionnaireResponseItem, True, None, False),
             ("parent", "parent", fhirreference.FHIRReference, True, None, False),
-            ("questionnaire", "questionnaire", str, False, None, False),
+            ("questionnaire", "questionnaire", fhirreference.FHIRReference, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),

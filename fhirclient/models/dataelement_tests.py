@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -66,7 +66,8 @@ class DataElementTests(unittest.TestCase):
         self.assertEqual(inst.element[0].alias[0], "Protime, PT")
         self.assertEqual(inst.element[0].comments, "Used to screen the integrity of the extrinsic and common pathways of coagulation and to monitor warfarin anticoagulation. ")
         self.assertEqual(inst.element[0].definition, "The PT test evaluates the extrinsic and common pathways of the coagulation cascade.")
-        self.assertEqual(inst.element[0].exampleDecimal, 10.0)
+        self.assertEqual(inst.element[0].example[0].label, "Simple")
+        self.assertEqual(inst.element[0].example[0].valueDecimal, 10.0)
         self.assertEqual(inst.element[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits")
         self.assertEqual(inst.element[0].extension[0].valueCodeableConcept.coding[0].code, "s")
         self.assertEqual(inst.element[0].extension[0].valueCodeableConcept.coding[0].display, "second")

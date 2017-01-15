@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -37,7 +37,7 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.840.1.113883.2.4.6.3")
         self.assertEqual(inst.identifier[0].type.text, "BSN")
         self.assertEqual(inst.identifier[0].use, "official")
-        self.assertEqual(inst.name[0].family[0], "Abels")
+        self.assertEqual(inst.name[0].family, "Abels")
         self.assertEqual(inst.name[0].given[0], "Sarah")
         self.assertEqual(inst.name[0].use, "usual")
         self.assertEqual(inst.relationship.coding[0].code, "SIGOTHR")
@@ -95,7 +95,7 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.address[0].use, "home")
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "peter")
-        self.assertEqual(inst.name[0].family[0], "Chalmers")
+        self.assertEqual(inst.name[0].family, "Chalmers")
         self.assertEqual(inst.name[0].given[0], "Peter")
         self.assertEqual(inst.name[0].given[1], "James")
         self.assertEqual(inst.name[0].use, "official")
@@ -132,8 +132,7 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].type.text, "INSEE")
         self.assertEqual(inst.identifier[0].use, "usual")
         self.assertEqual(inst.identifier[0].value, "272117510400399")
-        self.assertEqual(inst.name[0].family[0], "du")
-        self.assertEqual(inst.name[0].family[1], "Marché")
+        self.assertEqual(inst.name[0].family, "du Marché")
         self.assertEqual(inst.name[0].given[0], "Bénédicte")
         self.assertEqual(inst.photo[0].contentType, "image/jpeg")
         self.assertEqual(inst.photo[0].url, "Binary/f016")

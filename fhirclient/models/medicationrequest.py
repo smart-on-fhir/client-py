@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -80,10 +80,6 @@ class MedicationRequest(domainresource.DomainResource):
         """ Who prescription is for.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
-        self.prescriber = None
-        """ Who ordered the initial medication(s).
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
         self.priorPrescription = None
         """ An order/prescription that this supersedes.
         Type `FHIRReference` referencing `MedicationRequest` (represented as `dict` in JSON). """
@@ -96,6 +92,10 @@ class MedicationRequest(domainresource.DomainResource):
         """ Condition or Observation that supports why the prescription is
         being written.
         List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
+        
+        self.requester = None
+        """ Who ordered the initial medication(s).
+        Type `FHIRReference` referencing `Practitioner, Organization, Patient, RelatedPerson, Device` (represented as `dict` in JSON). """
         
         self.requisition = None
         """ Identifier of composite.
@@ -136,10 +136,10 @@ class MedicationRequest(domainresource.DomainResource):
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("prescriber", "prescriber", fhirreference.FHIRReference, False, None, False),
             ("priorPrescription", "priorPrescription", fhirreference.FHIRReference, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
+            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
             ("requisition", "requisition", identifier.Identifier, False, None, False),
             ("stage", "stage", codeableconcept.CodeableConcept, False, None, True),
             ("status", "status", str, False, None, False),

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/ResearchStudy) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ResearchStudy) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -54,7 +54,7 @@ class ResearchStudy(domainresource.DomainResource):
         
         self.identifier = None
         """ Business Identifer for study.
-        Type `Identifier` (represented as `dict` in JSON). """
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.jurisdiction = None
         """ Geographic region(s) for study.
@@ -76,7 +76,7 @@ class ResearchStudy(domainresource.DomainResource):
         """ When the study began and ended.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.principleInvestigator = None
+        self.principalInvestigator = None
         """ Individual responsible for the study.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
@@ -120,13 +120,13 @@ class ResearchStudy(domainresource.DomainResource):
             ("description", "description", str, False, None, False),
             ("enrollment", "enrollment", fhirreference.FHIRReference, True, None, False),
             ("focus", "focus", codeableconcept.CodeableConcept, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("keyword", "keyword", codeableconcept.CodeableConcept, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("period", "period", period.Period, False, None, False),
-            ("principleInvestigator", "principleInvestigator", fhirreference.FHIRReference, False, None, False),
+            ("principalInvestigator", "principalInvestigator", fhirreference.FHIRReference, False, None, False),
             ("protocol", "protocol", fhirreference.FHIRReference, True, None, False),
             ("reasonStopped", "reasonStopped", codeableconcept.CodeableConcept, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),

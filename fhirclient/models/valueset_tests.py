@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -36,7 +36,7 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.compose.include[0].filter[0].property, "parent")
         self.assertEqual(inst.compose.include[0].filter[0].value, "LP43571-6")
         self.assertEqual(inst.compose.include[0].system, "http://loinc.org")
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.copyright, "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.")
         self.assertEqual(inst.date.date, FHIRDate("2015-06-22").date)
@@ -116,7 +116,7 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.compose.include[0].filter[0].value, "LP43571-6")
         self.assertEqual(inst.compose.include[0].system, "http://loinc.org")
         self.assertEqual(inst.contact[0].name, "FHIR project team")
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.copyright, "This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use")
         self.assertEqual(inst.date.date, FHIRDate("2015-06-22").date)
@@ -192,7 +192,7 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.compose.lockedDate.date, FHIRDate("2012-06-13").date)
         self.assertEqual(inst.compose.lockedDate.as_json(), "2012-06-13")
         self.assertEqual(inst.contact[0].name, "FHIR project team")
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.copyright, "This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.")
         self.assertEqual(inst.date.date, FHIRDate("2015-06-22").date)
@@ -222,23 +222,23 @@ class ValueSetTests(unittest.TestCase):
     
     def implValueSet5(self, inst):
         self.assertEqual(inst.compose.include[0].system, "http://hl7.org/fhir/list-example-use-codes")
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2016-11-16T23:07:33+00:00").date)
-        self.assertEqual(inst.date.as_json(), "2016-11-16T23:07:33+00:00")
+        self.assertEqual(inst.date.date, FHIRDate("2016-12-06T12:22:34+11:00").date)
+        self.assertEqual(inst.date.as_json(), "2016-12-06T12:22:34+11:00")
         self.assertEqual(inst.description, "Example use codes for the List resource - typical kinds of use.")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "list-example-codes")
         self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value, "urn:oid:2.16.840.1.113883.4.642.2.173")
         self.assertTrue(inst.immutable)
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2016-11-16T23:07:33.267+00:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2016-11-16T23:07:33.267+00:00")
+        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2016-12-06T12:22:34.981+11:00").date)
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2016-12-06T12:22:34.981+11:00")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
         self.assertEqual(inst.name, "Example Use Codes for List")
         self.assertEqual(inst.publisher, "FHIR Project")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/list-example-codes")
-        self.assertEqual(inst.version, "1.7.0")
+        self.assertEqual(inst.version, "1.8.0")
 

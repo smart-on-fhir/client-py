@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -141,6 +141,8 @@ class BundleTests(unittest.TestCase):
         self.assertEqual(inst.entry[7].resource.meta.lastUpdated.date, FHIRDate("2013-05-05T16:13:03Z").date)
         self.assertEqual(inst.entry[7].resource.meta.lastUpdated.as_json(), "2013-05-05T16:13:03Z")
         self.assertEqual(inst.id, "father")
+        self.assertEqual(inst.identifier.system, "urn:ietf:rfc:3986")
+        self.assertEqual(inst.identifier.value, "urn:uuid:0c3151bd-1cbf-4d64-b04d-cd9187a4c6e0")
         self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2013-05-28T22:12:21Z").date)
         self.assertEqual(inst.meta.lastUpdated.as_json(), "2013-05-28T22:12:21Z")
         self.assertEqual(inst.signature.contentType, "image/jpg")

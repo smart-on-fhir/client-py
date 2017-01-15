@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -24,6 +24,10 @@ class ProcessResponse(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.communicationRequest = None
+        """ Request for additional information.
+        List of `FHIRReference` items referencing `CommunicationRequest` (represented as `dict` in JSON). """
+        
         self.created = None
         """ Creation date.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -34,31 +38,27 @@ class ProcessResponse(domainresource.DomainResource):
         
         self.error = None
         """ Error code.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.form = None
         """ Printed Form Identifier.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.notes = None
+        self.note = None
         """ Notes.
-        List of `ProcessResponseNotes` items (represented as `dict` in JSON). """
+        List of `ProcessResponseNote` items (represented as `dict` in JSON). """
         
         self.organization = None
         """ Authoring Organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.originalRuleset = None
-        """ Original version.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.outcome = None
         """ Processing outcome.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.request = None
         """ Request reference.
@@ -72,10 +72,6 @@ class ProcessResponse(domainresource.DomainResource):
         """ Responsible Practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.ruleset = None
-        """ Resource version.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.status = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
@@ -85,34 +81,33 @@ class ProcessResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ProcessResponse, self).elementProperties()
         js.extend([
+            ("communicationRequest", "communicationRequest", fhirreference.FHIRReference, True, None, False),
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("disposition", "disposition", str, False, None, False),
-            ("error", "error", coding.Coding, True, None, False),
-            ("form", "form", coding.Coding, False, None, False),
+            ("error", "error", codeableconcept.CodeableConcept, True, None, False),
+            ("form", "form", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("notes", "notes", ProcessResponseNotes, True, None, False),
+            ("note", "note", ProcessResponseNote, True, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
-            ("outcome", "outcome", coding.Coding, False, None, False),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
             ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
             ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
-            ("ruleset", "ruleset", coding.Coding, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", str, False, None, False),
         ])
         return js
 
 
 from . import backboneelement
 
-class ProcessResponseNotes(backboneelement.BackboneElement):
+class ProcessResponseNote(backboneelement.BackboneElement):
     """ Notes.
     
     Suite of processing note or additional requirements is the processing has
     been held.
     """
     
-    resource_type = "ProcessResponseNotes"
+    resource_type = "ProcessResponseNote"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -128,20 +123,20 @@ class ProcessResponseNotes(backboneelement.BackboneElement):
         
         self.type = None
         """ display | print | printoper.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ProcessResponseNotes, self).__init__(jsondict=jsondict, strict=strict)
+        super(ProcessResponseNote, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ProcessResponseNotes, self).elementProperties()
+        js = super(ProcessResponseNote, self).elementProperties()
         js.extend([
             ("text", "text", str, False, None, False),
-            ("type", "type", coding.Coding, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
 
-from . import coding
+from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
 from . import identifier

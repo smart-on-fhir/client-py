@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -24,13 +24,9 @@ class DeviceUseStatement(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.bodySiteCodeableConcept = None
+        self.bodySite = None
         """ Target body site.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.bodySiteReference = None
-        """ Target body site.
-        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.device = None
         """ Reference to device used.
@@ -77,8 +73,7 @@ class DeviceUseStatement(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DeviceUseStatement, self).elementProperties()
         js.extend([
-            ("bodySiteCodeableConcept", "bodySiteCodeableConcept", codeableconcept.CodeableConcept, False, "bodySite", False),
-            ("bodySiteReference", "bodySiteReference", fhirreference.FHIRReference, False, "bodySite", False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
             ("device", "device", fhirreference.FHIRReference, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("indication", "indication", codeableconcept.CodeableConcept, True, None, False),

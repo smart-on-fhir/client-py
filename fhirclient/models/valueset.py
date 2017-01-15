@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -161,7 +161,7 @@ class ValueSetCompose(backboneelement.BackboneElement):
         List of `ValueSetComposeInclude` items (represented as `dict` in JSON). """
         
         self.lockedDate = None
-        """ Fixed date for all referenced code systems and value sets.
+        """ Fixed date for version-less references (transitive).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         super(ValueSetCompose, self).__init__(jsondict=jsondict, strict=strict)
@@ -327,7 +327,7 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
         
         self.op = None
         """ = | is-a | descendent-of | is-not-a | regex | in | not-in |
-        generalizes.
+        generalizes | exists.
         Type `str`. """
         
         self.property = None

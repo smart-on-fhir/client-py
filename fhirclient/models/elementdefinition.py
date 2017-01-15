@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import element
@@ -212,157 +212,9 @@ class ElementDefinition(element.Element):
         """ Full formal definition as narrative text.
         Type `str`. """
         
-        self.exampleAddress = None
+        self.example = None
         """ Example value (as defined for type).
-        Type `Address` (represented as `dict` in JSON). """
-        
-        self.exampleAge = None
-        """ Example value (as defined for type).
-        Type `Age` (represented as `dict` in JSON). """
-        
-        self.exampleAnnotation = None
-        """ Example value (as defined for type).
-        Type `Annotation` (represented as `dict` in JSON). """
-        
-        self.exampleAttachment = None
-        """ Example value (as defined for type).
-        Type `Attachment` (represented as `dict` in JSON). """
-        
-        self.exampleBase64Binary = None
-        """ Example value (as defined for type).
-        Type `str`. """
-        
-        self.exampleBoolean = None
-        """ Example value (as defined for type).
-        Type `bool`. """
-        
-        self.exampleCode = None
-        """ Example value (as defined for type).
-        Type `str`. """
-        
-        self.exampleCodeableConcept = None
-        """ Example value (as defined for type).
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.exampleCoding = None
-        """ Example value (as defined for type).
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.exampleContactPoint = None
-        """ Example value (as defined for type).
-        Type `ContactPoint` (represented as `dict` in JSON). """
-        
-        self.exampleCount = None
-        """ Example value (as defined for type).
-        Type `Count` (represented as `dict` in JSON). """
-        
-        self.exampleDate = None
-        """ Example value (as defined for type).
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.exampleDateTime = None
-        """ Example value (as defined for type).
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.exampleDecimal = None
-        """ Example value (as defined for type).
-        Type `float`. """
-        
-        self.exampleDistance = None
-        """ Example value (as defined for type).
-        Type `Distance` (represented as `dict` in JSON). """
-        
-        self.exampleDuration = None
-        """ Example value (as defined for type).
-        Type `Duration` (represented as `dict` in JSON). """
-        
-        self.exampleHumanName = None
-        """ Example value (as defined for type).
-        Type `HumanName` (represented as `dict` in JSON). """
-        
-        self.exampleId = None
-        """ Example value (as defined for type).
-        Type `str`. """
-        
-        self.exampleIdentifier = None
-        """ Example value (as defined for type).
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.exampleInstant = None
-        """ Example value (as defined for type).
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.exampleInteger = None
-        """ Example value (as defined for type).
-        Type `int`. """
-        
-        self.exampleMarkdown = None
-        """ Example value (as defined for type).
-        Type `str`. """
-        
-        self.exampleMeta = None
-        """ Example value (as defined for type).
-        Type `Meta` (represented as `dict` in JSON). """
-        
-        self.exampleMoney = None
-        """ Example value (as defined for type).
-        Type `Money` (represented as `dict` in JSON). """
-        
-        self.exampleOid = None
-        """ Example value (as defined for type).
-        Type `str`. """
-        
-        self.examplePeriod = None
-        """ Example value (as defined for type).
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.examplePositiveInt = None
-        """ Example value (as defined for type).
-        Type `int`. """
-        
-        self.exampleQuantity = None
-        """ Example value (as defined for type).
-        Type `Quantity` (represented as `dict` in JSON). """
-        
-        self.exampleRange = None
-        """ Example value (as defined for type).
-        Type `Range` (represented as `dict` in JSON). """
-        
-        self.exampleRatio = None
-        """ Example value (as defined for type).
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.exampleReference = None
-        """ Example value (as defined for type).
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.exampleSampledData = None
-        """ Example value (as defined for type).
-        Type `SampledData` (represented as `dict` in JSON). """
-        
-        self.exampleSignature = None
-        """ Example value (as defined for type).
-        Type `Signature` (represented as `dict` in JSON). """
-        
-        self.exampleString = None
-        """ Example value (as defined for type).
-        Type `str`. """
-        
-        self.exampleTime = None
-        """ Example value (as defined for type).
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.exampleTiming = None
-        """ Example value (as defined for type).
-        Type `Timing` (represented as `dict` in JSON). """
-        
-        self.exampleUnsignedInt = None
-        """ Example value (as defined for type).
-        Type `int`. """
-        
-        self.exampleUri = None
-        """ Example value (as defined for type).
-        Type `str`. """
+        List of `ElementDefinitionExample` items (represented as `dict` in JSON). """
         
         self.fixedAddress = None
         """ Value must be exactly this.
@@ -856,44 +708,7 @@ class ElementDefinition(element.Element):
             ("defaultValueUnsignedInt", "defaultValueUnsignedInt", int, False, "defaultValue", False),
             ("defaultValueUri", "defaultValueUri", str, False, "defaultValue", False),
             ("definition", "definition", str, False, None, False),
-            ("exampleAddress", "exampleAddress", address.Address, False, "example", False),
-            ("exampleAge", "exampleAge", age.Age, False, "example", False),
-            ("exampleAnnotation", "exampleAnnotation", annotation.Annotation, False, "example", False),
-            ("exampleAttachment", "exampleAttachment", attachment.Attachment, False, "example", False),
-            ("exampleBase64Binary", "exampleBase64Binary", str, False, "example", False),
-            ("exampleBoolean", "exampleBoolean", bool, False, "example", False),
-            ("exampleCode", "exampleCode", str, False, "example", False),
-            ("exampleCodeableConcept", "exampleCodeableConcept", codeableconcept.CodeableConcept, False, "example", False),
-            ("exampleCoding", "exampleCoding", coding.Coding, False, "example", False),
-            ("exampleContactPoint", "exampleContactPoint", contactpoint.ContactPoint, False, "example", False),
-            ("exampleCount", "exampleCount", count.Count, False, "example", False),
-            ("exampleDate", "exampleDate", fhirdate.FHIRDate, False, "example", False),
-            ("exampleDateTime", "exampleDateTime", fhirdate.FHIRDate, False, "example", False),
-            ("exampleDecimal", "exampleDecimal", float, False, "example", False),
-            ("exampleDistance", "exampleDistance", distance.Distance, False, "example", False),
-            ("exampleDuration", "exampleDuration", duration.Duration, False, "example", False),
-            ("exampleHumanName", "exampleHumanName", humanname.HumanName, False, "example", False),
-            ("exampleId", "exampleId", str, False, "example", False),
-            ("exampleIdentifier", "exampleIdentifier", identifier.Identifier, False, "example", False),
-            ("exampleInstant", "exampleInstant", fhirdate.FHIRDate, False, "example", False),
-            ("exampleInteger", "exampleInteger", int, False, "example", False),
-            ("exampleMarkdown", "exampleMarkdown", str, False, "example", False),
-            ("exampleMeta", "exampleMeta", meta.Meta, False, "example", False),
-            ("exampleMoney", "exampleMoney", money.Money, False, "example", False),
-            ("exampleOid", "exampleOid", str, False, "example", False),
-            ("examplePeriod", "examplePeriod", period.Period, False, "example", False),
-            ("examplePositiveInt", "examplePositiveInt", int, False, "example", False),
-            ("exampleQuantity", "exampleQuantity", quantity.Quantity, False, "example", False),
-            ("exampleRange", "exampleRange", range.Range, False, "example", False),
-            ("exampleRatio", "exampleRatio", ratio.Ratio, False, "example", False),
-            ("exampleReference", "exampleReference", fhirreference.FHIRReference, False, "example", False),
-            ("exampleSampledData", "exampleSampledData", sampleddata.SampledData, False, "example", False),
-            ("exampleSignature", "exampleSignature", signature.Signature, False, "example", False),
-            ("exampleString", "exampleString", str, False, "example", False),
-            ("exampleTime", "exampleTime", fhirdate.FHIRDate, False, "example", False),
-            ("exampleTiming", "exampleTiming", timing.Timing, False, "example", False),
-            ("exampleUnsignedInt", "exampleUnsignedInt", int, False, "example", False),
-            ("exampleUri", "exampleUri", str, False, "example", False),
+            ("example", "example", ElementDefinitionExample, True, None, False),
             ("fixedAddress", "fixedAddress", address.Address, False, "fixed", False),
             ("fixedAge", "fixedAge", age.Age, False, "fixed", False),
             ("fixedAnnotation", "fixedAnnotation", annotation.Annotation, False, "fixed", False),
@@ -1156,6 +971,227 @@ class ElementDefinitionConstraint(element.Element):
             ("severity", "severity", str, False, None, True),
             ("source", "source", str, False, None, False),
             ("xpath", "xpath", str, False, None, False),
+        ])
+        return js
+
+
+class ElementDefinitionExample(element.Element):
+    """ Example value (as defined for type).
+    
+    A sample value for this element demonstrating the type of information that
+    would typically be found in the element.
+    """
+    
+    resource_type = "ElementDefinitionExample"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.label = None
+        """ Describes the purpose of this example.
+        Type `str`. """
+        
+        self.valueAddress = None
+        """ Value of Example (one of allowed types).
+        Type `Address` (represented as `dict` in JSON). """
+        
+        self.valueAge = None
+        """ Value of Example (one of allowed types).
+        Type `Age` (represented as `dict` in JSON). """
+        
+        self.valueAnnotation = None
+        """ Value of Example (one of allowed types).
+        Type `Annotation` (represented as `dict` in JSON). """
+        
+        self.valueAttachment = None
+        """ Value of Example (one of allowed types).
+        Type `Attachment` (represented as `dict` in JSON). """
+        
+        self.valueBase64Binary = None
+        """ Value of Example (one of allowed types).
+        Type `str`. """
+        
+        self.valueBoolean = None
+        """ Value of Example (one of allowed types).
+        Type `bool`. """
+        
+        self.valueCode = None
+        """ Value of Example (one of allowed types).
+        Type `str`. """
+        
+        self.valueCodeableConcept = None
+        """ Value of Example (one of allowed types).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.valueCoding = None
+        """ Value of Example (one of allowed types).
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.valueContactPoint = None
+        """ Value of Example (one of allowed types).
+        Type `ContactPoint` (represented as `dict` in JSON). """
+        
+        self.valueCount = None
+        """ Value of Example (one of allowed types).
+        Type `Count` (represented as `dict` in JSON). """
+        
+        self.valueDate = None
+        """ Value of Example (one of allowed types).
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.valueDateTime = None
+        """ Value of Example (one of allowed types).
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.valueDecimal = None
+        """ Value of Example (one of allowed types).
+        Type `float`. """
+        
+        self.valueDistance = None
+        """ Value of Example (one of allowed types).
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.valueDuration = None
+        """ Value of Example (one of allowed types).
+        Type `Duration` (represented as `dict` in JSON). """
+        
+        self.valueHumanName = None
+        """ Value of Example (one of allowed types).
+        Type `HumanName` (represented as `dict` in JSON). """
+        
+        self.valueId = None
+        """ Value of Example (one of allowed types).
+        Type `str`. """
+        
+        self.valueIdentifier = None
+        """ Value of Example (one of allowed types).
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.valueInstant = None
+        """ Value of Example (one of allowed types).
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.valueInteger = None
+        """ Value of Example (one of allowed types).
+        Type `int`. """
+        
+        self.valueMarkdown = None
+        """ Value of Example (one of allowed types).
+        Type `str`. """
+        
+        self.valueMeta = None
+        """ Value of Example (one of allowed types).
+        Type `Meta` (represented as `dict` in JSON). """
+        
+        self.valueMoney = None
+        """ Value of Example (one of allowed types).
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.valueOid = None
+        """ Value of Example (one of allowed types).
+        Type `str`. """
+        
+        self.valuePeriod = None
+        """ Value of Example (one of allowed types).
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.valuePositiveInt = None
+        """ Value of Example (one of allowed types).
+        Type `int`. """
+        
+        self.valueQuantity = None
+        """ Value of Example (one of allowed types).
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.valueRange = None
+        """ Value of Example (one of allowed types).
+        Type `Range` (represented as `dict` in JSON). """
+        
+        self.valueRatio = None
+        """ Value of Example (one of allowed types).
+        Type `Ratio` (represented as `dict` in JSON). """
+        
+        self.valueReference = None
+        """ Value of Example (one of allowed types).
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.valueSampledData = None
+        """ Value of Example (one of allowed types).
+        Type `SampledData` (represented as `dict` in JSON). """
+        
+        self.valueSignature = None
+        """ Value of Example (one of allowed types).
+        Type `Signature` (represented as `dict` in JSON). """
+        
+        self.valueString = None
+        """ Value of Example (one of allowed types).
+        Type `str`. """
+        
+        self.valueTime = None
+        """ Value of Example (one of allowed types).
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.valueTiming = None
+        """ Value of Example (one of allowed types).
+        Type `Timing` (represented as `dict` in JSON). """
+        
+        self.valueUnsignedInt = None
+        """ Value of Example (one of allowed types).
+        Type `int`. """
+        
+        self.valueUri = None
+        """ Value of Example (one of allowed types).
+        Type `str`. """
+        
+        super(ElementDefinitionExample, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ElementDefinitionExample, self).elementProperties()
+        js.extend([
+            ("label", "label", str, False, None, True),
+            ("valueAddress", "valueAddress", address.Address, False, "value", True),
+            ("valueAge", "valueAge", age.Age, False, "value", True),
+            ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", True),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", True),
+            ("valueBase64Binary", "valueBase64Binary", str, False, "value", True),
+            ("valueBoolean", "valueBoolean", bool, False, "value", True),
+            ("valueCode", "valueCode", str, False, "value", True),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
+            ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
+            ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False, "value", True),
+            ("valueCount", "valueCount", count.Count, False, "value", True),
+            ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueDecimal", "valueDecimal", float, False, "value", True),
+            ("valueDistance", "valueDistance", distance.Distance, False, "value", True),
+            ("valueDuration", "valueDuration", duration.Duration, False, "value", True),
+            ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", True),
+            ("valueId", "valueId", str, False, "value", True),
+            ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", True),
+            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", True),
+            ("valueInteger", "valueInteger", int, False, "value", True),
+            ("valueMarkdown", "valueMarkdown", str, False, "value", True),
+            ("valueMeta", "valueMeta", meta.Meta, False, "value", True),
+            ("valueMoney", "valueMoney", money.Money, False, "value", True),
+            ("valueOid", "valueOid", str, False, "value", True),
+            ("valuePeriod", "valuePeriod", period.Period, False, "value", True),
+            ("valuePositiveInt", "valuePositiveInt", int, False, "value", True),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
+            ("valueRange", "valueRange", range.Range, False, "value", True),
+            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", True),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
+            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", True),
+            ("valueSignature", "valueSignature", signature.Signature, False, "value", True),
+            ("valueString", "valueString", str, False, "value", True),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueTiming", "valueTiming", timing.Timing, False, "value", True),
+            ("valueUnsignedInt", "valueUnsignedInt", int, False, "value", True),
+            ("valueUri", "valueUri", str, False, "value", True),
         ])
         return js
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -57,6 +57,11 @@ class HealthcareService(domainresource.DomainResource):
         self.eligibilityNote = None
         """ Describes the eligibility conditions for the service.
         Type `str`. """
+        
+        self.endpoint = None
+        """ Technical endpoints providing access to services operated for the
+        location.
+        List of `FHIRReference` items referencing `Endpoint` (represented as `dict` in JSON). """
         
         self.extraDetails = None
         """ Extra details about the service that can't be placed in the other
@@ -133,6 +138,7 @@ class HealthcareService(domainresource.DomainResource):
             ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False),
             ("eligibility", "eligibility", codeableconcept.CodeableConcept, False, None, False),
             ("eligibilityNote", "eligibilityNote", str, False, None, False),
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
             ("extraDetails", "extraDetails", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("location", "location", fhirreference.FHIRReference, True, None, False),

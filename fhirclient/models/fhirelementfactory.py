@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 class FHIRElementFactory(object):
@@ -20,6 +20,9 @@ class FHIRElementFactory(object):
         if "Account" == resource_type:
             from . import account
             return account.Account(jsondict)
+        if "AccountGuarantor" == resource_type:
+            from . import account
+            return account.AccountGuarantor(jsondict)
         if "ActivityDefinition" == resource_type:
             from . import activitydefinition
             return activitydefinition.ActivityDefinition(jsondict)
@@ -170,21 +173,21 @@ class FHIRElementFactory(object):
         if "ClaimAccident" == resource_type:
             from . import claim
             return claim.ClaimAccident(jsondict)
-        if "ClaimCoverage" == resource_type:
+        if "ClaimCareTeam" == resource_type:
             from . import claim
-            return claim.ClaimCoverage(jsondict)
+            return claim.ClaimCareTeam(jsondict)
         if "ClaimDiagnosis" == resource_type:
             from . import claim
             return claim.ClaimDiagnosis(jsondict)
         if "ClaimInformation" == resource_type:
             from . import claim
             return claim.ClaimInformation(jsondict)
+        if "ClaimInsurance" == resource_type:
+            from . import claim
+            return claim.ClaimInsurance(jsondict)
         if "ClaimItem" == resource_type:
             from . import claim
             return claim.ClaimItem(jsondict)
-        if "ClaimItemCareTeam" == resource_type:
-            from . import claim
-            return claim.ClaimItemCareTeam(jsondict)
         if "ClaimItemDetail" == resource_type:
             from . import claim
             return claim.ClaimItemDetail(jsondict)
@@ -194,9 +197,6 @@ class FHIRElementFactory(object):
         if "ClaimItemProsthesis" == resource_type:
             from . import claim
             return claim.ClaimItemProsthesis(jsondict)
-        if "ClaimMissingTeeth" == resource_type:
-            from . import claim
-            return claim.ClaimMissingTeeth(jsondict)
         if "ClaimPayee" == resource_type:
             from . import claim
             return claim.ClaimPayee(jsondict)
@@ -215,12 +215,12 @@ class FHIRElementFactory(object):
         if "ClaimResponseAddItemDetail" == resource_type:
             from . import claimresponse
             return claimresponse.ClaimResponseAddItemDetail(jsondict)
-        if "ClaimResponseCoverage" == resource_type:
-            from . import claimresponse
-            return claimresponse.ClaimResponseCoverage(jsondict)
         if "ClaimResponseError" == resource_type:
             from . import claimresponse
             return claimresponse.ClaimResponseError(jsondict)
+        if "ClaimResponseInsurance" == resource_type:
+            from . import claimresponse
+            return claimresponse.ClaimResponseInsurance(jsondict)
         if "ClaimResponseItem" == resource_type:
             from . import claimresponse
             return claimresponse.ClaimResponseItem(jsondict)
@@ -488,6 +488,9 @@ class FHIRElementFactory(object):
         if "ElementDefinitionConstraint" == resource_type:
             from . import elementdefinition
             return elementdefinition.ElementDefinitionConstraint(jsondict)
+        if "ElementDefinitionExample" == resource_type:
+            from . import elementdefinition
+            return elementdefinition.ElementDefinitionExample(jsondict)
         if "ElementDefinitionMapping" == resource_type:
             from . import elementdefinition
             return elementdefinition.ElementDefinitionMapping(jsondict)
@@ -503,15 +506,18 @@ class FHIRElementFactory(object):
         if "EligibilityResponse" == resource_type:
             from . import eligibilityresponse
             return eligibilityresponse.EligibilityResponse(jsondict)
-        if "EligibilityResponseBenefitBalance" == resource_type:
-            from . import eligibilityresponse
-            return eligibilityresponse.EligibilityResponseBenefitBalance(jsondict)
-        if "EligibilityResponseBenefitBalanceFinancial" == resource_type:
-            from . import eligibilityresponse
-            return eligibilityresponse.EligibilityResponseBenefitBalanceFinancial(jsondict)
         if "EligibilityResponseError" == resource_type:
             from . import eligibilityresponse
             return eligibilityresponse.EligibilityResponseError(jsondict)
+        if "EligibilityResponseInsurance" == resource_type:
+            from . import eligibilityresponse
+            return eligibilityresponse.EligibilityResponseInsurance(jsondict)
+        if "EligibilityResponseInsuranceBenefitBalance" == resource_type:
+            from . import eligibilityresponse
+            return eligibilityresponse.EligibilityResponseInsuranceBenefitBalance(jsondict)
+        if "EligibilityResponseInsuranceBenefitBalanceFinancial" == resource_type:
+            from . import eligibilityresponse
+            return eligibilityresponse.EligibilityResponseInsuranceBenefitBalanceFinancial(jsondict)
         if "Encounter" == resource_type:
             from . import encounter
             return encounter.Encounter(jsondict)
@@ -584,24 +590,24 @@ class FHIRElementFactory(object):
         if "ExplanationOfBenefitBenefitBalanceFinancial" == resource_type:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitBenefitBalanceFinancial(jsondict)
-        if "ExplanationOfBenefitCoverage" == resource_type:
+        if "ExplanationOfBenefitCareTeam" == resource_type:
             from . import explanationofbenefit
-            return explanationofbenefit.ExplanationOfBenefitCoverage(jsondict)
+            return explanationofbenefit.ExplanationOfBenefitCareTeam(jsondict)
         if "ExplanationOfBenefitDiagnosis" == resource_type:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitDiagnosis(jsondict)
         if "ExplanationOfBenefitInformation" == resource_type:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitInformation(jsondict)
+        if "ExplanationOfBenefitInsurance" == resource_type:
+            from . import explanationofbenefit
+            return explanationofbenefit.ExplanationOfBenefitInsurance(jsondict)
         if "ExplanationOfBenefitItem" == resource_type:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitItem(jsondict)
         if "ExplanationOfBenefitItemAdjudication" == resource_type:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitItemAdjudication(jsondict)
-        if "ExplanationOfBenefitItemCareTeam" == resource_type:
-            from . import explanationofbenefit
-            return explanationofbenefit.ExplanationOfBenefitItemCareTeam(jsondict)
         if "ExplanationOfBenefitItemDetail" == resource_type:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitItemDetail(jsondict)
@@ -611,9 +617,6 @@ class FHIRElementFactory(object):
         if "ExplanationOfBenefitItemProsthesis" == resource_type:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitItemProsthesis(jsondict)
-        if "ExplanationOfBenefitMissingTeeth" == resource_type:
-            from . import explanationofbenefit
-            return explanationofbenefit.ExplanationOfBenefitMissingTeeth(jsondict)
         if "ExplanationOfBenefitNote" == resource_type:
             from . import explanationofbenefit
             return explanationofbenefit.ExplanationOfBenefitNote(jsondict)
@@ -1049,9 +1052,9 @@ class FHIRElementFactory(object):
         if "ProcessResponse" == resource_type:
             from . import processresponse
             return processresponse.ProcessResponse(jsondict)
-        if "ProcessResponseNotes" == resource_type:
+        if "ProcessResponseNote" == resource_type:
             from . import processresponse
-            return processresponse.ProcessResponseNotes(jsondict)
+            return processresponse.ProcessResponseNote(jsondict)
         if "Provenance" == resource_type:
             from . import provenance
             return provenance.Provenance(jsondict)
@@ -1142,6 +1145,9 @@ class FHIRElementFactory(object):
         if "SearchParameter" == resource_type:
             from . import searchparameter
             return searchparameter.SearchParameter(jsondict)
+        if "SearchParameterComponent" == resource_type:
+            from . import searchparameter
+            return searchparameter.SearchParameterComponent(jsondict)
         if "Sequence" == resource_type:
             from . import sequence
             return sequence.Sequence(jsondict)
@@ -1253,15 +1259,18 @@ class FHIRElementFactory(object):
         if "Task" == resource_type:
             from . import task
             return task.Task(jsondict)
-        if "TaskFulfillment" == resource_type:
-            from . import task
-            return task.TaskFulfillment(jsondict)
         if "TaskInput" == resource_type:
             from . import task
             return task.TaskInput(jsondict)
         if "TaskOutput" == resource_type:
             from . import task
             return task.TaskOutput(jsondict)
+        if "TaskRequester" == resource_type:
+            from . import task
+            return task.TaskRequester(jsondict)
+        if "TaskRestriction" == resource_type:
+            from . import task
+            return task.TaskRestriction(jsondict)
         if "TestReport" == resource_type:
             from . import testreport
             return testreport.TestReport(jsondict)

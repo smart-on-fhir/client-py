@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -39,27 +39,28 @@ class PaymentReconciliationTests(unittest.TestCase):
         self.assertEqual(inst.detail[0].amount.value, 1000.0)
         self.assertEqual(inst.detail[0].date.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.detail[0].date.as_json(), "2014-08-16")
-        self.assertEqual(inst.detail[0].type.code, "payment")
-        self.assertEqual(inst.detail[0].type.system, "http://hl7.org/fhir/paymenttype")
+        self.assertEqual(inst.detail[0].type.coding[0].code, "payment")
+        self.assertEqual(inst.detail[0].type.coding[0].system, "http://hl7.org/fhir/paymenttype")
         self.assertEqual(inst.detail[1].amount.code, "USD")
         self.assertEqual(inst.detail[1].amount.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.detail[1].amount.value, 4000.0)
         self.assertEqual(inst.detail[1].date.date, FHIRDate("2014-08-12").date)
         self.assertEqual(inst.detail[1].date.as_json(), "2014-08-12")
-        self.assertEqual(inst.detail[1].type.code, "payment")
-        self.assertEqual(inst.detail[1].type.system, "http://hl7.org/fhir/paymenttype")
+        self.assertEqual(inst.detail[1].type.coding[0].code, "payment")
+        self.assertEqual(inst.detail[1].type.coding[0].system, "http://hl7.org/fhir/paymenttype")
         self.assertEqual(inst.detail[2].amount.code, "USD")
         self.assertEqual(inst.detail[2].amount.system, "urn:iso:std:iso:4217")
         self.assertEqual(inst.detail[2].amount.value, -1500.0)
         self.assertEqual(inst.detail[2].date.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.detail[2].date.as_json(), "2014-08-16")
-        self.assertEqual(inst.detail[2].type.code, "advance")
-        self.assertEqual(inst.detail[2].type.system, "http://hl7.org/fhir/paymenttype")
+        self.assertEqual(inst.detail[2].type.coding[0].code, "advance")
+        self.assertEqual(inst.detail[2].type.coding[0].system, "http://hl7.org/fhir/paymenttype")
         self.assertEqual(inst.disposition, "2014 August mid-month settlement.")
         self.assertEqual(inst.id, "ER2500")
         self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/enrollmentresponse")
         self.assertEqual(inst.identifier[0].value, "781234")
-        self.assertEqual(inst.outcome, "complete")
+        self.assertEqual(inst.outcome.coding[0].code, "complete")
+        self.assertEqual(inst.outcome.coding[0].system, "http://hl7.org/fhir/remittance-outcome")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the PaymentReconciliation</div>")
         self.assertEqual(inst.text.status, "generated")

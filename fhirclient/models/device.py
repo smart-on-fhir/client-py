@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/Device) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Device) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -110,7 +110,7 @@ class Device(domainresource.DomainResource):
             ("owner", "owner", fhirreference.FHIRReference, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
             ("udiCarrier", "udiCarrier", identifier.Identifier, False, None, False),
             ("url", "url", str, False, None, False),
             ("version", "version", str, False, None, False),

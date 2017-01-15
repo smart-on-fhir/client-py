@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import resource
@@ -27,6 +27,10 @@ class Bundle(resource.Resource):
         """ Entry in the bundle - will have a resource, or information.
         List of `BundleEntry` items (represented as `dict` in JSON). """
         
+        self.identifier = None
+        """ Persistent identifier for the bundle.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
         self.link = None
         """ Links related to this Bundle.
         List of `BundleLink` items (represented as `dict` in JSON). """
@@ -50,6 +54,7 @@ class Bundle(resource.Resource):
         js = super(Bundle, self).elementProperties()
         js.extend([
             ("entry", "entry", BundleEntry, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("link", "link", BundleLink, True, None, False),
             ("signature", "signature", signature.Signature, False, None, False),
             ("total", "total", int, False, None, False),
@@ -276,7 +281,8 @@ class BundleLink(backboneelement.BackboneElement):
         """
         
         self.relation = None
-        """ http://www.iana.org/assignments/link-relations/link-relations.xhtml.
+        """ See http://www.iana.org/assignments/link-relations/link-
+        relations.xhtml#link-relations-1.
         Type `str`. """
         
         self.url = None
@@ -295,4 +301,5 @@ class BundleLink(backboneelement.BackboneElement):
 
 
 from . import fhirdate
+from . import identifier
 from . import signature

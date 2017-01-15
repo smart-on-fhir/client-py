@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -33,7 +33,7 @@ class MessageDefinitionTests(unittest.TestCase):
     
     def implMessageDefinition1(self, inst):
         self.assertEqual(inst.category, "Notification")
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org")
         self.assertEqual(inst.date.date, FHIRDate("2016-11-09").date)
         self.assertEqual(inst.date.as_json(), "2016-11-09")

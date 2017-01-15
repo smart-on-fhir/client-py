@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -33,10 +33,6 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         """ Insurer added line items.
         List of `ExplanationOfBenefitAddItem` items (represented as `dict` in JSON). """
         
-        self.author = None
-        """ Insurer.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
         self.benefitBalance = None
         """ Balance by Benefit Category.
         List of `ExplanationOfBenefitBenefitBalance` items (represented as `dict` in JSON). """
@@ -45,6 +41,10 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         """ Period for charge submission.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.careTeam = None
+        """ Care Team members.
+        List of `ExplanationOfBenefitCareTeam` items (represented as `dict` in JSON). """
+        
         self.claim = None
         """ Claim reference.
         Type `FHIRReference` referencing `Claim` (represented as `dict` in JSON). """
@@ -52,10 +52,6 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         self.claimResponse = None
         """ Claim response reference.
         Type `FHIRReference` referencing `ClaimResponse` (represented as `dict` in JSON). """
-        
-        self.coverage = None
-        """ Insurance or medical plan.
-        Type `ExplanationOfBenefitCoverage` (represented as `dict` in JSON). """
         
         self.created = None
         """ Creation date.
@@ -73,13 +69,17 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         """ Period unable to work.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.enterer = None
+        """ Author.
+        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
         self.facility = None
         """ Servicing Facility.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
         self.form = None
         """ Printed Form Identifier.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.hospitalization = None
         """ Period in hospital.
@@ -94,13 +94,17 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         or concurrent issues.
         List of `ExplanationOfBenefitInformation` items (represented as `dict` in JSON). """
         
+        self.insurance = None
+        """ Insurance or medical plan.
+        Type `ExplanationOfBenefitInsurance` (represented as `dict` in JSON). """
+        
+        self.insurer = None
+        """ Insurer.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
         self.item = None
         """ Goods and Services.
         List of `ExplanationOfBenefitItem` items (represented as `dict` in JSON). """
-        
-        self.missingTeeth = None
-        """ Only if type = oral.
-        List of `ExplanationOfBenefitMissingTeeth` items (represented as `dict` in JSON). """
         
         self.note = None
         """ Processing notes.
@@ -114,13 +118,9 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         """ Original Prescription.
         Type `FHIRReference` referencing `MedicationRequest` (represented as `dict` in JSON). """
         
-        self.originalRuleset = None
-        """ Original specification followed.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.outcome = None
         """ complete | error | partial.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.patient = None
         """ The subject of the Products and Services.
@@ -155,12 +155,8 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         Type `FHIRReference` referencing `ReferralRequest` (represented as `dict` in JSON). """
         
         self.related = None
-        """ Related Claims which may be revelant to processing this claimn.
+        """ Related Claims which may be revelant to processing this claim.
         List of `ExplanationOfBenefitRelated` items (represented as `dict` in JSON). """
-        
-        self.ruleset = None
-        """ Current specification followed.
-        Type `Coding` (represented as `dict` in JSON). """
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
@@ -168,7 +164,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.subType = None
         """ Finer grained claim type information.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.totalBenefit = None
         """ Total benefit payable for the Claim.
@@ -180,7 +176,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.type = None
         """ Type or discipline.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.unallocDeductable = None
         """ Unallocated deductable.
@@ -193,29 +189,29 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         js.extend([
             ("accident", "accident", ExplanationOfBenefitAccident, False, None, False),
             ("addItem", "addItem", ExplanationOfBenefitAddItem, True, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("benefitBalance", "benefitBalance", ExplanationOfBenefitBenefitBalance, True, None, False),
             ("billablePeriod", "billablePeriod", period.Period, False, None, False),
+            ("careTeam", "careTeam", ExplanationOfBenefitCareTeam, True, None, False),
             ("claim", "claim", fhirreference.FHIRReference, False, None, False),
             ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
-            ("coverage", "coverage", ExplanationOfBenefitCoverage, False, None, True),
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("diagnosis", "diagnosis", ExplanationOfBenefitDiagnosis, True, None, False),
             ("disposition", "disposition", str, False, None, False),
             ("employmentImpacted", "employmentImpacted", period.Period, False, None, False),
+            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
             ("facility", "facility", fhirreference.FHIRReference, False, None, False),
-            ("form", "form", coding.Coding, False, None, False),
+            ("form", "form", codeableconcept.CodeableConcept, False, None, False),
             ("hospitalization", "hospitalization", period.Period, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("information", "information", ExplanationOfBenefitInformation, True, None, False),
+            ("insurance", "insurance", ExplanationOfBenefitInsurance, False, None, False),
+            ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
             ("item", "item", ExplanationOfBenefitItem, True, None, False),
-            ("missingTeeth", "missingTeeth", ExplanationOfBenefitMissingTeeth, True, None, False),
             ("note", "note", ExplanationOfBenefitNote, True, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("originalPrescription", "originalPrescription", fhirreference.FHIRReference, False, None, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
-            ("outcome", "outcome", coding.Coding, False, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("payee", "payee", ExplanationOfBenefitPayee, False, None, False),
             ("payment", "payment", ExplanationOfBenefitPayment, False, None, False),
             ("precedence", "precedence", int, False, None, False),
@@ -224,12 +220,11 @@ class ExplanationOfBenefit(domainresource.DomainResource):
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
             ("referral", "referral", fhirreference.FHIRReference, False, None, False),
             ("related", "related", ExplanationOfBenefitRelated, True, None, False),
-            ("ruleset", "ruleset", coding.Coding, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("subType", "subType", coding.Coding, True, None, False),
+            ("status", "status", str, False, None, False),
+            ("subType", "subType", codeableconcept.CodeableConcept, True, None, False),
             ("totalBenefit", "totalBenefit", money.Money, False, None, False),
             ("totalCost", "totalCost", money.Money, False, None, False),
-            ("type", "type", coding.Coding, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
             ("unallocDeductable", "unallocDeductable", money.Money, False, None, False),
         ])
         return js
@@ -267,7 +262,7 @@ class ExplanationOfBenefitAccident(backboneelement.BackboneElement):
         
         self.type = None
         """ The nature of the accident.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitAccident, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -277,7 +272,7 @@ class ExplanationOfBenefitAccident(backboneelement.BackboneElement):
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),
             ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
-            ("type", "type", coding.Coding, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -304,7 +299,7 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
         
         self.category = None
         """ Type of service or product.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.detail = None
         """ Added items details.
@@ -316,7 +311,7 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
         
         self.modifier = None
         """ Service/Product billing modifiers.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.noteNumber = None
         """ List of note numbers which apply.
@@ -324,7 +319,7 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
         
         self.revenue = None
         """ Revenue or cost center code.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sequenceLinkId = None
         """ Service instances.
@@ -332,7 +327,7 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
         
         self.service = None
         """ Billing Code.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitAddItem, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -340,14 +335,14 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitAddItem, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
-            ("category", "category", coding.Coding, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", ExplanationOfBenefitAddItemDetail, True, None, False),
             ("fee", "fee", money.Money, False, None, False),
-            ("modifier", "modifier", coding.Coding, True, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("revenue", "revenue", coding.Coding, False, None, False),
+            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("sequenceLinkId", "sequenceLinkId", int, True, None, False),
-            ("service", "service", coding.Coding, False, None, False),
+            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -374,7 +369,7 @@ class ExplanationOfBenefitAddItemDetail(backboneelement.BackboneElement):
         
         self.category = None
         """ Type of service or product.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.fee = None
         """ Professional fee or Product charge.
@@ -382,7 +377,7 @@ class ExplanationOfBenefitAddItemDetail(backboneelement.BackboneElement):
         
         self.modifier = None
         """ Service/Product billing modifiers.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.noteNumber = None
         """ List of note numbers which apply.
@@ -390,11 +385,11 @@ class ExplanationOfBenefitAddItemDetail(backboneelement.BackboneElement):
         
         self.revenue = None
         """ Revenue or cost center code.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.service = None
         """ Billing Code.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitAddItemDetail, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -402,12 +397,12 @@ class ExplanationOfBenefitAddItemDetail(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitAddItemDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
-            ("category", "category", coding.Coding, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("fee", "fee", money.Money, False, None, False),
-            ("modifier", "modifier", coding.Coding, True, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("revenue", "revenue", coding.Coding, False, None, False),
-            ("service", "service", coding.Coding, False, None, False),
+            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
+            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -428,11 +423,15 @@ class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
         
         self.category = None
         """ Benefit Category.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.description = None
         """ Description of the benefit.
         Type `str`. """
+        
+        self.excluded = None
+        """ Excluded from the plan.
+        Type `bool`. """
         
         self.financial = None
         """ Benefit Summary.
@@ -444,33 +443,34 @@ class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
         
         self.network = None
         """ In or out of network.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.subCategory = None
         """ Benefit SubCategory.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.term = None
         """ Annual or lifetime.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.unit = None
         """ Individual or family.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitBenefitBalance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExplanationOfBenefitBenefitBalance, self).elementProperties()
         js.extend([
-            ("category", "category", coding.Coding, False, None, True),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, True),
             ("description", "description", str, False, None, False),
+            ("excluded", "excluded", bool, False, None, False),
             ("financial", "financial", ExplanationOfBenefitBenefitBalanceFinancial, True, None, False),
             ("name", "name", str, False, None, False),
-            ("network", "network", coding.Coding, False, None, False),
-            ("subCategory", "subCategory", coding.Coding, False, None, False),
-            ("term", "term", coding.Coding, False, None, False),
-            ("unit", "unit", coding.Coding, False, None, False),
+            ("network", "network", codeableconcept.CodeableConcept, False, None, False),
+            ("subCategory", "subCategory", codeableconcept.CodeableConcept, False, None, False),
+            ("term", "term", codeableconcept.CodeableConcept, False, None, False),
+            ("unit", "unit", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -513,7 +513,7 @@ class ExplanationOfBenefitBenefitBalanceFinancial(backboneelement.BackboneElemen
         
         self.type = None
         """ Deductable, visits, benefit amount.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitBenefitBalanceFinancial, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -525,18 +525,19 @@ class ExplanationOfBenefitBenefitBalanceFinancial(backboneelement.BackboneElemen
             ("benefitUnsignedInt", "benefitUnsignedInt", int, False, "benefit", False),
             ("benefitUsedMoney", "benefitUsedMoney", money.Money, False, "benefitUsed", False),
             ("benefitUsedUnsignedInt", "benefitUsedUnsignedInt", int, False, "benefitUsed", False),
-            ("type", "type", coding.Coding, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
 
-class ExplanationOfBenefitCoverage(backboneelement.BackboneElement):
-    """ Insurance or medical plan.
+class ExplanationOfBenefitCareTeam(backboneelement.BackboneElement):
+    """ Care Team members.
     
-    Financial instrument by which payment information for health care.
+    The members of the team who provided the overall service as well as their
+    role and whether responsible and qualifications.
     """
     
-    resource_type = "ExplanationOfBenefitCoverage"
+    resource_type = "ExplanationOfBenefitCareTeam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -546,21 +547,36 @@ class ExplanationOfBenefitCoverage(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.coverage = None
-        """ Insurance information.
-        Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
+        self.provider = None
+        """ Member of the Care Team.
+        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
-        self.preAuthRef = None
-        """ Pre-Authorization/Determination Reference.
-        List of `str` items. """
+        self.qualification = None
+        """ Type, classification or Specialization.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ExplanationOfBenefitCoverage, self).__init__(jsondict=jsondict, strict=strict)
+        self.responsible = None
+        """ Billing practitioner.
+        Type `bool`. """
+        
+        self.role = None
+        """ Role on the team.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.sequence = None
+        """ Number to covey order of careteam.
+        Type `int`. """
+        
+        super(ExplanationOfBenefitCareTeam, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ExplanationOfBenefitCoverage, self).elementProperties()
+        js = super(ExplanationOfBenefitCareTeam, self).elementProperties()
         js.extend([
-            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
-            ("preAuthRef", "preAuthRef", str, True, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, True),
+            ("qualification", "qualification", codeableconcept.CodeableConcept, False, None, False),
+            ("responsible", "responsible", bool, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+            ("sequence", "sequence", int, False, None, True),
         ])
         return js
 
@@ -581,13 +597,17 @@ class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.diagnosis = None
+        self.diagnosisCodeableConcept = None
         """ Patient's list of diagnosis.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.drg = None
-        """ Diagnosis Related Group.
-        Type `Coding` (represented as `dict` in JSON). """
+        self.diagnosisReference = None
+        """ Patient's list of diagnosis.
+        Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
+        
+        self.packageCode = None
+        """ Package billing code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sequence = None
         """ Number to covey order of diagnosis.
@@ -595,17 +615,18 @@ class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
         
         self.type = None
         """ Type of Diagnosis.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitDiagnosis, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExplanationOfBenefitDiagnosis, self).elementProperties()
         js.extend([
-            ("diagnosis", "diagnosis", coding.Coding, False, None, True),
-            ("drg", "drg", coding.Coding, False, None, False),
+            ("diagnosisCodeableConcept", "diagnosisCodeableConcept", codeableconcept.CodeableConcept, False, "diagnosis", True),
+            ("diagnosisReference", "diagnosisReference", fhirreference.FHIRReference, False, "diagnosis", True),
+            ("packageCode", "packageCode", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, True),
-            ("type", "type", coding.Coding, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -631,10 +652,14 @@ class ExplanationOfBenefitInformation(backboneelement.BackboneElement):
         
         self.category = None
         """ Category of information.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.code = None
         """ Type of information.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.reason = None
+        """ Reason associated with the information.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.timingDate = None
@@ -645,12 +670,20 @@ class ExplanationOfBenefitInformation(backboneelement.BackboneElement):
         """ When it occurred.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.valueAttachment = None
+        """ Additional Data or supporting information.
+        Type `Attachment` (represented as `dict` in JSON). """
+        
         self.valueQuantity = None
-        """ Additional Data.
+        """ Additional Data or supporting information.
         Type `Quantity` (represented as `dict` in JSON). """
         
+        self.valueReference = None
+        """ Additional Data or supporting information.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        
         self.valueString = None
-        """ Additional Data.
+        """ Additional Data or supporting information.
         Type `str`. """
         
         super(ExplanationOfBenefitInformation, self).__init__(jsondict=jsondict, strict=strict)
@@ -658,12 +691,50 @@ class ExplanationOfBenefitInformation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExplanationOfBenefitInformation, self).elementProperties()
         js.extend([
-            ("category", "category", coding.Coding, False, None, True),
-            ("code", "code", coding.Coding, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, True),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("reason", "reason", coding.Coding, False, None, False),
             ("timingDate", "timingDate", fhirdate.FHIRDate, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
             ("valueString", "valueString", str, False, "value", False),
+        ])
+        return js
+
+
+class ExplanationOfBenefitInsurance(backboneelement.BackboneElement):
+    """ Insurance or medical plan.
+    
+    Financial instrument by which payment information for health care.
+    """
+    
+    resource_type = "ExplanationOfBenefitInsurance"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.coverage = None
+        """ Insurance information.
+        Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
+        
+        self.preAuthRef = None
+        """ Pre-Authorization/Determination Reference.
+        List of `str` items. """
+        
+        super(ExplanationOfBenefitInsurance, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ExplanationOfBenefitInsurance, self).elementProperties()
+        js.extend([
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
+            ("preAuthRef", "preAuthRef", str, True, None, False),
         ])
         return js
 
@@ -690,15 +761,15 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         
         self.bodySite = None
         """ Service Location.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.careTeam = None
-        """ Care Team members.
-        List of `ExplanationOfBenefitItemCareTeam` items (represented as `dict` in JSON). """
+        self.careTeamLinkId = None
+        """ Applicable careteam members.
+        List of `int` items. """
         
         self.category = None
         """ Type of service or product.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.detail = None
         """ Additional items.
@@ -712,13 +783,17 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         """ Price scaling factor.
         Type `float`. """
         
+        self.informationLinkId = None
+        """ Applicable exception and supporting information.
+        List of `int` items. """
+        
         self.locationAddress = None
         """ Place of service.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.locationCoding = None
+        self.locationCodeableConcept = None
         """ Place of service.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.locationReference = None
         """ Place of service.
@@ -726,7 +801,7 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         
         self.modifier = None
         """ Service/Product billing modifiers.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.net = None
         """ Total item cost.
@@ -736,13 +811,13 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         """ List of note numbers which apply.
         List of `int` items. """
         
-        self.points = None
-        """ Difficulty scaling factor.
-        Type `float`. """
+        self.procedureLinkId = None
+        """ Applicable procedures.
+        List of `int` items. """
         
         self.programCode = None
         """ Program specific reason for item inclusion.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.prosthesis = None
         """ Prosthetic details.
@@ -754,7 +829,7 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         
         self.revenue = None
         """ Revenue or cost center code.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sequence = None
         """ Service instance.
@@ -762,7 +837,7 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         
         self.service = None
         """ Billing Code.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.servicedDate = None
         """ Date or dates of Service.
@@ -774,7 +849,7 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         
         self.subSite = None
         """ Service Sub-location.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.udi = None
         """ Unique Device Identifier.
@@ -790,28 +865,29 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitItem, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
-            ("bodySite", "bodySite", coding.Coding, False, None, False),
-            ("careTeam", "careTeam", ExplanationOfBenefitItemCareTeam, True, None, False),
-            ("category", "category", coding.Coding, False, None, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
+            ("careTeamLinkId", "careTeamLinkId", int, True, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", ExplanationOfBenefitItemDetail, True, None, False),
             ("diagnosisLinkId", "diagnosisLinkId", int, True, None, False),
             ("factor", "factor", float, False, None, False),
+            ("informationLinkId", "informationLinkId", int, True, None, False),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),
-            ("locationCoding", "locationCoding", coding.Coding, False, "location", False),
+            ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False),
             ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
-            ("modifier", "modifier", coding.Coding, True, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("points", "points", float, False, None, False),
-            ("programCode", "programCode", coding.Coding, True, None, False),
+            ("procedureLinkId", "procedureLinkId", int, True, None, False),
+            ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("prosthesis", "prosthesis", ExplanationOfBenefitItemProsthesis, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("revenue", "revenue", coding.Coding, False, None, False),
+            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, True),
-            ("service", "service", coding.Coding, False, None, False),
+            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
             ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
-            ("subSite", "subSite", coding.Coding, True, None, False),
+            ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
@@ -840,11 +916,11 @@ class ExplanationOfBenefitItemAdjudication(backboneelement.BackboneElement):
         
         self.category = None
         """ Adjudication category such as co-pay, eligible, benefit, etc..
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.reason = None
         """ Adjudication reason.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.value = None
         """ Non-monitory value.
@@ -856,55 +932,9 @@ class ExplanationOfBenefitItemAdjudication(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitItemAdjudication, self).elementProperties()
         js.extend([
             ("amount", "amount", money.Money, False, None, False),
-            ("category", "category", coding.Coding, False, None, True),
-            ("reason", "reason", coding.Coding, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, True),
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
             ("value", "value", float, False, None, False),
-        ])
-        return js
-
-
-class ExplanationOfBenefitItemCareTeam(backboneelement.BackboneElement):
-    """ Care Team members.
-    
-    The members of the team who provided the overall service as well as their
-    role and whether responsible and qualifications.
-    """
-    
-    resource_type = "ExplanationOfBenefitItemCareTeam"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.provider = None
-        """ Member of the Care Team.
-        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
-        
-        self.qualification = None
-        """ Type, classification or Specialization.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.responsible = None
-        """ Billing practitioner.
-        Type `bool`. """
-        
-        self.role = None
-        """ Role on the team.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        super(ExplanationOfBenefitItemCareTeam, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ExplanationOfBenefitItemCareTeam, self).elementProperties()
-        js.extend([
-            ("provider", "provider", fhirreference.FHIRReference, False, None, True),
-            ("qualification", "qualification", coding.Coding, False, None, False),
-            ("responsible", "responsible", bool, False, None, False),
-            ("role", "role", coding.Coding, False, None, False),
         ])
         return js
 
@@ -931,7 +961,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         
         self.category = None
         """ Type of service or product.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.factor = None
         """ Price scaling factor.
@@ -939,7 +969,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         
         self.modifier = None
         """ Service/Product billing modifiers.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.net = None
         """ Total additional item cost.
@@ -949,13 +979,9 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         """ List of note numbers which apply.
         List of `int` items. """
         
-        self.points = None
-        """ Difficulty scaling factor.
-        Type `float`. """
-        
         self.programCode = None
         """ Program specific reason for item inclusion.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.quantity = None
         """ Count of Products or Services.
@@ -963,7 +989,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         
         self.revenue = None
         """ Revenue or cost center code.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sequence = None
         """ Service instance.
@@ -971,7 +997,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         
         self.service = None
         """ Billing Code.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.subDetail = None
         """ Additional items.
@@ -979,7 +1005,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         
         self.type = None
         """ Group or type of product or service.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.udi = None
         """ Unique Device Identifier.
@@ -995,19 +1021,18 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitItemDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
-            ("category", "category", coding.Coding, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("factor", "factor", float, False, None, False),
-            ("modifier", "modifier", coding.Coding, True, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("points", "points", float, False, None, False),
-            ("programCode", "programCode", coding.Coding, True, None, False),
+            ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("revenue", "revenue", coding.Coding, False, None, False),
+            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, True),
-            ("service", "service", coding.Coding, False, None, False),
+            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
             ("subDetail", "subDetail", ExplanationOfBenefitItemDetailSubDetail, True, None, False),
-            ("type", "type", coding.Coding, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
@@ -1036,7 +1061,7 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         
         self.category = None
         """ Type of service or product.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.factor = None
         """ Price scaling factor.
@@ -1044,7 +1069,7 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         
         self.modifier = None
         """ Service/Product billing modifiers.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.net = None
         """ Net additional item cost.
@@ -1054,13 +1079,9 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         """ List of note numbers which apply.
         List of `int` items. """
         
-        self.points = None
-        """ Difficulty scaling factor.
-        Type `float`. """
-        
         self.programCode = None
         """ Program specific reason for item inclusion.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.quantity = None
         """ Count of Products or Services.
@@ -1068,7 +1089,7 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         
         self.revenue = None
         """ Revenue or cost center code.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sequence = None
         """ Service instance.
@@ -1076,11 +1097,11 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         
         self.service = None
         """ Billing Code.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.type = None
         """ Type of product or service.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.udi = None
         """ Unique Device Identifier.
@@ -1096,18 +1117,17 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitItemDetailSubDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
-            ("category", "category", coding.Coding, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("factor", "factor", float, False, None, False),
-            ("modifier", "modifier", coding.Coding, True, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("points", "points", float, False, None, False),
-            ("programCode", "programCode", coding.Coding, True, None, False),
+            ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("revenue", "revenue", coding.Coding, False, None, False),
+            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, True),
-            ("service", "service", coding.Coding, False, None, False),
-            ("type", "type", coding.Coding, False, None, True),
+            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
@@ -1140,7 +1160,7 @@ class ExplanationOfBenefitItemProsthesis(backboneelement.BackboneElement):
         
         self.priorMaterial = None
         """ Prosthetic Material.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitItemProsthesis, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -1149,48 +1169,7 @@ class ExplanationOfBenefitItemProsthesis(backboneelement.BackboneElement):
         js.extend([
             ("initial", "initial", bool, False, None, False),
             ("priorDate", "priorDate", fhirdate.FHIRDate, False, None, False),
-            ("priorMaterial", "priorMaterial", coding.Coding, False, None, False),
-        ])
-        return js
-
-
-class ExplanationOfBenefitMissingTeeth(backboneelement.BackboneElement):
-    """ Only if type = oral.
-    
-    A list of teeth which would be expected but are not found due to having
-    been previously  extracted or for other reasons.
-    """
-    
-    resource_type = "ExplanationOfBenefitMissingTeeth"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.extractionDate = None
-        """ Date of Extraction.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.reason = None
-        """ Reason for missing.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.tooth = None
-        """ Tooth Code.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        super(ExplanationOfBenefitMissingTeeth, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ExplanationOfBenefitMissingTeeth, self).elementProperties()
-        js.extend([
-            ("extractionDate", "extractionDate", fhirdate.FHIRDate, False, None, False),
-            ("reason", "reason", coding.Coding, False, None, False),
-            ("tooth", "tooth", coding.Coding, False, None, True),
+            ("priorMaterial", "priorMaterial", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -1213,7 +1192,7 @@ class ExplanationOfBenefitNote(backboneelement.BackboneElement):
         
         self.language = None
         """ Language.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.number = None
         """ Note Number for this note.
@@ -1225,17 +1204,17 @@ class ExplanationOfBenefitNote(backboneelement.BackboneElement):
         
         self.type = None
         """ display | print | printoper.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitNote, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExplanationOfBenefitNote, self).elementProperties()
         js.extend([
-            ("language", "language", coding.Coding, False, None, False),
+            ("language", "language", codeableconcept.CodeableConcept, False, None, False),
             ("number", "number", int, False, None, False),
             ("text", "text", str, False, None, False),
-            ("type", "type", coding.Coding, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -1266,11 +1245,11 @@ class ExplanationOfBenefitPayee(backboneelement.BackboneElement):
         
         self.resourceType = None
         """ organization | patient | practitioner | relatedperson.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.type = None
         """ Type of party: Subscriber, Provider, other.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitPayee, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -1279,8 +1258,8 @@ class ExplanationOfBenefitPayee(backboneelement.BackboneElement):
         js.extend([
             ("partyIdentifier", "partyIdentifier", identifier.Identifier, False, "party", False),
             ("partyReference", "partyReference", fhirreference.FHIRReference, False, "party", False),
-            ("resourceType", "resourceType", coding.Coding, False, None, False),
-            ("type", "type", coding.Coding, False, None, False),
+            ("resourceType", "resourceType", codeableconcept.CodeableConcept, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -1307,7 +1286,7 @@ class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
         
         self.adjustmentReason = None
         """ Reason for Payment adjustment.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.amount = None
         """ Payment amount.
@@ -1323,7 +1302,7 @@ class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
         
         self.type = None
         """ Partial or Complete.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitPayment, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -1331,11 +1310,11 @@ class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitPayment, self).elementProperties()
         js.extend([
             ("adjustment", "adjustment", money.Money, False, None, False),
-            ("adjustmentReason", "adjustmentReason", coding.Coding, False, None, False),
+            ("adjustmentReason", "adjustmentReason", codeableconcept.CodeableConcept, False, None, False),
             ("amount", "amount", money.Money, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("type", "type", coding.Coding, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -1360,9 +1339,9 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
         """ When the procedure was performed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.procedureCoding = None
+        self.procedureCodeableConcept = None
         """ Patient's list of procedures performed.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.procedureReference = None
         """ Patient's list of procedures performed.
@@ -1378,7 +1357,7 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitProcedure, self).elementProperties()
         js.extend([
             ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("procedureCoding", "procedureCoding", coding.Coding, False, "procedure", True),
+            ("procedureCodeableConcept", "procedureCodeableConcept", codeableconcept.CodeableConcept, False, "procedure", True),
             ("procedureReference", "procedureReference", fhirreference.FHIRReference, False, "procedure", True),
             ("sequence", "sequence", int, False, None, True),
         ])
@@ -1386,7 +1365,7 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
 
 
 class ExplanationOfBenefitRelated(backboneelement.BackboneElement):
-    """ Related Claims which may be revelant to processing this claimn.
+    """ Related Claims which may be revelant to processing this claim.
     
     Other claims which are related to this claim such as prior claim versions
     or for related services.
@@ -1412,7 +1391,7 @@ class ExplanationOfBenefitRelated(backboneelement.BackboneElement):
         
         self.relationship = None
         """ How the reference claim is related.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitRelated, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -1421,12 +1400,14 @@ class ExplanationOfBenefitRelated(backboneelement.BackboneElement):
         js.extend([
             ("claim", "claim", fhirreference.FHIRReference, False, None, False),
             ("reference", "reference", identifier.Identifier, False, None, False),
-            ("relationship", "relationship", coding.Coding, False, None, False),
+            ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
 
 from . import address
+from . import attachment
+from . import codeableconcept
 from . import coding
 from . import fhirdate
 from . import fhirreference

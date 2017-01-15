@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/EligibilityResponse) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/EligibilityResponse) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -24,14 +24,6 @@ class EligibilityResponse(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.benefitBalance = None
-        """ Benefits by Category.
-        List of `EligibilityResponseBenefitBalance` items (represented as `dict` in JSON). """
-        
-        self.contract = None
-        """ Contract details.
-        Type `FHIRReference` referencing `Contract` (represented as `dict` in JSON). """
-        
         self.created = None
         """ Creation date.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -46,7 +38,7 @@ class EligibilityResponse(domainresource.DomainResource):
         
         self.form = None
         """ Printed Form Identifier.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Business Identifier.
@@ -56,20 +48,20 @@ class EligibilityResponse(domainresource.DomainResource):
         """ Coverage inforce.
         Type `bool`. """
         
-        self.organization = None
+        self.insurance = None
+        """ Details by insurance coverage.
+        List of `EligibilityResponseInsurance` items (represented as `dict` in JSON). """
+        
+        self.insurer = None
         """ Insurer.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.originalRuleset = None
-        """ Original version.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.outcome = None
         """ complete | error | partial.
-        Type `str`. """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.request = None
-        """ Claim reference.
+        """ Eligibility reference.
         Type `FHIRReference` referencing `EligibilityRequest` (represented as `dict` in JSON). """
         
         self.requestOrganization = None
@@ -80,10 +72,6 @@ class EligibilityResponse(domainresource.DomainResource):
         """ Responsible practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.ruleset = None
-        """ Resource version.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.status = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
@@ -93,35 +81,103 @@ class EligibilityResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(EligibilityResponse, self).elementProperties()
         js.extend([
-            ("benefitBalance", "benefitBalance", EligibilityResponseBenefitBalance, True, None, False),
-            ("contract", "contract", fhirreference.FHIRReference, False, None, False),
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("disposition", "disposition", str, False, None, False),
             ("error", "error", EligibilityResponseError, True, None, False),
-            ("form", "form", coding.Coding, False, None, False),
+            ("form", "form", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("inforce", "inforce", bool, False, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
-            ("outcome", "outcome", str, False, None, False),
+            ("insurance", "insurance", EligibilityResponseInsurance, True, None, False),
+            ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
             ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
             ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
-            ("ruleset", "ruleset", coding.Coding, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", str, False, None, False),
         ])
         return js
 
 
 from . import backboneelement
 
-class EligibilityResponseBenefitBalance(backboneelement.BackboneElement):
+class EligibilityResponseError(backboneelement.BackboneElement):
+    """ Processing errors.
+    
+    Mutually exclusive with Services Provided (Item).
+    """
+    
+    resource_type = "EligibilityResponseError"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.code = None
+        """ Error code detailing processing issues.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(EligibilityResponseError, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(EligibilityResponseError, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+        ])
+        return js
+
+
+class EligibilityResponseInsurance(backboneelement.BackboneElement):
+    """ Details by insurance coverage.
+    
+    The insurer may provide both the details for the requested coverage as well
+    as details for additional coverages known to the insurer.
+    """
+    
+    resource_type = "EligibilityResponseInsurance"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.benefitBalance = None
+        """ Benefits by Category.
+        List of `EligibilityResponseInsuranceBenefitBalance` items (represented as `dict` in JSON). """
+        
+        self.contract = None
+        """ Contract details.
+        Type `FHIRReference` referencing `Contract` (represented as `dict` in JSON). """
+        
+        self.coverage = None
+        """ Updated Coverage details.
+        Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
+        
+        super(EligibilityResponseInsurance, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(EligibilityResponseInsurance, self).elementProperties()
+        js.extend([
+            ("benefitBalance", "benefitBalance", EligibilityResponseInsuranceBenefitBalance, True, None, False),
+            ("contract", "contract", fhirreference.FHIRReference, False, None, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
+        ])
+        return js
+
+
+class EligibilityResponseInsuranceBenefitBalance(backboneelement.BackboneElement):
     """ Benefits by Category.
     
     Benefits and optionally current balances by Category.
     """
     
-    resource_type = "EligibilityResponseBenefitBalance"
+    resource_type = "EligibilityResponseInsuranceBenefitBalance"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -133,15 +189,19 @@ class EligibilityResponseBenefitBalance(backboneelement.BackboneElement):
         
         self.category = None
         """ Benefit Category.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.description = None
         """ Description of the benefit.
         Type `str`. """
         
+        self.excluded = None
+        """ Excluded from the plan.
+        Type `bool`. """
+        
         self.financial = None
         """ Benefit Summary.
-        List of `EligibilityResponseBenefitBalanceFinancial` items (represented as `dict` in JSON). """
+        List of `EligibilityResponseInsuranceBenefitBalanceFinancial` items (represented as `dict` in JSON). """
         
         self.name = None
         """ Short name for the benefit.
@@ -149,44 +209,45 @@ class EligibilityResponseBenefitBalance(backboneelement.BackboneElement):
         
         self.network = None
         """ In or out of network.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.subCategory = None
         """ Benefit SubCategory.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.term = None
         """ Annual or lifetime.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.unit = None
         """ Individual or family.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(EligibilityResponseBenefitBalance, self).__init__(jsondict=jsondict, strict=strict)
+        super(EligibilityResponseInsuranceBenefitBalance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(EligibilityResponseBenefitBalance, self).elementProperties()
+        js = super(EligibilityResponseInsuranceBenefitBalance, self).elementProperties()
         js.extend([
-            ("category", "category", coding.Coding, False, None, True),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, True),
             ("description", "description", str, False, None, False),
-            ("financial", "financial", EligibilityResponseBenefitBalanceFinancial, True, None, False),
+            ("excluded", "excluded", bool, False, None, False),
+            ("financial", "financial", EligibilityResponseInsuranceBenefitBalanceFinancial, True, None, False),
             ("name", "name", str, False, None, False),
-            ("network", "network", coding.Coding, False, None, False),
-            ("subCategory", "subCategory", coding.Coding, False, None, False),
-            ("term", "term", coding.Coding, False, None, False),
-            ("unit", "unit", coding.Coding, False, None, False),
+            ("network", "network", codeableconcept.CodeableConcept, False, None, False),
+            ("subCategory", "subCategory", codeableconcept.CodeableConcept, False, None, False),
+            ("term", "term", codeableconcept.CodeableConcept, False, None, False),
+            ("unit", "unit", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
 
-class EligibilityResponseBenefitBalanceFinancial(backboneelement.BackboneElement):
+class EligibilityResponseInsuranceBenefitBalanceFinancial(backboneelement.BackboneElement):
     """ Benefit Summary.
     
     Benefits Used to date.
     """
     
-    resource_type = "EligibilityResponseBenefitBalanceFinancial"
+    resource_type = "EligibilityResponseInsuranceBenefitBalanceFinancial"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -218,54 +279,24 @@ class EligibilityResponseBenefitBalanceFinancial(backboneelement.BackboneElement
         
         self.type = None
         """ Deductable, visits, benefit amount.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(EligibilityResponseBenefitBalanceFinancial, self).__init__(jsondict=jsondict, strict=strict)
+        super(EligibilityResponseInsuranceBenefitBalanceFinancial, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(EligibilityResponseBenefitBalanceFinancial, self).elementProperties()
+        js = super(EligibilityResponseInsuranceBenefitBalanceFinancial, self).elementProperties()
         js.extend([
             ("benefitMoney", "benefitMoney", money.Money, False, "benefit", False),
             ("benefitString", "benefitString", str, False, "benefit", False),
             ("benefitUnsignedInt", "benefitUnsignedInt", int, False, "benefit", False),
             ("benefitUsedMoney", "benefitUsedMoney", money.Money, False, "benefitUsed", False),
             ("benefitUsedUnsignedInt", "benefitUsedUnsignedInt", int, False, "benefitUsed", False),
-            ("type", "type", coding.Coding, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
 
-class EligibilityResponseError(backboneelement.BackboneElement):
-    """ Processing errors.
-    
-    Mutually exclusive with Services Provided (Item).
-    """
-    
-    resource_type = "EligibilityResponseError"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.code = None
-        """ Error code detailing processing issues.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        super(EligibilityResponseError, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(EligibilityResponseError, self).elementProperties()
-        js.extend([
-            ("code", "code", coding.Coding, False, None, True),
-        ])
-        return js
-
-
-from . import coding
+from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
 from . import identifier

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -35,11 +35,11 @@ class MedicationAdministration(domainresource.DomainResource):
         """ Details of how medication was taken.
         Type `MedicationAdministrationDosage` (represented as `dict` in JSON). """
         
-        self.effectiveTimeDateTime = None
+        self.effectiveDateTime = None
         """ Start and end time of administration.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.effectiveTimePeriod = None
+        self.effectivePeriod = None
         """ Start and end time of administration.
         Type `Period` (represented as `dict` in JSON). """
         
@@ -111,8 +111,8 @@ class MedicationAdministration(domainresource.DomainResource):
         js.extend([
             ("device", "device", fhirreference.FHIRReference, True, None, False),
             ("dosage", "dosage", MedicationAdministrationDosage, False, None, False),
-            ("effectiveTimeDateTime", "effectiveTimeDateTime", fhirdate.FHIRDate, False, "effectiveTime", True),
-            ("effectiveTimePeriod", "effectiveTimePeriod", period.Period, False, "effectiveTime", True),
+            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", True),
+            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", True),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -171,13 +171,9 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
         """ Path of substance into body.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.siteCodeableConcept = None
+        self.site = None
         """ Body site administered to.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.siteReference = None
-        """ Body site administered to.
-        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.text = None
         """ Free text dosage instructions e.g. SIG.
@@ -193,8 +189,7 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
             ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False),
             ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
             ("route", "route", codeableconcept.CodeableConcept, False, None, False),
-            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False, "site", False),
-            ("siteReference", "siteReference", fhirreference.FHIRReference, False, "site", False),
+            ("site", "site", codeableconcept.CodeableConcept, False, None, False),
             ("text", "text", str, False, None, False),
         ])
         return js

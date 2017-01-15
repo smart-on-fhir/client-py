@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -65,8 +65,12 @@ class CapabilityStatement(domainresource.DomainResource):
         """ If this describes a specific instance.
         Type `CapabilityStatementImplementation` (represented as `dict` in JSON). """
         
+        self.implementationGuide = None
+        """ Implementation Guide supported.
+        List of `str` items. """
+        
         self.instantiates = None
-        """ Canonical URL of service implemented/used by software.
+        """ Canonical URL of another capability statement this implements.
         List of `str` items. """
         
         self.jurisdiction = None
@@ -145,6 +149,7 @@ class CapabilityStatement(domainresource.DomainResource):
             ("fhirVersion", "fhirVersion", str, False, None, True),
             ("format", "format", str, True, None, True),
             ("implementation", "implementation", CapabilityStatementImplementation, False, None, False),
+            ("implementationGuide", "implementationGuide", str, True, None, False),
             ("instantiates", "instantiates", str, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("kind", "kind", str, False, None, True),
@@ -677,10 +682,6 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.chain = None
-        """ Chained names supported.
-        List of `str` items. """
-        
         self.definition = None
         """ Source of definition for parameter.
         Type `str`. """
@@ -689,18 +690,9 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
         """ Server-specific usage.
         Type `str`. """
         
-        self.modifier = None
-        """ missing | exact | contains | not | text | in | not-in | below |
-        above | type.
-        List of `str` items. """
-        
         self.name = None
         """ Name of search parameter.
         Type `str`. """
-        
-        self.target = None
-        """ Types of resource (if a resource reference).
-        List of `str` items. """
         
         self.type = None
         """ number | date | string | token | reference | composite | quantity |
@@ -712,12 +704,9 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
     def elementProperties(self):
         js = super(CapabilityStatementRestResourceSearchParam, self).elementProperties()
         js.extend([
-            ("chain", "chain", str, True, None, False),
             ("definition", "definition", str, False, None, False),
             ("documentation", "documentation", str, False, None, False),
-            ("modifier", "modifier", str, True, None, False),
             ("name", "name", str, False, None, True),
-            ("target", "target", str, True, None, False),
             ("type", "type", str, False, None, True),
         ])
         return js

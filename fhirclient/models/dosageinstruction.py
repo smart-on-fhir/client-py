@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/DosageInstruction) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DosageInstruction) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import element
@@ -79,13 +79,9 @@ class DosageInstruction(element.Element):
         """ The order of the dosage instructions.
         Type `int`. """
         
-        self.siteCodeableConcept = None
+        self.site = None
         """ Body site to administer to.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.siteReference = None
-        """ Body site to administer to.
-        Type `FHIRReference` referencing `BodySite` (represented as `dict` in JSON). """
         
         self.text = None
         """ Free text dosage instructions e.g. SIG.
@@ -114,8 +110,7 @@ class DosageInstruction(element.Element):
             ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
             ("route", "route", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, False),
-            ("siteCodeableConcept", "siteCodeableConcept", codeableconcept.CodeableConcept, False, "site", False),
-            ("siteReference", "siteReference", fhirreference.FHIRReference, False, "site", False),
+            ("site", "site", codeableconcept.CodeableConcept, False, None, False),
             ("text", "text", str, False, None, False),
             ("timing", "timing", timing.Timing, False, None, False),
         ])
@@ -123,7 +118,6 @@ class DosageInstruction(element.Element):
 
 
 from . import codeableconcept
-from . import fhirreference
 from . import quantity
 from . import range
 from . import ratio

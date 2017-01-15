@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10210 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2016-11-17.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -10,8 +10,8 @@ from . import domainresource
 class EligibilityRequest(domainresource.DomainResource):
     """ Eligibility request.
     
-    This resource provides the insurance eligibility details from the insurer
-    regarding a specified coverage and optionally some class of service.
+    This resource provides the details  from the insurer to identify a
+    specified coverage and optionally some class of service.
     """
     
     resource_type = "EligibilityRequest"
@@ -26,11 +26,11 @@ class EligibilityRequest(domainresource.DomainResource):
         
         self.benefitCategory = None
         """ Benefit Category.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.benefitSubCategory = None
         """ Benefit SubCategory.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.businessArrangement = None
         """ Business agreement.
@@ -64,25 +64,17 @@ class EligibilityRequest(domainresource.DomainResource):
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.originalRuleset = None
-        """ Original version.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.patient = None
         """ The subject of the Products and Services.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.priority = None
         """ Desired processing priority.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.provider = None
         """ Responsible practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.ruleset = None
-        """ Resource version.
-        Type `Coding` (represented as `dict` in JSON). """
         
         self.servicedDate = None
         """ Estimated date or dates of Service.
@@ -101,8 +93,8 @@ class EligibilityRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(EligibilityRequest, self).elementProperties()
         js.extend([
-            ("benefitCategory", "benefitCategory", coding.Coding, False, None, False),
-            ("benefitSubCategory", "benefitSubCategory", coding.Coding, False, None, False),
+            ("benefitCategory", "benefitCategory", codeableconcept.CodeableConcept, False, None, False),
+            ("benefitSubCategory", "benefitSubCategory", codeableconcept.CodeableConcept, False, None, False),
             ("businessArrangement", "businessArrangement", str, False, None, False),
             ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
             ("created", "created", fhirdate.FHIRDate, False, None, False),
@@ -111,19 +103,17 @@ class EligibilityRequest(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
-            ("priority", "priority", coding.Coding, False, None, False),
+            ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
-            ("ruleset", "ruleset", coding.Coding, False, None, False),
             ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", str, False, None, False),
         ])
         return js
 
 
-from . import coding
+from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
 from . import identifier
