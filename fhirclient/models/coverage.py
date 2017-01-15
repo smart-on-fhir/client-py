@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -10,7 +10,7 @@ from . import domainresource
 class Coverage(domainresource.DomainResource):
     """ Insurance or medical plan or a payment agreement.
     
-    Financial instrument which may be used to pay for or reimburse health care
+    Financial instrument which may be used to reimburse or pay for health care
     products and services.
     """
     
@@ -36,9 +36,9 @@ class Coverage(domainresource.DomainResource):
         """ Dependent number.
         Type `str`. """
         
-        self.group = None
+        self.grouping = None
         """ Additional coverage classifications.
-        Type `CoverageGroup` (represented as `dict` in JSON). """
+        Type `CoverageGrouping` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ The primary coverage ID.
@@ -85,7 +85,7 @@ class Coverage(domainresource.DomainResource):
         Type `str`. """
         
         self.type = None
-        """ Type of coverage.
+        """ Type of coverage such as medical or accident.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Coverage, self).__init__(jsondict=jsondict, strict=strict)
@@ -96,7 +96,7 @@ class Coverage(domainresource.DomainResource):
             ("beneficiary", "beneficiary", fhirreference.FHIRReference, False, None, False),
             ("contract", "contract", fhirreference.FHIRReference, True, None, False),
             ("dependent", "dependent", str, False, None, False),
-            ("group", "group", CoverageGroup, False, None, False),
+            ("grouping", "grouping", CoverageGrouping, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("network", "network", str, False, None, False),
             ("order", "order", int, False, None, False),
@@ -115,14 +115,14 @@ class Coverage(domainresource.DomainResource):
 
 from . import backboneelement
 
-class CoverageGroup(backboneelement.BackboneElement):
+class CoverageGrouping(backboneelement.BackboneElement):
     """ Additional coverage classifications.
     
     A suite of underwrite specific classifiers, for example may be used to
     identify a class of coverage or employer group, Policy, Plan.
     """
     
-    resource_type = "CoverageGroup"
+    resource_type = "CoverageGrouping"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -180,10 +180,10 @@ class CoverageGroup(backboneelement.BackboneElement):
         """ Display text for the subsection of the plan.
         Type `str`. """
         
-        super(CoverageGroup, self).__init__(jsondict=jsondict, strict=strict)
+        super(CoverageGrouping, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(CoverageGroup, self).elementProperties()
+        js = super(CoverageGrouping, self).elementProperties()
         js.extend([
             ("classDisplay", "classDisplay", str, False, None, False),
             ("class_fhir", "class", str, False, None, False),

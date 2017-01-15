@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -676,7 +676,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         """
         
         self.compareToSourceExpression = None
-        """ The fhirpath expression to evaluate against the source fixture.
+        """ The fluentpath expression to evaluate against the source fixture.
         Type `str`. """
         
         self.compareToSourceId = None
@@ -700,7 +700,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         Type `str`. """
         
         self.expression = None
-        """ The fhirpath expression to be evaluated.
+        """ The fluentpath expression to be evaluated.
         Type `str`. """
         
         self.headerField = None
@@ -1278,7 +1278,7 @@ class TestScriptVariable(backboneelement.BackboneElement):
         Type `str`. """
         
         self.expression = None
-        """ The fhirpath expression against the fixture body.
+        """ The fluentpath expression against the fixture body.
         Type `str`. """
         
         self.headerField = None

@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/EligibilityRequest) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class EligibilityRequest(domainresource.DomainResource):
-    """ Eligibility request.
+    """ Determine insurance validity and scope of coverage.
     
-    This resource provides the details  from the insurer to identify a
-    specified coverage and optionally some class of service.
+    The EligibilityRequest provides patient and insurance coverage information
+    to an insurer for them to respond, in the form of an EligibilityResponse,
+    with information regarding whether the stated coverage is valid and in-
+    force and optionally to provide the insurance details of the policy.
     """
     
     resource_type = "EligibilityRequest"
@@ -25,11 +27,11 @@ class EligibilityRequest(domainresource.DomainResource):
         """
         
         self.benefitCategory = None
-        """ Benefit Category.
+        """ Type of services covered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.benefitSubCategory = None
-        """ Benefit SubCategory.
+        """ Detailed services covered within the type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.businessArrangement = None

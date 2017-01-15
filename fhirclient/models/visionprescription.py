@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -110,7 +110,7 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
         
         self.base = None
         """ up | down | in | out.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.brand = None
         """ Brand required.
@@ -134,11 +134,11 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
         
         self.eye = None
         """ right | left.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.note = None
         """ Notes for coatings.
-        Type `str`. """
+        List of `Annotation` items (represented as `dict` in JSON). """
         
         self.power = None
         """ Contact lens power.
@@ -164,14 +164,14 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
             ("add", "add", float, False, None, False),
             ("axis", "axis", int, False, None, False),
             ("backCurve", "backCurve", float, False, None, False),
-            ("base", "base", codeableconcept.CodeableConcept, False, None, False),
+            ("base", "base", str, False, None, False),
             ("brand", "brand", str, False, None, False),
             ("color", "color", str, False, None, False),
             ("cylinder", "cylinder", float, False, None, False),
             ("diameter", "diameter", float, False, None, False),
             ("duration", "duration", quantity.Quantity, False, None, False),
-            ("eye", "eye", codeableconcept.CodeableConcept, False, None, False),
-            ("note", "note", str, False, None, False),
+            ("eye", "eye", str, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("power", "power", float, False, None, False),
             ("prism", "prism", float, False, None, False),
             ("product", "product", codeableconcept.CodeableConcept, False, None, False),
@@ -180,6 +180,7 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
         return js
 
 
+from . import annotation
 from . import codeableconcept
 from . import fhirdate
 from . import fhirreference

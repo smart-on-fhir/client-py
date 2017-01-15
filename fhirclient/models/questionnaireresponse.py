@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -62,7 +62,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.status = None
-        """ in-progress | completed | amended | entered-in-error.
+        """ in-progress | completed | amended | entered-in-error | stopped.
         Type `str`. """
         
         self.subject = None
@@ -190,10 +190,6 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
         """ Single-valued answer to the question.
         Type `float`. """
         
-        self.valueInstant = None
-        """ Single-valued answer to the question.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
         self.valueInteger = None
         """ Single-valued answer to the question.
         Type `int`. """
@@ -230,7 +226,6 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", False),
             ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
             ("valueDecimal", "valueDecimal", float, False, "value", False),
-            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),

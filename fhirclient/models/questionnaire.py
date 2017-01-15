@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -25,7 +25,7 @@ class Questionnaire(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.concept = None
+        self.code = None
         """ Concept that represents the overall questionnaire.
         List of `Coding` items (represented as `dict` in JSON). """
         
@@ -78,7 +78,7 @@ class Questionnaire(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Questionnaire, self).elementProperties()
         js.extend([
-            ("concept", "concept", coding.Coding, True, None, False),
+            ("code", "code", coding.Coding, True, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("item", "item", QuestionnaireItem, True, None, False),
@@ -112,7 +112,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.concept = None
+        self.code = None
         """ Concept that represents this item within in a questionnaire.
         List of `Coding` items (represented as `dict` in JSON). """
         
@@ -147,10 +147,6 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         self.initialDecimal = None
         """ Default value when item is first rendered.
         Type `float`. """
-        
-        self.initialInstant = None
-        """ Default value when item is first rendered.
-        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.initialInteger = None
         """ Default value when item is first rendered.
@@ -225,7 +221,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(QuestionnaireItem, self).elementProperties()
         js.extend([
-            ("concept", "concept", coding.Coding, True, None, False),
+            ("code", "code", coding.Coding, True, None, False),
             ("definition", "definition", str, False, None, False),
             ("enableWhen", "enableWhen", QuestionnaireItemEnableWhen, True, None, False),
             ("initialAttachment", "initialAttachment", attachment.Attachment, False, "initial", False),
@@ -234,7 +230,6 @@ class QuestionnaireItem(backboneelement.BackboneElement):
             ("initialDate", "initialDate", fhirdate.FHIRDate, False, "initial", False),
             ("initialDateTime", "initialDateTime", fhirdate.FHIRDate, False, "initial", False),
             ("initialDecimal", "initialDecimal", float, False, "initial", False),
-            ("initialInstant", "initialInstant", fhirdate.FHIRDate, False, "initial", False),
             ("initialInteger", "initialInteger", int, False, "initial", False),
             ("initialQuantity", "initialQuantity", quantity.Quantity, False, "initial", False),
             ("initialReference", "initialReference", fhirreference.FHIRReference, False, "initial", False),
@@ -251,7 +246,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
             ("repeats", "repeats", bool, False, None, False),
             ("required", "required", bool, False, None, False),
             ("text", "text", str, False, None, False),
-            ("type", "type", str, False, None, False),
+            ("type", "type", str, False, None, True),
         ])
         return js
 
@@ -298,10 +293,6 @@ class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
         """ Value question must have.
         Type `float`. """
         
-        self.answerInstant = None
-        """ Value question must have.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
         self.answerInteger = None
         """ Value question must have.
         Type `int`. """
@@ -345,7 +336,6 @@ class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
             ("answerDate", "answerDate", fhirdate.FHIRDate, False, "answer", False),
             ("answerDateTime", "answerDateTime", fhirdate.FHIRDate, False, "answer", False),
             ("answerDecimal", "answerDecimal", float, False, "answer", False),
-            ("answerInstant", "answerInstant", fhirdate.FHIRDate, False, "answer", False),
             ("answerInteger", "answerInteger", int, False, "answer", False),
             ("answerQuantity", "answerQuantity", quantity.Quantity, False, "answer", False),
             ("answerReference", "answerReference", fhirreference.FHIRReference, False, "answer", False),

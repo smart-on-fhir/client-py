@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/EligibilityResponse) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/EligibilityResponse) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -45,7 +45,7 @@ class EligibilityResponse(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.inforce = None
-        """ Coverage inforce.
+        """ Coverage inforce indicator.
         Type `bool`. """
         
         self.insurance = None
@@ -53,7 +53,7 @@ class EligibilityResponse(domainresource.DomainResource):
         List of `EligibilityResponseInsurance` items (represented as `dict` in JSON). """
         
         self.insurer = None
-        """ Insurer.
+        """ Insurer issuing the coverage.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.outcome = None
@@ -188,11 +188,11 @@ class EligibilityResponseInsuranceBenefitBalance(backboneelement.BackboneElement
         """
         
         self.category = None
-        """ Benefit Category.
+        """ Type of services covered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.description = None
-        """ Description of the benefit.
+        """ Description of the benefit or services covered.
         Type `str`. """
         
         self.excluded = None
@@ -212,7 +212,7 @@ class EligibilityResponseInsuranceBenefitBalance(backboneelement.BackboneElement
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.subCategory = None
-        """ Benefit SubCategory.
+        """ Detailed services covered within the type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.term = None
@@ -257,41 +257,41 @@ class EligibilityResponseInsuranceBenefitBalanceFinancial(backboneelement.Backbo
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.benefitMoney = None
+        self.allowedMoney = None
         """ Benefits allowed.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.benefitString = None
+        self.allowedString = None
         """ Benefits allowed.
         Type `str`. """
         
-        self.benefitUnsignedInt = None
+        self.allowedUnsignedInt = None
         """ Benefits allowed.
-        Type `int`. """
-        
-        self.benefitUsedMoney = None
-        """ Benefits used.
-        Type `Money` (represented as `dict` in JSON). """
-        
-        self.benefitUsedUnsignedInt = None
-        """ Benefits used.
         Type `int`. """
         
         self.type = None
         """ Deductable, visits, benefit amount.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.usedMoney = None
+        """ Benefits used.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.usedUnsignedInt = None
+        """ Benefits used.
+        Type `int`. """
+        
         super(EligibilityResponseInsuranceBenefitBalanceFinancial, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EligibilityResponseInsuranceBenefitBalanceFinancial, self).elementProperties()
         js.extend([
-            ("benefitMoney", "benefitMoney", money.Money, False, "benefit", False),
-            ("benefitString", "benefitString", str, False, "benefit", False),
-            ("benefitUnsignedInt", "benefitUnsignedInt", int, False, "benefit", False),
-            ("benefitUsedMoney", "benefitUsedMoney", money.Money, False, "benefitUsed", False),
-            ("benefitUsedUnsignedInt", "benefitUsedUnsignedInt", int, False, "benefitUsed", False),
+            ("allowedMoney", "allowedMoney", money.Money, False, "allowed", False),
+            ("allowedString", "allowedString", str, False, "allowed", False),
+            ("allowedUnsignedInt", "allowedUnsignedInt", int, False, "allowed", False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("usedMoney", "usedMoney", money.Money, False, "used", False),
+            ("usedUnsignedInt", "usedUnsignedInt", int, False, "used", False),
         ])
         return js
 

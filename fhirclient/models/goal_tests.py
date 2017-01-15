@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -33,21 +33,18 @@ class GoalTests(unittest.TestCase):
     
     def implGoal1(self, inst):
         self.assertEqual(inst.description.text, "Target weight is 160 to 180 lbs.")
-        self.assertEqual(inst.extension[0].extension[0].url, "measure")
-        self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.coding[0].code, "3141-9")
-        self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.coding[0].display, "Weight Measured")
-        self.assertEqual(inst.extension[0].extension[0].valueCodeableConcept.coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.extension[0].extension[1].url, "detail")
-        self.assertEqual(inst.extension[0].extension[1].valueRange.high.code, "[lb_av]")
-        self.assertEqual(inst.extension[0].extension[1].valueRange.high.system, "http://unitsofmeasure.org")
-        self.assertEqual(inst.extension[0].extension[1].valueRange.high.unit, "lbs")
-        self.assertEqual(inst.extension[0].extension[1].valueRange.high.value, 180)
-        self.assertEqual(inst.extension[0].extension[1].valueRange.low.code, "[lb_av]")
-        self.assertEqual(inst.extension[0].extension[1].valueRange.low.system, "http://unitsofmeasure.org")
-        self.assertEqual(inst.extension[0].extension[1].valueRange.low.unit, "lbs")
-        self.assertEqual(inst.extension[0].extension[1].valueRange.low.value, 160)
-        self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/goal-target")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.status, "in-progress")
+        self.assertEqual(inst.target.detailRange.high.code, "[lb_av]")
+        self.assertEqual(inst.target.detailRange.high.system, "http://unitsofmeasure.org")
+        self.assertEqual(inst.target.detailRange.high.unit, "lbs")
+        self.assertEqual(inst.target.detailRange.high.value, 180)
+        self.assertEqual(inst.target.detailRange.low.code, "[lb_av]")
+        self.assertEqual(inst.target.detailRange.low.system, "http://unitsofmeasure.org")
+        self.assertEqual(inst.target.detailRange.low.unit, "lbs")
+        self.assertEqual(inst.target.detailRange.low.value, 160)
+        self.assertEqual(inst.target.measure.coding[0].code, "3141-9")
+        self.assertEqual(inst.target.measure.coding[0].display, "Weight Measured")
+        self.assertEqual(inst.target.measure.coding[0].system, "http://loinc.org")
         self.assertEqual(inst.text.status, "additional")
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -157,6 +157,10 @@ class StructureMapGroup(backboneelement.BackboneElement):
         """ Transform Rule from source to target.
         List of `StructureMapGroupRule` items (represented as `dict` in JSON). """
         
+        self.typeMode = None
+        """ none | types | type-and-types.
+        Type `str`. """
+        
         super(StructureMapGroup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -167,6 +171,7 @@ class StructureMapGroup(backboneelement.BackboneElement):
             ("input", "input", StructureMapGroupInput, True, None, True),
             ("name", "name", str, False, None, True),
             ("rule", "rule", StructureMapGroupRule, True, None, True),
+            ("typeMode", "typeMode", str, False, None, True),
         ])
         return js
 
@@ -289,7 +294,7 @@ class StructureMapGroupRuleDependent(backboneelement.BackboneElement):
         Type `str`. """
         
         self.variable = None
-        """ Names of variables to pass to the rule or group.
+        """ Variable to pass to the rule or group.
         List of `str` items. """
         
         super(StructureMapGroupRuleDependent, self).__init__(jsondict=jsondict, strict=strict)
@@ -318,20 +323,168 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """
         
         self.check = None
-        """ FluentPath expression  - must be true or the mapping engine throws
-        an error instead of completing.
+        """ FHIRPath expression  - must be true or the mapping engine throws an
+        error instead of completing.
         Type `str`. """
         
         self.condition = None
-        """ FluentPath expression  - must be true or the rule does not apply.
+        """ FHIRPath expression  - must be true or the rule does not apply.
         Type `str`. """
         
         self.context = None
         """ Type or variable this rule applies to.
         Type `str`. """
         
-        self.contextType = None
-        """ type | variable.
+        self.defaultValueAddress = None
+        """ Default value if no value exists.
+        Type `Address` (represented as `dict` in JSON). """
+        
+        self.defaultValueAge = None
+        """ Default value if no value exists.
+        Type `Age` (represented as `dict` in JSON). """
+        
+        self.defaultValueAnnotation = None
+        """ Default value if no value exists.
+        Type `Annotation` (represented as `dict` in JSON). """
+        
+        self.defaultValueAttachment = None
+        """ Default value if no value exists.
+        Type `Attachment` (represented as `dict` in JSON). """
+        
+        self.defaultValueBase64Binary = None
+        """ Default value if no value exists.
+        Type `str`. """
+        
+        self.defaultValueBoolean = None
+        """ Default value if no value exists.
+        Type `bool`. """
+        
+        self.defaultValueCode = None
+        """ Default value if no value exists.
+        Type `str`. """
+        
+        self.defaultValueCodeableConcept = None
+        """ Default value if no value exists.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.defaultValueCoding = None
+        """ Default value if no value exists.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.defaultValueContactPoint = None
+        """ Default value if no value exists.
+        Type `ContactPoint` (represented as `dict` in JSON). """
+        
+        self.defaultValueCount = None
+        """ Default value if no value exists.
+        Type `Count` (represented as `dict` in JSON). """
+        
+        self.defaultValueDate = None
+        """ Default value if no value exists.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.defaultValueDateTime = None
+        """ Default value if no value exists.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.defaultValueDecimal = None
+        """ Default value if no value exists.
+        Type `float`. """
+        
+        self.defaultValueDistance = None
+        """ Default value if no value exists.
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.defaultValueDuration = None
+        """ Default value if no value exists.
+        Type `Duration` (represented as `dict` in JSON). """
+        
+        self.defaultValueHumanName = None
+        """ Default value if no value exists.
+        Type `HumanName` (represented as `dict` in JSON). """
+        
+        self.defaultValueId = None
+        """ Default value if no value exists.
+        Type `str`. """
+        
+        self.defaultValueIdentifier = None
+        """ Default value if no value exists.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.defaultValueInstant = None
+        """ Default value if no value exists.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.defaultValueInteger = None
+        """ Default value if no value exists.
+        Type `int`. """
+        
+        self.defaultValueMarkdown = None
+        """ Default value if no value exists.
+        Type `str`. """
+        
+        self.defaultValueMeta = None
+        """ Default value if no value exists.
+        Type `Meta` (represented as `dict` in JSON). """
+        
+        self.defaultValueMoney = None
+        """ Default value if no value exists.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.defaultValueOid = None
+        """ Default value if no value exists.
+        Type `str`. """
+        
+        self.defaultValuePeriod = None
+        """ Default value if no value exists.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.defaultValuePositiveInt = None
+        """ Default value if no value exists.
+        Type `int`. """
+        
+        self.defaultValueQuantity = None
+        """ Default value if no value exists.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.defaultValueRange = None
+        """ Default value if no value exists.
+        Type `Range` (represented as `dict` in JSON). """
+        
+        self.defaultValueRatio = None
+        """ Default value if no value exists.
+        Type `Ratio` (represented as `dict` in JSON). """
+        
+        self.defaultValueReference = None
+        """ Default value if no value exists.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.defaultValueSampledData = None
+        """ Default value if no value exists.
+        Type `SampledData` (represented as `dict` in JSON). """
+        
+        self.defaultValueSignature = None
+        """ Default value if no value exists.
+        Type `Signature` (represented as `dict` in JSON). """
+        
+        self.defaultValueString = None
+        """ Default value if no value exists.
+        Type `str`. """
+        
+        self.defaultValueTime = None
+        """ Default value if no value exists.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.defaultValueTiming = None
+        """ Default value if no value exists.
+        Type `Timing` (represented as `dict` in JSON). """
+        
+        self.defaultValueUnsignedInt = None
+        """ Default value if no value exists.
+        Type `int`. """
+        
+        self.defaultValueUri = None
+        """ Default value if no value exists.
         Type `str`. """
         
         self.element = None
@@ -339,7 +492,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         Type `str`. """
         
         self.listMode = None
-        """ first | share | last.
+        """ first | not_first | last | not_last | only_one.
         Type `str`. """
         
         self.max = None
@@ -349,10 +502,6 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         self.min = None
         """ Specified minimum cardinality.
         Type `int`. """
-        
-        self.required = None
-        """ Whether this rule applies if the source isn't found.
-        Type `bool`. """
         
         self.type = None
         """ Type for this source.
@@ -370,12 +519,48 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
             ("check", "check", str, False, None, False),
             ("condition", "condition", str, False, None, False),
             ("context", "context", str, False, None, True),
-            ("contextType", "contextType", str, False, None, True),
+            ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False),
+            ("defaultValueAge", "defaultValueAge", age.Age, False, "defaultValue", False),
+            ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False),
+            ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
+            ("defaultValueBase64Binary", "defaultValueBase64Binary", str, False, "defaultValue", False),
+            ("defaultValueBoolean", "defaultValueBoolean", bool, False, "defaultValue", False),
+            ("defaultValueCode", "defaultValueCode", str, False, "defaultValue", False),
+            ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False),
+            ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False),
+            ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False),
+            ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
+            ("defaultValueDate", "defaultValueDate", fhirdate.FHIRDate, False, "defaultValue", False),
+            ("defaultValueDateTime", "defaultValueDateTime", fhirdate.FHIRDate, False, "defaultValue", False),
+            ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False),
+            ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
+            ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False),
+            ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
+            ("defaultValueId", "defaultValueId", str, False, "defaultValue", False),
+            ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
+            ("defaultValueInstant", "defaultValueInstant", fhirdate.FHIRDate, False, "defaultValue", False),
+            ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
+            ("defaultValueMarkdown", "defaultValueMarkdown", str, False, "defaultValue", False),
+            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
+            ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
+            ("defaultValueOid", "defaultValueOid", str, False, "defaultValue", False),
+            ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False),
+            ("defaultValuePositiveInt", "defaultValuePositiveInt", int, False, "defaultValue", False),
+            ("defaultValueQuantity", "defaultValueQuantity", quantity.Quantity, False, "defaultValue", False),
+            ("defaultValueRange", "defaultValueRange", range.Range, False, "defaultValue", False),
+            ("defaultValueRatio", "defaultValueRatio", ratio.Ratio, False, "defaultValue", False),
+            ("defaultValueReference", "defaultValueReference", fhirreference.FHIRReference, False, "defaultValue", False),
+            ("defaultValueSampledData", "defaultValueSampledData", sampleddata.SampledData, False, "defaultValue", False),
+            ("defaultValueSignature", "defaultValueSignature", signature.Signature, False, "defaultValue", False),
+            ("defaultValueString", "defaultValueString", str, False, "defaultValue", False),
+            ("defaultValueTime", "defaultValueTime", fhirdate.FHIRDate, False, "defaultValue", False),
+            ("defaultValueTiming", "defaultValueTiming", timing.Timing, False, "defaultValue", False),
+            ("defaultValueUnsignedInt", "defaultValueUnsignedInt", int, False, "defaultValue", False),
+            ("defaultValueUri", "defaultValueUri", str, False, "defaultValue", False),
             ("element", "element", str, False, None, False),
             ("listMode", "listMode", str, False, None, False),
             ("max", "max", str, False, None, False),
             ("min", "min", int, False, None, False),
-            ("required", "required", bool, False, None, True),
             ("type", "type", str, False, None, False),
             ("variable", "variable", str, False, None, False),
         ])
@@ -409,7 +594,7 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
         Type `str`. """
         
         self.listMode = None
-        """ first | share | last.
+        """ first | share | last | collate.
         List of `str` items. """
         
         self.listRuleId = None
@@ -510,6 +695,10 @@ class StructureMapStructure(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.alias = None
+        """ Name for type in this map.
+        Type `str`. """
+        
         self.documentation = None
         """ Documentation on use of structure.
         Type `str`. """
@@ -527,6 +716,7 @@ class StructureMapStructure(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureMapStructure, self).elementProperties()
         js.extend([
+            ("alias", "alias", str, False, None, False),
             ("documentation", "documentation", str, False, None, False),
             ("mode", "mode", str, False, None, True),
             ("url", "url", str, False, None, True),
@@ -534,8 +724,28 @@ class StructureMapStructure(backboneelement.BackboneElement):
         return js
 
 
+from . import address
+from . import age
+from . import annotation
+from . import attachment
 from . import codeableconcept
+from . import coding
 from . import contactdetail
+from . import contactpoint
+from . import count
+from . import distance
+from . import duration
 from . import fhirdate
+from . import fhirreference
+from . import humanname
 from . import identifier
+from . import meta
+from . import money
+from . import period
+from . import quantity
+from . import range
+from . import ratio
+from . import sampleddata
+from . import signature
+from . import timing
 from . import usagecontext

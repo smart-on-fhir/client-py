@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -9,29 +9,29 @@ import os
 import io
 import unittest
 import json
-from . import nutritionrequest
+from . import nutritionorder
 from .fhirdate import FHIRDate
 
 
-class NutritionRequestTests(unittest.TestCase):
+class NutritionOrderTests(unittest.TestCase):
     def instantiate_from(self, filename):
         datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
-            self.assertEqual("NutritionRequest", js["resourceType"])
-        return nutritionrequest.NutritionRequest(js)
+            self.assertEqual("NutritionOrder", js["resourceType"])
+        return nutritionorder.NutritionOrder(js)
     
-    def testNutritionRequest1(self):
-        inst = self.instantiate_from("nutritionrequest-example-cardiacdiet.json")
-        self.assertIsNotNone(inst, "Must have instantiated a NutritionRequest instance")
-        self.implNutritionRequest1(inst)
+    def testNutritionOrder1(self):
+        inst = self.instantiate_from("nutritionorder-example-cardiacdiet.json")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder1(inst)
         
         js = inst.as_json()
-        self.assertEqual("NutritionRequest", js["resourceType"])
-        inst2 = nutritionrequest.NutritionRequest(js)
-        self.implNutritionRequest1(inst2)
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
+        self.implNutritionOrder1(inst2)
     
-    def implNutritionRequest1(self, inst):
+    def implNutritionOrder1(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].code, "227493005")
@@ -75,17 +75,17 @@ class NutritionRequestTests(unittest.TestCase):
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
-    def testNutritionRequest2(self):
-        inst = self.instantiate_from("nutritionrequest-example-diabeticdiet.json")
-        self.assertIsNotNone(inst, "Must have instantiated a NutritionRequest instance")
-        self.implNutritionRequest2(inst)
+    def testNutritionOrder2(self):
+        inst = self.instantiate_from("nutritionorder-example-diabeticdiet.json")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder2(inst)
         
         js = inst.as_json()
-        self.assertEqual("NutritionRequest", js["resourceType"])
-        inst2 = nutritionrequest.NutritionRequest(js)
-        self.implNutritionRequest2(inst2)
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
+        self.implNutritionOrder2(inst2)
     
-    def implNutritionRequest2(self, inst):
+    def implNutritionOrder2(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].code, "227493005")
@@ -119,17 +119,17 @@ class NutritionRequestTests(unittest.TestCase):
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
-    def testNutritionRequest3(self):
-        inst = self.instantiate_from("nutritionrequest-example-diabeticsupplement.json")
-        self.assertIsNotNone(inst, "Must have instantiated a NutritionRequest instance")
-        self.implNutritionRequest3(inst)
+    def testNutritionOrder3(self):
+        inst = self.instantiate_from("nutritionorder-example-diabeticsupplement.json")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder3(inst)
         
         js = inst.as_json()
-        self.assertEqual("NutritionRequest", js["resourceType"])
-        inst2 = nutritionrequest.NutritionRequest(js)
-        self.implNutritionRequest3(inst2)
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
+        self.implNutritionOrder3(inst2)
     
-    def implNutritionRequest3(self, inst):
+    def implNutritionOrder3(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].code, "227493005")
@@ -162,17 +162,17 @@ class NutritionRequestTests(unittest.TestCase):
         self.assertEqual(inst.supplement[0].type.text, "Adult diabetic formula")
         self.assertEqual(inst.text.status, "generated")
     
-    def testNutritionRequest4(self):
-        inst = self.instantiate_from("nutritionrequest-example-energysupplement.json")
-        self.assertIsNotNone(inst, "Must have instantiated a NutritionRequest instance")
-        self.implNutritionRequest4(inst)
+    def testNutritionOrder4(self):
+        inst = self.instantiate_from("nutritionorder-example-energysupplement.json")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder4(inst)
         
         js = inst.as_json()
-        self.assertEqual("NutritionRequest", js["resourceType"])
-        inst2 = nutritionrequest.NutritionRequest(js)
-        self.implNutritionRequest4(inst2)
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
+        self.implNutritionOrder4(inst2)
     
-    def implNutritionRequest4(self, inst):
+    def implNutritionOrder4(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].code, "227493005")
@@ -202,17 +202,17 @@ class NutritionRequestTests(unittest.TestCase):
         self.assertEqual(inst.supplement[0].type.text, "Adult high energy drink")
         self.assertEqual(inst.text.status, "generated")
     
-    def testNutritionRequest5(self):
-        inst = self.instantiate_from("nutritionrequest-example-enteralbolus.json")
-        self.assertIsNotNone(inst, "Must have instantiated a NutritionRequest instance")
-        self.implNutritionRequest5(inst)
+    def testNutritionOrder5(self):
+        inst = self.instantiate_from("nutritionorder-example-enteralbolus.json")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder5(inst)
         
         js = inst.as_json()
-        self.assertEqual("NutritionRequest", js["resourceType"])
-        inst2 = nutritionrequest.NutritionRequest(js)
-        self.implNutritionRequest5(inst2)
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
+        self.implNutritionOrder5(inst2)
     
-    def implNutritionRequest5(self, inst):
+    def implNutritionOrder5(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.enteralFormula.additiveProductName, "Acme Lipid Additive")
@@ -256,17 +256,17 @@ class NutritionRequestTests(unittest.TestCase):
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
-    def testNutritionRequest6(self):
-        inst = self.instantiate_from("nutritionrequest-example-enteralcontinuous.json")
-        self.assertIsNotNone(inst, "Must have instantiated a NutritionRequest instance")
-        self.implNutritionRequest6(inst)
+    def testNutritionOrder6(self):
+        inst = self.instantiate_from("nutritionorder-example-enteralcontinuous.json")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder6(inst)
         
         js = inst.as_json()
-        self.assertEqual("NutritionRequest", js["resourceType"])
-        inst2 = nutritionrequest.NutritionRequest(js)
-        self.implNutritionRequest6(inst2)
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
+        self.implNutritionOrder6(inst2)
     
-    def implNutritionRequest6(self, inst):
+    def implNutritionOrder6(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.enteralFormula.administrationInstruction, "Hold feedings from 7 pm to 7 am. Add MCT oil to increase calories from 1.0 cal/mL to 1.5 cal/mL")
@@ -309,17 +309,17 @@ class NutritionRequestTests(unittest.TestCase):
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
-    def testNutritionRequest7(self):
-        inst = self.instantiate_from("nutritionrequest-example-fiberrestricteddiet.json")
-        self.assertIsNotNone(inst, "Must have instantiated a NutritionRequest instance")
-        self.implNutritionRequest7(inst)
+    def testNutritionOrder7(self):
+        inst = self.instantiate_from("nutritionorder-example-fiberrestricteddiet.json")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder7(inst)
         
         js = inst.as_json()
-        self.assertEqual("NutritionRequest", js["resourceType"])
-        inst2 = nutritionrequest.NutritionRequest(js)
-        self.implNutritionRequest7(inst2)
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
+        self.implNutritionOrder7(inst2)
     
-    def implNutritionRequest7(self, inst):
+    def implNutritionOrder7(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.excludeFoodModifier[0].coding[0].code, "227493005")
@@ -360,17 +360,17 @@ class NutritionRequestTests(unittest.TestCase):
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
-    def testNutritionRequest8(self):
-        inst = self.instantiate_from("nutritionrequest-example-infantenteral.json")
-        self.assertIsNotNone(inst, "Must have instantiated a NutritionRequest instance")
-        self.implNutritionRequest8(inst)
+    def testNutritionOrder8(self):
+        inst = self.instantiate_from("nutritionorder-example-infantenteral.json")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder8(inst)
         
         js = inst.as_json()
-        self.assertEqual("NutritionRequest", js["resourceType"])
-        inst2 = nutritionrequest.NutritionRequest(js)
-        self.implNutritionRequest8(inst2)
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
+        self.implNutritionOrder8(inst2)
     
-    def implNutritionRequest8(self, inst):
+    def implNutritionOrder8(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.enteralFormula.additiveProductName, "Acme High Carbohydrate Additive")
@@ -409,17 +409,17 @@ class NutritionRequestTests(unittest.TestCase):
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
-    def testNutritionRequest9(self):
-        inst = self.instantiate_from("nutritionrequest-example-proteinsupplement.json")
-        self.assertIsNotNone(inst, "Must have instantiated a NutritionRequest instance")
-        self.implNutritionRequest9(inst)
+    def testNutritionOrder9(self):
+        inst = self.instantiate_from("nutritionorder-example-proteinsupplement.json")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder9(inst)
         
         js = inst.as_json()
-        self.assertEqual("NutritionRequest", js["resourceType"])
-        inst2 = nutritionrequest.NutritionRequest(js)
-        self.implNutritionRequest9(inst2)
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
+        self.implNutritionOrder9(inst2)
     
-    def implNutritionRequest9(self, inst):
+    def implNutritionOrder9(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.id, "proteinsupplement")
@@ -444,17 +444,17 @@ class NutritionRequestTests(unittest.TestCase):
         self.assertEqual(inst.supplement[0].type.text, "High Protein Powder")
         self.assertEqual(inst.text.status, "generated")
     
-    def testNutritionRequest10(self):
-        inst = self.instantiate_from("nutritionrequest-example-pureeddiet-simple.json")
-        self.assertIsNotNone(inst, "Must have instantiated a NutritionRequest instance")
-        self.implNutritionRequest10(inst)
+    def testNutritionOrder10(self):
+        inst = self.instantiate_from("nutritionorder-example-pureeddiet-simple.json")
+        self.assertIsNotNone(inst, "Must have instantiated a NutritionOrder instance")
+        self.implNutritionOrder10(inst)
         
         js = inst.as_json()
-        self.assertEqual("NutritionRequest", js["resourceType"])
-        inst2 = nutritionrequest.NutritionRequest(js)
-        self.implNutritionRequest10(inst2)
+        self.assertEqual("NutritionOrder", js["resourceType"])
+        inst2 = nutritionorder.NutritionOrder(js)
+        self.implNutritionOrder10(inst2)
     
-    def implNutritionRequest10(self, inst):
+    def implNutritionOrder10(self, inst):
         self.assertEqual(inst.dateTime.date, FHIRDate("2014-09-17").date)
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.id, "pureeddiet-simple")

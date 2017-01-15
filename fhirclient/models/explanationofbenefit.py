@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -58,7 +58,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.diagnosis = None
-        """ Diagnosis.
+        """ List of Diagnosis.
         List of `ExplanationOfBenefitDiagnosis` items (represented as `dict` in JSON). """
         
         self.disposition = None
@@ -99,23 +99,19 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         Type `ExplanationOfBenefitInsurance` (represented as `dict` in JSON). """
         
         self.insurer = None
-        """ Insurer.
+        """ Insurer responsible for the EOB.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.item = None
         """ Goods and Services.
         List of `ExplanationOfBenefitItem` items (represented as `dict` in JSON). """
         
-        self.note = None
-        """ Processing notes.
-        List of `ExplanationOfBenefitNote` items (represented as `dict` in JSON). """
-        
         self.organization = None
         """ Responsible organization for the claim.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.originalPrescription = None
-        """ Original Prescription.
+        """ Original prescription if superceded by fulfiller.
         Type `FHIRReference` referencing `MedicationRequest` (represented as `dict` in JSON). """
         
         self.outcome = None
@@ -127,7 +123,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.payee = None
-        """ Payee.
+        """ Party to be paid any benefits payable.
         Type `ExplanationOfBenefitPayee` (represented as `dict` in JSON). """
         
         self.payment = None
@@ -139,12 +135,16 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         Type `int`. """
         
         self.prescription = None
-        """ Prescription.
+        """ Prescription authorizing services or products.
         Type `FHIRReference` referencing `MedicationRequest, VisionPrescription` (represented as `dict` in JSON). """
         
         self.procedure = None
         """ Procedures performed.
         List of `ExplanationOfBenefitProcedure` items (represented as `dict` in JSON). """
+        
+        self.processNote = None
+        """ Processing notes.
+        List of `ExplanationOfBenefitProcessNote` items (represented as `dict` in JSON). """
         
         self.provider = None
         """ Responsible provider for the claim.
@@ -207,7 +207,6 @@ class ExplanationOfBenefit(domainresource.DomainResource):
             ("insurance", "insurance", ExplanationOfBenefitInsurance, False, None, False),
             ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
             ("item", "item", ExplanationOfBenefitItem, True, None, False),
-            ("note", "note", ExplanationOfBenefitNote, True, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("originalPrescription", "originalPrescription", fhirreference.FHIRReference, False, None, False),
             ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
@@ -217,6 +216,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
             ("precedence", "precedence", int, False, None, False),
             ("prescription", "prescription", fhirreference.FHIRReference, False, None, False),
             ("procedure", "procedure", ExplanationOfBenefitProcedure, True, None, False),
+            ("processNote", "processNote", ExplanationOfBenefitProcessNote, True, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
             ("referral", "referral", fhirreference.FHIRReference, False, None, False),
             ("related", "related", ExplanationOfBenefitRelated, True, None, False),
@@ -422,11 +422,11 @@ class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
         """
         
         self.category = None
-        """ Benefit Category.
+        """ Type of services covered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.description = None
-        """ Description of the benefit.
+        """ Description of the benefit or services covered.
         Type `str`. """
         
         self.excluded = None
@@ -446,7 +446,7 @@ class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.subCategory = None
-        """ Benefit SubCategory.
+        """ Detailed services covered within the type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.term = None
@@ -491,41 +491,41 @@ class ExplanationOfBenefitBenefitBalanceFinancial(backboneelement.BackboneElemen
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.benefitMoney = None
+        self.allowedMoney = None
         """ Benefits allowed.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.benefitString = None
+        self.allowedString = None
         """ Benefits allowed.
         Type `str`. """
         
-        self.benefitUnsignedInt = None
+        self.allowedUnsignedInt = None
         """ Benefits allowed.
-        Type `int`. """
-        
-        self.benefitUsedMoney = None
-        """ Benefits used.
-        Type `Money` (represented as `dict` in JSON). """
-        
-        self.benefitUsedUnsignedInt = None
-        """ Benefits used.
         Type `int`. """
         
         self.type = None
         """ Deductable, visits, benefit amount.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.usedMoney = None
+        """ Benefits used.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.usedUnsignedInt = None
+        """ Benefits used.
+        Type `int`. """
+        
         super(ExplanationOfBenefitBenefitBalanceFinancial, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExplanationOfBenefitBenefitBalanceFinancial, self).elementProperties()
         js.extend([
-            ("benefitMoney", "benefitMoney", money.Money, False, "benefit", False),
-            ("benefitString", "benefitString", str, False, "benefit", False),
-            ("benefitUnsignedInt", "benefitUnsignedInt", int, False, "benefit", False),
-            ("benefitUsedMoney", "benefitUsedMoney", money.Money, False, "benefitUsed", False),
-            ("benefitUsedUnsignedInt", "benefitUsedUnsignedInt", int, False, "benefitUsed", False),
+            ("allowedMoney", "allowedMoney", money.Money, False, "allowed", False),
+            ("allowedString", "allowedString", str, False, "allowed", False),
+            ("allowedUnsignedInt", "allowedUnsignedInt", int, False, "allowed", False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("usedMoney", "usedMoney", money.Money, False, "used", False),
+            ("usedUnsignedInt", "usedUnsignedInt", int, False, "used", False),
         ])
         return js
 
@@ -582,7 +582,7 @@ class ExplanationOfBenefitCareTeam(backboneelement.BackboneElement):
 
 
 class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
-    """ Diagnosis.
+    """ List of Diagnosis.
     
     Ordered list of patient diagnosis for which care is sought.
     """
@@ -598,11 +598,11 @@ class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
         """
         
         self.diagnosisCodeableConcept = None
-        """ Patient's list of diagnosis.
+        """ Patient's diagnosis.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.diagnosisReference = None
-        """ Patient's list of diagnosis.
+        """ Patient's diagnosis.
         Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
         
         self.packageCode = None
@@ -614,7 +614,7 @@ class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
         Type `int`. """
         
         self.type = None
-        """ Type of Diagnosis.
+        """ Timing or nature of the diagnosis.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitDiagnosis, self).__init__(jsondict=jsondict, strict=strict)
@@ -651,7 +651,7 @@ class ExplanationOfBenefitInformation(backboneelement.BackboneElement):
         """
         
         self.category = None
-        """ Category of information.
+        """ General class of information.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.code = None
@@ -661,6 +661,10 @@ class ExplanationOfBenefitInformation(backboneelement.BackboneElement):
         self.reason = None
         """ Reason associated with the information.
         Type `Coding` (represented as `dict` in JSON). """
+        
+        self.sequence = None
+        """ Information instance identifier.
+        Type `int`. """
         
         self.timingDate = None
         """ When it occurred.
@@ -694,6 +698,7 @@ class ExplanationOfBenefitInformation(backboneelement.BackboneElement):
             ("category", "category", codeableconcept.CodeableConcept, False, None, True),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("reason", "reason", coding.Coding, False, None, False),
+            ("sequence", "sequence", int, False, None, True),
             ("timingDate", "timingDate", fhirdate.FHIRDate, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
@@ -819,10 +824,6 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         """ Program specific reason for item inclusion.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.prosthesis = None
-        """ Prosthetic details.
-        Type `ExplanationOfBenefitItemProsthesis` (represented as `dict` in JSON). """
-        
         self.quantity = None
         """ Count of Products or Services.
         Type `Quantity` (represented as `dict` in JSON). """
@@ -880,7 +881,6 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
             ("noteNumber", "noteNumber", int, True, None, False),
             ("procedureLinkId", "procedureLinkId", int, True, None, False),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
-            ("prosthesis", "prosthesis", ExplanationOfBenefitItemProsthesis, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, True),
@@ -919,7 +919,7 @@ class ExplanationOfBenefitItemAdjudication(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.reason = None
-        """ Adjudication reason.
+        """ Explanation of Adjudication outcome.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.value = None
@@ -956,7 +956,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         """
         
         self.adjudication = None
-        """ Detail adjudication.
+        """ Detail level adjudication details.
         List of `ExplanationOfBenefitItemAdjudication` items (represented as `dict` in JSON). """
         
         self.category = None
@@ -1056,7 +1056,7 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         """
         
         self.adjudication = None
-        """ SubDetail adjudication.
+        """ Language if different from the resource.
         List of `ExplanationOfBenefitItemAdjudication` items (represented as `dict` in JSON). """
         
         self.category = None
@@ -1134,93 +1134,8 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         return js
 
 
-class ExplanationOfBenefitItemProsthesis(backboneelement.BackboneElement):
-    """ Prosthetic details.
-    
-    The materials and placement date of prior fixed prosthesis.
-    """
-    
-    resource_type = "ExplanationOfBenefitItemProsthesis"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.initial = None
-        """ Is this the initial service.
-        Type `bool`. """
-        
-        self.priorDate = None
-        """ Initial service Date.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.priorMaterial = None
-        """ Prosthetic Material.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        super(ExplanationOfBenefitItemProsthesis, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ExplanationOfBenefitItemProsthesis, self).elementProperties()
-        js.extend([
-            ("initial", "initial", bool, False, None, False),
-            ("priorDate", "priorDate", fhirdate.FHIRDate, False, None, False),
-            ("priorMaterial", "priorMaterial", codeableconcept.CodeableConcept, False, None, False),
-        ])
-        return js
-
-
-class ExplanationOfBenefitNote(backboneelement.BackboneElement):
-    """ Processing notes.
-    
-    Note text.
-    """
-    
-    resource_type = "ExplanationOfBenefitNote"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.language = None
-        """ Language.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.number = None
-        """ Note Number for this note.
-        Type `int`. """
-        
-        self.text = None
-        """ Note explanitory text.
-        Type `str`. """
-        
-        self.type = None
-        """ display | print | printoper.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        super(ExplanationOfBenefitNote, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ExplanationOfBenefitNote, self).elementProperties()
-        js.extend([
-            ("language", "language", codeableconcept.CodeableConcept, False, None, False),
-            ("number", "number", int, False, None, False),
-            ("text", "text", str, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-        ])
-        return js
-
-
 class ExplanationOfBenefitPayee(backboneelement.BackboneElement):
-    """ Payee.
+    """ Party to be paid any benefits payable.
     
     The party to be reimbursed for the services.
     """
@@ -1285,11 +1200,11 @@ class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
         Type `Money` (represented as `dict` in JSON). """
         
         self.adjustmentReason = None
-        """ Reason for Payment adjustment.
+        """ Explanation for the non-claim adjustment.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.amount = None
-        """ Payment amount.
+        """ Payable amount after adjustment.
         Type `Money` (represented as `dict` in JSON). """
         
         self.date = None
@@ -1297,7 +1212,7 @@ class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
-        """ Payment identifier.
+        """ Identifier of the payment instrument.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.type = None
@@ -1360,6 +1275,51 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
             ("procedureCodeableConcept", "procedureCodeableConcept", codeableconcept.CodeableConcept, False, "procedure", True),
             ("procedureReference", "procedureReference", fhirreference.FHIRReference, False, "procedure", True),
             ("sequence", "sequence", int, False, None, True),
+        ])
+        return js
+
+
+class ExplanationOfBenefitProcessNote(backboneelement.BackboneElement):
+    """ Processing notes.
+    
+    Note text.
+    """
+    
+    resource_type = "ExplanationOfBenefitProcessNote"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.language = None
+        """ Language if different from the resource.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.number = None
+        """ Sequence number for this note.
+        Type `int`. """
+        
+        self.text = None
+        """ Note explanitory text.
+        Type `str`. """
+        
+        self.type = None
+        """ display | print | printoper.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(ExplanationOfBenefitProcessNote, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ExplanationOfBenefitProcessNote, self).elementProperties()
+        js.extend([
+            ("language", "language", codeableconcept.CodeableConcept, False, None, False),
+            ("number", "number", int, False, None, False),
+            ("text", "text", str, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

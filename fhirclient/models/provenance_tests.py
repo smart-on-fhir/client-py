@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class ProvenanceTests(unittest.TestCase):
         return provenance.Provenance(js)
     
     def testProvenance1(self):
-        inst = self.instantiate_from("provenance-example-sig.json")
+        inst = self.instantiate_from("provenance-example-biocompute-object.json")
         self.assertIsNotNone(inst, "Must have instantiated a Provenance instance")
         self.implProvenance1(inst)
         
@@ -32,6 +32,50 @@ class ProvenanceTests(unittest.TestCase):
         self.implProvenance1(inst2)
     
     def implProvenance1(self, inst):
+        self.assertEqual(inst.agent[0].role.code, "author")
+        self.assertEqual(inst.agent[0].role.system, "http://hl7.org/fhir/provenance-participant-role")
+        self.assertEqual(inst.entity[0].role, "source")
+        self.assertEqual(inst.id, "example-biocompute-object")
+        self.assertEqual(inst.period.start.date, FHIRDate("2017-06-06").date)
+        self.assertEqual(inst.period.start.as_json(), "2017-06-06")
+        self.assertEqual(inst.reason[0].display, "antiviral resistance detection")
+        self.assertEqual(inst.recorded.date, FHIRDate("2016-06-09T08:12:14+10:00").date)
+        self.assertEqual(inst.recorded.as_json(), "2016-06-09T08:12:14+10:00")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testProvenance2(self):
+        inst = self.instantiate_from("provenance-example-cwl.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Provenance instance")
+        self.implProvenance2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Provenance", js["resourceType"])
+        inst2 = provenance.Provenance(js)
+        self.implProvenance2(inst2)
+    
+    def implProvenance2(self, inst):
+        self.assertEqual(inst.agent[0].role.code, "author")
+        self.assertEqual(inst.agent[0].role.system, "http://hl7.org/fhir/provenance-participant-role")
+        self.assertEqual(inst.entity[0].role, "source")
+        self.assertEqual(inst.id, "example-cwl")
+        self.assertEqual(inst.period.start.date, FHIRDate("2016-11-30").date)
+        self.assertEqual(inst.period.start.as_json(), "2016-11-30")
+        self.assertEqual(inst.reason[0].display, "profiling Short Tandem Repeats (STRs) from high throughput sequencing data.")
+        self.assertEqual(inst.recorded.date, FHIRDate("2016-12-01T08:12:14+10:00").date)
+        self.assertEqual(inst.recorded.as_json(), "2016-12-01T08:12:14+10:00")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testProvenance3(self):
+        inst = self.instantiate_from("provenance-example-sig.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Provenance instance")
+        self.implProvenance3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Provenance", js["resourceType"])
+        inst2 = provenance.Provenance(js)
+        self.implProvenance3(inst2)
+    
+    def implProvenance3(self, inst):
         self.assertEqual(inst.activity.code, "AU")
         self.assertEqual(inst.activity.display, "authenticated")
         self.assertEqual(inst.activity.system, "http://hl7.org/fhir/v3/DocumentCompletion")
@@ -54,17 +98,17 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>")
         self.assertEqual(inst.text.status, "generated")
     
-    def testProvenance2(self):
+    def testProvenance4(self):
         inst = self.instantiate_from("provenance-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Provenance instance")
-        self.implProvenance2(inst)
+        self.implProvenance4(inst)
         
         js = inst.as_json()
         self.assertEqual("Provenance", js["resourceType"])
         inst2 = provenance.Provenance(js)
-        self.implProvenance2(inst2)
+        self.implProvenance4(inst2)
     
-    def implProvenance2(self, inst):
+    def implProvenance4(self, inst):
         self.assertEqual(inst.agent[0].onBehalfOfUri, "#a1")
         self.assertEqual(inst.agent[0].relatedAgentType.text, "used")
         self.assertEqual(inst.agent[0].role.code, "author")

@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class ProcessRequest(domainresource.DomainResource):
-    """ Process request.
+    """ Request to perform some action on or in regards to an existing resource.
     
     This resource provides the target, request and response, and action details
     for an action to be performed by the target on or about existing resources.
@@ -49,7 +49,7 @@ class ProcessRequest(domainresource.DomainResource):
         List of `ProcessRequestItem` items (represented as `dict` in JSON). """
         
         self.nullify = None
-        """ Nullify.
+        """ Remove history.
         Type `bool`. """
         
         self.organization = None
@@ -57,7 +57,7 @@ class ProcessRequest(domainresource.DomainResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.period = None
-        """ Period.
+        """ Selection period.
         Type `Period` (represented as `dict` in JSON). """
         
         self.provider = None
@@ -69,11 +69,11 @@ class ProcessRequest(domainresource.DomainResource):
         Type `str`. """
         
         self.request = None
-        """ Request reference.
+        """ Reference to the Request resource.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.response = None
-        """ Response reference.
+        """ Reference to the Response resource.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.status = None
@@ -81,7 +81,7 @@ class ProcessRequest(domainresource.DomainResource):
         Type `str`. """
         
         self.target = None
-        """ Target of the request.
+        """ Party which is the target of the request.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         super(ProcessRequest, self).__init__(jsondict=jsondict, strict=strict)

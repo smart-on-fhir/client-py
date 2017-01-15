@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -34,7 +34,7 @@ class AllergyIntolerance(domainresource.DomainResource):
         
         self.category = None
         """ food | medication | biologic | environment.
-        List of `str` items. """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.clinicalStatus = None
         """ active | inactive | resolved.
@@ -107,7 +107,7 @@ class AllergyIntolerance(domainresource.DomainResource):
         js.extend([
             ("assertedDate", "assertedDate", fhirdate.FHIRDate, False, None, False),
             ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
-            ("category", "category", str, True, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("clinicalStatus", "clinicalStatus", str, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("criticality", "criticality", str, False, None, False),

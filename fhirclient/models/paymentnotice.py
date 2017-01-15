@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -37,7 +37,7 @@ class PaymentNotice(domainresource.DomainResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.paymentStatus = None
-        """ Status of the payment.
+        """ Whether payment has been sent or cleared.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.provider = None

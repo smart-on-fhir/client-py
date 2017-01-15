@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -178,7 +178,7 @@ class ConceptMapGroup(backboneelement.BackboneElement):
         js = super(ConceptMapGroup, self).elementProperties()
         js.extend([
             ("element", "element", ConceptMapGroupElement, True, None, True),
-            ("source", "source", str, False, None, True),
+            ("source", "source", str, False, None, False),
             ("sourceVersion", "sourceVersion", str, False, None, False),
             ("target", "target", str, False, None, False),
             ("targetVersion", "targetVersion", str, False, None, False),

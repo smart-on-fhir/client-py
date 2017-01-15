@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -83,10 +83,10 @@ class BodySiteTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "http://goodhealth.org/bodysite/identifiers")
         self.assertEqual(inst.identifier[0].value, "12345")
         self.assertEqual(inst.image[0].contentType, "application/dicom")
-        self.assertEqual(inst.image[0].url, "http://10.1.2.3:1000/wado?requestType=WADO&amp;wado_details…")
-        self.assertEqual(inst.modifier[0].coding[0].code, "78961009")
-        self.assertEqual(inst.modifier[0].coding[0].display, "Splenic structure (body structure)")
-        self.assertEqual(inst.modifier[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.modifier[0].text, "Splenic mass")
+        self.assertEqual(inst.image[0].url, "http://imaging.acme.com/wado/server?requestType=WADO&amp;wado_details")
+        self.assertEqual(inst.qualifier[0].coding[0].code, "78961009")
+        self.assertEqual(inst.qualifier[0].coding[0].display, "Splenic structure (body structure)")
+        self.assertEqual(inst.qualifier[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.qualifier[0].text, "Splenic mass")
         self.assertEqual(inst.text.status, "generated")
 

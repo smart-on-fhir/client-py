@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -38,6 +38,10 @@ class ProcedureRequest(domainresource.DomainResource):
         self.code = None
         """ What procedure to perform.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.doNotPerform = None
+        """ True if procedure should not be performed.
+        Type `bool`. """
         
         self.encounter = None
         """ Encounter request created during.
@@ -109,6 +113,7 @@ class ProcedureRequest(domainresource.DomainResource):
             ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("doNotPerform", "doNotPerform", bool, False, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("notes", "notes", annotation.Annotation, True, None, False),

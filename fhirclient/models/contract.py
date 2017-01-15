@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Contract) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Contract) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -25,15 +25,15 @@ class Contract(domainresource.DomainResource):
         """
         
         self.action = None
-        """ Contract Action.
+        """ Action stipulated by this Contract.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.actionReason = None
-        """ Contract Action Reason.
+        """ Rationale for the stiplulated action.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.agent = None
-        """ Contract Agent.
+        """ Entity being ascribed responsibility.
         List of `ContractAgent` items (represented as `dict` in JSON). """
         
         self.applies = None
@@ -141,7 +141,7 @@ class Contract(domainresource.DomainResource):
 from . import backboneelement
 
 class ContractAgent(backboneelement.BackboneElement):
-    """ Contract Agent.
+    """ Entity being ascribed responsibility.
     
     An actor taking a role in an activity for which it can be assigned some
     degree of responsibility for the activity taking place.
@@ -162,7 +162,7 @@ class ContractAgent(backboneelement.BackboneElement):
         Type `FHIRReference` referencing `Contract, Device, Group, Location, Organization, Patient, Practitioner, RelatedPerson, Substance` (represented as `dict` in JSON). """
         
         self.role = None
-        """ Contract  Agent Role.
+        """ Role type of the agent.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(ContractAgent, self).__init__(jsondict=jsondict, strict=strict)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class SupplyRequestTests(unittest.TestCase):
         return supplyrequest.SupplyRequest(js)
     
     def testSupplyRequest1(self):
-        inst = self.instantiate_from("supplyrequest-example.json")
+        inst = self.instantiate_from("catalog-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a SupplyRequest instance")
         self.implSupplyRequest1(inst)
         
@@ -32,6 +32,21 @@ class SupplyRequestTests(unittest.TestCase):
         self.implSupplyRequest1(inst2)
     
     def implSupplyRequest1(self, inst):
+        self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testSupplyRequest2(self):
+        inst = self.instantiate_from("supplyrequest-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a SupplyRequest instance")
+        self.implSupplyRequest2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("SupplyRequest", js["resourceType"])
+        inst2 = supplyrequest.SupplyRequest(js)
+        self.implSupplyRequest2(inst2)
+    
+    def implSupplyRequest2(self, inst):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
         self.assertEqual(inst.text.status, "generated")

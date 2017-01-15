@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -74,8 +74,8 @@ class DiagnosticReport(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.performer = None
-        """ Responsible Diagnostic Service.
-        List of `FHIRReference` items referencing `Practitioner, Organization` (represented as `dict` in JSON). """
+        """ Participants in producing the report.
+        List of `DiagnosticReportPerformer` items (represented as `dict` in JSON). """
         
         self.presentedForm = None
         """ Entire report as issued.
@@ -94,8 +94,7 @@ class DiagnosticReport(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
         
         self.status = None
-        """ registered | partial | final | corrected | appended | cancelled |
-        entered-in-error.
+        """ registered | partial | final | corrected +.
         Type `str`. """
         
         self.subject = None
@@ -118,7 +117,7 @@ class DiagnosticReport(domainresource.DomainResource):
             ("image", "image", DiagnosticReportImage, True, None, False),
             ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True, None, False),
             ("issued", "issued", fhirdate.FHIRDate, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, True, None, False),
+            ("performer", "performer", DiagnosticReportPerformer, True, None, False),
             ("presentedForm", "presentedForm", attachment.Attachment, True, None, False),
             ("request", "request", fhirreference.FHIRReference, True, None, False),
             ("result", "result", fhirreference.FHIRReference, True, None, False),
@@ -164,6 +163,46 @@ class DiagnosticReportImage(backboneelement.BackboneElement):
         js.extend([
             ("comment", "comment", str, False, None, False),
             ("link", "link", fhirreference.FHIRReference, False, None, True),
+        ])
+        return js
+
+
+class DiagnosticReportPerformer(backboneelement.BackboneElement):
+    """ Participants in producing the report.
+    
+    Indicates who or what participated in producing the report.
+    """
+    
+    resource_type = "DiagnosticReportPerformer"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.actor = None
+        """ Practitioner or Organization  participant.
+        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
+        
+        self.onBehalfOf = None
+        """ Organization was acting for.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
+        self.role = None
+        """ Type of performer.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(DiagnosticReportPerformer, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(DiagnosticReportPerformer, self).elementProperties()
+        js.extend([
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

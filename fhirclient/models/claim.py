@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Claim) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Claim) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -42,7 +42,7 @@ class Claim(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.diagnosis = None
-        """ Diagnosis.
+        """ List of Diagnosis.
         List of `ClaimDiagnosis` items (represented as `dict` in JSON). """
         
         self.employmentImpacted = None
@@ -91,7 +91,7 @@ class Claim(domainresource.DomainResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.originalPrescription = None
-        """ Original Prescription.
+        """ Original prescription if superceded by fulfiller.
         Type `FHIRReference` referencing `MedicationRequest` (represented as `dict` in JSON). """
         
         self.patient = None
@@ -103,7 +103,7 @@ class Claim(domainresource.DomainResource):
         Type `ClaimPayee` (represented as `dict` in JSON). """
         
         self.prescription = None
-        """ Prescription.
+        """ Prescription authorizing services or products.
         Type `FHIRReference` referencing `MedicationRequest, VisionPrescription` (represented as `dict` in JSON). """
         
         self.priority = None
@@ -286,9 +286,9 @@ class ClaimCareTeam(backboneelement.BackboneElement):
 
 
 class ClaimDiagnosis(backboneelement.BackboneElement):
-    """ Diagnosis.
+    """ List of Diagnosis.
     
-    Ordered list of patient diagnosis for which care is sought.
+    List of patient diagnosis for which care is sought.
     """
     
     resource_type = "ClaimDiagnosis"
@@ -318,7 +318,7 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
         Type `int`. """
         
         self.type = None
-        """ Type of Diagnosis.
+        """ Timing or nature of the diagnosis.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(ClaimDiagnosis, self).__init__(jsondict=jsondict, strict=strict)
@@ -355,7 +355,7 @@ class ClaimInformation(backboneelement.BackboneElement):
         """
         
         self.category = None
-        """ Category of information.
+        """ General class of information.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.code = None
@@ -365,6 +365,10 @@ class ClaimInformation(backboneelement.BackboneElement):
         self.reason = None
         """ Reason associated with the information.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.sequence = None
+        """ Information instance identifier.
+        Type `int`. """
         
         self.timingDate = None
         """ When it occurred.
@@ -398,6 +402,7 @@ class ClaimInformation(backboneelement.BackboneElement):
             ("category", "category", codeableconcept.CodeableConcept, False, None, True),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("sequence", "sequence", int, False, None, True),
             ("timingDate", "timingDate", fhirdate.FHIRDate, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
@@ -535,10 +540,6 @@ class ClaimItem(backboneelement.BackboneElement):
         """ Program specific reason for item inclusion.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.prosthesis = None
-        """ Prosthetic details.
-        Type `ClaimItemProsthesis` (represented as `dict` in JSON). """
-        
         self.quantity = None
         """ Count of Products or Services.
         Type `Quantity` (represented as `dict` in JSON). """
@@ -594,7 +595,6 @@ class ClaimItem(backboneelement.BackboneElement):
             ("net", "net", money.Money, False, None, False),
             ("procedureLinkId", "procedureLinkId", int, True, None, False),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
-            ("prosthesis", "prosthesis", ClaimItemProsthesis, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, True),
@@ -769,46 +769,6 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
             ("service", "service", codeableconcept.CodeableConcept, False, None, False),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
-        ])
-        return js
-
-
-class ClaimItemProsthesis(backboneelement.BackboneElement):
-    """ Prosthetic details.
-    
-    The materials and placement date of prior fixed prosthesis.
-    """
-    
-    resource_type = "ClaimItemProsthesis"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.initial = None
-        """ Is this the initial service.
-        Type `bool`. """
-        
-        self.priorDate = None
-        """ Initial service Date.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.priorMaterial = None
-        """ Prosthetic Material.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        super(ClaimItemProsthesis, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ClaimItemProsthesis, self).elementProperties()
-        js.extend([
-            ("initial", "initial", bool, False, None, False),
-            ("priorDate", "priorDate", fhirdate.FHIRDate, False, None, False),
-            ("priorMaterial", "priorMaterial", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

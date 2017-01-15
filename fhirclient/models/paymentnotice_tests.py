@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -40,6 +40,8 @@ class PaymentNoticeTests(unittest.TestCase):
         self.assertEqual(inst.paymentStatus.coding[0].code, "paid")
         self.assertEqual(inst.paymentStatus.coding[0].system, "http://hl7.org/fhir/paymentstatus")
         self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.statusDate.date, FHIRDate("2014-08-15").date)
+        self.assertEqual(inst.statusDate.as_json(), "2014-08-15")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the PaymentNotice</div>")
         self.assertEqual(inst.text.status, "generated")
 

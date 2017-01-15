@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DiagnosticRequest) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/DiagnosticRequest) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -31,6 +31,10 @@ class DiagnosticRequest(domainresource.DomainResource):
         self.basedOn = None
         """ What request fulfills.
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
+        self.bodySIte = None
+        """ Location of requested test (if applicable).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.code = None
         """ What’s being requested/ordered.
@@ -98,11 +102,15 @@ class DiagnosticRequest(domainresource.DomainResource):
         
         self.requester = None
         """ Who/what is requesting diagnostics.
-        Type `FHIRReference` referencing `Device, Practitioner, Organization` (represented as `dict` in JSON). """
+        Type `DiagnosticRequestRequester` (represented as `dict` in JSON). """
         
         self.requisition = None
         """ Composite Request ID.
         Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.specimen = None
+        """ Specimens for the requested test.
+        List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
         
         self.status = None
         """ draft | active | suspended | completed | entered-in-error |
@@ -113,7 +121,7 @@ class DiagnosticRequest(domainresource.DomainResource):
         """ Individual the test is ordered for.
         Type `FHIRReference` referencing `Patient, Group, Location, Device` (represented as `dict` in JSON). """
         
-        self.supportingInformation = None
+        self.supportingInfo = None
         """ Additional clinical information.
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
@@ -124,6 +132,7 @@ class DiagnosticRequest(domainresource.DomainResource):
         js.extend([
             ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
+            ("bodySIte", "bodySIte", codeableconcept.CodeableConcept, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("definition", "definition", fhirreference.FHIRReference, True, None, False),
@@ -140,11 +149,50 @@ class DiagnosticRequest(domainresource.DomainResource):
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False),
             ("replaces", "replaces", fhirreference.FHIRReference, True, None, False),
-            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
+            ("requester", "requester", DiagnosticRequestRequester, False, None, False),
             ("requisition", "requisition", identifier.Identifier, False, None, False),
+            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
+            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
+        ])
+        return js
+
+
+from . import backboneelement
+
+class DiagnosticRequestRequester(backboneelement.BackboneElement):
+    """ Who/what is requesting diagnostics.
+    
+    The individual who initiated the request and has responsibility for its
+    activation.
+    """
+    
+    resource_type = "DiagnosticRequestRequester"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.agent = None
+        """ Individual making the request.
+        Type `FHIRReference` referencing `Device, Practitioner, Organization` (represented as `dict` in JSON). """
+        
+        self.onBehalfOf = None
+        """ Organization agent is acting for.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
+        super(DiagnosticRequestRequester, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(DiagnosticRequestRequester, self).elementProperties()
+        js.extend([
+            ("agent", "agent", fhirreference.FHIRReference, False, None, True),
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

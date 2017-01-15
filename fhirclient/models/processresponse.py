@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/ProcessResponse) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -48,10 +48,6 @@ class ProcessResponse(domainresource.DomainResource):
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.note = None
-        """ Notes.
-        List of `ProcessResponseNote` items (represented as `dict` in JSON). """
-        
         self.organization = None
         """ Authoring Organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
@@ -59,6 +55,10 @@ class ProcessResponse(domainresource.DomainResource):
         self.outcome = None
         """ Processing outcome.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.processNote = None
+        """ Processing comments or additional requirements.
+        List of `ProcessResponseProcessNote` items (represented as `dict` in JSON). """
         
         self.request = None
         """ Request reference.
@@ -87,9 +87,9 @@ class ProcessResponse(domainresource.DomainResource):
             ("error", "error", codeableconcept.CodeableConcept, True, None, False),
             ("form", "form", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("note", "note", ProcessResponseNote, True, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
+            ("processNote", "processNote", ProcessResponseProcessNote, True, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
             ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
             ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
@@ -100,14 +100,14 @@ class ProcessResponse(domainresource.DomainResource):
 
 from . import backboneelement
 
-class ProcessResponseNote(backboneelement.BackboneElement):
-    """ Notes.
+class ProcessResponseProcessNote(backboneelement.BackboneElement):
+    """ Processing comments or additional requirements.
     
-    Suite of processing note or additional requirements is the processing has
+    Suite of processing notes or additional requirements if the processing has
     been held.
     """
     
-    resource_type = "ProcessResponseNote"
+    resource_type = "ProcessResponseProcessNote"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -118,17 +118,17 @@ class ProcessResponseNote(backboneelement.BackboneElement):
         """
         
         self.text = None
-        """ Notes text.
+        """ Comment on the processing.
         Type `str`. """
         
         self.type = None
         """ display | print | printoper.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ProcessResponseNote, self).__init__(jsondict=jsondict, strict=strict)
+        super(ProcessResponseProcessNote, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ProcessResponseNote, self).elementProperties()
+        js = super(ProcessResponseProcessNote, self).elementProperties()
         js.extend([
             ("text", "text", str, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),

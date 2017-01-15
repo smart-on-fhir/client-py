@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -33,21 +33,24 @@ class CoverageTests(unittest.TestCase):
     
     def implCoverage1(self, inst):
         self.assertEqual(inst.dependent, "1")
-        self.assertEqual(inst.group.group, "WESTAIR")
-        self.assertEqual(inst.group.groupDisplay, "Western Airlines")
-        self.assertEqual(inst.group.plan, "WESTAIR")
-        self.assertEqual(inst.group.planDisplay, "Western Airlines")
-        self.assertEqual(inst.group.subPlan, "D15C9")
-        self.assertEqual(inst.group.subPlanDisplay, "Platinum")
+        self.assertEqual(inst.grouping.group, "WESTAIR")
+        self.assertEqual(inst.grouping.groupDisplay, "Western Airlines")
+        self.assertEqual(inst.grouping.plan, "WESTAIR")
+        self.assertEqual(inst.grouping.planDisplay, "Western Airlines")
+        self.assertEqual(inst.grouping.subPlan, "D15C9")
+        self.assertEqual(inst.grouping.subPlanDisplay, "Platinum")
         self.assertEqual(inst.id, "7546D")
         self.assertEqual(inst.identifier[0].system, "http://xyz.com/codes/identifier")
-        self.assertEqual(inst.identifier[0].value, "AB9876")
+        self.assertEqual(inst.identifier[0].value, "AB98761")
+        self.assertEqual(inst.network, "5")
+        self.assertEqual(inst.order, 2)
         self.assertEqual(inst.period.end.date, FHIRDate("2012-03-17").date)
         self.assertEqual(inst.period.end.as_json(), "2012-03-17")
         self.assertEqual(inst.period.start.date, FHIRDate("2011-03-17").date)
         self.assertEqual(inst.period.start.as_json(), "2011-03-17")
         self.assertEqual(inst.relationship.coding[0].code, "self")
         self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.subscriberId, "AB9876")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the coverage</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "EHCPOL")
@@ -114,18 +117,18 @@ class CoverageTests(unittest.TestCase):
     
     def implCoverage4(self, inst):
         self.assertEqual(inst.dependent, "0")
-        self.assertEqual(inst.group.classDisplay, "Silver: Family Plan spouse only")
-        self.assertEqual(inst.group.class_fhir, "SILVER")
-        self.assertEqual(inst.group.group, "CBI35")
-        self.assertEqual(inst.group.groupDisplay, "Corporate Baker's Inc. Local #35")
-        self.assertEqual(inst.group.plan, "B37FC")
-        self.assertEqual(inst.group.planDisplay, "Full Coverage: Medical, Dental, Pharmacy, Vision, EHC")
-        self.assertEqual(inst.group.subClass, "Tier2")
-        self.assertEqual(inst.group.subClassDisplay, "Low deductable, max $20 copay")
-        self.assertEqual(inst.group.subGroup, "123")
-        self.assertEqual(inst.group.subGroupDisplay, "Trainee Part-time Benefits")
-        self.assertEqual(inst.group.subPlan, "P7")
-        self.assertEqual(inst.group.subPlanDisplay, "Includes afterlife benefits")
+        self.assertEqual(inst.grouping.classDisplay, "Silver: Family Plan spouse only")
+        self.assertEqual(inst.grouping.class_fhir, "SILVER")
+        self.assertEqual(inst.grouping.group, "CBI35")
+        self.assertEqual(inst.grouping.groupDisplay, "Corporate Baker's Inc. Local #35")
+        self.assertEqual(inst.grouping.plan, "B37FC")
+        self.assertEqual(inst.grouping.planDisplay, "Full Coverage: Medical, Dental, Pharmacy, Vision, EHC")
+        self.assertEqual(inst.grouping.subClass, "Tier2")
+        self.assertEqual(inst.grouping.subClassDisplay, "Low deductable, max $20 copay")
+        self.assertEqual(inst.grouping.subGroup, "123")
+        self.assertEqual(inst.grouping.subGroupDisplay, "Trainee Part-time Benefits")
+        self.assertEqual(inst.grouping.subPlan, "P7")
+        self.assertEqual(inst.grouping.subPlanDisplay, "Includes afterlife benefits")
         self.assertEqual(inst.id, "9876B1")
         self.assertEqual(inst.identifier[0].system, "http://benefitsinc.com/certificate")
         self.assertEqual(inst.identifier[0].value, "12345")

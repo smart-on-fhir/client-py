@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/NutritionRequest) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
-class NutritionRequest(domainresource.DomainResource):
+class NutritionOrder(domainresource.DomainResource):
     """ Diet, formula or nutritional supplement request.
     
     A request to supply a diet, formula feeding (enteral) or oral nutritional
     supplement to a patient/resident.
     """
     
-    resource_type = "NutritionRequest"
+    resource_type = "NutritionOrder"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -39,7 +39,7 @@ class NutritionRequest(domainresource.DomainResource):
         
         self.enteralFormula = None
         """ Enteral formula components.
-        Type `NutritionRequestEnteralFormula` (represented as `dict` in JSON). """
+        Type `NutritionOrderEnteralFormula` (represented as `dict` in JSON). """
         
         self.excludeFoodModifier = None
         """ Order-specific modifier about the type of food that should not be
@@ -56,7 +56,7 @@ class NutritionRequest(domainresource.DomainResource):
         
         self.oralDiet = None
         """ Oral diet components.
-        Type `NutritionRequestOralDiet` (represented as `dict` in JSON). """
+        Type `NutritionOrderOralDiet` (represented as `dict` in JSON). """
         
         self.orderer = None
         """ Who ordered the diet, formula or nutritional supplement.
@@ -73,39 +73,39 @@ class NutritionRequest(domainresource.DomainResource):
         
         self.supplement = None
         """ Supplement components.
-        List of `NutritionRequestSupplement` items (represented as `dict` in JSON). """
+        List of `NutritionOrderSupplement` items (represented as `dict` in JSON). """
         
-        super(NutritionRequest, self).__init__(jsondict=jsondict, strict=strict)
+        super(NutritionOrder, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(NutritionRequest, self).elementProperties()
+        js = super(NutritionOrder, self).elementProperties()
         js.extend([
             ("allergyIntolerance", "allergyIntolerance", fhirreference.FHIRReference, True, None, False),
             ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, True),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("enteralFormula", "enteralFormula", NutritionRequestEnteralFormula, False, None, False),
+            ("enteralFormula", "enteralFormula", NutritionOrderEnteralFormula, False, None, False),
             ("excludeFoodModifier", "excludeFoodModifier", codeableconcept.CodeableConcept, True, None, False),
             ("foodPreferenceModifier", "foodPreferenceModifier", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("oralDiet", "oralDiet", NutritionRequestOralDiet, False, None, False),
+            ("oralDiet", "oralDiet", NutritionOrderOralDiet, False, None, False),
             ("orderer", "orderer", fhirreference.FHIRReference, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("status", "status", str, False, None, False),
-            ("supplement", "supplement", NutritionRequestSupplement, True, None, False),
+            ("supplement", "supplement", NutritionOrderSupplement, True, None, False),
         ])
         return js
 
 
 from . import backboneelement
 
-class NutritionRequestEnteralFormula(backboneelement.BackboneElement):
+class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
     """ Enteral formula components.
     
     Feeding provided through the gastrointestinal tract via a tube, catheter,
     or stoma that delivers nutrition distal to the oral cavity.
     """
     
-    resource_type = "NutritionRequestEnteralFormula"
+    resource_type = "NutritionOrderEnteralFormula"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -125,7 +125,7 @@ class NutritionRequestEnteralFormula(backboneelement.BackboneElement):
         
         self.administration = None
         """ Formula feeding instruction as structured data.
-        List of `NutritionRequestEnteralFormulaAdministration` items (represented as `dict` in JSON). """
+        List of `NutritionOrderEnteralFormulaAdministration` items (represented as `dict` in JSON). """
         
         self.administrationInstruction = None
         """ Formula feeding instructions expressed as text.
@@ -151,14 +151,14 @@ class NutritionRequestEnteralFormula(backboneelement.BackboneElement):
         """ How the formula should enter the patient's gastrointestinal tract.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(NutritionRequestEnteralFormula, self).__init__(jsondict=jsondict, strict=strict)
+        super(NutritionOrderEnteralFormula, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(NutritionRequestEnteralFormula, self).elementProperties()
+        js = super(NutritionOrderEnteralFormula, self).elementProperties()
         js.extend([
             ("additiveProductName", "additiveProductName", str, False, None, False),
             ("additiveType", "additiveType", codeableconcept.CodeableConcept, False, None, False),
-            ("administration", "administration", NutritionRequestEnteralFormulaAdministration, True, None, False),
+            ("administration", "administration", NutritionOrderEnteralFormulaAdministration, True, None, False),
             ("administrationInstruction", "administrationInstruction", str, False, None, False),
             ("baseFormulaProductName", "baseFormulaProductName", str, False, None, False),
             ("baseFormulaType", "baseFormulaType", codeableconcept.CodeableConcept, False, None, False),
@@ -169,7 +169,7 @@ class NutritionRequestEnteralFormula(backboneelement.BackboneElement):
         return js
 
 
-class NutritionRequestEnteralFormulaAdministration(backboneelement.BackboneElement):
+class NutritionOrderEnteralFormulaAdministration(backboneelement.BackboneElement):
     """ Formula feeding instruction as structured data.
     
     Formula administration instructions as structured data.  This repeating
@@ -178,7 +178,7 @@ class NutritionRequestEnteralFormulaAdministration(backboneelement.BackboneEleme
     instruction to increase the rate of continuous feeding every 2 hours.
     """
     
-    resource_type = "NutritionRequestEnteralFormulaAdministration"
+    resource_type = "NutritionOrderEnteralFormulaAdministration"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -204,10 +204,10 @@ class NutritionRequestEnteralFormulaAdministration(backboneelement.BackboneEleme
         """ Scheduled frequency of enteral feeding.
         Type `Timing` (represented as `dict` in JSON). """
         
-        super(NutritionRequestEnteralFormulaAdministration, self).__init__(jsondict=jsondict, strict=strict)
+        super(NutritionOrderEnteralFormulaAdministration, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(NutritionRequestEnteralFormulaAdministration, self).elementProperties()
+        js = super(NutritionOrderEnteralFormulaAdministration, self).elementProperties()
         js.extend([
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False),
@@ -217,13 +217,13 @@ class NutritionRequestEnteralFormulaAdministration(backboneelement.BackboneEleme
         return js
 
 
-class NutritionRequestOralDiet(backboneelement.BackboneElement):
+class NutritionOrderOralDiet(backboneelement.BackboneElement):
     """ Oral diet components.
     
     Diet given orally in contrast to enteral (tube) feeding.
     """
     
-    resource_type = "NutritionRequestOralDiet"
+    resource_type = "NutritionOrderOralDiet"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -244,7 +244,7 @@ class NutritionRequestOralDiet(backboneelement.BackboneElement):
         
         self.nutrient = None
         """ Required  nutrient modifications.
-        List of `NutritionRequestOralDietNutrient` items (represented as `dict` in JSON). """
+        List of `NutritionOrderOralDietNutrient` items (represented as `dict` in JSON). """
         
         self.schedule = None
         """ Scheduled frequency of diet.
@@ -252,36 +252,36 @@ class NutritionRequestOralDiet(backboneelement.BackboneElement):
         
         self.texture = None
         """ Required  texture modifications.
-        List of `NutritionRequestOralDietTexture` items (represented as `dict` in JSON). """
+        List of `NutritionOrderOralDietTexture` items (represented as `dict` in JSON). """
         
         self.type = None
         """ Type of oral diet or diet restrictions that describe what can be
         consumed orally.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        super(NutritionRequestOralDiet, self).__init__(jsondict=jsondict, strict=strict)
+        super(NutritionOrderOralDiet, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(NutritionRequestOralDiet, self).elementProperties()
+        js = super(NutritionOrderOralDiet, self).elementProperties()
         js.extend([
             ("fluidConsistencyType", "fluidConsistencyType", codeableconcept.CodeableConcept, True, None, False),
             ("instruction", "instruction", str, False, None, False),
-            ("nutrient", "nutrient", NutritionRequestOralDietNutrient, True, None, False),
+            ("nutrient", "nutrient", NutritionOrderOralDietNutrient, True, None, False),
             ("schedule", "schedule", timing.Timing, True, None, False),
-            ("texture", "texture", NutritionRequestOralDietTexture, True, None, False),
+            ("texture", "texture", NutritionOrderOralDietTexture, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
 
-class NutritionRequestOralDietNutrient(backboneelement.BackboneElement):
+class NutritionOrderOralDietNutrient(backboneelement.BackboneElement):
     """ Required  nutrient modifications.
     
     Class that defines the quantity and type of nutrient modifications (for
     example carbohydrate, fiber or sodium) required for the oral diet.
     """
     
-    resource_type = "NutritionRequestOralDietNutrient"
+    resource_type = "NutritionOrderOralDietNutrient"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -299,10 +299,10 @@ class NutritionRequestOralDietNutrient(backboneelement.BackboneElement):
         """ Type of nutrient that is being modified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(NutritionRequestOralDietNutrient, self).__init__(jsondict=jsondict, strict=strict)
+        super(NutritionOrderOralDietNutrient, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(NutritionRequestOralDietNutrient, self).elementProperties()
+        js = super(NutritionOrderOralDietNutrient, self).elementProperties()
         js.extend([
             ("amount", "amount", quantity.Quantity, False, None, False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, False, None, False),
@@ -310,14 +310,14 @@ class NutritionRequestOralDietNutrient(backboneelement.BackboneElement):
         return js
 
 
-class NutritionRequestOralDietTexture(backboneelement.BackboneElement):
+class NutritionOrderOralDietTexture(backboneelement.BackboneElement):
     """ Required  texture modifications.
     
     Class that describes any texture modifications required for the patient to
     safely consume various types of solid foods.
     """
     
-    resource_type = "NutritionRequestOralDietTexture"
+    resource_type = "NutritionOrderOralDietTexture"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -336,10 +336,10 @@ class NutritionRequestOralDietTexture(backboneelement.BackboneElement):
         """ Code to indicate how to alter the texture of the foods, e.g. pureed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(NutritionRequestOralDietTexture, self).__init__(jsondict=jsondict, strict=strict)
+        super(NutritionOrderOralDietTexture, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(NutritionRequestOralDietTexture, self).elementProperties()
+        js = super(NutritionOrderOralDietTexture, self).elementProperties()
         js.extend([
             ("foodType", "foodType", codeableconcept.CodeableConcept, False, None, False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, False, None, False),
@@ -347,14 +347,14 @@ class NutritionRequestOralDietTexture(backboneelement.BackboneElement):
         return js
 
 
-class NutritionRequestSupplement(backboneelement.BackboneElement):
+class NutritionOrderSupplement(backboneelement.BackboneElement):
     """ Supplement components.
     
     Oral nutritional products given in order to add further nutritional value
     to the patient's diet.
     """
     
-    resource_type = "NutritionRequestSupplement"
+    resource_type = "NutritionOrderSupplement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -384,10 +384,10 @@ class NutritionRequestSupplement(backboneelement.BackboneElement):
         """ Type of supplement product requested.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(NutritionRequestSupplement, self).__init__(jsondict=jsondict, strict=strict)
+        super(NutritionOrderSupplement, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(NutritionRequestSupplement, self).elementProperties()
+        js = super(NutritionOrderSupplement, self).elementProperties()
         js.extend([
             ("instruction", "instruction", str, False, None, False),
             ("productName", "productName", str, False, None, False),

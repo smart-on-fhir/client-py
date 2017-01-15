@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -94,13 +94,13 @@ class SpecimenTests(unittest.TestCase):
         self.assertEqual(inst.container[0].specimenQuantity.value, 10)
         self.assertEqual(inst.container[0].type.text, "Non-sterile specimen container")
         self.assertEqual(inst.id, "vma-urine")
+        self.assertEqual(inst.processing[0].description, "Acidify to pH < 3.0 with 6 N HCl.")
+        self.assertEqual(inst.processing[0].procedure.coding[0].code, "ACID")
+        self.assertEqual(inst.processing[0].procedure.coding[0].system, "http://hl7.org/fhir/v2/0373")
         self.assertEqual(inst.receivedTime.date, FHIRDate("2015-08-18T07:03:00Z").date)
         self.assertEqual(inst.receivedTime.as_json(), "2015-08-18T07:03:00Z")
         self.assertEqual(inst.status, "available")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.treatment[0].description, "Acidify to pH < 3.0 with 6 N HCl.")
-        self.assertEqual(inst.treatment[0].procedure.coding[0].code, "ACID")
-        self.assertEqual(inst.treatment[0].procedure.coding[0].system, "http://hl7.org/fhir/v2/0373")
         self.assertEqual(inst.type.coding[0].code, "RANDU")
         self.assertEqual(inst.type.coding[0].display, "Urine, Random")
         self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/v2/0487")

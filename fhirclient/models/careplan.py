@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -158,7 +158,7 @@ class CarePlanActivity(backboneelement.BackboneElement):
         
         self.reference = None
         """ Activity details defined in specific resource.
-        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticRequest, MedicationRequest, NutritionRequest, ProcedureRequest, ProcessRequest, ReferralRequest, VisionPrescription` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceRequest, DiagnosticRequest, MedicationRequest, NutritionOrder, ProcedureRequest, ProcessRequest, ReferralRequest, VisionPrescription` (represented as `dict` in JSON). """
         
         super(CarePlanActivity, self).__init__(jsondict=jsondict, strict=strict)
     

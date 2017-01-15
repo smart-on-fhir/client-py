@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Sequence) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Sequence) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -84,7 +84,7 @@ class Sequence(domainresource.DomainResource):
         List of `SequenceStructureVariant` items (represented as `dict` in JSON). """
         
         self.type = None
-        """ AA | DNA | RNA.
+        """ aa | dna | rna.
         Type `str`. """
         
         self.variant = None
@@ -190,7 +190,7 @@ class SequenceQuality(backboneelement.BackboneElement):
         Type `float`. """
         
         self.type = None
-        """ INDEL | SNP | UNKNOWN.
+        """ indel | snp | unknown.
         Type `str`. """
         
         super(SequenceQuality, self).__init__(jsondict=jsondict, strict=strict)

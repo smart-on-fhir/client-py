@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -79,6 +79,7 @@ class DiagnosticRequestTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://acme.org/tests")
         self.assertEqual(inst.code.text, "Lipid Panel")
         self.assertEqual(inst.contained[0].id, "fasting")
+        self.assertEqual(inst.contained[1].id, "serum")
         self.assertEqual(inst.id, "lipid")
         self.assertEqual(inst.identifier[0].system, "urn:oid:1.3.4.5.6.7")
         self.assertEqual(inst.identifier[0].type.coding[0].code, "PLAC")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -46,9 +46,17 @@ class MedicationStatement(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.basedOn = None
+        """ Fulfils plan, proposal or order.
+        List of `FHIRReference` items referencing `MedicationRequest, CarePlan, DiagnosticRequest, ProcedureRequest, ReferralRequest` (represented as `dict` in JSON). """
+        
         self.category = None
         """ Type of medication usage.
         Type `str`. """
+        
+        self.context = None
+        """ Encounter / Episode associated with MedicationStatement.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
         self.dateAsserted = None
         """ When the statement was asserted?.
@@ -95,6 +103,10 @@ class MedicationStatement(domainresource.DomainResource):
         """ Further information about the statement.
         List of `Annotation` items (represented as `dict` in JSON). """
         
+        self.partOf = None
+        """ Part of referenced event.
+        List of `FHIRReference` items referencing `MedicationAdministration, MedicationDispense, MedicationStatement, Procedure, Observation` (represented as `dict` in JSON). """
+        
         self.reasonForUseCodeableConcept = None
         """ Reason for why the medication is being/was taken.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
@@ -122,7 +134,9 @@ class MedicationStatement(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicationStatement, self).elementProperties()
         js.extend([
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("category", "category", str, False, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("dateAsserted", "dateAsserted", fhirdate.FHIRDate, False, None, False),
             ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False),
             ("dosage", "dosage", dosageinstruction.DosageInstruction, True, None, False),
@@ -134,6 +148,7 @@ class MedicationStatement(domainresource.DomainResource):
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
             ("notTaken", "notTaken", str, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("reasonForUseCodeableConcept", "reasonForUseCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
             ("reasonForUseReference", "reasonForUseReference", fhirreference.FHIRReference, True, None, False),
             ("reasonNotTaken", "reasonNotTaken", codeableconcept.CodeableConcept, True, None, False),

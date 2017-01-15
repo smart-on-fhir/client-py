@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -47,6 +47,10 @@ class Specimen(domainresource.DomainResource):
         """ Specimen from which this specimen originated.
         List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
         
+        self.processing = None
+        """ Processing and processing step details.
+        List of `SpecimenProcessing` items (represented as `dict` in JSON). """
+        
         self.receivedTime = None
         """ The time when specimen was received for processing.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -64,10 +68,6 @@ class Specimen(domainresource.DomainResource):
         from the environment or a device.
         Type `FHIRReference` referencing `Patient, Group, Device, Substance` (represented as `dict` in JSON). """
         
-        self.treatment = None
-        """ Treatment and processing step details.
-        List of `SpecimenTreatment` items (represented as `dict` in JSON). """
-        
         self.type = None
         """ Kind of material that forms the specimen.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -83,11 +83,11 @@ class Specimen(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("parent", "parent", fhirreference.FHIRReference, True, None, False),
+            ("processing", "processing", SpecimenProcessing, True, None, False),
             ("receivedTime", "receivedTime", fhirdate.FHIRDate, False, None, False),
             ("request", "request", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("treatment", "treatment", SpecimenTreatment, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
@@ -211,13 +211,13 @@ class SpecimenContainer(backboneelement.BackboneElement):
         return js
 
 
-class SpecimenTreatment(backboneelement.BackboneElement):
-    """ Treatment and processing step details.
+class SpecimenProcessing(backboneelement.BackboneElement):
+    """ Processing and processing step details.
     
-    Details concerning treatment and processing steps for the specimen.
+    Details concerning processing and processing steps for the specimen.
     """
     
-    resource_type = "SpecimenTreatment"
+    resource_type = "SpecimenProcessing"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -236,21 +236,21 @@ class SpecimenTreatment(backboneelement.BackboneElement):
         Type `str`. """
         
         self.procedure = None
-        """ Indicates the treatment or processing step  applied to the specimen.
+        """ Indicates the treatment step  applied to the specimen.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.timeDateTime = None
-        """ Date and time of specimen treatment.
+        """ Date and time of specimen processing.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.timePeriod = None
-        """ Date and time of specimen treatment.
+        """ Date and time of specimen processing.
         Type `Period` (represented as `dict` in JSON). """
         
-        super(SpecimenTreatment, self).__init__(jsondict=jsondict, strict=strict)
+        super(SpecimenProcessing, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(SpecimenTreatment, self).elementProperties()
+        js = super(SpecimenProcessing, self).elementProperties()
         js.extend([
             ("additive", "additive", fhirreference.FHIRReference, True, None, False),
             ("description", "description", str, False, None, False),

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Goal) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Goal) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -28,7 +28,7 @@ class Goal(domainresource.DomainResource):
         
         self.addresses = None
         """ Issues addressed by this goal.
-        List of `FHIRReference` items referencing `Condition, Observation, MedicationStatement, NutritionRequest, ProcedureRequest, RiskAssessment` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Condition, Observation, MedicationStatement, NutritionOrder, ProcedureRequest, RiskAssessment` (represented as `dict` in JSON). """
         
         self.category = None
         """ E.g. Treatment, dietary, behavioral, etc..
@@ -84,13 +84,9 @@ class Goal(domainresource.DomainResource):
         """ Who this goal is intended for.
         Type `FHIRReference` referencing `Patient, Group, Organization` (represented as `dict` in JSON). """
         
-        self.targetDate = None
-        """ Reach goal on or before.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.targetDuration = None
-        """ Reach goal on or before.
-        Type `Duration` (represented as `dict` in JSON). """
+        self.target = None
+        """ Target outcome for the goal.
+        Type `GoalTarget` (represented as `dict` in JSON). """
         
         super(Goal, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -111,8 +107,7 @@ class Goal(domainresource.DomainResource):
             ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
             ("statusReason", "statusReason", codeableconcept.CodeableConcept, True, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("targetDate", "targetDate", fhirdate.FHIRDate, False, "target", False),
-            ("targetDuration", "targetDuration", duration.Duration, False, "target", False),
+            ("target", "target", GoalTarget, False, None, False),
         ])
         return js
 
@@ -155,9 +150,66 @@ class GoalOutcome(backboneelement.BackboneElement):
         return js
 
 
+class GoalTarget(backboneelement.BackboneElement):
+    """ Target outcome for the goal.
+    
+    Indicates what should be done by when.
+    """
+    
+    resource_type = "GoalTarget"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.detailCodeableConcept = None
+        """ The target value to be achieved.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.detailQuantity = None
+        """ The target value to be achieved.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.detailRange = None
+        """ The target value to be achieved.
+        Type `Range` (represented as `dict` in JSON). """
+        
+        self.dueDate = None
+        """ Reach goal on or before.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.dueDuration = None
+        """ Reach goal on or before.
+        Type `Duration` (represented as `dict` in JSON). """
+        
+        self.measure = None
+        """ The parameter whose value is being tracked.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(GoalTarget, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(GoalTarget, self).elementProperties()
+        js.extend([
+            ("detailCodeableConcept", "detailCodeableConcept", codeableconcept.CodeableConcept, False, "detail", False),
+            ("detailQuantity", "detailQuantity", quantity.Quantity, False, "detail", False),
+            ("detailRange", "detailRange", range.Range, False, "detail", False),
+            ("dueDate", "dueDate", fhirdate.FHIRDate, False, "due", False),
+            ("dueDuration", "dueDuration", duration.Duration, False, "due", False),
+            ("measure", "measure", codeableconcept.CodeableConcept, False, None, False),
+        ])
+        return js
+
+
 from . import annotation
 from . import codeableconcept
 from . import duration
 from . import fhirdate
 from . import fhirreference
 from . import identifier
+from . import quantity
+from . import range

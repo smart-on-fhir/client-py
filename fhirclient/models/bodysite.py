@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/BodySite) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/BodySite) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -41,13 +41,13 @@ class BodySite(domainresource.DomainResource):
         """ Attached images.
         List of `Attachment` items (represented as `dict` in JSON). """
         
-        self.modifier = None
-        """ Modification to location code.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
         self.patient = None
         """ Patient.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
+        self.qualifier = None
+        """ Modification to location code.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(BodySite, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -58,8 +58,8 @@ class BodySite(domainresource.DomainResource):
             ("description", "description", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("image", "image", attachment.Attachment, True, None, False),
-            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("qualifier", "qualifier", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 

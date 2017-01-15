@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -29,7 +29,7 @@ class PaymentReconciliation(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.detail = None
-        """ Details.
+        """ List of settlements.
         List of `PaymentReconciliationDetail` items (represented as `dict` in JSON). """
         
         self.disposition = None
@@ -44,10 +44,6 @@ class PaymentReconciliation(domainresource.DomainResource):
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.note = None
-        """ Note text.
-        List of `PaymentReconciliationNote` items (represented as `dict` in JSON). """
-        
         self.organization = None
         """ Insurer.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
@@ -59,6 +55,10 @@ class PaymentReconciliation(domainresource.DomainResource):
         self.period = None
         """ Period covered.
         Type `Period` (represented as `dict` in JSON). """
+        
+        self.processNote = None
+        """ Processing comments.
+        List of `PaymentReconciliationProcessNote` items (represented as `dict` in JSON). """
         
         self.request = None
         """ Claim reference.
@@ -90,10 +90,10 @@ class PaymentReconciliation(domainresource.DomainResource):
             ("disposition", "disposition", str, False, None, False),
             ("form", "form", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("note", "note", PaymentReconciliationNote, True, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
             ("period", "period", period.Period, False, None, False),
+            ("processNote", "processNote", PaymentReconciliationProcessNote, True, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
             ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
             ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
@@ -106,7 +106,7 @@ class PaymentReconciliation(domainresource.DomainResource):
 from . import backboneelement
 
 class PaymentReconciliationDetail(backboneelement.BackboneElement):
-    """ Details.
+    """ List of settlements.
     
     List of individual settlement amounts and the corresponding transaction.
     """
@@ -122,7 +122,7 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
         """
         
         self.amount = None
-        """ Detail amount.
+        """ Amount being paid.
         Type `Money` (represented as `dict` in JSON). """
         
         self.date = None
@@ -130,7 +130,7 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.payee = None
-        """ Payee.
+        """ Organization which is receiving the payment.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.request = None
@@ -142,7 +142,7 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.submitter = None
-        """ Submitter.
+        """ Organization which submitted the claim.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.type = None
@@ -165,13 +165,13 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
         return js
 
 
-class PaymentReconciliationNote(backboneelement.BackboneElement):
-    """ Note text.
+class PaymentReconciliationProcessNote(backboneelement.BackboneElement):
+    """ Processing comments.
     
     Suite of notes.
     """
     
-    resource_type = "PaymentReconciliationNote"
+    resource_type = "PaymentReconciliationProcessNote"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -182,17 +182,17 @@ class PaymentReconciliationNote(backboneelement.BackboneElement):
         """
         
         self.text = None
-        """ Notes text.
+        """ Comment on the processing.
         Type `str`. """
         
         self.type = None
         """ display | print | printoper.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(PaymentReconciliationNote, self).__init__(jsondict=jsondict, strict=strict)
+        super(PaymentReconciliationProcessNote, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(PaymentReconciliationNote, self).elementProperties()
+        js = super(PaymentReconciliationProcessNote, self).elementProperties()
         js.extend([
             ("text", "text", str, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),

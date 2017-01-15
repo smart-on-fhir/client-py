@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-01-15.
 #  2017, SMART Health IT.
 
 
@@ -88,7 +88,7 @@ class MedicationDispense(domainresource.DomainResource):
         Type `str`. """
         
         self.substitution = None
-        """ Deals with substitution of one medicine for another.
+        """ Whether a substitution was performed on the dispense.
         Type `MedicationDispenseSubstitution` (represented as `dict` in JSON). """
         
         self.supportingInformation = None
@@ -139,12 +139,13 @@ class MedicationDispense(domainresource.DomainResource):
 from . import backboneelement
 
 class MedicationDispenseSubstitution(backboneelement.BackboneElement):
-    """ Deals with substitution of one medicine for another.
+    """ Whether a substitution was performed on the dispense.
     
     Indicates whether or not substitution was made as part of the dispense.  In
     some cases substitution will be expected but does not happen, in other
     cases substitution is not expected but does happen.  This block explains
-    what substitution did or did not happen and why.
+    what substitution did or did not happen and why.  If nothing is specified,
+    substitution was not done.
     """
     
     resource_type = "MedicationDispenseSubstitution"
@@ -170,6 +171,10 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
         was prescribed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.wasSubstituted = None
+        """ Whether a substitution was or was not performed on the dispense.
+        Type `bool`. """
+        
         super(MedicationDispenseSubstitution, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -177,7 +182,8 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
         js.extend([
             ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("responsibleParty", "responsibleParty", fhirreference.FHIRReference, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("wasSubstituted", "wasSubstituted", bool, False, None, True),
         ])
         return js
 
