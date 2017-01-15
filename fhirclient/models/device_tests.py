@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -104,7 +104,7 @@ class DeviceTests(unittest.TestCase):
         self.implDevice4(inst2)
     
     def implDevice4(self, inst):
-        self.assertEqual(inst.contact[0].system, "other")
+        self.assertEqual(inst.contact[0].system, "url")
         self.assertEqual(inst.contact[0].value, "http://acme.com")
         self.assertEqual(inst.id, "software")
         self.assertEqual(inst.identifier[0].system, "http://acme.com/ehr/client-ids")

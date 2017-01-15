@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -38,7 +38,7 @@ class ClinicalImpressionTests(unittest.TestCase):
         self.assertEqual(inst.finding[0].itemCodeableConcept.coding[0].code, "850.0")
         self.assertEqual(inst.finding[0].itemCodeableConcept.coding[0].system, "http://hl7.org/fhir/sid/icd-9")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.investigations[0].code.text, "Initial Examination")
+        self.assertEqual(inst.investigation[0].code.text, "Initial Examination")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.summary, "provisional diagnoses of laceration of head and traumatic brain injury (TBI)")
         self.assertEqual(inst.text.status, "generated")

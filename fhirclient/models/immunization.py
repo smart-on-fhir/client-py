@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -16,7 +16,7 @@ class Immunization(domainresource.DomainResource):
     protocol was followed.
     """
     
-    resource_name = "Immunization"
+    resource_type = "Immunization"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -74,13 +74,17 @@ class Immunization(domainresource.DomainResource):
         """ Who administered vaccine.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
+        self.primarySource = None
+        """ Indicates context the data was recorded in.
+        Type `bool`. """
+        
         self.reaction = None
         """ Details of a reaction that follows immunization.
         List of `ImmunizationReaction` items (represented as `dict` in JSON). """
         
-        self.reported = None
-        """ Indicates a self-reported record.
-        Type `bool`. """
+        self.reportOrigin = None
+        """ Indicates the source of a secondarily reported record.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.requester = None
         """ Who ordered vaccination.
@@ -95,7 +99,7 @@ class Immunization(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.status = None
-        """ in-progress | on-hold | completed | entered-in-error | stopped.
+        """ completed | entered-in-error.
         Type `str`. """
         
         self.vaccinationProtocol = None
@@ -127,8 +131,9 @@ class Immunization(domainresource.DomainResource):
             ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
+            ("primarySource", "primarySource", bool, False, None, True),
             ("reaction", "reaction", ImmunizationReaction, True, None, False),
-            ("reported", "reported", bool, False, None, True),
+            ("reportOrigin", "reportOrigin", codeableconcept.CodeableConcept, False, None, False),
             ("requester", "requester", fhirreference.FHIRReference, False, None, False),
             ("route", "route", codeableconcept.CodeableConcept, False, None, False),
             ("site", "site", codeableconcept.CodeableConcept, False, None, False),
@@ -148,7 +153,7 @@ class ImmunizationExplanation(backboneelement.BackboneElement):
     Reasons why a vaccine was or was not administered.
     """
     
-    resource_name = "ImmunizationExplanation"
+    resource_type = "ImmunizationExplanation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -184,7 +189,7 @@ class ImmunizationReaction(backboneelement.BackboneElement):
     an immunization.
     """
     
-    resource_name = "ImmunizationReaction"
+    resource_type = "ImmunizationReaction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -225,7 +230,7 @@ class ImmunizationVaccinationProtocol(backboneelement.BackboneElement):
     administered.
     """
     
-    resource_name = "ImmunizationVaccinationProtocol"
+    resource_type = "ImmunizationVaccinationProtocol"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

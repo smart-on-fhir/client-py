@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/PractitionerRole) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/PractitionerRole) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class PractitionerRole(domainresource.DomainResource):
     may perform at an organization for a period of time.
     """
     
-    resource_name = "PractitionerRole"
+    resource_type = "PractitionerRole"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -115,7 +115,7 @@ class PractitionerRoleAvailableTime(backboneelement.BackboneElement):
     A collection of times that the Service Site is available.
     """
     
-    resource_name = "PractitionerRoleAvailableTime"
+    resource_type = "PractitionerRoleAvailableTime"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -161,7 +161,7 @@ class PractitionerRoleNotAvailable(backboneelement.BackboneElement):
     the provided reason.
     """
     
-    resource_name = "PractitionerRoleNotAvailable"
+    resource_type = "PractitionerRoleNotAvailable"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

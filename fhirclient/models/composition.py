@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Composition) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Composition) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -20,7 +20,7 @@ class Composition(domainresource.DomainResource):
     the first resource contained.
     """
     
-    resource_name = "Composition"
+    resource_type = "Composition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -117,7 +117,7 @@ class CompositionAttester(backboneelement.BackboneElement):
     A participant who has attested to the accuracy of the composition/document.
     """
     
-    resource_name = "CompositionAttester"
+    resource_type = "CompositionAttester"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -158,7 +158,7 @@ class CompositionEvent(backboneelement.BackboneElement):
     documented.
     """
     
-    resource_name = "CompositionEvent"
+    resource_type = "CompositionEvent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -198,7 +198,7 @@ class CompositionSection(backboneelement.BackboneElement):
     The root of the sections that make up the composition.
     """
     
-    resource_name = "CompositionSection"
+    resource_type = "CompositionSection"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

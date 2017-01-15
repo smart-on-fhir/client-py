@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/DiagnosticRequest) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DiagnosticRequest) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class DiagnosticRequest(domainresource.DomainResource):
     performed.
     """
     
-    resource_name = "DiagnosticRequest"
+    resource_type = "DiagnosticRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -24,7 +24,7 @@ class DiagnosticRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authored = None
+        self.authoredOn = None
         """ Date request signed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
@@ -47,6 +47,10 @@ class DiagnosticRequest(domainresource.DomainResource):
         self.identifier = None
         """ Identifiers assigned to this order.
         List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.intent = None
+        """ proposal | plan | original-order | reflex-order.
+        Type `str`. """
         
         self.note = None
         """ Comments.
@@ -72,9 +76,17 @@ class DiagnosticRequest(domainresource.DomainResource):
         """ Performer role.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.reason = None
+        self.priority = None
+        """ routine | urgent | asap | stat.
+        Type `str`. """
+        
+        self.reasonCode = None
         """ Explanation/Justification for test.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.reasonReference = None
+        """ Explanation/Justification for test.
+        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
         
         self.relevantHistory = None
         """ Request provenance.
@@ -89,12 +101,8 @@ class DiagnosticRequest(domainresource.DomainResource):
         Type `FHIRReference` referencing `Device, Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.requisition = None
-        """ Identifier of composite request.
+        """ Composite Request ID.
         Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.stage = None
-        """ proposal | plan | original-order | reflex-order.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.status = None
         """ draft | active | suspended | completed | entered-in-error |
@@ -114,25 +122,27 @@ class DiagnosticRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DiagnosticRequest, self).elementProperties()
         js.extend([
-            ("authored", "authored", fhirdate.FHIRDate, False, None, False),
+            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("definition", "definition", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("intent", "intent", str, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("performerType", "performerType", codeableconcept.CodeableConcept, False, None, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
+            ("priority", "priority", str, False, None, False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False),
             ("replaces", "replaces", fhirreference.FHIRReference, True, None, False),
             ("requester", "requester", fhirreference.FHIRReference, False, None, False),
             ("requisition", "requisition", identifier.Identifier, False, None, False),
-            ("stage", "stage", codeableconcept.CodeableConcept, False, None, True),
-            ("status", "status", str, False, None, False),
+            ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
         ])

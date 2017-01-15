@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Library) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Library) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -16,7 +16,7 @@ class Library(domainresource.DomainResource):
     describe a collection of knowledge assets.
     """
     
-    resource_name = "Library"
+    resource_type = "Library"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -36,7 +36,7 @@ class Library(domainresource.DomainResource):
         
         self.content = None
         """ The content of the library.
-        Type `Attachment` (represented as `dict` in JSON). """
+        List of `Attachment` items (represented as `dict` in JSON). """
         
         self.contributor = None
         """ A content contributor.
@@ -138,7 +138,7 @@ class Library(domainresource.DomainResource):
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("content", "content", attachment.Attachment, False, None, True),
+            ("content", "content", attachment.Attachment, True, None, False),
             ("contributor", "contributor", contributor.Contributor, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("dataRequirement", "dataRequirement", datarequirement.DataRequirement, True, None, False),

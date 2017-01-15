@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -32,9 +32,9 @@ class ConceptMapTests(unittest.TestCase):
         self.implConceptMap1(inst2)
     
     def implConceptMap1(self, inst):
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.contact[1].telecom[0].system, "other")
+        self.assertEqual(inst.contact[1].telecom[0].system, "url")
         self.assertEqual(inst.contact[1].telecom[0].value, "http://www.phconnect.org/group/laboratorymessagingcommunityofpractice/forum/attachment/download?id=3649725%3AUploadedFile%3A145786")
         self.assertEqual(inst.date.date, FHIRDate("2013-07-25").date)
         self.assertEqual(inst.date.as_json(), "2013-07-25")
@@ -98,7 +98,7 @@ class ConceptMapTests(unittest.TestCase):
     
     def implConceptMap2(self, inst):
         self.assertEqual(inst.contact[0].name, "FHIR project team (example)")
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.copyright, "Creative Commons 0")
         self.assertEqual(inst.date.date, FHIRDate("2012-06-13").date)

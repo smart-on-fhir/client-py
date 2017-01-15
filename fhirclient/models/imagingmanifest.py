@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ImagingManifest) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ImagingManifest) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -22,7 +22,7 @@ class ImagingManifest(domainresource.DomainResource):
     from that instance (for inclusion in a teaching file); and so on.
     """
     
-    resource_name = "ImagingManifest"
+    resource_type = "ImagingManifest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -85,7 +85,7 @@ class ImagingManifestStudy(backboneelement.BackboneElement):
     selection.
     """
     
-    resource_name = "ImagingManifestStudy"
+    resource_type = "ImagingManifestStudy"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -130,7 +130,7 @@ class ImagingManifestStudyBaseLocation(backboneelement.BackboneElement):
     Methods of accessing  (e.g., retrieving, viewing) the study.
     """
     
-    resource_name = "ImagingManifestStudyBaseLocation"
+    resource_type = "ImagingManifestStudyBaseLocation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -166,7 +166,7 @@ class ImagingManifestStudySeries(backboneelement.BackboneElement):
     selection.
     """
     
-    resource_name = "ImagingManifestStudySeries"
+    resource_type = "ImagingManifestStudySeries"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -206,7 +206,7 @@ class ImagingManifestStudySeriesBaseLocation(backboneelement.BackboneElement):
     Methods of accessing (e.g. retrieving) the series.
     """
     
-    resource_name = "ImagingManifestStudySeriesBaseLocation"
+    resource_type = "ImagingManifestStudySeriesBaseLocation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -241,7 +241,7 @@ class ImagingManifestStudySeriesInstance(backboneelement.BackboneElement):
     Identity and locating information of the selected DICOM SOP instances.
     """
     
-    resource_name = "ImagingManifestStudySeriesInstance"
+    resource_type = "ImagingManifestStudySeriesInstance"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

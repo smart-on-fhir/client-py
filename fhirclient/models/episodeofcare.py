@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -18,7 +18,7 @@ class EpisodeOfCare(domainresource.DomainResource):
     time.
     """
     
-    resource_name = "EpisodeOfCare"
+    resource_type = "EpisodeOfCare"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -108,7 +108,7 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
     requiring processing the history of the resource).
     """
     
-    resource_name = "EpisodeOfCareStatusHistory"
+    resource_type = "EpisodeOfCareStatusHistory"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

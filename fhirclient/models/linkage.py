@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Linkage) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Linkage) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class Linkage(domainresource.DomainResource):
     the same real-world "occurrence".
     """
     
-    resource_name = "Linkage"
+    resource_type = "Linkage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -53,7 +53,7 @@ class LinkageItem(backboneelement.BackboneElement):
     collection of linked items.
     """
     
-    resource_name = "LinkageItem"
+    resource_type = "LinkageItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

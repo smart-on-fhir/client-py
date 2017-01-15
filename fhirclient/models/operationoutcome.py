@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class OperationOutcome(domainresource.DomainResource):
     system action.
     """
     
-    resource_name = "OperationOutcome"
+    resource_type = "OperationOutcome"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -46,7 +46,7 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
     An error, warning or information message that results from a system action.
     """
     
-    resource_name = "OperationOutcomeIssue"
+    resource_type = "OperationOutcomeIssue"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

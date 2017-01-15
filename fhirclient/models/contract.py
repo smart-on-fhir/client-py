@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Contract) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Contract) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class Contract(domainresource.DomainResource):
     exchange of information or other matters.
     """
     
-    resource_name = "Contract"
+    resource_type = "Contract"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -80,6 +80,10 @@ class Contract(domainresource.DomainResource):
         """ Contract Signer.
         List of `ContractSigner` items (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
+        
         self.subType = None
         """ Contract Subtype.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
@@ -123,6 +127,7 @@ class Contract(domainresource.DomainResource):
             ("legal", "legal", ContractLegal, True, None, False),
             ("rule", "rule", ContractRule, True, None, False),
             ("signer", "signer", ContractSigner, True, None, False),
+            ("status", "status", str, False, None, False),
             ("subType", "subType", codeableconcept.CodeableConcept, True, None, False),
             ("subject", "subject", fhirreference.FHIRReference, True, None, False),
             ("term", "term", ContractTerm, True, None, False),
@@ -142,7 +147,7 @@ class ContractAgent(backboneelement.BackboneElement):
     degree of responsibility for the activity taking place.
     """
     
-    resource_name = "ContractAgent"
+    resource_type = "ContractAgent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -183,7 +188,7 @@ class ContractFriendly(backboneelement.BackboneElement):
     implication of the agreement.
     """
     
-    resource_name = "ContractFriendly"
+    resource_type = "ContractFriendly"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -218,7 +223,7 @@ class ContractLegal(backboneelement.BackboneElement):
     List of Legal expressions or representations of this Contract.
     """
     
-    resource_name = "ContractLegal"
+    resource_type = "ContractLegal"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -253,7 +258,7 @@ class ContractRule(backboneelement.BackboneElement):
     List of Computable Policy Rule Language Representations of this Contract.
     """
     
-    resource_name = "ContractRule"
+    resource_type = "ContractRule"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -291,7 +296,7 @@ class ContractSigner(backboneelement.BackboneElement):
     facilitate the execution of the contract such as a notary or witness.
     """
     
-    resource_name = "ContractSigner"
+    resource_type = "ContractSigner"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -332,7 +337,7 @@ class ContractTerm(backboneelement.BackboneElement):
     group, and may contain nested groups.
     """
     
-    resource_name = "ContractTerm"
+    resource_type = "ContractTerm"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -418,7 +423,7 @@ class ContractTermAgent(backboneelement.BackboneElement):
     degree of responsibility for the activity taking place.
     """
     
-    resource_name = "ContractTermAgent"
+    resource_type = "ContractTermAgent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -453,7 +458,7 @@ class ContractTermValuedItem(backboneelement.BackboneElement):
     Contract Provision Valued Item List.
     """
     
-    resource_name = "ContractTermValuedItem"
+    resource_type = "ContractTermValuedItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -523,7 +528,7 @@ class ContractValuedItem(backboneelement.BackboneElement):
     Contract Valued Item List.
     """
     
-    resource_name = "ContractValuedItem"
+    resource_type = "ContractValuedItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

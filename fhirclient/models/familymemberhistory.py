@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
     patient relevant in the context of care for the patient.
     """
     
-    resource_name = "FamilyMemberHistory"
+    resource_type = "FamilyMemberHistory"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -149,7 +149,7 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
     - one per condition.
     """
     
-    resource_name = "FamilyMemberHistoryCondition"
+    resource_type = "FamilyMemberHistoryCondition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

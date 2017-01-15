@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -73,7 +73,7 @@ class PersonTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].type.coding[0].system, "http://hl7.org/fhir/v2/0203")
         self.assertEqual(inst.identifier[0].use, "usual")
         self.assertEqual(inst.identifier[0].value, "12345")
-        self.assertEqual(inst.name[0].family[0], "Chalmers")
+        self.assertEqual(inst.name[0].family, "Chalmers")
         self.assertEqual(inst.name[0].given[0], "Peter")
         self.assertEqual(inst.name[0].given[1], "James")
         self.assertEqual(inst.name[0].use, "official")

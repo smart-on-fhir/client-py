@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -32,7 +32,7 @@ class BundleTests(unittest.TestCase):
         self.implBundle1(inst2)
     
     def implBundle1(self, inst):
-        self.assertEqual(inst.entry[0].fullUrl, "https://example.com/base/MedicationOrder/3123")
+        self.assertEqual(inst.entry[0].fullUrl, "https://example.com/base/MedicationRequest/3123")
         self.assertEqual(inst.entry[0].resource.id, "3123")
         self.assertEqual(inst.entry[0].search.mode, "match")
         self.assertEqual(inst.entry[0].search.score, 1)
@@ -41,9 +41,9 @@ class BundleTests(unittest.TestCase):
         self.assertEqual(inst.entry[1].search.mode, "include")
         self.assertEqual(inst.id, "bundle-example")
         self.assertEqual(inst.link[0].relation, "self")
-        self.assertEqual(inst.link[0].url, "https://example.com/base/MedicationOrder?patient=347&_include=MedicationOrder.medication")
+        self.assertEqual(inst.link[0].url, "https://example.com/base/MedicationRequest?patient=347&_include=MedicationRequest.medication")
         self.assertEqual(inst.link[1].relation, "next")
-        self.assertEqual(inst.link[1].url, "https://example.com/base/MedicationOrder?patient=347&searchId=ff15fd40-ff71-4b48-b366-09c706bed9d0&page=2")
+        self.assertEqual(inst.link[1].url, "https://example.com/base/MedicationRequest?patient=347&searchId=ff15fd40-ff71-4b48-b366-09c706bed9d0&page=2")
         self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2014-08-18T01:43:30Z").date)
         self.assertEqual(inst.meta.lastUpdated.as_json(), "2014-08-18T01:43:30Z")
         self.assertEqual(inst.total, 3)
@@ -141,6 +141,8 @@ class BundleTests(unittest.TestCase):
         self.assertEqual(inst.entry[7].resource.meta.lastUpdated.date, FHIRDate("2013-05-05T16:13:03Z").date)
         self.assertEqual(inst.entry[7].resource.meta.lastUpdated.as_json(), "2013-05-05T16:13:03Z")
         self.assertEqual(inst.id, "father")
+        self.assertEqual(inst.identifier.system, "urn:ietf:rfc:3986")
+        self.assertEqual(inst.identifier.value, "urn:uuid:0c3151bd-1cbf-4d64-b04d-cd9187a4c6e0")
         self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2013-05-28T22:12:21Z").date)
         self.assertEqual(inst.meta.lastUpdated.as_json(), "2013-05-28T22:12:21Z")
         self.assertEqual(inst.signature.contentType, "image/jpg")

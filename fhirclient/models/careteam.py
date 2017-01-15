@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -15,7 +15,7 @@ class CareTeam(domainresource.DomainResource):
     participate in the coordination and delivery of care for a patient.
     """
     
-    resource_name = "CareTeam"
+    resource_type = "CareTeam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -25,13 +25,17 @@ class CareTeam(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.category = None
+        """ Type of team.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.identifier = None
         """ External Ids for this team.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.managingOrganization = None
         """ Organization responsible for the care team.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Organization` (represented as `dict` in JSON). """
         
         self.name = None
         """ Name of the team, such as crisis assessment team.
@@ -53,23 +57,19 @@ class CareTeam(domainresource.DomainResource):
         """ Who care team is for.
         Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
-        self.type = None
-        """ Type of team.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
         super(CareTeam, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CareTeam, self).elementProperties()
         js.extend([
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, True, None, False),
             ("name", "name", str, False, None, False),
             ("participant", "participant", CareTeamParticipant, True, None, False),
             ("period", "period", period.Period, False, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -83,7 +83,7 @@ class CareTeamParticipant(backboneelement.BackboneElement):
     the care team.
     """
     
-    resource_name = "CareTeamParticipant"
+    resource_type = "CareTeamParticipant"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -13,7 +13,7 @@ class DocumentReference(domainresource.DomainResource):
     A reference to a document .
     """
     
-    resource_name = "DocumentReference"
+    resource_type = "DocumentReference"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -126,7 +126,7 @@ class DocumentReferenceContent(backboneelement.BackboneElement):
     repetitions, each with a different format.
     """
     
-    resource_name = "DocumentReferenceContent"
+    resource_type = "DocumentReferenceContent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -161,7 +161,7 @@ class DocumentReferenceContext(backboneelement.BackboneElement):
     The clinical context in which the document was prepared.
     """
     
-    resource_name = "DocumentReferenceContext"
+    resource_type = "DocumentReferenceContext"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -222,7 +222,7 @@ class DocumentReferenceContextRelated(backboneelement.BackboneElement):
     Related identifiers or resources associated with the DocumentReference.
     """
     
-    resource_name = "DocumentReferenceContextRelated"
+    resource_type = "DocumentReferenceContextRelated"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -258,7 +258,7 @@ class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
     already exist.
     """
     
-    resource_name = "DocumentReferenceRelatesTo"
+    resource_type = "DocumentReferenceRelatesTo"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

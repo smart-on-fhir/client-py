@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class PaymentNotice(domainresource.DomainResource):
     rendered, and the request and response resource references.
     """
     
-    resource_name = "PaymentNotice"
+    resource_type = "PaymentNotice"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -36,13 +36,9 @@ class PaymentNotice(domainresource.DomainResource):
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.originalRuleset = None
-        """ Original version.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.paymentStatus = None
         """ Status of the payment.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.provider = None
         """ Responsible practitioner.
@@ -55,10 +51,6 @@ class PaymentNotice(domainresource.DomainResource):
         self.response = None
         """ Response reference.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        self.ruleset = None
-        """ Resource version.
-        Type `Coding` (represented as `dict` in JSON). """
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
@@ -80,20 +72,18 @@ class PaymentNotice(domainresource.DomainResource):
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
-            ("paymentStatus", "paymentStatus", coding.Coding, False, None, True),
+            ("paymentStatus", "paymentStatus", codeableconcept.CodeableConcept, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
             ("response", "response", fhirreference.FHIRReference, False, None, False),
-            ("ruleset", "ruleset", coding.Coding, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", str, False, None, False),
             ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
             ("target", "target", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
-from . import coding
+from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
 from . import identifier

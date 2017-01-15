@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -13,7 +13,7 @@ class ValueSet(domainresource.DomainResource):
     A value set specifies a set of codes drawn from one or more code systems.
     """
     
-    resource_name = "ValueSet"
+    resource_type = "ValueSet"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -138,7 +138,7 @@ class ValueSetCompose(backboneelement.BackboneElement):
     also known as the "Content Logical Definition" (CLD).
     """
     
-    resource_name = "ValueSetCompose"
+    resource_type = "ValueSetCompose"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -152,12 +152,16 @@ class ValueSetCompose(backboneelement.BackboneElement):
         """ Explicitly exclude codes from a code system or other value sets.
         List of `ValueSetComposeInclude` items (represented as `dict` in JSON). """
         
+        self.inactive = None
+        """ Whether inactive codes are in the value set.
+        Type `bool`. """
+        
         self.include = None
         """ Include one or more codes from a code system or other value set(s).
         List of `ValueSetComposeInclude` items (represented as `dict` in JSON). """
         
         self.lockedDate = None
-        """ Fixed date for all referenced code systems and value sets.
+        """ Fixed date for version-less references (transitive).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         super(ValueSetCompose, self).__init__(jsondict=jsondict, strict=strict)
@@ -166,6 +170,7 @@ class ValueSetCompose(backboneelement.BackboneElement):
         js = super(ValueSetCompose, self).elementProperties()
         js.extend([
             ("exclude", "exclude", ValueSetComposeInclude, True, None, False),
+            ("inactive", "inactive", bool, False, None, False),
             ("include", "include", ValueSetComposeInclude, True, None, True),
             ("lockedDate", "lockedDate", fhirdate.FHIRDate, False, None, False),
         ])
@@ -176,7 +181,7 @@ class ValueSetComposeInclude(backboneelement.BackboneElement):
     """ Include one or more codes from a code system or other value set(s).
     """
     
-    resource_name = "ValueSetComposeInclude"
+    resource_type = "ValueSetComposeInclude"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -226,7 +231,7 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
     Specifies a concept to be included or excluded.
     """
     
-    resource_name = "ValueSetComposeIncludeConcept"
+    resource_type = "ValueSetComposeIncludeConcept"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -268,7 +273,7 @@ class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
     purposes, etc.
     """
     
-    resource_name = "ValueSetComposeIncludeConceptDesignation"
+    resource_type = "ValueSetComposeIncludeConceptDesignation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -310,7 +315,7 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
     specified, they SHALL all be true.
     """
     
-    resource_name = "ValueSetComposeIncludeFilter"
+    resource_type = "ValueSetComposeIncludeFilter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -321,7 +326,8 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
         """
         
         self.op = None
-        """ = | is-a | is-not-a | regex | in | not-in | generalizes.
+        """ = | is-a | descendent-of | is-not-a | regex | in | not-in |
+        generalizes | exists.
         Type `str`. """
         
         self.property = None
@@ -352,7 +358,7 @@ class ValueSetExpansion(backboneelement.BackboneElement):
     it has been performed.
     """
     
-    resource_name = "ValueSetExpansion"
+    resource_type = "ValueSetExpansion"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -407,7 +413,7 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
     The codes that are contained in the value set expansion.
     """
     
-    resource_name = "ValueSetExpansionContains"
+    resource_type = "ValueSetExpansionContains"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -437,6 +443,10 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
         """ User display for the concept.
         Type `str`. """
         
+        self.inactive = None
+        """ If concept is inactive in the code system.
+        Type `bool`. """
+        
         self.system = None
         """ System value for the code.
         Type `str`. """
@@ -455,6 +465,7 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
             ("contains", "contains", ValueSetExpansionContains, True, None, False),
             ("designation", "designation", ValueSetComposeIncludeConceptDesignation, True, None, False),
             ("display", "display", str, False, None, False),
+            ("inactive", "inactive", bool, False, None, False),
             ("system", "system", str, False, None, False),
             ("version", "version", str, False, None, False),
         ])
@@ -469,7 +480,7 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
     suitable for a particular purpose, or to pick the correct expansion.
     """
     
-    resource_name = "ValueSetExpansionParameter"
+    resource_type = "ValueSetExpansionParameter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

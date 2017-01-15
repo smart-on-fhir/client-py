@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -15,7 +15,7 @@ class Practitioner(domainresource.DomainResource):
     healthcare.
     """
     
-    resource_name = "Practitioner"
+    resource_type = "Practitioner"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -98,7 +98,7 @@ class PractitionerPractRole(backboneelement.BackboneElement):
     The list of roles/organizations that the practitioner is associated with.
     """
     
-    resource_name = "PractitionerPractRole"
+    resource_type = "PractitionerPractRole"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -169,7 +169,7 @@ class PractitionerQualification(backboneelement.BackboneElement):
     """ Qualifications obtained by training and certification.
     """
     
-    resource_name = "PractitionerQualification"
+    resource_type = "PractitionerQualification"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

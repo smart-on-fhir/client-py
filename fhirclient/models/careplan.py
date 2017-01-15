@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -15,7 +15,7 @@ class CarePlan(domainresource.DomainResource):
     possibly limited to care for a specific condition or set of conditions.
     """
     
-    resource_name = "CarePlan"
+    resource_type = "CarePlan"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -49,6 +49,10 @@ class CarePlan(domainresource.DomainResource):
         """ Created in context of.
         Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
+        self.definition = None
+        """ Protocol or definition.
+        Type `FHIRReference` referencing `PlanDefinition, Questionnaire` (represented as `dict` in JSON). """
+        
         self.description = None
         """ Summary of nature of plan.
         Type `str`. """
@@ -78,7 +82,8 @@ class CarePlan(domainresource.DomainResource):
         List of `CarePlanRelatedPlan` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ proposed | draft | active | completed | cancelled.
+        """ proposed | draft | active | suspended | completed | entered-in-
+        error | cancelled | unknown.
         Type `str`. """
         
         self.subject = None
@@ -100,6 +105,7 @@ class CarePlan(domainresource.DomainResource):
             ("careTeam", "careTeam", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
+            ("definition", "definition", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
             ("goal", "goal", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -108,7 +114,7 @@ class CarePlan(domainresource.DomainResource):
             ("period", "period", period.Period, False, None, False),
             ("relatedPlan", "relatedPlan", CarePlanRelatedPlan, True, None, False),
             ("status", "status", str, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("support", "support", fhirreference.FHIRReference, True, None, False),
         ])
         return js
@@ -124,7 +130,7 @@ class CarePlanActivity(backboneelement.BackboneElement):
     etc.
     """
     
-    resource_name = "CarePlanActivity"
+    resource_type = "CarePlanActivity"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -152,7 +158,7 @@ class CarePlanActivity(backboneelement.BackboneElement):
         
         self.reference = None
         """ Activity details defined in specific resource.
-        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticRequest, MedicationOrder, NutritionRequest, ProcedureRequest, ProcessRequest, ReferralRequest, VisionPrescription` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceUseRequest, DiagnosticRequest, MedicationRequest, NutritionRequest, ProcedureRequest, ProcessRequest, ReferralRequest, VisionPrescription` (represented as `dict` in JSON). """
         
         super(CarePlanActivity, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -176,7 +182,7 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
     as procedure etc.
     """
     
-    resource_name = "CarePlanActivityDetail"
+    resource_type = "CarePlanActivityDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -235,7 +241,7 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.reasonCode = None
-        """ Why activity should be done.
+        """ Why activity should be done or why activity was prohibited.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonReference = None
@@ -256,7 +262,7 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
         
         self.status = None
         """ not-started | scheduled | in-progress | on-hold | completed |
-        cancelled.
+        cancelled | unknown.
         Type `str`. """
         
         self.statusReason = None
@@ -278,14 +284,14 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
             ("performer", "performer", fhirreference.FHIRReference, True, None, False),
             ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
             ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
-            ("prohibited", "prohibited", bool, False, None, True),
+            ("prohibited", "prohibited", bool, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("scheduledPeriod", "scheduledPeriod", period.Period, False, "scheduled", False),
             ("scheduledString", "scheduledString", str, False, "scheduled", False),
             ("scheduledTiming", "scheduledTiming", timing.Timing, False, "scheduled", False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", str, False, None, True),
             ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
@@ -298,7 +304,7 @@ class CarePlanRelatedPlan(backboneelement.BackboneElement):
     plan.
     """
     
-    resource_name = "CarePlanRelatedPlan"
+    resource_type = "CarePlanRelatedPlan"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

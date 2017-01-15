@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Money) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Money) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import quantity
@@ -11,7 +11,7 @@ class Money(quantity.Quantity):
     """ An amount of economic utility in some recognised currency.
     """
     
-    resource_name = "Money"
+    resource_type = "Money"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

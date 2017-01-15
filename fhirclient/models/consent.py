@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Consent) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Consent) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -16,7 +16,7 @@ class Consent(domainresource.DomainResource):
     within a given policy context, for specific purposes and periods of time.
     """
     
-    resource_name = "Consent"
+    resource_type = "Consent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -119,7 +119,7 @@ class ConsentExcept(backboneelement.BackboneElement):
     addition or removal of access permissions.
     """
     
-    resource_name = "ConsentExcept"
+    resource_type = "ConsentExcept"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -190,7 +190,7 @@ class ConsentExceptActor(backboneelement.BackboneElement):
     actors by some property they share (e.g. 'admitting officers').
     """
     
-    resource_name = "ConsentExceptActor"
+    resource_type = "ConsentExceptActor"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -226,7 +226,7 @@ class ConsentExceptData(backboneelement.BackboneElement):
     referenced.
     """
     
-    resource_name = "ConsentExceptData"
+    resource_type = "ConsentExceptData"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

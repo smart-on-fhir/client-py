@@ -1,21 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ActivityGroup) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/RequestGroup) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
 
-class ActivityGroup(domainresource.DomainResource):
-    """ The formal response to a guidance request.
+class RequestGroup(domainresource.DomainResource):
+    """ A group of related requests.
     
-    A guidance response is the formal response to a guidance request, including
-    any output parameters returned by the evaluation, as well as the
-    description of any proposed actions to be taken.
+    A group of related requests that can be used to capture intended activities
+    that have inter-dependencies such as "give this medication after that one".
     """
     
-    resource_name = "ActivityGroup"
+    resource_type = "RequestGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -27,14 +26,14 @@ class ActivityGroup(domainresource.DomainResource):
         
         self.action = None
         """ Proposed actions, if any.
-        List of `ActivityGroupAction` items (represented as `dict` in JSON). """
+        List of `RequestGroupAction` items (represented as `dict` in JSON). """
         
         self.author = None
-        """ Device or practitioner that authored the activity group.
+        """ Device or practitioner that authored the request group.
         Type `FHIRReference` referencing `Device, Practitioner` (represented as `dict` in JSON). """
         
         self.context = None
-        """ Encounter or Episode during which the response was returned.
+        """ Encounter or Episode for the request group.
         Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
         self.identifier = None
@@ -46,27 +45,27 @@ class ActivityGroup(domainresource.DomainResource):
         List of `Annotation` items (represented as `dict` in JSON). """
         
         self.occurrenceDateTime = None
-        """ When the guidance response was processed.
+        """ When the request group was authored.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.reasonCodeableConcept = None
-        """ Reason for the response.
+        """ Reason for the request group.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.reasonReference = None
-        """ Reason for the response.
+        """ Reason for the request group.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.subject = None
-        """ Patient the request was performed for.
+        """ Subject of the request group.
         Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
-        super(ActivityGroup, self).__init__(jsondict=jsondict, strict=strict)
+        super(RequestGroup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ActivityGroup, self).elementProperties()
+        js = super(RequestGroup, self).elementProperties()
         js.extend([
-            ("action", "action", ActivityGroupAction, True, None, False),
+            ("action", "action", RequestGroupAction, True, None, False),
             ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
@@ -81,13 +80,13 @@ class ActivityGroup(domainresource.DomainResource):
 
 from . import backboneelement
 
-class ActivityGroupAction(backboneelement.BackboneElement):
+class RequestGroupAction(backboneelement.BackboneElement):
     """ Proposed actions, if any.
     
     The actions, if any, produced by the evaluation of the artifact.
     """
     
-    resource_name = "ActivityGroupAction"
+    resource_type = "RequestGroupAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -99,7 +98,7 @@ class ActivityGroupAction(backboneelement.BackboneElement):
         
         self.action = None
         """ Sub action.
-        List of `ActivityGroupAction` items (represented as `dict` in JSON). """
+        List of `RequestGroupAction` items (represented as `dict` in JSON). """
         
         self.actionIdentifier = None
         """ Unique identifier.
@@ -109,9 +108,13 @@ class ActivityGroupAction(backboneelement.BackboneElement):
         """ single | multiple.
         Type `str`. """
         
-        self.concept = None
+        self.code = None
         """ The meaning of the action or its sub-actions.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.condition = None
+        """ Whether or not the action is applicable.
+        List of `RequestGroupActionCondition` items (represented as `dict` in JSON). """
         
         self.description = None
         """ Short description of the action.
@@ -139,7 +142,7 @@ class ActivityGroupAction(backboneelement.BackboneElement):
         
         self.relatedAction = None
         """ Relationship to another action.
-        Type `ActivityGroupActionRelatedAction` (represented as `dict` in JSON). """
+        List of `RequestGroupActionRelatedAction` items (represented as `dict` in JSON). """
         
         self.requiredBehavior = None
         """ must | could | must-unless-documented.
@@ -174,6 +177,10 @@ class ActivityGroupAction(backboneelement.BackboneElement):
         """ When the action should take place.
         Type `Range` (represented as `dict` in JSON). """
         
+        self.timingTiming = None
+        """ When the action should take place.
+        Type `Timing` (represented as `dict` in JSON). """
+        
         self.title = None
         """ User-visible title.
         Type `str`. """
@@ -182,22 +189,23 @@ class ActivityGroupAction(backboneelement.BackboneElement):
         """ create | update | remove | fire-event.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(ActivityGroupAction, self).__init__(jsondict=jsondict, strict=strict)
+        super(RequestGroupAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ActivityGroupAction, self).elementProperties()
+        js = super(RequestGroupAction, self).elementProperties()
         js.extend([
-            ("action", "action", ActivityGroupAction, True, None, False),
+            ("action", "action", RequestGroupAction, True, None, False),
             ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, False),
             ("cardinalityBehavior", "cardinalityBehavior", str, False, None, False),
-            ("concept", "concept", codeableconcept.CodeableConcept, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
+            ("condition", "condition", RequestGroupActionCondition, True, None, False),
             ("description", "description", str, False, None, False),
             ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
             ("groupingBehavior", "groupingBehavior", str, False, None, False),
             ("label", "label", str, False, None, False),
             ("participant", "participant", fhirreference.FHIRReference, True, None, False),
             ("precheckBehavior", "precheckBehavior", str, False, None, False),
-            ("relatedAction", "relatedAction", ActivityGroupActionRelatedAction, False, None, False),
+            ("relatedAction", "relatedAction", RequestGroupActionRelatedAction, True, None, False),
             ("requiredBehavior", "requiredBehavior", str, False, None, False),
             ("resource", "resource", fhirreference.FHIRReference, False, None, False),
             ("selectionBehavior", "selectionBehavior", str, False, None, False),
@@ -206,20 +214,67 @@ class ActivityGroupAction(backboneelement.BackboneElement):
             ("timingDuration", "timingDuration", duration.Duration, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("timingRange", "timingRange", range.Range, False, "timing", False),
+            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
             ("title", "title", str, False, None, False),
             ("type", "type", coding.Coding, False, None, False),
         ])
         return js
 
 
-class ActivityGroupActionRelatedAction(backboneelement.BackboneElement):
+class RequestGroupActionCondition(backboneelement.BackboneElement):
+    """ Whether or not the action is applicable.
+    
+    An expression that describes applicability criteria, or start/stop
+    conditions for the action.
+    """
+    
+    resource_type = "RequestGroupActionCondition"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.description = None
+        """ Natural language description of the condition.
+        Type `str`. """
+        
+        self.expression = None
+        """ Boolean-valued expression.
+        Type `str`. """
+        
+        self.kind = None
+        """ applicability | start | stop.
+        Type `str`. """
+        
+        self.language = None
+        """ Language of the expression.
+        Type `str`. """
+        
+        super(RequestGroupActionCondition, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(RequestGroupActionCondition, self).elementProperties()
+        js.extend([
+            ("description", "description", str, False, None, False),
+            ("expression", "expression", str, False, None, False),
+            ("kind", "kind", str, False, None, True),
+            ("language", "language", str, False, None, False),
+        ])
+        return js
+
+
+class RequestGroupActionRelatedAction(backboneelement.BackboneElement):
     """ Relationship to another action.
     
     A relationship to another action such as "before" or "30-60 minutes after
     start of".
     """
     
-    resource_name = "ActivityGroupActionRelatedAction"
+    resource_type = "RequestGroupActionRelatedAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -233,10 +288,6 @@ class ActivityGroupActionRelatedAction(backboneelement.BackboneElement):
         """ Identifier of the related action.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.anchor = None
-        """ start | end.
-        Type `str`. """
-        
         self.offsetDuration = None
         """ Time offset for the relationship.
         Type `Duration` (represented as `dict` in JSON). """
@@ -246,16 +297,16 @@ class ActivityGroupActionRelatedAction(backboneelement.BackboneElement):
         Type `Range` (represented as `dict` in JSON). """
         
         self.relationship = None
-        """ before | after.
+        """ before-start | before | before-end | concurrent-with-start |
+        concurrent | concurrent-with-end | after-start | after | after-end.
         Type `str`. """
         
-        super(ActivityGroupActionRelatedAction, self).__init__(jsondict=jsondict, strict=strict)
+        super(RequestGroupActionRelatedAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ActivityGroupActionRelatedAction, self).elementProperties()
+        js = super(RequestGroupActionRelatedAction, self).elementProperties()
         js.extend([
             ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, True),
-            ("anchor", "anchor", str, False, None, False),
             ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False),
             ("offsetRange", "offsetRange", range.Range, False, "offset", False),
             ("relationship", "relationship", str, False, None, True),
@@ -273,3 +324,4 @@ from . import identifier
 from . import period
 from . import range
 from . import relatedartifact
+from . import timing

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class CodeSystem(domainresource.DomainResource):
     systems.
     """
     
-    resource_name = "CodeSystem"
+    resource_type = "CodeSystem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -69,7 +69,7 @@ class CodeSystem(domainresource.DomainResource):
         List of `CodeSystemFilter` items (represented as `dict` in JSON). """
         
         self.hierarchyMeaning = None
-        """ grouped-by | subsumes | part-of | classified-with.
+        """ grouped-by | is-a | part-of | classified-with.
         Type `str`. """
         
         self.identifier = None
@@ -169,7 +169,7 @@ class CodeSystemConcept(backboneelement.BackboneElement):
     what the meaning of the hierarchical relationships are.
     """
     
-    resource_name = "CodeSystemConcept"
+    resource_type = "CodeSystemConcept"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -225,7 +225,7 @@ class CodeSystemConceptDesignation(backboneelement.BackboneElement):
     specialized purposes, used for particular purposes, etc.
     """
     
-    resource_name = "CodeSystemConceptDesignation"
+    resource_type = "CodeSystemConceptDesignation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -265,7 +265,7 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
     A property value for this concept.
     """
     
-    resource_name = "CodeSystemConceptProperty"
+    resource_type = "CodeSystemConceptProperty"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -326,7 +326,7 @@ class CodeSystemFilter(backboneelement.BackboneElement):
     concepts using a filter.
     """
     
-    resource_name = "CodeSystemFilter"
+    resource_type = "CodeSystemFilter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -372,7 +372,7 @@ class CodeSystemProperty(backboneelement.BackboneElement):
     can be provided about a concept.
     """
     
-    resource_name = "CodeSystemProperty"
+    resource_type = "CodeSystemProperty"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

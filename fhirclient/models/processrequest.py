@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ProcessRequest) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class ProcessRequest(domainresource.DomainResource):
     for an action to be performed by the target on or about existing resources.
     """
     
-    resource_name = "ProcessRequest"
+    resource_type = "ProcessRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -56,10 +56,6 @@ class ProcessRequest(domainresource.DomainResource):
         """ Responsible organization.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.originalRuleset = None
-        """ Original version.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.period = None
         """ Period.
         Type `Period` (represented as `dict` in JSON). """
@@ -80,10 +76,6 @@ class ProcessRequest(domainresource.DomainResource):
         """ Response reference.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        self.ruleset = None
-        """ Resource version.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.status = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
@@ -97,7 +89,7 @@ class ProcessRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ProcessRequest, self).elementProperties()
         js.extend([
-            ("action", "action", str, False, None, True),
+            ("action", "action", str, False, None, False),
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("exclude", "exclude", str, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -105,14 +97,12 @@ class ProcessRequest(domainresource.DomainResource):
             ("item", "item", ProcessRequestItem, True, None, False),
             ("nullify", "nullify", bool, False, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
             ("reference", "reference", str, False, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
             ("response", "response", fhirreference.FHIRReference, False, None, False),
-            ("ruleset", "ruleset", coding.Coding, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", str, False, None, False),
             ("target", "target", fhirreference.FHIRReference, False, None, False),
         ])
         return js
@@ -127,7 +117,7 @@ class ProcessRequestItem(backboneelement.BackboneElement):
     entire submission is re-adjudicated.
     """
     
-    resource_name = "ProcessRequestItem"
+    resource_type = "ProcessRequestItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -151,7 +141,6 @@ class ProcessRequestItem(backboneelement.BackboneElement):
         return js
 
 
-from . import coding
 from . import fhirdate
 from . import fhirreference
 from . import identifier

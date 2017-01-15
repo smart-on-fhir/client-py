@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/UsageContext) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/UsageContext) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import element
 
 class UsageContext(element.Element):
-    """ Describes the context of use for a knowledge resource.
+    """ Describes the context of use for a conformance or knowledge resource.
     
     Specifies clinical/business/etc metadata that can be used to retrieve,
     index and/or categorize an artifact. This metadata can either be specific
@@ -16,7 +16,7 @@ class UsageContext(element.Element):
     context of care (e.g., venue, care setting, provider of care).
     """
     
-    resource_name = "UsageContext"
+    resource_type = "UsageContext"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

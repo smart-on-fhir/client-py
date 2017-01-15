@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -19,9 +19,11 @@ class MedicationStatement(domainresource.DomainResource):
     the history taking process during a patient visit or stay.   The medication
     information may come from e.g. the patient's memory, from a prescription
     bottle,  or from a list of medications the patient, clinician or other
-    party maintains The primary difference between a medication statement and
-    a medication administration is that the medication administration has
-    complete administration information and is based on actual administration
+    party maintains
+    
+    The primary difference between a medication statement and a medication
+    administration is that the medication administration has complete
+    administration information and is based on actual administration
     information from the person who administered the medication.  A medication
     statement is often, if not always, less specific.  There is no required
     date/time when the medication was administered, in fact we only know that a
@@ -34,7 +36,7 @@ class MedicationStatement(domainresource.DomainResource):
     missing detailed information.
     """
     
-    resource_name = "MedicationStatement"
+    resource_type = "MedicationStatement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -86,24 +88,21 @@ class MedicationStatement(domainresource.DomainResource):
         Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
         
         self.notTaken = None
-        """ Y | N | UNK.
+        """ y | n | unk.
         Type `str`. """
         
         self.note = None
         """ Further information about the statement.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.patient = None
-        """ Who is/was taking  the medication.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.reasonForUseCode = None
+        self.reasonForUseCodeableConcept = None
         """ Reason for why the medication is being/was taken.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonForUseReference = None
-        """ Condition that supports why the medication is being/was taken.
-        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
+        """ Condition or observation that supports why the medication is
+        being/was taken.
+        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
         
         self.reasonNotTaken = None
         """ True if asserting medication was not given.
@@ -113,6 +112,10 @@ class MedicationStatement(domainresource.DomainResource):
         """ active | completed | entered-in-error | intended | stopped | on-
         hold.
         Type `str`. """
+        
+        self.subject = None
+        """ Who is/was taking  the medication.
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         super(MedicationStatement, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -131,11 +134,11 @@ class MedicationStatement(domainresource.DomainResource):
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
             ("notTaken", "notTaken", str, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("reasonForUseCode", "reasonForUseCode", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonForUseCodeableConcept", "reasonForUseCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
             ("reasonForUseReference", "reasonForUseReference", fhirreference.FHIRReference, True, None, False),
             ("reasonNotTaken", "reasonNotTaken", codeableconcept.CodeableConcept, True, None, False),
             ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

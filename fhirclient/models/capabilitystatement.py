@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -15,7 +15,7 @@ class CapabilityStatement(domainresource.DomainResource):
     or a statement of required or desired server implementation.
     """
     
-    resource_name = "CapabilityStatement"
+    resource_type = "CapabilityStatement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -65,8 +65,12 @@ class CapabilityStatement(domainresource.DomainResource):
         """ If this describes a specific instance.
         Type `CapabilityStatementImplementation` (represented as `dict` in JSON). """
         
+        self.implementationGuide = None
+        """ Implementation Guide supported.
+        List of `str` items. """
+        
         self.instantiates = None
-        """ Canonical URL of service implemented/used by software.
+        """ Canonical URL of another capability statement this implements.
         List of `str` items. """
         
         self.jurisdiction = None
@@ -84,6 +88,10 @@ class CapabilityStatement(domainresource.DomainResource):
         self.name = None
         """ Name for this capability statement (Computer friendly).
         Type `str`. """
+        
+        self.patchFormat = None
+        """ Patch formats supported.
+        List of `str` items. """
         
         self.profile = None
         """ Profiles for use cases supported.
@@ -141,11 +149,13 @@ class CapabilityStatement(domainresource.DomainResource):
             ("fhirVersion", "fhirVersion", str, False, None, True),
             ("format", "format", str, True, None, True),
             ("implementation", "implementation", CapabilityStatementImplementation, False, None, False),
+            ("implementationGuide", "implementationGuide", str, True, None, False),
             ("instantiates", "instantiates", str, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("kind", "kind", str, False, None, True),
             ("messaging", "messaging", CapabilityStatementMessaging, True, None, False),
             ("name", "name", str, False, None, False),
+            ("patchFormat", "patchFormat", str, True, None, False),
             ("profile", "profile", fhirreference.FHIRReference, True, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
@@ -168,7 +178,7 @@ class CapabilityStatementDocument(backboneelement.BackboneElement):
     A document definition.
     """
     
-    resource_name = "CapabilityStatementDocument"
+    resource_type = "CapabilityStatementDocument"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -210,7 +220,7 @@ class CapabilityStatementImplementation(backboneelement.BackboneElement):
     capabilities of a software program.
     """
     
-    resource_name = "CapabilityStatementImplementation"
+    resource_type = "CapabilityStatementImplementation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -245,7 +255,7 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
     A description of the messaging capabilities of the solution.
     """
     
-    resource_name = "CapabilityStatementMessaging"
+    resource_type = "CapabilityStatementMessaging"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -291,7 +301,7 @@ class CapabilityStatementMessagingEndpoint(backboneelement.BackboneElement):
     are to be sent.
     """
     
-    resource_name = "CapabilityStatementMessagingEndpoint"
+    resource_type = "CapabilityStatementMessagingEndpoint"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -326,7 +336,7 @@ class CapabilityStatementMessagingEvent(backboneelement.BackboneElement):
     A description of the solution's support for an event at this end-point.
     """
     
-    resource_name = "CapabilityStatementMessagingEvent"
+    resource_type = "CapabilityStatementMessagingEvent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -386,7 +396,7 @@ class CapabilityStatementRest(backboneelement.BackboneElement):
     A definition of the restful capabilities of the solution, if any.
     """
     
-    resource_name = "CapabilityStatementRest"
+    resource_type = "CapabilityStatementRest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -451,7 +461,7 @@ class CapabilityStatementRestInteraction(backboneelement.BackboneElement):
     A specification of restful operations supported by the system.
     """
     
-    resource_name = "CapabilityStatementRestInteraction"
+    resource_type = "CapabilityStatementRestInteraction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -487,7 +497,7 @@ class CapabilityStatementRestOperation(backboneelement.BackboneElement):
     their meaning and type.
     """
     
-    resource_name = "CapabilityStatementRestOperation"
+    resource_type = "CapabilityStatementRestOperation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -523,7 +533,7 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
     resource type.
     """
     
-    resource_name = "CapabilityStatementRestResource"
+    resource_type = "CapabilityStatementRestResource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -624,7 +634,7 @@ class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement
     Identifies a restful operation supported by the solution.
     """
     
-    resource_name = "CapabilityStatementRestResourceInteraction"
+    resource_type = "CapabilityStatementRestResourceInteraction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -635,8 +645,8 @@ class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement
         """
         
         self.code = None
-        """ read | vread | update | delete | history-instance | history-type |
-        create | search-type.
+        """ read | vread | update | patch | delete | history-instance |
+        history-type | create | search-type.
         Type `str`. """
         
         self.documentation = None
@@ -662,7 +672,7 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
     defined for/by the implementation.
     """
     
-    resource_name = "CapabilityStatementRestResourceSearchParam"
+    resource_type = "CapabilityStatementRestResourceSearchParam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -672,10 +682,6 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.chain = None
-        """ Chained names supported.
-        List of `str` items. """
-        
         self.definition = None
         """ Source of definition for parameter.
         Type `str`. """
@@ -684,18 +690,9 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
         """ Server-specific usage.
         Type `str`. """
         
-        self.modifier = None
-        """ missing | exact | contains | not | text | in | not-in | below |
-        above | type.
-        List of `str` items. """
-        
         self.name = None
         """ Name of search parameter.
         Type `str`. """
-        
-        self.target = None
-        """ Types of resource (if a resource reference).
-        List of `str` items. """
         
         self.type = None
         """ number | date | string | token | reference | composite | quantity |
@@ -707,12 +704,9 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
     def elementProperties(self):
         js = super(CapabilityStatementRestResourceSearchParam, self).elementProperties()
         js.extend([
-            ("chain", "chain", str, True, None, False),
             ("definition", "definition", str, False, None, False),
             ("documentation", "documentation", str, False, None, False),
-            ("modifier", "modifier", str, True, None, False),
             ("name", "name", str, False, None, True),
-            ("target", "target", str, True, None, False),
             ("type", "type", str, False, None, True),
         ])
         return js
@@ -725,7 +719,7 @@ class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
     what a client needs to know.
     """
     
-    resource_name = "CapabilityStatementRestSecurity"
+    resource_type = "CapabilityStatementRestSecurity"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -768,7 +762,7 @@ class CapabilityStatementRestSecurityCertificate(backboneelement.BackboneElement
     """ Certificates associated with security profiles.
     """
     
-    resource_name = "CapabilityStatementRestSecurityCertificate"
+    resource_type = "CapabilityStatementRestSecurityCertificate"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -805,7 +799,7 @@ class CapabilityStatementSoftware(backboneelement.BackboneElement):
     version, independent of an installation.
     """
     
-    resource_name = "CapabilityStatementSoftware"
+    resource_type = "CapabilityStatementSoftware"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

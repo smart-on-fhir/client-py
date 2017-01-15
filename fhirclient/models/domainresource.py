@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/DomainResource) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DomainResource) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import resource
@@ -13,7 +13,7 @@ class DomainResource(resource.Resource):
     A resource that includes narrative, extensions, and contained resources.
     """
     
-    resource_name = "DomainResource"
+    resource_type = "DomainResource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

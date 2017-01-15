@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -15,7 +15,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
     grouping of the underlying questions.
     """
     
-    resource_name = "QuestionnaireResponse"
+    resource_type = "QuestionnaireResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -34,7 +34,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.basedOn = None
-        """ Request fulfilled by this Questionnaire.
+        """ Request fulfilled by this QuestionnaireResponse.
         List of `FHIRReference` items referencing `DiagnosticRequest, ReferralRequest, CarePlan` (represented as `dict` in JSON). """
         
         self.context = None
@@ -62,7 +62,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.status = None
-        """ in-progress | completed | amended.
+        """ in-progress | completed | amended | entered-in-error.
         Type `str`. """
         
         self.subject = None
@@ -97,7 +97,7 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
     Corresponds to a group or question item from the original questionnaire.
     """
     
-    resource_name = "QuestionnaireResponseItem"
+    resource_type = "QuestionnaireResponseItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -111,12 +111,16 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
         """ The response(s) to the question.
         List of `QuestionnaireResponseItemAnswer` items (represented as `dict` in JSON). """
         
+        self.definition = None
+        """ ElementDefinition - details for the item.
+        Type `str`. """
+        
         self.item = None
         """ Nested questionnaire response items.
         List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
         
         self.linkId = None
-        """ Corresponding item within Questionnaire.
+        """ Pointer to specific item from Questionnaire.
         Type `str`. """
         
         self.subject = None
@@ -133,8 +137,9 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
         js = super(QuestionnaireResponseItem, self).elementProperties()
         js.extend([
             ("answer", "answer", QuestionnaireResponseItemAnswer, True, None, False),
+            ("definition", "definition", str, False, None, False),
             ("item", "item", QuestionnaireResponseItem, True, None, False),
-            ("linkId", "linkId", str, False, None, False),
+            ("linkId", "linkId", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("text", "text", str, False, None, False),
         ])
@@ -147,7 +152,7 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
     The respondent's answer(s) to the question.
     """
     
-    resource_name = "QuestionnaireResponseItemAnswer"
+    resource_type = "QuestionnaireResponseItemAnswer"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

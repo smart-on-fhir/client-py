@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -15,7 +15,7 @@ class AuditEvent(domainresource.DomainResource):
     inappropriate usage.
     """
     
-    resource_name = "AuditEvent"
+    resource_type = "AuditEvent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -47,7 +47,7 @@ class AuditEvent(domainresource.DomainResource):
         
         self.purposeOfEvent = None
         """ The purposeOfUse of the event.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.recorded = None
         """ Time when the event occurred on source.
@@ -75,7 +75,7 @@ class AuditEvent(domainresource.DomainResource):
             ("entity", "entity", AuditEventEntity, True, None, False),
             ("outcome", "outcome", str, False, None, False),
             ("outcomeDesc", "outcomeDesc", str, False, None, False),
-            ("purposeOfEvent", "purposeOfEvent", coding.Coding, True, None, False),
+            ("purposeOfEvent", "purposeOfEvent", codeableconcept.CodeableConcept, True, None, False),
             ("recorded", "recorded", fhirdate.FHIRDate, False, None, True),
             ("source", "source", AuditEventSource, False, None, True),
             ("subtype", "subtype", coding.Coding, True, None, False),
@@ -92,7 +92,7 @@ class AuditEventAgent(backboneelement.BackboneElement):
     An actor taking an active role in the event or activity that is logged.
     """
     
-    resource_name = "AuditEventAgent"
+    resource_type = "AuditEventAgent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -128,7 +128,7 @@ class AuditEventAgent(backboneelement.BackboneElement):
         
         self.purposeOfUse = None
         """ Reason given for this user.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reference = None
         """ Direct reference to resource.
@@ -157,7 +157,7 @@ class AuditEventAgent(backboneelement.BackboneElement):
             ("name", "name", str, False, None, False),
             ("network", "network", AuditEventAgentNetwork, False, None, False),
             ("policy", "policy", str, True, None, False),
-            ("purposeOfUse", "purposeOfUse", coding.Coding, True, None, False),
+            ("purposeOfUse", "purposeOfUse", codeableconcept.CodeableConcept, True, None, False),
             ("reference", "reference", fhirreference.FHIRReference, False, None, False),
             ("requestor", "requestor", bool, False, None, True),
             ("role", "role", codeableconcept.CodeableConcept, True, None, False),
@@ -173,7 +173,7 @@ class AuditEventAgentNetwork(backboneelement.BackboneElement):
     network location.
     """
     
-    resource_name = "AuditEventAgentNetwork"
+    resource_type = "AuditEventAgentNetwork"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -208,7 +208,7 @@ class AuditEventEntity(backboneelement.BackboneElement):
     Specific instances of data or objects that have been accessed.
     """
     
-    resource_name = "AuditEventEntity"
+    resource_type = "AuditEventEntity"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -281,7 +281,7 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
     """ Additional Information about the entity.
     """
     
-    resource_name = "AuditEventEntityDetail"
+    resource_type = "AuditEventEntityDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -316,7 +316,7 @@ class AuditEventSource(backboneelement.BackboneElement):
     The system that is reporting the event.
     """
     
-    resource_name = "AuditEventSource"
+    resource_type = "AuditEventSource"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

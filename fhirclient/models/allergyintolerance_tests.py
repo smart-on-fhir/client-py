@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -32,9 +32,10 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.implAllergyIntolerance1(inst2)
     
     def implAllergyIntolerance1(self, inst):
-        self.assertEqual(inst.attestedDate.date, FHIRDate("2014-10-09T14:58:00+11:00").date)
-        self.assertEqual(inst.attestedDate.as_json(), "2014-10-09T14:58:00+11:00")
-        self.assertEqual(inst.category, "food")
+        self.assertEqual(inst.assertedDate.date, FHIRDate("2014-10-09T14:58:00+11:00").date)
+        self.assertEqual(inst.assertedDate.as_json(), "2014-10-09T14:58:00+11:00")
+        self.assertEqual(inst.category[0], "food")
+        self.assertEqual(inst.clinicalStatus, "active")
         self.assertEqual(inst.code.coding[0].code, "227493005")
         self.assertEqual(inst.code.coding[0].display, "Cashew nuts")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
@@ -45,8 +46,8 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.assertEqual(inst.lastOccurrence.date, FHIRDate("2012-06").date)
         self.assertEqual(inst.lastOccurrence.as_json(), "2012-06")
         self.assertEqual(inst.note[0].text, "The criticality is high becasue of the observed anaphylactic reaction when challenged with cashew extract.")
-        self.assertEqual(inst.onset.date, FHIRDate("2004").date)
-        self.assertEqual(inst.onset.as_json(), "2004")
+        self.assertEqual(inst.onsetDateTime.date, FHIRDate("2004").date)
+        self.assertEqual(inst.onsetDateTime.as_json(), "2004")
         self.assertEqual(inst.reaction[0].certainty, "confirmed")
         self.assertEqual(inst.reaction[0].description, "Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered")
         self.assertEqual(inst.reaction[0].exposureRoute.coding[0].code, "34206005")
@@ -69,7 +70,7 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.assertEqual(inst.reaction[1].onset.date, FHIRDate("2004").date)
         self.assertEqual(inst.reaction[1].onset.as_json(), "2004")
         self.assertEqual(inst.reaction[1].severity, "moderate")
-        self.assertEqual(inst.status, "active-confirmed")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "allergy")
+        self.assertEqual(inst.verificationStatus, "confirmed")
 

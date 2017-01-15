@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -155,7 +155,7 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].address.line[0], "Walvisbaai 3")
         self.assertEqual(inst.contact[0].address.line[1], "Gebouw 2")
         self.assertEqual(inst.contact[0].address.postalCode, "2333ZA")
-        self.assertEqual(inst.contact[0].name.family[0], "Brand")
+        self.assertEqual(inst.contact[0].name.family, "Brand")
         self.assertEqual(inst.contact[0].name.given[0], "Ronald")
         self.assertEqual(inst.contact[0].name.prefix[0], "Prof.Dr.")
         self.assertEqual(inst.contact[0].name.text, "Professor Brand")

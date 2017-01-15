@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -15,7 +15,7 @@ class Procedure(domainresource.DomainResource):
     hypnotherapy.
     """
     
-    resource_name = "Procedure"
+    resource_type = "Procedure"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -110,7 +110,7 @@ class Procedure(domainresource.DomainResource):
         Type `FHIRReference` referencing `CarePlan, DiagnosticRequest, ProcedureRequest, ReferralRequest` (represented as `dict` in JSON). """
         
         self.status = None
-        """ in-progress | aborted | completed | entered-in-error.
+        """ in-progress | aborted | completed | entered-in-error | unknown.
         Type `str`. """
         
         self.subject = None
@@ -169,7 +169,7 @@ class ProcedureFocalDevice(backboneelement.BackboneElement):
     a focal portion of the Procedure.
     """
     
-    resource_name = "ProcedureFocalDevice"
+    resource_type = "ProcedureFocalDevice"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -204,7 +204,7 @@ class ProcedurePerformer(backboneelement.BackboneElement):
     Limited to 'real' people rather than equipment.
     """
     
-    resource_name = "ProcedurePerformer"
+    resource_type = "ProcedurePerformer"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

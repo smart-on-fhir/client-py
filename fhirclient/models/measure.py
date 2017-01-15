@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Measure) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Measure) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -13,7 +13,7 @@ class Measure(domainresource.DomainResource):
     The Measure resource provides the definition of a quality measure.
     """
     
-    resource_name = "Measure"
+    resource_type = "Measure"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -29,6 +29,10 @@ class Measure(domainresource.DomainResource):
         
         self.clinicalRecommendationStatement = None
         """ Clinical recommendation.
+        Type `str`. """
+        
+        self.compositeScoring = None
+        """ opportunity | all-or-nothing | linear | weighted.
         Type `str`. """
         
         self.contact = None
@@ -149,7 +153,8 @@ class Measure(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.type = None
-        """ process | outcome.
+        """ process | outcome | structure | patient-reported-outcome |
+        composite.
         List of `str` items. """
         
         self.url = None
@@ -175,6 +180,7 @@ class Measure(domainresource.DomainResource):
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
             ("clinicalRecommendationStatement", "clinicalRecommendationStatement", str, False, None, False),
+            ("compositeScoring", "compositeScoring", str, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("contributor", "contributor", contributor.Contributor, True, None, False),
             ("copyright", "copyright", str, False, None, False),
@@ -221,7 +227,7 @@ class MeasureGroup(backboneelement.BackboneElement):
     A group of population criteria for the measure.
     """
     
-    resource_name = "MeasureGroup"
+    resource_type = "MeasureGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -271,7 +277,7 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
     A population criteria for the measure.
     """
     
-    resource_name = "MeasureGroupPopulation"
+    resource_type = "MeasureGroupPopulation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -301,7 +307,7 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
         self.type = None
         """ initial-population | numerator | numerator-exclusion | denominator
         | denominator-exclusion | denominator-exception | measure-
-        population | measure-population-exclusion | measure-score.
+        population | measure-population-exclusion | measure-observation.
         Type `str`. """
         
         super(MeasureGroupPopulation, self).__init__(jsondict=jsondict, strict=strict)
@@ -326,7 +332,7 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
     valid FHIR Resource Path.
     """
     
-    resource_name = "MeasureGroupStratifier"
+    resource_type = "MeasureGroupStratifier"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -369,7 +375,7 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
     FHIR Resource Path.
     """
     
-    resource_name = "MeasureSupplementalData"
+    resource_type = "MeasureSupplementalData"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -37,8 +37,7 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.activity.system, "http://hl7.org/fhir/v3/DocumentCompletion")
         self.assertEqual(inst.agent[0].role.code, "verifier")
         self.assertEqual(inst.agent[0].role.system, "http://hl7.org/fhir/provenance-participant-role")
-        self.assertEqual(inst.agent[0].userId.system, "http://acme.com/fhir/users/sso")
-        self.assertEqual(inst.agent[0].userId.value, "hhd")
+        self.assertEqual(inst.agent[0].whoUri, "mailto://hhd@ssa.gov")
         self.assertEqual(inst.id, "signature")
         self.assertEqual(inst.reason[0].code, "TREAT")
         self.assertEqual(inst.reason[0].display, "treatment")
@@ -66,21 +65,14 @@ class ProvenanceTests(unittest.TestCase):
         self.implProvenance2(inst2)
     
     def implProvenance2(self, inst):
-        self.assertEqual(inst.agent[0].relatedAgent[0].target, "#a1")
-        self.assertEqual(inst.agent[0].relatedAgent[0].type.text, "used")
+        self.assertEqual(inst.agent[0].onBehalfOfUri, "#a1")
+        self.assertEqual(inst.agent[0].relatedAgentType.text, "used")
         self.assertEqual(inst.agent[0].role.code, "author")
         self.assertEqual(inst.agent[0].role.system, "http://hl7.org/fhir/provenance-participant-role")
-        self.assertEqual(inst.agent[0].userId.system, "http://acme.com/fhir/users/sso")
-        self.assertEqual(inst.agent[0].userId.value, "hhd")
         self.assertEqual(inst.agent[1].id, "a1")
         self.assertEqual(inst.agent[1].role.code, "DEV")
         self.assertEqual(inst.agent[1].role.system, "http://hl7.org/fhir/v3/ParticipationType")
-        self.assertEqual(inst.entity[0].display, "CDA Document in XDS repository")
-        self.assertEqual(inst.entity[0].reference, "DocumentReference/90f55916-9d15-4b8f-87a9-2d7ade8670c8")
         self.assertEqual(inst.entity[0].role, "source")
-        self.assertEqual(inst.entity[0].type.code, "57133-1")
-        self.assertEqual(inst.entity[0].type.display, "Referral note")
-        self.assertEqual(inst.entity[0].type.system, "http://loinc.org")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.period.start.date, FHIRDate("2015-06-27").date)
         self.assertEqual(inst.period.start.as_json(), "2015-06-27")
@@ -90,6 +82,6 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.reason[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.recorded.date, FHIRDate("2015-06-27T08:39:24+10:00").date)
         self.assertEqual(inst.recorded.as_json(), "2015-06-27T08:39:24+10:00")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from XDS managed CDA Referral received 26-June</div>")
         self.assertEqual(inst.text.status, "generated")
 

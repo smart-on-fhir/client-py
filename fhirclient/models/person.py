@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Person) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Person) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class Person(domainresource.DomainResource):
     specific health-related context.
     """
     
-    resource_name = "Person"
+    resource_type = "Person"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -89,7 +89,7 @@ class PersonLink(backboneelement.BackboneElement):
     """ Link to a resource that concerns the same actual person.
     """
     
-    resource_name = "PersonLink"
+    resource_type = "PersonLink"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Group) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Group) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -16,7 +16,7 @@ class Group(domainresource.DomainResource):
     isn't an Organization.
     """
     
-    resource_name = "Group"
+    resource_type = "Group"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -88,7 +88,7 @@ class GroupCharacteristic(backboneelement.BackboneElement):
     Identifies the traits shared by members of the group.
     """
     
-    resource_name = "GroupCharacteristic"
+    resource_type = "GroupCharacteristic"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -148,7 +148,7 @@ class GroupMember(backboneelement.BackboneElement):
     Identifies the resource instances that are members of the group.
     """
     
-    resource_name = "GroupMember"
+    resource_type = "GroupMember"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

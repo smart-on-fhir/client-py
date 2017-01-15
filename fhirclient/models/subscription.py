@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -17,7 +17,7 @@ class Subscription(domainresource.DomainResource):
     "channel" so that another system is able to take an appropriate action.
     """
     
-    resource_name = "Subscription"
+    resource_type = "Subscription"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -85,7 +85,7 @@ class SubscriptionChannel(backboneelement.BackboneElement):
     the criteria.
     """
     
-    resource_name = "SubscriptionChannel"
+    resource_type = "SubscriptionChannel"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class PaymentReconciliation(domainresource.DomainResource):
     bulk payment.
     """
     
-    resource_name = "PaymentReconciliation"
+    resource_type = "PaymentReconciliation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -38,7 +38,7 @@ class PaymentReconciliation(domainresource.DomainResource):
         
         self.form = None
         """ Printed Form Identifier.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Business Identifier.
@@ -52,13 +52,9 @@ class PaymentReconciliation(domainresource.DomainResource):
         """ Insurer.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.originalRuleset = None
-        """ Original version.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.outcome = None
         """ complete | error | partial.
-        Type `str`. """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.period = None
         """ Period covered.
@@ -76,10 +72,6 @@ class PaymentReconciliation(domainresource.DomainResource):
         """ Responsible practitioner.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.ruleset = None
-        """ Resource version.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.status = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
@@ -96,19 +88,17 @@ class PaymentReconciliation(domainresource.DomainResource):
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("detail", "detail", PaymentReconciliationDetail, True, None, False),
             ("disposition", "disposition", str, False, None, False),
-            ("form", "form", coding.Coding, False, None, False),
+            ("form", "form", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", PaymentReconciliationNote, True, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("originalRuleset", "originalRuleset", coding.Coding, False, None, False),
-            ("outcome", "outcome", str, False, None, False),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
             ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
             ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
-            ("ruleset", "ruleset", coding.Coding, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("total", "total", money.Money, False, None, True),
+            ("status", "status", str, False, None, False),
+            ("total", "total", money.Money, False, None, False),
         ])
         return js
 
@@ -121,7 +111,7 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
     List of individual settlement amounts and the corresponding transaction.
     """
     
-    resource_name = "PaymentReconciliationDetail"
+    resource_type = "PaymentReconciliationDetail"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -157,7 +147,7 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
         
         self.type = None
         """ Type code.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(PaymentReconciliationDetail, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -170,7 +160,7 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
             ("request", "request", fhirreference.FHIRReference, False, None, False),
             ("response", "response", fhirreference.FHIRReference, False, None, False),
             ("submitter", "submitter", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", coding.Coding, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
@@ -181,7 +171,7 @@ class PaymentReconciliationNote(backboneelement.BackboneElement):
     Suite of notes.
     """
     
-    resource_name = "PaymentReconciliationNote"
+    resource_type = "PaymentReconciliationNote"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -197,7 +187,7 @@ class PaymentReconciliationNote(backboneelement.BackboneElement):
         
         self.type = None
         """ display | print | printoper.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(PaymentReconciliationNote, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -205,12 +195,12 @@ class PaymentReconciliationNote(backboneelement.BackboneElement):
         js = super(PaymentReconciliationNote, self).elementProperties()
         js.extend([
             ("text", "text", str, False, None, False),
-            ("type", "type", coding.Coding, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
 
-from . import coding
+from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
 from . import identifier

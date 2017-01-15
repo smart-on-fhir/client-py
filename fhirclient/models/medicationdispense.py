@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -17,7 +17,7 @@ class MedicationDispense(domainresource.DomainResource):
     responding to a medication order.
     """
     
-    resource_name = "MedicationDispense"
+    resource_type = "MedicationDispense"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -29,7 +29,7 @@ class MedicationDispense(domainresource.DomainResource):
         
         self.authorizingPrescription = None
         """ Medication order that authorizes the dispense.
-        List of `FHIRReference` items referencing `MedicationOrder` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `MedicationRequest` (represented as `dict` in JSON). """
         
         self.daysSupply = None
         """ Amount of medication expressed as a timing amount.
@@ -147,7 +147,7 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
     what substitution did or did not happen and why.
     """
     
-    resource_name = "MedicationDispenseSubstitution"
+    resource_type = "MedicationDispenseSubstitution"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

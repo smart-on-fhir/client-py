@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -17,7 +17,7 @@ class PlanDefinition(domainresource.DomainResource):
     such as clinical decision support rules, order sets and protocols.
     """
     
-    resource_name = "PlanDefinition"
+    resource_type = "PlanDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -169,7 +169,7 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
     An action to be taken as part of the plan.
     """
     
-    resource_name = "PlanDefinitionActionDefinition"
+    resource_type = "PlanDefinitionActionDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -195,13 +195,13 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         """ single | multiple.
         Type `str`. """
         
-        self.concept = None
+        self.code = None
         """ The meaning of the action or its sub-actions.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.condition = None
         """ Whether or not the action is applicable.
-        Type `PlanDefinitionActionDefinitionCondition` (represented as `dict` in JSON). """
+        List of `PlanDefinitionActionDefinitionCondition` items (represented as `dict` in JSON). """
         
         self.description = None
         """ Short description of the action.
@@ -219,9 +219,17 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         """ visual-group | logical-group | sentence-group.
         Type `str`. """
         
+        self.input = None
+        """ Input data requirements.
+        List of `DataRequirement` items (represented as `dict` in JSON). """
+        
         self.label = None
         """ User-visible label for the action (e.g. 1. or A.).
         Type `str`. """
+        
+        self.output = None
+        """ Output data definition.
+        List of `DataRequirement` items (represented as `dict` in JSON). """
         
         self.participantType = None
         """ patient | practitioner | related-person.
@@ -293,13 +301,15 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
             ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, False),
             ("activityDefinition", "activityDefinition", fhirreference.FHIRReference, False, None, False),
             ("cardinalityBehavior", "cardinalityBehavior", str, False, None, False),
-            ("concept", "concept", codeableconcept.CodeableConcept, True, None, False),
-            ("condition", "condition", PlanDefinitionActionDefinitionCondition, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
+            ("condition", "condition", PlanDefinitionActionDefinitionCondition, True, None, False),
             ("description", "description", str, False, None, False),
             ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
             ("dynamicValue", "dynamicValue", PlanDefinitionActionDefinitionDynamicValue, True, None, False),
             ("groupingBehavior", "groupingBehavior", str, False, None, False),
+            ("input", "input", datarequirement.DataRequirement, True, None, False),
             ("label", "label", str, False, None, False),
+            ("output", "output", datarequirement.DataRequirement, True, None, False),
             ("participantType", "participantType", str, True, None, False),
             ("precheckBehavior", "precheckBehavior", str, False, None, False),
             ("relatedAction", "relatedAction", PlanDefinitionActionDefinitionRelatedAction, True, None, False),
@@ -322,11 +332,11 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
 class PlanDefinitionActionDefinitionCondition(backboneelement.BackboneElement):
     """ Whether or not the action is applicable.
     
-    An expression specifying whether or not the action is applicable in a given
-    context.
+    An expression that describes applicability criteria, or start/stop
+    conditions for the action.
     """
     
-    resource_name = "PlanDefinitionActionDefinitionCondition"
+    resource_type = "PlanDefinitionActionDefinitionCondition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -344,6 +354,10 @@ class PlanDefinitionActionDefinitionCondition(backboneelement.BackboneElement):
         """ Boolean-valued expression.
         Type `str`. """
         
+        self.kind = None
+        """ applicability | start | stop.
+        Type `str`. """
+        
         self.language = None
         """ Language of the expression.
         Type `str`. """
@@ -355,6 +369,7 @@ class PlanDefinitionActionDefinitionCondition(backboneelement.BackboneElement):
         js.extend([
             ("description", "description", str, False, None, False),
             ("expression", "expression", str, False, None, False),
+            ("kind", "kind", str, False, None, True),
             ("language", "language", str, False, None, False),
         ])
         return js
@@ -370,7 +385,7 @@ class PlanDefinitionActionDefinitionDynamicValue(backboneelement.BackboneElement
     the result.
     """
     
-    resource_name = "PlanDefinitionActionDefinitionDynamicValue"
+    resource_type = "PlanDefinitionActionDefinitionDynamicValue"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -416,7 +431,7 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
     start of".
     """
     
-    resource_name = "PlanDefinitionActionDefinitionRelatedAction"
+    resource_type = "PlanDefinitionActionDefinitionRelatedAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -430,10 +445,6 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
         """ Identifier of the related action.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.anchor = None
-        """ start | end.
-        Type `str`. """
-        
         self.offsetDuration = None
         """ Time offset for the relationship.
         Type `Duration` (represented as `dict` in JSON). """
@@ -443,7 +454,8 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
         Type `Range` (represented as `dict` in JSON). """
         
         self.relationship = None
-        """ before | after | concurrent.
+        """ before-start | before | before-end | concurrent-with-start |
+        concurrent | concurrent-with-end | after-start | after | after-end.
         Type `str`. """
         
         super(PlanDefinitionActionDefinitionRelatedAction, self).__init__(jsondict=jsondict, strict=strict)
@@ -452,7 +464,6 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
         js = super(PlanDefinitionActionDefinitionRelatedAction, self).elementProperties()
         js.extend([
             ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, True),
-            ("anchor", "anchor", str, False, None, False),
             ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False),
             ("offsetRange", "offsetRange", range.Range, False, "offset", False),
             ("relationship", "relationship", str, False, None, True),
@@ -464,6 +475,7 @@ from . import codeableconcept
 from . import coding
 from . import contactdetail
 from . import contributor
+from . import datarequirement
 from . import duration
 from . import fhirdate
 from . import fhirreference

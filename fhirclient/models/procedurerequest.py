@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -13,7 +13,7 @@ class ProcedureRequest(domainresource.DomainResource):
     A request for a procedure to be performed. May be a proposal or an order.
     """
     
-    resource_name = "ProcedureRequest"
+    resource_type = "ProcedureRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -96,6 +96,10 @@ class ProcedureRequest(domainresource.DomainResource):
         """ Who the procedure should be done to.
         Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
+        self.supportingInfo = None
+        """ Extra information to use in performing request.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
         super(ProcedureRequest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -119,6 +123,7 @@ class ProcedureRequest(domainresource.DomainResource):
             ("scheduledTiming", "scheduledTiming", timing.Timing, False, "scheduled", False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 

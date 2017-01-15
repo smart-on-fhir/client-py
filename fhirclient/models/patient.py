@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Patient) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Patient) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class Patient(domainresource.DomainResource):
     animal receiving care or other health-related services.
     """
     
-    resource_name = "Patient"
+    resource_type = "Patient"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -138,7 +138,7 @@ class PatientAnimal(backboneelement.BackboneElement):
     This patient is known to be an animal.
     """
     
-    resource_name = "PatientAnimal"
+    resource_type = "PatientAnimal"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -180,7 +180,7 @@ class PatientCommunication(backboneelement.BackboneElement):
     her health.
     """
     
-    resource_name = "PatientCommunication"
+    resource_type = "PatientCommunication"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -214,7 +214,7 @@ class PatientContact(backboneelement.BackboneElement):
     """ A contact party (e.g. guardian, partner, friend) for the patient.
     """
     
-    resource_name = "PatientContact"
+    resource_type = "PatientContact"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -275,7 +275,7 @@ class PatientLink(backboneelement.BackboneElement):
     Link to another patient resource that concerns the same actual patient.
     """
     
-    resource_name = "PatientLink"
+    resource_type = "PatientLink"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class PlanDefinitionTests(unittest.TestCase):
         return plandefinition.PlanDefinition(js)
     
     def testPlanDefinition1(self):
-        inst = self.instantiate_from("plandefinition-example.json")
+        inst = self.instantiate_from("plandefinition-example-kdn5-simplified.json")
         self.assertIsNotNone(inst, "Must have instantiated a PlanDefinition instance")
         self.implPlanDefinition1(inst)
         
@@ -32,6 +32,85 @@ class PlanDefinitionTests(unittest.TestCase):
         self.implPlanDefinition1(inst2)
     
     def implPlanDefinition1(self, inst):
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].textEquivalent, "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[1].textEquivalent, "CARBOplatin AUC 5 IV over 30 minutes on Day 1")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].actionIdentifier.system, "http://example.org/ordertemplates/KDN5")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].actionIdentifier.value, "cycle-definition-1")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].textEquivalent, "21-day cycle for 6 cycles")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].timingTiming.repeat.count, 6)
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].timingTiming.repeat.duration, 21)
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].timingTiming.repeat.durationUnit, "d")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].groupingBehavior, "sentence-group")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].selectionBehavior, "exactly-one")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].selectionBehavior, "all")
+        self.assertEqual(inst.actionDefinition[0].selectionBehavior, "exactly-one")
+        self.assertEqual(inst.approvalDate.date, FHIRDate("2016-07-27").date)
+        self.assertEqual(inst.approvalDate.as_json(), "2016-07-27")
+        self.assertEqual(inst.contained[0].id, "1111")
+        self.assertEqual(inst.contained[1].id, "2222")
+        self.assertEqual(inst.contributor[0].name, "Lee Surprenant")
+        self.assertEqual(inst.contributor[0].type, "author")
+        self.assertEqual(inst.copyright, "All rights reserved.")
+        self.assertTrue(inst.experimental)
+        self.assertEqual(inst.id, "KDN5")
+        self.assertEqual(inst.identifier[0].system, "http://example.org/ordertemplates")
+        self.assertEqual(inst.identifier[0].value, "KDN5")
+        self.assertEqual(inst.lastReviewDate.date, FHIRDate("2016-07-27").date)
+        self.assertEqual(inst.lastReviewDate.as_json(), "2016-07-27")
+        self.assertEqual(inst.publisher, "National Comprehensive Cancer Network, Inc.")
+        self.assertEqual(inst.relatedArtifact[0].display, "NCCN Guidelines for Kidney Cancer. V.2.2016")
+        self.assertEqual(inst.relatedArtifact[0].type, "derived-from")
+        self.assertEqual(inst.relatedArtifact[0].url, "http://www.example.org/professionals/physician_gls/PDF/kidney.pdf")
+        self.assertEqual(inst.relatedArtifact[1].citation, "Oudard S, et al. J Urol. 2007;177(5):1698-702")
+        self.assertEqual(inst.relatedArtifact[1].type, "citation")
+        self.assertEqual(inst.relatedArtifact[1].url, "http://www.ncbi.nlm.nih.gov/pubmed/17437788")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.status, "additional")
+        self.assertEqual(inst.title, "Gemcitabine/CARBOplatin")
+        self.assertEqual(inst.type.text, "Chemotherapy Order Template")
+        self.assertEqual(inst.useContext[0].code.code, "treamentSetting-or-diseaseStatus")
+        self.assertEqual(inst.useContext[0].code.system, "http://example.org/fhir/CodeSystem/indications")
+        self.assertEqual(inst.useContext[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/usagecontext-group")
+        self.assertEqual(inst.useContext[0].extension[0].valueString, "A")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.text, "Metastatic")
+        self.assertEqual(inst.useContext[1].code.code, "disease-or-histology")
+        self.assertEqual(inst.useContext[1].code.system, "http://example.org/fhir/CodeSystem/indications")
+        self.assertEqual(inst.useContext[1].extension[0].url, "http://hl7.org/fhir/StructureDefinition/usagecontext-group")
+        self.assertEqual(inst.useContext[1].extension[0].valueString, "A")
+        self.assertEqual(inst.useContext[1].valueCodeableConcept.text, "Collecting Duct/Medullary Subtypes")
+        self.assertEqual(inst.useContext[2].code.code, "focus")
+        self.assertEqual(inst.useContext[2].code.system, "http://hl7.org/fhir/usage-context-type")
+        self.assertEqual(inst.useContext[2].extension[0].url, "http://hl7.org/fhir/StructureDefinition/usagecontext-group")
+        self.assertEqual(inst.useContext[2].extension[0].valueString, "A")
+        self.assertEqual(inst.useContext[2].valueCodeableConcept.text, "Kidney Cancer")
+        self.assertEqual(inst.useContext[3].code.code, "treatmentSetting-or-diseaseStatus")
+        self.assertEqual(inst.useContext[3].code.system, "http://example.org/fhir/CodeSystem/indications")
+        self.assertEqual(inst.useContext[3].extension[0].url, "http://hl7.org/fhir/StructureDefinition/usagecontext-group")
+        self.assertEqual(inst.useContext[3].extension[0].valueString, "B")
+        self.assertEqual(inst.useContext[3].valueCodeableConcept.text, "Relapsed")
+        self.assertEqual(inst.useContext[4].code.code, "disease-or-histology")
+        self.assertEqual(inst.useContext[4].code.system, "http://example.org/fhir/CodeSystem/indications")
+        self.assertEqual(inst.useContext[4].extension[0].url, "http://hl7.org/fhir/StructureDefinition/usagecontext-group")
+        self.assertEqual(inst.useContext[4].extension[0].valueString, "B")
+        self.assertEqual(inst.useContext[4].valueCodeableConcept.text, "Collecting Duct/Medullary Subtypes")
+        self.assertEqual(inst.useContext[5].code.code, "focus")
+        self.assertEqual(inst.useContext[5].code.system, "http://hl7.org/fhir/usage-context-type")
+        self.assertEqual(inst.useContext[5].extension[0].url, "http://hl7.org/fhir/StructureDefinition/usagecontext-group")
+        self.assertEqual(inst.useContext[5].extension[0].valueString, "B")
+        self.assertEqual(inst.useContext[5].valueCodeableConcept.text, "Kidney Cancer – Collecting Duct/Medullary Subtypes - Metastatic")
+        self.assertEqual(inst.version, "1")
+    
+    def testPlanDefinition2(self):
+        inst = self.instantiate_from("plandefinition-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a PlanDefinition instance")
+        self.implPlanDefinition2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("PlanDefinition", js["resourceType"])
+        inst2 = plandefinition.PlanDefinition(js)
+        self.implPlanDefinition2(inst2)
+    
+    def implPlanDefinition2(self, inst):
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[0].expression, "Now()")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[0].path, "timing.event")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[1].expression, "Code '261QM0850X' from \"urn:oid:2.16.840.1.113883.11.19462\"")
@@ -153,18 +232,19 @@ class PlanDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.version, "1.0.0")
     
-    def testPlanDefinition2(self):
+    def testPlanDefinition3(self):
         inst = self.instantiate_from("plandefinition-protocol-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a PlanDefinition instance")
-        self.implPlanDefinition2(inst)
+        self.implPlanDefinition3(inst)
         
         js = inst.as_json()
         self.assertEqual("PlanDefinition", js["resourceType"])
         inst2 = plandefinition.PlanDefinition(js)
-        self.implPlanDefinition2(inst2)
+        self.implPlanDefinition3(inst2)
     
-    def implPlanDefinition2(self, inst):
-        self.assertEqual(inst.actionDefinition[0].condition.expression, "Observation of Obesity or BMI Measured in Past 2 Years")
+    def implPlanDefinition3(self, inst):
+        self.assertEqual(inst.actionDefinition[0].condition[0].expression, "Observation of Obesity or BMI Measured in Past 2 Years")
+        self.assertEqual(inst.actionDefinition[0].condition[0].kind, "applicability")
         self.assertEqual(inst.actionDefinition[0].label, "Measure BMI")
         self.assertEqual(inst.actionDefinition[0].title, "Measure, Weight, Height, Waist, Circumference; Calculate BMI")
         self.assertEqual(inst.contained[0].id, "procedure")

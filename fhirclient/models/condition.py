@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Condition) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Condition) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -16,7 +16,7 @@ class Condition(domainresource.DomainResource):
     statement, such as a discharge summary.
     """
     
-    resource_name = "Condition"
+    resource_type = "Condition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -50,9 +50,13 @@ class Condition(domainresource.DomainResource):
         """ If/when in resolution/remission.
         Type `str`. """
         
+        self.assertedDate = None
+        """ Date record was believed accurate.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.asserter = None
         """ Person who asserts this condition.
-        Type `FHIRReference` referencing `Practitioner, Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.bodySite = None
         """ Anatomical location, if relevant.
@@ -63,7 +67,7 @@ class Condition(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.clinicalStatus = None
-        """ active | relapse | remission | resolved.
+        """ active | recurrence | inactive | remission | resolved.
         Type `str`. """
         
         self.code = None
@@ -73,10 +77,6 @@ class Condition(domainresource.DomainResource):
         self.context = None
         """ Encounter when condition first asserted.
         Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
-        
-        self.dateRecorded = None
-        """ When first entered.
-        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.evidence = None
         """ Supporting evidence.
@@ -138,13 +138,13 @@ class Condition(domainresource.DomainResource):
             ("abatementPeriod", "abatementPeriod", period.Period, False, "abatement", False),
             ("abatementRange", "abatementRange", range.Range, False, "abatement", False),
             ("abatementString", "abatementString", str, False, "abatement", False),
+            ("assertedDate", "assertedDate", fhirdate.FHIRDate, False, None, False),
             ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("clinicalStatus", "clinicalStatus", str, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("dateRecorded", "dateRecorded", fhirdate.FHIRDate, False, None, False),
             ("evidence", "evidence", ConditionEvidence, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
@@ -156,7 +156,7 @@ class Condition(domainresource.DomainResource):
             ("severity", "severity", codeableconcept.CodeableConcept, False, None, False),
             ("stage", "stage", ConditionStage, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("verificationStatus", "verificationStatus", str, False, None, True),
+            ("verificationStatus", "verificationStatus", str, False, None, False),
         ])
         return js
 
@@ -170,7 +170,7 @@ class ConditionEvidence(backboneelement.BackboneElement):
     condition is suspected or confirmed.
     """
     
-    resource_name = "ConditionEvidence"
+    resource_type = "ConditionEvidence"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -206,7 +206,7 @@ class ConditionStage(backboneelement.BackboneElement):
     assessments.
     """
     
-    resource_name = "ConditionStage"
+    resource_type = "ConditionStage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

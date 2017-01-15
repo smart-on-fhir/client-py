@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -15,7 +15,7 @@ class TestScript(domainresource.DomainResource):
     specification.
     """
     
-    resource_name = "TestScript"
+    resource_type = "TestScript"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -177,7 +177,7 @@ class TestScriptDestination(backboneelement.BackboneElement):
     destination element.
     """
     
-    resource_name = "TestScriptDestination"
+    resource_type = "TestScriptDestination"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -214,7 +214,7 @@ class TestScriptFixture(backboneelement.BackboneElement):
     for the test script to execute.
     """
     
-    resource_name = "TestScriptFixture"
+    resource_type = "TestScriptFixture"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -256,7 +256,7 @@ class TestScriptMetadata(backboneelement.BackboneElement):
     the FHIR server being tested.
     """
     
-    resource_name = "TestScriptMetadata"
+    resource_type = "TestScriptMetadata"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -294,7 +294,7 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
     FHIR server being tested.
     """
     
-    resource_name = "TestScriptMetadataCapability"
+    resource_type = "TestScriptMetadataCapability"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -354,7 +354,7 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
     A link to the FHIR specification that this test is covering.
     """
     
-    resource_name = "TestScriptMetadataLink"
+    resource_type = "TestScriptMetadataLink"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -390,7 +390,7 @@ class TestScriptOrigin(backboneelement.BackboneElement):
     element.
     """
     
-    resource_name = "TestScriptOrigin"
+    resource_type = "TestScriptOrigin"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -425,7 +425,7 @@ class TestScriptRule(backboneelement.BackboneElement):
     Assert rule to be used in one or more asserts within the test script.
     """
     
-    resource_name = "TestScriptRule"
+    resource_type = "TestScriptRule"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -460,7 +460,7 @@ class TestScriptRuleParam(backboneelement.BackboneElement):
     Each rule template can take one or more parameters for rule evaluation.
     """
     
-    resource_name = "TestScriptRuleParam"
+    resource_type = "TestScriptRuleParam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -496,7 +496,7 @@ class TestScriptRuleset(backboneelement.BackboneElement):
     could reference the group of rules and have them all applied.
     """
     
-    resource_name = "TestScriptRuleset"
+    resource_type = "TestScriptRuleset"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -531,7 +531,7 @@ class TestScriptRulesetRule(backboneelement.BackboneElement):
     The referenced rule within the external ruleset template.
     """
     
-    resource_name = "TestScriptRulesetRule"
+    resource_type = "TestScriptRulesetRule"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -566,7 +566,7 @@ class TestScriptRulesetRuleParam(backboneelement.BackboneElement):
     Each rule template can take one or more parameters for rule evaluation.
     """
     
-    resource_name = "TestScriptRulesetRuleParam"
+    resource_type = "TestScriptRulesetRuleParam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -599,7 +599,7 @@ class TestScriptSetup(backboneelement.BackboneElement):
     """ A series of required setup operations before tests are executed.
     """
     
-    resource_name = "TestScriptSetup"
+    resource_type = "TestScriptSetup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -629,7 +629,7 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
     Action would contain either an operation or an assertion.
     """
     
-    resource_name = "TestScriptSetupAction"
+    resource_type = "TestScriptSetupAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -665,7 +665,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
     under test behaves appropriately.
     """
     
-    resource_name = "TestScriptSetupActionAssert"
+    resource_type = "TestScriptSetupActionAssert"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -721,7 +721,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         
         self.operator = None
         """ equals | notEquals | in | notIn | greaterThan | lessThan | empty |
-        notEmpty | contains | notContains.
+        notEmpty | contains | notContains | eval.
         Type `str`. """
         
         self.path = None
@@ -808,7 +808,7 @@ class TestScriptSetupActionAssertRule(backboneelement.BackboneElement):
     The TestScript.rule this assert will evaluate.
     """
     
-    resource_name = "TestScriptSetupActionAssertRule"
+    resource_type = "TestScriptSetupActionAssertRule"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -843,7 +843,7 @@ class TestScriptSetupActionAssertRuleParam(backboneelement.BackboneElement):
     Each rule template can take one or more parameters for rule evaluation.
     """
     
-    resource_name = "TestScriptSetupActionAssertRuleParam"
+    resource_type = "TestScriptSetupActionAssertRuleParam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -878,7 +878,7 @@ class TestScriptSetupActionAssertRuleset(backboneelement.BackboneElement):
     The TestScript.ruleset this assert will evaluate.
     """
     
-    resource_name = "TestScriptSetupActionAssertRuleset"
+    resource_type = "TestScriptSetupActionAssertRuleset"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -913,7 +913,7 @@ class TestScriptSetupActionAssertRulesetRule(backboneelement.BackboneElement):
     The referenced rule within the external ruleset template.
     """
     
-    resource_name = "TestScriptSetupActionAssertRulesetRule"
+    resource_type = "TestScriptSetupActionAssertRulesetRule"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -948,7 +948,7 @@ class TestScriptSetupActionAssertRulesetRuleParam(backboneelement.BackboneElemen
     Each rule template can take one or more parameters for rule evaluation.
     """
     
-    resource_name = "TestScriptSetupActionAssertRulesetRuleParam"
+    resource_type = "TestScriptSetupActionAssertRulesetRuleParam"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -983,7 +983,7 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
     The operation to perform.
     """
     
-    resource_name = "TestScriptSetupActionOperation"
+    resource_type = "TestScriptSetupActionOperation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1089,7 +1089,7 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
     Header elements would be used to set HTTP headers.
     """
     
-    resource_name = "TestScriptSetupActionOperationRequestHeader"
+    resource_type = "TestScriptSetupActionOperationRequestHeader"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1125,7 +1125,7 @@ class TestScriptTeardown(backboneelement.BackboneElement):
     executed (successfully or otherwise).
     """
     
-    resource_name = "TestScriptTeardown"
+    resource_type = "TestScriptTeardown"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1155,7 +1155,7 @@ class TestScriptTeardownAction(backboneelement.BackboneElement):
     The teardown action will only contain an operation.
     """
     
-    resource_name = "TestScriptTeardownAction"
+    resource_type = "TestScriptTeardownAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1183,7 +1183,7 @@ class TestScriptTest(backboneelement.BackboneElement):
     """ A test in this script.
     """
     
-    resource_name = "TestScriptTest"
+    resource_type = "TestScriptTest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1223,7 +1223,7 @@ class TestScriptTestAction(backboneelement.BackboneElement):
     Action would contain either an operation or an assertion.
     """
     
-    resource_name = "TestScriptTestAction"
+    resource_type = "TestScriptTestAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1259,7 +1259,7 @@ class TestScriptVariable(backboneelement.BackboneElement):
     field value in the response headers.
     """
     
-    resource_name = "TestScriptVariable"
+    resource_type = "TestScriptVariable"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -1273,12 +1273,20 @@ class TestScriptVariable(backboneelement.BackboneElement):
         """ Default, hard-coded, or user-defined value for this variable.
         Type `str`. """
         
+        self.description = None
+        """ Natural language description of the variable.
+        Type `str`. """
+        
         self.expression = None
         """ The fhirpath expression against the fixture body.
         Type `str`. """
         
         self.headerField = None
         """ HTTP header field name for source.
+        Type `str`. """
+        
+        self.hint = None
+        """ Hint help text for default value to enter.
         Type `str`. """
         
         self.name = None
@@ -1299,8 +1307,10 @@ class TestScriptVariable(backboneelement.BackboneElement):
         js = super(TestScriptVariable, self).elementProperties()
         js.extend([
             ("defaultValue", "defaultValue", str, False, None, False),
+            ("description", "description", str, False, None, False),
             ("expression", "expression", str, False, None, False),
             ("headerField", "headerField", str, False, None, False),
+            ("hint", "hint", str, False, None, False),
             ("name", "name", str, False, None, True),
             ("path", "path", str, False, None, False),
             ("sourceId", "sourceId", str, False, None, False),

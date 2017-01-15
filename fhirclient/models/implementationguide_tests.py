@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -34,10 +34,10 @@ class ImplementationGuideTests(unittest.TestCase):
     def implImplementationGuide1(self, inst):
         self.assertEqual(inst.binary[0], "http://h7.org/fhir/fhir.css")
         self.assertEqual(inst.contact[0].name, "ONC")
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://www.healthit.gov")
         self.assertEqual(inst.contact[1].name, "HL7")
-        self.assertEqual(inst.contact[1].telecom[0].system, "other")
+        self.assertEqual(inst.contact[1].telecom[0].system, "url")
         self.assertEqual(inst.contact[1].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.copyright, "Published by ONC under the standard FHIR license (CC0)")
         self.assertEqual(inst.date.date, FHIRDate("2015-01-01").date)

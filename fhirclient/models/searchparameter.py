@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class SearchParameter(domainresource.DomainResource):
     search/filter on a resource.
     """
     
-    resource_name = "SearchParameter"
+    resource_type = "SearchParameter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -25,16 +25,24 @@ class SearchParameter(domainresource.DomainResource):
         """
         
         self.base = None
-        """ The resource type this search parameter applies to.
-        Type `str`. """
+        """ The resource type(s) this search parameter applies to.
+        List of `str` items. """
+        
+        self.chain = None
+        """ Chained names supported.
+        List of `str` items. """
         
         self.code = None
         """ Code used in URL.
         Type `str`. """
         
+        self.comparator = None
+        """ eq | ne | gt | lt | ge | le | sa | eb | ap.
+        List of `str` items. """
+        
         self.component = None
         """ For Composite resources to define the parts.
-        List of `FHIRReference` items referencing `SearchParameter` (represented as `dict` in JSON). """
+        List of `SearchParameterComponent` items (represented as `dict` in JSON). """
         
         self.contact = None
         """ Contact details for the publisher.
@@ -43,6 +51,10 @@ class SearchParameter(domainresource.DomainResource):
         self.date = None
         """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.derivedFrom = None
+        """ Original Definition for the search parameter.
+        Type `str`. """
         
         self.description = None
         """ Natural language description of the search parameter.
@@ -59,6 +71,11 @@ class SearchParameter(domainresource.DomainResource):
         self.jurisdiction = None
         """ Intended jurisdiction for search parameter (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.modifier = None
+        """ missing | exact | contains | not | text | in | not-in | below |
+        above | type.
+        List of `str` items. """
         
         self.name = None
         """ Name for this search parameter (Computer friendly).
@@ -110,15 +127,19 @@ class SearchParameter(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SearchParameter, self).elementProperties()
         js.extend([
-            ("base", "base", str, False, None, True),
+            ("base", "base", str, True, None, True),
+            ("chain", "chain", str, True, None, False),
             ("code", "code", str, False, None, True),
-            ("component", "component", fhirreference.FHIRReference, True, None, False),
+            ("comparator", "comparator", str, True, None, False),
+            ("component", "component", SearchParameterComponent, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("derivedFrom", "derivedFrom", str, False, None, False),
             ("description", "description", str, False, None, True),
             ("experimental", "experimental", bool, False, None, False),
             ("expression", "expression", str, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("modifier", "modifier", str, True, None, False),
             ("name", "name", str, False, None, True),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
@@ -130,6 +151,43 @@ class SearchParameter(domainresource.DomainResource):
             ("version", "version", str, False, None, False),
             ("xpath", "xpath", str, False, None, False),
             ("xpathUsage", "xpathUsage", str, False, None, False),
+        ])
+        return js
+
+
+from . import backboneelement
+
+class SearchParameterComponent(backboneelement.BackboneElement):
+    """ For Composite resources to define the parts.
+    
+    Used to define the parts of a composite search parameter.
+    """
+    
+    resource_type = "SearchParameterComponent"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.definition = None
+        """ Defines how the part works.
+        Type `FHIRReference` referencing `SearchParameter` (represented as `dict` in JSON). """
+        
+        self.expression = None
+        """ Subexpression relative to main expression.
+        Type `str`. """
+        
+        super(SearchParameterComponent, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(SearchParameterComponent, self).elementProperties()
+        js.extend([
+            ("definition", "definition", fhirreference.FHIRReference, False, None, True),
+            ("expression", "expression", str, False, None, True),
         ])
         return js
 

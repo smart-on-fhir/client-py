@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -13,7 +13,7 @@ class Specimen(domainresource.DomainResource):
     A sample to be used for analysis.
     """
     
-    resource_name = "Specimen"
+    resource_type = "Specimen"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -101,7 +101,7 @@ class SpecimenCollection(backboneelement.BackboneElement):
     Details concerning the specimen collection.
     """
     
-    resource_name = "SpecimenCollection"
+    resource_type = "SpecimenCollection"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -157,7 +157,7 @@ class SpecimenContainer(backboneelement.BackboneElement):
     i.e. blood in tube in tray in rack is not addressed here.
     """
     
-    resource_name = "SpecimenContainer"
+    resource_type = "SpecimenContainer"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -217,7 +217,7 @@ class SpecimenTreatment(backboneelement.BackboneElement):
     Details concerning treatment and processing steps for the specimen.
     """
     
-    resource_name = "SpecimenTreatment"
+    resource_type = "SpecimenTreatment"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

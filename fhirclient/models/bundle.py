@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import resource
@@ -13,7 +13,7 @@ class Bundle(resource.Resource):
     A container for a collection of resources.
     """
     
-    resource_name = "Bundle"
+    resource_type = "Bundle"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -26,6 +26,10 @@ class Bundle(resource.Resource):
         self.entry = None
         """ Entry in the bundle - will have a resource, or information.
         List of `BundleEntry` items (represented as `dict` in JSON). """
+        
+        self.identifier = None
+        """ Persistent identifier for the bundle.
+        Type `Identifier` (represented as `dict` in JSON). """
         
         self.link = None
         """ Links related to this Bundle.
@@ -50,6 +54,7 @@ class Bundle(resource.Resource):
         js = super(Bundle, self).elementProperties()
         js.extend([
             ("entry", "entry", BundleEntry, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("link", "link", BundleLink, True, None, False),
             ("signature", "signature", signature.Signature, False, None, False),
             ("total", "total", int, False, None, False),
@@ -67,7 +72,7 @@ class BundleEntry(backboneelement.BackboneElement):
     information about a resource (transactions and history only).
     """
     
-    resource_name = "BundleEntry"
+    resource_type = "BundleEntry"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -123,7 +128,7 @@ class BundleEntryRequest(backboneelement.BackboneElement):
     a transaction.
     """
     
-    resource_name = "BundleEntryRequest"
+    resource_type = "BundleEntryRequest"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -179,7 +184,7 @@ class BundleEntryResponse(backboneelement.BackboneElement):
     a transaction.
     """
     
-    resource_name = "BundleEntryResponse"
+    resource_type = "BundleEntryResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -230,7 +235,7 @@ class BundleEntrySearch(backboneelement.BackboneElement):
     entry.
     """
     
-    resource_name = "BundleEntrySearch"
+    resource_type = "BundleEntrySearch"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -265,7 +270,7 @@ class BundleLink(backboneelement.BackboneElement):
     A series of links that provide context to this bundle.
     """
     
-    resource_name = "BundleLink"
+    resource_type = "BundleLink"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -276,7 +281,8 @@ class BundleLink(backboneelement.BackboneElement):
         """
         
         self.relation = None
-        """ http://www.iana.org/assignments/link-relations/link-relations.xhtml.
+        """ See http://www.iana.org/assignments/link-relations/link-
+        relations.xhtml#link-relations-1.
         Type `str`. """
         
         self.url = None
@@ -295,4 +301,5 @@ class BundleLink(backboneelement.BackboneElement):
 
 
 from . import fhirdate
+from . import identifier
 from . import signature

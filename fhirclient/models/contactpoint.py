@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import element
@@ -14,7 +14,7 @@ class ContactPoint(element.Element):
     organization, including telephone, email, etc.
     """
     
-    resource_name = "ContactPoint"
+    resource_type = "ContactPoint"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -33,7 +33,7 @@ class ContactPoint(element.Element):
         Type `int`. """
         
         self.system = None
-        """ phone | fax | email | pager | other.
+        """ phone | fax | email | pager | url | other.
         Type `str`. """
         
         self.use = None

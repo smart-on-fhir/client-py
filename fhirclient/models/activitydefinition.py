@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -16,7 +16,7 @@ class ActivityDefinition(domainresource.DomainResource):
     context.
     """
     
-    resource_name = "ActivityDefinition"
+    resource_type = "ActivityDefinition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -29,6 +29,10 @@ class ActivityDefinition(domainresource.DomainResource):
         self.approvalDate = None
         """ When activity definition approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.bodySite = None
+        """ What part of body to perform on.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.category = None
         """ communication | device | diagnostic | diet | drug | encounter |
@@ -59,6 +63,10 @@ class ActivityDefinition(domainresource.DomainResource):
         self.description = None
         """ Natural language description of the activity definition.
         Type `str`. """
+        
+        self.dosageInstruction = None
+        """ Detailed dosage instructions.
+        List of `DosageInstruction` items (represented as `dict` in JSON). """
         
         self.dynamicValue = None
         """ Dynamic aspects of the definition.
@@ -170,6 +178,7 @@ class ActivityDefinition(domainresource.DomainResource):
         js = super(ActivityDefinition, self).elementProperties()
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
             ("category", "category", str, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
@@ -177,6 +186,7 @@ class ActivityDefinition(domainresource.DomainResource):
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
+            ("dosageInstruction", "dosageInstruction", dosageinstruction.DosageInstruction, True, None, False),
             ("dynamicValue", "dynamicValue", ActivityDefinitionDynamicValue, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
@@ -219,7 +229,7 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
     intent resource that would contain the result.
     """
     
-    resource_name = "ActivityDefinitionDynamicValue"
+    resource_type = "ActivityDefinitionDynamicValue"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -261,6 +271,7 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
 from . import codeableconcept
 from . import contactdetail
 from . import contributor
+from . import dosageinstruction
 from . import fhirdate
 from . import fhirreference
 from . import identifier

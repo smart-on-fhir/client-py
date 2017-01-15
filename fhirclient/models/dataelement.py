@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DataElement) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class DataElement(domainresource.DomainResource):
     gathered and reported.
     """
     
-    resource_name = "DataElement"
+    resource_type = "DataElement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -123,7 +123,7 @@ class DataElementMapping(backboneelement.BackboneElement):
     which make up the DataElement have some correspondence with.
     """
     
-    resource_name = "DataElementMapping"
+    resource_type = "DataElementMapping"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

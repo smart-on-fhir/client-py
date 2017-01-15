@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/DetectedIssue) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DetectedIssue) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -16,7 +16,7 @@ class DetectedIssue(domainresource.DomainResource):
     etc.
     """
     
-    resource_name = "DetectedIssue"
+    resource_type = "DetectedIssue"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -96,7 +96,7 @@ class DetectedIssueMitigation(backboneelement.BackboneElement):
     that may reduce/eliminate the need for any action.
     """
     
-    resource_name = "DetectedIssueMitigation"
+    resource_type = "DetectedIssueMitigation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

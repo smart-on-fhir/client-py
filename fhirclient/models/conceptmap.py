@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -15,7 +15,7 @@ class ConceptMap(domainresource.DomainResource):
     models.
     """
     
-    resource_name = "ConceptMap"
+    resource_type = "ConceptMap"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -71,7 +71,7 @@ class ConceptMap(domainresource.DomainResource):
         
         self.sourceReference = None
         """ Identifies the source of the concepts which are being mapped.
-        Type `FHIRReference` referencing `ValueSet, StructureDefinition` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
         
         self.sourceUri = None
         """ Identifies the source of the concepts which are being mapped.
@@ -83,7 +83,7 @@ class ConceptMap(domainresource.DomainResource):
         
         self.targetReference = None
         """ Provides context to the mappings.
-        Type `FHIRReference` referencing `ValueSet, StructureDefinition` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
         
         self.targetUri = None
         """ Provides context to the mappings.
@@ -121,11 +121,11 @@ class ConceptMap(domainresource.DomainResource):
             ("name", "name", str, False, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
-            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", True),
-            ("sourceUri", "sourceUri", str, False, "source", True),
+            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", False),
+            ("sourceUri", "sourceUri", str, False, "source", False),
             ("status", "status", str, False, None, True),
-            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", True),
-            ("targetUri", "targetUri", str, False, "target", True),
+            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", False),
+            ("targetUri", "targetUri", str, False, "target", False),
             ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
@@ -142,7 +142,7 @@ class ConceptMapGroup(backboneelement.BackboneElement):
     A group of mappings that all have the same source and target system.
     """
     
-    resource_name = "ConceptMapGroup"
+    resource_type = "ConceptMapGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -193,7 +193,7 @@ class ConceptMapGroupElement(backboneelement.BackboneElement):
     the target.
     """
     
-    resource_name = "ConceptMapGroupElement"
+    resource_type = "ConceptMapGroupElement"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -228,7 +228,7 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
     A concept from the target value set that this concept maps to.
     """
     
-    resource_name = "ConceptMapGroupElementTarget"
+    resource_type = "ConceptMapGroupElementTarget"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -281,7 +281,7 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
     specified value.
     """
     
-    resource_name = "ConceptMapGroupElementTargetDependsOn"
+    resource_type = "ConceptMapGroupElementTargetDependsOn"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

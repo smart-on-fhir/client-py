@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -33,7 +33,7 @@ class NamingSystemTests(unittest.TestCase):
     
     def implNamingSystem1(self, inst):
         self.assertEqual(inst.contact[0].name, "HL7 Australia FHIR Team")
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7-australia.wikispaces.com/FHIR+Australia")
         self.assertEqual(inst.date.date, FHIRDate("2015-08-31").date)
         self.assertEqual(inst.date.as_json(), "2015-08-31")
@@ -96,7 +96,7 @@ class NamingSystemTests(unittest.TestCase):
     
     def implNamingSystem3(self, inst):
         self.assertEqual(inst.contact[0].name, "FHIR project team")
-        self.assertEqual(inst.contact[0].telecom[0].system, "other")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.date.date, FHIRDate("2014-12-13").date)
         self.assertEqual(inst.date.as_json(), "2014-12-13")

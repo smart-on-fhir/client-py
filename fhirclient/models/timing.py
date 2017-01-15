@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Timing) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Timing) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import element
@@ -16,7 +16,7 @@ class Timing(element.Element):
     planning care of various kinds.
     """
     
-    resource_name = "Timing"
+    resource_type = "Timing"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -56,7 +56,7 @@ class TimingRepeat(element.Element):
     A set of rules that describe when the event should occur.
     """
     
-    resource_name = "TimingRepeat"
+    resource_type = "TimingRepeat"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -85,6 +85,10 @@ class TimingRepeat(element.Element):
         self.countMax = None
         """ Maximum number of times to repeat.
         Type `int`. """
+        
+        self.dayOfWeek = None
+        """ mon | tue | wed | thu | fri | sat | sun.
+        List of `str` items. """
         
         self.duration = None
         """ How long when it happens.
@@ -122,6 +126,10 @@ class TimingRepeat(element.Element):
         """ s | min | h | d | wk | mo | a - unit of time (UCUM).
         Type `str`. """
         
+        self.timeOfDay = None
+        """ Time of day for action.
+        List of `FHIRDate` items (represented as `str` in JSON). """
+        
         self.when = None
         """ Regular life events the event is tied to.
         Type `str`. """
@@ -136,6 +144,7 @@ class TimingRepeat(element.Element):
             ("boundsRange", "boundsRange", range.Range, False, "bounds", False),
             ("count", "count", int, False, None, False),
             ("countMax", "countMax", int, False, None, False),
+            ("dayOfWeek", "dayOfWeek", str, True, None, False),
             ("duration", "duration", float, False, None, False),
             ("durationMax", "durationMax", float, False, None, False),
             ("durationUnit", "durationUnit", str, False, None, False),
@@ -145,6 +154,7 @@ class TimingRepeat(element.Element):
             ("period", "period", float, False, None, False),
             ("periodMax", "periodMax", float, False, None, False),
             ("periodUnit", "periodUnit", str, False, None, False),
+            ("timeOfDay", "timeOfDay", fhirdate.FHIRDate, True, None, False),
             ("when", "when", str, False, None, False),
         ])
         return js

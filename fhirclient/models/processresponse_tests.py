@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -38,8 +38,8 @@ class ProcessResponseTests(unittest.TestCase):
         self.assertEqual(inst.id, "SR2500")
         self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/processresponse")
         self.assertEqual(inst.identifier[0].value, "881234")
-        self.assertEqual(inst.outcome.code, "complete")
-        self.assertEqual(inst.outcome.system, "http://hl7.org/fhir/processoutcomecodes")
+        self.assertEqual(inst.outcome.coding[0].code, "complete")
+        self.assertEqual(inst.outcome.coding[0].system, "http://hl7.org/fhir/processoutcomecodes")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the ProcessResponse</div>")
         self.assertEqual(inst.text.status, "generated")

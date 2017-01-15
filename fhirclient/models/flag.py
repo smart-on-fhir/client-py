@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Flag) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Flag) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class Flag(domainresource.DomainResource):
     patient.
     """
     
-    resource_name = "Flag"
+    resource_type = "Flag"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -33,7 +33,7 @@ class Flag(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.code = None
-        """ Message to display to user.
+        """ Coded or textual message to display to user.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.encounter = None

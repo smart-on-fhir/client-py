@@ -10,7 +10,7 @@ from . import fhirabstractbase
 class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
     """ Extends the FHIRAbstractBase with server talking capabilities.
     """
-    resource_name = 'FHIRAbstractResource'
+    resource_type = 'FHIRAbstractResource'
     
     def __init__(self, jsondict=None, strict=True):
         self._server = None
@@ -18,7 +18,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         
         # raise if "resourceType" does not match
         if jsondict is not None and 'resourceType' in jsondict \
-            and jsondict['resourceType'] != self.resource_name:
+            and jsondict['resourceType'] != self.resource_type:
             raise Exception("Attempting to instantiate {} with resource data that defines a resourceType of \"{}\""
                 .format(self.__class__, jsondict['resourceType']))
         
@@ -27,33 +27,35 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
     @classmethod
     def _with_json_dict(cls, jsondict):
         """ Overridden to use a factory if called when "resourceType" is
-        defined in the JSON but does not match the receiver's resource_name.
+        defined in the JSON but does not match the receiver's resource_type.
         """
         if not isinstance(jsondict, dict):
             raise Exception("Cannot use this method with anything but a JSON dictionary, got {}"
                 .format(jsondict))
         
         res_type = jsondict.get('resourceType')
-        if res_type and res_type != cls.resource_name:
+        if res_type and res_type != cls.resource_type:
             return fhirelementfactory.FHIRElementFactory.instantiate(res_type, jsondict)
         return super(FHIRAbstractResource, cls)._with_json_dict(jsondict)
     
     def as_json(self):
         js = super(FHIRAbstractResource, self).as_json()
-        js['resourceType'] = self.resource_name
+        js['resourceType'] = self.resource_type
         return js
     
     
     # MARK: Handling Paths
     
     def relativeBase(self):
-        return self.__class__.resource_name
+        return self.__class__.resource_type
     
     def relativePath(self):
+        if self.id is None:
+            return self.relativeBase()
         return "{}/{}".format(self.relativeBase(), self.id)
     
     
-    # MARK: Server Connection
+    # MARK: - Server Connection
     
     @property
     def server(self):
@@ -77,7 +79,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         if not rem_id:
             raise Exception("Cannot read resource without remote id")
         
-        path = '{}/{}'.format(cls.resource_name, rem_id)
+        path = '{}/{}'.format(cls.resource_type, rem_id)
         instance = cls.read_from(path, server)
         instance._local_id = rem_id
         
@@ -115,7 +117,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         if self.id:
             raise Exception("This resource already has an id, cannot create")
         
-        ret = srv.post_json(self.relativePath(), self.as_json())
+        ret = srv.post_json(self.relativeBase(), self.as_json())
         if len(ret.text) > 0:
             return ret.json()
         return None
@@ -155,7 +157,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         return None
     
     
-    # MARK: Search
+    # MARK: - Search
     
     def search(self, struct=None):
         """ Search can be started via a dictionary containing a search
@@ -168,7 +170,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         :returns: A FHIRSearch instance
         """
         if struct is None:
-            struct = {'$type': self.__class__.resource_name}
+            struct = {'$type': self.__class__.resource_type}
         if self._local_id is not None or self.id is not None:
             struct['id'] = self._local_id or self.id
         return self.__class__.where(struct)

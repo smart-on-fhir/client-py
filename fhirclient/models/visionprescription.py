@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -14,7 +14,7 @@ class VisionPrescription(domainresource.DomainResource):
     patient.
     """
     
-    resource_name = "VisionPrescription"
+    resource_type = "VisionPrescription"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -73,7 +73,7 @@ class VisionPrescription(domainresource.DomainResource):
             ("prescriber", "prescriber", fhirreference.FHIRReference, False, None, False),
             ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", str, False, None, False),
         ])
         return js
 
@@ -86,7 +86,7 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
     Deals with details of the dispense part of the supply specification.
     """
     
-    resource_name = "VisionPrescriptionDispense"
+    resource_type = "VisionPrescriptionDispense"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -110,7 +110,7 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
         
         self.base = None
         """ up | down | in | out.
-        Type `str`. """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.brand = None
         """ Brand required.
@@ -134,9 +134,9 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
         
         self.eye = None
         """ right | left.
-        Type `str`. """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.notes = None
+        self.note = None
         """ Notes for coatings.
         Type `str`. """
         
@@ -150,7 +150,7 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
         
         self.product = None
         """ Product to be supplied.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sphere = None
         """ Lens sphere.
@@ -164,24 +164,23 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
             ("add", "add", float, False, None, False),
             ("axis", "axis", int, False, None, False),
             ("backCurve", "backCurve", float, False, None, False),
-            ("base", "base", str, False, None, False),
+            ("base", "base", codeableconcept.CodeableConcept, False, None, False),
             ("brand", "brand", str, False, None, False),
             ("color", "color", str, False, None, False),
             ("cylinder", "cylinder", float, False, None, False),
             ("diameter", "diameter", float, False, None, False),
             ("duration", "duration", quantity.Quantity, False, None, False),
-            ("eye", "eye", str, False, None, False),
-            ("notes", "notes", str, False, None, False),
+            ("eye", "eye", codeableconcept.CodeableConcept, False, None, False),
+            ("note", "note", str, False, None, False),
             ("power", "power", float, False, None, False),
             ("prism", "prism", float, False, None, False),
-            ("product", "product", coding.Coding, False, None, True),
+            ("product", "product", codeableconcept.CodeableConcept, False, None, False),
             ("sphere", "sphere", float, False, None, False),
         ])
         return js
 
 
 from . import codeableconcept
-from . import coding
 from . import fhirdate
 from . import fhirreference
 from . import identifier

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/ExpansionProfile) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/ExpansionProfile) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -13,7 +13,7 @@ class ExpansionProfile(domainresource.DomainResource):
     Resource to define constraints on the Expansion of a FHIR ValueSet.
     """
     
-    resource_name = "ExpansionProfile"
+    resource_type = "ExpansionProfile"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -49,7 +49,7 @@ class ExpansionProfile(domainresource.DomainResource):
         Type `str`. """
         
         self.excludeNested = None
-        """ Include or exclude nested codes in the value set expansion.
+        """ Nested codes in the expansion or not.
         Type `bool`. """
         
         self.excludeNotForUI = None
@@ -160,7 +160,7 @@ class ExpansionProfileDesignation(backboneelement.BackboneElement):
     expansion by including or excluding designations.
     """
     
-    resource_name = "ExpansionProfileDesignation"
+    resource_type = "ExpansionProfileDesignation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -193,7 +193,7 @@ class ExpansionProfileDesignationExclude(backboneelement.BackboneElement):
     """ Designations to be excluded.
     """
     
-    resource_name = "ExpansionProfileDesignationExclude"
+    resource_type = "ExpansionProfileDesignationExclude"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -223,7 +223,7 @@ class ExpansionProfileDesignationExcludeDesignation(backboneelement.BackboneElem
     A data group for each designation to be excluded.
     """
     
-    resource_name = "ExpansionProfileDesignationExcludeDesignation"
+    resource_type = "ExpansionProfileDesignationExcludeDesignation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -256,7 +256,7 @@ class ExpansionProfileDesignationInclude(backboneelement.BackboneElement):
     """ Designations to be included.
     """
     
-    resource_name = "ExpansionProfileDesignationInclude"
+    resource_type = "ExpansionProfileDesignationInclude"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -286,7 +286,7 @@ class ExpansionProfileDesignationIncludeDesignation(backboneelement.BackboneElem
     A data group for each designation to be included.
     """
     
-    resource_name = "ExpansionProfileDesignationIncludeDesignation"
+    resource_type = "ExpansionProfileDesignationIncludeDesignation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -322,7 +322,7 @@ class ExpansionProfileExcludedSystem(backboneelement.BackboneElement):
     value set expansions.
     """
     
-    resource_name = "ExpansionProfileExcludedSystem"
+    resource_type = "ExpansionProfileExcludedSystem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -357,7 +357,7 @@ class ExpansionProfileFixedVersion(backboneelement.BackboneElement):
     Fix use of a particular code system to a particular version.
     """
     
-    resource_name = "ExpansionProfileFixedVersion"
+    resource_type = "ExpansionProfileFixedVersion"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

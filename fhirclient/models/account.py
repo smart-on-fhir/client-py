@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Account) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Account) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -15,7 +15,7 @@ class Account(domainresource.DomainResource):
     etc.
     """
     
-    resource_name = "Account"
+    resource_type = "Account"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -49,6 +49,10 @@ class Account(domainresource.DomainResource):
         self.description = None
         """ Explanation of purpose/use.
         Type `str`. """
+        
+        self.guarantor = None
+        """ Responsible for the account.
+        List of `AccountGuarantor` items (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Account number.
@@ -85,12 +89,55 @@ class Account(domainresource.DomainResource):
             ("coveragePeriod", "coveragePeriod", period.Period, False, None, False),
             ("currency", "currency", coding.Coding, False, None, False),
             ("description", "description", str, False, None, False),
+            ("guarantor", "guarantor", AccountGuarantor, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("name", "name", str, False, None, False),
             ("owner", "owner", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+        ])
+        return js
+
+
+from . import backboneelement
+
+class AccountGuarantor(backboneelement.BackboneElement):
+    """ Responsible for the account.
+    
+    Parties financially responsible for the account.
+    """
+    
+    resource_type = "AccountGuarantor"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.onHold = None
+        """ Credit or other hold applied.
+        Type `bool`. """
+        
+        self.party = None
+        """ Responsible entity.
+        Type `FHIRReference` referencing `Patient, RelatedPerson, Organization` (represented as `dict` in JSON). """
+        
+        self.period = None
+        """ Guarrantee account during.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        super(AccountGuarantor, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(AccountGuarantor, self).elementProperties()
+        js.extend([
+            ("onHold", "onHold", bool, False, None, False),
+            ("party", "party", fhirreference.FHIRReference, False, None, True),
+            ("period", "period", period.Period, False, None, False),
         ])
         return js
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Period) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Period) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import element
@@ -13,7 +13,7 @@ class Period(element.Element):
     A time period defined by a start and end date and optionally time.
     """
     
-    resource_name = "Period"
+    resource_type = "Period"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

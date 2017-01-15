@@ -2,6 +2,9 @@
 
 from Python.settings import *
 
+# Base URL for where to load specification data from
+specification_url = 'http://hl7.org/fhir/2017Jan/'
+
 # classes/resources
 write_resources = True
 tpl_resource_target_ptrn = '../fhirclient/models/{}.py'     # where to write the generated class files to, with one placeholder for the class name

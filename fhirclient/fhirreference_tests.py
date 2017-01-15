@@ -24,7 +24,7 @@ class TestResourceReference(unittest.TestCase):
             data = json.load(h)
         q = questionnaire.Questionnaire(data)
         self.assertIsNotNone(q, "Must instantiate Questionnaire")
-        self.assertEqual('Questionnaire', q.resource_name)
+        self.assertEqual('Questionnaire', q.resource_type)
         
         group = q.item[0].item[3]
         self.assertEqual('Observation.subject', group.linkId)
@@ -39,7 +39,7 @@ class TestResourceReference(unittest.TestCase):
         self.assertIsNone(contained, "Must not resolve on resource type mismatch")
         contained = question.options.resolved(valueset.ValueSet)
         self.assertIsNotNone(contained, "Must resolve contained ValueSet")
-        self.assertEqual('ValueSet', contained.resource_name)
+        self.assertEqual('ValueSet', contained.resource_type)
         self.assertEqual('Type options for Observation.subject', contained.name)
         
         # 2nd resolve, should pull from cache
@@ -49,14 +49,14 @@ class TestResourceReference(unittest.TestCase):
         self.assertIsNotNone(contained, "Must resolve contained ValueSet even if requesting `Resource`")
         contained = question.options.resolved(valueset.ValueSet)
         self.assertIsNotNone(contained, "Must resolve contained ValueSet")
-        self.assertEqual('ValueSet', contained.resource_name)
+        self.assertEqual('ValueSet', contained.resource_type)
     
     def testRelativeReference(self):
         with io.open('test_relative_reference.json', 'r', encoding='utf-8') as h:
             data = json.load(h)
         q = questionnaire.Questionnaire(data)
         self.assertIsNotNone(q, "Must instantiate Questionnaire")
-        self.assertEqual('Questionnaire', q.resource_name)
+        self.assertEqual('Questionnaire', q.resource_type)
         q._server = MockServer()
         
         group = q.item[0].item[0]
@@ -70,7 +70,7 @@ class TestResourceReference(unittest.TestCase):
         # resolve relative resource
         relative = question.options.resolved(valueset.ValueSet)
         self.assertIsNotNone(relative, "Must resolve relative ValueSet")
-        self.assertEqual('ValueSet', relative.resource_name)
+        self.assertEqual('ValueSet', relative.resource_type)
         self.assertEqual('Type options for Observation.subject', relative.name)
         
         # 2nd resolve, should pull from cache
@@ -84,22 +84,22 @@ class TestResourceReference(unittest.TestCase):
             data = json.load(h)
         b = bundle.Bundle(data)
         self.assertIsNotNone(b, "Must instantiate Bundle")
-        self.assertEqual('Bundle', b.resource_name)
+        self.assertEqual('Bundle', b.resource_type)
         #b._server = MockServer()
         
         # get resources
         pat23 = b.entry[0].resource
-        self.assertEqual('Patient', pat23.resource_name)
+        self.assertEqual('Patient', pat23.resource_type)
         self.assertEqual('Darth', pat23.name[0].given[0])
         patURN = b.entry[1].resource
-        self.assertEqual('Patient', patURN.resource_name)
+        self.assertEqual('Patient', patURN.resource_type)
         self.assertEqual('Ben', patURN.name[0].given[0])
         obs123 = b.entry[2].resource
-        self.assertEqual('Observation', obs123.resource_name)
+        self.assertEqual('Observation', obs123.resource_type)
         obs56 = b.entry[3].resource
-        self.assertEqual('Observation', obs56.resource_name)
+        self.assertEqual('Observation', obs56.resource_type)
         obs34 = b.entry[4].resource
-        self.assertEqual('Observation', obs34.resource_name)
+        self.assertEqual('Observation', obs34.resource_type)
         
         # test resolving w/o server (won't work)
         res = obs123.subject.resolved(patient.Patient)

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 (http://hl7.org/fhir/StructureDefinition/Communication) on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Communication) on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 from . import domainresource
@@ -15,7 +15,7 @@ class Communication(domainresource.DomainResource):
     reportable condition.
     """
     
-    resource_name = "Communication"
+    resource_type = "Communication"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -122,7 +122,7 @@ class CommunicationPayload(backboneelement.BackboneElement):
     Text, attachment(s), or resource(s) that was communicated to the recipient.
     """
     
-    resource_name = "CommunicationPayload"
+    resource_type = "CommunicationPayload"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

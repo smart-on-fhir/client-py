@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.7.0.10061 on 2016-10-24.
-#  2016, SMART Health IT.
+#  Generated from FHIR 1.8.0.10521 on 2017-01-15.
+#  2017, SMART Health IT.
 
 
 import os
@@ -43,7 +43,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "usual")
         self.assertEqual(inst.identifier[0].value, "654321")
         self.assertEqual(inst.link[0].type, "seealso")
-        self.assertEqual(inst.name[0].family[0], "Donald")
+        self.assertEqual(inst.name[0].family, "Donald")
         self.assertEqual(inst.name[0].given[0], "Duck")
         self.assertEqual(inst.name[0].use, "official")
         self.assertEqual(inst.photo[0].contentType, "image/gif")
@@ -74,7 +74,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.animal.species.coding[0].system, "http://hl7.org/fhir/animal-species")
         self.assertEqual(inst.birthDate.date, FHIRDate("2010-03-23").date)
         self.assertEqual(inst.birthDate.as_json(), "2010-03-23")
-        self.assertEqual(inst.contact[0].name.family[0], "Chalmers")
+        self.assertEqual(inst.contact[0].name.family, "Chalmers")
         self.assertEqual(inst.contact[0].name.given[0], "Peter")
         self.assertEqual(inst.contact[0].name.given[1], "James")
         self.assertEqual(inst.contact[0].relationship[0].coding[0].code, "owner")
@@ -113,7 +113,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "usual")
         self.assertEqual(inst.identifier[0].value, "123456")
         self.assertEqual(inst.link[0].type, "seealso")
-        self.assertEqual(inst.name[0].family[0], "Donald")
+        self.assertEqual(inst.name[0].family, "Donald")
         self.assertEqual(inst.name[0].given[0], "Duck")
         self.assertEqual(inst.name[0].given[1], "D")
         self.assertEqual(inst.name[0].use, "official")
@@ -143,7 +143,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].type.coding[0].system, "http://hl7.org/fhir/v2/0203")
         self.assertEqual(inst.identifier[0].use, "usual")
         self.assertEqual(inst.identifier[0].value, "123457")
-        self.assertEqual(inst.name[0].family[0], "Notsowell")
+        self.assertEqual(inst.name[0].family, "Notsowell")
         self.assertEqual(inst.name[0].given[0], "Simon")
         self.assertEqual(inst.name[0].use, "official")
         self.assertEqual(inst.text.status, "generated")
@@ -170,7 +170,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].type.coding[0].system, "http://hl7.org/fhir/v2/0203")
         self.assertEqual(inst.identifier[0].use, "usual")
         self.assertEqual(inst.identifier[0].value, "123458")
-        self.assertEqual(inst.name[0].family[0], "Notsowell")
+        self.assertEqual(inst.name[0].family, "Notsowell")
         self.assertEqual(inst.name[0].given[0], "Sandy")
         self.assertEqual(inst.name[0].use, "official")
         self.assertEqual(inst.text.status, "generated")
@@ -200,7 +200,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.id, "dicom")
         self.assertEqual(inst.identifier[0].system, "http://nema.org/examples/patients")
         self.assertEqual(inst.identifier[0].value, "MINT1234")
-        self.assertEqual(inst.name[0].family[0], "MINT_TEST")
+        self.assertEqual(inst.name[0].family, "MINT_TEST")
         self.assertEqual(inst.text.status, "generated")
     
     def testPatient7(self):
@@ -227,7 +227,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.communication[0].language.coding[0].system, "urn:ietf:bcp:47")
         self.assertEqual(inst.communication[0].language.text, "Nederlands")
         self.assertTrue(inst.communication[0].preferred)
-        self.assertEqual(inst.contact[0].name.family[0], "Abels")
+        self.assertEqual(inst.contact[0].name.family, "Abels")
         self.assertEqual(inst.contact[0].name.given[0], "Sarah")
         self.assertEqual(inst.contact[0].name.use, "usual")
         self.assertEqual(inst.contact[0].relationship[0].coding[0].code, "partner")
@@ -248,7 +248,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.maritalStatus.coding[0].system, "http://hl7.org/fhir/v3/MaritalStatus")
         self.assertEqual(inst.maritalStatus.text, "Getrouwd")
         self.assertTrue(inst.multipleBirthBoolean)
-        self.assertEqual(inst.name[0].family[0], "van de Heuvel")
+        self.assertEqual(inst.name[0].family, "van de Heuvel")
         self.assertEqual(inst.name[0].given[0], "Pieter")
         self.assertEqual(inst.name[0].suffix[0], "MSc")
         self.assertEqual(inst.name[0].use, "usual")
@@ -310,7 +310,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.maritalStatus.coding[1].code, "M")
         self.assertEqual(inst.maritalStatus.coding[1].system, "http://hl7.org/fhir/v3/MaritalStatus")
         self.assertFalse(inst.multipleBirthBoolean)
-        self.assertEqual(inst.name[0].family[0], "Bor")
+        self.assertEqual(inst.name[0].family, "Bor")
         self.assertEqual(inst.name[0].given[0], "Roelof Olaf")
         self.assertEqual(inst.name[0].prefix[0], "Drs.")
         self.assertEqual(inst.name[0].suffix[0], "PDEng.")
@@ -341,7 +341,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.id, "ihe-pcd")
         self.assertEqual(inst.identifier[0].type.text, "Internal Identifier")
         self.assertEqual(inst.identifier[0].value, "AB60001")
-        self.assertEqual(inst.name[0].family[0], "BROOKS")
+        self.assertEqual(inst.name[0].family, "BROOKS")
         self.assertEqual(inst.name[0].given[0], "ALBERT")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Albert Brooks, Id: AB60001</div>")
         self.assertEqual(inst.text.status, "generated")
