@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -34,7 +34,7 @@ class MedicationRequest(domainresource.DomainResource):
         
         self.basedOn = None
         """ What request fulfills.
-        List of `FHIRReference` items referencing `CarePlan, DiagnosticRequest, MedicationRequest, ProcedureRequest, ReferralRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `CarePlan, MedicationRequest, ProcedureRequest, ReferralRequest` (represented as `dict` in JSON). """
         
         self.category = None
         """ Type of medication usage.
@@ -47,6 +47,10 @@ class MedicationRequest(domainresource.DomainResource):
         self.definition = None
         """ Protocol or definition.
         List of `FHIRReference` items referencing `ActivityDefinition, PlanDefinition` (represented as `dict` in JSON). """
+        
+        self.detectedIssue = None
+        """ Clinical Issue with action.
+        List of `FHIRReference` items referencing `DetectedIssue` (represented as `dict` in JSON). """
         
         self.dispenseRequest = None
         """ Medication supply authorization.
@@ -136,6 +140,7 @@ class MedicationRequest(domainresource.DomainResource):
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("definition", "definition", fhirreference.FHIRReference, True, None, False),
+            ("detectedIssue", "detectedIssue", fhirreference.FHIRReference, True, None, False),
             ("dispenseRequest", "dispenseRequest", MedicationRequestDispenseRequest, False, None, False),
             ("dosageInstruction", "dosageInstruction", dosageinstruction.DosageInstruction, True, None, False),
             ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),

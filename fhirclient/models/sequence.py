@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Sequence) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Sequence) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -38,7 +38,7 @@ class Sequence(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.observedSeq = None
-        """ Observed sequence.
+        """ Sequence that was observed.
         Type `str`. """
         
         self.patient = None
@@ -54,7 +54,7 @@ class Sequence(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Sequence` (represented as `dict` in JSON). """
         
         self.quality = None
-        """ Sequence quality.
+        """ An set of value as quality of sequence.
         List of `SequenceQuality` items (represented as `dict` in JSON). """
         
         self.quantity = None
@@ -67,7 +67,7 @@ class Sequence(domainresource.DomainResource):
         Type `int`. """
         
         self.referenceSeq = None
-        """ Reference sequence.
+        """ A sequence used as reference.
         Type `SequenceReferenceSeq` (represented as `dict` in JSON). """
         
         self.repository = None
@@ -79,16 +79,12 @@ class Sequence(domainresource.DomainResource):
         """ Specimen used for sequencing.
         Type `FHIRReference` referencing `Specimen` (represented as `dict` in JSON). """
         
-        self.structureVariant = None
-        """ Structural variant.
-        List of `SequenceStructureVariant` items (represented as `dict` in JSON). """
-        
         self.type = None
         """ aa | dna | rna.
         Type `str`. """
         
         self.variant = None
-        """ Sequence variant.
+        """ Variant in sequence.
         List of `SequenceVariant` items (represented as `dict` in JSON). """
         
         super(Sequence, self).__init__(jsondict=jsondict, strict=strict)
@@ -109,7 +105,6 @@ class Sequence(domainresource.DomainResource):
             ("referenceSeq", "referenceSeq", SequenceReferenceSeq, False, None, False),
             ("repository", "repository", SequenceRepository, True, None, False),
             ("specimen", "specimen", fhirreference.FHIRReference, False, None, False),
-            ("structureVariant", "structureVariant", SequenceStructureVariant, True, None, False),
             ("type", "type", str, False, None, False),
             ("variant", "variant", SequenceVariant, True, None, False),
         ])
@@ -119,7 +114,7 @@ class Sequence(domainresource.DomainResource):
 from . import backboneelement
 
 class SequenceQuality(backboneelement.BackboneElement):
-    """ Sequence quality.
+    """ An set of value as quality of sequence.
     
     An experimental feature attribute that defines the quality of the feature
     in a quantitative way, such as a phred quality score ([SO:0001686](http://w
@@ -150,11 +145,11 @@ class SequenceQuality(backboneelement.BackboneElement):
         Type `float`. """
         
         self.method = None
-        """ Method for quality.
+        """ Method to get quality.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.precision = None
-        """ Precision.
+        """ Precision of comparison.
         Type `float`. """
         
         self.queryFP = None
@@ -166,11 +161,11 @@ class SequenceQuality(backboneelement.BackboneElement):
         Type `float`. """
         
         self.recall = None
-        """ Recall.
+        """ Recall of comparison.
         Type `float`. """
         
         self.score = None
-        """ Quality score.
+        """ Quality score for the comparison.
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.standardSequence = None
@@ -217,7 +212,7 @@ class SequenceQuality(backboneelement.BackboneElement):
 
 
 class SequenceReferenceSeq(backboneelement.BackboneElement):
-    """ Reference sequence.
+    """ A sequence used as reference.
     
     A sequence that is used as a reference to describe variants that are
     present in a sequence analyzed.
@@ -251,7 +246,7 @@ class SequenceReferenceSeq(backboneelement.BackboneElement):
         Type `FHIRReference` referencing `Sequence` (represented as `dict` in JSON). """
         
         self.referenceSeqString = None
-        """ A Reference Sequence string.
+        """ A string to represent reference sequence.
         Type `str`. """
         
         self.strand = None
@@ -306,7 +301,7 @@ class SequenceRepository(backboneelement.BackboneElement):
         Type `str`. """
         
         self.name = None
-        """ Name of the repository.
+        """ Repository's name.
         Type `str`. """
         
         self.readsetId = None
@@ -340,122 +335,8 @@ class SequenceRepository(backboneelement.BackboneElement):
         return js
 
 
-class SequenceStructureVariant(backboneelement.BackboneElement):
-    """ Structural variant.
-    """
-    
-    resource_type = "SequenceStructureVariant"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.inner = None
-        """ Structural variant inner.
-        Type `SequenceStructureVariantInner` (represented as `dict` in JSON). """
-        
-        self.length = None
-        """ Structural Variant Length.
-        Type `int`. """
-        
-        self.outer = None
-        """ Structural variant outer.
-        Type `SequenceStructureVariantOuter` (represented as `dict` in JSON). """
-        
-        self.precisionOfBoundaries = None
-        """ Precision of boundaries.
-        Type `str`. """
-        
-        self.reportedaCGHRatio = None
-        """ Structural Variant reported aCGH ratio.
-        Type `float`. """
-        
-        super(SequenceStructureVariant, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(SequenceStructureVariant, self).elementProperties()
-        js.extend([
-            ("inner", "inner", SequenceStructureVariantInner, False, None, False),
-            ("length", "length", int, False, None, False),
-            ("outer", "outer", SequenceStructureVariantOuter, False, None, False),
-            ("precisionOfBoundaries", "precisionOfBoundaries", str, False, None, False),
-            ("reportedaCGHRatio", "reportedaCGHRatio", float, False, None, False),
-        ])
-        return js
-
-
-class SequenceStructureVariantInner(backboneelement.BackboneElement):
-    """ Structural variant inner.
-    """
-    
-    resource_type = "SequenceStructureVariantInner"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.end = None
-        """ Structural Variant Inner End.
-        Type `int`. """
-        
-        self.start = None
-        """ Structural Variant Inner Start.
-        Type `int`. """
-        
-        super(SequenceStructureVariantInner, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(SequenceStructureVariantInner, self).elementProperties()
-        js.extend([
-            ("end", "end", int, False, None, False),
-            ("start", "start", int, False, None, False),
-        ])
-        return js
-
-
-class SequenceStructureVariantOuter(backboneelement.BackboneElement):
-    """ Structural variant outer.
-    """
-    
-    resource_type = "SequenceStructureVariantOuter"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.end = None
-        """ Structural Variant Outer End.
-        Type `int`. """
-        
-        self.start = None
-        """ Structural Variant Outer Start.
-        Type `int`. """
-        
-        super(SequenceStructureVariantOuter, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(SequenceStructureVariantOuter, self).elementProperties()
-        js.extend([
-            ("end", "end", int, False, None, False),
-            ("start", "start", int, False, None, False),
-        ])
-        return js
-
-
 class SequenceVariant(backboneelement.BackboneElement):
-    """ Sequence variant.
+    """ Variant in sequence.
     
     The definition of variant here originates from Sequence ontology ([variant_
     of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)).
@@ -488,7 +369,7 @@ class SequenceVariant(backboneelement.BackboneElement):
         Type `str`. """
         
         self.referenceAllele = None
-        """ Allele of reference sequence.
+        """ Allele in the reference sequence.
         Type `str`. """
         
         self.start = None

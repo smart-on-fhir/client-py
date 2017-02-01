@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Task) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Task) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -667,7 +667,7 @@ class TaskRestriction(backboneelement.BackboneElement):
         """
         
         self.period = None
-        """ Over what time-period is fulfillment sought.
+        """ When fulfillment sought.
         Type `Period` (represented as `dict` in JSON). """
         
         self.recipient = None

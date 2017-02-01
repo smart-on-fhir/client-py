@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Library) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Library) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -11,9 +11,9 @@ class Library(domainresource.DomainResource):
     """ Represents a library of quality improvement components.
     
     The Library resource is a general-purpose container for knowledge asset
-    definitions. It can be used to describe and expose exist knowledge assets
-    such as logic libraries and information model descriptions, as well as to
-    describe a collection of knowledge assets.
+    definitions. It can be used to describe and expose existing knowledge
+    assets such as logic libraries and information model descriptions, as well
+    as to describe a collection of knowledge assets.
     """
     
     resource_type = "Library"

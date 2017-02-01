@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/TestReport) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/TestReport) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class TestReport(domainresource.DomainResource):
-    """ Describes a set of tests.
+    """ Describes the results of a TestScript execution.
     
     TestReport is a resource that includes summary information on the results
     of executing a TestScript.
@@ -41,6 +41,10 @@ class TestReport(domainresource.DomainResource):
         client, or a server.
         List of `TestReportParticipant` items (represented as `dict` in JSON). """
         
+        self.result = None
+        """ pass | fail | pending.
+        Type `str`. """
+        
         self.score = None
         """ The final score (percentage of tests passed) resulting from the
         execution of the TestScript.
@@ -52,7 +56,7 @@ class TestReport(domainresource.DomainResource):
         Type `TestReportSetup` (represented as `dict` in JSON). """
         
         self.status = None
-        """ complete | pending | error.
+        """ completed | in-progress | waiting | stopped | entered-in-error.
         Type `str`. """
         
         self.teardown = None
@@ -82,6 +86,7 @@ class TestReport(domainresource.DomainResource):
             ("issued", "issued", fhirdate.FHIRDate, False, None, False),
             ("name", "name", str, False, None, False),
             ("participant", "participant", TestReportParticipant, True, None, False),
+            ("result", "result", str, False, None, True),
             ("score", "score", float, False, None, False),
             ("setup", "setup", TestReportSetup, False, None, False),
             ("status", "status", str, False, None, True),

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Goal) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Goal) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -50,12 +50,16 @@ class Goal(domainresource.DomainResource):
         """ Comments about the goal.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.outcome = None
+        self.outcomeCode = None
         """ What result was achieved regarding the goal?.
-        List of `GoalOutcome` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.outcomeReference = None
+        """ Observation that resulted from goal.
+        List of `FHIRReference` items referencing `Observation` (represented as `dict` in JSON). """
         
         self.priority = None
-        """ high | medium |low.
+        """ high-priority | medium-priority | low-priority.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.startCodeableConcept = None
@@ -67,9 +71,9 @@ class Goal(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.status = None
-        """ proposed | planned | accepted | rejected | in-progress | achieved |
-        sustaining | on-hold | cancelled | on-target | ahead-of-target |
-        behind-target | entered-in-error.
+        """ proposed | accepted | planned | in-progress | on-target | ahead-of-
+        target | behind-target | sustaining | achieved | on-hold |
+        cancelled | entered-in-error | rejected.
         Type `str`. """
         
         self.statusDate = None
@@ -78,7 +82,7 @@ class Goal(domainresource.DomainResource):
         
         self.statusReason = None
         """ Reason for current status.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.subject = None
         """ Who this goal is intended for.
@@ -99,13 +103,14 @@ class Goal(domainresource.DomainResource):
             ("expressedBy", "expressedBy", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("outcome", "outcome", GoalOutcome, True, None, False),
+            ("outcomeCode", "outcomeCode", codeableconcept.CodeableConcept, True, None, False),
+            ("outcomeReference", "outcomeReference", fhirreference.FHIRReference, True, None, False),
             ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
             ("startCodeableConcept", "startCodeableConcept", codeableconcept.CodeableConcept, False, "start", False),
             ("startDate", "startDate", fhirdate.FHIRDate, False, "start", False),
             ("status", "status", str, False, None, True),
             ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
-            ("statusReason", "statusReason", codeableconcept.CodeableConcept, True, None, False),
+            ("statusReason", "statusReason", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("target", "target", GoalTarget, False, None, False),
         ])
@@ -113,42 +118,6 @@ class Goal(domainresource.DomainResource):
 
 
 from . import backboneelement
-
-class GoalOutcome(backboneelement.BackboneElement):
-    """ What result was achieved regarding the goal?.
-    
-    Identifies the change (or lack of change) at the point where the goal was
-    deemed to be cancelled or achieved.
-    """
-    
-    resource_type = "GoalOutcome"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.resultCodeableConcept = None
-        """ Code or observation that resulted from goal.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.resultReference = None
-        """ Code or observation that resulted from goal.
-        Type `FHIRReference` referencing `Observation` (represented as `dict` in JSON). """
-        
-        super(GoalOutcome, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(GoalOutcome, self).elementProperties()
-        js.extend([
-            ("resultCodeableConcept", "resultCodeableConcept", codeableconcept.CodeableConcept, False, "result", False),
-            ("resultReference", "resultReference", fhirreference.FHIRReference, False, "result", False),
-        ])
-        return js
-
 
 class GoalTarget(backboneelement.BackboneElement):
     """ Target outcome for the goal.

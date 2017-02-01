@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -118,6 +118,10 @@ class SpecimenTests(unittest.TestCase):
     def implSpecimen4(self, inst):
         self.assertEqual(inst.accessionIdentifier.system, "http://lab.acme.org/specimens/2011")
         self.assertEqual(inst.accessionIdentifier.value, "X352356")
+        self.assertEqual(inst.collection.bodySite.coding[0].code, "49852007")
+        self.assertEqual(inst.collection.bodySite.coding[0].display, "Structure of median cubital vein (body structure)")
+        self.assertEqual(inst.collection.bodySite.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.collection.bodySite.text, "Right median cubital vein")
         self.assertEqual(inst.collection.collectedDateTime.date, FHIRDate("2011-05-30T06:15:00Z").date)
         self.assertEqual(inst.collection.collectedDateTime.as_json(), "2011-05-30T06:15:00Z")
         self.assertEqual(inst.collection.method.coding[0].code, "LNV")

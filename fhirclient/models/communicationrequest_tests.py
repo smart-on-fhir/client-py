@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -36,13 +36,24 @@ class CommunicationRequestTests(unittest.TestCase):
         self.assertEqual(inst.category.coding[0].system, "http://acme.org/messagetypes")
         self.assertEqual(inst.contained[0].id, "provider")
         self.assertEqual(inst.contained[1].id, "payor")
+        self.assertEqual(inst.contained[2].id, "requester")
         self.assertEqual(inst.id, "fm-solicit")
         self.assertEqual(inst.identifier[0].system, "http://www.jurisdiction.com/insurer/123456")
         self.assertEqual(inst.identifier[0].value, "ABC123")
+        self.assertEqual(inst.medium[0].coding[0].code, "WRITTEN")
+        self.assertEqual(inst.medium[0].coding[0].display, "written")
+        self.assertEqual(inst.medium[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationMode")
+        self.assertEqual(inst.medium[0].text, "written")
         self.assertEqual(inst.payload[0].contentString, "Please provide the accident report and any associated pictures to support your Claim# DEF5647.")
+        self.assertEqual(inst.priority.coding[0].code, "routine")
+        self.assertEqual(inst.priority.coding[0].display, "Routine")
+        self.assertEqual(inst.priority.coding[0].system, "http://hl7.org/fhir/request-priority")
+        self.assertEqual(inst.priority.text, "Routine")
         self.assertEqual(inst.requestedOn.date, FHIRDate("2016-06-10T11:01:10-08:00").date)
         self.assertEqual(inst.requestedOn.as_json(), "2016-06-10T11:01:10-08:00")
-        self.assertEqual(inst.status, "requested")
+        self.assertEqual(inst.scheduledDateTime.date, FHIRDate("2016-06-10T11:01:10-08:00").date)
+        self.assertEqual(inst.scheduledDateTime.as_json(), "2016-06-10T11:01:10-08:00")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Request for Accident Report</div>")
         self.assertEqual(inst.text.status, "generated")
     
@@ -58,6 +69,7 @@ class CommunicationRequestTests(unittest.TestCase):
     
     def implCommunicationRequest2(self, inst):
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">To be filled out at a later time</div>")
         self.assertEqual(inst.text.status, "generated")
 

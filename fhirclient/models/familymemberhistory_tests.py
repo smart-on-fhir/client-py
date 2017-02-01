@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -62,14 +62,16 @@ class FamilyMemberHistoryTests(unittest.TestCase):
         self.assertEqual(inst.condition[0].code.coding[0].display, "Myocardial Infarction")
         self.assertEqual(inst.condition[0].code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.condition[0].code.text, "Heart Attack")
-        self.assertEqual(inst.condition[0].note.text, "Was fishing at the time. At least he went doing someting he loved.")
+        self.assertEqual(inst.condition[0].note[0].text, "Was fishing at the time. At least he went doing someting he loved.")
         self.assertEqual(inst.condition[0].onsetAge.code, "a")
         self.assertEqual(inst.condition[0].onsetAge.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.condition[0].onsetAge.unit, "yr")
         self.assertEqual(inst.condition[0].onsetAge.value, 74)
         self.assertEqual(inst.date.date, FHIRDate("2011-03-18").date)
         self.assertEqual(inst.date.as_json(), "2011-03-18")
+        self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "father")
+        self.assertEqual(inst.identifier[0].value, "12345")
         self.assertEqual(inst.relationship.coding[0].code, "father")
         self.assertEqual(inst.relationship.coding[0].system, "http://hl7.org/fhir/familial-relationship")
         self.assertEqual(inst.status, "completed")

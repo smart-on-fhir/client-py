@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -50,8 +50,8 @@ class CareTeam(domainresource.DomainResource):
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
-        """ active | suspended | inactive | entered in error.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ proposed | active | suspended | inactive | entered-in-error.
+        Type `str`. """
         
         self.subject = None
         """ Who care team is for.
@@ -68,7 +68,7 @@ class CareTeam(domainresource.DomainResource):
             ("name", "name", str, False, None, False),
             ("participant", "participant", CareTeamParticipant, True, None, False),
             ("period", "period", period.Period, False, None, False),
-            ("status", "status", codeableconcept.CodeableConcept, False, None, False),
+            ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
@@ -95,7 +95,11 @@ class CareTeamParticipant(backboneelement.BackboneElement):
         
         self.member = None
         """ Who is involved.
-        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Organization, CareTeam` (represented as `dict` in JSON). """
+        
+        self.onBehalfOf = None
+        """ Organization of the practitioner.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.period = None
         """ Time period of participant.
@@ -111,6 +115,7 @@ class CareTeamParticipant(backboneelement.BackboneElement):
         js = super(CareTeamParticipant, self).elementProperties()
         js.extend([
             ("member", "member", fhirreference.FHIRReference, False, None, False),
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),
         ])

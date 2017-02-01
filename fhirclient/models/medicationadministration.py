@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -26,6 +26,10 @@ class MedicationAdministration(domainresource.DomainResource):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.category = None
+        """ Type of medication usage.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.context = None
         """ Encounter or Episode of Care administered as part of.
@@ -75,10 +79,6 @@ class MedicationAdministration(domainresource.DomainResource):
         """ Information about the administration.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.onBehalfOf = None
-        """ Organization organization was acting for.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
         self.partOf = None
         """ Part of referenced event.
         List of `FHIRReference` items referencing `MedicationAdministration, Procedure` (represented as `dict` in JSON). """
@@ -91,18 +91,18 @@ class MedicationAdministration(domainresource.DomainResource):
         """ Request administration performed against.
         Type `FHIRReference` referencing `MedicationRequest` (represented as `dict` in JSON). """
         
-        self.reasonGiven = None
+        self.reasonGivenCodeableConcept = None
         """ Reason administration performed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.reasonGivenReference = None
+        """ Condition or Observation that supports why the medication was
+        administered.
+        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
         
         self.reasonNotGiven = None
         """ Reason administration not performed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.reasonReference = None
-        """ Condition or Observation that supports why the medication was
-        administered.
-        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
         
         self.status = None
         """ in-progress | on-hold | completed | entered-in-error | stopped |
@@ -122,6 +122,7 @@ class MedicationAdministration(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicationAdministration, self).elementProperties()
         js.extend([
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("definition", "definition", fhirreference.FHIRReference, True, None, False),
             ("device", "device", fhirreference.FHIRReference, True, None, False),
@@ -134,13 +135,12 @@ class MedicationAdministration(domainresource.DomainResource):
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
             ("notGiven", "notGiven", bool, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("performer", "performer", MedicationAdministrationPerformer, True, None, False),
             ("prescription", "prescription", fhirreference.FHIRReference, False, None, False),
-            ("reasonGiven", "reasonGiven", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonGivenCodeableConcept", "reasonGivenCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonGivenReference", "reasonGivenReference", fhirreference.FHIRReference, True, None, False),
             ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
@@ -232,6 +232,10 @@ class MedicationAdministrationPerformer(backboneelement.BackboneElement):
         """ Individual who was performing.
         Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson, Device` (represented as `dict` in JSON). """
         
+        self.onBehalfOf = None
+        """ Organization organization was acting for.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
         self.role = None
         """ Type of performer.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -242,6 +246,7 @@ class MedicationAdministrationPerformer(backboneelement.BackboneElement):
         js = super(MedicationAdministrationPerformer, self).elementProperties()
         js.extend([
             ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js

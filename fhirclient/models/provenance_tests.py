@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -118,6 +118,8 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.agent[1].role.system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.entity[0].role, "source")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.period.end.date, FHIRDate("2015-06-28").date)
+        self.assertEqual(inst.period.end.as_json(), "2015-06-28")
         self.assertEqual(inst.period.start.date, FHIRDate("2015-06-27").date)
         self.assertEqual(inst.period.start.as_json(), "2015-06-27")
         self.assertEqual(inst.policy[0], "http://acme.com/fhir/Consent/25")

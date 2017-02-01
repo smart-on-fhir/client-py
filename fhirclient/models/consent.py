@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Consent) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Consent) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -26,6 +26,14 @@ class Consent(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.action = None
+        """ Actions controlled by this consent.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.actor = None
+        """ Who|what controlled by this consent (or group, by role).
+        List of `ConsentActor` items (represented as `dict` in JSON). """
+        
         self.category = None
         """ Classification of the consent statement - for indexing/retrieval.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
@@ -33,6 +41,14 @@ class Consent(domainresource.DomainResource):
         self.consentor = None
         """ Who is agreeing to the policy and exceptions.
         List of `FHIRReference` items referencing `Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        
+        self.data = None
+        """ Data controlled by this consent.
+        List of `ConsentData` items (represented as `dict` in JSON). """
+        
+        self.dataPeriod = None
+        """ Timeframe for data controlled by this consent.
+        Type `Period` (represented as `dict` in JSON). """
         
         self.dateTime = None
         """ When this Consent was created or indexed.
@@ -59,6 +75,10 @@ class Consent(domainresource.DomainResource):
         Type `Period` (represented as `dict` in JSON). """
         
         self.policy = None
+        """ Policies covered by this consent.
+        List of `str` items. """
+        
+        self.policyRule = None
         """ Policy that this consents to.
         Type `str`. """
         
@@ -66,9 +86,9 @@ class Consent(domainresource.DomainResource):
         """ Context of activities for which the agreement is made.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.recipient = None
-        """ Whose access is controlled by the policy.
-        List of `FHIRReference` items referencing `Device, Group, Organization, Patient, Practitioner, RelatedPerson, CareTeam` (represented as `dict` in JSON). """
+        self.securityLabel = None
+        """ Security Labels that define affected resources.
+        List of `Coding` items (represented as `dict` in JSON). """
         
         self.sourceAttachment = None
         """ Source from which this consent is taken.
@@ -91,17 +111,22 @@ class Consent(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Consent, self).elementProperties()
         js.extend([
+            ("action", "action", codeableconcept.CodeableConcept, True, None, False),
+            ("actor", "actor", ConsentActor, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("consentor", "consentor", fhirreference.FHIRReference, True, None, False),
+            ("data", "data", ConsentData, True, None, False),
+            ("dataPeriod", "dataPeriod", period.Period, False, None, False),
             ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, False),
             ("except_fhir", "except", ConsentExcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("period", "period", period.Period, False, None, False),
-            ("policy", "policy", str, False, None, True),
+            ("policy", "policy", str, True, None, False),
+            ("policyRule", "policyRule", str, False, None, False),
             ("purpose", "purpose", coding.Coding, True, None, False),
-            ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
+            ("securityLabel", "securityLabel", coding.Coding, True, None, False),
             ("sourceAttachment", "sourceAttachment", attachment.Attachment, False, "source", False),
             ("sourceIdentifier", "sourceIdentifier", identifier.Identifier, False, "source", False),
             ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", False),
@@ -111,6 +136,78 @@ class Consent(domainresource.DomainResource):
 
 
 from . import backboneelement
+
+class ConsentActor(backboneelement.BackboneElement):
+    """ Who|what controlled by this consent (or group, by role).
+    
+    Who or what is controlled by this consent. Use group to identify a set of
+    actors by some property they share (e.g. 'admitting officers').
+    """
+    
+    resource_type = "ConsentActor"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.reference = None
+        """ Resource for the actor (or group, by role).
+        Type `FHIRReference` referencing `Device, Group, CareTeam, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        
+        self.role = None
+        """ How the actor is/was involved.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(ConsentActor, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ConsentActor, self).elementProperties()
+        js.extend([
+            ("reference", "reference", fhirreference.FHIRReference, False, None, True),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, True),
+        ])
+        return js
+
+
+class ConsentData(backboneelement.BackboneElement):
+    """ Data controlled by this consent.
+    
+    The resources controlled by this consent, if specific resources are
+    referenced.
+    """
+    
+    resource_type = "ConsentData"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.meaning = None
+        """ instance | related | dependents | authoredby.
+        Type `str`. """
+        
+        self.reference = None
+        """ The actual data reference.
+        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        
+        super(ConsentData, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ConsentData, self).elementProperties()
+        js.extend([
+            ("meaning", "meaning", str, False, None, True),
+            ("reference", "reference", fhirreference.FHIRReference, False, None, True),
+        ])
+        return js
+
 
 class ConsentExcept(backboneelement.BackboneElement):
     """ Additional rule -  addition or removal of permissions.
@@ -149,8 +246,12 @@ class ConsentExcept(backboneelement.BackboneElement):
         """ Data controlled by this exception.
         List of `ConsentExceptData` items (represented as `dict` in JSON). """
         
-        self.period = None
+        self.dataPeriod = None
         """ Timeframe for data controlled by this exception.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.period = None
+        """ Timeframe for this exception.
         Type `Period` (represented as `dict` in JSON). """
         
         self.purpose = None
@@ -175,6 +276,7 @@ class ConsentExcept(backboneelement.BackboneElement):
             ("class_fhir", "class", coding.Coding, True, None, False),
             ("code", "code", coding.Coding, True, None, False),
             ("data", "data", ConsentExceptData, True, None, False),
+            ("dataPeriod", "dataPeriod", period.Period, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("purpose", "purpose", coding.Coding, True, None, False),
             ("securityLabel", "securityLabel", coding.Coding, True, None, False),
@@ -237,7 +339,7 @@ class ConsentExceptData(backboneelement.BackboneElement):
         """
         
         self.meaning = None
-        """ instance | related | dependents.
+        """ instance | related | dependents | authoredby.
         Type `str`. """
         
         self.reference = None

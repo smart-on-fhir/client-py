@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -31,6 +31,14 @@ class MedicationDispense(domainresource.DomainResource):
         """ Medication order that authorizes the dispense.
         List of `FHIRReference` items referencing `MedicationRequest` (represented as `dict` in JSON). """
         
+        self.category = None
+        """ Type of medication dispense.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.context = None
+        """ Encounter / Episode associated with event.
+        Type `FHIRReference` referencing `Encounter, EpisodeofCare` (represented as `dict` in JSON). """
+        
         self.daysSupply = None
         """ Amount of medication expressed as a timing amount.
         Type `Quantity` (represented as `dict` in JSON). """
@@ -39,13 +47,9 @@ class MedicationDispense(domainresource.DomainResource):
         """ Where the medication was sent.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
-        self.dispenser = None
-        """ Practitioner responsible for dispensing medication.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.dispensingOrganization = None
-        """ Organization responsible for the dispense of the medication.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        self.detectedIssue = None
+        """ Clinical Issue with action.
+        List of `FHIRReference` items referencing `DetectedIssue` (represented as `dict` in JSON). """
         
         self.dosageInstruction = None
         """ Medicine administration instructions to the patient/caregiver.
@@ -57,7 +61,7 @@ class MedicationDispense(domainresource.DomainResource):
         
         self.identifier = None
         """ External identifier.
-        Type `Identifier` (represented as `dict` in JSON). """
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.medicationCodeableConcept = None
         """ What medication was supplied.
@@ -67,13 +71,29 @@ class MedicationDispense(domainresource.DomainResource):
         """ What medication was supplied.
         Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
         
+        self.notDone = None
+        """ Whether the dispense was or was not performed.
+        Type `bool`. """
+        
+        self.notDoneReasonCodeableConcept = None
+        """ Why a dispense was not performed.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.notDoneReasonReference = None
+        """ Why a dispense was not performed.
+        Type `FHIRReference` referencing `DetectedIssue` (represented as `dict` in JSON). """
+        
         self.note = None
         """ Information about the dispense.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.patient = None
-        """ Who the dispense is for.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        self.partOf = None
+        """ Event that dispense is part of.
+        List of `FHIRReference` items referencing `Procedure` (represented as `dict` in JSON). """
+        
+        self.performer = None
+        """ Who performed event.
+        List of `MedicationDispensePerformer` items (represented as `dict` in JSON). """
         
         self.quantity = None
         """ Amount dispensed.
@@ -84,8 +104,13 @@ class MedicationDispense(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Patient, Practitioner` (represented as `dict` in JSON). """
         
         self.status = None
-        """ in-progress | on-hold | completed | entered-in-error | stopped.
+        """ preparation | in-progress | on-hold | completed | entered-in-error
+        | stopped.
         Type `str`. """
+        
+        self.subject = None
+        """ Who the dispense is for.
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         self.substitution = None
         """ Whether a substitution was performed on the dispense.
@@ -113,20 +138,26 @@ class MedicationDispense(domainresource.DomainResource):
         js = super(MedicationDispense, self).elementProperties()
         js.extend([
             ("authorizingPrescription", "authorizingPrescription", fhirreference.FHIRReference, True, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("daysSupply", "daysSupply", quantity.Quantity, False, None, False),
             ("destination", "destination", fhirreference.FHIRReference, False, None, False),
-            ("dispenser", "dispenser", fhirreference.FHIRReference, False, None, False),
-            ("dispensingOrganization", "dispensingOrganization", fhirreference.FHIRReference, False, None, False),
+            ("detectedIssue", "detectedIssue", fhirreference.FHIRReference, True, None, False),
             ("dosageInstruction", "dosageInstruction", dosageinstruction.DosageInstruction, True, None, False),
             ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
+            ("notDone", "notDone", bool, False, None, False),
+            ("notDoneReasonCodeableConcept", "notDoneReasonCodeableConcept", codeableconcept.CodeableConcept, False, "notDoneReason", False),
+            ("notDoneReasonReference", "notDoneReasonReference", fhirreference.FHIRReference, False, "notDoneReason", False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
+            ("performer", "performer", MedicationDispensePerformer, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("receiver", "receiver", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("substitution", "substitution", MedicationDispenseSubstitution, False, None, False),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
@@ -137,6 +168,46 @@ class MedicationDispense(domainresource.DomainResource):
 
 
 from . import backboneelement
+
+class MedicationDispensePerformer(backboneelement.BackboneElement):
+    """ Who performed event.
+    
+    Indicates who or what performed the event.
+    """
+    
+    resource_type = "MedicationDispensePerformer"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.actor = None
+        """ Individual who was performing.
+        Type `FHIRReference` referencing `Practitioner, Organization, Patient, Device, RelatedPerson` (represented as `dict` in JSON). """
+        
+        self.onBehalfOf = None
+        """ Organization organization was acting for.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
+        self.role = None
+        """ What type of role the performer fulfilled.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(MedicationDispensePerformer, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(MedicationDispensePerformer, self).elementProperties()
+        js.extend([
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+        ])
+        return js
+
 
 class MedicationDispenseSubstitution(backboneelement.BackboneElement):
     """ Whether a substitution was performed on the dispense.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class EndpointTests(unittest.TestCase):
         return endpoint.Endpoint(js)
     
     def testEndpoint1(self):
-        inst = self.instantiate_from("endpoint-example.json")
+        inst = self.instantiate_from("endpoint-example-iid.json")
         self.assertIsNotNone(inst, "Must have instantiated a Endpoint instance")
         self.implEndpoint1(inst)
         
@@ -32,6 +32,47 @@ class EndpointTests(unittest.TestCase):
         self.implEndpoint1(inst2)
     
     def implEndpoint1(self, inst):
+        self.assertEqual(inst.address, "https://pacs.hospital.org/IHEInvokeImageDisplay")
+        self.assertEqual(inst.connectionType.code, "ihe-iid")
+        self.assertEqual(inst.connectionType.system, "http://hl7.org/fhir/endpoint-connection-type")
+        self.assertEqual(inst.id, "example-iid")
+        self.assertEqual(inst.name, "PACS Hospital Invoke Image Display endpoint")
+        self.assertEqual(inst.payloadType[0].text, "DICOM IID")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testEndpoint2(self):
+        inst = self.instantiate_from("endpoint-example-wadors.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Endpoint instance")
+        self.implEndpoint2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Endpoint", js["resourceType"])
+        inst2 = endpoint.Endpoint(js)
+        self.implEndpoint2(inst2)
+    
+    def implEndpoint2(self, inst):
+        self.assertEqual(inst.address, "https://pacs.hospital.org/wado-rs")
+        self.assertEqual(inst.connectionType.code, "dicom-wado-rs")
+        self.assertEqual(inst.connectionType.system, "http://hl7.org/fhir/endpoint-connection-type")
+        self.assertEqual(inst.id, "example-wadors")
+        self.assertEqual(inst.name, "PACS Hospital DICOM WADO-RS endpoint")
+        self.assertEqual(inst.payloadMimeType[0], "application/dicom")
+        self.assertEqual(inst.payloadType[0].text, "DICOM WADO-RS")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testEndpoint3(self):
+        inst = self.instantiate_from("endpoint-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Endpoint instance")
+        self.implEndpoint3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Endpoint", js["resourceType"])
+        inst2 = endpoint.Endpoint(js)
+        self.implEndpoint3(inst2)
+    
+    def implEndpoint3(self, inst):
         self.assertEqual(inst.address, "http://fhir3.healthintersections.com.au/open/CarePlan")
         self.assertEqual(inst.connectionType.code, "hl7-fhir-rest")
         self.assertEqual(inst.connectionType.system, "http://hl7.org/fhir/endpoint-connection-type")

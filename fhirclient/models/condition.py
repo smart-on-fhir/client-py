@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Condition) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Condition) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -10,10 +10,8 @@ from . import domainresource
 class Condition(domainresource.DomainResource):
     """ Detailed information about conditions, problems or diagnoses.
     
-    Use to record detailed information about conditions, problems or diagnoses
-    recognized by a clinician. There are many uses including: recording a
-    diagnosis during an encounter; populating a problem list or a summary
-    statement, such as a discharge summary.
+    A clinical condition, problem, diagnosis, or other event, situation, issue,
+    or clinical concept that has risen to a level of concern.
     """
     
     resource_type = "Condition"
@@ -143,7 +141,7 @@ class Condition(domainresource.DomainResource):
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("clinicalStatus", "clinicalStatus", str, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("evidence", "evidence", ConditionEvidence, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),

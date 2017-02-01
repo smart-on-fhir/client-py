@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -25,13 +25,13 @@ class ReferralRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authored = None
+        self.authoredOn = None
         """ Date of creation/activation.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.basedOn = None
         """ Request fulfilled by this request.
-        List of `FHIRReference` items referencing `ReferralRequest, CarePlan, DiagnosticRequest, ProcedureRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ReferralRequest, CarePlan, ProcedureRequest` (represented as `dict` in JSON). """
         
         self.category = None
         """ proposal | plan | request.
@@ -49,13 +49,17 @@ class ReferralRequest(domainresource.DomainResource):
         """ Requested service(s) fulfillment time.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.groupIdentifier = None
+        """ Composite request this is part of.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
         self.identifier = None
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.parent = None
-        """ Composite request this is part of.
-        Type `Identifier` (represented as `dict` in JSON). """
+        self.note = None
+        """ Comments made about referral request.
+        List of `Annotation` items (represented as `dict` in JSON). """
         
         self.patient = None
         """ Patient referred to care or transfer.
@@ -90,7 +94,7 @@ class ReferralRequest(domainresource.DomainResource):
         """ draft | active | cancelled | completed | entered-in-error.
         Type `str`. """
         
-        self.supportingInformation = None
+        self.supportingInfo = None
         """ Additonal information to support referral or transfer of care
         request.
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
@@ -104,14 +108,15 @@ class ReferralRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ReferralRequest, self).elementProperties()
         js.extend([
-            ("authored", "authored", fhirdate.FHIRDate, False, None, False),
+            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("category", "category", str, False, None, True),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
             ("fulfillmentTime", "fulfillmentTime", period.Period, False, None, False),
+            ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("parent", "parent", identifier.Identifier, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
@@ -120,12 +125,13 @@ class ReferralRequest(domainresource.DomainResource):
             ("serviceRequested", "serviceRequested", codeableconcept.CodeableConcept, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, False, None, False),
             ("status", "status", str, False, None, True),
-            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
+            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
 
+from . import annotation
 from . import codeableconcept
 from . import fhirdate
 from . import fhirreference

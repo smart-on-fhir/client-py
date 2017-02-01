@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -83,7 +83,7 @@ class DiagnosticReport(domainresource.DomainResource):
         
         self.request = None
         """ What was requested.
-        List of `FHIRReference` items referencing `DiagnosticRequest, ProcedureRequest, ReferralRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ProcedureRequest, ReferralRequest` (represented as `dict` in JSON). """
         
         self.result = None
         """ Observations - simple, or complex nested groups.

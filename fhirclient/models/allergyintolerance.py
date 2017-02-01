@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -33,7 +33,7 @@ class AllergyIntolerance(domainresource.DomainResource):
         Type `FHIRReference` referencing `Patient, RelatedPerson, Practitioner` (represented as `dict` in JSON). """
         
         self.category = None
-        """ food | medication | biologic | environment.
+        """ food | medication | environment | biologic.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.clinicalStatus = None
@@ -41,7 +41,7 @@ class AllergyIntolerance(domainresource.DomainResource):
         Type `str`. """
         
         self.code = None
-        """ Allergy or intolerance code.
+        """ Code that identifies the allergy or intolerance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.criticality = None
@@ -147,10 +147,6 @@ class AllergyIntoleranceReaction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.certainty = None
-        """ unlikely | likely | confirmed | unknown.
-        Type `str`. """
-        
         self.description = None
         """ Description of the event as a whole.
         Type `str`. """
@@ -185,7 +181,6 @@ class AllergyIntoleranceReaction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AllergyIntoleranceReaction, self).elementProperties()
         js.extend([
-            ("certainty", "certainty", str, False, None, False),
             ("description", "description", str, False, None, False),
             ("exposureRoute", "exposureRoute", codeableconcept.CodeableConcept, False, None, False),
             ("manifestation", "manifestation", codeableconcept.CodeableConcept, True, None, True),

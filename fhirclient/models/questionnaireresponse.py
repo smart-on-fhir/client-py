@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -35,7 +35,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         
         self.basedOn = None
         """ Request fulfilled by this QuestionnaireResponse.
-        List of `FHIRReference` items referencing `DiagnosticRequest, ReferralRequest, CarePlan` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ReferralRequest, CarePlan` (represented as `dict` in JSON). """
         
         self.context = None
         """ Encounter or Episode during which questionnaire was completed.

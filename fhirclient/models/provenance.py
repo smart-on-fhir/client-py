@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -111,11 +111,11 @@ class ProvenanceAgent(backboneelement.BackboneElement):
         """
         
         self.onBehalfOfReference = None
-        """ On behalf of.
+        """ Who the agent is representing.
         Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device, Organization` (represented as `dict` in JSON). """
         
         self.onBehalfOfUri = None
-        """ On behalf of.
+        """ Who the agent is representing.
         Type `str`. """
         
         self.relatedAgentType = None

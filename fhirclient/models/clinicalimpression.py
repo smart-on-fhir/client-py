@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -32,7 +32,7 @@ class ClinicalImpression(domainresource.DomainResource):
         
         self.action = None
         """ Action taken as part of assessment procedure.
-        List of `FHIRReference` items referencing `ReferralRequest, ProcedureRequest, Procedure, MedicationRequest, DiagnosticRequest, Appointment` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ReferralRequest, ProcedureRequest, Procedure, MedicationRequest, Appointment` (represented as `dict` in JSON). """
         
         self.assessor = None
         """ The clinician performing the assessment.

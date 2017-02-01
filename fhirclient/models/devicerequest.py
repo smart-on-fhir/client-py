@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -54,7 +54,7 @@ class DeviceRequest(domainresource.DomainResource):
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Request identifier.
+        """ External Request identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.intent = None
@@ -85,6 +85,10 @@ class DeviceRequest(domainresource.DomainResource):
         """ Fille role.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.priorRequest = None
+        """ What request replaces.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
         self.priority = None
         """ Indicates how quickly the {{title}} should be addressed with
         respect to other requests.
@@ -101,10 +105,6 @@ class DeviceRequest(domainresource.DomainResource):
         self.relevantHistory = None
         """ Request provenance.
         List of `FHIRReference` items referencing `Provenance` (represented as `dict` in JSON). """
-        
-        self.replaces = None
-        """ What request replaces.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.requester = None
         """ Who/what is requesting diagnostics.
@@ -143,11 +143,11 @@ class DeviceRequest(domainresource.DomainResource):
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("performerType", "performerType", codeableconcept.CodeableConcept, False, None, False),
+            ("priorRequest", "priorRequest", fhirreference.FHIRReference, True, None, False),
             ("priority", "priority", str, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False),
-            ("replaces", "replaces", fhirreference.FHIRReference, True, None, False),
             ("requester", "requester", DeviceRequestRequester, False, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),

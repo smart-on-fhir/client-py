@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -51,7 +51,7 @@ class ParameterDefinition(element.Element):
         Type `str`. """
         
         self.use = None
-        """ input | output.
+        """ in | out.
         Type `str`. """
         
         super(ParameterDefinition, self).__init__(jsondict=jsondict, strict=strict)

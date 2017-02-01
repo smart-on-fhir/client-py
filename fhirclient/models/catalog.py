@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Catalog) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Catalog) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -10,8 +10,19 @@ from . import domainresource
 class Catalog(domainresource.DomainResource):
     """ Catalog document.
     
-    A document that bundles a set of catalog entries: items (that can be
-    ordered or referenced) and their characteristics.
+    A document that bundles a set of catalog entries. A catalog entry contains
+    metadata about an item and a pointer to the item’s representative resource.
+    The item is an entity that can be ordered or consulted from a catalog:
+    Medications, devices, lab services, organizations...
+    The catalog resource provides the data necessary for a synchronization of
+    the item data – e.g. the version or last update date which allows systems
+    to obtain differential updates.
+    The catalog does not replicate the content of the item, since that is
+    expected to be in the resource that is referenced. There is however some
+    metadata that is important for the catalog synchronization and not in the
+    “clinical” resource. Examples are different classifications and related
+    identifiers, or packaging information, or device components, or different
+    characteristics.
     """
     
     resource_type = "Catalog"
@@ -28,13 +39,13 @@ class Catalog(domainresource.DomainResource):
         """ Properties of the document - authorship, versions, etc.
         Type `CatalogDocument` (represented as `dict` in JSON). """
         
+        self.entry = None
+        """ Each item of the catalog.
+        List of `CatalogEntry` items (represented as `dict` in JSON). """
+        
         self.identifier = None
         """ Unique identifier for the  catalog resource.
         Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.item = None
-        """ Each item of the catalog.
-        List of `CatalogItem` items (represented as `dict` in JSON). """
         
         super(Catalog, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -42,8 +53,8 @@ class Catalog(domainresource.DomainResource):
         js = super(Catalog, self).elementProperties()
         js.extend([
             ("document", "document", CatalogDocument, False, None, True),
+            ("entry", "entry", CatalogEntry, True, None, True),
             ("identifier", "identifier", identifier.Identifier, False, None, True),
-            ("item", "item", CatalogItem, True, None, True),
         ])
         return js
 
@@ -69,7 +80,7 @@ class CatalogDocument(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.contentVersion = None
-        """ The version of the catalog content.
+        """ The version of the bundle that is being transmitted.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.identifier = None
@@ -121,11 +132,11 @@ class CatalogDocument(backboneelement.BackboneElement):
         return js
 
 
-class CatalogItem(backboneelement.BackboneElement):
+class CatalogEntry(backboneelement.BackboneElement):
     """ Each item of the catalog.
     """
     
-    resource_type = "CatalogItem"
+    resource_type = "CatalogEntry"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -149,7 +160,7 @@ class CatalogItem(backboneelement.BackboneElement):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.classification = None
-        """ Classification of the item.
+        """ Classification (category or class) of the item entry.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.identifier = None
@@ -166,7 +177,7 @@ class CatalogItem(backboneelement.BackboneElement):
         
         self.relatedItem = None
         """ An item that this catalog entry is related to.
-        List of `CatalogItemRelatedItem` items (represented as `dict` in JSON). """
+        List of `CatalogEntryRelatedItem` items (represented as `dict` in JSON). """
         
         self.status = None
         """ The status of the item, e.g. active, approved….
@@ -184,10 +195,10 @@ class CatalogItem(backboneelement.BackboneElement):
         """ The date until which this catalog entry is expected to be active.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        super(CatalogItem, self).__init__(jsondict=jsondict, strict=strict)
+        super(CatalogEntry, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(CatalogItem, self).elementProperties()
+        js = super(CatalogEntry, self).elementProperties()
         js.extend([
             ("additionalCharacteristic", "additionalCharacteristic", codeableconcept.CodeableConcept, True, None, False),
             ("additionalClassification", "additionalClassification", codeableconcept.CodeableConcept, True, None, False),
@@ -196,7 +207,7 @@ class CatalogItem(backboneelement.BackboneElement):
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("lastUpdated", "lastUpdated", fhirdate.FHIRDate, False, None, False),
             ("referencedItem", "referencedItem", fhirreference.FHIRReference, False, None, False),
-            ("relatedItem", "relatedItem", CatalogItemRelatedItem, True, None, False),
+            ("relatedItem", "relatedItem", CatalogEntryRelatedItem, True, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
             ("validFrom", "validFrom", fhirdate.FHIRDate, False, None, False),
@@ -205,14 +216,14 @@ class CatalogItem(backboneelement.BackboneElement):
         return js
 
 
-class CatalogItemRelatedItem(backboneelement.BackboneElement):
+class CatalogEntryRelatedItem(backboneelement.BackboneElement):
     """ An item that this catalog entry is related to.
     
     Used for example,  to point to a substance, or to a device used to
     administer a medication.
     """
     
-    resource_type = "CatalogItemRelatedItem"
+    resource_type = "CatalogEntryRelatedItem"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -231,13 +242,13 @@ class CatalogItemRelatedItem(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.type = None
-        """ The type of related item.
+        """ The type of related item - medication, devices….
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(CatalogItemRelatedItem, self).__init__(jsondict=jsondict, strict=strict)
+        super(CatalogEntryRelatedItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(CatalogItemRelatedItem, self).elementProperties()
+        js = super(CatalogEntryRelatedItem, self).elementProperties()
         js.extend([
             ("identifier", "identifier", fhirreference.FHIRReference, False, None, True),
             ("relationtype", "relationtype", codeableconcept.CodeableConcept, False, None, True),

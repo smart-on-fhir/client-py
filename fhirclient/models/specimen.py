@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -57,7 +57,7 @@ class Specimen(domainresource.DomainResource):
         
         self.request = None
         """ Why the specimen was collected.
-        List of `FHIRReference` items referencing `DiagnosticRequest, ProcedureRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ProcedureRequest` (represented as `dict` in JSON). """
         
         self.status = None
         """ available | unavailable | unsatisfactory | entered-in-error.

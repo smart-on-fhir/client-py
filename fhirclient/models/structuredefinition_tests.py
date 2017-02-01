@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -154,7 +154,7 @@ class StructureDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.snapshot.element[2].path, "Extension.extension")
         self.assertEqual(inst.snapshot.element[2].short, "Extension")
         self.assertEqual(inst.snapshot.element[2].slicing.discriminator[0], "url")
-        self.assertEqual(inst.snapshot.element[2].slicing.id, "80")
+        self.assertEqual(inst.snapshot.element[2].slicing.id, "76")
         self.assertFalse(inst.snapshot.element[2].slicing.ordered)
         self.assertEqual(inst.snapshot.element[2].slicing.rules, "open")
         self.assertEqual(inst.snapshot.element[2].type[0].code, "Extension")
@@ -415,7 +415,7 @@ class StructureDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.snapshot.element[9].path, "DiagnosticReport.request")
         self.assertEqual(inst.snapshot.element[9].short, "What was requested")
         self.assertEqual(inst.snapshot.element[9].type[0].code, "Reference")
-        self.assertEqual(inst.snapshot.element[9].type[0].targetProfile, "http://hl7.org/fhir/StructureDefinition/DiagnosticRequest")
+        self.assertEqual(inst.snapshot.element[9].type[0].targetProfile, "http://hl7.org/fhir/StructureDefinition/ProcedureRequest")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "Example Lipid Profile")

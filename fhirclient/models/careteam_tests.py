@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -32,12 +32,19 @@ class CareTeamTests(unittest.TestCase):
         self.implCareTeam1(inst2)
     
     def implCareTeam1(self, inst):
+        self.assertEqual(inst.category[0].coding[0].code, "encounter")
+        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/care-team-category")
         self.assertEqual(inst.contained[0].id, "pr1")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.identifier[0].value, "12345")
+        self.assertEqual(inst.name, "Peter James Charlmers Care Plan for Encounter 123")
         self.assertEqual(inst.participant[0].role.text, "responsiblePerson")
+        self.assertEqual(inst.participant[1].period.end.date, FHIRDate("2013-01-01").date)
+        self.assertEqual(inst.participant[1].period.end.as_json(), "2013-01-01")
         self.assertEqual(inst.participant[1].role.text, "adviser")
         self.assertEqual(inst.period.end.date, FHIRDate("2013-01-01").date)
         self.assertEqual(inst.period.end.as_json(), "2013-01-01")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Care Team</div>")
         self.assertEqual(inst.text.status, "generated")
 

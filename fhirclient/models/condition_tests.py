@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -141,6 +141,7 @@ class ConditionTests(unittest.TestCase):
         self.implCondition4(inst2)
     
     def implCondition4(self, inst):
+        self.assertEqual(inst.abatementString, "around April 9, 2013")
         self.assertEqual(inst.assertedDate.date, FHIRDate("2013-04-04").date)
         self.assertEqual(inst.assertedDate.as_json(), "2013-04-04")
         self.assertEqual(inst.bodySite[0].coding[0].code, "38266002")
@@ -151,7 +152,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.category[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.category[0].coding[1].code, "problem-list-item")
         self.assertEqual(inst.category[0].coding[1].system, "http://hl7.org/fhir/condition-category")
-        self.assertEqual(inst.clinicalStatus, "active")
+        self.assertEqual(inst.clinicalStatus, "resolved")
         self.assertEqual(inst.code.coding[0].code, "386661006")
         self.assertEqual(inst.code.coding[0].display, "Fever")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
@@ -159,6 +160,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.evidence[0].code.coding[0].display, "degrees C")
         self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f201")
+        self.assertEqual(inst.identifier[0].value, "12345")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2013-04-02").date)
         self.assertEqual(inst.onsetDateTime.as_json(), "2013-04-02")
         self.assertEqual(inst.severity.coding[0].code, "255604002")
@@ -178,6 +180,10 @@ class ConditionTests(unittest.TestCase):
         self.implCondition5(inst2)
     
     def implCondition5(self, inst):
+        self.assertEqual(inst.abatementAge.code, "a")
+        self.assertEqual(inst.abatementAge.system, "http://unitsofmeasure.org")
+        self.assertEqual(inst.abatementAge.unit, "years")
+        self.assertEqual(inst.abatementAge.value, 54)
         self.assertEqual(inst.assertedDate.date, FHIRDate("2012-12-01").date)
         self.assertEqual(inst.assertedDate.as_json(), "2012-12-01")
         self.assertEqual(inst.bodySite[0].coding[0].code, "361355005")
@@ -185,7 +191,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.category[0].coding[0].code, "encounter-diagnosis")
         self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/condition-category")
-        self.assertEqual(inst.clinicalStatus, "active")
+        self.assertEqual(inst.clinicalStatus, "resolved")
         self.assertEqual(inst.code.coding[0].code, "363346000")
         self.assertEqual(inst.code.coding[0].display, "Malignant neoplastic disease")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
@@ -262,6 +268,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Acute renal insufficiency specified as due to procedure")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f204")
+        self.assertEqual(inst.note[0].text, "The patient is anuric.")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2013-03-11").date)
         self.assertEqual(inst.onsetDateTime.as_json(), "2013-03-11")
         self.assertEqual(inst.severity.coding[0].code, "24484000")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -49,7 +49,6 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.assertEqual(inst.note[0].text, "The criticality is high becasue of the observed anaphylactic reaction when challenged with cashew extract.")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2004").date)
         self.assertEqual(inst.onsetDateTime.as_json(), "2004")
-        self.assertEqual(inst.reaction[0].certainty, "confirmed")
         self.assertEqual(inst.reaction[0].description, "Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered")
         self.assertEqual(inst.reaction[0].exposureRoute.coding[0].code, "34206005")
         self.assertEqual(inst.reaction[0].exposureRoute.coding[0].display, "Subcutaneous route")
@@ -63,7 +62,6 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.assertEqual(inst.reaction[0].substance.coding[0].code, "1160593")
         self.assertEqual(inst.reaction[0].substance.coding[0].display, "cashew nut allergenic extract Injectable Product")
         self.assertEqual(inst.reaction[0].substance.coding[0].system, "http://www.nlm.nih.gov/research/umls/rxnorm")
-        self.assertEqual(inst.reaction[1].certainty, "likely")
         self.assertEqual(inst.reaction[1].manifestation[0].coding[0].code, "64305001")
         self.assertEqual(inst.reaction[1].manifestation[0].coding[0].display, "Urticaria")
         self.assertEqual(inst.reaction[1].manifestation[0].coding[0].system, "http://snomed.info/sct")

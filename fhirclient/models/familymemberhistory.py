@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -94,7 +94,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         self.note = None
         """ General note about related person.
-        Type `Annotation` (represented as `dict` in JSON). """
+        List of `Annotation` items (represented as `dict` in JSON). """
         
         self.patient = None
         """ Patient history is about.
@@ -130,7 +130,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
             ("gender", "gender", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("name", "name", str, False, None, False),
-            ("note", "note", annotation.Annotation, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, True),
             ("status", "status", str, False, None, True),
@@ -165,7 +165,7 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
         
         self.note = None
         """ Extra information about condition.
-        Type `Annotation` (represented as `dict` in JSON). """
+        List of `Annotation` items (represented as `dict` in JSON). """
         
         self.onsetAge = None
         """ When condition first manifested.
@@ -193,7 +193,7 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
         js = super(FamilyMemberHistoryCondition, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("note", "note", annotation.Annotation, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("onsetAge", "onsetAge", age.Age, False, "onset", False),
             ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
             ("onsetRange", "onsetRange", range.Range, False, "onset", False),

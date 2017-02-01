@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -108,7 +108,13 @@ class CommunicationTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "urn:oid:1.3.4.5.6.7")
         self.assertEqual(inst.identifier[0].type.text, "Paging System")
         self.assertEqual(inst.identifier[0].value, "2345678901")
+        self.assertEqual(inst.medium[0].coding[0].code, "WRITTEN")
+        self.assertEqual(inst.medium[0].coding[0].display, "written")
+        self.assertEqual(inst.medium[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationMode")
+        self.assertEqual(inst.medium[0].text, "written")
         self.assertEqual(inst.payload[0].contentString, "Patient 1 has a very high serum potassium value (7.2 mmol/L on 2014-Dec-12 at 5:55 pm)")
+        self.assertEqual(inst.received.date, FHIRDate("2014-12-12T18:01:11-08:00").date)
+        self.assertEqual(inst.received.as_json(), "2014-12-12T18:01:11-08:00")
         self.assertEqual(inst.sent.date, FHIRDate("2014-12-12T18:01:10-08:00").date)
         self.assertEqual(inst.sent.as_json(), "2014-12-12T18:01:10-08:00")
         self.assertEqual(inst.status, "completed")

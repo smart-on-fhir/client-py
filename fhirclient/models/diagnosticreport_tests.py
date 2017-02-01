@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -85,6 +85,10 @@ class DiagnosticReportTests(unittest.TestCase):
         self.assertEqual(inst.id, "102")
         self.assertEqual(inst.issued.date, FHIRDate("2008-06-18T09:23:00+10:00").date)
         self.assertEqual(inst.issued.as_json(), "2008-06-18T09:23:00+10:00")
+        self.assertEqual(inst.performer[0].role.coding[0].code, "66862007")
+        self.assertEqual(inst.performer[0].role.coding[0].display, "Radiologist")
+        self.assertEqual(inst.performer[0].role.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.performer[0].role.text, "Radiologist")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
     

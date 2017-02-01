@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -33,6 +33,8 @@ class TestReportTests(unittest.TestCase):
     
     def implTestReport1(self, inst):
         self.assertEqual(inst.id, "testreport-example")
+        self.assertEqual(inst.identifier.system, "urn:ietf:rfc:3986")
+        self.assertEqual(inst.identifier.value, "urn:oid:1.3.6.1.4.1.21367.2005.3.7.9878")
         self.assertEqual(inst.issued.date, FHIRDate("2016-10-07T08:25:34-05:00").date)
         self.assertEqual(inst.issued.as_json(), "2016-10-07T08:25:34-05:00")
         self.assertEqual(inst.name, "TestReport Example for TestScript Example")
@@ -42,6 +44,7 @@ class TestReportTests(unittest.TestCase):
         self.assertEqual(inst.participant[1].display, "HealthIntersections STU3")
         self.assertEqual(inst.participant[1].type, "server")
         self.assertEqual(inst.participant[1].uri, "http://fhir3.healthintersections.com.au/open")
+        self.assertEqual(inst.result, "pass")
         self.assertEqual(inst.score, 100.0)
         self.assertEqual(inst.setup.action[0].operation.detail, "http://projectcrucible.org/permalink/1")
         self.assertEqual(inst.setup.action[0].operation.message, "DELETE Patient")
@@ -55,7 +58,7 @@ class TestReportTests(unittest.TestCase):
         self.assertEqual(inst.setup.action[3].assert_fhir.detail, "http://projectcrucible.org/permalink/1")
         self.assertEqual(inst.setup.action[3].assert_fhir.message, "HTTP 201")
         self.assertEqual(inst.setup.action[3].assert_fhir.result, "pass")
-        self.assertEqual(inst.status, "complete")
+        self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.teardown.action[0].operation.detail, "http://projectcrucible.org/permalink/3")
         self.assertEqual(inst.teardown.action[0].operation.message, "DELETE Patient/fixture-patient-create.")
         self.assertEqual(inst.teardown.action[0].operation.result, "pass")

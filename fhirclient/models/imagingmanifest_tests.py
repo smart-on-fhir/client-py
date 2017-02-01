@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -36,12 +36,6 @@ class ImagingManifestTests(unittest.TestCase):
         self.assertEqual(inst.authoringTime.as_json(), "2014-11-20T11:01:20-08:00")
         self.assertEqual(inst.description, "1 SC image (screen snapshot) and 2 CT images to share a chest CT exam")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.study[0].baseLocation[0].type.code, "IID")
-        self.assertEqual(inst.study[0].baseLocation[0].url, "https://pacs.hospital.org/IHEInvokeImageDisplay")
-        self.assertEqual(inst.study[0].baseLocation[1].type.code, "WADO-RS")
-        self.assertEqual(inst.study[0].baseLocation[1].url, "https://pacs.hospital.org/wado-rs")
-        self.assertEqual(inst.study[0].series[0].baseLocation[0].type.code, "WADO-RS")
-        self.assertEqual(inst.study[0].series[0].baseLocation[0].url, "https://vna.healthexchange.org/wado-rs")
         self.assertEqual(inst.study[0].series[0].instance[0].sopClass, "urn:oid:1.2.840.10008.5.1.4.1.1.7")
         self.assertEqual(inst.study[0].series[0].instance[0].uid, "urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092902")
         self.assertEqual(inst.study[0].series[0].uid, "urn:oid:2.16.124.113543.6003.189642796.63084.16750.2599092901")
@@ -53,9 +47,5 @@ class ImagingManifestTests(unittest.TestCase):
         self.assertEqual(inst.study[0].uid, "urn:oid:2.16.124.113543.6003.189642796.63084.16749.2599092904")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A set of images to share accompanying an report document, including one SC image and two CT image</div>")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.title.coding[0].code, "113030")
-        self.assertEqual(inst.title.coding[0].display, "Manifest")
-        self.assertEqual(inst.title.coding[0].system, "http://nema.org/dicom/dicm")
-        self.assertEqual(inst.title.text, "A set of objects that have been exported for sharing")
         self.assertEqual(inst.uid, "urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092901")
 

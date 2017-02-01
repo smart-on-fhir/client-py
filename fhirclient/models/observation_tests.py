@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -118,6 +118,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.component[4].valueCodeableConcept.coding[1].code, "2")
         self.assertEqual(inst.component[4].valueCodeableConcept.coding[1].system, "http:/acme.ped/apgarrespiratoryeffort")
         self.assertEqual(inst.component[4].valueCodeableConcept.text, "2. Good, strong cry; normal rate and effort of breathing")
+        self.assertEqual(inst.contained[0].id, "newborn")
         self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2016-05-18T22:33:22Z").date)
         self.assertEqual(inst.effectiveDateTime.as_json(), "2016-05-18T22:33:22Z")
         self.assertEqual(inst.id, "10minute-apgar-score")
@@ -224,6 +225,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.component[4].valueCodeableConcept.coding[1].code, "0")
         self.assertEqual(inst.component[4].valueCodeableConcept.coding[1].system, "http:/acme.ped/apgarrespiratoryeffort")
         self.assertEqual(inst.component[4].valueCodeableConcept.text, "0. Not breathing")
+        self.assertEqual(inst.contained[0].id, "newborn")
         self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2016-05-18T22:33:22Z").date)
         self.assertEqual(inst.effectiveDateTime.as_json(), "2016-05-18T22:33:22Z")
         self.assertEqual(inst.id, "1minute-apgar-score")
@@ -312,6 +314,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.component[4].valueCodeableConcept.coding[1].code, "2")
         self.assertEqual(inst.component[4].valueCodeableConcept.coding[1].system, "http:/acme.ped/apgarrespiratoryeffort")
         self.assertEqual(inst.component[4].valueCodeableConcept.text, "2. Good, strong cry; normal rate and effort of breathing")
+        self.assertEqual(inst.contained[0].id, "newborn")
         self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2016-05-18T22:33:22Z").date)
         self.assertEqual(inst.effectiveDateTime.as_json(), "2016-05-18T22:33:22Z")
         self.assertEqual(inst.id, "20minute-apgar-score")
@@ -400,6 +403,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.component[4].valueCodeableConcept.coding[1].code, "1")
         self.assertEqual(inst.component[4].valueCodeableConcept.coding[1].system, "http:/acme.ped/apgarrespiratoryeffort")
         self.assertEqual(inst.component[4].valueCodeableConcept.text, "1. Weak cry; may sound like whimpering, slow or irregular breathing")
+        self.assertEqual(inst.contained[0].id, "newborn")
         self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2016-05-18T22:33:22Z").date)
         self.assertEqual(inst.effectiveDateTime.as_json(), "2016-05-18T22:33:22Z")
         self.assertEqual(inst.id, "2minute-apgar-score")
@@ -506,6 +510,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.component[4].valueCodeableConcept.coding[1].code, "2")
         self.assertEqual(inst.component[4].valueCodeableConcept.coding[1].system, "http:/acme.ped/apgarrespiratoryeffort")
         self.assertEqual(inst.component[4].valueCodeableConcept.text, "2. Good, strong cry; normal rate and effort of breathing")
+        self.assertEqual(inst.contained[0].id, "newborn")
         self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2016-05-18T22:33:22Z").date)
         self.assertEqual(inst.effectiveDateTime.as_json(), "2016-05-18T22:33:22Z")
         self.assertEqual(inst.id, "5minute-apgar-score")
@@ -645,6 +650,10 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.component[0].code.coding[2].code, "bp-s")
         self.assertEqual(inst.component[0].code.coding[2].display, "Systolic Blood pressure")
         self.assertEqual(inst.component[0].code.coding[2].system, "http://acme.org/devices/clinical-codes")
+        self.assertEqual(inst.component[0].interpretation.coding[0].code, "N")
+        self.assertEqual(inst.component[0].interpretation.coding[0].display, "normal")
+        self.assertEqual(inst.component[0].interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
+        self.assertEqual(inst.component[0].interpretation.text, "Normal")
         self.assertEqual(inst.component[0].valueQuantity.code, "mm[Hg]")
         self.assertEqual(inst.component[0].valueQuantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.component[0].valueQuantity.unit, "mmHg")
@@ -652,6 +661,10 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.component[1].code.coding[0].code, "8462-4")
         self.assertEqual(inst.component[1].code.coding[0].display, "Diastolic blood pressure")
         self.assertEqual(inst.component[1].code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.component[1].interpretation.coding[0].code, "L")
+        self.assertEqual(inst.component[1].interpretation.coding[0].display, "low")
+        self.assertEqual(inst.component[1].interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
+        self.assertEqual(inst.component[1].interpretation.text, "Below low normal")
         self.assertEqual(inst.component[1].valueQuantity.code, "mm[Hg]")
         self.assertEqual(inst.component[1].valueQuantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.component[1].valueQuantity.unit, "mmHg")

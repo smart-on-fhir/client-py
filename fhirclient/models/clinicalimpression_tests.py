@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -35,9 +35,14 @@ class ClinicalImpressionTests(unittest.TestCase):
         self.assertEqual(inst.date.date, FHIRDate("2014-12-06T22:33:00+11:00").date)
         self.assertEqual(inst.date.as_json(), "2014-12-06T22:33:00+11:00")
         self.assertEqual(inst.description, "This 26 yo male patient is brought into ER by ambulance after being involved in a motor vehicle accident")
+        self.assertEqual(inst.effectivePeriod.end.date, FHIRDate("2014-12-06T22:33:00+11:00").date)
+        self.assertEqual(inst.effectivePeriod.end.as_json(), "2014-12-06T22:33:00+11:00")
+        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2014-12-06T20:00:00+11:00").date)
+        self.assertEqual(inst.effectivePeriod.start.as_json(), "2014-12-06T20:00:00+11:00")
         self.assertEqual(inst.finding[0].itemCodeableConcept.coding[0].code, "850.0")
         self.assertEqual(inst.finding[0].itemCodeableConcept.coding[0].system, "http://hl7.org/fhir/sid/icd-9")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.identifier[0].value, "12345")
         self.assertEqual(inst.investigation[0].code.text, "Initial Examination")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.summary, "provisional diagnoses of laceration of head and traumatic brain injury (TBI)")

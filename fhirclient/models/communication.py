@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Communication) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Communication) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -78,7 +78,8 @@ class Communication(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.status = None
-        """ in-progress | completed | suspended | rejected | failed.
+        """ preparation | in-progress | suspended | aborted | completed |
+        entered-in-error.
         Type `str`. """
         
         self.subject = None
@@ -107,7 +108,7 @@ class Communication(domainresource.DomainResource):
             ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
             ("sender", "sender", fhirreference.FHIRReference, False, None, False),
             ("sent", "sent", fhirdate.FHIRDate, False, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("topic", "topic", fhirreference.FHIRReference, True, None, False),
         ])

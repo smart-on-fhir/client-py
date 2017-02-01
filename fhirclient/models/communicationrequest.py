@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -78,13 +78,13 @@ class CommunicationRequest(domainresource.DomainResource):
         Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.status = None
-        """ proposed | planned | requested | received | accepted | in-progress
-        | completed | suspended | rejected | failed.
+        """ draft | active | suspended | cancelled | completed | entered-in-
+        error | unknown.
         Type `str`. """
         
         self.subject = None
         """ Focus of message.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         self.topic = None
         """ Focal resources.
@@ -108,7 +108,7 @@ class CommunicationRequest(domainresource.DomainResource):
             ("scheduledDateTime", "scheduledDateTime", fhirdate.FHIRDate, False, "scheduled", False),
             ("scheduledPeriod", "scheduledPeriod", period.Period, False, "scheduled", False),
             ("sender", "sender", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("topic", "topic", fhirreference.FHIRReference, True, None, False),
         ])

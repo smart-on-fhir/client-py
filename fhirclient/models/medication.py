@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/Medication) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Medication) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -28,8 +28,16 @@ class Medication(domainresource.DomainResource):
         """ Codes that identify this medication.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.image = None
+        """ Image of medication.
+        List of `Attachment` items (represented as `dict` in JSON). """
+        
         self.isBrand = None
         """ True if a brand.
+        Type `bool`. """
+        
+        self.isOverTheCounter = None
+        """ True if medication does not require a prescription.
         Type `bool`. """
         
         self.manufacturer = None
@@ -44,16 +52,23 @@ class Medication(domainresource.DomainResource):
         """ Administrable medication details.
         Type `MedicationProduct` (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | inactive | entered-in-error.
+        Type `str`. """
+        
         super(Medication, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Medication, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("image", "image", attachment.Attachment, True, None, False),
             ("isBrand", "isBrand", bool, False, None, False),
+            ("isOverTheCounter", "isOverTheCounter", bool, False, None, False),
             ("manufacturer", "manufacturer", fhirreference.FHIRReference, False, None, False),
             ("package", "package", MedicationPackage, False, None, False),
             ("product", "product", MedicationProduct, False, None, False),
+            ("status", "status", str, False, None, False),
         ])
         return js
 
@@ -231,6 +246,10 @@ class MedicationProductIngredient(backboneelement.BackboneElement):
         """ Quantity of ingredient present.
         Type `Ratio` (represented as `dict` in JSON). """
         
+        self.isActive = None
+        """ Active ingredient indicator.
+        Type `bool`. """
+        
         self.itemCodeableConcept = None
         """ The product contained.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -245,12 +264,14 @@ class MedicationProductIngredient(backboneelement.BackboneElement):
         js = super(MedicationProductIngredient, self).elementProperties()
         js.extend([
             ("amount", "amount", ratio.Ratio, False, None, False),
+            ("isActive", "isActive", bool, False, None, False),
             ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),
             ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True),
         ])
         return js
 
 
+from . import attachment
 from . import codeableconcept
 from . import fhirdate
 from . import fhirreference

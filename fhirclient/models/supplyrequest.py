@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10757 (http://hl7.org/fhir/StructureDefinition/SupplyRequest) on 2017-01-15.
+#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/SupplyRequest) on 2017-02-01.
 #  2017, SMART Health IT.
 
 
@@ -27,6 +27,10 @@ class SupplyRequest(domainresource.DomainResource):
         self.date = None
         """ When the request was made.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.from_fhir = None
+        """ The origin of the supply.
+        Type `FHIRReference` referencing `Organization, Location` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Unique identifier.
@@ -61,12 +65,16 @@ class SupplyRequest(domainresource.DomainResource):
         Type `FHIRReference` referencing `Practitioner, Organization, Patient` (represented as `dict` in JSON). """
         
         self.status = None
-        """ requested | completed | failed | cancelled.
+        """ requested | completed | failed | cancelled | entered-in-error.
         Type `str`. """
         
         self.supplier = None
         """ Who is intended to fulfill the request.
         List of `FHIRReference` items referencing `Organization` (represented as `dict` in JSON). """
+        
+        self.to = None
+        """ The destination of the supply.
+        Type `FHIRReference` referencing `Organization, Location, Patient` (represented as `dict` in JSON). """
         
         self.when = None
         """ When the request should be fulfilled.
@@ -78,6 +86,7 @@ class SupplyRequest(domainresource.DomainResource):
         js = super(SupplyRequest, self).elementProperties()
         js.extend([
             ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("from_fhir", "from", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("kind", "kind", codeableconcept.CodeableConcept, False, None, False),
             ("orderedItemCodeableConcept", "orderedItemCodeableConcept", codeableconcept.CodeableConcept, False, "orderedItem", False),
@@ -88,6 +97,7 @@ class SupplyRequest(domainresource.DomainResource):
             ("source", "source", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, False),
             ("supplier", "supplier", fhirreference.FHIRReference, True, None, False),
+            ("to", "to", fhirreference.FHIRReference, False, None, False),
             ("when", "when", SupplyRequestWhen, False, None, False),
         ])
         return js
