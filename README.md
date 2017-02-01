@@ -6,11 +6,12 @@ The client is compatible with Python 2.7.10 and Python 3.
 
 Client versioning is not identical to FHIR versioning.
 The `master` branch is usually on the latest version of the client as shown below, possibly on bugfix releases thereof.
-See the `develop` branch for models that are closer to the latest FHIR continuous integration builds.
+The `develop` branch should be on recent freezes, and the `feature/latest-ci` branch is periodically updated to the latest FHIR continuous integration builds.
 
    Version |          FHIR | &nbsp;
 -----------|---------------|---
    **x.x** |       `1.8.0` | (STU-3 Ballot, Jan 2017)
+   **x.x** |       `1.6.0` | (STU-3 Ballot, Sep 2016)
  **1.0.3** |       `1.0.2` | (DSTU 2)
    **1.0** |       `1.0.1` | (DSTU 2)
    **0.5** |  `0.5.0.5149` | (DSTU 2 Ballot, May 2015)
