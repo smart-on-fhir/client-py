@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -25,13 +25,25 @@ class CommunicationRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.authoredOn = None
+        """ When request transitioned to being actionable.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.basedOn = None
+        """ Fulfills plan or proposal.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
         self.category = None
         """ Message category.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.context = None
         """ Encounter or episode leading to message.
         Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        
+        self.groupIdentifier = None
+        """ Composite request this is part of.
+        Type `Identifier` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Unique identifier.
@@ -41,37 +53,45 @@ class CommunicationRequest(domainresource.DomainResource):
         """ A channel of communication.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.note = None
+        """ Comments made about communication request.
+        List of `Annotation` items (represented as `dict` in JSON). """
+        
+        self.occurrenceDateTime = None
+        """ When scheduled.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.occurrencePeriod = None
+        """ When scheduled.
+        Type `Period` (represented as `dict` in JSON). """
+        
         self.payload = None
         """ Message payload.
         List of `CommunicationRequestPayload` items (represented as `dict` in JSON). """
         
         self.priority = None
         """ Message urgency.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        Type `str`. """
         
-        self.reason = None
-        """ Indication for message.
+        self.reasonCode = None
+        """ Why is communication needed?.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.reasonReference = None
+        """ Why is communication needed?.
+        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
         
         self.recipient = None
         """ Message recipient.
         List of `FHIRReference` items referencing `Device, Organization, Patient, Practitioner, RelatedPerson, Group, CareTeam` (represented as `dict` in JSON). """
         
-        self.requestedOn = None
-        """ When ordered or proposed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        self.replaces = None
+        """ Request(s) replaced by this request.
+        List of `FHIRReference` items referencing `CommunicationRequest` (represented as `dict` in JSON). """
         
         self.requester = None
-        """ An individual who requested a communication.
-        Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
-        
-        self.scheduledDateTime = None
-        """ When scheduled.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.scheduledPeriod = None
-        """ When scheduled.
-        Type `Period` (represented as `dict` in JSON). """
+        """ Who/what is requesting service.
+        Type `CommunicationRequestRequester` (represented as `dict` in JSON). """
         
         self.sender = None
         """ Message sender.
@@ -95,18 +115,23 @@ class CommunicationRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(CommunicationRequest, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
+            ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("medium", "medium", codeableconcept.CodeableConcept, True, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
+            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("payload", "payload", CommunicationRequestPayload, True, None, False),
-            ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
+            ("priority", "priority", str, False, None, False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
-            ("requestedOn", "requestedOn", fhirdate.FHIRDate, False, None, False),
-            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
-            ("scheduledDateTime", "scheduledDateTime", fhirdate.FHIRDate, False, "scheduled", False),
-            ("scheduledPeriod", "scheduledPeriod", period.Period, False, "scheduled", False),
+            ("replaces", "replaces", fhirreference.FHIRReference, True, None, False),
+            ("requester", "requester", CommunicationRequestRequester, False, None, False),
             ("sender", "sender", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
@@ -157,6 +182,43 @@ class CommunicationRequestPayload(backboneelement.BackboneElement):
         return js
 
 
+class CommunicationRequestRequester(backboneelement.BackboneElement):
+    """ Who/what is requesting service.
+    
+    The individual who initiated the request and has responsibility for its
+    activation.
+    """
+    
+    resource_type = "CommunicationRequestRequester"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.agent = None
+        """ Individual making the request.
+        Type `FHIRReference` referencing `Practitioner, Organization, Patient, RelatedPerson, Device` (represented as `dict` in JSON). """
+        
+        self.onBehalfOf = None
+        """ Organization agent is acting for.
+        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        
+        super(CommunicationRequestRequester, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(CommunicationRequestRequester, self).elementProperties()
+        js.extend([
+            ("agent", "agent", fhirreference.FHIRReference, False, None, True),
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
+        ])
+        return js
+
+
+from . import annotation
 from . import attachment
 from . import codeableconcept
 from . import fhirdate

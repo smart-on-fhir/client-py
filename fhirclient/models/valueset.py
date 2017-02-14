@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -250,7 +250,7 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
         List of `ValueSetComposeIncludeConceptDesignation` items (represented as `dict` in JSON). """
         
         self.display = None
-        """ Text to display for this code for this value set.
+        """ Text to display for this code for this value set in this valueset.
         Type `str`. """
         
         super(ValueSetComposeIncludeConcept, self).__init__(jsondict=jsondict, strict=strict)

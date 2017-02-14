@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Device) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Device) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -73,17 +73,21 @@ class Device(domainresource.DomainResource):
         """ Patient to whom Device is affixed.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
+        self.safety = None
+        """ Safety Characteristics of Device.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.status = None
-        """ available | not-available | entered-in-error.
+        """ active | inactive | entered-in-error | unknown.
         Type `str`. """
         
         self.type = None
         """ What kind of device this is.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.udiCarrier = None
+        self.udi = None
         """ Unique Device Identifier (UDI) Barcode string.
-        Type `Identifier` (represented as `dict` in JSON). """
+        Type `DeviceUdi` (represented as `dict` in JSON). """
         
         self.url = None
         """ Network address to contact device.
@@ -109,11 +113,75 @@ class Device(domainresource.DomainResource):
             ("note", "note", annotation.Annotation, True, None, False),
             ("owner", "owner", fhirreference.FHIRReference, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("safety", "safety", codeableconcept.CodeableConcept, True, None, False),
             ("status", "status", str, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("udiCarrier", "udiCarrier", identifier.Identifier, False, None, False),
+            ("udi", "udi", DeviceUdi, False, None, False),
             ("url", "url", str, False, None, False),
             ("version", "version", str, False, None, False),
+        ])
+        return js
+
+
+from . import backboneelement
+
+class DeviceUdi(backboneelement.BackboneElement):
+    """ Unique Device Identifier (UDI) Barcode string.
+    
+    [Unique device identifier (UDI)](device.html#5.11.3.2.2) assigned to device
+    label or package.
+    """
+    
+    resource_type = "DeviceUdi"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.carrierAIDC = None
+        """ UDI Machine Readable Barcode String.
+        Type `str`. """
+        
+        self.carrierHRF = None
+        """ UDI Human Readable Barcode String.
+        Type `str`. """
+        
+        self.deviceIdentifier = None
+        """ Mandatory fixed portion of UDI.
+        Type `str`. """
+        
+        self.entryType = None
+        """ barcode | rfid | manual +.
+        Type `str`. """
+        
+        self.issuer = None
+        """ UDI Issuing Organization.
+        Type `str`. """
+        
+        self.jurisdiction = None
+        """ Regional UDI authority.
+        Type `str`. """
+        
+        self.name = None
+        """ Device Name as appears on UDI label.
+        Type `str`. """
+        
+        super(DeviceUdi, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(DeviceUdi, self).elementProperties()
+        js.extend([
+            ("carrierAIDC", "carrierAIDC", str, False, None, False),
+            ("carrierHRF", "carrierHRF", str, False, None, False),
+            ("deviceIdentifier", "deviceIdentifier", str, False, None, False),
+            ("entryType", "entryType", str, False, None, False),
+            ("issuer", "issuer", str, False, None, False),
+            ("jurisdiction", "jurisdiction", str, False, None, False),
+            ("name", "name", str, False, None, False),
         ])
         return js
 

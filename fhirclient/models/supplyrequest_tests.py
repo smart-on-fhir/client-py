@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -53,8 +53,9 @@ class SupplyRequestTests(unittest.TestCase):
         self.assertEqual(inst.identifier.value, "Order10284")
         self.assertEqual(inst.kind.coding[0].code, "central")
         self.assertEqual(inst.kind.coding[0].display, "Central Stock Resupply")
-        self.assertEqual(inst.orderedItemCodeableConcept.coding[0].code, "BlueTubes")
-        self.assertEqual(inst.orderedItemCodeableConcept.coding[0].display, "Blood collect tubes blue cap")
+        self.assertEqual(inst.orderedItem.itemCodeableConcept.coding[0].code, "BlueTubes")
+        self.assertEqual(inst.orderedItem.itemCodeableConcept.coding[0].display, "Blood collect tubes blue cap")
+        self.assertEqual(inst.orderedItem.quantity.value, 10)
         self.assertEqual(inst.reasonCodeableConcept.coding[0].code, "stock_low")
         self.assertEqual(inst.reasonCodeableConcept.coding[0].display, "Refill due to low stock")
         self.assertEqual(inst.status, "requested")

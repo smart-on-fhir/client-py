@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -224,16 +224,16 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.compose.include[0].system, "http://hl7.org/fhir/list-example-use-codes")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2017-02-01T04:47:20+00:00").date)
-        self.assertEqual(inst.date.as_json(), "2017-02-01T04:47:20+00:00")
+        self.assertEqual(inst.date.date, FHIRDate("2017-02-14T12:31:17+00:00").date)
+        self.assertEqual(inst.date.as_json(), "2017-02-14T12:31:17+00:00")
         self.assertEqual(inst.description, "Example use codes for the List resource - typical kinds of use.")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "list-example-codes")
         self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value, "urn:oid:2.16.840.1.113883.4.642.2.173")
         self.assertTrue(inst.immutable)
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2017-02-01T04:47:20.479+00:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2017-02-01T04:47:20.479+00:00")
+        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2017-02-14T12:31:17.359+00:00").date)
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2017-02-14T12:31:17.359+00:00")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
         self.assertEqual(inst.name, "Example Use Codes for List")
         self.assertEqual(inst.publisher, "FHIR Project")

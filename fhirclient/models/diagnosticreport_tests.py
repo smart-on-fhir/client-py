@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -113,8 +113,6 @@ class DiagnosticReportTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
         self.assertEqual(inst.conclusion, "Core lab")
         self.assertEqual(inst.contained[0].id, "req")
-        self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2013-04-02").date)
-        self.assertEqual(inst.effectiveDateTime.as_json(), "2013-04-02")
         self.assertEqual(inst.id, "f001")
         self.assertEqual(inst.identifier[0].system, "http://www.bmc.nl/zorgportal/identifiers/reports")
         self.assertEqual(inst.identifier[0].use, "official")
@@ -180,8 +178,6 @@ class DiagnosticReportTests(unittest.TestCase):
         self.assertEqual(inst.codedDiagnosis[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.conclusion, "Blood culture tested positive on staphylococcus aureus")
         self.assertEqual(inst.contained[0].id, "req")
-        self.assertEqual(inst.effectiveDateTime.date, FHIRDate("2013-03-11T03:45:00+01:00").date)
-        self.assertEqual(inst.effectiveDateTime.as_json(), "2013-03-11T03:45:00+01:00")
         self.assertEqual(inst.id, "f202")
         self.assertEqual(inst.issued.date, FHIRDate("2013-03-11T10:28:00+01:00").date)
         self.assertEqual(inst.issued.as_json(), "2013-03-11T10:28:00+01:00")

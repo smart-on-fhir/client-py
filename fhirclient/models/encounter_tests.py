@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class EncounterTests(unittest.TestCase):
         return encounter.Encounter(js)
     
     def testEncounter1(self):
-        inst = self.instantiate_from("encounter-example-f001-heart.json")
+        inst = self.instantiate_from("encounter-example-emerg.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
         self.implEncounter1(inst)
         
@@ -32,6 +32,88 @@ class EncounterTests(unittest.TestCase):
         self.implEncounter1(inst2)
     
     def implEncounter1(self, inst):
+        self.assertEqual(inst.classHistory[0].class_fhir.code, "EMER")
+        self.assertEqual(inst.classHistory[0].class_fhir.display, "emergency")
+        self.assertEqual(inst.classHistory[0].class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
+        self.assertEqual(inst.classHistory[0].period.end.date, FHIRDate("2017-02-01T09:27:00+10:00").date)
+        self.assertEqual(inst.classHistory[0].period.end.as_json(), "2017-02-01T09:27:00+10:00")
+        self.assertEqual(inst.classHistory[0].period.start.date, FHIRDate("2017-02-01T07:15:00+10:00").date)
+        self.assertEqual(inst.classHistory[0].period.start.as_json(), "2017-02-01T07:15:00+10:00")
+        self.assertEqual(inst.classHistory[1].class_fhir.code, "IMP")
+        self.assertEqual(inst.classHistory[1].class_fhir.display, "inpatient encounter")
+        self.assertEqual(inst.classHistory[1].class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
+        self.assertEqual(inst.classHistory[1].period.start.date, FHIRDate("2017-02-01T09:27:00+10:00").date)
+        self.assertEqual(inst.classHistory[1].period.start.as_json(), "2017-02-01T09:27:00+10:00")
+        self.assertEqual(inst.class_fhir.code, "IMP")
+        self.assertEqual(inst.class_fhir.display, "inpatient encounter")
+        self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
+        self.assertEqual(inst.hospitalization.admitSource.coding[0].code, "emd")
+        self.assertEqual(inst.hospitalization.admitSource.coding[0].display, "From accident/emergency department")
+        self.assertEqual(inst.hospitalization.admitSource.coding[0].system, "http://hl7.org/fhir/admit-source")
+        self.assertEqual(inst.id, "emerg")
+        self.assertEqual(inst.location[0].period.end.date, FHIRDate("2017-02-01T08:45:00+10:00").date)
+        self.assertEqual(inst.location[0].period.end.as_json(), "2017-02-01T08:45:00+10:00")
+        self.assertEqual(inst.location[0].period.start.date, FHIRDate("2017-02-01T07:15:00+10:00").date)
+        self.assertEqual(inst.location[0].period.start.as_json(), "2017-02-01T07:15:00+10:00")
+        self.assertEqual(inst.location[0].status, "active")
+        self.assertEqual(inst.location[1].period.end.date, FHIRDate("2017-02-01T09:27:00+10:00").date)
+        self.assertEqual(inst.location[1].period.end.as_json(), "2017-02-01T09:27:00+10:00")
+        self.assertEqual(inst.location[1].period.start.date, FHIRDate("2017-02-01T08:45:00+10:00").date)
+        self.assertEqual(inst.location[1].period.start.as_json(), "2017-02-01T08:45:00+10:00")
+        self.assertEqual(inst.location[1].status, "active")
+        self.assertEqual(inst.location[2].period.end.date, FHIRDate("2017-02-01T12:15:00+10:00").date)
+        self.assertEqual(inst.location[2].period.end.as_json(), "2017-02-01T12:15:00+10:00")
+        self.assertEqual(inst.location[2].period.start.date, FHIRDate("2017-02-01T09:27:00+10:00").date)
+        self.assertEqual(inst.location[2].period.start.as_json(), "2017-02-01T09:27:00+10:00")
+        self.assertEqual(inst.location[2].status, "active")
+        self.assertEqual(inst.location[3].period.end.date, FHIRDate("2017-02-01T12:45:00+10:00").date)
+        self.assertEqual(inst.location[3].period.end.as_json(), "2017-02-01T12:45:00+10:00")
+        self.assertEqual(inst.location[3].period.start.date, FHIRDate("2017-02-01T12:15:00+10:00").date)
+        self.assertEqual(inst.location[3].period.start.as_json(), "2017-02-01T12:15:00+10:00")
+        self.assertEqual(inst.location[3].status, "reserved")
+        self.assertEqual(inst.location[4].period.start.date, FHIRDate("2017-02-01T12:45:00+10:00").date)
+        self.assertEqual(inst.location[4].period.start.as_json(), "2017-02-01T12:45:00+10:00")
+        self.assertEqual(inst.location[4].status, "active")
+        self.assertEqual(inst.period.start.date, FHIRDate("2017-02-01T07:15:00+10:00").date)
+        self.assertEqual(inst.period.start.as_json(), "2017-02-01T07:15:00+10:00")
+        self.assertEqual(inst.status, "in-progress")
+        self.assertEqual(inst.statusHistory[0].period.end.date, FHIRDate("2017-02-01T07:35:00+10:00").date)
+        self.assertEqual(inst.statusHistory[0].period.end.as_json(), "2017-02-01T07:35:00+10:00")
+        self.assertEqual(inst.statusHistory[0].period.start.date, FHIRDate("2017-02-01T07:15:00+10:00").date)
+        self.assertEqual(inst.statusHistory[0].period.start.as_json(), "2017-02-01T07:15:00+10:00")
+        self.assertEqual(inst.statusHistory[0].status, "arrived")
+        self.assertEqual(inst.statusHistory[1].period.end.date, FHIRDate("2017-02-01T08:45:00+10:00").date)
+        self.assertEqual(inst.statusHistory[1].period.end.as_json(), "2017-02-01T08:45:00+10:00")
+        self.assertEqual(inst.statusHistory[1].period.start.date, FHIRDate("2017-02-01T07:35:00+10:00").date)
+        self.assertEqual(inst.statusHistory[1].period.start.as_json(), "2017-02-01T07:35:00+10:00")
+        self.assertEqual(inst.statusHistory[1].status, "triaged")
+        self.assertEqual(inst.statusHistory[2].period.end.date, FHIRDate("2017-02-01T12:15:00+10:00").date)
+        self.assertEqual(inst.statusHistory[2].period.end.as_json(), "2017-02-01T12:15:00+10:00")
+        self.assertEqual(inst.statusHistory[2].period.start.date, FHIRDate("2017-02-01T08:45:00+10:00").date)
+        self.assertEqual(inst.statusHistory[2].period.start.as_json(), "2017-02-01T08:45:00+10:00")
+        self.assertEqual(inst.statusHistory[2].status, "in-progress")
+        self.assertEqual(inst.statusHistory[3].period.end.date, FHIRDate("2017-02-01T12:45:00+10:00").date)
+        self.assertEqual(inst.statusHistory[3].period.end.as_json(), "2017-02-01T12:45:00+10:00")
+        self.assertEqual(inst.statusHistory[3].period.start.date, FHIRDate("2017-02-01T12:15:00+10:00").date)
+        self.assertEqual(inst.statusHistory[3].period.start.as_json(), "2017-02-01T12:15:00+10:00")
+        self.assertEqual(inst.statusHistory[3].status, "onleave")
+        self.assertEqual(inst.statusHistory[4].period.start.date, FHIRDate("2017-02-01T12:45:00+10:00").date)
+        self.assertEqual(inst.statusHistory[4].period.start.as_json(), "2017-02-01T12:45:00+10:00")
+        self.assertEqual(inst.statusHistory[4].status, "in-progress")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Emergency visit that escalated into inpatient patient @example</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testEncounter2(self):
+        inst = self.instantiate_from("encounter-example-f001-heart.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
+        self.implEncounter2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Encounter", js["resourceType"])
+        inst2 = encounter.Encounter(js)
+        self.implEncounter2(inst2)
+    
+    def implEncounter2(self, inst):
         self.assertEqual(inst.class_fhir.code, "AMB")
         self.assertEqual(inst.class_fhir.display, "ambulatory")
         self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
@@ -64,17 +146,17 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.type[0].coding[0].display, "Patient-initiated encounter")
         self.assertEqual(inst.type[0].coding[0].system, "http://snomed.info/sct")
     
-    def testEncounter2(self):
+    def testEncounter3(self):
         inst = self.instantiate_from("encounter-example-f002-lung.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
-        self.implEncounter2(inst)
+        self.implEncounter3(inst)
         
         js = inst.as_json()
         self.assertEqual("Encounter", js["resourceType"])
         inst2 = encounter.Encounter(js)
-        self.implEncounter2(inst2)
+        self.implEncounter3(inst2)
     
-    def implEncounter2(self, inst):
+    def implEncounter3(self, inst):
         self.assertEqual(inst.class_fhir.code, "AMB")
         self.assertEqual(inst.class_fhir.display, "ambulatory")
         self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
@@ -107,17 +189,17 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.type[0].coding[0].display, "Patient-initiated encounter")
         self.assertEqual(inst.type[0].coding[0].system, "http://snomed.info/sct")
     
-    def testEncounter3(self):
+    def testEncounter4(self):
         inst = self.instantiate_from("encounter-example-f003-abscess.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
-        self.implEncounter3(inst)
+        self.implEncounter4(inst)
         
         js = inst.as_json()
         self.assertEqual("Encounter", js["resourceType"])
         inst2 = encounter.Encounter(js)
-        self.implEncounter3(inst2)
+        self.implEncounter4(inst2)
     
-    def implEncounter3(self, inst):
+    def implEncounter4(self, inst):
         self.assertEqual(inst.class_fhir.code, "AMB")
         self.assertEqual(inst.class_fhir.display, "ambulatory")
         self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
@@ -152,17 +234,17 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.type[0].coding[0].display, "Patient-initiated encounter")
         self.assertEqual(inst.type[0].coding[0].system, "http://snomed.info/sct")
     
-    def testEncounter4(self):
+    def testEncounter5(self):
         inst = self.instantiate_from("encounter-example-f201-20130404.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
-        self.implEncounter4(inst)
+        self.implEncounter5(inst)
         
         js = inst.as_json()
         self.assertEqual("Encounter", js["resourceType"])
         inst2 = encounter.Encounter(js)
-        self.implEncounter4(inst2)
+        self.implEncounter5(inst2)
     
-    def implEncounter4(self, inst):
+    def implEncounter5(self, inst):
         self.assertEqual(inst.class_fhir.code, "AMB")
         self.assertEqual(inst.class_fhir.display, "ambulatory")
         self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
@@ -179,17 +261,17 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.type[0].coding[0].display, "Consultation")
         self.assertEqual(inst.type[0].coding[0].system, "http://snomed.info/sct")
     
-    def testEncounter5(self):
+    def testEncounter6(self):
         inst = self.instantiate_from("encounter-example-f202-20130128.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
-        self.implEncounter5(inst)
+        self.implEncounter6(inst)
         
         js = inst.as_json()
         self.assertEqual("Encounter", js["resourceType"])
         inst2 = encounter.Encounter(js)
-        self.implEncounter5(inst2)
+        self.implEncounter6(inst2)
     
-    def implEncounter5(self, inst):
+    def implEncounter6(self, inst):
         self.assertEqual(inst.class_fhir.code, "AMB")
         self.assertEqual(inst.class_fhir.display, "ambulatory")
         self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
@@ -212,17 +294,17 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.type[0].coding[0].display, "Chemotherapy")
         self.assertEqual(inst.type[0].coding[0].system, "http://snomed.info/sct")
     
-    def testEncounter6(self):
+    def testEncounter7(self):
         inst = self.instantiate_from("encounter-example-f203-20130311.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
-        self.implEncounter6(inst)
+        self.implEncounter7(inst)
         
         js = inst.as_json()
         self.assertEqual("Encounter", js["resourceType"])
         inst2 = encounter.Encounter(js)
-        self.implEncounter6(inst2)
+        self.implEncounter7(inst2)
     
-    def implEncounter6(self, inst):
+    def implEncounter7(self, inst):
         self.assertEqual(inst.class_fhir.code, "IMP")
         self.assertEqual(inst.class_fhir.display, "inpatient encounter")
         self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
@@ -261,17 +343,17 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.type[0].coding[0].display, "Inpatient stay for nine days")
         self.assertEqual(inst.type[0].coding[0].system, "http://snomed.info/sct")
     
-    def testEncounter7(self):
+    def testEncounter8(self):
         inst = self.instantiate_from("encounter-example-home.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
-        self.implEncounter7(inst)
+        self.implEncounter8(inst)
         
         js = inst.as_json()
         self.assertEqual("Encounter", js["resourceType"])
         inst2 = encounter.Encounter(js)
-        self.implEncounter7(inst2)
+        self.implEncounter8(inst2)
     
-    def implEncounter7(self, inst):
+    def implEncounter8(self, inst):
         self.assertEqual(inst.class_fhir.code, "HH")
         self.assertEqual(inst.class_fhir.display, "home health")
         self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
@@ -294,17 +376,17 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Encounter with patient @example who is at home</div>")
         self.assertEqual(inst.text.status, "generated")
     
-    def testEncounter8(self):
+    def testEncounter9(self):
         inst = self.instantiate_from("encounter-example-xcda.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
-        self.implEncounter8(inst)
+        self.implEncounter9(inst)
         
         js = inst.as_json()
         self.assertEqual("Encounter", js["resourceType"])
         inst2 = encounter.Encounter(js)
-        self.implEncounter8(inst2)
+        self.implEncounter9(inst2)
     
-    def implEncounter8(self, inst):
+    def implEncounter9(self, inst):
         self.assertEqual(inst.class_fhir.code, "AMB")
         self.assertEqual(inst.class_fhir.display, "ambulatory")
         self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")
@@ -318,17 +400,17 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.status, "finished")
         self.assertEqual(inst.text.status, "generated")
     
-    def testEncounter9(self):
+    def testEncounter10(self):
         inst = self.instantiate_from("encounter-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Encounter instance")
-        self.implEncounter9(inst)
+        self.implEncounter10(inst)
         
         js = inst.as_json()
         self.assertEqual("Encounter", js["resourceType"])
         inst2 = encounter.Encounter(js)
-        self.implEncounter9(inst2)
+        self.implEncounter10(inst2)
     
-    def implEncounter9(self, inst):
+    def implEncounter10(self, inst):
         self.assertEqual(inst.class_fhir.code, "IMP")
         self.assertEqual(inst.class_fhir.display, "inpatient encounter")
         self.assertEqual(inst.class_fhir.system, "http://hl7.org/fhir/v3/ActCode")

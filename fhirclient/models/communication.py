@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Communication) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Communication) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -31,11 +31,15 @@ class Communication(domainresource.DomainResource):
         
         self.category = None
         """ Message category.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.context = None
         """ Encounter or episode leading to message.
         Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        
+        self.definition = None
+        """ Instantiates protocol or definition.
+        List of `FHIRReference` items referencing `PlanDefinition, ActivityDefinition` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Unique identifier.
@@ -45,11 +49,19 @@ class Communication(domainresource.DomainResource):
         """ A channel of communication.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.notDone = None
+        """ Communication did not occur.
+        Type `bool`. """
+        
+        self.notDoneReason = None
+        """ Why communication did not occur.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.note = None
         """ Comments made about the communication.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.parent = None
+        self.partOf = None
         """ Part of this action.
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
@@ -57,9 +69,13 @@ class Communication(domainresource.DomainResource):
         """ Message payload.
         List of `CommunicationPayload` items (represented as `dict` in JSON). """
         
-        self.reason = None
+        self.reasonCodeableConcept = None
         """ Indication for message.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.reasonReference = None
+        """ Why was communication done?.
+        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
         
         self.received = None
         """ When received.
@@ -96,14 +112,18 @@ class Communication(domainresource.DomainResource):
         js = super(Communication, self).elementProperties()
         js.extend([
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
+            ("definition", "definition", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("medium", "medium", codeableconcept.CodeableConcept, True, None, False),
+            ("notDone", "notDone", bool, False, None, False),
+            ("notDoneReason", "notDoneReason", codeableconcept.CodeableConcept, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("payload", "payload", CommunicationPayload, True, None, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("received", "received", fhirdate.FHIRDate, False, None, False),
             ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
             ("sender", "sender", fhirreference.FHIRReference, False, None, False),

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -80,7 +80,7 @@ class Appointment(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.slot = None
-        """ If provided, then no schedule and start/end values MUST match slot.
+        """ The slots that this appointment is filling.
         List of `FHIRReference` items referencing `Slot` (represented as `dict` in JSON). """
         
         self.specialty = None

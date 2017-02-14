@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -72,6 +72,7 @@ class FamilyMemberHistoryTests(unittest.TestCase):
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "father")
         self.assertEqual(inst.identifier[0].value, "12345")
+        self.assertFalse(inst.notDone)
         self.assertEqual(inst.relationship.coding[0].code, "father")
         self.assertEqual(inst.relationship.coding[0].system, "http://hl7.org/fhir/familial-relationship")
         self.assertEqual(inst.status, "completed")

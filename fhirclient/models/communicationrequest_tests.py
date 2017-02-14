@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -32,11 +32,14 @@ class CommunicationRequestTests(unittest.TestCase):
         self.implCommunicationRequest1(inst2)
     
     def implCommunicationRequest1(self, inst):
-        self.assertEqual(inst.category.coding[0].code, "SolicitedAttachmentRequest")
-        self.assertEqual(inst.category.coding[0].system, "http://acme.org/messagetypes")
+        self.assertEqual(inst.authoredOn.date, FHIRDate("2016-06-10T11:01:10-08:00").date)
+        self.assertEqual(inst.authoredOn.as_json(), "2016-06-10T11:01:10-08:00")
+        self.assertEqual(inst.category[0].coding[0].code, "SolicitedAttachmentRequest")
+        self.assertEqual(inst.category[0].coding[0].system, "http://acme.org/messagetypes")
         self.assertEqual(inst.contained[0].id, "provider")
         self.assertEqual(inst.contained[1].id, "payor")
         self.assertEqual(inst.contained[2].id, "requester")
+        self.assertEqual(inst.groupIdentifier.value, "12345")
         self.assertEqual(inst.id, "fm-solicit")
         self.assertEqual(inst.identifier[0].system, "http://www.jurisdiction.com/insurer/123456")
         self.assertEqual(inst.identifier[0].value, "ABC123")
@@ -44,15 +47,10 @@ class CommunicationRequestTests(unittest.TestCase):
         self.assertEqual(inst.medium[0].coding[0].display, "written")
         self.assertEqual(inst.medium[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationMode")
         self.assertEqual(inst.medium[0].text, "written")
+        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2016-06-10T11:01:10-08:00").date)
+        self.assertEqual(inst.occurrenceDateTime.as_json(), "2016-06-10T11:01:10-08:00")
         self.assertEqual(inst.payload[0].contentString, "Please provide the accident report and any associated pictures to support your Claim# DEF5647.")
-        self.assertEqual(inst.priority.coding[0].code, "routine")
-        self.assertEqual(inst.priority.coding[0].display, "Routine")
-        self.assertEqual(inst.priority.coding[0].system, "http://hl7.org/fhir/request-priority")
-        self.assertEqual(inst.priority.text, "Routine")
-        self.assertEqual(inst.requestedOn.date, FHIRDate("2016-06-10T11:01:10-08:00").date)
-        self.assertEqual(inst.requestedOn.as_json(), "2016-06-10T11:01:10-08:00")
-        self.assertEqual(inst.scheduledDateTime.date, FHIRDate("2016-06-10T11:01:10-08:00").date)
-        self.assertEqual(inst.scheduledDateTime.as_json(), "2016-06-10T11:01:10-08:00")
+        self.assertEqual(inst.priority, "routine")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Request for Accident Report</div>")
         self.assertEqual(inst.text.status, "generated")

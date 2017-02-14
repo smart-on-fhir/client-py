@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -106,19 +106,28 @@ class ConceptMapTests(unittest.TestCase):
         self.assertEqual(inst.description, "A mapping between the FHIR and HL7 v3 AddressUse Code systems")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.group[0].element[0].code, "home")
+        self.assertEqual(inst.group[0].element[0].display, "home")
         self.assertEqual(inst.group[0].element[0].target[0].code, "H")
-        self.assertEqual(inst.group[0].element[1].code, "home")
-        self.assertEqual(inst.group[0].element[1].target[0].code, "H")
-        self.assertEqual(inst.group[0].element[2].code, "work")
-        self.assertEqual(inst.group[0].element[2].target[0].code, "WP")
-        self.assertEqual(inst.group[0].element[3].code, "temp")
-        self.assertEqual(inst.group[0].element[3].target[0].code, "TMP")
-        self.assertEqual(inst.group[0].element[4].code, "old")
-        self.assertEqual(inst.group[0].element[4].target[0].code, "BAD")
-        self.assertEqual(inst.group[0].element[4].target[0].comments, "In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old")
-        self.assertEqual(inst.group[0].element[4].target[0].equivalence, "disjoint")
+        self.assertEqual(inst.group[0].element[0].target[0].display, "home")
+        self.assertEqual(inst.group[0].element[1].code, "work")
+        self.assertEqual(inst.group[0].element[1].display, "work")
+        self.assertEqual(inst.group[0].element[1].target[0].code, "WP")
+        self.assertEqual(inst.group[0].element[1].target[0].display, "work place")
+        self.assertEqual(inst.group[0].element[2].code, "temp")
+        self.assertEqual(inst.group[0].element[2].display, "temp")
+        self.assertEqual(inst.group[0].element[2].target[0].code, "TMP")
+        self.assertEqual(inst.group[0].element[2].target[0].display, "temporary address")
+        self.assertEqual(inst.group[0].element[3].code, "old")
+        self.assertEqual(inst.group[0].element[3].display, "old")
+        self.assertEqual(inst.group[0].element[3].target[0].code, "BAD")
+        self.assertEqual(inst.group[0].element[3].target[0].comments, "In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old")
+        self.assertEqual(inst.group[0].element[3].target[0].display, "bad address")
+        self.assertEqual(inst.group[0].element[3].target[0].equivalence, "disjoint")
         self.assertEqual(inst.group[0].source, "http://hl7.org/fhir/address-use")
         self.assertEqual(inst.group[0].target, "http://hl7.org/fhir/v3/AddressUse")
+        self.assertEqual(inst.group[0].unmapped.code, "temp")
+        self.assertEqual(inst.group[0].unmapped.display, "temp")
+        self.assertEqual(inst.group[0].unmapped.mode, "fixed")
         self.assertEqual(inst.id, "101")
         self.assertEqual(inst.identifier.system, "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier.value, "urn:uuid:53cd62ee-033e-414c-9f58-3ca97b5ffc3b")

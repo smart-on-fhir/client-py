@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -56,6 +56,8 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(inst.extension[1].valueString, "The patient had fever peaks over the last couple of days. He is worried about these peaks.")
         self.assertEqual(inst.extension[2].url, "http://example.org/do-not-use/fhir-extensions/referral#fulfillingEncounter")
         self.assertEqual(inst.id, "referral")
+        self.assertEqual(inst.identifier[0].system, "http://goodhealth.org/basic/identifiers")
+        self.assertEqual(inst.identifier[0].value, "19283746")
         self.assertEqual(inst.modifierExtension[0].url, "http://example.org/do-not-use/fhir-extensions/referral#referredForService")
         self.assertEqual(inst.modifierExtension[0].valueCodeableConcept.coding[0].code, "11429006")
         self.assertEqual(inst.modifierExtension[0].valueCodeableConcept.coding[0].display, "Consultation")

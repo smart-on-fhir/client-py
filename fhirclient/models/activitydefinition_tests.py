@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -32,12 +32,12 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.implActivityDefinition1(inst2)
     
     def implActivityDefinition1(self, inst):
-        self.assertEqual(inst.category, "referral")
         self.assertEqual(inst.code.coding[0].code, "306206005")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.code.text, "Referral to service (procedure)")
         self.assertEqual(inst.description, "refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.kind, "ReferralRequest")
         self.assertEqual(inst.participantType[0], "practitioner")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Referral definition</div>")
@@ -54,7 +54,6 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.implActivityDefinition2(inst2)
     
     def implActivityDefinition2(self, inst):
-        self.assertEqual(inst.category, "drug")
         self.assertEqual(inst.contained[0].id, "citalopramMedication")
         self.assertEqual(inst.contained[1].id, "citalopramSubstance")
         self.assertEqual(inst.dosageInstruction[0].doseQuantity.unit, "{tbl}")
@@ -71,6 +70,7 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.dynamicValue[1].expression, "30 '{tbl}'")
         self.assertEqual(inst.dynamicValue[1].path, "dispenseRequest.quantity")
         self.assertEqual(inst.id, "citalopramPrescription")
+        self.assertEqual(inst.kind, "MedicationRequest")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
 

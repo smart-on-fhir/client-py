@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -102,6 +102,10 @@ class CarePlan(domainresource.DomainResource):
         """ Information considered as part of plan.
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
+        self.title = None
+        """ Human-friendly name for the CarePlan.
+        Type `str`. """
+        
         super(CarePlan, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -126,6 +130,7 @@ class CarePlan(domainresource.DomainResource):
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
+            ("title", "title", str, False, None, False),
         ])
         return js
 
@@ -168,7 +173,7 @@ class CarePlanActivity(backboneelement.BackboneElement):
         
         self.reference = None
         """ Activity details defined in specific resource.
-        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceRequest, MedicationRequest, NutritionOrder, ProcedureRequest, ProcessRequest, ReferralRequest, VisionPrescription, RequestGroup` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Appointment, CommunicationRequest, DeviceRequest, MedicationRequest, NutritionOrder, Task, ProcessRequest, ReferralRequest, VisionPrescription, RequestGroup` (represented as `dict` in JSON). """
         
         super(CarePlanActivity, self).__init__(jsondict=jsondict, strict=strict)
     

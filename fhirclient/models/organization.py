@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Organization) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Organization) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -66,7 +66,7 @@ class Organization(domainresource.DomainResource):
         
         self.type = None
         """ Kind of organization.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(Organization, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -82,7 +82,7 @@ class Organization(domainresource.DomainResource):
             ("name", "name", str, False, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 

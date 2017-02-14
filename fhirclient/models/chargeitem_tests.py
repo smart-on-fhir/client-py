@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -34,24 +34,36 @@ class ChargeItemTests(unittest.TestCase):
     def implChargeItem1(self, inst):
         self.assertEqual(inst.code.coding[0].code, "01510")
         self.assertEqual(inst.code.coding[0].display, "Zusatzpauschale für Beobachtung nach diagnostischer Koronarangiografie")
+        self.assertEqual(inst.definition[0], "http://www.kbv.de/tools/ebm/html/01520_2904360860826220813632.html")
         self.assertEqual(inst.enteredDate.date, FHIRDate("2017-01-25T23:55:04+01:00").date)
         self.assertEqual(inst.enteredDate.as_json(), "2017-01-25T23:55:04+01:00")
         self.assertEqual(inst.factorOverride, 0.8)
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier.system, "http://myHospital.org/ChargeItems")
         self.assertEqual(inst.identifier.value, "654321")
+        self.assertEqual(inst.note[0].text, "The code is only applicable for periods longer than 4h")
+        self.assertEqual(inst.note[0].time.date, FHIRDate("2017-01-25T23:55:04+01:00").date)
+        self.assertEqual(inst.note[0].time.as_json(), "2017-01-25T23:55:04+01:00")
         self.assertEqual(inst.occurrencePeriod.end.date, FHIRDate("2017-01-25T12:35:00+01:00").date)
         self.assertEqual(inst.occurrencePeriod.end.as_json(), "2017-01-25T12:35:00+01:00")
         self.assertEqual(inst.occurrencePeriod.start.date, FHIRDate("2017-01-25T08:00:00+01:00").date)
         self.assertEqual(inst.occurrencePeriod.start.as_json(), "2017-01-25T08:00:00+01:00")
-        self.assertEqual(inst.overrideReason, "Patient is Cardiologist's golf buddy, so he gets a 20% discount")
+        self.assertEqual(inst.overrideReason, "Patient is Cardiologist's golf buddy, so he gets a 20% discount!")
         self.assertEqual(inst.participant[0].role.coding[0].code, "17561000")
         self.assertEqual(inst.participant[0].role.coding[0].display, "Cardiologist")
         self.assertEqual(inst.participant[0].role.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.participant[1].role.coding[0].code, "224542009")
         self.assertEqual(inst.participant[1].role.coding[0].display, "Coronary Care Nurse")
         self.assertEqual(inst.participant[1].role.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.priceOverride.code, "EUR")
+        self.assertEqual(inst.priceOverride.system, "urn:iso:std:iso:4217")
+        self.assertEqual(inst.priceOverride.unit, "EUR")
+        self.assertEqual(inst.priceOverride.value, 40)
         self.assertEqual(inst.quantity.value, 1)
+        self.assertEqual(inst.reason[0].coding[0].code, "123456")
+        self.assertEqual(inst.reason[0].coding[0].display, "DIAG-1")
+        self.assertEqual(inst.reason[0].coding[0].system, "http://hl7.org/fhir/sid/icd-10")
+        self.assertEqual(inst.status, "billable")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Example of ChargeItem Usage in Context of the German EBM Billing code system</div>")
         self.assertEqual(inst.text.status, "generated")
 

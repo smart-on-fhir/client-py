@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -35,10 +35,8 @@ class ActivityDefinition(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.category = None
-        """ communication | device | diagnostic | diet | drug | encounter |
-        immunization | observation | procedure | referral | supply | vision
-        | other.
-        Type `str`. """
+        """ E.g. Education, Assessment, Treatment, etc.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.code = None
         """ Detail type of activity.
@@ -87,6 +85,10 @@ class ActivityDefinition(domainresource.DomainResource):
         self.jurisdiction = None
         """ Intended jurisdiction for activity definition (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.kind = None
+        """ Kind of resource.
+        Type `str`. """
         
         self.lastReviewDate = None
         """ Last review date for the activity definition.
@@ -179,7 +181,7 @@ class ActivityDefinition(domainresource.DomainResource):
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
-            ("category", "category", str, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("contributor", "contributor", contributor.Contributor, True, None, False),
@@ -192,6 +194,7 @@ class ActivityDefinition(domainresource.DomainResource):
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("kind", "kind", str, False, None, False),
             ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
             ("library", "library", fhirreference.FHIRReference, True, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),

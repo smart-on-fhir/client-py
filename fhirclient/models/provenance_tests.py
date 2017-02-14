@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -35,6 +35,10 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.agent[0].role.code, "author")
         self.assertEqual(inst.agent[0].role.system, "http://hl7.org/fhir/provenance-participant-role")
         self.assertEqual(inst.entity[0].role, "source")
+        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].code, "biocompute")
+        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].display, "obj.1001")
+        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].system, "https://hive.biochemistry.gwu.edu")
+        self.assertEqual(inst.entity[0].whatIdentifier.value, "https://hive.biochemistry.gwu.edu/cgi-bin/prd/htscsrs/servlet.cgi?pageid=bcoexample_1")
         self.assertEqual(inst.id, "example-biocompute-object")
         self.assertEqual(inst.period.start.date, FHIRDate("2017-06-06").date)
         self.assertEqual(inst.period.start.as_json(), "2017-06-06")
@@ -57,6 +61,10 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.agent[0].role.code, "author")
         self.assertEqual(inst.agent[0].role.system, "http://hl7.org/fhir/provenance-participant-role")
         self.assertEqual(inst.entity[0].role, "source")
+        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].code, "CWL")
+        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].display, "lobSTR")
+        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].system, "https://github.com/common-workflow-language/workflows")
+        self.assertEqual(inst.entity[0].whatIdentifier.value, "https://github.com/common-workflow-language/workflows/blob/master/workflows/lobSTR/lobSTR-workflow.cwl")
         self.assertEqual(inst.id, "example-cwl")
         self.assertEqual(inst.period.start.date, FHIRDate("2016-11-30").date)
         self.assertEqual(inst.period.start.as_json(), "2016-11-30")

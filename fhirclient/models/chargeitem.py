@@ -1,14 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/ChargeItem) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ChargeItem) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class ChargeItem(domainresource.DomainResource):
-    """ ChargeItem.
+    """ Item containing charge code(s) associated with the provision of healthcare
+    provider products.
+    
+    The resource ChargeItem describes the provision of healthcare provider
+    products for a certain patient, therefore referring not only to the
+    product, but containing in addition details of the provision, like date,
+    time, amounts and participating organizations and persons. Main Usage of
+    the ChargeItem is to enable the billing process and internal cost
+    allocation.
     """
     
     resource_type = "ChargeItem"
@@ -23,14 +31,14 @@ class ChargeItem(domainresource.DomainResource):
         
         self.account = None
         """ Account to place this charge.
-        Type `FHIRReference` referencing `Account` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Account` (represented as `dict` in JSON). """
         
         self.bodysite = None
         """ Anatomical location, if relevant.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.code = None
-        """ Code of the ChargeItem.
+        """ A code that identifies the charge, like a billing code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.context = None
@@ -38,8 +46,8 @@ class ChargeItem(domainresource.DomainResource):
         Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
         self.definition = None
-        """ Definition of the Charge Item.
-        List of `FHIRReference` items referencing `Definition` (represented as `dict` in JSON). """
+        """ Defining information about the code of this charge item.
+        List of `str` items. """
         
         self.enteredDate = None
         """ Date the charge item was entered.
@@ -97,8 +105,8 @@ class ChargeItem(domainresource.DomainResource):
         """ Quantity of which the charge item has been serviced.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.reasonCodeableConcept = None
-        """ Why was the charged service rendered?.
+        self.reason = None
+        """ Why was the charged  service rendered?.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.requestingOrganization = None
@@ -108,6 +116,11 @@ class ChargeItem(domainresource.DomainResource):
         self.service = None
         """ Which rendered service is being charged?.
         List of `FHIRReference` items referencing `DiagnosticReport, ImagingStudy, Immunization, MedicationAdministration, MedicationDispense, Observation, Procedure, SupplyDelivery` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ planned | billable | not-billable | aborted | billed | entered-in-
+        error | unknown.
+        Type `str`. """
         
         self.subject = None
         """ Individual service was done for/to.
@@ -122,11 +135,11 @@ class ChargeItem(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ChargeItem, self).elementProperties()
         js.extend([
-            ("account", "account", fhirreference.FHIRReference, False, None, False),
+            ("account", "account", fhirreference.FHIRReference, True, None, False),
             ("bodysite", "bodysite", codeableconcept.CodeableConcept, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("definition", "definition", fhirreference.FHIRReference, True, None, False),
+            ("definition", "definition", str, True, None, False),
             ("enteredDate", "enteredDate", fhirdate.FHIRDate, False, None, False),
             ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
             ("factorOverride", "factorOverride", float, False, None, False),
@@ -141,9 +154,10 @@ class ChargeItem(domainresource.DomainResource):
             ("performingOrganization", "performingOrganization", fhirreference.FHIRReference, False, None, False),
             ("priceOverride", "priceOverride", money.Money, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("requestingOrganization", "requestingOrganization", fhirreference.FHIRReference, False, None, False),
             ("service", "service", fhirreference.FHIRReference, True, None, False),
+            ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
         ])

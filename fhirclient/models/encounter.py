@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -32,6 +32,10 @@ class Encounter(domainresource.DomainResource):
         self.appointment = None
         """ The appointment that scheduled this encounter.
         Type `FHIRReference` referencing `Appointment` (represented as `dict` in JSON). """
+        
+        self.classHistory = None
+        """ List of past encounter classes.
+        List of `EncounterClassHistory` items (represented as `dict` in JSON). """
         
         self.class_fhir = None
         """ inpatient | outpatient | ambulatory | emergency +.
@@ -73,10 +77,6 @@ class Encounter(domainresource.DomainResource):
         """ List of participants involved in the encounter.
         List of `EncounterParticipant` items (represented as `dict` in JSON). """
         
-        self.patient = None
-        """ The patient present at the encounter.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
         self.period = None
         """ The start and end time of the encounter.
         Type `Period` (represented as `dict` in JSON). """
@@ -94,13 +94,17 @@ class Encounter(domainresource.DomainResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | arrived | in-progress | onleave | finished | cancelled |
-        entered-in-error.
+        """ planned | arrived | triaged | in-progress | onleave | finished |
+        cancelled +.
         Type `str`. """
         
         self.statusHistory = None
         """ List of past encounter statuses.
         List of `EncounterStatusHistory` items (represented as `dict` in JSON). """
+        
+        self.subject = None
+        """ The patient ro group present at the encounter.
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         self.type = None
         """ Specific type of encounter.
@@ -113,6 +117,7 @@ class Encounter(domainresource.DomainResource):
         js.extend([
             ("account", "account", fhirreference.FHIRReference, True, None, False),
             ("appointment", "appointment", fhirreference.FHIRReference, False, None, False),
+            ("classHistory", "classHistory", EncounterClassHistory, True, None, False),
             ("class_fhir", "class", coding.Coding, False, None, False),
             ("episodeOfCare", "episodeOfCare", fhirreference.FHIRReference, True, None, False),
             ("hospitalization", "hospitalization", EncounterHospitalization, False, None, False),
@@ -123,19 +128,61 @@ class Encounter(domainresource.DomainResource):
             ("location", "location", EncounterLocation, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
             ("participant", "participant", EncounterParticipant, True, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("serviceProvider", "serviceProvider", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),
             ("statusHistory", "statusHistory", EncounterStatusHistory, True, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
 
 from . import backboneelement
+
+class EncounterClassHistory(backboneelement.BackboneElement):
+    """ List of past encounter classes.
+    
+    The class history permits the tracking of the encounters transitions
+    without needing to go  through the resource history.
+    
+    This would be used for a case where an admission starts of as an emergency
+    encounter, then transisions into an inpatient scenario. Doing this and not
+    restarting a new encounter ensures that any lab/diagnostic results can more
+    easily follow the patient and not require re-processing and not get lost or
+    cancelled during a kindof discharge from emergency to inpatient.
+    """
+    
+    resource_type = "EncounterClassHistory"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.class_fhir = None
+        """ inpatient | outpatient | ambulatory | emergency +.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.period = None
+        """ The time that the episode was in the specified class.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        super(EncounterClassHistory, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(EncounterClassHistory, self).elementProperties()
+        js.extend([
+            ("class_fhir", "class", coding.Coding, False, None, True),
+            ("period", "period", period.Period, False, None, True),
+        ])
+        return js
+
 
 class EncounterHospitalization(backboneelement.BackboneElement):
     """ Details about the admission to a healthcare service.
@@ -321,8 +368,8 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
-        """ planned | arrived | in-progress | onleave | finished | cancelled |
-        entered-in-error.
+        """ planned | arrived | triaged | in-progress | onleave | finished |
+        cancelled +.
         Type `str`. """
         
         super(EncounterStatusHistory, self).__init__(jsondict=jsondict, strict=strict)

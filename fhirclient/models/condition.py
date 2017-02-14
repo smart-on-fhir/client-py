@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Condition) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Condition) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -180,7 +180,7 @@ class ConditionEvidence(backboneelement.BackboneElement):
         
         self.code = None
         """ Manifestation/symptom.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.detail = None
         """ Supporting information found elsewhere.
@@ -191,7 +191,7 @@ class ConditionEvidence(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConditionEvidence, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
             ("detail", "detail", fhirreference.FHIRReference, True, None, False),
         ])
         return js

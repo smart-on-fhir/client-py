@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/RequestGroup) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/RequestGroup) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -109,7 +109,7 @@ class RequestGroupAction(backboneelement.BackboneElement):
         Type `str`. """
         
         self.code = None
-        """ The meaning of the action or its sub-actions.
+        """ Code representing the meaning of the action or sub-actions.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.condition = None

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -641,7 +641,7 @@ class ElementDefinition(element.Element):
         Type `str`. """
         
         self.short = None
-        """ Concise definition for xml presentation.
+        """ Concise definition for space-constrained presentation.
         Type `str`. """
         
         self.sliceName = None

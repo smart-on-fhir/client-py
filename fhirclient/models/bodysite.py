@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/BodySite) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/BodySite) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -24,6 +24,10 @@ class BodySite(domainresource.DomainResource):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.active = None
+        """ Whether this body site record is in active use.
+        Type `bool`. """
         
         self.code = None
         """ Named anatomical location.
@@ -54,6 +58,7 @@ class BodySite(domainresource.DomainResource):
     def elementProperties(self):
         js = super(BodySite, self).elementProperties()
         js.extend([
+            ("active", "active", bool, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("description", "description", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),

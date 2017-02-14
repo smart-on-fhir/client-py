@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -34,16 +34,14 @@ class ReferralRequestTests(unittest.TestCase):
     def implReferralRequest1(self, inst):
         self.assertEqual(inst.authoredOn.date, FHIRDate("2014-02-14").date)
         self.assertEqual(inst.authoredOn.as_json(), "2014-02-14")
-        self.assertEqual(inst.category, "request")
         self.assertEqual(inst.description, "In the past 2 years Beverly has had 6 instances of r) sided Otitis media. She is     falling behind her peers at school, and displaying some learning difficulties.")
         self.assertEqual(inst.groupIdentifier.value, "1234")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://orionhealth.com/fhir/apps/referralids")
         self.assertEqual(inst.identifier[0].value, "ret4421")
-        self.assertEqual(inst.priority.coding[0].code, "med")
-        self.assertEqual(inst.priority.coding[0].display, "Medium")
-        self.assertEqual(inst.priority.coding[0].system, "http://orionhealth.com/fhir/apps/prioritycodes")
-        self.assertEqual(inst.reason.text, "For consideration of Grommets")
+        self.assertEqual(inst.intent, "order")
+        self.assertEqual(inst.priority, "routine")
+        self.assertEqual(inst.reasonCode[0].text, "For consideration of Grommets")
         self.assertEqual(inst.serviceRequested[0].coding[0].code, "172676009")
         self.assertEqual(inst.serviceRequested[0].coding[0].display, "Myringotomy and insertion of tympanic ventilation tube")
         self.assertEqual(inst.serviceRequested[0].coding[0].system, "http://snomed.info/sct")
@@ -54,7 +52,7 @@ class ReferralRequestTests(unittest.TestCase):
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "rfs")
-        self.assertEqual(inst.type.coding[0].display, "Referral for service")
-        self.assertEqual(inst.type.coding[0].system, "http://orionhealth.com/fhir/apps/referraltypes")
+        self.assertEqual(inst.type.coding[0].code, "103696004")
+        self.assertEqual(inst.type.coding[0].display, "Patient referral to specialist")
+        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -98,22 +98,32 @@ class SearchParameterTests(unittest.TestCase):
     def implSearchParameter3(self, inst):
         self.assertEqual(inst.base[0], "Resource")
         self.assertEqual(inst.code, "_id")
+        self.assertEqual(inst.comparator[0], "eq")
         self.assertEqual(inst.contact[0].name, "[string]")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.date.date, FHIRDate("2013-10-23").date)
         self.assertEqual(inst.date.as_json(), "2013-10-23")
+        self.assertEqual(inst.derivedFrom, "http://hl7.org/fhir/SearchParameter/base")
         self.assertEqual(inst.description, "Search by resource identifier - e.g. same as the read interaction, but can return included resources")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.expression, "id")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.name, "Example Search Parameter")
+        self.assertEqual(inst.jurisdiction[0].coding[0].code, "US")
+        self.assertEqual(inst.jurisdiction[0].coding[0].display, "United States of America (the)")
+        self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
+        self.assertEqual(inst.name, "ID-SEARCH-PARAMETER")
         self.assertEqual(inst.publisher, "Health Level Seven International (FHIR Infrastructure)")
         self.assertEqual(inst.purpose, "Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "token")
         self.assertEqual(inst.url, "http://hl7.org/fhir/SearchParameter/example")
+        self.assertEqual(inst.useContext[0].code.code, "focus")
+        self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "positive")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://hl7.org/fhir/variant-state")
+        self.assertEqual(inst.version, "1")
         self.assertEqual(inst.xpath, "f:*/f:id")
         self.assertEqual(inst.xpathUsage, "normal")
 

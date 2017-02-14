@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -49,6 +49,10 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.implementation.description, "main EHR at ACME")
         self.assertEqual(inst.implementation.url, "http://10.2.3.4/fhir")
+        self.assertEqual(inst.implementationGuide[0], "http://hl7.org/fhir/uslab")
+        self.assertEqual(inst.jurisdiction[0].coding[0].code, "US")
+        self.assertEqual(inst.jurisdiction[0].coding[0].display, "United States of America (the)")
+        self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.kind, "instance")
         self.assertEqual(inst.messaging[0].documentation, "ADT A08 equivalent for external system notifications")
         self.assertEqual(inst.messaging[0].endpoint[0].address, "mllp:10.1.1.10:9234")
@@ -61,7 +65,9 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.messaging[0].event[0].focus, "Patient")
         self.assertEqual(inst.messaging[0].event[0].mode, "receiver")
         self.assertEqual(inst.messaging[0].reliableCache, 30)
-        self.assertEqual(inst.name, "ACME EHR capability statement")
+        self.assertEqual(inst.name, "ACME-EHR")
+        self.assertEqual(inst.patchFormat[0], "application/xml-patch+xml")
+        self.assertEqual(inst.patchFormat[1], "application/json-patch+json")
         self.assertEqual(inst.publisher, "ACME Corporation")
         self.assertEqual(inst.purpose, "Main EHR capability statement, published for contracting and operational support")
         self.assertEqual(inst.rest[0].compartment[0], "http://hl7.org/fhir/compartment/Patient")
@@ -71,7 +77,9 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.rest[0].mode, "server")
         self.assertTrue(inst.rest[0].resource[0].conditionalCreate)
         self.assertEqual(inst.rest[0].resource[0].conditionalDelete, "not-supported")
+        self.assertEqual(inst.rest[0].resource[0].conditionalRead, "full-support")
         self.assertFalse(inst.rest[0].resource[0].conditionalUpdate)
+        self.assertEqual(inst.rest[0].resource[0].documentation, "This server does not let the clients create identities.")
         self.assertEqual(inst.rest[0].resource[0].interaction[0].code, "read")
         self.assertEqual(inst.rest[0].resource[0].interaction[1].code, "vread")
         self.assertEqual(inst.rest[0].resource[0].interaction[1].documentation, "Only supported for patient records since 12-Dec 2012")
@@ -104,7 +112,12 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.software.version, "0.00.020.2134")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.title, "ACME EHR capability statement")
         self.assertEqual(inst.url, "68D043B5-9ECF-4559-A57A-396E0D452311")
+        self.assertEqual(inst.useContext[0].code.code, "focus")
+        self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "positive")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://hl7.org/fhir/variant-state")
         self.assertEqual(inst.version, "20130510")
     
     def testCapabilityStatement2(self):

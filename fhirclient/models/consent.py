@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Consent) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Consent) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -38,7 +38,7 @@ class Consent(domainresource.DomainResource):
         """ Classification of the consent statement - for indexing/retrieval.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.consentor = None
+        self.consentingParty = None
         """ Who is agreeing to the policy and exceptions.
         List of `FHIRReference` items referencing `Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
@@ -63,8 +63,8 @@ class Consent(domainresource.DomainResource):
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.organization = None
-        """ Organization that manages the consent.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ Custodian of the consent.
+        List of `FHIRReference` items referencing `Organization` (represented as `dict` in JSON). """
         
         self.patient = None
         """ Who the consent applies to.
@@ -76,7 +76,7 @@ class Consent(domainresource.DomainResource):
         
         self.policy = None
         """ Policies covered by this consent.
-        List of `str` items. """
+        List of `ConsentPolicy` items (represented as `dict` in JSON). """
         
         self.policyRule = None
         """ Policy that this consents to.
@@ -114,16 +114,16 @@ class Consent(domainresource.DomainResource):
             ("action", "action", codeableconcept.CodeableConcept, True, None, False),
             ("actor", "actor", ConsentActor, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("consentor", "consentor", fhirreference.FHIRReference, True, None, False),
+            ("consentingParty", "consentingParty", fhirreference.FHIRReference, True, None, False),
             ("data", "data", ConsentData, True, None, False),
             ("dataPeriod", "dataPeriod", period.Period, False, None, False),
             ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, False),
             ("except_fhir", "except", ConsentExcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("period", "period", period.Period, False, None, False),
-            ("policy", "policy", str, True, None, False),
+            ("policy", "policy", ConsentPolicy, True, None, False),
             ("policyRule", "policyRule", str, False, None, False),
             ("purpose", "purpose", coding.Coding, True, None, False),
             ("securityLabel", "securityLabel", coding.Coding, True, None, False),
@@ -353,6 +353,43 @@ class ConsentExceptData(backboneelement.BackboneElement):
         js.extend([
             ("meaning", "meaning", str, False, None, True),
             ("reference", "reference", fhirreference.FHIRReference, False, None, True),
+        ])
+        return js
+
+
+class ConsentPolicy(backboneelement.BackboneElement):
+    """ Policies covered by this consent.
+    
+    The references to the policies that are included in this consent scope.
+    Policies may be organizational, but are often defined jurisdictionally, or
+    in law.
+    """
+    
+    resource_type = "ConsentPolicy"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.authority = None
+        """ Authority of policy.
+        Type `str`. """
+        
+        self.uri = None
+        """ Specific policy covered by this consent.
+        Type `str`. """
+        
+        super(ConsentPolicy, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ConsentPolicy, self).elementProperties()
+        js.extend([
+            ("authority", "authority", str, False, None, False),
+            ("uri", "uri", str, False, None, False),
         ])
         return js
 

@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class Schedule(domainresource.DomainResource):
-    """ A container for slot(s) of time that may be available for booking
+    """ A container for slots of time that may be available for booking
     appointments.
     """
     
@@ -31,11 +31,11 @@ class Schedule(domainresource.DomainResource):
         information for. These are expected to usually be one of
         HealthcareService, Location, Practitioner, Device, Patient or
         RelatedPerson.
-        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson, Device, HealthcareService, Location` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Patient, Practitioner, RelatedPerson, Device, HealthcareService, Location` (represented as `dict` in JSON). """
         
         self.comment = None
         """ Comments on the availability to describe any extended information.
-        Such as custom constraints on the slot(s) that may be associated.
+        Such as custom constraints on the slots that may be associated.
         Type `str`. """
         
         self.identifier = None
@@ -71,7 +71,7 @@ class Schedule(domainresource.DomainResource):
         js = super(Schedule, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("actor", "actor", fhirreference.FHIRReference, True, None, True),
             ("comment", "comment", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("planningHorizon", "planningHorizon", period.Period, False, None, False),

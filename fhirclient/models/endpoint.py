@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Endpoint) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Endpoint) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -69,10 +69,6 @@ class Endpoint(domainresource.DomainResource):
         """ Interval the endpoint is expected to be operational.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.publicKey = None
-        """ PKI Public keys to support secure communications.
-        Type `str`. """
-        
         self.status = None
         """ active | suspended | error | off | entered-in-error | test.
         Type `str`. """
@@ -92,7 +88,6 @@ class Endpoint(domainresource.DomainResource):
             ("payloadMimeType", "payloadMimeType", str, True, None, False),
             ("payloadType", "payloadType", codeableconcept.CodeableConcept, True, None, True),
             ("period", "period", period.Period, False, None, False),
-            ("publicKey", "publicKey", str, False, None, False),
             ("status", "status", str, False, None, True),
         ])
         return js

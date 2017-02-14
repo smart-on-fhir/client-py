@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -37,20 +37,17 @@ class MessageDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org")
         self.assertEqual(inst.date.date, FHIRDate("2016-11-09").date)
         self.assertEqual(inst.date.as_json(), "2016-11-09")
-        self.assertEqual(inst.event.code, "patient-link")
+        self.assertEqual(inst.event.code, "communication-request")
         self.assertEqual(inst.event.system, "http://hl7.org/fhir/message-events")
         self.assertTrue(inst.experimental)
-        self.assertEqual(inst.focus[0].code, "Patient")
-        self.assertEqual(inst.focus[0].max, "2")
-        self.assertEqual(inst.focus[0].min, 2)
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.name, "A24")
+        self.assertEqual(inst.name, "EXAMPLE")
         self.assertEqual(inst.publisher, "Health Level Seven, Int'l")
-        self.assertEqual(inst.purpose, "Notifies recipient systems that two patients have been 'linked' - meaning they represent the same individual")
+        self.assertEqual(inst.purpose, "Defines a base example for other MessageDefintion instances.")
         self.assertFalse(inst.responseRequired)
         self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Message definition base example</div>")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.title, "Link patients notification")
+        self.assertEqual(inst.title, "Message definition base example")
         self.assertEqual(inst.url, "http://hl7.org/fhir/MessageDefinition/example")
 

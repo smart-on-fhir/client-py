@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -62,12 +62,12 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.telecom[0].use, "work")
         self.assertEqual(inst.telecom[0].value, "022-655 2300")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "V6")
-        self.assertEqual(inst.type.coding[0].display, "University Medical Hospital")
-        self.assertEqual(inst.type.coding[0].system, "urn:oid:2.16.840.1.113883.2.4.15.1060")
-        self.assertEqual(inst.type.coding[1].code, "prov")
-        self.assertEqual(inst.type.coding[1].display, "Healthcare Provider")
-        self.assertEqual(inst.type.coding[1].system, "http://hl7.org/fhir/organization-type")
+        self.assertEqual(inst.type[0].coding[0].code, "V6")
+        self.assertEqual(inst.type[0].coding[0].display, "University Medical Hospital")
+        self.assertEqual(inst.type[0].coding[0].system, "urn:oid:2.16.840.1.113883.2.4.15.1060")
+        self.assertEqual(inst.type[0].coding[1].code, "prov")
+        self.assertEqual(inst.type[0].coding[1].display, "Healthcare Provider")
+        self.assertEqual(inst.type[0].coding[1].system, "http://hl7.org/fhir/organization-type")
     
     def testOrganization2(self):
         inst = self.instantiate_from("organization-example-f002-burgers-card.json")
@@ -97,9 +97,9 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.telecom[0].system, "phone")
         self.assertEqual(inst.telecom[0].value, "022-655 2320")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "dept")
-        self.assertEqual(inst.type.coding[0].display, "Hospital Department")
-        self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/organization-type")
+        self.assertEqual(inst.type[0].coding[0].code, "dept")
+        self.assertEqual(inst.type[0].coding[0].display, "Hospital Department")
+        self.assertEqual(inst.type[0].coding[0].system, "http://hl7.org/fhir/organization-type")
     
     def testOrganization3(self):
         inst = self.instantiate_from("organization-example-f003-burgers-ENT.json")
@@ -129,9 +129,9 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.telecom[0].system, "phone")
         self.assertEqual(inst.telecom[0].value, "022-655 6780")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "dept")
-        self.assertEqual(inst.type.coding[0].display, "Hospital Department")
-        self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/organization-type")
+        self.assertEqual(inst.type[0].coding[0].code, "dept")
+        self.assertEqual(inst.type[0].coding[0].display, "Hospital Department")
+        self.assertEqual(inst.type[0].coding[0].system, "http://hl7.org/fhir/organization-type")
     
     def testOrganization4(self):
         inst = self.instantiate_from("organization-example-f201-aumc.json")
@@ -172,15 +172,15 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.telecom[0].use, "work")
         self.assertEqual(inst.telecom[0].value, "+31715269111")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "405608006")
-        self.assertEqual(inst.type.coding[0].display, "Academic Medical Center")
-        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.type.coding[1].code, "V6")
-        self.assertEqual(inst.type.coding[1].display, "University Medical Hospital")
-        self.assertEqual(inst.type.coding[1].system, "urn:oid:2.16.840.1.113883.2.4.15.1060")
-        self.assertEqual(inst.type.coding[2].code, "prov")
-        self.assertEqual(inst.type.coding[2].display, "Healthcare Provider")
-        self.assertEqual(inst.type.coding[2].system, "http://hl7.org/fhir/organization-type")
+        self.assertEqual(inst.type[0].coding[0].code, "405608006")
+        self.assertEqual(inst.type[0].coding[0].display, "Academic Medical Center")
+        self.assertEqual(inst.type[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.type[0].coding[1].code, "V6")
+        self.assertEqual(inst.type[0].coding[1].display, "University Medical Hospital")
+        self.assertEqual(inst.type[0].coding[1].system, "urn:oid:2.16.840.1.113883.2.4.15.1060")
+        self.assertEqual(inst.type[0].coding[2].code, "prov")
+        self.assertEqual(inst.type[0].coding[2].display, "Healthcare Provider")
+        self.assertEqual(inst.type[0].coding[2].system, "http://hl7.org/fhir/organization-type")
     
     def testOrganization5(self):
         inst = self.instantiate_from("organization-example-f203-bumc.json")
@@ -209,11 +209,11 @@ class OrganizationTests(unittest.TestCase):
         self.assertEqual(inst.telecom[0].use, "work")
         self.assertEqual(inst.telecom[0].value, "+31107040704")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "405608006")
-        self.assertEqual(inst.type.coding[0].display, "Academic Medical Center")
-        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.type.coding[1].code, "prov")
-        self.assertEqual(inst.type.coding[1].system, "http://hl7.org/fhir/organization-type")
+        self.assertEqual(inst.type[0].coding[0].code, "405608006")
+        self.assertEqual(inst.type[0].coding[0].display, "Academic Medical Center")
+        self.assertEqual(inst.type[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.type[0].coding[1].code, "prov")
+        self.assertEqual(inst.type[0].coding[1].system, "http://hl7.org/fhir/organization-type")
     
     def testOrganization6(self):
         inst = self.instantiate_from("organization-example-gastro.json")

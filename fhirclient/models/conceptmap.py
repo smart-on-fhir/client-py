@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -172,6 +172,10 @@ class ConceptMapGroup(backboneelement.BackboneElement):
         """ Specific version of the  code system.
         Type `str`. """
         
+        self.unmapped = None
+        """ When no match in the mappings.
+        Type `ConceptMapGroupUnmapped` (represented as `dict` in JSON). """
+        
         super(ConceptMapGroup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -182,6 +186,7 @@ class ConceptMapGroup(backboneelement.BackboneElement):
             ("sourceVersion", "sourceVersion", str, False, None, False),
             ("target", "target", str, False, None, False),
             ("targetVersion", "targetVersion", str, False, None, False),
+            ("unmapped", "unmapped", ConceptMapGroupUnmapped, False, None, False),
         ])
         return js
 
@@ -207,6 +212,10 @@ class ConceptMapGroupElement(backboneelement.BackboneElement):
         """ Identifies element being mapped.
         Type `str`. """
         
+        self.display = None
+        """ Display for the code.
+        Type `str`. """
+        
         self.target = None
         """ Concept in target system for element.
         List of `ConceptMapGroupElementTarget` items (represented as `dict` in JSON). """
@@ -217,6 +226,7 @@ class ConceptMapGroupElement(backboneelement.BackboneElement):
         js = super(ConceptMapGroupElement, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, False),
+            ("display", "display", str, False, None, False),
             ("target", "target", ConceptMapGroupElementTarget, True, None, False),
         ])
         return js
@@ -250,6 +260,14 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
         """ Other elements required for this mapping (from context).
         List of `ConceptMapGroupElementTargetDependsOn` items (represented as `dict` in JSON). """
         
+        self.dependsOndisplay = None
+        """ Display for the code.
+        Type `str`. """
+        
+        self.display = None
+        """ Display for the code.
+        Type `str`. """
+        
         self.equivalence = None
         """ relatedto | equivalent | equal | wider | subsumes | narrower |
         specializes | inexact | unmatched | disjoint.
@@ -267,6 +285,8 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
             ("code", "code", str, False, None, False),
             ("comments", "comments", str, False, None, False),
             ("dependsOn", "dependsOn", ConceptMapGroupElementTargetDependsOn, True, None, False),
+            ("dependsOndisplay", "dependsOndisplay", str, False, None, False),
+            ("display", "display", str, False, None, False),
             ("equivalence", "equivalence", str, False, None, False),
             ("product", "product", ConceptMapGroupElementTargetDependsOn, True, None, False),
         ])
@@ -311,6 +331,51 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
             ("code", "code", str, False, None, True),
             ("property", "property", str, False, None, True),
             ("system", "system", str, False, None, False),
+        ])
+        return js
+
+
+class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
+    """ When no match in the mappings.
+    
+    What to do when there is no match in the mappings in the group.
+    """
+    
+    resource_type = "ConceptMapGroupUnmapped"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.code = None
+        """ Fixed code when mode = fixed.
+        Type `str`. """
+        
+        self.display = None
+        """ Display for the code.
+        Type `str`. """
+        
+        self.mode = None
+        """ provided | fixed | other-map.
+        Type `str`. """
+        
+        self.url = None
+        """ Canonical URL for other concept map.
+        Type `str`. """
+        
+        super(ConceptMapGroupUnmapped, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ConceptMapGroupUnmapped, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False, None, False),
+            ("display", "display", str, False, None, False),
+            ("mode", "mode", str, False, None, True),
+            ("url", "url", str, False, None, False),
         ])
         return js
 

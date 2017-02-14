@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/SupplyRequest) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/SupplyRequest) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -40,13 +40,9 @@ class SupplyRequest(domainresource.DomainResource):
         """ The kind of supply (central, non-stock, etc.).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.orderedItemCodeableConcept = None
-        """ Medication, Substance, or Device requested to be supplied.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.orderedItemReference = None
-        """ Medication, Substance, or Device requested to be supplied.
-        Type `FHIRReference` referencing `Medication, Substance, Device` (represented as `dict` in JSON). """
+        self.orderedItem = None
+        """ The item being requested.
+        Type `SupplyRequestOrderedItem` (represented as `dict` in JSON). """
         
         self.patient = None
         """ Patient for whom the item is supplied.
@@ -89,8 +85,7 @@ class SupplyRequest(domainresource.DomainResource):
             ("from_fhir", "from", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("kind", "kind", codeableconcept.CodeableConcept, False, None, False),
-            ("orderedItemCodeableConcept", "orderedItemCodeableConcept", codeableconcept.CodeableConcept, False, "orderedItem", False),
-            ("orderedItemReference", "orderedItemReference", fhirreference.FHIRReference, False, "orderedItem", False),
+            ("orderedItem", "orderedItem", SupplyRequestOrderedItem, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
@@ -104,6 +99,44 @@ class SupplyRequest(domainresource.DomainResource):
 
 
 from . import backboneelement
+
+class SupplyRequestOrderedItem(backboneelement.BackboneElement):
+    """ The item being requested.
+    """
+    
+    resource_type = "SupplyRequestOrderedItem"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.itemCodeableConcept = None
+        """ Medication, Substance, or Device requested to be supplied.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.itemReference = None
+        """ Medication, Substance, or Device requested to be supplied.
+        Type `FHIRReference` referencing `Medication, Substance, Device` (represented as `dict` in JSON). """
+        
+        self.quantity = None
+        """ The requested amount of the item indicated.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        super(SupplyRequestOrderedItem, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(SupplyRequestOrderedItem, self).elementProperties()
+        js.extend([
+            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", False),
+            ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", False),
+            ("quantity", "quantity", quantity.Quantity, False, None, True),
+        ])
+        return js
+
 
 class SupplyRequestWhen(backboneelement.BackboneElement):
     """ When the request should be fulfilled.
@@ -142,4 +175,5 @@ from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
 from . import identifier
+from . import quantity
 from . import timing

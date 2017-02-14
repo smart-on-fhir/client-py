@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -45,9 +45,9 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "368009")
         self.assertEqual(inst.code.coding[0].display, "Heart valve disorder")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.evidence[0].code.coding[0].code, "426396005")
-        self.assertEqual(inst.evidence[0].code.coding[0].display, "Cardiac chest pain")
-        self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].code, "426396005")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].display, "Cardiac chest pain")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f001")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2011-08-05").date)
         self.assertEqual(inst.onsetDateTime.as_json(), "2011-08-05")
@@ -80,9 +80,9 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "254637007")
         self.assertEqual(inst.code.coding[0].display, "NSCLC - Non-small cell lung cancer")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.evidence[0].code.coding[0].code, "169069000")
-        self.assertEqual(inst.evidence[0].code.coding[0].display, "CT of thorax")
-        self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].code, "169069000")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].display, "CT of thorax")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f002")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2011-05-05").date)
         self.assertEqual(inst.onsetDateTime.as_json(), "2011-05-05")
@@ -118,9 +118,9 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "18099001")
         self.assertEqual(inst.code.coding[0].display, "Retropharyngeal abscess")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.evidence[0].code.coding[0].code, "169068008")
-        self.assertEqual(inst.evidence[0].code.coding[0].display, "CT of neck")
-        self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].code, "169068008")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].display, "CT of neck")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f003")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2012-02-27").date)
         self.assertEqual(inst.onsetDateTime.as_json(), "2012-02-27")
@@ -156,9 +156,9 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "386661006")
         self.assertEqual(inst.code.coding[0].display, "Fever")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.evidence[0].code.coding[0].code, "258710007")
-        self.assertEqual(inst.evidence[0].code.coding[0].display, "degrees C")
-        self.assertEqual(inst.evidence[0].code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].code, "258710007")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].display, "degrees C")
+        self.assertEqual(inst.evidence[0].code[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f201")
         self.assertEqual(inst.identifier[0].value, "12345")
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2013-04-02").date)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -48,5 +48,63 @@ class ScheduleTests(unittest.TestCase):
         self.assertEqual(inst.serviceType[0].coding[0].display, "Immunization")
         self.assertEqual(inst.specialty[0].coding[0].code, "408480009")
         self.assertEqual(inst.specialty[0].coding[0].display, "Clinical immunology")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testSchedule2(self):
+        inst = self.instantiate_from("schedule-provider-location1-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Schedule instance")
+        self.implSchedule2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Schedule", js["resourceType"])
+        inst2 = schedule.Schedule(js)
+        self.implSchedule2(inst2)
+    
+    def implSchedule2(self, inst):
+        self.assertTrue(inst.active)
+        self.assertEqual(inst.comment, "The slots attached to this schedule are for genetic counselling in the USS Enterprise-D Sickbay.")
+        self.assertEqual(inst.id, "exampleloc1")
+        self.assertEqual(inst.identifier[0].system, "http://example.org/scheduleid")
+        self.assertEqual(inst.identifier[0].use, "usual")
+        self.assertEqual(inst.identifier[0].value, "46")
+        self.assertEqual(inst.planningHorizon.end.date, FHIRDate("2017-12-25T09:30:00Z").date)
+        self.assertEqual(inst.planningHorizon.end.as_json(), "2017-12-25T09:30:00Z")
+        self.assertEqual(inst.planningHorizon.start.date, FHIRDate("2017-12-25T09:15:00Z").date)
+        self.assertEqual(inst.planningHorizon.start.as_json(), "2017-12-25T09:15:00Z")
+        self.assertEqual(inst.serviceCategory.coding[0].code, "17")
+        self.assertEqual(inst.serviceCategory.coding[0].display, "General Practice")
+        self.assertEqual(inst.serviceType[0].coding[0].code, "75")
+        self.assertEqual(inst.serviceType[0].coding[0].display, "Genetic Counselling")
+        self.assertEqual(inst.specialty[0].coding[0].code, "394580004")
+        self.assertEqual(inst.specialty[0].coding[0].display, "Clinical genetics")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testSchedule3(self):
+        inst = self.instantiate_from("schedule-provider-location2-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Schedule instance")
+        self.implSchedule3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Schedule", js["resourceType"])
+        inst2 = schedule.Schedule(js)
+        self.implSchedule3(inst2)
+    
+    def implSchedule3(self, inst):
+        self.assertTrue(inst.active)
+        self.assertEqual(inst.comment, "The slots attached to this schedule are for neurosurgery operations at Starfleet HQ only.")
+        self.assertEqual(inst.id, "exampleloc2")
+        self.assertEqual(inst.identifier[0].system, "http://example.org/scheduleid")
+        self.assertEqual(inst.identifier[0].use, "usual")
+        self.assertEqual(inst.identifier[0].value, "47")
+        self.assertEqual(inst.planningHorizon.end.date, FHIRDate("2017-12-25T09:30:00Z").date)
+        self.assertEqual(inst.planningHorizon.end.as_json(), "2017-12-25T09:30:00Z")
+        self.assertEqual(inst.planningHorizon.start.date, FHIRDate("2017-12-25T09:15:00Z").date)
+        self.assertEqual(inst.planningHorizon.start.as_json(), "2017-12-25T09:15:00Z")
+        self.assertEqual(inst.serviceCategory.coding[0].code, "31")
+        self.assertEqual(inst.serviceCategory.coding[0].display, "Specialist Surgical")
+        self.assertEqual(inst.serviceType[0].coding[0].code, "221")
+        self.assertEqual(inst.serviceType[0].coding[0].display, "Surgery - General")
+        self.assertEqual(inst.specialty[0].coding[0].code, "394610002")
+        self.assertEqual(inst.specialty[0].coding[0].display, "Surgery-Neurosurgery")
         self.assertEqual(inst.text.status, "generated")
 

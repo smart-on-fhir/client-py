@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/MessageDefinition) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/MessageDefinition) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -66,6 +66,10 @@ class MessageDefinition(domainresource.DomainResource):
         """ Resource(s) that are the subject of the event.
         List of `MessageDefinitionFocus` items (represented as `dict` in JSON). """
         
+        self.identifier = None
+        """ Additional identifier for the message definition.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
         self.jurisdiction = None
         """ Intended jurisdiction for message definition (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
@@ -129,6 +133,7 @@ class MessageDefinition(domainresource.DomainResource):
             ("event", "event", coding.Coding, False, None, True),
             ("experimental", "experimental", bool, False, None, False),
             ("focus", "focus", MessageDefinitionFocus, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, False),
             ("parent", "parent", fhirreference.FHIRReference, True, None, False),
@@ -165,7 +170,7 @@ class MessageDefinitionAllowedResponse(backboneelement.BackboneElement):
         """
         
         self.message = None
-        """ MessageDefinition for response.
+        """ Reference to allowed message definition response.
         Type `FHIRReference` referencing `MessageDefinition` (represented as `dict` in JSON). """
         
         self.situation = None
@@ -235,4 +240,5 @@ from . import coding
 from . import contactdetail
 from . import fhirdate
 from . import fhirreference
+from . import identifier
 from . import usagecontext

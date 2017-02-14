@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class MedicationRequest(domainresource.DomainResource):
-    """ Prescription of medication to for patient.
+    """ Ordering of medication for patient or group.
     
-    An order for both supply of the medication and the instructions for
-    administration of the medication to a patient. The resource is called
+    An order or request for both supply of the medication and the instructions
+    for administration of the medication to a patient. The resource is called
     "MedicationRequest" rather than "MedicationPrescription" or
     "MedicationOrder" to generalize the use across inpatient and outpatient
     settings as well as for care plans, etc and to harmonize with workflow
@@ -69,7 +69,7 @@ class MedicationRequest(domainresource.DomainResource):
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ External identifier.
+        """ External ids for this request.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.intent = None
@@ -89,7 +89,7 @@ class MedicationRequest(domainresource.DomainResource):
         List of `Annotation` items (represented as `dict` in JSON). """
         
         self.priorPrescription = None
-        """ An order/prescription that replaces.
+        """ An order/prescription that is being replaced.
         Type `FHIRReference` referencing `MedicationRequest` (represented as `dict` in JSON). """
         
         self.priority = None
@@ -170,10 +170,11 @@ class MedicationRequestDispenseRequest(backboneelement.BackboneElement):
     """ Medication supply authorization.
     
     Indicates the specific details for the dispense or medication supply part
-    of a medication order (also known as a Medication Prescription).  Note that
-    this information is NOT always sent with the order.  There may be in some
-    settings (e.g. hospitals) institutional or system support for completing
-    the dispense details in the pharmacy department.
+    of a medication request (also known as a Medication Prescription or
+    Medication Order).  Note that this information is NOT always sent with the
+    order.  There may be in some settings (e.g. hospitals) institutional or
+    system support for completing the dispense details in the pharmacy
+    department.
     """
     
     resource_type = "MedicationRequestDispenseRequest"

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -217,7 +217,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.enteralFormula.additiveProductName, "Acme Lipid Additive")
         self.assertEqual(inst.enteralFormula.additiveType.coding[0].code, "lipid")
-        self.assertEqual(inst.enteralFormula.additiveType.coding[0].display, "Modular lipid enteral formula component")
+        self.assertEqual(inst.enteralFormula.additiveType.coding[0].display, "Lipid")
         self.assertEqual(inst.enteralFormula.additiveType.coding[0].system, "http://hl7.org/fhir/entformula-additive")
         self.assertEqual(inst.enteralFormula.administrationInstruction, "240 mls every 4hrs ")
         self.assertEqual(inst.enteralFormula.administration[0].quantity.code, "mL")
@@ -375,7 +375,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.dateTime.as_json(), "2014-09-17")
         self.assertEqual(inst.enteralFormula.additiveProductName, "Acme High Carbohydrate Additive")
         self.assertEqual(inst.enteralFormula.additiveType.coding[0].code, "carbohydrate")
-        self.assertEqual(inst.enteralFormula.additiveType.coding[0].display, "Modular carbohydrate enteral formula component")
+        self.assertEqual(inst.enteralFormula.additiveType.coding[0].display, "Carbohydrate")
         self.assertEqual(inst.enteralFormula.additiveType.coding[0].system, "http://hl7.org/fhir/entformula-additive")
         self.assertEqual(inst.enteralFormula.administrationInstruction, "Add high calorie high carbohydrate additive to increase cal/oz from 24 cal/oz to 27 cal/oz.")
         self.assertEqual(inst.enteralFormula.administration[0].quantity.code, "[foz_us]")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -93,6 +93,10 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
         """ Patient observations supporting recommendation.
         List of `FHIRReference` items referencing `Observation, AllergyIntolerance` (represented as `dict` in JSON). """
         
+        self.targetDisease = None
+        """ Disease to be immunized against.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.vaccineCode = None
         """ Vaccine recommendation applies to.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -109,7 +113,8 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
             ("protocol", "protocol", ImmunizationRecommendationRecommendationProtocol, False, None, False),
             ("supportingImmunization", "supportingImmunization", fhirreference.FHIRReference, True, None, False),
             ("supportingPatientInformation", "supportingPatientInformation", fhirreference.FHIRReference, True, None, False),
-            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, False, None, True),
+            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, False, None, False),
+            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

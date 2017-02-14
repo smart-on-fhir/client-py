@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -41,6 +41,10 @@ class CareTeam(domainresource.DomainResource):
         """ Name of the team, such as crisis assessment team.
         Type `str`. """
         
+        self.note = None
+        """ Comments made about the CareTeam.
+        List of `Annotation` items (represented as `dict` in JSON). """
+        
         self.participant = None
         """ Members of the team.
         List of `CareTeamParticipant` items (represented as `dict` in JSON). """
@@ -66,6 +70,7 @@ class CareTeam(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, True, None, False),
             ("name", "name", str, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("participant", "participant", CareTeamParticipant, True, None, False),
             ("period", "period", period.Period, False, None, False),
             ("status", "status", str, False, None, False),
@@ -122,6 +127,7 @@ class CareTeamParticipant(backboneelement.BackboneElement):
         return js
 
 
+from . import annotation
 from . import codeableconcept
 from . import fhirreference
 from . import identifier

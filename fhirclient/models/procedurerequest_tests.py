@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -170,7 +170,7 @@ class ProcedureRequestTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testProcedureRequest7(self):
-        inst = self.instantiate_from("procedurerequest-genetics-example-1.json")
+        inst = self.instantiate_from("procedurerequest-example2.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcedureRequest instance")
         self.implProcedureRequest7(inst)
         
@@ -180,6 +180,65 @@ class ProcedureRequestTests(unittest.TestCase):
         self.implProcedureRequest7(inst2)
     
     def implProcedureRequest7(self, inst):
+        self.assertEqual(inst.asNeededCodeableConcept.text, "as needed to clear mucus")
+        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-02-01T17:23:07Z").date)
+        self.assertEqual(inst.authoredOn.as_json(), "2017-02-01T17:23:07Z")
+        self.assertEqual(inst.code.coding[0].code, "34431008")
+        self.assertEqual(inst.code.coding[0].display, "Physiotherapy of chest (regime/therapy) ")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.contained[0].id, "signature")
+        self.assertEqual(inst.contained[1].id, "cystic-fibrosis")
+        self.assertEqual(inst.id, "physiotherapy")
+        self.assertEqual(inst.identifier[0].system, "http://goodhealth.org/placer-ids")
+        self.assertEqual(inst.identifier[0].type.coding[0].code, "PLAC")
+        self.assertEqual(inst.identifier[0].type.coding[0].display, "Placer Identifier")
+        self.assertEqual(inst.identifier[0].type.coding[0].system, "http://hl7.org/fhir/identifier-type")
+        self.assertEqual(inst.identifier[0].type.text, "Placer")
+        self.assertEqual(inst.identifier[0].value, "20170201-0001")
+        self.assertEqual(inst.intent, "order")
+        self.assertEqual(inst.occurrenceTiming.repeat.frequency, 1)
+        self.assertEqual(inst.occurrenceTiming.repeat.frequencyMax, 4)
+        self.assertEqual(inst.occurrenceTiming.repeat.period, 1)
+        self.assertEqual(inst.occurrenceTiming.repeat.periodUnit, "d")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testProcedureRequest8(self):
+        inst = self.instantiate_from("procedurerequest-example3.json")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcedureRequest instance")
+        self.implProcedureRequest8(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("ProcedureRequest", js["resourceType"])
+        inst2 = procedurerequest.ProcedureRequest(js)
+        self.implProcedureRequest8(inst2)
+    
+    def implProcedureRequest8(self, inst):
+        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-02-01T17:23:07Z").date)
+        self.assertEqual(inst.authoredOn.as_json(), "2017-02-01T17:23:07Z")
+        self.assertEqual(inst.code.coding[0].code, "359962006")
+        self.assertEqual(inst.code.coding[0].display, "Turning patient in bed (procedure)")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertTrue(inst.doNotPerform)
+        self.assertEqual(inst.id, "do-not-turn")
+        self.assertEqual(inst.identifier[0].system, "http://goodhealth.org/placer-ids")
+        self.assertEqual(inst.identifier[0].value, "20170201-0002")
+        self.assertEqual(inst.intent, "order")
+        self.assertEqual(inst.priority, "stat")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testProcedureRequest9(self):
+        inst = self.instantiate_from("procedurerequest-genetics-example-1.json")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcedureRequest instance")
+        self.implProcedureRequest9(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("ProcedureRequest", js["resourceType"])
+        inst2 = procedurerequest.ProcedureRequest(js)
+        self.implProcedureRequest9(inst2)
+    
+    def implProcedureRequest9(self, inst):
         self.assertEqual(inst.code.coding[0].code, "49874-1")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
         self.assertEqual(inst.code.text, "ABCB4 gene mutation analysis")

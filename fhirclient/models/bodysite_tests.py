@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -53,6 +53,7 @@ class BodySiteTests(unittest.TestCase):
         self.implBodySite2(inst2)
     
     def implBodySite2(self, inst):
+        self.assertFalse(inst.active)
         self.assertEqual(inst.code.coding[0].code, "39937001")
         self.assertEqual(inst.code.coding[0].display, "Skin structure (body structure)")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")

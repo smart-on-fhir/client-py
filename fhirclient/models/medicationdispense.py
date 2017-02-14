@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -37,7 +37,7 @@ class MedicationDispense(domainresource.DomainResource):
         
         self.context = None
         """ Encounter / Episode associated with event.
-        Type `FHIRReference` referencing `Encounter, EpisodeofCare` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
         self.daysSupply = None
         """ Amount of medication expressed as a timing amount.

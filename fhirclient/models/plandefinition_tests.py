@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -34,8 +34,6 @@ class PlanDefinitionTests(unittest.TestCase):
     def implPlanDefinition1(self, inst):
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].textEquivalent, "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[1].textEquivalent, "CARBOplatin AUC 5 IV over 30 minutes on Day 1")
-        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].actionIdentifier.system, "http://example.org/ordertemplates/KDN5")
-        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].actionIdentifier.value, "cycle-definition-1")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].textEquivalent, "21-day cycle for 6 cycles")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].timingTiming.repeat.count, 6)
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].timingTiming.repeat.duration, 21)
@@ -155,6 +153,10 @@ class PlanDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.actionDefinition[0].actionDefinition[1].actionDefinition[0].actionDefinition[2].textEquivalent, "Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[1].actionDefinition[0].actionDefinition[3].textEquivalent, "Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[1].actionDefinition[0].documentation[0].document.contentType, "text/html")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[1].actionDefinition[0].documentation[0].document.extension[0].url, "http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[1].actionDefinition[0].documentation[0].document.extension[0].valueCodeableConcept.coding[0].code, "high")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[1].actionDefinition[0].documentation[0].document.extension[0].valueCodeableConcept.coding[0].system, "http://hl7.org/fhir/evidence-quality")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[1].actionDefinition[0].documentation[0].document.extension[0].valueCodeableConcept.text, "High Quality")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[1].actionDefinition[0].documentation[0].document.title, "Practice Guideline for the Treatment of Patients with Major Depressive Disorder")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[1].actionDefinition[0].documentation[0].document.url, "http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[1].actionDefinition[0].documentation[0].type, "justification")

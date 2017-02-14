@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -302,6 +302,9 @@ class FHIRElementFactory(object):
         if "CommunicationRequestPayload" == resource_type:
             from . import communicationrequest
             return communicationrequest.CommunicationRequestPayload(jsondict)
+        if "CommunicationRequestRequester" == resource_type:
+            from . import communicationrequest
+            return communicationrequest.CommunicationRequestRequester(jsondict)
         if "CompartmentDefinition" == resource_type:
             from . import compartmentdefinition
             return compartmentdefinition.CompartmentDefinition(jsondict)
@@ -335,6 +338,9 @@ class FHIRElementFactory(object):
         if "ConceptMapGroupElementTargetDependsOn" == resource_type:
             from . import conceptmap
             return conceptmap.ConceptMapGroupElementTargetDependsOn(jsondict)
+        if "ConceptMapGroupUnmapped" == resource_type:
+            from . import conceptmap
+            return conceptmap.ConceptMapGroupUnmapped(jsondict)
         if "Condition" == resource_type:
             from . import condition
             return condition.Condition(jsondict)
@@ -362,6 +368,9 @@ class FHIRElementFactory(object):
         if "ConsentExceptData" == resource_type:
             from . import consent
             return consent.ConsentExceptData(jsondict)
+        if "ConsentPolicy" == resource_type:
+            from . import consent
+            return consent.ConsentPolicy(jsondict)
         if "ContactDetail" == resource_type:
             from . import contactdetail
             return contactdetail.ContactDetail(jsondict)
@@ -452,6 +461,9 @@ class FHIRElementFactory(object):
         if "DeviceRequestRequester" == resource_type:
             from . import devicerequest
             return devicerequest.DeviceRequestRequester(jsondict)
+        if "DeviceUdi" == resource_type:
+            from . import device
+            return device.DeviceUdi(jsondict)
         if "DeviceUseStatement" == resource_type:
             from . import deviceusestatement
             return deviceusestatement.DeviceUseStatement(jsondict)
@@ -548,6 +560,9 @@ class FHIRElementFactory(object):
         if "Encounter" == resource_type:
             from . import encounter
             return encounter.Encounter(jsondict)
+        if "EncounterClassHistory" == resource_type:
+            from . import encounter
+            return encounter.EncounterClassHistory(jsondict)
         if "EncounterHospitalization" == resource_type:
             from . import encounter
             return encounter.EncounterHospitalization(jsondict)
@@ -674,6 +689,18 @@ class FHIRElementFactory(object):
         if "GoalTarget" == resource_type:
             from . import goal
             return goal.GoalTarget(jsondict)
+        if "GraphDefinition" == resource_type:
+            from . import graphdefinition
+            return graphdefinition.GraphDefinition(jsondict)
+        if "GraphDefinitionLink" == resource_type:
+            from . import graphdefinition
+            return graphdefinition.GraphDefinitionLink(jsondict)
+        if "GraphDefinitionLinkTarget" == resource_type:
+            from . import graphdefinition
+            return graphdefinition.GraphDefinitionLinkTarget(jsondict)
+        if "GraphDefinitionLinkTargetCompartment" == resource_type:
+            from . import graphdefinition
+            return graphdefinition.GraphDefinitionLinkTargetCompartment(jsondict)
         if "Group" == resource_type:
             from . import group
             return group.Group(jsondict)
@@ -728,6 +755,9 @@ class FHIRElementFactory(object):
         if "ImmunizationExplanation" == resource_type:
             from . import immunization
             return immunization.ImmunizationExplanation(jsondict)
+        if "ImmunizationPractitioner" == resource_type:
+            from . import immunization
+            return immunization.ImmunizationPractitioner(jsondict)
         if "ImmunizationReaction" == resource_type:
             from . import immunization
             return immunization.ImmunizationReaction(jsondict)
@@ -839,6 +869,9 @@ class FHIRElementFactory(object):
         if "MedicationAdministrationPerformer" == resource_type:
             from . import medicationadministration
             return medicationadministration.MedicationAdministrationPerformer(jsondict)
+        if "MedicationBatch" == resource_type:
+            from . import medication
+            return medication.MedicationBatch(jsondict)
         if "MedicationDispense" == resource_type:
             from . import medicationdispense
             return medicationdispense.MedicationDispense(jsondict)
@@ -848,21 +881,15 @@ class FHIRElementFactory(object):
         if "MedicationDispenseSubstitution" == resource_type:
             from . import medicationdispense
             return medicationdispense.MedicationDispenseSubstitution(jsondict)
+        if "MedicationIngredient" == resource_type:
+            from . import medication
+            return medication.MedicationIngredient(jsondict)
         if "MedicationPackage" == resource_type:
             from . import medication
             return medication.MedicationPackage(jsondict)
         if "MedicationPackageContent" == resource_type:
             from . import medication
             return medication.MedicationPackageContent(jsondict)
-        if "MedicationProduct" == resource_type:
-            from . import medication
-            return medication.MedicationProduct(jsondict)
-        if "MedicationProductBatch" == resource_type:
-            from . import medication
-            return medication.MedicationProductBatch(jsondict)
-        if "MedicationProductIngredient" == resource_type:
-            from . import medication
-            return medication.MedicationProductIngredient(jsondict)
         if "MedicationRequest" == resource_type:
             from . import medicationrequest
             return medicationrequest.MedicationRequest(jsondict)
@@ -1034,12 +1061,15 @@ class FHIRElementFactory(object):
         if "PlanDefinitionActionDefinitionRelatedAction" == resource_type:
             from . import plandefinition
             return plandefinition.PlanDefinitionActionDefinitionRelatedAction(jsondict)
+        if "PlanDefinitionGoalDefinition" == resource_type:
+            from . import plandefinition
+            return plandefinition.PlanDefinitionGoalDefinition(jsondict)
+        if "PlanDefinitionGoalDefinitionTarget" == resource_type:
+            from . import plandefinition
+            return plandefinition.PlanDefinitionGoalDefinitionTarget(jsondict)
         if "Practitioner" == resource_type:
             from . import practitioner
             return practitioner.Practitioner(jsondict)
-        if "PractitionerPractRole" == resource_type:
-            from . import practitioner
-            return practitioner.PractitionerPractRole(jsondict)
         if "PractitionerQualification" == resource_type:
             from . import practitioner
             return practitioner.PractitionerQualification(jsondict)
@@ -1124,6 +1154,9 @@ class FHIRElementFactory(object):
         if "ReferralRequest" == resource_type:
             from . import referralrequest
             return referralrequest.ReferralRequest(jsondict)
+        if "ReferralRequestRequester" == resource_type:
+            from . import referralrequest
+            return referralrequest.ReferralRequestRequester(jsondict)
         if "RelatedArtifact" == resource_type:
             from . import relatedartifact
             return relatedartifact.RelatedArtifact(jsondict)
@@ -1271,6 +1304,9 @@ class FHIRElementFactory(object):
         if "SupplyRequest" == resource_type:
             from . import supplyrequest
             return supplyrequest.SupplyRequest(jsondict)
+        if "SupplyRequestOrderedItem" == resource_type:
+            from . import supplyrequest
+            return supplyrequest.SupplyRequestOrderedItem(jsondict)
         if "SupplyRequestWhen" == resource_type:
             from . import supplyrequest
             return supplyrequest.SupplyRequestWhen(jsondict)

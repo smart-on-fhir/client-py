@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -32,8 +32,8 @@ class CommunicationTests(unittest.TestCase):
         self.implCommunication1(inst2)
     
     def implCommunication1(self, inst):
-        self.assertEqual(inst.category.coding[0].code, "SolicitedAttachment")
-        self.assertEqual(inst.category.coding[0].system, "http://acme.org/messagetypes")
+        self.assertEqual(inst.category[0].coding[0].code, "SolicitedAttachment")
+        self.assertEqual(inst.category[0].coding[0].system, "http://acme.org/messagetypes")
         self.assertEqual(inst.id, "fm-attachment")
         self.assertEqual(inst.identifier[0].system, "http://www.providerco.com/communication")
         self.assertEqual(inst.identifier[0].value, "12345")
@@ -65,8 +65,8 @@ class CommunicationTests(unittest.TestCase):
         self.implCommunication2(inst2)
     
     def implCommunication2(self, inst):
-        self.assertEqual(inst.category.coding[0].code, "SolicitedAttachment")
-        self.assertEqual(inst.category.coding[0].system, "http://acme.org/messagetypes")
+        self.assertEqual(inst.category[0].coding[0].code, "SolicitedAttachment")
+        self.assertEqual(inst.category[0].coding[0].system, "http://acme.org/messagetypes")
         self.assertEqual(inst.contained[0].id, "provider")
         self.assertEqual(inst.contained[1].id, "payor")
         self.assertEqual(inst.contained[2].id, "request")
@@ -101,9 +101,9 @@ class CommunicationTests(unittest.TestCase):
         self.implCommunication3(inst2)
     
     def implCommunication3(self, inst):
-        self.assertEqual(inst.category.coding[0].code, "Alert")
-        self.assertEqual(inst.category.coding[0].system, "http://acme.org/messagetypes")
-        self.assertEqual(inst.category.text, "Alert")
+        self.assertEqual(inst.category[0].coding[0].code, "Alert")
+        self.assertEqual(inst.category[0].coding[0].system, "http://acme.org/messagetypes")
+        self.assertEqual(inst.category[0].text, "Alert")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "urn:oid:1.3.4.5.6.7")
         self.assertEqual(inst.identifier[0].type.text, "Paging System")

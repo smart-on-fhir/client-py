@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Substance) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Substance) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -45,6 +45,10 @@ class Substance(domainresource.DomainResource):
         """ If this describes a specific package/container of the substance.
         List of `SubstanceInstance` items (represented as `dict` in JSON). """
         
+        self.status = None
+        """ active | inactive | entered-in-error.
+        Type `str`. """
+        
         super(Substance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -56,6 +60,7 @@ class Substance(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("ingredient", "ingredient", SubstanceIngredient, True, None, False),
             ("instance", "instance", SubstanceInstance, True, None, False),
+            ("status", "status", str, False, None, False),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -31,10 +31,6 @@ class MessageHeader(domainresource.DomainResource):
         """ The source of the decision.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.data = None
-        """ The actual content of the message.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
-        
         self.destination = None
         """ Message Destination Application(s).
         List of `MessageHeaderDestination` items (represented as `dict` in JSON). """
@@ -46,6 +42,10 @@ class MessageHeader(domainresource.DomainResource):
         self.event = None
         """ Code for the event this message represents.
         Type `Coding` (represented as `dict` in JSON). """
+        
+        self.focus = None
+        """ The actual content of the message.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.reason = None
         """ Cause of event.
@@ -63,6 +63,10 @@ class MessageHeader(domainresource.DomainResource):
         """ Final responsibility for event.
         Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
+        self.sender = None
+        """ Real world sender of the message.
+        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
+        
         self.source = None
         """ Message Source Application.
         Type `MessageHeaderSource` (represented as `dict` in JSON). """
@@ -77,14 +81,15 @@ class MessageHeader(domainresource.DomainResource):
         js = super(MessageHeader, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("data", "data", fhirreference.FHIRReference, True, None, False),
             ("destination", "destination", MessageHeaderDestination, True, None, False),
             ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
             ("event", "event", coding.Coding, False, None, True),
+            ("focus", "focus", fhirreference.FHIRReference, True, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
             ("receiver", "receiver", fhirreference.FHIRReference, False, None, False),
             ("response", "response", MessageHeaderResponse, False, None, False),
             ("responsible", "responsible", fhirreference.FHIRReference, False, None, False),
+            ("sender", "sender", fhirreference.FHIRReference, False, None, False),
             ("source", "source", MessageHeaderSource, False, None, True),
             ("timestamp", "timestamp", fhirdate.FHIRDate, False, None, True),
         ])

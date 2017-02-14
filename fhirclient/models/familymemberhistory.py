@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -76,6 +76,10 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ Dead? How old/when?.
         Type `str`. """
         
+        self.definition = None
+        """ Instantiates protocol or definition.
+        List of `FHIRReference` items referencing `PlanDefinition, Questionnaire` (represented as `dict` in JSON). """
+        
         self.estimatedAge = None
         """ Age is estimated?.
         Type `bool`. """
@@ -92,6 +96,14 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ The family member described.
         Type `str`. """
         
+        self.notDone = None
+        """ Family member history did not occur.
+        Type `bool`. """
+        
+        self.notDoneReason = None
+        """ subject-unknown | withheld | unable-to-obtain | deferred.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.note = None
         """ General note about related person.
         List of `Annotation` items (represented as `dict` in JSON). """
@@ -99,6 +111,14 @@ class FamilyMemberHistory(domainresource.DomainResource):
         self.patient = None
         """ Patient history is about.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
+        self.reasonCodeableConcept = None
+        """ Why was family member history performed?.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.reasonReference = None
+        """ Why was family member history performed?.
+        List of `FHIRReference` items referencing `Condition, Observation, AllergyIntolerance, QuestionnaireResponse` (represented as `dict` in JSON). """
         
         self.relationship = None
         """ Relationship to the subject.
@@ -126,12 +146,17 @@ class FamilyMemberHistory(domainresource.DomainResource):
             ("deceasedDate", "deceasedDate", fhirdate.FHIRDate, False, "deceased", False),
             ("deceasedRange", "deceasedRange", range.Range, False, "deceased", False),
             ("deceasedString", "deceasedString", str, False, "deceased", False),
+            ("definition", "definition", fhirreference.FHIRReference, True, None, False),
             ("estimatedAge", "estimatedAge", bool, False, None, False),
             ("gender", "gender", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("name", "name", str, False, None, False),
+            ("notDone", "notDone", bool, False, None, False),
+            ("notDoneReason", "notDoneReason", codeableconcept.CodeableConcept, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, True),
             ("status", "status", str, False, None, True),
         ])

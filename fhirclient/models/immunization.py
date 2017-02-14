@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -62,6 +62,10 @@ class Immunization(domainresource.DomainResource):
         """ Vaccine manufacturer.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
+        self.notGiven = None
+        """ Flag for whether immunization was given.
+        Type `bool`. """
+        
         self.note = None
         """ Vaccination notes.
         List of `Annotation` items (represented as `dict` in JSON). """
@@ -70,9 +74,9 @@ class Immunization(domainresource.DomainResource):
         """ Who was immunized.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
-        self.performer = None
-        """ Who administered vaccine.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        self.practitioner = None
+        """ Who performed event.
+        List of `ImmunizationPractitioner` items (represented as `dict` in JSON). """
         
         self.primarySource = None
         """ Indicates context the data was recorded in.
@@ -85,10 +89,6 @@ class Immunization(domainresource.DomainResource):
         self.reportOrigin = None
         """ Indicates the source of a secondarily reported record.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.requester = None
-        """ Who ordered vaccination.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.route = None
         """ How vaccine entered body.
@@ -110,10 +110,6 @@ class Immunization(domainresource.DomainResource):
         """ Vaccine product administered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.wasNotGiven = None
-        """ Flag for whether immunization was given.
-        Type `bool`. """
-        
         super(Immunization, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -128,19 +124,18 @@ class Immunization(domainresource.DomainResource):
             ("location", "location", fhirreference.FHIRReference, False, None, False),
             ("lotNumber", "lotNumber", str, False, None, False),
             ("manufacturer", "manufacturer", fhirreference.FHIRReference, False, None, False),
+            ("notGiven", "notGiven", bool, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
+            ("practitioner", "practitioner", ImmunizationPractitioner, True, None, False),
             ("primarySource", "primarySource", bool, False, None, True),
             ("reaction", "reaction", ImmunizationReaction, True, None, False),
             ("reportOrigin", "reportOrigin", codeableconcept.CodeableConcept, False, None, False),
-            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
             ("route", "route", codeableconcept.CodeableConcept, False, None, False),
             ("site", "site", codeableconcept.CodeableConcept, False, None, False),
             ("status", "status", str, False, None, True),
             ("vaccinationProtocol", "vaccinationProtocol", ImmunizationVaccinationProtocol, True, None, False),
             ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, False, None, True),
-            ("wasNotGiven", "wasNotGiven", bool, False, None, True),
         ])
         return js
 
@@ -178,6 +173,41 @@ class ImmunizationExplanation(backboneelement.BackboneElement):
         js.extend([
             ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True, None, False),
+        ])
+        return js
+
+
+class ImmunizationPractitioner(backboneelement.BackboneElement):
+    """ Who performed event.
+    
+    Indicates who or what performed the event.
+    """
+    
+    resource_type = "ImmunizationPractitioner"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.actor = None
+        """ Individual who was performing.
+        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
+        self.role = None
+        """ What type of performance was done.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(ImmunizationPractitioner, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ImmunizationPractitioner, self).elementProperties()
+        js.extend([
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

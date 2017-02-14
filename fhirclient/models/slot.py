@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Slot) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Slot) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -22,8 +22,8 @@ class Slot(domainresource.DomainResource):
         """
         
         self.appointmentType = None
-        """ The style of appointment or patient that has been booked in the
-        slot (not service type).
+        """ The style of appointment or patient that may be booked in the slot
+        (not service type).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.comment = None

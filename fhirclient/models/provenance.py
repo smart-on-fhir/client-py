@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.10959 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2017-02-01.
+#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2017-02-14.
 #  2017, SMART Health IT.
 
 
@@ -167,12 +167,20 @@ class ProvenanceEntity(backboneelement.BackboneElement):
         """ Entity is attributed to this agent.
         List of `ProvenanceAgent` items (represented as `dict` in JSON). """
         
-        self.reference = None
+        self.role = None
+        """ derivation | revision | quotation | source | removal.
+        Type `str`. """
+        
+        self.whatIdentifier = None
+        """ Identity of entity.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.whatReference = None
         """ Identity of entity.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
-        self.role = None
-        """ derivation | revision | quotation | source | removal.
+        self.whatUri = None
+        """ Identity of entity.
         Type `str`. """
         
         super(ProvenanceEntity, self).__init__(jsondict=jsondict, strict=strict)
@@ -181,8 +189,10 @@ class ProvenanceEntity(backboneelement.BackboneElement):
         js = super(ProvenanceEntity, self).elementProperties()
         js.extend([
             ("agent", "agent", ProvenanceAgent, True, None, False),
-            ("reference", "reference", fhirreference.FHIRReference, False, None, True),
             ("role", "role", str, False, None, True),
+            ("whatIdentifier", "whatIdentifier", identifier.Identifier, False, "what", True),
+            ("whatReference", "whatReference", fhirreference.FHIRReference, False, "what", True),
+            ("whatUri", "whatUri", str, False, "what", True),
         ])
         return js
 
@@ -191,5 +201,6 @@ from . import codeableconcept
 from . import coding
 from . import fhirdate
 from . import fhirreference
+from . import identifier
 from . import period
 from . import signature
