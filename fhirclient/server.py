@@ -11,6 +11,8 @@ except ImportError as e:            # Python 3
 
 from auth import FHIRAuth
 
+FHIRJSONMimeType = 'application/fhir+json'
+
 
 class FHIRUnauthorizedException(Exception):
     """ Indicating a 401 response.
@@ -174,7 +176,7 @@ class FHIRServer(object):
         url = urlparse.urljoin(self.base_uri, path)
         
         headers = {
-            'Accept': 'application/json+fhir',
+            'Accept': FHIRJSONMimeType,
             'Accept-Charset': 'UTF-8',
         }
         if not nosign and self.auth is not None and self.auth.can_sign_headers():
@@ -185,38 +187,50 @@ class FHIRServer(object):
         self.raise_for_status(res)
         return res
     
-    def put_json(self, path, resource_json):
+    def put_json(self, path, resource_json, nosign=False):
         """ Performs a PUT request of the given JSON, which should represent a
         resource, to the given relative path.
         
         :param str path: The path to append to `base_uri`
         :param dict resource_json: The JSON representing the resource
+        :param bool nosign: If set to True, the request will not be signed
         :throws: Exception on HTTP status >= 400
         :returns: The response object
         """
         url = urlparse.urljoin(self.base_uri, path)
         headers = {
-            'Content-type': 'application/json+fhir',
-            'Accept': 'application/json+fhir',
+            'Content-type': FHIRJSONMimeType,
+            'Accept': FHIRJSONMimeType,
+            'Accept-Charset': 'UTF-8',
         }
+        if not nosign and self.auth is not None and self.auth.can_sign_headers():
+            headers = self.auth.signed_headers(headers)
+        
+        # perform the request but intercept 401 responses, raising our own Exception
         res = self.session.put(url, headers=headers, data=json.dumps(resource_json))
         self.raise_for_status(res)
         return res
     
-    def post_json(self, path, resource_json):
+    def post_json(self, path, resource_json, nosign=False):
         """ Performs a POST of the given JSON, which should represent a
         resource, to the given relative path.
         
         :param str path: The path to append to `base_uri`
         :param dict resource_json: The JSON representing the resource
+        :param bool nosign: If set to True, the request will not be signed
         :throws: Exception on HTTP status >= 400
         :returns: The response object
         """
         url = urlparse.urljoin(self.base_uri, path)
         headers = {
-            'Content-type': 'application/json+fhir',
-            'Accept': 'application/json+fhir',
+            'Content-type': FHIRJSONMimeType,
+            'Accept': FHIRJSONMimeType,
+            'Accept-Charset': 'UTF-8',
         }
+        if not nosign and self.auth is not None and self.auth.can_sign_headers():
+            headers = self.auth.signed_headers(headers)
+        
+        # perform the request but intercept 401 responses, raising our own Exception
         res = self.session.post(url, headers=headers, data=json.dumps(resource_json))
         self.raise_for_status(res)
         return res
@@ -224,7 +238,7 @@ class FHIRServer(object):
     def post_as_form(self, url, formdata, auth=None):
         """ Performs a POST request with form-data, expecting to receive JSON.
         This method is used in the OAuth2 token exchange and thus doesn't
-        request json+fhir.
+        request fhir+json.
         
         :throws: Exception on HTTP status >= 400
         :returns: The response object
@@ -237,17 +251,23 @@ class FHIRServer(object):
         self.raise_for_status(res)
         return res
     
-    def delete_json(self, path):
+    def delete_json(self, path, nosign=False):
         """ Issues a DELETE command against the given relative path, accepting
         a JSON response.
         
-        :param str url: The relative URL path to issue a DELETE against
+        :param str path: The relative URL path to issue a DELETE against
+        :param bool nosign: If set to True, the request will not be signed
         :returns: The response object
         """
         url = urlparse.urljoin(self.base_uri, path)
         headers = {
-            'Accept': 'application/json',
+            'Accept': FHIRJSONMimeType,
+            'Accept-Charset': 'UTF-8',
         }
+        if not nosign and self.auth is not None and self.auth.can_sign_headers():
+            headers = self.auth.signed_headers(headers)
+        
+        # perform the request but intercept 401 responses, raising our own Exception
         res = self.session.delete(url)
         self.raise_for_status(res)
         return res
