@@ -4,4 +4,3 @@ wheel>=0.21
 bumpversion>=0.3
 isodate>=0.5
 requests>=2.4
-requests_toolbelt>=0.7.1

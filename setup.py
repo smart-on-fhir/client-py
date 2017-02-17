@@ -37,7 +37,7 @@ setup(
     author="SMART Platforms Team",
     author_email='support@smarthealthit.org',
     packages=find_packages(exclude=['test*', '*_tests.py']),
-    install_requires=['requests', 'isodate', 'requests_toolbelt'],
+    install_requires=['requests', 'isodate'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
