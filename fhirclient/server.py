@@ -4,6 +4,8 @@ import json
 import requests
 import urllib
 import logging
+from requests_toolbelt.utils import dump
+
 try:                                # Python 2.x
     import urlparse
 except ImportError as e:            # Python 3
@@ -13,6 +15,7 @@ from auth import FHIRAuth
 
 FHIRJSONMimeType = 'application/json+fhir'
 
+logger = logging.getLogger(__name__)
 
 class FHIRUnauthorizedException(Exception):
     """ Indicating a 401 response.
@@ -75,7 +78,7 @@ class FHIRServer(object):
         or forced.
         """
         if self._conformance is None or force:
-            logging.info('Fetching conformance statement from {0}'.format(self.base_uri))
+            logger.info('SMART SERVER: Fetching conformance statement from {0}'.format(self.base_uri))
             from models import conformance
             conf = conformance.Conformance.read_from('metadata', self)
             self._conformance = conf
@@ -84,7 +87,7 @@ class FHIRServer(object):
             try:
                 security = conf.rest[0].security
             except Exception as e:
-                logging.info("No REST security statement found in server conformance statement")
+                logger.info("SMART SERVER: No REST security statement found in server conformance statement")
             
             settings = {
                 'aud': self.base_uri,
@@ -184,6 +187,7 @@ class FHIRServer(object):
         
         # perform the request but intercept 401 responses, raising our own Exception
         res = self.session.get(url, headers=headers)
+        logging.debug('SMART SERVER:\r\n{0}'.format(dump.dump_response(res).decode('utf-8')))
         self.raise_for_status(res)
         return res
     
@@ -208,6 +212,7 @@ class FHIRServer(object):
         
         # perform the request but intercept 401 responses, raising our own Exception
         res = self.session.put(url, headers=headers, data=json.dumps(resource_json))
+        logging.debug('SMART SERVER:\r\n{0}'.format(dump.dump_response(res).decode('utf-8')))
         self.raise_for_status(res)
         return res
     
@@ -232,6 +237,7 @@ class FHIRServer(object):
         
         # perform the request but intercept 401 responses, raising our own Exception
         res = self.session.post(url, headers=headers, data=json.dumps(resource_json))
+        logging.debug('SMART SERVER:\r\n{0}'.format(dump.dump_response(res).decode('utf-8')))
         self.raise_for_status(res)
         return res
     
@@ -248,6 +254,7 @@ class FHIRServer(object):
             'Accept': 'application/json',
         }
         res = self.session.post(url, data=formdata, auth=auth)
+        logging.debug('SMART SERVER:\r\n{0}'.format(dump.dump_response(res).decode('utf-8')))
         self.raise_for_status(res)
         return res
     
@@ -269,6 +276,7 @@ class FHIRServer(object):
         
         # perform the request but intercept 401 responses, raising our own Exception
         res = self.session.delete(url)
+        logging.debug('SMART SERVER:\r\n{0}'.format(dump.dump_response(res).decode('utf-8')))
         self.raise_for_status(res)
         return res
     

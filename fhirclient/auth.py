@@ -9,6 +9,7 @@ except Exception as e:              # Python 3
     import urllib.parse as urlparse
     from urllib.parse import urlencode
 
+logger = logging.getLogger(__name__)
 
 class FHIRAuth(object):
     """ Superclass to handle authorization flow and state.
@@ -53,7 +54,7 @@ class FHIRAuth(object):
                                 state['registration_uri'] = ee.valueUri
                         break
                     else:
-                        logging.warning("SMART AUTH: invalid `http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris` extension: needs to include sub-extensions to define OAuth2 endpoints but there are none")
+                        logger.warning("SMART AUTH: invalid `http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris` extension: needs to include sub-extensions to define OAuth2 endpoints but there are none")
                 
                 # fallback to old extension URLs  
                 elif "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#register" == e.url:
@@ -182,7 +183,7 @@ class FHIROAuth2Auth(FHIRAuth):
         stored.
         """
         auth_params = self._authorize_params(server)
-        logging.debug("SMART AUTH: Will use parameters for `authorize_uri`: {0}".format(auth_params))
+        logger.debug("SMART AUTH: Will use parameters for `authorize_uri`: {0}".format(auth_params))
         
         # the authorize uri may have params, make sure to not lose them
         parts = list(urlparse.urlsplit(self._authorize_uri))
@@ -223,7 +224,7 @@ class FHIROAuth2Auth(FHIRAuth):
         :param server: The Server instance to use
         :returns: The launch context dictionary
         """
-        logging.debug("SMART AUTH: Handling callback URL")
+        logger.debug("SMART AUTH: Handling callback URL")
         if url is None:
             raise Exception("No callback URL received")
         try:
@@ -270,7 +271,7 @@ class FHIROAuth2Auth(FHIRAuth):
         if server is None:
             raise Exception("I need a server to request an access token")
         
-        logging.debug("SMART AUTH: Requesting access token from {0}".format(self._token_uri))
+        logger.debug("SMART AUTH: Requesting access token from {0}".format(self._token_uri))
         auth = None
         if self.app_secret:
             auth = (self.app_id, self.app_secret)
@@ -291,7 +292,7 @@ class FHIROAuth2Auth(FHIRAuth):
             self.refresh_token = refresh_token
             del ret_params['refresh_token']
         
-        logging.debug("SMART AUTH: Received access token: {0}, refresh token: {1}"
+        logger.debug("SMART AUTH: Received access token: {0}, refresh token: {1}"
             .format(self.access_token is not None, self.refresh_token is not None))
         return ret_params
     
@@ -305,10 +306,10 @@ class FHIROAuth2Auth(FHIRAuth):
         :returns: The launch context dictionary, or None on failure
         """
         if self.refresh_token is None:
-            logging.debug("SMART AUTH: Cannot reauthorize without refresh token")
+            logger.debug("SMART AUTH: Cannot reauthorize without refresh token")
             return None
         
-        logging.debug("SMART AUTH: Refreshing token")
+        logger.debug("SMART AUTH: Refreshing token")
         reauth = self._reauthorize_params()
         return self._request_access_token(server, reauth)
     
