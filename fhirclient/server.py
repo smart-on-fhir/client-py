@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import json
+import os
 import requests
 import urllib
 import logging
@@ -14,6 +15,7 @@ except ImportError as e:            # Python 3
 from auth import FHIRAuth
 
 FHIRJSONMimeType = 'application/json+fhir'
+LINE_SEP = os.linesep
 
 logger = logging.getLogger(__name__)
 
@@ -187,7 +189,7 @@ class FHIRServer(object):
         
         # perform the request but intercept 401 responses, raising our own Exception
         res = self.session.get(url, headers=headers)
-        logging.debug('SMART SERVER:\r\n{0}'.format(dump.dump_response(res).decode('utf-8')))
+        logging.debug('SMART SERVER:{1}{0}'.format(dump.dump_response(res).decode('utf-8'), LINE_SEP))
         self.raise_for_status(res)
         return res
     
@@ -212,7 +214,7 @@ class FHIRServer(object):
         
         # perform the request but intercept 401 responses, raising our own Exception
         res = self.session.put(url, headers=headers, data=json.dumps(resource_json))
-        logging.debug('SMART SERVER:\r\n{0}'.format(dump.dump_response(res).decode('utf-8')))
+        logging.debug('SMART SERVER:{1}{0}'.format(dump.dump_response(res).decode('utf-8'), LINE_SEP))
         self.raise_for_status(res)
         return res
     
@@ -237,7 +239,7 @@ class FHIRServer(object):
         
         # perform the request but intercept 401 responses, raising our own Exception
         res = self.session.post(url, headers=headers, data=json.dumps(resource_json))
-        logging.debug('SMART SERVER:\r\n{0}'.format(dump.dump_response(res).decode('utf-8')))
+        logging.debug('SMART SERVER:{1}{0}'.format(dump.dump_response(res).decode('utf-8'), LINE_SEP))
         self.raise_for_status(res)
         return res
     
@@ -254,7 +256,7 @@ class FHIRServer(object):
             'Accept': 'application/json',
         }
         res = self.session.post(url, data=formdata, auth=auth)
-        logging.debug('SMART SERVER:\r\n{0}'.format(dump.dump_response(res).decode('utf-8')))
+        logging.debug('SMART SERVER:{1}{0}'.format(dump.dump_response(res).decode('utf-8'), LINE_SEP))
         self.raise_for_status(res)
         return res
     
@@ -276,7 +278,7 @@ class FHIRServer(object):
         
         # perform the request but intercept 401 responses, raising our own Exception
         res = self.session.delete(url)
-        logging.debug('SMART SERVER:\r\n{0}'.format(dump.dump_response(res).decode('utf-8')))
+        logging.debug('SMART SERVER:{1}{0}'.format(dump.dump_response(res).decode('utf-8'), LINE_SEP))
         self.raise_for_status(res)
         return res
     
