@@ -6,6 +6,7 @@
 import sys
 import logging
 
+logger = logging.getLogger(__name__)
 
 class FHIRValidationError(Exception):
     """ Exception raised when one or more errors occurred during model
@@ -46,7 +47,7 @@ class FHIRAbstractBase(object):
     
     def __init__(self, jsondict=None, strict=True):
         """ Initializer. If strict is true, raises on errors, otherwise uses
-        `logging.warning()`.
+        `logger.warning()`.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
         :param dict jsondict: A JSON dictionary to use for initialization
@@ -67,7 +68,7 @@ class FHIRAbstractBase(object):
                     self.update_with_json(jsondict)
                 except FHIRValidationError as e:
                     for err in e.errors:
-                        logging.warning(err)
+                        logger.warning(err)
     
     
     # MARK: Instantiation from JSON

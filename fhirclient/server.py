@@ -4,6 +4,7 @@ import json
 import requests
 import urllib
 import logging
+
 try:                                # Python 2.x
     import urlparse
 except ImportError as e:            # Python 3
@@ -13,6 +14,7 @@ from auth import FHIRAuth
 
 FHIRJSONMimeType = 'application/json+fhir'
 
+logger = logging.getLogger(__name__)
 
 class FHIRUnauthorizedException(Exception):
     """ Indicating a 401 response.
@@ -75,7 +77,7 @@ class FHIRServer(object):
         or forced.
         """
         if self._conformance is None or force:
-            logging.info('Fetching conformance statement from {0}'.format(self.base_uri))
+            logger.info('Fetching conformance statement from {0}'.format(self.base_uri))
             from models import conformance
             conf = conformance.Conformance.read_from('metadata', self)
             self._conformance = conf
@@ -84,7 +86,7 @@ class FHIRServer(object):
             try:
                 security = conf.rest[0].security
             except Exception as e:
-                logging.info("No REST security statement found in server conformance statement")
+                logger.info("No REST security statement found in server conformance statement")
             
             settings = {
                 'aud': self.base_uri,
