@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import json
-import os
 import requests
 import urllib
 import logging
@@ -14,7 +13,6 @@ except ImportError as e:            # Python 3
 from auth import FHIRAuth
 
 FHIRJSONMimeType = 'application/json+fhir'
-LINE_SEP = os.linesep
 
 logger = logging.getLogger(__name__)
 
