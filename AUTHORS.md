@@ -13,5 +13,6 @@ The following wonderful people contributed directly or indirectly to this projec
 - Josh Mandel <https://github.com/jmandel>
 - Nikolai Schwertner <https://github.com/nschwertner>
 - Pascal Pfiffner <https://github.com/p2>
+- Trinadh Baranika <https://github.com/bktrinadh>
 
 Please add yourself here alphabetically when you submit your first pull request.

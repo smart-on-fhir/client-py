@@ -9,6 +9,8 @@ import logging
 import isodate
 import datetime
 
+logger = logging.getLogger(__name__)
+
 
 class FHIRDate(object):
     """ Facilitate working with dates.
@@ -31,7 +33,7 @@ class FHIRDate(object):
                 else:
                     self.date = isodate.parse_date(jsonval)
             except Exception as e:
-                logging.warning("Failed to initialize FHIRDate from \"{}\": {}"
+                logger.warning("Failed to initialize FHIRDate from \"{}\": {}"
                     .format(jsonval, e))
         
         self.origval = jsonval

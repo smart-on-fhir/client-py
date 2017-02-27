@@ -13,6 +13,8 @@ from auth import FHIRAuth
 
 FHIRJSONMimeType = 'application/fhir+json'
 
+logger = logging.getLogger(__name__)
+
 
 class FHIRUnauthorizedException(Exception):
     """ Indicating a 401 response.
@@ -75,7 +77,7 @@ class FHIRServer(object):
         or forced.
         """
         if self._capability is None or force:
-            logging.info('Fetching CapabilityStatement from {0}'.format(self.base_uri))
+            logger.info('Fetching CapabilityStatement from {0}'.format(self.base_uri))
             from models import capabilitystatement
             conf = capabilitystatement.CapabilityStatement.read_from('metadata', self)
             self._capability = conf
@@ -84,7 +86,7 @@ class FHIRServer(object):
             try:
                 security = conf.rest[0].security
             except Exception as e:
-                logging.info("No REST security statement found in server capability statement")
+                logger.info("No REST security statement found in server capability statement")
             
             settings = {
                 'aud': self.base_uri,

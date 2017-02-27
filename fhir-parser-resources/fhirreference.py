@@ -6,6 +6,8 @@
 import logging
 from . import reference
 
+logger = logging.getLogger(__name__)
+
 
 class FHIRReference(reference.Reference):
     """ Subclassing FHIR's `Reference` resource to add resolving capabilities.
@@ -27,7 +29,7 @@ class FHIRReference(reference.Reference):
         
         refid = self.processedReferenceIdentifier()
         if not refid:
-            logging.warning("No `reference` set, cannot resolve")
+            logger.warning("No `reference` set, cannot resolve")
             return None
         
         # already resolved and cached?
@@ -35,7 +37,7 @@ class FHIRReference(reference.Reference):
         if resolved is not None:
             if isinstance(resolved, klass):
                 return resolved
-            logging.warning("Referenced resource {} is not a {} but a {}".format(refid, klass, resolved.__class__))
+            logger.warning("Referenced resource {} is not a {} but a {}".format(refid, klass, resolved.__class__))
             return None
         
         # not yet resolved, see if it's a contained resource
@@ -45,7 +47,7 @@ class FHIRReference(reference.Reference):
                     owning_resource.didResolveReference(refid, contained)
                     if isinstance(contained, klass):
                         return contained
-                    logging.warning("Contained resource {} is not a {} but a {}".format(refid, klass, contained.__class__))
+                    logger.warning("Contained resource {} is not a {} but a {}".format(refid, klass, contained.__class__))
                     return None
         
         # are we in a bundle?
@@ -65,7 +67,7 @@ class FHIRReference(reference.Reference):
                         found = entry.resource
                         if isinstance(found, klass):
                             return found
-                        logging.warning("Bundled resource {} is not a {} but a {}".format(refid, klass, found.__class__))
+                        logger.warning("Bundled resource {} is not a {} but a {}".format(refid, klass, found.__class__))
                         return None
             bundle = bundle.owningBundle()
         
@@ -76,7 +78,7 @@ class FHIRReference(reference.Reference):
         
         # TODO: instantiate server for absolute resource
         if server is None:
-            logging.warning("Not implemented: resolving absolute reference to resource {}"
+            logger.warning("Not implemented: resolving absolute reference to resource {}"
                 .format(self.reference))
             return None
         
