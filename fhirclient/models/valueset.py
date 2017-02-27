@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -335,7 +335,8 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
         Type `str`. """
         
         self.value = None
-        """ Code from the system, or regex criteria.
+        """ Code from the system, or regex criteria, or boolean value for
+        exists.
         Type `str`. """
         
         super(ValueSetComposeIncludeFilter, self).__init__(jsondict=jsondict, strict=strict)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -27,16 +27,12 @@ class ActivityDefinition(domainresource.DomainResource):
         """
         
         self.approvalDate = None
-        """ When activity definition approved by publisher.
+        """ When the activity definition was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.bodySite = None
         """ What part of body to perform on.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.category = None
-        """ E.g. Education, Assessment, Treatment, etc.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.code = None
         """ Detail type of activity.
@@ -62,16 +58,16 @@ class ActivityDefinition(domainresource.DomainResource):
         """ Natural language description of the activity definition.
         Type `str`. """
         
-        self.dosageInstruction = None
+        self.dosage = None
         """ Detailed dosage instructions.
-        List of `DosageInstruction` items (represented as `dict` in JSON). """
+        List of `Dosage` items (represented as `dict` in JSON). """
         
         self.dynamicValue = None
         """ Dynamic aspects of the definition.
         List of `ActivityDefinitionDynamicValue` items (represented as `dict` in JSON). """
         
         self.effectivePeriod = None
-        """ The effective date range for the activity definition.
+        """ When the activity definition is effective.
         Type `Period` (represented as `dict` in JSON). """
         
         self.experimental = None
@@ -91,7 +87,7 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.lastReviewDate = None
-        """ Last review date for the activity definition.
+        """ When the activity definition was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.library = None
@@ -106,9 +102,9 @@ class ActivityDefinition(domainresource.DomainResource):
         """ Name for this activity definition (Computer friendly).
         Type `str`. """
         
-        self.participantType = None
-        """ patient | practitioner | related-person.
-        List of `str` items. """
+        self.participant = None
+        """ Who should participate in the action.
+        List of `ActivityDefinitionParticipant` items (represented as `dict` in JSON). """
         
         self.productCodeableConcept = None
         """ What's administered/supplied.
@@ -131,7 +127,7 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.relatedArtifact = None
-        """ Related artifacts for the asset.
+        """ Additional documentation, citations, etc.
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.status = None
@@ -151,7 +147,7 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.topic = None
-        """ Descriptional topics for the asset.
+        """ E.g. Education, Treatment, Assessment, etc.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.transform = None
@@ -181,14 +177,13 @@ class ActivityDefinition(domainresource.DomainResource):
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("contributor", "contributor", contributor.Contributor, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
-            ("dosageInstruction", "dosageInstruction", dosageinstruction.DosageInstruction, True, None, False),
+            ("dosage", "dosage", dosage.Dosage, True, None, False),
             ("dynamicValue", "dynamicValue", ActivityDefinitionDynamicValue, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
@@ -199,7 +194,7 @@ class ActivityDefinition(domainresource.DomainResource):
             ("library", "library", fhirreference.FHIRReference, True, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
             ("name", "name", str, False, None, False),
-            ("participantType", "participantType", str, True, None, False),
+            ("participant", "participant", ActivityDefinitionParticipant, True, None, False),
             ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
             ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
             ("publisher", "publisher", str, False, None, False),
@@ -271,10 +266,45 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
         return js
 
 
+class ActivityDefinitionParticipant(backboneelement.BackboneElement):
+    """ Who should participate in the action.
+    
+    Indicates who should participate in performing the action described.
+    """
+    
+    resource_type = "ActivityDefinitionParticipant"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.role = None
+        """ E.g. Nurse, Surgeon, Parent, etc.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ patient | practitioner | related-person.
+        Type `str`. """
+        
+        super(ActivityDefinitionParticipant, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ActivityDefinitionParticipant, self).elementProperties()
+        js.extend([
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+            ("type", "type", str, False, None, True),
+        ])
+        return js
+
+
 from . import codeableconcept
 from . import contactdetail
 from . import contributor
-from . import dosageinstruction
+from . import dosage
 from . import fhirdate
 from . import fhirreference
 from . import identifier

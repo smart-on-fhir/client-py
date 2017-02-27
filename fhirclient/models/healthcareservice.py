@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -36,6 +36,10 @@ class HealthcareService(domainresource.DomainResource):
         self.availableTime = None
         """ Times the Service Site is available.
         List of `HealthcareServiceAvailableTime` items (represented as `dict` in JSON). """
+        
+        self.category = None
+        """ Broad category of service being performed or delivered.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.characteristic = None
         """ Collection of characteristics (attributes).
@@ -76,6 +80,10 @@ class HealthcareService(domainresource.DomainResource):
         """ Location(s) where service may be provided.
         List of `FHIRReference` items referencing `Location` (represented as `dict` in JSON). """
         
+        self.name = None
+        """ Description of service as presented to a consumer while searching.
+        Type `str`. """
+        
         self.notAvailable = None
         """ Not available during this time due to provided reason.
         List of `HealthcareServiceNotAvailable` items (represented as `dict` in JSON). """
@@ -92,28 +100,12 @@ class HealthcareService(domainresource.DomainResource):
         """ Organization that provides this service.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.publicKey = None
-        """ PKI Public keys to support secure communications.
-        Type `str`. """
-        
         self.referralMethod = None
         """ Ways that the service accepts referrals.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.serviceCategory = None
-        """ Broad category of service being performed or delivered.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.serviceName = None
-        """ Description of service as presented to a consumer while searching.
-        Type `str`. """
-        
         self.serviceProvisionCode = None
         """ Conditions under which service is available/offered.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.serviceType = None
-        """ Type of service that may be delivered or performed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.specialty = None
@@ -124,6 +116,10 @@ class HealthcareService(domainresource.DomainResource):
         """ Contacts related to the healthcare service.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
+        self.type = None
+        """ Type of service that may be delivered or performed.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         super(HealthcareService, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -133,6 +129,7 @@ class HealthcareService(domainresource.DomainResource):
             ("appointmentRequired", "appointmentRequired", bool, False, None, False),
             ("availabilityExceptions", "availabilityExceptions", str, False, None, False),
             ("availableTime", "availableTime", HealthcareServiceAvailableTime, True, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("characteristic", "characteristic", codeableconcept.CodeableConcept, True, None, False),
             ("comment", "comment", str, False, None, False),
             ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False),
@@ -142,18 +139,16 @@ class HealthcareService(domainresource.DomainResource):
             ("extraDetails", "extraDetails", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("location", "location", fhirreference.FHIRReference, True, None, False),
+            ("name", "name", str, False, None, False),
             ("notAvailable", "notAvailable", HealthcareServiceNotAvailable, True, None, False),
             ("photo", "photo", attachment.Attachment, False, None, False),
             ("programName", "programName", str, True, None, False),
             ("providedBy", "providedBy", fhirreference.FHIRReference, False, None, False),
-            ("publicKey", "publicKey", str, False, None, False),
             ("referralMethod", "referralMethod", codeableconcept.CodeableConcept, True, None, False),
-            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False, None, False),
-            ("serviceName", "serviceName", str, False, None, False),
             ("serviceProvisionCode", "serviceProvisionCode", codeableconcept.CodeableConcept, True, None, False),
-            ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 

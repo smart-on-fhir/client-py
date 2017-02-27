@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -224,7 +224,7 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.comments = None
+        self.comment = None
         """ Versions, Issues, Scope limitations etc..
         Type `str`. """
         
@@ -245,7 +245,7 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureDefinitionMapping, self).elementProperties()
         js.extend([
-            ("comments", "comments", str, False, None, False),
+            ("comment", "comment", str, False, None, False),
             ("identity", "identity", str, False, None, True),
             ("name", "name", str, False, None, False),
             ("uri", "uri", str, False, None, False),

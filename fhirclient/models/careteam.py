@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -29,6 +29,10 @@ class CareTeam(domainresource.DomainResource):
         """ Type of team.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.context = None
+        """ Encounter or episode associated with CareTeam.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        
         self.identifier = None
         """ External Ids for this team.
         List of `Identifier` items (represented as `dict` in JSON). """
@@ -53,6 +57,14 @@ class CareTeam(domainresource.DomainResource):
         """ Time period team covers.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.reasonCode = None
+        """ Why the care team exists.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.reasonReference = None
+        """ Why the care team exists.
+        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
+        
         self.status = None
         """ proposed | active | suspended | inactive | entered-in-error.
         Type `str`. """
@@ -67,12 +79,15 @@ class CareTeam(domainresource.DomainResource):
         js = super(CareTeam, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, True, None, False),
             ("name", "name", str, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("participant", "participant", CareTeamParticipant, True, None, False),
             ("period", "period", period.Period, False, None, False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])

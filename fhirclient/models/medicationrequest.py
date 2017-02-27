@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -58,7 +58,7 @@ class MedicationRequest(domainresource.DomainResource):
         
         self.dosageInstruction = None
         """ How the medication should be taken.
-        List of `DosageInstruction` items (represented as `dict` in JSON). """
+        List of `Dosage` items (represented as `dict` in JSON). """
         
         self.eventHistory = None
         """ A list of events of interest in the lifecycle.
@@ -142,7 +142,7 @@ class MedicationRequest(domainresource.DomainResource):
             ("definition", "definition", fhirreference.FHIRReference, True, None, False),
             ("detectedIssue", "detectedIssue", fhirreference.FHIRReference, True, None, False),
             ("dispenseRequest", "dispenseRequest", MedicationRequestDispenseRequest, False, None, False),
-            ("dosageInstruction", "dosageInstruction", dosageinstruction.DosageInstruction, True, None, False),
+            ("dosageInstruction", "dosageInstruction", dosage.Dosage, True, None, False),
             ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),
             ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -298,7 +298,7 @@ class MedicationRequestSubstitution(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
-from . import dosageinstruction
+from . import dosage
 from . import duration
 from . import fhirdate
 from . import fhirreference

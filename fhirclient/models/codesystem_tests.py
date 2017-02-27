@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -22,7 +22,7 @@ class CodeSystemTests(unittest.TestCase):
         return codesystem.CodeSystem(js)
     
     def testCodeSystem1(self):
-        inst = self.instantiate_from("codesystem-example.json")
+        inst = self.instantiate_from("codesystem-example-summary.json")
         self.assertIsNotNone(inst, "Must have instantiated a CodeSystem instance")
         self.implCodeSystem1(inst)
         
@@ -32,6 +32,39 @@ class CodeSystemTests(unittest.TestCase):
         self.implCodeSystem1(inst2)
     
     def implCodeSystem1(self, inst):
+        self.assertTrue(inst.caseSensitive)
+        self.assertEqual(inst.contact[0].name, "FHIR project team")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
+        self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
+        self.assertEqual(inst.content, "not-present")
+        self.assertEqual(inst.count, 92)
+        self.assertEqual(inst.description, "This is an example code system summary for the ACME codes for body site.")
+        self.assertTrue(inst.experimental)
+        self.assertEqual(inst.id, "summary")
+        self.assertEqual(inst.jurisdiction[0].coding[0].code, "CA")
+        self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
+        self.assertEqual(inst.name, "Code system summary example for ACME body sites")
+        self.assertEqual(inst.publisher, "HL7 International")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.url, "http://hl7.org/fhir/CodeSystem/summary")
+        self.assertEqual(inst.useContext[0].code.code, "species")
+        self.assertEqual(inst.useContext[0].code.system, "http://example.org/CodeSystem/contexttype")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "337915000")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].display, "Homo sapiens (organism)")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
+    
+    def testCodeSystem2(self):
+        inst = self.instantiate_from("codesystem-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a CodeSystem instance")
+        self.implCodeSystem2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("CodeSystem", js["resourceType"])
+        inst2 = codesystem.CodeSystem(js)
+        self.implCodeSystem2(inst2)
+    
+    def implCodeSystem2(self, inst):
         self.assertTrue(inst.caseSensitive)
         self.assertEqual(inst.concept[0].code, "chol-mmol")
         self.assertEqual(inst.concept[0].definition, "Serum Cholesterol, in mmol/L")
@@ -70,17 +103,17 @@ class CodeSystemTests(unittest.TestCase):
         self.assertEqual(inst.url, "http://hl7.org/fhir/CodeSystem/example")
         self.assertEqual(inst.version, "20160128")
     
-    def testCodeSystem2(self):
+    def testCodeSystem3(self):
         inst = self.instantiate_from("codesystem-list-example-codes.json")
         self.assertIsNotNone(inst, "Must have instantiated a CodeSystem instance")
-        self.implCodeSystem2(inst)
+        self.implCodeSystem3(inst)
         
         js = inst.as_json()
         self.assertEqual("CodeSystem", js["resourceType"])
         inst2 = codesystem.CodeSystem(js)
-        self.implCodeSystem2(inst2)
+        self.implCodeSystem3(inst2)
     
-    def implCodeSystem2(self, inst):
+    def implCodeSystem3(self, inst):
         self.assertTrue(inst.caseSensitive)
         self.assertEqual(inst.concept[0].code, "alerts")
         self.assertEqual(inst.concept[0].definition, "A list of alerts for the patient.")
@@ -116,9 +149,9 @@ class CodeSystemTests(unittest.TestCase):
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "list-example-codes")
         self.assertEqual(inst.identifier.system, "urn:ietf:rfc:3986")
-        self.assertEqual(inst.identifier.value, "urn:oid:2.16.840.1.113883.4.642.1.173")
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2017-02-14T12:31:17.359+00:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2017-02-14T12:31:17.359+00:00")
+        self.assertEqual(inst.identifier.value, "urn:oid:2.16.840.1.113883.4.642.1.308")
+        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2017-02-27T09:13:50.744+00:00").date)
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2017-02-27T09:13:50.744+00:00")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/codesystem-shareable-definition")
         self.assertEqual(inst.name, "Example Use Codes for List")
         self.assertEqual(inst.publisher, "FHIR Project")

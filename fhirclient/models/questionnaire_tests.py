@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -88,6 +88,8 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "NSW Government My Personal Health Record")
         self.assertEqual(inst.url, "http://hl7.org/fhir/Questionnaire/bb")
+        self.assertEqual(inst.useContext[0].coding[0].code, "AU")
+        self.assertEqual(inst.useContext[0].coding[0].system, "urn:iso:std:iso:3166")
     
     def testQuestionnaire2(self):
         inst = self.instantiate_from("questionnaire-example-f201-lifelines.json")
@@ -196,26 +198,38 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.item[0].item[0].code[0].system, "http://example.org/system/code/questions")
         self.assertEqual(inst.item[0].item[0].item[0].code[0].code, "CARDIAL")
         self.assertEqual(inst.item[0].item[0].item[0].code[0].system, "http://example.org/system/code/sections")
+        self.assertEqual(inst.item[0].item[0].item[0].enableWhen[0].answerCoding.code, "Y")
+        self.assertEqual(inst.item[0].item[0].item[0].enableWhen[0].answerCoding.system, "http://hl7.org/fhir/v2/0136")
+        self.assertEqual(inst.item[0].item[0].item[0].enableWhen[0].question, "1.1")
         self.assertEqual(inst.item[0].item[0].item[0].item[0].code[0].code, "COMORBCAR")
         self.assertEqual(inst.item[0].item[0].item[0].item[0].code[0].system, "http://example.org/system/code/questions")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[0].code[0].code, "COMCAR00")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[0].code[0].display, "Angina Pectoris")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[0].code[0].system, "http://example.org/system/code/questions")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[0].code[1].code, "194828000")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[0].code[1].display, "Angina (disorder)")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[0].code[1].system, "http://snomed.info/sct")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[0].linkId, "1.1.1.1.1")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[0].prefix, "1.1.1")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[0].type, "choice")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[1].code[0].code, "22298006")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[1].code[0].display, "Myocardial infarction (disorder)")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[1].code[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[1].linkId, "1.1.1.1.2")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[1].prefix, "1.1.2")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].item[1].type, "choice")
         self.assertEqual(inst.item[0].item[0].item[0].item[0].linkId, "1.1.1.1")
+        self.assertEqual(inst.item[0].item[0].item[0].item[0].prefix, "1.1")
         self.assertEqual(inst.item[0].item[0].item[0].item[0].type, "choice")
-        self.assertEqual(inst.item[0].item[0].item[0].item[1].code[0].code, "COMCAR00")
-        self.assertEqual(inst.item[0].item[0].item[0].item[1].code[0].display, "Angina Pectoris")
+        self.assertEqual(inst.item[0].item[0].item[0].item[1].code[0].code, "COMORBVAS")
         self.assertEqual(inst.item[0].item[0].item[0].item[1].code[0].system, "http://example.org/system/code/questions")
-        self.assertEqual(inst.item[0].item[0].item[0].item[1].code[1].code, "194828000")
-        self.assertEqual(inst.item[0].item[0].item[0].item[1].code[1].display, "Angina (disorder)")
-        self.assertEqual(inst.item[0].item[0].item[0].item[1].code[1].system, "http://snomed.info/sct")
         self.assertEqual(inst.item[0].item[0].item[0].item[1].linkId, "1.1.1.2")
+        self.assertEqual(inst.item[0].item[0].item[0].item[1].prefix, "1.2")
         self.assertEqual(inst.item[0].item[0].item[0].item[1].type, "choice")
-        self.assertEqual(inst.item[0].item[0].item[0].item[2].code[0].code, "22298006")
-        self.assertEqual(inst.item[0].item[0].item[0].item[2].code[0].display, "Myocardial infarction (disorder)")
-        self.assertEqual(inst.item[0].item[0].item[0].item[2].code[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.item[0].item[0].item[0].item[2].linkId, "1.1.1.3")
-        self.assertEqual(inst.item[0].item[0].item[0].item[2].type, "choice")
         self.assertEqual(inst.item[0].item[0].item[0].linkId, "1.1.1")
         self.assertEqual(inst.item[0].item[0].item[0].type, "group")
         self.assertEqual(inst.item[0].item[0].linkId, "1.1")
+        self.assertEqual(inst.item[0].item[0].prefix, "1")
         self.assertEqual(inst.item[0].item[0].type, "choice")
         self.assertEqual(inst.item[0].linkId, "1")
         self.assertEqual(inst.item[0].type, "group")

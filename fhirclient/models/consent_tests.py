@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -315,7 +315,7 @@ class ConsentTests(unittest.TestCase):
     def implConsent10(self, inst):
         self.assertEqual(inst.actor[0].role.coding[0].code, "PRCP")
         self.assertEqual(inst.actor[0].role.coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
-        self.assertEqual(inst.category[0].coding[0].code, "hipaa")
+        self.assertEqual(inst.category[0].coding[0].code, "HIPAA-Auth")
         self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/consentcategorycodes")
         self.assertEqual(inst.dateTime.date, FHIRDate("2016-05-26T00:41:10-04:00").date)
         self.assertEqual(inst.dateTime.as_json(), "2016-05-26T00:41:10-04:00")

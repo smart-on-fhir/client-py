@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -41,9 +41,9 @@ class DocumentReferenceTests(unittest.TestCase):
         self.assertEqual(inst.content[0].attachment.language, "en-US")
         self.assertEqual(inst.content[0].attachment.size, 3654)
         self.assertEqual(inst.content[0].attachment.url, "http://example.org/xds/mhd/Binary/07a6483f-732b-461e-86b6-edb665c45510")
-        self.assertEqual(inst.content[0].format[0].code, "urn:ihe:pcc:handp:2008")
-        self.assertEqual(inst.content[0].format[0].display, "History and Physical Specification")
-        self.assertEqual(inst.content[0].format[0].system, "urn:oid:1.3.6.1.4.1.19376.1.2.3")
+        self.assertEqual(inst.content[0].format.code, "urn:ihe:pcc:handp:2008")
+        self.assertEqual(inst.content[0].format.display, "History and Physical Specification")
+        self.assertEqual(inst.content[0].format.system, "urn:oid:1.3.6.1.4.1.19376.1.2.3")
         self.assertEqual(inst.context.event[0].coding[0].code, "T-D8200")
         self.assertEqual(inst.context.event[0].coding[0].display, "Arm")
         self.assertEqual(inst.context.event[0].coding[0].system, "http://ihe.net/xds/connectathon/eventCodes")
@@ -62,9 +62,7 @@ class DocumentReferenceTests(unittest.TestCase):
         self.assertEqual(inst.created.date, FHIRDate("2005-12-24T09:35:00+11:00").date)
         self.assertEqual(inst.created.as_json(), "2005-12-24T09:35:00+11:00")
         self.assertEqual(inst.description, "Physical")
-        self.assertEqual(inst.docStatus.coding[0].code, "preliminary")
-        self.assertEqual(inst.docStatus.coding[0].display, "preliminary")
-        self.assertEqual(inst.docStatus.coding[0].system, "http://hl7.org/fhir/composition-status")
+        self.assertEqual(inst.docStatus, "preliminary")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value, "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234")

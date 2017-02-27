@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -35,21 +35,35 @@ class DataElementTests(unittest.TestCase):
         self.assertEqual(inst.contained[0].id, "2179414")
         self.assertEqual(inst.contained[1].id, "2179414-permitted")
         self.assertEqual(inst.contained[2].id, "2179414-cm")
+        self.assertEqual(inst.date.date, FHIRDate("2016-01-01").date)
+        self.assertEqual(inst.date.as_json(), "2016-01-01")
         self.assertEqual(inst.element[0].binding.strength, "required")
+        self.assertEqual(inst.element[0].code[0].code, "46098-0")
+        self.assertEqual(inst.element[0].code[0].display, "Sex")
+        self.assertEqual(inst.element[0].code[0].system, "http://loinc.org")
         self.assertEqual(inst.element[0].definition, "The code representing the gender of a person.")
         self.assertEqual(inst.element[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/minLength")
         self.assertEqual(inst.element[0].extension[0].valueInteger, 1)
         self.assertEqual(inst.element[0].extension[1].url, "http://hl7.org/fhir/StructureDefinition/elementdefinition-question")
         self.assertEqual(inst.element[0].extension[1].valueString, "Gender")
+        self.assertEqual(inst.element[0].mapping[0].identity, "fhir")
+        self.assertEqual(inst.element[0].mapping[0].language, "application/xquery")
+        self.assertEqual(inst.element[0].mapping[0].map, "return f:/Patient/f:gender")
         self.assertEqual(inst.element[0].maxLength, 13)
         self.assertEqual(inst.element[0].path, "Gender")
         self.assertEqual(inst.element[0].type[0].code, "CodeableConcept")
         self.assertEqual(inst.id, "gender")
         self.assertEqual(inst.identifier[0].value, "2179650")
+        self.assertEqual(inst.jurisdiction[0].coding[0].code, "US")
+        self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
+        self.assertEqual(inst.mapping[0].identity, "fhir")
+        self.assertEqual(inst.mapping[0].name, "Fast Healthcare Interoperable Resources (FHIR)")
+        self.assertEqual(inst.mapping[0].uri, "http://hl7.org/fhir")
         self.assertEqual(inst.name, "Gender Code")
         self.assertEqual(inst.publisher, "DCP")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.title, "Administrative gender")
         self.assertEqual(inst.version, "1.0")
     
     def testDataElement2(self):
@@ -64,7 +78,7 @@ class DataElementTests(unittest.TestCase):
     
     def implDataElement2(self, inst):
         self.assertEqual(inst.element[0].alias[0], "Protime, PT")
-        self.assertEqual(inst.element[0].comments, "Used to screen the integrity of the extrinsic and common pathways of coagulation and to monitor warfarin anticoagulation. ")
+        self.assertEqual(inst.element[0].comment, "Used to screen the integrity of the extrinsic and common pathways of coagulation and to monitor warfarin anticoagulation. ")
         self.assertEqual(inst.element[0].definition, "The PT test evaluates the extrinsic and common pathways of the coagulation cascade.")
         self.assertEqual(inst.element[0].example[0].label, "Simple")
         self.assertEqual(inst.element[0].example[0].valueDecimal, 10.0)

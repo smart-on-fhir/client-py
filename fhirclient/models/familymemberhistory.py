@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -112,7 +112,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ Patient history is about.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
-        self.reasonCodeableConcept = None
+        self.reasonCode = None
         """ Why was family member history performed?.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
@@ -155,7 +155,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
             ("notDoneReason", "notDoneReason", codeableconcept.CodeableConcept, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, True),
             ("status", "status", str, False, None, True),

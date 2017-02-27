@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -68,6 +68,10 @@ class ClaimResponse(domainresource.DomainResource):
         """ complete | error | partial.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.patient = None
+        """ The subject of the Products and Services.
+        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        
         self.payeeType = None
         """ Party to be paid any benefits payable.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -128,6 +132,7 @@ class ClaimResponse(domainresource.DomainResource):
             ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
             ("item", "item", ClaimResponseItem, True, None, False),
             ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("payeeType", "payeeType", codeableconcept.CodeableConcept, False, None, False),
             ("payment", "payment", ClaimResponsePayment, False, None, False),
             ("processNote", "processNote", ClaimResponseProcessNote, True, None, False),

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/RequestGroup) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/RequestGroup) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -57,7 +57,7 @@ class RequestGroup(domainresource.DomainResource):
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.subject = None
-        """ Subject of the request group.
+        """ Who the request group is about.
         Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         super(RequestGroup, self).__init__(jsondict=jsondict, strict=strict)
@@ -100,10 +100,6 @@ class RequestGroupAction(backboneelement.BackboneElement):
         """ Sub action.
         List of `RequestGroupAction` items (represented as `dict` in JSON). """
         
-        self.actionIdentifier = None
-        """ Unique identifier.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
         self.cardinalityBehavior = None
         """ single | multiple.
         Type `str`. """
@@ -133,7 +129,7 @@ class RequestGroupAction(backboneelement.BackboneElement):
         Type `str`. """
         
         self.participant = None
-        """ Participant.
+        """ Who should perform the action.
         List of `FHIRReference` items referencing `Patient, Person, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.precheckBehavior = None
@@ -195,7 +191,6 @@ class RequestGroupAction(backboneelement.BackboneElement):
         js = super(RequestGroupAction, self).elementProperties()
         js.extend([
             ("action", "action", RequestGroupAction, True, None, False),
-            ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, False),
             ("cardinalityBehavior", "cardinalityBehavior", str, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, True, None, False),
             ("condition", "condition", RequestGroupActionCondition, True, None, False),
@@ -284,9 +279,9 @@ class RequestGroupActionRelatedAction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actionIdentifier = None
-        """ Identifier of the related action.
-        Type `Identifier` (represented as `dict` in JSON). """
+        self.actionId = None
+        """ What action this is related to.
+        Type `str`. """
         
         self.offsetDuration = None
         """ Time offset for the relationship.
@@ -306,7 +301,7 @@ class RequestGroupActionRelatedAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RequestGroupActionRelatedAction, self).elementProperties()
         js.extend([
-            ("actionIdentifier", "actionIdentifier", identifier.Identifier, False, None, True),
+            ("actionId", "actionId", str, False, None, True),
             ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False),
             ("offsetRange", "offsetRange", range.Range, False, "offset", False),
             ("relationship", "relationship", str, False, None, True),

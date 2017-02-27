@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ServiceDefinition) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ServiceDefinition) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -26,7 +26,7 @@ class ServiceDefinition(domainresource.DomainResource):
         """
         
         self.approvalDate = None
-        """ When service definition approved by publisher.
+        """ When the service definition was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.contact = None
@@ -42,7 +42,7 @@ class ServiceDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.dataRequirement = None
-        """ Data requirements for the module.
+        """ What data is used by the module.
         List of `DataRequirement` items (represented as `dict` in JSON). """
         
         self.date = None
@@ -54,7 +54,7 @@ class ServiceDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.effectivePeriod = None
-        """ The effective date range for the service definition.
+        """ When the service definition is effective.
         Type `Period` (represented as `dict` in JSON). """
         
         self.experimental = None
@@ -70,7 +70,7 @@ class ServiceDefinition(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.lastReviewDate = None
-        """ Last review date for the service definition.
+        """ When the service definition was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.name = None
@@ -90,7 +90,7 @@ class ServiceDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.relatedArtifact = None
-        """ Related resources for the module.
+        """ Additional documentation, citations, etc.
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.status = None
@@ -102,7 +102,7 @@ class ServiceDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.topic = None
-        """ Descriptional topics for the module.
+        """ E.g. Education, Treatment, Assessment, etc.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.trigger = None

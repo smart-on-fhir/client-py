@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -65,6 +65,5 @@ class DeviceRequestTests(unittest.TestCase):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.intent.coding[0].code, "original-order")
         self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">To be filled out at a later time</div>")
         self.assertEqual(inst.text.status, "generated")
 

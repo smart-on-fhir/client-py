@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Linkage) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Linkage) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -24,6 +24,10 @@ class Linkage(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.active = None
+        """ Whether this linkage assertion is active or not.
+        Type `bool`. """
+        
         self.author = None
         """ Who is responsible for linkages.
         Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
@@ -37,6 +41,7 @@ class Linkage(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Linkage, self).elementProperties()
         js.extend([
+            ("active", "active", bool, False, None, False),
             ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("item", "item", LinkageItem, True, None, True),
         ])

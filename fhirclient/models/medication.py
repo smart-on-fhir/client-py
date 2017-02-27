@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Medication) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Medication) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -23,10 +23,6 @@ class Medication(domainresource.DomainResource):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
-        self.batch = None
-        """ Identifies a single production run.
-        List of `MedicationBatch` items (represented as `dict` in JSON). """
         
         self.code = None
         """ Codes that identify this medication.
@@ -69,7 +65,6 @@ class Medication(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Medication, self).elementProperties()
         js.extend([
-            ("batch", "batch", MedicationBatch, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("form", "form", codeableconcept.CodeableConcept, False, None, False),
             ("image", "image", attachment.Attachment, True, None, False),
@@ -84,42 +79,6 @@ class Medication(domainresource.DomainResource):
 
 
 from . import backboneelement
-
-class MedicationBatch(backboneelement.BackboneElement):
-    """ Identifies a single production run.
-    
-    Information about a group of medication produced or packaged from one
-    production run.
-    """
-    
-    resource_type = "MedicationBatch"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.expirationDate = None
-        """ When batch will expire.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.lotNumber = None
-        """ Identifier assigned to batch.
-        Type `str`. """
-        
-        super(MedicationBatch, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(MedicationBatch, self).elementProperties()
-        js.extend([
-            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False, None, False),
-            ("lotNumber", "lotNumber", str, False, None, False),
-        ])
-        return js
-
 
 class MedicationIngredient(backboneelement.BackboneElement):
     """ Active or inactive ingredient.
@@ -182,6 +141,10 @@ class MedicationPackage(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.batch = None
+        """ Identifies a single production run.
+        List of `MedicationPackageBatch` items (represented as `dict` in JSON). """
+        
         self.container = None
         """ E.g. box, vial, blister-pack.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -195,8 +158,45 @@ class MedicationPackage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationPackage, self).elementProperties()
         js.extend([
+            ("batch", "batch", MedicationPackageBatch, True, None, False),
             ("container", "container", codeableconcept.CodeableConcept, False, None, False),
             ("content", "content", MedicationPackageContent, True, None, False),
+        ])
+        return js
+
+
+class MedicationPackageBatch(backboneelement.BackboneElement):
+    """ Identifies a single production run.
+    
+    Information about a group of medication produced or packaged from one
+    production run.
+    """
+    
+    resource_type = "MedicationPackageBatch"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.expirationDate = None
+        """ When batch will expire.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.lotNumber = None
+        """ Identifier assigned to batch.
+        Type `str`. """
+        
+        super(MedicationPackageBatch, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(MedicationPackageBatch, self).elementProperties()
+        js.extend([
+            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False, None, False),
+            ("lotNumber", "lotNumber", str, False, None, False),
         ])
         return js
 

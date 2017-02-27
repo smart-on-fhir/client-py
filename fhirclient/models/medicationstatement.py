@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -67,15 +67,15 @@ class MedicationStatement(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.dosage = None
-        """ Details of how medication was taken.
-        List of `DosageInstruction` items (represented as `dict` in JSON). """
+        """ Details of how medication is/was taken or should be taken.
+        List of `Dosage` items (represented as `dict` in JSON). """
         
         self.effectiveDateTime = None
-        """ Over what period was medication consumed?.
+        """ The date/time or interval when the medication was taken.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
-        """ Over what period was medication consumed?.
+        """ The date/time or interval when the medication was taken.
         Type `Period` (represented as `dict` in JSON). """
         
         self.identifier = None
@@ -103,18 +103,18 @@ class MedicationStatement(domainresource.DomainResource):
         """ Part of referenced event.
         List of `FHIRReference` items referencing `MedicationAdministration, MedicationDispense, MedicationStatement, Procedure, Observation` (represented as `dict` in JSON). """
         
-        self.reasonForUseCodeableConcept = None
+        self.reasonCode = None
         """ Reason for why the medication is being/was taken.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.reasonForUseReference = None
-        """ Condition or observation that supports why the medication is
-        being/was taken.
-        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
         
         self.reasonNotTaken = None
         """ True if asserting medication was not given.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.reasonReference = None
+        """ Condition or observation that supports why the medication is
+        being/was taken.
+        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
         
         self.status = None
         """ active | completed | entered-in-error | intended | stopped | on-
@@ -139,7 +139,7 @@ class MedicationStatement(domainresource.DomainResource):
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("dateAsserted", "dateAsserted", fhirdate.FHIRDate, False, None, False),
             ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False),
-            ("dosage", "dosage", dosageinstruction.DosageInstruction, True, None, False),
+            ("dosage", "dosage", dosage.Dosage, True, None, False),
             ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -148,9 +148,9 @@ class MedicationStatement(domainresource.DomainResource):
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("reasonForUseCodeableConcept", "reasonForUseCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonForUseReference", "reasonForUseReference", fhirreference.FHIRReference, True, None, False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonNotTaken", "reasonNotTaken", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("taken", "taken", str, False, None, True),
@@ -160,7 +160,7 @@ class MedicationStatement(domainresource.DomainResource):
 
 from . import annotation
 from . import codeableconcept
-from . import dosageinstruction
+from . import dosage
 from . import fhirdate
 from . import fhirreference
 from . import identifier

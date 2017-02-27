@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Composition) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Composition) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -66,6 +66,10 @@ class Composition(domainresource.DomainResource):
         """ Logical identifier of composition (version-independent).
         Type `Identifier` (represented as `dict` in JSON). """
         
+        self.relatesTo = None
+        """ Relationships to other compositions/documents.
+        List of `CompositionRelatesTo` items (represented as `dict` in JSON). """
+        
         self.section = None
         """ Composition is broken into sections.
         List of `CompositionSection` items (represented as `dict` in JSON). """
@@ -100,6 +104,7 @@ class Composition(domainresource.DomainResource):
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("event", "event", CompositionEvent, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("relatesTo", "relatesTo", CompositionRelatesTo, True, None, False),
             ("section", "section", CompositionSection, True, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
@@ -188,6 +193,47 @@ class CompositionEvent(backboneelement.BackboneElement):
             ("code", "code", codeableconcept.CodeableConcept, True, None, False),
             ("detail", "detail", fhirreference.FHIRReference, True, None, False),
             ("period", "period", period.Period, False, None, False),
+        ])
+        return js
+
+
+class CompositionRelatesTo(backboneelement.BackboneElement):
+    """ Relationships to other compositions/documents.
+    
+    Relationships that this composition has with other compositions or
+    documents that already exist.
+    """
+    
+    resource_type = "CompositionRelatesTo"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.code = None
+        """ replaces | transforms | signs | appends.
+        Type `str`. """
+        
+        self.targetIdentifier = None
+        """ Target of the relationship.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.targetReference = None
+        """ Target of the relationship.
+        Type `FHIRReference` referencing `Composition` (represented as `dict` in JSON). """
+        
+        super(CompositionRelatesTo, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(CompositionRelatesTo, self).elementProperties()
+        js.extend([
+            ("code", "code", str, False, None, True),
+            ("targetIdentifier", "targetIdentifier", identifier.Identifier, False, "target", True),
+            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", True),
         ])
         return js
 

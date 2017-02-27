@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Observation) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Observation) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -67,10 +67,6 @@ class Observation(domainresource.DomainResource):
         self.effectivePeriod = None
         """ Clinically relevant time/time-period for observation.
         Type `Period` (represented as `dict` in JSON). """
-        
-        self.effectiveTiming = None
-        """ Clinically relevant time/time-period for observation.
-        Type `Timing` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Business Identifier for observation.
@@ -172,7 +168,6 @@ class Observation(domainresource.DomainResource):
             ("device", "device", fhirreference.FHIRReference, False, None, False),
             ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
-            ("effectiveTiming", "effectiveTiming", timing.Timing, False, "effective", False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("interpretation", "interpretation", codeableconcept.CodeableConcept, False, None, False),
             ("issued", "issued", fhirdate.FHIRDate, False, None, False),
@@ -402,4 +397,3 @@ from . import quantity
 from . import range
 from . import ratio
 from . import sampleddata
-from . import timing

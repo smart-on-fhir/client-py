@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -80,9 +80,9 @@ class RiskAssessmentTests(unittest.TestCase):
         self.assertEqual(inst.prediction[0].outcome.coding[0].code, "249943000:363698007=72098002,260868000=6934004")
         self.assertEqual(inst.prediction[0].outcome.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.prediction[0].outcome.text, "permanent weakness of the left arm")
-        self.assertEqual(inst.prediction[0].probabilityCodeableConcept.coding[0].code, "moderate")
-        self.assertEqual(inst.prediction[0].probabilityCodeableConcept.coding[0].display, "moderate likelihood")
-        self.assertEqual(inst.prediction[0].probabilityCodeableConcept.coding[0].system, "http://hl7.org/fhir/risk-probability")
+        self.assertEqual(inst.prediction[0].qualitativeRisk.coding[0].code, "moderate")
+        self.assertEqual(inst.prediction[0].qualitativeRisk.coding[0].display, "moderate likelihood")
+        self.assertEqual(inst.prediction[0].qualitativeRisk.coding[0].system, "http://hl7.org/fhir/risk-probability")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "additional")
     

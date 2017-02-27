@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -50,6 +50,7 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.implementation.description, "main EHR at ACME")
         self.assertEqual(inst.implementation.url, "http://10.2.3.4/fhir")
         self.assertEqual(inst.implementationGuide[0], "http://hl7.org/fhir/uslab")
+        self.assertEqual(inst.instantiates[0], "http://ihe.org/fhir/CapabilityStatement/pixm-client")
         self.assertEqual(inst.jurisdiction[0].coding[0].code, "US")
         self.assertEqual(inst.jurisdiction[0].coding[0].display, "United States of America (the)")
         self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
@@ -113,7 +114,7 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "ACME EHR capability statement")
-        self.assertEqual(inst.url, "68D043B5-9ECF-4559-A57A-396E0D452311")
+        self.assertEqual(inst.url, "urn:uuid:68D043B5-9ECF-4559-A57A-396E0D452311")
         self.assertEqual(inst.useContext[0].code.code, "focus")
         self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
         self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "positive")

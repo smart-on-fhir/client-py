@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -32,8 +32,8 @@ class ProvenanceTests(unittest.TestCase):
         self.implProvenance1(inst2)
     
     def implProvenance1(self, inst):
-        self.assertEqual(inst.agent[0].role.code, "author")
-        self.assertEqual(inst.agent[0].role.system, "http://hl7.org/fhir/provenance-participant-role")
+        self.assertEqual(inst.agent[0].role[0].coding[0].code, "AUT")
+        self.assertEqual(inst.agent[0].role[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.entity[0].role, "source")
         self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].code, "biocompute")
         self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].display, "obj.1001")
@@ -58,8 +58,8 @@ class ProvenanceTests(unittest.TestCase):
         self.implProvenance2(inst2)
     
     def implProvenance2(self, inst):
-        self.assertEqual(inst.agent[0].role.code, "author")
-        self.assertEqual(inst.agent[0].role.system, "http://hl7.org/fhir/provenance-participant-role")
+        self.assertEqual(inst.agent[0].role[0].coding[0].code, "AUT")
+        self.assertEqual(inst.agent[0].role[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.entity[0].role, "source")
         self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].code, "CWL")
         self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].display, "lobSTR")
@@ -87,8 +87,8 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.activity.code, "AU")
         self.assertEqual(inst.activity.display, "authenticated")
         self.assertEqual(inst.activity.system, "http://hl7.org/fhir/v3/DocumentCompletion")
-        self.assertEqual(inst.agent[0].role.code, "verifier")
-        self.assertEqual(inst.agent[0].role.system, "http://hl7.org/fhir/provenance-participant-role")
+        self.assertEqual(inst.agent[0].role[0].coding[0].code, "VERF")
+        self.assertEqual(inst.agent[0].role[0].coding[0].system, "http://www.hl7.org/fhir/contractsignertypecodes")
         self.assertEqual(inst.agent[0].whoUri, "mailto://hhd@ssa.gov")
         self.assertEqual(inst.id, "signature")
         self.assertEqual(inst.reason[0].code, "TREAT")
@@ -119,11 +119,11 @@ class ProvenanceTests(unittest.TestCase):
     def implProvenance4(self, inst):
         self.assertEqual(inst.agent[0].onBehalfOfUri, "#a1")
         self.assertEqual(inst.agent[0].relatedAgentType.text, "used")
-        self.assertEqual(inst.agent[0].role.code, "author")
-        self.assertEqual(inst.agent[0].role.system, "http://hl7.org/fhir/provenance-participant-role")
+        self.assertEqual(inst.agent[0].role[0].coding[0].code, "AUT")
+        self.assertEqual(inst.agent[0].role[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.agent[1].id, "a1")
-        self.assertEqual(inst.agent[1].role.code, "DEV")
-        self.assertEqual(inst.agent[1].role.system, "http://hl7.org/fhir/v3/ParticipationType")
+        self.assertEqual(inst.agent[1].role[0].coding[0].code, "DEV")
+        self.assertEqual(inst.agent[1].role[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
         self.assertEqual(inst.entity[0].role, "source")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.period.end.date, FHIRDate("2015-06-28").date)

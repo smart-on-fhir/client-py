@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -40,17 +40,25 @@ class DeviceUseStatement(domainresource.DomainResource):
         """ Why device was used.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.notes = None
+        self.note = None
         """ Addition details (comments, instructions).
-        List of `str` items. """
+        List of `Annotation` items (represented as `dict` in JSON). """
         
         self.recordedOn = None
         """ When statement was recorded.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.source = None
+        """ Who made the statement.
+        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ active | completed | entered-in-error +.
+        Type `str`. """
+        
         self.subject = None
         """ Patient using device.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         self.timingDateTime = None
         """ How often  the device was used.
@@ -77,8 +85,10 @@ class DeviceUseStatement(domainresource.DomainResource):
             ("device", "device", fhirreference.FHIRReference, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("indication", "indication", codeableconcept.CodeableConcept, True, None, False),
-            ("notes", "notes", str, True, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("recordedOn", "recordedOn", fhirdate.FHIRDate, False, None, False),
+            ("source", "source", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
@@ -88,6 +98,7 @@ class DeviceUseStatement(domainresource.DomainResource):
         return js
 
 
+from . import annotation
 from . import codeableconcept
 from . import fhirdate
 from . import fhirreference

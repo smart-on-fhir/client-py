@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/MeasureReport) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/MeasureReport) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -28,7 +28,7 @@ class MeasureReport(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.evaluatedResources = None
-        """ Evaluated Resources.
+        """ What data was evaluated to produce the measure score.
         Type `FHIRReference` referencing `Bundle` (represented as `dict` in JSON). """
         
         self.group = None
@@ -112,10 +112,6 @@ class MeasureReportGroup(backboneelement.BackboneElement):
         """ Stratification results.
         List of `MeasureReportGroupStratifier` items (represented as `dict` in JSON). """
         
-        self.supplementalData = None
-        """ Supplemental data elements for the measure.
-        List of `MeasureReportGroupSupplementalData` items (represented as `dict` in JSON). """
-        
         super(MeasureReportGroup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -125,7 +121,6 @@ class MeasureReportGroup(backboneelement.BackboneElement):
             ("measureScore", "measureScore", float, False, None, False),
             ("population", "population", MeasureReportGroupPopulation, True, None, False),
             ("stratifier", "stratifier", MeasureReportGroupStratifier, True, None, False),
-            ("supplementalData", "supplementalData", MeasureReportGroupSupplementalData, True, None, False),
         ])
         return js
 
@@ -147,28 +142,33 @@ class MeasureReportGroupPopulation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.code = None
+        """ initial-population | numerator | numerator-exclusion | denominator
+        | denominator-exclusion | denominator-exception | measure-
+        population | measure-population-exclusion | measure-score.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.count = None
         """ Size of the population.
         Type `int`. """
         
+        self.identifier = None
+        """ Identifier of the population being reported.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
         self.patients = None
         """ For patient-list reports, the patients in this population.
         Type `FHIRReference` referencing `List` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ initial-population | numerator | numerator-exclusion | denominator
-        | denominator-exclusion | denominator-exception | measure-
-        population | measure-population-exclusion | measure-score.
-        Type `str`. """
         
         super(MeasureReportGroupPopulation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MeasureReportGroupPopulation, self).elementProperties()
         js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("count", "count", int, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("patients", "patients", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", str, False, None, True),
         ])
         return js
 
@@ -190,26 +190,26 @@ class MeasureReportGroupStratifier(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.group = None
-        """ Stratum results, one for each unique value in the stratifier.
-        List of `MeasureReportGroupStratifierGroup` items (represented as `dict` in JSON). """
-        
         self.identifier = None
         """ Identifier of the stratifier.
         Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.stratum = None
+        """ Stratum results, one for each unique value in the stratifier.
+        List of `MeasureReportGroupStratifierStratum` items (represented as `dict` in JSON). """
         
         super(MeasureReportGroupStratifier, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MeasureReportGroupStratifier, self).elementProperties()
         js.extend([
-            ("group", "group", MeasureReportGroupStratifierGroup, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("stratum", "stratum", MeasureReportGroupStratifierStratum, True, None, False),
         ])
         return js
 
 
-class MeasureReportGroupStratifierGroup(backboneelement.BackboneElement):
+class MeasureReportGroupStratifierStratum(backboneelement.BackboneElement):
     """ Stratum results, one for each unique value in the stratifier.
     
     This element contains the results for a single stratum within the
@@ -217,7 +217,7 @@ class MeasureReportGroupStratifierGroup(backboneelement.BackboneElement):
     will be four strata, one for each possible gender value.
     """
     
-    resource_type = "MeasureReportGroupStratifierGroup"
+    resource_type = "MeasureReportGroupStratifierStratum"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -228,37 +228,37 @@ class MeasureReportGroupStratifierGroup(backboneelement.BackboneElement):
         """
         
         self.measureScore = None
-        """ The measure score.
+        """ Score for this stratum.
         Type `float`. """
         
         self.population = None
         """ Population results in this stratum.
-        List of `MeasureReportGroupStratifierGroupPopulation` items (represented as `dict` in JSON). """
+        List of `MeasureReportGroupStratifierStratumPopulation` items (represented as `dict` in JSON). """
         
         self.value = None
         """ The stratum value, e.g. male.
         Type `str`. """
         
-        super(MeasureReportGroupStratifierGroup, self).__init__(jsondict=jsondict, strict=strict)
+        super(MeasureReportGroupStratifierStratum, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(MeasureReportGroupStratifierGroup, self).elementProperties()
+        js = super(MeasureReportGroupStratifierStratum, self).elementProperties()
         js.extend([
             ("measureScore", "measureScore", float, False, None, False),
-            ("population", "population", MeasureReportGroupStratifierGroupPopulation, True, None, False),
+            ("population", "population", MeasureReportGroupStratifierStratumPopulation, True, None, False),
             ("value", "value", str, False, None, True),
         ])
         return js
 
 
-class MeasureReportGroupStratifierGroupPopulation(backboneelement.BackboneElement):
+class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElement):
     """ Population results in this stratum.
     
     The populations that make up the stratum, one for each type of population
     appropriate to the measure.
     """
     
-    resource_type = "MeasureReportGroupStratifierGroupPopulation"
+    resource_type = "MeasureReportGroupStratifierStratumPopulation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -267,113 +267,39 @@ class MeasureReportGroupStratifierGroupPopulation(backboneelement.BackboneElemen
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.code = None
+        """ initial-population | numerator | numerator-exclusion | denominator
+        | denominator-exclusion | denominator-exception | measure-
+        population | measure-population-exclusion | measure-score.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.count = None
         """ Size of the population.
         Type `int`. """
         
-        self.patients = None
-        """ For patient-list reports, the patients in this population.
-        Type `FHIRReference` referencing `List` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ initial-population | numerator | numerator-exclusion | denominator
-        | denominator-exclusion | denominator-exception | measure-
-        population | measure-population-exclusion | measure-score.
-        Type `str`. """
-        
-        super(MeasureReportGroupStratifierGroupPopulation, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(MeasureReportGroupStratifierGroupPopulation, self).elementProperties()
-        js.extend([
-            ("count", "count", int, False, None, False),
-            ("patients", "patients", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", str, False, None, True),
-        ])
-        return js
-
-
-class MeasureReportGroupSupplementalData(backboneelement.BackboneElement):
-    """ Supplemental data elements for the measure.
-    
-    Supplemental data elements for the measure provide additional information
-    requested by the measure for each patient involved in the populations.
-    """
-    
-    resource_type = "MeasureReportGroupSupplementalData"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.group = None
-        """ Supplemental data results, one for each unique supplemental data
-        value.
-        List of `MeasureReportGroupSupplementalDataGroup` items (represented as `dict` in JSON). """
-        
         self.identifier = None
-        """ Identifier of the supplemental data element.
+        """ Identifier of the population.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        super(MeasureReportGroupSupplementalData, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(MeasureReportGroupSupplementalData, self).elementProperties()
-        js.extend([
-            ("group", "group", MeasureReportGroupSupplementalDataGroup, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, True),
-        ])
-        return js
-
-
-class MeasureReportGroupSupplementalDataGroup(backboneelement.BackboneElement):
-    """ Supplemental data results, one for each unique supplemental data value.
-    
-    This element contains the results for a single value within the
-    supplemental data. For example, when reporting supplemental data for
-    administrative gender, there will be four groups, one for each possible
-    gender value.
-    """
-    
-    resource_type = "MeasureReportGroupSupplementalDataGroup"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.count = None
-        """ Number of members in the group.
-        Type `int`. """
-        
         self.patients = None
         """ For patient-list reports, the patients in this population.
         Type `FHIRReference` referencing `List` (represented as `dict` in JSON). """
         
-        self.value = None
-        """ The data value, e.g. male.
-        Type `str`. """
-        
-        super(MeasureReportGroupSupplementalDataGroup, self).__init__(jsondict=jsondict, strict=strict)
+        super(MeasureReportGroupStratifierStratumPopulation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(MeasureReportGroupSupplementalDataGroup, self).elementProperties()
+        js = super(MeasureReportGroupStratifierStratumPopulation, self).elementProperties()
         js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("count", "count", int, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("patients", "patients", fhirreference.FHIRReference, False, None, False),
-            ("value", "value", str, False, None, True),
         ])
         return js
 
 
+from . import codeableconcept
 from . import fhirdate
 from . import fhirreference
 from . import identifier

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -50,7 +50,7 @@ class Procedure(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
         
         self.context = None
-        """ The encounter associated with the procedure.
+        """ Encounter or episode associated with the procedure.
         Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
         self.definition = None
@@ -101,15 +101,11 @@ class Procedure(domainresource.DomainResource):
         """ Date/Period the procedure was performed.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.performedTiming = None
-        """ Date/Period the procedure was performed.
-        Type `Timing` (represented as `dict` in JSON). """
-        
         self.performer = None
         """ The people who performed the procedure.
         List of `ProcedurePerformer` items (represented as `dict` in JSON). """
         
-        self.reasonCodeableConcept = None
+        self.reasonCode = None
         """ Coded reason procedure performed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
@@ -162,9 +158,8 @@ class Procedure(domainresource.DomainResource):
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("performedDateTime", "performedDateTime", fhirdate.FHIRDate, False, "performed", False),
             ("performedPeriod", "performedPeriod", period.Period, False, "performed", False),
-            ("performedTiming", "performedTiming", timing.Timing, False, "performed", False),
             ("performer", "performer", ProcedurePerformer, True, None, False),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("report", "report", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, True),
@@ -260,4 +255,3 @@ from . import fhirdate
 from . import fhirreference
 from . import identifier
 from . import period
-from . import timing

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -196,6 +196,9 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Malignant neoplastic disease")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.id, "f202")
+        self.assertEqual(inst.meta.security[0].code, "TBOO")
+        self.assertEqual(inst.meta.security[0].display, "taboo")
+        self.assertEqual(inst.meta.security[0].system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.onsetAge.code, "a")
         self.assertEqual(inst.onsetAge.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.onsetAge.unit, "years")
@@ -302,7 +305,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.verificationStatus, "differential")
     
     def testCondition9(self):
-        inst = self.instantiate_from("condition-example-stroke.json")
+        inst = self.instantiate_from("condition-example-family-history.json")
         self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
         self.implCondition9(inst)
         
@@ -312,6 +315,28 @@ class ConditionTests(unittest.TestCase):
         self.implCondition9(inst2)
     
     def implCondition9(self, inst):
+        self.assertEqual(inst.category[0].coding[0].code, "problem-list-item")
+        self.assertEqual(inst.category[0].coding[0].display, "Problem List Item")
+        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/condition-category")
+        self.assertEqual(inst.clinicalStatus, "active")
+        self.assertEqual(inst.code.coding[0].code, "312824007")
+        self.assertEqual(inst.code.coding[0].display, "Family history of cancer of colon")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.id, "family-history")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Family history of cancer of colon</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testCondition10(self):
+        inst = self.instantiate_from("condition-example-stroke.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
+        self.implCondition10(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Condition", js["resourceType"])
+        inst2 = condition.Condition(js)
+        self.implCondition10(inst2)
+    
+    def implCondition10(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "encounter-diagnosis")
         self.assertEqual(inst.category[0].coding[0].display, "Encounter Diagnosis")
         self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/condition-category")
@@ -324,42 +349,6 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.onsetDateTime.date, FHIRDate("2010-07-18").date)
         self.assertEqual(inst.onsetDateTime.as_json(), "2010-07-18")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Ischemic stroke, July 18, 2010</div>")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.verificationStatus, "confirmed")
-    
-    def testCondition10(self):
-        inst = self.instantiate_from("condition-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Condition instance")
-        self.implCondition10(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Condition", js["resourceType"])
-        inst2 = condition.Condition(js)
-        self.implCondition10(inst2)
-    
-    def implCondition10(self, inst):
-        self.assertEqual(inst.bodySite[0].coding[0].code, "49521004")
-        self.assertEqual(inst.bodySite[0].coding[0].display, "Left external ear structure")
-        self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.bodySite[0].text, "Left Ear")
-        self.assertEqual(inst.category[0].coding[0].code, "encounter-diagnosis")
-        self.assertEqual(inst.category[0].coding[0].display, "Encounter Diagnosis")
-        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/condition-category")
-        self.assertEqual(inst.category[0].coding[1].code, "439401001")
-        self.assertEqual(inst.category[0].coding[1].display, "Diagnosis")
-        self.assertEqual(inst.category[0].coding[1].system, "http://snomed.info/sct")
-        self.assertEqual(inst.clinicalStatus, "active")
-        self.assertEqual(inst.code.coding[0].code, "39065001")
-        self.assertEqual(inst.code.coding[0].display, "Burn of ear")
-        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.code.text, "Burnt Ear")
-        self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.onsetDateTime.date, FHIRDate("2012-05-24").date)
-        self.assertEqual(inst.onsetDateTime.as_json(), "2012-05-24")
-        self.assertEqual(inst.severity.coding[0].code, "24484000")
-        self.assertEqual(inst.severity.coding[0].display, "Severe")
-        self.assertEqual(inst.severity.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Severe burn of left ear (Date: 24-May 2012)</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.verificationStatus, "confirmed")
 

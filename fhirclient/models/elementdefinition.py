@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -37,10 +37,10 @@ class ElementDefinition(element.Element):
         Type `ElementDefinitionBinding` (represented as `dict` in JSON). """
         
         self.code = None
-        """ Defining code.
+        """ Corresponding codes in terminologies.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.comments = None
+        self.comment = None
         """ Comments about the use of this element.
         Type `str`. """
         
@@ -476,6 +476,10 @@ class ElementDefinition(element.Element):
         """ If the element must supported.
         Type `bool`. """
         
+        self.orderMeaning = None
+        """ What the order of the elements means.
+        Type `str`. """
+        
         self.path = None
         """ Path of the element in the heirarchy of elements.
         Type `str`. """
@@ -665,7 +669,7 @@ class ElementDefinition(element.Element):
             ("base", "base", ElementDefinitionBase, False, None, False),
             ("binding", "binding", ElementDefinitionBinding, False, None, False),
             ("code", "code", coding.Coding, True, None, False),
-            ("comments", "comments", str, False, None, False),
+            ("comment", "comment", str, False, None, False),
             ("condition", "condition", str, True, None, False),
             ("constraint", "constraint", ElementDefinitionConstraint, True, None, False),
             ("contentReference", "contentReference", str, False, None, False),
@@ -774,6 +778,7 @@ class ElementDefinition(element.Element):
             ("minValueTime", "minValueTime", fhirdate.FHIRDate, False, "minValue", False),
             ("minValueUnsignedInt", "minValueUnsignedInt", int, False, "minValue", False),
             ("mustSupport", "mustSupport", bool, False, None, False),
+            ("orderMeaning", "orderMeaning", str, False, None, False),
             ("path", "path", str, False, None, True),
             ("patternAddress", "patternAddress", address.Address, False, "pattern", False),
             ("patternAge", "patternAge", age.Age, False, "pattern", False),
@@ -872,7 +877,7 @@ class ElementDefinitionBinding(element.Element):
     """ ValueSet details if this is coded.
     
     Binds to a value set if this element is coded (code, Coding,
-    CodeableConcept).
+    CodeableConcept, Quantity), or the data types (string, uri).
     """
     
     resource_type = "ElementDefinitionBinding"
@@ -1265,7 +1270,7 @@ class ElementDefinitionSlicing(element.Element):
         
         self.discriminator = None
         """ Element values that are used to distinguish the slices.
-        List of `str` items. """
+        List of `ElementDefinitionSlicingDiscriminator` items (represented as `dict` in JSON). """
         
         self.ordered = None
         """ If elements must be in same order as slices.
@@ -1281,9 +1286,48 @@ class ElementDefinitionSlicing(element.Element):
         js = super(ElementDefinitionSlicing, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
-            ("discriminator", "discriminator", str, True, None, False),
+            ("discriminator", "discriminator", ElementDefinitionSlicingDiscriminator, True, None, False),
             ("ordered", "ordered", bool, False, None, False),
             ("rules", "rules", str, False, None, True),
+        ])
+        return js
+
+
+class ElementDefinitionSlicingDiscriminator(element.Element):
+    """ Element values that are used to distinguish the slices.
+    
+    Designates which child elements are used to discriminate between the slices
+    when processing an instance. If one or more discriminators are provided,
+    the value of the child elements in the instance data SHALL completely
+    distinguish which slice the element in the resource matches based on the
+    allowed values for those elements in each of the slices.
+    """
+    
+    resource_type = "ElementDefinitionSlicingDiscriminator"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.path = None
+        """ Path to element value.
+        Type `str`. """
+        
+        self.type = None
+        """ value | exists | pattern | type | profile.
+        Type `str`. """
+        
+        super(ElementDefinitionSlicingDiscriminator, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ElementDefinitionSlicingDiscriminator, self).elementProperties()
+        js.extend([
+            ("path", "path", str, False, None, True),
+            ("type", "type", str, False, None, True),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -32,6 +32,10 @@ class EpisodeOfCareTests(unittest.TestCase):
         self.implEpisodeOfCare1(inst2)
     
     def implEpisodeOfCare1(self, inst):
+        self.assertEqual(inst.diagnosis[0].rank, 1)
+        self.assertEqual(inst.diagnosis[0].role.coding[0].code, "CC")
+        self.assertEqual(inst.diagnosis[0].role.coding[0].display, "Cheif complaint")
+        self.assertEqual(inst.diagnosis[0].role.coding[0].system, "http://hl7.org/fhir/encounter-diagnosis-role")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://example.org/sampleepisodeofcare-identifier")
         self.assertEqual(inst.identifier[0].value, "123")
@@ -57,7 +61,7 @@ class EpisodeOfCareTests(unittest.TestCase):
         self.assertEqual(inst.statusHistory[3].period.start.as_json(), "2014-09-25")
         self.assertEqual(inst.statusHistory[3].status, "active")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type[0].coding[0].code, "HACC")
-        self.assertEqual(inst.type[0].coding[0].display, "Home and Community Care Package")
-        self.assertEqual(inst.type[0].coding[0].system, "http://example.org/EpisodeOfCare/Type")
+        self.assertEqual(inst.type[0].coding[0].code, "hacc")
+        self.assertEqual(inst.type[0].coding[0].display, "Home and Community Care")
+        self.assertEqual(inst.type[0].coding[0].system, "http://hl7.org/fhir/episodeofcare-type")
 

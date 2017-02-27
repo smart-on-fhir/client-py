@@ -1,19 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/DosageInstruction) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Dosage) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
 from . import element
 
-class DosageInstruction(element.Element):
-    """ How medication should be taken.
+class Dosage(element.Element):
+    """ How the medication is/was taken or should be taken.
     
-    Indicates how the medication is to be used by the patient.
+    Indicates how the medication is/was taken or should be taken by the
+    patient.
     """
     
-    resource_type = "DosageInstruction"
+    resource_type = "Dosage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -23,8 +24,8 @@ class DosageInstruction(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.additionalInstructions = None
-        """ Supplemental instructions - e.g. "with meals".
+        self.additionalInstruction = None
+        """ Supplemental instruction - e.g. "with meals".
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.asNeededBoolean = None
@@ -59,6 +60,10 @@ class DosageInstruction(element.Element):
         """ Technique for administering medication.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.patientInstruction = None
+        """ Patient or consumer oriented instructions.
+        Type `str`. """
+        
         self.rateQuantity = None
         """ Amount of medication per unit of time.
         Type `Quantity` (represented as `dict` in JSON). """
@@ -91,12 +96,12 @@ class DosageInstruction(element.Element):
         """ When medication should be administered.
         Type `Timing` (represented as `dict` in JSON). """
         
-        super(DosageInstruction, self).__init__(jsondict=jsondict, strict=strict)
+        super(Dosage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(DosageInstruction, self).elementProperties()
+        js = super(Dosage, self).elementProperties()
         js.extend([
-            ("additionalInstructions", "additionalInstructions", codeableconcept.CodeableConcept, True, None, False),
+            ("additionalInstruction", "additionalInstruction", codeableconcept.CodeableConcept, True, None, False),
             ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False),
             ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False),
             ("doseQuantity", "doseQuantity", quantity.Quantity, False, "dose", False),
@@ -105,6 +110,7 @@ class DosageInstruction(element.Element):
             ("maxDosePerLifetime", "maxDosePerLifetime", quantity.Quantity, False, None, False),
             ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
+            ("patientInstruction", "patientInstruction", str, False, None, False),
             ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False),
             ("rateRange", "rateRange", range.Range, False, "rate", False),
             ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),

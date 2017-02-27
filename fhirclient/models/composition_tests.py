@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -51,6 +51,10 @@ class CompositionTests(unittest.TestCase):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier.system, "http://healthintersections.com.au/test")
         self.assertEqual(inst.identifier.value, "1")
+        self.assertEqual(inst.relatesTo[0].code, "replaces")
+        self.assertEqual(inst.relatesTo[1].code, "appends")
+        self.assertEqual(inst.relatesTo[1].targetIdentifier.system, "http://example.org/fhir/NamingSystem/document-ids")
+        self.assertEqual(inst.relatesTo[1].targetIdentifier.value, "ABC123")
         self.assertEqual(inst.section[0].code.coding[0].code, "11348-0")
         self.assertEqual(inst.section[0].code.coding[0].display, "History of past illness Narrative")
         self.assertEqual(inst.section[0].code.coding[0].system, "http://loinc.org")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -78,7 +78,8 @@ class GuidanceResponse(domainresource.DomainResource):
         Type `FHIRReference` referencing `CarePlan, RequestGroup` (represented as `dict` in JSON). """
         
         self.status = None
-        """ success | data-requested | data-required | in-progress | failure.
+        """ success | data-requested | data-required | in-progress | failure |
+        entered-in-error.
         Type `str`. """
         
         self.subject = None

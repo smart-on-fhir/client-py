@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -281,6 +281,10 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
         """ Reliable Message Cache Length (min).
         Type `int`. """
         
+        self.supportedMessage = None
+        """ Messages supported by this system.
+        List of `CapabilityStatementMessagingSupportedMessage` items (represented as `dict` in JSON). """
+        
         super(CapabilityStatementMessaging, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -288,8 +292,9 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
         js.extend([
             ("documentation", "documentation", str, False, None, False),
             ("endpoint", "endpoint", CapabilityStatementMessagingEndpoint, True, None, False),
-            ("event", "event", CapabilityStatementMessagingEvent, True, None, True),
+            ("event", "event", CapabilityStatementMessagingEvent, True, None, False),
             ("reliableCache", "reliableCache", int, False, None, False),
+            ("supportedMessage", "supportedMessage", CapabilityStatementMessagingSupportedMessage, True, None, False),
         ])
         return js
 
@@ -386,6 +391,42 @@ class CapabilityStatementMessagingEvent(backboneelement.BackboneElement):
             ("mode", "mode", str, False, None, True),
             ("request", "request", fhirreference.FHIRReference, False, None, True),
             ("response", "response", fhirreference.FHIRReference, False, None, True),
+        ])
+        return js
+
+
+class CapabilityStatementMessagingSupportedMessage(backboneelement.BackboneElement):
+    """ Messages supported by this system.
+    
+    References to message definitions for messages this system can send or
+    receive.
+    """
+    
+    resource_type = "CapabilityStatementMessagingSupportedMessage"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.definition = None
+        """ Message supported by this system.
+        Type `FHIRReference` referencing `MessageDefinition` (represented as `dict` in JSON). """
+        
+        self.mode = None
+        """ sender | receiver.
+        Type `str`. """
+        
+        super(CapabilityStatementMessagingSupportedMessage, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(CapabilityStatementMessagingSupportedMessage, self).elementProperties()
+        js.extend([
+            ("definition", "definition", fhirreference.FHIRReference, False, None, True),
+            ("mode", "mode", str, False, None, True),
         ])
         return js
 

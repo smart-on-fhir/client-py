@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -728,6 +728,10 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         """ XPath or JSONPath expression.
         Type `str`. """
         
+        self.requestMethod = None
+        """ delete | get | options | patch | post | put.
+        Type `str`. """
+        
         self.requestURL = None
         """ Request URL comparison value.
         Type `str`. """
@@ -788,6 +792,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
             ("navigationLinks", "navigationLinks", bool, False, None, False),
             ("operator", "operator", str, False, None, False),
             ("path", "path", str, False, None, False),
+            ("requestMethod", "requestMethod", str, False, None, False),
             ("requestURL", "requestURL", str, False, None, False),
             ("resource", "resource", str, False, None, False),
             ("response", "response", str, False, None, False),

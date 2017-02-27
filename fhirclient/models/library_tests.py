@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -83,7 +83,6 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].value, "CMS146")
         self.assertEqual(inst.relatedArtifact[0].type, "depends-on")
         self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">CMS 146 Logic</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "Appropriate Testing for Children with Pharyngitis")
         self.assertEqual(inst.type.coding[0].code, "logic-library")
@@ -113,7 +112,6 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].value, "ChalmydiaScreening_Common")
         self.assertEqual(inst.relatedArtifact[0].type, "depends-on")
         self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Chlamydia Screening Common Library</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "Chlamydia Screening Common Library")
         self.assertEqual(inst.topic[0].text, "Chlamydia Screening")

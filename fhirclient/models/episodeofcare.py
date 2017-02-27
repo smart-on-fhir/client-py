@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -37,12 +37,12 @@ class EpisodeOfCare(domainresource.DomainResource):
         """ Care manager/care co-ordinator for the patient.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
-        self.condition = None
-        """ Conditions/problems/diagnoses this episode of care is for.
-        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
+        self.diagnosis = None
+        """ The list of diagnosis relevant to this episode of care.
+        List of `EpisodeOfCareDiagnosis` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Identifier(s) for the EpisodeOfCare.
+        """ Business Identifier(s) relevant for this EpisodeOfCare.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.managingOrganization = None
@@ -50,7 +50,7 @@ class EpisodeOfCare(domainresource.DomainResource):
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.patient = None
-        """ Patient for this episode of care.
+        """ The patient who is the focus of this episode of care.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.period = None
@@ -67,7 +67,8 @@ class EpisodeOfCare(domainresource.DomainResource):
         Type `str`. """
         
         self.statusHistory = None
-        """ Past list of status codes.
+        """ Past list of status codes (the current status may be included to
+        cover the start date of the status).
         List of `EpisodeOfCareStatusHistory` items (represented as `dict` in JSON). """
         
         self.team = None
@@ -85,7 +86,7 @@ class EpisodeOfCare(domainresource.DomainResource):
         js.extend([
             ("account", "account", fhirreference.FHIRReference, True, None, False),
             ("careManager", "careManager", fhirreference.FHIRReference, False, None, False),
-            ("condition", "condition", fhirreference.FHIRReference, True, None, False),
+            ("diagnosis", "diagnosis", EpisodeOfCareDiagnosis, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
@@ -101,8 +102,48 @@ class EpisodeOfCare(domainresource.DomainResource):
 
 from . import backboneelement
 
+class EpisodeOfCareDiagnosis(backboneelement.BackboneElement):
+    """ The list of diagnosis relevant to this episode of care.
+    """
+    
+    resource_type = "EpisodeOfCareDiagnosis"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.condition = None
+        """ Conditions/problems/diagnoses this episode of care is for.
+        Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
+        
+        self.rank = None
+        """ Ranking of the diagnosis (for each role type).
+        Type `int`. """
+        
+        self.role = None
+        """ Role that this diagnosis has within the episode of care (e.g.
+        admission, billing, discharge …).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(EpisodeOfCareDiagnosis, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(EpisodeOfCareDiagnosis, self).elementProperties()
+        js.extend([
+            ("condition", "condition", fhirreference.FHIRReference, False, None, True),
+            ("rank", "rank", int, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+        ])
+        return js
+
+
 class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
-    """ Past list of status codes.
+    """ Past list of status codes (the current status may be included to cover the
+    start date of the status).
     
     The history of statuses that the EpisodeOfCare has been through (without
     requiring processing the history of the resource).
@@ -119,7 +160,7 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
         """
         
         self.period = None
-        """ Period for the status.
+        """ Duration the EpisodeOfCare was in the specified status.
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None

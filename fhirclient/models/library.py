@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Library) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Library) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -27,7 +27,7 @@ class Library(domainresource.DomainResource):
         """
         
         self.approvalDate = None
-        """ When library approved by publisher.
+        """ When the library was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.contact = None
@@ -35,7 +35,7 @@ class Library(domainresource.DomainResource):
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.content = None
-        """ The content of the library.
+        """ Contents of the library, either embedded or referenced.
         List of `Attachment` items (represented as `dict` in JSON). """
         
         self.contributor = None
@@ -47,7 +47,7 @@ class Library(domainresource.DomainResource):
         Type `str`. """
         
         self.dataRequirement = None
-        """ Data requirements of the library.
+        """ What data is referenced by this library.
         List of `DataRequirement` items (represented as `dict` in JSON). """
         
         self.date = None
@@ -59,7 +59,7 @@ class Library(domainresource.DomainResource):
         Type `str`. """
         
         self.effectivePeriod = None
-        """ The effective date range for the library.
+        """ When the library is effective.
         Type `Period` (represented as `dict` in JSON). """
         
         self.experimental = None
@@ -75,7 +75,7 @@ class Library(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.lastReviewDate = None
-        """ Last review date for the library.
+        """ When the library was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.name = None
@@ -95,7 +95,7 @@ class Library(domainresource.DomainResource):
         Type `str`. """
         
         self.relatedArtifact = None
-        """ Related artifacts for the library.
+        """ Additional documentation, citations, etc..
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.status = None
@@ -107,7 +107,7 @@ class Library(domainresource.DomainResource):
         Type `str`. """
         
         self.topic = None
-        """ Descriptional topics for the library.
+        """ E.g. Education, Treatment, Assessment, etc.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.type = None

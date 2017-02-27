@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Media) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Media) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -22,13 +22,25 @@ class Media(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.basedOn = None
+        """ Procedure that caused this media to be created.
+        List of `FHIRReference` items referencing `ProcedureRequest` (represented as `dict` in JSON). """
+        
+        self.bodySite = None
+        """ Body part in media.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.content = None
         """ Actual Media - reference or data.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.deviceName = None
-        """ Name of the device/manufacturer.
-        Type `str`. """
+        self.context = None
+        """ Encounter / Episode associated with media.
+        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        
+        self.device = None
+        """ Observing Device.
+        Type `FHIRReference` referencing `Device, DeviceMetric` (represented as `dict` in JSON). """
         
         self.duration = None
         """ Length in seconds (audio / video).
@@ -46,9 +58,25 @@ class Media(domainresource.DomainResource):
         """ Identifier(s) for the image.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.note = None
+        """ Comments made about the media.
+        List of `Annotation` items (represented as `dict` in JSON). """
+        
+        self.occurrenceDateTime = None
+        """ When Media was collected.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.occurrencePeriod = None
+        """ When Media was collected.
+        Type `Period` (represented as `dict` in JSON). """
+        
         self.operator = None
         """ The person who generated the image.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        
+        self.reasonCode = None
+        """ Why was event performed?.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.subject = None
         """ Who/What this Media is a record of.
@@ -75,13 +103,20 @@ class Media(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Media, self).elementProperties()
         js.extend([
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
             ("content", "content", attachment.Attachment, False, None, True),
-            ("deviceName", "deviceName", str, False, None, False),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
+            ("device", "device", fhirreference.FHIRReference, False, None, False),
             ("duration", "duration", int, False, None, False),
             ("frames", "frames", int, False, None, False),
             ("height", "height", int, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
+            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("operator", "operator", fhirreference.FHIRReference, False, None, False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("subtype", "subtype", codeableconcept.CodeableConcept, False, None, False),
             ("type", "type", str, False, None, True),
@@ -91,7 +126,10 @@ class Media(domainresource.DomainResource):
         return js
 
 
+from . import annotation
 from . import attachment
 from . import codeableconcept
+from . import fhirdate
 from . import fhirreference
 from . import identifier
+from . import period

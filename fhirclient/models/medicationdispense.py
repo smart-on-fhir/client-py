@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -52,8 +52,9 @@ class MedicationDispense(domainresource.DomainResource):
         List of `FHIRReference` items referencing `DetectedIssue` (represented as `dict` in JSON). """
         
         self.dosageInstruction = None
-        """ Medicine administration instructions to the patient/caregiver.
-        List of `DosageInstruction` items (represented as `dict` in JSON). """
+        """ How the medication is to be used by the patient or administered by
+        the caregiver.
+        List of `Dosage` items (represented as `dict` in JSON). """
         
         self.eventHistory = None
         """ A list of events of interest in the lifecycle.
@@ -143,7 +144,7 @@ class MedicationDispense(domainresource.DomainResource):
             ("daysSupply", "daysSupply", quantity.Quantity, False, None, False),
             ("destination", "destination", fhirreference.FHIRReference, False, None, False),
             ("detectedIssue", "detectedIssue", fhirreference.FHIRReference, True, None, False),
-            ("dosageInstruction", "dosageInstruction", dosageinstruction.DosageInstruction, True, None, False),
+            ("dosageInstruction", "dosageInstruction", dosage.Dosage, True, None, False),
             ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
@@ -193,10 +194,6 @@ class MedicationDispensePerformer(backboneelement.BackboneElement):
         """ Organization organization was acting for.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
-        self.role = None
-        """ What type of role the performer fulfilled.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         super(MedicationDispensePerformer, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -204,7 +201,6 @@ class MedicationDispensePerformer(backboneelement.BackboneElement):
         js.extend([
             ("actor", "actor", fhirreference.FHIRReference, False, None, True),
             ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
-            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -261,7 +257,7 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
-from . import dosageinstruction
+from . import dosage
 from . import fhirdate
 from . import fhirreference
 from . import identifier

@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Contract) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Contract) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class Contract(domainresource.DomainResource):
-    """ Contract.
+    """ Legal Agreement.
     
     A formal agreement between parties regarding the conduct of business,
     exchange of information or other matters.
@@ -52,6 +52,14 @@ class Contract(domainresource.DomainResource):
         """ Binding Contract.
         Type `FHIRReference` referencing `Composition, DocumentReference, QuestionnaireResponse` (represented as `dict` in JSON). """
         
+        self.contentDerivative = None
+        """ Content derived from the basal information.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.decisionType = None
+        """ Decision by Grantor.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.domain = None
         """ Domain in which this Contract applies.
         List of `FHIRReference` items referencing `Location` (represented as `dict` in JSON). """
@@ -61,7 +69,7 @@ class Contract(domainresource.DomainResource):
         List of `ContractFriendly` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Contract identifier.
+        """ Contract number.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.issued = None
@@ -76,16 +84,22 @@ class Contract(domainresource.DomainResource):
         """ Computable Contract Language.
         List of `ContractRule` items (represented as `dict` in JSON). """
         
+        self.securityLabel = None
+        """ Security Labels that define affected resources.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
         self.signer = None
-        """ Contract Signer.
+        """ Contract Signatory.
         List of `ContractSigner` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ active | cancelled | draft | entered-in-error.
+        """ amended | appended | cancelled | disputed | entered-in-error |
+        executable | executed | negotiable | offered | policy | rejected |
+        renewed | revoked | resolved | terminated.
         Type `str`. """
         
         self.subType = None
-        """ Contract Subtype.
+        """ Subtype within the context of type.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.subject = None
@@ -101,11 +115,11 @@ class Contract(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.type = None
-        """ Contract Type.
+        """ Type or form.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.valuedItem = None
-        """ Contract Valued Item.
+        """ Contract Valued Item List.
         List of `ContractValuedItem` items (represented as `dict` in JSON). """
         
         super(Contract, self).__init__(jsondict=jsondict, strict=strict)
@@ -120,12 +134,15 @@ class Contract(domainresource.DomainResource):
             ("authority", "authority", fhirreference.FHIRReference, True, None, False),
             ("bindingAttachment", "bindingAttachment", attachment.Attachment, False, "binding", False),
             ("bindingReference", "bindingReference", fhirreference.FHIRReference, False, "binding", False),
+            ("contentDerivative", "contentDerivative", codeableconcept.CodeableConcept, False, None, False),
+            ("decisionType", "decisionType", codeableconcept.CodeableConcept, False, None, False),
             ("domain", "domain", fhirreference.FHIRReference, True, None, False),
             ("friendly", "friendly", ContractFriendly, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("issued", "issued", fhirdate.FHIRDate, False, None, False),
             ("legal", "legal", ContractLegal, True, None, False),
             ("rule", "rule", ContractRule, True, None, False),
+            ("securityLabel", "securityLabel", coding.Coding, True, None, False),
             ("signer", "signer", ContractSigner, True, None, False),
             ("status", "status", str, False, None, False),
             ("subType", "subType", codeableconcept.CodeableConcept, True, None, False),
@@ -288,7 +305,7 @@ class ContractRule(backboneelement.BackboneElement):
 
 
 class ContractSigner(backboneelement.BackboneElement):
-    """ Contract Signer.
+    """ Contract Signatory.
     
     Parties with legal standing in the Contract, including the principal
     parties, the grantor(s) and grantee(s), which are any person or
@@ -315,7 +332,7 @@ class ContractSigner(backboneelement.BackboneElement):
         List of `Signature` items (represented as `dict` in JSON). """
         
         self.type = None
-        """ Contract Signer Type.
+        """ Contract Signatory Role.
         Type `Coding` (represented as `dict` in JSON). """
         
         super(ContractSigner, self).__init__(jsondict=jsondict, strict=strict)
@@ -348,11 +365,11 @@ class ContractTerm(backboneelement.BackboneElement):
         """
         
         self.action = None
-        """ Contract Term Action.
+        """ Contract Term Activity.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.actionReason = None
-        """ Contract Term Action Reason.
+        """ Purpose for the Contract Term Action.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.agent = None
@@ -368,15 +385,19 @@ class ContractTerm(backboneelement.BackboneElement):
         List of `ContractTerm` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Contract Term identifier.
+        """ Contract Term Number.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.issued = None
         """ Contract Term Issue Date Time.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.securityLabel = None
+        """ Security Labels that define affected terms.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
         self.subType = None
-        """ Contract Term Subtype.
+        """ Contract Term Type specific classification.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.text = None
@@ -388,11 +409,11 @@ class ContractTerm(backboneelement.BackboneElement):
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.type = None
-        """ Contract Term Type.
+        """ Contract Term Type or Form.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.valuedItem = None
-        """ Contract Term Valued Item.
+        """ Contract Term Valued Item List.
         List of `ContractTermValuedItem` items (represented as `dict` in JSON). """
         
         super(ContractTerm, self).__init__(jsondict=jsondict, strict=strict)
@@ -407,6 +428,7 @@ class ContractTerm(backboneelement.BackboneElement):
             ("group", "group", ContractTerm, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("securityLabel", "securityLabel", coding.Coding, True, None, False),
             ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
             ("text", "text", str, False, None, False),
             ("topic", "topic", fhirreference.FHIRReference, True, None, False),
@@ -434,11 +456,11 @@ class ContractTermAgent(backboneelement.BackboneElement):
         """
         
         self.actor = None
-        """ Contract Term Agent List.
+        """ Contract Term Agent Subject.
         Type `FHIRReference` referencing `Contract, Device, Group, Location, Organization, Patient, Practitioner, RelatedPerson, Substance` (represented as `dict` in JSON). """
         
         self.role = None
-        """ Contract Term Agent Role.
+        """ Type of the Contract Term Agent.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(ContractTermAgent, self).__init__(jsondict=jsondict, strict=strict)
@@ -453,7 +475,7 @@ class ContractTermAgent(backboneelement.BackboneElement):
 
 
 class ContractTermValuedItem(backboneelement.BackboneElement):
-    """ Contract Term Valued Item.
+    """ Contract Term Valued Item List.
     
     Contract Provision Valued Item List.
     """
@@ -485,7 +507,7 @@ class ContractTermValuedItem(backboneelement.BackboneElement):
         Type `float`. """
         
         self.identifier = None
-        """ Contract Term Valued Item Identifier.
+        """ Contract Term Valued Item Number.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.net = None
@@ -523,9 +545,7 @@ class ContractTermValuedItem(backboneelement.BackboneElement):
 
 
 class ContractValuedItem(backboneelement.BackboneElement):
-    """ Contract Valued Item.
-    
-    Contract Valued Item List.
+    """ Contract Valued Item List.
     """
     
     resource_type = "ContractValuedItem"
@@ -555,7 +575,7 @@ class ContractValuedItem(backboneelement.BackboneElement):
         Type `float`. """
         
         self.identifier = None
-        """ Contract Valued Item Identifier.
+        """ Contract Valued Item Number.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.net = None

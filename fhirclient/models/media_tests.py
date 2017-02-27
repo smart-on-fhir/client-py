@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -33,7 +33,6 @@ class MediaTests(unittest.TestCase):
     
     def implMedia1(self, inst):
         self.assertEqual(inst.content.contentType, "application/dicom")
-        self.assertEqual(inst.deviceName, "G.E. Medical Systems")
         self.assertEqual(inst.extension[0].url, "http://nema.org/fhir/extensions#0002-0010")
         self.assertEqual(inst.extension[0].valueUri, "urn:oid:1.2.840.10008.1.2.1")
         self.assertEqual(inst.height, 480)
@@ -81,7 +80,7 @@ class MediaTests(unittest.TestCase):
         self.assertEqual(inst.type, "video")
     
     def testMedia3(self):
-        inst = self.instantiate_from("media-example.json")
+        inst = self.instantiate_from("media-example-xray.json")
         self.assertIsNotNone(inst, "Must have instantiated a Media instance")
         self.implMedia3(inst)
         
@@ -91,11 +90,41 @@ class MediaTests(unittest.TestCase):
         self.implMedia3(inst2)
     
     def implMedia3(self, inst):
+        self.assertEqual(inst.bodySite.coding[0].code, "85151006")
+        self.assertEqual(inst.bodySite.coding[0].display, "Structure of left hand (body structure)")
+        self.assertEqual(inst.bodySite.coding[0].system, "http://snomed.info.sct")
+        self.assertEqual(inst.content.contentType, "image/jpeg")
+        self.assertEqual(inst.content.creation.date, FHIRDate("2016-03-15").date)
+        self.assertEqual(inst.content.creation.as_json(), "2016-03-15")
+        self.assertEqual(inst.content.id, "a1")
+        self.assertEqual(inst.content.url, "http://someimagingcenter.org/fhir/Binary/A12345")
+        self.assertEqual(inst.height, 432)
+        self.assertEqual(inst.id, "xray")
+        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2016-03-15").date)
+        self.assertEqual(inst.occurrenceDateTime.as_json(), "2016-03-15")
+        self.assertEqual(inst.subtype.coding[0].code, "39714003")
+        self.assertEqual(inst.subtype.coding[0].display, "Skeletal X-ray of wrist and hand")
+        self.assertEqual(inst.subtype.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Xray of left hand for Patient Henry Levin (MRN 12345) 2016-03-15</div>")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type, "photo")
+        self.assertEqual(inst.width, 640)
+    
+    def testMedia4(self):
+        inst = self.instantiate_from("media-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Media instance")
+        self.implMedia4(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Media", js["resourceType"])
+        inst2 = media.Media(js)
+        self.implMedia4(inst2)
+    
+    def implMedia4(self, inst):
         self.assertEqual(inst.content.contentType, "image/gif")
         self.assertEqual(inst.content.creation.date, FHIRDate("2009-09-03").date)
         self.assertEqual(inst.content.creation.as_json(), "2009-09-03")
         self.assertEqual(inst.content.id, "a1")
-        self.assertEqual(inst.deviceName, "Acme Camera")
         self.assertEqual(inst.frames, 1)
         self.assertEqual(inst.height, 145)
         self.assertEqual(inst.id, "example")

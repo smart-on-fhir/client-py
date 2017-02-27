@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Location) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Location) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -60,6 +60,11 @@ class Location(domainresource.DomainResource):
         """ Name of the location as used by humans.
         Type `str`. """
         
+        self.operationalStatus = None
+        """ The Operational status of the location (typically only for a
+        bed/room).
+        Type `Coding` (represented as `dict` in JSON). """
+        
         self.partOf = None
         """ Another Location this one is physically part of.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
@@ -97,6 +102,7 @@ class Location(domainresource.DomainResource):
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
             ("mode", "mode", str, False, None, False),
             ("name", "name", str, False, None, False),
+            ("operationalStatus", "operationalStatus", coding.Coding, False, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
             ("physicalType", "physicalType", codeableconcept.CodeableConcept, False, None, False),
             ("position", "position", LocationPosition, False, None, False),
@@ -152,6 +158,7 @@ class LocationPosition(backboneelement.BackboneElement):
 
 from . import address
 from . import codeableconcept
+from . import coding
 from . import contactpoint
 from . import fhirreference
 from . import identifier

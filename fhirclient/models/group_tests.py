@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -66,6 +66,8 @@ class GroupTests(unittest.TestCase):
         self.assertEqual(inst.characteristic[1].valueCodeableConcept.text, "John Smith")
         self.assertEqual(inst.code.text, "Horse")
         self.assertEqual(inst.id, "101")
+        self.assertEqual(inst.identifier[0].system, "http://someveterinarianclinic.org/fhir/NamingSystem/herds")
+        self.assertEqual(inst.identifier[0].value, "12345")
         self.assertEqual(inst.name, "John's herd")
         self.assertEqual(inst.quantity, 25)
         self.assertEqual(inst.text.status, "additional")

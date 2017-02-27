@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -152,7 +152,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.supplement[0].schedule[0].repeat.periodUnit, "h")
         self.assertEqual(inst.supplement[0].schedule[1].repeat.duration, 1)
         self.assertEqual(inst.supplement[0].schedule[1].repeat.durationUnit, "h")
-        self.assertEqual(inst.supplement[0].schedule[1].repeat.when, "HS")
+        self.assertEqual(inst.supplement[0].schedule[1].repeat.when[0], "HS")
         self.assertEqual(inst.supplement[0].type.coding[0].code, "443051000124104")
         self.assertEqual(inst.supplement[0].type.coding[0].display, "Adult diabetes specialty formula")
         self.assertEqual(inst.supplement[0].type.coding[0].system, "http://snomed.info/sct")
@@ -434,7 +434,7 @@ class NutritionOrderTests(unittest.TestCase):
         self.assertEqual(inst.supplement[0].quantity.value, 1)
         self.assertEqual(inst.supplement[0].schedule[0].repeat.boundsPeriod.start.date, FHIRDate("2015-02-10").date)
         self.assertEqual(inst.supplement[0].schedule[0].repeat.boundsPeriod.start.as_json(), "2015-02-10")
-        self.assertEqual(inst.supplement[0].schedule[0].repeat.when, "C")
+        self.assertEqual(inst.supplement[0].schedule[0].repeat.when[0], "C")
         self.assertEqual(inst.supplement[0].type.coding[0].code, "442991000124104")
         self.assertEqual(inst.supplement[0].type.coding[0].display, "Adult high protein formula")
         self.assertEqual(inst.supplement[0].type.coding[0].system, "http://snomed.info/sct")

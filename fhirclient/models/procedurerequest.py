@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -58,7 +58,7 @@ class ProcedureRequest(domainresource.DomainResource):
         
         self.definition = None
         """ Protocol or definition.
-        List of `FHIRReference` items referencing `ActivityDefinition, PlanDefinition, HealthcareService` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ActivityDefinition, PlanDefinition` (represented as `dict` in JSON). """
         
         self.doNotPerform = None
         """ True if procedure should not be performed.
@@ -90,7 +90,7 @@ class ProcedureRequest(domainresource.DomainResource):
         
         self.performer = None
         """ Requested perfomer.
-        Type `FHIRReference` referencing `Practitioner, Organization, Patient, Device, RelatedPerson` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, Organization, Patient, Device, RelatedPerson, HealthcareService` (represented as `dict` in JSON). """
         
         self.performerType = None
         """ Performer role.

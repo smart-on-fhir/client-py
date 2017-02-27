@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -417,7 +417,7 @@ class CarePlanTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testCarePlan9(self):
-        inst = self.instantiate_from("careplan-example-pregnancy.json")
+        inst = self.instantiate_from("careplan-example-obesity-narrative.json")
         self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
         self.implCarePlan9(inst)
         
@@ -427,6 +427,22 @@ class CarePlanTests(unittest.TestCase):
         self.implCarePlan9(inst2)
     
     def implCarePlan9(self, inst):
+        self.assertEqual(inst.id, "obesity-narrative")
+        self.assertEqual(inst.intent, "plan")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "additional")
+    
+    def testCarePlan10(self):
+        inst = self.instantiate_from("careplan-example-pregnancy.json")
+        self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
+        self.implCarePlan10(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("CarePlan", js["resourceType"])
+        inst2 = careplan.CarePlan(js)
+        self.implCarePlan10(inst2)
+    
+    def implCarePlan10(self, inst):
         self.assertEqual(inst.activity[1].detail.category.coding[0].code, "encounter")
         self.assertEqual(inst.activity[1].detail.category.coding[0].system, "http://hl7.org/fhir/care-plan-activity-category")
         self.assertEqual(inst.activity[1].detail.code.coding[0].code, "1an")
@@ -479,45 +495,6 @@ class CarePlanTests(unittest.TestCase):
         self.assertEqual(inst.period.end.as_json(), "2013-10-01")
         self.assertEqual(inst.period.start.date, FHIRDate("2013-01-01").date)
         self.assertEqual(inst.period.start.as_json(), "2013-01-01")
-        self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.status, "additional")
-    
-    def testCarePlan10(self):
-        inst = self.instantiate_from("careplan-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a CarePlan instance")
-        self.implCarePlan10(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("CarePlan", js["resourceType"])
-        inst2 = careplan.CarePlan(js)
-        self.implCarePlan10(inst2)
-    
-    def implCarePlan10(self, inst):
-        self.assertEqual(inst.activity[0].detail.category.coding[0].code, "observation")
-        self.assertEqual(inst.activity[0].detail.category.coding[0].system, "http://hl7.org/fhir/care-plan-activity-category")
-        self.assertEqual(inst.activity[0].detail.code.coding[0].code, "3141-9")
-        self.assertEqual(inst.activity[0].detail.code.coding[0].display, "Weight Measured")
-        self.assertEqual(inst.activity[0].detail.code.coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.activity[0].detail.code.coding[1].code, "27113001")
-        self.assertEqual(inst.activity[0].detail.code.coding[1].display, "Body weight")
-        self.assertEqual(inst.activity[0].detail.code.coding[1].system, "http://snomed.info/sct")
-        self.assertFalse(inst.activity[0].detail.prohibited)
-        self.assertEqual(inst.activity[0].detail.scheduledTiming.repeat.frequency, 1)
-        self.assertEqual(inst.activity[0].detail.scheduledTiming.repeat.period, 1)
-        self.assertEqual(inst.activity[0].detail.scheduledTiming.repeat.periodUnit, "d")
-        self.assertEqual(inst.activity[0].detail.status, "completed")
-        self.assertEqual(inst.activity[0].detail.statusReason, "Achieved weight loss to mitigate diabetes risk.")
-        self.assertEqual(inst.activity[0].outcomeCodeableConcept[0].coding[0].code, "161832001")
-        self.assertEqual(inst.activity[0].outcomeCodeableConcept[0].coding[0].display, "Progressive weight loss")
-        self.assertEqual(inst.activity[0].outcomeCodeableConcept[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.category[0].text, "Weight management plan")
-        self.assertEqual(inst.contained[0].id, "p1")
-        self.assertEqual(inst.description, "Manage obesity and weight loss")
-        self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.identifier[0].value, "12345")
-        self.assertEqual(inst.intent, "plan")
-        self.assertEqual(inst.period.end.date, FHIRDate("2017-06-01").date)
-        self.assertEqual(inst.period.end.as_json(), "2017-06-01")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "additional")
 

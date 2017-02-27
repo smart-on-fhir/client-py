@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -42,19 +42,32 @@ class OperationDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.description, "Limited implementation of the Populate Questionnaire implemenation")
         self.assertEqual(inst.id, "example")
         self.assertTrue(inst.instance)
+        self.assertEqual(inst.jurisdiction[0].coding[0].code, "GB")
+        self.assertEqual(inst.jurisdiction[0].coding[0].display, "United Kingdom of Great Britain and Northern Ireland (the)")
+        self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.kind, "operation")
         self.assertEqual(inst.name, "Populate Questionnaire")
+        self.assertEqual(inst.overload[0].parameterName[0], "subject")
+        self.assertEqual(inst.overload[0].parameterName[1], "local")
+        self.assertEqual(inst.overload[1].comment, "local defaults to false when not passed as a parameter")
+        self.assertEqual(inst.overload[1].parameterName[0], "subject")
         self.assertEqual(inst.parameter[0].max, "1")
         self.assertEqual(inst.parameter[0].min, 1)
         self.assertEqual(inst.parameter[0].name, "subject")
         self.assertEqual(inst.parameter[0].type, "Reference")
         self.assertEqual(inst.parameter[0].use, "in")
-        self.assertEqual(inst.parameter[1].documentation, "The partially (or fully)-populated set of answers for the specified Questionnaire")
+        self.assertEqual(inst.parameter[1].documentation, "If the *local* parameter is set to true, server information about the specified subject will be used to populate the instance.")
         self.assertEqual(inst.parameter[1].max, "1")
-        self.assertEqual(inst.parameter[1].min, 1)
-        self.assertEqual(inst.parameter[1].name, "return")
-        self.assertEqual(inst.parameter[1].type, "QuestionnaireResponse")
-        self.assertEqual(inst.parameter[1].use, "out")
+        self.assertEqual(inst.parameter[1].min, 0)
+        self.assertEqual(inst.parameter[1].name, "local")
+        self.assertEqual(inst.parameter[1].type, "Reference")
+        self.assertEqual(inst.parameter[1].use, "in")
+        self.assertEqual(inst.parameter[2].documentation, "The partially (or fully)-populated set of answers for the specified Questionnaire")
+        self.assertEqual(inst.parameter[2].max, "1")
+        self.assertEqual(inst.parameter[2].min, 1)
+        self.assertEqual(inst.parameter[2].name, "return")
+        self.assertEqual(inst.parameter[2].type, "QuestionnaireResponse")
+        self.assertEqual(inst.parameter[2].use, "out")
         self.assertEqual(inst.publisher, "Acme Healthcare Services")
         self.assertEqual(inst.resource[0], "Questionnaire")
         self.assertEqual(inst.status, "draft")
@@ -62,5 +75,11 @@ class OperationDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
         self.assertFalse(inst.type)
         self.assertEqual(inst.url, "http://h7.org/fhir/OperationDefinition/example")
+        self.assertEqual(inst.useContext[0].code.code, "venue")
+        self.assertEqual(inst.useContext[0].code.display, "Clinical Venue")
+        self.assertEqual(inst.useContext[0].code.system, "http://build.fhir.org/codesystem-usage-context-type")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "IMP")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].display, "inpatient encounter")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://hl7.org/fhir/v3/ActCode")
         self.assertEqual(inst.version, "B")
 

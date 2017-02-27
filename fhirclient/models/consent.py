@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Consent) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Consent) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -159,7 +159,7 @@ class ConsentActor(backboneelement.BackboneElement):
         Type `FHIRReference` referencing `Device, Group, CareTeam, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.role = None
-        """ How the actor is/was involved.
+        """ How the actor is involved.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ConsentActor, self).__init__(jsondict=jsondict, strict=strict)
@@ -307,7 +307,7 @@ class ConsentExceptActor(backboneelement.BackboneElement):
         Type `FHIRReference` referencing `Device, Group, CareTeam, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.role = None
-        """ How the actor is/was involved.
+        """ How the actor is involved.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ConsentExceptActor, self).__init__(jsondict=jsondict, strict=strict)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -73,7 +73,7 @@ class OperationDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.overload = None
-        """ For generating overloaded methods in code.
+        """ Define overloaded variants for when  generating code.
         List of `OperationDefinitionOverload` items (represented as `dict` in JSON). """
         
         self.parameter = None
@@ -152,10 +152,11 @@ class OperationDefinition(domainresource.DomainResource):
 from . import backboneelement
 
 class OperationDefinitionOverload(backboneelement.BackboneElement):
-    """ For generating overloaded methods in code.
+    """ Define overloaded variants for when  generating code.
     
     Defines an appropriate combination of parameters to use when invoking this
-    operation.
+    operation, to help code generators when generating overloaded parameter
+    sets for this operation.
     """
     
     resource_type = "OperationDefinitionOverload"

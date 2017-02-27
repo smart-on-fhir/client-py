@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -73,7 +73,7 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         List of `str` items. """
         
         self.location = None
-        """ XPath of element(s) related to issue.
+        """ Path of element(s) related to issue.
         List of `str` items. """
         
         self.severity = None

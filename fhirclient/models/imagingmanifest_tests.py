@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -36,6 +36,7 @@ class ImagingManifestTests(unittest.TestCase):
         self.assertEqual(inst.authoringTime.as_json(), "2014-11-20T11:01:20-08:00")
         self.assertEqual(inst.description, "1 SC image (screen snapshot) and 2 CT images to share a chest CT exam")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.identifier.value, "urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092901")
         self.assertEqual(inst.study[0].series[0].instance[0].sopClass, "urn:oid:1.2.840.10008.5.1.4.1.1.7")
         self.assertEqual(inst.study[0].series[0].instance[0].uid, "urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092902")
         self.assertEqual(inst.study[0].series[0].uid, "urn:oid:2.16.124.113543.6003.189642796.63084.16750.2599092901")
@@ -47,5 +48,4 @@ class ImagingManifestTests(unittest.TestCase):
         self.assertEqual(inst.study[0].uid, "urn:oid:2.16.124.113543.6003.189642796.63084.16749.2599092904")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A set of images to share accompanying an report document, including one SC image and two CT image</div>")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.uid, "urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092901")
 

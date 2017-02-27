@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -48,6 +48,15 @@ class Appointment(domainresource.DomainResource):
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.incomingReferral = None
+        """ The ReferralRequest provided as information to allocate to the
+        Encounter.
+        List of `FHIRReference` items referencing `ReferralRequest` (represented as `dict` in JSON). """
+        
+        self.indication = None
+        """ Reason the appointment is to takes place (resource).
+        List of `FHIRReference` items referencing `Condition, Procedure` (represented as `dict` in JSON). """
+        
         self.minutesDuration = None
         """ Can be less than start/end (e.g. estimate).
         Type `int`. """
@@ -62,7 +71,7 @@ class Appointment(domainresource.DomainResource):
         
         self.reason = None
         """ Reason this appointment is scheduled.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.requestedPeriod = None
         """ Potential date/time interval(s) requested to allocate the
@@ -97,6 +106,10 @@ class Appointment(domainresource.DomainResource):
         noshow | entered-in-error.
         Type `str`. """
         
+        self.supportingInformation = None
+        """ Additional information to support the appointment.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
         super(Appointment, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -108,10 +121,12 @@ class Appointment(domainresource.DomainResource):
             ("description", "description", str, False, None, False),
             ("end", "end", fhirdate.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("incomingReferral", "incomingReferral", fhirreference.FHIRReference, True, None, False),
+            ("indication", "indication", fhirreference.FHIRReference, True, None, False),
             ("minutesDuration", "minutesDuration", int, False, None, False),
             ("participant", "participant", AppointmentParticipant, True, None, True),
             ("priority", "priority", int, False, None, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("requestedPeriod", "requestedPeriod", period.Period, True, None, False),
             ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False, None, False),
             ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
@@ -119,6 +134,7 @@ class Appointment(domainresource.DomainResource):
             ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
             ("start", "start", fhirdate.FHIRDate, False, None, False),
             ("status", "status", str, False, None, True),
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 

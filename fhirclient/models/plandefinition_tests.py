@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -34,6 +34,7 @@ class PlanDefinitionTests(unittest.TestCase):
     def implPlanDefinition1(self, inst):
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].textEquivalent, "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[1].textEquivalent, "CARBOplatin AUC 5 IV over 30 minutes on Day 1")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].id, "cycle-definition-1")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].textEquivalent, "21-day cycle for 6 cycles")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].timingTiming.repeat.count, 6)
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].actionDefinition[0].timingTiming.repeat.duration, 21)
@@ -111,18 +112,18 @@ class PlanDefinitionTests(unittest.TestCase):
     def implPlanDefinition2(self, inst):
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[0].expression, "Now()")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[0].path, "timing.event")
-        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[1].expression, "Code '261QM0850X' from SuicideRiskLogic.\"NPI Taxonomy\"")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[1].expression, "Code '261QM0850X' from SuicideRiskLogic.\"NPI Taxonomy\" display 'Adult Mental Health'")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[1].path, "specialty")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[2].expression, "SuicideRiskLogic.ReferralRequestFulfillmentTime")
-        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[2].path, "fulfillmentTime")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[2].path, "occurrenceDateTime")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[3].expression, "SuicideRiskLogic.Patient")
-        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[3].path, "patient")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[3].path, "subject")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[4].expression, "SuicideRiskLogic.Practitioner")
-        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[4].path, "requester")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[4].path, "requester.agent")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[5].expression, "SuicideRiskLogic.RiskAssessmentScore")
-        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[5].path, "reason")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[5].path, "reasonCode")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[6].expression, "SuicideRiskLogic.RiskAssessment")
-        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[6].path, "supportingInformation")
+        self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].dynamicValue[6].path, "reasonReference")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].actionDefinition[0].textEquivalent, "Refer to outpatient mental health program for evaluation and treatment of mental health conditions now")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].groupingBehavior, "logical-group")
         self.assertEqual(inst.actionDefinition[0].actionDefinition[0].selectionBehavior, "any")
@@ -204,16 +205,15 @@ class PlanDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.publisher, "Motive Medical Intelligence")
         self.assertEqual(inst.purpose, "This order set helps ensure consistent application of appropriate orders for the care of low suicide risk patients.")
         self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Low Suicide Risk Order Set...</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "Low Suicide Risk Order Set")
         self.assertEqual(inst.topic[0].text, "Suicide risk assessment")
         self.assertEqual(inst.usage, "This order set should be applied after assessing a patient for suicide risk, when the findings of that assessment indicate the patient has low suicide risk.")
-        self.assertEqual(inst.useContext[0].code.code, "gender")
+        self.assertEqual(inst.useContext[0].code.code, "age")
         self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "133936004")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "D000328")
         self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].display, "Adult")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "https://meshb.nlm.nih.gov")
         self.assertEqual(inst.useContext[1].code.code, "focus")
         self.assertEqual(inst.useContext[1].code.system, "http://hl7.org/fhir/usage-context-type")
         self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].code, "87512008")

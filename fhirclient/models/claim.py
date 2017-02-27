@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Claim) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Claim) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -504,6 +504,10 @@ class ClaimItem(backboneelement.BackboneElement):
         """ Applicable diagnoses.
         List of `int` items. """
         
+        self.encounter = None
+        """ Encounters related to this billed item.
+        List of `FHIRReference` items referencing `Encounter` (represented as `dict` in JSON). """
+        
         self.factor = None
         """ Price scaling factor.
         Type `float`. """
@@ -586,6 +590,7 @@ class ClaimItem(backboneelement.BackboneElement):
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", ClaimItemDetail, True, None, False),
             ("diagnosisLinkId", "diagnosisLinkId", int, True, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, True, None, False),
             ("factor", "factor", float, False, None, False),
             ("informationLinkId", "informationLinkId", int, True, None, False),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),

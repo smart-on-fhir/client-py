@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ImagingManifest) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ImagingManifest) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -36,6 +36,10 @@ class ImagingManifest(domainresource.DomainResource):
         """ Description text.
         Type `str`. """
         
+        self.identifier = None
+        """ SOP Instance UID.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
         self.patient = None
         """ Patient of the selected objects.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
@@ -43,10 +47,6 @@ class ImagingManifest(domainresource.DomainResource):
         self.study = None
         """ Study identity of the selected instances.
         List of `ImagingManifestStudy` items (represented as `dict` in JSON). """
-        
-        self.uid = None
-        """ SOP Instance UID.
-        Type `str`. """
         
         super(ImagingManifest, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -56,9 +56,9 @@ class ImagingManifest(domainresource.DomainResource):
             ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("authoringTime", "authoringTime", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("study", "study", ImagingManifestStudy, True, None, True),
-            ("uid", "uid", str, False, None, False),
         ])
         return js
 
@@ -189,3 +189,4 @@ class ImagingManifestStudySeriesInstance(backboneelement.BackboneElement):
 
 from . import fhirdate
 from . import fhirreference
+from . import identifier

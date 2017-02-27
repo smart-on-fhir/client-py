@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -784,6 +784,10 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         """ Applicable diagnoses.
         List of `int` items. """
         
+        self.encounter = None
+        """ Encounters related to this billed item.
+        List of `FHIRReference` items referencing `Encounter` (represented as `dict` in JSON). """
+        
         self.factor = None
         """ Price scaling factor.
         Type `float`. """
@@ -871,6 +875,7 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", ExplanationOfBenefitItemDetail, True, None, False),
             ("diagnosisLinkId", "diagnosisLinkId", int, True, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, True, None, False),
             ("factor", "factor", float, False, None, False),
             ("informationLinkId", "informationLinkId", int, True, None, False),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),
@@ -1150,11 +1155,7 @@ class ExplanationOfBenefitPayee(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.partyIdentifier = None
-        """ Party to receive the payable.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.partyReference = None
+        self.party = None
         """ Party to receive the payable.
         Type `FHIRReference` referencing `Practitioner, Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
@@ -1171,8 +1172,7 @@ class ExplanationOfBenefitPayee(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExplanationOfBenefitPayee, self).elementProperties()
         js.extend([
-            ("partyIdentifier", "partyIdentifier", identifier.Identifier, False, "party", False),
-            ("partyReference", "partyReference", fhirreference.FHIRReference, False, "party", False),
+            ("party", "party", fhirreference.FHIRReference, False, None, False),
             ("resourceType", "resourceType", codeableconcept.CodeableConcept, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -9,8 +9,6 @@ from . import domainresource
 
 class DocumentReference(domainresource.DomainResource):
     """ A reference to a document.
-    
-    A reference to a document .
     """
     
     resource_type = "DocumentReference"
@@ -57,7 +55,7 @@ class DocumentReference(domainresource.DomainResource):
         
         self.docStatus = None
         """ preliminary | final | appended | amended | entered-in-error.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.identifier = None
         """ Other identifiers for the document.
@@ -104,7 +102,7 @@ class DocumentReference(domainresource.DomainResource):
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
-            ("docStatus", "docStatus", codeableconcept.CodeableConcept, False, None, False),
+            ("docStatus", "docStatus", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("indexed", "indexed", fhirdate.FHIRDate, False, None, True),
             ("masterIdentifier", "masterIdentifier", identifier.Identifier, False, None, False),
@@ -142,7 +140,7 @@ class DocumentReferenceContent(backboneelement.BackboneElement):
         
         self.format = None
         """ Format/content rules for the document.
-        List of `Coding` items (represented as `dict` in JSON). """
+        Type `Coding` (represented as `dict` in JSON). """
         
         super(DocumentReferenceContent, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -150,7 +148,7 @@ class DocumentReferenceContent(backboneelement.BackboneElement):
         js = super(DocumentReferenceContent, self).elementProperties()
         js.extend([
             ("attachment", "attachment", attachment.Attachment, False, None, True),
-            ("format", "format", coding.Coding, True, None, False),
+            ("format", "format", coding.Coding, False, None, False),
         ])
         return js
 

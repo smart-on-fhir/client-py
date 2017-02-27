@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -39,7 +39,6 @@ class ServiceDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "guildeline-appropriate-ordering")
         self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Guideline Appropriate Ordering Module</div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "Guideline Appropriate Ordering Module")
         self.assertEqual(inst.topic[0].text, "Guideline Appropriate Ordering")

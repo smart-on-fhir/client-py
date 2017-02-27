@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -123,8 +123,8 @@ class ProvenanceAgent(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.role = None
-        """ What the agents involvement was.
-        Type `Coding` (represented as `dict` in JSON). """
+        """ What the agents role was.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.whoReference = None
         """ Who participated.
@@ -142,7 +142,7 @@ class ProvenanceAgent(backboneelement.BackboneElement):
             ("onBehalfOfReference", "onBehalfOfReference", fhirreference.FHIRReference, False, "onBehalfOf", False),
             ("onBehalfOfUri", "onBehalfOfUri", str, False, "onBehalfOf", False),
             ("relatedAgentType", "relatedAgentType", codeableconcept.CodeableConcept, False, None, False),
-            ("role", "role", coding.Coding, False, None, True),
+            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
             ("whoReference", "whoReference", fhirreference.FHIRReference, False, "who", True),
             ("whoUri", "whoUri", str, False, "who", True),
         ])

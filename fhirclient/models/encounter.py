@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -41,6 +41,10 @@ class Encounter(domainresource.DomainResource):
         """ inpatient | outpatient | ambulatory | emergency +.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.diagnosis = None
+        """ The list of diagnosis relevant to this encounter.
+        List of `EncounterDiagnosis` items (represented as `dict` in JSON). """
+        
         self.episodeOfCare = None
         """ Episode(s) of care that this encounter should be recorded against.
         List of `FHIRReference` items referencing `EpisodeOfCare` (represented as `dict` in JSON). """
@@ -56,10 +60,6 @@ class Encounter(domainresource.DomainResource):
         self.incomingReferral = None
         """ The ReferralRequest that initiated this encounter.
         List of `FHIRReference` items referencing `ReferralRequest` (represented as `dict` in JSON). """
-        
-        self.indication = None
-        """ Reason the encounter takes place (resource).
-        List of `FHIRReference` items referencing `Condition, Procedure` (represented as `dict` in JSON). """
         
         self.length = None
         """ Quantity of time the encounter lasted (less time absent).
@@ -119,11 +119,11 @@ class Encounter(domainresource.DomainResource):
             ("appointment", "appointment", fhirreference.FHIRReference, False, None, False),
             ("classHistory", "classHistory", EncounterClassHistory, True, None, False),
             ("class_fhir", "class", coding.Coding, False, None, False),
+            ("diagnosis", "diagnosis", EncounterDiagnosis, True, None, False),
             ("episodeOfCare", "episodeOfCare", fhirreference.FHIRReference, True, None, False),
             ("hospitalization", "hospitalization", EncounterHospitalization, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("incomingReferral", "incomingReferral", fhirreference.FHIRReference, True, None, False),
-            ("indication", "indication", fhirreference.FHIRReference, True, None, False),
             ("length", "length", duration.Duration, False, None, False),
             ("location", "location", EncounterLocation, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
@@ -184,6 +184,45 @@ class EncounterClassHistory(backboneelement.BackboneElement):
         return js
 
 
+class EncounterDiagnosis(backboneelement.BackboneElement):
+    """ The list of diagnosis relevant to this encounter.
+    """
+    
+    resource_type = "EncounterDiagnosis"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.condition = None
+        """ Reason the encounter takes place (resource).
+        Type `FHIRReference` referencing `Condition, Procedure` (represented as `dict` in JSON). """
+        
+        self.rank = None
+        """ Ranking of the diagnosis (for each role type).
+        Type `int`. """
+        
+        self.role = None
+        """ Role that this diagnosis has within the encounter (e.g. admission,
+        billing, discharge …).
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(EncounterDiagnosis, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(EncounterDiagnosis, self).elementProperties()
+        js.extend([
+            ("condition", "condition", fhirreference.FHIRReference, False, None, True),
+            ("rank", "rank", int, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+        ])
+        return js
+
+
 class EncounterHospitalization(backboneelement.BackboneElement):
     """ Details about the admission to a healthcare service.
     """
@@ -202,10 +241,6 @@ class EncounterHospitalization(backboneelement.BackboneElement):
         """ From where patient was admitted (physician referral, transfer).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.admittingDiagnosis = None
-        """ The admitting diagnosis as reported by admitting practitioner.
-        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
-        
         self.destination = None
         """ Location to which the patient is discharged.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
@@ -213,11 +248,6 @@ class EncounterHospitalization(backboneelement.BackboneElement):
         self.dietPreference = None
         """ Diet preferences reported by the patient.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.dischargeDiagnosis = None
-        """ The final diagnosis given a patient before release from the
-        hospital after all testing, surgery, and workup are complete.
-        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
         
         self.dischargeDisposition = None
         """ Category or kind of location after discharge.
@@ -250,10 +280,8 @@ class EncounterHospitalization(backboneelement.BackboneElement):
         js = super(EncounterHospitalization, self).elementProperties()
         js.extend([
             ("admitSource", "admitSource", codeableconcept.CodeableConcept, False, None, False),
-            ("admittingDiagnosis", "admittingDiagnosis", fhirreference.FHIRReference, True, None, False),
             ("destination", "destination", fhirreference.FHIRReference, False, None, False),
             ("dietPreference", "dietPreference", codeableconcept.CodeableConcept, True, None, False),
-            ("dischargeDiagnosis", "dischargeDiagnosis", fhirreference.FHIRReference, True, None, False),
             ("dischargeDisposition", "dischargeDisposition", codeableconcept.CodeableConcept, False, None, False),
             ("origin", "origin", fhirreference.FHIRReference, False, None, False),
             ("preAdmissionIdentifier", "preAdmissionIdentifier", identifier.Identifier, False, None, False),

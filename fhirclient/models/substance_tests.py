@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -165,5 +165,6 @@ class SubstanceTests(unittest.TestCase):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://acme.org/identifiers/substances")
         self.assertEqual(inst.identifier[0].value, "1463")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
 

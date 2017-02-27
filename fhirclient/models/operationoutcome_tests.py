@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -107,6 +107,7 @@ class OperationOutcomeTests(unittest.TestCase):
         self.assertEqual(inst.id, "validationfail")
         self.assertEqual(inst.issue[0].code, "structure")
         self.assertEqual(inst.issue[0].details.text, "Error parsing resource XML (Unknown Content \"label\"")
+        self.assertEqual(inst.issue[0].expression[0], "Patient.identifier")
         self.assertEqual(inst.issue[0].location[0], "/f:Patient/f:identifier")
         self.assertEqual(inst.issue[0].severity, "error")
         self.assertEqual(inst.text.status, "generated")
@@ -126,6 +127,7 @@ class OperationOutcomeTests(unittest.TestCase):
         self.assertEqual(inst.issue[0].code, "code-invalid")
         self.assertEqual(inst.issue[0].details.text, "The code \"W\" is not known and not legal in this context")
         self.assertEqual(inst.issue[0].diagnostics, "Acme.Interop.FHIRProcessors.Patient.processGender line 2453")
+        self.assertEqual(inst.issue[0].expression[0], "Person.gender")
         self.assertEqual(inst.issue[0].location[0], "/f:Person/f:gender")
         self.assertEqual(inst.issue[0].severity, "error")
         self.assertEqual(inst.text.status, "additional")

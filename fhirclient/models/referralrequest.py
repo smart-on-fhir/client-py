@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ReferralRequest) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -39,7 +39,7 @@ class ReferralRequest(domainresource.DomainResource):
         
         self.definition = None
         """ Instantiates protocol or definition.
-        List of `FHIRReference` items referencing `ActivityDefinition, PlanDefinition, HealthcareService` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ActivityDefinition, PlanDefinition` (represented as `dict` in JSON). """
         
         self.description = None
         """ A textual description of the referral.
@@ -62,16 +62,12 @@ class ReferralRequest(domainresource.DomainResource):
         List of `Annotation` items (represented as `dict` in JSON). """
         
         self.occurrenceDateTime = None
-        """ Requested service(s) fulfillment time.
+        """ When the service(s) requested in the referral should occur.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
-        """ Requested service(s) fulfillment time.
+        """ When the service(s) requested in the referral should occur.
         Type `Period` (represented as `dict` in JSON). """
-        
-        self.patient = None
-        """ Patient referred to care or transfer.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.priority = None
         """ Urgency of referral / transfer of care request.
@@ -87,7 +83,7 @@ class ReferralRequest(domainresource.DomainResource):
         
         self.recipient = None
         """ Receiver of referral / transfer of care request.
-        List of `FHIRReference` items referencing `Practitioner, Organization` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `Practitioner, Organization, HealthcareService` (represented as `dict` in JSON). """
         
         self.relevantHistory = None
         """ Key events in history of request.
@@ -95,7 +91,7 @@ class ReferralRequest(domainresource.DomainResource):
         
         self.replaces = None
         """ Request(s) replaced by this request.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ReferralRequest` (represented as `dict` in JSON). """
         
         self.requester = None
         """ Who/what is requesting service.
@@ -114,6 +110,10 @@ class ReferralRequest(domainresource.DomainResource):
         """ draft | active | suspended | cancelled | completed | entered-in-
         error | unknown.
         Type `str`. """
+        
+        self.subject = None
+        """ Patient referred to care or transfer.
+        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         self.supportingInfo = None
         """ Additonal information to support referral or transfer of care
@@ -140,7 +140,6 @@ class ReferralRequest(domainresource.DomainResource):
             ("note", "note", annotation.Annotation, True, None, False),
             ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("priority", "priority", str, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
@@ -151,6 +150,7 @@ class ReferralRequest(domainresource.DomainResource):
             ("serviceRequested", "serviceRequested", codeableconcept.CodeableConcept, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, False, None, False),
             ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])

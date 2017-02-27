@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/DetectedIssue) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/DetectedIssue) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -66,6 +66,10 @@ class DetectedIssue(domainresource.DomainResource):
         """ high | moderate | low.
         Type `str`. """
         
+        self.status = None
+        """ registered | preliminary | final | amended +.
+        Type `str`. """
+        
         super(DetectedIssue, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -81,6 +85,7 @@ class DetectedIssue(domainresource.DomainResource):
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("reference", "reference", str, False, None, False),
             ("severity", "severity", str, False, None, False),
+            ("status", "status", str, False, None, True),
         ])
         return js
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -47,7 +47,7 @@ class DeviceRequest(domainresource.DomainResource):
         
         self.definition = None
         """ Protocol or definition.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ActivityDefinition, PlanDefinition` (represented as `dict` in JSON). """
         
         self.groupIdentifier = None
         """ Identifier of composite request.
@@ -79,7 +79,7 @@ class DeviceRequest(domainresource.DomainResource):
         
         self.performer = None
         """ Requested Filler.
-        Type `FHIRReference` referencing `Practitioner, Organization, Patient, Device, RelatedPerson` (represented as `dict` in JSON). """
+        Type `FHIRReference` referencing `Practitioner, Organization, Patient, Device, RelatedPerson, HealthcareService` (represented as `dict` in JSON). """
         
         self.performerType = None
         """ Fille role.

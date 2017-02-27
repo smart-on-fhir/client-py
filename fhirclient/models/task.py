@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Task) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Task) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -94,7 +94,7 @@ class Task(domainresource.DomainResource):
         List of `TaskOutput` items (represented as `dict` in JSON). """
         
         self.owner = None
-        """ Task Owner.
+        """ Responsible individual.
         Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.partOf = None

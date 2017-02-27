@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -252,7 +252,7 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
         """ Code that identifies the target element.
         Type `str`. """
         
-        self.comments = None
+        self.comment = None
         """ Description of status/issues in mapping.
         Type `str`. """
         
@@ -283,7 +283,7 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
         js = super(ConceptMapGroupElementTarget, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, False),
-            ("comments", "comments", str, False, None, False),
+            ("comment", "comment", str, False, None, False),
             ("dependsOn", "dependsOn", ConceptMapGroupElementTargetDependsOn, True, None, False),
             ("dependsOndisplay", "dependsOndisplay", str, False, None, False),
             ("display", "display", str, False, None, False),

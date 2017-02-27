@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Account) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Account) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -35,16 +35,8 @@ class Account(domainresource.DomainResource):
         
         self.coverage = None
         """ The party(s) that are responsible for covering the payment of this
-        account.
-        List of `FHIRReference` items referencing `Coverage` (represented as `dict` in JSON). """
-        
-        self.coveragePeriod = None
-        """ Transaction window.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.currency = None
-        """ Base currency in which balance is tracked.
-        Type `Coding` (represented as `dict` in JSON). """
+        account, and what order should they be applied to the account.
+        List of `AccountCoverage` items (represented as `dict` in JSON). """
         
         self.description = None
         """ Explanation of purpose/use.
@@ -66,6 +58,10 @@ class Account(domainresource.DomainResource):
         """ Who is responsible?.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
+        self.period = None
+        """ Transaction window.
+        Type `Period` (represented as `dict` in JSON). """
+        
         self.status = None
         """ active | inactive | entered-in-error.
         Type `str`. """
@@ -85,14 +81,13 @@ class Account(domainresource.DomainResource):
         js.extend([
             ("active", "active", period.Period, False, None, False),
             ("balance", "balance", money.Money, False, None, False),
-            ("coverage", "coverage", fhirreference.FHIRReference, True, None, False),
-            ("coveragePeriod", "coveragePeriod", period.Period, False, None, False),
-            ("currency", "currency", coding.Coding, False, None, False),
+            ("coverage", "coverage", AccountCoverage, True, None, False),
             ("description", "description", str, False, None, False),
             ("guarantor", "guarantor", AccountGuarantor, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("name", "name", str, False, None, False),
             ("owner", "owner", fhirreference.FHIRReference, False, None, False),
+            ("period", "period", period.Period, False, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
@@ -101,6 +96,41 @@ class Account(domainresource.DomainResource):
 
 
 from . import backboneelement
+
+class AccountCoverage(backboneelement.BackboneElement):
+    """ The party(s) that are responsible for covering the payment of this account,
+    and what order should they be applied to the account.
+    """
+    
+    resource_type = "AccountCoverage"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.coverage = None
+        """ The party(s) that are responsible for covering the payment of this
+        account.
+        Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
+        
+        self.priority = None
+        """ The priority of the coverage in the context of this account.
+        Type `int`. """
+        
+        super(AccountCoverage, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(AccountCoverage, self).elementProperties()
+        js.extend([
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
+            ("priority", "priority", int, False, None, False),
+        ])
+        return js
+
 
 class AccountGuarantor(backboneelement.BackboneElement):
     """ Responsible for the account.
@@ -143,7 +173,6 @@ class AccountGuarantor(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import coding
 from . import fhirreference
 from . import identifier
 from . import money

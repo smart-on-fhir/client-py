@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -20,6 +20,9 @@ class FHIRElementFactory(object):
         if "Account" == resource_type:
             from . import account
             return account.Account(jsondict)
+        if "AccountCoverage" == resource_type:
+            from . import account
+            return account.AccountCoverage(jsondict)
         if "AccountGuarantor" == resource_type:
             from . import account
             return account.AccountGuarantor(jsondict)
@@ -29,6 +32,9 @@ class FHIRElementFactory(object):
         if "ActivityDefinitionDynamicValue" == resource_type:
             from . import activitydefinition
             return activitydefinition.ActivityDefinitionDynamicValue(jsondict)
+        if "ActivityDefinitionParticipant" == resource_type:
+            from . import activitydefinition
+            return activitydefinition.ActivityDefinitionParticipant(jsondict)
         if "Address" == resource_type:
             from . import address
             return address.Address(jsondict)
@@ -128,6 +134,9 @@ class FHIRElementFactory(object):
         if "CapabilityStatementMessagingEvent" == resource_type:
             from . import capabilitystatement
             return capabilitystatement.CapabilityStatementMessagingEvent(jsondict)
+        if "CapabilityStatementMessagingSupportedMessage" == resource_type:
+            from . import capabilitystatement
+            return capabilitystatement.CapabilityStatementMessagingSupportedMessage(jsondict)
         if "CapabilityStatementRest" == resource_type:
             from . import capabilitystatement
             return capabilitystatement.CapabilityStatementRest(jsondict)
@@ -170,18 +179,6 @@ class FHIRElementFactory(object):
         if "CareTeamParticipant" == resource_type:
             from . import careteam
             return careteam.CareTeamParticipant(jsondict)
-        if "Catalog" == resource_type:
-            from . import catalog
-            return catalog.Catalog(jsondict)
-        if "CatalogDocument" == resource_type:
-            from . import catalog
-            return catalog.CatalogDocument(jsondict)
-        if "CatalogEntry" == resource_type:
-            from . import catalog
-            return catalog.CatalogEntry(jsondict)
-        if "CatalogEntryRelatedItem" == resource_type:
-            from . import catalog
-            return catalog.CatalogEntryRelatedItem(jsondict)
         if "ChargeItem" == resource_type:
             from . import chargeitem
             return chargeitem.ChargeItem(jsondict)
@@ -320,6 +317,9 @@ class FHIRElementFactory(object):
         if "CompositionEvent" == resource_type:
             from . import composition
             return composition.CompositionEvent(jsondict)
+        if "CompositionRelatesTo" == resource_type:
+            from . import composition
+            return composition.CompositionRelatesTo(jsondict)
         if "CompositionSection" == resource_type:
             from . import composition
             return composition.CompositionSection(jsondict)
@@ -506,9 +506,9 @@ class FHIRElementFactory(object):
         if "DomainResource" == resource_type:
             from . import domainresource
             return domainresource.DomainResource(jsondict)
-        if "DosageInstruction" == resource_type:
-            from . import dosageinstruction
-            return dosageinstruction.DosageInstruction(jsondict)
+        if "Dosage" == resource_type:
+            from . import dosage
+            return dosage.Dosage(jsondict)
         if "Duration" == resource_type:
             from . import duration
             return duration.Duration(jsondict)
@@ -536,6 +536,9 @@ class FHIRElementFactory(object):
         if "ElementDefinitionSlicing" == resource_type:
             from . import elementdefinition
             return elementdefinition.ElementDefinitionSlicing(jsondict)
+        if "ElementDefinitionSlicingDiscriminator" == resource_type:
+            from . import elementdefinition
+            return elementdefinition.ElementDefinitionSlicingDiscriminator(jsondict)
         if "ElementDefinitionType" == resource_type:
             from . import elementdefinition
             return elementdefinition.ElementDefinitionType(jsondict)
@@ -563,6 +566,9 @@ class FHIRElementFactory(object):
         if "EncounterClassHistory" == resource_type:
             from . import encounter
             return encounter.EncounterClassHistory(jsondict)
+        if "EncounterDiagnosis" == resource_type:
+            from . import encounter
+            return encounter.EncounterDiagnosis(jsondict)
         if "EncounterHospitalization" == resource_type:
             from . import encounter
             return encounter.EncounterHospitalization(jsondict)
@@ -587,6 +593,9 @@ class FHIRElementFactory(object):
         if "EpisodeOfCare" == resource_type:
             from . import episodeofcare
             return episodeofcare.EpisodeOfCare(jsondict)
+        if "EpisodeOfCareDiagnosis" == resource_type:
+            from . import episodeofcare
+            return episodeofcare.EpisodeOfCareDiagnosis(jsondict)
         if "EpisodeOfCareStatusHistory" == resource_type:
             from . import episodeofcare
             return episodeofcare.EpisodeOfCareStatusHistory(jsondict)
@@ -839,18 +848,12 @@ class FHIRElementFactory(object):
         if "MeasureReportGroupStratifier" == resource_type:
             from . import measurereport
             return measurereport.MeasureReportGroupStratifier(jsondict)
-        if "MeasureReportGroupStratifierGroup" == resource_type:
+        if "MeasureReportGroupStratifierStratum" == resource_type:
             from . import measurereport
-            return measurereport.MeasureReportGroupStratifierGroup(jsondict)
-        if "MeasureReportGroupStratifierGroupPopulation" == resource_type:
+            return measurereport.MeasureReportGroupStratifierStratum(jsondict)
+        if "MeasureReportGroupStratifierStratumPopulation" == resource_type:
             from . import measurereport
-            return measurereport.MeasureReportGroupStratifierGroupPopulation(jsondict)
-        if "MeasureReportGroupSupplementalData" == resource_type:
-            from . import measurereport
-            return measurereport.MeasureReportGroupSupplementalData(jsondict)
-        if "MeasureReportGroupSupplementalDataGroup" == resource_type:
-            from . import measurereport
-            return measurereport.MeasureReportGroupSupplementalDataGroup(jsondict)
+            return measurereport.MeasureReportGroupStratifierStratumPopulation(jsondict)
         if "MeasureSupplementalData" == resource_type:
             from . import measure
             return measure.MeasureSupplementalData(jsondict)
@@ -869,9 +872,6 @@ class FHIRElementFactory(object):
         if "MedicationAdministrationPerformer" == resource_type:
             from . import medicationadministration
             return medicationadministration.MedicationAdministrationPerformer(jsondict)
-        if "MedicationBatch" == resource_type:
-            from . import medication
-            return medication.MedicationBatch(jsondict)
         if "MedicationDispense" == resource_type:
             from . import medicationdispense
             return medicationdispense.MedicationDispense(jsondict)
@@ -887,6 +887,9 @@ class FHIRElementFactory(object):
         if "MedicationPackage" == resource_type:
             from . import medication
             return medication.MedicationPackage(jsondict)
+        if "MedicationPackageBatch" == resource_type:
+            from . import medication
+            return medication.MedicationPackageBatch(jsondict)
         if "MedicationPackageContent" == resource_type:
             from . import medication
             return medication.MedicationPackageContent(jsondict)
@@ -1058,6 +1061,9 @@ class FHIRElementFactory(object):
         if "PlanDefinitionActionDefinitionDynamicValue" == resource_type:
             from . import plandefinition
             return plandefinition.PlanDefinitionActionDefinitionDynamicValue(jsondict)
+        if "PlanDefinitionActionDefinitionParticipant" == resource_type:
+            from . import plandefinition
+            return plandefinition.PlanDefinitionActionDefinitionParticipant(jsondict)
         if "PlanDefinitionActionDefinitionRelatedAction" == resource_type:
             from . import plandefinition
             return plandefinition.PlanDefinitionActionDefinitionRelatedAction(jsondict)
@@ -1307,9 +1313,9 @@ class FHIRElementFactory(object):
         if "SupplyRequestOrderedItem" == resource_type:
             from . import supplyrequest
             return supplyrequest.SupplyRequestOrderedItem(jsondict)
-        if "SupplyRequestWhen" == resource_type:
+        if "SupplyRequestRequester" == resource_type:
             from . import supplyrequest
-            return supplyrequest.SupplyRequestWhen(jsondict)
+            return supplyrequest.SupplyRequestRequester(jsondict)
         if "Task" == resource_type:
             from . import task
             return task.Task(jsondict)

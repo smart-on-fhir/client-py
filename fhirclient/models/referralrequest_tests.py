@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -40,6 +40,8 @@ class ReferralRequestTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "http://orionhealth.com/fhir/apps/referralids")
         self.assertEqual(inst.identifier[0].value, "ret4421")
         self.assertEqual(inst.intent, "order")
+        self.assertEqual(inst.occurrencePeriod.end.date, FHIRDate("2014-03-14").date)
+        self.assertEqual(inst.occurrencePeriod.end.as_json(), "2014-03-14")
         self.assertEqual(inst.priority, "routine")
         self.assertEqual(inst.reasonCode[0].text, "For consideration of Grommets")
         self.assertEqual(inst.serviceRequested[0].coding[0].code, "172676009")

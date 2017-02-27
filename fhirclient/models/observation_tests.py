@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -534,9 +534,13 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.bodySite.coding[0].code, "368209003")
         self.assertEqual(inst.bodySite.coding[0].display, "Right arm")
         self.assertEqual(inst.bodySite.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.code.coding[0].code, "55284-4")
-        self.assertEqual(inst.code.coding[0].display, "Blood pressure systolic & diastolic")
+        self.assertEqual(inst.category[0].coding[0].code, "vital-signs")
+        self.assertEqual(inst.category[0].coding[0].display, "Vital Signs")
+        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/observation-category")
+        self.assertEqual(inst.code.coding[0].code, "85354-9")
+        self.assertEqual(inst.code.coding[0].display, "Bood pressure panel with all children optional")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.code.text, "Blood pressure systolic & diastolic")
         self.assertEqual(inst.comment, "In this example, the blood pressure measurements are not available due to cancellation of the order.  Data absent reason is present for each component")
         self.assertEqual(inst.component[0].code.coding[0].code, "8480-6")
         self.assertEqual(inst.component[0].code.coding[0].display, "Systolic blood pressure")
@@ -565,8 +569,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.interpretation.coding[0].display, "low")
         self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
         self.assertEqual(inst.interpretation.text, "Below low normal")
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2014-01-30T22:35:23+11:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2014-01-30T22:35:23+11:00")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/vitalsigns")
         self.assertEqual(inst.status, "cancelled")
         self.assertEqual(inst.text.status, "generated")
     
@@ -587,9 +590,10 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.category[0].coding[0].code, "vital-signs")
         self.assertEqual(inst.category[0].coding[0].display, "Vital Signs")
         self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/observation-category")
-        self.assertEqual(inst.code.coding[0].code, "55284-4")
-        self.assertEqual(inst.code.coding[0].display, "Blood pressure systolic & diastolic")
+        self.assertEqual(inst.code.coding[0].code, "85354-9")
+        self.assertEqual(inst.code.coding[0].display, "Bood pressure panel with all children optional")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.code.text, "Blood pressure systolic & diastolic")
         self.assertEqual(inst.component[0].code.coding[0].code, "8480-6")
         self.assertEqual(inst.component[0].code.coding[0].display, "Systolic blood pressure")
         self.assertEqual(inst.component[0].code.coding[0].system, "http://loinc.org")
@@ -618,6 +622,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.interpretation.coding[0].display, "low")
         self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
         self.assertEqual(inst.interpretation.text, "Below low normal")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/vitalsigns")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
     
@@ -638,9 +643,10 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.category[0].coding[0].code, "vital-signs")
         self.assertEqual(inst.category[0].coding[0].display, "Vital Signs")
         self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/observation-category")
-        self.assertEqual(inst.code.coding[0].code, "55284-4")
-        self.assertEqual(inst.code.coding[0].display, "Blood pressure systolic & diastolic")
+        self.assertEqual(inst.code.coding[0].code, "85354-9")
+        self.assertEqual(inst.code.coding[0].display, "Bood pressure panel with all children optional")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.code.text, "Blood pressure systolic & diastolic")
         self.assertEqual(inst.component[0].code.coding[0].code, "8480-6")
         self.assertEqual(inst.component[0].code.coding[0].display, "Systolic blood pressure")
         self.assertEqual(inst.component[0].code.coding[0].system, "http://loinc.org")
@@ -678,6 +684,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.interpretation.coding[0].display, "low")
         self.assertEqual(inst.interpretation.coding[0].system, "http://hl7.org/fhir/v2/0078")
         self.assertEqual(inst.interpretation.text, "Below low normal")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/vitalsigns")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
     
@@ -729,6 +736,7 @@ class ObservationTests(unittest.TestCase):
         self.assertEqual(inst.effectiveDateTime.date, FHIRDate("1999-07-02").date)
         self.assertEqual(inst.effectiveDateTime.as_json(), "1999-07-02")
         self.assertEqual(inst.id, "bmi")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/vitalsigns")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.valueQuantity.code, "kg/m2")

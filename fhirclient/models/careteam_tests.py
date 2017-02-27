@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -37,7 +37,7 @@ class CareTeamTests(unittest.TestCase):
         self.assertEqual(inst.contained[0].id, "pr1")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].value, "12345")
-        self.assertEqual(inst.name, "Peter James Charlmers Care Plan for Encounter 123")
+        self.assertEqual(inst.name, "Peter James Charlmers Care Plan for Inpatient Encounter")
         self.assertEqual(inst.participant[0].role.text, "responsiblePerson")
         self.assertEqual(inst.participant[1].period.end.date, FHIRDate("2013-01-01").date)
         self.assertEqual(inst.participant[1].period.end.as_json(), "2013-01-01")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -97,6 +97,8 @@ class SpecimenTests(unittest.TestCase):
         self.assertEqual(inst.processing[0].description, "Acidify to pH < 3.0 with 6 N HCl.")
         self.assertEqual(inst.processing[0].procedure.coding[0].code, "ACID")
         self.assertEqual(inst.processing[0].procedure.coding[0].system, "http://hl7.org/fhir/v2/0373")
+        self.assertEqual(inst.processing[0].timeDateTime.date, FHIRDate("2015-08-18T08:10:00Z").date)
+        self.assertEqual(inst.processing[0].timeDateTime.as_json(), "2015-08-18T08:10:00Z")
         self.assertEqual(inst.receivedTime.date, FHIRDate("2015-08-18T07:03:00Z").date)
         self.assertEqual(inst.receivedTime.as_json(), "2015-08-18T07:03:00Z")
         self.assertEqual(inst.status, "available")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -33,6 +33,8 @@ class DeviceUseStatementTests(unittest.TestCase):
     
     def implDeviceUseStatement1(self, inst):
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">To be filled out at a later time</div>")
+        self.assertEqual(inst.identifier[0].system, "http:goodhealth.org/identifiers")
+        self.assertEqual(inst.identifier[0].value, "51ebb7a9-4e3a-4360-9a05-0cc2d869086f")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
 

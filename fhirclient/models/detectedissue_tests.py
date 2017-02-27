@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -33,6 +33,7 @@ class DetectedIssueTests(unittest.TestCase):
     
     def implDetectedIssue1(self, inst):
         self.assertEqual(inst.id, "allergy")
+        self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
         self.assertEqual(inst.text.status, "generated")
     
@@ -54,6 +55,7 @@ class DetectedIssueTests(unittest.TestCase):
         self.assertEqual(inst.date.as_json(), "2013-05-08")
         self.assertEqual(inst.detail, "Similar test was performed within the past 14 days")
         self.assertEqual(inst.id, "duplicate")
+        self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
     
     def testDetectedIssue3(self):
@@ -68,6 +70,7 @@ class DetectedIssueTests(unittest.TestCase):
     
     def implDetectedIssue3(self, inst):
         self.assertEqual(inst.id, "lab")
+        self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
         self.assertEqual(inst.text.status, "generated")
     
@@ -95,5 +98,6 @@ class DetectedIssueTests(unittest.TestCase):
         self.assertEqual(inst.mitigation[0].date.date, FHIRDate("2014-01-05").date)
         self.assertEqual(inst.mitigation[0].date.as_json(), "2014-01-05")
         self.assertEqual(inst.severity, "high")
+        self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
 

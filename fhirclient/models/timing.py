@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Timing) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Timing) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -11,9 +11,10 @@ class Timing(element.Element):
     """ A timing schedule that specifies an event that may occur multiple times.
     
     Specifies an event that may occur multiple times. Timing schedules are used
-    to record when things are expected or requested to occur. The most common
-    usage is in dosage instructions for medications. They are also used when
-    planning care of various kinds.
+    to record when things are planned, expected or requested to occur. The most
+    common usage is in dosage instructions for medications. They are also used
+    when planning care of various kinds, and may be used for reporting the
+    schedule to which past regular activities were carried out.
     """
     
     resource_type = "Timing"
@@ -53,7 +54,7 @@ class Timing(element.Element):
 class TimingRepeat(element.Element):
     """ When the event is to occur.
     
-    A set of rules that describe when the event should occur.
+    A set of rules that describe when the event is scheduled.
     """
     
     resource_type = "TimingRepeat"
@@ -132,7 +133,7 @@ class TimingRepeat(element.Element):
         
         self.when = None
         """ Regular life events the event is tied to.
-        Type `str`. """
+        List of `str` items. """
         
         super(TimingRepeat, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -155,7 +156,7 @@ class TimingRepeat(element.Element):
             ("periodMax", "periodMax", float, False, None, False),
             ("periodUnit", "periodUnit", str, False, None, False),
             ("timeOfDay", "timeOfDay", fhirdate.FHIRDate, True, None, False),
-            ("when", "when", str, False, None, False),
+            ("when", "when", str, True, None, False),
         ])
         return js
 

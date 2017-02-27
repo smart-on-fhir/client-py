@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -129,6 +129,9 @@ class LocationTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].value, "B1-S.F2.1.00")
         self.assertEqual(inst.mode, "instance")
         self.assertEqual(inst.name, "South Wing Neuro OR 1")
+        self.assertEqual(inst.operationalStatus.code, "H")
+        self.assertEqual(inst.operationalStatus.display, "Housekeeping")
+        self.assertEqual(inst.operationalStatus.system, "http://hl7.org/fhir/v2/0116")
         self.assertEqual(inst.physicalType.coding[0].code, "ro")
         self.assertEqual(inst.physicalType.coding[0].display, "Room")
         self.assertEqual(inst.physicalType.coding[0].system, "http://hl7.org/fhir/location-physical-type")

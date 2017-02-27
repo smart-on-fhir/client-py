@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -185,20 +185,22 @@ class TestScriptTests(unittest.TestCase):
         self.assertEqual(inst.test[0].action[0].operation.resource, "Patient")
         self.assertEqual(inst.test[0].action[0].operation.type.code, "read")
         self.assertEqual(inst.test[0].action[0].operation.type.system, "http://hl7.org/fhir/testscript-operation-codes")
-        self.assertEqual(inst.test[0].action[1].assert_fhir.description, "Confirm that the client requested an Accept of xml.")
-        self.assertEqual(inst.test[0].action[1].assert_fhir.direction, "request")
-        self.assertEqual(inst.test[0].action[1].assert_fhir.headerField, "Accept")
-        self.assertEqual(inst.test[0].action[1].assert_fhir.operator, "contains")
-        self.assertEqual(inst.test[0].action[1].assert_fhir.value, "xml")
-        self.assertEqual(inst.test[0].action[2].assert_fhir.description, "Confirm that the returned HTTP status is 200(OK).")
-        self.assertEqual(inst.test[0].action[2].assert_fhir.direction, "response")
-        self.assertEqual(inst.test[0].action[2].assert_fhir.response, "okay")
-        self.assertEqual(inst.test[0].action[3].assert_fhir.contentType, "xml")
-        self.assertEqual(inst.test[0].action[3].assert_fhir.description, "Confirm that the returned format is XML.")
+        self.assertEqual(inst.test[0].action[1].assert_fhir.description, "Confirm that the request method GET was sent by the client system under test.")
+        self.assertEqual(inst.test[0].action[1].assert_fhir.requestMethod, "get")
+        self.assertEqual(inst.test[0].action[2].assert_fhir.description, "Confirm that the client requested an Accept of xml.")
+        self.assertEqual(inst.test[0].action[2].assert_fhir.direction, "request")
+        self.assertEqual(inst.test[0].action[2].assert_fhir.headerField, "Accept")
+        self.assertEqual(inst.test[0].action[2].assert_fhir.operator, "contains")
+        self.assertEqual(inst.test[0].action[2].assert_fhir.value, "xml")
+        self.assertEqual(inst.test[0].action[3].assert_fhir.description, "Confirm that the returned HTTP status is 200(OK).")
         self.assertEqual(inst.test[0].action[3].assert_fhir.direction, "response")
-        self.assertEqual(inst.test[0].action[4].assert_fhir.description, "Confirm that the returned resource type is Patient.")
+        self.assertEqual(inst.test[0].action[3].assert_fhir.response, "okay")
+        self.assertEqual(inst.test[0].action[4].assert_fhir.contentType, "xml")
+        self.assertEqual(inst.test[0].action[4].assert_fhir.description, "Confirm that the returned format is XML.")
         self.assertEqual(inst.test[0].action[4].assert_fhir.direction, "response")
-        self.assertEqual(inst.test[0].action[4].assert_fhir.resource, "Patient")
+        self.assertEqual(inst.test[0].action[5].assert_fhir.description, "Confirm that the returned resource type is Patient.")
+        self.assertEqual(inst.test[0].action[5].assert_fhir.direction, "response")
+        self.assertEqual(inst.test[0].action[5].assert_fhir.resource, "Patient")
         self.assertEqual(inst.test[0].description, "Read a Patient from the first destination test system using the user defined dynamic variable ${Dest1PatientResourceId}. Perform basic validation.")
         self.assertEqual(inst.test[0].id, "01-ReadPatient-Destination1")
         self.assertEqual(inst.test[0].name, "ReadPatient-Destination1")

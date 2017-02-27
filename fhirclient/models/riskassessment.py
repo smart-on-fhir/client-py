@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -145,10 +145,6 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
         """ Possible outcome for the subject.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.probabilityCodeableConcept = None
-        """ Likelihood of specified outcome.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.probabilityDecimal = None
         """ Likelihood of specified outcome.
         Type `float`. """
@@ -156,6 +152,10 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
         self.probabilityRange = None
         """ Likelihood of specified outcome.
         Type `Range` (represented as `dict` in JSON). """
+        
+        self.qualitativeRisk = None
+        """ Likelihood of specified outcome as a qualitative value.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.rationale = None
         """ Explanation of prediction.
@@ -179,9 +179,9 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
         js = super(RiskAssessmentPrediction, self).elementProperties()
         js.extend([
             ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, True),
-            ("probabilityCodeableConcept", "probabilityCodeableConcept", codeableconcept.CodeableConcept, False, "probability", False),
             ("probabilityDecimal", "probabilityDecimal", float, False, "probability", False),
             ("probabilityRange", "probabilityRange", range.Range, False, "probability", False),
+            ("qualitativeRisk", "qualitativeRisk", codeableconcept.CodeableConcept, False, None, False),
             ("rationale", "rationale", str, False, None, False),
             ("relativeRisk", "relativeRisk", float, False, None, False),
             ("whenPeriod", "whenPeriod", period.Period, False, "when", False),

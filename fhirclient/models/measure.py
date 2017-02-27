@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11157 (http://hl7.org/fhir/StructureDefinition/Measure) on 2017-02-14.
+#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Measure) on 2017-02-27.
 #  2017, SMART Health IT.
 
 
@@ -24,16 +24,16 @@ class Measure(domainresource.DomainResource):
         """
         
         self.approvalDate = None
-        """ When measure approved by publisher.
+        """ When the measure was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.clinicalRecommendationStatement = None
-        """ Clinical recommendation.
+        """ Summary of clinical guidelines.
         Type `str`. """
         
         self.compositeScoring = None
         """ opportunity | all-or-nothing | linear | weighted.
-        Type `str`. """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.contact = None
         """ Contact details for the publisher.
@@ -52,19 +52,19 @@ class Measure(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.definition = None
-        """ A natural language definition of the measure.
-        Type `str`. """
+        """ Defined terms used in the measure documentation.
+        List of `str` items. """
         
         self.description = None
         """ Natural language description of the measure.
         Type `str`. """
         
         self.disclaimer = None
-        """ Disclaimer for the measure.
+        """ Disclaimer for use of the measure or its referenced content.
         Type `str`. """
         
         self.effectivePeriod = None
-        """ The effective date range for the measure.
+        """ When the measure is effective.
         Type `Period` (represented as `dict` in JSON). """
         
         self.experimental = None
@@ -76,7 +76,7 @@ class Measure(domainresource.DomainResource):
         List of `MeasureGroup` items (represented as `dict` in JSON). """
         
         self.guidance = None
-        """ The guidance for the measure.
+        """ Additional guidance for implementers.
         Type `str`. """
         
         self.identifier = None
@@ -93,7 +93,7 @@ class Measure(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.lastReviewDate = None
-        """ Last review date for the measure.
+        """ When the measure was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.library = None
@@ -121,7 +121,7 @@ class Measure(domainresource.DomainResource):
         Type `str`. """
         
         self.relatedArtifact = None
-        """ Related artifacts for the measure.
+        """ Additional documentation, citations, etc.
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.riskAdjustment = None
@@ -130,7 +130,7 @@ class Measure(domainresource.DomainResource):
         
         self.scoring = None
         """ proportion | ratio | continuous-variable | cohort.
-        Type `str`. """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.set = None
         """ The measure set, e.g. Preventive Care and Screening.
@@ -141,7 +141,7 @@ class Measure(domainresource.DomainResource):
         Type `str`. """
         
         self.supplementalData = None
-        """ Supplemental data.
+        """ What other data should be reported with the measure.
         List of `MeasureSupplementalData` items (represented as `dict` in JSON). """
         
         self.title = None
@@ -149,13 +149,13 @@ class Measure(domainresource.DomainResource):
         Type `str`. """
         
         self.topic = None
-        """ Descriptional topics for the measure.
+        """ E.g. Education, Treatment, Assessment, etc.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.type = None
         """ process | outcome | structure | patient-reported-outcome |
         composite.
-        List of `str` items. """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.url = None
         """ Logical uri to reference this measure (globally unique).
@@ -180,12 +180,12 @@ class Measure(domainresource.DomainResource):
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
             ("clinicalRecommendationStatement", "clinicalRecommendationStatement", str, False, None, False),
-            ("compositeScoring", "compositeScoring", str, False, None, False),
+            ("compositeScoring", "compositeScoring", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("contributor", "contributor", contributor.Contributor, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("definition", "definition", str, False, None, False),
+            ("definition", "definition", str, True, None, False),
             ("description", "description", str, False, None, False),
             ("disclaimer", "disclaimer", str, False, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
@@ -204,13 +204,13 @@ class Measure(domainresource.DomainResource):
             ("rationale", "rationale", str, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("riskAdjustment", "riskAdjustment", str, False, None, False),
-            ("scoring", "scoring", str, False, None, False),
+            ("scoring", "scoring", codeableconcept.CodeableConcept, False, None, False),
             ("set", "set", str, False, None, False),
             ("status", "status", str, False, None, True),
             ("supplementalData", "supplementalData", MeasureSupplementalData, True, None, False),
             ("title", "title", str, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
-            ("type", "type", str, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
             ("url", "url", str, False, None, False),
             ("usage", "usage", str, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
@@ -287,6 +287,12 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.code = None
+        """ initial-population | numerator | numerator-exclusion | denominator
+        | denominator-exclusion | denominator-exception | measure-
+        population | measure-population-exclusion | measure-observation.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.criteria = None
         """ The name of a valid referenced CQL expression (may be namespaced)
         that defines this population criteria.
@@ -304,22 +310,16 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
         """ Short name.
         Type `str`. """
         
-        self.type = None
-        """ initial-population | numerator | numerator-exclusion | denominator
-        | denominator-exclusion | denominator-exception | measure-
-        population | measure-population-exclusion | measure-observation.
-        Type `str`. """
-        
         super(MeasureGroupPopulation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MeasureGroupPopulation, self).elementProperties()
         js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("criteria", "criteria", str, False, None, True),
             ("description", "description", str, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("name", "name", str, False, None, False),
-            ("type", "type", str, False, None, True),
         ])
         return js
 
@@ -343,7 +343,7 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
         """
         
         self.criteria = None
-        """ Stratifier criteria.
+        """ How the measure should be stratified.
         Type `str`. """
         
         self.identifier = None
@@ -361,14 +361,14 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
         js = super(MeasureGroupStratifier, self).elementProperties()
         js.extend([
             ("criteria", "criteria", str, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("path", "path", str, False, None, False),
         ])
         return js
 
 
 class MeasureSupplementalData(backboneelement.BackboneElement):
-    """ Supplemental data.
+    """ What other data should be reported with the measure.
     
     The supplemental data criteria for the measure report, specified as either
     the name of a valid CQL expression within a referenced library, or a valid
@@ -386,7 +386,7 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
         """
         
         self.criteria = None
-        """ Supplemental data criteria.
+        """ Expression describing additional data to be reporrted.
         Type `str`. """
         
         self.identifier = None
@@ -399,7 +399,7 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
         
         self.usage = None
         """ supplemental-data | risk-adjustment-factor.
-        List of `str` items. """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(MeasureSupplementalData, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -407,9 +407,9 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
         js = super(MeasureSupplementalData, self).elementProperties()
         js.extend([
             ("criteria", "criteria", str, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("path", "path", str, False, None, False),
-            ("usage", "usage", str, True, None, False),
+            ("usage", "usage", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
