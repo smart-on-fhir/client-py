@@ -3,7 +3,7 @@
 import logging
 from fhirclient import client
 from fhirclient.models.medication import Medication
-from fhirclient.models.medicationorder import MedicationOrder
+from fhirclient.models.medicationrequest import MedicationRequest
 
 from flask import Flask, request, redirect, session
 
@@ -36,7 +36,7 @@ def _reset():
         del session['state']
 
 def _get_prescriptions(smart):
-    bundle = MedicationOrder.where({'patient': smart.patient_id}).perform(smart.server)
+    bundle = MedicationRequest.where({'patient': smart.patient_id}).perform(smart.server)
     pres = [be.resource for be in bundle.entry] if bundle is not None and bundle.entry is not None else None
     if pres is not None and len(pres) > 0:
         return pres
