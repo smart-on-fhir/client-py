@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -84,7 +84,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.signer[0].type.system, "http://org.mdhhs.fhir.consent-signer-type")
         self.assertEqual(inst.subType[0].coding[0].code, "MDHHS-5515")
         self.assertEqual(inst.subType[0].coding[0].display, "Michigan MDHHS-5515 Consent to Share Behavioral Health Information for Care Coordination Purposes")
-        self.assertEqual(inst.subType[0].coding[0].system, "http://hl7.org/fhir/ValueSet/consent-category")
+        self.assertEqual(inst.subType[0].coding[0].system, "http://hl7.org/fhir/consentcategorycodes")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "OPTIN")
         self.assertEqual(inst.type.coding[0].system, "http://org.mdhhs.fhir.consentdirective-type")
@@ -129,7 +129,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.term[0].text, "Withhold all data authored by Good Health provider.")
         self.assertEqual(inst.term[0].type.coding[0].code, "withhold-authored-by")
         self.assertEqual(inst.term[0].type.coding[0].display, "Withhold all data authored by specified actor entity.")
-        self.assertEqual(inst.term[0].type.coding[0].system, "http://hl7.org/fhir/consent-term-type-codes")
+        self.assertEqual(inst.term[0].type.coding[0].system, "http://example.org/fhir/consent-term-type-codes")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "57016-8")
         self.assertEqual(inst.type.coding[0].system, "http://loinc.org")
@@ -157,12 +157,12 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.term[0].subType.coding[0].system, "http://hl7.org/fhir/resource-types")
         self.assertEqual(inst.term[0].text, "Withhold orders from any provider.")
         self.assertEqual(inst.term[0].type.coding[0].code, "withhold-object-type")
-        self.assertEqual(inst.term[0].type.coding[0].system, "http://hl7.org/fhir/consent-term-type-codes")
+        self.assertEqual(inst.term[0].type.coding[0].system, "http://example.org/fhir/consent-term-type-codes")
         self.assertEqual(inst.term[1].subType.coding[0].code, "DiagnosticReport")
         self.assertEqual(inst.term[1].subType.coding[0].system, "http://hl7.org/fhir/resource-types")
         self.assertEqual(inst.term[1].text, "Withhold order results from any provider.")
         self.assertEqual(inst.term[1].type.coding[0].code, "withhold-object-type")
-        self.assertEqual(inst.term[1].type.coding[0].system, "http://hl7.org/fhir/consent-term-type-codes")
+        self.assertEqual(inst.term[1].type.coding[0].system, "http://example.org/fhir/consent-term-type-codes")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "57016-8")
         self.assertEqual(inst.type.coding[0].system, "http://loinc.org")
@@ -189,7 +189,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.term[0].text, "Withhold this order and any results or related objects from any provider.")
         self.assertEqual(inst.term[0].type.coding[0].code, "withhold-from")
         self.assertEqual(inst.term[0].type.coding[0].display, "Withhold all data from specified actor entity.")
-        self.assertEqual(inst.term[0].type.coding[0].system, "http://hl7.org/fhir/consent-term-type-codes")
+        self.assertEqual(inst.term[0].type.coding[0].system, "http://example.org/fhir/consent-term-type-codes")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "57016-8")
         self.assertEqual(inst.type.coding[0].system, "http://loinc.org")
@@ -222,7 +222,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.term[0].text, "Withhold this order and any results or related objects from specified nurse provider.")
         self.assertEqual(inst.term[0].type.coding[0].code, "withhold-from")
         self.assertEqual(inst.term[0].type.coding[0].display, "Withhold all data from specified actor entity.")
-        self.assertEqual(inst.term[0].type.coding[0].system, "http://hl7.org/fhir/consent-term-type-codes")
+        self.assertEqual(inst.term[0].type.coding[0].system, "http://example.org/fhir/consent-term-type-codes")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "57016-8")
         self.assertEqual(inst.type.coding[0].system, "http://loinc.org")
@@ -249,7 +249,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.term[0].text, "Withhold this order and any results or related objects from any provider.")
         self.assertEqual(inst.term[0].type.coding[0].code, "withhold-identified-object-and-related")
         self.assertEqual(inst.term[0].type.coding[0].display, "Withhold the identified object and any other resources that are related to this object.")
-        self.assertEqual(inst.term[0].type.coding[0].system, "http://hl7.org/fhir/consent-term-type-codes")
+        self.assertEqual(inst.term[0].type.coding[0].system, "http://example.org/fhir/consent-term-type-codes")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "57016-8")
         self.assertEqual(inst.type.coding[0].system, "http://loinc.org")

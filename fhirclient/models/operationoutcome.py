@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -95,4 +95,8 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']

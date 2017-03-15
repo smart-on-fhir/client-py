@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -32,10 +32,19 @@ class DeviceMetricTests(unittest.TestCase):
         self.implDeviceMetric1(inst2)
     
     def implDeviceMetric1(self, inst):
+        self.assertEqual(inst.calibration[0].state, "calibrated")
+        self.assertEqual(inst.calibration[0].time.date, FHIRDate("2016-12-28T09:03:04-05:00").date)
+        self.assertEqual(inst.calibration[0].time.as_json(), "2016-12-28T09:03:04-05:00")
+        self.assertEqual(inst.calibration[0].type, "two-point")
         self.assertEqual(inst.category, "measurement")
+        self.assertEqual(inst.color, "blue")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier.system, "http://goodcare.org/devicemetric/id")
         self.assertEqual(inst.identifier.value, "345675")
+        self.assertEqual(inst.measurementPeriod.repeat.frequency, 1)
+        self.assertEqual(inst.measurementPeriod.repeat.period, 1)
+        self.assertEqual(inst.measurementPeriod.repeat.periodUnit, "s")
+        self.assertEqual(inst.operationalStatus, "on")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "150456")
         self.assertEqual(inst.type.coding[0].display, "MDC_PULS_OXIM_SAT_O2")

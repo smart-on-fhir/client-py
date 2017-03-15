@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -279,6 +279,8 @@ class AuditEventEntity(backboneelement.BackboneElement):
 
 class AuditEventEntityDetail(backboneelement.BackboneElement):
     """ Additional Information about the entity.
+    
+    Tagged value pairs for conveying additional information about the entity.
     """
     
     resource_type = "AuditEventEntityDetail"
@@ -350,8 +352,24 @@ class AuditEventSource(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import coding
-from . import fhirdate
-from . import fhirreference
-from . import identifier
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']

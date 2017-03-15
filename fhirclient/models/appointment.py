@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -75,7 +75,7 @@ class Appointment(domainresource.DomainResource):
         
         self.requestedPeriod = None
         """ Potential date/time interval(s) requested to allocate the
-        appointment during.
+        appointment within.
         List of `Period` items (represented as `dict` in JSON). """
         
         self.serviceCategory = None
@@ -186,8 +186,24 @@ class AppointmentParticipant(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import period
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']

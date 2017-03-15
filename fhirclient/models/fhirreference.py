@@ -52,8 +52,6 @@ class FHIRReference(reference.Reference):
         
         # are we in a bundle?
         ref_is_relative = '://' not in self.reference and 'urn:' != self.reference[:4]
-        if (sys.version_info < (3, 0)):
-            from . import bundle
         bundle = self.owningBundle()
         while bundle is not None:
             if bundle.entry is not None:
@@ -94,7 +92,3 @@ class FHIRReference(reference.Reference):
             return self.reference[1:]
         return self.reference
 
-
-import sys
-if (sys.version_info > (3, 0)):     # Python 2 imports are POS
-    from . import bundle

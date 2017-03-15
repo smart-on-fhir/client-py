@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/UsageContext) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/UsageContext) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -55,7 +55,20 @@ class UsageContext(element.Element):
         return js
 
 
-from . import codeableconcept
-from . import coding
-from . import quantity
-from . import range
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']
+try:
+    from . import range
+except ImportError:
+    range = sys.modules[__package__ + '.range']

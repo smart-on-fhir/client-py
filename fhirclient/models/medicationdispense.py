@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -48,7 +48,7 @@ class MedicationDispense(domainresource.DomainResource):
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
         self.detectedIssue = None
-        """ Clinical Issue with action.
+        """ Clinical issue with action.
         List of `FHIRReference` items referencing `DetectedIssue` (represented as `dict` in JSON). """
         
         self.dosageInstruction = None
@@ -57,7 +57,7 @@ class MedicationDispense(domainresource.DomainResource):
         List of `Dosage` items (represented as `dict` in JSON). """
         
         self.eventHistory = None
-        """ A list of events of interest in the lifecycle.
+        """ A list of releveant lifecycle events.
         List of `FHIRReference` items referencing `Provenance` (represented as `dict` in JSON). """
         
         self.identifier = None
@@ -173,7 +173,8 @@ from . import backboneelement
 class MedicationDispensePerformer(backboneelement.BackboneElement):
     """ Who performed event.
     
-    Indicates who or what performed the event.
+    Indicates who or what performed the event.  It should be assumed that the
+    performer is the dispenser of the medication.
     """
     
     resource_type = "MedicationDispensePerformer"
@@ -255,10 +256,32 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
         return js
 
 
-from . import annotation
-from . import codeableconcept
-from . import dosage
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import quantity
+import sys
+try:
+    from . import annotation
+except ImportError:
+    annotation = sys.modules[__package__ + '.annotation']
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import dosage
+except ImportError:
+    dosage = sys.modules[__package__ + '.dosage']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']

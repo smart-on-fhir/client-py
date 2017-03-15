@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -98,11 +98,11 @@ class StructureDefinition(domainresource.DomainResource):
         List of `StructureDefinitionMapping` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name for this structure definition (Computer friendly).
+        """ Name for this structure definition (computer friendly).
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (Organization or individual).
+        """ Name of the publisher (organization or individual).
         Type `str`. """
         
         self.purpose = None
@@ -114,11 +114,11 @@ class StructureDefinition(domainresource.DomainResource):
         Type `StructureDefinitionSnapshot` (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | retired.
+        """ draft | active | retired | unknown.
         Type `str`. """
         
         self.title = None
-        """ Name for this structure definition (Human friendly).
+        """ Name for this structure definition (human friendly).
         Type `str`. """
         
         self.type = None
@@ -284,10 +284,32 @@ class StructureDefinitionSnapshot(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import coding
-from . import contactdetail
-from . import elementdefinition
-from . import fhirdate
-from . import identifier
-from . import usagecontext
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
+    from . import elementdefinition
+except ImportError:
+    elementdefinition = sys.modules[__package__ + '.elementdefinition']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

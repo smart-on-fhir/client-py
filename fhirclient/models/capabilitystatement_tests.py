@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -49,7 +49,7 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.implementation.description, "main EHR at ACME")
         self.assertEqual(inst.implementation.url, "http://10.2.3.4/fhir")
-        self.assertEqual(inst.implementationGuide[0], "http://hl7.org/fhir/uslab")
+        self.assertEqual(inst.implementationGuide[0], "http://hl7.org/fhir/us/lab")
         self.assertEqual(inst.instantiates[0], "http://ihe.org/fhir/CapabilityStatement/pixm-client")
         self.assertEqual(inst.jurisdiction[0].coding[0].code, "US")
         self.assertEqual(inst.jurisdiction[0].coding[0].display, "United States of America (the)")
@@ -61,7 +61,7 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.messaging[0].endpoint[0].protocol.system, "http://hl7.org/fhir/message-transport")
         self.assertEqual(inst.messaging[0].event[0].category, "Consequence")
         self.assertEqual(inst.messaging[0].event[0].code.code, "admin-notify")
-        self.assertEqual(inst.messaging[0].event[0].code.system, "http://hl7.org/fhir/message-type")
+        self.assertEqual(inst.messaging[0].event[0].code.system, "http://hl7.org/fhir/message-events")
         self.assertEqual(inst.messaging[0].event[0].documentation, "Notification of an update to a patient resource. changing the links is not supported")
         self.assertEqual(inst.messaging[0].event[0].focus, "Patient")
         self.assertEqual(inst.messaging[0].event[0].mode, "receiver")
@@ -71,7 +71,7 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.patchFormat[1], "application/json-patch+json")
         self.assertEqual(inst.publisher, "ACME Corporation")
         self.assertEqual(inst.purpose, "Main EHR capability statement, published for contracting and operational support")
-        self.assertEqual(inst.rest[0].compartment[0], "http://hl7.org/fhir/compartment/Patient")
+        self.assertEqual(inst.rest[0].compartment[0], "http://hl7.org/fhir/CompartmentDefinition/patient")
         self.assertEqual(inst.rest[0].documentation, "Main FHIR endpoint for acem health")
         self.assertEqual(inst.rest[0].interaction[0].code, "transaction")
         self.assertEqual(inst.rest[0].interaction[1].code, "history-system")
@@ -94,8 +94,8 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.rest[0].resource[0].searchParam[0].documentation, "Only supports search by institution MRN")
         self.assertEqual(inst.rest[0].resource[0].searchParam[0].name, "identifier")
         self.assertEqual(inst.rest[0].resource[0].searchParam[0].type, "token")
-        self.assertEqual(inst.rest[0].resource[0].searchParam[1].definition, "http://hl7.org/fhir/SearchParameter/Patient-careprovider")
-        self.assertEqual(inst.rest[0].resource[0].searchParam[1].name, "careprovider")
+        self.assertEqual(inst.rest[0].resource[0].searchParam[1].definition, "http://hl7.org/fhir/SearchParameter/Patient-general-practitioner")
+        self.assertEqual(inst.rest[0].resource[0].searchParam[1].name, "general-practitioner")
         self.assertEqual(inst.rest[0].resource[0].searchParam[1].type, "reference")
         self.assertEqual(inst.rest[0].resource[0].searchRevInclude[0], "Person")
         self.assertEqual(inst.rest[0].resource[0].type, "Patient")

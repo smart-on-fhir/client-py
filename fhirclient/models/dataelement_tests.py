@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -58,7 +58,7 @@ class DataElementTests(unittest.TestCase):
         self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.mapping[0].identity, "fhir")
         self.assertEqual(inst.mapping[0].name, "Fast Healthcare Interoperable Resources (FHIR)")
-        self.assertEqual(inst.mapping[0].uri, "http://hl7.org/fhir")
+        self.assertEqual(inst.mapping[0].uri, "http://hl7.org/fhir/api")
         self.assertEqual(inst.name, "Gender Code")
         self.assertEqual(inst.publisher, "DCP")
         self.assertEqual(inst.status, "active")

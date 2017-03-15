@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -278,7 +278,7 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.diagnosis[0].rank, 1)
         self.assertEqual(inst.diagnosis[0].role.coding[0].code, "AD")
         self.assertEqual(inst.diagnosis[0].role.coding[0].display, "Admission diagnosis")
-        self.assertEqual(inst.diagnosis[0].role.coding[0].system, "http://hl7.org/fhir/encounter-diagnosis-role")
+        self.assertEqual(inst.diagnosis[0].role.coding[0].system, "http://hl7.org/fhir/diagnosis-role")
         self.assertEqual(inst.id, "f202")
         self.assertEqual(inst.identifier[0].use, "temp")
         self.assertEqual(inst.identifier[0].value, "Encounter_Roel_20130128")
@@ -315,10 +315,10 @@ class EncounterTests(unittest.TestCase):
         self.assertEqual(inst.diagnosis[0].rank, 1)
         self.assertEqual(inst.diagnosis[0].role.coding[0].code, "AD")
         self.assertEqual(inst.diagnosis[0].role.coding[0].display, "Admission diagnosis")
-        self.assertEqual(inst.diagnosis[0].role.coding[0].system, "http://hl7.org/fhir/encounter-diagnosis-role")
+        self.assertEqual(inst.diagnosis[0].role.coding[0].system, "http://hl7.org/fhir/diagnosis-role")
         self.assertEqual(inst.diagnosis[1].role.coding[0].code, "DD")
         self.assertEqual(inst.diagnosis[1].role.coding[0].display, "Discharge diagnosis")
-        self.assertEqual(inst.diagnosis[1].role.coding[0].system, "http://hl7.org/fhir/encounter-diagnosis-role")
+        self.assertEqual(inst.diagnosis[1].role.coding[0].system, "http://hl7.org/fhir/diagnosis-role")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].code, "309902002")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].display, "Clinical Oncology Department")
         self.assertEqual(inst.hospitalization.admitSource.coding[0].system, "http://snomed.info/sct")

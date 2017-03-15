@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/MeasureReport) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/MeasureReport) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -24,7 +24,7 @@ class MeasureReport(domainresource.DomainResource):
         """
         
         self.date = None
-        """ Date the report was generated.
+        """ When the report was generated.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.evaluatedResources = None
@@ -35,20 +35,24 @@ class MeasureReport(domainresource.DomainResource):
         """ Measure results for each group.
         List of `MeasureReportGroup` items (represented as `dict` in JSON). """
         
+        self.identifier = None
+        """ Additional identifier for the Report.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
         self.measure = None
-        """ Measure that was evaluated.
+        """ What measure was evaluated.
         Type `FHIRReference` referencing `Measure` (represented as `dict` in JSON). """
         
         self.patient = None
-        """ Optional Patient.
+        """ What patient the report is for.
         Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         self.period = None
-        """ Reporting period.
+        """ What period the report covers.
         Type `Period` (represented as `dict` in JSON). """
         
         self.reportingOrganization = None
-        """ Reporting Organization.
+        """ Who is reporting the data.
         Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.status = None
@@ -67,6 +71,7 @@ class MeasureReport(domainresource.DomainResource):
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("evaluatedResources", "evaluatedResources", fhirreference.FHIRReference, False, None, False),
             ("group", "group", MeasureReportGroup, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("measure", "measure", fhirreference.FHIRReference, False, None, True),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("period", "period", period.Period, False, None, True),
@@ -97,11 +102,11 @@ class MeasureReportGroup(backboneelement.BackboneElement):
         """
         
         self.identifier = None
-        """ Identifier of the population group being reported.
+        """ What group of the measure.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.measureScore = None
-        """ The measure score.
+        """ What score this group achieved.
         Type `float`. """
         
         self.population = None
@@ -153,7 +158,7 @@ class MeasureReportGroupPopulation(backboneelement.BackboneElement):
         Type `int`. """
         
         self.identifier = None
-        """ Identifier of the population being reported.
+        """ Population identifier as defined in the measure.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.patients = None
@@ -191,7 +196,7 @@ class MeasureReportGroupStratifier(backboneelement.BackboneElement):
         """
         
         self.identifier = None
-        """ Identifier of the stratifier.
+        """ What stratifier of the group.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.stratum = None
@@ -228,7 +233,7 @@ class MeasureReportGroupStratifierStratum(backboneelement.BackboneElement):
         """
         
         self.measureScore = None
-        """ Score for this stratum.
+        """ What score this stratum achieved.
         Type `float`. """
         
         self.population = None
@@ -279,7 +284,7 @@ class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElem
         Type `int`. """
         
         self.identifier = None
-        """ Identifier of the population.
+        """ Population identifier as defined in the measure.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.patients = None
@@ -299,8 +304,24 @@ class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElem
         return js
 
 
-from . import codeableconcept
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import period
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']

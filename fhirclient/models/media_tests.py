@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -51,7 +51,7 @@ class MediaTests(unittest.TestCase):
         self.assertEqual(inst.identifier[3].type.text, "seriesId")
         self.assertEqual(inst.identifier[3].value, "urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0")
         self.assertEqual(inst.subtype.coding[0].code, "US")
-        self.assertEqual(inst.subtype.coding[0].system, "http://nema.org/dicom/dicm")
+        self.assertEqual(inst.subtype.coding[0].system, "http://dicom.nema.org/resources/ontology/DCM")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "photo")
         self.assertEqual(inst.view.coding[0].code, "399067008")
@@ -129,7 +129,7 @@ class MediaTests(unittest.TestCase):
         self.assertEqual(inst.height, 145)
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.subtype.coding[0].code, "diagram")
-        self.assertEqual(inst.subtype.coding[0].system, "http://hl7.org/fhir/media-method")
+        self.assertEqual(inst.subtype.coding[0].system, "http://hl7.org/fhir/media-subtype")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Diagram for Patient Henry Levin (MRN 12345):<br/><img src=\"#11\" alt=\"diagram\"/></div>")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "photo")

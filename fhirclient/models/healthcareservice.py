@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -236,10 +236,32 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
         return js
 
 
-from . import attachment
-from . import codeableconcept
-from . import contactpoint
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import period
+import sys
+try:
+    from . import attachment
+except ImportError:
+    attachment = sys.modules[__package__ + '.attachment']
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import contactpoint
+except ImportError:
+    contactpoint = sys.modules[__package__ + '.contactpoint']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']

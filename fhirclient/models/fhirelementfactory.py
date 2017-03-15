@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -1052,27 +1052,27 @@ class FHIRElementFactory(object):
         if "PlanDefinition" == resource_type:
             from . import plandefinition
             return plandefinition.PlanDefinition(jsondict)
-        if "PlanDefinitionActionDefinition" == resource_type:
+        if "PlanDefinitionAction" == resource_type:
             from . import plandefinition
-            return plandefinition.PlanDefinitionActionDefinition(jsondict)
-        if "PlanDefinitionActionDefinitionCondition" == resource_type:
+            return plandefinition.PlanDefinitionAction(jsondict)
+        if "PlanDefinitionActionCondition" == resource_type:
             from . import plandefinition
-            return plandefinition.PlanDefinitionActionDefinitionCondition(jsondict)
-        if "PlanDefinitionActionDefinitionDynamicValue" == resource_type:
+            return plandefinition.PlanDefinitionActionCondition(jsondict)
+        if "PlanDefinitionActionDynamicValue" == resource_type:
             from . import plandefinition
-            return plandefinition.PlanDefinitionActionDefinitionDynamicValue(jsondict)
-        if "PlanDefinitionActionDefinitionParticipant" == resource_type:
+            return plandefinition.PlanDefinitionActionDynamicValue(jsondict)
+        if "PlanDefinitionActionParticipant" == resource_type:
             from . import plandefinition
-            return plandefinition.PlanDefinitionActionDefinitionParticipant(jsondict)
-        if "PlanDefinitionActionDefinitionRelatedAction" == resource_type:
+            return plandefinition.PlanDefinitionActionParticipant(jsondict)
+        if "PlanDefinitionActionRelatedAction" == resource_type:
             from . import plandefinition
-            return plandefinition.PlanDefinitionActionDefinitionRelatedAction(jsondict)
-        if "PlanDefinitionGoalDefinition" == resource_type:
+            return plandefinition.PlanDefinitionActionRelatedAction(jsondict)
+        if "PlanDefinitionGoal" == resource_type:
             from . import plandefinition
-            return plandefinition.PlanDefinitionGoalDefinition(jsondict)
-        if "PlanDefinitionGoalDefinitionTarget" == resource_type:
+            return plandefinition.PlanDefinitionGoal(jsondict)
+        if "PlanDefinitionGoalTarget" == resource_type:
             from . import plandefinition
-            return plandefinition.PlanDefinitionGoalDefinitionTarget(jsondict)
+            return plandefinition.PlanDefinitionGoalTarget(jsondict)
         if "Practitioner" == resource_type:
             from . import practitioner
             return practitioner.Practitioner(jsondict)

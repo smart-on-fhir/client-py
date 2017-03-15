@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ResearchSubject) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ResearchSubject) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -41,7 +41,7 @@ class ResearchSubject(domainresource.DomainResource):
         Type `FHIRReference` referencing `Consent` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Business Identifer for event.
+        """ Business Identifier for event.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.individual = None
@@ -77,6 +77,16 @@ class ResearchSubject(domainresource.DomainResource):
         return js
 
 
-from . import fhirreference
-from . import identifier
-from . import period
+import sys
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']

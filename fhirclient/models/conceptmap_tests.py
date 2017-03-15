@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -43,6 +43,7 @@ class ConceptMapTests(unittest.TestCase):
         self.assertEqual(inst.group[0].element[0].display, "Example Code")
         self.assertEqual(inst.group[0].element[0].target[0].code, "code2")
         self.assertEqual(inst.group[0].element[0].target[0].dependsOn[0].code, "some-code")
+        self.assertEqual(inst.group[0].element[0].target[0].dependsOn[0].display, "Something Coded")
         self.assertEqual(inst.group[0].element[0].target[0].dependsOn[0].property, "http://example.org/fhir/DataElement/example")
         self.assertEqual(inst.group[0].element[0].target[0].dependsOn[0].system, "http://example.org/fhir/example3")
         self.assertEqual(inst.group[0].element[0].target[0].display, "Some Example Code")

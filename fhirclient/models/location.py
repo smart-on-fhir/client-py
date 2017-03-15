@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Location) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Location) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -156,9 +156,28 @@ class LocationPosition(backboneelement.BackboneElement):
         return js
 
 
-from . import address
-from . import codeableconcept
-from . import coding
-from . import contactpoint
-from . import fhirreference
-from . import identifier
+import sys
+try:
+    from . import address
+except ImportError:
+    address = sys.modules[__package__ + '.address']
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import contactpoint
+except ImportError:
+    contactpoint = sys.modules[__package__ + '.contactpoint']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']

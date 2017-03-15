@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -95,7 +95,7 @@ class CodeSystemTests(unittest.TestCase):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier.system, "http://acme.com/identifiers/codesystems")
         self.assertEqual(inst.identifier.value, "internal-cholesterol-inl")
-        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/codesystem-shareable-definition")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablecodesystem")
         self.assertEqual(inst.name, "ACME Codes for Cholesterol in Serum/Plasma")
         self.assertEqual(inst.publisher, "HL7 International")
         self.assertEqual(inst.status, "draft")
@@ -150,9 +150,9 @@ class CodeSystemTests(unittest.TestCase):
         self.assertEqual(inst.id, "list-example-codes")
         self.assertEqual(inst.identifier.system, "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier.value, "urn:oid:2.16.840.1.113883.4.642.1.308")
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2017-02-27T09:13:50.744+00:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2017-02-27T09:13:50.744+00:00")
-        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/codesystem-shareable-definition")
+        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2017-03-15T21:22:55.937+00:00").date)
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2017-03-15T21:22:55.937+00:00")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablecodesystem")
         self.assertEqual(inst.name, "Example Use Codes for List")
         self.assertEqual(inst.publisher, "FHIR Project")
         self.assertEqual(inst.status, "draft")

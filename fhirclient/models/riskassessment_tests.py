@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -33,6 +33,9 @@ class RiskAssessmentTests(unittest.TestCase):
     
     def implRiskAssessment1(self, inst):
         self.assertEqual(inst.id, "cardiac")
+        self.assertEqual(inst.identifier.system, "http://example.org")
+        self.assertEqual(inst.identifier.use, "official")
+        self.assertEqual(inst.identifier.value, "risk-assessment-cardiac")
         self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2014-07-19T16:04:00Z").date)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2014-07-19T16:04:00Z")
         self.assertEqual(inst.prediction[0].outcome.text, "Heart Attack")
@@ -97,6 +100,7 @@ class RiskAssessmentTests(unittest.TestCase):
         self.implRiskAssessment4(inst2)
     
     def implRiskAssessment4(self, inst):
+        self.assertEqual(inst.comment, "High degree of certainty")
         self.assertEqual(inst.id, "genetic")
         self.assertEqual(inst.method.coding[0].code, "BRCAPRO")
         self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2006-01-13T23:01:00Z").date)

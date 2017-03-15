@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -68,7 +68,7 @@ class TestScript(domainresource.DomainResource):
         Type `TestScriptMetadata` (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name for this test script (Computer friendly).
+        """ Name for this test script (computer friendly).
         Type `str`. """
         
         self.origin = None
@@ -81,7 +81,7 @@ class TestScript(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
         
         self.publisher = None
-        """ Name of the publisher (Organization or individual).
+        """ Name of the publisher (organization or individual).
         Type `str`. """
         
         self.purpose = None
@@ -101,7 +101,7 @@ class TestScript(domainresource.DomainResource):
         Type `TestScriptSetup` (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | retired.
+        """ draft | active | retired | unknown.
         Type `str`. """
         
         self.teardown = None
@@ -113,7 +113,7 @@ class TestScript(domainresource.DomainResource):
         List of `TestScriptTest` items (represented as `dict` in JSON). """
         
         self.title = None
-        """ Name for this test script (Human friendly).
+        """ Name for this test script (human friendly).
         Type `str`. """
         
         self.url = None
@@ -1323,10 +1323,32 @@ class TestScriptVariable(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import coding
-from . import contactdetail
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import usagecontext
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -32,29 +32,26 @@ class DeviceComponentTests(unittest.TestCase):
         self.implDeviceComponent1(inst2)
     
     def implDeviceComponent1(self, inst):
-        self.assertEqual(inst.contained[0].id, "d1")
         self.assertEqual(inst.id, "example-prodspec")
-        self.assertEqual(inst.identifier.type.text, "Handle ID")
-        self.assertEqual(inst.identifier.value, "0")
+        self.assertEqual(inst.identifier.value, "789123")
         self.assertEqual(inst.languageCode.coding[0].code, "en-US")
         self.assertEqual(inst.languageCode.coding[0].system, "http://tools.ietf.org/html/bcp47")
         self.assertEqual(inst.lastSystemChange.date, FHIRDate("2014-10-07T14:45:00Z").date)
         self.assertEqual(inst.lastSystemChange.as_json(), "2014-10-07T14:45:00Z")
-        self.assertEqual(inst.operationalStatus[0].coding[0].code, "0")
-        self.assertEqual(inst.operationalStatus[0].coding[0].display, "disconnected")
-        self.assertEqual(inst.operationalStatus[0].coding[0].system, "urn:iso:std:iso:11073:10101")
+        self.assertEqual(inst.operationalStatus[0].coding[0].code, "off")
+        self.assertEqual(inst.operationalStatus[0].coding[0].display, "Off")
         self.assertEqual(inst.productionSpecification[0].productionSpec, "xa-12324-b")
-        self.assertEqual(inst.productionSpecification[0].specType.coding[0].code, "1")
+        self.assertEqual(inst.productionSpecification[0].specType.coding[0].code, "serial-number")
         self.assertEqual(inst.productionSpecification[0].specType.coding[0].display, "Serial number")
         self.assertEqual(inst.productionSpecification[1].productionSpec, "1.1")
-        self.assertEqual(inst.productionSpecification[1].specType.coding[0].code, "3")
-        self.assertEqual(inst.productionSpecification[1].specType.coding[0].display, "Hardware version")
+        self.assertEqual(inst.productionSpecification[1].specType.coding[0].code, "hardware-revision")
+        self.assertEqual(inst.productionSpecification[1].specType.coding[0].display, "Hardware Revision")
         self.assertEqual(inst.productionSpecification[2].productionSpec, "1.12")
-        self.assertEqual(inst.productionSpecification[2].specType.coding[0].code, "4")
-        self.assertEqual(inst.productionSpecification[2].specType.coding[0].display, "Software version")
+        self.assertEqual(inst.productionSpecification[2].specType.coding[0].code, "software-revision")
+        self.assertEqual(inst.productionSpecification[2].specType.coding[0].display, "Software Revision")
         self.assertEqual(inst.productionSpecification[3].productionSpec, "1.0.23")
-        self.assertEqual(inst.productionSpecification[3].specType.coding[0].code, "5")
-        self.assertEqual(inst.productionSpecification[3].specType.coding[0].display, "Firmware version")
+        self.assertEqual(inst.productionSpecification[3].specType.coding[0].code, "firmware-revision")
+        self.assertEqual(inst.productionSpecification[3].specType.coding[0].display, "Firmware Revision")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "2000")
         self.assertEqual(inst.type.coding[0].display, "MDC_DEV_ANALY_SAT_O2_MDS")
@@ -71,17 +68,19 @@ class DeviceComponentTests(unittest.TestCase):
         self.implDeviceComponent2(inst2)
     
     def implDeviceComponent2(self, inst):
-        self.assertEqual(inst.contained[0].id, "d1")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.identifier.type.text, "Handle ID")
         self.assertEqual(inst.identifier.value, "0")
         self.assertEqual(inst.languageCode.coding[0].code, "en-US")
         self.assertEqual(inst.languageCode.coding[0].system, "http://tools.ietf.org/html/bcp47")
         self.assertEqual(inst.lastSystemChange.date, FHIRDate("2014-10-07T14:45:00Z").date)
         self.assertEqual(inst.lastSystemChange.as_json(), "2014-10-07T14:45:00Z")
-        self.assertEqual(inst.operationalStatus[0].coding[0].code, "0")
-        self.assertEqual(inst.operationalStatus[0].coding[0].display, "disconnected")
+        self.assertEqual(inst.measurementPrinciple, "optical")
+        self.assertEqual(inst.operationalStatus[0].coding[0].code, "off")
+        self.assertEqual(inst.operationalStatus[0].coding[0].display, "Off")
         self.assertEqual(inst.operationalStatus[0].coding[0].system, "urn:iso:std:iso:11073:10101")
+        self.assertEqual(inst.parameterGroup.coding[0].code, "miscellaneous")
+        self.assertEqual(inst.parameterGroup.coding[0].display, "Miscellaneous Parameter Group")
+        self.assertEqual(inst.parameterGroup.coding[0].system, "urn:iso:std:iso:11073:10101")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "2000")
         self.assertEqual(inst.type.coding[0].display, "MDC_DEV_ANALY_SAT_O2_MDS")

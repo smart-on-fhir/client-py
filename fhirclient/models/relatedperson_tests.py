@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -103,7 +103,7 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.period.start.as_json(), "2012-03-11")
         self.assertEqual(inst.photo[0].contentType, "image/jpeg")
         self.assertEqual(inst.photo[0].url, "Binary/f012")
-        self.assertEqual(inst.relationship.coding[0].code, "owner")
+        self.assertEqual(inst.relationship.coding[0].code, "C")
         self.assertEqual(inst.relationship.coding[0].system, "http://hl7.org/fhir/patient-contact-relationship")
         self.assertEqual(inst.telecom[0].system, "phone")
         self.assertEqual(inst.telecom[0].use, "work")
@@ -136,7 +136,7 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.name[0].given[0], "Bénédicte")
         self.assertEqual(inst.photo[0].contentType, "image/jpeg")
         self.assertEqual(inst.photo[0].url, "Binary/f016")
-        self.assertEqual(inst.relationship.coding[0].code, "partner")
+        self.assertEqual(inst.relationship.coding[0].code, "N")
         self.assertEqual(inst.relationship.coding[0].system, "http://hl7.org/fhir/patient-contact-relationship")
         self.assertEqual(inst.relationship.coding[1].code, "WIFE")
         self.assertEqual(inst.relationship.coding[1].system, "http://hl7.org/fhir/v3/RoleCode")

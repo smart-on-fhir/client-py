@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -70,6 +70,6 @@ class ImplementationGuideTests(unittest.TestCase):
         self.assertEqual(inst.publisher, "ONC / HL7 Joint project")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.url, "http://hl7.org/fhir/daf")
+        self.assertEqual(inst.url, "http://hl7.org/fhir/us/daf")
         self.assertEqual(inst.version, "0")
 

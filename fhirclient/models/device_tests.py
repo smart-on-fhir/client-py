@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -137,7 +137,7 @@ class DeviceTests(unittest.TestCase):
         self.assertEqual(inst.model, "PM/Octane 2014")
         self.assertEqual(inst.safety[0].coding[0].code, "mr-unsafe")
         self.assertEqual(inst.safety[0].coding[0].display, "MR Unsafe")
-        self.assertEqual(inst.safety[0].coding[0].system, "http://hl7.org/fhir/device-safety")
+        self.assertEqual(inst.safety[0].coding[0].system, "urn:oid:2.16.840.1.113883.3.26.1.1")
         self.assertEqual(inst.safety[0].text, "MR Unsafe")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")

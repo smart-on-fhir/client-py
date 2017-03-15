@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -39,15 +39,15 @@ class ParameterDefinition(element.Element):
         Type `int`. """
         
         self.name = None
-        """ Parameter name.
+        """ Name used to access the parameter value.
         Type `str`. """
         
         self.profile = None
-        """ The profile of the parameter, any.
+        """ What profile the value is expected to be.
         Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
         
         self.type = None
-        """ Type for the parameter.
+        """ What type of value.
         Type `str`. """
         
         self.use = None
@@ -70,4 +70,8 @@ class ParameterDefinition(element.Element):
         return js
 
 
-from . import fhirreference
+import sys
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']

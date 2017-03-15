@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -41,7 +41,7 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.note[0].text, "Notes on adminstration of a historical vaccine")
         self.assertFalse(inst.primarySource)
         self.assertEqual(inst.reportOrigin.coding[0].code, "record")
-        self.assertEqual(inst.reportOrigin.coding[0].system, "http://hl7.org/fhir/vaccination-origin")
+        self.assertEqual(inst.reportOrigin.coding[0].system, "http://hl7.org/fhir/immunization-origin")
         self.assertEqual(inst.reportOrigin.text, "Written Record")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
@@ -101,9 +101,9 @@ class ImmunizationTests(unittest.TestCase):
         self.assertFalse(inst.notGiven)
         self.assertEqual(inst.note[0].text, "Notes on adminstration of vaccine")
         self.assertEqual(inst.practitioner[0].role.coding[0].code, "OP")
-        self.assertEqual(inst.practitioner[0].role.coding[0].system, "http://hl7.org/fhir/vaccination-practitioner-role")
+        self.assertEqual(inst.practitioner[0].role.coding[0].system, "http://hl7.org/fhir/v2/0443")
         self.assertEqual(inst.practitioner[1].role.coding[0].code, "AP")
-        self.assertEqual(inst.practitioner[1].role.coding[0].system, "http://hl7.org/fhir/vaccination-practitioner-role")
+        self.assertEqual(inst.practitioner[1].role.coding[0].system, "http://hl7.org/fhir/v2/0443")
         self.assertTrue(inst.primarySource)
         self.assertEqual(inst.reaction[0].date.date, FHIRDate("2013-01-10").date)
         self.assertEqual(inst.reaction[0].date.as_json(), "2013-01-10")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -81,7 +81,7 @@ class ImagingStudy(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.procedureReference = None
-        """ The performed Procedure Reference.
+        """ The performed Procedure reference.
         List of `FHIRReference` items referencing `Procedure` (represented as `dict` in JSON). """
         
         self.reason = None
@@ -222,7 +222,7 @@ class ImagingStudySeries(backboneelement.BackboneElement):
 class ImagingStudySeriesInstance(backboneelement.BackboneElement):
     """ A single SOP instance from the series.
     
-    A single SOP Instance within the series, e.g. an image, or presentation
+    A single SOP instance within the series, e.g. an image, or presentation
     state.
     """
     
@@ -265,8 +265,24 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import coding
-from . import fhirdate
-from . import fhirreference
-from . import identifier
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']

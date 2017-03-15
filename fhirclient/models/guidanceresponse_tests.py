@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -32,8 +32,14 @@ class GuidanceResponseTests(unittest.TestCase):
         self.implGuidanceResponse1(inst2)
     
     def implGuidanceResponse1(self, inst):
+        self.assertEqual(inst.contained[0].id, "outputParameters1")
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.identifier.system, "http://example.org")
+        self.assertEqual(inst.identifier.value, "guidanceResponse1")
+        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2017-03-10T16:02:00Z").date)
+        self.assertEqual(inst.occurrenceDateTime.as_json(), "2017-03-10T16:02:00Z")
+        self.assertEqual(inst.reasonCodeableConcept.text, "Guideline Appropriate Ordering Assessment")
+        self.assertEqual(inst.requestId, "guidanceRequest1")
         self.assertEqual(inst.status, "success")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
         self.assertEqual(inst.text.status, "generated")
 

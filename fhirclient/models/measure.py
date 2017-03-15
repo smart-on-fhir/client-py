@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Measure) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Measure) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -101,11 +101,11 @@ class Measure(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Library` (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name for this measure (Computer friendly).
+        """ Name for this measure (computer friendly).
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (Organization or individual).
+        """ Name of the publisher (organization or individual).
         Type `str`. """
         
         self.purpose = None
@@ -137,7 +137,7 @@ class Measure(domainresource.DomainResource):
         Type `str`. """
         
         self.status = None
-        """ draft | active | retired.
+        """ draft | active | retired | unknown.
         Type `str`. """
         
         self.supplementalData = None
@@ -145,7 +145,7 @@ class Measure(domainresource.DomainResource):
         List of `MeasureSupplementalData` items (represented as `dict` in JSON). """
         
         self.title = None
-        """ Name for this measure (Human friendly).
+        """ Name for this measure (human friendly).
         Type `str`. """
         
         self.topic = None
@@ -414,12 +414,40 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import contactdetail
-from . import contributor
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import period
-from . import relatedartifact
-from . import usagecontext
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
+    from . import contributor
+except ImportError:
+    contributor = sys.modules[__package__ + '.contributor']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']
+try:
+    from . import relatedartifact
+except ImportError:
+    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

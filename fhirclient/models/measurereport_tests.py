@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -118,6 +118,7 @@ class MeasureReportTests(unittest.TestCase):
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].population[3].count, 0)
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].value, "unknown")
         self.assertEqual(inst.id, "measurereport-cms146-cat1-example")
+        self.assertEqual(inst.identifier.value, "measurereport-cms146-cat1-example-2017-03-13")
         self.assertEqual(inst.period.end.date, FHIRDate("2014-03-31").date)
         self.assertEqual(inst.period.end.as_json(), "2014-03-31")
         self.assertEqual(inst.period.start.date, FHIRDate("2014-01-01").date)
@@ -223,6 +224,7 @@ class MeasureReportTests(unittest.TestCase):
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].population[3].count, 0)
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].value, "unknown")
         self.assertEqual(inst.id, "measurereport-cms146-cat2-example")
+        self.assertEqual(inst.identifier.value, "measurereport-cms146-cat2-example-2017-03-13")
         self.assertEqual(inst.period.end.date, FHIRDate("2014-03-31").date)
         self.assertEqual(inst.period.end.as_json(), "2014-03-31")
         self.assertEqual(inst.period.start.date, FHIRDate("2014-01-01").date)
@@ -328,6 +330,7 @@ class MeasureReportTests(unittest.TestCase):
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].population[3].count, 0)
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].value, "unknown")
         self.assertEqual(inst.id, "measurereport-cms146-cat3-example")
+        self.assertEqual(inst.identifier.value, "measurereport-cms146-cat3-example-2017-03-13")
         self.assertEqual(inst.period.end.date, FHIRDate("2014-03-31").date)
         self.assertEqual(inst.period.end.as_json(), "2014-03-31")
         self.assertEqual(inst.period.start.date, FHIRDate("2014-01-01").date)

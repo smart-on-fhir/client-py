@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -41,7 +41,7 @@ class AdverseEventTests(unittest.TestCase):
         self.assertEqual(inst.identifier.value, "49476534")
         self.assertEqual(inst.seriousness.coding[0].code, "Mild")
         self.assertEqual(inst.seriousness.coding[0].display, "Mild")
-        self.assertEqual(inst.seriousness.coding[0].system, "http://hl7.org/fhir/ValueSet/adverse-event-seriousness")
+        self.assertEqual(inst.seriousness.coding[0].system, "http://hl7.org/fhir/adverse-event-seriousness")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type.coding[0].code, "304386008")
         self.assertEqual(inst.type.coding[0].display, "O/E - itchy rash")

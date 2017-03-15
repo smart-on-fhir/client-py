@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -104,7 +104,7 @@ class SearchParameterTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.date.date, FHIRDate("2013-10-23").date)
         self.assertEqual(inst.date.as_json(), "2013-10-23")
-        self.assertEqual(inst.derivedFrom, "http://hl7.org/fhir/SearchParameter/base")
+        self.assertEqual(inst.derivedFrom, "http://hl7.org/fhir/SearchParameter/Resource-id")
         self.assertEqual(inst.description, "Search by resource identifier - e.g. same as the read interaction, but can return included resources")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.expression, "id")

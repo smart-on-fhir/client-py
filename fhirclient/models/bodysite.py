@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/BodySite) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/BodySite) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -34,7 +34,7 @@ class BodySite(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.description = None
-        """ The Description of anatomical location.
+        """ Anatomical location description.
         Type `str`. """
         
         self.identifier = None
@@ -69,7 +69,20 @@ class BodySite(domainresource.DomainResource):
         return js
 
 
-from . import attachment
-from . import codeableconcept
-from . import fhirreference
-from . import identifier
+import sys
+try:
+    from . import attachment
+except ImportError:
+    attachment = sys.modules[__package__ + '.attachment']
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']

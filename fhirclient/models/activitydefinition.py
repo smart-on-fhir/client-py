@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -99,7 +99,7 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name for this activity definition (Computer friendly).
+        """ Name for this activity definition (computer friendly).
         Type `str`. """
         
         self.participant = None
@@ -115,7 +115,7 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `FHIRReference` referencing `Medication, Substance` (represented as `dict` in JSON). """
         
         self.publisher = None
-        """ Name of the publisher (Organization or individual).
+        """ Name of the publisher (organization or individual).
         Type `str`. """
         
         self.purpose = None
@@ -131,19 +131,27 @@ class ActivityDefinition(domainresource.DomainResource):
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | retired.
+        """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.timingCodeableConcept = None
+        self.timingDateTime = None
         """ When activity is to occur.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.timingPeriod = None
+        """ When activity is to occur.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.timingRange = None
+        """ When activity is to occur.
+        Type `Range` (represented as `dict` in JSON). """
         
         self.timingTiming = None
         """ When activity is to occur.
         Type `Timing` (represented as `dict` in JSON). """
         
         self.title = None
-        """ Name for this activity definition (Human friendly).
+        """ Name for this activity definition (human friendly).
         Type `str`. """
         
         self.topic = None
@@ -202,7 +210,9 @@ class ActivityDefinition(domainresource.DomainResource):
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("status", "status", str, False, None, True),
-            ("timingCodeableConcept", "timingCodeableConcept", codeableconcept.CodeableConcept, False, "timing", False),
+            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
+            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
+            ("timingRange", "timingRange", range.Range, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
             ("title", "title", str, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
@@ -301,15 +311,56 @@ class ActivityDefinitionParticipant(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import contactdetail
-from . import contributor
-from . import dosage
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
-from . import relatedartifact
-from . import timing
-from . import usagecontext
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
+    from . import contributor
+except ImportError:
+    contributor = sys.modules[__package__ + '.contributor']
+try:
+    from . import dosage
+except ImportError:
+    dosage = sys.modules[__package__ + '.dosage']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']
+try:
+    from . import range
+except ImportError:
+    range = sys.modules[__package__ + '.range']
+try:
+    from . import relatedartifact
+except ImportError:
+    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+try:
+    from . import timing
+except ImportError:
+    timing = sys.modules[__package__ + '.timing']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

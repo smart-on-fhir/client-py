@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -46,7 +46,7 @@ class DeviceMetric(domainresource.DomainResource):
         Type `Timing` (represented as `dict` in JSON). """
         
         self.operationalStatus = None
-        """ on | off | standby.
+        """ on | off | standby | entered-in-error.
         Type `str`. """
         
         self.parent = None
@@ -58,11 +58,11 @@ class DeviceMetric(domainresource.DomainResource):
         Type `FHIRReference` referencing `Device` (represented as `dict` in JSON). """
         
         self.type = None
-        """ Type of metric.
+        """ Identity of metric, for example Heart Rate or PEEP Setting.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.unit = None
-        """ Unit of metric.
+        """ Unit of Measure for the Metric.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(DeviceMetric, self).__init__(jsondict=jsondict, strict=strict)
@@ -125,8 +125,24 @@ class DeviceMetricCalibration(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import timing
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import timing
+except ImportError:
+    timing = sys.modules[__package__ + '.timing']

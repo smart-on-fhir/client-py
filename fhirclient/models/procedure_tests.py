@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -149,7 +149,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testProcedure6(self):
-        inst = self.instantiate_from("procedure-example-f001-heart.json")
+        inst = self.instantiate_from("procedure-example-education.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
         self.implProcedure6(inst)
         
@@ -159,6 +159,33 @@ class ProcedureTests(unittest.TestCase):
         self.implProcedure6(inst2)
     
     def implProcedure6(self, inst):
+        self.assertEqual(inst.category.coding[0].code, "311401005")
+        self.assertEqual(inst.category.coding[0].display, "Patient education (procedure)")
+        self.assertEqual(inst.category.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.category.text, "Education")
+        self.assertEqual(inst.code.coding[0].code, "48023004")
+        self.assertEqual(inst.code.coding[0].display, "Breast self-examination technique education (procedure)")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.code.text, "Health education - breast examination")
+        self.assertEqual(inst.id, "education")
+        self.assertEqual(inst.performedDateTime.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.performedDateTime.as_json(), "2014-08-16")
+        self.assertEqual(inst.reasonCode[0].text, "early detection of breast mass")
+        self.assertEqual(inst.status, "completed")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Health education - breast examination for early detection of breast mass</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testProcedure7(self):
+        inst = self.instantiate_from("procedure-example-f001-heart.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
+        self.implProcedure7(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Procedure", js["resourceType"])
+        inst2 = procedure.Procedure(js)
+        self.implProcedure7(inst2)
+    
+    def implProcedure7(self, inst):
         self.assertEqual(inst.bodySite[0].coding[0].code, "17401000")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Heart valve structure")
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
@@ -180,17 +207,17 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
     
-    def testProcedure7(self):
+    def testProcedure8(self):
         inst = self.instantiate_from("procedure-example-f002-lung.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
-        self.implProcedure7(inst)
+        self.implProcedure8(inst)
         
         js = inst.as_json()
         self.assertEqual("Procedure", js["resourceType"])
         inst2 = procedure.Procedure(js)
-        self.implProcedure7(inst2)
+        self.implProcedure8(inst2)
     
-    def implProcedure7(self, inst):
+    def implProcedure8(self, inst):
         self.assertEqual(inst.bodySite[0].coding[0].code, "39607008")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Lung structure")
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
@@ -212,17 +239,17 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
     
-    def testProcedure8(self):
+    def testProcedure9(self):
         inst = self.instantiate_from("procedure-example-f003-abscess.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
-        self.implProcedure8(inst)
+        self.implProcedure9(inst)
         
         js = inst.as_json()
         self.assertEqual("Procedure", js["resourceType"])
         inst2 = procedure.Procedure(js)
-        self.implProcedure8(inst2)
+        self.implProcedure9(inst2)
     
-    def implProcedure8(self, inst):
+    def implProcedure9(self, inst):
         self.assertEqual(inst.bodySite[0].coding[0].code, "83030008")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Retropharyngeal area")
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
@@ -244,17 +271,17 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
     
-    def testProcedure9(self):
+    def testProcedure10(self):
         inst = self.instantiate_from("procedure-example-f004-tracheotomy.json")
         self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
-        self.implProcedure9(inst)
+        self.implProcedure10(inst)
         
         js = inst.as_json()
         self.assertEqual("Procedure", js["resourceType"])
         inst2 = procedure.Procedure(js)
-        self.implProcedure9(inst2)
+        self.implProcedure10(inst2)
     
-    def implProcedure9(self, inst):
+    def implProcedure10(self, inst):
         self.assertEqual(inst.bodySite[0].coding[0].code, "83030008")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Retropharyngeal area")
         self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
@@ -273,36 +300,6 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.performer[0].role.coding[0].system, "urn:oid:2.16.840.1.113883.2.4.15.111")
         self.assertEqual(inst.performer[0].role.text, "Care role")
         self.assertEqual(inst.reasonCode[0].text, "ensure breathing during surgery")
-        self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testProcedure10(self):
-        inst = self.instantiate_from("procedure-example-f201-tpf.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Procedure instance")
-        self.implProcedure10(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Procedure", js["resourceType"])
-        inst2 = procedure.Procedure(js)
-        self.implProcedure10(inst2)
-    
-    def implProcedure10(self, inst):
-        self.assertEqual(inst.bodySite[0].coding[0].code, "272676008")
-        self.assertEqual(inst.bodySite[0].coding[0].display, "Sphenoid bone")
-        self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.code.coding[0].code, "367336001")
-        self.assertEqual(inst.code.coding[0].display, "Chemotherapy")
-        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.id, "f201")
-        self.assertEqual(inst.note[0].text, "Eerste neo-adjuvante TPF-kuur bij groot proces in sphenoid met intracraniale uitbreiding.")
-        self.assertEqual(inst.performedPeriod.end.date, FHIRDate("2013-01-28T14:27:00+01:00").date)
-        self.assertEqual(inst.performedPeriod.end.as_json(), "2013-01-28T14:27:00+01:00")
-        self.assertEqual(inst.performedPeriod.start.date, FHIRDate("2013-01-28T13:31:00+01:00").date)
-        self.assertEqual(inst.performedPeriod.start.as_json(), "2013-01-28T13:31:00+01:00")
-        self.assertEqual(inst.performer[0].role.coding[0].code, "310512001")
-        self.assertEqual(inst.performer[0].role.coding[0].display, "Medical oncologist")
-        self.assertEqual(inst.performer[0].role.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.reasonCode[0].text, "DiagnosticReport/f201")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
 

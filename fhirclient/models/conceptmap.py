@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -58,11 +58,11 @@ class ConceptMap(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name for this concept map (Computer friendly).
+        """ Name for this concept map (computer friendly).
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (Organization or individual).
+        """ Name of the publisher (organization or individual).
         Type `str`. """
         
         self.purpose = None
@@ -78,7 +78,7 @@ class ConceptMap(domainresource.DomainResource):
         Type `str`. """
         
         self.status = None
-        """ draft | active | retired.
+        """ draft | active | retired | unknown.
         Type `str`. """
         
         self.targetReference = None
@@ -90,7 +90,7 @@ class ConceptMap(domainresource.DomainResource):
         Type `str`. """
         
         self.title = None
-        """ Name for this concept map (Human friendly).
+        """ Name for this concept map (human friendly).
         Type `str`. """
         
         self.url = None
@@ -260,10 +260,6 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
         """ Other elements required for this mapping (from context).
         List of `ConceptMapGroupElementTargetDependsOn` items (represented as `dict` in JSON). """
         
-        self.dependsOndisplay = None
-        """ Display for the code.
-        Type `str`. """
-        
         self.display = None
         """ Display for the code.
         Type `str`. """
@@ -285,7 +281,6 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
             ("code", "code", str, False, None, False),
             ("comment", "comment", str, False, None, False),
             ("dependsOn", "dependsOn", ConceptMapGroupElementTargetDependsOn, True, None, False),
-            ("dependsOndisplay", "dependsOndisplay", str, False, None, False),
             ("display", "display", str, False, None, False),
             ("equivalence", "equivalence", str, False, None, False),
             ("product", "product", ConceptMapGroupElementTargetDependsOn, True, None, False),
@@ -315,6 +310,10 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
         """ Value of the referenced element.
         Type `str`. """
         
+        self.display = None
+        """ Display for the code.
+        Type `str`. """
+        
         self.property = None
         """ Reference to property mapping depends on.
         Type `str`. """
@@ -329,6 +328,7 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
         js = super(ConceptMapGroupElementTargetDependsOn, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
+            ("display", "display", str, False, None, False),
             ("property", "property", str, False, None, True),
             ("system", "system", str, False, None, False),
         ])
@@ -380,9 +380,28 @@ class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import contactdetail
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import usagecontext
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

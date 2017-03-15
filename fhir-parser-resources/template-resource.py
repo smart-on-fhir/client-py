@@ -68,7 +68,13 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
 {%- endif %}
 {%- endfor %}
 
-{% for imp in imports %}{% if imp.module not in imported %}
-from . import {{ imp.module }}
+{% if imports|length > 0 and imported|length != imports|length %}
+import sys
+{%- endif %}
+{%- for imp in imports %}{% if imp.module not in imported %}
+try:
+    from . import {{ imp.module }}
+except ImportError:
+    {{ imp.module }} = sys.modules[__package__ + '.{{ imp.module }}']
 {%- endif %}{% endfor %}
 

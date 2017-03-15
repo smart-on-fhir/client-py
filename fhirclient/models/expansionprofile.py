@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ExpansionProfile) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ExpansionProfile) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -96,15 +96,15 @@ class ExpansionProfile(domainresource.DomainResource):
         Type `bool`. """
         
         self.name = None
-        """ Name for this expansion profile (Computer friendly).
+        """ Name for this expansion profile (computer friendly).
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (Organization or individual).
+        """ Name of the publisher (organization or individual).
         Type `str`. """
         
         self.status = None
-        """ draft | active | retired.
+        """ draft | active | retired | unknown.
         Type `str`. """
         
         self.url = None
@@ -238,7 +238,7 @@ class ExpansionProfileDesignationExcludeDesignation(backboneelement.BackboneElem
         Type `str`. """
         
         self.use = None
-        """ Designation use.
+        """ What kind of Designation to exclude.
         Type `Coding` (represented as `dict` in JSON). """
         
         super(ExpansionProfileDesignationExcludeDesignation, self).__init__(jsondict=jsondict, strict=strict)
@@ -372,7 +372,7 @@ class ExpansionProfileFixedVersion(backboneelement.BackboneElement):
         Type `str`. """
         
         self.system = None
-        """ System to have it's version fixed.
+        """ System to have its version fixed.
         Type `str`. """
         
         self.version = None
@@ -391,9 +391,28 @@ class ExpansionProfileFixedVersion(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import coding
-from . import contactdetail
-from . import fhirdate
-from . import identifier
-from . import usagecontext
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

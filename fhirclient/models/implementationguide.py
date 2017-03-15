@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -66,7 +66,7 @@ class ImplementationGuide(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name for this implementation guide (Computer friendly).
+        """ Name for this implementation guide (computer friendly).
         Type `str`. """
         
         self.package = None
@@ -78,11 +78,11 @@ class ImplementationGuide(domainresource.DomainResource):
         Type `ImplementationGuidePage` (represented as `dict` in JSON). """
         
         self.publisher = None
-        """ Name of the publisher (Organization or individual).
+        """ Name of the publisher (organization or individual).
         Type `str`. """
         
         self.status = None
-        """ draft | active | retired.
+        """ draft | active | retired | unknown.
         Type `str`. """
         
         self.url = None
@@ -269,7 +269,7 @@ class ImplementationGuidePackageResource(backboneelement.BackboneElement):
         Type `str`. """
         
         self.example = None
-        """ If not an example, has it's normal meaning.
+        """ If not an example, has its normal meaning.
         Type `bool`. """
         
         self.exampleFor = None
@@ -366,8 +366,24 @@ class ImplementationGuidePage(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import contactdetail
-from . import fhirdate
-from . import fhirreference
-from . import usagecontext
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

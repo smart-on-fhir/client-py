@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -34,8 +34,7 @@ class AllergyIntoleranceTests(unittest.TestCase):
     def implAllergyIntolerance1(self, inst):
         self.assertEqual(inst.assertedDate.date, FHIRDate("2014-10-09T14:58:00+11:00").date)
         self.assertEqual(inst.assertedDate.as_json(), "2014-10-09T14:58:00+11:00")
-        self.assertEqual(inst.category[0].coding[0].code, "food")
-        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/allergy-intolerance-category")
+        self.assertEqual(inst.category[0], "food")
         self.assertEqual(inst.clinicalStatus, "active")
         self.assertEqual(inst.code.coding[0].code, "227493005")
         self.assertEqual(inst.code.coding[0].display, "Cashew nuts")

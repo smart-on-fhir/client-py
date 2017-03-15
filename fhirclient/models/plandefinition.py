@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -27,9 +27,9 @@ class PlanDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actionDefinition = None
+        self.action = None
         """ Action defined by the plan.
-        List of `PlanDefinitionActionDefinition` items (represented as `dict` in JSON). """
+        List of `PlanDefinitionAction` items (represented as `dict` in JSON). """
         
         self.approvalDate = None
         """ When the plan definition was approved by publisher.
@@ -63,9 +63,9 @@ class PlanDefinition(domainresource.DomainResource):
         """ If for testing purposes, not real usage.
         Type `bool`. """
         
-        self.goalDefinition = None
+        self.goal = None
         """ What the plan is trying to accomplish.
-        List of `PlanDefinitionGoalDefinition` items (represented as `dict` in JSON). """
+        List of `PlanDefinitionGoal` items (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Additional identifier for the plan definition.
@@ -84,11 +84,11 @@ class PlanDefinition(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Library` (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name for this plan definition (Computer friendly).
+        """ Name for this plan definition (computer friendly).
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (Organization or individual).
+        """ Name of the publisher (organization or individual).
         Type `str`. """
         
         self.purpose = None
@@ -100,11 +100,11 @@ class PlanDefinition(domainresource.DomainResource):
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | retired.
+        """ draft | active | retired | unknown.
         Type `str`. """
         
         self.title = None
-        """ Name for this plan definition (Human friendly).
+        """ Name for this plan definition (human friendly).
         Type `str`. """
         
         self.topic = None
@@ -136,7 +136,7 @@ class PlanDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(PlanDefinition, self).elementProperties()
         js.extend([
-            ("actionDefinition", "actionDefinition", PlanDefinitionActionDefinition, True, None, False),
+            ("action", "action", PlanDefinitionAction, True, None, False),
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("contributor", "contributor", contributor.Contributor, True, None, False),
@@ -145,7 +145,7 @@ class PlanDefinition(domainresource.DomainResource):
             ("description", "description", str, False, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
-            ("goalDefinition", "goalDefinition", PlanDefinitionGoalDefinition, True, None, False),
+            ("goal", "goal", PlanDefinitionGoal, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
@@ -168,13 +168,13 @@ class PlanDefinition(domainresource.DomainResource):
 
 from . import backboneelement
 
-class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
+class PlanDefinitionAction(backboneelement.BackboneElement):
     """ Action defined by the plan.
     
     An action to be taken as part of the plan.
     """
     
-    resource_type = "PlanDefinitionActionDefinition"
+    resource_type = "PlanDefinitionAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -184,9 +184,9 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actionDefinition = None
+        self.action = None
         """ A sub-action.
-        List of `PlanDefinitionActionDefinition` items (represented as `dict` in JSON). """
+        List of `PlanDefinitionAction` items (represented as `dict` in JSON). """
         
         self.cardinalityBehavior = None
         """ single | multiple.
@@ -198,7 +198,7 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         
         self.condition = None
         """ Whether or not the action is applicable.
-        List of `PlanDefinitionActionDefinitionCondition` items (represented as `dict` in JSON). """
+        List of `PlanDefinitionActionCondition` items (represented as `dict` in JSON). """
         
         self.definition = None
         """ Description of the activity to be performed.
@@ -214,7 +214,7 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         
         self.dynamicValue = None
         """ Dynamic aspects of the definition.
-        List of `PlanDefinitionActionDefinitionDynamicValue` items (represented as `dict` in JSON). """
+        List of `PlanDefinitionActionDynamicValue` items (represented as `dict` in JSON). """
         
         self.goalId = None
         """ What goals this action supports.
@@ -238,7 +238,7 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         
         self.participant = None
         """ Who should participate in the action.
-        List of `PlanDefinitionActionDefinitionParticipant` items (represented as `dict` in JSON). """
+        List of `PlanDefinitionActionParticipant` items (represented as `dict` in JSON). """
         
         self.precheckBehavior = None
         """ yes | no.
@@ -250,7 +250,7 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         
         self.relatedAction = None
         """ Relationship to another action.
-        List of `PlanDefinitionActionDefinitionRelatedAction` items (represented as `dict` in JSON). """
+        List of `PlanDefinitionActionRelatedAction` items (represented as `dict` in JSON). """
         
         self.requiredBehavior = None
         """ must | could | must-unless-documented.
@@ -301,28 +301,28 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         """ create | update | remove | fire-event.
         Type `Coding` (represented as `dict` in JSON). """
         
-        super(PlanDefinitionActionDefinition, self).__init__(jsondict=jsondict, strict=strict)
+        super(PlanDefinitionAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(PlanDefinitionActionDefinition, self).elementProperties()
+        js = super(PlanDefinitionAction, self).elementProperties()
         js.extend([
-            ("actionDefinition", "actionDefinition", PlanDefinitionActionDefinition, True, None, False),
+            ("action", "action", PlanDefinitionAction, True, None, False),
             ("cardinalityBehavior", "cardinalityBehavior", str, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("condition", "condition", PlanDefinitionActionDefinitionCondition, True, None, False),
+            ("condition", "condition", PlanDefinitionActionCondition, True, None, False),
             ("definition", "definition", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
             ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
-            ("dynamicValue", "dynamicValue", PlanDefinitionActionDefinitionDynamicValue, True, None, False),
+            ("dynamicValue", "dynamicValue", PlanDefinitionActionDynamicValue, True, None, False),
             ("goalId", "goalId", str, True, None, False),
             ("groupingBehavior", "groupingBehavior", str, False, None, False),
             ("input", "input", datarequirement.DataRequirement, True, None, False),
             ("label", "label", str, False, None, False),
             ("output", "output", datarequirement.DataRequirement, True, None, False),
-            ("participant", "participant", PlanDefinitionActionDefinitionParticipant, True, None, False),
+            ("participant", "participant", PlanDefinitionActionParticipant, True, None, False),
             ("precheckBehavior", "precheckBehavior", str, False, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
-            ("relatedAction", "relatedAction", PlanDefinitionActionDefinitionRelatedAction, True, None, False),
+            ("relatedAction", "relatedAction", PlanDefinitionActionRelatedAction, True, None, False),
             ("requiredBehavior", "requiredBehavior", str, False, None, False),
             ("selectionBehavior", "selectionBehavior", str, False, None, False),
             ("textEquivalent", "textEquivalent", str, False, None, False),
@@ -339,14 +339,14 @@ class PlanDefinitionActionDefinition(backboneelement.BackboneElement):
         return js
 
 
-class PlanDefinitionActionDefinitionCondition(backboneelement.BackboneElement):
+class PlanDefinitionActionCondition(backboneelement.BackboneElement):
     """ Whether or not the action is applicable.
     
     An expression that describes applicability criteria, or start/stop
     conditions for the action.
     """
     
-    resource_type = "PlanDefinitionActionDefinitionCondition"
+    resource_type = "PlanDefinitionActionCondition"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -372,10 +372,10 @@ class PlanDefinitionActionDefinitionCondition(backboneelement.BackboneElement):
         """ Language of the expression.
         Type `str`. """
         
-        super(PlanDefinitionActionDefinitionCondition, self).__init__(jsondict=jsondict, strict=strict)
+        super(PlanDefinitionActionCondition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(PlanDefinitionActionDefinitionCondition, self).elementProperties()
+        js = super(PlanDefinitionActionCondition, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
             ("expression", "expression", str, False, None, False),
@@ -385,7 +385,7 @@ class PlanDefinitionActionDefinitionCondition(backboneelement.BackboneElement):
         return js
 
 
-class PlanDefinitionActionDefinitionDynamicValue(backboneelement.BackboneElement):
+class PlanDefinitionActionDynamicValue(backboneelement.BackboneElement):
     """ Dynamic aspects of the definition.
     
     Customizations that should be applied to the statically defined resource.
@@ -395,7 +395,7 @@ class PlanDefinitionActionDefinitionDynamicValue(backboneelement.BackboneElement
     the result.
     """
     
-    resource_type = "PlanDefinitionActionDefinitionDynamicValue"
+    resource_type = "PlanDefinitionActionDynamicValue"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -421,10 +421,10 @@ class PlanDefinitionActionDefinitionDynamicValue(backboneelement.BackboneElement
         """ The path to the element to be set dynamically.
         Type `str`. """
         
-        super(PlanDefinitionActionDefinitionDynamicValue, self).__init__(jsondict=jsondict, strict=strict)
+        super(PlanDefinitionActionDynamicValue, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(PlanDefinitionActionDefinitionDynamicValue, self).elementProperties()
+        js = super(PlanDefinitionActionDynamicValue, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
             ("expression", "expression", str, False, None, False),
@@ -434,13 +434,13 @@ class PlanDefinitionActionDefinitionDynamicValue(backboneelement.BackboneElement
         return js
 
 
-class PlanDefinitionActionDefinitionParticipant(backboneelement.BackboneElement):
+class PlanDefinitionActionParticipant(backboneelement.BackboneElement):
     """ Who should participate in the action.
     
     Indicates who should participate in performing the action described.
     """
     
-    resource_type = "PlanDefinitionActionDefinitionParticipant"
+    resource_type = "PlanDefinitionActionParticipant"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -458,10 +458,10 @@ class PlanDefinitionActionDefinitionParticipant(backboneelement.BackboneElement)
         """ patient | practitioner | related-person.
         Type `str`. """
         
-        super(PlanDefinitionActionDefinitionParticipant, self).__init__(jsondict=jsondict, strict=strict)
+        super(PlanDefinitionActionParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(PlanDefinitionActionDefinitionParticipant, self).elementProperties()
+        js = super(PlanDefinitionActionParticipant, self).elementProperties()
         js.extend([
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),
             ("type", "type", str, False, None, True),
@@ -469,14 +469,14 @@ class PlanDefinitionActionDefinitionParticipant(backboneelement.BackboneElement)
         return js
 
 
-class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElement):
+class PlanDefinitionActionRelatedAction(backboneelement.BackboneElement):
     """ Relationship to another action.
     
     A relationship to another action such as "before" or "30-60 minutes after
     start of".
     """
     
-    resource_type = "PlanDefinitionActionDefinitionRelatedAction"
+    resource_type = "PlanDefinitionActionRelatedAction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -503,10 +503,10 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
         concurrent | concurrent-with-end | after-start | after | after-end.
         Type `str`. """
         
-        super(PlanDefinitionActionDefinitionRelatedAction, self).__init__(jsondict=jsondict, strict=strict)
+        super(PlanDefinitionActionRelatedAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(PlanDefinitionActionDefinitionRelatedAction, self).elementProperties()
+        js = super(PlanDefinitionActionRelatedAction, self).elementProperties()
         js.extend([
             ("actionId", "actionId", str, False, None, True),
             ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False),
@@ -516,7 +516,7 @@ class PlanDefinitionActionDefinitionRelatedAction(backboneelement.BackboneElemen
         return js
 
 
-class PlanDefinitionGoalDefinition(backboneelement.BackboneElement):
+class PlanDefinitionGoal(backboneelement.BackboneElement):
     """ What the plan is trying to accomplish.
     
     Goals that describe what the activities within the plan are intended to
@@ -525,7 +525,7 @@ class PlanDefinitionGoalDefinition(backboneelement.BackboneElement):
     objective, etc.
     """
     
-    resource_type = "PlanDefinitionGoalDefinition"
+    resource_type = "PlanDefinitionGoal"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -561,12 +561,12 @@ class PlanDefinitionGoalDefinition(backboneelement.BackboneElement):
         
         self.target = None
         """ Target outcome for the goal.
-        List of `PlanDefinitionGoalDefinitionTarget` items (represented as `dict` in JSON). """
+        List of `PlanDefinitionGoalTarget` items (represented as `dict` in JSON). """
         
-        super(PlanDefinitionGoalDefinition, self).__init__(jsondict=jsondict, strict=strict)
+        super(PlanDefinitionGoal, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(PlanDefinitionGoalDefinition, self).elementProperties()
+        js = super(PlanDefinitionGoal, self).elementProperties()
         js.extend([
             ("addresses", "addresses", codeableconcept.CodeableConcept, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
@@ -574,18 +574,18 @@ class PlanDefinitionGoalDefinition(backboneelement.BackboneElement):
             ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
             ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
             ("start", "start", codeableconcept.CodeableConcept, False, None, False),
-            ("target", "target", PlanDefinitionGoalDefinitionTarget, True, None, False),
+            ("target", "target", PlanDefinitionGoalTarget, True, None, False),
         ])
         return js
 
 
-class PlanDefinitionGoalDefinitionTarget(backboneelement.BackboneElement):
+class PlanDefinitionGoalTarget(backboneelement.BackboneElement):
     """ Target outcome for the goal.
     
     Indicates what should be done and within what timeframe.
     """
     
-    resource_type = "PlanDefinitionGoalDefinitionTarget"
+    resource_type = "PlanDefinitionGoalTarget"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -615,10 +615,10 @@ class PlanDefinitionGoalDefinitionTarget(backboneelement.BackboneElement):
         """ The parameter whose value is to be tracked.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(PlanDefinitionGoalDefinitionTarget, self).__init__(jsondict=jsondict, strict=strict)
+        super(PlanDefinitionGoalTarget, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(PlanDefinitionGoalDefinitionTarget, self).elementProperties()
+        js = super(PlanDefinitionGoalTarget, self).elementProperties()
         js.extend([
             ("detailCodeableConcept", "detailCodeableConcept", codeableconcept.CodeableConcept, False, "detail", False),
             ("detailQuantity", "detailQuantity", quantity.Quantity, False, "detail", False),
@@ -629,19 +629,68 @@ class PlanDefinitionGoalDefinitionTarget(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import coding
-from . import contactdetail
-from . import contributor
-from . import datarequirement
-from . import duration
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
-from . import range
-from . import relatedartifact
-from . import timing
-from . import triggerdefinition
-from . import usagecontext
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
+    from . import contributor
+except ImportError:
+    contributor = sys.modules[__package__ + '.contributor']
+try:
+    from . import datarequirement
+except ImportError:
+    datarequirement = sys.modules[__package__ + '.datarequirement']
+try:
+    from . import duration
+except ImportError:
+    duration = sys.modules[__package__ + '.duration']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']
+try:
+    from . import range
+except ImportError:
+    range = sys.modules[__package__ + '.range']
+try:
+    from . import relatedartifact
+except ImportError:
+    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+try:
+    from . import timing
+except ImportError:
+    timing = sys.modules[__package__ + '.timing']
+try:
+    from . import triggerdefinition
+except ImportError:
+    triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

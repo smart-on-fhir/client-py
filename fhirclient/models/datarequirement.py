@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -25,11 +25,11 @@ class DataRequirement(element.Element):
         """
         
         self.codeFilter = None
-        """ Code filters for the data.
+        """ What codes are expected.
         List of `DataRequirementCodeFilter` items (represented as `dict` in JSON). """
         
         self.dateFilter = None
-        """ Date filters for the data.
+        """ What dates/date ranges are expected.
         List of `DataRequirementDateFilter` items (represented as `dict` in JSON). """
         
         self.mustSupport = None
@@ -60,7 +60,7 @@ class DataRequirement(element.Element):
 
 
 class DataRequirementCodeFilter(element.Element):
-    """ Code filters for the data.
+    """ What codes are expected.
     
     Code filters specify additional constraints on the data, specifying the
     value set of interest for a particular element of the data.
@@ -81,15 +81,15 @@ class DataRequirementCodeFilter(element.Element):
         Type `str`. """
         
         self.valueCode = None
-        """ Code value of the filter.
+        """ What code is expected.
         List of `str` items. """
         
         self.valueCodeableConcept = None
-        """ CodeableConcept value of the filter.
+        """ What CodeableConcept is expected.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.valueCoding = None
-        """ Coding value of the filter.
+        """ What Coding is expected.
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.valueSetReference = None
@@ -116,7 +116,7 @@ class DataRequirementCodeFilter(element.Element):
 
 
 class DataRequirementDateFilter(element.Element):
-    """ Date filters for the data.
+    """ What dates/date ranges are expected.
     
     Date filters specify additional constraints on the data in terms of the
     applicable date range for specific elements.
@@ -161,9 +161,28 @@ class DataRequirementDateFilter(element.Element):
         return js
 
 
-from . import codeableconcept
-from . import coding
-from . import duration
-from . import fhirdate
-from . import fhirreference
-from . import period
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import duration
+except ImportError:
+    duration = sys.modules[__package__ + '.duration']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']

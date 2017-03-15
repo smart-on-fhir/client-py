@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Consent) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Consent) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class Consent(domainresource.DomainResource):
-    """ A healthcare consumer’s policy choices to permits or denies recipients or
+    """ A healthcare consumer's policy choices to permits or denies recipients or
     roles to perform actions for specific purposes and periods of time.
     
     A record of a healthcare consumer’s policy choices, which permits or denies
@@ -376,7 +376,7 @@ class ConsentPolicy(backboneelement.BackboneElement):
         """
         
         self.authority = None
-        """ Authority of policy.
+        """ Enforcement source for policy.
         Type `str`. """
         
         self.uri = None
@@ -394,10 +394,32 @@ class ConsentPolicy(backboneelement.BackboneElement):
         return js
 
 
-from . import attachment
-from . import codeableconcept
-from . import coding
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import period
+import sys
+try:
+    from . import attachment
+except ImportError:
+    attachment = sys.modules[__package__ + '.attachment']
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']

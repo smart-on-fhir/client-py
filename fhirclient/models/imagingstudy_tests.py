@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -42,7 +42,7 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "secondary")
         self.assertEqual(inst.identifier[0].value, "55551234")
         self.assertEqual(inst.modalityList[0].code, "DX")
-        self.assertEqual(inst.modalityList[0].system, "http://nema.org/dicom/dicm")
+        self.assertEqual(inst.modalityList[0].system, "http://dicom.nema.org/resources/ontology/DCM")
         self.assertEqual(inst.numberOfInstances, 2)
         self.assertEqual(inst.numberOfSeries, 1)
         self.assertEqual(inst.procedureCode[0].coding[0].code, "RPID2589")
@@ -51,7 +51,7 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.procedureCode[0].text, "XR Wrist 3+ Views")
         self.assertEqual(inst.reason.coding[0].code, "357009")
         self.assertEqual(inst.reason.coding[0].display, "Closed fracture of trapezoidal bone of wrist")
-        self.assertEqual(inst.reason.coding[0].system, "http://hl7.org/fhir/ValueSet/procedure-reason")
+        self.assertEqual(inst.reason.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.series[0].availability, "ONLINE")
         self.assertEqual(inst.series[0].bodySite.code, "T-15460")
         self.assertEqual(inst.series[0].bodySite.display, "Wrist Joint")
@@ -69,7 +69,7 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.series[0].laterality.display, "Unilateral left")
         self.assertEqual(inst.series[0].laterality.system, "http://snomed.info/sct")
         self.assertEqual(inst.series[0].modality.code, "DX")
-        self.assertEqual(inst.series[0].modality.system, "http://nema.org/dicom/dicm")
+        self.assertEqual(inst.series[0].modality.system, "http://dicom.nema.org/resources/ontology/DCM")
         self.assertEqual(inst.series[0].number, 3)
         self.assertEqual(inst.series[0].numberOfInstances, 2)
         self.assertEqual(inst.series[0].started.date, FHIRDate("2011-01-01T11:01:20+03:00").date)
@@ -103,7 +103,7 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.series[0].instance[0].sopClass, "urn:oid:1.2.840.10008.5.1.4.1.1.2")
         self.assertEqual(inst.series[0].instance[0].uid, "urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903")
         self.assertEqual(inst.series[0].modality.code, "CT")
-        self.assertEqual(inst.series[0].modality.system, "http://nema.org/dicom/dicm")
+        self.assertEqual(inst.series[0].modality.system, "http://dicom.nema.org/resources/ontology/DCM")
         self.assertEqual(inst.series[0].number, 3)
         self.assertEqual(inst.series[0].numberOfInstances, 1)
         self.assertEqual(inst.series[0].uid, "urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630")

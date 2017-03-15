@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -14,7 +14,7 @@ class MedicationRequest(domainresource.DomainResource):
     for administration of the medication to a patient. The resource is called
     "MedicationRequest" rather than "MedicationPrescription" or
     "MedicationOrder" to generalize the use across inpatient and outpatient
-    settings as well as for care plans, etc and to harmonize with workflow
+    settings, including care plans, etc and to harmonize with workflow
     patterns.
     """
     
@@ -119,7 +119,7 @@ class MedicationRequest(domainresource.DomainResource):
         Type `str`. """
         
         self.subject = None
-        """ Who or group prescription is for.
+        """ Who or group medication request is for.
         Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
         
         self.substitution = None
@@ -171,7 +171,7 @@ class MedicationRequestDispenseRequest(backboneelement.BackboneElement):
     
     Indicates the specific details for the dispense or medication supply part
     of a medication request (also known as a Medication Prescription or
-    Medication Order).  Note that this information is NOT always sent with the
+    Medication Order).  Note that this information is not always sent with the
     order.  There may be in some settings (e.g. hospitals) institutional or
     system support for completing the dispense details in the pharmacy
     department.
@@ -262,9 +262,8 @@ class MedicationRequestSubstitution(backboneelement.BackboneElement):
     
     Indicates whether or not substitution can or should be part of the
     dispense. In some cases substitution must happen, in other cases
-    substitution must not happen, and in others it does not matter. This block
-    explains the prescriber's intent. If nothing is specified substitution may
-    be done.
+    substitution must not happen. This block explains the prescriber's intent.
+    If nothing is specified substitution may be done.
     """
     
     resource_type = "MedicationRequestSubstitution"
@@ -296,12 +295,40 @@ class MedicationRequestSubstitution(backboneelement.BackboneElement):
         return js
 
 
-from . import annotation
-from . import codeableconcept
-from . import dosage
-from . import duration
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import period
-from . import quantity
+import sys
+try:
+    from . import annotation
+except ImportError:
+    annotation = sys.modules[__package__ + '.annotation']
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import dosage
+except ImportError:
+    dosage = sys.modules[__package__ + '.dosage']
+try:
+    from . import duration
+except ImportError:
+    duration = sys.modules[__package__ + '.duration']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']

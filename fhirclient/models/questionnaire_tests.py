@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -82,14 +82,14 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.item[0].linkId, "birthDetails")
         self.assertEqual(inst.item[0].text, "Birth details - To be completed by health professional")
         self.assertEqual(inst.item[0].type, "group")
+        self.assertEqual(inst.jurisdiction[0].coding[0].code, "AU")
+        self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.publisher, "New South Wales Department of Health")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.subjectType[0], "Patient")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "NSW Government My Personal Health Record")
         self.assertEqual(inst.url, "http://hl7.org/fhir/Questionnaire/bb")
-        self.assertEqual(inst.useContext[0].coding[0].code, "AU")
-        self.assertEqual(inst.useContext[0].coding[0].system, "urn:iso:std:iso:3166")
     
     def testQuestionnaire2(self):
         inst = self.instantiate_from("questionnaire-example-f201-lifelines.json")
@@ -135,7 +135,7 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.item[2].linkId, "3")
         self.assertEqual(inst.item[2].text, "Intoxications")
         self.assertEqual(inst.item[2].type, "group")
-        self.assertEqual(inst.status, "published")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.subjectType[0], "Patient")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/Questionnaire/f201")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -35,7 +35,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         
         self.basedOn = None
         """ Request fulfilled by this QuestionnaireResponse.
-        List of `FHIRReference` items referencing `ReferralRequest, CarePlan` (represented as `dict` in JSON). """
+        List of `FHIRReference` items referencing `ReferralRequest, CarePlan, ProcedureRequest` (represented as `dict` in JSON). """
         
         self.context = None
         """ Encounter or Episode during which questionnaire was completed.
@@ -236,9 +236,28 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
         return js
 
 
-from . import attachment
-from . import coding
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import quantity
+import sys
+try:
+    from . import attachment
+except ImportError:
+    attachment = sys.modules[__package__ + '.attachment']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']

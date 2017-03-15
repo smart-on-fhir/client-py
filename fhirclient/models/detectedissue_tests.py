@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -55,6 +55,10 @@ class DetectedIssueTests(unittest.TestCase):
         self.assertEqual(inst.date.as_json(), "2013-05-08")
         self.assertEqual(inst.detail, "Similar test was performed within the past 14 days")
         self.assertEqual(inst.id, "duplicate")
+        self.assertEqual(inst.identifier.system, "http://example.org")
+        self.assertEqual(inst.identifier.use, "official")
+        self.assertEqual(inst.identifier.value, "12345")
+        self.assertEqual(inst.reference, "http://www.tmhp.com/RadiologyClinicalDecisionSupport/2011/CHEST%20IMAGING%20GUIDELINES%202011.pdf")
         self.assertEqual(inst.status, "final")
         self.assertEqual(inst.text.status, "generated")
     

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -46,11 +46,11 @@ class NamingSystem(domainresource.DomainResource):
         Type `str`. """
         
         self.name = None
-        """ Name for this naming system (Computer friendly).
+        """ Name for this naming system (computer friendly).
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (Organization or individual).
+        """ Name of the publisher (organization or individual).
         Type `str`. """
         
         self.replacedBy = None
@@ -62,7 +62,7 @@ class NamingSystem(domainresource.DomainResource):
         Type `str`. """
         
         self.status = None
-        """ draft | active | retired.
+        """ draft | active | retired | unknown.
         Type `str`. """
         
         self.type = None
@@ -157,9 +157,28 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import contactdetail
-from . import fhirdate
-from . import fhirreference
-from . import period
-from . import usagecontext
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

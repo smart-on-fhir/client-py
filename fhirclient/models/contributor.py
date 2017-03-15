@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Contributor) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Contributor) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -29,7 +29,7 @@ class Contributor(element.Element):
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name of the contributor.
+        """ Who contributed the content.
         Type `str`. """
         
         self.type = None
@@ -48,4 +48,8 @@ class Contributor(element.Element):
         return js
 
 
-from . import contactdetail
+import sys
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']

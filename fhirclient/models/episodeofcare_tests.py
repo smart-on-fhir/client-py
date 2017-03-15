@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -34,8 +34,8 @@ class EpisodeOfCareTests(unittest.TestCase):
     def implEpisodeOfCare1(self, inst):
         self.assertEqual(inst.diagnosis[0].rank, 1)
         self.assertEqual(inst.diagnosis[0].role.coding[0].code, "CC")
-        self.assertEqual(inst.diagnosis[0].role.coding[0].display, "Cheif complaint")
-        self.assertEqual(inst.diagnosis[0].role.coding[0].system, "http://hl7.org/fhir/encounter-diagnosis-role")
+        self.assertEqual(inst.diagnosis[0].role.coding[0].display, "Chief complaint")
+        self.assertEqual(inst.diagnosis[0].role.coding[0].system, "http://hl7.org/fhir/diagnosis-role")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://example.org/sampleepisodeofcare-identifier")
         self.assertEqual(inst.identifier[0].value, "123")

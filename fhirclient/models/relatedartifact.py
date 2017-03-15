@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/RelatedArtifact) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/RelatedArtifact) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -33,11 +33,11 @@ class RelatedArtifact(element.Element):
         Type `str`. """
         
         self.document = None
-        """ The related document.
+        """ What document is being referenced.
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.resource = None
-        """ The related resource.
+        """ What resource is being referenced.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.type = None
@@ -46,7 +46,7 @@ class RelatedArtifact(element.Element):
         Type `str`. """
         
         self.url = None
-        """ Url for the related artifact.
+        """ Where the artifact can be accessed.
         Type `str`. """
         
         super(RelatedArtifact, self).__init__(jsondict=jsondict, strict=strict)
@@ -64,5 +64,12 @@ class RelatedArtifact(element.Element):
         return js
 
 
-from . import attachment
-from . import fhirreference
+import sys
+try:
+    from . import attachment
+except ImportError:
+    attachment = sys.modules[__package__ + '.attachment']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']

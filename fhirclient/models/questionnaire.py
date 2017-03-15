@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -25,52 +25,88 @@ class Questionnaire(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.approvalDate = None
+        """ When the questionnaire was approved by publisher.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.code = None
         """ Concept that represents the overall questionnaire.
         List of `Coding` items (represented as `dict` in JSON). """
         
+        self.contact = None
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
+        self.copyright = None
+        """ Use and/or publishing restrictions.
+        Type `str`. """
+        
         self.date = None
-        """ Date this version was authored.
+        """ Date this was last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.description = None
+        """ Natural language description of the questionnaire.
+        Type `str`. """
+        
+        self.effectivePeriod = None
+        """ When the questionnaire is effective.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.experimental = None
+        """ If for testing purposes, not real usage.
+        Type `bool`. """
+        
         self.identifier = None
-        """ External identifiers for this questionnaire.
+        """ Additional identifier for the questionnaire.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.item = None
         """ Questions and sections within the Questionnaire.
         List of `QuestionnaireItem` items (represented as `dict` in JSON). """
         
+        self.jurisdiction = None
+        """ Intended jurisdiction for questionnaire (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.lastReviewDate = None
+        """ When the questionnaire was last reviewed.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.name = None
+        """ Name for this questionnaire (computer friendly).
+        Type `str`. """
+        
         self.publisher = None
-        """ Organization/individual who designed the questionnaire.
+        """ Name of the publisher (organization or individual).
+        Type `str`. """
+        
+        self.purpose = None
+        """ Why this questionnaire is defined.
         Type `str`. """
         
         self.status = None
-        """ draft | published | retired.
+        """ draft | active | retired | unknown.
         Type `str`. """
         
         self.subjectType = None
         """ Resource that can be subject of QuestionnaireResponse.
         List of `str` items. """
         
-        self.telecom = None
-        """ Contact information of the publisher.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
         self.title = None
-        """ Name for the questionnaire.
+        """ Name for this questionnaire (human friendly).
         Type `str`. """
         
         self.url = None
-        """ Globally unique logical identifier for  questionnaire.
+        """ Logical uri to reference this questionnaire (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Questionnaire intends to support these contexts.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        """ Content intends to support these contexts.
+        List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Logical identifier for this version of Questionnaire.
+        """ Business version of the questionnaire.
         Type `str`. """
         
         super(Questionnaire, self).__init__(jsondict=jsondict, strict=strict)
@@ -78,17 +114,26 @@ class Questionnaire(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Questionnaire, self).elementProperties()
         js.extend([
+            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
             ("code", "code", coding.Coding, True, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
+            ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("item", "item", QuestionnaireItem, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
+            ("name", "name", str, False, None, False),
             ("publisher", "publisher", str, False, None, False),
+            ("purpose", "purpose", str, False, None, False),
             ("status", "status", str, False, None, True),
             ("subjectType", "subjectType", str, True, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
             ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
-            ("useContext", "useContext", codeableconcept.CodeableConcept, True, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
@@ -399,11 +444,44 @@ class QuestionnaireItemOption(backboneelement.BackboneElement):
         return js
 
 
-from . import attachment
-from . import codeableconcept
-from . import coding
-from . import contactpoint
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import quantity
+import sys
+try:
+    from . import attachment
+except ImportError:
+    attachment = sys.modules[__package__ + '.attachment']
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

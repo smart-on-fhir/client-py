@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -36,6 +36,10 @@ class RiskAssessment(domainresource.DomainResource):
         """ Type of assessment.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.comment = None
+        """ Comments on the risk assessment.
+        Type `str`. """
+        
         self.condition = None
         """ Condition assessed.
         Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
@@ -55,10 +59,6 @@ class RiskAssessment(domainresource.DomainResource):
         self.mitigation = None
         """ How to reduce risk.
         Type `str`. """
-        
-        self.note = None
-        """ Comments on the risk assessment.
-        Type `Annotation` (represented as `dict` in JSON). """
         
         self.occurrenceDateTime = None
         """ When was assessment made?.
@@ -104,12 +104,12 @@ class RiskAssessment(domainresource.DomainResource):
             ("basedOn", "basedOn", fhirreference.FHIRReference, False, None, False),
             ("basis", "basis", fhirreference.FHIRReference, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("comment", "comment", str, False, None, False),
             ("condition", "condition", fhirreference.FHIRReference, False, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
             ("mitigation", "mitigation", str, False, None, False),
-            ("note", "note", annotation.Annotation, False, None, False),
             ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("parent", "parent", fhirreference.FHIRReference, False, None, False),
@@ -190,10 +190,28 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
         return js
 
 
-from . import annotation
-from . import codeableconcept
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import period
-from . import range
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']
+try:
+    from . import range
+except ImportError:
+    range = sys.modules[__package__ + '.range']

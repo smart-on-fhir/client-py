@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -53,15 +53,15 @@ class DiagnosticReport(domainresource.DomainResource):
         Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
         self.effectiveDateTime = None
-        """ Clinically Relevant time/time-period for report.
+        """ Clinically relevant time/time-period for report.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
-        """ Clinically Relevant time/time-period for report.
+        """ Clinically relevant time/time-period for report.
         Type `Period` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Business Identifer for report.
+        """ Business identifier for report.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.image = None
@@ -98,7 +98,7 @@ class DiagnosticReport(domainresource.DomainResource):
         Type `str`. """
         
         self.subject = None
-        """ The subject of the report, usually, but not always, the patient.
+        """ The subject of the report - usually, but not always, the patient.
         Type `FHIRReference` referencing `Patient, Group, Device, Location` (represented as `dict` in JSON). """
         
         super(DiagnosticReport, self).__init__(jsondict=jsondict, strict=strict)
@@ -202,9 +202,28 @@ class DiagnosticReportPerformer(backboneelement.BackboneElement):
         return js
 
 
-from . import attachment
-from . import codeableconcept
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import period
+import sys
+try:
+    from . import attachment
+except ImportError:
+    attachment = sys.modules[__package__ + '.attachment']
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']

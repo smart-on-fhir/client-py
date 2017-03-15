@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -100,7 +100,7 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.signature[0].contentType, "application/signature+xml")
         self.assertEqual(inst.signature[0].type[0].code, "1.2.840.10065.1.12.1.5")
         self.assertEqual(inst.signature[0].type[0].display, "Verification Signature")
-        self.assertEqual(inst.signature[0].type[0].system, "http://hl7.org/fhir/valueset-signature-type")
+        self.assertEqual(inst.signature[0].type[0].system, "urn:iso-astm:E1762-95:2013")
         self.assertEqual(inst.signature[0].when.date, FHIRDate("2015-08-27T08:39:24+10:00").date)
         self.assertEqual(inst.signature[0].when.as_json(), "2015-08-27T08:39:24+10:00")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>")

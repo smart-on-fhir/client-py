@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -53,7 +53,7 @@ class OperationOutcomeTests(unittest.TestCase):
         self.assertEqual(inst.issue[0].code, "suppressed")
         self.assertEqual(inst.issue[0].details.coding[0].code, "ETREAT")
         self.assertEqual(inst.issue[0].details.coding[0].display, "Emergency Treatment")
-        self.assertEqual(inst.issue[0].details.coding[0].system, "http://hl7.org/fhir/v3-ActReason")
+        self.assertEqual(inst.issue[0].details.coding[0].system, "http://hl7.org/fhir/v3/ActReason")
         self.assertEqual(inst.issue[0].details.text, "Additional information may be available using the Break-The-Glass Protocol")
         self.assertEqual(inst.issue[0].severity, "information")
         self.assertEqual(inst.text.status, "generated")

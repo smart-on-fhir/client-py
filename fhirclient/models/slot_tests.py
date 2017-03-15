@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -101,9 +101,9 @@ class SlotTests(unittest.TestCase):
         self.implSlot4(inst2)
     
     def implSlot4(self, inst):
-        self.assertEqual(inst.appointmentType.coding[0].code, "walkin")
+        self.assertEqual(inst.appointmentType.coding[0].code, "WALKIN")
         self.assertEqual(inst.appointmentType.coding[0].display, "A previously unscheduled walk-in visit")
-        self.assertEqual(inst.appointmentType.coding[0].system, "http://hl7.org/fhir/v2-0276")
+        self.assertEqual(inst.appointmentType.coding[0].system, "http://hl7.org/fhir/v2/0276")
         self.assertEqual(inst.comment, "Assessments should be performed before requesting appointments in this slot.")
         self.assertEqual(inst.end.date, FHIRDate("2013-12-25T09:30:00Z").date)
         self.assertEqual(inst.end.as_json(), "2013-12-25T09:30:00Z")

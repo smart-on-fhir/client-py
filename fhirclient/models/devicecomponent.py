@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 (http://hl7.org/fhir/StructureDefinition/DeviceComponent) on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/DeviceComponent) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -10,8 +10,8 @@ from . import domainresource
 class DeviceComponent(domainresource.DomainResource):
     """ An instance of a medical-related component of a medical device.
     
-    Describes the characteristics, operational status and capabilities of a
-    medical-related component of a medical device.
+    The characteristics, operational status and capabilities of a medical-
+    related component of a medical device.
     """
     
     resource_type = "DeviceComponent"
@@ -43,7 +43,8 @@ class DeviceComponent(domainresource.DomainResource):
         Type `str`. """
         
         self.operationalStatus = None
-        """ Component operational status.
+        """ Current operational status of the component, for example On, Off or
+        Standby.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.parameterGroup = None
@@ -55,11 +56,12 @@ class DeviceComponent(domainresource.DomainResource):
         Type `FHIRReference` referencing `DeviceComponent` (represented as `dict` in JSON). """
         
         self.productionSpecification = None
-        """ Production specification of the component.
+        """ Specification details such as Component Revisions, or Serial
+        Numbers.
         List of `DeviceComponentProductionSpecification` items (represented as `dict` in JSON). """
         
         self.source = None
-        """ A source device of this component.
+        """ Top-level device resource link.
         Type `FHIRReference` referencing `Device` (represented as `dict` in JSON). """
         
         self.type = None
@@ -73,7 +75,7 @@ class DeviceComponent(domainresource.DomainResource):
         js.extend([
             ("identifier", "identifier", identifier.Identifier, False, None, True),
             ("languageCode", "languageCode", codeableconcept.CodeableConcept, False, None, False),
-            ("lastSystemChange", "lastSystemChange", fhirdate.FHIRDate, False, None, True),
+            ("lastSystemChange", "lastSystemChange", fhirdate.FHIRDate, False, None, False),
             ("measurementPrinciple", "measurementPrinciple", str, False, None, False),
             ("operationalStatus", "operationalStatus", codeableconcept.CodeableConcept, True, None, False),
             ("parameterGroup", "parameterGroup", codeableconcept.CodeableConcept, False, None, False),
@@ -88,10 +90,10 @@ class DeviceComponent(domainresource.DomainResource):
 from . import backboneelement
 
 class DeviceComponentProductionSpecification(backboneelement.BackboneElement):
-    """ Production specification of the component.
+    """ Specification details such as Component Revisions, or Serial Numbers.
     
-    Describes the production specification such as component revision, serial
-    number, etc.
+    The production specification such as component revision, serial number,
+    etc.
     """
     
     resource_type = "DeviceComponentProductionSpecification"
@@ -113,7 +115,8 @@ class DeviceComponentProductionSpecification(backboneelement.BackboneElement):
         Type `str`. """
         
         self.specType = None
-        """ Specification type.
+        """ Type or kind of production specification, for example serial number
+        or software revision.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(DeviceComponentProductionSpecification, self).__init__(jsondict=jsondict, strict=strict)
@@ -128,7 +131,20 @@ class DeviceComponentProductionSpecification(backboneelement.BackboneElement):
         return js
 
 
-from . import codeableconcept
-from . import fhirdate
-from . import fhirreference
-from . import identifier
+import sys
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']

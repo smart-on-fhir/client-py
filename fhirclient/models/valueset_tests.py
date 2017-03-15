@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11466 on 2017-02-27.
+#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -89,7 +89,7 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.expansion.total, 8)
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "example-expansion")
-        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablevalueset")
         self.assertEqual(inst.name, "LOINC Codes for Cholesterol in Serum/Plasma")
         self.assertEqual(inst.publisher, "FHIR Project team")
         self.assertEqual(inst.status, "draft")
@@ -169,7 +169,7 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.id, "example-intensional")
         self.assertEqual(inst.identifier[0].system, "http://acme.com/identifiers/valuesets")
         self.assertEqual(inst.identifier[0].value, "loinc-cholesterol-ext")
-        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablevalueset")
         self.assertEqual(inst.name, "LOINC Codes for Cholesterol in Serum/Plasma")
         self.assertEqual(inst.publisher, "HL7 International")
         self.assertEqual(inst.status, "draft")
@@ -246,7 +246,7 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.id, "example-extensional")
         self.assertEqual(inst.identifier[0].system, "http://acme.com/identifiers/valuesets")
         self.assertEqual(inst.identifier[0].value, "loinc-cholesterol-int")
-        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablevalueset")
         self.assertEqual(inst.name, "LOINC Codes for Cholesterol in Serum/Plasma")
         self.assertEqual(inst.publisher, "HL7 International")
         self.assertEqual(inst.status, "draft")
@@ -268,17 +268,17 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.compose.include[0].system, "http://hl7.org/fhir/list-example-use-codes")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2017-02-27T09:13:50+00:00").date)
-        self.assertEqual(inst.date.as_json(), "2017-02-27T09:13:50+00:00")
+        self.assertEqual(inst.date.date, FHIRDate("2017-03-15T21:22:55+00:00").date)
+        self.assertEqual(inst.date.as_json(), "2017-03-15T21:22:55+00:00")
         self.assertEqual(inst.description, "Example use codes for the List resource - typical kinds of use.")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "list-example-codes")
         self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value, "urn:oid:2.16.840.1.113883.4.642.3.307")
         self.assertTrue(inst.immutable)
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2017-02-27T09:13:50.744+00:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2017-02-27T09:13:50.744+00:00")
-        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition")
+        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2017-03-15T21:22:55.937+00:00").date)
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2017-03-15T21:22:55.937+00:00")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablevalueset")
         self.assertEqual(inst.name, "Example Use Codes for List")
         self.assertEqual(inst.publisher, "FHIR Project")
         self.assertEqual(inst.status, "draft")
