@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-01-15.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -182,10 +182,32 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
         return js
 
 
-from . import annotation
-from . import codeableconcept
-from . import dosageinstruction
-from . import fhirdate
-from . import fhirreference
-from . import identifier
-from . import quantity
+import sys
+try:
+    from . import annotation
+except ImportError:
+    annotation = sys.modules[__package__ + '.annotation']
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import dosageinstruction
+except ImportError:
+    dosageinstruction = sys.modules[__package__ + '.dosageinstruction']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']

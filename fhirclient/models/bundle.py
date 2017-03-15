@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2017-01-15.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -300,6 +300,16 @@ class BundleLink(backboneelement.BackboneElement):
         return js
 
 
-from . import fhirdate
-from . import identifier
-from . import signature
+import sys
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import signature
+except ImportError:
+    signature = sys.modules[__package__ + '.signature']

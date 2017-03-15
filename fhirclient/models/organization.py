@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Organization) on 2017-01-15.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Organization) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -132,9 +132,28 @@ class OrganizationContact(backboneelement.BackboneElement):
         return js
 
 
-from . import address
-from . import codeableconcept
-from . import contactpoint
-from . import fhirreference
-from . import humanname
-from . import identifier
+import sys
+try:
+    from . import address
+except ImportError:
+    address = sys.modules[__package__ + '.address']
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import contactpoint
+except ImportError:
+    contactpoint = sys.modules[__package__ + '.contactpoint']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import humanname
+except ImportError:
+    humanname = sys.modules[__package__ + '.humanname']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']

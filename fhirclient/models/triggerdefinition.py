@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/TriggerDefinition) on 2017-01-15.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/TriggerDefinition) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -68,7 +68,20 @@ class TriggerDefinition(element.Element):
         return js
 
 
-from . import datarequirement
-from . import fhirdate
-from . import fhirreference
-from . import timing
+import sys
+try:
+    from . import datarequirement
+except ImportError:
+    datarequirement = sys.modules[__package__ + '.datarequirement']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import timing
+except ImportError:
+    timing = sys.modules[__package__ + '.timing']

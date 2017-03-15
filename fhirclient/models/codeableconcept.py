@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/CodeableConcept) on 2017-01-15.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/CodeableConcept) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -43,4 +43,8 @@ class CodeableConcept(element.Element):
         return js
 
 
-from . import coding
+import sys
+try:
+    from . import coding
+except ImportError:
+    coding = sys.modules[__package__ + '.coding']

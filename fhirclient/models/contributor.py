@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Contributor) on 2017-01-15.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/Contributor) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -48,4 +48,8 @@ class Contributor(element.Element):
         return js
 
 
-from . import contactdetail
+import sys
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']

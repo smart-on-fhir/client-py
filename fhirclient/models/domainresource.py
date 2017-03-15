@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DomainResource) on 2017-01-15.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/DomainResource) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -52,5 +52,12 @@ class DomainResource(resource.Resource):
         return js
 
 
-from . import extension
-from . import narrative
+import sys
+try:
+    from . import extension
+except ImportError:
+    extension = sys.modules[__package__ + '.extension']
+try:
+    from . import narrative
+except ImportError:
+    narrative = sys.modules[__package__ + '.narrative']

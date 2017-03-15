@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/SampledData) on 2017-01-15.
+#  Generated from FHIR 1.8.0.10521 (http://hl7.org/fhir/StructureDefinition/SampledData) on 2017-03-15.
 #  2017, SMART Health IT.
 
 
@@ -68,4 +68,8 @@ class SampledData(element.Element):
         return js
 
 
-from . import quantity
+import sys
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']
