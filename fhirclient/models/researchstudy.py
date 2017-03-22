@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ResearchStudy) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ResearchStudy) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class ResearchStudy(domainresource.DomainResource):
-    """ Investigation increase healthcare-related patient-independent knowledge.
+    """ Investigation to increase healthcare-related patient-independent knowledge.
     
     A process where a researcher or organization plans and then executes a
     series of steps intended to increase the field of healthcare-related
     knowledge.  This includes studies of safety, efficacy, comparative
     effectiveness and other information about medications, devices, therapies
-    and other interventional and investigative techniques.  ResearchStudies
-    involve the gathering of information about human or animal subjects.
+    and other interventional and investigative techniques.  A ResearchStudy
+    involves the gathering of information about human or animal subjects.
     """
     
     resource_type = "ResearchStudy"
@@ -77,7 +77,7 @@ class ResearchStudy(domainresource.DomainResource):
         Type `Period` (represented as `dict` in JSON). """
         
         self.principalInvestigator = None
-        """ Individual responsible for the study.
+        """ The individual responsible for the study.
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.protocol = None
@@ -159,7 +159,7 @@ class ResearchStudyArm(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Categorization of arm.
+        """ Categorization of study arm.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.description = None

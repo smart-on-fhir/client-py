@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/CompartmentDefinition) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/CompartmentDefinition) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -41,7 +41,7 @@ class CompartmentDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.experimental = None
-        """ If for testing purposes, not real usage.
+        """ For testing purposes, not real usage.
         Type `bool`. """
         
         self.jurisdiction = None
@@ -61,7 +61,7 @@ class CompartmentDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.resource = None
-        """ How resource is related to the compartment.
+        """ How a resource is related to the compartment.
         List of `CompartmentDefinitionResource` items (represented as `dict` in JSON). """
         
         self.search = None
@@ -77,12 +77,12 @@ class CompartmentDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical uri to reference this compartment definition (globally
+        """ Logical URI to reference this compartment definition (globally
         unique).
         Type `str`. """
         
         self.useContext = None
-        """ Content intends to support these contexts.
+        """ Context the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         super(CompartmentDefinition, self).__init__(jsondict=jsondict, strict=strict)
@@ -112,9 +112,9 @@ class CompartmentDefinition(domainresource.DomainResource):
 from . import backboneelement
 
 class CompartmentDefinitionResource(backboneelement.BackboneElement):
-    """ How resource is related to the compartment.
+    """ How a resource is related to the compartment.
     
-    Information about how a resource it related to the compartment.
+    Information about how a resource is related to the compartment.
     """
     
     resource_type = "CompartmentDefinitionResource"
@@ -132,11 +132,11 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
         Type `str`. """
         
         self.documentation = None
-        """ Additional doco about the resource and compartment.
+        """ Additional documentation about the resource and compartment.
         Type `str`. """
         
         self.param = None
-        """ Search Parameter Name, or chained params.
+        """ Search Parameter Name, or chained parameters.
         List of `str` items. """
         
         super(CompartmentDefinitionResource, self).__init__(jsondict=jsondict, strict=strict)

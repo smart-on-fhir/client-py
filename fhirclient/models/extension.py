@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Extension) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Extension) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -10,7 +10,7 @@ from . import element
 class Extension(element.Element):
     """ Optional Extensions Element.
     
-    Optional Extensions Element - found in all resources.
+    Optional Extension Element - found in all resources.
     """
     
     resource_type = "Extension"

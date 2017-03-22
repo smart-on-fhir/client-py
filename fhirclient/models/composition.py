@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Composition) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Composition) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -141,7 +141,7 @@ class CompositionAttester(backboneelement.BackboneElement):
         Type `FHIRReference` referencing `Patient, Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.time = None
-        """ When composition attested.
+        """ When the composition was attested.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         super(CompositionAttester, self).__init__(jsondict=jsondict, strict=strict)

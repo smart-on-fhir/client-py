@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Address) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Address) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -13,7 +13,7 @@ class Address(element.Element):
     
     An address expressed using postal conventions (as opposed to GPS or other
     location definition formats).  This data type may be used to convey
-    addresses for use in delivering mail as well as for visiting locations and
+    addresses for use in delivering mail as well as for visiting locations
     which might not be valid for mail delivery.  There are a variety of postal
     address formats defined around the world.
     """

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -124,7 +124,7 @@ class PlanDefinitionTests(unittest.TestCase):
     def implPlanDefinition2(self, inst):
         self.assertEqual(inst.action[0].action[0].action[0].dynamicValue[0].expression, "Now()")
         self.assertEqual(inst.action[0].action[0].action[0].dynamicValue[0].path, "timing.event")
-        self.assertEqual(inst.action[0].action[0].action[0].dynamicValue[1].expression, "Code '261QM0850X' from SuicideRiskLogic.\"NPI Taxonomy\" display 'Adult Mental Health'")
+        self.assertEqual(inst.action[0].action[0].action[0].dynamicValue[1].expression, "Code '261QM0850X' from SuicideRiskLogic.\"NUCC Provider Taxonomy\" display 'Adult Mental Health'")
         self.assertEqual(inst.action[0].action[0].action[0].dynamicValue[1].path, "specialty")
         self.assertEqual(inst.action[0].action[0].action[0].dynamicValue[2].expression, "SuicideRiskLogic.ReferralRequestFulfillmentTime")
         self.assertEqual(inst.action[0].action[0].action[0].dynamicValue[2].path, "occurrenceDateTime")

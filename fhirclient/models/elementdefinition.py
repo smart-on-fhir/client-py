@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -481,7 +481,7 @@ class ElementDefinition(element.Element):
         Type `str`. """
         
         self.path = None
-        """ Path of the element in the heirarchy of elements.
+        """ Path of the element in the hierarchy of elements.
         Type `str`. """
         
         self.patternAddress = None

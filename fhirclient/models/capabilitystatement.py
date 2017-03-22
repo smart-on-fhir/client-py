@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class CapabilityStatement(domainresource.DomainResource):
-    """ A statement of system Capabilities.
+    """ A statement of system capabilities.
     
     A Capability Statement documents a set of capabilities (behaviors) of a
     FHIR Server that may be used as a statement of actual server functionality
@@ -50,7 +50,7 @@ class CapabilityStatement(domainresource.DomainResource):
         List of `CapabilityStatementDocument` items (represented as `dict` in JSON). """
         
         self.experimental = None
-        """ If for testing purposes, not real usage.
+        """ For testing purposes, not real usage.
         Type `bool`. """
         
         self.fhirVersion = None
@@ -66,7 +66,7 @@ class CapabilityStatement(domainresource.DomainResource):
         Type `CapabilityStatementImplementation` (represented as `dict` in JSON). """
         
         self.implementationGuide = None
-        """ Implementation Guide supported.
+        """ Implementation guides supported.
         List of `str` items. """
         
         self.instantiates = None
@@ -122,12 +122,12 @@ class CapabilityStatement(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical uri to reference this capability statement (globally
+        """ Logical URI to reference this capability statement (globally
         unique).
         Type `str`. """
         
         self.useContext = None
-        """ Content intends to support these contexts.
+        """ Context the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -472,7 +472,7 @@ class CapabilityStatementRest(backboneelement.BackboneElement):
         List of `CapabilityStatementRestResource` items (represented as `dict` in JSON). """
         
         self.searchParam = None
-        """ Search params for searching all resources.
+        """ Search parameters for searching all resources.
         List of `CapabilityStatementRestResourceSearchParam` items (represented as `dict` in JSON). """
         
         self.security = None
@@ -534,8 +534,8 @@ class CapabilityStatementRestInteraction(backboneelement.BackboneElement):
 class CapabilityStatementRestOperation(backboneelement.BackboneElement):
     """ Definition of an operation or a custom query.
     
-    Definition of an operation or a named query and with its parameters and
-    their meaning and type.
+    Definition of an operation or a named query together with its parameters
+    and their meaning and type.
     """
     
     resource_type = "CapabilityStatementRestOperation"
@@ -626,7 +626,7 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
         List of `str` items. """
         
         self.searchParam = None
-        """ Search params supported by implementation.
+        """ Search parameters supported by implementation.
         List of `CapabilityStatementRestResourceSearchParam` items (represented as `dict` in JSON). """
         
         self.searchRevInclude = None
@@ -706,7 +706,7 @@ class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement
 
 
 class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement):
-    """ Search params supported by implementation.
+    """ Search parameters supported by implementation.
     
     Search parameters for implementations to support and/or make use of -
     either references to ones defined in the specification, or additional ones
@@ -818,7 +818,7 @@ class CapabilityStatementRestSecurityCertificate(backboneelement.BackboneElement
         Type `str`. """
         
         self.type = None
-        """ Mime type for certificate.
+        """ Mime type for certificates.
         Type `str`. """
         
         super(CapabilityStatementRestSecurityCertificate, self).__init__(jsondict=jsondict, strict=strict)

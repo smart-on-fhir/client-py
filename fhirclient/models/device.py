@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Device) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Device) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -13,7 +13,7 @@ class Device(domainresource.DomainResource):
     This resource identifies an instance or a type of a manufactured item that
     is used in the provision of healthcare without being substantially changed
     through that activity. The device may be a medical or non-medical device.
-    Medical devices includes durable (reusable) medical equipment, implantable
+    Medical devices include durable (reusable) medical equipment, implantable
     devices, as well as disposable equipment used for diagnostic, treatment,
     and research for healthcare and public health.  Non-medical devices may
     include items such as a machine, cellphone, computer, application, etc.

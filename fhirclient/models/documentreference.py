@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -62,7 +62,7 @@ class DocumentReference(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.indexed = None
-        """ When this document reference created.
+        """ When this document reference was created.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.masterIdentifier = None
@@ -174,7 +174,7 @@ class DocumentReferenceContext(backboneelement.BackboneElement):
         Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
         
         self.event = None
-        """ Main Clinical Acts Documented.
+        """ Main clinical acts documented.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.facilityType = None

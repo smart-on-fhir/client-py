@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ResearchSubject) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ResearchSubject) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class ResearchSubject(domainresource.DomainResource):
-    """ Investigation increase healthcare-related patient-independent knowledge.
+    """ Investigation to increase healthcare-related patient-independent knowledge.
     
     A process where a researcher or organization plans and then executes a
     series of steps intended to increase the field of healthcare-related
     knowledge.  This includes studies of safety, efficacy, comparative
     effectiveness and other information about medications, devices, therapies
-    and other interventional and investigative techniques.  ResearchStudies
-    involve the gathering of information about human or animal subjects.
+    and other interventional and investigative techniques.  A ResearchStudy
+    involves the gathering of information about human or animal subjects.
     """
     
     resource_type = "ResearchSubject"
@@ -41,7 +41,7 @@ class ResearchSubject(domainresource.DomainResource):
         Type `FHIRReference` referencing `Consent` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Business Identifier for event.
+        """ Business Identifier for research subject.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.individual = None

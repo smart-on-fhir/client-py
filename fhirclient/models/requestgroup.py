@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/RequestGroup) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/RequestGroup) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -32,21 +32,41 @@ class RequestGroup(domainresource.DomainResource):
         """ Device or practitioner that authored the request group.
         Type `FHIRReference` referencing `Device, Practitioner` (represented as `dict` in JSON). """
         
+        self.authoredOn = None
+        """ When the request group was authored.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.basedOn = None
+        """ Fulfills plan, proposal, or order.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
         self.context = None
         """ Encounter or Episode for the request group.
         Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
         
+        self.definition = None
+        """ Instantiates protocol or definition.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
+        self.groupIdentifier = None
+        """ Composite request this is part of.
+        Type `Identifier` (represented as `dict` in JSON). """
+        
         self.identifier = None
         """ Business identifier.
-        Type `Identifier` (represented as `dict` in JSON). """
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.intent = None
+        """ proposal | plan | order.
+        Type `str`. """
         
         self.note = None
         """ Additional notes about the response.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.occurrenceDateTime = None
-        """ When the request group was authored.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        self.priority = None
+        """ routine | urgent | asap | stat.
+        Type `str`. """
         
         self.reasonCodeableConcept = None
         """ Reason for the request group.
@@ -55,6 +75,15 @@ class RequestGroup(domainresource.DomainResource):
         self.reasonReference = None
         """ Reason for the request group.
         Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        
+        self.replaces = None
+        """ Request(s) replaced by this request.
+        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ draft | active | suspended | cancelled | completed | entered-in-
+        error | unknown.
+        Type `str`. """
         
         self.subject = None
         """ Who the request group is about.
@@ -67,12 +96,19 @@ class RequestGroup(domainresource.DomainResource):
         js.extend([
             ("action", "action", RequestGroupAction, True, None, False),
             ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("definition", "definition", fhirreference.FHIRReference, True, None, False),
+            ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("intent", "intent", str, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, None, False),
+            ("priority", "priority", str, False, None, False),
             ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
+            ("replaces", "replaces", fhirreference.FHIRReference, True, None, False),
+            ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js

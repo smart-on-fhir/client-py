@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -14,7 +14,7 @@ class MedicationRequest(domainresource.DomainResource):
     for administration of the medication to a patient. The resource is called
     "MedicationRequest" rather than "MedicationPrescription" or
     "MedicationOrder" to generalize the use across inpatient and outpatient
-    settings, including care plans, etc and to harmonize with workflow
+    settings, including care plans, etc., and to harmonize with workflow
     patterns.
     """
     

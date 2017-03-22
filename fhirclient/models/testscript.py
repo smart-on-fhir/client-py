@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -10,9 +10,8 @@ from . import domainresource
 class TestScript(domainresource.DomainResource):
     """ Describes a set of tests.
     
-    TestScript is a resource that specifies a suite of tests against a FHIR
-    server implementation to determine compliance against the FHIR
-    specification.
+    A structured set of tests against a FHIR server implementation to determine
+    compliance against the FHIR specification.
     """
     
     resource_type = "TestScript"
@@ -47,7 +46,7 @@ class TestScript(domainresource.DomainResource):
         List of `TestScriptDestination` items (represented as `dict` in JSON). """
         
         self.experimental = None
-        """ If for testing purposes, not real usage.
+        """ For testing purposes, not real usage.
         Type `bool`. """
         
         self.fixture = None
@@ -117,11 +116,11 @@ class TestScript(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical uri to reference this test script (globally unique).
+        """ Logical URI to reference this test script (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Content intends to support these contexts.
+        """ Context the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.variable = None
@@ -1031,7 +1030,7 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         Type `str`. """
         
         self.requestHeader = None
-        """ Each operation can have one ore more header elements.
+        """ Each operation can have one or more header elements.
         List of `TestScriptSetupActionOperationRequestHeader` items (represented as `dict` in JSON). """
         
         self.requestId = None
@@ -1089,7 +1088,7 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
 
 
 class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElement):
-    """ Each operation can have one ore more header elements.
+    """ Each operation can have one or more header elements.
     
     Header elements would be used to set HTTP headers.
     """

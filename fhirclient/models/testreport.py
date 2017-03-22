@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/TestReport) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/TestReport) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -10,8 +10,7 @@ from . import domainresource
 class TestReport(domainresource.DomainResource):
     """ Describes the results of a TestScript execution.
     
-    TestReport is a resource that includes summary information on the results
-    of executing a TestScript.
+    A summary of information based on the results of executing a TestScript.
     """
     
     resource_type = "TestReport"

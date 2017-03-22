@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/AdverseEvent) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/AdverseEvent) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class AdverseEvent(domainresource.DomainResource):
-    """ Actual or  potential/avoided event causing unintended physical injury
+    """ Medical care, research study or other healthcare event causing physical
+    injury.
+    
+    Actual or  potential/avoided event causing unintended physical injury
     resulting from or contributed to by medical care, a research study or other
     healthcare setting factors that requires additional monitoring, treatment,
     or hospitalization, or that results in death.
@@ -35,11 +38,11 @@ class AdverseEvent(domainresource.DomainResource):
         Type `str`. """
         
         self.date = None
-        """ AdverseEvent.date.
+        """ When the event occurred.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ AdverseEvent.description.
+        """ Description of the adverse event.
         Type `str`. """
         
         self.eventParticipant = None
@@ -48,11 +51,11 @@ class AdverseEvent(domainresource.DomainResource):
         Type `FHIRReference` referencing `Practitioner, Device` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ AdverseEvent.identifier.
+        """ Business identifier for the event.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.location = None
-        """ AdverseEvent.location.
+        """ Location where adverse event occurred.
         Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
         
         self.outcome = None
@@ -65,7 +68,7 @@ class AdverseEvent(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
         
         self.recorder = None
-        """ AdverseEvent.recorder.
+        """ Who recorded the adverse event.
         Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
         
         self.referenceDocument = None
@@ -89,7 +92,7 @@ class AdverseEvent(domainresource.DomainResource):
         List of `FHIRReference` items referencing `Condition, Observation, AllergyIntolerance, FamilyMemberHistory, Immunization, Procedure` (represented as `dict` in JSON). """
         
         self.suspectEntity = None
-        """ AdverseEvent.suspectEntity.
+        """ The suspected agent causing the adverse event.
         List of `AdverseEventSuspectEntity` items (represented as `dict` in JSON). """
         
         self.type = None
@@ -124,7 +127,9 @@ class AdverseEvent(domainresource.DomainResource):
 from . import backboneelement
 
 class AdverseEventSuspectEntity(backboneelement.BackboneElement):
-    """ AdverseEvent.suspectEntity.
+    """ The suspected agent causing the adverse event.
+    
+    Describes the entity that is suspected to have caused the adverse event.
     """
     
     resource_type = "AdverseEventSuspectEntity"
@@ -162,7 +167,7 @@ class AdverseEventSuspectEntity(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.instance = None
-        """ AdverseEvent.suspectEntity.instance.
+        """ Refers to the specific entity that caused the adverse event.
         Type `FHIRReference` referencing `Substance, Medication, MedicationAdministration, MedicationStatement, Device` (represented as `dict` in JSON). """
         
         super(AdverseEventSuspectEntity, self).__init__(jsondict=jsondict, strict=strict)

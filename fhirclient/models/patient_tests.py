@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -34,7 +34,7 @@ class PatientTests(unittest.TestCase):
     def implPatient1(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.contact[0].relationship[0].coding[0].code, "E")
-        self.assertEqual(inst.contact[0].relationship[0].coding[0].system, "http://hl7.org/fhir/patient-contact-relationship")
+        self.assertEqual(inst.contact[0].relationship[0].coding[0].system, "http://hl7.org/fhir/v2/0131")
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "pat1")
         self.assertEqual(inst.identifier[0].system, "urn:oid:0.1.2.3.4.5.6.7")
@@ -78,7 +78,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].name.given[0], "Peter")
         self.assertEqual(inst.contact[0].name.given[1], "James")
         self.assertEqual(inst.contact[0].relationship[0].coding[0].code, "C")
-        self.assertEqual(inst.contact[0].relationship[0].coding[0].system, "http://hl7.org/fhir/patient-contact-relationship")
+        self.assertEqual(inst.contact[0].relationship[0].coding[0].system, "http://hl7.org/fhir/v2/0131")
         self.assertEqual(inst.contact[0].telecom[0].system, "phone")
         self.assertEqual(inst.contact[0].telecom[0].use, "work")
         self.assertEqual(inst.contact[0].telecom[0].value, "(03) 5555 6473")
@@ -274,7 +274,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].name.given[0], "Sarah")
         self.assertEqual(inst.contact[0].name.use, "usual")
         self.assertEqual(inst.contact[0].relationship[0].coding[0].code, "C")
-        self.assertEqual(inst.contact[0].relationship[0].coding[0].system, "http://hl7.org/fhir/patient-contact-relationship")
+        self.assertEqual(inst.contact[0].relationship[0].coding[0].system, "http://hl7.org/fhir/v2/0131")
         self.assertEqual(inst.contact[0].telecom[0].system, "phone")
         self.assertEqual(inst.contact[0].telecom[0].use, "mobile")
         self.assertEqual(inst.contact[0].telecom[0].value, "0690383372")
@@ -332,7 +332,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].relationship[0].coding[0].display, "Wife")
         self.assertEqual(inst.contact[0].relationship[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.contact[0].relationship[0].coding[1].code, "N")
-        self.assertEqual(inst.contact[0].relationship[0].coding[1].system, "http://hl7.org/fhir/patient-contact-relationship")
+        self.assertEqual(inst.contact[0].relationship[0].coding[1].system, "http://hl7.org/fhir/v2/0131")
         self.assertEqual(inst.contact[0].relationship[0].coding[2].code, "WIFE")
         self.assertEqual(inst.contact[0].relationship[0].coding[2].system, "http://hl7.org/fhir/v3/RoleCode")
         self.assertEqual(inst.contact[0].telecom[0].system, "phone")

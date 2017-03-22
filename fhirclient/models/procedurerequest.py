@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ProcedureRequest) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -10,8 +10,8 @@ from . import domainresource
 class ProcedureRequest(domainresource.DomainResource):
     """ A request for a procedure or diagnostic to be performed.
     
-    A record of a request for a diagnostic investigation service to be
-    performed.
+    A record of a request for diagnostic investigations, treatments, or
+    operations to be performed.
     """
     
     resource_type = "ProcedureRequest"

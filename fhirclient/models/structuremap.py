@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -39,7 +39,7 @@ class StructureMap(domainresource.DomainResource):
         Type `str`. """
         
         self.experimental = None
-        """ If for testing purposes, not real usage.
+        """ For testing purposes, not real usage.
         Type `bool`. """
         
         self.group = None
@@ -83,11 +83,11 @@ class StructureMap(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical uri to reference this structure map (globally unique).
+        """ Logical URI to reference this structure map (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Content intends to support these contexts.
+        """ Context the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -125,6 +125,9 @@ from . import backboneelement
 
 class StructureMapGroup(backboneelement.BackboneElement):
     """ Named sections for reader convenience.
+    
+    Organizes the mapping into managable chunks for human review/ease of
+    maintenance.
     """
     
     resource_type = "StructureMapGroup"
@@ -138,7 +141,7 @@ class StructureMapGroup(backboneelement.BackboneElement):
         """
         
         self.documentation = None
-        """ Documentation for this group.
+        """ Additional description/explaination for group.
         Type `str`. """
         
         self.extends = None
@@ -150,7 +153,7 @@ class StructureMapGroup(backboneelement.BackboneElement):
         List of `StructureMapGroupInput` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Descriptive name for a user.
+        """ Human-readable label.
         Type `str`. """
         
         self.rule = None
@@ -504,7 +507,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         Type `int`. """
         
         self.type = None
-        """ Type for this source.
+        """ Rule only applies if source has this type.
         Type `str`. """
         
         self.variable = None

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -12,7 +12,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
     
     A structured set of questions and their answers. The questions are ordered
     and grouped into coherent subsets, corresponding to the structure of the
-    grouping of the underlying questions.
+    grouping of the questionnaire being responded to.
     """
     
     resource_type = "QuestionnaireResponse"
@@ -30,7 +30,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         Type `FHIRReference` referencing `Device, Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
         
         self.authored = None
-        """ Date this version was authored.
+        """ Date the answers were gathered.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.basedOn = None
@@ -94,7 +94,8 @@ from . import backboneelement
 class QuestionnaireResponseItem(backboneelement.BackboneElement):
     """ Groups and questions.
     
-    Corresponds to a group or question item from the original questionnaire.
+    A group or question item from the original questionnaire for which answers
+    are provided.
     """
     
     resource_type = "QuestionnaireResponseItem"

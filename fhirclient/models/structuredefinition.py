@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -12,7 +12,7 @@ class StructureDefinition(domainresource.DomainResource):
     
     A definition of a FHIR structure. This resource is used to describe the
     underlying resources, data types defined in FHIR, and also for describing
-    extensions, and constraints on resources and data types.
+    extensions and constraints on resources and data types.
     """
     
     resource_type = "StructureDefinition"
@@ -70,7 +70,7 @@ class StructureDefinition(domainresource.DomainResource):
         Type `StructureDefinitionDifferential` (represented as `dict` in JSON). """
         
         self.experimental = None
-        """ If for testing purposes, not real usage.
+        """ For testing purposes, not real usage.
         Type `bool`. """
         
         self.fhirVersion = None
@@ -126,12 +126,12 @@ class StructureDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical uri to reference this structure definition (globally
+        """ Logical URI to reference this structure definition (globally
         unique).
         Type `str`. """
         
         self.useContext = None
-        """ Content intends to support these contexts.
+        """ Context the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None

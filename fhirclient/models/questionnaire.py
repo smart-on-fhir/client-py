@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -10,9 +10,10 @@ from . import domainresource
 class Questionnaire(domainresource.DomainResource):
     """ A structured set of questions.
     
-    A structured set of questions intended to guide the collection of answers.
-    The questions are ordered and grouped into coherent subsets, corresponding
-    to the structure of the grouping of the underlying questions.
+    A structured set of questions intended to guide the collection of answers
+    from end-users. Questionnaires provide detailed control over order,
+    presentation, phraseology and grouping to allow coherent, consistent data
+    collection.
     """
     
     resource_type = "Questionnaire"
@@ -50,11 +51,11 @@ class Questionnaire(domainresource.DomainResource):
         Type `str`. """
         
         self.effectivePeriod = None
-        """ When the questionnaire is effective.
+        """ When the questionnaire is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
         
         self.experimental = None
-        """ If for testing purposes, not real usage.
+        """ For testing purposes, not real usage.
         Type `bool`. """
         
         self.identifier = None
@@ -98,11 +99,11 @@ class Questionnaire(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical uri to reference this questionnaire (globally unique).
+        """ Logical URI to reference this questionnaire (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Content intends to support these contexts.
+        """ Context the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -144,7 +145,8 @@ from . import backboneelement
 class QuestionnaireItem(backboneelement.BackboneElement):
     """ Questions and sections within the Questionnaire.
     
-    The questions and groupings of questions that make up the questionnaire.
+    A particular question, question grouping or display text that is part of
+    the questionnaire.
     """
     
     resource_type = "QuestionnaireItem"
@@ -158,7 +160,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Corresponding Concept for this item in a terminology.
+        """ Corresponding concept for this item in a terminology.
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.definition = None
@@ -166,7 +168,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         Type `str`. """
         
         self.enableWhen = None
-        """ Only allow data when:.
+        """ Only allow data when.
         List of `QuestionnaireItemEnableWhen` items (represented as `dict` in JSON). """
         
         self.initialAttachment = None
@@ -297,9 +299,9 @@ class QuestionnaireItem(backboneelement.BackboneElement):
 
 
 class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
-    """ Only allow data when:.
+    """ Only allow data when.
     
-    If present, indicates that this item should only be enabled
+    A constraint indicating that this item should only be enabled
     (displayed/allow answers to be captured) when the specified condition is
     true.
     """
@@ -396,8 +398,7 @@ class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
 class QuestionnaireItemOption(backboneelement.BackboneElement):
     """ Permitted answer.
     
-    For a "choice" question, identifies one of the permitted answers for the
-    question.
+    One of the permitted answers for a "choice" or "open-choice" question.
     """
     
     resource_type = "QuestionnaireItemOption"

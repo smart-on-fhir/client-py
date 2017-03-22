@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -53,14 +53,19 @@ class RequestGroupTests(unittest.TestCase):
         self.assertEqual(inst.action[0].timingDateTime.date, FHIRDate("2017-03-06T19:00:00Z").date)
         self.assertEqual(inst.action[0].timingDateTime.as_json(), "2017-03-06T19:00:00Z")
         self.assertEqual(inst.action[0].title, "Administer Medications")
+        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-03-06T17:31:00Z").date)
+        self.assertEqual(inst.authoredOn.as_json(), "2017-03-06T17:31:00Z")
         self.assertEqual(inst.contained[0].id, "medicationrequest-1")
         self.assertEqual(inst.contained[1].id, "medicationrequest-2")
+        self.assertEqual(inst.groupIdentifier.system, "http://example.org/treatment-group")
+        self.assertEqual(inst.groupIdentifier.value, "00001")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.identifier.value, "requestgroup-1")
+        self.assertEqual(inst.identifier[0].value, "requestgroup-1")
+        self.assertEqual(inst.intent, "plan")
         self.assertEqual(inst.note[0].text, "Additional notes about the request group")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2017-03-06T17:31:00Z").date)
-        self.assertEqual(inst.occurrenceDateTime.as_json(), "2017-03-06T17:31:00Z")
+        self.assertEqual(inst.priority, "routine")
         self.assertEqual(inst.reasonCodeableConcept.text, "Treatment")
+        self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Example RequestGroup illustrating related actions to administer medications in sequence with time delay.</div>")
         self.assertEqual(inst.text.status, "generated")
     
@@ -98,14 +103,15 @@ class RequestGroupTests(unittest.TestCase):
         self.assertEqual(inst.action[0].action[0].action[0].selectionBehavior, "exactly-one")
         self.assertEqual(inst.action[0].action[0].selectionBehavior, "all")
         self.assertEqual(inst.action[0].selectionBehavior, "exactly-one")
+        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-03-06T17:31:00Z").date)
+        self.assertEqual(inst.authoredOn.as_json(), "2017-03-06T17:31:00Z")
         self.assertEqual(inst.contained[0].id, "1111")
         self.assertEqual(inst.contained[1].id, "2222")
         self.assertEqual(inst.id, "kdn5-example")
-        self.assertEqual(inst.identifier.value, "requestgroup-kdn5")
-        self.assertEqual(inst.note[0].text, "Additional notes about the request group")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2017-03-06T17:31:00Z").date)
-        self.assertEqual(inst.occurrenceDateTime.as_json(), "2017-03-06T17:31:00Z")
-        self.assertEqual(inst.reasonCodeableConcept.text, "Treatment")
+        self.assertEqual(inst.identifier[0].value, "requestgroup-kdn5")
+        self.assertEqual(inst.intent, "plan")
+        self.assertEqual(inst.priority, "routine")
+        self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Administer gemcitabine and carboplatin.</div>")
         self.assertEqual(inst.text.status, "generated")
 

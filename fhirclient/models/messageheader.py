@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -32,7 +32,7 @@ class MessageHeader(domainresource.DomainResource):
         Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
         
         self.destination = None
-        """ Message Destination Application(s).
+        """ Message destination application(s).
         List of `MessageHeaderDestination` items (represented as `dict` in JSON). """
         
         self.enterer = None
@@ -68,7 +68,7 @@ class MessageHeader(domainresource.DomainResource):
         Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.source = None
-        """ Message Source Application.
+        """ Message source application.
         Type `MessageHeaderSource` (represented as `dict` in JSON). """
         
         self.timestamp = None
@@ -99,7 +99,7 @@ class MessageHeader(domainresource.DomainResource):
 from . import backboneelement
 
 class MessageHeaderDestination(backboneelement.BackboneElement):
-    """ Message Destination Application(s).
+    """ Message destination application(s).
     
     The destination application which the message is intended for.
     """
@@ -180,7 +180,7 @@ class MessageHeaderResponse(backboneelement.BackboneElement):
 
 
 class MessageHeaderSource(backboneelement.BackboneElement):
-    """ Message Source Application.
+    """ Message source application.
     
     The source application from which this message originated.
     """

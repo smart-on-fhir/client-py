@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/Signature) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Signature) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -12,7 +12,7 @@ class Signature(element.Element):
     
     A digital signature along with supporting context. The signature may be
     electronic/cryptographic in nature, or a graphical image representing a
-    hand-written signature, or a signature process. Different Signature
+    hand-written signature, or a signature process. Different signature
     approaches have different utilities.
     """
     

@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
 from . import domainresource
 
 class DocumentManifest(domainresource.DomainResource):
-    """ A manifest that defines a set of documents.
+    """ A list that defines a set of documents.
+    
+    A collection of documents compiled for a purpose together with metadata
+    that applies to the collection.
     """
     
     resource_type = "DocumentManifest"

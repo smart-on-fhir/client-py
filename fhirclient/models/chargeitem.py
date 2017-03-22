@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/ChargeItem) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ChargeItem) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -62,7 +62,7 @@ class ChargeItem(domainresource.DomainResource):
         Type `float`. """
         
         self.identifier = None
-        """ Business Identifer for item.
+        """ Business Identifier for item.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.note = None

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 1.9.0.11641 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2017-03-15.
+#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2017-03-22.
 #  2017, SMART Health IT.
 
 
@@ -11,7 +11,7 @@ class DataRequirement(element.Element):
     """ Describes a required data item.
     
     Describes a required data item for evaluation in terms of the type of data,
-    and optional code- or date-based filters of the data.
+    and optional code or date-based filters of the data.
     """
     
     resource_type = "DataRequirement"
