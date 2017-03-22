@@ -1,8 +1,7 @@
 var classfhirclient_1_1models_1_1valueset_1_1_value_set =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a0f91aeba5e7be2436d4d38921cde2f31", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#acc9458bd4de29c45d585da46fd9a7965", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a254ab38b293d7194358a2132ef3036ff", null ],
-    [ "codeSystem", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a5b37af0d93ffead9963344e4622603ef", null ],
     [ "compose", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#afbfa44ef04160f3b0a08cd0b417dd2a4", null ],
     [ "contact", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#ab9ac23003aa4076bf84a0a6ae7e0cd1b", null ],
     [ "copyright", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#afb400173fa3c3901db663da0e52d9a1e", null ],
@@ -13,11 +12,12 @@ var classfhirclient_1_1models_1_1valueset_1_1_value_set =
     [ "extensible", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a817ec8789caf1d38c6da7683820366f8", null ],
     [ "identifier", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#ab5ab11662f3282834457d25c59b576f1", null ],
     [ "immutable", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a0a4983f17ac92ffb3c7d533124484363", null ],
-    [ "lockedDate", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#ad83ee6817967e5a7172e034c0b479486", null ],
+    [ "jurisdiction", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a27c8c035445543692f0e31e703ac4e41", null ],
     [ "name", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#ab09f98883c0e1778523bae373c011ac7", null ],
     [ "publisher", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a6771cb8f711c6d387ff54dec25f9a91e", null ],
-    [ "requirements", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a0d6f3dc374a1ee9dcd0967d61aea7e44", null ],
+    [ "purpose", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a78533640d80a6c9d24122a76cbc35a54", null ],
     [ "status", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a431057081b635320e1ed02d83080d553", null ],
+    [ "title", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a9c61c29374af75c228ad09a45782f55c", null ],
     [ "url", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a1470ae58b1987228f51a6129fe4cf815", null ],
     [ "useContext", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#a9459aaf36686ac0aa5b66ecfcca9c97e", null ],
     [ "version", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html#af8cf6b9225c63e0cea5fb330217004f1", null ]

@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1coding_1_1_coding =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1coding_1_1_coding.html#aaaad87c7871b0113b353d0929180daba", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1coding_1_1_coding.html#a53f5806b24ddc8c98be8322135d86800", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1coding_1_1_coding.html#a698067955e24060b776edbac04aee07f", null ],
     [ "code", "classfhirclient_1_1models_1_1coding_1_1_coding.html#a910c6a2d24da28ddea0b9b10fe8ff8b2", null ],
     [ "display", "classfhirclient_1_1models_1_1coding_1_1_coding.html#a7890098fbd29b1f09463b0c227dd26b5", null ],

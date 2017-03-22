@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SMART on FHIR Python Client
-   &#160;<span id="projectnumber">1.0.3</span>
+   &#160;<span id="projectnumber">3.0.0</span>
    </div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -146,9 +146,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaaac78cf5facd59c75dfc0088da6433b inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_auth.html#aaaac78cf5facd59c75dfc0088da6433b">register</a> (cls)</td></tr>
 <tr class="memdesc:aaaac78cf5facd59c75dfc0088da6433b inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register this class to handle authorization types of the given type.  <a href="#aaaac78cf5facd59c75dfc0088da6433b">More...</a><br /></td></tr>
 <tr class="separator:aaaac78cf5facd59c75dfc0088da6433b inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2f527117e815118647bc9c4d53970dc inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_auth.html#aa2f527117e815118647bc9c4d53970dc">from_conformance_security</a> (cls, security, <a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_auth.html#a6be96bf2a4c12113c7d7091f3752c934">state</a>=None)</td></tr>
-<tr class="memdesc:aa2f527117e815118647bc9c4d53970dc inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supply a conformance.rest.security statement and this method will figure out which type of security should be instantiated.  <a href="#aa2f527117e815118647bc9c4d53970dc">More...</a><br /></td></tr>
-<tr class="separator:aa2f527117e815118647bc9c4d53970dc inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b75a6586e72e96206d0b89e2313d40d inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_auth.html#a0b75a6586e72e96206d0b89e2313d40d">from_capability_security</a> (cls, security, <a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_auth.html#a6be96bf2a4c12113c7d7091f3752c934">state</a>=None)</td></tr>
+<tr class="memdesc:a0b75a6586e72e96206d0b89e2313d40d inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supply a capabilitystatement.rest.security statement and this method will figure out which type of security should be instantiated.  <a href="#a0b75a6586e72e96206d0b89e2313d40d">More...</a><br /></td></tr>
+<tr class="separator:a0b75a6586e72e96206d0b89e2313d40d inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a346960acccf7083def36144de5184fd6 inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_auth.html#a346960acccf7083def36144de5184fd6">create</a> (cls, <a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_auth.html#a41eb511c4a741b0c2ee92b76643bb559">auth_type</a>, <a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_auth.html#a6be96bf2a4c12113c7d7091f3752c934">state</a>=None)</td></tr>
 <tr class="memdesc:a346960acccf7083def36144de5184fd6 inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory method to create the correct subclass for the given authorization type.  <a href="#a346960acccf7083def36144de5184fd6">More...</a><br /></td></tr>
 <tr class="separator:a346960acccf7083def36144de5184fd6 inherit pub_methods_classfhirclient_1_1auth_1_1_f_h_i_r_auth"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,6 +182,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a4dab8768c5869c81049d6fa2c9ba5d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abde64f21b85ac7d5f8aa94eec917c9dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#abde64f21b85ac7d5f8aa94eec917c9dd">auth_state</a></td></tr>
 <tr class="separator:abde64f21b85ac7d5f8aa94eec917c9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef19663f2cde52f9c0b1e4f773884a24"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#aef19663f2cde52f9c0b1e4f773884a24">app_secret</a></td></tr>
+<tr class="separator:aef19663f2cde52f9c0b1e4f773884a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a539c6452628bbf516a14a0e8c0e49fc0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a539c6452628bbf516a14a0e8c0e49fc0">access_token</a></td></tr>
 <tr class="separator:a539c6452628bbf516a14a0e8c0e49fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50c738ee947c1a6168ab880f69f05e3f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a50c738ee947c1a6168ab880f69f05e3f">refresh_token</a></td></tr>
@@ -484,6 +486,18 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aef19663f2cde52f9c0b1e4f773884a24"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">fhirclient.auth.FHIROAuth2Auth.app_secret</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a4dab8768c5869c81049d6fa2c9ba5d52"></a>
 <div class="memitem">
 <div class="memproto">
@@ -549,7 +563,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefhirclient.html">fhirclient</a></li><li class="navelem"><a class="el" href="namespacefhirclient_1_1auth.html">auth</a></li><li class="navelem"><a class="el" href="classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html">FHIROAuth2Auth</a></li>
-    <li class="footer">Generated on Fri Apr 8 2016 23:30:29 for SMART on FHIR Python Client by
+    <li class="footer">Generated on Wed Mar 22 2017 16:37:23 for SMART on FHIR Python Client by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

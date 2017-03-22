@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SMART on FHIR Python Client
-   &#160;<span id="projectnumber">1.0.3</span>
+   &#160;<span id="projectnumber">3.0.0</span>
    </div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -104,8 +104,14 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 <li>genderStatus
 : <a class="el" href="classfhirclient_1_1models_1_1patient_1_1_patient_animal.html#a8e7d52821303ebdb5ff130d50e5ee011">fhirclient.models.patient.PatientAnimal</a>
 </li>
-<li>get_conformance()
-: <a class="el" href="classfhirclient_1_1server_1_1_f_h_i_r_server.html#a5364d659d7ca2c90654cd2bac6744ad2">fhirclient.server.FHIRServer</a>
+<li>generalPractitioner
+: <a class="el" href="classfhirclient_1_1models_1_1patient_1_1_patient.html#abe9ac97b5611ec724fe5d62b00989c69">fhirclient.models.patient.Patient</a>
+</li>
+<li>genomeBuild
+: <a class="el" href="classfhirclient_1_1models_1_1sequence_1_1_sequence_reference_seq.html#af751de57c6c6dead7cdbec75a2a035d6">fhirclient.models.sequence.SequenceReferenceSeq</a>
+</li>
+<li>get_capability()
+: <a class="el" href="classfhirclient_1_1server_1_1_f_h_i_r_server.html#ad4b06d97a4f9e965b6fa221ecd48ca24">fhirclient.server.FHIRServer</a>
 </li>
 <li>given
 : <a class="el" href="classfhirclient_1_1models_1_1humanname_1_1_human_name.html#ade60f674cab5cad0317afc19ccf411f3">fhirclient.models.humanname.HumanName</a>
@@ -116,16 +122,45 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 <li>goal
 : <a class="el" href="classfhirclient_1_1models_1_1careplan_1_1_care_plan.html#a1810275b8603507a0967155ef3f37167">fhirclient.models.careplan.CarePlan</a>
 , <a class="el" href="classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html#ac282da78813dc212a805405dec11eddd">fhirclient.models.careplan.CarePlanActivityDetail</a>
+, <a class="el" href="classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition.html#a6d44d76b2b295a899df37690a3981ad9">fhirclient.models.plandefinition.PlanDefinition</a>
+</li>
+<li>goalId
+: <a class="el" href="classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_action.html#a9ed444676fe90113bdd1ec0a0bf97f92">fhirclient.models.plandefinition.PlanDefinitionAction</a>
 </li>
 <li>group
-: <a class="el" href="classfhirclient_1_1models_1_1contract_1_1_contract_term.html#aaaf26c69ecbe47fb4ea027c739301e92">fhirclient.models.contract.ContractTerm</a>
-, <a class="el" href="classfhirclient_1_1models_1_1coverage_1_1_coverage.html#ac1b445c05a08ae33838300bdf17cebe4">fhirclient.models.coverage.Coverage</a>
-, <a class="el" href="classfhirclient_1_1models_1_1questionnaire_1_1_questionnaire.html#a397df666955bc4ed1bff019a6e1e62a7">fhirclient.models.questionnaire.Questionnaire</a>
-, <a class="el" href="classfhirclient_1_1models_1_1questionnaire_1_1_questionnaire_group.html#a79e1dca3e0e072ba12e60592f4d43aee">fhirclient.models.questionnaire.QuestionnaireGroup</a>
-, <a class="el" href="classfhirclient_1_1models_1_1questionnaire_1_1_questionnaire_group_question.html#a575e576b726c365261c7945a3ed306df">fhirclient.models.questionnaire.QuestionnaireGroupQuestion</a>
-, <a class="el" href="classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response.html#aede3da4b5a5bb803d629ff7e70ce699f">fhirclient.models.questionnaireresponse.QuestionnaireResponse</a>
-, <a class="el" href="classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group.html#a2023dfa1092f8c9d550a997c49ca6bad">fhirclient.models.questionnaireresponse.QuestionnaireResponseGroup</a>
-, <a class="el" href="classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group_question_answer.html#aa165856a774a2eac5d007e07a1bc5f50">fhirclient.models.questionnaireresponse.QuestionnaireResponseGroupQuestionAnswer</a>
+: <a class="el" href="classfhirclient_1_1models_1_1conceptmap_1_1_concept_map.html#a62eeefbcdb6e3871a064e8a97f771605">fhirclient.models.conceptmap.ConceptMap</a>
+, <a class="el" href="classfhirclient_1_1models_1_1contract_1_1_contract_term.html#aaaf26c69ecbe47fb4ea027c739301e92">fhirclient.models.contract.ContractTerm</a>
+, <a class="el" href="classfhirclient_1_1models_1_1coverage_1_1_coverage_grouping.html#a6c698c48a05bc3d1de27190b8aac438d">fhirclient.models.coverage.CoverageGrouping</a>
+, <a class="el" href="classfhirclient_1_1models_1_1measure_1_1_measure.html#a1bd0e51106b6f0215437eb224c819cf0">fhirclient.models.measure.Measure</a>
+, <a class="el" href="classfhirclient_1_1models_1_1measurereport_1_1_measure_report.html#ac17b8d607b486f290afa940a6018ec89">fhirclient.models.measurereport.MeasureReport</a>
+, <a class="el" href="classfhirclient_1_1models_1_1structuremap_1_1_structure_map.html#a08abb45f55abdb0c66ba039fa764d824">fhirclient.models.structuremap.StructureMap</a>
+</li>
+<li>groupDisplay
+: <a class="el" href="classfhirclient_1_1models_1_1coverage_1_1_coverage_grouping.html#a3a59e82522667946c3940e86fc9600b2">fhirclient.models.coverage.CoverageGrouping</a>
+</li>
+<li>groupIdentifier
+: <a class="el" href="classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#aef4f2e7541dca8ac256146244dd5af3e">fhirclient.models.communicationrequest.CommunicationRequest</a>
+, <a class="el" href="classfhirclient_1_1models_1_1devicerequest_1_1_device_request.html#a3144d396800d667cc66476ea62df9005">fhirclient.models.devicerequest.DeviceRequest</a>
+, <a class="el" href="classfhirclient_1_1models_1_1medicationrequest_1_1_medication_request.html#ae0b3c4ae395ff899878f7ec01c1a3783">fhirclient.models.medicationrequest.MedicationRequest</a>
+, <a class="el" href="classfhirclient_1_1models_1_1referralrequest_1_1_referral_request.html#a0364df739c9de16fda0773a23b161bc7">fhirclient.models.referralrequest.ReferralRequest</a>
+, <a class="el" href="classfhirclient_1_1models_1_1requestgroup_1_1_request_group.html#a0c7a96ef76a03a750af30a28b66d7551">fhirclient.models.requestgroup.RequestGroup</a>
+, <a class="el" href="classfhirclient_1_1models_1_1task_1_1_task.html#a85acdca559c24d7bc5feb6b883fd1509">fhirclient.models.task.Task</a>
+</li>
+<li>grouping
+: <a class="el" href="classfhirclient_1_1models_1_1coverage_1_1_coverage.html#a8142c35f1780edec5e3f92118097509e">fhirclient.models.coverage.Coverage</a>
+</li>
+<li>groupingBehavior
+: <a class="el" href="classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_action.html#ad6e08d3db37903e2114c38d51dff29ab">fhirclient.models.plandefinition.PlanDefinitionAction</a>
+, <a class="el" href="classfhirclient_1_1models_1_1requestgroup_1_1_request_group_action.html#a8dff7008a8b34ccc66ae834c7622ff40">fhirclient.models.requestgroup.RequestGroupAction</a>
+</li>
+<li>gtFP
+: <a class="el" href="classfhirclient_1_1models_1_1sequence_1_1_sequence_quality.html#ac4cf8d3f373b1286596767c41f2e72e1">fhirclient.models.sequence.SequenceQuality</a>
+</li>
+<li>guarantor
+: <a class="el" href="classfhirclient_1_1models_1_1account_1_1_account.html#aaa38bc432474eb00d1dcdb496b08b04f">fhirclient.models.account.Account</a>
+</li>
+<li>guidance
+: <a class="el" href="classfhirclient_1_1models_1_1measure_1_1_measure.html#a4d49edbfc9c5f9bfbe00f9f32ace154a">fhirclient.models.measure.Measure</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -133,7 +168,7 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Apr 8 2016 23:30:34 for SMART on FHIR Python Client by
+    <li class="footer">Generated on Wed Mar 22 2017 16:37:30 for SMART on FHIR Python Client by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

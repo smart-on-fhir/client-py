@@ -12,6 +12,7 @@ var classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth =
     [ "signed_headers", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a4261644f7b1765a201aef551c3393700", null ],
     [ "state", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a43726f627931ed71c5003c0f43a9b7a8", null ],
     [ "access_token", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a539c6452628bbf516a14a0e8c0e49fc0", null ],
+    [ "app_secret", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#aef19663f2cde52f9c0b1e4f773884a24", null ],
     [ "aud", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a4dab8768c5869c81049d6fa2c9ba5d52", null ],
     [ "auth_state", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#abde64f21b85ac7d5f8aa94eec917c9dd", null ],
     [ "refresh_token", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a50c738ee947c1a6168ab880f69f05e3f", null ]

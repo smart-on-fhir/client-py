@@ -1,7 +1,6 @@
 var namespacefhirclient_1_1models_1_1structuredefinition =
 [
     [ "StructureDefinition", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition" ],
-    [ "StructureDefinitionContact", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_contact.html", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_contact" ],
     [ "StructureDefinitionDifferential", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_differential.html", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_differential" ],
     [ "StructureDefinitionMapping", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_mapping.html", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_mapping" ],
     [ "StructureDefinitionSnapshot", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_snapshot.html", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_snapshot" ]

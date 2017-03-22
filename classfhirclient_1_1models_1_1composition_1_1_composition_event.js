@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1composition_1_1_composition_event =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1composition_1_1_composition_event.html#a973614042d0039d444fc55af3c0f925b", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1composition_1_1_composition_event.html#a688de40fd3794caa52c8fbdf07eca633", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1composition_1_1_composition_event.html#afd7aa2c42dd2a813b7b09f245a4cad5e", null ],
     [ "code", "classfhirclient_1_1models_1_1composition_1_1_composition_event.html#a50d83d63b2b4a7910aeff53950995607", null ],
     [ "detail", "classfhirclient_1_1models_1_1composition_1_1_composition_event.html#aa682f42d6b869505d0bceb9b62f7c46a", null ],

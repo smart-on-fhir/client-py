@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1composition_1_1_composition_section =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1composition_1_1_composition_section.html#a70b2a4cc6ff2f8a17eb06cbcfa02716a", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1composition_1_1_composition_section.html#a6fca00f691aff5ecf00b90023bb376d8", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1composition_1_1_composition_section.html#a1e34700e048291b67eb7c0919c72461b", null ],
     [ "code", "classfhirclient_1_1models_1_1composition_1_1_composition_section.html#ab6ad48245fb7d6547a754c537bedd82a", null ],
     [ "emptyReason", "classfhirclient_1_1models_1_1composition_1_1_composition_section.html#a8c5c00e10eaf60e09f3e60fa9c1de6ad", null ],

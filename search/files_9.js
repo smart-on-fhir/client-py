@@ -1,8 +1,8 @@
 var searchData=
 [
   ['identifier_2epy',['identifier.py',['../identifier_8py.html',1,'']]],
-  ['imagingobjectselection_2epy',['imagingobjectselection.py',['../imagingobjectselection_8py.html',1,'']]],
-  ['imagingobjectselection_5ftests_2epy',['imagingobjectselection_tests.py',['../imagingobjectselection__tests_8py.html',1,'']]],
+  ['imagingmanifest_2epy',['imagingmanifest.py',['../imagingmanifest_8py.html',1,'']]],
+  ['imagingmanifest_5ftests_2epy',['imagingmanifest_tests.py',['../imagingmanifest__tests_8py.html',1,'']]],
   ['imagingstudy_2epy',['imagingstudy.py',['../imagingstudy_8py.html',1,'']]],
   ['imagingstudy_5ftests_2epy',['imagingstudy_tests.py',['../imagingstudy__tests_8py.html',1,'']]],
   ['immunization_2epy',['immunization.py',['../immunization_8py.html',1,'']]],

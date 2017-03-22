@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#aa3f31224341a99ef7c93cbd9950c6aac", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a40cd526ee7abd7e1e1bf88fe865e5ce2", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a60db9726bfc5690fa3c6c90bc881dd09", null ],
     [ "add", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a90545b45ba6e0b88f85ef0e86f976fe2", null ],
     [ "axis", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a9b5753b27038dfed16ffbef35572d998", null ],
@@ -12,7 +12,7 @@ var classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_disp
     [ "diameter", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a6fc2be92714678b6917394871e29f2cc", null ],
     [ "duration", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#ae4ef40aa195b032fecc411873ea3c014", null ],
     [ "eye", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a8a8400b2184a138de3cc92a33d363645", null ],
-    [ "notes", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#ae34243a8a82a0bdc03b019088210e2ec", null ],
+    [ "note", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a5cbf104415067bafc2a78ebf3e7649a1", null ],
     [ "power", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a286b332220c3b2f657f5efb63ef27a33", null ],
     [ "prism", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#ab9ccea1a093aa2486895e4caa889734c", null ],
     [ "product", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html#a70a496be48f220e6edea4494034eb2e5", null ],

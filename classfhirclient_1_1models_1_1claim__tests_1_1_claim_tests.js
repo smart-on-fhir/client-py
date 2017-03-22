@@ -1,6 +1,7 @@
 var classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests =
 [
     [ "implClaim1", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#aab87275a69f8339936cdf6dd3892c004", null ],
+    [ "implClaim10", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#a02e9e12411c8925ed1aedd08cbdedeb3", null ],
     [ "implClaim2", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#ac5e5f5c53676beab8e8603417c61969d", null ],
     [ "implClaim3", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#a7c6c30d8568e65e9f4029531286abb10", null ],
     [ "implClaim4", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#ae8517fbce18f22160faadbc10b439c74", null ],
@@ -11,6 +12,7 @@ var classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests =
     [ "implClaim9", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#a0bd3138db8bce46d63ac3cc1dbea7cb6", null ],
     [ "instantiate_from", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#afad737a031b10836a33d5250a2739d0b", null ],
     [ "testClaim1", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#a9cd2f75bbb5c0024eda1435945dcf906", null ],
+    [ "testClaim10", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#a0f87971885cedb86efc0b694b9a9ed4b", null ],
     [ "testClaim2", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#a63447977bebb2985423cbbd92166fac4", null ],
     [ "testClaim3", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#a9186db71cc0c140a8f76abcb3dfcc372", null ],
     [ "testClaim4", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html#a31dc286bd5cb58cec13d201460b8cfb4", null ],

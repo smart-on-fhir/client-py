@@ -1,7 +1,8 @@
 var classfhirclient_1_1models_1_1group_1_1_group =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1group_1_1_group.html#a31d3e7405455a59648567b1907d2e91f", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1group_1_1_group.html#a34595b3de2a513db3a5b69353af52b38", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1group_1_1_group.html#a7cdd1aea7c5144cefef5b429a1126393", null ],
+    [ "active", "classfhirclient_1_1models_1_1group_1_1_group.html#a65ed2a37e37a2b371707b9d42a2d6103", null ],
     [ "actual", "classfhirclient_1_1models_1_1group_1_1_group.html#a7ea03f17f860d935ca378e4ddd817e40", null ],
     [ "characteristic", "classfhirclient_1_1models_1_1group_1_1_group.html#a4975ff6584cd1803e7e39392a98378b8", null ],
     [ "code", "classfhirclient_1_1models_1_1group_1_1_group.html#acab9009e4b41e3de8c6a36d6c2d83fb3", null ],

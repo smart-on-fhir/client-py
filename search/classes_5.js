@@ -22,6 +22,7 @@ var searchData=
   ['fhirsearchparamtypehandler',['FHIRSearchParamTypeHandler',['../classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search_param_type_handler.html',1,'fhirclient::models::fhirsearch']]],
   ['fhirserver',['FHIRServer',['../classfhirclient_1_1server_1_1_f_h_i_r_server.html',1,'fhirclient::server']]],
   ['fhirunauthorizedexception',['FHIRUnauthorizedException',['../classfhirclient_1_1server_1_1_f_h_i_r_unauthorized_exception.html',1,'fhirclient::server']]],
+  ['fhirvalidationerror',['FHIRValidationError',['../classfhirclient_1_1models_1_1fhirabstractbase_1_1_f_h_i_r_validation_error.html',1,'fhirclient::models::fhirabstractbase']]],
   ['flag',['Flag',['../classfhirclient_1_1models_1_1flag_1_1_flag.html',1,'fhirclient::models::flag']]],
   ['flagtests',['FlagTests',['../classfhirclient_1_1models_1_1flag__tests_1_1_flag_tests.html',1,'fhirclient::models::flag_tests']]]
 ];

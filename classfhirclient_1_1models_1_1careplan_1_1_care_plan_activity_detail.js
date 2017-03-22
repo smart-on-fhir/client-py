@@ -1,10 +1,11 @@
 var classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html#a3df3985f4ec1577ce9a2feb763cebb3e", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html#abd5a9b630ae92d37be4f3eb5ec6afcae", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html#aae45d3834665e9418f7e785052c367a2", null ],
     [ "category", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html#a02db95ae0bfc34b896194f13b0281a56", null ],
     [ "code", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html#a4e117e997401410031f621664a834277", null ],
     [ "dailyAmount", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html#a0d86f403cfb20ac4e48750644262ff99", null ],
+    [ "definition", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html#a75b45321b54bcb630df5a2a6f06f8237", null ],
     [ "description", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html#acb985d2bebc5d2e0728fe50f652dcd4a", null ],
     [ "goal", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html#ac282da78813dc212a805405dec11eddd", null ],
     [ "location", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html#a81235aa05f56bf79c025f49d7790be3a", null ],

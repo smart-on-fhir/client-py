@@ -1,8 +1,17 @@
 var searchData=
 [
   ['account',['Account',['../classfhirclient_1_1models_1_1account_1_1_account.html',1,'fhirclient::models::account']]],
+  ['accountcoverage',['AccountCoverage',['../classfhirclient_1_1models_1_1account_1_1_account_coverage.html',1,'fhirclient::models::account']]],
+  ['accountguarantor',['AccountGuarantor',['../classfhirclient_1_1models_1_1account_1_1_account_guarantor.html',1,'fhirclient::models::account']]],
   ['accounttests',['AccountTests',['../classfhirclient_1_1models_1_1account__tests_1_1_account_tests.html',1,'fhirclient::models::account_tests']]],
+  ['activitydefinition',['ActivityDefinition',['../classfhirclient_1_1models_1_1activitydefinition_1_1_activity_definition.html',1,'fhirclient::models::activitydefinition']]],
+  ['activitydefinitiondynamicvalue',['ActivityDefinitionDynamicValue',['../classfhirclient_1_1models_1_1activitydefinition_1_1_activity_definition_dynamic_value.html',1,'fhirclient::models::activitydefinition']]],
+  ['activitydefinitionparticipant',['ActivityDefinitionParticipant',['../classfhirclient_1_1models_1_1activitydefinition_1_1_activity_definition_participant.html',1,'fhirclient::models::activitydefinition']]],
+  ['activitydefinitiontests',['ActivityDefinitionTests',['../classfhirclient_1_1models_1_1activitydefinition__tests_1_1_activity_definition_tests.html',1,'fhirclient::models::activitydefinition_tests']]],
   ['address',['Address',['../classfhirclient_1_1models_1_1address_1_1_address.html',1,'fhirclient::models::address']]],
+  ['adverseevent',['AdverseEvent',['../classfhirclient_1_1models_1_1adverseevent_1_1_adverse_event.html',1,'fhirclient::models::adverseevent']]],
+  ['adverseeventsuspectentity',['AdverseEventSuspectEntity',['../classfhirclient_1_1models_1_1adverseevent_1_1_adverse_event_suspect_entity.html',1,'fhirclient::models::adverseevent']]],
+  ['adverseeventtests',['AdverseEventTests',['../classfhirclient_1_1models_1_1adverseevent__tests_1_1_adverse_event_tests.html',1,'fhirclient::models::adverseevent_tests']]],
   ['age',['Age',['../classfhirclient_1_1models_1_1age_1_1_age.html',1,'fhirclient::models::age']]],
   ['allergyintolerance',['AllergyIntolerance',['../classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance.html',1,'fhirclient::models::allergyintolerance']]],
   ['allergyintolerancereaction',['AllergyIntoleranceReaction',['../classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance_reaction.html',1,'fhirclient::models::allergyintolerance']]],
@@ -15,11 +24,10 @@ var searchData=
   ['appointmenttests',['AppointmentTests',['../classfhirclient_1_1models_1_1appointment__tests_1_1_appointment_tests.html',1,'fhirclient::models::appointment_tests']]],
   ['attachment',['Attachment',['../classfhirclient_1_1models_1_1attachment_1_1_attachment.html',1,'fhirclient::models::attachment']]],
   ['auditevent',['AuditEvent',['../classfhirclient_1_1models_1_1auditevent_1_1_audit_event.html',1,'fhirclient::models::auditevent']]],
-  ['auditeventevent',['AuditEventEvent',['../classfhirclient_1_1models_1_1auditevent_1_1_audit_event_event.html',1,'fhirclient::models::auditevent']]],
-  ['auditeventobject',['AuditEventObject',['../classfhirclient_1_1models_1_1auditevent_1_1_audit_event_object.html',1,'fhirclient::models::auditevent']]],
-  ['auditeventobjectdetail',['AuditEventObjectDetail',['../classfhirclient_1_1models_1_1auditevent_1_1_audit_event_object_detail.html',1,'fhirclient::models::auditevent']]],
-  ['auditeventparticipant',['AuditEventParticipant',['../classfhirclient_1_1models_1_1auditevent_1_1_audit_event_participant.html',1,'fhirclient::models::auditevent']]],
-  ['auditeventparticipantnetwork',['AuditEventParticipantNetwork',['../classfhirclient_1_1models_1_1auditevent_1_1_audit_event_participant_network.html',1,'fhirclient::models::auditevent']]],
+  ['auditeventagent',['AuditEventAgent',['../classfhirclient_1_1models_1_1auditevent_1_1_audit_event_agent.html',1,'fhirclient::models::auditevent']]],
+  ['auditeventagentnetwork',['AuditEventAgentNetwork',['../classfhirclient_1_1models_1_1auditevent_1_1_audit_event_agent_network.html',1,'fhirclient::models::auditevent']]],
+  ['auditevententity',['AuditEventEntity',['../classfhirclient_1_1models_1_1auditevent_1_1_audit_event_entity.html',1,'fhirclient::models::auditevent']]],
+  ['auditevententitydetail',['AuditEventEntityDetail',['../classfhirclient_1_1models_1_1auditevent_1_1_audit_event_entity_detail.html',1,'fhirclient::models::auditevent']]],
   ['auditeventsource',['AuditEventSource',['../classfhirclient_1_1models_1_1auditevent_1_1_audit_event_source.html',1,'fhirclient::models::auditevent']]],
   ['auditeventtests',['AuditEventTests',['../classfhirclient_1_1models_1_1auditevent__tests_1_1_audit_event_tests.html',1,'fhirclient::models::auditevent_tests']]]
 ];

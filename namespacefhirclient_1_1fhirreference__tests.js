@@ -1,4 +1,5 @@
 var namespacefhirclient_1_1fhirreference__tests =
 [
-    [ "TestContainedResource", "classfhirclient_1_1fhirreference__tests_1_1_test_contained_resource.html", "classfhirclient_1_1fhirreference__tests_1_1_test_contained_resource" ]
+    [ "MockServer", "classfhirclient_1_1fhirreference__tests_1_1_mock_server.html", "classfhirclient_1_1fhirreference__tests_1_1_mock_server" ],
+    [ "TestResourceReference", "classfhirclient_1_1fhirreference__tests_1_1_test_resource_reference.html", "classfhirclient_1_1fhirreference__tests_1_1_test_resource_reference" ]
 ];

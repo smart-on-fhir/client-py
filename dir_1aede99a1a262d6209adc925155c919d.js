@@ -1,409 +1,238 @@
 var dir_1aede99a1a262d6209adc925155c919d =
 [
     [ "__init__.py", "models_2____init_____8py.html", null ],
-    [ "account.py", "account_8py.html", [
-      [ "Account", "classfhirclient_1_1models_1_1account_1_1_account.html", "classfhirclient_1_1models_1_1account_1_1_account" ]
-    ] ],
+    [ "account.py", "account_8py.html", "account_8py" ],
     [ "account_tests.py", "account__tests_8py.html", [
       [ "AccountTests", "classfhirclient_1_1models_1_1account__tests_1_1_account_tests.html", "classfhirclient_1_1models_1_1account__tests_1_1_account_tests" ]
     ] ],
-    [ "address.py", "address_8py.html", [
-      [ "Address", "classfhirclient_1_1models_1_1address_1_1_address.html", "classfhirclient_1_1models_1_1address_1_1_address" ]
+    [ "activitydefinition.py", "activitydefinition_8py.html", "activitydefinition_8py" ],
+    [ "activitydefinition_tests.py", "activitydefinition__tests_8py.html", [
+      [ "ActivityDefinitionTests", "classfhirclient_1_1models_1_1activitydefinition__tests_1_1_activity_definition_tests.html", "classfhirclient_1_1models_1_1activitydefinition__tests_1_1_activity_definition_tests" ]
+    ] ],
+    [ "address.py", "address_8py.html", "address_8py" ],
+    [ "adverseevent.py", "adverseevent_8py.html", "adverseevent_8py" ],
+    [ "adverseevent_tests.py", "adverseevent__tests_8py.html", [
+      [ "AdverseEventTests", "classfhirclient_1_1models_1_1adverseevent__tests_1_1_adverse_event_tests.html", "classfhirclient_1_1models_1_1adverseevent__tests_1_1_adverse_event_tests" ]
     ] ],
     [ "age.py", "age_8py.html", [
       [ "Age", "classfhirclient_1_1models_1_1age_1_1_age.html", "classfhirclient_1_1models_1_1age_1_1_age" ]
     ] ],
-    [ "allergyintolerance.py", "allergyintolerance_8py.html", [
-      [ "AllergyIntolerance", "classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance.html", "classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance" ],
-      [ "AllergyIntoleranceReaction", "classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance_reaction.html", "classfhirclient_1_1models_1_1allergyintolerance_1_1_allergy_intolerance_reaction" ]
-    ] ],
+    [ "allergyintolerance.py", "allergyintolerance_8py.html", "allergyintolerance_8py" ],
     [ "allergyintolerance_tests.py", "allergyintolerance__tests_8py.html", [
       [ "AllergyIntoleranceTests", "classfhirclient_1_1models_1_1allergyintolerance__tests_1_1_allergy_intolerance_tests.html", "classfhirclient_1_1models_1_1allergyintolerance__tests_1_1_allergy_intolerance_tests" ]
     ] ],
-    [ "annotation.py", "annotation_8py.html", [
-      [ "Annotation", "classfhirclient_1_1models_1_1annotation_1_1_annotation.html", "classfhirclient_1_1models_1_1annotation_1_1_annotation" ]
-    ] ],
-    [ "appointment.py", "appointment_8py.html", [
-      [ "Appointment", "classfhirclient_1_1models_1_1appointment_1_1_appointment.html", "classfhirclient_1_1models_1_1appointment_1_1_appointment" ],
-      [ "AppointmentParticipant", "classfhirclient_1_1models_1_1appointment_1_1_appointment_participant.html", "classfhirclient_1_1models_1_1appointment_1_1_appointment_participant" ]
-    ] ],
+    [ "annotation.py", "annotation_8py.html", "annotation_8py" ],
+    [ "appointment.py", "appointment_8py.html", "appointment_8py" ],
     [ "appointment_tests.py", "appointment__tests_8py.html", [
       [ "AppointmentTests", "classfhirclient_1_1models_1_1appointment__tests_1_1_appointment_tests.html", "classfhirclient_1_1models_1_1appointment__tests_1_1_appointment_tests" ]
     ] ],
-    [ "appointmentresponse.py", "appointmentresponse_8py.html", [
-      [ "AppointmentResponse", "classfhirclient_1_1models_1_1appointmentresponse_1_1_appointment_response.html", "classfhirclient_1_1models_1_1appointmentresponse_1_1_appointment_response" ]
-    ] ],
+    [ "appointmentresponse.py", "appointmentresponse_8py.html", "appointmentresponse_8py" ],
     [ "appointmentresponse_tests.py", "appointmentresponse__tests_8py.html", [
       [ "AppointmentResponseTests", "classfhirclient_1_1models_1_1appointmentresponse__tests_1_1_appointment_response_tests.html", "classfhirclient_1_1models_1_1appointmentresponse__tests_1_1_appointment_response_tests" ]
     ] ],
-    [ "attachment.py", "attachment_8py.html", [
-      [ "Attachment", "classfhirclient_1_1models_1_1attachment_1_1_attachment.html", "classfhirclient_1_1models_1_1attachment_1_1_attachment" ]
-    ] ],
-    [ "auditevent.py", "auditevent_8py.html", [
-      [ "AuditEvent", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event.html", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event" ],
-      [ "AuditEventEvent", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_event.html", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_event" ],
-      [ "AuditEventObject", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_object.html", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_object" ],
-      [ "AuditEventObjectDetail", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_object_detail.html", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_object_detail" ],
-      [ "AuditEventParticipant", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_participant.html", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_participant" ],
-      [ "AuditEventParticipantNetwork", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_participant_network.html", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_participant_network" ],
-      [ "AuditEventSource", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_source.html", "classfhirclient_1_1models_1_1auditevent_1_1_audit_event_source" ]
-    ] ],
+    [ "attachment.py", "attachment_8py.html", "attachment_8py" ],
+    [ "auditevent.py", "auditevent_8py.html", "auditevent_8py" ],
     [ "auditevent_tests.py", "auditevent__tests_8py.html", [
       [ "AuditEventTests", "classfhirclient_1_1models_1_1auditevent__tests_1_1_audit_event_tests.html", "classfhirclient_1_1models_1_1auditevent__tests_1_1_audit_event_tests" ]
     ] ],
-    [ "backboneelement.py", "backboneelement_8py.html", [
-      [ "BackboneElement", "classfhirclient_1_1models_1_1backboneelement_1_1_backbone_element.html", "classfhirclient_1_1models_1_1backboneelement_1_1_backbone_element" ]
-    ] ],
-    [ "basic.py", "basic_8py.html", [
-      [ "Basic", "classfhirclient_1_1models_1_1basic_1_1_basic.html", "classfhirclient_1_1models_1_1basic_1_1_basic" ]
-    ] ],
+    [ "backboneelement.py", "backboneelement_8py.html", "backboneelement_8py" ],
+    [ "basic.py", "basic_8py.html", "basic_8py" ],
     [ "basic_tests.py", "basic__tests_8py.html", [
       [ "BasicTests", "classfhirclient_1_1models_1_1basic__tests_1_1_basic_tests.html", "classfhirclient_1_1models_1_1basic__tests_1_1_basic_tests" ]
     ] ],
-    [ "binary.py", "binary_8py.html", [
-      [ "Binary", "classfhirclient_1_1models_1_1binary_1_1_binary.html", "classfhirclient_1_1models_1_1binary_1_1_binary" ]
-    ] ],
+    [ "binary.py", "binary_8py.html", "binary_8py" ],
     [ "binary_tests.py", "binary__tests_8py.html", [
       [ "BinaryTests", "classfhirclient_1_1models_1_1binary__tests_1_1_binary_tests.html", "classfhirclient_1_1models_1_1binary__tests_1_1_binary_tests" ]
     ] ],
-    [ "bodysite.py", "bodysite_8py.html", [
-      [ "BodySite", "classfhirclient_1_1models_1_1bodysite_1_1_body_site.html", "classfhirclient_1_1models_1_1bodysite_1_1_body_site" ]
-    ] ],
+    [ "bodysite.py", "bodysite_8py.html", "bodysite_8py" ],
     [ "bodysite_tests.py", "bodysite__tests_8py.html", [
       [ "BodySiteTests", "classfhirclient_1_1models_1_1bodysite__tests_1_1_body_site_tests.html", "classfhirclient_1_1models_1_1bodysite__tests_1_1_body_site_tests" ]
     ] ],
-    [ "bundle.py", "bundle_8py.html", [
-      [ "Bundle", "classfhirclient_1_1models_1_1bundle_1_1_bundle.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle" ],
-      [ "BundleEntry", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry" ],
-      [ "BundleEntryRequest", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_request.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_request" ],
-      [ "BundleEntryResponse", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_response.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_response" ],
-      [ "BundleEntrySearch", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_search.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_entry_search" ],
-      [ "BundleLink", "classfhirclient_1_1models_1_1bundle_1_1_bundle_link.html", "classfhirclient_1_1models_1_1bundle_1_1_bundle_link" ]
-    ] ],
+    [ "bundle.py", "bundle_8py.html", "bundle_8py" ],
     [ "bundle_tests.py", "bundle__tests_8py.html", [
       [ "BundleTests", "classfhirclient_1_1models_1_1bundle__tests_1_1_bundle_tests.html", "classfhirclient_1_1models_1_1bundle__tests_1_1_bundle_tests" ]
     ] ],
-    [ "careplan.py", "careplan_8py.html", [
-      [ "CarePlan", "classfhirclient_1_1models_1_1careplan_1_1_care_plan.html", "classfhirclient_1_1models_1_1careplan_1_1_care_plan" ],
-      [ "CarePlanActivity", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity.html", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity" ],
-      [ "CarePlanActivityDetail", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail.html", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_activity_detail" ],
-      [ "CarePlanParticipant", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_participant.html", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_participant" ],
-      [ "CarePlanRelatedPlan", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_related_plan.html", "classfhirclient_1_1models_1_1careplan_1_1_care_plan_related_plan" ]
+    [ "capabilitystatement.py", "capabilitystatement_8py.html", "capabilitystatement_8py" ],
+    [ "capabilitystatement_tests.py", "capabilitystatement__tests_8py.html", [
+      [ "CapabilityStatementTests", "classfhirclient_1_1models_1_1capabilitystatement__tests_1_1_capability_statement_tests.html", "classfhirclient_1_1models_1_1capabilitystatement__tests_1_1_capability_statement_tests" ]
     ] ],
+    [ "careplan.py", "careplan_8py.html", "careplan_8py" ],
     [ "careplan_tests.py", "careplan__tests_8py.html", [
       [ "CarePlanTests", "classfhirclient_1_1models_1_1careplan__tests_1_1_care_plan_tests.html", "classfhirclient_1_1models_1_1careplan__tests_1_1_care_plan_tests" ]
     ] ],
-    [ "claim.py", "claim_8py.html", [
-      [ "Claim", "classfhirclient_1_1models_1_1claim_1_1_claim.html", "classfhirclient_1_1models_1_1claim_1_1_claim" ],
-      [ "ClaimCoverage", "classfhirclient_1_1models_1_1claim_1_1_claim_coverage.html", "classfhirclient_1_1models_1_1claim_1_1_claim_coverage" ],
-      [ "ClaimDiagnosis", "classfhirclient_1_1models_1_1claim_1_1_claim_diagnosis.html", "classfhirclient_1_1models_1_1claim_1_1_claim_diagnosis" ],
-      [ "ClaimItem", "classfhirclient_1_1models_1_1claim_1_1_claim_item.html", "classfhirclient_1_1models_1_1claim_1_1_claim_item" ],
-      [ "ClaimItemDetail", "classfhirclient_1_1models_1_1claim_1_1_claim_item_detail.html", "classfhirclient_1_1models_1_1claim_1_1_claim_item_detail" ],
-      [ "ClaimItemDetailSubDetail", "classfhirclient_1_1models_1_1claim_1_1_claim_item_detail_sub_detail.html", "classfhirclient_1_1models_1_1claim_1_1_claim_item_detail_sub_detail" ],
-      [ "ClaimItemProsthesis", "classfhirclient_1_1models_1_1claim_1_1_claim_item_prosthesis.html", "classfhirclient_1_1models_1_1claim_1_1_claim_item_prosthesis" ],
-      [ "ClaimMissingTeeth", "classfhirclient_1_1models_1_1claim_1_1_claim_missing_teeth.html", "classfhirclient_1_1models_1_1claim_1_1_claim_missing_teeth" ],
-      [ "ClaimPayee", "classfhirclient_1_1models_1_1claim_1_1_claim_payee.html", "classfhirclient_1_1models_1_1claim_1_1_claim_payee" ]
+    [ "careteam.py", "careteam_8py.html", "careteam_8py" ],
+    [ "careteam_tests.py", "careteam__tests_8py.html", [
+      [ "CareTeamTests", "classfhirclient_1_1models_1_1careteam__tests_1_1_care_team_tests.html", "classfhirclient_1_1models_1_1careteam__tests_1_1_care_team_tests" ]
     ] ],
+    [ "chargeitem.py", "chargeitem_8py.html", "chargeitem_8py" ],
+    [ "chargeitem_tests.py", "chargeitem__tests_8py.html", [
+      [ "ChargeItemTests", "classfhirclient_1_1models_1_1chargeitem__tests_1_1_charge_item_tests.html", "classfhirclient_1_1models_1_1chargeitem__tests_1_1_charge_item_tests" ]
+    ] ],
+    [ "claim.py", "claim_8py.html", "claim_8py" ],
     [ "claim_tests.py", "claim__tests_8py.html", [
       [ "ClaimTests", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests.html", "classfhirclient_1_1models_1_1claim__tests_1_1_claim_tests" ]
     ] ],
-    [ "claimresponse.py", "claimresponse_8py.html", [
-      [ "ClaimResponse", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response" ],
-      [ "ClaimResponseAddItem", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item" ],
-      [ "ClaimResponseAddItemAdjudication", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item_adjudication.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item_adjudication" ],
-      [ "ClaimResponseAddItemDetail", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item_detail.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item_detail" ],
-      [ "ClaimResponseAddItemDetailAdjudication", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item_detail_adjudication.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item_detail_adjudication" ],
-      [ "ClaimResponseCoverage", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_coverage.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_coverage" ],
-      [ "ClaimResponseError", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_error.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_error" ],
-      [ "ClaimResponseItem", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item" ],
-      [ "ClaimResponseItemAdjudication", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_adjudication.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_adjudication" ],
-      [ "ClaimResponseItemDetail", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail" ],
-      [ "ClaimResponseItemDetailAdjudication", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail_adjudication.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail_adjudication" ],
-      [ "ClaimResponseItemDetailSubDetail", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail_sub_detail.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail_sub_detail" ],
-      [ "ClaimResponseItemDetailSubDetailAdjudication", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail_sub_detail_adjudication.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail_sub_detail_adjudication" ],
-      [ "ClaimResponseNote", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_note.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_note" ]
-    ] ],
+    [ "claimresponse.py", "claimresponse_8py.html", "claimresponse_8py" ],
     [ "claimresponse_tests.py", "claimresponse__tests_8py.html", [
       [ "ClaimResponseTests", "classfhirclient_1_1models_1_1claimresponse__tests_1_1_claim_response_tests.html", "classfhirclient_1_1models_1_1claimresponse__tests_1_1_claim_response_tests" ]
     ] ],
-    [ "clinicalimpression.py", "clinicalimpression_8py.html", [
-      [ "ClinicalImpression", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression" ],
-      [ "ClinicalImpressionFinding", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression_finding.html", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression_finding" ],
-      [ "ClinicalImpressionInvestigations", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression_investigations.html", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression_investigations" ],
-      [ "ClinicalImpressionRuledOut", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression_ruled_out.html", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression_ruled_out" ]
-    ] ],
+    [ "clinicalimpression.py", "clinicalimpression_8py.html", "clinicalimpression_8py" ],
     [ "clinicalimpression_tests.py", "clinicalimpression__tests_8py.html", [
       [ "ClinicalImpressionTests", "classfhirclient_1_1models_1_1clinicalimpression__tests_1_1_clinical_impression_tests.html", "classfhirclient_1_1models_1_1clinicalimpression__tests_1_1_clinical_impression_tests" ]
     ] ],
-    [ "codeableconcept.py", "codeableconcept_8py.html", [
-      [ "CodeableConcept", "classfhirclient_1_1models_1_1codeableconcept_1_1_codeable_concept.html", "classfhirclient_1_1models_1_1codeableconcept_1_1_codeable_concept" ]
+    [ "codeableconcept.py", "codeableconcept_8py.html", "codeableconcept_8py" ],
+    [ "codesystem.py", "codesystem_8py.html", "codesystem_8py" ],
+    [ "codesystem_tests.py", "codesystem__tests_8py.html", [
+      [ "CodeSystemTests", "classfhirclient_1_1models_1_1codesystem__tests_1_1_code_system_tests.html", "classfhirclient_1_1models_1_1codesystem__tests_1_1_code_system_tests" ]
     ] ],
     [ "coding.py", "coding_8py.html", [
       [ "Coding", "classfhirclient_1_1models_1_1coding_1_1_coding.html", "classfhirclient_1_1models_1_1coding_1_1_coding" ]
     ] ],
-    [ "communication.py", "communication_8py.html", [
-      [ "Communication", "classfhirclient_1_1models_1_1communication_1_1_communication.html", "classfhirclient_1_1models_1_1communication_1_1_communication" ],
-      [ "CommunicationPayload", "classfhirclient_1_1models_1_1communication_1_1_communication_payload.html", "classfhirclient_1_1models_1_1communication_1_1_communication_payload" ]
-    ] ],
+    [ "communication.py", "communication_8py.html", "communication_8py" ],
     [ "communication_tests.py", "communication__tests_8py.html", [
       [ "CommunicationTests", "classfhirclient_1_1models_1_1communication__tests_1_1_communication_tests.html", "classfhirclient_1_1models_1_1communication__tests_1_1_communication_tests" ]
     ] ],
-    [ "communicationrequest.py", "communicationrequest_8py.html", [
-      [ "CommunicationRequest", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request" ],
-      [ "CommunicationRequestPayload", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request_payload.html", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request_payload" ]
-    ] ],
+    [ "communicationrequest.py", "communicationrequest_8py.html", "communicationrequest_8py" ],
     [ "communicationrequest_tests.py", "communicationrequest__tests_8py.html", [
       [ "CommunicationRequestTests", "classfhirclient_1_1models_1_1communicationrequest__tests_1_1_communication_request_tests.html", "classfhirclient_1_1models_1_1communicationrequest__tests_1_1_communication_request_tests" ]
     ] ],
-    [ "composition.py", "composition_8py.html", [
-      [ "Composition", "classfhirclient_1_1models_1_1composition_1_1_composition.html", "classfhirclient_1_1models_1_1composition_1_1_composition" ],
-      [ "CompositionAttester", "classfhirclient_1_1models_1_1composition_1_1_composition_attester.html", "classfhirclient_1_1models_1_1composition_1_1_composition_attester" ],
-      [ "CompositionEvent", "classfhirclient_1_1models_1_1composition_1_1_composition_event.html", "classfhirclient_1_1models_1_1composition_1_1_composition_event" ],
-      [ "CompositionSection", "classfhirclient_1_1models_1_1composition_1_1_composition_section.html", "classfhirclient_1_1models_1_1composition_1_1_composition_section" ]
+    [ "compartmentdefinition.py", "compartmentdefinition_8py.html", "compartmentdefinition_8py" ],
+    [ "compartmentdefinition_tests.py", "compartmentdefinition__tests_8py.html", [
+      [ "CompartmentDefinitionTests", "classfhirclient_1_1models_1_1compartmentdefinition__tests_1_1_compartment_definition_tests.html", "classfhirclient_1_1models_1_1compartmentdefinition__tests_1_1_compartment_definition_tests" ]
     ] ],
+    [ "composition.py", "composition_8py.html", "composition_8py" ],
     [ "composition_tests.py", "composition__tests_8py.html", [
       [ "CompositionTests", "classfhirclient_1_1models_1_1composition__tests_1_1_composition_tests.html", "classfhirclient_1_1models_1_1composition__tests_1_1_composition_tests" ]
     ] ],
-    [ "conceptmap.py", "conceptmap_8py.html", [
-      [ "ConceptMap", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map" ],
-      [ "ConceptMapContact", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_contact.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_contact" ],
-      [ "ConceptMapElement", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element" ],
-      [ "ConceptMapElementTarget", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_target.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_target" ],
-      [ "ConceptMapElementTargetDependsOn", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_target_depends_on.html", "classfhirclient_1_1models_1_1conceptmap_1_1_concept_map_element_target_depends_on" ]
-    ] ],
+    [ "conceptmap.py", "conceptmap_8py.html", "conceptmap_8py" ],
     [ "conceptmap_tests.py", "conceptmap__tests_8py.html", [
       [ "ConceptMapTests", "classfhirclient_1_1models_1_1conceptmap__tests_1_1_concept_map_tests.html", "classfhirclient_1_1models_1_1conceptmap__tests_1_1_concept_map_tests" ]
     ] ],
-    [ "condition.py", "condition_8py.html", [
-      [ "Condition", "classfhirclient_1_1models_1_1condition_1_1_condition.html", "classfhirclient_1_1models_1_1condition_1_1_condition" ],
-      [ "ConditionEvidence", "classfhirclient_1_1models_1_1condition_1_1_condition_evidence.html", "classfhirclient_1_1models_1_1condition_1_1_condition_evidence" ],
-      [ "ConditionStage", "classfhirclient_1_1models_1_1condition_1_1_condition_stage.html", "classfhirclient_1_1models_1_1condition_1_1_condition_stage" ]
-    ] ],
+    [ "condition.py", "condition_8py.html", "condition_8py" ],
     [ "condition_tests.py", "condition__tests_8py.html", [
       [ "ConditionTests", "classfhirclient_1_1models_1_1condition__tests_1_1_condition_tests.html", "classfhirclient_1_1models_1_1condition__tests_1_1_condition_tests" ]
     ] ],
-    [ "conformance.py", "conformance_8py.html", [
-      [ "Conformance", "classfhirclient_1_1models_1_1conformance_1_1_conformance.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance" ],
-      [ "ConformanceContact", "classfhirclient_1_1models_1_1conformance_1_1_conformance_contact.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_contact" ],
-      [ "ConformanceDocument", "classfhirclient_1_1models_1_1conformance_1_1_conformance_document.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_document" ],
-      [ "ConformanceImplementation", "classfhirclient_1_1models_1_1conformance_1_1_conformance_implementation.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_implementation" ],
-      [ "ConformanceMessaging", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging" ],
-      [ "ConformanceMessagingEndpoint", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_endpoint.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_endpoint" ],
-      [ "ConformanceMessagingEvent", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_messaging_event" ],
-      [ "ConformanceRest", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest" ],
-      [ "ConformanceRestInteraction", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_interaction.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_interaction" ],
-      [ "ConformanceRestOperation", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_operation.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_operation" ],
-      [ "ConformanceRestResource", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource" ],
-      [ "ConformanceRestResourceInteraction", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource_interaction.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource_interaction" ],
-      [ "ConformanceRestResourceSearchParam", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource_search_param.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_resource_search_param" ],
-      [ "ConformanceRestSecurity", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_security.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_security" ],
-      [ "ConformanceRestSecurityCertificate", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_security_certificate.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_rest_security_certificate" ],
-      [ "ConformanceSoftware", "classfhirclient_1_1models_1_1conformance_1_1_conformance_software.html", "classfhirclient_1_1models_1_1conformance_1_1_conformance_software" ]
+    [ "consent.py", "consent_8py.html", "consent_8py" ],
+    [ "consent_tests.py", "consent__tests_8py.html", [
+      [ "ConsentTests", "classfhirclient_1_1models_1_1consent__tests_1_1_consent_tests.html", "classfhirclient_1_1models_1_1consent__tests_1_1_consent_tests" ]
     ] ],
-    [ "conformance_tests.py", "conformance__tests_8py.html", [
-      [ "ConformanceTests", "classfhirclient_1_1models_1_1conformance__tests_1_1_conformance_tests.html", "classfhirclient_1_1models_1_1conformance__tests_1_1_conformance_tests" ]
-    ] ],
-    [ "contactpoint.py", "contactpoint_8py.html", [
-      [ "ContactPoint", "classfhirclient_1_1models_1_1contactpoint_1_1_contact_point.html", "classfhirclient_1_1models_1_1contactpoint_1_1_contact_point" ]
-    ] ],
-    [ "contract.py", "contract_8py.html", [
-      [ "Contract", "classfhirclient_1_1models_1_1contract_1_1_contract.html", "classfhirclient_1_1models_1_1contract_1_1_contract" ],
-      [ "ContractActor", "classfhirclient_1_1models_1_1contract_1_1_contract_actor.html", "classfhirclient_1_1models_1_1contract_1_1_contract_actor" ],
-      [ "ContractFriendly", "classfhirclient_1_1models_1_1contract_1_1_contract_friendly.html", "classfhirclient_1_1models_1_1contract_1_1_contract_friendly" ],
-      [ "ContractLegal", "classfhirclient_1_1models_1_1contract_1_1_contract_legal.html", "classfhirclient_1_1models_1_1contract_1_1_contract_legal" ],
-      [ "ContractRule", "classfhirclient_1_1models_1_1contract_1_1_contract_rule.html", "classfhirclient_1_1models_1_1contract_1_1_contract_rule" ],
-      [ "ContractSigner", "classfhirclient_1_1models_1_1contract_1_1_contract_signer.html", "classfhirclient_1_1models_1_1contract_1_1_contract_signer" ],
-      [ "ContractTerm", "classfhirclient_1_1models_1_1contract_1_1_contract_term.html", "classfhirclient_1_1models_1_1contract_1_1_contract_term" ],
-      [ "ContractTermActor", "classfhirclient_1_1models_1_1contract_1_1_contract_term_actor.html", "classfhirclient_1_1models_1_1contract_1_1_contract_term_actor" ],
-      [ "ContractTermValuedItem", "classfhirclient_1_1models_1_1contract_1_1_contract_term_valued_item.html", "classfhirclient_1_1models_1_1contract_1_1_contract_term_valued_item" ],
-      [ "ContractValuedItem", "classfhirclient_1_1models_1_1contract_1_1_contract_valued_item.html", "classfhirclient_1_1models_1_1contract_1_1_contract_valued_item" ]
-    ] ],
+    [ "contactdetail.py", "contactdetail_8py.html", "contactdetail_8py" ],
+    [ "contactpoint.py", "contactpoint_8py.html", "contactpoint_8py" ],
+    [ "contract.py", "contract_8py.html", "contract_8py" ],
     [ "contract_tests.py", "contract__tests_8py.html", [
       [ "ContractTests", "classfhirclient_1_1models_1_1contract__tests_1_1_contract_tests.html", "classfhirclient_1_1models_1_1contract__tests_1_1_contract_tests" ]
     ] ],
+    [ "contributor.py", "contributor_8py.html", "contributor_8py" ],
     [ "count.py", "count_8py.html", [
       [ "Count", "classfhirclient_1_1models_1_1count_1_1_count.html", "classfhirclient_1_1models_1_1count_1_1_count" ]
     ] ],
-    [ "coverage.py", "coverage_8py.html", [
-      [ "Coverage", "classfhirclient_1_1models_1_1coverage_1_1_coverage.html", "classfhirclient_1_1models_1_1coverage_1_1_coverage" ]
-    ] ],
+    [ "coverage.py", "coverage_8py.html", "coverage_8py" ],
     [ "coverage_tests.py", "coverage__tests_8py.html", [
       [ "CoverageTests", "classfhirclient_1_1models_1_1coverage__tests_1_1_coverage_tests.html", "classfhirclient_1_1models_1_1coverage__tests_1_1_coverage_tests" ]
     ] ],
-    [ "dataelement.py", "dataelement_8py.html", [
-      [ "DataElement", "classfhirclient_1_1models_1_1dataelement_1_1_data_element.html", "classfhirclient_1_1models_1_1dataelement_1_1_data_element" ],
-      [ "DataElementContact", "classfhirclient_1_1models_1_1dataelement_1_1_data_element_contact.html", "classfhirclient_1_1models_1_1dataelement_1_1_data_element_contact" ],
-      [ "DataElementMapping", "classfhirclient_1_1models_1_1dataelement_1_1_data_element_mapping.html", "classfhirclient_1_1models_1_1dataelement_1_1_data_element_mapping" ]
-    ] ],
+    [ "dataelement.py", "dataelement_8py.html", "dataelement_8py" ],
     [ "dataelement_tests.py", "dataelement__tests_8py.html", [
       [ "DataElementTests", "classfhirclient_1_1models_1_1dataelement__tests_1_1_data_element_tests.html", "classfhirclient_1_1models_1_1dataelement__tests_1_1_data_element_tests" ]
     ] ],
-    [ "detectedissue.py", "detectedissue_8py.html", [
-      [ "DetectedIssue", "classfhirclient_1_1models_1_1detectedissue_1_1_detected_issue.html", "classfhirclient_1_1models_1_1detectedissue_1_1_detected_issue" ],
-      [ "DetectedIssueMitigation", "classfhirclient_1_1models_1_1detectedissue_1_1_detected_issue_mitigation.html", "classfhirclient_1_1models_1_1detectedissue_1_1_detected_issue_mitigation" ]
-    ] ],
+    [ "datarequirement.py", "datarequirement_8py.html", "datarequirement_8py" ],
+    [ "detectedissue.py", "detectedissue_8py.html", "detectedissue_8py" ],
     [ "detectedissue_tests.py", "detectedissue__tests_8py.html", [
       [ "DetectedIssueTests", "classfhirclient_1_1models_1_1detectedissue__tests_1_1_detected_issue_tests.html", "classfhirclient_1_1models_1_1detectedissue__tests_1_1_detected_issue_tests" ]
     ] ],
-    [ "device.py", "device_8py.html", [
-      [ "Device", "classfhirclient_1_1models_1_1device_1_1_device.html", "classfhirclient_1_1models_1_1device_1_1_device" ]
-    ] ],
+    [ "device.py", "device_8py.html", "device_8py" ],
     [ "device_tests.py", "device__tests_8py.html", [
       [ "DeviceTests", "classfhirclient_1_1models_1_1device__tests_1_1_device_tests.html", "classfhirclient_1_1models_1_1device__tests_1_1_device_tests" ]
     ] ],
-    [ "devicecomponent.py", "devicecomponent_8py.html", [
-      [ "DeviceComponent", "classfhirclient_1_1models_1_1devicecomponent_1_1_device_component.html", "classfhirclient_1_1models_1_1devicecomponent_1_1_device_component" ],
-      [ "DeviceComponentProductionSpecification", "classfhirclient_1_1models_1_1devicecomponent_1_1_device_component_production_specification.html", "classfhirclient_1_1models_1_1devicecomponent_1_1_device_component_production_specification" ]
-    ] ],
+    [ "devicecomponent.py", "devicecomponent_8py.html", "devicecomponent_8py" ],
     [ "devicecomponent_tests.py", "devicecomponent__tests_8py.html", [
       [ "DeviceComponentTests", "classfhirclient_1_1models_1_1devicecomponent__tests_1_1_device_component_tests.html", "classfhirclient_1_1models_1_1devicecomponent__tests_1_1_device_component_tests" ]
     ] ],
-    [ "devicemetric.py", "devicemetric_8py.html", [
-      [ "DeviceMetric", "classfhirclient_1_1models_1_1devicemetric_1_1_device_metric.html", "classfhirclient_1_1models_1_1devicemetric_1_1_device_metric" ],
-      [ "DeviceMetricCalibration", "classfhirclient_1_1models_1_1devicemetric_1_1_device_metric_calibration.html", "classfhirclient_1_1models_1_1devicemetric_1_1_device_metric_calibration" ]
-    ] ],
+    [ "devicemetric.py", "devicemetric_8py.html", "devicemetric_8py" ],
     [ "devicemetric_tests.py", "devicemetric__tests_8py.html", [
       [ "DeviceMetricTests", "classfhirclient_1_1models_1_1devicemetric__tests_1_1_device_metric_tests.html", "classfhirclient_1_1models_1_1devicemetric__tests_1_1_device_metric_tests" ]
     ] ],
-    [ "deviceuserequest.py", "deviceuserequest_8py.html", [
-      [ "DeviceUseRequest", "classfhirclient_1_1models_1_1deviceuserequest_1_1_device_use_request.html", "classfhirclient_1_1models_1_1deviceuserequest_1_1_device_use_request" ]
+    [ "devicerequest.py", "devicerequest_8py.html", "devicerequest_8py" ],
+    [ "devicerequest_tests.py", "devicerequest__tests_8py.html", [
+      [ "DeviceRequestTests", "classfhirclient_1_1models_1_1devicerequest__tests_1_1_device_request_tests.html", "classfhirclient_1_1models_1_1devicerequest__tests_1_1_device_request_tests" ]
     ] ],
-    [ "deviceuserequest_tests.py", "deviceuserequest__tests_8py.html", [
-      [ "DeviceUseRequestTests", "classfhirclient_1_1models_1_1deviceuserequest__tests_1_1_device_use_request_tests.html", "classfhirclient_1_1models_1_1deviceuserequest__tests_1_1_device_use_request_tests" ]
-    ] ],
-    [ "deviceusestatement.py", "deviceusestatement_8py.html", [
-      [ "DeviceUseStatement", "classfhirclient_1_1models_1_1deviceusestatement_1_1_device_use_statement.html", "classfhirclient_1_1models_1_1deviceusestatement_1_1_device_use_statement" ]
-    ] ],
+    [ "deviceusestatement.py", "deviceusestatement_8py.html", "deviceusestatement_8py" ],
     [ "deviceusestatement_tests.py", "deviceusestatement__tests_8py.html", [
       [ "DeviceUseStatementTests", "classfhirclient_1_1models_1_1deviceusestatement__tests_1_1_device_use_statement_tests.html", "classfhirclient_1_1models_1_1deviceusestatement__tests_1_1_device_use_statement_tests" ]
     ] ],
-    [ "diagnosticorder.py", "diagnosticorder_8py.html", [
-      [ "DiagnosticOrder", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order.html", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order" ],
-      [ "DiagnosticOrderEvent", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order_event.html", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order_event" ],
-      [ "DiagnosticOrderItem", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order_item.html", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order_item" ]
-    ] ],
-    [ "diagnosticorder_tests.py", "diagnosticorder__tests_8py.html", [
-      [ "DiagnosticOrderTests", "classfhirclient_1_1models_1_1diagnosticorder__tests_1_1_diagnostic_order_tests.html", "classfhirclient_1_1models_1_1diagnosticorder__tests_1_1_diagnostic_order_tests" ]
-    ] ],
-    [ "diagnosticreport.py", "diagnosticreport_8py.html", [
-      [ "DiagnosticReport", "classfhirclient_1_1models_1_1diagnosticreport_1_1_diagnostic_report.html", "classfhirclient_1_1models_1_1diagnosticreport_1_1_diagnostic_report" ],
-      [ "DiagnosticReportImage", "classfhirclient_1_1models_1_1diagnosticreport_1_1_diagnostic_report_image.html", "classfhirclient_1_1models_1_1diagnosticreport_1_1_diagnostic_report_image" ]
-    ] ],
+    [ "diagnosticreport.py", "diagnosticreport_8py.html", "diagnosticreport_8py" ],
     [ "diagnosticreport_tests.py", "diagnosticreport__tests_8py.html", [
       [ "DiagnosticReportTests", "classfhirclient_1_1models_1_1diagnosticreport__tests_1_1_diagnostic_report_tests.html", "classfhirclient_1_1models_1_1diagnosticreport__tests_1_1_diagnostic_report_tests" ]
     ] ],
     [ "distance.py", "distance_8py.html", [
       [ "Distance", "classfhirclient_1_1models_1_1distance_1_1_distance.html", "classfhirclient_1_1models_1_1distance_1_1_distance" ]
     ] ],
-    [ "documentmanifest.py", "documentmanifest_8py.html", [
-      [ "DocumentManifest", "classfhirclient_1_1models_1_1documentmanifest_1_1_document_manifest.html", "classfhirclient_1_1models_1_1documentmanifest_1_1_document_manifest" ],
-      [ "DocumentManifestContent", "classfhirclient_1_1models_1_1documentmanifest_1_1_document_manifest_content.html", "classfhirclient_1_1models_1_1documentmanifest_1_1_document_manifest_content" ],
-      [ "DocumentManifestRelated", "classfhirclient_1_1models_1_1documentmanifest_1_1_document_manifest_related.html", "classfhirclient_1_1models_1_1documentmanifest_1_1_document_manifest_related" ]
-    ] ],
+    [ "documentmanifest.py", "documentmanifest_8py.html", "documentmanifest_8py" ],
     [ "documentmanifest_tests.py", "documentmanifest__tests_8py.html", [
       [ "DocumentManifestTests", "classfhirclient_1_1models_1_1documentmanifest__tests_1_1_document_manifest_tests.html", "classfhirclient_1_1models_1_1documentmanifest__tests_1_1_document_manifest_tests" ]
     ] ],
-    [ "documentreference.py", "documentreference_8py.html", [
-      [ "DocumentReference", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference.html", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference" ],
-      [ "DocumentReferenceContent", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_content.html", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_content" ],
-      [ "DocumentReferenceContext", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_context.html", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_context" ],
-      [ "DocumentReferenceContextRelated", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_context_related.html", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_context_related" ],
-      [ "DocumentReferenceRelatesTo", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_relates_to.html", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference_relates_to" ]
-    ] ],
+    [ "documentreference.py", "documentreference_8py.html", "documentreference_8py" ],
     [ "documentreference_tests.py", "documentreference__tests_8py.html", [
       [ "DocumentReferenceTests", "classfhirclient_1_1models_1_1documentreference__tests_1_1_document_reference_tests.html", "classfhirclient_1_1models_1_1documentreference__tests_1_1_document_reference_tests" ]
     ] ],
-    [ "domainresource.py", "domainresource_8py.html", [
-      [ "DomainResource", "classfhirclient_1_1models_1_1domainresource_1_1_domain_resource.html", "classfhirclient_1_1models_1_1domainresource_1_1_domain_resource" ]
-    ] ],
+    [ "domainresource.py", "domainresource_8py.html", "domainresource_8py" ],
+    [ "dosage.py", "dosage_8py.html", "dosage_8py" ],
     [ "duration.py", "duration_8py.html", [
       [ "Duration", "classfhirclient_1_1models_1_1duration_1_1_duration.html", "classfhirclient_1_1models_1_1duration_1_1_duration" ]
     ] ],
     [ "element.py", "element_8py.html", [
       [ "Element", "classfhirclient_1_1models_1_1element_1_1_element.html", "classfhirclient_1_1models_1_1element_1_1_element" ]
     ] ],
-    [ "elementdefinition.py", "elementdefinition_8py.html", [
-      [ "ElementDefinition", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition" ],
-      [ "ElementDefinitionBase", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_base.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_base" ],
-      [ "ElementDefinitionBinding", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_binding.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_binding" ],
-      [ "ElementDefinitionConstraint", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_constraint.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_constraint" ],
-      [ "ElementDefinitionMapping", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_mapping.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_mapping" ],
-      [ "ElementDefinitionSlicing", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_slicing.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_slicing" ],
-      [ "ElementDefinitionType", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_type.html", "classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_type" ]
-    ] ],
-    [ "eligibilityrequest.py", "eligibilityrequest_8py.html", [
-      [ "EligibilityRequest", "classfhirclient_1_1models_1_1eligibilityrequest_1_1_eligibility_request.html", "classfhirclient_1_1models_1_1eligibilityrequest_1_1_eligibility_request" ]
-    ] ],
+    [ "elementdefinition.py", "elementdefinition_8py.html", "elementdefinition_8py" ],
+    [ "eligibilityrequest.py", "eligibilityrequest_8py.html", "eligibilityrequest_8py" ],
     [ "eligibilityrequest_tests.py", "eligibilityrequest__tests_8py.html", [
       [ "EligibilityRequestTests", "classfhirclient_1_1models_1_1eligibilityrequest__tests_1_1_eligibility_request_tests.html", "classfhirclient_1_1models_1_1eligibilityrequest__tests_1_1_eligibility_request_tests" ]
     ] ],
-    [ "eligibilityresponse.py", "eligibilityresponse_8py.html", [
-      [ "EligibilityResponse", "classfhirclient_1_1models_1_1eligibilityresponse_1_1_eligibility_response.html", "classfhirclient_1_1models_1_1eligibilityresponse_1_1_eligibility_response" ]
-    ] ],
+    [ "eligibilityresponse.py", "eligibilityresponse_8py.html", "eligibilityresponse_8py" ],
     [ "eligibilityresponse_tests.py", "eligibilityresponse__tests_8py.html", [
       [ "EligibilityResponseTests", "classfhirclient_1_1models_1_1eligibilityresponse__tests_1_1_eligibility_response_tests.html", "classfhirclient_1_1models_1_1eligibilityresponse__tests_1_1_eligibility_response_tests" ]
     ] ],
-    [ "encounter.py", "encounter_8py.html", [
-      [ "Encounter", "classfhirclient_1_1models_1_1encounter_1_1_encounter.html", "classfhirclient_1_1models_1_1encounter_1_1_encounter" ],
-      [ "EncounterHospitalization", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization.html", "classfhirclient_1_1models_1_1encounter_1_1_encounter_hospitalization" ],
-      [ "EncounterLocation", "classfhirclient_1_1models_1_1encounter_1_1_encounter_location.html", "classfhirclient_1_1models_1_1encounter_1_1_encounter_location" ],
-      [ "EncounterParticipant", "classfhirclient_1_1models_1_1encounter_1_1_encounter_participant.html", "classfhirclient_1_1models_1_1encounter_1_1_encounter_participant" ],
-      [ "EncounterStatusHistory", "classfhirclient_1_1models_1_1encounter_1_1_encounter_status_history.html", "classfhirclient_1_1models_1_1encounter_1_1_encounter_status_history" ]
-    ] ],
+    [ "encounter.py", "encounter_8py.html", "encounter_8py" ],
     [ "encounter_tests.py", "encounter__tests_8py.html", [
       [ "EncounterTests", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests" ]
     ] ],
-    [ "enrollmentrequest.py", "enrollmentrequest_8py.html", [
-      [ "EnrollmentRequest", "classfhirclient_1_1models_1_1enrollmentrequest_1_1_enrollment_request.html", "classfhirclient_1_1models_1_1enrollmentrequest_1_1_enrollment_request" ]
+    [ "endpoint.py", "endpoint_8py.html", "endpoint_8py" ],
+    [ "endpoint_tests.py", "endpoint__tests_8py.html", [
+      [ "EndpointTests", "classfhirclient_1_1models_1_1endpoint__tests_1_1_endpoint_tests.html", "classfhirclient_1_1models_1_1endpoint__tests_1_1_endpoint_tests" ]
     ] ],
+    [ "enrollmentrequest.py", "enrollmentrequest_8py.html", "enrollmentrequest_8py" ],
     [ "enrollmentrequest_tests.py", "enrollmentrequest__tests_8py.html", [
       [ "EnrollmentRequestTests", "classfhirclient_1_1models_1_1enrollmentrequest__tests_1_1_enrollment_request_tests.html", "classfhirclient_1_1models_1_1enrollmentrequest__tests_1_1_enrollment_request_tests" ]
     ] ],
-    [ "enrollmentresponse.py", "enrollmentresponse_8py.html", [
-      [ "EnrollmentResponse", "classfhirclient_1_1models_1_1enrollmentresponse_1_1_enrollment_response.html", "classfhirclient_1_1models_1_1enrollmentresponse_1_1_enrollment_response" ]
-    ] ],
+    [ "enrollmentresponse.py", "enrollmentresponse_8py.html", "enrollmentresponse_8py" ],
     [ "enrollmentresponse_tests.py", "enrollmentresponse__tests_8py.html", [
       [ "EnrollmentResponseTests", "classfhirclient_1_1models_1_1enrollmentresponse__tests_1_1_enrollment_response_tests.html", "classfhirclient_1_1models_1_1enrollmentresponse__tests_1_1_enrollment_response_tests" ]
     ] ],
-    [ "episodeofcare.py", "episodeofcare_8py.html", [
-      [ "EpisodeOfCare", "classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care.html", "classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care" ],
-      [ "EpisodeOfCareCareTeam", "classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care_care_team.html", "classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care_care_team" ],
-      [ "EpisodeOfCareStatusHistory", "classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care_status_history.html", "classfhirclient_1_1models_1_1episodeofcare_1_1_episode_of_care_status_history" ]
-    ] ],
+    [ "episodeofcare.py", "episodeofcare_8py.html", "episodeofcare_8py" ],
     [ "episodeofcare_tests.py", "episodeofcare__tests_8py.html", [
       [ "EpisodeOfCareTests", "classfhirclient_1_1models_1_1episodeofcare__tests_1_1_episode_of_care_tests.html", "classfhirclient_1_1models_1_1episodeofcare__tests_1_1_episode_of_care_tests" ]
     ] ],
-    [ "explanationofbenefit.py", "explanationofbenefit_8py.html", [
-      [ "ExplanationOfBenefit", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit.html", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit" ]
+    [ "expansionprofile.py", "expansionprofile_8py.html", "expansionprofile_8py" ],
+    [ "expansionprofile_tests.py", "expansionprofile__tests_8py.html", [
+      [ "ExpansionProfileTests", "classfhirclient_1_1models_1_1expansionprofile__tests_1_1_expansion_profile_tests.html", "classfhirclient_1_1models_1_1expansionprofile__tests_1_1_expansion_profile_tests" ]
     ] ],
+    [ "explanationofbenefit.py", "explanationofbenefit_8py.html", "explanationofbenefit_8py" ],
     [ "explanationofbenefit_tests.py", "explanationofbenefit__tests_8py.html", [
       [ "ExplanationOfBenefitTests", "classfhirclient_1_1models_1_1explanationofbenefit__tests_1_1_explanation_of_benefit_tests.html", "classfhirclient_1_1models_1_1explanationofbenefit__tests_1_1_explanation_of_benefit_tests" ]
     ] ],
-    [ "extension.py", "extension_8py.html", [
-      [ "Extension", "classfhirclient_1_1models_1_1extension_1_1_extension.html", "classfhirclient_1_1models_1_1extension_1_1_extension" ]
-    ] ],
-    [ "familymemberhistory.py", "familymemberhistory_8py.html", [
-      [ "FamilyMemberHistory", "classfhirclient_1_1models_1_1familymemberhistory_1_1_family_member_history.html", "classfhirclient_1_1models_1_1familymemberhistory_1_1_family_member_history" ],
-      [ "FamilyMemberHistoryCondition", "classfhirclient_1_1models_1_1familymemberhistory_1_1_family_member_history_condition.html", "classfhirclient_1_1models_1_1familymemberhistory_1_1_family_member_history_condition" ]
-    ] ],
+    [ "extension.py", "extension_8py.html", "extension_8py" ],
+    [ "familymemberhistory.py", "familymemberhistory_8py.html", "familymemberhistory_8py" ],
     [ "familymemberhistory_tests.py", "familymemberhistory__tests_8py.html", [
       [ "FamilyMemberHistoryTests", "classfhirclient_1_1models_1_1familymemberhistory__tests_1_1_family_member_history_tests.html", "classfhirclient_1_1models_1_1familymemberhistory__tests_1_1_family_member_history_tests" ]
     ] ],
-    [ "fhirabstractbase.py", "fhirabstractbase_8py.html", [
-      [ "FHIRAbstractBase", "classfhirclient_1_1models_1_1fhirabstractbase_1_1_f_h_i_r_abstract_base.html", "classfhirclient_1_1models_1_1fhirabstractbase_1_1_f_h_i_r_abstract_base" ]
-    ] ],
+    [ "fhirabstractbase.py", "fhirabstractbase_8py.html", "fhirabstractbase_8py" ],
     [ "fhirabstractresource.py", "fhirabstractresource_8py.html", [
       [ "FHIRAbstractResource", "classfhirclient_1_1models_1_1fhirabstractresource_1_1_f_h_i_r_abstract_resource.html", "classfhirclient_1_1models_1_1fhirabstractresource_1_1_f_h_i_r_abstract_resource" ]
     ] ],
-    [ "fhirdate.py", "fhirdate_8py.html", [
-      [ "FHIRDate", "classfhirclient_1_1models_1_1fhirdate_1_1_f_h_i_r_date.html", "classfhirclient_1_1models_1_1fhirdate_1_1_f_h_i_r_date" ]
-    ] ],
+    [ "fhirdate.py", "fhirdate_8py.html", "fhirdate_8py" ],
     [ "fhirelementfactory.py", "fhirelementfactory_8py.html", [
       [ "FHIRElementFactory", "classfhirclient_1_1models_1_1fhirelementfactory_1_1_f_h_i_r_element_factory.html", "classfhirclient_1_1models_1_1fhirelementfactory_1_1_f_h_i_r_element_factory" ]
     ] ],
-    [ "fhirreference.py", "fhirreference_8py.html", [
-      [ "FHIRReference", "classfhirclient_1_1models_1_1fhirreference_1_1_f_h_i_r_reference.html", "classfhirclient_1_1models_1_1fhirreference_1_1_f_h_i_r_reference" ]
-    ] ],
+    [ "fhirreference.py", "fhirreference_8py.html", "fhirreference_8py" ],
     [ "fhirsearch.py", "fhirsearch_8py.html", [
       [ "FHIRSearch", "classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html", "classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search" ],
       [ "FHIRSearchParam", "classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search_param.html", "classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search_param" ],
@@ -413,481 +242,289 @@ var dir_1aede99a1a262d6209adc925155c919d =
       [ "FHIRSearchParamMultiHandler", "classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search_param_multi_handler.html", "classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search_param_multi_handler" ],
       [ "FHIRSearchParamTypeHandler", "classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search_param_type_handler.html", "classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search_param_type_handler" ]
     ] ],
-    [ "flag.py", "flag_8py.html", [
-      [ "Flag", "classfhirclient_1_1models_1_1flag_1_1_flag.html", "classfhirclient_1_1models_1_1flag_1_1_flag" ]
-    ] ],
+    [ "flag.py", "flag_8py.html", "flag_8py" ],
     [ "flag_tests.py", "flag__tests_8py.html", [
       [ "FlagTests", "classfhirclient_1_1models_1_1flag__tests_1_1_flag_tests.html", "classfhirclient_1_1models_1_1flag__tests_1_1_flag_tests" ]
     ] ],
-    [ "goal.py", "goal_8py.html", [
-      [ "Goal", "classfhirclient_1_1models_1_1goal_1_1_goal.html", "classfhirclient_1_1models_1_1goal_1_1_goal" ],
-      [ "GoalOutcome", "classfhirclient_1_1models_1_1goal_1_1_goal_outcome.html", "classfhirclient_1_1models_1_1goal_1_1_goal_outcome" ]
-    ] ],
+    [ "goal.py", "goal_8py.html", "goal_8py" ],
     [ "goal_tests.py", "goal__tests_8py.html", [
       [ "GoalTests", "classfhirclient_1_1models_1_1goal__tests_1_1_goal_tests.html", "classfhirclient_1_1models_1_1goal__tests_1_1_goal_tests" ]
     ] ],
-    [ "group.py", "group_8py.html", [
-      [ "Group", "classfhirclient_1_1models_1_1group_1_1_group.html", "classfhirclient_1_1models_1_1group_1_1_group" ],
-      [ "GroupCharacteristic", "classfhirclient_1_1models_1_1group_1_1_group_characteristic.html", "classfhirclient_1_1models_1_1group_1_1_group_characteristic" ],
-      [ "GroupMember", "classfhirclient_1_1models_1_1group_1_1_group_member.html", "classfhirclient_1_1models_1_1group_1_1_group_member" ]
+    [ "graphdefinition.py", "graphdefinition_8py.html", "graphdefinition_8py" ],
+    [ "graphdefinition_tests.py", "graphdefinition__tests_8py.html", [
+      [ "GraphDefinitionTests", "classfhirclient_1_1models_1_1graphdefinition__tests_1_1_graph_definition_tests.html", "classfhirclient_1_1models_1_1graphdefinition__tests_1_1_graph_definition_tests" ]
     ] ],
+    [ "group.py", "group_8py.html", "group_8py" ],
     [ "group_tests.py", "group__tests_8py.html", [
       [ "GroupTests", "classfhirclient_1_1models_1_1group__tests_1_1_group_tests.html", "classfhirclient_1_1models_1_1group__tests_1_1_group_tests" ]
     ] ],
-    [ "healthcareservice.py", "healthcareservice_8py.html", [
-      [ "HealthcareService", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service.html", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service" ],
-      [ "HealthcareServiceAvailableTime", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service_available_time.html", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service_available_time" ],
-      [ "HealthcareServiceNotAvailable", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service_not_available.html", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service_not_available" ],
-      [ "HealthcareServiceServiceType", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service_service_type.html", "classfhirclient_1_1models_1_1healthcareservice_1_1_healthcare_service_service_type" ]
+    [ "guidanceresponse.py", "guidanceresponse_8py.html", "guidanceresponse_8py" ],
+    [ "guidanceresponse_tests.py", "guidanceresponse__tests_8py.html", [
+      [ "GuidanceResponseTests", "classfhirclient_1_1models_1_1guidanceresponse__tests_1_1_guidance_response_tests.html", "classfhirclient_1_1models_1_1guidanceresponse__tests_1_1_guidance_response_tests" ]
     ] ],
+    [ "healthcareservice.py", "healthcareservice_8py.html", "healthcareservice_8py" ],
     [ "healthcareservice_tests.py", "healthcareservice__tests_8py.html", [
       [ "HealthcareServiceTests", "classfhirclient_1_1models_1_1healthcareservice__tests_1_1_healthcare_service_tests.html", "classfhirclient_1_1models_1_1healthcareservice__tests_1_1_healthcare_service_tests" ]
     ] ],
-    [ "humanname.py", "humanname_8py.html", [
-      [ "HumanName", "classfhirclient_1_1models_1_1humanname_1_1_human_name.html", "classfhirclient_1_1models_1_1humanname_1_1_human_name" ]
+    [ "humanname.py", "humanname_8py.html", "humanname_8py" ],
+    [ "identifier.py", "identifier_8py.html", "identifier_8py" ],
+    [ "imagingmanifest.py", "imagingmanifest_8py.html", "imagingmanifest_8py" ],
+    [ "imagingmanifest_tests.py", "imagingmanifest__tests_8py.html", [
+      [ "ImagingManifestTests", "classfhirclient_1_1models_1_1imagingmanifest__tests_1_1_imaging_manifest_tests.html", "classfhirclient_1_1models_1_1imagingmanifest__tests_1_1_imaging_manifest_tests" ]
     ] ],
-    [ "identifier.py", "identifier_8py.html", [
-      [ "Identifier", "classfhirclient_1_1models_1_1identifier_1_1_identifier.html", "classfhirclient_1_1models_1_1identifier_1_1_identifier" ]
-    ] ],
-    [ "imagingobjectselection.py", "imagingobjectselection_8py.html", [
-      [ "ImagingObjectSelection", "classfhirclient_1_1models_1_1imagingobjectselection_1_1_imaging_object_selection.html", "classfhirclient_1_1models_1_1imagingobjectselection_1_1_imaging_object_selection" ],
-      [ "ImagingObjectSelectionStudy", "classfhirclient_1_1models_1_1imagingobjectselection_1_1_imaging_object_selection_study.html", "classfhirclient_1_1models_1_1imagingobjectselection_1_1_imaging_object_selection_study" ],
-      [ "ImagingObjectSelectionStudySeries", "classfhirclient_1_1models_1_1imagingobjectselection_1_1_imaging_object_selection_study_series.html", "classfhirclient_1_1models_1_1imagingobjectselection_1_1_imaging_object_selection_study_series" ],
-      [ "ImagingObjectSelectionStudySeriesInstance", "classfhirclient_1_1models_1_1imagingobjectselection_1_1_imaging_object_selection_study_series_instance.html", "classfhirclient_1_1models_1_1imagingobjectselection_1_1_imaging_object_selection_study_series_instance" ],
-      [ "ImagingObjectSelectionStudySeriesInstanceFrames", "classfhirclient_1_1models_1_1imagingobjectselection_1_1_imaging_object_selection_study_series_instance_frames.html", "classfhirclient_1_1models_1_1imagingobjectselection_1_1_imaging_object_selection_study_series_instance_frames" ]
-    ] ],
-    [ "imagingobjectselection_tests.py", "imagingobjectselection__tests_8py.html", [
-      [ "ImagingObjectSelectionTests", "classfhirclient_1_1models_1_1imagingobjectselection__tests_1_1_imaging_object_selection_tests.html", "classfhirclient_1_1models_1_1imagingobjectselection__tests_1_1_imaging_object_selection_tests" ]
-    ] ],
-    [ "imagingstudy.py", "imagingstudy_8py.html", [
-      [ "ImagingStudy", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study.html", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study" ],
-      [ "ImagingStudySeries", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study_series.html", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study_series" ],
-      [ "ImagingStudySeriesInstance", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study_series_instance.html", "classfhirclient_1_1models_1_1imagingstudy_1_1_imaging_study_series_instance" ]
-    ] ],
+    [ "imagingstudy.py", "imagingstudy_8py.html", "imagingstudy_8py" ],
     [ "imagingstudy_tests.py", "imagingstudy__tests_8py.html", [
       [ "ImagingStudyTests", "classfhirclient_1_1models_1_1imagingstudy__tests_1_1_imaging_study_tests.html", "classfhirclient_1_1models_1_1imagingstudy__tests_1_1_imaging_study_tests" ]
     ] ],
-    [ "immunization.py", "immunization_8py.html", [
-      [ "Immunization", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html", "classfhirclient_1_1models_1_1immunization_1_1_immunization" ],
-      [ "ImmunizationExplanation", "classfhirclient_1_1models_1_1immunization_1_1_immunization_explanation.html", "classfhirclient_1_1models_1_1immunization_1_1_immunization_explanation" ],
-      [ "ImmunizationReaction", "classfhirclient_1_1models_1_1immunization_1_1_immunization_reaction.html", "classfhirclient_1_1models_1_1immunization_1_1_immunization_reaction" ],
-      [ "ImmunizationVaccinationProtocol", "classfhirclient_1_1models_1_1immunization_1_1_immunization_vaccination_protocol.html", "classfhirclient_1_1models_1_1immunization_1_1_immunization_vaccination_protocol" ]
-    ] ],
+    [ "immunization.py", "immunization_8py.html", "immunization_8py" ],
     [ "immunization_tests.py", "immunization__tests_8py.html", [
       [ "ImmunizationTests", "classfhirclient_1_1models_1_1immunization__tests_1_1_immunization_tests.html", "classfhirclient_1_1models_1_1immunization__tests_1_1_immunization_tests" ]
     ] ],
-    [ "immunizationrecommendation.py", "immunizationrecommendation_8py.html", [
-      [ "ImmunizationRecommendation", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation.html", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation" ],
-      [ "ImmunizationRecommendationRecommendation", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation.html", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation" ],
-      [ "ImmunizationRecommendationRecommendationDateCriterion", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation_date_criterion.html", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation_date_criterion" ],
-      [ "ImmunizationRecommendationRecommendationProtocol", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation_protocol.html", "classfhirclient_1_1models_1_1immunizationrecommendation_1_1_immunization_recommendation_recommendation_protocol" ]
-    ] ],
+    [ "immunizationrecommendation.py", "immunizationrecommendation_8py.html", "immunizationrecommendation_8py" ],
     [ "immunizationrecommendation_tests.py", "immunizationrecommendation__tests_8py.html", [
       [ "ImmunizationRecommendationTests", "classfhirclient_1_1models_1_1immunizationrecommendation__tests_1_1_immunization_recommendation_tests.html", "classfhirclient_1_1models_1_1immunizationrecommendation__tests_1_1_immunization_recommendation_tests" ]
     ] ],
-    [ "implementationguide.py", "implementationguide_8py.html", [
-      [ "ImplementationGuide", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide" ],
-      [ "ImplementationGuideContact", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_contact.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_contact" ],
-      [ "ImplementationGuideDependency", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_dependency.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_dependency" ],
-      [ "ImplementationGuideGlobal", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_global.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_global" ],
-      [ "ImplementationGuidePackage", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_package.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_package" ],
-      [ "ImplementationGuidePackageResource", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_package_resource.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_package_resource" ],
-      [ "ImplementationGuidePage", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_page.html", "classfhirclient_1_1models_1_1implementationguide_1_1_implementation_guide_page" ]
-    ] ],
+    [ "implementationguide.py", "implementationguide_8py.html", "implementationguide_8py" ],
     [ "implementationguide_tests.py", "implementationguide__tests_8py.html", [
       [ "ImplementationGuideTests", "classfhirclient_1_1models_1_1implementationguide__tests_1_1_implementation_guide_tests.html", "classfhirclient_1_1models_1_1implementationguide__tests_1_1_implementation_guide_tests" ]
     ] ],
-    [ "list.py", "list_8py.html", [
-      [ "List", "classfhirclient_1_1models_1_1list_1_1_list.html", "classfhirclient_1_1models_1_1list_1_1_list" ],
-      [ "ListEntry", "classfhirclient_1_1models_1_1list_1_1_list_entry.html", "classfhirclient_1_1models_1_1list_1_1_list_entry" ]
+    [ "library.py", "library_8py.html", "library_8py" ],
+    [ "library_tests.py", "library__tests_8py.html", [
+      [ "LibraryTests", "classfhirclient_1_1models_1_1library__tests_1_1_library_tests.html", "classfhirclient_1_1models_1_1library__tests_1_1_library_tests" ]
     ] ],
+    [ "linkage.py", "linkage_8py.html", "linkage_8py" ],
+    [ "linkage_tests.py", "linkage__tests_8py.html", [
+      [ "LinkageTests", "classfhirclient_1_1models_1_1linkage__tests_1_1_linkage_tests.html", "classfhirclient_1_1models_1_1linkage__tests_1_1_linkage_tests" ]
+    ] ],
+    [ "list.py", "list_8py.html", "list_8py" ],
     [ "list_tests.py", "list__tests_8py.html", [
       [ "ListTests", "classfhirclient_1_1models_1_1list__tests_1_1_list_tests.html", "classfhirclient_1_1models_1_1list__tests_1_1_list_tests" ]
     ] ],
-    [ "location.py", "location_8py.html", [
-      [ "Location", "classfhirclient_1_1models_1_1location_1_1_location.html", "classfhirclient_1_1models_1_1location_1_1_location" ],
-      [ "LocationPosition", "classfhirclient_1_1models_1_1location_1_1_location_position.html", "classfhirclient_1_1models_1_1location_1_1_location_position" ]
-    ] ],
+    [ "location.py", "location_8py.html", "location_8py" ],
     [ "location_tests.py", "location__tests_8py.html", [
       [ "LocationTests", "classfhirclient_1_1models_1_1location__tests_1_1_location_tests.html", "classfhirclient_1_1models_1_1location__tests_1_1_location_tests" ]
     ] ],
-    [ "media.py", "media_8py.html", [
-      [ "Media", "classfhirclient_1_1models_1_1media_1_1_media.html", "classfhirclient_1_1models_1_1media_1_1_media" ]
+    [ "measure.py", "measure_8py.html", "measure_8py" ],
+    [ "measure_tests.py", "measure__tests_8py.html", [
+      [ "MeasureTests", "classfhirclient_1_1models_1_1measure__tests_1_1_measure_tests.html", "classfhirclient_1_1models_1_1measure__tests_1_1_measure_tests" ]
     ] ],
+    [ "measurereport.py", "measurereport_8py.html", "measurereport_8py" ],
+    [ "measurereport_tests.py", "measurereport__tests_8py.html", [
+      [ "MeasureReportTests", "classfhirclient_1_1models_1_1measurereport__tests_1_1_measure_report_tests.html", "classfhirclient_1_1models_1_1measurereport__tests_1_1_measure_report_tests" ]
+    ] ],
+    [ "media.py", "media_8py.html", "media_8py" ],
     [ "media_tests.py", "media__tests_8py.html", [
       [ "MediaTests", "classfhirclient_1_1models_1_1media__tests_1_1_media_tests.html", "classfhirclient_1_1models_1_1media__tests_1_1_media_tests" ]
     ] ],
-    [ "medication.py", "medication_8py.html", [
-      [ "Medication", "classfhirclient_1_1models_1_1medication_1_1_medication.html", "classfhirclient_1_1models_1_1medication_1_1_medication" ],
-      [ "MedicationPackage", "classfhirclient_1_1models_1_1medication_1_1_medication_package.html", "classfhirclient_1_1models_1_1medication_1_1_medication_package" ],
-      [ "MedicationPackageContent", "classfhirclient_1_1models_1_1medication_1_1_medication_package_content.html", "classfhirclient_1_1models_1_1medication_1_1_medication_package_content" ],
-      [ "MedicationProduct", "classfhirclient_1_1models_1_1medication_1_1_medication_product.html", "classfhirclient_1_1models_1_1medication_1_1_medication_product" ],
-      [ "MedicationProductBatch", "classfhirclient_1_1models_1_1medication_1_1_medication_product_batch.html", "classfhirclient_1_1models_1_1medication_1_1_medication_product_batch" ],
-      [ "MedicationProductIngredient", "classfhirclient_1_1models_1_1medication_1_1_medication_product_ingredient.html", "classfhirclient_1_1models_1_1medication_1_1_medication_product_ingredient" ]
+    [ "medication.py", "medication_8py.html", "medication_8py" ],
+    [ "medicationadministration.py", "medicationadministration_8py.html", "medicationadministration_8py" ],
+    [ "medicationdispense.py", "medicationdispense_8py.html", "medicationdispense_8py" ],
+    [ "medicationrequest.py", "medicationrequest_8py.html", "medicationrequest_8py" ],
+    [ "medicationstatement.py", "medicationstatement_8py.html", "medicationstatement_8py" ],
+    [ "messagedefinition.py", "messagedefinition_8py.html", "messagedefinition_8py" ],
+    [ "messagedefinition_tests.py", "messagedefinition__tests_8py.html", [
+      [ "MessageDefinitionTests", "classfhirclient_1_1models_1_1messagedefinition__tests_1_1_message_definition_tests.html", "classfhirclient_1_1models_1_1messagedefinition__tests_1_1_message_definition_tests" ]
     ] ],
-    [ "medication_tests.py", "medication__tests_8py.html", [
-      [ "MedicationTests", "classfhirclient_1_1models_1_1medication__tests_1_1_medication_tests.html", "classfhirclient_1_1models_1_1medication__tests_1_1_medication_tests" ]
-    ] ],
-    [ "medicationadministration.py", "medicationadministration_8py.html", [
-      [ "MedicationAdministration", "classfhirclient_1_1models_1_1medicationadministration_1_1_medication_administration.html", "classfhirclient_1_1models_1_1medicationadministration_1_1_medication_administration" ],
-      [ "MedicationAdministrationDosage", "classfhirclient_1_1models_1_1medicationadministration_1_1_medication_administration_dosage.html", "classfhirclient_1_1models_1_1medicationadministration_1_1_medication_administration_dosage" ]
-    ] ],
-    [ "medicationdispense.py", "medicationdispense_8py.html", [
-      [ "MedicationDispense", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense" ],
-      [ "MedicationDispenseDosageInstruction", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_dosage_instruction.html", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_dosage_instruction" ],
-      [ "MedicationDispenseSubstitution", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_substitution.html", "classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_substitution" ]
-    ] ],
-    [ "medicationorder.py", "medicationorder_8py.html", [
-      [ "MedicationOrder", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order.html", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order" ],
-      [ "MedicationOrderDispenseRequest", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_dispense_request.html", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_dispense_request" ],
-      [ "MedicationOrderDosageInstruction", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_dosage_instruction.html", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_dosage_instruction" ],
-      [ "MedicationOrderSubstitution", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_substitution.html", "classfhirclient_1_1models_1_1medicationorder_1_1_medication_order_substitution" ]
-    ] ],
-    [ "medicationorder_tests.py", "medicationorder__tests_8py.html", [
-      [ "MedicationOrderTests", "classfhirclient_1_1models_1_1medicationorder__tests_1_1_medication_order_tests.html", "classfhirclient_1_1models_1_1medicationorder__tests_1_1_medication_order_tests" ]
-    ] ],
-    [ "medicationstatement.py", "medicationstatement_8py.html", [
-      [ "MedicationStatement", "classfhirclient_1_1models_1_1medicationstatement_1_1_medication_statement.html", "classfhirclient_1_1models_1_1medicationstatement_1_1_medication_statement" ],
-      [ "MedicationStatementDosage", "classfhirclient_1_1models_1_1medicationstatement_1_1_medication_statement_dosage.html", "classfhirclient_1_1models_1_1medicationstatement_1_1_medication_statement_dosage" ]
-    ] ],
-    [ "messageheader.py", "messageheader_8py.html", [
-      [ "MessageHeader", "classfhirclient_1_1models_1_1messageheader_1_1_message_header.html", "classfhirclient_1_1models_1_1messageheader_1_1_message_header" ],
-      [ "MessageHeaderDestination", "classfhirclient_1_1models_1_1messageheader_1_1_message_header_destination.html", "classfhirclient_1_1models_1_1messageheader_1_1_message_header_destination" ],
-      [ "MessageHeaderResponse", "classfhirclient_1_1models_1_1messageheader_1_1_message_header_response.html", "classfhirclient_1_1models_1_1messageheader_1_1_message_header_response" ],
-      [ "MessageHeaderSource", "classfhirclient_1_1models_1_1messageheader_1_1_message_header_source.html", "classfhirclient_1_1models_1_1messageheader_1_1_message_header_source" ]
-    ] ],
+    [ "messageheader.py", "messageheader_8py.html", "messageheader_8py" ],
     [ "messageheader_tests.py", "messageheader__tests_8py.html", [
       [ "MessageHeaderTests", "classfhirclient_1_1models_1_1messageheader__tests_1_1_message_header_tests.html", "classfhirclient_1_1models_1_1messageheader__tests_1_1_message_header_tests" ]
     ] ],
-    [ "meta.py", "meta_8py.html", [
-      [ "Meta", "classfhirclient_1_1models_1_1meta_1_1_meta.html", "classfhirclient_1_1models_1_1meta_1_1_meta" ]
-    ] ],
+    [ "meta.py", "meta_8py.html", "meta_8py" ],
+    [ "metadataresource.py", "metadataresource_8py.html", "metadataresource_8py" ],
     [ "money.py", "money_8py.html", [
       [ "Money", "classfhirclient_1_1models_1_1money_1_1_money.html", "classfhirclient_1_1models_1_1money_1_1_money" ]
     ] ],
-    [ "namingsystem.py", "namingsystem_8py.html", [
-      [ "NamingSystem", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system" ],
-      [ "NamingSystemContact", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system_contact.html", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system_contact" ],
-      [ "NamingSystemUniqueId", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system_unique_id.html", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system_unique_id" ]
-    ] ],
+    [ "namingsystem.py", "namingsystem_8py.html", "namingsystem_8py" ],
     [ "namingsystem_tests.py", "namingsystem__tests_8py.html", [
       [ "NamingSystemTests", "classfhirclient_1_1models_1_1namingsystem__tests_1_1_naming_system_tests.html", "classfhirclient_1_1models_1_1namingsystem__tests_1_1_naming_system_tests" ]
     ] ],
     [ "narrative.py", "narrative_8py.html", [
       [ "Narrative", "classfhirclient_1_1models_1_1narrative_1_1_narrative.html", "classfhirclient_1_1models_1_1narrative_1_1_narrative" ]
     ] ],
-    [ "nutritionorder.py", "nutritionorder_8py.html", [
-      [ "NutritionOrder", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order" ],
-      [ "NutritionOrderEnteralFormula", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_enteral_formula.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_enteral_formula" ],
-      [ "NutritionOrderEnteralFormulaAdministration", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_enteral_formula_administration.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_enteral_formula_administration" ],
-      [ "NutritionOrderOralDiet", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet" ],
-      [ "NutritionOrderOralDietNutrient", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet_nutrient.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet_nutrient" ],
-      [ "NutritionOrderOralDietTexture", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet_texture.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_oral_diet_texture" ],
-      [ "NutritionOrderSupplement", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_supplement.html", "classfhirclient_1_1models_1_1nutritionorder_1_1_nutrition_order_supplement" ]
-    ] ],
+    [ "nutritionorder.py", "nutritionorder_8py.html", "nutritionorder_8py" ],
     [ "nutritionorder_tests.py", "nutritionorder__tests_8py.html", [
       [ "NutritionOrderTests", "classfhirclient_1_1models_1_1nutritionorder__tests_1_1_nutrition_order_tests.html", "classfhirclient_1_1models_1_1nutritionorder__tests_1_1_nutrition_order_tests" ]
     ] ],
-    [ "observation.py", "observation_8py.html", [
-      [ "Observation", "classfhirclient_1_1models_1_1observation_1_1_observation.html", "classfhirclient_1_1models_1_1observation_1_1_observation" ],
-      [ "ObservationComponent", "classfhirclient_1_1models_1_1observation_1_1_observation_component.html", "classfhirclient_1_1models_1_1observation_1_1_observation_component" ],
-      [ "ObservationReferenceRange", "classfhirclient_1_1models_1_1observation_1_1_observation_reference_range.html", "classfhirclient_1_1models_1_1observation_1_1_observation_reference_range" ],
-      [ "ObservationRelated", "classfhirclient_1_1models_1_1observation_1_1_observation_related.html", "classfhirclient_1_1models_1_1observation_1_1_observation_related" ]
-    ] ],
+    [ "observation.py", "observation_8py.html", "observation_8py" ],
     [ "observation_tests.py", "observation__tests_8py.html", [
       [ "ObservationTests", "classfhirclient_1_1models_1_1observation__tests_1_1_observation_tests.html", "classfhirclient_1_1models_1_1observation__tests_1_1_observation_tests" ]
     ] ],
-    [ "operationdefinition.py", "operationdefinition_8py.html", [
-      [ "OperationDefinition", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition" ],
-      [ "OperationDefinitionContact", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_contact.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_contact" ],
-      [ "OperationDefinitionParameter", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter" ],
-      [ "OperationDefinitionParameterBinding", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter_binding.html", "classfhirclient_1_1models_1_1operationdefinition_1_1_operation_definition_parameter_binding" ]
-    ] ],
+    [ "operationdefinition.py", "operationdefinition_8py.html", "operationdefinition_8py" ],
     [ "operationdefinition_tests.py", "operationdefinition__tests_8py.html", [
       [ "OperationDefinitionTests", "classfhirclient_1_1models_1_1operationdefinition__tests_1_1_operation_definition_tests.html", "classfhirclient_1_1models_1_1operationdefinition__tests_1_1_operation_definition_tests" ]
     ] ],
-    [ "operationoutcome.py", "operationoutcome_8py.html", [
-      [ "OperationOutcome", "classfhirclient_1_1models_1_1operationoutcome_1_1_operation_outcome.html", "classfhirclient_1_1models_1_1operationoutcome_1_1_operation_outcome" ],
-      [ "OperationOutcomeIssue", "classfhirclient_1_1models_1_1operationoutcome_1_1_operation_outcome_issue.html", "classfhirclient_1_1models_1_1operationoutcome_1_1_operation_outcome_issue" ]
-    ] ],
+    [ "operationoutcome.py", "operationoutcome_8py.html", "operationoutcome_8py" ],
     [ "operationoutcome_tests.py", "operationoutcome__tests_8py.html", [
       [ "OperationOutcomeTests", "classfhirclient_1_1models_1_1operationoutcome__tests_1_1_operation_outcome_tests.html", "classfhirclient_1_1models_1_1operationoutcome__tests_1_1_operation_outcome_tests" ]
     ] ],
-    [ "order.py", "order_8py.html", [
-      [ "Order", "classfhirclient_1_1models_1_1order_1_1_order.html", "classfhirclient_1_1models_1_1order_1_1_order" ],
-      [ "OrderWhen", "classfhirclient_1_1models_1_1order_1_1_order_when.html", "classfhirclient_1_1models_1_1order_1_1_order_when" ]
-    ] ],
-    [ "order_tests.py", "order__tests_8py.html", [
-      [ "OrderTests", "classfhirclient_1_1models_1_1order__tests_1_1_order_tests.html", "classfhirclient_1_1models_1_1order__tests_1_1_order_tests" ]
-    ] ],
-    [ "orderresponse.py", "orderresponse_8py.html", [
-      [ "OrderResponse", "classfhirclient_1_1models_1_1orderresponse_1_1_order_response.html", "classfhirclient_1_1models_1_1orderresponse_1_1_order_response" ]
-    ] ],
-    [ "orderresponse_tests.py", "orderresponse__tests_8py.html", [
-      [ "OrderResponseTests", "classfhirclient_1_1models_1_1orderresponse__tests_1_1_order_response_tests.html", "classfhirclient_1_1models_1_1orderresponse__tests_1_1_order_response_tests" ]
-    ] ],
-    [ "organization.py", "organization_8py.html", [
-      [ "Organization", "classfhirclient_1_1models_1_1organization_1_1_organization.html", "classfhirclient_1_1models_1_1organization_1_1_organization" ],
-      [ "OrganizationContact", "classfhirclient_1_1models_1_1organization_1_1_organization_contact.html", "classfhirclient_1_1models_1_1organization_1_1_organization_contact" ]
-    ] ],
+    [ "organization.py", "organization_8py.html", "organization_8py" ],
     [ "organization_tests.py", "organization__tests_8py.html", [
       [ "OrganizationTests", "classfhirclient_1_1models_1_1organization__tests_1_1_organization_tests.html", "classfhirclient_1_1models_1_1organization__tests_1_1_organization_tests" ]
     ] ],
-    [ "parameters.py", "parameters_8py.html", [
-      [ "Parameters", "classfhirclient_1_1models_1_1parameters_1_1_parameters.html", "classfhirclient_1_1models_1_1parameters_1_1_parameters" ],
-      [ "ParametersParameter", "classfhirclient_1_1models_1_1parameters_1_1_parameters_parameter.html", "classfhirclient_1_1models_1_1parameters_1_1_parameters_parameter" ]
-    ] ],
+    [ "parameterdefinition.py", "parameterdefinition_8py.html", "parameterdefinition_8py" ],
+    [ "parameters.py", "parameters_8py.html", "parameters_8py" ],
     [ "parameters_tests.py", "parameters__tests_8py.html", [
       [ "ParametersTests", "classfhirclient_1_1models_1_1parameters__tests_1_1_parameters_tests.html", "classfhirclient_1_1models_1_1parameters__tests_1_1_parameters_tests" ]
     ] ],
-    [ "patient.py", "patient_8py.html", [
-      [ "Patient", "classfhirclient_1_1models_1_1patient_1_1_patient.html", "classfhirclient_1_1models_1_1patient_1_1_patient" ],
-      [ "PatientAnimal", "classfhirclient_1_1models_1_1patient_1_1_patient_animal.html", "classfhirclient_1_1models_1_1patient_1_1_patient_animal" ],
-      [ "PatientCommunication", "classfhirclient_1_1models_1_1patient_1_1_patient_communication.html", "classfhirclient_1_1models_1_1patient_1_1_patient_communication" ],
-      [ "PatientContact", "classfhirclient_1_1models_1_1patient_1_1_patient_contact.html", "classfhirclient_1_1models_1_1patient_1_1_patient_contact" ],
-      [ "PatientLink", "classfhirclient_1_1models_1_1patient_1_1_patient_link.html", "classfhirclient_1_1models_1_1patient_1_1_patient_link" ]
-    ] ],
+    [ "patient.py", "patient_8py.html", "patient_8py" ],
     [ "patient_tests.py", "patient__tests_8py.html", [
       [ "PatientTests", "classfhirclient_1_1models_1_1patient__tests_1_1_patient_tests.html", "classfhirclient_1_1models_1_1patient__tests_1_1_patient_tests" ]
     ] ],
-    [ "paymentnotice.py", "paymentnotice_8py.html", [
-      [ "PaymentNotice", "classfhirclient_1_1models_1_1paymentnotice_1_1_payment_notice.html", "classfhirclient_1_1models_1_1paymentnotice_1_1_payment_notice" ]
-    ] ],
+    [ "paymentnotice.py", "paymentnotice_8py.html", "paymentnotice_8py" ],
     [ "paymentnotice_tests.py", "paymentnotice__tests_8py.html", [
       [ "PaymentNoticeTests", "classfhirclient_1_1models_1_1paymentnotice__tests_1_1_payment_notice_tests.html", "classfhirclient_1_1models_1_1paymentnotice__tests_1_1_payment_notice_tests" ]
     ] ],
-    [ "paymentreconciliation.py", "paymentreconciliation_8py.html", [
-      [ "PaymentReconciliation", "classfhirclient_1_1models_1_1paymentreconciliation_1_1_payment_reconciliation.html", "classfhirclient_1_1models_1_1paymentreconciliation_1_1_payment_reconciliation" ],
-      [ "PaymentReconciliationDetail", "classfhirclient_1_1models_1_1paymentreconciliation_1_1_payment_reconciliation_detail.html", "classfhirclient_1_1models_1_1paymentreconciliation_1_1_payment_reconciliation_detail" ],
-      [ "PaymentReconciliationNote", "classfhirclient_1_1models_1_1paymentreconciliation_1_1_payment_reconciliation_note.html", "classfhirclient_1_1models_1_1paymentreconciliation_1_1_payment_reconciliation_note" ]
-    ] ],
+    [ "paymentreconciliation.py", "paymentreconciliation_8py.html", "paymentreconciliation_8py" ],
     [ "paymentreconciliation_tests.py", "paymentreconciliation__tests_8py.html", [
       [ "PaymentReconciliationTests", "classfhirclient_1_1models_1_1paymentreconciliation__tests_1_1_payment_reconciliation_tests.html", "classfhirclient_1_1models_1_1paymentreconciliation__tests_1_1_payment_reconciliation_tests" ]
     ] ],
-    [ "period.py", "period_8py.html", [
-      [ "Period", "classfhirclient_1_1models_1_1period_1_1_period.html", "classfhirclient_1_1models_1_1period_1_1_period" ]
-    ] ],
-    [ "person.py", "person_8py.html", [
-      [ "Person", "classfhirclient_1_1models_1_1person_1_1_person.html", "classfhirclient_1_1models_1_1person_1_1_person" ],
-      [ "PersonLink", "classfhirclient_1_1models_1_1person_1_1_person_link.html", "classfhirclient_1_1models_1_1person_1_1_person_link" ]
-    ] ],
+    [ "period.py", "period_8py.html", "period_8py" ],
+    [ "person.py", "person_8py.html", "person_8py" ],
     [ "person_tests.py", "person__tests_8py.html", [
       [ "PersonTests", "classfhirclient_1_1models_1_1person__tests_1_1_person_tests.html", "classfhirclient_1_1models_1_1person__tests_1_1_person_tests" ]
     ] ],
-    [ "practitioner.py", "practitioner_8py.html", [
-      [ "Practitioner", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner.html", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner" ],
-      [ "PractitionerPractitionerRole", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner_practitioner_role.html", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner_practitioner_role" ],
-      [ "PractitionerQualification", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner_qualification.html", "classfhirclient_1_1models_1_1practitioner_1_1_practitioner_qualification" ]
+    [ "plandefinition.py", "plandefinition_8py.html", "plandefinition_8py" ],
+    [ "plandefinition_tests.py", "plandefinition__tests_8py.html", [
+      [ "PlanDefinitionTests", "classfhirclient_1_1models_1_1plandefinition__tests_1_1_plan_definition_tests.html", "classfhirclient_1_1models_1_1plandefinition__tests_1_1_plan_definition_tests" ]
     ] ],
+    [ "practitioner.py", "practitioner_8py.html", "practitioner_8py" ],
     [ "practitioner_tests.py", "practitioner__tests_8py.html", [
       [ "PractitionerTests", "classfhirclient_1_1models_1_1practitioner__tests_1_1_practitioner_tests.html", "classfhirclient_1_1models_1_1practitioner__tests_1_1_practitioner_tests" ]
     ] ],
-    [ "procedure.py", "procedure_8py.html", [
-      [ "Procedure", "classfhirclient_1_1models_1_1procedure_1_1_procedure.html", "classfhirclient_1_1models_1_1procedure_1_1_procedure" ],
-      [ "ProcedureFocalDevice", "classfhirclient_1_1models_1_1procedure_1_1_procedure_focal_device.html", "classfhirclient_1_1models_1_1procedure_1_1_procedure_focal_device" ],
-      [ "ProcedurePerformer", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer.html", "classfhirclient_1_1models_1_1procedure_1_1_procedure_performer" ]
+    [ "practitionerrole.py", "practitionerrole_8py.html", "practitionerrole_8py" ],
+    [ "practitionerrole_tests.py", "practitionerrole__tests_8py.html", [
+      [ "PractitionerRoleTests", "classfhirclient_1_1models_1_1practitionerrole__tests_1_1_practitioner_role_tests.html", "classfhirclient_1_1models_1_1practitionerrole__tests_1_1_practitioner_role_tests" ]
     ] ],
+    [ "procedure.py", "procedure_8py.html", "procedure_8py" ],
     [ "procedure_tests.py", "procedure__tests_8py.html", [
       [ "ProcedureTests", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests.html", "classfhirclient_1_1models_1_1procedure__tests_1_1_procedure_tests" ]
     ] ],
-    [ "procedurerequest.py", "procedurerequest_8py.html", [
-      [ "ProcedureRequest", "classfhirclient_1_1models_1_1procedurerequest_1_1_procedure_request.html", "classfhirclient_1_1models_1_1procedurerequest_1_1_procedure_request" ]
-    ] ],
+    [ "procedurerequest.py", "procedurerequest_8py.html", "procedurerequest_8py" ],
     [ "procedurerequest_tests.py", "procedurerequest__tests_8py.html", [
       [ "ProcedureRequestTests", "classfhirclient_1_1models_1_1procedurerequest__tests_1_1_procedure_request_tests.html", "classfhirclient_1_1models_1_1procedurerequest__tests_1_1_procedure_request_tests" ]
     ] ],
-    [ "processrequest.py", "processrequest_8py.html", [
-      [ "ProcessRequest", "classfhirclient_1_1models_1_1processrequest_1_1_process_request.html", "classfhirclient_1_1models_1_1processrequest_1_1_process_request" ],
-      [ "ProcessRequestItem", "classfhirclient_1_1models_1_1processrequest_1_1_process_request_item.html", "classfhirclient_1_1models_1_1processrequest_1_1_process_request_item" ]
-    ] ],
+    [ "processrequest.py", "processrequest_8py.html", "processrequest_8py" ],
     [ "processrequest_tests.py", "processrequest__tests_8py.html", [
       [ "ProcessRequestTests", "classfhirclient_1_1models_1_1processrequest__tests_1_1_process_request_tests.html", "classfhirclient_1_1models_1_1processrequest__tests_1_1_process_request_tests" ]
     ] ],
-    [ "processresponse.py", "processresponse_8py.html", [
-      [ "ProcessResponse", "classfhirclient_1_1models_1_1processresponse_1_1_process_response.html", "classfhirclient_1_1models_1_1processresponse_1_1_process_response" ],
-      [ "ProcessResponseNotes", "classfhirclient_1_1models_1_1processresponse_1_1_process_response_notes.html", "classfhirclient_1_1models_1_1processresponse_1_1_process_response_notes" ]
-    ] ],
+    [ "processresponse.py", "processresponse_8py.html", "processresponse_8py" ],
     [ "processresponse_tests.py", "processresponse__tests_8py.html", [
       [ "ProcessResponseTests", "classfhirclient_1_1models_1_1processresponse__tests_1_1_process_response_tests.html", "classfhirclient_1_1models_1_1processresponse__tests_1_1_process_response_tests" ]
     ] ],
-    [ "provenance.py", "provenance_8py.html", [
-      [ "Provenance", "classfhirclient_1_1models_1_1provenance_1_1_provenance.html", "classfhirclient_1_1models_1_1provenance_1_1_provenance" ],
-      [ "ProvenanceAgent", "classfhirclient_1_1models_1_1provenance_1_1_provenance_agent.html", "classfhirclient_1_1models_1_1provenance_1_1_provenance_agent" ],
-      [ "ProvenanceAgentRelatedAgent", "classfhirclient_1_1models_1_1provenance_1_1_provenance_agent_related_agent.html", "classfhirclient_1_1models_1_1provenance_1_1_provenance_agent_related_agent" ],
-      [ "ProvenanceEntity", "classfhirclient_1_1models_1_1provenance_1_1_provenance_entity.html", "classfhirclient_1_1models_1_1provenance_1_1_provenance_entity" ]
-    ] ],
+    [ "provenance.py", "provenance_8py.html", "provenance_8py" ],
     [ "provenance_tests.py", "provenance__tests_8py.html", [
       [ "ProvenanceTests", "classfhirclient_1_1models_1_1provenance__tests_1_1_provenance_tests.html", "classfhirclient_1_1models_1_1provenance__tests_1_1_provenance_tests" ]
     ] ],
     [ "quantity.py", "quantity_8py.html", [
       [ "Quantity", "classfhirclient_1_1models_1_1quantity_1_1_quantity.html", "classfhirclient_1_1models_1_1quantity_1_1_quantity" ]
     ] ],
-    [ "questionnaire.py", "questionnaire_8py.html", [
-      [ "Questionnaire", "classfhirclient_1_1models_1_1questionnaire_1_1_questionnaire.html", "classfhirclient_1_1models_1_1questionnaire_1_1_questionnaire" ],
-      [ "QuestionnaireGroup", "classfhirclient_1_1models_1_1questionnaire_1_1_questionnaire_group.html", "classfhirclient_1_1models_1_1questionnaire_1_1_questionnaire_group" ],
-      [ "QuestionnaireGroupQuestion", "classfhirclient_1_1models_1_1questionnaire_1_1_questionnaire_group_question.html", "classfhirclient_1_1models_1_1questionnaire_1_1_questionnaire_group_question" ]
-    ] ],
+    [ "questionnaire.py", "questionnaire_8py.html", "questionnaire_8py" ],
     [ "questionnaire_tests.py", "questionnaire__tests_8py.html", [
       [ "QuestionnaireTests", "classfhirclient_1_1models_1_1questionnaire__tests_1_1_questionnaire_tests.html", "classfhirclient_1_1models_1_1questionnaire__tests_1_1_questionnaire_tests" ]
     ] ],
-    [ "questionnaireresponse.py", "questionnaireresponse_8py.html", [
-      [ "QuestionnaireResponse", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response.html", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response" ],
-      [ "QuestionnaireResponseGroup", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group.html", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group" ],
-      [ "QuestionnaireResponseGroupQuestion", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group_question.html", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group_question" ],
-      [ "QuestionnaireResponseGroupQuestionAnswer", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group_question_answer.html", "classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_group_question_answer" ]
-    ] ],
+    [ "questionnaireresponse.py", "questionnaireresponse_8py.html", "questionnaireresponse_8py" ],
     [ "questionnaireresponse_tests.py", "questionnaireresponse__tests_8py.html", [
       [ "QuestionnaireResponseTests", "classfhirclient_1_1models_1_1questionnaireresponse__tests_1_1_questionnaire_response_tests.html", "classfhirclient_1_1models_1_1questionnaireresponse__tests_1_1_questionnaire_response_tests" ]
     ] ],
-    [ "range.py", "range_8py.html", [
-      [ "Range", "classfhirclient_1_1models_1_1range_1_1_range.html", "classfhirclient_1_1models_1_1range_1_1_range" ]
-    ] ],
-    [ "ratio.py", "ratio_8py.html", [
-      [ "Ratio", "classfhirclient_1_1models_1_1ratio_1_1_ratio.html", "classfhirclient_1_1models_1_1ratio_1_1_ratio" ]
-    ] ],
-    [ "reference.py", "reference_8py.html", [
-      [ "Reference", "classfhirclient_1_1models_1_1reference_1_1_reference.html", "classfhirclient_1_1models_1_1reference_1_1_reference" ]
-    ] ],
-    [ "referralrequest.py", "referralrequest_8py.html", [
-      [ "ReferralRequest", "classfhirclient_1_1models_1_1referralrequest_1_1_referral_request.html", "classfhirclient_1_1models_1_1referralrequest_1_1_referral_request" ]
-    ] ],
+    [ "range.py", "range_8py.html", "range_8py" ],
+    [ "ratio.py", "ratio_8py.html", "ratio_8py" ],
+    [ "reference.py", "reference_8py.html", "reference_8py" ],
+    [ "referralrequest.py", "referralrequest_8py.html", "referralrequest_8py" ],
     [ "referralrequest_tests.py", "referralrequest__tests_8py.html", [
       [ "ReferralRequestTests", "classfhirclient_1_1models_1_1referralrequest__tests_1_1_referral_request_tests.html", "classfhirclient_1_1models_1_1referralrequest__tests_1_1_referral_request_tests" ]
     ] ],
-    [ "relatedperson.py", "relatedperson_8py.html", [
-      [ "RelatedPerson", "classfhirclient_1_1models_1_1relatedperson_1_1_related_person.html", "classfhirclient_1_1models_1_1relatedperson_1_1_related_person" ]
-    ] ],
+    [ "relatedartifact.py", "relatedartifact_8py.html", "relatedartifact_8py" ],
+    [ "relatedperson.py", "relatedperson_8py.html", "relatedperson_8py" ],
     [ "relatedperson_tests.py", "relatedperson__tests_8py.html", [
       [ "RelatedPersonTests", "classfhirclient_1_1models_1_1relatedperson__tests_1_1_related_person_tests.html", "classfhirclient_1_1models_1_1relatedperson__tests_1_1_related_person_tests" ]
     ] ],
-    [ "resource.py", "resource_8py.html", [
-      [ "Resource", "classfhirclient_1_1models_1_1resource_1_1_resource.html", "classfhirclient_1_1models_1_1resource_1_1_resource" ]
+    [ "requestgroup.py", "requestgroup_8py.html", "requestgroup_8py" ],
+    [ "requestgroup_tests.py", "requestgroup__tests_8py.html", [
+      [ "RequestGroupTests", "classfhirclient_1_1models_1_1requestgroup__tests_1_1_request_group_tests.html", "classfhirclient_1_1models_1_1requestgroup__tests_1_1_request_group_tests" ]
     ] ],
-    [ "riskassessment.py", "riskassessment_8py.html", [
-      [ "RiskAssessment", "classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment.html", "classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment" ],
-      [ "RiskAssessmentPrediction", "classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment_prediction.html", "classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment_prediction" ]
+    [ "researchstudy.py", "researchstudy_8py.html", "researchstudy_8py" ],
+    [ "researchstudy_tests.py", "researchstudy__tests_8py.html", [
+      [ "ResearchStudyTests", "classfhirclient_1_1models_1_1researchstudy__tests_1_1_research_study_tests.html", "classfhirclient_1_1models_1_1researchstudy__tests_1_1_research_study_tests" ]
     ] ],
+    [ "researchsubject.py", "researchsubject_8py.html", "researchsubject_8py" ],
+    [ "researchsubject_tests.py", "researchsubject__tests_8py.html", [
+      [ "ResearchSubjectTests", "classfhirclient_1_1models_1_1researchsubject__tests_1_1_research_subject_tests.html", "classfhirclient_1_1models_1_1researchsubject__tests_1_1_research_subject_tests" ]
+    ] ],
+    [ "resource.py", "resource_8py.html", "resource_8py" ],
+    [ "riskassessment.py", "riskassessment_8py.html", "riskassessment_8py" ],
     [ "riskassessment_tests.py", "riskassessment__tests_8py.html", [
       [ "RiskAssessmentTests", "classfhirclient_1_1models_1_1riskassessment__tests_1_1_risk_assessment_tests.html", "classfhirclient_1_1models_1_1riskassessment__tests_1_1_risk_assessment_tests" ]
     ] ],
-    [ "sampleddata.py", "sampleddata_8py.html", [
-      [ "SampledData", "classfhirclient_1_1models_1_1sampleddata_1_1_sampled_data.html", "classfhirclient_1_1models_1_1sampleddata_1_1_sampled_data" ]
-    ] ],
-    [ "schedule.py", "schedule_8py.html", [
-      [ "Schedule", "classfhirclient_1_1models_1_1schedule_1_1_schedule.html", "classfhirclient_1_1models_1_1schedule_1_1_schedule" ]
-    ] ],
+    [ "sampleddata.py", "sampleddata_8py.html", "sampleddata_8py" ],
+    [ "schedule.py", "schedule_8py.html", "schedule_8py" ],
     [ "schedule_tests.py", "schedule__tests_8py.html", [
       [ "ScheduleTests", "classfhirclient_1_1models_1_1schedule__tests_1_1_schedule_tests.html", "classfhirclient_1_1models_1_1schedule__tests_1_1_schedule_tests" ]
     ] ],
-    [ "searchparameter.py", "searchparameter_8py.html", [
-      [ "SearchParameter", "classfhirclient_1_1models_1_1searchparameter_1_1_search_parameter.html", "classfhirclient_1_1models_1_1searchparameter_1_1_search_parameter" ],
-      [ "SearchParameterContact", "classfhirclient_1_1models_1_1searchparameter_1_1_search_parameter_contact.html", "classfhirclient_1_1models_1_1searchparameter_1_1_search_parameter_contact" ]
-    ] ],
+    [ "searchparameter.py", "searchparameter_8py.html", "searchparameter_8py" ],
     [ "searchparameter_tests.py", "searchparameter__tests_8py.html", [
       [ "SearchParameterTests", "classfhirclient_1_1models_1_1searchparameter__tests_1_1_search_parameter_tests.html", "classfhirclient_1_1models_1_1searchparameter__tests_1_1_search_parameter_tests" ]
     ] ],
-    [ "signature.py", "signature_8py.html", [
-      [ "Signature", "classfhirclient_1_1models_1_1signature_1_1_signature.html", "classfhirclient_1_1models_1_1signature_1_1_signature" ]
+    [ "sequence.py", "sequence_8py.html", "sequence_8py" ],
+    [ "sequence_tests.py", "sequence__tests_8py.html", [
+      [ "SequenceTests", "classfhirclient_1_1models_1_1sequence__tests_1_1_sequence_tests.html", "classfhirclient_1_1models_1_1sequence__tests_1_1_sequence_tests" ]
     ] ],
-    [ "slot.py", "slot_8py.html", [
-      [ "Slot", "classfhirclient_1_1models_1_1slot_1_1_slot.html", "classfhirclient_1_1models_1_1slot_1_1_slot" ]
+    [ "servicedefinition.py", "servicedefinition_8py.html", "servicedefinition_8py" ],
+    [ "servicedefinition_tests.py", "servicedefinition__tests_8py.html", [
+      [ "ServiceDefinitionTests", "classfhirclient_1_1models_1_1servicedefinition__tests_1_1_service_definition_tests.html", "classfhirclient_1_1models_1_1servicedefinition__tests_1_1_service_definition_tests" ]
     ] ],
+    [ "signature.py", "signature_8py.html", "signature_8py" ],
+    [ "slot.py", "slot_8py.html", "slot_8py" ],
     [ "slot_tests.py", "slot__tests_8py.html", [
       [ "SlotTests", "classfhirclient_1_1models_1_1slot__tests_1_1_slot_tests.html", "classfhirclient_1_1models_1_1slot__tests_1_1_slot_tests" ]
     ] ],
-    [ "specimen.py", "specimen_8py.html", [
-      [ "Specimen", "classfhirclient_1_1models_1_1specimen_1_1_specimen.html", "classfhirclient_1_1models_1_1specimen_1_1_specimen" ],
-      [ "SpecimenCollection", "classfhirclient_1_1models_1_1specimen_1_1_specimen_collection.html", "classfhirclient_1_1models_1_1specimen_1_1_specimen_collection" ],
-      [ "SpecimenContainer", "classfhirclient_1_1models_1_1specimen_1_1_specimen_container.html", "classfhirclient_1_1models_1_1specimen_1_1_specimen_container" ],
-      [ "SpecimenTreatment", "classfhirclient_1_1models_1_1specimen_1_1_specimen_treatment.html", "classfhirclient_1_1models_1_1specimen_1_1_specimen_treatment" ]
-    ] ],
+    [ "specimen.py", "specimen_8py.html", "specimen_8py" ],
     [ "specimen_tests.py", "specimen__tests_8py.html", [
       [ "SpecimenTests", "classfhirclient_1_1models_1_1specimen__tests_1_1_specimen_tests.html", "classfhirclient_1_1models_1_1specimen__tests_1_1_specimen_tests" ]
     ] ],
-    [ "structuredefinition.py", "structuredefinition_8py.html", [
-      [ "StructureDefinition", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition.html", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition" ],
-      [ "StructureDefinitionContact", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_contact.html", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_contact" ],
-      [ "StructureDefinitionDifferential", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_differential.html", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_differential" ],
-      [ "StructureDefinitionMapping", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_mapping.html", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_mapping" ],
-      [ "StructureDefinitionSnapshot", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_snapshot.html", "classfhirclient_1_1models_1_1structuredefinition_1_1_structure_definition_snapshot" ]
-    ] ],
+    [ "structuredefinition.py", "structuredefinition_8py.html", "structuredefinition_8py" ],
     [ "structuredefinition_tests.py", "structuredefinition__tests_8py.html", [
       [ "StructureDefinitionTests", "classfhirclient_1_1models_1_1structuredefinition__tests_1_1_structure_definition_tests.html", "classfhirclient_1_1models_1_1structuredefinition__tests_1_1_structure_definition_tests" ]
     ] ],
-    [ "subscription.py", "subscription_8py.html", [
-      [ "Subscription", "classfhirclient_1_1models_1_1subscription_1_1_subscription.html", "classfhirclient_1_1models_1_1subscription_1_1_subscription" ],
-      [ "SubscriptionChannel", "classfhirclient_1_1models_1_1subscription_1_1_subscription_channel.html", "classfhirclient_1_1models_1_1subscription_1_1_subscription_channel" ]
+    [ "structuremap.py", "structuremap_8py.html", "structuremap_8py" ],
+    [ "structuremap_tests.py", "structuremap__tests_8py.html", [
+      [ "StructureMapTests", "classfhirclient_1_1models_1_1structuremap__tests_1_1_structure_map_tests.html", "classfhirclient_1_1models_1_1structuremap__tests_1_1_structure_map_tests" ]
     ] ],
+    [ "subscription.py", "subscription_8py.html", "subscription_8py" ],
     [ "subscription_tests.py", "subscription__tests_8py.html", [
       [ "SubscriptionTests", "classfhirclient_1_1models_1_1subscription__tests_1_1_subscription_tests.html", "classfhirclient_1_1models_1_1subscription__tests_1_1_subscription_tests" ]
     ] ],
-    [ "substance.py", "substance_8py.html", [
-      [ "Substance", "classfhirclient_1_1models_1_1substance_1_1_substance.html", "classfhirclient_1_1models_1_1substance_1_1_substance" ],
-      [ "SubstanceIngredient", "classfhirclient_1_1models_1_1substance_1_1_substance_ingredient.html", "classfhirclient_1_1models_1_1substance_1_1_substance_ingredient" ],
-      [ "SubstanceInstance", "classfhirclient_1_1models_1_1substance_1_1_substance_instance.html", "classfhirclient_1_1models_1_1substance_1_1_substance_instance" ]
-    ] ],
+    [ "substance.py", "substance_8py.html", "substance_8py" ],
     [ "substance_tests.py", "substance__tests_8py.html", [
       [ "SubstanceTests", "classfhirclient_1_1models_1_1substance__tests_1_1_substance_tests.html", "classfhirclient_1_1models_1_1substance__tests_1_1_substance_tests" ]
     ] ],
-    [ "supplydelivery.py", "supplydelivery_8py.html", [
-      [ "SupplyDelivery", "classfhirclient_1_1models_1_1supplydelivery_1_1_supply_delivery.html", "classfhirclient_1_1models_1_1supplydelivery_1_1_supply_delivery" ]
-    ] ],
+    [ "supplydelivery.py", "supplydelivery_8py.html", "supplydelivery_8py" ],
     [ "supplydelivery_tests.py", "supplydelivery__tests_8py.html", [
       [ "SupplyDeliveryTests", "classfhirclient_1_1models_1_1supplydelivery__tests_1_1_supply_delivery_tests.html", "classfhirclient_1_1models_1_1supplydelivery__tests_1_1_supply_delivery_tests" ]
     ] ],
-    [ "supplyrequest.py", "supplyrequest_8py.html", [
-      [ "SupplyRequest", "classfhirclient_1_1models_1_1supplyrequest_1_1_supply_request.html", "classfhirclient_1_1models_1_1supplyrequest_1_1_supply_request" ],
-      [ "SupplyRequestWhen", "classfhirclient_1_1models_1_1supplyrequest_1_1_supply_request_when.html", "classfhirclient_1_1models_1_1supplyrequest_1_1_supply_request_when" ]
-    ] ],
+    [ "supplyrequest.py", "supplyrequest_8py.html", "supplyrequest_8py" ],
     [ "supplyrequest_tests.py", "supplyrequest__tests_8py.html", [
       [ "SupplyRequestTests", "classfhirclient_1_1models_1_1supplyrequest__tests_1_1_supply_request_tests.html", "classfhirclient_1_1models_1_1supplyrequest__tests_1_1_supply_request_tests" ]
     ] ],
-    [ "testscript.py", "testscript_8py.html", [
-      [ "TestScript", "classfhirclient_1_1models_1_1testscript_1_1_test_script.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script" ],
-      [ "TestScriptContact", "classfhirclient_1_1models_1_1testscript_1_1_test_script_contact.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_contact" ],
-      [ "TestScriptFixture", "classfhirclient_1_1models_1_1testscript_1_1_test_script_fixture.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_fixture" ],
-      [ "TestScriptMetadata", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata" ],
-      [ "TestScriptMetadataCapability", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata_capability.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata_capability" ],
-      [ "TestScriptMetadataLink", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata_link.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_metadata_link" ],
-      [ "TestScriptSetup", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup" ],
-      [ "TestScriptSetupAction", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action" ],
-      [ "TestScriptSetupActionAssert", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_assert.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_assert" ],
-      [ "TestScriptSetupActionOperation", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_operation.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_operation" ],
-      [ "TestScriptSetupActionOperationRequestHeader", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_operation_request_header.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_operation_request_header" ],
-      [ "TestScriptTeardown", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown" ],
-      [ "TestScriptTeardownAction", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown_action.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown_action" ],
-      [ "TestScriptTest", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test" ],
-      [ "TestScriptTestAction", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test_action.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test_action" ],
-      [ "TestScriptVariable", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable" ]
+    [ "task.py", "task_8py.html", "task_8py" ],
+    [ "task_tests.py", "task__tests_8py.html", [
+      [ "TaskTests", "classfhirclient_1_1models_1_1task__tests_1_1_task_tests.html", "classfhirclient_1_1models_1_1task__tests_1_1_task_tests" ]
     ] ],
+    [ "testreport.py", "testreport_8py.html", "testreport_8py" ],
+    [ "testreport_tests.py", "testreport__tests_8py.html", [
+      [ "TestReportTests", "classfhirclient_1_1models_1_1testreport__tests_1_1_test_report_tests.html", "classfhirclient_1_1models_1_1testreport__tests_1_1_test_report_tests" ]
+    ] ],
+    [ "testscript.py", "testscript_8py.html", "testscript_8py" ],
     [ "testscript_tests.py", "testscript__tests_8py.html", [
       [ "TestScriptTests", "classfhirclient_1_1models_1_1testscript__tests_1_1_test_script_tests.html", "classfhirclient_1_1models_1_1testscript__tests_1_1_test_script_tests" ]
     ] ],
-    [ "timing.py", "timing_8py.html", [
-      [ "Timing", "classfhirclient_1_1models_1_1timing_1_1_timing.html", "classfhirclient_1_1models_1_1timing_1_1_timing" ],
-      [ "TimingRepeat", "classfhirclient_1_1models_1_1timing_1_1_timing_repeat.html", "classfhirclient_1_1models_1_1timing_1_1_timing_repeat" ]
-    ] ],
-    [ "valueset.py", "valueset_8py.html", [
-      [ "ValueSet", "classfhirclient_1_1models_1_1valueset_1_1_value_set.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set" ],
-      [ "ValueSetCodeSystem", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system" ],
-      [ "ValueSetCodeSystemConcept", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system_concept.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system_concept" ],
-      [ "ValueSetCodeSystemConceptDesignation", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system_concept_designation.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_code_system_concept_designation" ],
-      [ "ValueSetCompose", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose" ],
-      [ "ValueSetComposeInclude", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include" ],
-      [ "ValueSetComposeIncludeConcept", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include_concept.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include_concept" ],
-      [ "ValueSetComposeIncludeFilter", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include_filter.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_compose_include_filter" ],
-      [ "ValueSetContact", "classfhirclient_1_1models_1_1valueset_1_1_value_set_contact.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_contact" ],
-      [ "ValueSetExpansion", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion" ],
-      [ "ValueSetExpansionContains", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion_contains.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion_contains" ],
-      [ "ValueSetExpansionParameter", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion_parameter.html", "classfhirclient_1_1models_1_1valueset_1_1_value_set_expansion_parameter" ]
-    ] ],
+    [ "timing.py", "timing_8py.html", "timing_8py" ],
+    [ "triggerdefinition.py", "triggerdefinition_8py.html", "triggerdefinition_8py" ],
+    [ "usagecontext.py", "usagecontext_8py.html", "usagecontext_8py" ],
+    [ "valueset.py", "valueset_8py.html", "valueset_8py" ],
     [ "valueset_tests.py", "valueset__tests_8py.html", [
       [ "ValueSetTests", "classfhirclient_1_1models_1_1valueset__tests_1_1_value_set_tests.html", "classfhirclient_1_1models_1_1valueset__tests_1_1_value_set_tests" ]
     ] ],
-    [ "visionprescription.py", "visionprescription_8py.html", [
-      [ "VisionPrescription", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription.html", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription" ],
-      [ "VisionPrescriptionDispense", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense.html", "classfhirclient_1_1models_1_1visionprescription_1_1_vision_prescription_dispense" ]
-    ] ],
+    [ "visionprescription.py", "visionprescription_8py.html", "visionprescription_8py" ],
     [ "visionprescription_tests.py", "visionprescription__tests_8py.html", [
       [ "VisionPrescriptionTests", "classfhirclient_1_1models_1_1visionprescription__tests_1_1_vision_prescription_tests.html", "classfhirclient_1_1models_1_1visionprescription__tests_1_1_vision_prescription_tests" ]
     ] ]

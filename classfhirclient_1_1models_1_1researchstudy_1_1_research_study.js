@@ -1,0 +1,25 @@
+var classfhirclient_1_1models_1_1researchstudy_1_1_research_study =
+[
+    [ "__init__", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#a6cfd07568f220b6c3f9bf7a7fb15d204", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#a417335be1b64b1d798f7328069537cf3", null ],
+    [ "arm", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#ab62280a71560ec09b3b2b5626a43395f", null ],
+    [ "category", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#abf5160dad4cf1a7add47075bb59e46e7", null ],
+    [ "contact", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#abf9b0dbf191431c265798637c59a591e", null ],
+    [ "description", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#a24fde2bf6bf3abe8c6305f355a642a42", null ],
+    [ "enrollment", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#ac5580448c95e8aaea958aa9668e2a55a", null ],
+    [ "focus", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#ae63cb54d3cdd3065430bf01a8c61b0f8", null ],
+    [ "identifier", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#a611e3de8cf5526435e449fb35f326266", null ],
+    [ "jurisdiction", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#a66930990f64fba62cbf55026dd8b7fb3", null ],
+    [ "keyword", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#aaa01027eec0becc3516eff2ec0e565f1", null ],
+    [ "note", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#a020a01f6ea4f008cd95efdfebbda6f59", null ],
+    [ "partOf", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#aa64701c69fd62d1efc4366875c2a6a99", null ],
+    [ "period", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#a172ec22f7cf3c81f9d03305416efe4bb", null ],
+    [ "principalInvestigator", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#afe4aa356613ef96701647072877fe08a", null ],
+    [ "protocol", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#addbef1e18afb6096aeebb8de7863d9f1", null ],
+    [ "reasonStopped", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#a0981da317769b41afa651ce4d7805b1d", null ],
+    [ "relatedArtifact", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#aef7d252bfa12a5bea0a9d88a1a9f1e2c", null ],
+    [ "site", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#a5ed252e8aca53db0223b818ab7c24768", null ],
+    [ "sponsor", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#a3cf3a7096bf34f77e175338aab2a2755", null ],
+    [ "status", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#a7956e892b4101bfa1be199ce193ace3f", null ],
+    [ "title", "classfhirclient_1_1models_1_1researchstudy_1_1_research_study.html#ad2f03ba1bb9fc1a11961f24da30e9e31", null ]
+];

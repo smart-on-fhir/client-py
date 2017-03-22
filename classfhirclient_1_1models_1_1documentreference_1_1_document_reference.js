@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1documentreference_1_1_document_reference =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference.html#a6f57a0149267a1b28c84da4e9360b9ab", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference.html#a7b818d9a3c25fe8e0e20da481c77ebc4", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference.html#a8718e05f64ad1102f4333877bdd9443c", null ],
     [ "authenticator", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference.html#a8b68a4cfc793657a5d61445a2bac0836", null ],
     [ "author", "classfhirclient_1_1models_1_1documentreference_1_1_document_reference.html#af661300c14b8d6b95ea89d355fcbb966", null ],

@@ -1,6 +1,6 @@
 var classfhirclient_1_1models_1_1immunization_1_1_immunization =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#adb44afcebf701b47bddeadca6c0dcb22", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a7492ea302719b4d18038bd0b815677cf", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#ab063171baadf4d20b954fce2c06b89a2", null ],
     [ "date", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a08ec21a4cdc727dd1e75608e61437d22", null ],
     [ "doseQuantity", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a6ea910a342f56f500afe5ff31944aeee", null ],
@@ -12,15 +12,15 @@ var classfhirclient_1_1models_1_1immunization_1_1_immunization =
     [ "lotNumber", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a326c9f1a08602ecd1de637eb836f645e", null ],
     [ "manufacturer", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a02fed31e4905a052e546b5eb4a8628c5", null ],
     [ "note", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a95cba3550729e3b850f568d6f4b3d36f", null ],
+    [ "notGiven", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a6ce7568e37ec2ff40335c234ba3376bf", null ],
     [ "patient", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a32157534543c3d6017ca248890d3aee4", null ],
-    [ "performer", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#adfd57e1c30bb9f4b9f18125e40322157", null ],
+    [ "practitioner", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#ae2d45266dd942e5c6bc808763f906253", null ],
+    [ "primarySource", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#abb21dd5afb18937d899dfedf250f24d3", null ],
     [ "reaction", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a53508d41c89b5feca2f09bc9df052469", null ],
-    [ "reported", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#ab93a0b4480ecbbedc6156b180ed77d99", null ],
-    [ "requester", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a7bb5daed9f82571d442b4f628dcdbed1", null ],
+    [ "reportOrigin", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a3e04701d7aaf85a5c7e9fcd638510b73", null ],
     [ "route", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a7501ff83586a9d467bd7d895f27cceef", null ],
     [ "site", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#aa88477f6372653ac6fe3aa1e2fab3457", null ],
     [ "status", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#aff27dc7ea0e4c0f36aac0afcac1df8f0", null ],
     [ "vaccinationProtocol", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a8f445c3ffb1213826d76f785ea280435", null ],
-    [ "vaccineCode", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a9fd6b6dba03c6632145c75cb88d75b85", null ],
-    [ "wasNotGiven", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a06167bba55b5638ef3100c69baed6231", null ]
+    [ "vaccineCode", "classfhirclient_1_1models_1_1immunization_1_1_immunization.html#a9fd6b6dba03c6632145c75cb88d75b85", null ]
 ];

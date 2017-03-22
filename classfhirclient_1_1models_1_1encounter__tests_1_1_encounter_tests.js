@@ -1,6 +1,7 @@
 var classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests =
 [
     [ "implEncounter1", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#a45980a4558a6939e3d7e280031fd2b78", null ],
+    [ "implEncounter10", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#ab54120f5bd0c6f3dc66a4c08f6161c25", null ],
     [ "implEncounter2", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#a06edc8bc371f92159bd77e750a768384", null ],
     [ "implEncounter3", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#a3cbeb9c04beeec61f253afedf70c4b41", null ],
     [ "implEncounter4", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#a7612215f152a8b90c84dc308c190b67f", null ],
@@ -11,6 +12,7 @@ var classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests =
     [ "implEncounter9", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#a57fc6fdf562f0e77de5a57dd6089fbce", null ],
     [ "instantiate_from", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#a1d3c494e9da4430ccd12d7e5fe6b29ef", null ],
     [ "testEncounter1", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#ad96a3b84b9b9f6a1c7ca3f54ea09888e", null ],
+    [ "testEncounter10", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#a62b0eb85ca04be7128b10286ee8d347c", null ],
     [ "testEncounter2", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#a0e2455523d90d9bd164d28d7d6d350c5", null ],
     [ "testEncounter3", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#a4e313af0d9143b0cd95a86278f205950", null ],
     [ "testEncounter4", "classfhirclient_1_1models_1_1encounter__tests_1_1_encounter_tests.html#a67508757d639a06acf120753478d23d0", null ],

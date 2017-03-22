@@ -1,5 +1,21 @@
 var searchData=
 [
-  ['xpath',['xpath',['../classfhirclient_1_1models_1_1elementdefinition_1_1_element_definition_constraint.html#a77da706044d85fba3cb80f35b29e3d71',1,'fhirclient.models.elementdefinition.ElementDefinitionConstraint.xpath()'],['../classfhirclient_1_1models_1_1searchparameter_1_1_search_parameter.html#a97427a80c7ea3bc973963b078a3970ac',1,'fhirclient.models.searchparameter.SearchParameter.xpath()']]],
-  ['xpathusage',['xpathUsage',['../classfhirclient_1_1models_1_1searchparameter_1_1_search_parameter.html#a11bab32833419931100352c9725a5c1b',1,'fhirclient::models::searchparameter::SearchParameter']]]
+  ['wants_5fexpand',['wants_expand',['../classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html#a06f0a0d6a6ee5bdb6dc85068cc4dc285',1,'fhirclient::models::fhirsearch::FHIRSearch']]],
+  ['wants_5fpatient',['wants_patient',['../classfhirclient_1_1client_1_1_f_h_i_r_client.html#abdb0c80423257ccfd8dfdbac140cdb69',1,'fhirclient::client::FHIRClient']]],
+  ['warningonly',['warningOnly',['../classfhirclient_1_1models_1_1testscript_1_1_test_script_setup_action_assert.html#af4da20a5a5f73f66d1c19489fda7ed9a',1,'fhirclient::models::testscript::TestScriptSetupActionAssert']]],
+  ['wassubstituted',['wasSubstituted',['../classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense_substitution.html#a103cd04cf6b90cf87adf996813daa2d1',1,'fhirclient::models::medicationdispense::MedicationDispenseSubstitution']]],
+  ['whatidentifier',['whatIdentifier',['../classfhirclient_1_1models_1_1provenance_1_1_provenance_entity.html#a458f7d2a49c823408b42cb8c84d95b9c',1,'fhirclient::models::provenance::ProvenanceEntity']]],
+  ['whatreference',['whatReference',['../classfhirclient_1_1models_1_1provenance_1_1_provenance_entity.html#a388ca80b6e729bced185a9be12f1e3aa',1,'fhirclient::models::provenance::ProvenanceEntity']]],
+  ['whaturi',['whatUri',['../classfhirclient_1_1models_1_1provenance_1_1_provenance_entity.html#ad74accbf7306d6d41a67b9b9ef23eff0',1,'fhirclient::models::provenance::ProvenanceEntity']]],
+  ['when',['when',['../classfhirclient_1_1models_1_1signature_1_1_signature.html#ac221278db8eff7eb2a32a8ee240dcfba',1,'fhirclient.models.signature.Signature.when()'],['../classfhirclient_1_1models_1_1timing_1_1_timing_repeat.html#a4911913a74d66f78f993335f0f18980f',1,'fhirclient.models.timing.TimingRepeat.when()']]],
+  ['whenhandedover',['whenHandedOver',['../classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#ad85f0dcb981dc1be23809bcb7a24c658',1,'fhirclient::models::medicationdispense::MedicationDispense']]],
+  ['whenperiod',['whenPeriod',['../classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment_prediction.html#a994d7edef457b6c1524ef4a7b639ffb2',1,'fhirclient::models::riskassessment::RiskAssessmentPrediction']]],
+  ['whenprepared',['whenPrepared',['../classfhirclient_1_1models_1_1medicationdispense_1_1_medication_dispense.html#a17b1378bf23ecd0cf9e8859e4f2067fb',1,'fhirclient::models::medicationdispense::MedicationDispense']]],
+  ['whenrange',['whenRange',['../classfhirclient_1_1models_1_1riskassessment_1_1_risk_assessment_prediction.html#a8f1069494f9a1c0b349da55ed47dd21f',1,'fhirclient::models::riskassessment::RiskAssessmentPrediction']]],
+  ['whenused',['whenUsed',['../classfhirclient_1_1models_1_1deviceusestatement_1_1_device_use_statement.html#a759edf344c54fe1af4e5b4d3a6d38589',1,'fhirclient::models::deviceusestatement::DeviceUseStatement']]],
+  ['whoreference',['whoReference',['../classfhirclient_1_1models_1_1provenance_1_1_provenance_agent.html#a4b1bfb288b43f797dff5266a239220b8',1,'fhirclient.models.provenance.ProvenanceAgent.whoReference()'],['../classfhirclient_1_1models_1_1signature_1_1_signature.html#ab88d362a5bd1d4c61d94fa7d265386d4',1,'fhirclient.models.signature.Signature.whoReference()']]],
+  ['whouri',['whoUri',['../classfhirclient_1_1models_1_1provenance_1_1_provenance_agent.html#a7d5044694b15b7bb3fa5f1868a1d1a49',1,'fhirclient.models.provenance.ProvenanceAgent.whoUri()'],['../classfhirclient_1_1models_1_1signature_1_1_signature.html#a632032c416ad19931f6f3b613d209988',1,'fhirclient.models.signature.Signature.whoUri()']]],
+  ['width',['width',['../classfhirclient_1_1models_1_1media_1_1_media.html#ad942c5a644317421a511c95410f74869',1,'fhirclient::models::media::Media']]],
+  ['windowend',['windowEnd',['../classfhirclient_1_1models_1_1sequence_1_1_sequence_reference_seq.html#abc4ccae2841bd09009954bd9373bf618',1,'fhirclient::models::sequence::SequenceReferenceSeq']]],
+  ['windowstart',['windowStart',['../classfhirclient_1_1models_1_1sequence_1_1_sequence_reference_seq.html#a3d0832a410e7e77b90d3ffb86be57c8c',1,'fhirclient::models::sequence::SequenceReferenceSeq']]]
 ];

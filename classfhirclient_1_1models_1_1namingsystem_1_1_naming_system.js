@@ -1,10 +1,11 @@
 var classfhirclient_1_1models_1_1namingsystem_1_1_naming_system =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html#a5cb914719ce57c42b46d8313615c857a", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html#a61822920306021006eba50eda8cd059d", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html#a20dc0886ed4c3e7c8e62bf4dbb9f98e3", null ],
     [ "contact", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html#add20f3115a9ee7d0327b4385c5dd0fc4", null ],
     [ "date", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html#a3c0b3798080697181f8bc3230365c5ff", null ],
     [ "description", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html#a6aabc038530b992330191f7a05fa84e1", null ],
+    [ "jurisdiction", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html#a1bcbd28896169fac1481a454e1ea5a34", null ],
     [ "kind", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html#a6fcff238608775c416022972e4708413", null ],
     [ "name", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html#a709706eceb4d756355af1359bdcdaa16", null ],
     [ "publisher", "classfhirclient_1_1models_1_1namingsystem_1_1_naming_system.html#a080e84ab4e7389fff7308b5bf1c9c0cd", null ],

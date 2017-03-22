@@ -1,9 +1,10 @@
 var classfhirclient_1_1models_1_1observation_1_1_observation_component =
 [
-    [ "__init__", "classfhirclient_1_1models_1_1observation_1_1_observation_component.html#a520e6b7d0f6782d6a681891f44918d1f", null ],
+    [ "__init__", "classfhirclient_1_1models_1_1observation_1_1_observation_component.html#a93eef4f815c3dedf946b1331f0c6d8db", null ],
     [ "elementProperties", "classfhirclient_1_1models_1_1observation_1_1_observation_component.html#ab5451fd6c43b8ca218fbf63fc792c418", null ],
     [ "code", "classfhirclient_1_1models_1_1observation_1_1_observation_component.html#a2d892f36c1e31841bed3c1af59c3c17f", null ],
     [ "dataAbsentReason", "classfhirclient_1_1models_1_1observation_1_1_observation_component.html#a17c1bbd266c595a3daa41666a1613bfd", null ],
+    [ "interpretation", "classfhirclient_1_1models_1_1observation_1_1_observation_component.html#aa1fcdad725dfd709db3f48b1d15503ba", null ],
     [ "referenceRange", "classfhirclient_1_1models_1_1observation_1_1_observation_component.html#abf8d1b2b7a850842e998cfdbe9115846", null ],
     [ "valueAttachment", "classfhirclient_1_1models_1_1observation_1_1_observation_component.html#a4d2737f0c185631496a0a60d05a93ada", null ],
     [ "valueCodeableConcept", "classfhirclient_1_1models_1_1observation_1_1_observation_component.html#a5c65850464ba62c2a148924423165574", null ],
