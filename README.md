@@ -9,7 +9,8 @@ The `master` branch is usually on the latest version of the client as shown belo
 The `develop` branch should be on recent freezes, and the `feature/latest-ci` branch is periodically updated to the latest FHIR continuous integration builds.
 
    Version |          FHIR | &nbsp;
------------|---------------|---
+-----------|---------------|---------
+ **3.0.0** |       `3.0.0` | (STU-3)
    **x.x** |       `1.8.0` | (STU-3 Ballot, Jan 2017)
    **x.x** |       `1.6.0` | (STU-3 Ballot, Sep 2016)
  **1.0.3** |       `1.0.2` | (DSTU 2)
