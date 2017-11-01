@@ -119,7 +119,7 @@ patient.id
 
 name = hn.HumanName()
 name.given = ['Peter']
-name.family = ['Parker']
+name.family = 'Parker'
 patient.name = [name]
 patient.as_json()
 # prints patient's JSON representation, now with id and name
