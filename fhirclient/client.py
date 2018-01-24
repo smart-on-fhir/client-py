@@ -180,10 +180,10 @@ class FHIRClient(object):
             return 'Unknown'
         
         parts = []
-        for n in [human_name_instance.prefix, human_name_instance.given, human_name_instance.family]:
+        for n in [human_name_instance.prefix, human_name_instance.given, [human_name_instance.family]]:
             if n is not None:
                 parts.extend(n)
-        if len(human_name_instance.suffix) > 0:
+        if human_name_instance.suffix and len(human_name_instance.suffix) > 0:
             if len(parts) > 0:
                 parts[len(parts)-1] = parts[len(parts)-1]+','
             parts.extend(human_name_instance.suffix)
