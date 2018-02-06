@@ -45,6 +45,7 @@ class FHIRServer(object):
         self.client = client
         self.auth = None
         self.base_uri = None
+        self.aud = None
 
         # Use a single requests Session for all "requests"
         self.session = requests.Session()
@@ -54,6 +55,7 @@ class FHIRServer(object):
         # lost when creating URLs with urllib
         if base_uri is not None and len(base_uri) > 10:
             self.base_uri = base_uri if '/' == base_uri[-1] else base_uri + '/'
+            self.aud = base_uri
         self._capability = None
         if state is not None:
             self.from_state(state)
@@ -89,7 +91,7 @@ class FHIRServer(object):
                 logger.info("No REST security statement found in server capability statement")
             
             settings = {
-                'aud': self.base_uri,
+                'aud': self.aud,
                 'app_id': self.client.app_id if self.client is not None else None,
                 'app_secret': self.client.app_secret if self.client is not None else None,
                 'redirect_uri': self.client.redirect if self.client is not None else None,
