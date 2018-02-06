@@ -142,7 +142,8 @@ class FHIRServer(object):
         :returns: The response object
         """
         assert self.base_uri and path
-        url = urlparse.urljoin(self.base_uri, path)
+        base = self.base_uri if self.base_uri.endswith('/') else self.base_uri + '/'
+        url = urlparse.urljoin(base, path)
         
         headers = {
             'Accept': 'application/json+fhir',
