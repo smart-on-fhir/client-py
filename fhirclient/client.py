@@ -4,7 +4,7 @@ import logging
 
 from server import FHIRServer, FHIRUnauthorizedException, FHIRNotFoundException
 
-__version__ = '3.0.0'
+__version__ = '3.1.0'
 __author__ = 'SMART Platforms Team'
 __license__ = 'APACHE2'
 __copyright__ = "Copyright 2017 Boston Children's Hospital"
@@ -180,10 +180,12 @@ class FHIRClient(object):
             return 'Unknown'
         
         parts = []
-        for n in [human_name_instance.prefix, human_name_instance.given, human_name_instance.family]:
+        for n in [human_name_instance.prefix, human_name_instance.given]:
             if n is not None:
                 parts.extend(n)
-        if len(human_name_instance.suffix) > 0:
+        if human_name_instance.family:
+            parts.append(human_name_instance.family)
+        if human_name_instance.suffix and len(human_name_instance.suffix) > 0:
             if len(parts) > 0:
                 parts[len(parts)-1] = parts[len(parts)-1]+','
             parts.extend(human_name_instance.suffix)
