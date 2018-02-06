@@ -10,7 +10,7 @@ from flask import Flask, request, redirect, session
 # app setup
 smart_defaults = {
     'app_id': 'my_web_app',
-    'api_base': 'https://fhir-api-dstu2.smarthealthit.org',
+    'api_base': 'https://sb-fhir-stu3.smarthealthit.org/smartstu3/data',
     'redirect_uri': 'http://localhost:8000/fhir-app/',
 }
 
