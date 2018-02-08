@@ -42,13 +42,28 @@ def _get_prescriptions(smart):
         return pres
     return None
 
-def _med_name(prescription):
-    if prescription.medicationCodeableConcept and prescription.medicationCodeableConcept.coding[0].display:
-        return prescription.medicationCodeableConcept.coding[0].display
-    if prescription.text and prescription.text.div:
-        return prescription.text.div
+def _get_medication_by_ref(ref, smart):
+    med_id = ref.split("/")[1]
+    return Medication.read(med_id, smart.server).code
+
+def _med_name(med):
+    if med.coding:
+        name = next((coding.display for coding in med.coding if coding.system == 'http://www.nlm.nih.gov/research/umls/rxnorm'), None)
+        if name:
+            return name
+    if med.text and med.text:
+        return med.text
     return "Unnamed Medication(TM)"
 
+def _get_med_name(prescription, client=None):
+    if prescription.medicationCodeableConcept is not None:
+        med = prescription.medicationCodeableConcept
+        return _med_name(med)
+    elif prescription.medicationReference is not None and client is not None:
+        med = _get_medication_by_ref(prescription.medicationReference.reference, client)
+        return _med_name(med)
+    else:
+        return 'Error: medication not found'
 
 # views
 
@@ -67,7 +82,7 @@ def index():
         body += "<p>You are authorized and ready to make API requests for <em>{0}</em>.</p>".format(name)
         pres = _get_prescriptions(smart)
         if pres is not None:
-            body += "<p>{0} prescriptions: <ul><li>{1}</li></ul></p>".format("His" if 'male' == smart.patient.gender else "Her", '</li><li>'.join([_med_name(p) for p in pres]))
+            body += "<p>{0} prescriptions: <ul><li>{1}</li></ul></p>".format("His" if 'male' == smart.patient.gender else "Her", '</li><li>'.join([_get_med_name(p,smart) for p in pres]))
         else:
             body += "<p>(There are no prescriptions for {0})</p>".format("him" if 'male' == smart.patient.gender else "her")
         body += """<p><a href="/logout">Change patient</a></p>"""
