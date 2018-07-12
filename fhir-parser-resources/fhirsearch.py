@@ -4,10 +4,16 @@
 #  Create FHIR search params from NoSQL-like query structures.
 #  2014, SMART Health IT.
 
+import logging
+
+from . import fhirreference
+
 try:
     from urllib import quote_plus
 except Exception as e:
     from urllib.parse import quote_plus
+
+logger = logging.getLogger(__name__)
 
 
 class FHIRSearch(object):
@@ -23,6 +29,9 @@ class FHIRSearch(object):
         
         self.wants_expand = False
         """ Used internally; whether or not `params` must be expanded first. """
+
+        self.includes = []
+        """ Used internally; stores list of included resources for the search. """
         
         if struct is not None:
             if dict != type(struct):
@@ -48,8 +57,58 @@ class FHIRSearch(object):
                         parts.append(expanded.as_parameter())
                 else:
                     parts.append(param.as_parameter())
-        
+
+        for reference_model, reference_field, reverse in self.includes:
+            key = '_revinclude' if reverse else '_include'
+            parameter = '{}={}:{}'.format(
+                key, reference_model.resource_type, reference_field
+            )
+            parts.append(parameter)
+
         return '{}?{}'.format(self.resource_type.resource_type, '&'.join(parts))
+
+    def include(self, reference_field, reference_model=None, reverse=False):
+        """ Add a resource to be included in the search results. Includes will
+        fetch additional resources referred to by the search results, or
+        additional resources which themselves refer to the search results
+        (reverse include). Recursive or iterative includes are not supported.
+        Provides a fluent interface to allow method chaining.
+
+        To include Patient resources when searching Observations:
+            `s = FHIRSearch(Observation).include('subject')`
+        To include Observation resources when searching Patients:
+            `s = FHIRSearch(Patient).include('subject', Observation, reverse=True)`
+
+        :param reference_field: The name of the search parameter (must be
+                                FHIRReference type)
+        :param reference_model: The type of the source resource from which the
+                                join comes (only used for reverse includes)
+        :param reverse: Whether this is a reverse include
+        :returns: This FHIRSearch instance
+        """
+
+        if reference_model is None:
+            reference_model = self.resource_type
+
+        model_fields = {
+            name: typ
+            for name, _, typ, _, _, _
+            in reference_model().elementProperties()
+        }
+
+        if model_fields.get(reference_field) is not fhirreference.FHIRReference:
+            logging.warning(
+                '%s does not have a reference type element named %s',
+                reference_model.resource_type, reference_field
+            )
+            return self
+
+        if reference_model is not self.resource_type and not reverse:
+            logging.warning('Only reverse includes can have a different reference model')
+            reverse = True
+
+        self.includes.append((reference_model, reference_field, reverse))
+        return self
     
     def perform(self, server):
         """ Construct the search URL and execute it against the given server.
@@ -222,7 +281,7 @@ class FHIRSearchParamOperatorHandler(FHIRSearchParamHandler):
     
     def apply(self, param):
         if self.key not in self.__class__.operators:
-            raise Exception('Unknown operator "{}" for "{}"'.format(self.key, parent.name))
+            raise Exception('Unknown operator "{}" for "{}"'.format(self.key, param.name))
         param.value = self.__class__.operators[self.key] + self.value
 
 
