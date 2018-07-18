@@ -13,9 +13,6 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
     resource_type = 'FHIRAbstractResource'
     
     def __init__(self, jsondict=None, strict=True):
-        self._server = None
-        """ The server the instance was read from. """
-        
         # raise if "resourceType" does not match
         if jsondict is not None and 'resourceType' in jsondict \
             and jsondict['resourceType'] != self.resource_type:
@@ -57,15 +54,6 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
     
     # MARK: - Server Connection
     
-    @property
-    def server(self):
-        """ Walks the owner hierarchy until it finds an owner with a server.
-        """
-        if self._server is None:
-            owningRes = self.owningResource()
-            self._server = owningRes.server if owningRes is not None else None
-        return self._server
-    
     @classmethod
     def read(cls, rem_id, server):
         """ Read the resource with the given id from the given server. The
@@ -101,7 +89,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         
         ret = server.request_json(path)
         instance = cls(jsondict=ret)
-        instance._server = server
+        instance.origin_server = server
         return instance
     
     def create(self, server):
@@ -111,7 +99,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         :param FHIRServer server: The server to create the receiver on
         :returns: None or the response JSON on success
         """
-        srv = server or self.server
+        srv = server or self.origin_server
         if srv is None:
             raise Exception("Cannot create a resource without a server")
         if self.id:
@@ -130,7 +118,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
             optional, will use the instance's `server` if needed.
         :returns: None or the response JSON on success
         """
-        srv = server or self.server
+        srv = server or self.origin_server
         if srv is None:
             raise Exception("Cannot update a resource that does not have a server")
         if not self.id:
@@ -148,7 +136,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
             optional, will use the instance's `server` if needed.
         :returns: None or the response JSON on success
         """
-        srv = server or self.server
+        srv = server or self.origin_server
         if srv is None:
             raise Exception("Cannot delete a resource that does not have a server")
         if not self.id:

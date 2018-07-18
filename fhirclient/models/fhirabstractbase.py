@@ -60,6 +60,9 @@ class FHIRAbstractBase(object):
         
         self._owner = None
         """ Points to the parent resource, if there is one. """
+
+        self._server = None
+        """ The server the element was read from. """
         
         if jsondict is not None:
             if strict:
@@ -355,3 +358,15 @@ class FHIRAbstractBase(object):
         else:
             self._resolved = {refid: resolved}
 
+    @property
+    def origin_server(self):
+        """ Walks the element hierarchy until one with a server is found. """
+        server = self._server
+        if self._owner and not server:
+            server = self._owner.origin_server
+        return server
+
+    @origin_server.setter
+    def origin_server(self, server):
+        """ Sets the server on an element. """
+        self._server = server
