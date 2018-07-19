@@ -13,6 +13,9 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
     resource_type = 'FHIRAbstractResource'
     
     def __init__(self, jsondict=None, strict=True):
+        self._server = None
+        """ The server the instance was read from. """
+        
         # raise if "resourceType" does not match
         if jsondict is not None and 'resourceType' in jsondict \
             and jsondict['resourceType'] != self.resource_type:
@@ -53,6 +56,22 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
     
     
     # MARK: - Server Connection
+    
+    @property
+    def origin_server(self):
+        """ Walks the owner hierarchy until it finds an owner with a server.
+        """
+        server = self._server
+        owner = self._owner
+        while server is None and owner is not None:
+            server = getattr(owner, '_server', None)
+            owner = owner._owner
+        return server
+
+    @origin_server.setter
+    def origin_server(self, server):
+        """ Sets the server on an element. """
+        self._server = server
     
     @classmethod
     def read(cls, rem_id, server):

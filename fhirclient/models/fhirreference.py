@@ -72,7 +72,7 @@ class FHIRReference(reference.Reference):
         # relative references, use the same server
         server = None
         if ref_is_relative:
-            server = self.origin_server
+            server = owning_resource.origin_server if owning_resource else None
         
         # TODO: instantiate server for absolute resource
         if server is None:
