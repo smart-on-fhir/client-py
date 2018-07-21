@@ -57,7 +57,7 @@ class FHIRReference(reference.Reference):
             if bundle.entry is not None:
                 fullUrl = self.reference
                 if ref_is_relative:
-                    base = bundle.server.base_uri if bundle.server else ''
+                    base = bundle.origin_server.base_uri if bundle.origin_server else ''
                     fullUrl = base + self.reference
                 
                 for entry in bundle.entry:
@@ -72,7 +72,7 @@ class FHIRReference(reference.Reference):
         # relative references, use the same server
         server = None
         if ref_is_relative:
-            server = owning_resource.server if owning_resource else None
+            server = owning_resource.origin_server if owning_resource else None
         
         # TODO: instantiate server for absolute resource
         if server is None:

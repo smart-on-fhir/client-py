@@ -63,7 +63,7 @@ class FHIRSearch(object):
         from . import bundle
         res = server.request_json(self.construct())
         bundle = bundle.Bundle(res)
-        bundle._server = server
+        bundle.origin_server = server
         return bundle
     
     def perform_resources(self, server):
