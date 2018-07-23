@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -43,7 +43,7 @@ class BodySiteTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testBodySite2(self):
-        inst = self.instantiate_from("bodysite-example-skin-patch.json")
+        inst = self.instantiate_from("bodysite-example-tumor.json")
         self.assertIsNotNone(inst, "Must have instantiated a BodySite instance")
         self.implBodySite2(inst)
         
@@ -53,28 +53,6 @@ class BodySiteTests(unittest.TestCase):
         self.implBodySite2(inst2)
     
     def implBodySite2(self, inst):
-        self.assertFalse(inst.active)
-        self.assertEqual(inst.code.coding[0].code, "39937001")
-        self.assertEqual(inst.code.coding[0].display, "Skin structure (body structure)")
-        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.code.text, "Skin patch")
-        self.assertEqual(inst.description, "inner surface (volar) of the left forearm")
-        self.assertEqual(inst.id, "skin-patch")
-        self.assertEqual(inst.identifier[0].system, "http://goodhealth.org/bodysite/identifiers")
-        self.assertEqual(inst.identifier[0].value, "12345")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testBodySite3(self):
-        inst = self.instantiate_from("bodysite-example-tumor.json")
-        self.assertIsNotNone(inst, "Must have instantiated a BodySite instance")
-        self.implBodySite3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("BodySite", js["resourceType"])
-        inst2 = bodysite.BodySite(js)
-        self.implBodySite3(inst2)
-    
-    def implBodySite3(self, inst):
         self.assertEqual(inst.code.coding[0].code, "4147007")
         self.assertEqual(inst.code.coding[0].display, "Mass (morphologic abnormality)")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
@@ -89,5 +67,27 @@ class BodySiteTests(unittest.TestCase):
         self.assertEqual(inst.qualifier[0].coding[0].display, "Splenic structure (body structure)")
         self.assertEqual(inst.qualifier[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.qualifier[0].text, "Splenic mass")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testBodySite3(self):
+        inst = self.instantiate_from("bodysite-example-skin-patch.json")
+        self.assertIsNotNone(inst, "Must have instantiated a BodySite instance")
+        self.implBodySite3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("BodySite", js["resourceType"])
+        inst2 = bodysite.BodySite(js)
+        self.implBodySite3(inst2)
+    
+    def implBodySite3(self, inst):
+        self.assertFalse(inst.active)
+        self.assertEqual(inst.code.coding[0].code, "39937001")
+        self.assertEqual(inst.code.coding[0].display, "Skin structure (body structure)")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.code.text, "Skin patch")
+        self.assertEqual(inst.description, "inner surface (volar) of the left forearm")
+        self.assertEqual(inst.id, "skin-patch")
+        self.assertEqual(inst.identifier[0].system, "http://goodhealth.org/bodysite/identifiers")
+        self.assertEqual(inst.identifier[0].value, "12345")
         self.assertEqual(inst.text.status, "generated")
 

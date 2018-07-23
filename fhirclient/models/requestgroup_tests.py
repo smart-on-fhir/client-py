@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class RequestGroupTests(unittest.TestCase):
         return requestgroup.RequestGroup(js)
     
     def testRequestGroup1(self):
-        inst = self.instantiate_from("requestgroup-example.json")
+        inst = self.instantiate_from("requestgroup-kdn5-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a RequestGroup instance")
         self.implRequestGroup1(inst)
         
@@ -32,6 +32,52 @@ class RequestGroupTests(unittest.TestCase):
         self.implRequestGroup1(inst2)
     
     def implRequestGroup1(self, inst):
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].extension[0].extension[0].url, "day")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].extension[0].extension[0].valueInteger, 1)
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].extension[0].extension[1].url, "day")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].extension[0].extension[1].valueInteger, 8)
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].id, "action-1")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].textEquivalent, "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].extension[0].extension[0].url, "day")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].extension[0].extension[0].valueInteger, 1)
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].extension[0].url, "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].id, "action-2")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].relatedAction[0].actionId, "action-1")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].relatedAction[0].relationship, "concurrent-with-start")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].textEquivalent, "CARBOplatin AUC 5 IV over 30 minutes on Day 1")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].id, "cycle-definition-1")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].textEquivalent, "21-day cycle for 6 cycles")
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].timingTiming.repeat.count, 6)
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].timingTiming.repeat.duration, 21)
+        self.assertEqual(inst.action[0].action[0].action[0].action[0].timingTiming.repeat.durationUnit, "d")
+        self.assertEqual(inst.action[0].action[0].action[0].groupingBehavior, "sentence-group")
+        self.assertEqual(inst.action[0].action[0].action[0].selectionBehavior, "exactly-one")
+        self.assertEqual(inst.action[0].action[0].selectionBehavior, "all")
+        self.assertEqual(inst.action[0].selectionBehavior, "exactly-one")
+        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-03-06T17:31:00Z").date)
+        self.assertEqual(inst.authoredOn.as_json(), "2017-03-06T17:31:00Z")
+        self.assertEqual(inst.contained[0].id, "1111")
+        self.assertEqual(inst.contained[1].id, "2222")
+        self.assertEqual(inst.id, "kdn5-example")
+        self.assertEqual(inst.identifier[0].value, "requestgroup-kdn5")
+        self.assertEqual(inst.intent, "plan")
+        self.assertEqual(inst.priority, "routine")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Administer gemcitabine and carboplatin.</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testRequestGroup2(self):
+        inst = self.instantiate_from("requestgroup-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a RequestGroup instance")
+        self.implRequestGroup2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("RequestGroup", js["resourceType"])
+        inst2 = requestgroup.RequestGroup(js)
+        self.implRequestGroup2(inst2)
+    
+    def implRequestGroup2(self, inst):
         self.assertEqual(inst.action[0].action[0].description, "Administer medication 1")
         self.assertEqual(inst.action[0].action[0].id, "medication-action-1")
         self.assertEqual(inst.action[0].action[0].type.code, "create")
@@ -67,51 +113,5 @@ class RequestGroupTests(unittest.TestCase):
         self.assertEqual(inst.reasonCodeableConcept.text, "Treatment")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Example RequestGroup illustrating related actions to administer medications in sequence with time delay.</div>")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testRequestGroup2(self):
-        inst = self.instantiate_from("requestgroup-kdn5-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a RequestGroup instance")
-        self.implRequestGroup2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("RequestGroup", js["resourceType"])
-        inst2 = requestgroup.RequestGroup(js)
-        self.implRequestGroup2(inst2)
-    
-    def implRequestGroup2(self, inst):
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].extension[0].extension[0].url, "day")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].extension[0].extension[0].valueInteger, 1)
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].extension[0].extension[1].url, "day")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].extension[0].extension[1].valueInteger, 8)
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].extension[0].url, "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].id, "action-1")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[0].textEquivalent, "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].extension[0].extension[0].url, "day")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].extension[0].extension[0].valueInteger, 1)
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].extension[0].url, "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].id, "action-2")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].relatedAction[0].actionId, "action-1")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].relatedAction[0].relationship, "concurrent-with-start")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].action[1].textEquivalent, "CARBOplatin AUC 5 IV over 30 minutes on Day 1")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].id, "cycle-definition-1")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].textEquivalent, "21-day cycle for 6 cycles")
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].timingTiming.repeat.count, 6)
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].timingTiming.repeat.duration, 21)
-        self.assertEqual(inst.action[0].action[0].action[0].action[0].timingTiming.repeat.durationUnit, "d")
-        self.assertEqual(inst.action[0].action[0].action[0].groupingBehavior, "sentence-group")
-        self.assertEqual(inst.action[0].action[0].action[0].selectionBehavior, "exactly-one")
-        self.assertEqual(inst.action[0].action[0].selectionBehavior, "all")
-        self.assertEqual(inst.action[0].selectionBehavior, "exactly-one")
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-03-06T17:31:00Z").date)
-        self.assertEqual(inst.authoredOn.as_json(), "2017-03-06T17:31:00Z")
-        self.assertEqual(inst.contained[0].id, "1111")
-        self.assertEqual(inst.contained[1].id, "2222")
-        self.assertEqual(inst.id, "kdn5-example")
-        self.assertEqual(inst.identifier[0].value, "requestgroup-kdn5")
-        self.assertEqual(inst.intent, "plan")
-        self.assertEqual(inst.priority, "routine")
-        self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Administer gemcitabine and carboplatin.</div>")
         self.assertEqual(inst.text.status, "generated")
 

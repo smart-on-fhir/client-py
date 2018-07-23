@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class BasicTests(unittest.TestCase):
         return basic.Basic(js)
     
     def testBasic1(self):
-        inst = self.instantiate_from("basic-example-narrative.json")
+        inst = self.instantiate_from("basic-example2.json")
         self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
         self.implBasic1(inst)
         
@@ -32,12 +32,30 @@ class BasicTests(unittest.TestCase):
         self.implBasic1(inst2)
     
     def implBasic1(self, inst):
-        self.assertEqual(inst.code.text, "Example Narrative Tester")
-        self.assertEqual(inst.id, "basic-example-narrative")
-        self.assertEqual(inst.text.status, "additional")
+        self.assertEqual(inst.code.coding[0].code, "UMLCLASSMODEL")
+        self.assertEqual(inst.code.coding[0].system, "http://example.org/do-not-use/fhir-codes#resourceTypes")
+        self.assertEqual(inst.extension[0].extension[0].url, "name")
+        self.assertEqual(inst.extension[0].extension[0].valueString, "Class1")
+        self.assertEqual(inst.extension[0].extension[1].extension[0].url, "name")
+        self.assertEqual(inst.extension[0].extension[1].extension[0].valueString, "attribute1")
+        self.assertEqual(inst.extension[0].extension[1].extension[1].url, "minOccurs")
+        self.assertEqual(inst.extension[0].extension[1].extension[1].valueInteger, 1)
+        self.assertEqual(inst.extension[0].extension[1].extension[2].url, "maxOccurs")
+        self.assertEqual(inst.extension[0].extension[1].extension[2].valueCode, "*")
+        self.assertEqual(inst.extension[0].extension[1].url, "attribute")
+        self.assertEqual(inst.extension[0].extension[2].extension[0].url, "name")
+        self.assertEqual(inst.extension[0].extension[2].extension[0].valueString, "attribute2")
+        self.assertEqual(inst.extension[0].extension[2].extension[1].url, "minOccurs")
+        self.assertEqual(inst.extension[0].extension[2].extension[1].valueInteger, 0)
+        self.assertEqual(inst.extension[0].extension[2].extension[2].url, "maxOccurs")
+        self.assertEqual(inst.extension[0].extension[2].extension[2].valueInteger, 1)
+        self.assertEqual(inst.extension[0].extension[2].url, "attribute")
+        self.assertEqual(inst.extension[0].url, "http://example.org/do-not-use/fhir-extensions/UMLclass")
+        self.assertEqual(inst.id, "classModel")
+        self.assertEqual(inst.text.status, "generated")
     
     def testBasic2(self):
-        inst = self.instantiate_from("basic-example.json")
+        inst = self.instantiate_from("basic-example-narrative.json")
         self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
         self.implBasic2(inst)
         
@@ -47,6 +65,21 @@ class BasicTests(unittest.TestCase):
         self.implBasic2(inst2)
     
     def implBasic2(self, inst):
+        self.assertEqual(inst.code.text, "Example Narrative Tester")
+        self.assertEqual(inst.id, "basic-example-narrative")
+        self.assertEqual(inst.text.status, "additional")
+    
+    def testBasic3(self):
+        inst = self.instantiate_from("basic-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
+        self.implBasic3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Basic", js["resourceType"])
+        inst2 = basic.Basic(js)
+        self.implBasic3(inst2)
+    
+    def implBasic3(self, inst):
         self.assertEqual(inst.code.coding[0].code, "referral")
         self.assertEqual(inst.code.coding[0].system, "http://hl7.org/fhir/basic-resource-type")
         self.assertEqual(inst.created.date, FHIRDate("2013-05-14").date)
@@ -69,38 +102,5 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(inst.modifierExtension[1].valuePeriod.start.as_json(), "2013-04-01")
         self.assertEqual(inst.modifierExtension[2].url, "http://example.org/do-not-use/fhir-extensions/referral#status")
         self.assertEqual(inst.modifierExtension[2].valueCode, "complete")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testBasic3(self):
-        inst = self.instantiate_from("basic-example2.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Basic instance")
-        self.implBasic3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Basic", js["resourceType"])
-        inst2 = basic.Basic(js)
-        self.implBasic3(inst2)
-    
-    def implBasic3(self, inst):
-        self.assertEqual(inst.code.coding[0].code, "UMLCLASSMODEL")
-        self.assertEqual(inst.code.coding[0].system, "http://example.org/do-not-use/fhir-codes#resourceTypes")
-        self.assertEqual(inst.extension[0].extension[0].url, "name")
-        self.assertEqual(inst.extension[0].extension[0].valueString, "Class1")
-        self.assertEqual(inst.extension[0].extension[1].extension[0].url, "name")
-        self.assertEqual(inst.extension[0].extension[1].extension[0].valueString, "attribute1")
-        self.assertEqual(inst.extension[0].extension[1].extension[1].url, "minOccurs")
-        self.assertEqual(inst.extension[0].extension[1].extension[1].valueInteger, 1)
-        self.assertEqual(inst.extension[0].extension[1].extension[2].url, "maxOccurs")
-        self.assertEqual(inst.extension[0].extension[1].extension[2].valueCode, "*")
-        self.assertEqual(inst.extension[0].extension[1].url, "attribute")
-        self.assertEqual(inst.extension[0].extension[2].extension[0].url, "name")
-        self.assertEqual(inst.extension[0].extension[2].extension[0].valueString, "attribute2")
-        self.assertEqual(inst.extension[0].extension[2].extension[1].url, "minOccurs")
-        self.assertEqual(inst.extension[0].extension[2].extension[1].valueInteger, 0)
-        self.assertEqual(inst.extension[0].extension[2].extension[2].url, "maxOccurs")
-        self.assertEqual(inst.extension[0].extension[2].extension[2].valueInteger, 1)
-        self.assertEqual(inst.extension[0].extension[2].url, "attribute")
-        self.assertEqual(inst.extension[0].url, "http://example.org/do-not-use/fhir-extensions/UMLclass")
-        self.assertEqual(inst.id, "classModel")
         self.assertEqual(inst.text.status, "generated")
 

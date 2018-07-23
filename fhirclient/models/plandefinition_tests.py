@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -112,7 +112,7 @@ class PlanDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.version, "1")
     
     def testPlanDefinition2(self):
-        inst = self.instantiate_from("plandefinition-example.json")
+        inst = self.instantiate_from("plandefinition-options-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a PlanDefinition instance")
         self.implPlanDefinition2(inst)
         
@@ -122,6 +122,93 @@ class PlanDefinitionTests(unittest.TestCase):
         self.implPlanDefinition2(inst2)
     
     def implPlanDefinition2(self, inst):
+        self.assertEqual(inst.action[0].action[0].id, "medication-action-1")
+        self.assertEqual(inst.action[0].action[0].title, "Administer Medication 1")
+        self.assertEqual(inst.action[0].action[1].id, "medication-action-2")
+        self.assertEqual(inst.action[0].action[1].relatedAction[0].actionId, "medication-action-1")
+        self.assertEqual(inst.action[0].action[1].relatedAction[0].offsetDuration.unit, "h")
+        self.assertEqual(inst.action[0].action[1].relatedAction[0].offsetDuration.value, 1)
+        self.assertEqual(inst.action[0].action[1].relatedAction[0].relationship, "after-end")
+        self.assertEqual(inst.action[0].action[1].title, "Administer Medication 2")
+        self.assertEqual(inst.action[0].groupingBehavior, "logical-group")
+        self.assertEqual(inst.action[0].selectionBehavior, "all")
+        self.assertEqual(inst.contained[0].id, "activitydefinition-medicationrequest-1")
+        self.assertEqual(inst.contained[1].id, "activitydefinition-medicationrequest-2")
+        self.assertEqual(inst.id, "options-example")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.title, "This example illustrates relationships between actions.")
+    
+    def testPlanDefinition3(self):
+        inst = self.instantiate_from("plandefinition-protocol-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a PlanDefinition instance")
+        self.implPlanDefinition3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("PlanDefinition", js["resourceType"])
+        inst2 = plandefinition.PlanDefinition(js)
+        self.implPlanDefinition3(inst2)
+    
+    def implPlanDefinition3(self, inst):
+        self.assertEqual(inst.action[0].cardinalityBehavior, "single")
+        self.assertEqual(inst.action[0].condition[0].expression, "exists ([Condition: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today())")
+        self.assertEqual(inst.action[0].condition[0].kind, "applicability")
+        self.assertEqual(inst.action[0].condition[0].language, "text/cql")
+        self.assertEqual(inst.action[0].goalId[0], "reduce-bmi-ratio")
+        self.assertEqual(inst.action[0].label, "Measure BMI")
+        self.assertEqual(inst.action[0].requiredBehavior, "must-unless-documented")
+        self.assertEqual(inst.action[0].title, "Measure, Weight, Height, Waist, Circumference; Calculate BMI")
+        self.assertEqual(inst.contained[0].id, "procedure")
+        self.assertEqual(inst.contributor[0].contact[0].telecom[0].system, "url")
+        self.assertEqual(inst.contributor[0].contact[0].telecom[0].value, "https://www.nhlbi.nih.gov/health-pro/guidelines")
+        self.assertEqual(inst.contributor[0].name, "National Heart, Lung, and Blood Institute")
+        self.assertEqual(inst.contributor[0].type, "author")
+        self.assertEqual(inst.goal[0].addresses[0].coding[0].code, "414916001")
+        self.assertEqual(inst.goal[0].addresses[0].coding[0].display, "Obesity (disorder)")
+        self.assertEqual(inst.goal[0].addresses[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.goal[0].category.text, "Treatment")
+        self.assertEqual(inst.goal[0].description.text, "Reduce BMI to below 25")
+        self.assertEqual(inst.goal[0].documentation[0].display, "Evaluation and Treatment Strategy")
+        self.assertEqual(inst.goal[0].documentation[0].type, "justification")
+        self.assertEqual(inst.goal[0].documentation[0].url, "https://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/42.htm")
+        self.assertEqual(inst.goal[0].id, "reduce-bmi-ratio")
+        self.assertEqual(inst.goal[0].priority.text, "medium-priority")
+        self.assertEqual(inst.goal[0].start.text, "When the patient's BMI Ratio is at or above 25")
+        self.assertEqual(inst.goal[0].target[0].detailRange.high.unit, "kg/m2")
+        self.assertEqual(inst.goal[0].target[0].detailRange.high.value, 24.9)
+        self.assertEqual(inst.goal[0].target[0].due.unit, "a")
+        self.assertEqual(inst.goal[0].target[0].due.value, 1)
+        self.assertEqual(inst.goal[0].target[0].measure.coding[0].code, "39156-5")
+        self.assertEqual(inst.goal[0].target[0].measure.coding[0].display, "Body mass index (BMI) [Ratio]")
+        self.assertEqual(inst.goal[0].target[0].measure.coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.id, "protocol-example")
+        self.assertEqual(inst.identifier[0].system, "http://acme.org")
+        self.assertEqual(inst.identifier[0].value, "example-1")
+        self.assertEqual(inst.purpose, "Example of A medical algorithm for assessment and treatment of overweight and obesity")
+        self.assertEqual(inst.relatedArtifact[0].display, "Overweight and Obesity Treatment Guidelines")
+        self.assertEqual(inst.relatedArtifact[0].type, "derived-from")
+        self.assertEqual(inst.relatedArtifact[0].url, "http://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/algorthm/algorthm.htm")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.title, "Obesity Assessment Protocol")
+        self.assertEqual(inst.type.coding[0].code, "protocol")
+        self.assertEqual(inst.useContext[0].code.code, "focus")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "414916001")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].display, "Obesity (disorder)")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
+    
+    def testPlanDefinition4(self):
+        inst = self.instantiate_from("plandefinition-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a PlanDefinition instance")
+        self.implPlanDefinition4(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("PlanDefinition", js["resourceType"])
+        inst2 = plandefinition.PlanDefinition(js)
+        self.implPlanDefinition4(inst2)
+    
+    def implPlanDefinition4(self, inst):
         self.assertEqual(inst.action[0].action[0].action[0].dynamicValue[0].expression, "Now()")
         self.assertEqual(inst.action[0].action[0].action[0].dynamicValue[0].path, "timing.event")
         self.assertEqual(inst.action[0].action[0].action[0].dynamicValue[1].expression, "Code '261QM0850X' from SuicideRiskLogic.\"NUCC Provider Taxonomy\" display 'Adult Mental Health'")
@@ -268,46 +355,17 @@ class PlanDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.version, "1.0.0")
     
-    def testPlanDefinition3(self):
-        inst = self.instantiate_from("plandefinition-options-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a PlanDefinition instance")
-        self.implPlanDefinition3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("PlanDefinition", js["resourceType"])
-        inst2 = plandefinition.PlanDefinition(js)
-        self.implPlanDefinition3(inst2)
-    
-    def implPlanDefinition3(self, inst):
-        self.assertEqual(inst.action[0].action[0].id, "medication-action-1")
-        self.assertEqual(inst.action[0].action[0].title, "Administer Medication 1")
-        self.assertEqual(inst.action[0].action[1].id, "medication-action-2")
-        self.assertEqual(inst.action[0].action[1].relatedAction[0].actionId, "medication-action-1")
-        self.assertEqual(inst.action[0].action[1].relatedAction[0].offsetDuration.unit, "h")
-        self.assertEqual(inst.action[0].action[1].relatedAction[0].offsetDuration.value, 1)
-        self.assertEqual(inst.action[0].action[1].relatedAction[0].relationship, "after-end")
-        self.assertEqual(inst.action[0].action[1].title, "Administer Medication 2")
-        self.assertEqual(inst.action[0].groupingBehavior, "logical-group")
-        self.assertEqual(inst.action[0].selectionBehavior, "all")
-        self.assertEqual(inst.contained[0].id, "activitydefinition-medicationrequest-1")
-        self.assertEqual(inst.contained[1].id, "activitydefinition-medicationrequest-2")
-        self.assertEqual(inst.id, "options-example")
-        self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.title, "This example illustrates relationships between actions.")
-    
-    def testPlanDefinition4(self):
+    def testPlanDefinition5(self):
         inst = self.instantiate_from("plandefinition-predecessor-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a PlanDefinition instance")
-        self.implPlanDefinition4(inst)
+        self.implPlanDefinition5(inst)
         
         js = inst.as_json()
         self.assertEqual("PlanDefinition", js["resourceType"])
         inst2 = plandefinition.PlanDefinition(js)
-        self.implPlanDefinition4(inst2)
+        self.implPlanDefinition5(inst2)
     
-    def implPlanDefinition4(self, inst):
+    def implPlanDefinition5(self, inst):
         self.assertEqual(inst.action[0].action[0].condition[0].expression, "Should Administer Zika Virus Exposure Assessment")
         self.assertEqual(inst.action[0].action[0].condition[0].kind, "applicability")
         self.assertEqual(inst.action[0].action[1].condition[0].expression, "Should Order Serum + Urine rRT-PCR Test")
@@ -338,62 +396,4 @@ class PlanDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.topic[0].text, "Zika Virus Management")
         self.assertEqual(inst.url, "http://example.org/PlanDefinition/zika-virus-intervention")
         self.assertEqual(inst.version, "1.0.0")
-    
-    def testPlanDefinition5(self):
-        inst = self.instantiate_from("plandefinition-protocol-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a PlanDefinition instance")
-        self.implPlanDefinition5(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("PlanDefinition", js["resourceType"])
-        inst2 = plandefinition.PlanDefinition(js)
-        self.implPlanDefinition5(inst2)
-    
-    def implPlanDefinition5(self, inst):
-        self.assertEqual(inst.action[0].cardinalityBehavior, "single")
-        self.assertEqual(inst.action[0].condition[0].expression, "exists ([Condition: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today())")
-        self.assertEqual(inst.action[0].condition[0].kind, "applicability")
-        self.assertEqual(inst.action[0].condition[0].language, "text/cql")
-        self.assertEqual(inst.action[0].goalId[0], "reduce-bmi-ratio")
-        self.assertEqual(inst.action[0].label, "Measure BMI")
-        self.assertEqual(inst.action[0].requiredBehavior, "must-unless-documented")
-        self.assertEqual(inst.action[0].title, "Measure, Weight, Height, Waist, Circumference; Calculate BMI")
-        self.assertEqual(inst.contained[0].id, "procedure")
-        self.assertEqual(inst.contributor[0].contact[0].telecom[0].system, "url")
-        self.assertEqual(inst.contributor[0].contact[0].telecom[0].value, "https://www.nhlbi.nih.gov/health-pro/guidelines")
-        self.assertEqual(inst.contributor[0].name, "National Heart, Lung, and Blood Institute")
-        self.assertEqual(inst.contributor[0].type, "author")
-        self.assertEqual(inst.goal[0].addresses[0].coding[0].code, "414916001")
-        self.assertEqual(inst.goal[0].addresses[0].coding[0].display, "Obesity (disorder)")
-        self.assertEqual(inst.goal[0].addresses[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.goal[0].category.text, "Treatment")
-        self.assertEqual(inst.goal[0].description.text, "Reduce BMI to below 25")
-        self.assertEqual(inst.goal[0].documentation[0].display, "Evaluation and Treatment Strategy")
-        self.assertEqual(inst.goal[0].documentation[0].type, "justification")
-        self.assertEqual(inst.goal[0].documentation[0].url, "https://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/42.htm")
-        self.assertEqual(inst.goal[0].id, "reduce-bmi-ratio")
-        self.assertEqual(inst.goal[0].priority.text, "medium-priority")
-        self.assertEqual(inst.goal[0].start.text, "When the patient's BMI Ratio is at or above 25")
-        self.assertEqual(inst.goal[0].target[0].detailRange.high.unit, "kg/m2")
-        self.assertEqual(inst.goal[0].target[0].detailRange.high.value, 24.9)
-        self.assertEqual(inst.goal[0].target[0].due.unit, "a")
-        self.assertEqual(inst.goal[0].target[0].due.value, 1)
-        self.assertEqual(inst.goal[0].target[0].measure.coding[0].code, "39156-5")
-        self.assertEqual(inst.goal[0].target[0].measure.coding[0].display, "Body mass index (BMI) [Ratio]")
-        self.assertEqual(inst.goal[0].target[0].measure.coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.id, "protocol-example")
-        self.assertEqual(inst.identifier[0].system, "http://acme.org")
-        self.assertEqual(inst.identifier[0].value, "example-1")
-        self.assertEqual(inst.purpose, "Example of A medical algorithm for assessment and treatment of overweight and obesity")
-        self.assertEqual(inst.relatedArtifact[0].display, "Overweight and Obesity Treatment Guidelines")
-        self.assertEqual(inst.relatedArtifact[0].type, "derived-from")
-        self.assertEqual(inst.relatedArtifact[0].url, "http://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/algorthm/algorthm.htm")
-        self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.title, "Obesity Assessment Protocol")
-        self.assertEqual(inst.type.coding[0].code, "protocol")
-        self.assertEqual(inst.useContext[0].code.code, "focus")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "414916001")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].display, "Obesity (disorder)")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
 

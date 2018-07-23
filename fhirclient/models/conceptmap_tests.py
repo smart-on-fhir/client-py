@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class ConceptMapTests(unittest.TestCase):
         return conceptmap.ConceptMap(js)
     
     def testConceptMap1(self):
-        inst = self.instantiate_from("conceptmap-example-2.json")
+        inst = self.instantiate_from("conceptmap-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ConceptMap instance")
         self.implConceptMap1(inst)
         
@@ -32,6 +32,65 @@ class ConceptMapTests(unittest.TestCase):
         self.implConceptMap1(inst2)
     
     def implConceptMap1(self, inst):
+        self.assertEqual(inst.contact[0].name, "FHIR project team (example)")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
+        self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
+        self.assertEqual(inst.copyright, "Creative Commons 0")
+        self.assertEqual(inst.date.date, FHIRDate("2012-06-13").date)
+        self.assertEqual(inst.date.as_json(), "2012-06-13")
+        self.assertEqual(inst.description, "A mapping between the FHIR and HL7 v3 AddressUse Code systems")
+        self.assertTrue(inst.experimental)
+        self.assertEqual(inst.group[0].element[0].code, "home")
+        self.assertEqual(inst.group[0].element[0].display, "home")
+        self.assertEqual(inst.group[0].element[0].target[0].code, "H")
+        self.assertEqual(inst.group[0].element[0].target[0].display, "home")
+        self.assertEqual(inst.group[0].element[1].code, "work")
+        self.assertEqual(inst.group[0].element[1].display, "work")
+        self.assertEqual(inst.group[0].element[1].target[0].code, "WP")
+        self.assertEqual(inst.group[0].element[1].target[0].display, "work place")
+        self.assertEqual(inst.group[0].element[2].code, "temp")
+        self.assertEqual(inst.group[0].element[2].display, "temp")
+        self.assertEqual(inst.group[0].element[2].target[0].code, "TMP")
+        self.assertEqual(inst.group[0].element[2].target[0].display, "temporary address")
+        self.assertEqual(inst.group[0].element[3].code, "old")
+        self.assertEqual(inst.group[0].element[3].display, "old")
+        self.assertEqual(inst.group[0].element[3].target[0].code, "BAD")
+        self.assertEqual(inst.group[0].element[3].target[0].comment, "In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old")
+        self.assertEqual(inst.group[0].element[3].target[0].display, "bad address")
+        self.assertEqual(inst.group[0].element[3].target[0].equivalence, "disjoint")
+        self.assertEqual(inst.group[0].source, "http://hl7.org/fhir/address-use")
+        self.assertEqual(inst.group[0].target, "http://hl7.org/fhir/v3/AddressUse")
+        self.assertEqual(inst.group[0].unmapped.code, "temp")
+        self.assertEqual(inst.group[0].unmapped.display, "temp")
+        self.assertEqual(inst.group[0].unmapped.mode, "fixed")
+        self.assertEqual(inst.id, "101")
+        self.assertEqual(inst.identifier.system, "urn:ietf:rfc:3986")
+        self.assertEqual(inst.identifier.value, "urn:uuid:53cd62ee-033e-414c-9f58-3ca97b5ffc3b")
+        self.assertEqual(inst.name, "FHIR-v3-Address-Use")
+        self.assertEqual(inst.publisher, "HL7, Inc")
+        self.assertEqual(inst.purpose, "To help implementers map from HL7 v3/CDA to FHIR")
+        self.assertEqual(inst.sourceUri, "http://hl7.org/fhir/ValueSet/address-use")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.targetUri, "http://hl7.org/fhir/ValueSet/v3-AddressUse")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.title, "FHIR/v3 Address Use Mapping")
+        self.assertEqual(inst.url, "http://hl7.org/fhir/ConceptMap/101")
+        self.assertEqual(inst.useContext[0].code.code, "venue")
+        self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.text, "for CDA Usage")
+        self.assertEqual(inst.version, "20120613")
+    
+    def testConceptMap2(self):
+        inst = self.instantiate_from("conceptmap-example-2.json")
+        self.assertIsNotNone(inst, "Must have instantiated a ConceptMap instance")
+        self.implConceptMap2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("ConceptMap", js["resourceType"])
+        inst2 = conceptmap.ConceptMap(js)
+        self.implConceptMap2(inst2)
+    
+    def implConceptMap2(self, inst):
         self.assertEqual(inst.contact[0].name, "FHIR project team (example)")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
@@ -63,17 +122,17 @@ class ConceptMapTests(unittest.TestCase):
         self.assertEqual(inst.title, "FHIR Example 2")
         self.assertEqual(inst.url, "http://hl7.org/fhir/ConceptMap/example2")
     
-    def testConceptMap2(self):
+    def testConceptMap3(self):
         inst = self.instantiate_from("conceptmap-example-specimen-type.json")
         self.assertIsNotNone(inst, "Must have instantiated a ConceptMap instance")
-        self.implConceptMap2(inst)
+        self.implConceptMap3(inst)
         
         js = inst.as_json()
         self.assertEqual("ConceptMap", js["resourceType"])
         inst2 = conceptmap.ConceptMap(js)
-        self.implConceptMap2(inst2)
+        self.implConceptMap3(inst2)
     
-    def implConceptMap2(self, inst):
+    def implConceptMap3(self, inst):
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.contact[1].telecom[0].system, "url")
@@ -127,63 +186,4 @@ class ConceptMapTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/ConceptMap/102")
         self.assertEqual(inst.version, "20130725")
-    
-    def testConceptMap3(self):
-        inst = self.instantiate_from("conceptmap-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a ConceptMap instance")
-        self.implConceptMap3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("ConceptMap", js["resourceType"])
-        inst2 = conceptmap.ConceptMap(js)
-        self.implConceptMap3(inst2)
-    
-    def implConceptMap3(self, inst):
-        self.assertEqual(inst.contact[0].name, "FHIR project team (example)")
-        self.assertEqual(inst.contact[0].telecom[0].system, "url")
-        self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.copyright, "Creative Commons 0")
-        self.assertEqual(inst.date.date, FHIRDate("2012-06-13").date)
-        self.assertEqual(inst.date.as_json(), "2012-06-13")
-        self.assertEqual(inst.description, "A mapping between the FHIR and HL7 v3 AddressUse Code systems")
-        self.assertTrue(inst.experimental)
-        self.assertEqual(inst.group[0].element[0].code, "home")
-        self.assertEqual(inst.group[0].element[0].display, "home")
-        self.assertEqual(inst.group[0].element[0].target[0].code, "H")
-        self.assertEqual(inst.group[0].element[0].target[0].display, "home")
-        self.assertEqual(inst.group[0].element[1].code, "work")
-        self.assertEqual(inst.group[0].element[1].display, "work")
-        self.assertEqual(inst.group[0].element[1].target[0].code, "WP")
-        self.assertEqual(inst.group[0].element[1].target[0].display, "work place")
-        self.assertEqual(inst.group[0].element[2].code, "temp")
-        self.assertEqual(inst.group[0].element[2].display, "temp")
-        self.assertEqual(inst.group[0].element[2].target[0].code, "TMP")
-        self.assertEqual(inst.group[0].element[2].target[0].display, "temporary address")
-        self.assertEqual(inst.group[0].element[3].code, "old")
-        self.assertEqual(inst.group[0].element[3].display, "old")
-        self.assertEqual(inst.group[0].element[3].target[0].code, "BAD")
-        self.assertEqual(inst.group[0].element[3].target[0].comment, "In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old")
-        self.assertEqual(inst.group[0].element[3].target[0].display, "bad address")
-        self.assertEqual(inst.group[0].element[3].target[0].equivalence, "disjoint")
-        self.assertEqual(inst.group[0].source, "http://hl7.org/fhir/address-use")
-        self.assertEqual(inst.group[0].target, "http://hl7.org/fhir/v3/AddressUse")
-        self.assertEqual(inst.group[0].unmapped.code, "temp")
-        self.assertEqual(inst.group[0].unmapped.display, "temp")
-        self.assertEqual(inst.group[0].unmapped.mode, "fixed")
-        self.assertEqual(inst.id, "101")
-        self.assertEqual(inst.identifier.system, "urn:ietf:rfc:3986")
-        self.assertEqual(inst.identifier.value, "urn:uuid:53cd62ee-033e-414c-9f58-3ca97b5ffc3b")
-        self.assertEqual(inst.name, "FHIR-v3-Address-Use")
-        self.assertEqual(inst.publisher, "HL7, Inc")
-        self.assertEqual(inst.purpose, "To help implementers map from HL7 v3/CDA to FHIR")
-        self.assertEqual(inst.sourceUri, "http://hl7.org/fhir/ValueSet/address-use")
-        self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.targetUri, "http://hl7.org/fhir/ValueSet/v3-AddressUse")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.title, "FHIR/v3 Address Use Mapping")
-        self.assertEqual(inst.url, "http://hl7.org/fhir/ConceptMap/101")
-        self.assertEqual(inst.useContext[0].code.code, "venue")
-        self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.text, "for CDA Usage")
-        self.assertEqual(inst.version, "20120613")
 
