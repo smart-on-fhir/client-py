@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 class FHIRElementFactory(object):

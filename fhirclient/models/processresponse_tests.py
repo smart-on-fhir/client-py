@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class ProcessResponseTests(unittest.TestCase):
         return processresponse.ProcessResponse(js)
     
     def testProcessResponse1(self):
-        inst = self.instantiate_from("processresponse-example-error.json")
+        inst = self.instantiate_from("processresponse-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessResponse instance")
         self.implProcessResponse1(inst)
         
@@ -32,6 +32,29 @@ class ProcessResponseTests(unittest.TestCase):
         self.implProcessResponse1(inst2)
     
     def implProcessResponse1(self, inst):
+        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
+        self.assertEqual(inst.disposition, "Adjudication processing completed, ClaimResponse and EOB ready for retrieval.")
+        self.assertEqual(inst.id, "SR2500")
+        self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/processresponse")
+        self.assertEqual(inst.identifier[0].value, "881234")
+        self.assertEqual(inst.outcome.coding[0].code, "complete")
+        self.assertEqual(inst.outcome.coding[0].system, "http://hl7.org/fhir/processoutcomecodes")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the ProcessResponse</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testProcessResponse2(self):
+        inst = self.instantiate_from("processresponse-example-error.json")
+        self.assertIsNotNone(inst, "Must have instantiated a ProcessResponse instance")
+        self.implProcessResponse2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("ProcessResponse", js["resourceType"])
+        inst2 = processresponse.ProcessResponse(js)
+        self.implProcessResponse2(inst2)
+    
+    def implProcessResponse2(self, inst):
         self.assertEqual(inst.created.date, FHIRDate("2014-07-14").date)
         self.assertEqual(inst.created.as_json(), "2014-07-14")
         self.assertEqual(inst.disposition, "Referred to claim not found on system.")
@@ -51,17 +74,17 @@ class ProcessResponseTests(unittest.TestCase):
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the ProcessResponse</div>")
         self.assertEqual(inst.text.status, "generated")
     
-    def testProcessResponse2(self):
+    def testProcessResponse3(self):
         inst = self.instantiate_from("processresponse-example-pended.json")
         self.assertIsNotNone(inst, "Must have instantiated a ProcessResponse instance")
-        self.implProcessResponse2(inst)
+        self.implProcessResponse3(inst)
         
         js = inst.as_json()
         self.assertEqual("ProcessResponse", js["resourceType"])
         inst2 = processresponse.ProcessResponse(js)
-        self.implProcessResponse2(inst2)
+        self.implProcessResponse3(inst2)
     
-    def implProcessResponse2(self, inst):
+    def implProcessResponse3(self, inst):
         self.assertEqual(inst.contained[0].id, "comreq-1")
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
@@ -73,28 +96,5 @@ class ProcessResponseTests(unittest.TestCase):
         self.assertEqual(inst.outcome.coding[0].system, "http://hl7.org/fhir/processoutcomecodes")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A ProcessResponse indicating pended status with a request for additional information.</div>")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testProcessResponse3(self):
-        inst = self.instantiate_from("processresponse-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a ProcessResponse instance")
-        self.implProcessResponse3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("ProcessResponse", js["resourceType"])
-        inst2 = processresponse.ProcessResponse(js)
-        self.implProcessResponse3(inst2)
-    
-    def implProcessResponse3(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.as_json(), "2014-08-16")
-        self.assertEqual(inst.disposition, "Adjudication processing completed, ClaimResponse and EOB ready for retrieval.")
-        self.assertEqual(inst.id, "SR2500")
-        self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/processresponse")
-        self.assertEqual(inst.identifier[0].value, "881234")
-        self.assertEqual(inst.outcome.coding[0].code, "complete")
-        self.assertEqual(inst.outcome.coding[0].system, "http://hl7.org/fhir/processoutcomecodes")
-        self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the ProcessResponse</div>")
         self.assertEqual(inst.text.status, "generated")
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -112,7 +112,7 @@ class EligibilityResponseTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testEligibilityResponse2(self):
-        inst = self.instantiate_from("eligibilityresponse-example-benefits.json")
+        inst = self.instantiate_from("eligibilityresponse-example-error.json")
         self.assertIsNotNone(inst, "Must have instantiated a EligibilityResponse instance")
         self.implEligibilityResponse2(inst)
         
@@ -122,6 +122,57 @@ class EligibilityResponseTests(unittest.TestCase):
         self.implEligibilityResponse2(inst2)
     
     def implEligibilityResponse2(self, inst):
+        self.assertEqual(inst.created.date, FHIRDate("2014-09-16").date)
+        self.assertEqual(inst.created.as_json(), "2014-09-16")
+        self.assertEqual(inst.disposition, "Eligibiliy request could not be processed, please address errors before submitting.")
+        self.assertEqual(inst.error[0].code.coding[0].code, "a001")
+        self.assertEqual(inst.error[0].code.coding[0].system, "http://hl7.org/fhir/adjudication-error")
+        self.assertEqual(inst.form.coding[0].code, "ELRSP/2017/01")
+        self.assertEqual(inst.form.coding[0].system, "http://national.org/form")
+        self.assertEqual(inst.id, "E2503")
+        self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/eligibilityresponse")
+        self.assertEqual(inst.identifier[0].value, "8812343")
+        self.assertEqual(inst.outcome.coding[0].code, "error")
+        self.assertEqual(inst.outcome.coding[0].system, "http://hl7.org/fhir/remittance-outcome")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the EligibilityResponse.</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testEligibilityResponse3(self):
+        inst = self.instantiate_from("eligibilityresponse-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a EligibilityResponse instance")
+        self.implEligibilityResponse3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("EligibilityResponse", js["resourceType"])
+        inst2 = eligibilityresponse.EligibilityResponse(js)
+        self.implEligibilityResponse3(inst2)
+    
+    def implEligibilityResponse3(self, inst):
+        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
+        self.assertEqual(inst.disposition, "Policy is currently in-force.")
+        self.assertEqual(inst.id, "E2500")
+        self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/eligibilityresponse")
+        self.assertEqual(inst.identifier[0].value, "881234")
+        self.assertTrue(inst.inforce)
+        self.assertEqual(inst.outcome.coding[0].code, "complete")
+        self.assertEqual(inst.outcome.coding[0].system, "http://hl7.org/fhir/remittance-outcome")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the EligibilityResponse.</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testEligibilityResponse4(self):
+        inst = self.instantiate_from("eligibilityresponse-example-benefits.json")
+        self.assertIsNotNone(inst, "Must have instantiated a EligibilityResponse instance")
+        self.implEligibilityResponse4(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("EligibilityResponse", js["resourceType"])
+        inst2 = eligibilityresponse.EligibilityResponse(js)
+        self.implEligibilityResponse4(inst2)
+    
+    def implEligibilityResponse4(self, inst):
         self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Policy is currently in-force.")
@@ -212,57 +263,6 @@ class EligibilityResponseTests(unittest.TestCase):
         self.assertEqual(inst.insurance[0].benefitBalance[4].term.coding[0].system, "http://hl7.org/fhir/benefit-term")
         self.assertEqual(inst.insurance[0].benefitBalance[4].unit.coding[0].code, "individual")
         self.assertEqual(inst.insurance[0].benefitBalance[4].unit.coding[0].system, "http://hl7.org/fhir/benefit-unit")
-        self.assertEqual(inst.outcome.coding[0].code, "complete")
-        self.assertEqual(inst.outcome.coding[0].system, "http://hl7.org/fhir/remittance-outcome")
-        self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the EligibilityResponse.</div>")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testEligibilityResponse3(self):
-        inst = self.instantiate_from("eligibilityresponse-example-error.json")
-        self.assertIsNotNone(inst, "Must have instantiated a EligibilityResponse instance")
-        self.implEligibilityResponse3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("EligibilityResponse", js["resourceType"])
-        inst2 = eligibilityresponse.EligibilityResponse(js)
-        self.implEligibilityResponse3(inst2)
-    
-    def implEligibilityResponse3(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-09-16").date)
-        self.assertEqual(inst.created.as_json(), "2014-09-16")
-        self.assertEqual(inst.disposition, "Eligibiliy request could not be processed, please address errors before submitting.")
-        self.assertEqual(inst.error[0].code.coding[0].code, "a001")
-        self.assertEqual(inst.error[0].code.coding[0].system, "http://hl7.org/fhir/adjudication-error")
-        self.assertEqual(inst.form.coding[0].code, "ELRSP/2017/01")
-        self.assertEqual(inst.form.coding[0].system, "http://national.org/form")
-        self.assertEqual(inst.id, "E2503")
-        self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/eligibilityresponse")
-        self.assertEqual(inst.identifier[0].value, "8812343")
-        self.assertEqual(inst.outcome.coding[0].code, "error")
-        self.assertEqual(inst.outcome.coding[0].system, "http://hl7.org/fhir/remittance-outcome")
-        self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the EligibilityResponse.</div>")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testEligibilityResponse4(self):
-        inst = self.instantiate_from("eligibilityresponse-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a EligibilityResponse instance")
-        self.implEligibilityResponse4(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("EligibilityResponse", js["resourceType"])
-        inst2 = eligibilityresponse.EligibilityResponse(js)
-        self.implEligibilityResponse4(inst2)
-    
-    def implEligibilityResponse4(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
-        self.assertEqual(inst.created.as_json(), "2014-08-16")
-        self.assertEqual(inst.disposition, "Policy is currently in-force.")
-        self.assertEqual(inst.id, "E2500")
-        self.assertEqual(inst.identifier[0].system, "http://www.BenefitsInc.com/fhir/eligibilityresponse")
-        self.assertEqual(inst.identifier[0].value, "881234")
-        self.assertTrue(inst.inforce)
         self.assertEqual(inst.outcome.coding[0].code, "complete")
         self.assertEqual(inst.outcome.coding[0].system, "http://hl7.org/fhir/remittance-outcome")
         self.assertEqual(inst.status, "active")

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class AppointmentTests(unittest.TestCase):
         return appointment.Appointment(js)
     
     def testAppointment1(self):
-        inst = self.instantiate_from("appointment-example-request.json")
+        inst = self.instantiate_from("appointment-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Appointment instance")
         self.implAppointment1(inst)
         
@@ -32,6 +32,50 @@ class AppointmentTests(unittest.TestCase):
         self.implAppointment1(inst2)
     
     def implAppointment1(self, inst):
+        self.assertEqual(inst.appointmentType.coding[0].code, "follow")
+        self.assertEqual(inst.appointmentType.coding[0].display, "Followup")
+        self.assertEqual(inst.appointmentType.coding[0].system, "http://example.org/appointment-type")
+        self.assertEqual(inst.comment, "Further expand on the results of the MRI and determine the next actions that may be appropriate.")
+        self.assertEqual(inst.created.date, FHIRDate("2013-10-10").date)
+        self.assertEqual(inst.created.as_json(), "2013-10-10")
+        self.assertEqual(inst.description, "Discussion on the results of your recent MRI")
+        self.assertEqual(inst.end.date, FHIRDate("2013-12-10T11:00:00Z").date)
+        self.assertEqual(inst.end.as_json(), "2013-12-10T11:00:00Z")
+        self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.participant[0].required, "required")
+        self.assertEqual(inst.participant[0].status, "accepted")
+        self.assertEqual(inst.participant[1].required, "required")
+        self.assertEqual(inst.participant[1].status, "accepted")
+        self.assertEqual(inst.participant[1].type[0].coding[0].code, "ATND")
+        self.assertEqual(inst.participant[1].type[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
+        self.assertEqual(inst.participant[2].required, "required")
+        self.assertEqual(inst.participant[2].status, "accepted")
+        self.assertEqual(inst.priority, 5)
+        self.assertEqual(inst.serviceCategory.coding[0].code, "gp")
+        self.assertEqual(inst.serviceCategory.coding[0].display, "General Practice")
+        self.assertEqual(inst.serviceCategory.coding[0].system, "http://example.org/service-category")
+        self.assertEqual(inst.serviceType[0].coding[0].code, "52")
+        self.assertEqual(inst.serviceType[0].coding[0].display, "General Discussion")
+        self.assertEqual(inst.specialty[0].coding[0].code, "gp")
+        self.assertEqual(inst.specialty[0].coding[0].display, "General Practice")
+        self.assertEqual(inst.specialty[0].coding[0].system, "http://example.org/specialty")
+        self.assertEqual(inst.start.date, FHIRDate("2013-12-10T09:00:00Z").date)
+        self.assertEqual(inst.start.as_json(), "2013-12-10T09:00:00Z")
+        self.assertEqual(inst.status, "booked")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testAppointment2(self):
+        inst = self.instantiate_from("appointment-example-request.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Appointment instance")
+        self.implAppointment2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Appointment", js["resourceType"])
+        inst2 = appointment.Appointment(js)
+        self.implAppointment2(inst2)
+    
+    def implAppointment2(self, inst):
         self.assertEqual(inst.appointmentType.coding[0].code, "wi")
         self.assertEqual(inst.appointmentType.coding[0].display, "Walk in")
         self.assertEqual(inst.appointmentType.coding[0].system, "http://example.org/appointment-type")
@@ -66,50 +110,6 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.specialty[0].coding[0].display, "General Practice")
         self.assertEqual(inst.specialty[0].coding[0].system, "http://example.org/specialty")
         self.assertEqual(inst.status, "proposed")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testAppointment2(self):
-        inst = self.instantiate_from("appointment-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Appointment instance")
-        self.implAppointment2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Appointment", js["resourceType"])
-        inst2 = appointment.Appointment(js)
-        self.implAppointment2(inst2)
-    
-    def implAppointment2(self, inst):
-        self.assertEqual(inst.appointmentType.coding[0].code, "follow")
-        self.assertEqual(inst.appointmentType.coding[0].display, "Followup")
-        self.assertEqual(inst.appointmentType.coding[0].system, "http://example.org/appointment-type")
-        self.assertEqual(inst.comment, "Further expand on the results of the MRI and determine the next actions that may be appropriate.")
-        self.assertEqual(inst.created.date, FHIRDate("2013-10-10").date)
-        self.assertEqual(inst.created.as_json(), "2013-10-10")
-        self.assertEqual(inst.description, "Discussion on the results of your recent MRI")
-        self.assertEqual(inst.end.date, FHIRDate("2013-12-10T11:00:00Z").date)
-        self.assertEqual(inst.end.as_json(), "2013-12-10T11:00:00Z")
-        self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.participant[0].required, "required")
-        self.assertEqual(inst.participant[0].status, "accepted")
-        self.assertEqual(inst.participant[1].required, "required")
-        self.assertEqual(inst.participant[1].status, "accepted")
-        self.assertEqual(inst.participant[1].type[0].coding[0].code, "ATND")
-        self.assertEqual(inst.participant[1].type[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
-        self.assertEqual(inst.participant[2].required, "required")
-        self.assertEqual(inst.participant[2].status, "accepted")
-        self.assertEqual(inst.priority, 5)
-        self.assertEqual(inst.serviceCategory.coding[0].code, "gp")
-        self.assertEqual(inst.serviceCategory.coding[0].display, "General Practice")
-        self.assertEqual(inst.serviceCategory.coding[0].system, "http://example.org/service-category")
-        self.assertEqual(inst.serviceType[0].coding[0].code, "52")
-        self.assertEqual(inst.serviceType[0].coding[0].display, "General Discussion")
-        self.assertEqual(inst.specialty[0].coding[0].code, "gp")
-        self.assertEqual(inst.specialty[0].coding[0].display, "General Practice")
-        self.assertEqual(inst.specialty[0].coding[0].system, "http://example.org/specialty")
-        self.assertEqual(inst.start.date, FHIRDate("2013-12-10T09:00:00Z").date)
-        self.assertEqual(inst.start.as_json(), "2013-12-10T09:00:00Z")
-        self.assertEqual(inst.status, "booked")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>")
         self.assertEqual(inst.text.status, "generated")
     

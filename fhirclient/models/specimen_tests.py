@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -50,7 +50,7 @@ class SpecimenTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
     
     def testSpecimen2(self):
-        inst = self.instantiate_from("specimen-example-serum.json")
+        inst = self.instantiate_from("specimen-example-urine.json")
         self.assertIsNotNone(inst, "Must have instantiated a Specimen instance")
         self.implSpecimen2(inst)
         
@@ -60,30 +60,6 @@ class SpecimenTests(unittest.TestCase):
         self.implSpecimen2(inst2)
     
     def implSpecimen2(self, inst):
-        self.assertEqual(inst.accessionIdentifier.system, "http://acme.com/labs/accession-ids")
-        self.assertEqual(inst.accessionIdentifier.value, "20150816-00124")
-        self.assertEqual(inst.collection.collectedDateTime.date, FHIRDate("2015-08-16T06:40:17Z").date)
-        self.assertEqual(inst.collection.collectedDateTime.as_json(), "2015-08-16T06:40:17Z")
-        self.assertEqual(inst.container[0].type.coding[0].code, "SST")
-        self.assertEqual(inst.container[0].type.coding[0].display, "Serum Separator Tube")
-        self.assertEqual(inst.container[0].type.coding[0].system, "http://acme.com/labs")
-        self.assertEqual(inst.id, "sst")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type.coding[0].code, "119364003")
-        self.assertEqual(inst.type.coding[0].display, "Serum sample")
-        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
-    
-    def testSpecimen3(self):
-        inst = self.instantiate_from("specimen-example-urine.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Specimen instance")
-        self.implSpecimen3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Specimen", js["resourceType"])
-        inst2 = specimen.Specimen(js)
-        self.implSpecimen3(inst2)
-    
-    def implSpecimen3(self, inst):
         self.assertEqual(inst.accessionIdentifier.system, "http://lab.acme.org/specimens/2015")
         self.assertEqual(inst.accessionIdentifier.value, "X352356")
         self.assertEqual(inst.collection.collectedDateTime.date, FHIRDate("2015-08-18T07:03:00Z").date)
@@ -106,6 +82,30 @@ class SpecimenTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].code, "RANDU")
         self.assertEqual(inst.type.coding[0].display, "Urine, Random")
         self.assertEqual(inst.type.coding[0].system, "http://hl7.org/fhir/v2/0487")
+    
+    def testSpecimen3(self):
+        inst = self.instantiate_from("specimen-example-serum.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Specimen instance")
+        self.implSpecimen3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Specimen", js["resourceType"])
+        inst2 = specimen.Specimen(js)
+        self.implSpecimen3(inst2)
+    
+    def implSpecimen3(self, inst):
+        self.assertEqual(inst.accessionIdentifier.system, "http://acme.com/labs/accession-ids")
+        self.assertEqual(inst.accessionIdentifier.value, "20150816-00124")
+        self.assertEqual(inst.collection.collectedDateTime.date, FHIRDate("2015-08-16T06:40:17Z").date)
+        self.assertEqual(inst.collection.collectedDateTime.as_json(), "2015-08-16T06:40:17Z")
+        self.assertEqual(inst.container[0].type.coding[0].code, "SST")
+        self.assertEqual(inst.container[0].type.coding[0].display, "Serum Separator Tube")
+        self.assertEqual(inst.container[0].type.coding[0].system, "http://acme.com/labs")
+        self.assertEqual(inst.id, "sst")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type.coding[0].code, "119364003")
+        self.assertEqual(inst.type.coding[0].display, "Serum sample")
+        self.assertEqual(inst.type.coding[0].system, "http://snomed.info/sct")
     
     def testSpecimen4(self):
         inst = self.instantiate_from("specimen-example.json")

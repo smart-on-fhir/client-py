@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class OperationOutcomeTests(unittest.TestCase):
         return operationoutcome.OperationOutcome(js)
     
     def testOperationOutcome1(self):
-        inst = self.instantiate_from("operationoutcome-example-allok.json")
+        inst = self.instantiate_from("operationoutcome-example-validationfail.json")
         self.assertIsNotNone(inst, "Must have instantiated a OperationOutcome instance")
         self.implOperationOutcome1(inst)
         
@@ -32,11 +32,13 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome1(inst2)
     
     def implOperationOutcome1(self, inst):
-        self.assertEqual(inst.id, "allok")
-        self.assertEqual(inst.issue[0].code, "informational")
-        self.assertEqual(inst.issue[0].details.text, "All OK")
-        self.assertEqual(inst.issue[0].severity, "information")
-        self.assertEqual(inst.text.status, "additional")
+        self.assertEqual(inst.id, "validationfail")
+        self.assertEqual(inst.issue[0].code, "structure")
+        self.assertEqual(inst.issue[0].details.text, "Error parsing resource XML (Unknown Content \"label\"")
+        self.assertEqual(inst.issue[0].expression[0], "Patient.identifier")
+        self.assertEqual(inst.issue[0].location[0], "/f:Patient/f:identifier")
+        self.assertEqual(inst.issue[0].severity, "error")
+        self.assertEqual(inst.text.status, "generated")
     
     def testOperationOutcome2(self):
         inst = self.instantiate_from("operationoutcome-example-break-the-glass.json")
@@ -59,7 +61,7 @@ class OperationOutcomeTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testOperationOutcome3(self):
-        inst = self.instantiate_from("operationoutcome-example-exception.json")
+        inst = self.instantiate_from("operationoutcome-example-searchfail.json")
         self.assertIsNotNone(inst, "Must have instantiated a OperationOutcome instance")
         self.implOperationOutcome3(inst)
         
@@ -69,14 +71,15 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome3(inst2)
     
     def implOperationOutcome3(self, inst):
-        self.assertEqual(inst.id, "exception")
-        self.assertEqual(inst.issue[0].code, "exception")
-        self.assertEqual(inst.issue[0].details.text, "SQL Link Communication Error (dbx = 34234)")
-        self.assertEqual(inst.issue[0].severity, "error")
-        self.assertEqual(inst.text.status, "additional")
+        self.assertEqual(inst.id, "searchfail")
+        self.assertEqual(inst.issue[0].code, "code-invalid")
+        self.assertEqual(inst.issue[0].details.text, "The \"name\" parameter has the modifier \"exact\" which is not supported by this server")
+        self.assertEqual(inst.issue[0].location[0], "http.name:exact")
+        self.assertEqual(inst.issue[0].severity, "fatal")
+        self.assertEqual(inst.text.status, "generated")
     
     def testOperationOutcome4(self):
-        inst = self.instantiate_from("operationoutcome-example-searchfail.json")
+        inst = self.instantiate_from("operationoutcome-example-exception.json")
         self.assertIsNotNone(inst, "Must have instantiated a OperationOutcome instance")
         self.implOperationOutcome4(inst)
         
@@ -86,15 +89,14 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome4(inst2)
     
     def implOperationOutcome4(self, inst):
-        self.assertEqual(inst.id, "searchfail")
-        self.assertEqual(inst.issue[0].code, "code-invalid")
-        self.assertEqual(inst.issue[0].details.text, "The \"name\" parameter has the modifier \"exact\" which is not supported by this server")
-        self.assertEqual(inst.issue[0].location[0], "http.name:exact")
-        self.assertEqual(inst.issue[0].severity, "fatal")
-        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.id, "exception")
+        self.assertEqual(inst.issue[0].code, "exception")
+        self.assertEqual(inst.issue[0].details.text, "SQL Link Communication Error (dbx = 34234)")
+        self.assertEqual(inst.issue[0].severity, "error")
+        self.assertEqual(inst.text.status, "additional")
     
     def testOperationOutcome5(self):
-        inst = self.instantiate_from("operationoutcome-example-validationfail.json")
+        inst = self.instantiate_from("operationoutcome-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a OperationOutcome instance")
         self.implOperationOutcome5(inst)
         
@@ -104,16 +106,17 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome5(inst2)
     
     def implOperationOutcome5(self, inst):
-        self.assertEqual(inst.id, "validationfail")
-        self.assertEqual(inst.issue[0].code, "structure")
-        self.assertEqual(inst.issue[0].details.text, "Error parsing resource XML (Unknown Content \"label\"")
-        self.assertEqual(inst.issue[0].expression[0], "Patient.identifier")
-        self.assertEqual(inst.issue[0].location[0], "/f:Patient/f:identifier")
+        self.assertEqual(inst.id, "101")
+        self.assertEqual(inst.issue[0].code, "code-invalid")
+        self.assertEqual(inst.issue[0].details.text, "The code \"W\" is not known and not legal in this context")
+        self.assertEqual(inst.issue[0].diagnostics, "Acme.Interop.FHIRProcessors.Patient.processGender line 2453")
+        self.assertEqual(inst.issue[0].expression[0], "Person.gender")
+        self.assertEqual(inst.issue[0].location[0], "/f:Person/f:gender")
         self.assertEqual(inst.issue[0].severity, "error")
-        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.text.status, "additional")
     
     def testOperationOutcome6(self):
-        inst = self.instantiate_from("operationoutcome-example.json")
+        inst = self.instantiate_from("operationoutcome-example-allok.json")
         self.assertIsNotNone(inst, "Must have instantiated a OperationOutcome instance")
         self.implOperationOutcome6(inst)
         
@@ -123,12 +126,9 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome6(inst2)
     
     def implOperationOutcome6(self, inst):
-        self.assertEqual(inst.id, "101")
-        self.assertEqual(inst.issue[0].code, "code-invalid")
-        self.assertEqual(inst.issue[0].details.text, "The code \"W\" is not known and not legal in this context")
-        self.assertEqual(inst.issue[0].diagnostics, "Acme.Interop.FHIRProcessors.Patient.processGender line 2453")
-        self.assertEqual(inst.issue[0].expression[0], "Person.gender")
-        self.assertEqual(inst.issue[0].location[0], "/f:Person/f:gender")
-        self.assertEqual(inst.issue[0].severity, "error")
+        self.assertEqual(inst.id, "allok")
+        self.assertEqual(inst.issue[0].code, "informational")
+        self.assertEqual(inst.issue[0].details.text, "All OK")
+        self.assertEqual(inst.issue[0].severity, "information")
         self.assertEqual(inst.text.status, "additional")
 

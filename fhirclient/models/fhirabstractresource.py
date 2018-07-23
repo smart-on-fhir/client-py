@@ -123,16 +123,21 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
             raise Exception("Cannot create a resource without a server")
         if self.id:
             raise Exception("This resource already has an id, cannot create")
-        
-        ret = srv.post_json(self.relativeBase(), self.as_json())
+
+        base_url = self.relativeBase()
+        if(self.resource_type == "Bundle"
+           and self.type == "transaction"):
+            base_url = None
+
+        ret = srv.post_json(base_url, self.as_json())
         if len(ret.text) > 0:
             return ret.json()
         return None
-    
+
     def update(self, server=None):
         """ Update the receiver's representation on the given server, issuing
         a PUT command.
-        
+
         :param FHIRServer server: The server to update the receiver on;
             optional, will use the instance's `server` if needed.
         :returns: None or the response JSON on success
@@ -142,12 +147,12 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
             raise Exception("Cannot update a resource that does not have a server")
         if not self.id:
             raise Exception("Cannot update a resource that does not have an id")
-        
+
         ret = srv.put_json(self.relativePath(), self.as_json())
         if len(ret.text) > 0:
             return ret.json()
         return None
-    
+
     def delete(self, server=None):
         """ Delete the receiver from the given server with a DELETE command.
         

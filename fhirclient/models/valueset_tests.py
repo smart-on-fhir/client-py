@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class ValueSetTests(unittest.TestCase):
         return valueset.ValueSet(js)
     
     def testValueSet1(self):
-        inst = self.instantiate_from("valueset-example-expansion.json")
+        inst = self.instantiate_from("valueset-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ValueSet instance")
         self.implValueSet1(inst)
         
@@ -32,6 +32,49 @@ class ValueSetTests(unittest.TestCase):
         self.implValueSet1(inst2)
     
     def implValueSet1(self, inst):
+        self.assertTrue(inst.compose.inactive)
+        self.assertEqual(inst.compose.include[0].concept[0].code, "14647-2")
+        self.assertEqual(inst.compose.include[0].concept[0].display, "Cholesterol [Moles/Volume]")
+        self.assertEqual(inst.compose.include[0].concept[1].code, "2093-3")
+        self.assertEqual(inst.compose.include[0].concept[1].display, "Cholesterol [Mass/Volume]")
+        self.assertEqual(inst.compose.include[0].concept[2].code, "35200-5")
+        self.assertEqual(inst.compose.include[0].concept[2].display, "Cholesterol [Mass Or Moles/Volume]")
+        self.assertEqual(inst.compose.include[0].concept[3].code, "9342-7")
+        self.assertEqual(inst.compose.include[0].concept[3].display, "Cholesterol [Percentile]")
+        self.assertEqual(inst.compose.include[0].system, "http://loinc.org")
+        self.assertEqual(inst.compose.include[0].version, "2.36")
+        self.assertEqual(inst.compose.lockedDate.date, FHIRDate("2012-06-13").date)
+        self.assertEqual(inst.compose.lockedDate.as_json(), "2012-06-13")
+        self.assertEqual(inst.contact[0].name, "FHIR project team")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
+        self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
+        self.assertEqual(inst.copyright, "This content from LOINC ® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.")
+        self.assertEqual(inst.date.date, FHIRDate("2015-06-22").date)
+        self.assertEqual(inst.date.as_json(), "2015-06-22")
+        self.assertEqual(inst.description, "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.")
+        self.assertTrue(inst.experimental)
+        self.assertEqual(inst.id, "example-extensional")
+        self.assertEqual(inst.identifier[0].system, "http://acme.com/identifiers/valuesets")
+        self.assertEqual(inst.identifier[0].value, "loinc-cholesterol-int")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablevalueset")
+        self.assertEqual(inst.name, "LOINC Codes for Cholesterol in Serum/Plasma")
+        self.assertEqual(inst.publisher, "HL7 International")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/example-extensional")
+        self.assertEqual(inst.version, "20150622")
+    
+    def testValueSet2(self):
+        inst = self.instantiate_from("valueset-example-expansion.json")
+        self.assertIsNotNone(inst, "Must have instantiated a ValueSet instance")
+        self.implValueSet2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("ValueSet", js["resourceType"])
+        inst2 = valueset.ValueSet(js)
+        self.implValueSet2(inst2)
+    
+    def implValueSet2(self, inst):
         self.assertEqual(inst.compose.include[0].filter[0].op, "=")
         self.assertEqual(inst.compose.include[0].filter[0].property, "parent")
         self.assertEqual(inst.compose.include[0].filter[0].value, "LP43571-6")
@@ -97,17 +140,17 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/example-expansion")
         self.assertEqual(inst.version, "20150622")
     
-    def testValueSet2(self):
+    def testValueSet3(self):
         inst = self.instantiate_from("valueset-example-inactive.json")
         self.assertIsNotNone(inst, "Must have instantiated a ValueSet instance")
-        self.implValueSet2(inst)
+        self.implValueSet3(inst)
         
         js = inst.as_json()
         self.assertEqual("ValueSet", js["resourceType"])
         inst2 = valueset.ValueSet(js)
-        self.implValueSet2(inst2)
+        self.implValueSet3(inst2)
     
-    def implValueSet2(self, inst):
+    def implValueSet3(self, inst):
         self.assertTrue(inst.compose.inactive)
         self.assertEqual(inst.compose.include[0].filter[0].op, "descendent-of")
         self.assertEqual(inst.compose.include[0].filter[0].property, "concept")
@@ -139,43 +182,6 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "Example with inactive codes")
         self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/inactive")
-    
-    def testValueSet3(self):
-        inst = self.instantiate_from("valueset-example-intensional.json")
-        self.assertIsNotNone(inst, "Must have instantiated a ValueSet instance")
-        self.implValueSet3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("ValueSet", js["resourceType"])
-        inst2 = valueset.ValueSet(js)
-        self.implValueSet3(inst2)
-    
-    def implValueSet3(self, inst):
-        self.assertEqual(inst.compose.exclude[0].concept[0].code, "5932-9")
-        self.assertEqual(inst.compose.exclude[0].concept[0].display, "Cholesterol [Presence] in Blood by Test strip")
-        self.assertEqual(inst.compose.exclude[0].system, "http://loinc.org")
-        self.assertEqual(inst.compose.include[0].filter[0].op, "=")
-        self.assertEqual(inst.compose.include[0].filter[0].property, "parent")
-        self.assertEqual(inst.compose.include[0].filter[0].value, "LP43571-6")
-        self.assertEqual(inst.compose.include[0].system, "http://loinc.org")
-        self.assertEqual(inst.contact[0].name, "FHIR project team")
-        self.assertEqual(inst.contact[0].telecom[0].system, "url")
-        self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.copyright, "This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use")
-        self.assertEqual(inst.date.date, FHIRDate("2015-06-22").date)
-        self.assertEqual(inst.date.as_json(), "2015-06-22")
-        self.assertEqual(inst.description, "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.")
-        self.assertTrue(inst.experimental)
-        self.assertEqual(inst.id, "example-intensional")
-        self.assertEqual(inst.identifier[0].system, "http://acme.com/identifiers/valuesets")
-        self.assertEqual(inst.identifier[0].value, "loinc-cholesterol-ext")
-        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablevalueset")
-        self.assertEqual(inst.name, "LOINC Codes for Cholesterol in Serum/Plasma")
-        self.assertEqual(inst.publisher, "HL7 International")
-        self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/example-intensional")
-        self.assertEqual(inst.version, "20150622")
     
     def testValueSet4(self):
         inst = self.instantiate_from("valueset-example-yesnodontknow.json")
@@ -212,7 +218,7 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/yesnodontknow")
     
     def testValueSet5(self):
-        inst = self.instantiate_from("valueset-example.json")
+        inst = self.instantiate_from("valueset-list-example-codes.json")
         self.assertIsNotNone(inst, "Must have instantiated a ValueSet instance")
         self.implValueSet5(inst)
         
@@ -222,54 +228,11 @@ class ValueSetTests(unittest.TestCase):
         self.implValueSet5(inst2)
     
     def implValueSet5(self, inst):
-        self.assertTrue(inst.compose.inactive)
-        self.assertEqual(inst.compose.include[0].concept[0].code, "14647-2")
-        self.assertEqual(inst.compose.include[0].concept[0].display, "Cholesterol [Moles/Volume]")
-        self.assertEqual(inst.compose.include[0].concept[1].code, "2093-3")
-        self.assertEqual(inst.compose.include[0].concept[1].display, "Cholesterol [Mass/Volume]")
-        self.assertEqual(inst.compose.include[0].concept[2].code, "35200-5")
-        self.assertEqual(inst.compose.include[0].concept[2].display, "Cholesterol [Mass Or Moles/Volume]")
-        self.assertEqual(inst.compose.include[0].concept[3].code, "9342-7")
-        self.assertEqual(inst.compose.include[0].concept[3].display, "Cholesterol [Percentile]")
-        self.assertEqual(inst.compose.include[0].system, "http://loinc.org")
-        self.assertEqual(inst.compose.include[0].version, "2.36")
-        self.assertEqual(inst.compose.lockedDate.date, FHIRDate("2012-06-13").date)
-        self.assertEqual(inst.compose.lockedDate.as_json(), "2012-06-13")
-        self.assertEqual(inst.contact[0].name, "FHIR project team")
-        self.assertEqual(inst.contact[0].telecom[0].system, "url")
-        self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.copyright, "This content from LOINC ® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.")
-        self.assertEqual(inst.date.date, FHIRDate("2015-06-22").date)
-        self.assertEqual(inst.date.as_json(), "2015-06-22")
-        self.assertEqual(inst.description, "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.")
-        self.assertTrue(inst.experimental)
-        self.assertEqual(inst.id, "example-extensional")
-        self.assertEqual(inst.identifier[0].system, "http://acme.com/identifiers/valuesets")
-        self.assertEqual(inst.identifier[0].value, "loinc-cholesterol-int")
-        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablevalueset")
-        self.assertEqual(inst.name, "LOINC Codes for Cholesterol in Serum/Plasma")
-        self.assertEqual(inst.publisher, "HL7 International")
-        self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/example-extensional")
-        self.assertEqual(inst.version, "20150622")
-    
-    def testValueSet6(self):
-        inst = self.instantiate_from("valueset-list-example-codes.json")
-        self.assertIsNotNone(inst, "Must have instantiated a ValueSet instance")
-        self.implValueSet6(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("ValueSet", js["resourceType"])
-        inst2 = valueset.ValueSet(js)
-        self.implValueSet6(inst2)
-    
-    def implValueSet6(self, inst):
         self.assertEqual(inst.compose.include[0].system, "http://hl7.org/fhir/list-example-use-codes")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2017-03-21T21:41:32+00:00").date)
-        self.assertEqual(inst.date.as_json(), "2017-03-21T21:41:32+00:00")
+        self.assertEqual(inst.date.date, FHIRDate("2017-04-19T07:44:43+10:00").date)
+        self.assertEqual(inst.date.as_json(), "2017-04-19T07:44:43+10:00")
         self.assertEqual(inst.description, "Example use codes for the List resource - typical kinds of use.")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status")
@@ -282,13 +245,50 @@ class ValueSetTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value, "urn:oid:2.16.840.1.113883.4.642.3.307")
         self.assertTrue(inst.immutable)
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2017-03-21T21:41:32.180+00:00").date)
-        self.assertEqual(inst.meta.lastUpdated.as_json(), "2017-03-21T21:41:32.180+00:00")
+        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2017-04-19T07:44:43.294+10:00").date)
+        self.assertEqual(inst.meta.lastUpdated.as_json(), "2017-04-19T07:44:43.294+10:00")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablevalueset")
         self.assertEqual(inst.name, "Example Use Codes for List")
         self.assertEqual(inst.publisher, "FHIR Project")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/list-example-codes")
-        self.assertEqual(inst.version, "3.0.0")
+        self.assertEqual(inst.version, "3.0.1")
+    
+    def testValueSet6(self):
+        inst = self.instantiate_from("valueset-example-intensional.json")
+        self.assertIsNotNone(inst, "Must have instantiated a ValueSet instance")
+        self.implValueSet6(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("ValueSet", js["resourceType"])
+        inst2 = valueset.ValueSet(js)
+        self.implValueSet6(inst2)
+    
+    def implValueSet6(self, inst):
+        self.assertEqual(inst.compose.exclude[0].concept[0].code, "5932-9")
+        self.assertEqual(inst.compose.exclude[0].concept[0].display, "Cholesterol [Presence] in Blood by Test strip")
+        self.assertEqual(inst.compose.exclude[0].system, "http://loinc.org")
+        self.assertEqual(inst.compose.include[0].filter[0].op, "=")
+        self.assertEqual(inst.compose.include[0].filter[0].property, "parent")
+        self.assertEqual(inst.compose.include[0].filter[0].value, "LP43571-6")
+        self.assertEqual(inst.compose.include[0].system, "http://loinc.org")
+        self.assertEqual(inst.contact[0].name, "FHIR project team")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
+        self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
+        self.assertEqual(inst.copyright, "This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use")
+        self.assertEqual(inst.date.date, FHIRDate("2015-06-22").date)
+        self.assertEqual(inst.date.as_json(), "2015-06-22")
+        self.assertEqual(inst.description, "This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36.")
+        self.assertTrue(inst.experimental)
+        self.assertEqual(inst.id, "example-intensional")
+        self.assertEqual(inst.identifier[0].system, "http://acme.com/identifiers/valuesets")
+        self.assertEqual(inst.identifier[0].value, "loinc-cholesterol-ext")
+        self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablevalueset")
+        self.assertEqual(inst.name, "LOINC Codes for Cholesterol in Serum/Plasma")
+        self.assertEqual(inst.publisher, "HL7 International")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.url, "http://hl7.org/fhir/ValueSet/example-intensional")
+        self.assertEqual(inst.version, "20150622")
 

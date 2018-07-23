@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -63,7 +63,7 @@ class DetectedIssueTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testDetectedIssue3(self):
-        inst = self.instantiate_from("detectedissue-example-lab.json")
+        inst = self.instantiate_from("detectedissue-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a DetectedIssue instance")
         self.implDetectedIssue3(inst)
         
@@ -73,22 +73,6 @@ class DetectedIssueTests(unittest.TestCase):
         self.implDetectedIssue3(inst2)
     
     def implDetectedIssue3(self, inst):
-        self.assertEqual(inst.id, "lab")
-        self.assertEqual(inst.status, "final")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testDetectedIssue4(self):
-        inst = self.instantiate_from("detectedissue-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a DetectedIssue instance")
-        self.implDetectedIssue4(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("DetectedIssue", js["resourceType"])
-        inst2 = detectedissue.DetectedIssue(js)
-        self.implDetectedIssue4(inst2)
-    
-    def implDetectedIssue4(self, inst):
         self.assertEqual(inst.category.coding[0].code, "DRG")
         self.assertEqual(inst.category.coding[0].display, "Drug Interaction Alert")
         self.assertEqual(inst.category.coding[0].system, "http://hl7.org/fhir/v3/ActCode")
@@ -103,5 +87,21 @@ class DetectedIssueTests(unittest.TestCase):
         self.assertEqual(inst.mitigation[0].date.as_json(), "2014-01-05")
         self.assertEqual(inst.severity, "high")
         self.assertEqual(inst.status, "final")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testDetectedIssue4(self):
+        inst = self.instantiate_from("detectedissue-example-lab.json")
+        self.assertIsNotNone(inst, "Must have instantiated a DetectedIssue instance")
+        self.implDetectedIssue4(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("DetectedIssue", js["resourceType"])
+        inst2 = detectedissue.DetectedIssue(js)
+        self.implDetectedIssue4(inst2)
+    
+    def implDetectedIssue4(self, inst):
+        self.assertEqual(inst.id, "lab")
+        self.assertEqual(inst.status, "final")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
         self.assertEqual(inst.text.status, "generated")
 

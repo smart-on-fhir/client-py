@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 3.0.1.11917 on 2018-07-23.
+#  2018, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class ActivityDefinitionTests(unittest.TestCase):
         return activitydefinition.ActivityDefinition(js)
     
     def testActivityDefinition1(self):
-        inst = self.instantiate_from("activitydefinition-example.json")
+        inst = self.instantiate_from("activitydefinition-predecessor-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
         self.implActivityDefinition1(inst)
         
@@ -32,8 +32,8 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.implActivityDefinition1(inst2)
     
     def implActivityDefinition1(self, inst):
-        self.assertEqual(inst.approvalDate.date, FHIRDate("2017-03-01").date)
-        self.assertEqual(inst.approvalDate.as_json(), "2017-03-01")
+        self.assertEqual(inst.approvalDate.date, FHIRDate("2016-03-12").date)
+        self.assertEqual(inst.approvalDate.as_json(), "2016-03-12")
         self.assertEqual(inst.code.coding[0].code, "306206005")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.code.text, "Referral to service (procedure)")
@@ -57,26 +57,26 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.description, "refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now")
         self.assertEqual(inst.effectivePeriod.end.date, FHIRDate("2017-12-31").date)
         self.assertEqual(inst.effectivePeriod.end.as_json(), "2017-12-31")
-        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2017-03-01").date)
-        self.assertEqual(inst.effectivePeriod.start.as_json(), "2017-03-01")
+        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2016-01-01").date)
+        self.assertEqual(inst.effectivePeriod.start.as_json(), "2016-01-01")
         self.assertTrue(inst.experimental)
-        self.assertEqual(inst.id, "referralPrimaryCareMentalHealth")
+        self.assertEqual(inst.id, "referralPrimaryCareMentalHealth-initial")
         self.assertEqual(inst.identifier[0].system, "http://motivemi.com/artifacts")
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "referralPrimaryCareMentalHealth")
         self.assertEqual(inst.jurisdiction[0].coding[0].code, "US")
         self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.kind, "ReferralRequest")
-        self.assertEqual(inst.lastReviewDate.date, FHIRDate("2017-03-01").date)
-        self.assertEqual(inst.lastReviewDate.as_json(), "2017-03-01")
+        self.assertEqual(inst.lastReviewDate.date, FHIRDate("2016-08-15").date)
+        self.assertEqual(inst.lastReviewDate.as_json(), "2016-08-15")
         self.assertEqual(inst.name, "ReferralPrimaryCareMentalHealth")
         self.assertEqual(inst.participant[0].type, "practitioner")
         self.assertEqual(inst.publisher, "Motive Medical Intelligence")
         self.assertEqual(inst.relatedArtifact[0].display, "Practice Guideline for the Treatment of Patients with Major Depressive Disorder")
         self.assertEqual(inst.relatedArtifact[0].type, "citation")
         self.assertEqual(inst.relatedArtifact[0].url, "http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf")
-        self.assertEqual(inst.relatedArtifact[1].type, "predecessor")
-        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.relatedArtifact[1].type, "successor")
+        self.assertEqual(inst.status, "retired")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "Referral to Primary Care Mental Health")
         self.assertEqual(inst.topic[0].text, "Mental Health Referral")
@@ -116,10 +116,10 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].code, "440655000")
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].display, "Outpatient environment")
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.version, "1.1.0")
+        self.assertEqual(inst.version, "1.0.0")
     
     def testActivityDefinition2(self):
-        inst = self.instantiate_from("activitydefinition-medicationorder-example.json")
+        inst = self.instantiate_from("activitydefinition-procedurerequest-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
         self.implActivityDefinition2(inst)
         
@@ -129,6 +129,48 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.implActivityDefinition2(inst2)
     
     def implActivityDefinition2(self, inst):
+        self.assertEqual(inst.bodySite[0].coding[0].code, "17401000")
+        self.assertEqual(inst.bodySite[0].coding[0].display, "Heart valve structure")
+        self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.code.coding[0].code, "34068001")
+        self.assertEqual(inst.code.coding[0].display, "Heart valve replacement")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.description, "Heart valve replacement")
+        self.assertEqual(inst.id, "heart-valve-replacement")
+        self.assertEqual(inst.kind, "ProcedureRequest")
+        self.assertEqual(inst.participant[0].role.coding[0].code, "207RI0011X")
+        self.assertEqual(inst.participant[0].role.coding[0].display, "Interventional Cardiology")
+        self.assertEqual(inst.participant[0].role.coding[0].system, "http://nucc.org/provider-taxonomy")
+        self.assertEqual(inst.participant[0].role.text, "Interventional Cardiology")
+        self.assertEqual(inst.participant[0].type, "practitioner")
+        self.assertEqual(inst.purpose, "Describes the proposal to perform a Heart Valve replacement.")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.topic[0].coding[0].code, "34068001")
+        self.assertEqual(inst.topic[0].coding[0].display, "Heart valve replacement")
+        self.assertEqual(inst.topic[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.useContext[0].code.code, "age")
+        self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "D000328")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].display, "Adult")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "https://meshb.nlm.nih.gov")
+        self.assertEqual(inst.useContext[1].code.code, "user")
+        self.assertEqual(inst.useContext[1].code.system, "http://hl7.org/fhir/usage-context-type")
+        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].code, "309343006")
+        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].display, "Physician")
+        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
+    
+    def testActivityDefinition3(self):
+        inst = self.instantiate_from("activitydefinition-medicationorder-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
+        self.implActivityDefinition3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("ActivityDefinition", js["resourceType"])
+        inst2 = activitydefinition.ActivityDefinition(js)
+        self.implActivityDefinition3(inst2)
+    
+    def implActivityDefinition3(self, inst):
         self.assertEqual(inst.approvalDate.date, FHIRDate("2016-03-12").date)
         self.assertEqual(inst.approvalDate.as_json(), "2016-03-12")
         self.assertEqual(inst.contact[0].telecom[0].system, "phone")
@@ -232,19 +274,19 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.version, "1.0.0")
     
-    def testActivityDefinition3(self):
-        inst = self.instantiate_from("activitydefinition-predecessor-example.json")
+    def testActivityDefinition4(self):
+        inst = self.instantiate_from("activitydefinition-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
-        self.implActivityDefinition3(inst)
+        self.implActivityDefinition4(inst)
         
         js = inst.as_json()
         self.assertEqual("ActivityDefinition", js["resourceType"])
         inst2 = activitydefinition.ActivityDefinition(js)
-        self.implActivityDefinition3(inst2)
+        self.implActivityDefinition4(inst2)
     
-    def implActivityDefinition3(self, inst):
-        self.assertEqual(inst.approvalDate.date, FHIRDate("2016-03-12").date)
-        self.assertEqual(inst.approvalDate.as_json(), "2016-03-12")
+    def implActivityDefinition4(self, inst):
+        self.assertEqual(inst.approvalDate.date, FHIRDate("2017-03-01").date)
+        self.assertEqual(inst.approvalDate.as_json(), "2017-03-01")
         self.assertEqual(inst.code.coding[0].code, "306206005")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.code.text, "Referral to service (procedure)")
@@ -268,26 +310,26 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.description, "refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now")
         self.assertEqual(inst.effectivePeriod.end.date, FHIRDate("2017-12-31").date)
         self.assertEqual(inst.effectivePeriod.end.as_json(), "2017-12-31")
-        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2016-01-01").date)
-        self.assertEqual(inst.effectivePeriod.start.as_json(), "2016-01-01")
+        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2017-03-01").date)
+        self.assertEqual(inst.effectivePeriod.start.as_json(), "2017-03-01")
         self.assertTrue(inst.experimental)
-        self.assertEqual(inst.id, "referralPrimaryCareMentalHealth-initial")
+        self.assertEqual(inst.id, "referralPrimaryCareMentalHealth")
         self.assertEqual(inst.identifier[0].system, "http://motivemi.com/artifacts")
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "referralPrimaryCareMentalHealth")
         self.assertEqual(inst.jurisdiction[0].coding[0].code, "US")
         self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.kind, "ReferralRequest")
-        self.assertEqual(inst.lastReviewDate.date, FHIRDate("2016-08-15").date)
-        self.assertEqual(inst.lastReviewDate.as_json(), "2016-08-15")
+        self.assertEqual(inst.lastReviewDate.date, FHIRDate("2017-03-01").date)
+        self.assertEqual(inst.lastReviewDate.as_json(), "2017-03-01")
         self.assertEqual(inst.name, "ReferralPrimaryCareMentalHealth")
         self.assertEqual(inst.participant[0].type, "practitioner")
         self.assertEqual(inst.publisher, "Motive Medical Intelligence")
         self.assertEqual(inst.relatedArtifact[0].display, "Practice Guideline for the Treatment of Patients with Major Depressive Disorder")
         self.assertEqual(inst.relatedArtifact[0].type, "citation")
         self.assertEqual(inst.relatedArtifact[0].url, "http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf")
-        self.assertEqual(inst.relatedArtifact[1].type, "successor")
-        self.assertEqual(inst.status, "retired")
+        self.assertEqual(inst.relatedArtifact[1].type, "predecessor")
+        self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "Referral to Primary Care Mental Health")
         self.assertEqual(inst.topic[0].text, "Mental Health Referral")
@@ -327,49 +369,7 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].code, "440655000")
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].display, "Outpatient environment")
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.version, "1.0.0")
-    
-    def testActivityDefinition4(self):
-        inst = self.instantiate_from("activitydefinition-procedurerequest-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
-        self.implActivityDefinition4(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("ActivityDefinition", js["resourceType"])
-        inst2 = activitydefinition.ActivityDefinition(js)
-        self.implActivityDefinition4(inst2)
-    
-    def implActivityDefinition4(self, inst):
-        self.assertEqual(inst.bodySite[0].coding[0].code, "17401000")
-        self.assertEqual(inst.bodySite[0].coding[0].display, "Heart valve structure")
-        self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.code.coding[0].code, "34068001")
-        self.assertEqual(inst.code.coding[0].display, "Heart valve replacement")
-        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.description, "Heart valve replacement")
-        self.assertEqual(inst.id, "heart-valve-replacement")
-        self.assertEqual(inst.kind, "ProcedureRequest")
-        self.assertEqual(inst.participant[0].role.coding[0].code, "207RI0011X")
-        self.assertEqual(inst.participant[0].role.coding[0].display, "Interventional Cardiology")
-        self.assertEqual(inst.participant[0].role.coding[0].system, "http://nucc.org/provider-taxonomy")
-        self.assertEqual(inst.participant[0].role.text, "Interventional Cardiology")
-        self.assertEqual(inst.participant[0].type, "practitioner")
-        self.assertEqual(inst.purpose, "Describes the proposal to perform a Heart Valve replacement.")
-        self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.topic[0].coding[0].code, "34068001")
-        self.assertEqual(inst.topic[0].coding[0].display, "Heart valve replacement")
-        self.assertEqual(inst.topic[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.useContext[0].code.code, "age")
-        self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "D000328")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].display, "Adult")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "https://meshb.nlm.nih.gov")
-        self.assertEqual(inst.useContext[1].code.code, "user")
-        self.assertEqual(inst.useContext[1].code.system, "http://hl7.org/fhir/usage-context-type")
-        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].code, "309343006")
-        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].display, "Physician")
-        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.version, "1.1.0")
     
     def testActivityDefinition5(self):
         inst = self.instantiate_from("activitydefinition-supplyrequest-example.json")
