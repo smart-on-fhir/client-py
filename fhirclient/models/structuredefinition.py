@@ -1,18 +1,208 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class StructureDefinition(domainresource.DomainResource):
-    """ Structural Definition.
+    """ 
+    S
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    a
+    l
+    D
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    .
     
-    A definition of a FHIR structure. This resource is used to describe the
-    underlying resources, data types defined in FHIR, and also for describing
-    extensions and constraints on resources and data types.
+    
+    A
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    o
+    f
+    a
+    F
+    H
+    I
+    R
+    s
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    .
+    T
+    h
+    i
+    s
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    i
+    s
+    u
+    s
+    e
+    d
+    t
+    o
+    d
+    e
+    s
+    c
+    r
+    i
+    b
+    e
+    t
+    h
+    e
+    u
+    n
+    d
+    e
+    r
+    l
+    y
+    i
+    n
+    g
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    s
+    ,
+    d
+    a
+    t
+    a
+    t
+    y
+    p
+    e
+    s
+    d
+    e
+    f
+    i
+    n
+    e
+    d
+    i
+    n
+    F
+    H
+    I
+    R
+    ,
+    a
+    n
+    d
+    a
+    l
+    s
+    o
+    f
+    o
+    r
+    d
+    e
+    s
+    c
+    r
+    i
+    b
+    i
+    n
+    g
+    e
+    x
+    t
+    e
+    n
+    s
+    i
+    o
+    n
+    s
+    a
+    n
+    d
+    c
+    o
+    n
+    s
+    t
+    r
+    a
+    i
+    n
+    t
+    s
+    o
+    n
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    s
+    a
+    n
+    d
+    d
+    a
+    t
+    a
+    t
+    y
+    p
+    e
+    s
+    .
+    
     """
     
     resource_type = "StructureDefinition"
@@ -26,116 +216,1226 @@ class StructureDefinition(domainresource.DomainResource):
         """
         
         self.abstract = None
-        """ Whether the structure is abstract.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        t
+        h
+        e
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        i
+        s
+        a
+        b
+        s
+        t
+        r
+        a
+        c
+        t
+        .
         Type `bool`. """
         
         self.baseDefinition = None
-        """ Definition that this type is constrained/specialized from.
+        """ 
+        D
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        t
+        h
+        a
+        t
+        t
+        h
+        i
+        s
+        t
+        y
+        p
+        e
+        i
+        s
+        c
+        o
+        n
+        s
+        t
+        r
+        a
+        i
+        n
+        e
+        d
+        /
+        s
+        p
+        e
+        c
+        i
+        a
+        l
+        i
+        z
+        e
+        d
+        f
+        r
+        o
+        m
+        .
         Type `str`. """
         
         self.contact = None
-        """ Contact details for the publisher.
+        """ 
+        C
+        o
+        n
+        t
+        a
+        c
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        .
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.context = None
-        """ Where the extension can be used in instances.
-        List of `str` items. """
+        """ 
+        I
+        f
+        a
+        n
+        e
+        x
+        t
+        e
+        n
+        s
+        i
+        o
+        n
+        ,
+        w
+        h
+        e
+        r
+        e
+        i
+        t
+        c
+        a
+        n
+        b
+        e
+        u
+        s
+        e
+        d
+        i
+        n
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        s
+        .
+        List of `StructureDefinitionContext` items (represented as `dict` in JSON). """
         
         self.contextInvariant = None
-        """ FHIRPath invariants - when the extension can be used.
+        """ 
+        F
+        H
+        I
+        R
+        P
+        a
+        t
+        h
+        i
+        n
+        v
+        a
+        r
+        i
+        a
+        n
+        t
+        s
+        -
+        w
+        h
+        e
+        n
+        t
+        h
+        e
+        e
+        x
+        t
+        e
+        n
+        s
+        i
+        o
+        n
+        c
+        a
+        n
+        b
+        e
+        u
+        s
+        e
+        d
+        .
         List of `str` items. """
         
-        self.contextType = None
-        """ resource | datatype | extension.
-        Type `str`. """
-        
         self.copyright = None
-        """ Use and/or publishing restrictions.
+        """ 
+        U
+        s
+        e
+        a
+        n
+        d
+        /
+        o
+        r
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        i
+        n
+        g
+        r
+        e
+        s
+        t
+        r
+        i
+        c
+        t
+        i
+        o
+        n
+        s
+        .
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ 
+        D
+        a
+        t
+        e
+        l
+        a
+        s
+        t
+        c
+        h
+        a
+        n
+        g
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.derivation = None
-        """ specialization | constraint - How relates to base definition.
+        """ 
+        s
+        p
+        e
+        c
+        i
+        a
+        l
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        |
+        c
+        o
+        n
+        s
+        t
+        r
+        a
+        i
+        n
+        t
+        -
+        H
+        o
+        w
+        r
+        e
+        l
+        a
+        t
+        e
+        s
+        t
+        o
+        b
+        a
+        s
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.description = None
-        """ Natural language description of the structure definition.
+        """ 
+        N
+        a
+        t
+        u
+        r
+        a
+        l
+        l
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.differential = None
-        """ Differential view of the structure.
+        """ 
+        D
+        i
+        f
+        f
+        e
+        r
+        e
+        n
+        t
+        i
+        a
+        l
+        v
+        i
+        e
+        w
+        o
+        f
+        t
+        h
+        e
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        .
         Type `StructureDefinitionDifferential` (represented as `dict` in JSON). """
         
         self.experimental = None
-        """ For testing purposes, not real usage.
+        """ 
+        F
+        o
+        r
+        t
+        e
+        s
+        t
+        i
+        n
+        g
+        p
+        u
+        r
+        p
+        o
+        s
+        e
+        s
+        ,
+        n
+        o
+        t
+        r
+        e
+        a
+        l
+        u
+        s
+        a
+        g
+        e
+        .
         Type `bool`. """
         
         self.fhirVersion = None
-        """ FHIR Version this StructureDefinition targets.
+        """ 
+        F
+        H
+        I
+        R
+        V
+        e
+        r
+        s
+        i
+        o
+        n
+        t
+        h
+        i
+        s
+        S
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        D
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        t
+        a
+        r
+        g
+        e
+        t
+        s
+        .
         Type `str`. """
         
         self.identifier = None
-        """ Additional identifier for the structure definition.
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        e
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.jurisdiction = None
-        """ Intended jurisdiction for structure definition (if applicable).
+        """ 
+        I
+        n
+        t
+        e
+        n
+        d
+        e
+        d
+        j
+        u
+        r
+        i
+        s
+        d
+        i
+        c
+        t
+        i
+        o
+        n
+        f
+        o
+        r
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        (
+        i
+        f
+        a
+        p
+        p
+        l
+        i
+        c
+        a
+        b
+        l
+        e
+        )
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.keyword = None
-        """ Assist with indexing and finding.
+        """ 
+        A
+        s
+        s
+        i
+        s
+        t
+        w
+        i
+        t
+        h
+        i
+        n
+        d
+        e
+        x
+        i
+        n
+        g
+        a
+        n
+        d
+        f
+        i
+        n
+        d
+        i
+        n
+        g
+        .
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.kind = None
-        """ primitive-type | complex-type | resource | logical.
+        """ 
+        p
+        r
+        i
+        m
+        i
+        t
+        i
+        v
+        e
+        -
+        t
+        y
+        p
+        e
+        |
+        c
+        o
+        m
+        p
+        l
+        e
+        x
+        -
+        t
+        y
+        p
+        e
+        |
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        |
+        l
+        o
+        g
+        i
+        c
+        a
+        l
+        .
         Type `str`. """
         
         self.mapping = None
-        """ External specification that the content is mapped to.
+        """ 
+        E
+        x
+        t
+        e
+        r
+        n
+        a
+        l
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        t
+        h
+        a
+        t
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        i
+        s
+        m
+        a
+        p
+        p
+        e
+        d
+        t
+        o
+        .
         List of `StructureDefinitionMapping` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name for this structure definition (computer friendly).
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        (
+        c
+        o
+        m
+        p
+        u
+        t
+        e
+        r
+        f
+        r
+        i
+        e
+        n
+        d
+        l
+        y
+        )
+        .
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (organization or individual).
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        (
+        o
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        o
+        r
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        )
+        .
         Type `str`. """
         
         self.purpose = None
-        """ Why this structure definition is defined.
+        """ 
+        W
+        h
+        y
+        t
+        h
+        i
+        s
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        i
+        s
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        .
         Type `str`. """
         
         self.snapshot = None
-        """ Snapshot view of the structure.
+        """ 
+        S
+        n
+        a
+        p
+        s
+        h
+        o
+        t
+        v
+        i
+        e
+        w
+        o
+        f
+        t
+        h
+        e
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        .
         Type `StructureDefinitionSnapshot` (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | retired | unknown.
+        """ 
+        d
+        r
+        a
+        f
+        t
+        |
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        r
+        e
+        t
+        i
+        r
+        e
+        d
+        |
+        u
+        n
+        k
+        n
+        o
+        w
+        n
+        .
         Type `str`. """
         
         self.title = None
-        """ Name for this structure definition (human friendly).
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        (
+        h
+        u
+        m
+        a
+        n
+        f
+        r
+        i
+        e
+        n
+        d
+        l
+        y
+        )
+        .
         Type `str`. """
         
         self.type = None
-        """ Type defined or constrained by this structure.
+        """ 
+        T
+        y
+        p
+        e
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        o
+        r
+        c
+        o
+        n
+        s
+        t
+        r
+        a
+        i
+        n
+        e
+        d
+        b
+        y
+        t
+        h
+        i
+        s
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        .
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this structure definition (globally
-        unique).
+        """ 
+        C
+        a
+        n
+        o
+        n
+        i
+        c
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        ,
+        r
+        e
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        e
+        d
+        a
+        s
+        a
+        U
+        R
+        I
+        (
+        g
+        l
+        o
+        b
+        a
+        l
+        l
+        y
+        u
+        n
+        i
+        q
+        u
+        e
+        )
+        .
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ 
+        T
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        x
+        t
+        t
+        h
+        a
+        t
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        i
+        s
+        i
+        n
+        t
+        e
+        n
+        d
+        e
+        d
+        t
+        o
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        .
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Business version of the structure definition.
+        """ 
+        B
+        u
+        s
+        i
+        n
+        e
+        s
+        s
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        s
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         super(StructureDefinition, self).__init__(jsondict=jsondict, strict=strict)
@@ -146,9 +1446,8 @@ class StructureDefinition(domainresource.DomainResource):
             ("abstract", "abstract", bool, False, None, True),
             ("baseDefinition", "baseDefinition", str, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("context", "context", str, True, None, False),
+            ("context", "context", StructureDefinitionContext, True, None, False),
             ("contextInvariant", "contextInvariant", str, True, None, False),
-            ("contextType", "contextType", str, False, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("derivation", "derivation", str, False, None, False),
@@ -177,11 +1476,365 @@ class StructureDefinition(domainresource.DomainResource):
 
 from . import backboneelement
 
-class StructureDefinitionDifferential(backboneelement.BackboneElement):
-    """ Differential view of the structure.
+class StructureDefinitionContext(backboneelement.BackboneElement):
+    """ 
+    I
+    f
+    a
+    n
+    e
+    x
+    t
+    e
+    n
+    s
+    i
+    o
+    n
+    ,
+    w
+    h
+    e
+    r
+    e
+    i
+    t
+    c
+    a
+    n
+    b
+    e
+    u
+    s
+    e
+    d
+    i
+    n
+    i
+    n
+    s
+    t
+    a
+    n
+    c
+    e
+    s
+    .
     
-    A differential view is expressed relative to the base StructureDefinition -
-    a statement of differences that it applies.
+    
+    I
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    s
+    t
+    h
+    e
+    t
+    y
+    p
+    e
+    s
+    o
+    f
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    o
+    r
+    d
+    a
+    t
+    a
+    t
+    y
+    p
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    t
+    o
+    w
+    h
+    i
+    c
+    h
+    t
+    h
+    e
+    e
+    x
+    t
+    e
+    n
+    s
+    i
+    o
+    n
+    c
+    a
+    n
+    b
+    e
+    a
+    p
+    p
+    l
+    i
+    e
+    d
+    .
+    
+    """
+    
+    resource_type = "StructureDefinitionContext"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.expression = None
+        """ 
+        W
+        h
+        e
+        r
+        e
+        t
+        h
+        e
+        e
+        x
+        t
+        e
+        n
+        s
+        i
+        o
+        n
+        c
+        a
+        n
+        b
+        e
+        u
+        s
+        e
+        d
+        i
+        n
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        s
+        .
+        Type `str`. """
+        
+        self.type = None
+        """ 
+        f
+        h
+        i
+        r
+        p
+        a
+        t
+        h
+        |
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        |
+        e
+        x
+        t
+        e
+        n
+        s
+        i
+        o
+        n
+        .
+        Type `str`. """
+        
+        super(StructureDefinitionContext, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(StructureDefinitionContext, self).elementProperties()
+        js.extend([
+            ("expression", "expression", str, False, None, True),
+            ("type", "type", str, False, None, True),
+        ])
+        return js
+
+
+class StructureDefinitionDifferential(backboneelement.BackboneElement):
+    """ 
+    D
+    i
+    f
+    f
+    e
+    r
+    e
+    n
+    t
+    i
+    a
+    l
+    v
+    i
+    e
+    w
+    o
+    f
+    t
+    h
+    e
+    s
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    .
+    
+    
+    A
+    d
+    i
+    f
+    f
+    e
+    r
+    e
+    n
+    t
+    i
+    a
+    l
+    v
+    i
+    e
+    w
+    i
+    s
+    e
+    x
+    p
+    r
+    e
+    s
+    s
+    e
+    d
+    r
+    e
+    l
+    a
+    t
+    i
+    v
+    e
+    t
+    o
+    t
+    h
+    e
+    b
+    a
+    s
+    e
+    S
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    D
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    -
+    a
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    o
+    f
+    d
+    i
+    f
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    s
+    t
+    h
+    a
+    t
+    i
+    t
+    a
+    p
+    p
+    l
+    i
+    e
+    s
+    .
+    
     """
     
     resource_type = "StructureDefinitionDifferential"
@@ -195,7 +1848,66 @@ class StructureDefinitionDifferential(backboneelement.BackboneElement):
         """
         
         self.element = None
-        """ Definition of elements in the resource (if no StructureDefinition).
+        """ 
+        D
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        o
+        f
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        s
+        i
+        n
+        t
+        h
+        e
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        (
+        i
+        f
+        n
+        o
+        S
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        D
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        )
+        .
         List of `ElementDefinition` items (represented as `dict` in JSON). """
         
         super(StructureDefinitionDifferential, self).__init__(jsondict=jsondict, strict=strict)
@@ -209,9 +1921,104 @@ class StructureDefinitionDifferential(backboneelement.BackboneElement):
 
 
 class StructureDefinitionMapping(backboneelement.BackboneElement):
-    """ External specification that the content is mapped to.
+    """ 
+    E
+    x
+    t
+    e
+    r
+    n
+    a
+    l
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    t
+    h
+    a
+    t
+    t
+    h
+    e
+    c
+    o
+    n
+    t
+    e
+    n
+    t
+    i
+    s
+    m
+    a
+    p
+    p
+    e
+    d
+    t
+    o
+    .
     
-    An external specification that the content is mapped to.
+    
+    A
+    n
+    e
+    x
+    t
+    e
+    r
+    n
+    a
+    l
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    t
+    h
+    a
+    t
+    t
+    h
+    e
+    c
+    o
+    n
+    t
+    e
+    n
+    t
+    i
+    s
+    m
+    a
+    p
+    p
+    e
+    d
+    t
+    o
+    .
+    
     """
     
     resource_type = "StructureDefinitionMapping"
@@ -225,19 +2032,151 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
         """
         
         self.comment = None
-        """ Versions, Issues, Scope limitations etc..
+        """ 
+        V
+        e
+        r
+        s
+        i
+        o
+        n
+        s
+        ,
+        I
+        s
+        s
+        u
+        e
+        s
+        ,
+        S
+        c
+        o
+        p
+        e
+        l
+        i
+        m
+        i
+        t
+        a
+        t
+        i
+        o
+        n
+        s
+        e
+        t
+        c
+        .
+        .
         Type `str`. """
         
         self.identity = None
-        """ Internal id when this mapping is used.
+        """ 
+        I
+        n
+        t
+        e
+        r
+        n
+        a
+        l
+        i
+        d
+        w
+        h
+        e
+        n
+        t
+        h
+        i
+        s
+        m
+        a
+        p
+        p
+        i
+        n
+        g
+        i
+        s
+        u
+        s
+        e
+        d
+        .
         Type `str`. """
         
         self.name = None
-        """ Names what this mapping refers to.
+        """ 
+        N
+        a
+        m
+        e
+        s
+        w
+        h
+        a
+        t
+        t
+        h
+        i
+        s
+        m
+        a
+        p
+        p
+        i
+        n
+        g
+        r
+        e
+        f
+        e
+        r
+        s
+        t
+        o
+        .
         Type `str`. """
         
         self.uri = None
-        """ Identifies what this mapping refers to.
+        """ 
+        I
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        s
+        w
+        h
+        a
+        t
+        t
+        h
+        i
+        s
+        m
+        a
+        p
+        p
+        i
+        n
+        g
+        r
+        e
+        f
+        e
+        r
+        s
+        t
+        o
+        .
         Type `str`. """
         
         super(StructureDefinitionMapping, self).__init__(jsondict=jsondict, strict=strict)
@@ -254,10 +2193,150 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
 
 
 class StructureDefinitionSnapshot(backboneelement.BackboneElement):
-    """ Snapshot view of the structure.
+    """ 
+    S
+    n
+    a
+    p
+    s
+    h
+    o
+    t
+    v
+    i
+    e
+    w
+    o
+    f
+    t
+    h
+    e
+    s
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    .
     
-    A snapshot view is expressed in a stand alone form that can be used and
-    interpreted without considering the base StructureDefinition.
+    
+    A
+    s
+    n
+    a
+    p
+    s
+    h
+    o
+    t
+    v
+    i
+    e
+    w
+    i
+    s
+    e
+    x
+    p
+    r
+    e
+    s
+    s
+    e
+    d
+    i
+    n
+    a
+    s
+    t
+    a
+    n
+    d
+    a
+    l
+    o
+    n
+    e
+    f
+    o
+    r
+    m
+    t
+    h
+    a
+    t
+    c
+    a
+    n
+    b
+    e
+    u
+    s
+    e
+    d
+    a
+    n
+    d
+    i
+    n
+    t
+    e
+    r
+    p
+    r
+    e
+    t
+    e
+    d
+    w
+    i
+    t
+    h
+    o
+    u
+    t
+    c
+    o
+    n
+    s
+    i
+    d
+    e
+    r
+    i
+    n
+    g
+    t
+    h
+    e
+    b
+    a
+    s
+    e
+    S
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    D
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "StructureDefinitionSnapshot"
@@ -271,7 +2350,66 @@ class StructureDefinitionSnapshot(backboneelement.BackboneElement):
         """
         
         self.element = None
-        """ Definition of elements in the resource (if no StructureDefinition).
+        """ 
+        D
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        o
+        f
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        s
+        i
+        n
+        t
+        h
+        e
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        (
+        i
+        f
+        n
+        o
+        S
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        D
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        )
+        .
         List of `ElementDefinition` items (represented as `dict` in JSON). """
         
         super(StructureDefinitionSnapshot, self).__init__(jsondict=jsondict, strict=strict)

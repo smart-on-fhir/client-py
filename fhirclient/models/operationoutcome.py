@@ -1,17 +1,138 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class OperationOutcome(domainresource.DomainResource):
-    """ Information about the success/failure of an action.
+    """ 
+    I
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    t
+    h
+    e
+    s
+    u
+    c
+    c
+    e
+    s
+    s
+    /
+    f
+    a
+    i
+    l
+    u
+    r
+    e
+    o
+    f
+    a
+    n
+    a
+    c
+    t
+    i
+    o
+    n
+    .
     
-    A collection of error, warning or information messages that result from a
-    system action.
+    
+    A
+    c
+    o
+    l
+    l
+    e
+    c
+    t
+    i
+    o
+    n
+    o
+    f
+    e
+    r
+    r
+    o
+    r
+    ,
+    w
+    a
+    r
+    n
+    i
+    n
+    g
+    ,
+    o
+    r
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    m
+    e
+    s
+    s
+    a
+    g
+    e
+    s
+    t
+    h
+    a
+    t
+    r
+    e
+    s
+    u
+    l
+    t
+    f
+    r
+    o
+    m
+    a
+    s
+    y
+    s
+    t
+    e
+    m
+    a
+    c
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "OperationOutcome"
@@ -25,7 +146,43 @@ class OperationOutcome(domainresource.DomainResource):
         """
         
         self.issue = None
-        """ A single issue associated with the action.
+        """ 
+        A
+        s
+        i
+        n
+        g
+        l
+        e
+        i
+        s
+        s
+        u
+        e
+        a
+        s
+        s
+        o
+        c
+        i
+        a
+        t
+        e
+        d
+        w
+        i
+        t
+        h
+        t
+        h
+        e
+        a
+        c
+        t
+        i
+        o
+        n
+        .
         List of `OperationOutcomeIssue` items (represented as `dict` in JSON). """
         
         super(OperationOutcome, self).__init__(jsondict=jsondict, strict=strict)
@@ -41,9 +198,111 @@ class OperationOutcome(domainresource.DomainResource):
 from . import backboneelement
 
 class OperationOutcomeIssue(backboneelement.BackboneElement):
-    """ A single issue associated with the action.
+    """ 
+    A
+    s
+    i
+    n
+    g
+    l
+    e
+    i
+    s
+    s
+    u
+    e
+    a
+    s
+    s
+    o
+    c
+    i
+    a
+    t
+    e
+    d
+    w
+    i
+    t
+    h
+    t
+    h
+    e
+    a
+    c
+    t
+    i
+    o
+    n
+    .
     
-    An error, warning or information message that results from a system action.
+    
+    A
+    n
+    e
+    r
+    r
+    o
+    r
+    ,
+    w
+    a
+    r
+    n
+    i
+    n
+    g
+    ,
+    o
+    r
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    m
+    e
+    s
+    s
+    a
+    g
+    e
+    t
+    h
+    a
+    t
+    r
+    e
+    s
+    u
+    l
+    t
+    s
+    f
+    r
+    o
+    m
+    a
+    s
+    y
+    s
+    t
+    e
+    m
+    a
+    c
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "OperationOutcomeIssue"
@@ -57,27 +316,231 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Error or warning code.
+        """ 
+        E
+        r
+        r
+        o
+        r
+        o
+        r
+        w
+        a
+        r
+        n
+        i
+        n
+        g
+        c
+        o
+        d
+        e
+        .
         Type `str`. """
         
         self.details = None
-        """ Additional details about the error.
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        e
+        r
+        r
+        o
+        r
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.diagnostics = None
-        """ Additional diagnostic information about the issue.
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        d
+        i
+        a
+        g
+        n
+        o
+        s
+        t
+        i
+        c
+        i
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        i
+        s
+        s
+        u
+        e
+        .
         Type `str`. """
         
         self.expression = None
-        """ FHIRPath of element(s) related to issue.
+        """ 
+        F
+        H
+        I
+        R
+        P
+        a
+        t
+        h
+        o
+        f
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        (
+        s
+        )
+        r
+        e
+        l
+        a
+        t
+        e
+        d
+        t
+        o
+        i
+        s
+        s
+        u
+        e
+        .
         List of `str` items. """
         
         self.location = None
-        """ Path of element(s) related to issue.
+        """ 
+        D
+        e
+        p
+        r
+        e
+        c
+        a
+        t
+        e
+        d
+        :
+        P
+        a
+        t
+        h
+        o
+        f
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        (
+        s
+        )
+        r
+        e
+        l
+        a
+        t
+        e
+        d
+        t
+        o
+        i
+        s
+        s
+        u
+        e
+        .
         List of `str` items. """
         
         self.severity = None
-        """ fatal | error | warning | information.
+        """ 
+        f
+        a
+        t
+        a
+        l
+        |
+        e
+        r
+        r
+        o
+        r
+        |
+        w
+        a
+        r
+        n
+        i
+        n
+        g
+        |
+        i
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         super(OperationOutcomeIssue, self).__init__(jsondict=jsondict, strict=strict)

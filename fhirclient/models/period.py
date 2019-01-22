@@ -1,16 +1,110 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Period) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Period) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class Period(element.Element):
-    """ Time range defined by start and end date/time.
+    """ 
+    T
+    i
+    m
+    e
+    r
+    a
+    n
+    g
+    e
+    d
+    e
+    f
+    i
+    n
+    e
+    d
+    b
+    y
+    s
+    t
+    a
+    r
+    t
+    a
+    n
+    d
+    e
+    n
+    d
+    d
+    a
+    t
+    e
+    /
+    t
+    i
+    m
+    e
+    .
     
-    A time period defined by a start and end date and optionally time.
+    
+    A
+    t
+    i
+    m
+    e
+    p
+    e
+    r
+    i
+    o
+    d
+    d
+    e
+    f
+    i
+    n
+    e
+    d
+    b
+    y
+    a
+    s
+    t
+    a
+    r
+    t
+    a
+    n
+    d
+    e
+    n
+    d
+    d
+    a
+    t
+    e
+    a
+    n
+    d
+    o
+    p
+    t
+    i
+    o
+    n
+    a
+    l
+    l
+    y
+    t
+    i
+    m
+    e
+    .
+    
     """
     
     resource_type = "Period"
@@ -24,11 +118,87 @@ class Period(element.Element):
         """
         
         self.end = None
-        """ End time with inclusive boundary, if not ongoing.
+        """ 
+        E
+        n
+        d
+        t
+        i
+        m
+        e
+        w
+        i
+        t
+        h
+        i
+        n
+        c
+        l
+        u
+        s
+        i
+        v
+        e
+        b
+        o
+        u
+        n
+        d
+        a
+        r
+        y
+        ,
+        i
+        f
+        n
+        o
+        t
+        o
+        n
+        g
+        o
+        i
+        n
+        g
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.start = None
-        """ Starting time with inclusive boundary.
+        """ 
+        S
+        t
+        a
+        r
+        t
+        i
+        n
+        g
+        t
+        i
+        m
+        e
+        w
+        i
+        t
+        h
+        i
+        n
+        c
+        l
+        u
+        s
+        i
+        v
+        e
+        b
+        o
+        u
+        n
+        d
+        a
+        r
+        y
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         super(Period, self).__init__(jsondict=jsondict, strict=strict)

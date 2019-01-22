@@ -1,17 +1,241 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class CodeSystem(domainresource.DomainResource):
-    """ A set of codes drawn from one or more code systems.
+    """ 
+    D
+    e
+    c
+    l
+    a
+    r
+    e
+    s
+    t
+    h
+    e
+    e
+    x
+    i
+    s
+    t
+    e
+    n
+    c
+    e
+    o
+    f
+    a
+    n
+    d
+    d
+    e
+    s
+    c
+    r
+    i
+    b
+    e
+    s
+    a
+    c
+    o
+    d
+    e
+    s
+    y
+    s
+    t
+    e
+    m
+    o
+    r
+    c
+    o
+    d
+    e
+    s
+    y
+    s
+    t
+    e
+    m
+    s
+    u
+    p
+    p
+    l
+    e
+    m
+    e
+    n
+    t
+    .
     
-    A code system resource specifies a set of codes drawn from one or more code
-    systems.
+    
+    T
+    h
+    e
+    C
+    o
+    d
+    e
+    S
+    y
+    s
+    t
+    e
+    m
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    i
+    s
+    u
+    s
+    e
+    d
+    t
+    o
+    d
+    e
+    c
+    l
+    a
+    r
+    e
+    t
+    h
+    e
+    e
+    x
+    i
+    s
+    t
+    e
+    n
+    c
+    e
+    o
+    f
+    a
+    n
+    d
+    d
+    e
+    s
+    c
+    r
+    i
+    b
+    e
+    a
+    c
+    o
+    d
+    e
+    s
+    y
+    s
+    t
+    e
+    m
+    o
+    r
+    c
+    o
+    d
+    e
+    s
+    y
+    s
+    t
+    e
+    m
+    s
+    u
+    p
+    p
+    l
+    e
+    m
+    e
+    n
+    t
+    a
+    n
+    d
+    i
+    t
+    s
+    k
+    e
+    y
+    p
+    r
+    o
+    p
+    e
+    r
+    t
+    i
+    e
+    s
+    ,
+    a
+    n
+    d
+    o
+    p
+    t
+    i
+    o
+    n
+    a
+    l
+    l
+    y
+    d
+    e
+    f
+    i
+    n
+    e
+    a
+    p
+    a
+    r
+    t
+    o
+    r
+    a
+    l
+    l
+    o
+    f
+    i
+    t
+    s
+    c
+    o
+    n
+    t
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "CodeSystem"
@@ -25,104 +249,1149 @@ class CodeSystem(domainresource.DomainResource):
         """
         
         self.caseSensitive = None
-        """ If code comparison is case sensitive.
+        """ 
+        I
+        f
+        c
+        o
+        d
+        e
+        c
+        o
+        m
+        p
+        a
+        r
+        i
+        s
+        o
+        n
+        i
+        s
+        c
+        a
+        s
+        e
+        s
+        e
+        n
+        s
+        i
+        t
+        i
+        v
+        e
+        .
         Type `bool`. """
         
         self.compositional = None
-        """ If code system defines a post-composition grammar.
+        """ 
+        I
+        f
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        d
+        e
+        f
+        i
+        n
+        e
+        s
+        a
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        g
+        r
+        a
+        m
+        m
+        a
+        r
+        .
         Type `bool`. """
         
         self.concept = None
-        """ Concepts in the code system.
+        """ 
+        C
+        o
+        n
+        c
+        e
+        p
+        t
+        s
+        i
+        n
+        t
+        h
+        e
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         List of `CodeSystemConcept` items (represented as `dict` in JSON). """
         
         self.contact = None
-        """ Contact details for the publisher.
+        """ 
+        C
+        o
+        n
+        t
+        a
+        c
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        .
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.content = None
-        """ not-present | example | fragment | complete.
+        """ 
+        n
+        o
+        t
+        -
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        |
+        e
+        x
+        a
+        m
+        p
+        l
+        e
+        |
+        f
+        r
+        a
+        g
+        m
+        e
+        n
+        t
+        |
+        c
+        o
+        m
+        p
+        l
+        e
+        t
+        e
+        |
+        s
+        u
+        p
+        p
+        l
+        e
+        m
+        e
+        n
+        t
+        .
         Type `str`. """
         
         self.copyright = None
-        """ Use and/or publishing restrictions.
+        """ 
+        U
+        s
+        e
+        a
+        n
+        d
+        /
+        o
+        r
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        i
+        n
+        g
+        r
+        e
+        s
+        t
+        r
+        i
+        c
+        t
+        i
+        o
+        n
+        s
+        .
         Type `str`. """
         
         self.count = None
-        """ Total concepts in the code system.
+        """ 
+        T
+        o
+        t
+        a
+        l
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        s
+        i
+        n
+        t
+        h
+        e
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         Type `int`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ 
+        D
+        a
+        t
+        e
+        l
+        a
+        s
+        t
+        c
+        h
+        a
+        n
+        g
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Natural language description of the code system.
+        """ 
+        N
+        a
+        t
+        u
+        r
+        a
+        l
+        l
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         Type `str`. """
         
         self.experimental = None
-        """ For testing purposes, not real usage.
+        """ 
+        F
+        o
+        r
+        t
+        e
+        s
+        t
+        i
+        n
+        g
+        p
+        u
+        r
+        p
+        o
+        s
+        e
+        s
+        ,
+        n
+        o
+        t
+        r
+        e
+        a
+        l
+        u
+        s
+        a
+        g
+        e
+        .
         Type `bool`. """
         
         self.filter = None
-        """ Filter that can be used in a value set.
+        """ 
+        F
+        i
+        l
+        t
+        e
+        r
+        t
+        h
+        a
+        t
+        c
+        a
+        n
+        b
+        e
+        u
+        s
+        e
+        d
+        i
+        n
+        a
+        v
+        a
+        l
+        u
+        e
+        s
+        e
+        t
+        .
         List of `CodeSystemFilter` items (represented as `dict` in JSON). """
         
         self.hierarchyMeaning = None
-        """ grouped-by | is-a | part-of | classified-with.
+        """ 
+        g
+        r
+        o
+        u
+        p
+        e
+        d
+        -
+        b
+        y
+        |
+        i
+        s
+        -
+        a
+        |
+        p
+        a
+        r
+        t
+        -
+        o
+        f
+        |
+        c
+        l
+        a
+        s
+        s
+        i
+        f
+        i
+        e
+        d
+        -
+        w
+        i
+        t
+        h
+        .
         Type `str`. """
         
         self.identifier = None
-        """ Additional identifier for the code system.
-        Type `Identifier` (represented as `dict` in JSON). """
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        e
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        (
+        b
+        u
+        s
+        i
+        n
+        e
+        s
+        s
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        )
+        .
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.jurisdiction = None
-        """ Intended jurisdiction for code system (if applicable).
+        """ 
+        I
+        n
+        t
+        e
+        n
+        d
+        e
+        d
+        j
+        u
+        r
+        i
+        s
+        d
+        i
+        c
+        t
+        i
+        o
+        n
+        f
+        o
+        r
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        (
+        i
+        f
+        a
+        p
+        p
+        l
+        i
+        c
+        a
+        b
+        l
+        e
+        )
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name for this code system (computer friendly).
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        (
+        c
+        o
+        m
+        p
+        u
+        t
+        e
+        r
+        f
+        r
+        i
+        e
+        n
+        d
+        l
+        y
+        )
+        .
         Type `str`. """
         
         self.property = None
-        """ Additional information supplied about each concept.
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        i
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        s
+        u
+        p
+        p
+        l
+        i
+        e
+        d
+        a
+        b
+        o
+        u
+        t
+        e
+        a
+        c
+        h
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        .
         List of `CodeSystemProperty` items (represented as `dict` in JSON). """
         
         self.publisher = None
-        """ Name of the publisher (organization or individual).
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        (
+        o
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        o
+        r
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        )
+        .
         Type `str`. """
         
         self.purpose = None
-        """ Why this code system is defined.
+        """ 
+        W
+        h
+        y
+        t
+        h
+        i
+        s
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        i
+        s
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        .
         Type `str`. """
         
         self.status = None
-        """ draft | active | retired | unknown.
+        """ 
+        d
+        r
+        a
+        f
+        t
+        |
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        r
+        e
+        t
+        i
+        r
+        e
+        d
+        |
+        u
+        n
+        k
+        n
+        o
+        w
+        n
+        .
+        Type `str`. """
+        
+        self.supplements = None
+        """ 
+        C
+        a
+        n
+        o
+        n
+        i
+        c
+        a
+        l
+        U
+        R
+        L
+        o
+        f
+        C
+        o
+        d
+        e
+        S
+        y
+        s
+        t
+        e
+        m
+        t
+        h
+        i
+        s
+        a
+        d
+        d
+        s
+        d
+        e
+        s
+        i
+        g
+        n
+        a
+        t
+        i
+        o
+        n
+        s
+        a
+        n
+        d
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        i
+        e
+        s
+        t
+        o
+        .
         Type `str`. """
         
         self.title = None
-        """ Name for this code system (human friendly).
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        (
+        h
+        u
+        m
+        a
+        n
+        f
+        r
+        i
+        e
+        n
+        d
+        l
+        y
+        )
+        .
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this code system (globally unique)
-        (Coding.system).
+        """ 
+        C
+        a
+        n
+        o
+        n
+        i
+        c
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        ,
+        r
+        e
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        e
+        d
+        a
+        s
+        a
+        U
+        R
+        I
+        (
+        g
+        l
+        o
+        b
+        a
+        l
+        l
+        y
+        u
+        n
+        i
+        q
+        u
+        e
+        )
+        (
+        C
+        o
+        d
+        i
+        n
+        g
+        .
+        s
+        y
+        s
+        t
+        e
+        m
+        )
+        .
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ 
+        T
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        x
+        t
+        t
+        h
+        a
+        t
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        i
+        s
+        i
+        n
+        t
+        e
+        n
+        d
+        e
+        d
+        t
+        o
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        .
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.valueSet = None
-        """ Canonical URL for value set with entire code system.
+        """ 
+        C
+        a
+        n
+        o
+        n
+        i
+        c
+        a
+        l
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        t
+        o
+        t
+        h
+        e
+        v
+        a
+        l
+        u
+        e
+        s
+        e
+        t
+        w
+        i
+        t
+        h
+        e
+        n
+        t
+        i
+        r
+        e
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         Type `str`. """
         
         self.version = None
-        """ Business version of the code system (Coding.version).
+        """ 
+        B
+        u
+        s
+        i
+        n
+        e
+        s
+        s
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        (
+        C
+        o
+        d
+        i
+        n
+        g
+        .
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        )
+        .
         Type `str`. """
         
         self.versionNeeded = None
-        """ If definitions are not stable.
+        """ 
+        I
+        f
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        s
+        a
+        r
+        e
+        n
+        o
+        t
+        s
+        t
+        a
+        b
+        l
+        e
+        .
         Type `bool`. """
         
         super(CodeSystem, self).__init__(jsondict=jsondict, strict=strict)
@@ -142,13 +1411,14 @@ class CodeSystem(domainresource.DomainResource):
             ("experimental", "experimental", bool, False, None, False),
             ("filter", "filter", CodeSystemFilter, True, None, False),
             ("hierarchyMeaning", "hierarchyMeaning", str, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, False),
             ("property", "property", CodeSystemProperty, True, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
             ("status", "status", str, False, None, True),
+            ("supplements", "supplements", str, False, None, False),
             ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
@@ -162,11 +1432,204 @@ class CodeSystem(domainresource.DomainResource):
 from . import backboneelement
 
 class CodeSystemConcept(backboneelement.BackboneElement):
-    """ Concepts in the code system.
+    """ 
+    C
+    o
+    n
+    c
+    e
+    p
+    t
+    s
+    i
+    n
+    t
+    h
+    e
+    c
+    o
+    d
+    e
+    s
+    y
+    s
+    t
+    e
+    m
+    .
     
-    Concepts that are in the code system. The concept definitions are
-    inherently hierarchical, but the definitions must be consulted to determine
-    what the meaning of the hierarchical relationships are.
+    
+    C
+    o
+    n
+    c
+    e
+    p
+    t
+    s
+    t
+    h
+    a
+    t
+    a
+    r
+    e
+    i
+    n
+    t
+    h
+    e
+    c
+    o
+    d
+    e
+    s
+    y
+    s
+    t
+    e
+    m
+    .
+    T
+    h
+    e
+    c
+    o
+    n
+    c
+    e
+    p
+    t
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    s
+    a
+    r
+    e
+    i
+    n
+    h
+    e
+    r
+    e
+    n
+    t
+    l
+    y
+    h
+    i
+    e
+    r
+    a
+    r
+    c
+    h
+    i
+    c
+    a
+    l
+    ,
+    b
+    u
+    t
+    t
+    h
+    e
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    s
+    m
+    u
+    s
+    t
+    b
+    e
+    c
+    o
+    n
+    s
+    u
+    l
+    t
+    e
+    d
+    t
+    o
+    d
+    e
+    t
+    e
+    r
+    m
+    i
+    n
+    e
+    w
+    h
+    a
+    t
+    t
+    h
+    e
+    m
+    e
+    a
+    n
+    i
+    n
+    g
+    s
+    o
+    f
+    t
+    h
+    e
+    h
+    i
+    e
+    r
+    a
+    r
+    c
+    h
+    i
+    c
+    a
+    l
+    r
+    e
+    l
+    a
+    t
+    i
+    o
+    n
+    s
+    h
+    i
+    p
+    s
+    a
+    r
+    e
+    .
+    
     """
     
     resource_type = "CodeSystemConcept"
@@ -180,27 +1643,200 @@ class CodeSystemConcept(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Code that identifies concept.
+        """ 
+        C
+        o
+        d
+        e
+        t
+        h
+        a
+        t
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        s
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        .
         Type `str`. """
         
         self.concept = None
-        """ Child Concepts (is-a/contains/categorizes).
+        """ 
+        C
+        h
+        i
+        l
+        d
+        C
+        o
+        n
+        c
+        e
+        p
+        t
+        s
+        (
+        i
+        s
+        -
+        a
+        /
+        c
+        o
+        n
+        t
+        a
+        i
+        n
+        s
+        /
+        c
+        a
+        t
+        e
+        g
+        o
+        r
+        i
+        z
+        e
+        s
+        )
+        .
         List of `CodeSystemConcept` items (represented as `dict` in JSON). """
         
         self.definition = None
-        """ Formal definition.
+        """ 
+        F
+        o
+        r
+        m
+        a
+        l
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.designation = None
-        """ Additional representations for the concept.
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        r
+        e
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        .
         List of `CodeSystemConceptDesignation` items (represented as `dict` in JSON). """
         
         self.display = None
-        """ Text to display to the user.
+        """ 
+        T
+        e
+        x
+        t
+        t
+        o
+        d
+        i
+        s
+        p
+        l
+        a
+        y
+        t
+        o
+        t
+        h
+        e
+        u
+        s
+        e
+        r
+        .
         Type `str`. """
         
         self.property = None
-        """ Property value for the concept.
+        """ 
+        P
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        f
+        o
+        r
+        t
+        h
+        e
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        .
         List of `CodeSystemConceptProperty` items (represented as `dict` in JSON). """
         
         super(CodeSystemConcept, self).__init__(jsondict=jsondict, strict=strict)
@@ -219,10 +1855,161 @@ class CodeSystemConcept(backboneelement.BackboneElement):
 
 
 class CodeSystemConceptDesignation(backboneelement.BackboneElement):
-    """ Additional representations for the concept.
+    """ 
+    A
+    d
+    d
+    i
+    t
+    i
+    o
+    n
+    a
+    l
+    r
+    e
+    p
+    r
+    e
+    s
+    e
+    n
+    t
+    a
+    t
+    i
+    o
+    n
+    s
+    f
+    o
+    r
+    t
+    h
+    e
+    c
+    o
+    n
+    c
+    e
+    p
+    t
+    .
     
-    Additional representations for the concept - other languages, aliases,
-    specialized purposes, used for particular purposes, etc.
+    
+    A
+    d
+    d
+    i
+    t
+    i
+    o
+    n
+    a
+    l
+    r
+    e
+    p
+    r
+    e
+    s
+    e
+    n
+    t
+    a
+    t
+    i
+    o
+    n
+    s
+    f
+    o
+    r
+    t
+    h
+    e
+    c
+    o
+    n
+    c
+    e
+    p
+    t
+    -
+    o
+    t
+    h
+    e
+    r
+    l
+    a
+    n
+    g
+    u
+    a
+    g
+    e
+    s
+    ,
+    a
+    l
+    i
+    a
+    s
+    e
+    s
+    ,
+    s
+    p
+    e
+    c
+    i
+    a
+    l
+    i
+    z
+    e
+    d
+    p
+    u
+    r
+    p
+    o
+    s
+    e
+    s
+    ,
+    u
+    s
+    e
+    d
+    f
+    o
+    r
+    p
+    a
+    r
+    t
+    i
+    c
+    u
+    l
+    a
+    r
+    p
+    u
+    r
+    p
+    o
+    s
+    e
+    s
+    ,
+    e
+    t
+    c
+    .
+    
     """
     
     resource_type = "CodeSystemConceptDesignation"
@@ -236,15 +2023,113 @@ class CodeSystemConceptDesignation(backboneelement.BackboneElement):
         """
         
         self.language = None
-        """ Human language of the designation.
+        """ 
+        H
+        u
+        m
+        a
+        n
+        l
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        o
+        f
+        t
+        h
+        e
+        d
+        e
+        s
+        i
+        g
+        n
+        a
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.use = None
-        """ Details how this designation would be used.
+        """ 
+        D
+        e
+        t
+        a
+        i
+        l
+        s
+        h
+        o
+        w
+        t
+        h
+        i
+        s
+        d
+        e
+        s
+        i
+        g
+        n
+        a
+        t
+        i
+        o
+        n
+        w
+        o
+        u
+        l
+        d
+        b
+        e
+        u
+        s
+        e
+        d
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         self.value = None
-        """ The text value for this designation.
+        """ 
+        T
+        h
+        e
+        t
+        e
+        x
+        t
+        v
+        a
+        l
+        u
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        d
+        e
+        s
+        i
+        g
+        n
+        a
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         super(CodeSystemConceptDesignation, self).__init__(jsondict=jsondict, strict=strict)
@@ -260,9 +2145,66 @@ class CodeSystemConceptDesignation(backboneelement.BackboneElement):
 
 
 class CodeSystemConceptProperty(backboneelement.BackboneElement):
-    """ Property value for the concept.
+    """ 
+    P
+    r
+    o
+    p
+    e
+    r
+    t
+    y
+    v
+    a
+    l
+    u
+    e
+    f
+    o
+    r
+    t
+    h
+    e
+    c
+    o
+    n
+    c
+    e
+    p
+    t
+    .
     
-    A property value for this concept.
+    
+    A
+    p
+    r
+    o
+    p
+    e
+    r
+    t
+    y
+    v
+    a
+    l
+    u
+    e
+    f
+    o
+    r
+    t
+    h
+    i
+    s
+    c
+    o
+    n
+    c
+    e
+    p
+    t
+    .
+    
     """
     
     resource_type = "CodeSystemConceptProperty"
@@ -276,31 +2218,302 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Reference to CodeSystem.property.code.
+        """ 
+        R
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        t
+        o
+        C
+        o
+        d
+        e
+        S
+        y
+        s
+        t
+        e
+        m
+        .
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        .
+        c
+        o
+        d
+        e
+        .
         Type `str`. """
         
         self.valueBoolean = None
-        """ Value of the property for this concept.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        .
         Type `bool`. """
         
         self.valueCode = None
-        """ Value of the property for this concept.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        .
         Type `str`. """
         
         self.valueCoding = None
-        """ Value of the property for this concept.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         self.valueDateTime = None
-        """ Value of the property for this concept.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.valueDecimal = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        .
+        Type `float`. """
+        
         self.valueInteger = None
-        """ Value of the property for this concept.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        .
         Type `int`. """
         
         self.valueString = None
-        """ Value of the property for this concept.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        .
         Type `str`. """
         
         super(CodeSystemConceptProperty, self).__init__(jsondict=jsondict, strict=strict)
@@ -313,6 +2526,7 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
             ("valueCode", "valueCode", str, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
             ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueString", "valueString", str, False, "value", True),
         ])
@@ -320,10 +2534,122 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
 
 
 class CodeSystemFilter(backboneelement.BackboneElement):
-    """ Filter that can be used in a value set.
+    """ 
+    F
+    i
+    l
+    t
+    e
+    r
+    t
+    h
+    a
+    t
+    c
+    a
+    n
+    b
+    e
+    u
+    s
+    e
+    d
+    i
+    n
+    a
+    v
+    a
+    l
+    u
+    e
+    s
+    e
+    t
+    .
     
-    A filter that can be used in a value set compose statement when selecting
-    concepts using a filter.
+    
+    A
+    f
+    i
+    l
+    t
+    e
+    r
+    t
+    h
+    a
+    t
+    c
+    a
+    n
+    b
+    e
+    u
+    s
+    e
+    d
+    i
+    n
+    a
+    v
+    a
+    l
+    u
+    e
+    s
+    e
+    t
+    c
+    o
+    m
+    p
+    o
+    s
+    e
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    w
+    h
+    e
+    n
+    s
+    e
+    l
+    e
+    c
+    t
+    i
+    n
+    g
+    c
+    o
+    n
+    c
+    e
+    p
+    t
+    s
+    u
+    s
+    i
+    n
+    g
+    a
+    f
+    i
+    l
+    t
+    e
+    r
+    .
+    
     """
     
     resource_type = "CodeSystemFilter"
@@ -337,19 +2663,125 @@ class CodeSystemFilter(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Code that identifies the filter.
+        """ 
+        C
+        o
+        d
+        e
+        t
+        h
+        a
+        t
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        s
+        t
+        h
+        e
+        f
+        i
+        l
+        t
+        e
+        r
+        .
         Type `str`. """
         
         self.description = None
-        """ How or why the filter is used.
+        """ 
+        H
+        o
+        w
+        o
+        r
+        w
+        h
+        y
+        t
+        h
+        e
+        f
+        i
+        l
+        t
+        e
+        r
+        i
+        s
+        u
+        s
+        e
+        d
+        .
         Type `str`. """
         
         self.operator = None
-        """ Operators that can be used with filter.
+        """ 
+        O
+        p
+        e
+        r
+        a
+        t
+        o
+        r
+        s
+        t
+        h
+        a
+        t
+        c
+        a
+        n
+        b
+        e
+        u
+        s
+        e
+        d
+        w
+        i
+        t
+        h
+        f
+        i
+        l
+        t
+        e
+        r
+        .
         List of `str` items. """
         
         self.value = None
-        """ What to use for the value.
+        """ 
+        W
+        h
+        a
+        t
+        t
+        o
+        u
+        s
+        e
+        f
+        o
+        r
+        t
+        h
+        e
+        v
+        a
+        l
+        u
+        e
+        .
         Type `str`. """
         
         super(CodeSystemFilter, self).__init__(jsondict=jsondict, strict=strict)
@@ -366,10 +2798,148 @@ class CodeSystemFilter(backboneelement.BackboneElement):
 
 
 class CodeSystemProperty(backboneelement.BackboneElement):
-    """ Additional information supplied about each concept.
+    """ 
+    A
+    d
+    d
+    i
+    t
+    i
+    o
+    n
+    a
+    l
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    s
+    u
+    p
+    p
+    l
+    i
+    e
+    d
+    a
+    b
+    o
+    u
+    t
+    e
+    a
+    c
+    h
+    c
+    o
+    n
+    c
+    e
+    p
+    t
+    .
     
-    A property defines an additional slot through which additional information
-    can be provided about a concept.
+    
+    A
+    p
+    r
+    o
+    p
+    e
+    r
+    t
+    y
+    d
+    e
+    f
+    i
+    n
+    e
+    s
+    a
+    n
+    a
+    d
+    d
+    i
+    t
+    i
+    o
+    n
+    a
+    l
+    s
+    l
+    o
+    t
+    t
+    h
+    r
+    o
+    u
+    g
+    h
+    w
+    h
+    i
+    c
+    h
+    a
+    d
+    d
+    i
+    t
+    i
+    o
+    n
+    a
+    l
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    c
+    a
+    n
+    b
+    e
+    p
+    r
+    o
+    v
+    i
+    d
+    e
+    d
+    a
+    b
+    o
+    u
+    t
+    a
+    c
+    o
+    n
+    c
+    e
+    p
+    t
+    .
+    
     """
     
     resource_type = "CodeSystemProperty"
@@ -383,20 +2953,211 @@ class CodeSystemProperty(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Identifies the property on the concepts, and when referred to in
-        operations.
+        """ 
+        I
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        s
+        t
+        h
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        o
+        n
+        t
+        h
+        e
+        c
+        o
+        n
+        c
+        e
+        p
+        t
+        s
+        ,
+        a
+        n
+        d
+        w
+        h
+        e
+        n
+        r
+        e
+        f
+        e
+        r
+        r
+        e
+        d
+        t
+        o
+        i
+        n
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        s
+        .
         Type `str`. """
         
         self.description = None
-        """ Why the property is defined, and/or what it conveys.
+        """ 
+        W
+        h
+        y
+        t
+        h
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        i
+        s
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        ,
+        a
+        n
+        d
+        /
+        o
+        r
+        w
+        h
+        a
+        t
+        i
+        t
+        c
+        o
+        n
+        v
+        e
+        y
+        s
+        .
         Type `str`. """
         
         self.type = None
-        """ code | Coding | string | integer | boolean | dateTime.
+        """ 
+        c
+        o
+        d
+        e
+        |
+        C
+        o
+        d
+        i
+        n
+        g
+        |
+        s
+        t
+        r
+        i
+        n
+        g
+        |
+        i
+        n
+        t
+        e
+        g
+        e
+        r
+        |
+        b
+        o
+        o
+        l
+        e
+        a
+        n
+        |
+        d
+        a
+        t
+        e
+        T
+        i
+        m
+        e
+        |
+        d
+        e
+        c
+        i
+        m
+        a
+        l
+        .
         Type `str`. """
         
         self.uri = None
-        """ Formal identifier for the property.
+        """ 
+        F
+        o
+        r
+        m
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        .
         Type `str`. """
         
         super(CodeSystemProperty, self).__init__(jsondict=jsondict, strict=strict)

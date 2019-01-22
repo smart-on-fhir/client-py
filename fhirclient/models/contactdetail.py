@@ -1,16 +1,88 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ContactDetail) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ContactDetail) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class ContactDetail(element.Element):
-    """ Contact information.
+    """ 
+    C
+    o
+    n
+    t
+    a
+    c
+    t
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    .
     
-    Specifies contact information for a person or organization.
+    
+    S
+    p
+    e
+    c
+    i
+    f
+    i
+    e
+    s
+    c
+    o
+    n
+    t
+    a
+    c
+    t
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    f
+    o
+    r
+    a
+    p
+    e
+    r
+    s
+    o
+    n
+    o
+    r
+    o
+    r
+    g
+    a
+    n
+    i
+    z
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "ContactDetail"
@@ -24,11 +96,81 @@ class ContactDetail(element.Element):
         """
         
         self.name = None
-        """ Name of an individual to contact.
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        a
+        n
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        t
+        o
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        .
         Type `str`. """
         
         self.telecom = None
-        """ Contact details for individual or organization.
+        """ 
+        C
+        o
+        n
+        t
+        a
+        c
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        f
+        o
+        r
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        o
+        r
+        o
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        .
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(ContactDetail, self).__init__(jsondict=jsondict, strict=strict)

@@ -1,19 +1,245 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class ParameterDefinition(element.Element):
-    """ Definition of a parameter to a module.
+    """ 
+    D
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    o
+    f
+    a
+    p
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    t
+    o
+    a
+    m
+    o
+    d
+    u
+    l
+    e
+    .
     
-    The parameters to the module. This collection specifies both the input and
-    output parameters. Input parameters are provided by the caller as part of
-    the $evaluate operation. Output parameters are included in the
-    GuidanceResponse.
+    
+    T
+    h
+    e
+    p
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    s
+    t
+    o
+    t
+    h
+    e
+    m
+    o
+    d
+    u
+    l
+    e
+    .
+    T
+    h
+    i
+    s
+    c
+    o
+    l
+    l
+    e
+    c
+    t
+    i
+    o
+    n
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    e
+    s
+    b
+    o
+    t
+    h
+    t
+    h
+    e
+    i
+    n
+    p
+    u
+    t
+    a
+    n
+    d
+    o
+    u
+    t
+    p
+    u
+    t
+    p
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    s
+    .
+    I
+    n
+    p
+    u
+    t
+    p
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    s
+    a
+    r
+    e
+    p
+    r
+    o
+    v
+    i
+    d
+    e
+    d
+    b
+    y
+    t
+    h
+    e
+    c
+    a
+    l
+    l
+    e
+    r
+    a
+    s
+    p
+    a
+    r
+    t
+    o
+    f
+    t
+    h
+    e
+    $
+    e
+    v
+    a
+    l
+    u
+    a
+    t
+    e
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    .
+    O
+    u
+    t
+    p
+    u
+    t
+    p
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    s
+    a
+    r
+    e
+    i
+    n
+    c
+    l
+    u
+    d
+    e
+    d
+    i
+    n
+    t
+    h
+    e
+    G
+    u
+    i
+    d
+    a
+    n
+    c
+    e
+    R
+    e
+    s
+    p
+    o
+    n
+    s
+    e
+    .
+    
     """
     
     resource_type = "ParameterDefinition"
@@ -27,31 +253,204 @@ class ParameterDefinition(element.Element):
         """
         
         self.documentation = None
-        """ A brief description of the parameter.
+        """ 
+        A
+        b
+        r
+        i
+        e
+        f
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        .
         Type `str`. """
         
         self.max = None
-        """ Maximum cardinality (a number of *).
+        """ 
+        M
+        a
+        x
+        i
+        m
+        u
+        m
+        c
+        a
+        r
+        d
+        i
+        n
+        a
+        l
+        i
+        t
+        y
+        (
+        a
+        n
+        u
+        m
+        b
+        e
+        r
+        o
+        f
+        *
+        )
+        .
         Type `str`. """
         
         self.min = None
-        """ Minimum cardinality.
+        """ 
+        M
+        i
+        n
+        i
+        m
+        u
+        m
+        c
+        a
+        r
+        d
+        i
+        n
+        a
+        l
+        i
+        t
+        y
+        .
         Type `int`. """
         
         self.name = None
-        """ Name used to access the parameter value.
+        """ 
+        N
+        a
+        m
+        e
+        u
+        s
+        e
+        d
+        t
+        o
+        a
+        c
+        c
+        e
+        s
+        s
+        t
+        h
+        e
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        v
+        a
+        l
+        u
+        e
+        .
         Type `str`. """
         
         self.profile = None
-        """ What profile the value is expected to be.
-        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        a
+        t
+        p
+        r
+        o
+        f
+        i
+        l
+        e
+        t
+        h
+        e
+        v
+        a
+        l
+        u
+        e
+        i
+        s
+        e
+        x
+        p
+        e
+        c
+        t
+        e
+        d
+        t
+        o
+        b
+        e
+        .
+        Type `str`. """
         
         self.type = None
-        """ What type of value.
+        """ 
+        W
+        h
+        a
+        t
+        t
+        y
+        p
+        e
+        o
+        f
+        v
+        a
+        l
+        u
+        e
+        .
         Type `str`. """
         
         self.use = None
-        """ in | out.
+        """ 
+        i
+        n
+        |
+        o
+        u
+        t
+        .
         Type `str`. """
         
         super(ParameterDefinition, self).__init__(jsondict=jsondict, strict=strict)
@@ -63,15 +462,10 @@ class ParameterDefinition(element.Element):
             ("max", "max", str, False, None, False),
             ("min", "min", int, False, None, False),
             ("name", "name", str, False, None, False),
-            ("profile", "profile", fhirreference.FHIRReference, False, None, False),
+            ("profile", "profile", str, False, None, False),
             ("type", "type", str, False, None, True),
             ("use", "use", str, False, None, True),
         ])
         return js
 
 
-import sys
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']

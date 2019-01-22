@@ -1,18 +1,222 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Basic) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Basic) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class Basic(domainresource.DomainResource):
-    """ Resource for non-supported content.
+    """ 
+    R
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    f
+    o
+    r
+    n
+    o
+    n
+    -
+    s
+    u
+    p
+    p
+    o
+    r
+    t
+    e
+    d
+    c
+    o
+    n
+    t
+    e
+    n
+    t
+    .
     
-    Basic is used for handling concepts not yet defined in FHIR, narrative-only
-    resources that don't map to an existing resource, and custom resources not
-    appropriate for inclusion in the FHIR specification.
+    
+    B
+    a
+    s
+    i
+    c
+    i
+    s
+    u
+    s
+    e
+    d
+    f
+    o
+    r
+    h
+    a
+    n
+    d
+    l
+    i
+    n
+    g
+    c
+    o
+    n
+    c
+    e
+    p
+    t
+    s
+    n
+    o
+    t
+    y
+    e
+    t
+    d
+    e
+    f
+    i
+    n
+    e
+    d
+    i
+    n
+    F
+    H
+    I
+    R
+    ,
+    n
+    a
+    r
+    r
+    a
+    t
+    i
+    v
+    e
+    -
+    o
+    n
+    l
+    y
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    s
+    t
+    h
+    a
+    t
+    d
+    o
+    n
+    '
+    t
+    m
+    a
+    p
+    t
+    o
+    a
+    n
+    e
+    x
+    i
+    s
+    t
+    i
+    n
+    g
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    ,
+    a
+    n
+    d
+    c
+    u
+    s
+    t
+    o
+    m
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    s
+    n
+    o
+    t
+    a
+    p
+    p
+    r
+    o
+    p
+    r
+    i
+    a
+    t
+    e
+    f
+    o
+    r
+    i
+    n
+    c
+    l
+    u
+    s
+    i
+    o
+    n
+    i
+    n
+    t
+    h
+    e
+    F
+    H
+    I
+    R
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "Basic"
@@ -26,24 +230,114 @@ class Basic(domainresource.DomainResource):
         """
         
         self.author = None
-        """ Who created.
-        Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        c
+        r
+        e
+        a
+        t
+        e
+        d
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.code = None
-        """ Kind of Resource.
+        """ 
+        K
+        i
+        n
+        d
+        o
+        f
+        R
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.created = None
-        """ When created.
+        """ 
+        W
+        h
+        e
+        n
+        c
+        r
+        e
+        a
+        t
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
-        """ Business identifier.
+        """ 
+        B
+        u
+        s
+        i
+        n
+        e
+        s
+        s
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.subject = None
-        """ Identifies the focus of this resource.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        I
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        s
+        t
+        h
+        e
+        f
+        o
+        c
+        u
+        s
+        o
+        f
+        t
+        h
+        i
+        s
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(Basic, self).__init__(jsondict=jsondict, strict=strict)
     

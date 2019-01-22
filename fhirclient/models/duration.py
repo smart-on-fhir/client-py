@@ -1,14 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Duration) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Duration) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import quantity
 
 class Duration(quantity.Quantity):
-    """ A length of time.
+    """ 
+    A
+    l
+    e
+    n
+    g
+    t
+    h
+    o
+    f
+    t
+    i
+    m
+    e
+    .
     """
     
     resource_type = "Duration"

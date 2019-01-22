@@ -1,18 +1,166 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class DeviceRequest(domainresource.DomainResource):
-    """ Medical device request.
+    """ 
+    M
+    e
+    d
+    i
+    c
+    a
+    l
+    d
+    e
+    v
+    i
+    c
+    e
+    r
+    e
+    q
+    u
+    e
+    s
+    t
+    .
     
-    Represents a request for a patient to employ a medical device. The device
-    may be an implantable device, or an external assistive device, such as a
-    walker.
+    
+    R
+    e
+    p
+    r
+    e
+    s
+    e
+    n
+    t
+    s
+    a
+    r
+    e
+    q
+    u
+    e
+    s
+    t
+    f
+    o
+    r
+    a
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    t
+    o
+    e
+    m
+    p
+    l
+    o
+    y
+    a
+    m
+    e
+    d
+    i
+    c
+    a
+    l
+    d
+    e
+    v
+    i
+    c
+    e
+    .
+    T
+    h
+    e
+    d
+    e
+    v
+    i
+    c
+    e
+    m
+    a
+    y
+    b
+    e
+    a
+    n
+    i
+    m
+    p
+    l
+    a
+    n
+    t
+    a
+    b
+    l
+    e
+    d
+    e
+    v
+    i
+    c
+    e
+    ,
+    o
+    r
+    a
+    n
+    e
+    x
+    t
+    e
+    r
+    n
+    a
+    l
+    a
+    s
+    s
+    i
+    s
+    t
+    i
+    v
+    e
+    d
+    e
+    v
+    i
+    c
+    e
+    ,
+    s
+    u
+    c
+    h
+    a
+    s
+    a
+    w
+    a
+    l
+    k
+    e
+    r
+    .
+    
     """
     
     resource_type = "DeviceRequest"
@@ -26,102 +174,851 @@ class DeviceRequest(domainresource.DomainResource):
         """
         
         self.authoredOn = None
-        """ When recorded.
+        """ 
+        W
+        h
+        e
+        n
+        r
+        e
+        c
+        o
+        r
+        d
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.basedOn = None
-        """ What request fulfills.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        a
+        t
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        f
+        u
+        l
+        f
+        i
+        l
+        l
+        s
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.codeCodeableConcept = None
-        """ Device requested.
+        """ 
+        D
+        e
+        v
+        i
+        c
+        e
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        e
+        d
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.codeReference = None
-        """ Device requested.
-        Type `FHIRReference` referencing `Device` (represented as `dict` in JSON). """
+        """ 
+        D
+        e
+        v
+        i
+        c
+        e
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        e
+        d
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.context = None
-        """ Encounter or Episode motivating request.
-        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
-        
-        self.definition = None
-        """ Protocol or definition.
-        List of `FHIRReference` items referencing `ActivityDefinition, PlanDefinition` (represented as `dict` in JSON). """
+        self.encounter = None
+        """ 
+        E
+        n
+        c
+        o
+        u
+        n
+        t
+        e
+        r
+        m
+        o
+        t
+        i
+        v
+        a
+        t
+        i
+        n
+        g
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.groupIdentifier = None
-        """ Identifier of composite request.
+        """ 
+        I
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        o
+        f
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        e
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ External Request identifier.
+        """ 
+        E
+        x
+        t
+        e
+        r
+        n
+        a
+        l
+        R
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.instantiatesCanonical = None
+        """ 
+        I
+        n
+        s
+        t
+        a
+        n
+        t
+        i
+        a
+        t
+        e
+        s
+        F
+        H
+        I
+        R
+        p
+        r
+        o
+        t
+        o
+        c
+        o
+        l
+        o
+        r
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
+        List of `str` items. """
+        
+        self.instantiatesUri = None
+        """ 
+        I
+        n
+        s
+        t
+        a
+        n
+        t
+        i
+        a
+        t
+        e
+        s
+        e
+        x
+        t
+        e
+        r
+        n
+        a
+        l
+        p
+        r
+        o
+        t
+        o
+        c
+        o
+        l
+        o
+        r
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
+        List of `str` items. """
+        
+        self.insurance = None
+        """ 
+        A
+        s
+        s
+        o
+        c
+        i
+        a
+        t
+        e
+        d
+        i
+        n
+        s
+        u
+        r
+        a
+        n
+        c
+        e
+        c
+        o
+        v
+        e
+        r
+        a
+        g
+        e
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
         self.intent = None
-        """ proposal | plan | original-order | encoded | reflex-order.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ 
+        p
+        r
+        o
+        p
+        o
+        s
+        a
+        l
+        |
+        p
+        l
+        a
+        n
+        |
+        o
+        r
+        i
+        g
+        i
+        n
+        a
+        l
+        -
+        o
+        r
+        d
+        e
+        r
+        |
+        e
+        n
+        c
+        o
+        d
+        e
+        d
+        |
+        r
+        e
+        f
+        l
+        e
+        x
+        -
+        o
+        r
+        d
+        e
+        r
+        .
+        Type `str`. """
         
         self.note = None
-        """ Notes or comments.
+        """ 
+        N
+        o
+        t
+        e
+        s
+        o
+        r
+        c
+        o
+        m
+        m
+        e
+        n
+        t
+        s
+        .
         List of `Annotation` items (represented as `dict` in JSON). """
         
         self.occurrenceDateTime = None
-        """ Desired time or schedule for use.
+        """ 
+        D
+        e
+        s
+        i
+        r
+        e
+        d
+        t
+        i
+        m
+        e
+        o
+        r
+        s
+        c
+        h
+        e
+        d
+        u
+        l
+        e
+        f
+        o
+        r
+        u
+        s
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
-        """ Desired time or schedule for use.
+        """ 
+        D
+        e
+        s
+        i
+        r
+        e
+        d
+        t
+        i
+        m
+        e
+        o
+        r
+        s
+        c
+        h
+        e
+        d
+        u
+        l
+        e
+        f
+        o
+        r
+        u
+        s
+        e
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.occurrenceTiming = None
-        """ Desired time or schedule for use.
+        """ 
+        D
+        e
+        s
+        i
+        r
+        e
+        d
+        t
+        i
+        m
+        e
+        o
+        r
+        s
+        c
+        h
+        e
+        d
+        u
+        l
+        e
+        f
+        o
+        r
+        u
+        s
+        e
+        .
         Type `Timing` (represented as `dict` in JSON). """
         
+        self.parameter = None
+        """ 
+        D
+        e
+        v
+        i
+        c
+        e
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        .
+        List of `DeviceRequestParameter` items (represented as `dict` in JSON). """
+        
         self.performer = None
-        """ Requested Filler.
-        Type `FHIRReference` referencing `Practitioner, Organization, Patient, Device, RelatedPerson, HealthcareService` (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        q
+        u
+        e
+        s
+        t
+        e
+        d
+        F
+        i
+        l
+        l
+        e
+        r
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.performerType = None
-        """ Fille role.
+        """ 
+        F
+        i
+        l
+        l
+        e
+        r
+        r
+        o
+        l
+        e
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.priorRequest = None
-        """ What request replaces.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        a
+        t
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        r
+        e
+        p
+        l
+        a
+        c
+        e
+        s
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.priority = None
-        """ Indicates how quickly the {{title}} should be addressed with
-        respect to other requests.
+        """ 
+        I
+        n
+        d
+        i
+        c
+        a
+        t
+        e
+        s
+        h
+        o
+        w
+        q
+        u
+        i
+        c
+        k
+        l
+        y
+        t
+        h
+        e
+        {
+        {
+        t
+        i
+        t
+        l
+        e
+        }
+        }
+        s
+        h
+        o
+        u
+        l
+        d
+        b
+        e
+        a
+        d
+        d
+        r
+        e
+        s
+        s
+        e
+        d
+        w
+        i
+        t
+        h
+        r
+        e
+        s
+        p
+        e
+        c
+        t
+        t
+        o
+        o
+        t
+        h
+        e
+        r
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        s
+        .
         Type `str`. """
         
         self.reasonCode = None
-        """ Coded Reason for request.
+        """ 
+        C
+        o
+        d
+        e
+        d
+        R
+        e
+        a
+        s
+        o
+        n
+        f
+        o
+        r
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonReference = None
-        """ Linked Reason for request.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        L
+        i
+        n
+        k
+        e
+        d
+        R
+        e
+        a
+        s
+        o
+        n
+        f
+        o
+        r
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.relevantHistory = None
-        """ Request provenance.
-        List of `FHIRReference` items referencing `Provenance` (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        q
+        u
+        e
+        s
+        t
+        p
+        r
+        o
+        v
+        e
+        n
+        a
+        n
+        c
+        e
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.requester = None
-        """ Who/what is requesting diagnostics.
-        Type `DeviceRequestRequester` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        /
+        w
+        h
+        a
+        t
+        i
+        s
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        n
+        g
+        d
+        i
+        a
+        g
+        n
+        o
+        s
+        t
+        i
+        c
+        s
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | suspended | completed | entered-in-error |
-        cancelled.
+        """ 
+        d
+        r
+        a
+        f
+        t
+        |
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        s
+        u
+        s
+        p
+        e
+        n
+        d
+        e
+        d
+        |
+        c
+        o
+        m
+        p
+        l
+        e
+        t
+        e
+        d
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        |
+        c
+        a
+        n
+        c
+        e
+        l
+        l
+        e
+        d
+        .
         Type `str`. """
         
         self.subject = None
-        """ Focus of request.
-        Type `FHIRReference` referencing `Patient, Group, Location, Device` (represented as `dict` in JSON). """
+        """ 
+        F
+        o
+        c
+        u
+        s
+        o
+        f
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.supportingInfo = None
-        """ Additional clinical information.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        c
+        l
+        i
+        n
+        i
+        c
+        a
+        l
+        i
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(DeviceRequest, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -132,15 +1029,18 @@ class DeviceRequest(domainresource.DomainResource):
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("codeCodeableConcept", "codeCodeableConcept", codeableconcept.CodeableConcept, False, "code", True),
             ("codeReference", "codeReference", fhirreference.FHIRReference, False, "code", True),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("definition", "definition", fhirreference.FHIRReference, True, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("intent", "intent", codeableconcept.CodeableConcept, False, None, True),
+            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
+            ("instantiatesUri", "instantiatesUri", str, True, None, False),
+            ("insurance", "insurance", fhirreference.FHIRReference, True, None, False),
+            ("intent", "intent", str, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
+            ("parameter", "parameter", DeviceRequestParameter, True, None, False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("performerType", "performerType", codeableconcept.CodeableConcept, False, None, False),
             ("priorRequest", "priorRequest", fhirreference.FHIRReference, True, None, False),
@@ -148,7 +1048,7 @@ class DeviceRequest(domainresource.DomainResource):
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False),
-            ("requester", "requester", DeviceRequestRequester, False, None, False),
+            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
@@ -158,14 +1058,98 @@ class DeviceRequest(domainresource.DomainResource):
 
 from . import backboneelement
 
-class DeviceRequestRequester(backboneelement.BackboneElement):
-    """ Who/what is requesting diagnostics.
+class DeviceRequestParameter(backboneelement.BackboneElement):
+    """ 
+    D
+    e
+    v
+    i
+    c
+    e
+    d
+    e
+    t
+    a
+    i
+    l
+    s
+    .
     
-    The individual who initiated the request and has responsibility for its
-    activation.
+    
+    S
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    p
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    s
+    f
+    o
+    r
+    t
+    h
+    e
+    o
+    r
+    d
+    e
+    r
+    e
+    d
+    i
+    t
+    e
+    m
+    .
+    F
+    o
+    r
+    e
+    x
+    a
+    m
+    p
+    l
+    e
+    ,
+    t
+    h
+    e
+    p
+    r
+    i
+    s
+    m
+    v
+    a
+    l
+    u
+    e
+    f
+    o
+    r
+    l
+    e
+    n
+    s
+    e
+    s
+    .
+    
     """
     
-    resource_type = "DeviceRequestRequester"
+    resource_type = "DeviceRequestParameter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -175,21 +1159,105 @@ class DeviceRequestRequester(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.agent = None
-        """ Individual making the request.
-        Type `FHIRReference` referencing `Device, Practitioner, Organization` (represented as `dict` in JSON). """
+        self.code = None
+        """ 
+        D
+        e
+        v
+        i
+        c
+        e
+        d
+        e
+        t
+        a
+        i
+        l
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.onBehalfOf = None
-        """ Organization agent is acting for.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        self.valueBoolean = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        d
+        e
+        t
+        a
+        i
+        l
+        .
+        Type `bool`. """
         
-        super(DeviceRequestRequester, self).__init__(jsondict=jsondict, strict=strict)
+        self.valueCodeableConcept = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        d
+        e
+        t
+        a
+        i
+        l
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.valueQuantity = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        d
+        e
+        t
+        a
+        i
+        l
+        .
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.valueRange = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        d
+        e
+        t
+        a
+        i
+        l
+        .
+        Type `Range` (represented as `dict` in JSON). """
+        
+        super(DeviceRequestParameter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(DeviceRequestRequester, self).elementProperties()
+        js = super(DeviceRequestParameter, self).elementProperties()
         js.extend([
-            ("agent", "agent", fhirreference.FHIRReference, False, None, True),
-            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("valueBoolean", "valueBoolean", bool, False, "value", False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
+            ("valueRange", "valueRange", range.Range, False, "value", False),
         ])
         return js
 
@@ -219,6 +1287,14 @@ try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']
+try:
+    from . import range
+except ImportError:
+    range = sys.modules[__package__ + '.range']
 try:
     from . import timing
 except ImportError:

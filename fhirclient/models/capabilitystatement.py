@@ -1,18 +1,250 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class CapabilityStatement(domainresource.DomainResource):
-    """ A statement of system capabilities.
+    """ 
+    A
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    o
+    f
+    s
+    y
+    s
+    t
+    e
+    m
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    i
+    e
+    s
+    .
     
-    A Capability Statement documents a set of capabilities (behaviors) of a
-    FHIR Server that may be used as a statement of actual server functionality
-    or a statement of required or desired server implementation.
+    
+    A
+    C
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    y
+    S
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    s
+    a
+    s
+    e
+    t
+    o
+    f
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    i
+    e
+    s
+    (
+    b
+    e
+    h
+    a
+    v
+    i
+    o
+    r
+    s
+    )
+    o
+    f
+    a
+    F
+    H
+    I
+    R
+    S
+    e
+    r
+    v
+    e
+    r
+    f
+    o
+    r
+    a
+    p
+    a
+    r
+    t
+    i
+    c
+    u
+    l
+    a
+    r
+    v
+    e
+    r
+    s
+    i
+    o
+    n
+    o
+    f
+    F
+    H
+    I
+    R
+    t
+    h
+    a
+    t
+    m
+    a
+    y
+    b
+    e
+    u
+    s
+    e
+    d
+    a
+    s
+    a
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    o
+    f
+    a
+    c
+    t
+    u
+    a
+    l
+    s
+    e
+    r
+    v
+    e
+    r
+    f
+    u
+    n
+    c
+    t
+    i
+    o
+    n
+    a
+    l
+    i
+    t
+    y
+    o
+    r
+    a
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    o
+    f
+    r
+    e
+    q
+    u
+    i
+    r
+    e
+    d
+    o
+    r
+    d
+    e
+    s
+    i
+    r
+    e
+    d
+    s
+    e
+    r
+    v
+    e
+    r
+    i
+    m
+    p
+    l
+    e
+    m
+    e
+    n
+    t
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "CapabilityStatement"
@@ -25,113 +257,1104 @@ class CapabilityStatement(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.acceptUnknown = None
-        """ no | extensions | elements | both.
-        Type `str`. """
-        
         self.contact = None
-        """ Contact details for the publisher.
+        """ 
+        C
+        o
+        n
+        t
+        a
+        c
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        .
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.copyright = None
-        """ Use and/or publishing restrictions.
+        """ 
+        U
+        s
+        e
+        a
+        n
+        d
+        /
+        o
+        r
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        i
+        n
+        g
+        r
+        e
+        s
+        t
+        r
+        i
+        c
+        t
+        i
+        o
+        n
+        s
+        .
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ 
+        D
+        a
+        t
+        e
+        l
+        a
+        s
+        t
+        c
+        h
+        a
+        n
+        g
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Natural language description of the capability statement.
+        """ 
+        N
+        a
+        t
+        u
+        r
+        a
+        l
+        l
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        .
         Type `str`. """
         
         self.document = None
-        """ Document definition.
+        """ 
+        D
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
         List of `CapabilityStatementDocument` items (represented as `dict` in JSON). """
         
         self.experimental = None
-        """ For testing purposes, not real usage.
+        """ 
+        F
+        o
+        r
+        t
+        e
+        s
+        t
+        i
+        n
+        g
+        p
+        u
+        r
+        p
+        o
+        s
+        e
+        s
+        ,
+        n
+        o
+        t
+        r
+        e
+        a
+        l
+        u
+        s
+        a
+        g
+        e
+        .
         Type `bool`. """
         
         self.fhirVersion = None
-        """ FHIR Version the system uses.
+        """ 
+        F
+        H
+        I
+        R
+        V
+        e
+        r
+        s
+        i
+        o
+        n
+        t
+        h
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        s
+        .
         Type `str`. """
         
         self.format = None
-        """ formats supported (xml | json | ttl | mime type).
+        """ 
+        f
+        o
+        r
+        m
+        a
+        t
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        (
+        x
+        m
+        l
+        |
+        j
+        s
+        o
+        n
+        |
+        t
+        t
+        l
+        |
+        m
+        i
+        m
+        e
+        t
+        y
+        p
+        e
+        )
+        .
         List of `str` items. """
         
         self.implementation = None
-        """ If this describes a specific instance.
+        """ 
+        I
+        f
+        t
+        h
+        i
+        s
+        d
+        e
+        s
+        c
+        r
+        i
+        b
+        e
+        s
+        a
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `CapabilityStatementImplementation` (represented as `dict` in JSON). """
         
         self.implementationGuide = None
-        """ Implementation guides supported.
+        """ 
+        I
+        m
+        p
+        l
+        e
+        m
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        g
+        u
+        i
+        d
+        e
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        .
+        List of `str` items. """
+        
+        self.imports = None
+        """ 
+        C
+        a
+        n
+        o
+        n
+        i
+        c
+        a
+        l
+        U
+        R
+        L
+        o
+        f
+        a
+        n
+        o
+        t
+        h
+        e
+        r
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        t
+        h
+        i
+        s
+        a
+        d
+        d
+        s
+        t
+        o
+        .
         List of `str` items. """
         
         self.instantiates = None
-        """ Canonical URL of another capability statement this implements.
+        """ 
+        C
+        a
+        n
+        o
+        n
+        i
+        c
+        a
+        l
+        U
+        R
+        L
+        o
+        f
+        a
+        n
+        o
+        t
+        h
+        e
+        r
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        t
+        h
+        i
+        s
+        i
+        m
+        p
+        l
+        e
+        m
+        e
+        n
+        t
+        s
+        .
         List of `str` items. """
         
         self.jurisdiction = None
-        """ Intended jurisdiction for capability statement (if applicable).
+        """ 
+        I
+        n
+        t
+        e
+        n
+        d
+        e
+        d
+        j
+        u
+        r
+        i
+        s
+        d
+        i
+        c
+        t
+        i
+        o
+        n
+        f
+        o
+        r
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        (
+        i
+        f
+        a
+        p
+        p
+        l
+        i
+        c
+        a
+        b
+        l
+        e
+        )
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.kind = None
-        """ instance | capability | requirements.
+        """ 
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        |
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        |
+        r
+        e
+        q
+        u
+        i
+        r
+        e
+        m
+        e
+        n
+        t
+        s
+        .
         Type `str`. """
         
         self.messaging = None
-        """ If messaging is supported.
+        """ 
+        I
+        f
+        m
+        e
+        s
+        s
+        a
+        g
+        i
+        n
+        g
+        i
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        .
         List of `CapabilityStatementMessaging` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name for this capability statement (computer friendly).
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        (
+        c
+        o
+        m
+        p
+        u
+        t
+        e
+        r
+        f
+        r
+        i
+        e
+        n
+        d
+        l
+        y
+        )
+        .
         Type `str`. """
         
         self.patchFormat = None
-        """ Patch formats supported.
+        """ 
+        P
+        a
+        t
+        c
+        h
+        f
+        o
+        r
+        m
+        a
+        t
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        .
         List of `str` items. """
         
-        self.profile = None
-        """ Profiles for use cases supported.
-        List of `FHIRReference` items referencing `StructureDefinition` (represented as `dict` in JSON). """
-        
         self.publisher = None
-        """ Name of the publisher (organization or individual).
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        (
+        o
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        o
+        r
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        )
+        .
         Type `str`. """
         
         self.purpose = None
-        """ Why this capability statement is defined.
+        """ 
+        W
+        h
+        y
+        t
+        h
+        i
+        s
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        i
+        s
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        .
         Type `str`. """
         
         self.rest = None
-        """ If the endpoint is a RESTful one.
+        """ 
+        I
+        f
+        t
+        h
+        e
+        e
+        n
+        d
+        p
+        o
+        i
+        n
+        t
+        i
+        s
+        a
+        R
+        E
+        S
+        T
+        f
+        u
+        l
+        o
+        n
+        e
+        .
         List of `CapabilityStatementRest` items (represented as `dict` in JSON). """
         
         self.software = None
-        """ Software that is covered by this capability statement.
+        """ 
+        S
+        o
+        f
+        t
+        w
+        a
+        r
+        e
+        t
+        h
+        a
+        t
+        i
+        s
+        c
+        o
+        v
+        e
+        r
+        e
+        d
+        b
+        y
+        t
+        h
+        i
+        s
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        .
         Type `CapabilityStatementSoftware` (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | retired | unknown.
+        """ 
+        d
+        r
+        a
+        f
+        t
+        |
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        r
+        e
+        t
+        i
+        r
+        e
+        d
+        |
+        u
+        n
+        k
+        n
+        o
+        w
+        n
+        .
         Type `str`. """
         
         self.title = None
-        """ Name for this capability statement (human friendly).
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        (
+        h
+        u
+        m
+        a
+        n
+        f
+        r
+        i
+        e
+        n
+        d
+        l
+        y
+        )
+        .
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this capability statement (globally
-        unique).
+        """ 
+        C
+        a
+        n
+        o
+        n
+        i
+        c
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        ,
+        r
+        e
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        e
+        d
+        a
+        s
+        a
+        U
+        R
+        I
+        (
+        g
+        l
+        o
+        b
+        a
+        l
+        l
+        y
+        u
+        n
+        i
+        q
+        u
+        e
+        )
+        .
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ 
+        T
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        x
+        t
+        t
+        h
+        a
+        t
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        i
+        s
+        i
+        n
+        t
+        e
+        n
+        d
+        e
+        d
+        t
+        o
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        .
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Business version of the capability statement.
+        """ 
+        B
+        u
+        s
+        i
+        n
+        e
+        s
+        s
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        .
         Type `str`. """
         
         super(CapabilityStatement, self).__init__(jsondict=jsondict, strict=strict)
@@ -139,7 +1362,6 @@ class CapabilityStatement(domainresource.DomainResource):
     def elementProperties(self):
         js = super(CapabilityStatement, self).elementProperties()
         js.extend([
-            ("acceptUnknown", "acceptUnknown", str, False, None, True),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, True),
@@ -150,13 +1372,13 @@ class CapabilityStatement(domainresource.DomainResource):
             ("format", "format", str, True, None, True),
             ("implementation", "implementation", CapabilityStatementImplementation, False, None, False),
             ("implementationGuide", "implementationGuide", str, True, None, False),
+            ("imports", "imports", str, True, None, False),
             ("instantiates", "instantiates", str, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("kind", "kind", str, False, None, True),
             ("messaging", "messaging", CapabilityStatementMessaging, True, None, False),
             ("name", "name", str, False, None, False),
             ("patchFormat", "patchFormat", str, True, None, False),
-            ("profile", "profile", fhirreference.FHIRReference, True, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
             ("rest", "rest", CapabilityStatementRest, True, None, False),
@@ -173,9 +1395,49 @@ class CapabilityStatement(domainresource.DomainResource):
 from . import backboneelement
 
 class CapabilityStatementDocument(backboneelement.BackboneElement):
-    """ Document definition.
+    """ 
+    D
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    .
     
-    A document definition.
+    
+    A
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "CapabilityStatementDocument"
@@ -189,16 +1451,105 @@ class CapabilityStatementDocument(backboneelement.BackboneElement):
         """
         
         self.documentation = None
-        """ Description of document support.
+        """ 
+        D
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        .
         Type `str`. """
         
         self.mode = None
-        """ producer | consumer.
+        """ 
+        p
+        r
+        o
+        d
+        u
+        c
+        e
+        r
+        |
+        c
+        o
+        n
+        s
+        u
+        m
+        e
+        r
+        .
         Type `str`. """
         
         self.profile = None
-        """ Constraint on a resource used in the document.
-        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
+        """ 
+        C
+        o
+        n
+        s
+        t
+        r
+        a
+        i
+        n
+        t
+        o
+        n
+        t
+        h
+        e
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        s
+        u
+        s
+        e
+        d
+        i
+        n
+        t
+        h
+        e
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        .
+        Type `str`. """
         
         super(CapabilityStatementDocument, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -207,17 +1558,202 @@ class CapabilityStatementDocument(backboneelement.BackboneElement):
         js.extend([
             ("documentation", "documentation", str, False, None, False),
             ("mode", "mode", str, False, None, True),
-            ("profile", "profile", fhirreference.FHIRReference, False, None, True),
+            ("profile", "profile", str, False, None, True),
         ])
         return js
 
 
 class CapabilityStatementImplementation(backboneelement.BackboneElement):
-    """ If this describes a specific instance.
+    """ 
+    I
+    f
+    t
+    h
+    i
+    s
+    d
+    e
+    s
+    c
+    r
+    i
+    b
+    e
+    s
+    a
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    i
+    n
+    s
+    t
+    a
+    n
+    c
+    e
+    .
     
-    Identifies a specific implementation instance that is described by the
-    capability statement - i.e. a particular installation, rather than the
-    capabilities of a software program.
+    
+    I
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    s
+    a
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    i
+    m
+    p
+    l
+    e
+    m
+    e
+    n
+    t
+    a
+    t
+    i
+    o
+    n
+    i
+    n
+    s
+    t
+    a
+    n
+    c
+    e
+    t
+    h
+    a
+    t
+    i
+    s
+    d
+    e
+    s
+    c
+    r
+    i
+    b
+    e
+    d
+    b
+    y
+    t
+    h
+    e
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    y
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    -
+    i
+    .
+    e
+    .
+    a
+    p
+    a
+    r
+    t
+    i
+    c
+    u
+    l
+    a
+    r
+    i
+    n
+    s
+    t
+    a
+    l
+    l
+    a
+    t
+    i
+    o
+    n
+    ,
+    r
+    a
+    t
+    h
+    e
+    r
+    t
+    h
+    a
+    n
+    t
+    h
+    e
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    i
+    e
+    s
+    o
+    f
+    a
+    s
+    o
+    f
+    t
+    w
+    a
+    r
+    e
+    p
+    r
+    o
+    g
+    r
+    a
+    m
+    .
+    
     """
     
     resource_type = "CapabilityStatementImplementation"
@@ -230,12 +1766,103 @@ class CapabilityStatementImplementation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.custodian = None
+        """ 
+        O
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        t
+        h
+        a
+        t
+        m
+        a
+        n
+        a
+        g
+        e
+        s
+        t
+        h
+        e
+        d
+        a
+        t
+        a
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
         self.description = None
-        """ Describes this specific instance.
+        """ 
+        D
+        e
+        s
+        c
+        r
+        i
+        b
+        e
+        s
+        t
+        h
+        i
+        s
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `str`. """
         
         self.url = None
-        """ Base URL for the installation.
+        """ 
+        B
+        a
+        s
+        e
+        U
+        R
+        L
+        f
+        o
+        r
+        t
+        h
+        e
+        i
+        n
+        s
+        t
+        a
+        l
+        l
+        a
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         super(CapabilityStatementImplementation, self).__init__(jsondict=jsondict, strict=strict)
@@ -243,6 +1870,7 @@ class CapabilityStatementImplementation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CapabilityStatementImplementation, self).elementProperties()
         js.extend([
+            ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, True),
             ("url", "url", str, False, None, False),
         ])
@@ -250,9 +1878,85 @@ class CapabilityStatementImplementation(backboneelement.BackboneElement):
 
 
 class CapabilityStatementMessaging(backboneelement.BackboneElement):
-    """ If messaging is supported.
+    """ 
+    I
+    f
+    m
+    e
+    s
+    s
+    a
+    g
+    i
+    n
+    g
+    i
+    s
+    s
+    u
+    p
+    p
+    o
+    r
+    t
+    e
+    d
+    .
     
-    A description of the messaging capabilities of the solution.
+    
+    A
+    d
+    e
+    s
+    c
+    r
+    i
+    p
+    t
+    i
+    o
+    n
+    o
+    f
+    t
+    h
+    e
+    m
+    e
+    s
+    s
+    a
+    g
+    i
+    n
+    g
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    i
+    e
+    s
+    o
+    f
+    t
+    h
+    e
+    s
+    o
+    l
+    u
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "CapabilityStatementMessaging"
@@ -266,23 +1970,141 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
         """
         
         self.documentation = None
-        """ Messaging interface behavior details.
+        """ 
+        M
+        e
+        s
+        s
+        a
+        g
+        i
+        n
+        g
+        i
+        n
+        t
+        e
+        r
+        f
+        a
+        c
+        e
+        b
+        e
+        h
+        a
+        v
+        i
+        o
+        r
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        .
         Type `str`. """
         
         self.endpoint = None
-        """ Where messages should be sent.
+        """ 
+        W
+        h
+        e
+        r
+        e
+        m
+        e
+        s
+        s
+        a
+        g
+        e
+        s
+        s
+        h
+        o
+        u
+        l
+        d
+        b
+        e
+        s
+        e
+        n
+        t
+        .
         List of `CapabilityStatementMessagingEndpoint` items (represented as `dict` in JSON). """
         
-        self.event = None
-        """ Declare support for this event.
-        List of `CapabilityStatementMessagingEvent` items (represented as `dict` in JSON). """
-        
         self.reliableCache = None
-        """ Reliable Message Cache Length (min).
+        """ 
+        R
+        e
+        l
+        i
+        a
+        b
+        l
+        e
+        M
+        e
+        s
+        s
+        a
+        g
+        e
+        C
+        a
+        c
+        h
+        e
+        L
+        e
+        n
+        g
+        t
+        h
+        (
+        m
+        i
+        n
+        )
+        .
         Type `int`. """
         
         self.supportedMessage = None
-        """ Messages supported by this system.
+        """ 
+        M
+        e
+        s
+        s
+        a
+        g
+        e
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        b
+        y
+        t
+        h
+        i
+        s
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         List of `CapabilityStatementMessagingSupportedMessage` items (represented as `dict` in JSON). """
         
         super(CapabilityStatementMessaging, self).__init__(jsondict=jsondict, strict=strict)
@@ -292,7 +2114,6 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
         js.extend([
             ("documentation", "documentation", str, False, None, False),
             ("endpoint", "endpoint", CapabilityStatementMessagingEndpoint, True, None, False),
-            ("event", "event", CapabilityStatementMessagingEvent, True, None, False),
             ("reliableCache", "reliableCache", int, False, None, False),
             ("supportedMessage", "supportedMessage", CapabilityStatementMessagingSupportedMessage, True, None, False),
         ])
@@ -300,10 +2121,112 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
 
 
 class CapabilityStatementMessagingEndpoint(backboneelement.BackboneElement):
-    """ Where messages should be sent.
+    """ 
+    W
+    h
+    e
+    r
+    e
+    m
+    e
+    s
+    s
+    a
+    g
+    e
+    s
+    s
+    h
+    o
+    u
+    l
+    d
+    b
+    e
+    s
+    e
+    n
+    t
+    .
     
-    An endpoint (network accessible address) to which messages and/or replies
-    are to be sent.
+    
+    A
+    n
+    e
+    n
+    d
+    p
+    o
+    i
+    n
+    t
+    (
+    n
+    e
+    t
+    w
+    o
+    r
+    k
+    a
+    c
+    c
+    e
+    s
+    s
+    i
+    b
+    l
+    e
+    a
+    d
+    d
+    r
+    e
+    s
+    s
+    )
+    t
+    o
+    w
+    h
+    i
+    c
+    h
+    m
+    e
+    s
+    s
+    a
+    g
+    e
+    s
+    a
+    n
+    d
+    /
+    o
+    r
+    r
+    e
+    p
+    l
+    i
+    e
+    s
+    a
+    r
+    e
+    t
+    o
+    b
+    e
+    s
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "CapabilityStatementMessagingEndpoint"
@@ -317,11 +2240,67 @@ class CapabilityStatementMessagingEndpoint(backboneelement.BackboneElement):
         """
         
         self.address = None
-        """ Network address or identifier of the end-point.
+        """ 
+        N
+        e
+        t
+        w
+        o
+        r
+        k
+        a
+        d
+        d
+        r
+        e
+        s
+        s
+        o
+        r
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        o
+        f
+        t
+        h
+        e
+        e
+        n
+        d
+        -
+        p
+        o
+        i
+        n
+        t
+        .
         Type `str`. """
         
         self.protocol = None
-        """ http | ftp | mllp +.
+        """ 
+        h
+        t
+        t
+        p
+        |
+        f
+        t
+        p
+        |
+        m
+        l
+        l
+        p
+        +
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         super(CapabilityStatementMessagingEndpoint, self).__init__(jsondict=jsondict, strict=strict)
@@ -335,71 +2314,109 @@ class CapabilityStatementMessagingEndpoint(backboneelement.BackboneElement):
         return js
 
 
-class CapabilityStatementMessagingEvent(backboneelement.BackboneElement):
-    """ Declare support for this event.
-    
-    A description of the solution's support for an event at this end-point.
-    """
-    
-    resource_type = "CapabilityStatementMessagingEvent"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.category = None
-        """ Consequence | Currency | Notification.
-        Type `str`. """
-        
-        self.code = None
-        """ Event type.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.documentation = None
-        """ Endpoint-specific event documentation.
-        Type `str`. """
-        
-        self.focus = None
-        """ Resource that's focus of message.
-        Type `str`. """
-        
-        self.mode = None
-        """ sender | receiver.
-        Type `str`. """
-        
-        self.request = None
-        """ Profile that describes the request.
-        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
-        
-        self.response = None
-        """ Profile that describes the response.
-        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
-        
-        super(CapabilityStatementMessagingEvent, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(CapabilityStatementMessagingEvent, self).elementProperties()
-        js.extend([
-            ("category", "category", str, False, None, False),
-            ("code", "code", coding.Coding, False, None, True),
-            ("documentation", "documentation", str, False, None, False),
-            ("focus", "focus", str, False, None, True),
-            ("mode", "mode", str, False, None, True),
-            ("request", "request", fhirreference.FHIRReference, False, None, True),
-            ("response", "response", fhirreference.FHIRReference, False, None, True),
-        ])
-        return js
-
-
 class CapabilityStatementMessagingSupportedMessage(backboneelement.BackboneElement):
-    """ Messages supported by this system.
+    """ 
+    M
+    e
+    s
+    s
+    a
+    g
+    e
+    s
+    s
+    u
+    p
+    p
+    o
+    r
+    t
+    e
+    d
+    b
+    y
+    t
+    h
+    i
+    s
+    s
+    y
+    s
+    t
+    e
+    m
+    .
     
-    References to message definitions for messages this system can send or
-    receive.
+    
+    R
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    s
+    t
+    o
+    m
+    e
+    s
+    s
+    a
+    g
+    e
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    s
+    f
+    o
+    r
+    m
+    e
+    s
+    s
+    a
+    g
+    e
+    s
+    t
+    h
+    i
+    s
+    s
+    y
+    s
+    t
+    e
+    m
+    c
+    a
+    n
+    s
+    e
+    n
+    d
+    o
+    r
+    r
+    e
+    c
+    e
+    i
+    v
+    e
+    .
+    
     """
     
     resource_type = "CapabilityStatementMessagingSupportedMessage"
@@ -413,11 +2430,56 @@ class CapabilityStatementMessagingSupportedMessage(backboneelement.BackboneEleme
         """
         
         self.definition = None
-        """ Message supported by this system.
-        Type `FHIRReference` referencing `MessageDefinition` (represented as `dict` in JSON). """
+        """ 
+        M
+        e
+        s
+        s
+        a
+        g
+        e
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        b
+        y
+        t
+        h
+        i
+        s
+        s
+        y
+        s
+        t
+        e
+        m
+        .
+        Type `str`. """
         
         self.mode = None
-        """ sender | receiver.
+        """ 
+        s
+        e
+        n
+        d
+        e
+        r
+        |
+        r
+        e
+        c
+        e
+        i
+        v
+        e
+        r
+        .
         Type `str`. """
         
         super(CapabilityStatementMessagingSupportedMessage, self).__init__(jsondict=jsondict, strict=strict)
@@ -425,16 +2487,99 @@ class CapabilityStatementMessagingSupportedMessage(backboneelement.BackboneEleme
     def elementProperties(self):
         js = super(CapabilityStatementMessagingSupportedMessage, self).elementProperties()
         js.extend([
-            ("definition", "definition", fhirreference.FHIRReference, False, None, True),
+            ("definition", "definition", str, False, None, True),
             ("mode", "mode", str, False, None, True),
         ])
         return js
 
 
 class CapabilityStatementRest(backboneelement.BackboneElement):
-    """ If the endpoint is a RESTful one.
+    """ 
+    I
+    f
+    t
+    h
+    e
+    e
+    n
+    d
+    p
+    o
+    i
+    n
+    t
+    i
+    s
+    a
+    R
+    E
+    S
+    T
+    f
+    u
+    l
+    o
+    n
+    e
+    .
     
-    A definition of the restful capabilities of the solution, if any.
+    
+    A
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    o
+    f
+    t
+    h
+    e
+    r
+    e
+    s
+    t
+    f
+    u
+    l
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    i
+    e
+    s
+    o
+    f
+    t
+    h
+    e
+    s
+    o
+    l
+    u
+    t
+    i
+    o
+    n
+    ,
+    i
+    f
+    a
+    n
+    y
+    .
+    
     """
     
     resource_type = "CapabilityStatementRest"
@@ -448,35 +2593,293 @@ class CapabilityStatementRest(backboneelement.BackboneElement):
         """
         
         self.compartment = None
-        """ Compartments served/used by system.
+        """ 
+        C
+        o
+        m
+        p
+        a
+        r
+        t
+        m
+        e
+        n
+        t
+        s
+        s
+        e
+        r
+        v
+        e
+        d
+        /
+        u
+        s
+        e
+        d
+        b
+        y
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         List of `str` items. """
         
         self.documentation = None
-        """ General description of implementation.
+        """ 
+        G
+        e
+        n
+        e
+        r
+        a
+        l
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        i
+        m
+        p
+        l
+        e
+        m
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.interaction = None
-        """ What operations are supported?.
+        """ 
+        W
+        h
+        a
+        t
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        s
+        a
+        r
+        e
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        ?
+        .
         List of `CapabilityStatementRestInteraction` items (represented as `dict` in JSON). """
         
         self.mode = None
-        """ client | server.
+        """ 
+        c
+        l
+        i
+        e
+        n
+        t
+        |
+        s
+        e
+        r
+        v
+        e
+        r
+        .
         Type `str`. """
         
         self.operation = None
-        """ Definition of an operation or a custom query.
-        List of `CapabilityStatementRestOperation` items (represented as `dict` in JSON). """
+        """ 
+        D
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        o
+        f
+        a
+        s
+        y
+        s
+        t
+        e
+        m
+        l
+        e
+        v
+        e
+        l
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        .
+        List of `CapabilityStatementRestResourceOperation` items (represented as `dict` in JSON). """
         
         self.resource = None
-        """ Resource served on the REST interface.
+        """ 
+        R
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        s
+        e
+        r
+        v
+        e
+        d
+        o
+        n
+        t
+        h
+        e
+        R
+        E
+        S
+        T
+        i
+        n
+        t
+        e
+        r
+        f
+        a
+        c
+        e
+        .
         List of `CapabilityStatementRestResource` items (represented as `dict` in JSON). """
         
         self.searchParam = None
-        """ Search parameters for searching all resources.
+        """ 
+        S
+        e
+        a
+        r
+        c
+        h
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        s
+        f
+        o
+        r
+        s
+        e
+        a
+        r
+        c
+        h
+        i
+        n
+        g
+        a
+        l
+        l
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        s
+        .
         List of `CapabilityStatementRestResourceSearchParam` items (represented as `dict` in JSON). """
         
         self.security = None
-        """ Information about security of implementation.
+        """ 
+        I
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        a
+        b
+        o
+        u
+        t
+        s
+        e
+        c
+        u
+        r
+        i
+        t
+        y
+        o
+        f
+        i
+        m
+        p
+        l
+        e
+        m
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        .
         Type `CapabilityStatementRestSecurity` (represented as `dict` in JSON). """
         
         super(CapabilityStatementRest, self).__init__(jsondict=jsondict, strict=strict)
@@ -488,7 +2891,7 @@ class CapabilityStatementRest(backboneelement.BackboneElement):
             ("documentation", "documentation", str, False, None, False),
             ("interaction", "interaction", CapabilityStatementRestInteraction, True, None, False),
             ("mode", "mode", str, False, None, True),
-            ("operation", "operation", CapabilityStatementRestOperation, True, None, False),
+            ("operation", "operation", CapabilityStatementRestResourceOperation, True, None, False),
             ("resource", "resource", CapabilityStatementRestResource, True, None, False),
             ("searchParam", "searchParam", CapabilityStatementRestResourceSearchParam, True, None, False),
             ("security", "security", CapabilityStatementRestSecurity, False, None, False),
@@ -497,9 +2900,92 @@ class CapabilityStatementRest(backboneelement.BackboneElement):
 
 
 class CapabilityStatementRestInteraction(backboneelement.BackboneElement):
-    """ What operations are supported?.
+    """ 
+    W
+    h
+    a
+    t
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    s
+    a
+    r
+    e
+    s
+    u
+    p
+    p
+    o
+    r
+    t
+    e
+    d
+    ?
+    .
     
-    A specification of restful operations supported by the system.
+    
+    A
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    o
+    f
+    r
+    e
+    s
+    t
+    f
+    u
+    l
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    s
+    s
+    u
+    p
+    p
+    o
+    r
+    t
+    e
+    d
+    b
+    y
+    t
+    h
+    e
+    s
+    y
+    s
+    t
+    e
+    m
+    .
+    
     """
     
     resource_type = "CapabilityStatementRestInteraction"
@@ -513,11 +2999,96 @@ class CapabilityStatementRestInteraction(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ transaction | batch | search-system | history-system.
+        """ 
+        t
+        r
+        a
+        n
+        s
+        a
+        c
+        t
+        i
+        o
+        n
+        |
+        b
+        a
+        t
+        c
+        h
+        |
+        s
+        e
+        a
+        r
+        c
+        h
+        -
+        s
+        y
+        s
+        t
+        e
+        m
+        |
+        h
+        i
+        s
+        t
+        o
+        r
+        y
+        -
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         Type `str`. """
         
         self.documentation = None
-        """ Anything special about operation behavior.
+        """ 
+        A
+        n
+        y
+        t
+        h
+        i
+        n
+        g
+        s
+        p
+        e
+        c
+        i
+        a
+        l
+        a
+        b
+        o
+        u
+        t
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        b
+        e
+        h
+        a
+        v
+        i
+        o
+        r
+        .
         Type `str`. """
         
         super(CapabilityStatementRestInteraction, self).__init__(jsondict=jsondict, strict=strict)
@@ -531,47 +3102,120 @@ class CapabilityStatementRestInteraction(backboneelement.BackboneElement):
         return js
 
 
-class CapabilityStatementRestOperation(backboneelement.BackboneElement):
-    """ Definition of an operation or a custom query.
-    
-    Definition of an operation or a named query together with its parameters
-    and their meaning and type.
-    """
-    
-    resource_type = "CapabilityStatementRestOperation"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.definition = None
-        """ The defined operation/query.
-        Type `FHIRReference` referencing `OperationDefinition` (represented as `dict` in JSON). """
-        
-        self.name = None
-        """ Name by which the operation/query is invoked.
-        Type `str`. """
-        
-        super(CapabilityStatementRestOperation, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(CapabilityStatementRestOperation, self).elementProperties()
-        js.extend([
-            ("definition", "definition", fhirreference.FHIRReference, False, None, True),
-            ("name", "name", str, False, None, True),
-        ])
-        return js
-
-
 class CapabilityStatementRestResource(backboneelement.BackboneElement):
-    """ Resource served on the REST interface.
+    """ 
+    R
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    s
+    e
+    r
+    v
+    e
+    d
+    o
+    n
+    t
+    h
+    e
+    R
+    E
+    S
+    T
+    i
+    n
+    t
+    e
+    r
+    f
+    a
+    c
+    e
+    .
     
-    A specification of the restful capabilities of the solution for a specific
-    resource type.
+    
+    A
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    o
+    f
+    t
+    h
+    e
+    r
+    e
+    s
+    t
+    f
+    u
+    l
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    i
+    e
+    s
+    o
+    f
+    t
+    h
+    e
+    s
+    o
+    l
+    u
+    t
+    i
+    o
+    n
+    f
+    o
+    r
+    a
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    t
+    y
+    p
+    e
+    .
+    
     """
     
     resource_type = "CapabilityStatementRestResource"
@@ -585,64 +3229,711 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
         """
         
         self.conditionalCreate = None
-        """ If allows/uses conditional create.
+        """ 
+        I
+        f
+        a
+        l
+        l
+        o
+        w
+        s
+        /
+        u
+        s
+        e
+        s
+        c
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        c
+        r
+        e
+        a
+        t
+        e
+        .
         Type `bool`. """
         
         self.conditionalDelete = None
-        """ not-supported | single | multiple - how conditional delete is
-        supported.
+        """ 
+        n
+        o
+        t
+        -
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        |
+        s
+        i
+        n
+        g
+        l
+        e
+        |
+        m
+        u
+        l
+        t
+        i
+        p
+        l
+        e
+        -
+        h
+        o
+        w
+        c
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        d
+        e
+        l
+        e
+        t
+        e
+        i
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        .
         Type `str`. """
         
         self.conditionalRead = None
-        """ not-supported | modified-since | not-match | full-support.
+        """ 
+        n
+        o
+        t
+        -
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        |
+        m
+        o
+        d
+        i
+        f
+        i
+        e
+        d
+        -
+        s
+        i
+        n
+        c
+        e
+        |
+        n
+        o
+        t
+        -
+        m
+        a
+        t
+        c
+        h
+        |
+        f
+        u
+        l
+        l
+        -
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        .
         Type `str`. """
         
         self.conditionalUpdate = None
-        """ If allows/uses conditional update.
+        """ 
+        I
+        f
+        a
+        l
+        l
+        o
+        w
+        s
+        /
+        u
+        s
+        e
+        s
+        c
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        u
+        p
+        d
+        a
+        t
+        e
+        .
         Type `bool`. """
         
         self.documentation = None
-        """ Additional information about the use of the resource type.
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        i
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        u
+        s
+        e
+        o
+        f
+        t
+        h
+        e
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
         self.interaction = None
-        """ What operations are supported?.
+        """ 
+        W
+        h
+        a
+        t
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        s
+        a
+        r
+        e
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        ?
+        .
         List of `CapabilityStatementRestResourceInteraction` items (represented as `dict` in JSON). """
         
+        self.operation = None
+        """ 
+        D
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        o
+        f
+        a
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        .
+        List of `CapabilityStatementRestResourceOperation` items (represented as `dict` in JSON). """
+        
         self.profile = None
-        """ Base System profile for all uses of resource.
-        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
+        """ 
+        B
+        a
+        s
+        e
+        S
+        y
+        s
+        t
+        e
+        m
+        p
+        r
+        o
+        f
+        i
+        l
+        e
+        f
+        o
+        r
+        a
+        l
+        l
+        u
+        s
+        e
+        s
+        o
+        f
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        .
+        Type `str`. """
         
         self.readHistory = None
-        """ Whether vRead can return past versions.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        v
+        R
+        e
+        a
+        d
+        c
+        a
+        n
+        r
+        e
+        t
+        u
+        r
+        n
+        p
+        a
+        s
+        t
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        s
+        .
         Type `bool`. """
         
         self.referencePolicy = None
-        """ literal | logical | resolves | enforced | local.
+        """ 
+        l
+        i
+        t
+        e
+        r
+        a
+        l
+        |
+        l
+        o
+        g
+        i
+        c
+        a
+        l
+        |
+        r
+        e
+        s
+        o
+        l
+        v
+        e
+        s
+        |
+        e
+        n
+        f
+        o
+        r
+        c
+        e
+        d
+        |
+        l
+        o
+        c
+        a
+        l
+        .
         List of `str` items. """
         
         self.searchInclude = None
-        """ _include values supported by the server.
+        """ 
+        _
+        i
+        n
+        c
+        l
+        u
+        d
+        e
+        v
+        a
+        l
+        u
+        e
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        b
+        y
+        t
+        h
+        e
+        s
+        e
+        r
+        v
+        e
+        r
+        .
         List of `str` items. """
         
         self.searchParam = None
-        """ Search parameters supported by implementation.
+        """ 
+        S
+        e
+        a
+        r
+        c
+        h
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        b
+        y
+        i
+        m
+        p
+        l
+        e
+        m
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        .
         List of `CapabilityStatementRestResourceSearchParam` items (represented as `dict` in JSON). """
         
         self.searchRevInclude = None
-        """ _revinclude values supported by the server.
+        """ 
+        _
+        r
+        e
+        v
+        i
+        n
+        c
+        l
+        u
+        d
+        e
+        v
+        a
+        l
+        u
+        e
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        b
+        y
+        t
+        h
+        e
+        s
+        e
+        r
+        v
+        e
+        r
+        .
+        List of `str` items. """
+        
+        self.supportedProfile = None
+        """ 
+        P
+        r
+        o
+        f
+        i
+        l
+        e
+        s
+        f
+        o
+        r
+        u
+        s
+        e
+        c
+        a
+        s
+        e
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        .
         List of `str` items. """
         
         self.type = None
-        """ A resource type that is supported.
+        """ 
+        A
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        t
+        y
+        p
+        e
+        t
+        h
+        a
+        t
+        i
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        .
         Type `str`. """
         
         self.updateCreate = None
-        """ If update can commit to a new identity.
+        """ 
+        I
+        f
+        u
+        p
+        d
+        a
+        t
+        e
+        c
+        a
+        n
+        c
+        o
+        m
+        m
+        i
+        t
+        t
+        o
+        a
+        n
+        e
+        w
+        i
+        d
+        e
+        n
+        t
+        i
+        t
+        y
+        .
         Type `bool`. """
         
         self.versioning = None
-        """ no-version | versioned | versioned-update.
+        """ 
+        n
+        o
+        -
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        |
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        e
+        d
+        |
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        e
+        d
+        -
+        u
+        p
+        d
+        a
+        t
+        e
+        .
         Type `str`. """
         
         super(CapabilityStatementRestResource, self).__init__(jsondict=jsondict, strict=strict)
@@ -655,13 +3946,15 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
             ("conditionalRead", "conditionalRead", str, False, None, False),
             ("conditionalUpdate", "conditionalUpdate", bool, False, None, False),
             ("documentation", "documentation", str, False, None, False),
-            ("interaction", "interaction", CapabilityStatementRestResourceInteraction, True, None, True),
-            ("profile", "profile", fhirreference.FHIRReference, False, None, False),
+            ("interaction", "interaction", CapabilityStatementRestResourceInteraction, True, None, False),
+            ("operation", "operation", CapabilityStatementRestResourceOperation, True, None, False),
+            ("profile", "profile", str, False, None, False),
             ("readHistory", "readHistory", bool, False, None, False),
             ("referencePolicy", "referencePolicy", str, True, None, False),
             ("searchInclude", "searchInclude", str, True, None, False),
             ("searchParam", "searchParam", CapabilityStatementRestResourceSearchParam, True, None, False),
             ("searchRevInclude", "searchRevInclude", str, True, None, False),
+            ("supportedProfile", "supportedProfile", str, True, None, False),
             ("type", "type", str, False, None, True),
             ("updateCreate", "updateCreate", bool, False, None, False),
             ("versioning", "versioning", str, False, None, False),
@@ -670,9 +3963,88 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
 
 
 class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement):
-    """ What operations are supported?.
+    """ 
+    W
+    h
+    a
+    t
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    s
+    a
+    r
+    e
+    s
+    u
+    p
+    p
+    o
+    r
+    t
+    e
+    d
+    ?
+    .
     
-    Identifies a restful operation supported by the solution.
+    
+    I
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    s
+    a
+    r
+    e
+    s
+    t
+    f
+    u
+    l
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    s
+    u
+    p
+    p
+    o
+    r
+    t
+    e
+    d
+    b
+    y
+    t
+    h
+    e
+    s
+    o
+    l
+    u
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "CapabilityStatementRestResourceInteraction"
@@ -686,12 +4058,129 @@ class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement
         """
         
         self.code = None
-        """ read | vread | update | patch | delete | history-instance |
-        history-type | create | search-type.
+        """ 
+        r
+        e
+        a
+        d
+        |
+        v
+        r
+        e
+        a
+        d
+        |
+        u
+        p
+        d
+        a
+        t
+        e
+        |
+        p
+        a
+        t
+        c
+        h
+        |
+        d
+        e
+        l
+        e
+        t
+        e
+        |
+        h
+        i
+        s
+        t
+        o
+        r
+        y
+        -
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        |
+        h
+        i
+        s
+        t
+        o
+        r
+        y
+        -
+        t
+        y
+        p
+        e
+        |
+        c
+        r
+        e
+        a
+        t
+        e
+        |
+        s
+        e
+        a
+        r
+        c
+        h
+        -
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
         self.documentation = None
-        """ Anything special about operation behavior.
+        """ 
+        A
+        n
+        y
+        t
+        h
+        i
+        n
+        g
+        s
+        p
+        e
+        c
+        i
+        a
+        l
+        a
+        b
+        o
+        u
+        t
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        b
+        e
+        h
+        a
+        v
+        i
+        o
+        r
+        .
         Type `str`. """
         
         super(CapabilityStatementRestResourceInteraction, self).__init__(jsondict=jsondict, strict=strict)
@@ -705,12 +4194,556 @@ class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement
         return js
 
 
-class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement):
-    """ Search parameters supported by implementation.
+class CapabilityStatementRestResourceOperation(backboneelement.BackboneElement):
+    """ 
+    D
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    o
+    f
+    a
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    .
     
-    Search parameters for implementations to support and/or make use of -
-    either references to ones defined in the specification, or additional ones
-    defined for/by the implementation.
+    
+    D
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    o
+    f
+    a
+    n
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    o
+    r
+    a
+    n
+    a
+    m
+    e
+    d
+    q
+    u
+    e
+    r
+    y
+    t
+    o
+    g
+    e
+    t
+    h
+    e
+    r
+    w
+    i
+    t
+    h
+    i
+    t
+    s
+    p
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    s
+    a
+    n
+    d
+    t
+    h
+    e
+    i
+    r
+    m
+    e
+    a
+    n
+    i
+    n
+    g
+    a
+    n
+    d
+    t
+    y
+    p
+    e
+    .
+    C
+    o
+    n
+    s
+    u
+    l
+    t
+    t
+    h
+    e
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    o
+    f
+    t
+    h
+    e
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    f
+    o
+    r
+    d
+    e
+    t
+    a
+    i
+    l
+    s
+    a
+    b
+    o
+    u
+    t
+    h
+    o
+    w
+    t
+    o
+    i
+    n
+    v
+    o
+    k
+    e
+    t
+    h
+    e
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    ,
+    a
+    n
+    d
+    t
+    h
+    e
+    p
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    s
+    .
+    
+    """
+    
+    resource_type = "CapabilityStatementRestResourceOperation"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.definition = None
+        """ 
+        T
+        h
+        e
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        /
+        q
+        u
+        e
+        r
+        y
+        .
+        Type `str`. """
+        
+        self.documentation = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        a
+        b
+        o
+        u
+        t
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        b
+        e
+        h
+        a
+        v
+        i
+        o
+        r
+        .
+        Type `str`. """
+        
+        self.name = None
+        """ 
+        N
+        a
+        m
+        e
+        b
+        y
+        w
+        h
+        i
+        c
+        h
+        t
+        h
+        e
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        /
+        q
+        u
+        e
+        r
+        y
+        i
+        s
+        i
+        n
+        v
+        o
+        k
+        e
+        d
+        .
+        Type `str`. """
+        
+        super(CapabilityStatementRestResourceOperation, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(CapabilityStatementRestResourceOperation, self).elementProperties()
+        js.extend([
+            ("definition", "definition", str, False, None, True),
+            ("documentation", "documentation", str, False, None, False),
+            ("name", "name", str, False, None, True),
+        ])
+        return js
+
+
+class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement):
+    """ 
+    S
+    e
+    a
+    r
+    c
+    h
+    p
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    s
+    s
+    u
+    p
+    p
+    o
+    r
+    t
+    e
+    d
+    b
+    y
+    i
+    m
+    p
+    l
+    e
+    m
+    e
+    n
+    t
+    a
+    t
+    i
+    o
+    n
+    .
+    
+    
+    S
+    e
+    a
+    r
+    c
+    h
+    p
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    s
+    f
+    o
+    r
+    i
+    m
+    p
+    l
+    e
+    m
+    e
+    n
+    t
+    a
+    t
+    i
+    o
+    n
+    s
+    t
+    o
+    s
+    u
+    p
+    p
+    o
+    r
+    t
+    a
+    n
+    d
+    /
+    o
+    r
+    m
+    a
+    k
+    e
+    u
+    s
+    e
+    o
+    f
+    -
+    e
+    i
+    t
+    h
+    e
+    r
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    s
+    t
+    o
+    o
+    n
+    e
+    s
+    d
+    e
+    f
+    i
+    n
+    e
+    d
+    i
+    n
+    t
+    h
+    e
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    ,
+    o
+    r
+    a
+    d
+    d
+    i
+    t
+    i
+    o
+    n
+    a
+    l
+    o
+    n
+    e
+    s
+    d
+    e
+    f
+    i
+    n
+    e
+    d
+    f
+    o
+    r
+    /
+    b
+    y
+    t
+    h
+    e
+    i
+    m
+    p
+    l
+    e
+    m
+    e
+    n
+    t
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "CapabilityStatementRestResourceSearchParam"
@@ -724,20 +4757,159 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
         """
         
         self.definition = None
-        """ Source of definition for parameter.
+        """ 
+        S
+        o
+        u
+        r
+        c
+        e
+        o
+        f
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        f
+        o
+        r
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        .
         Type `str`. """
         
         self.documentation = None
-        """ Server-specific usage.
+        """ 
+        S
+        e
+        r
+        v
+        e
+        r
+        -
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        u
+        s
+        a
+        g
+        e
+        .
         Type `str`. """
         
         self.name = None
-        """ Name of search parameter.
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        s
+        e
+        a
+        r
+        c
+        h
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        .
         Type `str`. """
         
         self.type = None
-        """ number | date | string | token | reference | composite | quantity |
-        uri.
+        """ 
+        n
+        u
+        m
+        b
+        e
+        r
+        |
+        d
+        a
+        t
+        e
+        |
+        s
+        t
+        r
+        i
+        n
+        g
+        |
+        t
+        o
+        k
+        e
+        n
+        |
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        |
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        e
+        |
+        q
+        u
+        a
+        n
+        t
+        i
+        t
+        y
+        |
+        u
+        r
+        i
+        |
+        s
+        p
+        e
+        c
+        i
+        a
+        l
+        .
         Type `str`. """
         
         super(CapabilityStatementRestResourceSearchParam, self).__init__(jsondict=jsondict, strict=strict)
@@ -754,10 +4926,139 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
 
 
 class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
-    """ Information about security of implementation.
+    """ 
+    I
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    s
+    e
+    c
+    u
+    r
+    i
+    t
+    y
+    o
+    f
+    i
+    m
+    p
+    l
+    e
+    m
+    e
+    n
+    t
+    a
+    t
+    i
+    o
+    n
+    .
     
-    Information about security implementation from an interface perspective -
-    what a client needs to know.
+    
+    I
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    s
+    e
+    c
+    u
+    r
+    i
+    t
+    y
+    i
+    m
+    p
+    l
+    e
+    m
+    e
+    n
+    t
+    a
+    t
+    i
+    o
+    n
+    f
+    r
+    o
+    m
+    a
+    n
+    i
+    n
+    t
+    e
+    r
+    f
+    a
+    c
+    e
+    p
+    e
+    r
+    s
+    p
+    e
+    c
+    t
+    i
+    v
+    e
+    -
+    w
+    h
+    a
+    t
+    a
+    c
+    l
+    i
+    e
+    n
+    t
+    n
+    e
+    e
+    d
+    s
+    t
+    o
+    k
+    n
+    o
+    w
+    .
+    
     """
     
     resource_type = "CapabilityStatementRestSecurity"
@@ -770,20 +5071,147 @@ class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.certificate = None
-        """ Certificates associated with security profiles.
-        List of `CapabilityStatementRestSecurityCertificate` items (represented as `dict` in JSON). """
-        
         self.cors = None
-        """ Adds CORS Headers (http://enable-cors.org/).
+        """ 
+        A
+        d
+        d
+        s
+        C
+        O
+        R
+        S
+        H
+        e
+        a
+        d
+        e
+        r
+        s
+        (
+        h
+        t
+        t
+        p
+        :
+        /
+        /
+        e
+        n
+        a
+        b
+        l
+        e
+        -
+        c
+        o
+        r
+        s
+        .
+        o
+        r
+        g
+        /
+        )
+        .
         Type `bool`. """
         
         self.description = None
-        """ General description of how security works.
+        """ 
+        G
+        e
+        n
+        e
+        r
+        a
+        l
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        h
+        o
+        w
+        s
+        e
+        c
+        u
+        r
+        i
+        t
+        y
+        w
+        o
+        r
+        k
+        s
+        .
         Type `str`. """
         
         self.service = None
-        """ OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates.
+        """ 
+        O
+        A
+        u
+        t
+        h
+        |
+        S
+        M
+        A
+        R
+        T
+        -
+        o
+        n
+        -
+        F
+        H
+        I
+        R
+        |
+        N
+        T
+        L
+        M
+        |
+        B
+        a
+        s
+        i
+        c
+        |
+        K
+        e
+        r
+        b
+        e
+        r
+        o
+        s
+        |
+        C
+        e
+        r
+        t
+        i
+        f
+        i
+        c
+        a
+        t
+        e
+        s
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(CapabilityStatementRestSecurity, self).__init__(jsondict=jsondict, strict=strict)
@@ -791,7 +5219,6 @@ class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CapabilityStatementRestSecurity, self).elementProperties()
         js.extend([
-            ("certificate", "certificate", CapabilityStatementRestSecurityCertificate, True, None, False),
             ("cors", "cors", bool, False, None, False),
             ("description", "description", str, False, None, False),
             ("service", "service", codeableconcept.CodeableConcept, True, None, False),
@@ -799,45 +5226,220 @@ class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
         return js
 
 
-class CapabilityStatementRestSecurityCertificate(backboneelement.BackboneElement):
-    """ Certificates associated with security profiles.
-    """
-    
-    resource_type = "CapabilityStatementRestSecurityCertificate"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.blob = None
-        """ Actual certificate.
-        Type `str`. """
-        
-        self.type = None
-        """ Mime type for certificates.
-        Type `str`. """
-        
-        super(CapabilityStatementRestSecurityCertificate, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(CapabilityStatementRestSecurityCertificate, self).elementProperties()
-        js.extend([
-            ("blob", "blob", str, False, None, False),
-            ("type", "type", str, False, None, False),
-        ])
-        return js
-
-
 class CapabilityStatementSoftware(backboneelement.BackboneElement):
-    """ Software that is covered by this capability statement.
+    """ 
+    S
+    o
+    f
+    t
+    w
+    a
+    r
+    e
+    t
+    h
+    a
+    t
+    i
+    s
+    c
+    o
+    v
+    e
+    r
+    e
+    d
+    b
+    y
+    t
+    h
+    i
+    s
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    y
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    .
     
-    Software that is covered by this capability statement.  It is used when the
-    capability statement describes the capabilities of a particular software
-    version, independent of an installation.
+    
+    S
+    o
+    f
+    t
+    w
+    a
+    r
+    e
+    t
+    h
+    a
+    t
+    i
+    s
+    c
+    o
+    v
+    e
+    r
+    e
+    d
+    b
+    y
+    t
+    h
+    i
+    s
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    y
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    .
+    I
+    t
+    i
+    s
+    u
+    s
+    e
+    d
+    w
+    h
+    e
+    n
+    t
+    h
+    e
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    y
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    d
+    e
+    s
+    c
+    r
+    i
+    b
+    e
+    s
+    t
+    h
+    e
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    i
+    e
+    s
+    o
+    f
+    a
+    p
+    a
+    r
+    t
+    i
+    c
+    u
+    l
+    a
+    r
+    s
+    o
+    f
+    t
+    w
+    a
+    r
+    e
+    v
+    e
+    r
+    s
+    i
+    o
+    n
+    ,
+    i
+    n
+    d
+    e
+    p
+    e
+    n
+    d
+    e
+    n
+    t
+    o
+    f
+    a
+    n
+    i
+    n
+    s
+    t
+    a
+    l
+    l
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "CapabilityStatementSoftware"
@@ -851,15 +5453,98 @@ class CapabilityStatementSoftware(backboneelement.BackboneElement):
         """
         
         self.name = None
-        """ A name the software is known by.
+        """ 
+        A
+        n
+        a
+        m
+        e
+        t
+        h
+        e
+        s
+        o
+        f
+        t
+        w
+        a
+        r
+        e
+        i
+        s
+        k
+        n
+        o
+        w
+        n
+        b
+        y
+        .
         Type `str`. """
         
         self.releaseDate = None
-        """ Date this version released.
+        """ 
+        D
+        a
+        t
+        e
+        t
+        h
+        i
+        s
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        w
+        a
+        s
+        r
+        e
+        l
+        e
+        a
+        s
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.version = None
-        """ Version covered by this statement.
+        """ 
+        V
+        e
+        r
+        s
+        i
+        o
+        n
+        c
+        o
+        v
+        e
+        r
+        e
+        d
+        b
+        y
+        t
+        h
+        i
+        s
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        .
         Type `str`. """
         
         super(CapabilityStatementSoftware, self).__init__(jsondict=jsondict, strict=strict)

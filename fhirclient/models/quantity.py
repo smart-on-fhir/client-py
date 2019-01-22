@@ -1,18 +1,229 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Quantity) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MoneyQuantity) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class Quantity(element.Element):
-    """ A measured or measurable amount.
+    """ 
+    A
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    d
+    o
+    r
+    m
+    e
+    a
+    s
+    u
+    r
+    a
+    b
+    l
+    e
+    a
+    m
+    o
+    u
+    n
+    t
+    .
     
-    A measured amount (or an amount that can potentially be measured). Note
-    that measured amounts include amounts that are not precisely quantified,
-    including amounts involving arbitrary units and floating currencies.
+    
+    A
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    d
+    a
+    m
+    o
+    u
+    n
+    t
+    (
+    o
+    r
+    a
+    n
+    a
+    m
+    o
+    u
+    n
+    t
+    t
+    h
+    a
+    t
+    c
+    a
+    n
+    p
+    o
+    t
+    e
+    n
+    t
+    i
+    a
+    l
+    l
+    y
+    b
+    e
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    d
+    )
+    .
+    N
+    o
+    t
+    e
+    t
+    h
+    a
+    t
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    d
+    a
+    m
+    o
+    u
+    n
+    t
+    s
+    i
+    n
+    c
+    l
+    u
+    d
+    e
+    a
+    m
+    o
+    u
+    n
+    t
+    s
+    t
+    h
+    a
+    t
+    a
+    r
+    e
+    n
+    o
+    t
+    p
+    r
+    e
+    c
+    i
+    s
+    e
+    l
+    y
+    q
+    u
+    a
+    n
+    t
+    i
+    f
+    i
+    e
+    d
+    ,
+    i
+    n
+    c
+    l
+    u
+    d
+    i
+    n
+    g
+    a
+    m
+    o
+    u
+    n
+    t
+    s
+    i
+    n
+    v
+    o
+    l
+    v
+    i
+    n
+    g
+    a
+    r
+    b
+    i
+    t
+    r
+    a
+    r
+    y
+    u
+    n
+    i
+    t
+    s
+    a
+    n
+    d
+    f
+    l
+    o
+    a
+    t
+    i
+    n
+    g
+    c
+    u
+    r
+    r
+    e
+    n
+    c
+    i
+    e
+    s
+    .
+    
     """
     
     resource_type = "Quantity"
@@ -26,23 +237,164 @@ class Quantity(element.Element):
         """
         
         self.code = None
-        """ Coded form of the unit.
+        """ 
+        C
+        o
+        d
+        e
+        d
+        f
+        o
+        r
+        m
+        o
+        f
+        t
+        h
+        e
+        u
+        n
+        i
+        t
+        .
         Type `str`. """
         
         self.comparator = None
-        """ < | <= | >= | > - how to understand the value.
+        """ 
+        <
+        |
+        <
+        =
+        |
+        >
+        =
+        |
+        >
+        -
+        h
+        o
+        w
+        t
+        o
+        u
+        n
+        d
+        e
+        r
+        s
+        t
+        a
+        n
+        d
+        t
+        h
+        e
+        v
+        a
+        l
+        u
+        e
+        .
         Type `str`. """
         
         self.system = None
-        """ System that defines coded unit form.
+        """ 
+        S
+        y
+        s
+        t
+        e
+        m
+        t
+        h
+        a
+        t
+        d
+        e
+        f
+        i
+        n
+        e
+        s
+        c
+        o
+        d
+        e
+        d
+        u
+        n
+        i
+        t
+        f
+        o
+        r
+        m
+        .
         Type `str`. """
         
         self.unit = None
-        """ Unit representation.
+        """ 
+        U
+        n
+        i
+        t
+        r
+        e
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.value = None
-        """ Numerical value (with implicit precision).
+        """ 
+        N
+        u
+        m
+        e
+        r
+        i
+        c
+        a
+        l
+        v
+        a
+        l
+        u
+        e
+        (
+        w
+        i
+        t
+        h
+        i
+        m
+        p
+        l
+        i
+        c
+        i
+        t
+        p
+        r
+        e
+        c
+        i
+        s
+        i
+        o
+        n
+        )
+        .
         Type `float`. """
         
         super(Quantity, self).__init__(jsondict=jsondict, strict=strict)

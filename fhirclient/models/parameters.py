@@ -1,18 +1,207 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Parameters) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import resource
 
 class Parameters(resource.Resource):
-    """ Operation Request or Response.
+    """ 
+    O
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    R
+    e
+    q
+    u
+    e
+    s
+    t
+    o
+    r
+    R
+    e
+    s
+    p
+    o
+    n
+    s
+    e
+    .
     
-    This special resource type is used to represent an operation request and
-    response (operations.html). It has no other use, and there is no RESTful
-    endpoint associated with it.
+    
+    T
+    h
+    i
+    s
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    i
+    s
+    a
+    n
+    o
+    n
+    -
+    p
+    e
+    r
+    s
+    i
+    s
+    t
+    e
+    d
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    u
+    s
+    e
+    d
+    t
+    o
+    p
+    a
+    s
+    s
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    i
+    n
+    t
+    o
+    a
+    n
+    d
+    b
+    a
+    c
+    k
+    f
+    r
+    o
+    m
+    a
+    n
+    [
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    ]
+    (
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    s
+    .
+    h
+    t
+    m
+    l
+    )
+    .
+    I
+    t
+    h
+    a
+    s
+    n
+    o
+    o
+    t
+    h
+    e
+    r
+    u
+    s
+    e
+    ,
+    a
+    n
+    d
+    t
+    h
+    e
+    r
+    e
+    i
+    s
+    n
+    o
+    R
+    E
+    S
+    T
+    f
+    u
+    l
+    e
+    n
+    d
+    p
+    o
+    i
+    n
+    t
+    a
+    s
+    s
+    o
+    c
+    i
+    a
+    t
+    e
+    d
+    w
+    i
+    t
+    h
+    i
+    t
+    .
+    
     """
     
     resource_type = "Parameters"
@@ -26,7 +215,26 @@ class Parameters(resource.Resource):
         """
         
         self.parameter = None
-        """ Operation Parameter.
+        """ 
+        O
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        P
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        .
         List of `ParametersParameter` items (represented as `dict` in JSON). """
         
         super(Parameters, self).__init__(jsondict=jsondict, strict=strict)
@@ -42,9 +250,74 @@ class Parameters(resource.Resource):
 from . import backboneelement
 
 class ParametersParameter(backboneelement.BackboneElement):
-    """ Operation Parameter.
+    """ 
+    O
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    P
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    .
     
-    A parameter passed to or received from the operation.
+    
+    A
+    p
+    a
+    r
+    a
+    m
+    e
+    t
+    e
+    r
+    p
+    a
+    s
+    s
+    e
+    d
+    t
+    o
+    o
+    r
+    r
+    e
+    c
+    e
+    i
+    v
+    e
+    d
+    f
+    r
+    o
+    m
+    t
+    h
+    e
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "ParametersParameter"
@@ -58,167 +331,1420 @@ class ParametersParameter(backboneelement.BackboneElement):
         """
         
         self.name = None
-        """ Name from the definition.
+        """ 
+        N
+        a
+        m
+        e
+        f
+        r
+        o
+        m
+        t
+        h
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.part = None
-        """ Named part of a multi-part parameter.
+        """ 
+        N
+        a
+        m
+        e
+        d
+        p
+        a
+        r
+        t
+        o
+        f
+        a
+        m
+        u
+        l
+        t
+        i
+        -
+        p
+        a
+        r
+        t
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        .
         List of `ParametersParameter` items (represented as `dict` in JSON). """
         
         self.resource = None
-        """ If parameter is a whole resource.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        w
+        h
+        o
+        l
+        e
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        .
         Type `Resource` (represented as `dict` in JSON). """
         
         self.valueAddress = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Address` (represented as `dict` in JSON). """
         
         self.valueAge = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Age` (represented as `dict` in JSON). """
         
         self.valueAnnotation = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Annotation` (represented as `dict` in JSON). """
         
         self.valueAttachment = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.valueBase64Binary = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
         self.valueBoolean = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `bool`. """
         
+        self.valueCanonical = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `str`. """
+        
         self.valueCode = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
         self.valueCodeableConcept = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.valueCoding = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.valueContactDetail = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `ContactDetail` (represented as `dict` in JSON). """
+        
         self.valueContactPoint = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.valueContributor = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `Contributor` (represented as `dict` in JSON). """
+        
         self.valueCount = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Count` (represented as `dict` in JSON). """
         
+        self.valueDataRequirement = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `DataRequirement` (represented as `dict` in JSON). """
+        
         self.valueDate = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueDateTime = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueDecimal = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `float`. """
         
         self.valueDistance = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Distance` (represented as `dict` in JSON). """
         
+        self.valueDosage = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `Dosage` (represented as `dict` in JSON). """
+        
         self.valueDuration = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Duration` (represented as `dict` in JSON). """
         
+        self.valueExpression = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `Expression` (represented as `dict` in JSON). """
+        
         self.valueHumanName = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `HumanName` (represented as `dict` in JSON). """
         
         self.valueId = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
         self.valueIdentifier = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.valueInstant = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueInteger = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `int`. """
         
         self.valueMarkdown = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
-        self.valueMeta = None
-        """ If parameter is a data type.
-        Type `Meta` (represented as `dict` in JSON). """
-        
         self.valueMoney = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Money` (represented as `dict` in JSON). """
         
         self.valueOid = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
+        self.valueParameterDefinition = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `ParameterDefinition` (represented as `dict` in JSON). """
+        
         self.valuePeriod = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.valuePositiveInt = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `int`. """
         
         self.valueQuantity = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.valueRange = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Range` (represented as `dict` in JSON). """
         
         self.valueRatio = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Ratio` (represented as `dict` in JSON). """
         
         self.valueReference = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.valueRelatedArtifact = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `RelatedArtifact` (represented as `dict` in JSON). """
+        
         self.valueSampledData = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `SampledData` (represented as `dict` in JSON). """
         
         self.valueSignature = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Signature` (represented as `dict` in JSON). """
         
         self.valueString = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
         self.valueTime = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueTiming = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `Timing` (represented as `dict` in JSON). """
         
+        self.valueTriggerDefinition = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `TriggerDefinition` (represented as `dict` in JSON). """
+        
         self.valueUnsignedInt = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `int`. """
         
         self.valueUri = None
-        """ If parameter is a data type.
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `str`. """
+        
+        self.valueUrl = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `str`. """
+        
+        self.valueUsageContext = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
+        Type `UsageContext` (represented as `dict` in JSON). """
+        
+        self.valueUuid = None
+        """ 
+        I
+        f
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        i
+        s
+        a
+        d
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
         super(ParametersParameter, self).__init__(jsondict=jsondict, strict=strict)
@@ -235,38 +1761,49 @@ class ParametersParameter(backboneelement.BackboneElement):
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
             ("valueBase64Binary", "valueBase64Binary", str, False, "value", False),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
+            ("valueCanonical", "valueCanonical", str, False, "value", False),
             ("valueCode", "valueCode", str, False, "value", False),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", False),
+            ("valueContactDetail", "valueContactDetail", contactdetail.ContactDetail, False, "value", False),
             ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False, "value", False),
+            ("valueContributor", "valueContributor", contributor.Contributor, False, "value", False),
             ("valueCount", "valueCount", count.Count, False, "value", False),
+            ("valueDataRequirement", "valueDataRequirement", datarequirement.DataRequirement, False, "value", False),
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", False),
             ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
             ("valueDecimal", "valueDecimal", float, False, "value", False),
             ("valueDistance", "valueDistance", distance.Distance, False, "value", False),
+            ("valueDosage", "valueDosage", dosage.Dosage, False, "value", False),
             ("valueDuration", "valueDuration", duration.Duration, False, "value", False),
+            ("valueExpression", "valueExpression", expression.Expression, False, "value", False),
             ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", False),
             ("valueId", "valueId", str, False, "value", False),
             ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", False),
             ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valueMarkdown", "valueMarkdown", str, False, "value", False),
-            ("valueMeta", "valueMeta", meta.Meta, False, "value", False),
             ("valueMoney", "valueMoney", money.Money, False, "value", False),
             ("valueOid", "valueOid", str, False, "value", False),
+            ("valueParameterDefinition", "valueParameterDefinition", parameterdefinition.ParameterDefinition, False, "value", False),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
             ("valuePositiveInt", "valuePositiveInt", int, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
             ("valueRange", "valueRange", range.Range, False, "value", False),
             ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
+            ("valueRelatedArtifact", "valueRelatedArtifact", relatedartifact.RelatedArtifact, False, "value", False),
             ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
             ("valueSignature", "valueSignature", signature.Signature, False, "value", False),
             ("valueString", "valueString", str, False, "value", False),
             ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
             ("valueTiming", "valueTiming", timing.Timing, False, "value", False),
+            ("valueTriggerDefinition", "valueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "value", False),
             ("valueUnsignedInt", "valueUnsignedInt", int, False, "value", False),
             ("valueUri", "valueUri", str, False, "value", False),
+            ("valueUrl", "valueUrl", str, False, "value", False),
+            ("valueUsageContext", "valueUsageContext", usagecontext.UsageContext, False, "value", False),
+            ("valueUuid", "valueUuid", str, False, "value", False),
         ])
         return js
 
@@ -297,21 +1834,41 @@ try:
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
 try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+try:
+    from . import contributor
+except ImportError:
+    contributor = sys.modules[__package__ + '.contributor']
 try:
     from . import count
 except ImportError:
     count = sys.modules[__package__ + '.count']
 try:
+    from . import datarequirement
+except ImportError:
+    datarequirement = sys.modules[__package__ + '.datarequirement']
+try:
     from . import distance
 except ImportError:
     distance = sys.modules[__package__ + '.distance']
 try:
+    from . import dosage
+except ImportError:
+    dosage = sys.modules[__package__ + '.dosage']
+try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+try:
+    from . import expression
+except ImportError:
+    expression = sys.modules[__package__ + '.expression']
 try:
     from . import fhirdate
 except ImportError:
@@ -329,13 +1886,13 @@ try:
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
 try:
-    from . import meta
-except ImportError:
-    meta = sys.modules[__package__ + '.meta']
-try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+try:
+    from . import parameterdefinition
+except ImportError:
+    parameterdefinition = sys.modules[__package__ + '.parameterdefinition']
 try:
     from . import period
 except ImportError:
@@ -353,6 +1910,10 @@ try:
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
 try:
+    from . import relatedartifact
+except ImportError:
+    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+try:
     from . import sampleddata
 except ImportError:
     sampleddata = sys.modules[__package__ + '.sampleddata']
@@ -364,3 +1925,11 @@ try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+try:
+    from . import triggerdefinition
+except ImportError:
+    triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

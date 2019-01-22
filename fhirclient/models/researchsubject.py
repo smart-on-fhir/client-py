@@ -1,21 +1,159 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ResearchSubject) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ResearchSubject) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class ResearchSubject(domainresource.DomainResource):
-    """ Investigation to increase healthcare-related patient-independent knowledge.
+    """ 
+    P
+    h
+    y
+    s
+    i
+    c
+    a
+    l
+    e
+    n
+    t
+    i
+    t
+    y
+    w
+    h
+    i
+    c
+    h
+    i
+    s
+    t
+    h
+    e
+    p
+    r
+    i
+    m
+    a
+    r
+    y
+    u
+    n
+    i
+    t
+    o
+    f
+    i
+    n
+    t
+    e
+    r
+    e
+    s
+    t
+    i
+    n
+    t
+    h
+    e
+    s
+    t
+    u
+    d
+    y
+    .
     
-    A process where a researcher or organization plans and then executes a
-    series of steps intended to increase the field of healthcare-related
-    knowledge.  This includes studies of safety, efficacy, comparative
-    effectiveness and other information about medications, devices, therapies
-    and other interventional and investigative techniques.  A ResearchStudy
-    involves the gathering of information about human or animal subjects.
+    
+    A
+    p
+    h
+    y
+    s
+    i
+    c
+    a
+    l
+    e
+    n
+    t
+    i
+    t
+    y
+    w
+    h
+    i
+    c
+    h
+    i
+    s
+    t
+    h
+    e
+    p
+    r
+    i
+    m
+    a
+    r
+    y
+    u
+    n
+    i
+    t
+    o
+    f
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    a
+    l
+    a
+    n
+    d
+    /
+    o
+    r
+    a
+    d
+    m
+    i
+    n
+    i
+    s
+    t
+    r
+    a
+    t
+    i
+    v
+    e
+    i
+    n
+    t
+    e
+    r
+    e
+    s
+    t
+    i
+    n
+    a
+    s
+    t
+    u
+    d
+    y
+    .
+    
     """
     
     resource_type = "ResearchSubject"
@@ -29,36 +167,395 @@ class ResearchSubject(domainresource.DomainResource):
         """
         
         self.actualArm = None
-        """ What path was followed.
+        """ 
+        W
+        h
+        a
+        t
+        p
+        a
+        t
+        h
+        w
+        a
+        s
+        f
+        o
+        l
+        l
+        o
+        w
+        e
+        d
+        .
         Type `str`. """
         
         self.assignedArm = None
-        """ What path should be followed.
+        """ 
+        W
+        h
+        a
+        t
+        p
+        a
+        t
+        h
+        s
+        h
+        o
+        u
+        l
+        d
+        b
+        e
+        f
+        o
+        l
+        l
+        o
+        w
+        e
+        d
+        .
         Type `str`. """
         
         self.consent = None
-        """ Agreement to participate in study.
-        Type `FHIRReference` referencing `Consent` (represented as `dict` in JSON). """
+        """ 
+        A
+        g
+        r
+        e
+        e
+        m
+        e
+        n
+        t
+        t
+        o
+        p
+        a
+        r
+        t
+        i
+        c
+        i
+        p
+        a
+        t
+        e
+        i
+        n
+        s
+        t
+        u
+        d
+        y
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Business Identifier for research subject.
-        Type `Identifier` (represented as `dict` in JSON). """
+        """ 
+        B
+        u
+        s
+        i
+        n
+        e
+        s
+        s
+        I
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        r
+        e
+        s
+        e
+        a
+        r
+        c
+        h
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        i
+        n
+        a
+        s
+        t
+        u
+        d
+        y
+        .
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.individual = None
-        """ Who is part of study.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        i
+        s
+        p
+        a
+        r
+        t
+        o
+        f
+        s
+        t
+        u
+        d
+        y
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.period = None
-        """ Start and end of participation.
+        """ 
+        S
+        t
+        a
+        r
+        t
+        a
+        n
+        d
+        e
+        n
+        d
+        o
+        f
+        p
+        a
+        r
+        t
+        i
+        c
+        i
+        p
+        a
+        t
+        i
+        o
+        n
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
-        """ candidate | enrolled | active | suspended | withdrawn | completed.
+        """ 
+        c
+        a
+        n
+        d
+        i
+        d
+        a
+        t
+        e
+        |
+        e
+        l
+        i
+        g
+        i
+        b
+        l
+        e
+        |
+        f
+        o
+        l
+        l
+        o
+        w
+        -
+        u
+        p
+        |
+        i
+        n
+        e
+        l
+        i
+        g
+        i
+        b
+        l
+        e
+        |
+        n
+        o
+        t
+        -
+        r
+        e
+        g
+        i
+        s
+        t
+        e
+        r
+        e
+        d
+        |
+        o
+        f
+        f
+        -
+        s
+        t
+        u
+        d
+        y
+        |
+        o
+        n
+        -
+        s
+        t
+        u
+        d
+        y
+        |
+        o
+        n
+        -
+        s
+        t
+        u
+        d
+        y
+        -
+        i
+        n
+        t
+        e
+        r
+        v
+        e
+        n
+        t
+        i
+        o
+        n
+        |
+        o
+        n
+        -
+        s
+        t
+        u
+        d
+        y
+        -
+        o
+        b
+        s
+        e
+        r
+        v
+        a
+        t
+        i
+        o
+        n
+        |
+        p
+        e
+        n
+        d
+        i
+        n
+        g
+        -
+        o
+        n
+        -
+        s
+        t
+        u
+        d
+        y
+        |
+        p
+        o
+        t
+        e
+        n
+        t
+        i
+        a
+        l
+        -
+        c
+        a
+        n
+        d
+        i
+        d
+        a
+        t
+        e
+        |
+        s
+        c
+        r
+        e
+        e
+        n
+        i
+        n
+        g
+        |
+        w
+        i
+        t
+        h
+        d
+        r
+        a
+        w
+        n
+        .
         Type `str`. """
         
         self.study = None
-        """ Study subject is part of.
-        Type `FHIRReference` referencing `ResearchStudy` (represented as `dict` in JSON). """
+        """ 
+        S
+        t
+        u
+        d
+        y
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        i
+        s
+        p
+        a
+        r
+        t
+        o
+        f
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ResearchSubject, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -68,7 +565,7 @@ class ResearchSubject(domainresource.DomainResource):
             ("actualArm", "actualArm", str, False, None, False),
             ("assignedArm", "assignedArm", str, False, None, False),
             ("consent", "consent", fhirreference.FHIRReference, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("individual", "individual", fhirreference.FHIRReference, False, None, True),
             ("period", "period", period.Period, False, None, False),
             ("status", "status", str, False, None, True),

@@ -1,16 +1,177 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/MeasureReport) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MeasureReport) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class MeasureReport(domainresource.DomainResource):
-    """ Results of a measure evaluation.
+    """ 
+    R
+    e
+    s
+    u
+    l
+    t
+    s
+    o
+    f
+    a
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    e
+    v
+    a
+    l
+    u
+    a
+    t
+    i
+    o
+    n
+    .
     
-    The MeasureReport resource contains the results of evaluating a measure.
+    
+    T
+    h
+    e
+    M
+    e
+    a
+    s
+    u
+    r
+    e
+    R
+    e
+    p
+    o
+    r
+    t
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    c
+    o
+    n
+    t
+    a
+    i
+    n
+    s
+    t
+    h
+    e
+    r
+    e
+    s
+    u
+    l
+    t
+    s
+    o
+    f
+    t
+    h
+    e
+    c
+    a
+    l
+    c
+    u
+    l
+    a
+    t
+    i
+    o
+    n
+    o
+    f
+    a
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    ;
+    a
+    n
+    d
+    o
+    p
+    t
+    i
+    o
+    n
+    a
+    l
+    l
+    y
+    a
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    t
+    o
+    t
+    h
+    e
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    s
+    i
+    n
+    v
+    o
+    l
+    v
+    e
+    d
+    i
+    n
+    t
+    h
+    a
+    t
+    c
+    a
+    l
+    c
+    u
+    l
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "MeasureReport"
@@ -24,43 +185,376 @@ class MeasureReport(domainresource.DomainResource):
         """
         
         self.date = None
-        """ When the report was generated.
+        """ 
+        W
+        h
+        e
+        n
+        t
+        h
+        e
+        r
+        e
+        p
+        o
+        r
+        t
+        w
+        a
+        s
+        g
+        e
+        n
+        e
+        r
+        a
+        t
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.evaluatedResources = None
-        """ What data was evaluated to produce the measure score.
-        Type `FHIRReference` referencing `Bundle` (represented as `dict` in JSON). """
+        self.evaluatedResource = None
+        """ 
+        W
+        h
+        a
+        t
+        d
+        a
+        t
+        a
+        w
+        a
+        s
+        u
+        s
+        e
+        d
+        t
+        o
+        c
+        a
+        l
+        c
+        u
+        l
+        a
+        t
+        e
+        t
+        h
+        e
+        m
+        e
+        a
+        s
+        u
+        r
+        e
+        s
+        c
+        o
+        r
+        e
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.group = None
-        """ Measure results for each group.
+        """ 
+        M
+        e
+        a
+        s
+        u
+        r
+        e
+        r
+        e
+        s
+        u
+        l
+        t
+        s
+        f
+        o
+        r
+        e
+        a
+        c
+        h
+        g
+        r
+        o
+        u
+        p
+        .
         List of `MeasureReportGroup` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Additional identifier for the Report.
-        Type `Identifier` (represented as `dict` in JSON). """
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        e
+        M
+        e
+        a
+        s
+        u
+        r
+        e
+        R
+        e
+        p
+        o
+        r
+        t
+        .
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.improvementNotation = None
+        """ 
+        i
+        n
+        c
+        r
+        e
+        a
+        s
+        e
+        |
+        d
+        e
+        c
+        r
+        e
+        a
+        s
+        e
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.measure = None
-        """ What measure was evaluated.
-        Type `FHIRReference` referencing `Measure` (represented as `dict` in JSON). """
-        
-        self.patient = None
-        """ What patient the report is for.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
-        
-        self.period = None
-        """ What period the report covers.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.reportingOrganization = None
-        """ Who is reporting the data.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
-        self.status = None
-        """ complete | pending | error.
+        """ 
+        W
+        h
+        a
+        t
+        m
+        e
+        a
+        s
+        u
+        r
+        e
+        w
+        a
+        s
+        c
+        a
+        l
+        c
+        u
+        l
+        a
+        t
+        e
+        d
+        .
         Type `str`. """
         
+        self.period = None
+        """ 
+        W
+        h
+        a
+        t
+        p
+        e
+        r
+        i
+        o
+        d
+        t
+        h
+        e
+        r
+        e
+        p
+        o
+        r
+        t
+        c
+        o
+        v
+        e
+        r
+        s
+        .
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.reporter = None
+        """ 
+        W
+        h
+        o
+        i
+        s
+        r
+        e
+        p
+        o
+        r
+        t
+        i
+        n
+        g
+        t
+        h
+        e
+        d
+        a
+        t
+        a
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ 
+        c
+        o
+        m
+        p
+        l
+        e
+        t
+        e
+        |
+        p
+        e
+        n
+        d
+        i
+        n
+        g
+        |
+        e
+        r
+        r
+        o
+        r
+        .
+        Type `str`. """
+        
+        self.subject = None
+        """ 
+        W
+        h
+        a
+        t
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        (
+        s
+        )
+        t
+        h
+        e
+        r
+        e
+        p
+        o
+        r
+        t
+        i
+        s
+        f
+        o
+        r
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
         self.type = None
-        """ individual | patient-list | summary.
+        """ 
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        |
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        -
+        l
+        i
+        s
+        t
+        |
+        s
+        u
+        m
+        m
+        a
+        r
+        y
+        |
+        d
+        a
+        t
+        a
+        -
+        c
+        o
+        l
+        l
+        e
+        c
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         super(MeasureReport, self).__init__(jsondict=jsondict, strict=strict)
@@ -69,14 +563,15 @@ class MeasureReport(domainresource.DomainResource):
         js = super(MeasureReport, self).elementProperties()
         js.extend([
             ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("evaluatedResources", "evaluatedResources", fhirreference.FHIRReference, False, None, False),
+            ("evaluatedResource", "evaluatedResource", fhirreference.FHIRReference, True, None, False),
             ("group", "group", MeasureReportGroup, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("measure", "measure", fhirreference.FHIRReference, False, None, True),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("improvementNotation", "improvementNotation", codeableconcept.CodeableConcept, False, None, False),
+            ("measure", "measure", str, False, None, True),
             ("period", "period", period.Period, False, None, True),
-            ("reportingOrganization", "reportingOrganization", fhirreference.FHIRReference, False, None, False),
+            ("reporter", "reporter", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("type", "type", str, False, None, True),
         ])
         return js
@@ -85,10 +580,102 @@ class MeasureReport(domainresource.DomainResource):
 from . import backboneelement
 
 class MeasureReportGroup(backboneelement.BackboneElement):
-    """ Measure results for each group.
+    """ 
+    M
+    e
+    a
+    s
+    u
+    r
+    e
+    r
+    e
+    s
+    u
+    l
+    t
+    s
+    f
+    o
+    r
+    e
+    a
+    c
+    h
+    g
+    r
+    o
+    u
+    p
+    .
     
-    The results of the calculation, one for each population group in the
-    measure.
+    
+    T
+    h
+    e
+    r
+    e
+    s
+    u
+    l
+    t
+    s
+    o
+    f
+    t
+    h
+    e
+    c
+    a
+    l
+    c
+    u
+    l
+    a
+    t
+    i
+    o
+    n
+    ,
+    o
+    n
+    e
+    f
+    o
+    r
+    e
+    a
+    c
+    h
+    p
+    o
+    p
+    u
+    l
+    a
+    t
+    i
+    o
+    n
+    g
+    r
+    o
+    u
+    p
+    i
+    n
+    t
+    h
+    e
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    .
+    
     """
     
     resource_type = "MeasureReportGroup"
@@ -101,20 +688,112 @@ class MeasureReportGroup(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.identifier = None
-        """ What group of the measure.
-        Type `Identifier` (represented as `dict` in JSON). """
+        self.code = None
+        """ 
+        M
+        e
+        a
+        n
+        i
+        n
+        g
+        o
+        f
+        t
+        h
+        e
+        g
+        r
+        o
+        u
+        p
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.measureScore = None
-        """ What score this group achieved.
-        Type `float`. """
+        """ 
+        W
+        h
+        a
+        t
+        s
+        c
+        o
+        r
+        e
+        t
+        h
+        i
+        s
+        g
+        r
+        o
+        u
+        p
+        a
+        c
+        h
+        i
+        e
+        v
+        e
+        d
+        .
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.population = None
-        """ The populations in the group.
+        """ 
+        T
+        h
+        e
+        p
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        s
+        i
+        n
+        t
+        h
+        e
+        g
+        r
+        o
+        u
+        p
+        .
         List of `MeasureReportGroupPopulation` items (represented as `dict` in JSON). """
         
         self.stratifier = None
-        """ Stratification results.
+        """ 
+        S
+        t
+        r
+        a
+        t
+        i
+        f
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        r
+        e
+        s
+        u
+        l
+        t
+        s
+        .
         List of `MeasureReportGroupStratifier` items (represented as `dict` in JSON). """
         
         super(MeasureReportGroup, self).__init__(jsondict=jsondict, strict=strict)
@@ -122,8 +801,8 @@ class MeasureReportGroup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MeasureReportGroup, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, True),
-            ("measureScore", "measureScore", float, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("measureScore", "measureScore", quantity.Quantity, False, None, False),
             ("population", "population", MeasureReportGroupPopulation, True, None, False),
             ("stratifier", "stratifier", MeasureReportGroupStratifier, True, None, False),
         ])
@@ -131,10 +810,129 @@ class MeasureReportGroup(backboneelement.BackboneElement):
 
 
 class MeasureReportGroupPopulation(backboneelement.BackboneElement):
-    """ The populations in the group.
+    """ 
+    T
+    h
+    e
+    p
+    o
+    p
+    u
+    l
+    a
+    t
+    i
+    o
+    n
+    s
+    i
+    n
+    t
+    h
+    e
+    g
+    r
+    o
+    u
+    p
+    .
     
-    The populations that make up the population group, one for each type of
-    population appropriate for the measure.
+    
+    T
+    h
+    e
+    p
+    o
+    p
+    u
+    l
+    a
+    t
+    i
+    o
+    n
+    s
+    t
+    h
+    a
+    t
+    m
+    a
+    k
+    e
+    u
+    p
+    t
+    h
+    e
+    p
+    o
+    p
+    u
+    l
+    a
+    t
+    i
+    o
+    n
+    g
+    r
+    o
+    u
+    p
+    ,
+    o
+    n
+    e
+    f
+    o
+    r
+    e
+    a
+    c
+    h
+    t
+    y
+    p
+    e
+    o
+    f
+    p
+    o
+    p
+    u
+    l
+    a
+    t
+    i
+    o
+    n
+    a
+    p
+    p
+    r
+    o
+    p
+    r
+    i
+    a
+    t
+    e
+    f
+    o
+    r
+    t
+    h
+    e
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    .
+    
     """
     
     resource_type = "MeasureReportGroupPopulation"
@@ -148,22 +946,266 @@ class MeasureReportGroupPopulation(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ initial-population | numerator | numerator-exclusion | denominator
-        | denominator-exclusion | denominator-exception | measure-
-        population | measure-population-exclusion | measure-score.
+        """ 
+        i
+        n
+        i
+        t
+        i
+        a
+        l
+        -
+        p
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        |
+        n
+        u
+        m
+        e
+        r
+        a
+        t
+        o
+        r
+        |
+        n
+        u
+        m
+        e
+        r
+        a
+        t
+        o
+        r
+        -
+        e
+        x
+        c
+        l
+        u
+        s
+        i
+        o
+        n
+        |
+        d
+        e
+        n
+        o
+        m
+        i
+        n
+        a
+        t
+        o
+        r
+        |
+        d
+        e
+        n
+        o
+        m
+        i
+        n
+        a
+        t
+        o
+        r
+        -
+        e
+        x
+        c
+        l
+        u
+        s
+        i
+        o
+        n
+        |
+        d
+        e
+        n
+        o
+        m
+        i
+        n
+        a
+        t
+        o
+        r
+        -
+        e
+        x
+        c
+        e
+        p
+        t
+        i
+        o
+        n
+        |
+        m
+        e
+        a
+        s
+        u
+        r
+        e
+        -
+        p
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        |
+        m
+        e
+        a
+        s
+        u
+        r
+        e
+        -
+        p
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        -
+        e
+        x
+        c
+        l
+        u
+        s
+        i
+        o
+        n
+        |
+        m
+        e
+        a
+        s
+        u
+        r
+        e
+        -
+        o
+        b
+        s
+        e
+        r
+        v
+        a
+        t
+        i
+        o
+        n
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.count = None
-        """ Size of the population.
+        """ 
+        S
+        i
+        z
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        .
         Type `int`. """
         
-        self.identifier = None
-        """ Population identifier as defined in the measure.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.patients = None
-        """ For patient-list reports, the patients in this population.
-        Type `FHIRReference` referencing `List` (represented as `dict` in JSON). """
+        self.subjectResults = None
+        """ 
+        F
+        o
+        r
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        -
+        l
+        i
+        s
+        t
+        r
+        e
+        p
+        o
+        r
+        t
+        s
+        ,
+        t
+        h
+        e
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        r
+        e
+        s
+        u
+        l
+        t
+        s
+        i
+        n
+        t
+        h
+        i
+        s
+        p
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(MeasureReportGroupPopulation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -172,17 +1214,142 @@ class MeasureReportGroupPopulation(backboneelement.BackboneElement):
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("count", "count", int, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("patients", "patients", fhirreference.FHIRReference, False, None, False),
+            ("subjectResults", "subjectResults", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
 class MeasureReportGroupStratifier(backboneelement.BackboneElement):
-    """ Stratification results.
+    """ 
+    S
+    t
+    r
+    a
+    t
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    r
+    e
+    s
+    u
+    l
+    t
+    s
+    .
     
-    When a measure includes multiple stratifiers, there will be a stratifier
-    group for each stratifier defined by the measure.
+    
+    W
+    h
+    e
+    n
+    a
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    i
+    n
+    c
+    l
+    u
+    d
+    e
+    s
+    m
+    u
+    l
+    t
+    i
+    p
+    l
+    e
+    s
+    t
+    r
+    a
+    t
+    i
+    f
+    i
+    e
+    r
+    s
+    ,
+    t
+    h
+    e
+    r
+    e
+    w
+    i
+    l
+    l
+    b
+    e
+    a
+    s
+    t
+    r
+    a
+    t
+    i
+    f
+    i
+    e
+    r
+    g
+    r
+    o
+    u
+    p
+    f
+    o
+    r
+    e
+    a
+    c
+    h
+    s
+    t
+    r
+    a
+    t
+    i
+    f
+    i
+    e
+    r
+    d
+    e
+    f
+    i
+    n
+    e
+    d
+    b
+    y
+    t
+    h
+    e
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    .
+    
     """
     
     resource_type = "MeasureReportGroupStratifier"
@@ -195,12 +1362,127 @@ class MeasureReportGroupStratifier(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.identifier = None
-        """ What stratifier of the group.
-        Type `Identifier` (represented as `dict` in JSON). """
+        self.code = None
+        """ 
+        W
+        h
+        a
+        t
+        s
+        t
+        r
+        a
+        t
+        i
+        f
+        i
+        e
+        r
+        o
+        f
+        t
+        h
+        e
+        g
+        r
+        o
+        u
+        p
+        .
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.stratum = None
-        """ Stratum results, one for each unique value in the stratifier.
+        """ 
+        S
+        t
+        r
+        a
+        t
+        u
+        m
+        r
+        e
+        s
+        u
+        l
+        t
+        s
+        ,
+        o
+        n
+        e
+        f
+        o
+        r
+        e
+        a
+        c
+        h
+        u
+        n
+        i
+        q
+        u
+        e
+        v
+        a
+        l
+        u
+        e
+        ,
+        o
+        r
+        s
+        e
+        t
+        o
+        f
+        v
+        a
+        l
+        u
+        e
+        s
+        ,
+        i
+        n
+        t
+        h
+        e
+        s
+        t
+        r
+        a
+        t
+        i
+        f
+        i
+        e
+        r
+        ,
+        o
+        r
+        s
+        t
+        r
+        a
+        t
+        i
+        f
+        i
+        e
+        r
+        c
+        o
+        m
+        p
+        o
+        n
+        e
+        n
+        t
+        s
+        .
         List of `MeasureReportGroupStratifierStratum` items (represented as `dict` in JSON). """
         
         super(MeasureReportGroupStratifier, self).__init__(jsondict=jsondict, strict=strict)
@@ -208,18 +1490,274 @@ class MeasureReportGroupStratifier(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MeasureReportGroupStratifier, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
             ("stratum", "stratum", MeasureReportGroupStratifierStratum, True, None, False),
         ])
         return js
 
 
 class MeasureReportGroupStratifierStratum(backboneelement.BackboneElement):
-    """ Stratum results, one for each unique value in the stratifier.
+    """ 
+    S
+    t
+    r
+    a
+    t
+    u
+    m
+    r
+    e
+    s
+    u
+    l
+    t
+    s
+    ,
+    o
+    n
+    e
+    f
+    o
+    r
+    e
+    a
+    c
+    h
+    u
+    n
+    i
+    q
+    u
+    e
+    v
+    a
+    l
+    u
+    e
+    ,
+    o
+    r
+    s
+    e
+    t
+    o
+    f
+    v
+    a
+    l
+    u
+    e
+    s
+    ,
+    i
+    n
+    t
+    h
+    e
+    s
+    t
+    r
+    a
+    t
+    i
+    f
+    i
+    e
+    r
+    ,
+    o
+    r
+    s
+    t
+    r
+    a
+    t
+    i
+    f
+    i
+    e
+    r
+    c
+    o
+    m
+    p
+    o
+    n
+    e
+    n
+    t
+    s
+    .
     
-    This element contains the results for a single stratum within the
-    stratifier. For example, when stratifying on administrative gender, there
-    will be four strata, one for each possible gender value.
+    
+    T
+    h
+    i
+    s
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    c
+    o
+    n
+    t
+    a
+    i
+    n
+    s
+    t
+    h
+    e
+    r
+    e
+    s
+    u
+    l
+    t
+    s
+    f
+    o
+    r
+    a
+    s
+    i
+    n
+    g
+    l
+    e
+    s
+    t
+    r
+    a
+    t
+    u
+    m
+    w
+    i
+    t
+    h
+    i
+    n
+    t
+    h
+    e
+    s
+    t
+    r
+    a
+    t
+    i
+    f
+    i
+    e
+    r
+    .
+    F
+    o
+    r
+    e
+    x
+    a
+    m
+    p
+    l
+    e
+    ,
+    w
+    h
+    e
+    n
+    s
+    t
+    r
+    a
+    t
+    i
+    f
+    y
+    i
+    n
+    g
+    o
+    n
+    a
+    d
+    m
+    i
+    n
+    i
+    s
+    t
+    r
+    a
+    t
+    i
+    v
+    e
+    g
+    e
+    n
+    d
+    e
+    r
+    ,
+    t
+    h
+    e
+    r
+    e
+    w
+    i
+    l
+    l
+    b
+    e
+    f
+    o
+    u
+    r
+    s
+    t
+    r
+    a
+    t
+    a
+    ,
+    o
+    n
+    e
+    f
+    o
+    r
+    e
+    a
+    c
+    h
+    p
+    o
+    s
+    s
+    i
+    b
+    l
+    e
+    g
+    e
+    n
+    d
+    e
+    r
+    v
+    a
+    l
+    u
+    e
+    .
+    
     """
     
     resource_type = "MeasureReportGroupStratifierStratum"
@@ -232,35 +1770,423 @@ class MeasureReportGroupStratifierStratum(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.component = None
+        """ 
+        S
+        t
+        r
+        a
+        t
+        i
+        f
+        i
+        e
+        r
+        c
+        o
+        m
+        p
+        o
+        n
+        e
+        n
+        t
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        List of `MeasureReportGroupStratifierStratumComponent` items (represented as `dict` in JSON). """
+        
         self.measureScore = None
-        """ What score this stratum achieved.
-        Type `float`. """
+        """ 
+        W
+        h
+        a
+        t
+        s
+        c
+        o
+        r
+        e
+        t
+        h
+        i
+        s
+        s
+        t
+        r
+        a
+        t
+        u
+        m
+        a
+        c
+        h
+        i
+        e
+        v
+        e
+        d
+        .
+        Type `Quantity` (represented as `dict` in JSON). """
         
         self.population = None
-        """ Population results in this stratum.
+        """ 
+        P
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        r
+        e
+        s
+        u
+        l
+        t
+        s
+        i
+        n
+        t
+        h
+        i
+        s
+        s
+        t
+        r
+        a
+        t
+        u
+        m
+        .
         List of `MeasureReportGroupStratifierStratumPopulation` items (represented as `dict` in JSON). """
         
         self.value = None
-        """ The stratum value, e.g. male.
-        Type `str`. """
+        """ 
+        T
+        h
+        e
+        s
+        t
+        r
+        a
+        t
+        u
+        m
+        v
+        a
+        l
+        u
+        e
+        ,
+        e
+        .
+        g
+        .
+        m
+        a
+        l
+        e
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MeasureReportGroupStratifierStratum, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MeasureReportGroupStratifierStratum, self).elementProperties()
         js.extend([
-            ("measureScore", "measureScore", float, False, None, False),
+            ("component", "component", MeasureReportGroupStratifierStratumComponent, True, None, False),
+            ("measureScore", "measureScore", quantity.Quantity, False, None, False),
             ("population", "population", MeasureReportGroupStratifierStratumPopulation, True, None, False),
-            ("value", "value", str, False, None, True),
+            ("value", "value", codeableconcept.CodeableConcept, False, None, False),
+        ])
+        return js
+
+
+class MeasureReportGroupStratifierStratumComponent(backboneelement.BackboneElement):
+    """ 
+    S
+    t
+    r
+    a
+    t
+    i
+    f
+    i
+    e
+    r
+    c
+    o
+    m
+    p
+    o
+    n
+    e
+    n
+    t
+    v
+    a
+    l
+    u
+    e
+    s
+    .
+    
+    
+    A
+    s
+    t
+    r
+    a
+    t
+    i
+    f
+    i
+    e
+    r
+    c
+    o
+    m
+    p
+    o
+    n
+    e
+    n
+    t
+    v
+    a
+    l
+    u
+    e
+    .
+    
+    """
+    
+    resource_type = "MeasureReportGroupStratifierStratumComponent"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.code = None
+        """ 
+        W
+        h
+        a
+        t
+        s
+        t
+        r
+        a
+        t
+        i
+        f
+        i
+        e
+        r
+        c
+        o
+        m
+        p
+        o
+        n
+        e
+        n
+        t
+        o
+        f
+        t
+        h
+        e
+        g
+        r
+        o
+        u
+        p
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.value = None
+        """ 
+        T
+        h
+        e
+        s
+        t
+        r
+        a
+        t
+        u
+        m
+        c
+        o
+        m
+        p
+        o
+        n
+        e
+        n
+        t
+        v
+        a
+        l
+        u
+        e
+        ,
+        e
+        .
+        g
+        .
+        m
+        a
+        l
+        e
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(MeasureReportGroupStratifierStratumComponent, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(MeasureReportGroupStratifierStratumComponent, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("value", "value", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
 
 class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElement):
-    """ Population results in this stratum.
+    """ 
+    P
+    o
+    p
+    u
+    l
+    a
+    t
+    i
+    o
+    n
+    r
+    e
+    s
+    u
+    l
+    t
+    s
+    i
+    n
+    t
+    h
+    i
+    s
+    s
+    t
+    r
+    a
+    t
+    u
+    m
+    .
     
-    The populations that make up the stratum, one for each type of population
-    appropriate to the measure.
+    
+    T
+    h
+    e
+    p
+    o
+    p
+    u
+    l
+    a
+    t
+    i
+    o
+    n
+    s
+    t
+    h
+    a
+    t
+    m
+    a
+    k
+    e
+    u
+    p
+    t
+    h
+    e
+    s
+    t
+    r
+    a
+    t
+    u
+    m
+    ,
+    o
+    n
+    e
+    f
+    o
+    r
+    e
+    a
+    c
+    h
+    t
+    y
+    p
+    e
+    o
+    f
+    p
+    o
+    p
+    u
+    l
+    a
+    t
+    i
+    o
+    n
+    a
+    p
+    p
+    r
+    o
+    p
+    r
+    i
+    a
+    t
+    e
+    t
+    o
+    t
+    h
+    e
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    .
+    
     """
     
     resource_type = "MeasureReportGroupStratifierStratumPopulation"
@@ -274,22 +2200,266 @@ class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElem
         """
         
         self.code = None
-        """ initial-population | numerator | numerator-exclusion | denominator
-        | denominator-exclusion | denominator-exception | measure-
-        population | measure-population-exclusion | measure-score.
+        """ 
+        i
+        n
+        i
+        t
+        i
+        a
+        l
+        -
+        p
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        |
+        n
+        u
+        m
+        e
+        r
+        a
+        t
+        o
+        r
+        |
+        n
+        u
+        m
+        e
+        r
+        a
+        t
+        o
+        r
+        -
+        e
+        x
+        c
+        l
+        u
+        s
+        i
+        o
+        n
+        |
+        d
+        e
+        n
+        o
+        m
+        i
+        n
+        a
+        t
+        o
+        r
+        |
+        d
+        e
+        n
+        o
+        m
+        i
+        n
+        a
+        t
+        o
+        r
+        -
+        e
+        x
+        c
+        l
+        u
+        s
+        i
+        o
+        n
+        |
+        d
+        e
+        n
+        o
+        m
+        i
+        n
+        a
+        t
+        o
+        r
+        -
+        e
+        x
+        c
+        e
+        p
+        t
+        i
+        o
+        n
+        |
+        m
+        e
+        a
+        s
+        u
+        r
+        e
+        -
+        p
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        |
+        m
+        e
+        a
+        s
+        u
+        r
+        e
+        -
+        p
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        -
+        e
+        x
+        c
+        l
+        u
+        s
+        i
+        o
+        n
+        |
+        m
+        e
+        a
+        s
+        u
+        r
+        e
+        -
+        o
+        b
+        s
+        e
+        r
+        v
+        a
+        t
+        i
+        o
+        n
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.count = None
-        """ Size of the population.
+        """ 
+        S
+        i
+        z
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        .
         Type `int`. """
         
-        self.identifier = None
-        """ Population identifier as defined in the measure.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.patients = None
-        """ For patient-list reports, the patients in this population.
-        Type `FHIRReference` referencing `List` (represented as `dict` in JSON). """
+        self.subjectResults = None
+        """ 
+        F
+        o
+        r
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        -
+        l
+        i
+        s
+        t
+        r
+        e
+        p
+        o
+        r
+        t
+        s
+        ,
+        t
+        h
+        e
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        r
+        e
+        s
+        u
+        l
+        t
+        s
+        i
+        n
+        t
+        h
+        i
+        s
+        p
+        o
+        p
+        u
+        l
+        a
+        t
+        i
+        o
+        n
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(MeasureReportGroupStratifierStratumPopulation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -298,8 +2468,7 @@ class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElem
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("count", "count", int, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("patients", "patients", fhirreference.FHIRReference, False, None, False),
+            ("subjectResults", "subjectResults", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -325,3 +2494,7 @@ try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']

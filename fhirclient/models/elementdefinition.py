@@ -1,17 +1,131 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
-from . import element
+from . import backboneelement
 
-class ElementDefinition(element.Element):
-    """ Definition of an element in a resource or extension.
+class ElementDefinition(backboneelement.BackboneElement):
+    """ 
+    D
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    o
+    f
+    a
+    n
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    i
+    n
+    a
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    o
+    r
+    e
+    x
+    t
+    e
+    n
+    s
+    i
+    o
+    n
+    .
     
-    Captures constraints on each element within the resource, profile, or
-    extension.
+    
+    C
+    a
+    p
+    t
+    u
+    r
+    e
+    s
+    c
+    o
+    n
+    s
+    t
+    r
+    a
+    i
+    n
+    t
+    s
+    o
+    n
+    e
+    a
+    c
+    h
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    w
+    i
+    t
+    h
+    i
+    n
+    t
+    h
+    e
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    ,
+    p
+    r
+    o
+    f
+    i
+    l
+    e
+    ,
+    o
+    r
+    e
+    x
+    t
+    e
+    n
+    s
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "ElementDefinition"
@@ -25,639 +139,7254 @@ class ElementDefinition(element.Element):
         """
         
         self.alias = None
-        """ Other names.
+        """ 
+        O
+        t
+        h
+        e
+        r
+        n
+        a
+        m
+        e
+        s
+        .
         List of `str` items. """
         
         self.base = None
-        """ Base definition information for tools.
+        """ 
+        B
+        a
+        s
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        i
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        f
+        o
+        r
+        t
+        o
+        o
+        l
+        s
+        .
         Type `ElementDefinitionBase` (represented as `dict` in JSON). """
         
         self.binding = None
-        """ ValueSet details if this is coded.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        S
+        e
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        i
+        f
+        t
+        h
+        i
+        s
+        i
+        s
+        c
+        o
+        d
+        e
+        d
+        .
         Type `ElementDefinitionBinding` (represented as `dict` in JSON). """
         
         self.code = None
-        """ Corresponding codes in terminologies.
+        """ 
+        C
+        o
+        r
+        r
+        e
+        s
+        p
+        o
+        n
+        d
+        i
+        n
+        g
+        c
+        o
+        d
+        e
+        s
+        i
+        n
+        t
+        e
+        r
+        m
+        i
+        n
+        o
+        l
+        o
+        g
+        i
+        e
+        s
+        .
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.comment = None
-        """ Comments about the use of this element.
+        """ 
+        C
+        o
+        m
+        m
+        e
+        n
+        t
+        s
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        u
+        s
+        e
+        o
+        f
+        t
+        h
+        i
+        s
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        .
         Type `str`. """
         
         self.condition = None
-        """ Reference to invariant about presence.
+        """ 
+        R
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        t
+        o
+        i
+        n
+        v
+        a
+        r
+        i
+        a
+        n
+        t
+        a
+        b
+        o
+        u
+        t
+        p
+        r
+        e
+        s
+        e
+        n
+        c
+        e
+        .
         List of `str` items. """
         
         self.constraint = None
-        """ Condition that must evaluate to true.
+        """ 
+        C
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        t
+        h
+        a
+        t
+        m
+        u
+        s
+        t
+        e
+        v
+        a
+        l
+        u
+        a
+        t
+        e
+        t
+        o
+        t
+        r
+        u
+        e
+        .
         List of `ElementDefinitionConstraint` items (represented as `dict` in JSON). """
         
         self.contentReference = None
-        """ Reference to definition of content for the element.
+        """ 
+        R
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        t
+        o
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        o
+        f
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        f
+        o
+        r
+        t
+        h
+        e
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        .
         Type `str`. """
         
         self.defaultValueAddress = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Address` (represented as `dict` in JSON). """
         
         self.defaultValueAge = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Age` (represented as `dict` in JSON). """
         
         self.defaultValueAnnotation = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Annotation` (represented as `dict` in JSON). """
         
         self.defaultValueAttachment = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.defaultValueBase64Binary = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `str`. """
         
         self.defaultValueBoolean = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `bool`. """
         
+        self.defaultValueCanonical = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `str`. """
+        
         self.defaultValueCode = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `str`. """
         
         self.defaultValueCodeableConcept = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.defaultValueCoding = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.defaultValueContactDetail = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `ContactDetail` (represented as `dict` in JSON). """
+        
         self.defaultValueContactPoint = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.defaultValueContributor = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `Contributor` (represented as `dict` in JSON). """
+        
         self.defaultValueCount = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Count` (represented as `dict` in JSON). """
         
+        self.defaultValueDataRequirement = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `DataRequirement` (represented as `dict` in JSON). """
+        
         self.defaultValueDate = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.defaultValueDateTime = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.defaultValueDecimal = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `float`. """
         
         self.defaultValueDistance = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Distance` (represented as `dict` in JSON). """
         
+        self.defaultValueDosage = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `Dosage` (represented as `dict` in JSON). """
+        
         self.defaultValueDuration = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Duration` (represented as `dict` in JSON). """
         
+        self.defaultValueExpression = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `Expression` (represented as `dict` in JSON). """
+        
         self.defaultValueHumanName = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `HumanName` (represented as `dict` in JSON). """
         
         self.defaultValueId = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `str`. """
         
         self.defaultValueIdentifier = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.defaultValueInstant = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.defaultValueInteger = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `int`. """
         
         self.defaultValueMarkdown = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `str`. """
         
-        self.defaultValueMeta = None
-        """ Specified value if missing from instance.
-        Type `Meta` (represented as `dict` in JSON). """
-        
         self.defaultValueMoney = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Money` (represented as `dict` in JSON). """
         
         self.defaultValueOid = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `str`. """
         
+        self.defaultValueParameterDefinition = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `ParameterDefinition` (represented as `dict` in JSON). """
+        
         self.defaultValuePeriod = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.defaultValuePositiveInt = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `int`. """
         
         self.defaultValueQuantity = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.defaultValueRange = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Range` (represented as `dict` in JSON). """
         
         self.defaultValueRatio = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Ratio` (represented as `dict` in JSON). """
         
         self.defaultValueReference = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.defaultValueRelatedArtifact = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `RelatedArtifact` (represented as `dict` in JSON). """
+        
         self.defaultValueSampledData = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `SampledData` (represented as `dict` in JSON). """
         
         self.defaultValueSignature = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Signature` (represented as `dict` in JSON). """
         
         self.defaultValueString = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `str`. """
         
         self.defaultValueTime = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.defaultValueTiming = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `Timing` (represented as `dict` in JSON). """
         
+        self.defaultValueTriggerDefinition = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `TriggerDefinition` (represented as `dict` in JSON). """
+        
         self.defaultValueUnsignedInt = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `int`. """
         
         self.defaultValueUri = None
-        """ Specified value if missing from instance.
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `str`. """
+        
+        self.defaultValueUrl = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `str`. """
+        
+        self.defaultValueUsageContext = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `UsageContext` (represented as `dict` in JSON). """
+        
+        self.defaultValueUuid = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        i
+        f
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        f
+        r
+        o
+        m
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `str`. """
         
         self.definition = None
-        """ Full formal definition as narrative text.
+        """ 
+        F
+        u
+        l
+        l
+        f
+        o
+        r
+        m
+        a
+        l
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        a
+        s
+        n
+        a
+        r
+        r
+        a
+        t
+        i
+        v
+        e
+        t
+        e
+        x
+        t
+        .
         Type `str`. """
         
         self.example = None
-        """ Example value (as defined for type).
+        """ 
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        v
+        a
+        l
+        u
+        e
+        (
+        a
+        s
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        f
+        o
+        r
+        t
+        y
+        p
+        e
+        )
+        .
         List of `ElementDefinitionExample` items (represented as `dict` in JSON). """
         
         self.fixedAddress = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Address` (represented as `dict` in JSON). """
         
         self.fixedAge = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Age` (represented as `dict` in JSON). """
         
         self.fixedAnnotation = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Annotation` (represented as `dict` in JSON). """
         
         self.fixedAttachment = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.fixedBase64Binary = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `str`. """
         
         self.fixedBoolean = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `bool`. """
         
+        self.fixedCanonical = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `str`. """
+        
         self.fixedCode = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `str`. """
         
         self.fixedCodeableConcept = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.fixedCoding = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.fixedContactDetail = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `ContactDetail` (represented as `dict` in JSON). """
+        
         self.fixedContactPoint = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.fixedContributor = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `Contributor` (represented as `dict` in JSON). """
+        
         self.fixedCount = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Count` (represented as `dict` in JSON). """
         
+        self.fixedDataRequirement = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `DataRequirement` (represented as `dict` in JSON). """
+        
         self.fixedDate = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.fixedDateTime = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.fixedDecimal = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `float`. """
         
         self.fixedDistance = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Distance` (represented as `dict` in JSON). """
         
+        self.fixedDosage = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `Dosage` (represented as `dict` in JSON). """
+        
         self.fixedDuration = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Duration` (represented as `dict` in JSON). """
         
+        self.fixedExpression = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `Expression` (represented as `dict` in JSON). """
+        
         self.fixedHumanName = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `HumanName` (represented as `dict` in JSON). """
         
         self.fixedId = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `str`. """
         
         self.fixedIdentifier = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.fixedInstant = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.fixedInteger = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `int`. """
         
         self.fixedMarkdown = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `str`. """
         
-        self.fixedMeta = None
-        """ Value must be exactly this.
-        Type `Meta` (represented as `dict` in JSON). """
-        
         self.fixedMoney = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Money` (represented as `dict` in JSON). """
         
         self.fixedOid = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `str`. """
         
+        self.fixedParameterDefinition = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `ParameterDefinition` (represented as `dict` in JSON). """
+        
         self.fixedPeriod = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.fixedPositiveInt = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `int`. """
         
         self.fixedQuantity = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.fixedRange = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Range` (represented as `dict` in JSON). """
         
         self.fixedRatio = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Ratio` (represented as `dict` in JSON). """
         
         self.fixedReference = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.fixedRelatedArtifact = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `RelatedArtifact` (represented as `dict` in JSON). """
+        
         self.fixedSampledData = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `SampledData` (represented as `dict` in JSON). """
         
         self.fixedSignature = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Signature` (represented as `dict` in JSON). """
         
         self.fixedString = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `str`. """
         
         self.fixedTime = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.fixedTiming = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `Timing` (represented as `dict` in JSON). """
         
+        self.fixedTriggerDefinition = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `TriggerDefinition` (represented as `dict` in JSON). """
+        
         self.fixedUnsignedInt = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `int`. """
         
         self.fixedUri = None
-        """ Value must be exactly this.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `str`. """
+        
+        self.fixedUrl = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `str`. """
+        
+        self.fixedUsageContext = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
+        Type `UsageContext` (represented as `dict` in JSON). """
+        
+        self.fixedUuid = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        b
+        e
+        e
+        x
+        a
+        c
+        t
+        l
+        y
+        t
+        h
+        i
+        s
+        .
         Type `str`. """
         
         self.isModifier = None
-        """ If this modifies the meaning of other elements.
+        """ 
+        I
+        f
+        t
+        h
+        i
+        s
+        m
+        o
+        d
+        i
+        f
+        i
+        e
+        s
+        t
+        h
+        e
+        m
+        e
+        a
+        n
+        i
+        n
+        g
+        o
+        f
+        o
+        t
+        h
+        e
+        r
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        s
+        .
         Type `bool`. """
         
+        self.isModifierReason = None
+        """ 
+        R
+        e
+        a
+        s
+        o
+        n
+        t
+        h
+        a
+        t
+        t
+        h
+        i
+        s
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        i
+        s
+        m
+        a
+        r
+        k
+        e
+        d
+        a
+        s
+        a
+        m
+        o
+        d
+        i
+        f
+        i
+        e
+        r
+        .
+        Type `str`. """
+        
         self.isSummary = None
-        """ Include when _summary = true?.
+        """ 
+        I
+        n
+        c
+        l
+        u
+        d
+        e
+        w
+        h
+        e
+        n
+        _
+        s
+        u
+        m
+        m
+        a
+        r
+        y
+        =
+        t
+        r
+        u
+        e
+        ?
+        .
         Type `bool`. """
         
         self.label = None
-        """ Name for element to display with or prompt for element.
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        t
+        o
+        d
+        i
+        s
+        p
+        l
+        a
+        y
+        w
+        i
+        t
+        h
+        o
+        r
+        p
+        r
+        o
+        m
+        p
+        t
+        f
+        o
+        r
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        .
         Type `str`. """
         
         self.mapping = None
-        """ Map element to another set of definitions.
+        """ 
+        M
+        a
+        p
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        t
+        o
+        a
+        n
+        o
+        t
+        h
+        e
+        r
+        s
+        e
+        t
+        o
+        f
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        s
+        .
         List of `ElementDefinitionMapping` items (represented as `dict` in JSON). """
         
         self.max = None
-        """ Maximum Cardinality (a number or *).
+        """ 
+        M
+        a
+        x
+        i
+        m
+        u
+        m
+        C
+        a
+        r
+        d
+        i
+        n
+        a
+        l
+        i
+        t
+        y
+        (
+        a
+        n
+        u
+        m
+        b
+        e
+        r
+        o
+        r
+        *
+        )
+        .
         Type `str`. """
         
         self.maxLength = None
-        """ Max length for strings.
+        """ 
+        M
+        a
+        x
+        l
+        e
+        n
+        g
+        t
+        h
+        f
+        o
+        r
+        s
+        t
+        r
+        i
+        n
+        g
+        s
+        .
         Type `int`. """
         
         self.maxValueDate = None
-        """ Maximum Allowed Value (for some types).
+        """ 
+        M
+        a
+        x
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.maxValueDateTime = None
-        """ Maximum Allowed Value (for some types).
+        """ 
+        M
+        a
+        x
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.maxValueDecimal = None
-        """ Maximum Allowed Value (for some types).
+        """ 
+        M
+        a
+        x
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `float`. """
         
         self.maxValueInstant = None
-        """ Maximum Allowed Value (for some types).
+        """ 
+        M
+        a
+        x
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.maxValueInteger = None
-        """ Maximum Allowed Value (for some types).
+        """ 
+        M
+        a
+        x
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `int`. """
         
         self.maxValuePositiveInt = None
-        """ Maximum Allowed Value (for some types).
+        """ 
+        M
+        a
+        x
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `int`. """
         
         self.maxValueQuantity = None
-        """ Maximum Allowed Value (for some types).
+        """ 
+        M
+        a
+        x
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.maxValueTime = None
-        """ Maximum Allowed Value (for some types).
+        """ 
+        M
+        a
+        x
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.maxValueUnsignedInt = None
-        """ Maximum Allowed Value (for some types).
+        """ 
+        M
+        a
+        x
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `int`. """
         
         self.meaningWhenMissing = None
-        """ Implicit meaning when this element is missing.
+        """ 
+        I
+        m
+        p
+        l
+        i
+        c
+        i
+        t
+        m
+        e
+        a
+        n
+        i
+        n
+        g
+        w
+        h
+        e
+        n
+        t
+        h
+        i
+        s
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        i
+        s
+        m
+        i
+        s
+        s
+        i
+        n
+        g
+        .
         Type `str`. """
         
         self.min = None
-        """ Minimum Cardinality.
+        """ 
+        M
+        i
+        n
+        i
+        m
+        u
+        m
+        C
+        a
+        r
+        d
+        i
+        n
+        a
+        l
+        i
+        t
+        y
+        .
         Type `int`. """
         
         self.minValueDate = None
-        """ Minimum Allowed Value (for some types).
+        """ 
+        M
+        i
+        n
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.minValueDateTime = None
-        """ Minimum Allowed Value (for some types).
+        """ 
+        M
+        i
+        n
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.minValueDecimal = None
-        """ Minimum Allowed Value (for some types).
+        """ 
+        M
+        i
+        n
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `float`. """
         
         self.minValueInstant = None
-        """ Minimum Allowed Value (for some types).
+        """ 
+        M
+        i
+        n
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.minValueInteger = None
-        """ Minimum Allowed Value (for some types).
+        """ 
+        M
+        i
+        n
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `int`. """
         
         self.minValuePositiveInt = None
-        """ Minimum Allowed Value (for some types).
+        """ 
+        M
+        i
+        n
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `int`. """
         
         self.minValueQuantity = None
-        """ Minimum Allowed Value (for some types).
+        """ 
+        M
+        i
+        n
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.minValueTime = None
-        """ Minimum Allowed Value (for some types).
+        """ 
+        M
+        i
+        n
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.minValueUnsignedInt = None
-        """ Minimum Allowed Value (for some types).
+        """ 
+        M
+        i
+        n
+        i
+        m
+        u
+        m
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        V
+        a
+        l
+        u
+        e
+        (
+        f
+        o
+        r
+        s
+        o
+        m
+        e
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `int`. """
         
         self.mustSupport = None
-        """ If the element must supported.
+        """ 
+        I
+        f
+        t
+        h
+        e
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        m
+        u
+        s
+        t
+        b
+        e
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        .
         Type `bool`. """
         
         self.orderMeaning = None
-        """ What the order of the elements means.
+        """ 
+        W
+        h
+        a
+        t
+        t
+        h
+        e
+        o
+        r
+        d
+        e
+        r
+        o
+        f
+        t
+        h
+        e
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        s
+        m
+        e
+        a
+        n
+        s
+        .
         Type `str`. """
         
         self.path = None
-        """ Path of the element in the hierarchy of elements.
+        """ 
+        P
+        a
+        t
+        h
+        o
+        f
+        t
+        h
+        e
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        i
+        n
+        t
+        h
+        e
+        h
+        i
+        e
+        r
+        a
+        r
+        c
+        h
+        y
+        o
+        f
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        s
+        .
         Type `str`. """
         
         self.patternAddress = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Address` (represented as `dict` in JSON). """
         
         self.patternAge = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Age` (represented as `dict` in JSON). """
         
         self.patternAnnotation = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Annotation` (represented as `dict` in JSON). """
         
         self.patternAttachment = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.patternBase64Binary = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `str`. """
         
         self.patternBoolean = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `bool`. """
         
+        self.patternCanonical = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `str`. """
+        
         self.patternCode = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `str`. """
         
         self.patternCodeableConcept = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.patternCoding = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.patternContactDetail = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `ContactDetail` (represented as `dict` in JSON). """
+        
         self.patternContactPoint = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.patternContributor = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `Contributor` (represented as `dict` in JSON). """
+        
         self.patternCount = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Count` (represented as `dict` in JSON). """
         
+        self.patternDataRequirement = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `DataRequirement` (represented as `dict` in JSON). """
+        
         self.patternDate = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.patternDateTime = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.patternDecimal = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `float`. """
         
         self.patternDistance = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Distance` (represented as `dict` in JSON). """
         
+        self.patternDosage = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `Dosage` (represented as `dict` in JSON). """
+        
         self.patternDuration = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Duration` (represented as `dict` in JSON). """
         
+        self.patternExpression = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `Expression` (represented as `dict` in JSON). """
+        
         self.patternHumanName = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `HumanName` (represented as `dict` in JSON). """
         
         self.patternId = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `str`. """
         
         self.patternIdentifier = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.patternInstant = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.patternInteger = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `int`. """
         
         self.patternMarkdown = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `str`. """
         
-        self.patternMeta = None
-        """ Value must have at least these property values.
-        Type `Meta` (represented as `dict` in JSON). """
-        
         self.patternMoney = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Money` (represented as `dict` in JSON). """
         
         self.patternOid = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `str`. """
         
+        self.patternParameterDefinition = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `ParameterDefinition` (represented as `dict` in JSON). """
+        
         self.patternPeriod = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.patternPositiveInt = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `int`. """
         
         self.patternQuantity = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.patternRange = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Range` (represented as `dict` in JSON). """
         
         self.patternRatio = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Ratio` (represented as `dict` in JSON). """
         
         self.patternReference = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.patternRelatedArtifact = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `RelatedArtifact` (represented as `dict` in JSON). """
+        
         self.patternSampledData = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `SampledData` (represented as `dict` in JSON). """
         
         self.patternSignature = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Signature` (represented as `dict` in JSON). """
         
         self.patternString = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `str`. """
         
         self.patternTime = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.patternTiming = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `Timing` (represented as `dict` in JSON). """
         
+        self.patternTriggerDefinition = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `TriggerDefinition` (represented as `dict` in JSON). """
+        
         self.patternUnsignedInt = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `int`. """
         
         self.patternUri = None
-        """ Value must have at least these property values.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `str`. """
+        
+        self.patternUrl = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `str`. """
+        
+        self.patternUsageContext = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
+        Type `UsageContext` (represented as `dict` in JSON). """
+        
+        self.patternUuid = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        m
+        u
+        s
+        t
+        h
+        a
+        v
+        e
+        a
+        t
+        l
+        e
+        a
+        s
+        t
+        t
+        h
+        e
+        s
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        s
+        .
         Type `str`. """
         
         self.representation = None
-        """ xmlAttr | xmlText | typeAttr | cdaText | xhtml.
+        """ 
+        x
+        m
+        l
+        A
+        t
+        t
+        r
+        |
+        x
+        m
+        l
+        T
+        e
+        x
+        t
+        |
+        t
+        y
+        p
+        e
+        A
+        t
+        t
+        r
+        |
+        c
+        d
+        a
+        T
+        e
+        x
+        t
+        |
+        x
+        h
+        t
+        m
+        l
+        .
         List of `str` items. """
         
         self.requirements = None
-        """ Why this resource has been created.
+        """ 
+        W
+        h
+        y
+        t
+        h
+        i
+        s
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        h
+        a
+        s
+        b
+        e
+        e
+        n
+        c
+        r
+        e
+        a
+        t
+        e
+        d
+        .
         Type `str`. """
         
         self.short = None
-        """ Concise definition for space-constrained presentation.
+        """ 
+        C
+        o
+        n
+        c
+        i
+        s
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        f
+        o
+        r
+        s
+        p
+        a
+        c
+        e
+        -
+        c
+        o
+        n
+        s
+        t
+        r
+        a
+        i
+        n
+        e
+        d
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
+        self.sliceIsConstraining = None
+        """ 
+        I
+        f
+        t
+        h
+        i
+        s
+        s
+        l
+        i
+        c
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        c
+        o
+        n
+        s
+        t
+        r
+        a
+        i
+        n
+        s
+        a
+        n
+        i
+        n
+        h
+        e
+        r
+        i
+        t
+        e
+        d
+        s
+        l
+        i
+        c
+        e
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        (
+        o
+        r
+        n
+        o
+        t
+        )
+        .
+        Type `bool`. """
+        
         self.sliceName = None
-        """ Name for this particular element (in a set of slices).
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        p
+        a
+        r
+        t
+        i
+        c
+        u
+        l
+        a
+        r
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        (
+        i
+        n
+        a
+        s
+        e
+        t
+        o
+        f
+        s
+        l
+        i
+        c
+        e
+        s
+        )
+        .
         Type `str`. """
         
         self.slicing = None
-        """ This element is sliced - slices follow.
+        """ 
+        T
+        h
+        i
+        s
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        i
+        s
+        s
+        l
+        i
+        c
+        e
+        d
+        -
+        s
+        l
+        i
+        c
+        e
+        s
+        f
+        o
+        l
+        l
+        o
+        w
+        .
         Type `ElementDefinitionSlicing` (represented as `dict` in JSON). """
         
         self.type = None
-        """ Data type and Profile for this element.
+        """ 
+        D
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        a
+        n
+        d
+        P
+        r
+        o
+        f
+        i
+        l
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        .
         List of `ElementDefinitionType` items (represented as `dict` in JSON). """
         
         super(ElementDefinition, self).__init__(jsondict=jsondict, strict=strict)
@@ -679,38 +7408,49 @@ class ElementDefinition(element.Element):
             ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
             ("defaultValueBase64Binary", "defaultValueBase64Binary", str, False, "defaultValue", False),
             ("defaultValueBoolean", "defaultValueBoolean", bool, False, "defaultValue", False),
+            ("defaultValueCanonical", "defaultValueCanonical", str, False, "defaultValue", False),
             ("defaultValueCode", "defaultValueCode", str, False, "defaultValue", False),
             ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False),
             ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False),
+            ("defaultValueContactDetail", "defaultValueContactDetail", contactdetail.ContactDetail, False, "defaultValue", False),
             ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False),
+            ("defaultValueContributor", "defaultValueContributor", contributor.Contributor, False, "defaultValue", False),
             ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
+            ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False),
             ("defaultValueDate", "defaultValueDate", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueDateTime", "defaultValueDateTime", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False),
             ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
+            ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False),
             ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False),
+            ("defaultValueExpression", "defaultValueExpression", expression.Expression, False, "defaultValue", False),
             ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
             ("defaultValueId", "defaultValueId", str, False, "defaultValue", False),
             ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
             ("defaultValueInstant", "defaultValueInstant", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
             ("defaultValueMarkdown", "defaultValueMarkdown", str, False, "defaultValue", False),
-            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
             ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
             ("defaultValueOid", "defaultValueOid", str, False, "defaultValue", False),
+            ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False),
             ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False),
             ("defaultValuePositiveInt", "defaultValuePositiveInt", int, False, "defaultValue", False),
             ("defaultValueQuantity", "defaultValueQuantity", quantity.Quantity, False, "defaultValue", False),
             ("defaultValueRange", "defaultValueRange", range.Range, False, "defaultValue", False),
             ("defaultValueRatio", "defaultValueRatio", ratio.Ratio, False, "defaultValue", False),
             ("defaultValueReference", "defaultValueReference", fhirreference.FHIRReference, False, "defaultValue", False),
+            ("defaultValueRelatedArtifact", "defaultValueRelatedArtifact", relatedartifact.RelatedArtifact, False, "defaultValue", False),
             ("defaultValueSampledData", "defaultValueSampledData", sampleddata.SampledData, False, "defaultValue", False),
             ("defaultValueSignature", "defaultValueSignature", signature.Signature, False, "defaultValue", False),
             ("defaultValueString", "defaultValueString", str, False, "defaultValue", False),
             ("defaultValueTime", "defaultValueTime", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueTiming", "defaultValueTiming", timing.Timing, False, "defaultValue", False),
+            ("defaultValueTriggerDefinition", "defaultValueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "defaultValue", False),
             ("defaultValueUnsignedInt", "defaultValueUnsignedInt", int, False, "defaultValue", False),
             ("defaultValueUri", "defaultValueUri", str, False, "defaultValue", False),
+            ("defaultValueUrl", "defaultValueUrl", str, False, "defaultValue", False),
+            ("defaultValueUsageContext", "defaultValueUsageContext", usagecontext.UsageContext, False, "defaultValue", False),
+            ("defaultValueUuid", "defaultValueUuid", str, False, "defaultValue", False),
             ("definition", "definition", str, False, None, False),
             ("example", "example", ElementDefinitionExample, True, None, False),
             ("fixedAddress", "fixedAddress", address.Address, False, "fixed", False),
@@ -719,39 +7459,51 @@ class ElementDefinition(element.Element):
             ("fixedAttachment", "fixedAttachment", attachment.Attachment, False, "fixed", False),
             ("fixedBase64Binary", "fixedBase64Binary", str, False, "fixed", False),
             ("fixedBoolean", "fixedBoolean", bool, False, "fixed", False),
+            ("fixedCanonical", "fixedCanonical", str, False, "fixed", False),
             ("fixedCode", "fixedCode", str, False, "fixed", False),
             ("fixedCodeableConcept", "fixedCodeableConcept", codeableconcept.CodeableConcept, False, "fixed", False),
             ("fixedCoding", "fixedCoding", coding.Coding, False, "fixed", False),
+            ("fixedContactDetail", "fixedContactDetail", contactdetail.ContactDetail, False, "fixed", False),
             ("fixedContactPoint", "fixedContactPoint", contactpoint.ContactPoint, False, "fixed", False),
+            ("fixedContributor", "fixedContributor", contributor.Contributor, False, "fixed", False),
             ("fixedCount", "fixedCount", count.Count, False, "fixed", False),
+            ("fixedDataRequirement", "fixedDataRequirement", datarequirement.DataRequirement, False, "fixed", False),
             ("fixedDate", "fixedDate", fhirdate.FHIRDate, False, "fixed", False),
             ("fixedDateTime", "fixedDateTime", fhirdate.FHIRDate, False, "fixed", False),
             ("fixedDecimal", "fixedDecimal", float, False, "fixed", False),
             ("fixedDistance", "fixedDistance", distance.Distance, False, "fixed", False),
+            ("fixedDosage", "fixedDosage", dosage.Dosage, False, "fixed", False),
             ("fixedDuration", "fixedDuration", duration.Duration, False, "fixed", False),
+            ("fixedExpression", "fixedExpression", expression.Expression, False, "fixed", False),
             ("fixedHumanName", "fixedHumanName", humanname.HumanName, False, "fixed", False),
             ("fixedId", "fixedId", str, False, "fixed", False),
             ("fixedIdentifier", "fixedIdentifier", identifier.Identifier, False, "fixed", False),
             ("fixedInstant", "fixedInstant", fhirdate.FHIRDate, False, "fixed", False),
             ("fixedInteger", "fixedInteger", int, False, "fixed", False),
             ("fixedMarkdown", "fixedMarkdown", str, False, "fixed", False),
-            ("fixedMeta", "fixedMeta", meta.Meta, False, "fixed", False),
             ("fixedMoney", "fixedMoney", money.Money, False, "fixed", False),
             ("fixedOid", "fixedOid", str, False, "fixed", False),
+            ("fixedParameterDefinition", "fixedParameterDefinition", parameterdefinition.ParameterDefinition, False, "fixed", False),
             ("fixedPeriod", "fixedPeriod", period.Period, False, "fixed", False),
             ("fixedPositiveInt", "fixedPositiveInt", int, False, "fixed", False),
             ("fixedQuantity", "fixedQuantity", quantity.Quantity, False, "fixed", False),
             ("fixedRange", "fixedRange", range.Range, False, "fixed", False),
             ("fixedRatio", "fixedRatio", ratio.Ratio, False, "fixed", False),
             ("fixedReference", "fixedReference", fhirreference.FHIRReference, False, "fixed", False),
+            ("fixedRelatedArtifact", "fixedRelatedArtifact", relatedartifact.RelatedArtifact, False, "fixed", False),
             ("fixedSampledData", "fixedSampledData", sampleddata.SampledData, False, "fixed", False),
             ("fixedSignature", "fixedSignature", signature.Signature, False, "fixed", False),
             ("fixedString", "fixedString", str, False, "fixed", False),
             ("fixedTime", "fixedTime", fhirdate.FHIRDate, False, "fixed", False),
             ("fixedTiming", "fixedTiming", timing.Timing, False, "fixed", False),
+            ("fixedTriggerDefinition", "fixedTriggerDefinition", triggerdefinition.TriggerDefinition, False, "fixed", False),
             ("fixedUnsignedInt", "fixedUnsignedInt", int, False, "fixed", False),
             ("fixedUri", "fixedUri", str, False, "fixed", False),
+            ("fixedUrl", "fixedUrl", str, False, "fixed", False),
+            ("fixedUsageContext", "fixedUsageContext", usagecontext.UsageContext, False, "fixed", False),
+            ("fixedUuid", "fixedUuid", str, False, "fixed", False),
             ("isModifier", "isModifier", bool, False, None, False),
+            ("isModifierReason", "isModifierReason", str, False, None, False),
             ("isSummary", "isSummary", bool, False, None, False),
             ("label", "label", str, False, None, False),
             ("mapping", "mapping", ElementDefinitionMapping, True, None, False),
@@ -786,41 +7538,53 @@ class ElementDefinition(element.Element):
             ("patternAttachment", "patternAttachment", attachment.Attachment, False, "pattern", False),
             ("patternBase64Binary", "patternBase64Binary", str, False, "pattern", False),
             ("patternBoolean", "patternBoolean", bool, False, "pattern", False),
+            ("patternCanonical", "patternCanonical", str, False, "pattern", False),
             ("patternCode", "patternCode", str, False, "pattern", False),
             ("patternCodeableConcept", "patternCodeableConcept", codeableconcept.CodeableConcept, False, "pattern", False),
             ("patternCoding", "patternCoding", coding.Coding, False, "pattern", False),
+            ("patternContactDetail", "patternContactDetail", contactdetail.ContactDetail, False, "pattern", False),
             ("patternContactPoint", "patternContactPoint", contactpoint.ContactPoint, False, "pattern", False),
+            ("patternContributor", "patternContributor", contributor.Contributor, False, "pattern", False),
             ("patternCount", "patternCount", count.Count, False, "pattern", False),
+            ("patternDataRequirement", "patternDataRequirement", datarequirement.DataRequirement, False, "pattern", False),
             ("patternDate", "patternDate", fhirdate.FHIRDate, False, "pattern", False),
             ("patternDateTime", "patternDateTime", fhirdate.FHIRDate, False, "pattern", False),
             ("patternDecimal", "patternDecimal", float, False, "pattern", False),
             ("patternDistance", "patternDistance", distance.Distance, False, "pattern", False),
+            ("patternDosage", "patternDosage", dosage.Dosage, False, "pattern", False),
             ("patternDuration", "patternDuration", duration.Duration, False, "pattern", False),
+            ("patternExpression", "patternExpression", expression.Expression, False, "pattern", False),
             ("patternHumanName", "patternHumanName", humanname.HumanName, False, "pattern", False),
             ("patternId", "patternId", str, False, "pattern", False),
             ("patternIdentifier", "patternIdentifier", identifier.Identifier, False, "pattern", False),
             ("patternInstant", "patternInstant", fhirdate.FHIRDate, False, "pattern", False),
             ("patternInteger", "patternInteger", int, False, "pattern", False),
             ("patternMarkdown", "patternMarkdown", str, False, "pattern", False),
-            ("patternMeta", "patternMeta", meta.Meta, False, "pattern", False),
             ("patternMoney", "patternMoney", money.Money, False, "pattern", False),
             ("patternOid", "patternOid", str, False, "pattern", False),
+            ("patternParameterDefinition", "patternParameterDefinition", parameterdefinition.ParameterDefinition, False, "pattern", False),
             ("patternPeriod", "patternPeriod", period.Period, False, "pattern", False),
             ("patternPositiveInt", "patternPositiveInt", int, False, "pattern", False),
             ("patternQuantity", "patternQuantity", quantity.Quantity, False, "pattern", False),
             ("patternRange", "patternRange", range.Range, False, "pattern", False),
             ("patternRatio", "patternRatio", ratio.Ratio, False, "pattern", False),
             ("patternReference", "patternReference", fhirreference.FHIRReference, False, "pattern", False),
+            ("patternRelatedArtifact", "patternRelatedArtifact", relatedartifact.RelatedArtifact, False, "pattern", False),
             ("patternSampledData", "patternSampledData", sampleddata.SampledData, False, "pattern", False),
             ("patternSignature", "patternSignature", signature.Signature, False, "pattern", False),
             ("patternString", "patternString", str, False, "pattern", False),
             ("patternTime", "patternTime", fhirdate.FHIRDate, False, "pattern", False),
             ("patternTiming", "patternTiming", timing.Timing, False, "pattern", False),
+            ("patternTriggerDefinition", "patternTriggerDefinition", triggerdefinition.TriggerDefinition, False, "pattern", False),
             ("patternUnsignedInt", "patternUnsignedInt", int, False, "pattern", False),
             ("patternUri", "patternUri", str, False, "pattern", False),
+            ("patternUrl", "patternUrl", str, False, "pattern", False),
+            ("patternUsageContext", "patternUsageContext", usagecontext.UsageContext, False, "pattern", False),
+            ("patternUuid", "patternUuid", str, False, "pattern", False),
             ("representation", "representation", str, True, None, False),
             ("requirements", "requirements", str, False, None, False),
             ("short", "short", str, False, None, False),
+            ("sliceIsConstraining", "sliceIsConstraining", bool, False, None, False),
             ("sliceName", "sliceName", str, False, None, False),
             ("slicing", "slicing", ElementDefinitionSlicing, False, None, False),
             ("type", "type", ElementDefinitionType, True, None, False),
@@ -828,15 +7592,466 @@ class ElementDefinition(element.Element):
         return js
 
 
+from . import element
+
 class ElementDefinitionBase(element.Element):
-    """ Base definition information for tools.
+    """ 
+    B
+    a
+    s
+    e
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    f
+    o
+    r
+    t
+    o
+    o
+    l
+    s
+    .
     
-    Information about the base definition of the element, provided to make it
-    unnecessary for tools to trace the deviation of the element through the
-    derived and related profiles. This information is provided when the element
-    definition is not the original definition of an element - i.g. either in a
-    constraint on another type, or for elements from a super type in a snap
-    shot.
+    
+    I
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    t
+    h
+    e
+    b
+    a
+    s
+    e
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    o
+    f
+    t
+    h
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    ,
+    p
+    r
+    o
+    v
+    i
+    d
+    e
+    d
+    t
+    o
+    m
+    a
+    k
+    e
+    i
+    t
+    u
+    n
+    n
+    e
+    c
+    e
+    s
+    s
+    a
+    r
+    y
+    f
+    o
+    r
+    t
+    o
+    o
+    l
+    s
+    t
+    o
+    t
+    r
+    a
+    c
+    e
+    t
+    h
+    e
+    d
+    e
+    v
+    i
+    a
+    t
+    i
+    o
+    n
+    o
+    f
+    t
+    h
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    t
+    h
+    r
+    o
+    u
+    g
+    h
+    t
+    h
+    e
+    d
+    e
+    r
+    i
+    v
+    e
+    d
+    a
+    n
+    d
+    r
+    e
+    l
+    a
+    t
+    e
+    d
+    p
+    r
+    o
+    f
+    i
+    l
+    e
+    s
+    .
+    W
+    h
+    e
+    n
+    t
+    h
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    i
+    s
+    n
+    o
+    t
+    t
+    h
+    e
+    o
+    r
+    i
+    g
+    i
+    n
+    a
+    l
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    o
+    f
+    a
+    n
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    -
+    i
+    .
+    g
+    .
+    e
+    i
+    t
+    h
+    e
+    r
+    i
+    n
+    a
+    c
+    o
+    n
+    s
+    t
+    r
+    a
+    i
+    n
+    t
+    o
+    n
+    a
+    n
+    o
+    t
+    h
+    e
+    r
+    t
+    y
+    p
+    e
+    ,
+    o
+    r
+    f
+    o
+    r
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    f
+    r
+    o
+    m
+    a
+    s
+    u
+    p
+    e
+    r
+    t
+    y
+    p
+    e
+    i
+    n
+    a
+    s
+    n
+    a
+    p
+    s
+    h
+    o
+    t
+    -
+    t
+    h
+    e
+    n
+    t
+    h
+    e
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    i
+    n
+    p
+    r
+    o
+    v
+    i
+    d
+    e
+    d
+    i
+    n
+    t
+    h
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    m
+    a
+    y
+    b
+    e
+    d
+    i
+    f
+    f
+    e
+    r
+    e
+    n
+    t
+    t
+    o
+    t
+    h
+    e
+    b
+    a
+    s
+    e
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    .
+    O
+    n
+    t
+    h
+    e
+    o
+    r
+    i
+    g
+    i
+    n
+    a
+    l
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    o
+    f
+    t
+    h
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    ,
+    i
+    t
+    w
+    i
+    l
+    l
+    b
+    e
+    s
+    a
+    m
+    e
+    .
+    
     """
     
     resource_type = "ElementDefinitionBase"
@@ -850,15 +8065,110 @@ class ElementDefinitionBase(element.Element):
         """
         
         self.max = None
-        """ Max cardinality of the base element.
+        """ 
+        M
+        a
+        x
+        c
+        a
+        r
+        d
+        i
+        n
+        a
+        l
+        i
+        t
+        y
+        o
+        f
+        t
+        h
+        e
+        b
+        a
+        s
+        e
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        .
         Type `str`. """
         
         self.min = None
-        """ Min cardinality of the base element.
+        """ 
+        M
+        i
+        n
+        c
+        a
+        r
+        d
+        i
+        n
+        a
+        l
+        i
+        t
+        y
+        o
+        f
+        t
+        h
+        e
+        b
+        a
+        s
+        e
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        .
         Type `int`. """
         
         self.path = None
-        """ Path that identifies the base element.
+        """ 
+        P
+        a
+        t
+        h
+        t
+        h
+        a
+        t
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        s
+        t
+        h
+        e
+        b
+        a
+        s
+        e
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        .
         Type `str`. """
         
         super(ElementDefinitionBase, self).__init__(jsondict=jsondict, strict=strict)
@@ -874,10 +8184,141 @@ class ElementDefinitionBase(element.Element):
 
 
 class ElementDefinitionBinding(element.Element):
-    """ ValueSet details if this is coded.
+    """ 
+    V
+    a
+    l
+    u
+    e
+    S
+    e
+    t
+    d
+    e
+    t
+    a
+    i
+    l
+    s
+    i
+    f
+    t
+    h
+    i
+    s
+    i
+    s
+    c
+    o
+    d
+    e
+    d
+    .
     
-    Binds to a value set if this element is coded (code, Coding,
-    CodeableConcept, Quantity), or the data types (string, uri).
+    
+    B
+    i
+    n
+    d
+    s
+    t
+    o
+    a
+    v
+    a
+    l
+    u
+    e
+    s
+    e
+    t
+    i
+    f
+    t
+    h
+    i
+    s
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    i
+    s
+    c
+    o
+    d
+    e
+    d
+    (
+    c
+    o
+    d
+    e
+    ,
+    C
+    o
+    d
+    i
+    n
+    g
+    ,
+    C
+    o
+    d
+    e
+    a
+    b
+    l
+    e
+    C
+    o
+    n
+    c
+    e
+    p
+    t
+    ,
+    Q
+    u
+    a
+    n
+    t
+    i
+    t
+    y
+    )
+    ,
+    o
+    r
+    t
+    h
+    e
+    d
+    a
+    t
+    a
+    t
+    y
+    p
+    e
+    s
+    (
+    s
+    t
+    r
+    i
+    n
+    g
+    ,
+    u
+    r
+    i
+    )
+    .
+    
     """
     
     resource_type = "ElementDefinitionBinding"
@@ -891,19 +8332,100 @@ class ElementDefinitionBinding(element.Element):
         """
         
         self.description = None
-        """ Human explanation of the value set.
+        """ 
+        H
+        u
+        m
+        a
+        n
+        e
+        x
+        p
+        l
+        a
+        n
+        a
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        v
+        a
+        l
+        u
+        e
+        s
+        e
+        t
+        .
         Type `str`. """
         
         self.strength = None
-        """ required | extensible | preferred | example.
+        """ 
+        r
+        e
+        q
+        u
+        i
+        r
+        e
+        d
+        |
+        e
+        x
+        t
+        e
+        n
+        s
+        i
+        b
+        l
+        e
+        |
+        p
+        r
+        e
+        f
+        e
+        r
+        r
+        e
+        d
+        |
+        e
+        x
+        a
+        m
+        p
+        l
+        e
+        .
         Type `str`. """
         
-        self.valueSetReference = None
-        """ Source of value set.
-        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
-        
-        self.valueSetUri = None
-        """ Source of value set.
+        self.valueSet = None
+        """ 
+        S
+        o
+        u
+        r
+        c
+        e
+        o
+        f
+        v
+        a
+        l
+        u
+        e
+        s
+        e
+        t
+        .
         Type `str`. """
         
         super(ElementDefinitionBinding, self).__init__(jsondict=jsondict, strict=strict)
@@ -913,17 +8435,166 @@ class ElementDefinitionBinding(element.Element):
         js.extend([
             ("description", "description", str, False, None, False),
             ("strength", "strength", str, False, None, True),
-            ("valueSetReference", "valueSetReference", fhirreference.FHIRReference, False, "valueSet", False),
-            ("valueSetUri", "valueSetUri", str, False, "valueSet", False),
+            ("valueSet", "valueSet", str, False, None, False),
         ])
         return js
 
 
 class ElementDefinitionConstraint(element.Element):
-    """ Condition that must evaluate to true.
+    """ 
+    C
+    o
+    n
+    d
+    i
+    t
+    i
+    o
+    n
+    t
+    h
+    a
+    t
+    m
+    u
+    s
+    t
+    e
+    v
+    a
+    l
+    u
+    a
+    t
+    e
+    t
+    o
+    t
+    r
+    u
+    e
+    .
     
-    Formal constraints such as co-occurrence and other constraints that can be
-    computationally evaluated within the context of the instance.
+    
+    F
+    o
+    r
+    m
+    a
+    l
+    c
+    o
+    n
+    s
+    t
+    r
+    a
+    i
+    n
+    t
+    s
+    s
+    u
+    c
+    h
+    a
+    s
+    c
+    o
+    -
+    o
+    c
+    c
+    u
+    r
+    r
+    e
+    n
+    c
+    e
+    a
+    n
+    d
+    o
+    t
+    h
+    e
+    r
+    c
+    o
+    n
+    s
+    t
+    r
+    a
+    i
+    n
+    t
+    s
+    t
+    h
+    a
+    t
+    c
+    a
+    n
+    b
+    e
+    c
+    o
+    m
+    p
+    u
+    t
+    a
+    t
+    i
+    o
+    n
+    a
+    l
+    l
+    y
+    e
+    v
+    a
+    l
+    u
+    a
+    t
+    e
+    d
+    w
+    i
+    t
+    h
+    i
+    n
+    t
+    h
+    e
+    c
+    o
+    n
+    t
+    e
+    x
+    t
+    o
+    f
+    t
+    h
+    e
+    i
+    n
+    s
+    t
+    a
+    n
+    c
+    e
+    .
+    
     """
     
     resource_type = "ElementDefinitionConstraint"
@@ -937,31 +8608,247 @@ class ElementDefinitionConstraint(element.Element):
         """
         
         self.expression = None
-        """ FHIRPath expression of constraint.
+        """ 
+        F
+        H
+        I
+        R
+        P
+        a
+        t
+        h
+        e
+        x
+        p
+        r
+        e
+        s
+        s
+        i
+        o
+        n
+        o
+        f
+        c
+        o
+        n
+        s
+        t
+        r
+        a
+        i
+        n
+        t
+        .
         Type `str`. """
         
         self.human = None
-        """ Human description of constraint.
+        """ 
+        H
+        u
+        m
+        a
+        n
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        c
+        o
+        n
+        s
+        t
+        r
+        a
+        i
+        n
+        t
+        .
         Type `str`. """
         
         self.key = None
-        """ Target of 'condition' reference above.
+        """ 
+        T
+        a
+        r
+        g
+        e
+        t
+        o
+        f
+        '
+        c
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        '
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        a
+        b
+        o
+        v
+        e
+        .
         Type `str`. """
         
         self.requirements = None
-        """ Why this constraint is necessary or appropriate.
+        """ 
+        W
+        h
+        y
+        t
+        h
+        i
+        s
+        c
+        o
+        n
+        s
+        t
+        r
+        a
+        i
+        n
+        t
+        i
+        s
+        n
+        e
+        c
+        e
+        s
+        s
+        a
+        r
+        y
+        o
+        r
+        a
+        p
+        p
+        r
+        o
+        p
+        r
+        i
+        a
+        t
+        e
+        .
         Type `str`. """
         
         self.severity = None
-        """ error | warning.
+        """ 
+        e
+        r
+        r
+        o
+        r
+        |
+        w
+        a
+        r
+        n
+        i
+        n
+        g
+        .
         Type `str`. """
         
         self.source = None
-        """ Reference to original source of constraint.
+        """ 
+        R
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        t
+        o
+        o
+        r
+        i
+        g
+        i
+        n
+        a
+        l
+        s
+        o
+        u
+        r
+        c
+        e
+        o
+        f
+        c
+        o
+        n
+        s
+        t
+        r
+        a
+        i
+        n
+        t
+        .
         Type `str`. """
         
         self.xpath = None
-        """ XPath expression of constraint.
+        """ 
+        X
+        P
+        a
+        t
+        h
+        e
+        x
+        p
+        r
+        e
+        s
+        s
+        i
+        o
+        n
+        o
+        f
+        c
+        o
+        n
+        s
+        t
+        r
+        a
+        i
+        n
+        t
+        .
         Type `str`. """
         
         super(ElementDefinitionConstraint, self).__init__(jsondict=jsondict, strict=strict)
@@ -969,7 +8856,7 @@ class ElementDefinitionConstraint(element.Element):
     def elementProperties(self):
         js = super(ElementDefinitionConstraint, self).elementProperties()
         js.extend([
-            ("expression", "expression", str, False, None, True),
+            ("expression", "expression", str, False, None, False),
             ("human", "human", str, False, None, True),
             ("key", "key", str, False, None, True),
             ("requirements", "requirements", str, False, None, False),
@@ -981,10 +8868,138 @@ class ElementDefinitionConstraint(element.Element):
 
 
 class ElementDefinitionExample(element.Element):
-    """ Example value (as defined for type).
+    """ 
+    E
+    x
+    a
+    m
+    p
+    l
+    e
+    v
+    a
+    l
+    u
+    e
+    (
+    a
+    s
+    d
+    e
+    f
+    i
+    n
+    e
+    d
+    f
+    o
+    r
+    t
+    y
+    p
+    e
+    )
+    .
     
-    A sample value for this element demonstrating the type of information that
-    would typically be found in the element.
+    
+    A
+    s
+    a
+    m
+    p
+    l
+    e
+    v
+    a
+    l
+    u
+    e
+    f
+    o
+    r
+    t
+    h
+    i
+    s
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    d
+    e
+    m
+    o
+    n
+    s
+    t
+    r
+    a
+    t
+    i
+    n
+    g
+    t
+    h
+    e
+    t
+    y
+    p
+    e
+    o
+    f
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    t
+    h
+    a
+    t
+    w
+    o
+    u
+    l
+    d
+    t
+    y
+    p
+    i
+    c
+    a
+    l
+    l
+    y
+    b
+    e
+    f
+    o
+    u
+    n
+    d
+    i
+    n
+    t
+    h
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "ElementDefinitionExample"
@@ -998,159 +9013,1902 @@ class ElementDefinitionExample(element.Element):
         """
         
         self.label = None
-        """ Describes the purpose of this example.
+        """ 
+        D
+        e
+        s
+        c
+        r
+        i
+        b
+        e
+        s
+        t
+        h
+        e
+        p
+        u
+        r
+        p
+        o
+        s
+        e
+        o
+        f
+        t
+        h
+        i
+        s
+        e
+        x
+        a
+        m
+        p
+        l
+        e
+        .
         Type `str`. """
         
         self.valueAddress = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Address` (represented as `dict` in JSON). """
         
         self.valueAge = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Age` (represented as `dict` in JSON). """
         
         self.valueAnnotation = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Annotation` (represented as `dict` in JSON). """
         
         self.valueAttachment = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.valueBase64Binary = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `str`. """
         
         self.valueBoolean = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `bool`. """
         
+        self.valueCanonical = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `str`. """
+        
         self.valueCode = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `str`. """
         
         self.valueCodeableConcept = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.valueCoding = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.valueContactDetail = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `ContactDetail` (represented as `dict` in JSON). """
+        
         self.valueContactPoint = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.valueContributor = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `Contributor` (represented as `dict` in JSON). """
+        
         self.valueCount = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Count` (represented as `dict` in JSON). """
         
+        self.valueDataRequirement = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `DataRequirement` (represented as `dict` in JSON). """
+        
         self.valueDate = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueDateTime = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueDecimal = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `float`. """
         
         self.valueDistance = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Distance` (represented as `dict` in JSON). """
         
+        self.valueDosage = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `Dosage` (represented as `dict` in JSON). """
+        
         self.valueDuration = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Duration` (represented as `dict` in JSON). """
         
+        self.valueExpression = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `Expression` (represented as `dict` in JSON). """
+        
         self.valueHumanName = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `HumanName` (represented as `dict` in JSON). """
         
         self.valueId = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `str`. """
         
         self.valueIdentifier = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.valueInstant = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueInteger = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `int`. """
         
         self.valueMarkdown = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `str`. """
         
-        self.valueMeta = None
-        """ Value of Example (one of allowed types).
-        Type `Meta` (represented as `dict` in JSON). """
-        
         self.valueMoney = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Money` (represented as `dict` in JSON). """
         
         self.valueOid = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `str`. """
         
+        self.valueParameterDefinition = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `ParameterDefinition` (represented as `dict` in JSON). """
+        
         self.valuePeriod = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.valuePositiveInt = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `int`. """
         
         self.valueQuantity = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.valueRange = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Range` (represented as `dict` in JSON). """
         
         self.valueRatio = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Ratio` (represented as `dict` in JSON). """
         
         self.valueReference = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.valueRelatedArtifact = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `RelatedArtifact` (represented as `dict` in JSON). """
+        
         self.valueSampledData = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `SampledData` (represented as `dict` in JSON). """
         
         self.valueSignature = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Signature` (represented as `dict` in JSON). """
         
         self.valueString = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `str`. """
         
         self.valueTime = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueTiming = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `Timing` (represented as `dict` in JSON). """
         
+        self.valueTriggerDefinition = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `TriggerDefinition` (represented as `dict` in JSON). """
+        
         self.valueUnsignedInt = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `int`. """
         
         self.valueUri = None
-        """ Value of Example (one of allowed types).
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `str`. """
+        
+        self.valueUrl = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `str`. """
+        
+        self.valueUsageContext = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
+        Type `UsageContext` (represented as `dict` in JSON). """
+        
+        self.valueUuid = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        o
+        f
+        E
+        x
+        a
+        m
+        p
+        l
+        e
+        (
+        o
+        n
+        e
+        o
+        f
+        a
+        l
+        l
+        o
+        w
+        e
+        d
+        t
+        y
+        p
+        e
+        s
+        )
+        .
         Type `str`. """
         
         super(ElementDefinitionExample, self).__init__(jsondict=jsondict, strict=strict)
@@ -1165,47 +10923,175 @@ class ElementDefinitionExample(element.Element):
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", True),
             ("valueBase64Binary", "valueBase64Binary", str, False, "value", True),
             ("valueBoolean", "valueBoolean", bool, False, "value", True),
+            ("valueCanonical", "valueCanonical", str, False, "value", True),
             ("valueCode", "valueCode", str, False, "value", True),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
+            ("valueContactDetail", "valueContactDetail", contactdetail.ContactDetail, False, "value", True),
             ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False, "value", True),
+            ("valueContributor", "valueContributor", contributor.Contributor, False, "value", True),
             ("valueCount", "valueCount", count.Count, False, "value", True),
+            ("valueDataRequirement", "valueDataRequirement", datarequirement.DataRequirement, False, "value", True),
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
             ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
             ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueDistance", "valueDistance", distance.Distance, False, "value", True),
+            ("valueDosage", "valueDosage", dosage.Dosage, False, "value", True),
             ("valueDuration", "valueDuration", duration.Duration, False, "value", True),
+            ("valueExpression", "valueExpression", expression.Expression, False, "value", True),
             ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", True),
             ("valueId", "valueId", str, False, "value", True),
             ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", True),
             ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueMarkdown", "valueMarkdown", str, False, "value", True),
-            ("valueMeta", "valueMeta", meta.Meta, False, "value", True),
             ("valueMoney", "valueMoney", money.Money, False, "value", True),
             ("valueOid", "valueOid", str, False, "value", True),
+            ("valueParameterDefinition", "valueParameterDefinition", parameterdefinition.ParameterDefinition, False, "value", True),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", True),
             ("valuePositiveInt", "valuePositiveInt", int, False, "value", True),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
             ("valueRange", "valueRange", range.Range, False, "value", True),
             ("valueRatio", "valueRatio", ratio.Ratio, False, "value", True),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
+            ("valueRelatedArtifact", "valueRelatedArtifact", relatedartifact.RelatedArtifact, False, "value", True),
             ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", True),
             ("valueSignature", "valueSignature", signature.Signature, False, "value", True),
             ("valueString", "valueString", str, False, "value", True),
             ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", True),
             ("valueTiming", "valueTiming", timing.Timing, False, "value", True),
+            ("valueTriggerDefinition", "valueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "value", True),
             ("valueUnsignedInt", "valueUnsignedInt", int, False, "value", True),
             ("valueUri", "valueUri", str, False, "value", True),
+            ("valueUrl", "valueUrl", str, False, "value", True),
+            ("valueUsageContext", "valueUsageContext", usagecontext.UsageContext, False, "value", True),
+            ("valueUuid", "valueUuid", str, False, "value", True),
         ])
         return js
 
 
 class ElementDefinitionMapping(element.Element):
-    """ Map element to another set of definitions.
+    """ 
+    M
+    a
+    p
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    t
+    o
+    a
+    n
+    o
+    t
+    h
+    e
+    r
+    s
+    e
+    t
+    o
+    f
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    s
+    .
     
-    Identifies a concept from an external specification that roughly
-    corresponds to this element.
+    
+    I
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    s
+    a
+    c
+    o
+    n
+    c
+    e
+    p
+    t
+    f
+    r
+    o
+    m
+    a
+    n
+    e
+    x
+    t
+    e
+    r
+    n
+    a
+    l
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    t
+    h
+    a
+    t
+    r
+    o
+    u
+    g
+    h
+    l
+    y
+    c
+    o
+    r
+    r
+    e
+    s
+    p
+    o
+    n
+    d
+    s
+    t
+    o
+    t
+    h
+    i
+    s
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "ElementDefinitionMapping"
@@ -1219,19 +11105,129 @@ class ElementDefinitionMapping(element.Element):
         """
         
         self.comment = None
-        """ Comments about the mapping or its use.
+        """ 
+        C
+        o
+        m
+        m
+        e
+        n
+        t
+        s
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        m
+        a
+        p
+        p
+        i
+        n
+        g
+        o
+        r
+        i
+        t
+        s
+        u
+        s
+        e
+        .
         Type `str`. """
         
         self.identity = None
-        """ Reference to mapping declaration.
+        """ 
+        R
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        t
+        o
+        m
+        a
+        p
+        p
+        i
+        n
+        g
+        d
+        e
+        c
+        l
+        a
+        r
+        a
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.language = None
-        """ Computable language of mapping.
+        """ 
+        C
+        o
+        m
+        p
+        u
+        t
+        a
+        b
+        l
+        e
+        l
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        o
+        f
+        m
+        a
+        p
+        p
+        i
+        n
+        g
+        .
         Type `str`. """
         
         self.map = None
-        """ Details of the mapping.
+        """ 
+        D
+        e
+        t
+        a
+        i
+        l
+        s
+        o
+        f
+        t
+        h
+        e
+        m
+        a
+        p
+        p
+        i
+        n
+        g
+        .
         Type `str`. """
         
         super(ElementDefinitionMapping, self).__init__(jsondict=jsondict, strict=strict)
@@ -1248,15 +11244,445 @@ class ElementDefinitionMapping(element.Element):
 
 
 class ElementDefinitionSlicing(element.Element):
-    """ This element is sliced - slices follow.
+    """ 
+    T
+    h
+    i
+    s
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    i
+    s
+    s
+    l
+    i
+    c
+    e
+    d
+    -
+    s
+    l
+    i
+    c
+    e
+    s
+    f
+    o
+    l
+    l
+    o
+    w
+    .
     
-    Indicates that the element is sliced into a set of alternative definitions
-    (i.e. in a structure definition, there are multiple different constraints
-    on a single element in the base resource). Slicing can be used in any
-    resource that has cardinality ..* on the base resource, or any resource
-    with a choice of types. The set of slices is any elements that come after
-    this in the element sequence that have the same path, until a shorter path
-    occurs (the shorter path terminates the set).
+    
+    I
+    n
+    d
+    i
+    c
+    a
+    t
+    e
+    s
+    t
+    h
+    a
+    t
+    t
+    h
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    i
+    s
+    s
+    l
+    i
+    c
+    e
+    d
+    i
+    n
+    t
+    o
+    a
+    s
+    e
+    t
+    o
+    f
+    a
+    l
+    t
+    e
+    r
+    n
+    a
+    t
+    i
+    v
+    e
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    s
+    (
+    i
+    .
+    e
+    .
+    i
+    n
+    a
+    s
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    ,
+    t
+    h
+    e
+    r
+    e
+    a
+    r
+    e
+    m
+    u
+    l
+    t
+    i
+    p
+    l
+    e
+    d
+    i
+    f
+    f
+    e
+    r
+    e
+    n
+    t
+    c
+    o
+    n
+    s
+    t
+    r
+    a
+    i
+    n
+    t
+    s
+    o
+    n
+    a
+    s
+    i
+    n
+    g
+    l
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    i
+    n
+    t
+    h
+    e
+    b
+    a
+    s
+    e
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    )
+    .
+    S
+    l
+    i
+    c
+    i
+    n
+    g
+    c
+    a
+    n
+    b
+    e
+    u
+    s
+    e
+    d
+    i
+    n
+    a
+    n
+    y
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    t
+    h
+    a
+    t
+    h
+    a
+    s
+    c
+    a
+    r
+    d
+    i
+    n
+    a
+    l
+    i
+    t
+    y
+    .
+    .
+    *
+    o
+    n
+    t
+    h
+    e
+    b
+    a
+    s
+    e
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    ,
+    o
+    r
+    a
+    n
+    y
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    w
+    i
+    t
+    h
+    a
+    c
+    h
+    o
+    i
+    c
+    e
+    o
+    f
+    t
+    y
+    p
+    e
+    s
+    .
+    T
+    h
+    e
+    s
+    e
+    t
+    o
+    f
+    s
+    l
+    i
+    c
+    e
+    s
+    i
+    s
+    a
+    n
+    y
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    t
+    h
+    a
+    t
+    c
+    o
+    m
+    e
+    a
+    f
+    t
+    e
+    r
+    t
+    h
+    i
+    s
+    i
+    n
+    t
+    h
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    e
+    q
+    u
+    e
+    n
+    c
+    e
+    t
+    h
+    a
+    t
+    h
+    a
+    v
+    e
+    t
+    h
+    e
+    s
+    a
+    m
+    e
+    p
+    a
+    t
+    h
+    ,
+    u
+    n
+    t
+    i
+    l
+    a
+    s
+    h
+    o
+    r
+    t
+    e
+    r
+    p
+    a
+    t
+    h
+    o
+    c
+    c
+    u
+    r
+    s
+    (
+    t
+    h
+    e
+    s
+    h
+    o
+    r
+    t
+    e
+    r
+    p
+    a
+    t
+    h
+    t
+    e
+    r
+    m
+    i
+    n
+    a
+    t
+    e
+    s
+    t
+    h
+    e
+    s
+    e
+    t
+    )
+    .
+    
     """
     
     resource_type = "ElementDefinitionSlicing"
@@ -1270,19 +11696,164 @@ class ElementDefinitionSlicing(element.Element):
         """
         
         self.description = None
-        """ Text description of how slicing works (or not).
+        """ 
+        T
+        e
+        x
+        t
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        h
+        o
+        w
+        s
+        l
+        i
+        c
+        i
+        n
+        g
+        w
+        o
+        r
+        k
+        s
+        (
+        o
+        r
+        n
+        o
+        t
+        )
+        .
         Type `str`. """
         
         self.discriminator = None
-        """ Element values that are used to distinguish the slices.
+        """ 
+        E
+        l
+        e
+        m
+        e
+        n
+        t
+        v
+        a
+        l
+        u
+        e
+        s
+        t
+        h
+        a
+        t
+        a
+        r
+        e
+        u
+        s
+        e
+        d
+        t
+        o
+        d
+        i
+        s
+        t
+        i
+        n
+        g
+        u
+        i
+        s
+        h
+        t
+        h
+        e
+        s
+        l
+        i
+        c
+        e
+        s
+        .
         List of `ElementDefinitionSlicingDiscriminator` items (represented as `dict` in JSON). """
         
         self.ordered = None
-        """ If elements must be in same order as slices.
+        """ 
+        I
+        f
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        s
+        m
+        u
+        s
+        t
+        b
+        e
+        i
+        n
+        s
+        a
+        m
+        e
+        o
+        r
+        d
+        e
+        r
+        a
+        s
+        s
+        l
+        i
+        c
+        e
+        s
+        .
         Type `bool`. """
         
         self.rules = None
-        """ closed | open | openAtEnd.
+        """ 
+        c
+        l
+        o
+        s
+        e
+        d
+        |
+        o
+        p
+        e
+        n
+        |
+        o
+        p
+        e
+        n
+        A
+        t
+        E
+        n
+        d
+        .
         Type `str`. """
         
         super(ElementDefinitionSlicing, self).__init__(jsondict=jsondict, strict=strict)
@@ -1299,13 +11870,350 @@ class ElementDefinitionSlicing(element.Element):
 
 
 class ElementDefinitionSlicingDiscriminator(element.Element):
-    """ Element values that are used to distinguish the slices.
+    """ 
+    E
+    l
+    e
+    m
+    e
+    n
+    t
+    v
+    a
+    l
+    u
+    e
+    s
+    t
+    h
+    a
+    t
+    a
+    r
+    e
+    u
+    s
+    e
+    d
+    t
+    o
+    d
+    i
+    s
+    t
+    i
+    n
+    g
+    u
+    i
+    s
+    h
+    t
+    h
+    e
+    s
+    l
+    i
+    c
+    e
+    s
+    .
     
-    Designates which child elements are used to discriminate between the slices
-    when processing an instance. If one or more discriminators are provided,
-    the value of the child elements in the instance data SHALL completely
-    distinguish which slice the element in the resource matches based on the
-    allowed values for those elements in each of the slices.
+    
+    D
+    e
+    s
+    i
+    g
+    n
+    a
+    t
+    e
+    s
+    w
+    h
+    i
+    c
+    h
+    c
+    h
+    i
+    l
+    d
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    a
+    r
+    e
+    u
+    s
+    e
+    d
+    t
+    o
+    d
+    i
+    s
+    c
+    r
+    i
+    m
+    i
+    n
+    a
+    t
+    e
+    b
+    e
+    t
+    w
+    e
+    e
+    n
+    t
+    h
+    e
+    s
+    l
+    i
+    c
+    e
+    s
+    w
+    h
+    e
+    n
+    p
+    r
+    o
+    c
+    e
+    s
+    s
+    i
+    n
+    g
+    a
+    n
+    i
+    n
+    s
+    t
+    a
+    n
+    c
+    e
+    .
+    I
+    f
+    o
+    n
+    e
+    o
+    r
+    m
+    o
+    r
+    e
+    d
+    i
+    s
+    c
+    r
+    i
+    m
+    i
+    n
+    a
+    t
+    o
+    r
+    s
+    a
+    r
+    e
+    p
+    r
+    o
+    v
+    i
+    d
+    e
+    d
+    ,
+    t
+    h
+    e
+    v
+    a
+    l
+    u
+    e
+    o
+    f
+    t
+    h
+    e
+    c
+    h
+    i
+    l
+    d
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    i
+    n
+    t
+    h
+    e
+    i
+    n
+    s
+    t
+    a
+    n
+    c
+    e
+    d
+    a
+    t
+    a
+    S
+    H
+    A
+    L
+    L
+    c
+    o
+    m
+    p
+    l
+    e
+    t
+    e
+    l
+    y
+    d
+    i
+    s
+    t
+    i
+    n
+    g
+    u
+    i
+    s
+    h
+    w
+    h
+    i
+    c
+    h
+    s
+    l
+    i
+    c
+    e
+    t
+    h
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    i
+    n
+    t
+    h
+    e
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    m
+    a
+    t
+    c
+    h
+    e
+    s
+    b
+    a
+    s
+    e
+    d
+    o
+    n
+    t
+    h
+    e
+    a
+    l
+    l
+    o
+    w
+    e
+    d
+    v
+    a
+    l
+    u
+    e
+    s
+    f
+    o
+    r
+    t
+    h
+    o
+    s
+    e
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    i
+    n
+    e
+    a
+    c
+    h
+    o
+    f
+    t
+    h
+    e
+    s
+    l
+    i
+    c
+    e
+    s
+    .
+    
     """
     
     resource_type = "ElementDefinitionSlicingDiscriminator"
@@ -1319,11 +12227,64 @@ class ElementDefinitionSlicingDiscriminator(element.Element):
         """
         
         self.path = None
-        """ Path to element value.
+        """ 
+        P
+        a
+        t
+        h
+        t
+        o
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        v
+        a
+        l
+        u
+        e
+        .
         Type `str`. """
         
         self.type = None
-        """ value | exists | pattern | type | profile.
+        """ 
+        v
+        a
+        l
+        u
+        e
+        |
+        e
+        x
+        i
+        s
+        t
+        s
+        |
+        p
+        a
+        t
+        t
+        e
+        r
+        n
+        |
+        t
+        y
+        p
+        e
+        |
+        p
+        r
+        o
+        f
+        i
+        l
+        e
+        .
         Type `str`. """
         
         super(ElementDefinitionSlicingDiscriminator, self).__init__(jsondict=jsondict, strict=strict)
@@ -1338,10 +12299,105 @@ class ElementDefinitionSlicingDiscriminator(element.Element):
 
 
 class ElementDefinitionType(element.Element):
-    """ Data type and Profile for this element.
+    """ 
+    D
+    a
+    t
+    a
+    t
+    y
+    p
+    e
+    a
+    n
+    d
+    P
+    r
+    o
+    f
+    i
+    l
+    e
+    f
+    o
+    r
+    t
+    h
+    i
+    s
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    .
     
-    The data type or resource that the value of this element is permitted to
-    be.
+    
+    T
+    h
+    e
+    d
+    a
+    t
+    a
+    t
+    y
+    p
+    e
+    o
+    r
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    t
+    h
+    a
+    t
+    t
+    h
+    e
+    v
+    a
+    l
+    u
+    e
+    o
+    f
+    t
+    h
+    i
+    s
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    i
+    s
+    p
+    e
+    r
+    m
+    i
+    t
+    t
+    e
+    d
+    t
+    o
+    b
+    e
+    .
+    
     """
     
     resource_type = "ElementDefinitionType"
@@ -1355,23 +12411,259 @@ class ElementDefinitionType(element.Element):
         """
         
         self.aggregation = None
-        """ contained | referenced | bundled - how aggregated.
+        """ 
+        c
+        o
+        n
+        t
+        a
+        i
+        n
+        e
+        d
+        |
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        d
+        |
+        b
+        u
+        n
+        d
+        l
+        e
+        d
+        -
+        h
+        o
+        w
+        a
+        g
+        g
+        r
+        e
+        g
+        a
+        t
+        e
+        d
+        .
         List of `str` items. """
         
         self.code = None
-        """ Data type or Resource (reference to definition).
+        """ 
+        D
+        a
+        t
+        a
+        t
+        y
+        p
+        e
+        o
+        r
+        R
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        (
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        t
+        o
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        )
+        .
         Type `str`. """
         
         self.profile = None
-        """ Profile (StructureDefinition) to apply (or IG).
-        Type `str`. """
+        """ 
+        P
+        r
+        o
+        f
+        i
+        l
+        e
+        s
+        (
+        S
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        D
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        o
+        r
+        I
+        G
+        )
+        -
+        o
+        n
+        e
+        m
+        u
+        s
+        t
+        a
+        p
+        p
+        l
+        y
+        .
+        List of `str` items. """
         
         self.targetProfile = None
-        """ Profile (StructureDefinition) to apply to reference target (or IG).
-        Type `str`. """
+        """ 
+        P
+        r
+        o
+        f
+        i
+        l
+        e
+        (
+        S
+        t
+        r
+        u
+        c
+        t
+        u
+        r
+        e
+        D
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        o
+        r
+        I
+        G
+        )
+        o
+        n
+        t
+        h
+        e
+        R
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        /
+        c
+        a
+        n
+        o
+        n
+        i
+        c
+        a
+        l
+        t
+        a
+        r
+        g
+        e
+        t
+        -
+        o
+        n
+        e
+        m
+        u
+        s
+        t
+        a
+        p
+        p
+        l
+        y
+        .
+        List of `str` items. """
         
         self.versioning = None
-        """ either | independent | specific.
+        """ 
+        e
+        i
+        t
+        h
+        e
+        r
+        |
+        i
+        n
+        d
+        e
+        p
+        e
+        n
+        d
+        e
+        n
+        t
+        |
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        .
         Type `str`. """
         
         super(ElementDefinitionType, self).__init__(jsondict=jsondict, strict=strict)
@@ -1381,8 +12673,8 @@ class ElementDefinitionType(element.Element):
         js.extend([
             ("aggregation", "aggregation", str, True, None, False),
             ("code", "code", str, False, None, True),
-            ("profile", "profile", str, False, None, False),
-            ("targetProfile", "targetProfile", str, False, None, False),
+            ("profile", "profile", str, True, None, False),
+            ("targetProfile", "targetProfile", str, True, None, False),
             ("versioning", "versioning", str, False, None, False),
         ])
         return js
@@ -1414,21 +12706,41 @@ try:
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
 try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+try:
+    from . import contributor
+except ImportError:
+    contributor = sys.modules[__package__ + '.contributor']
 try:
     from . import count
 except ImportError:
     count = sys.modules[__package__ + '.count']
 try:
+    from . import datarequirement
+except ImportError:
+    datarequirement = sys.modules[__package__ + '.datarequirement']
+try:
     from . import distance
 except ImportError:
     distance = sys.modules[__package__ + '.distance']
 try:
+    from . import dosage
+except ImportError:
+    dosage = sys.modules[__package__ + '.dosage']
+try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+try:
+    from . import expression
+except ImportError:
+    expression = sys.modules[__package__ + '.expression']
 try:
     from . import fhirdate
 except ImportError:
@@ -1446,13 +12758,13 @@ try:
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
 try:
-    from . import meta
-except ImportError:
-    meta = sys.modules[__package__ + '.meta']
-try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+try:
+    from . import parameterdefinition
+except ImportError:
+    parameterdefinition = sys.modules[__package__ + '.parameterdefinition']
 try:
     from . import period
 except ImportError:
@@ -1470,6 +12782,10 @@ try:
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
 try:
+    from . import relatedartifact
+except ImportError:
+    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+try:
     from . import sampleddata
 except ImportError:
     sampleddata = sys.modules[__package__ + '.sampleddata']
@@ -1481,3 +12797,11 @@ try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+try:
+    from . import triggerdefinition
+except ImportError:
+    triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']

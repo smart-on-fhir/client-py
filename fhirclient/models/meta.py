@@ -1,18 +1,205 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Meta) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Meta) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class Meta(element.Element):
-    """ Metadata about a resource.
+    """ 
+    M
+    e
+    t
+    a
+    d
+    a
+    t
+    a
+    a
+    b
+    o
+    u
+    t
+    a
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    .
     
-    The metadata about a resource. This is content in the resource that is
-    maintained by the infrastructure. Changes to the content may not always be
-    associated with version changes to the resource.
+    
+    T
+    h
+    e
+    m
+    e
+    t
+    a
+    d
+    a
+    t
+    a
+    a
+    b
+    o
+    u
+    t
+    a
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    .
+    T
+    h
+    i
+    s
+    i
+    s
+    c
+    o
+    n
+    t
+    e
+    n
+    t
+    i
+    n
+    t
+    h
+    e
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    t
+    h
+    a
+    t
+    i
+    s
+    m
+    a
+    i
+    n
+    t
+    a
+    i
+    n
+    e
+    d
+    b
+    y
+    t
+    h
+    e
+    i
+    n
+    f
+    r
+    a
+    s
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    .
+    C
+    h
+    a
+    n
+    g
+    e
+    s
+    t
+    o
+    t
+    h
+    e
+    c
+    o
+    n
+    t
+    e
+    n
+    t
+    m
+    i
+    g
+    h
+    t
+    n
+    o
+    t
+    a
+    l
+    w
+    a
+    y
+    s
+    b
+    e
+    a
+    s
+    s
+    o
+    c
+    i
+    a
+    t
+    e
+    d
+    w
+    i
+    t
+    h
+    v
+    e
+    r
+    s
+    i
+    o
+    n
+    c
+    h
+    a
+    n
+    g
+    e
+    s
+    t
+    o
+    t
+    h
+    e
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    .
+    
     """
     
     resource_type = "Meta"
@@ -26,23 +213,223 @@ class Meta(element.Element):
         """
         
         self.lastUpdated = None
-        """ When the resource version last changed.
+        """ 
+        W
+        h
+        e
+        n
+        t
+        h
+        e
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        l
+        a
+        s
+        t
+        c
+        h
+        a
+        n
+        g
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.profile = None
-        """ Profiles this resource claims to conform to.
+        """ 
+        P
+        r
+        o
+        f
+        i
+        l
+        e
+        s
+        t
+        h
+        i
+        s
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        c
+        l
+        a
+        i
+        m
+        s
+        t
+        o
+        c
+        o
+        n
+        f
+        o
+        r
+        m
+        t
+        o
+        .
         List of `str` items. """
         
         self.security = None
-        """ Security Labels applied to this resource.
+        """ 
+        S
+        e
+        c
+        u
+        r
+        i
+        t
+        y
+        L
+        a
+        b
+        e
+        l
+        s
+        a
+        p
+        p
+        l
+        i
+        e
+        d
+        t
+        o
+        t
+        h
+        i
+        s
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        .
         List of `Coding` items (represented as `dict` in JSON). """
         
+        self.source = None
+        """ 
+        I
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        s
+        w
+        h
+        e
+        r
+        e
+        t
+        h
+        e
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        c
+        o
+        m
+        e
+        s
+        f
+        r
+        o
+        m
+        .
+        Type `str`. """
+        
         self.tag = None
-        """ Tags applied to this resource.
+        """ 
+        T
+        a
+        g
+        s
+        a
+        p
+        p
+        l
+        i
+        e
+        d
+        t
+        o
+        t
+        h
+        i
+        s
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        .
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.versionId = None
-        """ Version specific identifier.
+        """ 
+        V
+        e
+        r
+        s
+        i
+        o
+        n
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
         Type `str`. """
         
         super(Meta, self).__init__(jsondict=jsondict, strict=strict)
@@ -53,6 +440,7 @@ class Meta(element.Element):
             ("lastUpdated", "lastUpdated", fhirdate.FHIRDate, False, None, False),
             ("profile", "profile", str, True, None, False),
             ("security", "security", coding.Coding, True, None, False),
+            ("source", "source", str, False, None, False),
             ("tag", "tag", coding.Coding, True, None, False),
             ("versionId", "versionId", str, False, None, False),
         ])

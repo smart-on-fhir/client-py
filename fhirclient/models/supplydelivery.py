@@ -1,16 +1,73 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/SupplyDelivery) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SupplyDelivery) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class SupplyDelivery(domainresource.DomainResource):
-    """ Delivery of bulk Supplies.
+    """ 
+    D
+    e
+    l
+    i
+    v
+    e
+    r
+    y
+    o
+    f
+    b
+    u
+    l
+    k
+    S
+    u
+    p
+    p
+    l
+    i
+    e
+    s
+    .
     
-    Record of delivery of what is supplied.
+    
+    R
+    e
+    c
+    o
+    r
+    d
+    o
+    f
+    d
+    e
+    l
+    i
+    v
+    e
+    r
+    y
+    o
+    f
+    w
+    h
+    a
+    t
+    i
+    s
+    s
+    u
+    p
+    p
+    l
+    i
+    e
+    d
+    .
+    
     """
     
     resource_type = "SupplyDelivery"
@@ -24,55 +81,371 @@ class SupplyDelivery(domainresource.DomainResource):
         """
         
         self.basedOn = None
-        """ Fulfills plan, proposal or order.
-        List of `FHIRReference` items referencing `SupplyRequest` (represented as `dict` in JSON). """
+        """ 
+        F
+        u
+        l
+        f
+        i
+        l
+        l
+        s
+        p
+        l
+        a
+        n
+        ,
+        p
+        r
+        o
+        p
+        o
+        s
+        a
+        l
+        o
+        r
+        o
+        r
+        d
+        e
+        r
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.destination = None
-        """ Where the Supply was sent.
-        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        e
+        r
+        e
+        t
+        h
+        e
+        S
+        u
+        p
+        p
+        l
+        y
+        w
+        a
+        s
+        s
+        e
+        n
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ External identifier.
-        Type `Identifier` (represented as `dict` in JSON). """
+        """ 
+        E
+        x
+        t
+        e
+        r
+        n
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.occurrenceDateTime = None
-        """ When event occurred.
+        """ 
+        W
+        h
+        e
+        n
+        e
+        v
+        e
+        n
+        t
+        o
+        c
+        c
+        u
+        r
+        r
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
-        """ When event occurred.
+        """ 
+        W
+        h
+        e
+        n
+        e
+        v
+        e
+        n
+        t
+        o
+        c
+        c
+        u
+        r
+        r
+        e
+        d
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.occurrenceTiming = None
-        """ When event occurred.
+        """ 
+        W
+        h
+        e
+        n
+        e
+        v
+        e
+        n
+        t
+        o
+        c
+        c
+        u
+        r
+        r
+        e
+        d
+        .
         Type `Timing` (represented as `dict` in JSON). """
         
         self.partOf = None
-        """ Part of referenced event.
-        List of `FHIRReference` items referencing `SupplyDelivery, Contract` (represented as `dict` in JSON). """
+        """ 
+        P
+        a
+        r
+        t
+        o
+        f
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        d
+        e
+        v
+        e
+        n
+        t
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.patient = None
-        """ Patient for whom the item is supplied.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        """ 
+        P
+        a
+        t
+        i
+        e
+        n
+        t
+        f
+        o
+        r
+        w
+        h
+        o
+        m
+        t
+        h
+        e
+        i
+        t
+        e
+        m
+        i
+        s
+        s
+        u
+        p
+        p
+        l
+        i
+        e
+        d
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.receiver = None
-        """ Who collected the Supply.
-        List of `FHIRReference` items referencing `Practitioner` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        c
+        o
+        l
+        l
+        e
+        c
+        t
+        e
+        d
+        t
+        h
+        e
+        S
+        u
+        p
+        p
+        l
+        y
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ in-progress | completed | abandoned | entered-in-error.
+        """ 
+        i
+        n
+        -
+        p
+        r
+        o
+        g
+        r
+        e
+        s
+        s
+        |
+        c
+        o
+        m
+        p
+        l
+        e
+        t
+        e
+        d
+        |
+        a
+        b
+        a
+        n
+        d
+        o
+        n
+        e
+        d
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        .
         Type `str`. """
         
         self.suppliedItem = None
-        """ The item that is delivered or supplied.
+        """ 
+        T
+        h
+        e
+        i
+        t
+        e
+        m
+        t
+        h
+        a
+        t
+        i
+        s
+        d
+        e
+        l
+        i
+        v
+        e
+        r
+        e
+        d
+        o
+        r
+        s
+        u
+        p
+        p
+        l
+        i
+        e
+        d
+        .
         Type `SupplyDeliverySuppliedItem` (represented as `dict` in JSON). """
         
         self.supplier = None
-        """ Dispenser.
-        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
+        """ 
+        D
+        i
+        s
+        p
+        e
+        n
+        s
+        e
+        r
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.type = None
-        """ Category of dispense event.
+        """ 
+        C
+        a
+        t
+        e
+        g
+        o
+        r
+        y
+        o
+        f
+        d
+        i
+        s
+        p
+        e
+        n
+        s
+        e
+        e
+        v
+        e
+        n
+        t
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SupplyDelivery, self).__init__(jsondict=jsondict, strict=strict)
@@ -82,7 +455,7 @@ class SupplyDelivery(domainresource.DomainResource):
         js.extend([
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("destination", "destination", fhirreference.FHIRReference, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
@@ -100,9 +473,88 @@ class SupplyDelivery(domainresource.DomainResource):
 from . import backboneelement
 
 class SupplyDeliverySuppliedItem(backboneelement.BackboneElement):
-    """ The item that is delivered or supplied.
+    """ 
+    T
+    h
+    e
+    i
+    t
+    e
+    m
+    t
+    h
+    a
+    t
+    i
+    s
+    d
+    e
+    l
+    i
+    v
+    e
+    r
+    e
+    d
+    o
+    r
+    s
+    u
+    p
+    p
+    l
+    i
+    e
+    d
+    .
     
-    The item that is being delivered or has been supplied.
+    
+    T
+    h
+    e
+    i
+    t
+    e
+    m
+    t
+    h
+    a
+    t
+    i
+    s
+    b
+    e
+    i
+    n
+    g
+    d
+    e
+    l
+    i
+    v
+    e
+    r
+    e
+    d
+    o
+    r
+    h
+    a
+    s
+    b
+    e
+    e
+    n
+    s
+    u
+    p
+    p
+    l
+    i
+    e
+    d
+    .
+    
     """
     
     resource_type = "SupplyDeliverySuppliedItem"
@@ -116,15 +568,107 @@ class SupplyDeliverySuppliedItem(backboneelement.BackboneElement):
         """
         
         self.itemCodeableConcept = None
-        """ Medication, Substance, or Device supplied.
+        """ 
+        M
+        e
+        d
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        ,
+        S
+        u
+        b
+        s
+        t
+        a
+        n
+        c
+        e
+        ,
+        o
+        r
+        D
+        e
+        v
+        i
+        c
+        e
+        s
+        u
+        p
+        p
+        l
+        i
+        e
+        d
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.itemReference = None
-        """ Medication, Substance, or Device supplied.
-        Type `FHIRReference` referencing `Medication, Substance, Device` (represented as `dict` in JSON). """
+        """ 
+        M
+        e
+        d
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        ,
+        S
+        u
+        b
+        s
+        t
+        a
+        n
+        c
+        e
+        ,
+        o
+        r
+        D
+        e
+        v
+        i
+        c
+        e
+        s
+        u
+        p
+        p
+        l
+        i
+        e
+        d
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.quantity = None
-        """ Amount dispensed.
+        """ 
+        A
+        m
+        o
+        u
+        n
+        t
+        d
+        i
+        s
+        p
+        e
+        n
+        s
+        e
+        d
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(SupplyDeliverySuppliedItem, self).__init__(jsondict=jsondict, strict=strict)

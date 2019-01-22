@@ -1,17 +1,194 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Patient) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Patient) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class Patient(domainresource.DomainResource):
-    """ Information about an individual or animal receiving health care services.
+    """ 
+    I
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    a
+    n
+    i
+    n
+    d
+    i
+    v
+    i
+    d
+    u
+    a
+    l
+    o
+    r
+    a
+    n
+    i
+    m
+    a
+    l
+    r
+    e
+    c
+    e
+    i
+    v
+    i
+    n
+    g
+    h
+    e
+    a
+    l
+    t
+    h
+    c
+    a
+    r
+    e
+    s
+    e
+    r
+    v
+    i
+    c
+    e
+    s
+    .
     
-    Demographics and other administrative information about an individual or
-    animal receiving care or other health-related services.
+    
+    D
+    e
+    m
+    o
+    g
+    r
+    a
+    p
+    h
+    i
+    c
+    s
+    a
+    n
+    d
+    o
+    t
+    h
+    e
+    r
+    a
+    d
+    m
+    i
+    n
+    i
+    s
+    t
+    r
+    a
+    t
+    i
+    v
+    e
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    a
+    n
+    i
+    n
+    d
+    i
+    v
+    i
+    d
+    u
+    a
+    l
+    o
+    r
+    a
+    n
+    i
+    m
+    a
+    l
+    r
+    e
+    c
+    e
+    i
+    v
+    i
+    n
+    g
+    c
+    a
+    r
+    e
+    o
+    r
+    o
+    t
+    h
+    e
+    r
+    h
+    e
+    a
+    l
+    t
+    h
+    -
+    r
+    e
+    l
+    a
+    t
+    e
+    d
+    s
+    e
+    r
+    v
+    i
+    c
+    e
+    s
+    .
+    
     """
     
     resource_type = "Patient"
@@ -25,81 +202,762 @@ class Patient(domainresource.DomainResource):
         """
         
         self.active = None
-        """ Whether this patient's record is in active use.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        t
+        h
+        i
+        s
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        '
+        s
+        r
+        e
+        c
+        o
+        r
+        d
+        i
+        s
+        i
+        n
+        a
+        c
+        t
+        i
+        v
+        e
+        u
+        s
+        e
+        .
         Type `bool`. """
         
         self.address = None
-        """ Addresses for the individual.
+        """ 
+        A
+        n
+        a
+        d
+        d
+        r
+        e
+        s
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        .
         List of `Address` items (represented as `dict` in JSON). """
         
-        self.animal = None
-        """ This patient is known to be an animal (non-human).
-        Type `PatientAnimal` (represented as `dict` in JSON). """
-        
         self.birthDate = None
-        """ The date of birth for the individual.
+        """ 
+        T
+        h
+        e
+        d
+        a
+        t
+        e
+        o
+        f
+        b
+        i
+        r
+        t
+        h
+        f
+        o
+        r
+        t
+        h
+        e
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.communication = None
-        """ A list of Languages which may be used to communicate with the
-        patient about his or her health.
+        """ 
+        A
+        l
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        w
+        h
+        i
+        c
+        h
+        m
+        a
+        y
+        b
+        e
+        u
+        s
+        e
+        d
+        t
+        o
+        c
+        o
+        m
+        m
+        u
+        n
+        i
+        c
+        a
+        t
+        e
+        w
+        i
+        t
+        h
+        t
+        h
+        e
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        a
+        b
+        o
+        u
+        t
+        h
+        i
+        s
+        o
+        r
+        h
+        e
+        r
+        h
+        e
+        a
+        l
+        t
+        h
+        .
         List of `PatientCommunication` items (represented as `dict` in JSON). """
         
         self.contact = None
-        """ A contact party (e.g. guardian, partner, friend) for the patient.
+        """ 
+        A
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        p
+        a
+        r
+        t
+        y
+        (
+        e
+        .
+        g
+        .
+        g
+        u
+        a
+        r
+        d
+        i
+        a
+        n
+        ,
+        p
+        a
+        r
+        t
+        n
+        e
+        r
+        ,
+        f
+        r
+        i
+        e
+        n
+        d
+        )
+        f
+        o
+        r
+        t
+        h
+        e
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        .
         List of `PatientContact` items (represented as `dict` in JSON). """
         
         self.deceasedBoolean = None
-        """ Indicates if the individual is deceased or not.
+        """ 
+        I
+        n
+        d
+        i
+        c
+        a
+        t
+        e
+        s
+        i
+        f
+        t
+        h
+        e
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        i
+        s
+        d
+        e
+        c
+        e
+        a
+        s
+        e
+        d
+        o
+        r
+        n
+        o
+        t
+        .
         Type `bool`. """
         
         self.deceasedDateTime = None
-        """ Indicates if the individual is deceased or not.
+        """ 
+        I
+        n
+        d
+        i
+        c
+        a
+        t
+        e
+        s
+        i
+        f
+        t
+        h
+        e
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        i
+        s
+        d
+        e
+        c
+        e
+        a
+        s
+        e
+        d
+        o
+        r
+        n
+        o
+        t
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.gender = None
-        """ male | female | other | unknown.
+        """ 
+        m
+        a
+        l
+        e
+        |
+        f
+        e
+        m
+        a
+        l
+        e
+        |
+        o
+        t
+        h
+        e
+        r
+        |
+        u
+        n
+        k
+        n
+        o
+        w
+        n
+        .
         Type `str`. """
         
         self.generalPractitioner = None
-        """ Patient's nominated primary care provider.
-        List of `FHIRReference` items referencing `Organization, Practitioner` (represented as `dict` in JSON). """
+        """ 
+        P
+        a
+        t
+        i
+        e
+        n
+        t
+        '
+        s
+        n
+        o
+        m
+        i
+        n
+        a
+        t
+        e
+        d
+        p
+        r
+        i
+        m
+        a
+        r
+        y
+        c
+        a
+        r
+        e
+        p
+        r
+        o
+        v
+        i
+        d
+        e
+        r
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ An identifier for this patient.
+        """ 
+        A
+        n
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.link = None
-        """ Link to another patient resource that concerns the same actual
-        person.
+        """ 
+        L
+        i
+        n
+        k
+        t
+        o
+        a
+        n
+        o
+        t
+        h
+        e
+        r
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        t
+        h
+        a
+        t
+        c
+        o
+        n
+        c
+        e
+        r
+        n
+        s
+        t
+        h
+        e
+        s
+        a
+        m
+        e
+        a
+        c
+        t
+        u
+        a
+        l
+        p
+        e
+        r
+        s
+        o
+        n
+        .
         List of `PatientLink` items (represented as `dict` in JSON). """
         
         self.managingOrganization = None
-        """ Organization that is the custodian of the patient record.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ 
+        O
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        t
+        h
+        a
+        t
+        i
+        s
+        t
+        h
+        e
+        c
+        u
+        s
+        t
+        o
+        d
+        i
+        a
+        n
+        o
+        f
+        t
+        h
+        e
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        r
+        e
+        c
+        o
+        r
+        d
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.maritalStatus = None
-        """ Marital (civil) status of a patient.
+        """ 
+        M
+        a
+        r
+        i
+        t
+        a
+        l
+        (
+        c
+        i
+        v
+        i
+        l
+        )
+        s
+        t
+        a
+        t
+        u
+        s
+        o
+        f
+        a
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.multipleBirthBoolean = None
-        """ Whether patient is part of a multiple birth.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        i
+        s
+        p
+        a
+        r
+        t
+        o
+        f
+        a
+        m
+        u
+        l
+        t
+        i
+        p
+        l
+        e
+        b
+        i
+        r
+        t
+        h
+        .
         Type `bool`. """
         
         self.multipleBirthInteger = None
-        """ Whether patient is part of a multiple birth.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        i
+        s
+        p
+        a
+        r
+        t
+        o
+        f
+        a
+        m
+        u
+        l
+        t
+        i
+        p
+        l
+        e
+        b
+        i
+        r
+        t
+        h
+        .
         Type `int`. """
         
         self.name = None
-        """ A name associated with the patient.
+        """ 
+        A
+        n
+        a
+        m
+        e
+        a
+        s
+        s
+        o
+        c
+        i
+        a
+        t
+        e
+        d
+        w
+        i
+        t
+        h
+        t
+        h
+        e
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        .
         List of `HumanName` items (represented as `dict` in JSON). """
         
         self.photo = None
-        """ Image of the patient.
+        """ 
+        I
+        m
+        a
+        g
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        .
         List of `Attachment` items (represented as `dict` in JSON). """
         
         self.telecom = None
-        """ A contact detail for the individual.
+        """ 
+        A
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        f
+        o
+        r
+        t
+        h
+        e
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        .
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(Patient, self).__init__(jsondict=jsondict, strict=strict)
@@ -109,7 +967,6 @@ class Patient(domainresource.DomainResource):
         js.extend([
             ("active", "active", bool, False, None, False),
             ("address", "address", address.Address, True, None, False),
-            ("animal", "animal", PatientAnimal, False, None, False),
             ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
             ("communication", "communication", PatientCommunication, True, None, False),
             ("contact", "contact", PatientContact, True, None, False),
@@ -132,52 +989,78 @@ class Patient(domainresource.DomainResource):
 
 from . import backboneelement
 
-class PatientAnimal(backboneelement.BackboneElement):
-    """ This patient is known to be an animal (non-human).
-    
-    This patient is known to be an animal.
-    """
-    
-    resource_type = "PatientAnimal"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.breed = None
-        """ E.g. Poodle, Angus.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.genderStatus = None
-        """ E.g. Neutered, Intact.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.species = None
-        """ E.g. Dog, Cow.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        super(PatientAnimal, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(PatientAnimal, self).elementProperties()
-        js.extend([
-            ("breed", "breed", codeableconcept.CodeableConcept, False, None, False),
-            ("genderStatus", "genderStatus", codeableconcept.CodeableConcept, False, None, False),
-            ("species", "species", codeableconcept.CodeableConcept, False, None, True),
-        ])
-        return js
-
-
 class PatientCommunication(backboneelement.BackboneElement):
-    """ A list of Languages which may be used to communicate with the patient about
-    his or her health.
-    
-    Languages which may be used to communicate with the patient about his or
-    her health.
+    """ 
+    A
+    l
+    a
+    n
+    g
+    u
+    a
+    g
+    e
+    w
+    h
+    i
+    c
+    h
+    m
+    a
+    y
+    b
+    e
+    u
+    s
+    e
+    d
+    t
+    o
+    c
+    o
+    m
+    m
+    u
+    n
+    i
+    c
+    a
+    t
+    e
+    w
+    i
+    t
+    h
+    t
+    h
+    e
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    a
+    b
+    o
+    u
+    t
+    h
+    i
+    s
+    o
+    r
+    h
+    e
+    r
+    h
+    e
+    a
+    l
+    t
+    h
+    .
     """
     
     resource_type = "PatientCommunication"
@@ -191,12 +1074,111 @@ class PatientCommunication(backboneelement.BackboneElement):
         """
         
         self.language = None
-        """ The language which can be used to communicate with the patient
-        about his or her health.
+        """ 
+        T
+        h
+        e
+        l
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        w
+        h
+        i
+        c
+        h
+        c
+        a
+        n
+        b
+        e
+        u
+        s
+        e
+        d
+        t
+        o
+        c
+        o
+        m
+        m
+        u
+        n
+        i
+        c
+        a
+        t
+        e
+        w
+        i
+        t
+        h
+        t
+        h
+        e
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        a
+        b
+        o
+        u
+        t
+        h
+        i
+        s
+        o
+        r
+        h
+        e
+        r
+        h
+        e
+        a
+        l
+        t
+        h
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.preferred = None
-        """ Language preference indicator.
+        """ 
+        L
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        p
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        i
+        n
+        d
+        i
+        c
+        a
+        t
+        o
+        r
+        .
         Type `bool`. """
         
         super(PatientCommunication, self).__init__(jsondict=jsondict, strict=strict)
@@ -211,7 +1193,63 @@ class PatientCommunication(backboneelement.BackboneElement):
 
 
 class PatientContact(backboneelement.BackboneElement):
-    """ A contact party (e.g. guardian, partner, friend) for the patient.
+    """ 
+    A
+    c
+    o
+    n
+    t
+    a
+    c
+    t
+    p
+    a
+    r
+    t
+    y
+    (
+    e
+    .
+    g
+    .
+    g
+    u
+    a
+    r
+    d
+    i
+    a
+    n
+    ,
+    p
+    a
+    r
+    t
+    n
+    e
+    r
+    ,
+    f
+    r
+    i
+    e
+    n
+    d
+    )
+    f
+    o
+    r
+    t
+    h
+    e
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    .
     """
     
     resource_type = "PatientContact"
@@ -225,32 +1263,305 @@ class PatientContact(backboneelement.BackboneElement):
         """
         
         self.address = None
-        """ Address for the contact person.
+        """ 
+        A
+        d
+        d
+        r
+        e
+        s
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        p
+        e
+        r
+        s
+        o
+        n
+        .
         Type `Address` (represented as `dict` in JSON). """
         
         self.gender = None
-        """ male | female | other | unknown.
+        """ 
+        m
+        a
+        l
+        e
+        |
+        f
+        e
+        m
+        a
+        l
+        e
+        |
+        o
+        t
+        h
+        e
+        r
+        |
+        u
+        n
+        k
+        n
+        o
+        w
+        n
+        .
         Type `str`. """
         
         self.name = None
-        """ A name associated with the contact person.
+        """ 
+        A
+        n
+        a
+        m
+        e
+        a
+        s
+        s
+        o
+        c
+        i
+        a
+        t
+        e
+        d
+        w
+        i
+        t
+        h
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        p
+        e
+        r
+        s
+        o
+        n
+        .
         Type `HumanName` (represented as `dict` in JSON). """
         
         self.organization = None
-        """ Organization that is associated with the contact.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ 
+        O
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        t
+        h
+        a
+        t
+        i
+        s
+        a
+        s
+        s
+        o
+        c
+        i
+        a
+        t
+        e
+        d
+        w
+        i
+        t
+        h
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.period = None
-        """ The period during which this contact person or organization is
-        valid to be contacted relating to this patient.
+        """ 
+        T
+        h
+        e
+        p
+        e
+        r
+        i
+        o
+        d
+        d
+        u
+        r
+        i
+        n
+        g
+        w
+        h
+        i
+        c
+        h
+        t
+        h
+        i
+        s
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        p
+        e
+        r
+        s
+        o
+        n
+        o
+        r
+        o
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        i
+        s
+        v
+        a
+        l
+        i
+        d
+        t
+        o
+        b
+        e
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        e
+        d
+        r
+        e
+        l
+        a
+        t
+        i
+        n
+        g
+        t
+        o
+        t
+        h
+        i
+        s
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.relationship = None
-        """ The kind of relationship.
+        """ 
+        T
+        h
+        e
+        k
+        i
+        n
+        d
+        o
+        f
+        r
+        e
+        l
+        a
+        t
+        i
+        o
+        n
+        s
+        h
+        i
+        p
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.telecom = None
-        """ A contact detail for the person.
+        """ 
+        A
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        f
+        o
+        r
+        t
+        h
+        e
+        p
+        e
+        r
+        s
+        o
+        n
+        .
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(PatientContact, self).__init__(jsondict=jsondict, strict=strict)
@@ -270,9 +1581,131 @@ class PatientContact(backboneelement.BackboneElement):
 
 
 class PatientLink(backboneelement.BackboneElement):
-    """ Link to another patient resource that concerns the same actual person.
+    """ 
+    L
+    i
+    n
+    k
+    t
+    o
+    a
+    n
+    o
+    t
+    h
+    e
+    r
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    t
+    h
+    a
+    t
+    c
+    o
+    n
+    c
+    e
+    r
+    n
+    s
+    t
+    h
+    e
+    s
+    a
+    m
+    e
+    a
+    c
+    t
+    u
+    a
+    l
+    p
+    e
+    r
+    s
+    o
+    n
+    .
     
-    Link to another patient resource that concerns the same actual patient.
+    
+    L
+    i
+    n
+    k
+    t
+    o
+    a
+    n
+    o
+    t
+    h
+    e
+    r
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    t
+    h
+    a
+    t
+    c
+    o
+    n
+    c
+    e
+    r
+    n
+    s
+    t
+    h
+    e
+    s
+    a
+    m
+    e
+    a
+    c
+    t
+    u
+    a
+    l
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "PatientLink"
@@ -286,12 +1719,104 @@ class PatientLink(backboneelement.BackboneElement):
         """
         
         self.other = None
-        """ The other patient or related person resource that the link refers
-        to.
-        Type `FHIRReference` referencing `Patient, RelatedPerson` (represented as `dict` in JSON). """
+        """ 
+        T
+        h
+        e
+        o
+        t
+        h
+        e
+        r
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        o
+        r
+        r
+        e
+        l
+        a
+        t
+        e
+        d
+        p
+        e
+        r
+        s
+        o
+        n
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        t
+        h
+        a
+        t
+        t
+        h
+        e
+        l
+        i
+        n
+        k
+        r
+        e
+        f
+        e
+        r
+        s
+        t
+        o
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.type = None
-        """ replaced-by | replaces | refer | seealso - type of link.
+        """ 
+        r
+        e
+        p
+        l
+        a
+        c
+        e
+        d
+        -
+        b
+        y
+        |
+        r
+        e
+        p
+        l
+        a
+        c
+        e
+        s
+        |
+        r
+        e
+        f
+        e
+        r
+        |
+        s
+        e
+        e
+        a
+        l
+        s
+        o
+        .
         Type `str`. """
         
         super(PatientLink, self).__init__(jsondict=jsondict, strict=strict)

@@ -1,19 +1,246 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Group) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Group) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class Group(domainresource.DomainResource):
-    """ Group of multiple entities.
+    """ 
+    G
+    r
+    o
+    u
+    p
+    o
+    f
+    m
+    u
+    l
+    t
+    i
+    p
+    l
+    e
+    e
+    n
+    t
+    i
+    t
+    i
+    e
+    s
+    .
     
-    Represents a defined collection of entities that may be discussed or acted
-    upon collectively but which are not expected to act collectively and are
-    not formally or legally recognized; i.e. a collection of entities that
-    isn't an Organization.
+    
+    R
+    e
+    p
+    r
+    e
+    s
+    e
+    n
+    t
+    s
+    a
+    d
+    e
+    f
+    i
+    n
+    e
+    d
+    c
+    o
+    l
+    l
+    e
+    c
+    t
+    i
+    o
+    n
+    o
+    f
+    e
+    n
+    t
+    i
+    t
+    i
+    e
+    s
+    t
+    h
+    a
+    t
+    m
+    a
+    y
+    b
+    e
+    d
+    i
+    s
+    c
+    u
+    s
+    s
+    e
+    d
+    o
+    r
+    a
+    c
+    t
+    e
+    d
+    u
+    p
+    o
+    n
+    c
+    o
+    l
+    l
+    e
+    c
+    t
+    i
+    v
+    e
+    l
+    y
+    b
+    u
+    t
+    w
+    h
+    i
+    c
+    h
+    a
+    r
+    e
+    n
+    o
+    t
+    e
+    x
+    p
+    e
+    c
+    t
+    e
+    d
+    t
+    o
+    a
+    c
+    t
+    c
+    o
+    l
+    l
+    e
+    c
+    t
+    i
+    v
+    e
+    l
+    y
+    ,
+    a
+    n
+    d
+    a
+    r
+    e
+    n
+    o
+    t
+    f
+    o
+    r
+    m
+    a
+    l
+    l
+    y
+    o
+    r
+    l
+    e
+    g
+    a
+    l
+    l
+    y
+    r
+    e
+    c
+    o
+    g
+    n
+    i
+    z
+    e
+    d
+    ;
+    i
+    .
+    e
+    .
+    a
+    c
+    o
+    l
+    l
+    e
+    c
+    t
+    i
+    o
+    n
+    o
+    f
+    e
+    n
+    t
+    i
+    t
+    i
+    e
+    s
+    t
+    h
+    a
+    t
+    i
+    s
+    n
+    '
+    t
+    a
+    n
+    O
+    r
+    g
+    a
+    n
+    i
+    z
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "Group"
@@ -27,39 +254,315 @@ class Group(domainresource.DomainResource):
         """
         
         self.active = None
-        """ Whether this group's record is in active use.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        t
+        h
+        i
+        s
+        g
+        r
+        o
+        u
+        p
+        '
+        s
+        r
+        e
+        c
+        o
+        r
+        d
+        i
+        s
+        i
+        n
+        a
+        c
+        t
+        i
+        v
+        e
+        u
+        s
+        e
+        .
         Type `bool`. """
         
         self.actual = None
-        """ Descriptive or actual.
+        """ 
+        D
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        v
+        e
+        o
+        r
+        a
+        c
+        t
+        u
+        a
+        l
+        .
         Type `bool`. """
         
         self.characteristic = None
-        """ Trait of group members.
+        """ 
+        I
+        n
+        c
+        l
+        u
+        d
+        e
+        /
+        E
+        x
+        c
+        l
+        u
+        d
+        e
+        g
+        r
+        o
+        u
+        p
+        m
+        e
+        m
+        b
+        e
+        r
+        s
+        b
+        y
+        T
+        r
+        a
+        i
+        t
+        .
         List of `GroupCharacteristic` items (represented as `dict` in JSON). """
         
         self.code = None
-        """ Kind of Group members.
+        """ 
+        K
+        i
+        n
+        d
+        o
+        f
+        G
+        r
+        o
+        u
+        p
+        m
+        e
+        m
+        b
+        e
+        r
+        s
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Unique id.
+        """ 
+        U
+        n
+        i
+        q
+        u
+        e
+        i
+        d
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.managingEntity = None
+        """ 
+        E
+        n
+        t
+        i
+        t
+        y
+        t
+        h
+        a
+        t
+        i
+        s
+        t
+        h
+        e
+        c
+        u
+        s
+        t
+        o
+        d
+        i
+        a
+        n
+        o
+        f
+        t
+        h
+        e
+        G
+        r
+        o
+        u
+        p
+        '
+        s
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
         self.member = None
-        """ Who or what is in group.
+        """ 
+        W
+        h
+        o
+        o
+        r
+        w
+        h
+        a
+        t
+        i
+        s
+        i
+        n
+        g
+        r
+        o
+        u
+        p
+        .
         List of `GroupMember` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Label for Group.
+        """ 
+        L
+        a
+        b
+        e
+        l
+        f
+        o
+        r
+        G
+        r
+        o
+        u
+        p
+        .
         Type `str`. """
         
         self.quantity = None
-        """ Number of members.
+        """ 
+        N
+        u
+        m
+        b
+        e
+        r
+        o
+        f
+        m
+        e
+        m
+        b
+        e
+        r
+        s
+        .
         Type `int`. """
         
         self.type = None
-        """ person | animal | practitioner | device | medication | substance.
+        """ 
+        p
+        e
+        r
+        s
+        o
+        n
+        |
+        a
+        n
+        i
+        m
+        a
+        l
+        |
+        p
+        r
+        a
+        c
+        t
+        i
+        t
+        i
+        o
+        n
+        e
+        r
+        |
+        d
+        e
+        v
+        i
+        c
+        e
+        |
+        m
+        e
+        d
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        |
+        s
+        u
+        b
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `str`. """
         
         super(Group, self).__init__(jsondict=jsondict, strict=strict)
@@ -72,6 +575,7 @@ class Group(domainresource.DomainResource):
             ("characteristic", "characteristic", GroupCharacteristic, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("managingEntity", "managingEntity", fhirreference.FHIRReference, False, None, False),
             ("member", "member", GroupMember, True, None, False),
             ("name", "name", str, False, None, False),
             ("quantity", "quantity", int, False, None, False),
@@ -83,9 +587,110 @@ class Group(domainresource.DomainResource):
 from . import backboneelement
 
 class GroupCharacteristic(backboneelement.BackboneElement):
-    """ Trait of group members.
+    """ 
+    I
+    n
+    c
+    l
+    u
+    d
+    e
+    /
+    E
+    x
+    c
+    l
+    u
+    d
+    e
+    g
+    r
+    o
+    u
+    p
+    m
+    e
+    m
+    b
+    e
+    r
+    s
+    b
+    y
+    T
+    r
+    a
+    i
+    t
+    .
     
-    Identifies the traits shared by members of the group.
+    
+    I
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    s
+    t
+    r
+    a
+    i
+    t
+    s
+    w
+    h
+    o
+    s
+    e
+    p
+    r
+    e
+    s
+    e
+    n
+    c
+    e
+    r
+    a
+    b
+    s
+    e
+    n
+    c
+    e
+    i
+    s
+    s
+    h
+    a
+    r
+    e
+    d
+    b
+    y
+    m
+    e
+    m
+    b
+    e
+    r
+    s
+    o
+    f
+    t
+    h
+    e
+    g
+    r
+    o
+    u
+    p
+    .
+    
     """
     
     resource_type = "GroupCharacteristic"
@@ -99,32 +704,249 @@ class GroupCharacteristic(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Kind of characteristic.
+        """ 
+        K
+        i
+        n
+        d
+        o
+        f
+        c
+        h
+        a
+        r
+        a
+        c
+        t
+        e
+        r
+        i
+        s
+        t
+        i
+        c
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.exclude = None
-        """ Group includes or excludes.
+        """ 
+        G
+        r
+        o
+        u
+        p
+        i
+        n
+        c
+        l
+        u
+        d
+        e
+        s
+        o
+        r
+        e
+        x
+        c
+        l
+        u
+        d
+        e
+        s
+        .
         Type `bool`. """
         
         self.period = None
-        """ Period over which characteristic is tested.
+        """ 
+        P
+        e
+        r
+        i
+        o
+        d
+        o
+        v
+        e
+        r
+        w
+        h
+        i
+        c
+        h
+        c
+        h
+        a
+        r
+        a
+        c
+        t
+        e
+        r
+        i
+        s
+        t
+        i
+        c
+        i
+        s
+        t
+        e
+        s
+        t
+        e
+        d
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.valueBoolean = None
-        """ Value held by characteristic.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        h
+        e
+        l
+        d
+        b
+        y
+        c
+        h
+        a
+        r
+        a
+        c
+        t
+        e
+        r
+        i
+        s
+        t
+        i
+        c
+        .
         Type `bool`. """
         
         self.valueCodeableConcept = None
-        """ Value held by characteristic.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        h
+        e
+        l
+        d
+        b
+        y
+        c
+        h
+        a
+        r
+        a
+        c
+        t
+        e
+        r
+        i
+        s
+        t
+        i
+        c
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.valueQuantity = None
-        """ Value held by characteristic.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        h
+        e
+        l
+        d
+        b
+        y
+        c
+        h
+        a
+        r
+        a
+        c
+        t
+        e
+        r
+        i
+        s
+        t
+        i
+        c
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.valueRange = None
-        """ Value held by characteristic.
+        """ 
+        V
+        a
+        l
+        u
+        e
+        h
+        e
+        l
+        d
+        b
+        y
+        c
+        h
+        a
+        r
+        a
+        c
+        t
+        e
+        r
+        i
+        s
+        t
+        i
+        c
+        .
         Type `Range` (represented as `dict` in JSON). """
+        
+        self.valueReference = None
+        """ 
+        V
+        a
+        l
+        u
+        e
+        h
+        e
+        l
+        d
+        b
+        y
+        c
+        h
+        a
+        r
+        a
+        c
+        t
+        e
+        r
+        i
+        s
+        t
+        i
+        c
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(GroupCharacteristic, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -138,14 +960,90 @@ class GroupCharacteristic(backboneelement.BackboneElement):
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
             ("valueRange", "valueRange", range.Range, False, "value", True),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
         ])
         return js
 
 
 class GroupMember(backboneelement.BackboneElement):
-    """ Who or what is in group.
+    """ 
+    W
+    h
+    o
+    o
+    r
+    w
+    h
+    a
+    t
+    i
+    s
+    i
+    n
+    g
+    r
+    o
+    u
+    p
+    .
     
-    Identifies the resource instances that are members of the group.
+    
+    I
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    s
+    t
+    h
+    e
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    i
+    n
+    s
+    t
+    a
+    n
+    c
+    e
+    s
+    t
+    h
+    a
+    t
+    a
+    r
+    e
+    m
+    e
+    m
+    b
+    e
+    r
+    s
+    o
+    f
+    t
+    h
+    e
+    g
+    r
+    o
+    u
+    p
+    .
+    
     """
     
     resource_type = "GroupMember"
@@ -159,15 +1057,98 @@ class GroupMember(backboneelement.BackboneElement):
         """
         
         self.entity = None
-        """ Reference to the group member.
-        Type `FHIRReference` referencing `Patient, Practitioner, Device, Medication, Substance` (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        t
+        o
+        t
+        h
+        e
+        g
+        r
+        o
+        u
+        p
+        m
+        e
+        m
+        b
+        e
+        r
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.inactive = None
-        """ If member is no longer in group.
+        """ 
+        I
+        f
+        m
+        e
+        m
+        b
+        e
+        r
+        i
+        s
+        n
+        o
+        l
+        o
+        n
+        g
+        e
+        r
+        i
+        n
+        g
+        r
+        o
+        u
+        p
+        .
         Type `bool`. """
         
         self.period = None
-        """ Period member belonged to the group.
+        """ 
+        P
+        e
+        r
+        i
+        o
+        d
+        m
+        e
+        m
+        b
+        e
+        r
+        b
+        e
+        l
+        o
+        n
+        g
+        e
+        d
+        t
+        o
+        t
+        h
+        e
+        g
+        r
+        o
+        u
+        p
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         super(GroupMember, self).__init__(jsondict=jsondict, strict=strict)

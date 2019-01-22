@@ -1,14 +1,73 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Age) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Age) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import quantity
 
 class Age(quantity.Quantity):
-    """ A duration of time during which an organism (or a process) has existed.
+    """ 
+    A
+    d
+    u
+    r
+    a
+    t
+    i
+    o
+    n
+    o
+    f
+    t
+    i
+    m
+    e
+    d
+    u
+    r
+    i
+    n
+    g
+    w
+    h
+    i
+    c
+    h
+    a
+    n
+    o
+    r
+    g
+    a
+    n
+    i
+    s
+    m
+    (
+    o
+    r
+    a
+    p
+    r
+    o
+    c
+    e
+    s
+    s
+    )
+    h
+    a
+    s
+    e
+    x
+    i
+    s
+    t
+    e
+    d
+    .
     """
     
     resource_type = "Age"

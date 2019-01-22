@@ -1,16 +1,97 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Range) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Range) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class Range(element.Element):
-    """ Set of values bounded by low and high.
+    """ 
+    S
+    e
+    t
+    o
+    f
+    v
+    a
+    l
+    u
+    e
+    s
+    b
+    o
+    u
+    n
+    d
+    e
+    d
+    b
+    y
+    l
+    o
+    w
+    a
+    n
+    d
+    h
+    i
+    g
+    h
+    .
     
-    A set of ordered Quantities defined by a low and high limit.
+    
+    A
+    s
+    e
+    t
+    o
+    f
+    o
+    r
+    d
+    e
+    r
+    e
+    d
+    Q
+    u
+    a
+    n
+    t
+    i
+    t
+    i
+    e
+    s
+    d
+    e
+    f
+    i
+    n
+    e
+    d
+    b
+    y
+    a
+    l
+    o
+    w
+    a
+    n
+    d
+    h
+    i
+    g
+    h
+    l
+    i
+    m
+    i
+    t
+    .
+    
     """
     
     resource_type = "Range"
@@ -24,11 +105,30 @@ class Range(element.Element):
         """
         
         self.high = None
-        """ High limit.
+        """ 
+        H
+        i
+        g
+        h
+        l
+        i
+        m
+        i
+        t
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.low = None
-        """ Low limit.
+        """ 
+        L
+        o
+        w
+        l
+        i
+        m
+        i
+        t
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(Range, self).__init__(jsondict=jsondict, strict=strict)

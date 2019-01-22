@@ -1,17 +1,139 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Ratio) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Ratio) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class Ratio(element.Element):
-    """ A ratio of two Quantity values - a numerator and a denominator.
+    """ 
+    A
+    r
+    a
+    t
+    i
+    o
+    o
+    f
+    t
+    w
+    o
+    Q
+    u
+    a
+    n
+    t
+    i
+    t
+    y
+    v
+    a
+    l
+    u
+    e
+    s
+    -
+    a
+    n
+    u
+    m
+    e
+    r
+    a
+    t
+    o
+    r
+    a
+    n
+    d
+    a
+    d
+    e
+    n
+    o
+    m
+    i
+    n
+    a
+    t
+    o
+    r
+    .
     
-    A relationship of two Quantity values - expressed as a numerator and a
-    denominator.
+    
+    A
+    r
+    e
+    l
+    a
+    t
+    i
+    o
+    n
+    s
+    h
+    i
+    p
+    o
+    f
+    t
+    w
+    o
+    Q
+    u
+    a
+    n
+    t
+    i
+    t
+    y
+    v
+    a
+    l
+    u
+    e
+    s
+    -
+    e
+    x
+    p
+    r
+    e
+    s
+    s
+    e
+    d
+    a
+    s
+    a
+    n
+    u
+    m
+    e
+    r
+    a
+    t
+    o
+    r
+    a
+    n
+    d
+    a
+    d
+    e
+    n
+    o
+    m
+    i
+    n
+    a
+    t
+    o
+    r
+    .
+    
     """
     
     resource_type = "Ratio"
@@ -25,11 +147,43 @@ class Ratio(element.Element):
         """
         
         self.denominator = None
-        """ Denominator value.
+        """ 
+        D
+        e
+        n
+        o
+        m
+        i
+        n
+        a
+        t
+        o
+        r
+        v
+        a
+        l
+        u
+        e
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.numerator = None
-        """ Numerator value.
+        """ 
+        N
+        u
+        m
+        e
+        r
+        a
+        t
+        o
+        r
+        v
+        a
+        l
+        u
+        e
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(Ratio, self).__init__(jsondict=jsondict, strict=strict)

@@ -1,16 +1,69 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Resource) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Resource) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import fhirabstractresource
 
 class Resource(fhirabstractresource.FHIRAbstractResource):
-    """ Base Resource.
+    """ 
+    B
+    a
+    s
+    e
+    R
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    .
     
-    This is the base resource type for everything.
+    
+    T
+    h
+    i
+    s
+    i
+    s
+    t
+    h
+    e
+    b
+    a
+    s
+    e
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    t
+    y
+    p
+    e
+    f
+    o
+    r
+    e
+    v
+    e
+    r
+    y
+    t
+    h
+    i
+    n
+    g
+    .
+    
     """
     
     resource_type = "Resource"
@@ -24,19 +77,140 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
         """
         
         self.id = None
-        """ Logical id of this artifact.
+        """ 
+        L
+        o
+        g
+        i
+        c
+        a
+        l
+        i
+        d
+        o
+        f
+        t
+        h
+        i
+        s
+        a
+        r
+        t
+        i
+        f
+        a
+        c
+        t
+        .
         Type `str`. """
         
         self.implicitRules = None
-        """ A set of rules under which this content was created.
+        """ 
+        A
+        s
+        e
+        t
+        o
+        f
+        r
+        u
+        l
+        e
+        s
+        u
+        n
+        d
+        e
+        r
+        w
+        h
+        i
+        c
+        h
+        t
+        h
+        i
+        s
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        w
+        a
+        s
+        c
+        r
+        e
+        a
+        t
+        e
+        d
+        .
         Type `str`. """
         
         self.language = None
-        """ Language of the resource content.
+        """ 
+        L
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        o
+        f
+        t
+        h
+        e
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        .
         Type `str`. """
         
         self.meta = None
-        """ Metadata about the resource.
+        """ 
+        M
+        e
+        t
+        a
+        d
+        a
+        t
+        a
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        .
         Type `Meta` (represented as `dict` in JSON). """
         
         super(Resource, self).__init__(jsondict=jsondict, strict=strict)

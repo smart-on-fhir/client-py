@@ -1,17 +1,123 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class EnrollmentRequest(domainresource.DomainResource):
-    """ Enrollment request.
+    """ 
+    E
+    n
+    r
+    o
+    l
+    l
+    i
+    n
+    c
+    o
+    v
+    e
+    r
+    a
+    g
+    e
+    .
     
-    This resource provides the insurance enrollment details to the insurer
-    regarding a specified coverage.
+    
+    T
+    h
+    i
+    s
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    p
+    r
+    o
+    v
+    i
+    d
+    e
+    s
+    t
+    h
+    e
+    i
+    n
+    s
+    u
+    r
+    a
+    n
+    c
+    e
+    e
+    n
+    r
+    o
+    l
+    l
+    m
+    e
+    n
+    t
+    d
+    e
+    t
+    a
+    i
+    l
+    s
+    t
+    o
+    t
+    h
+    e
+    i
+    n
+    s
+    u
+    r
+    e
+    r
+    r
+    e
+    g
+    a
+    r
+    d
+    i
+    n
+    g
+    a
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    e
+    d
+    c
+    o
+    v
+    e
+    r
+    a
+    g
+    e
+    .
+    
     """
     
     resource_type = "EnrollmentRequest"
@@ -24,51 +130,193 @@ class EnrollmentRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.candidate = None
+        """ 
+        T
+        h
+        e
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        t
+        o
+        b
+        e
+        e
+        n
+        r
+        o
+        l
+        l
+        e
+        d
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
         self.coverage = None
-        """ Insurance information.
-        Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
+        """ 
+        I
+        n
+        s
+        u
+        r
+        a
+        n
+        c
+        e
+        i
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.created = None
-        """ Creation date.
+        """ 
+        C
+        r
+        e
+        a
+        t
+        i
+        o
+        n
+        d
+        a
+        t
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
-        """ Business Identifier.
+        """ 
+        B
+        u
+        s
+        i
+        n
+        e
+        s
+        s
+        I
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.insurer = None
-        """ Target.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
-        self.organization = None
-        """ Responsible organization.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ 
+        T
+        a
+        r
+        g
+        e
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.provider = None
-        """ Responsible practitioner.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        s
+        p
+        o
+        n
+        s
+        i
+        b
+        l
+        e
+        p
+        r
+        a
+        c
+        t
+        i
+        t
+        i
+        o
+        n
+        e
+        r
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
-        """ active | cancelled | draft | entered-in-error.
+        """ 
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        c
+        a
+        n
+        c
+        e
+        l
+        l
+        e
+        d
+        |
+        d
+        r
+        a
+        f
+        t
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        .
         Type `str`. """
-        
-        self.subject = None
-        """ The subject of the Products and Services.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
         
         super(EnrollmentRequest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EnrollmentRequest, self).elementProperties()
         js.extend([
+            ("candidate", "candidate", fhirreference.FHIRReference, False, None, False),
             ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
             ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

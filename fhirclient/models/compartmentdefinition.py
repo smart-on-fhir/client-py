@@ -1,17 +1,117 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/CompartmentDefinition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CompartmentDefinition) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class CompartmentDefinition(domainresource.DomainResource):
-    """ Compartment Definition for a resource.
+    """ 
+    C
+    o
+    m
+    p
+    a
+    r
+    t
+    m
+    e
+    n
+    t
+    D
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    f
+    o
+    r
+    a
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    .
     
-    A compartment definition that defines how resources are accessed on a
-    server.
+    
+    A
+    c
+    o
+    m
+    p
+    a
+    r
+    t
+    m
+    e
+    n
+    t
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    t
+    h
+    a
+    t
+    d
+    e
+    f
+    i
+    n
+    e
+    s
+    h
+    o
+    w
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    s
+    a
+    r
+    e
+    a
+    c
+    c
+    e
+    s
+    s
+    e
+    d
+    o
+    n
+    a
+    s
+    e
+    r
+    v
+    e
+    r
+    .
+    
     """
     
     resource_type = "CompartmentDefinition"
@@ -25,65 +125,646 @@ class CompartmentDefinition(domainresource.DomainResource):
         """
         
         self.code = None
-        """ Patient | Encounter | RelatedPerson | Practitioner | Device.
+        """ 
+        P
+        a
+        t
+        i
+        e
+        n
+        t
+        |
+        E
+        n
+        c
+        o
+        u
+        n
+        t
+        e
+        r
+        |
+        R
+        e
+        l
+        a
+        t
+        e
+        d
+        P
+        e
+        r
+        s
+        o
+        n
+        |
+        P
+        r
+        a
+        c
+        t
+        i
+        t
+        i
+        o
+        n
+        e
+        r
+        |
+        D
+        e
+        v
+        i
+        c
+        e
+        .
         Type `str`. """
         
         self.contact = None
-        """ Contact details for the publisher.
+        """ 
+        C
+        o
+        n
+        t
+        a
+        c
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        .
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.date = None
-        """ Date this was last changed.
+        """ 
+        D
+        a
+        t
+        e
+        l
+        a
+        s
+        t
+        c
+        h
+        a
+        n
+        g
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Natural language description of the compartment definition.
+        """ 
+        N
+        a
+        t
+        u
+        r
+        a
+        l
+        l
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        c
+        o
+        m
+        p
+        a
+        r
+        t
+        m
+        e
+        n
+        t
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.experimental = None
-        """ For testing purposes, not real usage.
+        """ 
+        F
+        o
+        r
+        t
+        e
+        s
+        t
+        i
+        n
+        g
+        p
+        u
+        r
+        p
+        o
+        s
+        e
+        s
+        ,
+        n
+        o
+        t
+        r
+        e
+        a
+        l
+        u
+        s
+        a
+        g
+        e
+        .
         Type `bool`. """
         
-        self.jurisdiction = None
-        """ Intended jurisdiction for compartment definition (if applicable).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
         self.name = None
-        """ Name for this compartment definition (computer friendly).
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        m
+        p
+        a
+        r
+        t
+        m
+        e
+        n
+        t
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        (
+        c
+        o
+        m
+        p
+        u
+        t
+        e
+        r
+        f
+        r
+        i
+        e
+        n
+        d
+        l
+        y
+        )
+        .
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (organization or individual).
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        (
+        o
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        o
+        r
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        )
+        .
         Type `str`. """
         
         self.purpose = None
-        """ Why this compartment definition is defined.
+        """ 
+        W
+        h
+        y
+        t
+        h
+        i
+        s
+        c
+        o
+        m
+        p
+        a
+        r
+        t
+        m
+        e
+        n
+        t
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        i
+        s
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        .
         Type `str`. """
         
         self.resource = None
-        """ How a resource is related to the compartment.
+        """ 
+        H
+        o
+        w
+        a
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        i
+        s
+        r
+        e
+        l
+        a
+        t
+        e
+        d
+        t
+        o
+        t
+        h
+        e
+        c
+        o
+        m
+        p
+        a
+        r
+        t
+        m
+        e
+        n
+        t
+        .
         List of `CompartmentDefinitionResource` items (represented as `dict` in JSON). """
         
         self.search = None
-        """ Whether the search syntax is supported.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        t
+        h
+        e
+        s
+        e
+        a
+        r
+        c
+        h
+        s
+        y
+        n
+        t
+        a
+        x
+        i
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        e
+        d
+        .
         Type `bool`. """
         
         self.status = None
-        """ draft | active | retired | unknown.
-        Type `str`. """
-        
-        self.title = None
-        """ Name for this compartment definition (human friendly).
+        """ 
+        d
+        r
+        a
+        f
+        t
+        |
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        r
+        e
+        t
+        i
+        r
+        e
+        d
+        |
+        u
+        n
+        k
+        n
+        o
+        w
+        n
+        .
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this compartment definition (globally
-        unique).
+        """ 
+        C
+        a
+        n
+        o
+        n
+        i
+        c
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        c
+        o
+        m
+        p
+        a
+        r
+        t
+        m
+        e
+        n
+        t
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        ,
+        r
+        e
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        e
+        d
+        a
+        s
+        a
+        U
+        R
+        I
+        (
+        g
+        l
+        o
+        b
+        a
+        l
+        l
+        y
+        u
+        n
+        i
+        q
+        u
+        e
+        )
+        .
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ 
+        T
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        x
+        t
+        t
+        h
+        a
+        t
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        i
+        s
+        i
+        n
+        t
+        e
+        n
+        d
+        e
+        d
+        t
+        o
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        .
         List of `UsageContext` items (represented as `dict` in JSON). """
+        
+        self.version = None
+        """ 
+        B
+        u
+        s
+        i
+        n
+        e
+        s
+        s
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        c
+        o
+        m
+        p
+        a
+        r
+        t
+        m
+        e
+        n
+        t
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
+        Type `str`. """
         
         super(CompartmentDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -95,16 +776,15 @@ class CompartmentDefinition(domainresource.DomainResource):
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, True),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
             ("resource", "resource", CompartmentDefinitionResource, True, None, False),
             ("search", "search", bool, False, None, True),
             ("status", "status", str, False, None, True),
-            ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, True),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -112,9 +792,102 @@ class CompartmentDefinition(domainresource.DomainResource):
 from . import backboneelement
 
 class CompartmentDefinitionResource(backboneelement.BackboneElement):
-    """ How a resource is related to the compartment.
+    """ 
+    H
+    o
+    w
+    a
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    i
+    s
+    r
+    e
+    l
+    a
+    t
+    e
+    d
+    t
+    o
+    t
+    h
+    e
+    c
+    o
+    m
+    p
+    a
+    r
+    t
+    m
+    e
+    n
+    t
+    .
     
-    Information about how a resource is related to the compartment.
+    
+    I
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    h
+    o
+    w
+    a
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    i
+    s
+    r
+    e
+    l
+    a
+    t
+    e
+    d
+    t
+    o
+    t
+    h
+    e
+    c
+    o
+    m
+    p
+    a
+    r
+    t
+    m
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "CompartmentDefinitionResource"
@@ -128,15 +901,128 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Name of resource type.
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
         self.documentation = None
-        """ Additional documentation about the resource and compartment.
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        a
+        n
+        d
+        c
+        o
+        m
+        p
+        a
+        r
+        t
+        m
+        e
+        n
+        t
+        .
         Type `str`. """
         
         self.param = None
-        """ Search Parameter Name, or chained parameters.
+        """ 
+        S
+        e
+        a
+        r
+        c
+        h
+        P
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        N
+        a
+        m
+        e
+        ,
+        o
+        r
+        c
+        h
+        a
+        i
+        n
+        e
+        d
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        s
+        .
         List of `str` items. """
         
         super(CompartmentDefinitionResource, self).__init__(jsondict=jsondict, strict=strict)
@@ -152,10 +1038,6 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
 
 
 import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
 try:
     from . import contactdetail
 except ImportError:

@@ -1,18 +1,216 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class NamingSystem(domainresource.DomainResource):
-    """ System of unique identification.
+    """ 
+    S
+    y
+    s
+    t
+    e
+    m
+    o
+    f
+    u
+    n
+    i
+    q
+    u
+    e
+    i
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    .
     
-    A curated namespace that issues unique symbols within that namespace for
-    the identification of concepts, people, devices, etc.  Represents a
-    "System" used within the Identifier and Coding data types.
+    
+    A
+    c
+    u
+    r
+    a
+    t
+    e
+    d
+    n
+    a
+    m
+    e
+    s
+    p
+    a
+    c
+    e
+    t
+    h
+    a
+    t
+    i
+    s
+    s
+    u
+    e
+    s
+    u
+    n
+    i
+    q
+    u
+    e
+    s
+    y
+    m
+    b
+    o
+    l
+    s
+    w
+    i
+    t
+    h
+    i
+    n
+    t
+    h
+    a
+    t
+    n
+    a
+    m
+    e
+    s
+    p
+    a
+    c
+    e
+    f
+    o
+    r
+    t
+    h
+    e
+    i
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    o
+    f
+    c
+    o
+    n
+    c
+    e
+    p
+    t
+    s
+    ,
+    p
+    e
+    o
+    p
+    l
+    e
+    ,
+    d
+    e
+    v
+    i
+    c
+    e
+    s
+    ,
+    e
+    t
+    c
+    .
+    R
+    e
+    p
+    r
+    e
+    s
+    e
+    n
+    t
+    s
+    a
+    "
+    S
+    y
+    s
+    t
+    e
+    m
+    "
+    u
+    s
+    e
+    d
+    w
+    i
+    t
+    h
+    i
+    n
+    t
+    h
+    e
+    I
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    r
+    a
+    n
+    d
+    C
+    o
+    d
+    i
+    n
+    g
+    d
+    a
+    t
+    a
+    t
+    y
+    p
+    e
+    s
+    .
+    
     """
     
     resource_type = "NamingSystem"
@@ -26,59 +224,497 @@ class NamingSystem(domainresource.DomainResource):
         """
         
         self.contact = None
-        """ Contact details for the publisher.
+        """ 
+        C
+        o
+        n
+        t
+        a
+        c
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        .
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.date = None
-        """ Date this was last changed.
+        """ 
+        D
+        a
+        t
+        e
+        l
+        a
+        s
+        t
+        c
+        h
+        a
+        n
+        g
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Natural language description of the naming system.
+        """ 
+        N
+        a
+        t
+        u
+        r
+        a
+        l
+        l
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        n
+        a
+        m
+        i
+        n
+        g
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         Type `str`. """
         
         self.jurisdiction = None
-        """ Intended jurisdiction for naming system (if applicable).
+        """ 
+        I
+        n
+        t
+        e
+        n
+        d
+        e
+        d
+        j
+        u
+        r
+        i
+        s
+        d
+        i
+        c
+        t
+        i
+        o
+        n
+        f
+        o
+        r
+        n
+        a
+        m
+        i
+        n
+        g
+        s
+        y
+        s
+        t
+        e
+        m
+        (
+        i
+        f
+        a
+        p
+        p
+        l
+        i
+        c
+        a
+        b
+        l
+        e
+        )
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.kind = None
-        """ codesystem | identifier | root.
+        """ 
+        c
+        o
+        d
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        |
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        |
+        r
+        o
+        o
+        t
+        .
         Type `str`. """
         
         self.name = None
-        """ Name for this naming system (computer friendly).
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        n
+        a
+        m
+        i
+        n
+        g
+        s
+        y
+        s
+        t
+        e
+        m
+        (
+        c
+        o
+        m
+        p
+        u
+        t
+        e
+        r
+        f
+        r
+        i
+        e
+        n
+        d
+        l
+        y
+        )
+        .
         Type `str`. """
         
         self.publisher = None
-        """ Name of the publisher (organization or individual).
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        (
+        o
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        o
+        r
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        )
+        .
         Type `str`. """
         
-        self.replacedBy = None
-        """ Use this instead.
-        Type `FHIRReference` referencing `NamingSystem` (represented as `dict` in JSON). """
-        
         self.responsible = None
-        """ Who maintains system namespace?.
+        """ 
+        W
+        h
+        o
+        m
+        a
+        i
+        n
+        t
+        a
+        i
+        n
+        s
+        s
+        y
+        s
+        t
+        e
+        m
+        n
+        a
+        m
+        e
+        s
+        p
+        a
+        c
+        e
+        ?
+        .
         Type `str`. """
         
         self.status = None
-        """ draft | active | retired | unknown.
+        """ 
+        d
+        r
+        a
+        f
+        t
+        |
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        r
+        e
+        t
+        i
+        r
+        e
+        d
+        |
+        u
+        n
+        k
+        n
+        o
+        w
+        n
+        .
         Type `str`. """
         
         self.type = None
-        """ e.g. driver,  provider,  patient, bank etc..
+        """ 
+        e
+        .
+        g
+        .
+        d
+        r
+        i
+        v
+        e
+        r
+        ,
+        p
+        r
+        o
+        v
+        i
+        d
+        e
+        r
+        ,
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        ,
+        b
+        a
+        n
+        k
+        e
+        t
+        c
+        .
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.uniqueId = None
-        """ Unique identifiers used for system.
+        """ 
+        U
+        n
+        i
+        q
+        u
+        e
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        s
+        u
+        s
+        e
+        d
+        f
+        o
+        r
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         List of `NamingSystemUniqueId` items (represented as `dict` in JSON). """
         
         self.usage = None
-        """ How/where is it used.
+        """ 
+        H
+        o
+        w
+        /
+        w
+        h
+        e
+        r
+        e
+        i
+        s
+        i
+        t
+        u
+        s
+        e
+        d
+        .
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ 
+        T
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        x
+        t
+        t
+        h
+        a
+        t
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        i
+        s
+        i
+        n
+        t
+        e
+        n
+        d
+        e
+        d
+        t
+        o
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        .
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         super(NamingSystem, self).__init__(jsondict=jsondict, strict=strict)
@@ -93,7 +729,6 @@ class NamingSystem(domainresource.DomainResource):
             ("kind", "kind", str, False, None, True),
             ("name", "name", str, False, None, True),
             ("publisher", "publisher", str, False, None, False),
-            ("replacedBy", "replacedBy", fhirreference.FHIRReference, False, None, False),
             ("responsible", "responsible", str, False, None, False),
             ("status", "status", str, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
@@ -107,10 +742,112 @@ class NamingSystem(domainresource.DomainResource):
 from . import backboneelement
 
 class NamingSystemUniqueId(backboneelement.BackboneElement):
-    """ Unique identifiers used for system.
+    """ 
+    U
+    n
+    i
+    q
+    u
+    e
+    i
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    r
+    s
+    u
+    s
+    e
+    d
+    f
+    o
+    r
+    s
+    y
+    s
+    t
+    e
+    m
+    .
     
-    Indicates how the system may be identified when referenced in electronic
-    exchange.
+    
+    I
+    n
+    d
+    i
+    c
+    a
+    t
+    e
+    s
+    h
+    o
+    w
+    t
+    h
+    e
+    s
+    y
+    s
+    t
+    e
+    m
+    m
+    a
+    y
+    b
+    e
+    i
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    d
+    w
+    h
+    e
+    n
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    d
+    i
+    n
+    e
+    l
+    e
+    c
+    t
+    r
+    o
+    n
+    i
+    c
+    e
+    x
+    c
+    h
+    a
+    n
+    g
+    e
+    .
+    
     """
     
     resource_type = "NamingSystemUniqueId"
@@ -124,23 +861,150 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
         """
         
         self.comment = None
-        """ Notes about identifier usage.
+        """ 
+        N
+        o
+        t
+        e
+        s
+        a
+        b
+        o
+        u
+        t
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        u
+        s
+        a
+        g
+        e
+        .
         Type `str`. """
         
         self.period = None
-        """ When is identifier valid?.
+        """ 
+        W
+        h
+        e
+        n
+        i
+        s
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        v
+        a
+        l
+        i
+        d
+        ?
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.preferred = None
-        """ Is this the id that should be used for this type.
+        """ 
+        I
+        s
+        t
+        h
+        i
+        s
+        t
+        h
+        e
+        i
+        d
+        t
+        h
+        a
+        t
+        s
+        h
+        o
+        u
+        l
+        d
+        b
+        e
+        u
+        s
+        e
+        d
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        t
+        y
+        p
+        e
+        .
         Type `bool`. """
         
         self.type = None
-        """ oid | uuid | uri | other.
+        """ 
+        o
+        i
+        d
+        |
+        u
+        u
+        i
+        d
+        |
+        u
+        r
+        i
+        |
+        o
+        t
+        h
+        e
+        r
+        .
         Type `str`. """
         
         self.value = None
-        """ The unique identifier.
+        """ 
+        T
+        h
+        e
+        u
+        n
+        i
+        q
+        u
+        e
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
         Type `str`. """
         
         super(NamingSystemUniqueId, self).__init__(jsondict=jsondict, strict=strict)
@@ -170,10 +1034,6 @@ try:
     from . import fhirdate
 except ImportError:
     fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
 try:
     from . import period
 except ImportError:

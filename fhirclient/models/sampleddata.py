@@ -1,17 +1,153 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/SampledData) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SampledData) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class SampledData(element.Element):
-    """ A series of measurements taken by a device.
+    """ 
+    A
+    s
+    e
+    r
+    i
+    e
+    s
+    o
+    f
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    m
+    e
+    n
+    t
+    s
+    t
+    a
+    k
+    e
+    n
+    b
+    y
+    a
+    d
+    e
+    v
+    i
+    c
+    e
+    .
     
-    A series of measurements taken by a device, with upper and lower limits.
-    There may be more than one dimension in the data.
+    
+    A
+    s
+    e
+    r
+    i
+    e
+    s
+    o
+    f
+    m
+    e
+    a
+    s
+    u
+    r
+    e
+    m
+    e
+    n
+    t
+    s
+    t
+    a
+    k
+    e
+    n
+    b
+    y
+    a
+    d
+    e
+    v
+    i
+    c
+    e
+    ,
+    w
+    i
+    t
+    h
+    u
+    p
+    p
+    e
+    r
+    a
+    n
+    d
+    l
+    o
+    w
+    e
+    r
+    l
+    i
+    m
+    i
+    t
+    s
+    .
+    T
+    h
+    e
+    r
+    e
+    m
+    a
+    y
+    b
+    e
+    m
+    o
+    r
+    e
+    t
+    h
+    a
+    n
+    o
+    n
+    e
+    d
+    i
+    m
+    e
+    n
+    s
+    i
+    o
+    n
+    i
+    n
+    t
+    h
+    e
+    d
+    a
+    t
+    a
+    .
+    
     """
     
     resource_type = "SampledData"
@@ -25,31 +161,241 @@ class SampledData(element.Element):
         """
         
         self.data = None
-        """ Decimal values with spaces, or "E" | "U" | "L".
+        """ 
+        D
+        e
+        c
+        i
+        m
+        a
+        l
+        v
+        a
+        l
+        u
+        e
+        s
+        w
+        i
+        t
+        h
+        s
+        p
+        a
+        c
+        e
+        s
+        ,
+        o
+        r
+        "
+        E
+        "
+        |
+        "
+        U
+        "
+        |
+        "
+        L
+        "
+        .
         Type `str`. """
         
         self.dimensions = None
-        """ Number of sample points at each time point.
+        """ 
+        N
+        u
+        m
+        b
+        e
+        r
+        o
+        f
+        s
+        a
+        m
+        p
+        l
+        e
+        p
+        o
+        i
+        n
+        t
+        s
+        a
+        t
+        e
+        a
+        c
+        h
+        t
+        i
+        m
+        e
+        p
+        o
+        i
+        n
+        t
+        .
         Type `int`. """
         
         self.factor = None
-        """ Multiply data by this before adding to origin.
+        """ 
+        M
+        u
+        l
+        t
+        i
+        p
+        l
+        y
+        d
+        a
+        t
+        a
+        b
+        y
+        t
+        h
+        i
+        s
+        b
+        e
+        f
+        o
+        r
+        e
+        a
+        d
+        d
+        i
+        n
+        g
+        t
+        o
+        o
+        r
+        i
+        g
+        i
+        n
+        .
         Type `float`. """
         
         self.lowerLimit = None
-        """ Lower limit of detection.
+        """ 
+        L
+        o
+        w
+        e
+        r
+        l
+        i
+        m
+        i
+        t
+        o
+        f
+        d
+        e
+        t
+        e
+        c
+        t
+        i
+        o
+        n
+        .
         Type `float`. """
         
         self.origin = None
-        """ Zero value and units.
+        """ 
+        Z
+        e
+        r
+        o
+        v
+        a
+        l
+        u
+        e
+        a
+        n
+        d
+        u
+        n
+        i
+        t
+        s
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.period = None
-        """ Number of milliseconds between samples.
+        """ 
+        N
+        u
+        m
+        b
+        e
+        r
+        o
+        f
+        m
+        i
+        l
+        l
+        i
+        s
+        e
+        c
+        o
+        n
+        d
+        s
+        b
+        e
+        t
+        w
+        e
+        e
+        n
+        s
+        a
+        m
+        p
+        l
+        e
+        s
+        .
         Type `float`. """
         
         self.upperLimit = None
-        """ Upper limit of detection.
+        """ 
+        U
+        p
+        p
+        e
+        r
+        l
+        i
+        m
+        i
+        t
+        o
+        f
+        d
+        e
+        t
+        e
+        c
+        t
+        i
+        o
+        n
+        .
         Type `float`. """
         
         super(SampledData, self).__init__(jsondict=jsondict, strict=strict)
@@ -57,7 +403,7 @@ class SampledData(element.Element):
     def elementProperties(self):
         js = super(SampledData, self).elementProperties()
         js.extend([
-            ("data", "data", str, False, None, True),
+            ("data", "data", str, False, None, False),
             ("dimensions", "dimensions", int, False, None, True),
             ("factor", "factor", float, False, None, False),
             ("lowerLimit", "lowerLimit", float, False, None, False),

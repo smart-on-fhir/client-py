@@ -1,16 +1,76 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Element) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Element) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import fhirabstractbase
 
 class Element(fhirabstractbase.FHIRAbstractBase):
-    """ Base for all elements.
+    """ 
+    B
+    a
+    s
+    e
+    f
+    o
+    r
+    a
+    l
+    l
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    .
     
-    Base definition for all elements in a resource.
+    
+    B
+    a
+    s
+    e
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    i
+    o
+    n
+    f
+    o
+    r
+    a
+    l
+    l
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    i
+    n
+    a
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    .
+    
     """
     
     resource_type = "Element"
@@ -24,11 +84,89 @@ class Element(fhirabstractbase.FHIRAbstractBase):
         """
         
         self.extension = None
-        """ Additional Content defined by implementations.
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        b
+        y
+        i
+        m
+        p
+        l
+        e
+        m
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        s
+        .
         List of `Extension` items (represented as `dict` in JSON). """
         
         self.id = None
-        """ xml:id (or equivalent in JSON).
+        """ 
+        U
+        n
+        i
+        q
+        u
+        e
+        i
+        d
+        f
+        o
+        r
+        i
+        n
+        t
+        e
+        r
+        -
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        i
+        n
+        g
+        .
         Type `str`. """
         
         super(Element, self).__init__(jsondict=jsondict, strict=strict)

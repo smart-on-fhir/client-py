@@ -1,14 +1,59 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Substance) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Substance) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class Substance(domainresource.DomainResource):
-    """ A homogeneous material with a definite composition.
+    """ 
+    A
+    h
+    o
+    m
+    o
+    g
+    e
+    n
+    e
+    o
+    u
+    s
+    m
+    a
+    t
+    e
+    r
+    i
+    a
+    l
+    w
+    i
+    t
+    h
+    a
+    d
+    e
+    f
+    i
+    n
+    i
+    t
+    e
+    c
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    .
     """
     
     resource_type = "Substance"
@@ -22,31 +67,271 @@ class Substance(domainresource.DomainResource):
         """
         
         self.category = None
-        """ What class/type of substance this is.
+        """ 
+        W
+        h
+        a
+        t
+        c
+        l
+        a
+        s
+        s
+        /
+        t
+        y
+        p
+        e
+        o
+        f
+        s
+        u
+        b
+        s
+        t
+        a
+        n
+        c
+        e
+        t
+        h
+        i
+        s
+        i
+        s
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.code = None
-        """ What substance this is.
+        """ 
+        W
+        h
+        a
+        t
+        s
+        u
+        b
+        s
+        t
+        a
+        n
+        c
+        e
+        t
+        h
+        i
+        s
+        i
+        s
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.description = None
-        """ Textual description of the substance, comments.
+        """ 
+        T
+        e
+        x
+        t
+        u
+        a
+        l
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        s
+        u
+        b
+        s
+        t
+        a
+        n
+        c
+        e
+        ,
+        c
+        o
+        m
+        m
+        e
+        n
+        t
+        s
+        .
         Type `str`. """
         
         self.identifier = None
-        """ Unique identifier.
+        """ 
+        U
+        n
+        i
+        q
+        u
+        e
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.ingredient = None
-        """ Composition information about the substance.
+        """ 
+        C
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        i
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        s
+        u
+        b
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         List of `SubstanceIngredient` items (represented as `dict` in JSON). """
         
         self.instance = None
-        """ If this describes a specific package/container of the substance.
+        """ 
+        I
+        f
+        t
+        h
+        i
+        s
+        d
+        e
+        s
+        c
+        r
+        i
+        b
+        e
+        s
+        a
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        p
+        a
+        c
+        k
+        a
+        g
+        e
+        /
+        c
+        o
+        n
+        t
+        a
+        i
+        n
+        e
+        r
+        o
+        f
+        t
+        h
+        e
+        s
+        u
+        b
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         List of `SubstanceInstance` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ active | inactive | entered-in-error.
+        """ 
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        i
+        n
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        .
         Type `str`. """
         
         super(Substance, self).__init__(jsondict=jsondict, strict=strict)
@@ -68,9 +353,91 @@ class Substance(domainresource.DomainResource):
 from . import backboneelement
 
 class SubstanceIngredient(backboneelement.BackboneElement):
-    """ Composition information about the substance.
+    """ 
+    C
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    t
+    h
+    e
+    s
+    u
+    b
+    s
+    t
+    a
+    n
+    c
+    e
+    .
     
-    A substance can be composed of other substances.
+    
+    A
+    s
+    u
+    b
+    s
+    t
+    a
+    n
+    c
+    e
+    c
+    a
+    n
+    b
+    e
+    c
+    o
+    m
+    p
+    o
+    s
+    e
+    d
+    o
+    f
+    o
+    t
+    h
+    e
+    r
+    s
+    u
+    b
+    s
+    t
+    a
+    n
+    c
+    e
+    s
+    .
+    
     """
     
     resource_type = "SubstanceIngredient"
@@ -84,16 +451,96 @@ class SubstanceIngredient(backboneelement.BackboneElement):
         """
         
         self.quantity = None
-        """ Optional amount (concentration).
+        """ 
+        O
+        p
+        t
+        i
+        o
+        n
+        a
+        l
+        a
+        m
+        o
+        u
+        n
+        t
+        (
+        c
+        o
+        n
+        c
+        e
+        n
+        t
+        r
+        a
+        t
+        i
+        o
+        n
+        )
+        .
         Type `Ratio` (represented as `dict` in JSON). """
         
         self.substanceCodeableConcept = None
-        """ A component of the substance.
+        """ 
+        A
+        c
+        o
+        m
+        p
+        o
+        n
+        e
+        n
+        t
+        o
+        f
+        t
+        h
+        e
+        s
+        u
+        b
+        s
+        t
+        a
+        n
+        c
+        e
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.substanceReference = None
-        """ A component of the substance.
-        Type `FHIRReference` referencing `Substance` (represented as `dict` in JSON). """
+        """ 
+        A
+        c
+        o
+        m
+        p
+        o
+        n
+        e
+        n
+        t
+        o
+        f
+        t
+        h
+        e
+        s
+        u
+        b
+        s
+        t
+        a
+        n
+        c
+        e
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(SubstanceIngredient, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -108,10 +555,165 @@ class SubstanceIngredient(backboneelement.BackboneElement):
 
 
 class SubstanceInstance(backboneelement.BackboneElement):
-    """ If this describes a specific package/container of the substance.
+    """ 
+    I
+    f
+    t
+    h
+    i
+    s
+    d
+    e
+    s
+    c
+    r
+    i
+    b
+    e
+    s
+    a
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    p
+    a
+    c
+    k
+    a
+    g
+    e
+    /
+    c
+    o
+    n
+    t
+    a
+    i
+    n
+    e
+    r
+    o
+    f
+    t
+    h
+    e
+    s
+    u
+    b
+    s
+    t
+    a
+    n
+    c
+    e
+    .
     
-    Substance may be used to describe a kind of substance, or a specific
-    package/container of the substance: an instance.
+    
+    S
+    u
+    b
+    s
+    t
+    a
+    n
+    c
+    e
+    m
+    a
+    y
+    b
+    e
+    u
+    s
+    e
+    d
+    t
+    o
+    d
+    e
+    s
+    c
+    r
+    i
+    b
+    e
+    a
+    k
+    i
+    n
+    d
+    o
+    f
+    s
+    u
+    b
+    s
+    t
+    a
+    n
+    c
+    e
+    ,
+    o
+    r
+    a
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    p
+    a
+    c
+    k
+    a
+    g
+    e
+    /
+    c
+    o
+    n
+    t
+    a
+    i
+    n
+    e
+    r
+    o
+    f
+    t
+    h
+    e
+    s
+    u
+    b
+    s
+    t
+    a
+    n
+    c
+    e
+    :
+    a
+    n
+    i
+    n
+    s
+    t
+    a
+    n
+    c
+    e
+    .
+    
     """
     
     resource_type = "SubstanceInstance"
@@ -125,15 +727,101 @@ class SubstanceInstance(backboneelement.BackboneElement):
         """
         
         self.expiry = None
-        """ When no longer valid to use.
+        """ 
+        W
+        h
+        e
+        n
+        n
+        o
+        l
+        o
+        n
+        g
+        e
+        r
+        v
+        a
+        l
+        i
+        d
+        t
+        o
+        u
+        s
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
-        """ Identifier of the package/container.
+        """ 
+        I
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        o
+        f
+        t
+        h
+        e
+        p
+        a
+        c
+        k
+        a
+        g
+        e
+        /
+        c
+        o
+        n
+        t
+        a
+        i
+        n
+        e
+        r
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.quantity = None
-        """ Amount of substance in the package.
+        """ 
+        A
+        m
+        o
+        u
+        n
+        t
+        o
+        f
+        s
+        u
+        b
+        s
+        t
+        a
+        n
+        c
+        e
+        i
+        n
+        t
+        h
+        e
+        p
+        a
+        c
+        k
+        a
+        g
+        e
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(SubstanceInstance, self).__init__(jsondict=jsondict, strict=strict)

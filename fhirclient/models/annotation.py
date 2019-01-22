@@ -1,17 +1,110 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Annotation) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Annotation) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class Annotation(element.Element):
-    """ Text node with attribution.
+    """ 
+    T
+    e
+    x
+    t
+    n
+    o
+    d
+    e
+    w
+    i
+    t
+    h
+    a
+    t
+    t
+    r
+    i
+    b
+    u
+    t
+    i
+    o
+    n
+    .
     
-    A  text note which also  contains information about who made the statement
-    and when.
+    
+    A
+    t
+    e
+    x
+    t
+    n
+    o
+    t
+    e
+    w
+    h
+    i
+    c
+    h
+    a
+    l
+    s
+    o
+    c
+    o
+    n
+    t
+    a
+    i
+    n
+    s
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    w
+    h
+    o
+    m
+    a
+    d
+    e
+    t
+    h
+    e
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    a
+    n
+    d
+    w
+    h
+    e
+    n
+    .
+    
     """
     
     resource_type = "Annotation"
@@ -25,19 +118,158 @@ class Annotation(element.Element):
         """
         
         self.authorReference = None
-        """ Individual responsible for the annotation.
-        Type `FHIRReference` referencing `Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
+        """ 
+        I
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        r
+        e
+        s
+        p
+        o
+        n
+        s
+        i
+        b
+        l
+        e
+        f
+        o
+        r
+        t
+        h
+        e
+        a
+        n
+        n
+        o
+        t
+        a
+        t
+        i
+        o
+        n
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.authorString = None
-        """ Individual responsible for the annotation.
+        """ 
+        I
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        r
+        e
+        s
+        p
+        o
+        n
+        s
+        i
+        b
+        l
+        e
+        f
+        o
+        r
+        t
+        h
+        e
+        a
+        n
+        n
+        o
+        t
+        a
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.text = None
-        """ The annotation  - text content.
+        """ 
+        T
+        h
+        e
+        a
+        n
+        n
+        o
+        t
+        a
+        t
+        i
+        o
+        n
+        -
+        t
+        e
+        x
+        t
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        (
+        a
+        s
+        m
+        a
+        r
+        k
+        d
+        o
+        w
+        n
+        )
+        .
         Type `str`. """
         
         self.time = None
-        """ When the annotation was made.
+        """ 
+        W
+        h
+        e
+        n
+        t
+        h
+        e
+        a
+        n
+        n
+        o
+        t
+        a
+        t
+        i
+        o
+        n
+        w
+        a
+        s
+        m
+        a
+        d
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         super(Annotation, self).__init__(jsondict=jsondict, strict=strict)

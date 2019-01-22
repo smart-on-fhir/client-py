@@ -1,17 +1,148 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/TestScript) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class TestScript(domainresource.DomainResource):
-    """ Describes a set of tests.
+    """ 
+    D
+    e
+    s
+    c
+    r
+    i
+    b
+    e
+    s
+    a
+    s
+    e
+    t
+    o
+    f
+    t
+    e
+    s
+    t
+    s
+    .
     
-    A structured set of tests against a FHIR server implementation to determine
-    compliance against the FHIR specification.
+    
+    A
+    s
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    d
+    s
+    e
+    t
+    o
+    f
+    t
+    e
+    s
+    t
+    s
+    a
+    g
+    a
+    i
+    n
+    s
+    t
+    a
+    F
+    H
+    I
+    R
+    s
+    e
+    r
+    v
+    e
+    r
+    o
+    r
+    c
+    l
+    i
+    e
+    n
+    t
+    i
+    m
+    p
+    l
+    e
+    m
+    e
+    n
+    t
+    a
+    t
+    i
+    o
+    n
+    t
+    o
+    d
+    e
+    t
+    e
+    r
+    m
+    i
+    n
+    e
+    c
+    o
+    m
+    p
+    l
+    i
+    a
+    n
+    c
+    e
+    a
+    g
+    a
+    i
+    n
+    s
+    t
+    t
+    h
+    e
+    F
+    H
+    I
+    R
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "TestScript"
@@ -25,110 +156,1075 @@ class TestScript(domainresource.DomainResource):
         """
         
         self.contact = None
-        """ Contact details for the publisher.
+        """ 
+        C
+        o
+        n
+        t
+        a
+        c
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        .
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.copyright = None
-        """ Use and/or publishing restrictions.
+        """ 
+        U
+        s
+        e
+        a
+        n
+        d
+        /
+        o
+        r
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        i
+        n
+        g
+        r
+        e
+        s
+        t
+        r
+        i
+        c
+        t
+        i
+        o
+        n
+        s
+        .
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ 
+        D
+        a
+        t
+        e
+        l
+        a
+        s
+        t
+        c
+        h
+        a
+        n
+        g
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Natural language description of the test script.
+        """ 
+        N
+        a
+        t
+        u
+        r
+        a
+        l
+        l
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        t
+        e
+        s
+        t
+        s
+        c
+        r
+        i
+        p
+        t
+        .
         Type `str`. """
         
         self.destination = None
-        """ An abstract server representing a destination or receiver in a
-        message exchange.
+        """ 
+        A
+        n
+        a
+        b
+        s
+        t
+        r
+        a
+        c
+        t
+        s
+        e
+        r
+        v
+        e
+        r
+        r
+        e
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        i
+        n
+        g
+        a
+        d
+        e
+        s
+        t
+        i
+        n
+        a
+        t
+        i
+        o
+        n
+        o
+        r
+        r
+        e
+        c
+        e
+        i
+        v
+        e
+        r
+        i
+        n
+        a
+        m
+        e
+        s
+        s
+        a
+        g
+        e
+        e
+        x
+        c
+        h
+        a
+        n
+        g
+        e
+        .
         List of `TestScriptDestination` items (represented as `dict` in JSON). """
         
         self.experimental = None
-        """ For testing purposes, not real usage.
+        """ 
+        F
+        o
+        r
+        t
+        e
+        s
+        t
+        i
+        n
+        g
+        p
+        u
+        r
+        p
+        o
+        s
+        e
+        s
+        ,
+        n
+        o
+        t
+        r
+        e
+        a
+        l
+        u
+        s
+        a
+        g
+        e
+        .
         Type `bool`. """
         
         self.fixture = None
-        """ Fixture in the test script - by reference (uri).
+        """ 
+        F
+        i
+        x
+        t
+        u
+        r
+        e
+        i
+        n
+        t
+        h
+        e
+        t
+        e
+        s
+        t
+        s
+        c
+        r
+        i
+        p
+        t
+        -
+        b
+        y
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        (
+        u
+        r
+        i
+        )
+        .
         List of `TestScriptFixture` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Additional identifier for the test script.
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        e
+        t
+        e
+        s
+        t
+        s
+        c
+        r
+        i
+        p
+        t
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.jurisdiction = None
-        """ Intended jurisdiction for test script (if applicable).
+        """ 
+        I
+        n
+        t
+        e
+        n
+        d
+        e
+        d
+        j
+        u
+        r
+        i
+        s
+        d
+        i
+        c
+        t
+        i
+        o
+        n
+        f
+        o
+        r
+        t
+        e
+        s
+        t
+        s
+        c
+        r
+        i
+        p
+        t
+        (
+        i
+        f
+        a
+        p
+        p
+        l
+        i
+        c
+        a
+        b
+        l
+        e
+        )
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.metadata = None
-        """ Required capability that is assumed to function correctly on the
-        FHIR server being tested.
+        """ 
+        R
+        e
+        q
+        u
+        i
+        r
+        e
+        d
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        t
+        h
+        a
+        t
+        i
+        s
+        a
+        s
+        s
+        u
+        m
+        e
+        d
+        t
+        o
+        f
+        u
+        n
+        c
+        t
+        i
+        o
+        n
+        c
+        o
+        r
+        r
+        e
+        c
+        t
+        l
+        y
+        o
+        n
+        t
+        h
+        e
+        F
+        H
+        I
+        R
+        s
+        e
+        r
+        v
+        e
+        r
+        b
+        e
+        i
+        n
+        g
+        t
+        e
+        s
+        t
+        e
+        d
+        .
         Type `TestScriptMetadata` (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name for this test script (computer friendly).
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        t
+        e
+        s
+        t
+        s
+        c
+        r
+        i
+        p
+        t
+        (
+        c
+        o
+        m
+        p
+        u
+        t
+        e
+        r
+        f
+        r
+        i
+        e
+        n
+        d
+        l
+        y
+        )
+        .
         Type `str`. """
         
         self.origin = None
-        """ An abstract server representing a client or sender in a message
-        exchange.
+        """ 
+        A
+        n
+        a
+        b
+        s
+        t
+        r
+        a
+        c
+        t
+        s
+        e
+        r
+        v
+        e
+        r
+        r
+        e
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        i
+        n
+        g
+        a
+        c
+        l
+        i
+        e
+        n
+        t
+        o
+        r
+        s
+        e
+        n
+        d
+        e
+        r
+        i
+        n
+        a
+        m
+        e
+        s
+        s
+        a
+        g
+        e
+        e
+        x
+        c
+        h
+        a
+        n
+        g
+        e
+        .
         List of `TestScriptOrigin` items (represented as `dict` in JSON). """
         
         self.profile = None
-        """ Reference of the validation profile.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        o
+        f
+        t
+        h
+        e
+        v
+        a
+        l
+        i
+        d
+        a
+        t
+        i
+        o
+        n
+        p
+        r
+        o
+        f
+        i
+        l
+        e
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.publisher = None
-        """ Name of the publisher (organization or individual).
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        u
+        b
+        l
+        i
+        s
+        h
+        e
+        r
+        (
+        o
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        o
+        r
+        i
+        n
+        d
+        i
+        v
+        i
+        d
+        u
+        a
+        l
+        )
+        .
         Type `str`. """
         
         self.purpose = None
-        """ Why this test script is defined.
+        """ 
+        W
+        h
+        y
+        t
+        h
+        i
+        s
+        t
+        e
+        s
+        t
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        s
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        .
         Type `str`. """
         
-        self.rule = None
-        """ Assert rule used within the test script.
-        List of `TestScriptRule` items (represented as `dict` in JSON). """
-        
-        self.ruleset = None
-        """ Assert ruleset used within the test script.
-        List of `TestScriptRuleset` items (represented as `dict` in JSON). """
-        
         self.setup = None
-        """ A series of required setup operations before tests are executed.
+        """ 
+        A
+        s
+        e
+        r
+        i
+        e
+        s
+        o
+        f
+        r
+        e
+        q
+        u
+        i
+        r
+        e
+        d
+        s
+        e
+        t
+        u
+        p
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        s
+        b
+        e
+        f
+        o
+        r
+        e
+        t
+        e
+        s
+        t
+        s
+        a
+        r
+        e
+        e
+        x
+        e
+        c
+        u
+        t
+        e
+        d
+        .
         Type `TestScriptSetup` (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | retired | unknown.
+        """ 
+        d
+        r
+        a
+        f
+        t
+        |
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        r
+        e
+        t
+        i
+        r
+        e
+        d
+        |
+        u
+        n
+        k
+        n
+        o
+        w
+        n
+        .
         Type `str`. """
         
         self.teardown = None
-        """ A series of required clean up steps.
+        """ 
+        A
+        s
+        e
+        r
+        i
+        e
+        s
+        o
+        f
+        r
+        e
+        q
+        u
+        i
+        r
+        e
+        d
+        c
+        l
+        e
+        a
+        n
+        u
+        p
+        s
+        t
+        e
+        p
+        s
+        .
         Type `TestScriptTeardown` (represented as `dict` in JSON). """
         
         self.test = None
-        """ A test in this script.
+        """ 
+        A
+        t
+        e
+        s
+        t
+        i
+        n
+        t
+        h
+        i
+        s
+        s
+        c
+        r
+        i
+        p
+        t
+        .
         List of `TestScriptTest` items (represented as `dict` in JSON). """
         
         self.title = None
-        """ Name for this test script (human friendly).
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        t
+        e
+        s
+        t
+        s
+        c
+        r
+        i
+        p
+        t
+        (
+        h
+        u
+        m
+        a
+        n
+        f
+        r
+        i
+        e
+        n
+        d
+        l
+        y
+        )
+        .
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this test script (globally unique).
+        """ 
+        C
+        a
+        n
+        o
+        n
+        i
+        c
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        t
+        e
+        s
+        t
+        s
+        c
+        r
+        i
+        p
+        t
+        ,
+        r
+        e
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        e
+        d
+        a
+        s
+        a
+        U
+        R
+        I
+        (
+        g
+        l
+        o
+        b
+        a
+        l
+        l
+        y
+        u
+        n
+        i
+        q
+        u
+        e
+        )
+        .
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ 
+        T
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        x
+        t
+        t
+        h
+        a
+        t
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        i
+        s
+        i
+        n
+        t
+        e
+        n
+        d
+        e
+        d
+        t
+        o
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        .
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.variable = None
-        """ Placeholder for evaluated elements.
+        """ 
+        P
+        l
+        a
+        c
+        e
+        h
+        o
+        l
+        d
+        e
+        r
+        f
+        o
+        r
+        e
+        v
+        a
+        l
+        u
+        a
+        t
+        e
+        d
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        s
+        .
         List of `TestScriptVariable` items (represented as `dict` in JSON). """
         
         self.version = None
-        """ Business version of the test script.
+        """ 
+        B
+        u
+        s
+        i
+        n
+        e
+        s
+        s
+        v
+        e
+        r
+        s
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        t
+        e
+        s
+        t
+        s
+        c
+        r
+        i
+        p
+        t
+        .
         Type `str`. """
         
         super(TestScript, self).__init__(jsondict=jsondict, strict=strict)
@@ -151,8 +1247,6 @@ class TestScript(domainresource.DomainResource):
             ("profile", "profile", fhirreference.FHIRReference, True, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
-            ("rule", "rule", TestScriptRule, True, None, False),
-            ("ruleset", "ruleset", TestScriptRuleset, True, None, False),
             ("setup", "setup", TestScriptSetup, False, None, False),
             ("status", "status", str, False, None, True),
             ("teardown", "teardown", TestScriptTeardown, False, None, False),
@@ -169,11 +1263,155 @@ class TestScript(domainresource.DomainResource):
 from . import backboneelement
 
 class TestScriptDestination(backboneelement.BackboneElement):
-    """ An abstract server representing a destination or receiver in a message
-    exchange.
+    """ 
+    A
+    n
+    a
+    b
+    s
+    t
+    r
+    a
+    c
+    t
+    s
+    e
+    r
+    v
+    e
+    r
+    r
+    e
+    p
+    r
+    e
+    s
+    e
+    n
+    t
+    i
+    n
+    g
+    a
+    d
+    e
+    s
+    t
+    i
+    n
+    a
+    t
+    i
+    o
+    n
+    o
+    r
+    r
+    e
+    c
+    e
+    i
+    v
+    e
+    r
+    i
+    n
+    a
+    m
+    e
+    s
+    s
+    a
+    g
+    e
+    e
+    x
+    c
+    h
+    a
+    n
+    g
+    e
+    .
     
-    An abstract server used in operations within this test script in the
-    destination element.
+    
+    A
+    n
+    a
+    b
+    s
+    t
+    r
+    a
+    c
+    t
+    s
+    e
+    r
+    v
+    e
+    r
+    u
+    s
+    e
+    d
+    i
+    n
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    s
+    w
+    i
+    t
+    h
+    i
+    n
+    t
+    h
+    i
+    s
+    t
+    e
+    s
+    t
+    s
+    c
+    r
+    i
+    p
+    t
+    i
+    n
+    t
+    h
+    e
+    d
+    e
+    s
+    t
+    i
+    n
+    a
+    t
+    i
+    o
+    n
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "TestScriptDestination"
@@ -187,12 +1425,139 @@ class TestScriptDestination(backboneelement.BackboneElement):
         """
         
         self.index = None
-        """ The index of the abstract destination server starting at 1.
+        """ 
+        T
+        h
+        e
+        i
+        n
+        d
+        e
+        x
+        o
+        f
+        t
+        h
+        e
+        a
+        b
+        s
+        t
+        r
+        a
+        c
+        t
+        d
+        e
+        s
+        t
+        i
+        n
+        a
+        t
+        i
+        o
+        n
+        s
+        e
+        r
+        v
+        e
+        r
+        s
+        t
+        a
+        r
+        t
+        i
+        n
+        g
+        a
+        t
+        1
+        .
         Type `int`. """
         
         self.profile = None
-        """ FHIR-Server | FHIR-SDC-FormManager | FHIR-SDC-FormReceiver | FHIR-
-        SDC-FormProcessor.
+        """ 
+        F
+        H
+        I
+        R
+        -
+        S
+        e
+        r
+        v
+        e
+        r
+        |
+        F
+        H
+        I
+        R
+        -
+        S
+        D
+        C
+        -
+        F
+        o
+        r
+        m
+        M
+        a
+        n
+        a
+        g
+        e
+        r
+        |
+        F
+        H
+        I
+        R
+        -
+        S
+        D
+        C
+        -
+        F
+        o
+        r
+        m
+        R
+        e
+        c
+        e
+        i
+        v
+        e
+        r
+        |
+        F
+        H
+        I
+        R
+        -
+        S
+        D
+        C
+        -
+        F
+        o
+        r
+        m
+        P
+        r
+        o
+        c
+        e
+        s
+        s
+        o
+        r
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         super(TestScriptDestination, self).__init__(jsondict=jsondict, strict=strict)
@@ -207,10 +1572,138 @@ class TestScriptDestination(backboneelement.BackboneElement):
 
 
 class TestScriptFixture(backboneelement.BackboneElement):
-    """ Fixture in the test script - by reference (uri).
+    """ 
+    F
+    i
+    x
+    t
+    u
+    r
+    e
+    i
+    n
+    t
+    h
+    e
+    t
+    e
+    s
+    t
+    s
+    c
+    r
+    i
+    p
+    t
+    -
+    b
+    y
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    (
+    u
+    r
+    i
+    )
+    .
     
-    Fixture in the test script - by reference (uri). All fixtures are required
-    for the test script to execute.
+    
+    F
+    i
+    x
+    t
+    u
+    r
+    e
+    i
+    n
+    t
+    h
+    e
+    t
+    e
+    s
+    t
+    s
+    c
+    r
+    i
+    p
+    t
+    -
+    b
+    y
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    (
+    u
+    r
+    i
+    )
+    .
+    A
+    l
+    l
+    f
+    i
+    x
+    t
+    u
+    r
+    e
+    s
+    a
+    r
+    e
+    r
+    e
+    q
+    u
+    i
+    r
+    e
+    d
+    f
+    o
+    r
+    t
+    h
+    e
+    t
+    e
+    s
+    t
+    s
+    c
+    r
+    i
+    p
+    t
+    t
+    o
+    e
+    x
+    e
+    c
+    u
+    t
+    e
+    .
+    
     """
     
     resource_type = "TestScriptFixture"
@@ -224,35 +1717,330 @@ class TestScriptFixture(backboneelement.BackboneElement):
         """
         
         self.autocreate = None
-        """ Whether or not to implicitly create the fixture during setup.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        o
+        r
+        n
+        o
+        t
+        t
+        o
+        i
+        m
+        p
+        l
+        i
+        c
+        i
+        t
+        l
+        y
+        c
+        r
+        e
+        a
+        t
+        e
+        t
+        h
+        e
+        f
+        i
+        x
+        t
+        u
+        r
+        e
+        d
+        u
+        r
+        i
+        n
+        g
+        s
+        e
+        t
+        u
+        p
+        .
         Type `bool`. """
         
         self.autodelete = None
-        """ Whether or not to implicitly delete the fixture during teardown.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        o
+        r
+        n
+        o
+        t
+        t
+        o
+        i
+        m
+        p
+        l
+        i
+        c
+        i
+        t
+        l
+        y
+        d
+        e
+        l
+        e
+        t
+        e
+        t
+        h
+        e
+        f
+        i
+        x
+        t
+        u
+        r
+        e
+        d
+        u
+        r
+        i
+        n
+        g
+        t
+        e
+        a
+        r
+        d
+        o
+        w
+        n
+        .
         Type `bool`. """
         
         self.resource = None
-        """ Reference of the resource.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        o
+        f
+        t
+        h
+        e
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(TestScriptFixture, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptFixture, self).elementProperties()
         js.extend([
-            ("autocreate", "autocreate", bool, False, None, False),
-            ("autodelete", "autodelete", bool, False, None, False),
+            ("autocreate", "autocreate", bool, False, None, True),
+            ("autodelete", "autodelete", bool, False, None, True),
             ("resource", "resource", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
 class TestScriptMetadata(backboneelement.BackboneElement):
-    """ Required capability that is assumed to function correctly on the FHIR
-    server being tested.
+    """ 
+    R
+    e
+    q
+    u
+    i
+    r
+    e
+    d
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    y
+    t
+    h
+    a
+    t
+    i
+    s
+    a
+    s
+    s
+    u
+    m
+    e
+    d
+    t
+    o
+    f
+    u
+    n
+    c
+    t
+    i
+    o
+    n
+    c
+    o
+    r
+    r
+    e
+    c
+    t
+    l
+    y
+    o
+    n
+    t
+    h
+    e
+    F
+    H
+    I
+    R
+    s
+    e
+    r
+    v
+    e
+    r
+    b
+    e
+    i
+    n
+    g
+    t
+    e
+    s
+    t
+    e
+    d
+    .
     
-    The required capability must exist and are assumed to function correctly on
-    the FHIR server being tested.
+    
+    T
+    h
+    e
+    r
+    e
+    q
+    u
+    i
+    r
+    e
+    d
+    c
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    y
+    m
+    u
+    s
+    t
+    e
+    x
+    i
+    s
+    t
+    a
+    n
+    d
+    a
+    r
+    e
+    a
+    s
+    s
+    u
+    m
+    e
+    d
+    t
+    o
+    f
+    u
+    n
+    c
+    t
+    i
+    o
+    n
+    c
+    o
+    r
+    r
+    e
+    c
+    t
+    l
+    y
+    o
+    n
+    t
+    h
+    e
+    F
+    H
+    I
+    R
+    s
+    e
+    r
+    v
+    e
+    r
+    b
+    e
+    i
+    n
+    g
+    t
+    e
+    s
+    t
+    e
+    d
+    .
+    
     """
     
     resource_type = "TestScriptMetadata"
@@ -266,12 +2054,111 @@ class TestScriptMetadata(backboneelement.BackboneElement):
         """
         
         self.capability = None
-        """ Capabilities  that are assumed to function correctly on the FHIR
-        server being tested.
+        """ 
+        C
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        i
+        e
+        s
+        t
+        h
+        a
+        t
+        a
+        r
+        e
+        a
+        s
+        s
+        u
+        m
+        e
+        d
+        t
+        o
+        f
+        u
+        n
+        c
+        t
+        i
+        o
+        n
+        c
+        o
+        r
+        r
+        e
+        c
+        t
+        l
+        y
+        o
+        n
+        t
+        h
+        e
+        F
+        H
+        I
+        R
+        s
+        e
+        r
+        v
+        e
+        r
+        b
+        e
+        i
+        n
+        g
+        t
+        e
+        s
+        t
+        e
+        d
+        .
         List of `TestScriptMetadataCapability` items (represented as `dict` in JSON). """
         
         self.link = None
-        """ Links to the FHIR specification.
+        """ 
+        L
+        i
+        n
+        k
+        s
+        t
+        o
+        t
+        h
+        e
+        F
+        H
+        I
+        R
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        .
         List of `TestScriptMetadataLink` items (represented as `dict` in JSON). """
         
         super(TestScriptMetadata, self).__init__(jsondict=jsondict, strict=strict)
@@ -286,11 +2173,166 @@ class TestScriptMetadata(backboneelement.BackboneElement):
 
 
 class TestScriptMetadataCapability(backboneelement.BackboneElement):
-    """ Capabilities  that are assumed to function correctly on the FHIR server
-    being tested.
+    """ 
+    C
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    i
+    e
+    s
+    t
+    h
+    a
+    t
+    a
+    r
+    e
+    a
+    s
+    s
+    u
+    m
+    e
+    d
+    t
+    o
+    f
+    u
+    n
+    c
+    t
+    i
+    o
+    n
+    c
+    o
+    r
+    r
+    e
+    c
+    t
+    l
+    y
+    o
+    n
+    t
+    h
+    e
+    F
+    H
+    I
+    R
+    s
+    e
+    r
+    v
+    e
+    r
+    b
+    e
+    i
+    n
+    g
+    t
+    e
+    s
+    t
+    e
+    d
+    .
     
-    Capabilities that must exist and are assumed to function correctly on the
-    FHIR server being tested.
+    
+    C
+    a
+    p
+    a
+    b
+    i
+    l
+    i
+    t
+    i
+    e
+    s
+    t
+    h
+    a
+    t
+    m
+    u
+    s
+    t
+    e
+    x
+    i
+    s
+    t
+    a
+    n
+    d
+    a
+    r
+    e
+    a
+    s
+    s
+    u
+    m
+    e
+    d
+    t
+    o
+    f
+    u
+    n
+    c
+    t
+    i
+    o
+    n
+    c
+    o
+    r
+    r
+    e
+    c
+    t
+    l
+    y
+    o
+    n
+    t
+    h
+    e
+    F
+    H
+    I
+    R
+    s
+    e
+    r
+    v
+    e
+    r
+    b
+    e
+    i
+    n
+    g
+    t
+    e
+    s
+    t
+    e
+    d
+    .
+    
     """
     
     resource_type = "TestScriptMetadataCapability"
@@ -304,31 +2346,257 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
         """
         
         self.capabilities = None
-        """ Required Capability Statement.
-        Type `FHIRReference` referencing `CapabilityStatement` (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        q
+        u
+        i
+        r
+        e
+        d
+        C
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        S
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        .
+        Type `str`. """
         
         self.description = None
-        """ The expected capabilities of the server.
+        """ 
+        T
+        h
+        e
+        e
+        x
+        p
+        e
+        c
+        t
+        e
+        d
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        i
+        e
+        s
+        o
+        f
+        t
+        h
+        e
+        s
+        e
+        r
+        v
+        e
+        r
+        .
         Type `str`. """
         
         self.destination = None
-        """ Which server these requirements apply to.
+        """ 
+        W
+        h
+        i
+        c
+        h
+        s
+        e
+        r
+        v
+        e
+        r
+        t
+        h
+        e
+        s
+        e
+        r
+        e
+        q
+        u
+        i
+        r
+        e
+        m
+        e
+        n
+        t
+        s
+        a
+        p
+        p
+        l
+        y
+        t
+        o
+        .
         Type `int`. """
         
         self.link = None
-        """ Links to the FHIR specification.
+        """ 
+        L
+        i
+        n
+        k
+        s
+        t
+        o
+        t
+        h
+        e
+        F
+        H
+        I
+        R
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        .
         List of `str` items. """
         
         self.origin = None
-        """ Which origin server these requirements apply to.
+        """ 
+        W
+        h
+        i
+        c
+        h
+        o
+        r
+        i
+        g
+        i
+        n
+        s
+        e
+        r
+        v
+        e
+        r
+        t
+        h
+        e
+        s
+        e
+        r
+        e
+        q
+        u
+        i
+        r
+        e
+        m
+        e
+        n
+        t
+        s
+        a
+        p
+        p
+        l
+        y
+        t
+        o
+        .
         List of `int` items. """
         
         self.required = None
-        """ Are the capabilities required?.
+        """ 
+        A
+        r
+        e
+        t
+        h
+        e
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        i
+        e
+        s
+        r
+        e
+        q
+        u
+        i
+        r
+        e
+        d
+        ?
+        .
         Type `bool`. """
         
         self.validated = None
-        """ Are the capabilities validated?.
+        """ 
+        A
+        r
+        e
+        t
+        h
+        e
+        c
+        a
+        p
+        a
+        b
+        i
+        l
+        i
+        t
+        i
+        e
+        s
+        v
+        a
+        l
+        i
+        d
+        a
+        t
+        e
+        d
+        ?
+        .
         Type `bool`. """
         
         super(TestScriptMetadataCapability, self).__init__(jsondict=jsondict, strict=strict)
@@ -336,21 +2604,100 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptMetadataCapability, self).elementProperties()
         js.extend([
-            ("capabilities", "capabilities", fhirreference.FHIRReference, False, None, True),
+            ("capabilities", "capabilities", str, False, None, True),
             ("description", "description", str, False, None, False),
             ("destination", "destination", int, False, None, False),
             ("link", "link", str, True, None, False),
             ("origin", "origin", int, True, None, False),
-            ("required", "required", bool, False, None, False),
-            ("validated", "validated", bool, False, None, False),
+            ("required", "required", bool, False, None, True),
+            ("validated", "validated", bool, False, None, True),
         ])
         return js
 
 
 class TestScriptMetadataLink(backboneelement.BackboneElement):
-    """ Links to the FHIR specification.
+    """ 
+    L
+    i
+    n
+    k
+    s
+    t
+    o
+    t
+    h
+    e
+    F
+    H
+    I
+    R
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    .
     
-    A link to the FHIR specification that this test is covering.
+    
+    A
+    l
+    i
+    n
+    k
+    t
+    o
+    t
+    h
+    e
+    F
+    H
+    I
+    R
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    t
+    h
+    a
+    t
+    t
+    h
+    i
+    s
+    t
+    e
+    s
+    t
+    i
+    s
+    c
+    o
+    v
+    e
+    r
+    i
+    n
+    g
+    .
+    
     """
     
     resource_type = "TestScriptMetadataLink"
@@ -364,11 +2711,50 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
         """
         
         self.description = None
-        """ Short description.
+        """ 
+        S
+        h
+        o
+        r
+        t
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.url = None
-        """ URL to the specification.
+        """ 
+        U
+        R
+        L
+        t
+        o
+        t
+        h
+        e
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         super(TestScriptMetadataLink, self).__init__(jsondict=jsondict, strict=strict)
@@ -383,10 +2769,143 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
 
 
 class TestScriptOrigin(backboneelement.BackboneElement):
-    """ An abstract server representing a client or sender in a message exchange.
+    """ 
+    A
+    n
+    a
+    b
+    s
+    t
+    r
+    a
+    c
+    t
+    s
+    e
+    r
+    v
+    e
+    r
+    r
+    e
+    p
+    r
+    e
+    s
+    e
+    n
+    t
+    i
+    n
+    g
+    a
+    c
+    l
+    i
+    e
+    n
+    t
+    o
+    r
+    s
+    e
+    n
+    d
+    e
+    r
+    i
+    n
+    a
+    m
+    e
+    s
+    s
+    a
+    g
+    e
+    e
+    x
+    c
+    h
+    a
+    n
+    g
+    e
+    .
     
-    An abstract server used in operations within this test script in the origin
-    element.
+    
+    A
+    n
+    a
+    b
+    s
+    t
+    r
+    a
+    c
+    t
+    s
+    e
+    r
+    v
+    e
+    r
+    u
+    s
+    e
+    d
+    i
+    n
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    s
+    w
+    i
+    t
+    h
+    i
+    n
+    t
+    h
+    i
+    s
+    t
+    e
+    s
+    t
+    s
+    c
+    r
+    i
+    p
+    t
+    i
+    n
+    t
+    h
+    e
+    o
+    r
+    i
+    g
+    i
+    n
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "TestScriptOrigin"
@@ -400,11 +2919,88 @@ class TestScriptOrigin(backboneelement.BackboneElement):
         """
         
         self.index = None
-        """ The index of the abstract origin server starting at 1.
+        """ 
+        T
+        h
+        e
+        i
+        n
+        d
+        e
+        x
+        o
+        f
+        t
+        h
+        e
+        a
+        b
+        s
+        t
+        r
+        a
+        c
+        t
+        o
+        r
+        i
+        g
+        i
+        n
+        s
+        e
+        r
+        v
+        e
+        r
+        s
+        t
+        a
+        r
+        t
+        i
+        n
+        g
+        a
+        t
+        1
+        .
         Type `int`. """
         
         self.profile = None
-        """ FHIR-Client | FHIR-SDC-FormFiller.
+        """ 
+        F
+        H
+        I
+        R
+        -
+        C
+        l
+        i
+        e
+        n
+        t
+        |
+        F
+        H
+        I
+        R
+        -
+        S
+        D
+        C
+        -
+        F
+        o
+        r
+        m
+        F
+        i
+        l
+        l
+        e
+        r
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         super(TestScriptOrigin, self).__init__(jsondict=jsondict, strict=strict)
@@ -418,184 +3014,63 @@ class TestScriptOrigin(backboneelement.BackboneElement):
         return js
 
 
-class TestScriptRule(backboneelement.BackboneElement):
-    """ Assert rule used within the test script.
-    
-    Assert rule to be used in one or more asserts within the test script.
-    """
-    
-    resource_type = "TestScriptRule"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.param = None
-        """ Rule parameter template.
-        List of `TestScriptRuleParam` items (represented as `dict` in JSON). """
-        
-        self.resource = None
-        """ Assert rule resource reference.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        super(TestScriptRule, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptRule, self).elementProperties()
-        js.extend([
-            ("param", "param", TestScriptRuleParam, True, None, False),
-            ("resource", "resource", fhirreference.FHIRReference, False, None, True),
-        ])
-        return js
-
-
-class TestScriptRuleParam(backboneelement.BackboneElement):
-    """ Rule parameter template.
-    
-    Each rule template can take one or more parameters for rule evaluation.
-    """
-    
-    resource_type = "TestScriptRuleParam"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Parameter name matching external assert rule parameter.
-        Type `str`. """
-        
-        self.value = None
-        """ Parameter value defined either explicitly or dynamically.
-        Type `str`. """
-        
-        super(TestScriptRuleParam, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptRuleParam, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, True),
-            ("value", "value", str, False, None, False),
-        ])
-        return js
-
-
-class TestScriptRuleset(backboneelement.BackboneElement):
-    """ Assert ruleset used within the test script.
-    
-    Contains one or more rules.  Offers a way to group rules so assertions
-    could reference the group of rules and have them all applied.
-    """
-    
-    resource_type = "TestScriptRuleset"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.resource = None
-        """ Assert ruleset resource reference.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        self.rule = None
-        """ The referenced rule within the ruleset.
-        List of `TestScriptRulesetRule` items (represented as `dict` in JSON). """
-        
-        super(TestScriptRuleset, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptRuleset, self).elementProperties()
-        js.extend([
-            ("resource", "resource", fhirreference.FHIRReference, False, None, True),
-            ("rule", "rule", TestScriptRulesetRule, True, None, True),
-        ])
-        return js
-
-
-class TestScriptRulesetRule(backboneelement.BackboneElement):
-    """ The referenced rule within the ruleset.
-    
-    The referenced rule within the external ruleset template.
-    """
-    
-    resource_type = "TestScriptRulesetRule"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.param = None
-        """ Ruleset rule parameter template.
-        List of `TestScriptRulesetRuleParam` items (represented as `dict` in JSON). """
-        
-        self.ruleId = None
-        """ Id of referenced rule within the ruleset.
-        Type `str`. """
-        
-        super(TestScriptRulesetRule, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptRulesetRule, self).elementProperties()
-        js.extend([
-            ("param", "param", TestScriptRulesetRuleParam, True, None, False),
-            ("ruleId", "ruleId", str, False, None, True),
-        ])
-        return js
-
-
-class TestScriptRulesetRuleParam(backboneelement.BackboneElement):
-    """ Ruleset rule parameter template.
-    
-    Each rule template can take one or more parameters for rule evaluation.
-    """
-    
-    resource_type = "TestScriptRulesetRuleParam"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Parameter name matching external assert ruleset rule parameter.
-        Type `str`. """
-        
-        self.value = None
-        """ Parameter value defined either explicitly or dynamically.
-        Type `str`. """
-        
-        super(TestScriptRulesetRuleParam, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptRulesetRuleParam, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, True),
-            ("value", "value", str, False, None, False),
-        ])
-        return js
-
-
 class TestScriptSetup(backboneelement.BackboneElement):
-    """ A series of required setup operations before tests are executed.
+    """ 
+    A
+    s
+    e
+    r
+    i
+    e
+    s
+    o
+    f
+    r
+    e
+    q
+    u
+    i
+    r
+    e
+    d
+    s
+    e
+    t
+    u
+    p
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    s
+    b
+    e
+    f
+    o
+    r
+    e
+    t
+    e
+    s
+    t
+    s
+    a
+    r
+    e
+    e
+    x
+    e
+    c
+    u
+    t
+    e
+    d
+    .
     """
     
     resource_type = "TestScriptSetup"
@@ -609,7 +3084,40 @@ class TestScriptSetup(backboneelement.BackboneElement):
         """
         
         self.action = None
-        """ A setup operation or assert to perform.
+        """ 
+        A
+        s
+        e
+        t
+        u
+        p
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        o
+        r
+        a
+        s
+        s
+        e
+        r
+        t
+        t
+        o
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        .
         List of `TestScriptSetupAction` items (represented as `dict` in JSON). """
         
         super(TestScriptSetup, self).__init__(jsondict=jsondict, strict=strict)
@@ -623,9 +3131,92 @@ class TestScriptSetup(backboneelement.BackboneElement):
 
 
 class TestScriptSetupAction(backboneelement.BackboneElement):
-    """ A setup operation or assert to perform.
+    """ 
+    A
+    s
+    e
+    t
+    u
+    p
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    o
+    r
+    a
+    s
+    s
+    e
+    r
+    t
+    t
+    o
+    p
+    e
+    r
+    f
+    o
+    r
+    m
+    .
     
-    Action would contain either an operation or an assertion.
+    
+    A
+    c
+    t
+    i
+    o
+    n
+    w
+    o
+    u
+    l
+    d
+    c
+    o
+    n
+    t
+    a
+    i
+    n
+    e
+    i
+    t
+    h
+    e
+    r
+    a
+    n
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    o
+    r
+    a
+    n
+    a
+    s
+    s
+    e
+    r
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "TestScriptSetupAction"
@@ -639,11 +3230,60 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
         """
         
         self.assert_fhir = None
-        """ The assertion to perform.
+        """ 
+        T
+        h
+        e
+        a
+        s
+        s
+        e
+        r
+        t
+        i
+        o
+        n
+        t
+        o
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        .
         Type `TestScriptSetupActionAssert` (represented as `dict` in JSON). """
         
         self.operation = None
-        """ The setup operation to perform.
+        """ 
+        T
+        h
+        e
+        s
+        e
+        t
+        u
+        p
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        t
+        o
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        .
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
         super(TestScriptSetupAction, self).__init__(jsondict=jsondict, strict=strict)
@@ -658,10 +3298,123 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
 
 
 class TestScriptSetupActionAssert(backboneelement.BackboneElement):
-    """ The assertion to perform.
+    """ 
+    T
+    h
+    e
+    a
+    s
+    s
+    e
+    r
+    t
+    i
+    o
+    n
+    t
+    o
+    p
+    e
+    r
+    f
+    o
+    r
+    m
+    .
     
-    Evaluates the results of previous operations to determine if the server
-    under test behaves appropriately.
+    
+    E
+    v
+    a
+    l
+    u
+    a
+    t
+    e
+    s
+    t
+    h
+    e
+    r
+    e
+    s
+    u
+    l
+    t
+    s
+    o
+    f
+    p
+    r
+    e
+    v
+    i
+    o
+    u
+    s
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    s
+    t
+    o
+    d
+    e
+    t
+    e
+    r
+    m
+    i
+    n
+    e
+    i
+    f
+    t
+    h
+    e
+    s
+    e
+    r
+    v
+    e
+    r
+    u
+    n
+    d
+    e
+    r
+    t
+    e
+    s
+    t
+    b
+    e
+    h
+    a
+    v
+    e
+    s
+    a
+    p
+    p
+    r
+    o
+    p
+    r
+    i
+    a
+    t
+    e
+    l
+    y
+    .
+    
     """
     
     resource_type = "TestScriptSetupActionAssert"
@@ -675,102 +3428,977 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         """
         
         self.compareToSourceExpression = None
-        """ The fluentpath expression to evaluate against the source fixture.
+        """ 
+        T
+        h
+        e
+        F
+        H
+        I
+        R
+        P
+        a
+        t
+        h
+        e
+        x
+        p
+        r
+        e
+        s
+        s
+        i
+        o
+        n
+        t
+        o
+        e
+        v
+        a
+        l
+        u
+        a
+        t
+        e
+        a
+        g
+        a
+        i
+        n
+        s
+        t
+        t
+        h
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        f
+        i
+        x
+        t
+        u
+        r
+        e
+        .
         Type `str`. """
         
         self.compareToSourceId = None
-        """ Id of the source fixture to be evaluated.
+        """ 
+        I
+        d
+        o
+        f
+        t
+        h
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        f
+        i
+        x
+        t
+        u
+        r
+        e
+        t
+        o
+        b
+        e
+        e
+        v
+        a
+        l
+        u
+        a
+        t
+        e
+        d
+        .
         Type `str`. """
         
         self.compareToSourcePath = None
-        """ XPath or JSONPath expression to evaluate against the source fixture.
+        """ 
+        X
+        P
+        a
+        t
+        h
+        o
+        r
+        J
+        S
+        O
+        N
+        P
+        a
+        t
+        h
+        e
+        x
+        p
+        r
+        e
+        s
+        s
+        i
+        o
+        n
+        t
+        o
+        e
+        v
+        a
+        l
+        u
+        a
+        t
+        e
+        a
+        g
+        a
+        i
+        n
+        s
+        t
+        t
+        h
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        f
+        i
+        x
+        t
+        u
+        r
+        e
+        .
         Type `str`. """
         
         self.contentType = None
-        """ xml | json | ttl | none.
+        """ 
+        M
+        i
+        m
+        e
+        t
+        y
+        p
+        e
+        t
+        o
+        c
+        o
+        m
+        p
+        a
+        r
+        e
+        a
+        g
+        a
+        i
+        n
+        s
+        t
+        t
+        h
+        e
+        '
+        C
+        o
+        n
+        t
+        e
+        n
+        t
+        -
+        T
+        y
+        p
+        e
+        '
+        h
+        e
+        a
+        d
+        e
+        r
+        .
         Type `str`. """
         
         self.description = None
-        """ Tracking/reporting assertion description.
+        """ 
+        T
+        r
+        a
+        c
+        k
+        i
+        n
+        g
+        /
+        r
+        e
+        p
+        o
+        r
+        t
+        i
+        n
+        g
+        a
+        s
+        s
+        e
+        r
+        t
+        i
+        o
+        n
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.direction = None
-        """ response | request.
+        """ 
+        r
+        e
+        s
+        p
+        o
+        n
+        s
+        e
+        |
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        .
         Type `str`. """
         
         self.expression = None
-        """ The fluentpath expression to be evaluated.
+        """ 
+        T
+        h
+        e
+        F
+        H
+        I
+        R
+        P
+        a
+        t
+        h
+        e
+        x
+        p
+        r
+        e
+        s
+        s
+        i
+        o
+        n
+        t
+        o
+        b
+        e
+        e
+        v
+        a
+        l
+        u
+        a
+        t
+        e
+        d
+        .
         Type `str`. """
         
         self.headerField = None
-        """ HTTP header field name.
+        """ 
+        H
+        T
+        T
+        P
+        h
+        e
+        a
+        d
+        e
+        r
+        f
+        i
+        e
+        l
+        d
+        n
+        a
+        m
+        e
+        .
         Type `str`. """
         
         self.label = None
-        """ Tracking/logging assertion label.
+        """ 
+        T
+        r
+        a
+        c
+        k
+        i
+        n
+        g
+        /
+        l
+        o
+        g
+        g
+        i
+        n
+        g
+        a
+        s
+        s
+        e
+        r
+        t
+        i
+        o
+        n
+        l
+        a
+        b
+        e
+        l
+        .
         Type `str`. """
         
         self.minimumId = None
-        """ Fixture Id of minimum content resource.
+        """ 
+        F
+        i
+        x
+        t
+        u
+        r
+        e
+        I
+        d
+        o
+        f
+        m
+        i
+        n
+        i
+        m
+        u
+        m
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        .
         Type `str`. """
         
         self.navigationLinks = None
-        """ Perform validation on navigation links?.
+        """ 
+        P
+        e
+        r
+        f
+        o
+        r
+        m
+        v
+        a
+        l
+        i
+        d
+        a
+        t
+        i
+        o
+        n
+        o
+        n
+        n
+        a
+        v
+        i
+        g
+        a
+        t
+        i
+        o
+        n
+        l
+        i
+        n
+        k
+        s
+        ?
+        .
         Type `bool`. """
         
         self.operator = None
-        """ equals | notEquals | in | notIn | greaterThan | lessThan | empty |
-        notEmpty | contains | notContains | eval.
+        """ 
+        e
+        q
+        u
+        a
+        l
+        s
+        |
+        n
+        o
+        t
+        E
+        q
+        u
+        a
+        l
+        s
+        |
+        i
+        n
+        |
+        n
+        o
+        t
+        I
+        n
+        |
+        g
+        r
+        e
+        a
+        t
+        e
+        r
+        T
+        h
+        a
+        n
+        |
+        l
+        e
+        s
+        s
+        T
+        h
+        a
+        n
+        |
+        e
+        m
+        p
+        t
+        y
+        |
+        n
+        o
+        t
+        E
+        m
+        p
+        t
+        y
+        |
+        c
+        o
+        n
+        t
+        a
+        i
+        n
+        s
+        |
+        n
+        o
+        t
+        C
+        o
+        n
+        t
+        a
+        i
+        n
+        s
+        |
+        e
+        v
+        a
+        l
+        .
         Type `str`. """
         
         self.path = None
-        """ XPath or JSONPath expression.
+        """ 
+        X
+        P
+        a
+        t
+        h
+        o
+        r
+        J
+        S
+        O
+        N
+        P
+        a
+        t
+        h
+        e
+        x
+        p
+        r
+        e
+        s
+        s
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.requestMethod = None
-        """ delete | get | options | patch | post | put.
+        """ 
+        d
+        e
+        l
+        e
+        t
+        e
+        |
+        g
+        e
+        t
+        |
+        o
+        p
+        t
+        i
+        o
+        n
+        s
+        |
+        p
+        a
+        t
+        c
+        h
+        |
+        p
+        o
+        s
+        t
+        |
+        p
+        u
+        t
+        |
+        h
+        e
+        a
+        d
+        .
         Type `str`. """
         
         self.requestURL = None
-        """ Request URL comparison value.
+        """ 
+        R
+        e
+        q
+        u
+        e
+        s
+        t
+        U
+        R
+        L
+        c
+        o
+        m
+        p
+        a
+        r
+        i
+        s
+        o
+        n
+        v
+        a
+        l
+        u
+        e
+        .
         Type `str`. """
         
         self.resource = None
-        """ Resource type.
+        """ 
+        R
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
         self.response = None
-        """ okay | created | noContent | notModified | bad | forbidden |
-        notFound | methodNotAllowed | conflict | gone | preconditionFailed
-        | unprocessable.
+        """ 
+        o
+        k
+        a
+        y
+        |
+        c
+        r
+        e
+        a
+        t
+        e
+        d
+        |
+        n
+        o
+        C
+        o
+        n
+        t
+        e
+        n
+        t
+        |
+        n
+        o
+        t
+        M
+        o
+        d
+        i
+        f
+        i
+        e
+        d
+        |
+        b
+        a
+        d
+        |
+        f
+        o
+        r
+        b
+        i
+        d
+        d
+        e
+        n
+        |
+        n
+        o
+        t
+        F
+        o
+        u
+        n
+        d
+        |
+        m
+        e
+        t
+        h
+        o
+        d
+        N
+        o
+        t
+        A
+        l
+        l
+        o
+        w
+        e
+        d
+        |
+        c
+        o
+        n
+        f
+        l
+        i
+        c
+        t
+        |
+        g
+        o
+        n
+        e
+        |
+        p
+        r
+        e
+        c
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        F
+        a
+        i
+        l
+        e
+        d
+        |
+        u
+        n
+        p
+        r
+        o
+        c
+        e
+        s
+        s
+        a
+        b
+        l
+        e
+        .
         Type `str`. """
         
         self.responseCode = None
-        """ HTTP response code to test.
+        """ 
+        H
+        T
+        T
+        P
+        r
+        e
+        s
+        p
+        o
+        n
+        s
+        e
+        c
+        o
+        d
+        e
+        t
+        o
+        t
+        e
+        s
+        t
+        .
         Type `str`. """
         
-        self.rule = None
-        """ The reference to a TestScript.rule.
-        Type `TestScriptSetupActionAssertRule` (represented as `dict` in JSON). """
-        
-        self.ruleset = None
-        """ The reference to a TestScript.ruleset.
-        Type `TestScriptSetupActionAssertRuleset` (represented as `dict` in JSON). """
-        
         self.sourceId = None
-        """ Fixture Id of source expression or headerField.
+        """ 
+        F
+        i
+        x
+        t
+        u
+        r
+        e
+        I
+        d
+        o
+        f
+        s
+        o
+        u
+        r
+        c
+        e
+        e
+        x
+        p
+        r
+        e
+        s
+        s
+        i
+        o
+        n
+        o
+        r
+        h
+        e
+        a
+        d
+        e
+        r
+        F
+        i
+        e
+        l
+        d
+        .
         Type `str`. """
         
         self.validateProfileId = None
-        """ Profile Id of validation profile reference.
+        """ 
+        P
+        r
+        o
+        f
+        i
+        l
+        e
+        I
+        d
+        o
+        f
+        v
+        a
+        l
+        i
+        d
+        a
+        t
+        i
+        o
+        n
+        p
+        r
+        o
+        f
+        i
+        l
+        e
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        .
         Type `str`. """
         
         self.value = None
-        """ The value to compare to.
+        """ 
+        T
+        h
+        e
+        v
+        a
+        l
+        u
+        e
+        t
+        o
+        c
+        o
+        m
+        p
+        a
+        r
+        e
+        t
+        o
+        .
         Type `str`. """
         
         self.warningOnly = None
-        """ Will this assert produce a warning only on error?.
+        """ 
+        W
+        i
+        l
+        l
+        t
+        h
+        i
+        s
+        a
+        s
+        s
+        e
+        r
+        t
+        p
+        r
+        o
+        d
+        u
+        c
+        e
+        a
+        w
+        a
+        r
+        n
+        i
+        n
+        g
+        o
+        n
+        l
+        y
+        o
+        n
+        e
+        r
+        r
+        o
+        r
+        ?
+        .
         Type `bool`. """
         
         super(TestScriptSetupActionAssert, self).__init__(jsondict=jsondict, strict=strict)
@@ -796,195 +4424,68 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
             ("resource", "resource", str, False, None, False),
             ("response", "response", str, False, None, False),
             ("responseCode", "responseCode", str, False, None, False),
-            ("rule", "rule", TestScriptSetupActionAssertRule, False, None, False),
-            ("ruleset", "ruleset", TestScriptSetupActionAssertRuleset, False, None, False),
             ("sourceId", "sourceId", str, False, None, False),
             ("validateProfileId", "validateProfileId", str, False, None, False),
             ("value", "value", str, False, None, False),
-            ("warningOnly", "warningOnly", bool, False, None, False),
-        ])
-        return js
-
-
-class TestScriptSetupActionAssertRule(backboneelement.BackboneElement):
-    """ The reference to a TestScript.rule.
-    
-    The TestScript.rule this assert will evaluate.
-    """
-    
-    resource_type = "TestScriptSetupActionAssertRule"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.param = None
-        """ Rule parameter template.
-        List of `TestScriptSetupActionAssertRuleParam` items (represented as `dict` in JSON). """
-        
-        self.ruleId = None
-        """ Id of the TestScript.rule.
-        Type `str`. """
-        
-        super(TestScriptSetupActionAssertRule, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptSetupActionAssertRule, self).elementProperties()
-        js.extend([
-            ("param", "param", TestScriptSetupActionAssertRuleParam, True, None, False),
-            ("ruleId", "ruleId", str, False, None, True),
-        ])
-        return js
-
-
-class TestScriptSetupActionAssertRuleParam(backboneelement.BackboneElement):
-    """ Rule parameter template.
-    
-    Each rule template can take one or more parameters for rule evaluation.
-    """
-    
-    resource_type = "TestScriptSetupActionAssertRuleParam"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Parameter name matching external assert rule parameter.
-        Type `str`. """
-        
-        self.value = None
-        """ Parameter value defined either explicitly or dynamically.
-        Type `str`. """
-        
-        super(TestScriptSetupActionAssertRuleParam, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptSetupActionAssertRuleParam, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, True),
-            ("value", "value", str, False, None, True),
-        ])
-        return js
-
-
-class TestScriptSetupActionAssertRuleset(backboneelement.BackboneElement):
-    """ The reference to a TestScript.ruleset.
-    
-    The TestScript.ruleset this assert will evaluate.
-    """
-    
-    resource_type = "TestScriptSetupActionAssertRuleset"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.rule = None
-        """ The referenced rule within the ruleset.
-        List of `TestScriptSetupActionAssertRulesetRule` items (represented as `dict` in JSON). """
-        
-        self.rulesetId = None
-        """ Id of the TestScript.ruleset.
-        Type `str`. """
-        
-        super(TestScriptSetupActionAssertRuleset, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptSetupActionAssertRuleset, self).elementProperties()
-        js.extend([
-            ("rule", "rule", TestScriptSetupActionAssertRulesetRule, True, None, False),
-            ("rulesetId", "rulesetId", str, False, None, True),
-        ])
-        return js
-
-
-class TestScriptSetupActionAssertRulesetRule(backboneelement.BackboneElement):
-    """ The referenced rule within the ruleset.
-    
-    The referenced rule within the external ruleset template.
-    """
-    
-    resource_type = "TestScriptSetupActionAssertRulesetRule"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.param = None
-        """ Rule parameter template.
-        List of `TestScriptSetupActionAssertRulesetRuleParam` items (represented as `dict` in JSON). """
-        
-        self.ruleId = None
-        """ Id of referenced rule within the ruleset.
-        Type `str`. """
-        
-        super(TestScriptSetupActionAssertRulesetRule, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptSetupActionAssertRulesetRule, self).elementProperties()
-        js.extend([
-            ("param", "param", TestScriptSetupActionAssertRulesetRuleParam, True, None, False),
-            ("ruleId", "ruleId", str, False, None, True),
-        ])
-        return js
-
-
-class TestScriptSetupActionAssertRulesetRuleParam(backboneelement.BackboneElement):
-    """ Rule parameter template.
-    
-    Each rule template can take one or more parameters for rule evaluation.
-    """
-    
-    resource_type = "TestScriptSetupActionAssertRulesetRuleParam"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Parameter name matching external assert ruleset rule parameter.
-        Type `str`. """
-        
-        self.value = None
-        """ Parameter value defined either explicitly or dynamically.
-        Type `str`. """
-        
-        super(TestScriptSetupActionAssertRulesetRuleParam, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptSetupActionAssertRulesetRuleParam, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, True),
-            ("value", "value", str, False, None, True),
+            ("warningOnly", "warningOnly", bool, False, None, True),
         ])
         return js
 
 
 class TestScriptSetupActionOperation(backboneelement.BackboneElement):
-    """ The setup operation to perform.
+    """ 
+    T
+    h
+    e
+    s
+    e
+    t
+    u
+    p
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    t
+    o
+    p
+    e
+    r
+    f
+    o
+    r
+    m
+    .
     
-    The operation to perform.
+    
+    T
+    h
+    e
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    t
+    o
+    p
+    e
+    r
+    f
+    o
+    r
+    m
+    .
+    
     """
     
     resource_type = "TestScriptSetupActionOperation"
@@ -998,68 +4499,686 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         """
         
         self.accept = None
-        """ xml | json | ttl | none.
+        """ 
+        M
+        i
+        m
+        e
+        t
+        y
+        p
+        e
+        t
+        o
+        a
+        c
+        c
+        e
+        p
+        t
+        i
+        n
+        t
+        h
+        e
+        p
+        a
+        y
+        l
+        o
+        a
+        d
+        o
+        f
+        t
+        h
+        e
+        r
+        e
+        s
+        p
+        o
+        n
+        s
+        e
+        ,
+        w
+        i
+        t
+        h
+        c
+        h
+        a
+        r
+        s
+        e
+        t
+        e
+        t
+        c
+        .
+        .
         Type `str`. """
         
         self.contentType = None
-        """ xml | json | ttl | none.
+        """ 
+        M
+        i
+        m
+        e
+        t
+        y
+        p
+        e
+        o
+        f
+        t
+        h
+        e
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        p
+        a
+        y
+        l
+        o
+        a
+        d
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        s
+        ,
+        w
+        i
+        t
+        h
+        c
+        h
+        a
+        r
+        s
+        e
+        t
+        e
+        t
+        c
+        .
+        .
         Type `str`. """
         
         self.description = None
-        """ Tracking/reporting operation description.
+        """ 
+        T
+        r
+        a
+        c
+        k
+        i
+        n
+        g
+        /
+        r
+        e
+        p
+        o
+        r
+        t
+        i
+        n
+        g
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.destination = None
-        """ Server responding to the request.
+        """ 
+        S
+        e
+        r
+        v
+        e
+        r
+        r
+        e
+        s
+        p
+        o
+        n
+        d
+        i
+        n
+        g
+        t
+        o
+        t
+        h
+        e
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        .
         Type `int`. """
         
         self.encodeRequestUrl = None
-        """ Whether or not to send the request url in encoded format.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        o
+        r
+        n
+        o
+        t
+        t
+        o
+        s
+        e
+        n
+        d
+        t
+        h
+        e
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        u
+        r
+        l
+        i
+        n
+        e
+        n
+        c
+        o
+        d
+        e
+        d
+        f
+        o
+        r
+        m
+        a
+        t
+        .
         Type `bool`. """
         
         self.label = None
-        """ Tracking/logging operation label.
+        """ 
+        T
+        r
+        a
+        c
+        k
+        i
+        n
+        g
+        /
+        l
+        o
+        g
+        g
+        i
+        n
+        g
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        l
+        a
+        b
+        e
+        l
+        .
+        Type `str`. """
+        
+        self.method = None
+        """ 
+        d
+        e
+        l
+        e
+        t
+        e
+        |
+        g
+        e
+        t
+        |
+        o
+        p
+        t
+        i
+        o
+        n
+        s
+        |
+        p
+        a
+        t
+        c
+        h
+        |
+        p
+        o
+        s
+        t
+        |
+        p
+        u
+        t
+        |
+        h
+        e
+        a
+        d
+        .
         Type `str`. """
         
         self.origin = None
-        """ Server initiating the request.
+        """ 
+        S
+        e
+        r
+        v
+        e
+        r
+        i
+        n
+        i
+        t
+        i
+        a
+        t
+        i
+        n
+        g
+        t
+        h
+        e
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        .
         Type `int`. """
         
         self.params = None
-        """ Explicitly defined path parameters.
+        """ 
+        E
+        x
+        p
+        l
+        i
+        c
+        i
+        t
+        l
+        y
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        p
+        a
+        t
+        h
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        s
+        .
         Type `str`. """
         
         self.requestHeader = None
-        """ Each operation can have one or more header elements.
+        """ 
+        E
+        a
+        c
+        h
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        c
+        a
+        n
+        h
+        a
+        v
+        e
+        o
+        n
+        e
+        o
+        r
+        m
+        o
+        r
+        e
+        h
+        e
+        a
+        d
+        e
+        r
+        e
+        l
+        e
+        m
+        e
+        n
+        t
+        s
+        .
         List of `TestScriptSetupActionOperationRequestHeader` items (represented as `dict` in JSON). """
         
         self.requestId = None
-        """ Fixture Id of mapped request.
+        """ 
+        F
+        i
+        x
+        t
+        u
+        r
+        e
+        I
+        d
+        o
+        f
+        m
+        a
+        p
+        p
+        e
+        d
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        .
         Type `str`. """
         
         self.resource = None
-        """ Resource type.
+        """ 
+        R
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        t
+        y
+        p
+        e
+        .
         Type `str`. """
         
         self.responseId = None
-        """ Fixture Id of mapped response.
+        """ 
+        F
+        i
+        x
+        t
+        u
+        r
+        e
+        I
+        d
+        o
+        f
+        m
+        a
+        p
+        p
+        e
+        d
+        r
+        e
+        s
+        p
+        o
+        n
+        s
+        e
+        .
         Type `str`. """
         
         self.sourceId = None
-        """ Fixture Id of body for PUT and POST requests.
+        """ 
+        F
+        i
+        x
+        t
+        u
+        r
+        e
+        I
+        d
+        o
+        f
+        b
+        o
+        d
+        y
+        f
+        o
+        r
+        P
+        U
+        T
+        a
+        n
+        d
+        P
+        O
+        S
+        T
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        s
+        .
         Type `str`. """
         
         self.targetId = None
-        """ Id of fixture used for extracting the [id],  [type], and [vid] for
-        GET requests.
+        """ 
+        I
+        d
+        o
+        f
+        f
+        i
+        x
+        t
+        u
+        r
+        e
+        u
+        s
+        e
+        d
+        f
+        o
+        r
+        e
+        x
+        t
+        r
+        a
+        c
+        t
+        i
+        n
+        g
+        t
+        h
+        e
+        [
+        i
+        d
+        ]
+        ,
+        [
+        t
+        y
+        p
+        e
+        ]
+        ,
+        a
+        n
+        d
+        [
+        v
+        i
+        d
+        ]
+        f
+        o
+        r
+        G
+        E
+        T
+        r
+        e
+        q
+        u
+        e
+        s
+        t
+        s
+        .
         Type `str`. """
         
         self.type = None
-        """ The operation code type that will be executed.
+        """ 
+        T
+        h
+        e
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        c
+        o
+        d
+        e
+        t
+        y
+        p
+        e
+        t
+        h
+        a
+        t
+        w
+        i
+        l
+        l
+        b
+        e
+        e
+        x
+        e
+        c
+        u
+        t
+        e
+        d
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         self.url = None
-        """ Request URL.
+        """ 
+        R
+        e
+        q
+        u
+        e
+        s
+        t
+        U
+        R
+        L
+        .
         Type `str`. """
         
         super(TestScriptSetupActionOperation, self).__init__(jsondict=jsondict, strict=strict)
@@ -1071,8 +5190,9 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
             ("contentType", "contentType", str, False, None, False),
             ("description", "description", str, False, None, False),
             ("destination", "destination", int, False, None, False),
-            ("encodeRequestUrl", "encodeRequestUrl", bool, False, None, False),
+            ("encodeRequestUrl", "encodeRequestUrl", bool, False, None, True),
             ("label", "label", str, False, None, False),
+            ("method", "method", str, False, None, False),
             ("origin", "origin", int, False, None, False),
             ("params", "params", str, False, None, False),
             ("requestHeader", "requestHeader", TestScriptSetupActionOperationRequestHeader, True, None, False),
@@ -1088,9 +5208,96 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
 
 
 class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElement):
-    """ Each operation can have one or more header elements.
+    """ 
+    E
+    a
+    c
+    h
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    c
+    a
+    n
+    h
+    a
+    v
+    e
+    o
+    n
+    e
+    o
+    r
+    m
+    o
+    r
+    e
+    h
+    e
+    a
+    d
+    e
+    r
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    .
     
-    Header elements would be used to set HTTP headers.
+    
+    H
+    e
+    a
+    d
+    e
+    r
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    w
+    o
+    u
+    l
+    d
+    b
+    e
+    u
+    s
+    e
+    d
+    t
+    o
+    s
+    e
+    t
+    H
+    T
+    T
+    P
+    h
+    e
+    a
+    d
+    e
+    r
+    s
+    .
+    
     """
     
     resource_type = "TestScriptSetupActionOperationRequestHeader"
@@ -1104,11 +5311,52 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
         """
         
         self.field = None
-        """ HTTP header field name.
+        """ 
+        H
+        T
+        T
+        P
+        h
+        e
+        a
+        d
+        e
+        r
+        f
+        i
+        e
+        l
+        d
+        n
+        a
+        m
+        e
+        .
         Type `str`. """
         
         self.value = None
-        """ HTTP headerfield value.
+        """ 
+        H
+        T
+        T
+        P
+        h
+        e
+        a
+        d
+        e
+        r
+        f
+        i
+        e
+        l
+        d
+        v
+        a
+        l
+        u
+        e
+        .
         Type `str`. """
         
         super(TestScriptSetupActionOperationRequestHeader, self).__init__(jsondict=jsondict, strict=strict)
@@ -1123,10 +5371,129 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
 
 
 class TestScriptTeardown(backboneelement.BackboneElement):
-    """ A series of required clean up steps.
+    """ 
+    A
+    s
+    e
+    r
+    i
+    e
+    s
+    o
+    f
+    r
+    e
+    q
+    u
+    i
+    r
+    e
+    d
+    c
+    l
+    e
+    a
+    n
+    u
+    p
+    s
+    t
+    e
+    p
+    s
+    .
     
-    A series of operations required to clean up after the all the tests are
-    executed (successfully or otherwise).
+    
+    A
+    s
+    e
+    r
+    i
+    e
+    s
+    o
+    f
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    s
+    r
+    e
+    q
+    u
+    i
+    r
+    e
+    d
+    t
+    o
+    c
+    l
+    e
+    a
+    n
+    u
+    p
+    a
+    f
+    t
+    e
+    r
+    a
+    l
+    l
+    t
+    h
+    e
+    t
+    e
+    s
+    t
+    s
+    a
+    r
+    e
+    e
+    x
+    e
+    c
+    u
+    t
+    e
+    d
+    (
+    s
+    u
+    c
+    c
+    e
+    s
+    s
+    f
+    u
+    l
+    l
+    y
+    o
+    r
+    o
+    t
+    h
+    e
+    r
+    w
+    i
+    s
+    e
+    )
+    .
+    
     """
     
     resource_type = "TestScriptTeardown"
@@ -1140,7 +5507,44 @@ class TestScriptTeardown(backboneelement.BackboneElement):
         """
         
         self.action = None
-        """ One or more teardown operations to perform.
+        """ 
+        O
+        n
+        e
+        o
+        r
+        m
+        o
+        r
+        e
+        t
+        e
+        a
+        r
+        d
+        o
+        w
+        n
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        s
+        t
+        o
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        .
         List of `TestScriptTeardownAction` items (represented as `dict` in JSON). """
         
         super(TestScriptTeardown, self).__init__(jsondict=jsondict, strict=strict)
@@ -1154,9 +5558,91 @@ class TestScriptTeardown(backboneelement.BackboneElement):
 
 
 class TestScriptTeardownAction(backboneelement.BackboneElement):
-    """ One or more teardown operations to perform.
+    """ 
+    O
+    n
+    e
+    o
+    r
+    m
+    o
+    r
+    e
+    t
+    e
+    a
+    r
+    d
+    o
+    w
+    n
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    s
+    t
+    o
+    p
+    e
+    r
+    f
+    o
+    r
+    m
+    .
     
-    The teardown action will only contain an operation.
+    
+    T
+    h
+    e
+    t
+    e
+    a
+    r
+    d
+    o
+    w
+    n
+    a
+    c
+    t
+    i
+    o
+    n
+    w
+    i
+    l
+    l
+    o
+    n
+    l
+    y
+    c
+    o
+    n
+    t
+    a
+    i
+    n
+    a
+    n
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "TestScriptTeardownAction"
@@ -1170,7 +5656,37 @@ class TestScriptTeardownAction(backboneelement.BackboneElement):
         """
         
         self.operation = None
-        """ The teardown operation to perform.
+        """ 
+        T
+        h
+        e
+        t
+        e
+        a
+        r
+        d
+        o
+        w
+        n
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        t
+        o
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        .
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
         super(TestScriptTeardownAction, self).__init__(jsondict=jsondict, strict=strict)
@@ -1184,7 +5700,25 @@ class TestScriptTeardownAction(backboneelement.BackboneElement):
 
 
 class TestScriptTest(backboneelement.BackboneElement):
-    """ A test in this script.
+    """ 
+    A
+    t
+    e
+    s
+    t
+    i
+    n
+    t
+    h
+    i
+    s
+    s
+    c
+    r
+    i
+    p
+    t
+    .
     """
     
     resource_type = "TestScriptTest"
@@ -1198,15 +5732,122 @@ class TestScriptTest(backboneelement.BackboneElement):
         """
         
         self.action = None
-        """ A test operation or assert to perform.
+        """ 
+        A
+        t
+        e
+        s
+        t
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        o
+        r
+        a
+        s
+        s
+        e
+        r
+        t
+        t
+        o
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        .
         List of `TestScriptTestAction` items (represented as `dict` in JSON). """
         
         self.description = None
-        """ Tracking/reporting short description of the test.
+        """ 
+        T
+        r
+        a
+        c
+        k
+        i
+        n
+        g
+        /
+        r
+        e
+        p
+        o
+        r
+        t
+        i
+        n
+        g
+        s
+        h
+        o
+        r
+        t
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        t
+        e
+        s
+        t
+        .
         Type `str`. """
         
         self.name = None
-        """ Tracking/logging name of this test.
+        """ 
+        T
+        r
+        a
+        c
+        k
+        i
+        n
+        g
+        /
+        l
+        o
+        g
+        g
+        i
+        n
+        g
+        n
+        a
+        m
+        e
+        o
+        f
+        t
+        h
+        i
+        s
+        t
+        e
+        s
+        t
+        .
         Type `str`. """
         
         super(TestScriptTest, self).__init__(jsondict=jsondict, strict=strict)
@@ -1222,9 +5863,91 @@ class TestScriptTest(backboneelement.BackboneElement):
 
 
 class TestScriptTestAction(backboneelement.BackboneElement):
-    """ A test operation or assert to perform.
+    """ 
+    A
+    t
+    e
+    s
+    t
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    o
+    r
+    a
+    s
+    s
+    e
+    r
+    t
+    t
+    o
+    p
+    e
+    r
+    f
+    o
+    r
+    m
+    .
     
-    Action would contain either an operation or an assertion.
+    
+    A
+    c
+    t
+    i
+    o
+    n
+    w
+    o
+    u
+    l
+    d
+    c
+    o
+    n
+    t
+    a
+    i
+    n
+    e
+    i
+    t
+    h
+    e
+    r
+    a
+    n
+    o
+    p
+    e
+    r
+    a
+    t
+    i
+    o
+    n
+    o
+    r
+    a
+    n
+    a
+    s
+    s
+    e
+    r
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "TestScriptTestAction"
@@ -1238,11 +5961,65 @@ class TestScriptTestAction(backboneelement.BackboneElement):
         """
         
         self.assert_fhir = None
-        """ The setup assertion to perform.
+        """ 
+        T
+        h
+        e
+        s
+        e
+        t
+        u
+        p
+        a
+        s
+        s
+        e
+        r
+        t
+        i
+        o
+        n
+        t
+        o
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        .
         Type `TestScriptSetupActionAssert` (represented as `dict` in JSON). """
         
         self.operation = None
-        """ The setup operation to perform.
+        """ 
+        T
+        h
+        e
+        s
+        e
+        t
+        u
+        p
+        o
+        p
+        e
+        r
+        a
+        t
+        i
+        o
+        n
+        t
+        o
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        .
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
         super(TestScriptTestAction, self).__init__(jsondict=jsondict, strict=strict)
@@ -1257,10 +6034,135 @@ class TestScriptTestAction(backboneelement.BackboneElement):
 
 
 class TestScriptVariable(backboneelement.BackboneElement):
-    """ Placeholder for evaluated elements.
+    """ 
+    P
+    l
+    a
+    c
+    e
+    h
+    o
+    l
+    d
+    e
+    r
+    f
+    o
+    r
+    e
+    v
+    a
+    l
+    u
+    a
+    t
+    e
+    d
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    s
+    .
     
-    Variable is set based either on element value in response body or on header
-    field value in the response headers.
+    
+    V
+    a
+    r
+    i
+    a
+    b
+    l
+    e
+    i
+    s
+    s
+    e
+    t
+    b
+    a
+    s
+    e
+    d
+    e
+    i
+    t
+    h
+    e
+    r
+    o
+    n
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    v
+    a
+    l
+    u
+    e
+    i
+    n
+    r
+    e
+    s
+    p
+    o
+    n
+    s
+    e
+    b
+    o
+    d
+    y
+    o
+    r
+    o
+    n
+    h
+    e
+    a
+    d
+    e
+    r
+    f
+    i
+    e
+    l
+    d
+    v
+    a
+    l
+    u
+    e
+    i
+    n
+    t
+    h
+    e
+    r
+    e
+    s
+    p
+    o
+    n
+    s
+    e
+    h
+    e
+    a
+    d
+    e
+    r
+    s
+    .
+    
     """
     
     resource_type = "TestScriptVariable"
@@ -1274,35 +6176,363 @@ class TestScriptVariable(backboneelement.BackboneElement):
         """
         
         self.defaultValue = None
-        """ Default, hard-coded, or user-defined value for this variable.
+        """ 
+        D
+        e
+        f
+        a
+        u
+        l
+        t
+        ,
+        h
+        a
+        r
+        d
+        -
+        c
+        o
+        d
+        e
+        d
+        ,
+        o
+        r
+        u
+        s
+        e
+        r
+        -
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        v
+        a
+        l
+        u
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        v
+        a
+        r
+        i
+        a
+        b
+        l
+        e
+        .
         Type `str`. """
         
         self.description = None
-        """ Natural language description of the variable.
+        """ 
+        N
+        a
+        t
+        u
+        r
+        a
+        l
+        l
+        a
+        n
+        g
+        u
+        a
+        g
+        e
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        v
+        a
+        r
+        i
+        a
+        b
+        l
+        e
+        .
         Type `str`. """
         
         self.expression = None
-        """ The fluentpath expression against the fixture body.
+        """ 
+        T
+        h
+        e
+        F
+        H
+        I
+        R
+        P
+        a
+        t
+        h
+        e
+        x
+        p
+        r
+        e
+        s
+        s
+        i
+        o
+        n
+        a
+        g
+        a
+        i
+        n
+        s
+        t
+        t
+        h
+        e
+        f
+        i
+        x
+        t
+        u
+        r
+        e
+        b
+        o
+        d
+        y
+        .
         Type `str`. """
         
         self.headerField = None
-        """ HTTP header field name for source.
+        """ 
+        H
+        T
+        T
+        P
+        h
+        e
+        a
+        d
+        e
+        r
+        f
+        i
+        e
+        l
+        d
+        n
+        a
+        m
+        e
+        f
+        o
+        r
+        s
+        o
+        u
+        r
+        c
+        e
+        .
         Type `str`. """
         
         self.hint = None
-        """ Hint help text for default value to enter.
+        """ 
+        H
+        i
+        n
+        t
+        h
+        e
+        l
+        p
+        t
+        e
+        x
+        t
+        f
+        o
+        r
+        d
+        e
+        f
+        a
+        u
+        l
+        t
+        v
+        a
+        l
+        u
+        e
+        t
+        o
+        e
+        n
+        t
+        e
+        r
+        .
         Type `str`. """
         
         self.name = None
-        """ Descriptive name for this variable.
+        """ 
+        D
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        v
+        e
+        n
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        v
+        a
+        r
+        i
+        a
+        b
+        l
+        e
+        .
         Type `str`. """
         
         self.path = None
-        """ XPath or JSONPath against the fixture body.
+        """ 
+        X
+        P
+        a
+        t
+        h
+        o
+        r
+        J
+        S
+        O
+        N
+        P
+        a
+        t
+        h
+        a
+        g
+        a
+        i
+        n
+        s
+        t
+        t
+        h
+        e
+        f
+        i
+        x
+        t
+        u
+        r
+        e
+        b
+        o
+        d
+        y
+        .
         Type `str`. """
         
         self.sourceId = None
-        """ Fixture Id of source expression or headerField within this variable.
+        """ 
+        F
+        i
+        x
+        t
+        u
+        r
+        e
+        I
+        d
+        o
+        f
+        s
+        o
+        u
+        r
+        c
+        e
+        e
+        x
+        p
+        r
+        e
+        s
+        s
+        i
+        o
+        n
+        o
+        r
+        h
+        e
+        a
+        d
+        e
+        r
+        F
+        i
+        e
+        l
+        d
+        w
+        i
+        t
+        h
+        i
+        n
+        t
+        h
+        i
+        s
+        v
+        a
+        r
+        i
+        a
+        b
+        l
+        e
+        .
         Type `str`. """
         
         super(TestScriptVariable, self).__init__(jsondict=jsondict, strict=strict)

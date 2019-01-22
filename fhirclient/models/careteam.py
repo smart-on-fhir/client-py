@@ -1,18 +1,202 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class CareTeam(domainresource.DomainResource):
-    """ Planned participants in the coordination and delivery of care for a patient
-    or group.
+    """ 
+    P
+    l
+    a
+    n
+    n
+    e
+    d
+    p
+    a
+    r
+    t
+    i
+    c
+    i
+    p
+    a
+    n
+    t
+    s
+    i
+    n
+    t
+    h
+    e
+    c
+    o
+    o
+    r
+    d
+    i
+    n
+    a
+    t
+    i
+    o
+    n
+    a
+    n
+    d
+    d
+    e
+    l
+    i
+    v
+    e
+    r
+    y
+    o
+    f
+    c
+    a
+    r
+    e
+    f
+    o
+    r
+    a
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    o
+    r
+    g
+    r
+    o
+    u
+    p
+    .
     
-    The Care Team includes all the people and organizations who plan to
-    participate in the coordination and delivery of care for a patient.
+    
+    T
+    h
+    e
+    C
+    a
+    r
+    e
+    T
+    e
+    a
+    m
+    i
+    n
+    c
+    l
+    u
+    d
+    e
+    s
+    a
+    l
+    l
+    t
+    h
+    e
+    p
+    e
+    o
+    p
+    l
+    e
+    a
+    n
+    d
+    o
+    r
+    g
+    a
+    n
+    i
+    z
+    a
+    t
+    i
+    o
+    n
+    s
+    w
+    h
+    o
+    p
+    l
+    a
+    n
+    t
+    o
+    p
+    a
+    r
+    t
+    i
+    c
+    i
+    p
+    a
+    t
+    e
+    i
+    n
+    t
+    h
+    e
+    c
+    o
+    o
+    r
+    d
+    i
+    n
+    a
+    t
+    i
+    o
+    n
+    a
+    n
+    d
+    d
+    e
+    l
+    i
+    v
+    e
+    r
+    y
+    o
+    f
+    c
+    a
+    r
+    e
+    f
+    o
+    r
+    a
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "CareTeam"
@@ -26,52 +210,426 @@ class CareTeam(domainresource.DomainResource):
         """
         
         self.category = None
-        """ Type of team.
+        """ 
+        T
+        y
+        p
+        e
+        o
+        f
+        t
+        e
+        a
+        m
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.context = None
-        """ Encounter or episode associated with CareTeam.
-        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        self.encounter = None
+        """ 
+        E
+        n
+        c
+        o
+        u
+        n
+        t
+        e
+        r
+        c
+        r
+        e
+        a
+        t
+        e
+        d
+        a
+        s
+        p
+        a
+        r
+        t
+        o
+        f
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ External Ids for this team.
+        """ 
+        E
+        x
+        t
+        e
+        r
+        n
+        a
+        l
+        I
+        d
+        s
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        t
+        e
+        a
+        m
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.managingOrganization = None
-        """ Organization responsible for the care team.
-        List of `FHIRReference` items referencing `Organization` (represented as `dict` in JSON). """
+        """ 
+        O
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        r
+        e
+        s
+        p
+        o
+        n
+        s
+        i
+        b
+        l
+        e
+        f
+        o
+        r
+        t
+        h
+        e
+        c
+        a
+        r
+        e
+        t
+        e
+        a
+        m
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.name = None
-        """ Name of the team, such as crisis assessment team.
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        t
+        h
+        e
+        t
+        e
+        a
+        m
+        ,
+        s
+        u
+        c
+        h
+        a
+        s
+        c
+        r
+        i
+        s
+        i
+        s
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        t
+        e
+        a
+        m
+        .
         Type `str`. """
         
         self.note = None
-        """ Comments made about the CareTeam.
+        """ 
+        C
+        o
+        m
+        m
+        e
+        n
+        t
+        s
+        m
+        a
+        d
+        e
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        C
+        a
+        r
+        e
+        T
+        e
+        a
+        m
+        .
         List of `Annotation` items (represented as `dict` in JSON). """
         
         self.participant = None
-        """ Members of the team.
+        """ 
+        M
+        e
+        m
+        b
+        e
+        r
+        s
+        o
+        f
+        t
+        h
+        e
+        t
+        e
+        a
+        m
+        .
         List of `CareTeamParticipant` items (represented as `dict` in JSON). """
         
         self.period = None
-        """ Time period team covers.
+        """ 
+        T
+        i
+        m
+        e
+        p
+        e
+        r
+        i
+        o
+        d
+        t
+        e
+        a
+        m
+        c
+        o
+        v
+        e
+        r
+        s
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.reasonCode = None
-        """ Why the care team exists.
+        """ 
+        W
+        h
+        y
+        t
+        h
+        e
+        c
+        a
+        r
+        e
+        t
+        e
+        a
+        m
+        e
+        x
+        i
+        s
+        t
+        s
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonReference = None
-        """ Why the care team exists.
-        List of `FHIRReference` items referencing `Condition` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        y
+        t
+        h
+        e
+        c
+        a
+        r
+        e
+        t
+        e
+        a
+        m
+        e
+        x
+        i
+        s
+        t
+        s
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ proposed | active | suspended | inactive | entered-in-error.
+        """ 
+        p
+        r
+        o
+        p
+        o
+        s
+        e
+        d
+        |
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        s
+        u
+        s
+        p
+        e
+        n
+        d
+        e
+        d
+        |
+        i
+        n
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        .
         Type `str`. """
         
         self.subject = None
-        """ Who care team is for.
-        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        c
+        a
+        r
+        e
+        t
+        e
+        a
+        m
+        i
+        s
+        f
+        o
+        r
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.telecom = None
+        """ 
+        A
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        f
+        o
+        r
+        t
+        h
+        e
+        c
+        a
+        r
+        e
+        t
+        e
+        a
+        m
+        (
+        t
+        h
+        a
+        t
+        a
+        p
+        p
+        l
+        i
+        e
+        s
+        t
+        o
+        a
+        l
+        l
+        m
+        e
+        m
+        b
+        e
+        r
+        s
+        )
+        .
+        List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(CareTeam, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -79,7 +637,7 @@ class CareTeam(domainresource.DomainResource):
         js = super(CareTeam, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, True, None, False),
             ("name", "name", str, False, None, False),
@@ -90,6 +648,7 @@ class CareTeam(domainresource.DomainResource):
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
 
@@ -97,10 +656,102 @@ class CareTeam(domainresource.DomainResource):
 from . import backboneelement
 
 class CareTeamParticipant(backboneelement.BackboneElement):
-    """ Members of the team.
+    """ 
+    M
+    e
+    m
+    b
+    e
+    r
+    s
+    o
+    f
+    t
+    h
+    e
+    t
+    e
+    a
+    m
+    .
     
-    Identifies all people and organizations who are expected to be involved in
-    the care team.
+    
+    I
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    s
+    a
+    l
+    l
+    p
+    e
+    o
+    p
+    l
+    e
+    a
+    n
+    d
+    o
+    r
+    g
+    a
+    n
+    i
+    z
+    a
+    t
+    i
+    o
+    n
+    s
+    w
+    h
+    o
+    a
+    r
+    e
+    e
+    x
+    p
+    e
+    c
+    t
+    e
+    d
+    t
+    o
+    b
+    e
+    i
+    n
+    v
+    o
+    l
+    v
+    e
+    d
+    i
+    n
+    t
+    h
+    e
+    c
+    a
+    r
+    e
+    t
+    e
+    a
+    m
+    .
+    
     """
     
     resource_type = "CareTeamParticipant"
@@ -114,20 +765,106 @@ class CareTeamParticipant(backboneelement.BackboneElement):
         """
         
         self.member = None
-        """ Who is involved.
-        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Organization, CareTeam` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        i
+        s
+        i
+        n
+        v
+        o
+        l
+        v
+        e
+        d
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.onBehalfOf = None
-        """ Organization of the practitioner.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ 
+        O
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        p
+        r
+        a
+        c
+        t
+        i
+        t
+        i
+        o
+        n
+        e
+        r
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.period = None
-        """ Time period of participant.
+        """ 
+        T
+        i
+        m
+        e
+        p
+        e
+        r
+        i
+        o
+        d
+        o
+        f
+        p
+        a
+        r
+        t
+        i
+        c
+        i
+        p
+        a
+        n
+        t
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.role = None
-        """ Type of involvement.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ 
+        T
+        y
+        p
+        e
+        o
+        f
+        i
+        n
+        v
+        o
+        l
+        v
+        e
+        m
+        e
+        n
+        t
+        .
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(CareTeamParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -137,7 +874,7 @@ class CareTeamParticipant(backboneelement.BackboneElement):
             ("member", "member", fhirreference.FHIRReference, False, None, False),
             ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
             ("period", "period", period.Period, False, None, False),
-            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -151,6 +888,10 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import contactpoint
+except ImportError:
+    contactpoint = sys.modules[__package__ + '.contactpoint']
 try:
     from . import fhirreference
 except ImportError:

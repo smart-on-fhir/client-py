@@ -1,14 +1,59 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Coding) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Coding) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class Coding(element.Element):
-    """ A reference to a code defined by a terminology system.
+    """ 
+    A
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    t
+    o
+    a
+    c
+    o
+    d
+    e
+    d
+    e
+    f
+    i
+    n
+    e
+    d
+    b
+    y
+    a
+    t
+    e
+    r
+    m
+    i
+    n
+    o
+    l
+    o
+    g
+    y
+    s
+    y
+    s
+    t
+    e
+    m
+    .
     """
     
     resource_type = "Coding"
@@ -22,23 +67,189 @@ class Coding(element.Element):
         """
         
         self.code = None
-        """ Symbol in syntax defined by the system.
+        """ 
+        S
+        y
+        m
+        b
+        o
+        l
+        i
+        n
+        s
+        y
+        n
+        t
+        a
+        x
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        b
+        y
+        t
+        h
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         Type `str`. """
         
         self.display = None
-        """ Representation defined by the system.
+        """ 
+        R
+        e
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        b
+        y
+        t
+        h
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         Type `str`. """
         
         self.system = None
-        """ Identity of the terminology system.
+        """ 
+        I
+        d
+        e
+        n
+        t
+        i
+        t
+        y
+        o
+        f
+        t
+        h
+        e
+        t
+        e
+        r
+        m
+        i
+        n
+        o
+        l
+        o
+        g
+        y
+        s
+        y
+        s
+        t
+        e
+        m
+        .
         Type `str`. """
         
         self.userSelected = None
-        """ If this coding was chosen directly by the user.
+        """ 
+        I
+        f
+        t
+        h
+        i
+        s
+        c
+        o
+        d
+        i
+        n
+        g
+        w
+        a
+        s
+        c
+        h
+        o
+        s
+        e
+        n
+        d
+        i
+        r
+        e
+        c
+        t
+        l
+        y
+        b
+        y
+        t
+        h
+        e
+        u
+        s
+        e
+        r
+        .
         Type `bool`. """
         
         self.version = None
-        """ Version of the system - if relevant.
+        """ 
+        V
+        e
+        r
+        s
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        s
+        y
+        s
+        t
+        e
+        m
+        -
+        i
+        f
+        r
+        e
+        l
+        e
+        v
+        a
+        n
+        t
+        .
         Type `str`. """
         
         super(Coding, self).__init__(jsondict=jsondict, strict=strict)

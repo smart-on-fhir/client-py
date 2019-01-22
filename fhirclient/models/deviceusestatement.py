@@ -1,17 +1,140 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class DeviceUseStatement(domainresource.DomainResource):
-    """ Record of use of a device.
+    """ 
+    R
+    e
+    c
+    o
+    r
+    d
+    o
+    f
+    u
+    s
+    e
+    o
+    f
+    a
+    d
+    e
+    v
+    i
+    c
+    e
+    .
     
-    A record of a device being used by a patient where the record is the result
-    of a report from the patient or another clinician.
+    
+    A
+    r
+    e
+    c
+    o
+    r
+    d
+    o
+    f
+    a
+    d
+    e
+    v
+    i
+    c
+    e
+    b
+    e
+    i
+    n
+    g
+    u
+    s
+    e
+    d
+    b
+    y
+    a
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    w
+    h
+    e
+    r
+    e
+    t
+    h
+    e
+    r
+    e
+    c
+    o
+    r
+    d
+    i
+    s
+    t
+    h
+    e
+    r
+    e
+    s
+    u
+    l
+    t
+    o
+    f
+    a
+    r
+    e
+    p
+    o
+    r
+    t
+    f
+    r
+    o
+    m
+    t
+    h
+    e
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    o
+    r
+    a
+    n
+    o
+    t
+    h
+    e
+    r
+    c
+    l
+    i
+    n
+    i
+    c
+    i
+    a
+    n
+    .
+    
     """
     
     resource_type = "DeviceUseStatement"
@@ -24,68 +147,464 @@ class DeviceUseStatement(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.basedOn = None
+        """ 
+        F
+        u
+        l
+        f
+        i
+        l
+        l
+        s
+        p
+        l
+        a
+        n
+        ,
+        p
+        r
+        o
+        p
+        o
+        s
+        a
+        l
+        o
+        r
+        o
+        r
+        d
+        e
+        r
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
         self.bodySite = None
-        """ Target body site.
+        """ 
+        T
+        a
+        r
+        g
+        e
+        t
+        b
+        o
+        d
+        y
+        s
+        i
+        t
+        e
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.derivedFrom = None
+        """ 
+        S
+        u
+        p
+        p
+        o
+        r
+        t
+        i
+        n
+        g
+        i
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
         self.device = None
-        """ Reference to device used.
-        Type `FHIRReference` referencing `Device` (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        t
+        o
+        d
+        e
+        v
+        i
+        c
+        e
+        u
+        s
+        e
+        d
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ External identifier for this record.
+        """ 
+        E
+        x
+        t
+        e
+        r
+        n
+        a
+        l
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        r
+        e
+        c
+        o
+        r
+        d
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.indication = None
-        """ Why device was used.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
         self.note = None
-        """ Addition details (comments, instructions).
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        (
+        c
+        o
+        m
+        m
+        e
+        n
+        t
+        s
+        ,
+        i
+        n
+        s
+        t
+        r
+        u
+        c
+        t
+        i
+        o
+        n
+        s
+        )
+        .
         List of `Annotation` items (represented as `dict` in JSON). """
         
+        self.reasonCode = None
+        """ 
+        W
+        h
+        y
+        d
+        e
+        v
+        i
+        c
+        e
+        w
+        a
+        s
+        u
+        s
+        e
+        d
+        .
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.reasonReference = None
+        """ 
+        W
+        h
+        y
+        w
+        a
+        s
+        D
+        e
+        v
+        i
+        c
+        e
+        U
+        s
+        e
+        S
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        e
+        d
+        ?
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
         self.recordedOn = None
-        """ When statement was recorded.
+        """ 
+        W
+        h
+        e
+        n
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        w
+        a
+        s
+        r
+        e
+        c
+        o
+        r
+        d
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.source = None
-        """ Who made the statement.
-        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        m
+        a
+        d
+        e
+        t
+        h
+        e
+        s
+        t
+        a
+        t
+        e
+        m
+        e
+        n
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
-        """ active | completed | entered-in-error +.
+        """ 
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        c
+        o
+        m
+        p
+        l
+        e
+        t
+        e
+        d
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        +
+        .
         Type `str`. """
         
         self.subject = None
-        """ Patient using device.
-        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
+        """ 
+        P
+        a
+        t
+        i
+        e
+        n
+        t
+        u
+        s
+        i
+        n
+        g
+        d
+        e
+        v
+        i
+        c
+        e
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.timingDateTime = None
-        """ How often  the device was used.
+        """ 
+        H
+        o
+        w
+        o
+        f
+        t
+        e
+        n
+        t
+        h
+        e
+        d
+        e
+        v
+        i
+        c
+        e
+        w
+        a
+        s
+        u
+        s
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.timingPeriod = None
-        """ How often  the device was used.
+        """ 
+        H
+        o
+        w
+        o
+        f
+        t
+        e
+        n
+        t
+        h
+        e
+        d
+        e
+        v
+        i
+        c
+        e
+        w
+        a
+        s
+        u
+        s
+        e
+        d
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.timingTiming = None
-        """ How often  the device was used.
+        """ 
+        H
+        o
+        w
+        o
+        f
+        t
+        e
+        n
+        t
+        h
+        e
+        d
+        e
+        v
+        i
+        c
+        e
+        w
+        a
+        s
+        u
+        s
+        e
+        d
+        .
         Type `Timing` (represented as `dict` in JSON). """
-        
-        self.whenUsed = None
-        """ Period device was used.
-        Type `Period` (represented as `dict` in JSON). """
         
         super(DeviceUseStatement, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DeviceUseStatement, self).elementProperties()
         js.extend([
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
+            ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False),
             ("device", "device", fhirreference.FHIRReference, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("indication", "indication", codeableconcept.CodeableConcept, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("recordedOn", "recordedOn", fhirdate.FHIRDate, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),
@@ -93,7 +612,6 @@ class DeviceUseStatement(domainresource.DomainResource):
             ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
-            ("whenUsed", "whenUsed", period.Period, False, None, False),
         ])
         return js
 

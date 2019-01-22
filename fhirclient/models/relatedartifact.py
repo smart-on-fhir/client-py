@@ -1,17 +1,141 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/RelatedArtifact) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/RelatedArtifact) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class RelatedArtifact(element.Element):
-    """ Related artifacts for a knowledge resource.
+    """ 
+    R
+    e
+    l
+    a
+    t
+    e
+    d
+    a
+    r
+    t
+    i
+    f
+    a
+    c
+    t
+    s
+    f
+    o
+    r
+    a
+    k
+    n
+    o
+    w
+    l
+    e
+    d
+    g
+    e
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    .
     
-    Related artifacts such as additional documentation, justification, or
-    bibliographic references.
+    
+    R
+    e
+    l
+    a
+    t
+    e
+    d
+    a
+    r
+    t
+    i
+    f
+    a
+    c
+    t
+    s
+    s
+    u
+    c
+    h
+    a
+    s
+    a
+    d
+    d
+    i
+    t
+    i
+    o
+    n
+    a
+    l
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    a
+    t
+    i
+    o
+    n
+    ,
+    j
+    u
+    s
+    t
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    ,
+    o
+    r
+    b
+    i
+    b
+    l
+    i
+    o
+    g
+    r
+    a
+    p
+    h
+    i
+    c
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    s
+    .
+    
     """
     
     resource_type = "RelatedArtifact"
@@ -25,28 +149,300 @@ class RelatedArtifact(element.Element):
         """
         
         self.citation = None
-        """ Bibliographic citation for the artifact.
+        """ 
+        B
+        i
+        b
+        l
+        i
+        o
+        g
+        r
+        a
+        p
+        h
+        i
+        c
+        c
+        i
+        t
+        a
+        t
+        i
+        o
+        n
+        f
+        o
+        r
+        t
+        h
+        e
+        a
+        r
+        t
+        i
+        f
+        a
+        c
+        t
+        .
         Type `str`. """
         
         self.display = None
-        """ Brief description of the related artifact.
+        """ 
+        B
+        r
+        i
+        e
+        f
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        r
+        e
+        l
+        a
+        t
+        e
+        d
+        a
+        r
+        t
+        i
+        f
+        a
+        c
+        t
+        .
         Type `str`. """
         
         self.document = None
-        """ What document is being referenced.
+        """ 
+        W
+        h
+        a
+        t
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        i
+        s
+        b
+        e
+        i
+        n
+        g
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        d
+        .
         Type `Attachment` (represented as `dict` in JSON). """
         
+        self.label = None
+        """ 
+        S
+        h
+        o
+        r
+        t
+        l
+        a
+        b
+        e
+        l
+        .
+        Type `str`. """
+        
         self.resource = None
-        """ What resource is being referenced.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        a
+        t
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        i
+        s
+        b
+        e
+        i
+        n
+        g
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        d
+        .
+        Type `str`. """
         
         self.type = None
-        """ documentation | justification | citation | predecessor | successor
-        | derived-from | depends-on | composed-of.
+        """ 
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        |
+        j
+        u
+        s
+        t
+        i
+        f
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        |
+        c
+        i
+        t
+        a
+        t
+        i
+        o
+        n
+        |
+        p
+        r
+        e
+        d
+        e
+        c
+        e
+        s
+        s
+        o
+        r
+        |
+        s
+        u
+        c
+        c
+        e
+        s
+        s
+        o
+        r
+        |
+        d
+        e
+        r
+        i
+        v
+        e
+        d
+        -
+        f
+        r
+        o
+        m
+        |
+        d
+        e
+        p
+        e
+        n
+        d
+        s
+        -
+        o
+        n
+        |
+        c
+        o
+        m
+        p
+        o
+        s
+        e
+        d
+        -
+        o
+        f
+        .
         Type `str`. """
         
         self.url = None
-        """ Where the artifact can be accessed.
+        """ 
+        W
+        h
+        e
+        r
+        e
+        t
+        h
+        e
+        a
+        r
+        t
+        i
+        f
+        a
+        c
+        t
+        c
+        a
+        n
+        b
+        e
+        a
+        c
+        c
+        e
+        s
+        s
+        e
+        d
+        .
         Type `str`. """
         
         super(RelatedArtifact, self).__init__(jsondict=jsondict, strict=strict)
@@ -57,7 +453,8 @@ class RelatedArtifact(element.Element):
             ("citation", "citation", str, False, None, False),
             ("display", "display", str, False, None, False),
             ("document", "document", attachment.Attachment, False, None, False),
-            ("resource", "resource", fhirreference.FHIRReference, False, None, False),
+            ("label", "label", str, False, None, False),
+            ("resource", "resource", str, False, None, False),
             ("type", "type", str, False, None, True),
             ("url", "url", str, False, None, False),
         ])
@@ -69,7 +466,3 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']

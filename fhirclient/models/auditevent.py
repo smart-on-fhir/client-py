@@ -1,18 +1,190 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class AuditEvent(domainresource.DomainResource):
-    """ Event record kept for security purposes.
+    """ 
+    E
+    v
+    e
+    n
+    t
+    r
+    e
+    c
+    o
+    r
+    d
+    k
+    e
+    p
+    t
+    f
+    o
+    r
+    s
+    e
+    c
+    u
+    r
+    i
+    t
+    y
+    p
+    u
+    r
+    p
+    o
+    s
+    e
+    s
+    .
     
-    A record of an event made for purposes of maintaining a security log.
-    Typical uses include detection of intrusion attempts and monitoring for
-    inappropriate usage.
+    
+    A
+    r
+    e
+    c
+    o
+    r
+    d
+    o
+    f
+    a
+    n
+    e
+    v
+    e
+    n
+    t
+    m
+    a
+    d
+    e
+    f
+    o
+    r
+    p
+    u
+    r
+    p
+    o
+    s
+    e
+    s
+    o
+    f
+    m
+    a
+    i
+    n
+    t
+    a
+    i
+    n
+    i
+    n
+    g
+    a
+    s
+    e
+    c
+    u
+    r
+    i
+    t
+    y
+    l
+    o
+    g
+    .
+    T
+    y
+    p
+    i
+    c
+    a
+    l
+    u
+    s
+    e
+    s
+    i
+    n
+    c
+    l
+    u
+    d
+    e
+    d
+    e
+    t
+    e
+    c
+    t
+    i
+    o
+    n
+    o
+    f
+    i
+    n
+    t
+    r
+    u
+    s
+    i
+    o
+    n
+    a
+    t
+    t
+    e
+    m
+    p
+    t
+    s
+    a
+    n
+    d
+    m
+    o
+    n
+    i
+    t
+    o
+    r
+    i
+    n
+    g
+    f
+    o
+    r
+    i
+    n
+    a
+    p
+    p
+    r
+    o
+    p
+    r
+    i
+    a
+    t
+    e
+    u
+    s
+    a
+    g
+    e
+    .
+    
     """
     
     resource_type = "AuditEvent"
@@ -26,43 +198,338 @@ class AuditEvent(domainresource.DomainResource):
         """
         
         self.action = None
-        """ Type of action performed during the event.
+        """ 
+        T
+        y
+        p
+        e
+        o
+        f
+        a
+        c
+        t
+        i
+        o
+        n
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        e
+        d
+        d
+        u
+        r
+        i
+        n
+        g
+        t
+        h
+        e
+        e
+        v
+        e
+        n
+        t
+        .
         Type `str`. """
         
         self.agent = None
-        """ Actor involved in the event.
+        """ 
+        A
+        c
+        t
+        o
+        r
+        i
+        n
+        v
+        o
+        l
+        v
+        e
+        d
+        i
+        n
+        t
+        h
+        e
+        e
+        v
+        e
+        n
+        t
+        .
         List of `AuditEventAgent` items (represented as `dict` in JSON). """
         
         self.entity = None
-        """ Data or objects used.
+        """ 
+        D
+        a
+        t
+        a
+        o
+        r
+        o
+        b
+        j
+        e
+        c
+        t
+        s
+        u
+        s
+        e
+        d
+        .
         List of `AuditEventEntity` items (represented as `dict` in JSON). """
         
         self.outcome = None
-        """ Whether the event succeeded or failed.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        t
+        h
+        e
+        e
+        v
+        e
+        n
+        t
+        s
+        u
+        c
+        c
+        e
+        e
+        d
+        e
+        d
+        o
+        r
+        f
+        a
+        i
+        l
+        e
+        d
+        .
         Type `str`. """
         
         self.outcomeDesc = None
-        """ Description of the event outcome.
+        """ 
+        D
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        e
+        v
+        e
+        n
+        t
+        o
+        u
+        t
+        c
+        o
+        m
+        e
+        .
         Type `str`. """
         
+        self.period = None
+        """ 
+        W
+        h
+        e
+        n
+        t
+        h
+        e
+        a
+        c
+        t
+        i
+        v
+        i
+        t
+        y
+        o
+        c
+        c
+        u
+        r
+        r
+        e
+        d
+        .
+        Type `Period` (represented as `dict` in JSON). """
+        
         self.purposeOfEvent = None
-        """ The purposeOfUse of the event.
+        """ 
+        T
+        h
+        e
+        p
+        u
+        r
+        p
+        o
+        s
+        e
+        O
+        f
+        U
+        s
+        e
+        o
+        f
+        t
+        h
+        e
+        e
+        v
+        e
+        n
+        t
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.recorded = None
-        """ Time when the event occurred on source.
+        """ 
+        T
+        i
+        m
+        e
+        w
+        h
+        e
+        n
+        t
+        h
+        e
+        e
+        v
+        e
+        n
+        t
+        w
+        a
+        s
+        r
+        e
+        c
+        o
+        r
+        d
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.source = None
-        """ Audit Event Reporter.
+        """ 
+        A
+        u
+        d
+        i
+        t
+        E
+        v
+        e
+        n
+        t
+        R
+        e
+        p
+        o
+        r
+        t
+        e
+        r
+        .
         Type `AuditEventSource` (represented as `dict` in JSON). """
         
         self.subtype = None
-        """ More specific type/id for the event.
+        """ 
+        M
+        o
+        r
+        e
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        t
+        y
+        p
+        e
+        /
+        i
+        d
+        f
+        o
+        r
+        t
+        h
+        e
+        e
+        v
+        e
+        n
+        t
+        .
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.type = None
-        """ Type/identifier of event.
+        """ 
+        T
+        y
+        p
+        e
+        /
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        o
+        f
+        e
+        v
+        e
+        n
+        t
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         super(AuditEvent, self).__init__(jsondict=jsondict, strict=strict)
@@ -75,6 +542,7 @@ class AuditEvent(domainresource.DomainResource):
             ("entity", "entity", AuditEventEntity, True, None, False),
             ("outcome", "outcome", str, False, None, False),
             ("outcomeDesc", "outcomeDesc", str, False, None, False),
+            ("period", "period", period.Period, False, None, False),
             ("purposeOfEvent", "purposeOfEvent", codeableconcept.CodeableConcept, True, None, False),
             ("recorded", "recorded", fhirdate.FHIRDate, False, None, True),
             ("source", "source", AuditEventSource, False, None, True),
@@ -87,9 +555,92 @@ class AuditEvent(domainresource.DomainResource):
 from . import backboneelement
 
 class AuditEventAgent(backboneelement.BackboneElement):
-    """ Actor involved in the event.
+    """ 
+    A
+    c
+    t
+    o
+    r
+    i
+    n
+    v
+    o
+    l
+    v
+    e
+    d
+    i
+    n
+    t
+    h
+    e
+    e
+    v
+    e
+    n
+    t
+    .
     
-    An actor taking an active role in the event or activity that is logged.
+    
+    A
+    n
+    a
+    c
+    t
+    o
+    r
+    t
+    a
+    k
+    i
+    n
+    g
+    a
+    n
+    a
+    c
+    t
+    i
+    v
+    e
+    r
+    o
+    l
+    e
+    i
+    n
+    t
+    h
+    e
+    e
+    v
+    e
+    n
+    t
+    o
+    r
+    a
+    c
+    t
+    i
+    v
+    i
+    t
+    y
+    t
+    h
+    a
+    t
+    i
+    s
+    l
+    o
+    g
+    g
+    e
+    d
+    .
+    
     """
     
     resource_type = "AuditEventAgent"
@@ -103,48 +654,293 @@ class AuditEventAgent(backboneelement.BackboneElement):
         """
         
         self.altId = None
-        """ Alternative User id e.g. authentication.
+        """ 
+        A
+        l
+        t
+        e
+        r
+        n
+        a
+        t
+        i
+        v
+        e
+        U
+        s
+        e
+        r
+        i
+        d
+        e
+        n
+        t
+        i
+        t
+        y
+        .
         Type `str`. """
         
         self.location = None
-        """ Where.
-        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        e
+        r
+        e
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.media = None
-        """ Type of media.
+        """ 
+        T
+        y
+        p
+        e
+        o
+        f
+        m
+        e
+        d
+        i
+        a
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         self.name = None
-        """ Human-meaningful name for the agent.
+        """ 
+        H
+        u
+        m
+        a
+        n
+        f
+        r
+        i
+        e
+        n
+        d
+        l
+        y
+        n
+        a
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        e
+        a
+        g
+        e
+        n
+        t
+        .
         Type `str`. """
         
         self.network = None
-        """ Logical network location for application activity.
+        """ 
+        L
+        o
+        g
+        i
+        c
+        a
+        l
+        n
+        e
+        t
+        w
+        o
+        r
+        k
+        l
+        o
+        c
+        a
+        t
+        i
+        o
+        n
+        f
+        o
+        r
+        a
+        p
+        p
+        l
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        a
+        c
+        t
+        i
+        v
+        i
+        t
+        y
+        .
         Type `AuditEventAgentNetwork` (represented as `dict` in JSON). """
         
         self.policy = None
-        """ Policy that authorized event.
+        """ 
+        P
+        o
+        l
+        i
+        c
+        y
+        t
+        h
+        a
+        t
+        a
+        u
+        t
+        h
+        o
+        r
+        i
+        z
+        e
+        d
+        e
+        v
+        e
+        n
+        t
+        .
         List of `str` items. """
         
         self.purposeOfUse = None
-        """ Reason given for this user.
+        """ 
+        R
+        e
+        a
+        s
+        o
+        n
+        g
+        i
+        v
+        e
+        n
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        u
+        s
+        e
+        r
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reference = None
-        """ Direct reference to resource.
-        Type `FHIRReference` referencing `Practitioner, Organization, Device, Patient, RelatedPerson` (represented as `dict` in JSON). """
-        
         self.requestor = None
-        """ Whether user is initiator.
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        u
+        s
+        e
+        r
+        i
+        s
+        i
+        n
+        i
+        t
+        i
+        a
+        t
+        o
+        r
+        .
         Type `bool`. """
         
         self.role = None
-        """ Agent role in the event.
+        """ 
+        A
+        g
+        e
+        n
+        t
+        r
+        o
+        l
+        e
+        i
+        n
+        t
+        h
+        e
+        e
+        v
+        e
+        n
+        t
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.userId = None
-        """ Unique identifier for the user.
-        Type `Identifier` (represented as `dict` in JSON). """
+        self.type = None
+        """ 
+        H
+        o
+        w
+        a
+        g
+        e
+        n
+        t
+        p
+        a
+        r
+        t
+        i
+        c
+        i
+        p
+        a
+        t
+        e
+        d
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.who = None
+        """ 
+        I
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        o
+        f
+        w
+        h
+        o
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(AuditEventAgent, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -158,19 +954,142 @@ class AuditEventAgent(backboneelement.BackboneElement):
             ("network", "network", AuditEventAgentNetwork, False, None, False),
             ("policy", "policy", str, True, None, False),
             ("purposeOfUse", "purposeOfUse", codeableconcept.CodeableConcept, True, None, False),
-            ("reference", "reference", fhirreference.FHIRReference, False, None, False),
             ("requestor", "requestor", bool, False, None, True),
             ("role", "role", codeableconcept.CodeableConcept, True, None, False),
-            ("userId", "userId", identifier.Identifier, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("who", "who", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
 class AuditEventAgentNetwork(backboneelement.BackboneElement):
-    """ Logical network location for application activity.
+    """ 
+    L
+    o
+    g
+    i
+    c
+    a
+    l
+    n
+    e
+    t
+    w
+    o
+    r
+    k
+    l
+    o
+    c
+    a
+    t
+    i
+    o
+    n
+    f
+    o
+    r
+    a
+    p
+    p
+    l
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    a
+    c
+    t
+    i
+    v
+    i
+    t
+    y
+    .
     
-    Logical network location for application activity, if the activity has a
-    network location.
+    
+    L
+    o
+    g
+    i
+    c
+    a
+    l
+    n
+    e
+    t
+    w
+    o
+    r
+    k
+    l
+    o
+    c
+    a
+    t
+    i
+    o
+    n
+    f
+    o
+    r
+    a
+    p
+    p
+    l
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    a
+    c
+    t
+    i
+    v
+    i
+    t
+    y
+    ,
+    i
+    f
+    t
+    h
+    e
+    a
+    c
+    t
+    i
+    v
+    i
+    t
+    y
+    h
+    a
+    s
+    a
+    n
+    e
+    t
+    w
+    o
+    r
+    k
+    l
+    o
+    c
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "AuditEventAgentNetwork"
@@ -184,11 +1103,89 @@ class AuditEventAgentNetwork(backboneelement.BackboneElement):
         """
         
         self.address = None
-        """ Identifier for the network access point of the user device.
+        """ 
+        I
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        e
+        n
+        e
+        t
+        w
+        o
+        r
+        k
+        a
+        c
+        c
+        e
+        s
+        s
+        p
+        o
+        i
+        n
+        t
+        o
+        f
+        t
+        h
+        e
+        u
+        s
+        e
+        r
+        d
+        e
+        v
+        i
+        c
+        e
+        .
         Type `str`. """
         
         self.type = None
-        """ The type of network access point.
+        """ 
+        T
+        h
+        e
+        t
+        y
+        p
+        e
+        o
+        f
+        n
+        e
+        t
+        w
+        o
+        r
+        k
+        a
+        c
+        c
+        e
+        s
+        s
+        p
+        o
+        i
+        n
+        t
+        .
         Type `str`. """
         
         super(AuditEventAgentNetwork, self).__init__(jsondict=jsondict, strict=strict)
@@ -203,9 +1200,81 @@ class AuditEventAgentNetwork(backboneelement.BackboneElement):
 
 
 class AuditEventEntity(backboneelement.BackboneElement):
-    """ Data or objects used.
+    """ 
+    D
+    a
+    t
+    a
+    o
+    r
+    o
+    b
+    j
+    e
+    c
+    t
+    s
+    u
+    s
+    e
+    d
+    .
     
-    Specific instances of data or objects that have been accessed.
+    
+    S
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    i
+    n
+    s
+    t
+    a
+    n
+    c
+    e
+    s
+    o
+    f
+    d
+    a
+    t
+    a
+    o
+    r
+    o
+    b
+    j
+    e
+    c
+    t
+    s
+    t
+    h
+    a
+    t
+    h
+    a
+    v
+    e
+    b
+    e
+    e
+    n
+    a
+    c
+    c
+    e
+    s
+    s
+    e
+    d
+    .
+    
     """
     
     resource_type = "AuditEventEntity"
@@ -219,44 +1288,254 @@ class AuditEventEntity(backboneelement.BackboneElement):
         """
         
         self.description = None
-        """ Descriptive text.
+        """ 
+        D
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        v
+        e
+        t
+        e
+        x
+        t
+        .
         Type `str`. """
         
         self.detail = None
-        """ Additional Information about the entity.
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        I
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        e
+        n
+        t
+        i
+        t
+        y
+        .
         List of `AuditEventEntityDetail` items (represented as `dict` in JSON). """
         
-        self.identifier = None
-        """ Specific instance of object.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
         self.lifecycle = None
-        """ Life-cycle stage for the entity.
+        """ 
+        L
+        i
+        f
+        e
+        -
+        c
+        y
+        c
+        l
+        e
+        s
+        t
+        a
+        g
+        e
+        f
+        o
+        r
+        t
+        h
+        e
+        e
+        n
+        t
+        i
+        t
+        y
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         self.name = None
-        """ Descriptor for entity.
+        """ 
+        D
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        o
+        r
+        f
+        o
+        r
+        e
+        n
+        t
+        i
+        t
+        y
+        .
         Type `str`. """
         
         self.query = None
-        """ Query parameters.
+        """ 
+        Q
+        u
+        e
+        r
+        y
+        p
+        a
+        r
+        a
+        m
+        e
+        t
+        e
+        r
+        s
+        .
         Type `str`. """
         
-        self.reference = None
-        """ Specific instance of resource.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
         self.role = None
-        """ What role the entity played.
+        """ 
+        W
+        h
+        a
+        t
+        r
+        o
+        l
+        e
+        t
+        h
+        e
+        e
+        n
+        t
+        i
+        t
+        y
+        p
+        l
+        a
+        y
+        e
+        d
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         self.securityLabel = None
-        """ Security labels on the entity.
+        """ 
+        S
+        e
+        c
+        u
+        r
+        i
+        t
+        y
+        l
+        a
+        b
+        e
+        l
+        s
+        o
+        n
+        t
+        h
+        e
+        e
+        n
+        t
+        i
+        t
+        y
+        .
         List of `Coding` items (represented as `dict` in JSON). """
         
         self.type = None
-        """ Type of entity involved.
+        """ 
+        T
+        y
+        p
+        e
+        o
+        f
+        e
+        n
+        t
+        i
+        t
+        y
+        i
+        n
+        v
+        o
+        l
+        v
+        e
+        d
+        .
         Type `Coding` (represented as `dict` in JSON). """
+        
+        self.what = None
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        i
+        n
+        s
+        t
+        a
+        n
+        c
+        e
+        o
+        f
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(AuditEventEntity, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -265,22 +1544,122 @@ class AuditEventEntity(backboneelement.BackboneElement):
         js.extend([
             ("description", "description", str, False, None, False),
             ("detail", "detail", AuditEventEntityDetail, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("lifecycle", "lifecycle", coding.Coding, False, None, False),
             ("name", "name", str, False, None, False),
             ("query", "query", str, False, None, False),
-            ("reference", "reference", fhirreference.FHIRReference, False, None, False),
             ("role", "role", coding.Coding, False, None, False),
             ("securityLabel", "securityLabel", coding.Coding, True, None, False),
             ("type", "type", coding.Coding, False, None, False),
+            ("what", "what", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
 class AuditEventEntityDetail(backboneelement.BackboneElement):
-    """ Additional Information about the entity.
+    """ 
+    A
+    d
+    d
+    i
+    t
+    i
+    o
+    n
+    a
+    l
+    I
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    t
+    h
+    e
+    e
+    n
+    t
+    i
+    t
+    y
+    .
     
-    Tagged value pairs for conveying additional information about the entity.
+    
+    T
+    a
+    g
+    g
+    e
+    d
+    v
+    a
+    l
+    u
+    e
+    p
+    a
+    i
+    r
+    s
+    f
+    o
+    r
+    c
+    o
+    n
+    v
+    e
+    y
+    i
+    n
+    g
+    a
+    d
+    d
+    i
+    t
+    i
+    o
+    n
+    a
+    l
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    t
+    h
+    e
+    e
+    n
+    t
+    i
+    t
+    y
+    .
+    
     """
     
     resource_type = "AuditEventEntityDetail"
@@ -294,11 +1673,61 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
         """
         
         self.type = None
-        """ Name of the property.
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        t
+        h
+        e
+        p
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        .
         Type `str`. """
         
-        self.value = None
-        """ Property value.
+        self.valueBase64Binary = None
+        """ 
+        P
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        .
+        Type `str`. """
+        
+        self.valueString = None
+        """ 
+        P
+        r
+        o
+        p
+        e
+        r
+        t
+        y
+        v
+        a
+        l
+        u
+        e
+        .
         Type `str`. """
         
         super(AuditEventEntityDetail, self).__init__(jsondict=jsondict, strict=strict)
@@ -307,15 +1736,69 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
         js = super(AuditEventEntityDetail, self).elementProperties()
         js.extend([
             ("type", "type", str, False, None, True),
-            ("value", "value", str, False, None, True),
+            ("valueBase64Binary", "valueBase64Binary", str, False, "value", True),
+            ("valueString", "valueString", str, False, "value", True),
         ])
         return js
 
 
 class AuditEventSource(backboneelement.BackboneElement):
-    """ Audit Event Reporter.
+    """ 
+    A
+    u
+    d
+    i
+    t
+    E
+    v
+    e
+    n
+    t
+    R
+    e
+    p
+    o
+    r
+    t
+    e
+    r
+    .
     
-    The system that is reporting the event.
+    
+    T
+    h
+    e
+    s
+    y
+    s
+    t
+    e
+    m
+    t
+    h
+    a
+    t
+    i
+    s
+    r
+    e
+    p
+    o
+    r
+    t
+    i
+    n
+    g
+    t
+    h
+    e
+    e
+    v
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "AuditEventSource"
@@ -328,16 +1811,130 @@ class AuditEventSource(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.identifier = None
-        """ The identity of source detecting the event.
-        Type `Identifier` (represented as `dict` in JSON). """
+        self.observer = None
+        """ 
+        T
+        h
+        e
+        i
+        d
+        e
+        n
+        t
+        i
+        t
+        y
+        o
+        f
+        s
+        o
+        u
+        r
+        c
+        e
+        d
+        e
+        t
+        e
+        c
+        t
+        i
+        n
+        g
+        t
+        h
+        e
+        e
+        v
+        e
+        n
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.site = None
-        """ Logical source location within the enterprise.
+        """ 
+        L
+        o
+        g
+        i
+        c
+        a
+        l
+        s
+        o
+        u
+        r
+        c
+        e
+        l
+        o
+        c
+        a
+        t
+        i
+        o
+        n
+        w
+        i
+        t
+        h
+        i
+        n
+        t
+        h
+        e
+        e
+        n
+        t
+        e
+        r
+        p
+        r
+        i
+        s
+        e
+        .
         Type `str`. """
         
         self.type = None
-        """ The type of source where event originated.
+        """ 
+        T
+        h
+        e
+        t
+        y
+        p
+        e
+        o
+        f
+        s
+        o
+        u
+        r
+        c
+        e
+        w
+        h
+        e
+        r
+        e
+        e
+        v
+        e
+        n
+        t
+        o
+        r
+        i
+        g
+        i
+        n
+        a
+        t
+        e
+        d
+        .
         List of `Coding` items (represented as `dict` in JSON). """
         
         super(AuditEventSource, self).__init__(jsondict=jsondict, strict=strict)
@@ -345,7 +1942,7 @@ class AuditEventSource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventSource, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("observer", "observer", fhirreference.FHIRReference, False, None, True),
             ("site", "site", str, False, None, False),
             ("type", "type", coding.Coding, True, None, False),
         ])
@@ -370,6 +1967,6 @@ try:
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
 try:
-    from . import identifier
+    from . import period
 except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+    period = sys.modules[__package__ + '.period']

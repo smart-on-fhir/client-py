@@ -1,18 +1,183 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class ImmunizationRecommendation(domainresource.DomainResource):
-    """ Guidance or advice relating to an immunization.
+    """ 
+    G
+    u
+    i
+    d
+    a
+    n
+    c
+    e
+    o
+    r
+    a
+    d
+    v
+    i
+    c
+    e
+    r
+    e
+    l
+    a
+    t
+    i
+    n
+    g
+    t
+    o
+    a
+    n
+    i
+    m
+    m
+    u
+    n
+    i
+    z
+    a
+    t
+    i
+    o
+    n
+    .
     
-    A patient's point-in-time immunization and recommendation (i.e. forecasting
-    a patient's immunization eligibility according to a published schedule)
-    with optional supporting justification.
+    
+    A
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    '
+    s
+    p
+    o
+    i
+    n
+    t
+    -
+    i
+    n
+    -
+    t
+    i
+    m
+    e
+    s
+    e
+    t
+    o
+    f
+    r
+    e
+    c
+    o
+    m
+    m
+    e
+    n
+    d
+    a
+    t
+    i
+    o
+    n
+    s
+    (
+    i
+    .
+    e
+    .
+    f
+    o
+    r
+    e
+    c
+    a
+    s
+    t
+    i
+    n
+    g
+    )
+    a
+    c
+    c
+    o
+    r
+    d
+    i
+    n
+    g
+    t
+    o
+    a
+    p
+    u
+    b
+    l
+    i
+    s
+    h
+    e
+    d
+    s
+    c
+    h
+    e
+    d
+    u
+    l
+    e
+    w
+    i
+    t
+    h
+    o
+    p
+    t
+    i
+    o
+    n
+    a
+    l
+    s
+    u
+    p
+    p
+    o
+    r
+    t
+    i
+    n
+    g
+    j
+    u
+    s
+    t
+    i
+    f
+    i
+    c
+    a
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "ImmunizationRecommendation"
@@ -25,16 +190,157 @@ class ImmunizationRecommendation(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.authority = None
+        """ 
+        W
+        h
+        o
+        i
+        s
+        r
+        e
+        s
+        p
+        o
+        n
+        s
+        i
+        b
+        l
+        e
+        f
+        o
+        r
+        p
+        r
+        o
+        t
+        o
+        c
+        o
+        l
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.date = None
+        """ 
+        D
+        a
+        t
+        e
+        r
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        a
+        t
+        i
+        o
+        n
+        (
+        s
+        )
+        c
+        r
+        e
+        a
+        t
+        e
+        d
+        .
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.identifier = None
-        """ Business identifier.
+        """ 
+        B
+        u
+        s
+        i
+        n
+        e
+        s
+        s
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.patient = None
-        """ Who this profile is for.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        t
+        h
+        i
+        s
+        p
+        r
+        o
+        f
+        i
+        l
+        e
+        i
+        s
+        f
+        o
+        r
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.recommendation = None
-        """ Vaccine administration recommendations.
+        """ 
+        V
+        a
+        c
+        c
+        i
+        n
+        e
+        a
+        d
+        m
+        i
+        n
+        i
+        s
+        t
+        r
+        a
+        t
+        i
+        o
+        n
+        r
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        a
+        t
+        i
+        o
+        n
+        s
+        .
         List of `ImmunizationRecommendationRecommendation` items (represented as `dict` in JSON). """
         
         super(ImmunizationRecommendation, self).__init__(jsondict=jsondict, strict=strict)
@@ -42,6 +348,8 @@ class ImmunizationRecommendation(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ImmunizationRecommendation, self).elementProperties()
         js.extend([
+            ("authority", "authority", fhirreference.FHIRReference, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("recommendation", "recommendation", ImmunizationRecommendationRecommendation, True, None, True),
@@ -52,7 +360,44 @@ class ImmunizationRecommendation(domainresource.DomainResource):
 from . import backboneelement
 
 class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
-    """ Vaccine administration recommendations.
+    """ 
+    V
+    a
+    c
+    c
+    i
+    n
+    e
+    a
+    d
+    m
+    i
+    n
+    i
+    s
+    t
+    r
+    a
+    t
+    i
+    o
+    n
+    r
+    e
+    c
+    o
+    m
+    m
+    e
+    n
+    d
+    a
+    t
+    i
+    o
+    n
+    s
+    .
     """
     
     resource_type = "ImmunizationRecommendationRecommendation"
@@ -65,65 +410,707 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.date = None
-        """ Date recommendation created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        self.contraindicatedVaccineCode = None
+        """ 
+        V
+        a
+        c
+        c
+        i
+        n
+        e
+        w
+        h
+        i
+        c
+        h
+        i
+        s
+        c
+        o
+        n
+        t
+        r
+        a
+        i
+        n
+        d
+        i
+        c
+        a
+        t
+        e
+        d
+        t
+        o
+        f
+        u
+        l
+        f
+        i
+        l
+        l
+        t
+        h
+        e
+        r
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        a
+        t
+        i
+        o
+        n
+        .
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.dateCriterion = None
-        """ Dates governing proposed immunization.
+        """ 
+        D
+        a
+        t
+        e
+        s
+        g
+        o
+        v
+        e
+        r
+        n
+        i
+        n
+        g
+        p
+        r
+        o
+        p
+        o
+        s
+        e
+        d
+        i
+        m
+        m
+        u
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        .
         List of `ImmunizationRecommendationRecommendationDateCriterion` items (represented as `dict` in JSON). """
         
-        self.doseNumber = None
-        """ Recommended dose number.
+        self.description = None
+        """ 
+        P
+        r
+        o
+        t
+        o
+        c
+        o
+        l
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        .
+        Type `str`. """
+        
+        self.doseNumberPositiveInt = None
+        """ 
+        R
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        e
+        d
+        d
+        o
+        s
+        e
+        n
+        u
+        m
+        b
+        e
+        r
+        w
+        i
+        t
+        h
+        i
+        n
+        s
+        e
+        r
+        i
+        e
+        s
+        .
         Type `int`. """
         
+        self.doseNumberString = None
+        """ 
+        R
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        e
+        d
+        d
+        o
+        s
+        e
+        n
+        u
+        m
+        b
+        e
+        r
+        w
+        i
+        t
+        h
+        i
+        n
+        s
+        e
+        r
+        i
+        e
+        s
+        .
+        Type `str`. """
+        
+        self.forecastReason = None
+        """ 
+        V
+        a
+        c
+        c
+        i
+        n
+        e
+        a
+        d
+        m
+        i
+        n
+        i
+        s
+        t
+        r
+        a
+        t
+        i
+        o
+        n
+        s
+        t
+        a
+        t
+        u
+        s
+        r
+        e
+        a
+        s
+        o
+        n
+        .
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.forecastStatus = None
-        """ Vaccine administration status.
+        """ 
+        V
+        a
+        c
+        c
+        i
+        n
+        e
+        r
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        a
+        t
+        i
+        o
+        n
+        s
+        t
+        a
+        t
+        u
+        s
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.protocol = None
-        """ Protocol used by recommendation.
-        Type `ImmunizationRecommendationRecommendationProtocol` (represented as `dict` in JSON). """
+        self.series = None
+        """ 
+        N
+        a
+        m
+        e
+        o
+        f
+        v
+        a
+        c
+        c
+        i
+        n
+        a
+        t
+        i
+        o
+        n
+        s
+        e
+        r
+        i
+        e
+        s
+        .
+        Type `str`. """
+        
+        self.seriesDosesPositiveInt = None
+        """ 
+        R
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        e
+        d
+        n
+        u
+        m
+        b
+        e
+        r
+        o
+        f
+        d
+        o
+        s
+        e
+        s
+        f
+        o
+        r
+        i
+        m
+        m
+        u
+        n
+        i
+        t
+        y
+        .
+        Type `int`. """
+        
+        self.seriesDosesString = None
+        """ 
+        R
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        e
+        d
+        n
+        u
+        m
+        b
+        e
+        r
+        o
+        f
+        d
+        o
+        s
+        e
+        s
+        f
+        o
+        r
+        i
+        m
+        m
+        u
+        n
+        i
+        t
+        y
+        .
+        Type `str`. """
         
         self.supportingImmunization = None
-        """ Past immunizations supporting recommendation.
-        List of `FHIRReference` items referencing `Immunization` (represented as `dict` in JSON). """
+        """ 
+        P
+        a
+        s
+        t
+        i
+        m
+        m
+        u
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        i
+        n
+        g
+        r
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        a
+        t
+        i
+        o
+        n
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.supportingPatientInformation = None
-        """ Patient observations supporting recommendation.
-        List of `FHIRReference` items referencing `Observation, AllergyIntolerance` (represented as `dict` in JSON). """
+        """ 
+        P
+        a
+        t
+        i
+        e
+        n
+        t
+        o
+        b
+        s
+        e
+        r
+        v
+        a
+        t
+        i
+        o
+        n
+        s
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        i
+        n
+        g
+        r
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        a
+        t
+        i
+        o
+        n
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.targetDisease = None
-        """ Disease to be immunized against.
+        """ 
+        D
+        i
+        s
+        e
+        a
+        s
+        e
+        t
+        o
+        b
+        e
+        i
+        m
+        m
+        u
+        n
+        i
+        z
+        e
+        d
+        a
+        g
+        a
+        i
+        n
+        s
+        t
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.vaccineCode = None
-        """ Vaccine recommendation applies to.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ 
+        V
+        a
+        c
+        c
+        i
+        n
+        e
+        o
+        r
+        v
+        a
+        c
+        c
+        i
+        n
+        e
+        g
+        r
+        o
+        u
+        p
+        r
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        a
+        t
+        i
+        o
+        n
+        a
+        p
+        p
+        l
+        i
+        e
+        s
+        t
+        o
+        .
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(ImmunizationRecommendationRecommendation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImmunizationRecommendationRecommendation, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("contraindicatedVaccineCode", "contraindicatedVaccineCode", codeableconcept.CodeableConcept, True, None, False),
             ("dateCriterion", "dateCriterion", ImmunizationRecommendationRecommendationDateCriterion, True, None, False),
-            ("doseNumber", "doseNumber", int, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("doseNumberPositiveInt", "doseNumberPositiveInt", int, False, "doseNumber", False),
+            ("doseNumberString", "doseNumberString", str, False, "doseNumber", False),
+            ("forecastReason", "forecastReason", codeableconcept.CodeableConcept, True, None, False),
             ("forecastStatus", "forecastStatus", codeableconcept.CodeableConcept, False, None, True),
-            ("protocol", "protocol", ImmunizationRecommendationRecommendationProtocol, False, None, False),
+            ("series", "series", str, False, None, False),
+            ("seriesDosesPositiveInt", "seriesDosesPositiveInt", int, False, "seriesDoses", False),
+            ("seriesDosesString", "seriesDosesString", str, False, "seriesDoses", False),
             ("supportingImmunization", "supportingImmunization", fhirreference.FHIRReference, True, None, False),
             ("supportingPatientInformation", "supportingPatientInformation", fhirreference.FHIRReference, True, None, False),
             ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, False, None, False),
-            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, False, None, False),
+            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
 
 class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.BackboneElement):
-    """ Dates governing proposed immunization.
+    """ 
+    D
+    a
+    t
+    e
+    s
+    g
+    o
+    v
+    e
+    r
+    n
+    i
+    n
+    g
+    p
+    r
+    o
+    p
+    o
+    s
+    e
+    d
+    i
+    m
+    m
+    u
+    n
+    i
+    z
+    a
+    t
+    i
+    o
+    n
+    .
     
-    Vaccine date recommendations.  For example, earliest date to administer,
-    latest date to administer, etc.
+    
+    V
+    a
+    c
+    c
+    i
+    n
+    e
+    d
+    a
+    t
+    e
+    r
+    e
+    c
+    o
+    m
+    m
+    e
+    n
+    d
+    a
+    t
+    i
+    o
+    n
+    s
+    .
+    F
+    o
+    r
+    e
+    x
+    a
+    m
+    p
+    l
+    e
+    ,
+    e
+    a
+    r
+    l
+    i
+    e
+    s
+    t
+    d
+    a
+    t
+    e
+    t
+    o
+    a
+    d
+    m
+    i
+    n
+    i
+    s
+    t
+    e
+    r
+    ,
+    l
+    a
+    t
+    e
+    s
+    t
+    d
+    a
+    t
+    e
+    t
+    o
+    a
+    d
+    m
+    i
+    n
+    i
+    s
+    t
+    e
+    r
+    ,
+    e
+    t
+    c
+    .
+    
     """
     
     resource_type = "ImmunizationRecommendationRecommendationDateCriterion"
@@ -137,11 +1124,38 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
         """
         
         self.code = None
-        """ Type of date.
+        """ 
+        T
+        y
+        p
+        e
+        o
+        f
+        d
+        a
+        t
+        e
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.value = None
-        """ Recommended date.
+        """ 
+        R
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        e
+        d
+        d
+        a
+        t
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         super(ImmunizationRecommendationRecommendationDateCriterion, self).__init__(jsondict=jsondict, strict=strict)
@@ -151,52 +1165,6 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("value", "value", fhirdate.FHIRDate, False, None, True),
-        ])
-        return js
-
-
-class ImmunizationRecommendationRecommendationProtocol(backboneelement.BackboneElement):
-    """ Protocol used by recommendation.
-    
-    Contains information about the protocol under which the vaccine was
-    administered.
-    """
-    
-    resource_type = "ImmunizationRecommendationRecommendationProtocol"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.authority = None
-        """ Who is responsible for protocol.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
-        self.description = None
-        """ Protocol details.
-        Type `str`. """
-        
-        self.doseSequence = None
-        """ Dose number within sequence.
-        Type `int`. """
-        
-        self.series = None
-        """ Name of vaccination series.
-        Type `str`. """
-        
-        super(ImmunizationRecommendationRecommendationProtocol, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ImmunizationRecommendationRecommendationProtocol, self).elementProperties()
-        js.extend([
-            ("authority", "authority", fhirreference.FHIRReference, False, None, False),
-            ("description", "description", str, False, None, False),
-            ("doseSequence", "doseSequence", int, False, None, False),
-            ("series", "series", str, False, None, False),
         ])
         return js
 

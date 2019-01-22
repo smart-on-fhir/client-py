@@ -1,17 +1,153 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class RiskAssessment(domainresource.DomainResource):
-    """ Potential outcomes for a subject with likelihood.
+    """ 
+    P
+    o
+    t
+    e
+    n
+    t
+    i
+    a
+    l
+    o
+    u
+    t
+    c
+    o
+    m
+    e
+    s
+    f
+    o
+    r
+    a
+    s
+    u
+    b
+    j
+    e
+    c
+    t
+    w
+    i
+    t
+    h
+    l
+    i
+    k
+    e
+    l
+    i
+    h
+    o
+    o
+    d
+    .
     
-    An assessment of the likely outcome(s) for a patient or other subject as
-    well as the likelihood of each outcome.
+    
+    A
+    n
+    a
+    s
+    s
+    e
+    s
+    s
+    m
+    e
+    n
+    t
+    o
+    f
+    t
+    h
+    e
+    l
+    i
+    k
+    e
+    l
+    y
+    o
+    u
+    t
+    c
+    o
+    m
+    e
+    (
+    s
+    )
+    f
+    o
+    r
+    a
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    o
+    r
+    o
+    t
+    h
+    e
+    r
+    s
+    u
+    b
+    j
+    e
+    c
+    t
+    a
+    s
+    w
+    e
+    l
+    l
+    a
+    s
+    t
+    h
+    e
+    l
+    i
+    k
+    e
+    l
+    i
+    h
+    o
+    o
+    d
+    o
+    f
+    e
+    a
+    c
+    h
+    o
+    u
+    t
+    c
+    o
+    m
+    e
+    .
+    
     """
     
     resource_type = "RiskAssessment"
@@ -25,76 +161,529 @@ class RiskAssessment(domainresource.DomainResource):
         """
         
         self.basedOn = None
-        """ Request fulfilled by this assessment.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        q
+        u
+        e
+        s
+        t
+        f
+        u
+        l
+        f
+        i
+        l
+        l
+        e
+        d
+        b
+        y
+        t
+        h
+        i
+        s
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.basis = None
-        """ Information used in assessment.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        I
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        u
+        s
+        e
+        d
+        i
+        n
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.code = None
-        """ Type of assessment.
+        """ 
+        T
+        y
+        p
+        e
+        o
+        f
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.comment = None
-        """ Comments on the risk assessment.
-        Type `str`. """
-        
         self.condition = None
-        """ Condition assessed.
-        Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
+        """ 
+        C
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        s
+        s
+        e
+        s
+        s
+        e
+        d
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.context = None
-        """ Where was assessment performed?.
-        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        self.encounter = None
+        """ 
+        W
+        h
+        e
+        r
+        e
+        w
+        a
+        s
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        e
+        d
+        ?
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Unique identifier for the assessment.
-        Type `Identifier` (represented as `dict` in JSON). """
+        """ 
+        U
+        n
+        i
+        q
+        u
+        e
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        e
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        .
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.method = None
-        """ Evaluation mechanism.
+        """ 
+        E
+        v
+        a
+        l
+        u
+        a
+        t
+        i
+        o
+        n
+        m
+        e
+        c
+        h
+        a
+        n
+        i
+        s
+        m
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.mitigation = None
-        """ How to reduce risk.
+        """ 
+        H
+        o
+        w
+        t
+        o
+        r
+        e
+        d
+        u
+        c
+        e
+        r
+        i
+        s
+        k
+        .
         Type `str`. """
         
+        self.note = None
+        """ 
+        C
+        o
+        m
+        m
+        e
+        n
+        t
+        s
+        o
+        n
+        t
+        h
+        e
+        r
+        i
+        s
+        k
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        .
+        List of `Annotation` items (represented as `dict` in JSON). """
+        
         self.occurrenceDateTime = None
-        """ When was assessment made?.
+        """ 
+        W
+        h
+        e
+        n
+        w
+        a
+        s
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        m
+        a
+        d
+        e
+        ?
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
-        """ When was assessment made?.
+        """ 
+        W
+        h
+        e
+        n
+        w
+        a
+        s
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        m
+        a
+        d
+        e
+        ?
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.parent = None
-        """ Part of this occurrence.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        P
+        a
+        r
+        t
+        o
+        f
+        t
+        h
+        i
+        s
+        o
+        c
+        c
+        u
+        r
+        r
+        e
+        n
+        c
+        e
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.performer = None
-        """ Who did assessment?.
-        Type `FHIRReference` referencing `Practitioner, Device` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        d
+        i
+        d
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        ?
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.prediction = None
-        """ Outcome predicted.
+        """ 
+        O
+        u
+        t
+        c
+        o
+        m
+        e
+        p
+        r
+        e
+        d
+        i
+        c
+        t
+        e
+        d
+        .
         List of `RiskAssessmentPrediction` items (represented as `dict` in JSON). """
         
-        self.reasonCodeableConcept = None
-        """ Why the assessment was necessary?.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.reasonCode = None
+        """ 
+        W
+        h
+        y
+        t
+        h
+        e
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        w
+        a
+        s
+        n
+        e
+        c
+        e
+        s
+        s
+        a
+        r
+        y
+        ?
+        .
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonReference = None
-        """ Why the assessment was necessary?.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        y
+        t
+        h
+        e
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        w
+        a
+        s
+        n
+        e
+        c
+        e
+        s
+        s
+        a
+        r
+        y
+        ?
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ registered | preliminary | final | amended +.
+        """ 
+        r
+        e
+        g
+        i
+        s
+        t
+        e
+        r
+        e
+        d
+        |
+        p
+        r
+        e
+        l
+        i
+        m
+        i
+        n
+        a
+        r
+        y
+        |
+        f
+        i
+        n
+        a
+        l
+        |
+        a
+        m
+        e
+        n
+        d
+        e
+        d
+        +
+        .
         Type `str`. """
         
         self.subject = None
-        """ Who/what does assessment apply to?.
-        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        /
+        w
+        h
+        a
+        t
+        d
+        o
+        e
+        s
+        a
+        s
+        s
+        e
+        s
+        s
+        m
+        e
+        n
+        t
+        a
+        p
+        p
+        l
+        y
+        t
+        o
+        ?
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(RiskAssessment, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -104,21 +693,21 @@ class RiskAssessment(domainresource.DomainResource):
             ("basedOn", "basedOn", fhirreference.FHIRReference, False, None, False),
             ("basis", "basis", fhirreference.FHIRReference, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("comment", "comment", str, False, None, False),
             ("condition", "condition", fhirreference.FHIRReference, False, None, False),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
             ("mitigation", "mitigation", str, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("parent", "parent", fhirreference.FHIRReference, False, None, False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("prediction", "prediction", RiskAssessmentPrediction, True, None, False),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
@@ -126,9 +715,68 @@ class RiskAssessment(domainresource.DomainResource):
 from . import backboneelement
 
 class RiskAssessmentPrediction(backboneelement.BackboneElement):
-    """ Outcome predicted.
+    """ 
+    O
+    u
+    t
+    c
+    o
+    m
+    e
+    p
+    r
+    e
+    d
+    i
+    c
+    t
+    e
+    d
+    .
     
-    Describes the expected outcome for the subject.
+    
+    D
+    e
+    s
+    c
+    r
+    i
+    b
+    e
+    s
+    t
+    h
+    e
+    e
+    x
+    p
+    e
+    c
+    t
+    e
+    d
+    o
+    u
+    t
+    c
+    o
+    m
+    e
+    f
+    o
+    r
+    t
+    h
+    e
+    s
+    u
+    b
+    j
+    e
+    c
+    t
+    .
+    
     """
     
     resource_type = "RiskAssessmentPrediction"
@@ -142,35 +790,253 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
         """
         
         self.outcome = None
-        """ Possible outcome for the subject.
+        """ 
+        P
+        o
+        s
+        s
+        i
+        b
+        l
+        e
+        o
+        u
+        t
+        c
+        o
+        m
+        e
+        f
+        o
+        r
+        t
+        h
+        e
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.probabilityDecimal = None
-        """ Likelihood of specified outcome.
+        """ 
+        L
+        i
+        k
+        e
+        l
+        i
+        h
+        o
+        o
+        d
+        o
+        f
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        o
+        u
+        t
+        c
+        o
+        m
+        e
+        .
         Type `float`. """
         
         self.probabilityRange = None
-        """ Likelihood of specified outcome.
+        """ 
+        L
+        i
+        k
+        e
+        l
+        i
+        h
+        o
+        o
+        d
+        o
+        f
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        o
+        u
+        t
+        c
+        o
+        m
+        e
+        .
         Type `Range` (represented as `dict` in JSON). """
         
         self.qualitativeRisk = None
-        """ Likelihood of specified outcome as a qualitative value.
+        """ 
+        L
+        i
+        k
+        e
+        l
+        i
+        h
+        o
+        o
+        d
+        o
+        f
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        e
+        d
+        o
+        u
+        t
+        c
+        o
+        m
+        e
+        a
+        s
+        a
+        q
+        u
+        a
+        l
+        i
+        t
+        a
+        t
+        i
+        v
+        e
+        v
+        a
+        l
+        u
+        e
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.rationale = None
-        """ Explanation of prediction.
+        """ 
+        E
+        x
+        p
+        l
+        a
+        n
+        a
+        t
+        i
+        o
+        n
+        o
+        f
+        p
+        r
+        e
+        d
+        i
+        c
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.relativeRisk = None
-        """ Relative likelihood.
+        """ 
+        R
+        e
+        l
+        a
+        t
+        i
+        v
+        e
+        l
+        i
+        k
+        e
+        l
+        i
+        h
+        o
+        o
+        d
+        .
         Type `float`. """
         
         self.whenPeriod = None
-        """ Timeframe or age range.
+        """ 
+        T
+        i
+        m
+        e
+        f
+        r
+        a
+        m
+        e
+        o
+        r
+        a
+        g
+        e
+        r
+        a
+        n
+        g
+        e
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.whenRange = None
-        """ Timeframe or age range.
+        """ 
+        T
+        i
+        m
+        e
+        f
+        r
+        a
+        m
+        e
+        o
+        r
+        a
+        g
+        e
+        r
+        a
+        n
+        g
+        e
+        .
         Type `Range` (represented as `dict` in JSON). """
         
         super(RiskAssessmentPrediction, self).__init__(jsondict=jsondict, strict=strict)
@@ -178,7 +1044,7 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RiskAssessmentPrediction, self).elementProperties()
         js.extend([
-            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, True),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
             ("probabilityDecimal", "probabilityDecimal", float, False, "probability", False),
             ("probabilityRange", "probabilityRange", range.Range, False, "probability", False),
             ("qualitativeRisk", "qualitativeRisk", codeableconcept.CodeableConcept, False, None, False),
@@ -191,6 +1057,10 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
 
 
 import sys
+try:
+    from . import annotation
+except ImportError:
+    annotation = sys.modules[__package__ + '.annotation']
 try:
     from . import codeableconcept
 except ImportError:

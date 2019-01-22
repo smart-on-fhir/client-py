@@ -1,18 +1,218 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Communication) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Communication) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class Communication(domainresource.DomainResource):
-    """ A record of information transmitted from a sender to a receiver.
+    """ 
+    A
+    r
+    e
+    c
+    o
+    r
+    d
+    o
+    f
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    t
+    r
+    a
+    n
+    s
+    m
+    i
+    t
+    t
+    e
+    d
+    f
+    r
+    o
+    m
+    a
+    s
+    e
+    n
+    d
+    e
+    r
+    t
+    o
+    a
+    r
+    e
+    c
+    e
+    i
+    v
+    e
+    r
+    .
     
-    An occurrence of information being transmitted; e.g. an alert that was sent
-    to a responsible provider, a public health agency was notified about a
-    reportable condition.
+    
+    A
+    n
+    o
+    c
+    c
+    u
+    r
+    r
+    e
+    n
+    c
+    e
+    o
+    f
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    b
+    e
+    i
+    n
+    g
+    t
+    r
+    a
+    n
+    s
+    m
+    i
+    t
+    t
+    e
+    d
+    ;
+    e
+    .
+    g
+    .
+    a
+    n
+    a
+    l
+    e
+    r
+    t
+    t
+    h
+    a
+    t
+    w
+    a
+    s
+    s
+    e
+    n
+    t
+    t
+    o
+    a
+    r
+    e
+    s
+    p
+    o
+    n
+    s
+    i
+    b
+    l
+    e
+    p
+    r
+    o
+    v
+    i
+    d
+    e
+    r
+    ,
+    a
+    p
+    u
+    b
+    l
+    i
+    c
+    h
+    e
+    a
+    l
+    t
+    h
+    a
+    g
+    e
+    n
+    c
+    y
+    t
+    h
+    a
+    t
+    w
+    a
+    s
+    n
+    o
+    t
+    i
+    f
+    i
+    e
+    d
+    a
+    b
+    o
+    u
+    t
+    a
+    r
+    e
+    p
+    o
+    r
+    t
+    a
+    b
+    l
+    e
+    c
+    o
+    n
+    d
+    i
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "Communication"
@@ -25,103 +225,688 @@ class Communication(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.about = None
+        """ 
+        R
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        s
+        t
+        h
+        a
+        t
+        p
+        e
+        r
+        t
+        a
+        i
+        n
+        t
+        o
+        t
+        h
+        i
+        s
+        c
+        o
+        m
+        m
+        u
+        n
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
         self.basedOn = None
-        """ Request fulfilled by this communication.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        q
+        u
+        e
+        s
+        t
+        f
+        u
+        l
+        f
+        i
+        l
+        l
+        e
+        d
+        b
+        y
+        t
+        h
+        i
+        s
+        c
+        o
+        m
+        m
+        u
+        n
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.category = None
-        """ Message category.
+        """ 
+        M
+        e
+        s
+        s
+        a
+        g
+        e
+        c
+        a
+        t
+        e
+        g
+        o
+        r
+        y
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.context = None
-        """ Encounter or episode leading to message.
-        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
-        
-        self.definition = None
-        """ Instantiates protocol or definition.
-        List of `FHIRReference` items referencing `PlanDefinition, ActivityDefinition` (represented as `dict` in JSON). """
+        self.encounter = None
+        """ 
+        E
+        n
+        c
+        o
+        u
+        n
+        t
+        e
+        r
+        c
+        r
+        e
+        a
+        t
+        e
+        d
+        a
+        s
+        p
+        a
+        r
+        t
+        o
+        f
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Unique identifier.
+        """ 
+        U
+        n
+        i
+        q
+        u
+        e
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.inResponseTo = None
+        """ 
+        R
+        e
+        p
+        l
+        y
+        t
+        o
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.instantiatesCanonical = None
+        """ 
+        I
+        n
+        s
+        t
+        a
+        n
+        t
+        i
+        a
+        t
+        e
+        s
+        F
+        H
+        I
+        R
+        p
+        r
+        o
+        t
+        o
+        c
+        o
+        l
+        o
+        r
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
+        List of `str` items. """
+        
+        self.instantiatesUri = None
+        """ 
+        I
+        n
+        s
+        t
+        a
+        n
+        t
+        i
+        a
+        t
+        e
+        s
+        e
+        x
+        t
+        e
+        r
+        n
+        a
+        l
+        p
+        r
+        o
+        t
+        o
+        c
+        o
+        l
+        o
+        r
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
+        List of `str` items. """
+        
         self.medium = None
-        """ A channel of communication.
+        """ 
+        A
+        c
+        h
+        a
+        n
+        n
+        e
+        l
+        o
+        f
+        c
+        o
+        m
+        m
+        u
+        n
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.notDone = None
-        """ Communication did not occur.
-        Type `bool`. """
-        
-        self.notDoneReason = None
-        """ Why communication did not occur.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.note = None
-        """ Comments made about the communication.
+        """ 
+        C
+        o
+        m
+        m
+        e
+        n
+        t
+        s
+        m
+        a
+        d
+        e
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        c
+        o
+        m
+        m
+        u
+        n
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        .
         List of `Annotation` items (represented as `dict` in JSON). """
         
         self.partOf = None
-        """ Part of this action.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        P
+        a
+        r
+        t
+        o
+        f
+        t
+        h
+        i
+        s
+        a
+        c
+        t
+        i
+        o
+        n
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.payload = None
-        """ Message payload.
+        """ 
+        M
+        e
+        s
+        s
+        a
+        g
+        e
+        p
+        a
+        y
+        l
+        o
+        a
+        d
+        .
         List of `CommunicationPayload` items (represented as `dict` in JSON). """
         
+        self.priority = None
+        """ 
+        M
+        e
+        s
+        s
+        a
+        g
+        e
+        u
+        r
+        g
+        e
+        n
+        c
+        y
+        .
+        Type `str`. """
+        
         self.reasonCode = None
-        """ Indication for message.
+        """ 
+        I
+        n
+        d
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        f
+        o
+        r
+        m
+        e
+        s
+        s
+        a
+        g
+        e
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonReference = None
-        """ Why was communication done?.
-        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        y
+        w
+        a
+        s
+        c
+        o
+        m
+        m
+        u
+        n
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        d
+        o
+        n
+        e
+        ?
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.received = None
-        """ When received.
+        """ 
+        W
+        h
+        e
+        n
+        r
+        e
+        c
+        e
+        i
+        v
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.recipient = None
-        """ Message recipient.
-        List of `FHIRReference` items referencing `Device, Organization, Patient, Practitioner, RelatedPerson, Group` (represented as `dict` in JSON). """
+        """ 
+        M
+        e
+        s
+        s
+        a
+        g
+        e
+        r
+        e
+        c
+        i
+        p
+        i
+        e
+        n
+        t
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.sender = None
-        """ Message sender.
-        Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        """ 
+        M
+        e
+        s
+        s
+        a
+        g
+        e
+        s
+        e
+        n
+        d
+        e
+        r
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.sent = None
-        """ When sent.
+        """ 
+        W
+        h
+        e
+        n
+        s
+        e
+        n
+        t
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.status = None
-        """ preparation | in-progress | suspended | aborted | completed |
-        entered-in-error.
+        """ 
+        p
+        r
+        e
+        p
+        a
+        r
+        a
+        t
+        i
+        o
+        n
+        |
+        i
+        n
+        -
+        p
+        r
+        o
+        g
+        r
+        e
+        s
+        s
+        |
+        n
+        o
+        t
+        -
+        d
+        o
+        n
+        e
+        |
+        s
+        u
+        s
+        p
+        e
+        n
+        d
+        e
+        d
+        |
+        a
+        b
+        o
+        r
+        t
+        e
+        d
+        |
+        c
+        o
+        m
+        p
+        l
+        e
+        t
+        e
+        d
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        .
         Type `str`. """
         
+        self.statusReason = None
+        """ 
+        R
+        e
+        a
+        s
+        o
+        n
+        f
+        o
+        r
+        c
+        u
+        r
+        r
+        e
+        n
+        t
+        s
+        t
+        a
+        t
+        u
+        s
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.subject = None
-        """ Focus of message.
-        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
+        """ 
+        F
+        o
+        c
+        u
+        s
+        o
+        f
+        m
+        e
+        s
+        s
+        a
+        g
+        e
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.topic = None
-        """ Focal resources.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        D
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        p
+        u
+        r
+        p
+        o
+        s
+        e
+        /
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Communication, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Communication, self).elementProperties()
         js.extend([
+            ("about", "about", fhirreference.FHIRReference, True, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("definition", "definition", fhirreference.FHIRReference, True, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("inResponseTo", "inResponseTo", fhirreference.FHIRReference, True, None, False),
+            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
+            ("instantiatesUri", "instantiatesUri", str, True, None, False),
             ("medium", "medium", codeableconcept.CodeableConcept, True, None, False),
-            ("notDone", "notDone", bool, False, None, False),
-            ("notDoneReason", "notDoneReason", codeableconcept.CodeableConcept, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("payload", "payload", CommunicationPayload, True, None, False),
+            ("priority", "priority", str, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("received", "received", fhirdate.FHIRDate, False, None, False),
@@ -129,8 +914,9 @@ class Communication(domainresource.DomainResource):
             ("sender", "sender", fhirreference.FHIRReference, False, None, False),
             ("sent", "sent", fhirdate.FHIRDate, False, None, False),
             ("status", "status", str, False, None, True),
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("topic", "topic", fhirreference.FHIRReference, True, None, False),
+            ("topic", "topic", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -138,9 +924,91 @@ class Communication(domainresource.DomainResource):
 from . import backboneelement
 
 class CommunicationPayload(backboneelement.BackboneElement):
-    """ Message payload.
+    """ 
+    M
+    e
+    s
+    s
+    a
+    g
+    e
+    p
+    a
+    y
+    l
+    o
+    a
+    d
+    .
     
-    Text, attachment(s), or resource(s) that was communicated to the recipient.
+    
+    T
+    e
+    x
+    t
+    ,
+    a
+    t
+    t
+    a
+    c
+    h
+    m
+    e
+    n
+    t
+    (
+    s
+    )
+    ,
+    o
+    r
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    (
+    s
+    )
+    t
+    h
+    a
+    t
+    w
+    a
+    s
+    c
+    o
+    m
+    m
+    u
+    n
+    i
+    c
+    a
+    t
+    e
+    d
+    t
+    o
+    t
+    h
+    e
+    r
+    e
+    c
+    i
+    p
+    i
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "CommunicationPayload"
@@ -154,15 +1022,72 @@ class CommunicationPayload(backboneelement.BackboneElement):
         """
         
         self.contentAttachment = None
-        """ Message part content.
+        """ 
+        M
+        e
+        s
+        s
+        a
+        g
+        e
+        p
+        a
+        r
+        t
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        .
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.contentReference = None
-        """ Message part content.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        M
+        e
+        s
+        s
+        a
+        g
+        e
+        p
+        a
+        r
+        t
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.contentString = None
-        """ Message part content.
+        """ 
+        M
+        e
+        s
+        s
+        a
+        g
+        e
+        p
+        a
+        r
+        t
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        .
         Type `str`. """
         
         super(CommunicationPayload, self).__init__(jsondict=jsondict, strict=strict)

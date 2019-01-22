@@ -1,17 +1,125 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Flag) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Flag) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class Flag(domainresource.DomainResource):
-    """ Key information to flag to healthcare providers.
+    """ 
+    K
+    e
+    y
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    t
+    o
+    f
+    l
+    a
+    g
+    t
+    o
+    h
+    e
+    a
+    l
+    t
+    h
+    c
+    a
+    r
+    e
+    p
+    r
+    o
+    v
+    i
+    d
+    e
+    r
+    s
+    .
     
-    Prospective warnings of potential issues when providing care to the
-    patient.
+    
+    P
+    r
+    o
+    s
+    p
+    e
+    c
+    t
+    i
+    v
+    e
+    w
+    a
+    r
+    n
+    i
+    n
+    g
+    s
+    o
+    f
+    p
+    o
+    t
+    e
+    n
+    t
+    i
+    a
+    l
+    i
+    s
+    s
+    u
+    e
+    s
+    w
+    h
+    e
+    n
+    p
+    r
+    o
+    v
+    i
+    d
+    i
+    n
+    g
+    c
+    a
+    r
+    e
+    t
+    o
+    t
+    h
+    e
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "Flag"
@@ -25,36 +133,243 @@ class Flag(domainresource.DomainResource):
         """
         
         self.author = None
-        """ Flag creator.
-        Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner` (represented as `dict` in JSON). """
+        """ 
+        F
+        l
+        a
+        g
+        c
+        r
+        e
+        a
+        t
+        o
+        r
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.category = None
-        """ Clinical, administrative, etc..
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ 
+        C
+        l
+        i
+        n
+        i
+        c
+        a
+        l
+        ,
+        a
+        d
+        m
+        i
+        n
+        i
+        s
+        t
+        r
+        a
+        t
+        i
+        v
+        e
+        ,
+        e
+        t
+        c
+        .
+        .
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.code = None
-        """ Coded or textual message to display to user.
+        """ 
+        C
+        o
+        d
+        e
+        d
+        o
+        r
+        t
+        e
+        x
+        t
+        u
+        a
+        l
+        m
+        e
+        s
+        s
+        a
+        g
+        e
+        t
+        o
+        d
+        i
+        s
+        p
+        l
+        a
+        y
+        t
+        o
+        u
+        s
+        e
+        r
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.encounter = None
-        """ Alert relevant during encounter.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        """ 
+        A
+        l
+        e
+        r
+        t
+        r
+        e
+        l
+        e
+        v
+        a
+        n
+        t
+        d
+        u
+        r
+        i
+        n
+        g
+        e
+        n
+        c
+        o
+        u
+        n
+        t
+        e
+        r
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Business identifier.
+        """ 
+        B
+        u
+        s
+        i
+        n
+        e
+        s
+        s
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.period = None
-        """ Time period when flag is active.
+        """ 
+        T
+        i
+        m
+        e
+        p
+        e
+        r
+        i
+        o
+        d
+        w
+        h
+        e
+        n
+        f
+        l
+        a
+        g
+        i
+        s
+        a
+        c
+        t
+        i
+        v
+        e
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
-        """ active | inactive | entered-in-error.
+        """ 
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        i
+        n
+        a
+        c
+        t
+        i
+        v
+        e
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        .
         Type `str`. """
         
         self.subject = None
-        """ Who/What is flag about?.
-        Type `FHIRReference` referencing `Patient, Location, Group, Organization, Practitioner, PlanDefinition, Medication, Procedure` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        /
+        W
+        h
+        a
+        t
+        i
+        s
+        f
+        l
+        a
+        g
+        a
+        b
+        o
+        u
+        t
+        ?
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(Flag, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -62,7 +377,7 @@ class Flag(domainresource.DomainResource):
         js = super(Flag, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),

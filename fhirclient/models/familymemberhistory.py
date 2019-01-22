@@ -1,17 +1,167 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class FamilyMemberHistory(domainresource.DomainResource):
-    """ Information about patient's relatives, relevant for patient.
+    """ 
+    I
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    a
+    b
+    o
+    u
+    t
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    '
+    s
+    r
+    e
+    l
+    a
+    t
+    i
+    v
+    e
+    s
+    ,
+    r
+    e
+    l
+    e
+    v
+    a
+    n
+    t
+    f
+    o
+    r
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    .
     
-    Significant health events and conditions for a person related to the
-    patient relevant in the context of care for the patient.
+    
+    S
+    i
+    g
+    n
+    i
+    f
+    i
+    c
+    a
+    n
+    t
+    h
+    e
+    a
+    l
+    t
+    h
+    c
+    o
+    n
+    d
+    i
+    t
+    i
+    o
+    n
+    s
+    f
+    o
+    r
+    a
+    p
+    e
+    r
+    s
+    o
+    n
+    r
+    e
+    l
+    a
+    t
+    e
+    d
+    t
+    o
+    t
+    h
+    e
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    r
+    e
+    l
+    e
+    v
+    a
+    n
+    t
+    i
+    n
+    t
+    h
+    e
+    c
+    o
+    n
+    t
+    e
+    x
+    t
+    o
+    f
+    c
+    a
+    r
+    e
+    f
+    o
+    r
+    t
+    h
+    e
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "FamilyMemberHistory"
@@ -25,107 +175,814 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """
         
         self.ageAge = None
-        """ (approximate) age.
+        """ 
+        (
+        a
+        p
+        p
+        r
+        o
+        x
+        i
+        m
+        a
+        t
+        e
+        )
+        a
+        g
+        e
+        .
         Type `Age` (represented as `dict` in JSON). """
         
         self.ageRange = None
-        """ (approximate) age.
+        """ 
+        (
+        a
+        p
+        p
+        r
+        o
+        x
+        i
+        m
+        a
+        t
+        e
+        )
+        a
+        g
+        e
+        .
         Type `Range` (represented as `dict` in JSON). """
         
         self.ageString = None
-        """ (approximate) age.
+        """ 
+        (
+        a
+        p
+        p
+        r
+        o
+        x
+        i
+        m
+        a
+        t
+        e
+        )
+        a
+        g
+        e
+        .
         Type `str`. """
         
         self.bornDate = None
-        """ (approximate) date of birth.
+        """ 
+        (
+        a
+        p
+        p
+        r
+        o
+        x
+        i
+        m
+        a
+        t
+        e
+        )
+        d
+        a
+        t
+        e
+        o
+        f
+        b
+        i
+        r
+        t
+        h
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.bornPeriod = None
-        """ (approximate) date of birth.
+        """ 
+        (
+        a
+        p
+        p
+        r
+        o
+        x
+        i
+        m
+        a
+        t
+        e
+        )
+        d
+        a
+        t
+        e
+        o
+        f
+        b
+        i
+        r
+        t
+        h
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.bornString = None
-        """ (approximate) date of birth.
+        """ 
+        (
+        a
+        p
+        p
+        r
+        o
+        x
+        i
+        m
+        a
+        t
+        e
+        )
+        d
+        a
+        t
+        e
+        o
+        f
+        b
+        i
+        r
+        t
+        h
+        .
         Type `str`. """
         
         self.condition = None
-        """ Condition that the related person had.
+        """ 
+        C
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        t
+        h
+        a
+        t
+        t
+        h
+        e
+        r
+        e
+        l
+        a
+        t
+        e
+        d
+        p
+        e
+        r
+        s
+        o
+        n
+        h
+        a
+        d
+        .
         List of `FamilyMemberHistoryCondition` items (represented as `dict` in JSON). """
         
+        self.dataAbsentReason = None
+        """ 
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        -
+        u
+        n
+        k
+        n
+        o
+        w
+        n
+        |
+        w
+        i
+        t
+        h
+        h
+        e
+        l
+        d
+        |
+        u
+        n
+        a
+        b
+        l
+        e
+        -
+        t
+        o
+        -
+        o
+        b
+        t
+        a
+        i
+        n
+        |
+        d
+        e
+        f
+        e
+        r
+        r
+        e
+        d
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.date = None
-        """ When history was captured/updated.
+        """ 
+        W
+        h
+        e
+        n
+        h
+        i
+        s
+        t
+        o
+        r
+        y
+        w
+        a
+        s
+        r
+        e
+        c
+        o
+        r
+        d
+        e
+        d
+        o
+        r
+        l
+        a
+        s
+        t
+        u
+        p
+        d
+        a
+        t
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.deceasedAge = None
-        """ Dead? How old/when?.
+        """ 
+        D
+        e
+        a
+        d
+        ?
+        H
+        o
+        w
+        o
+        l
+        d
+        /
+        w
+        h
+        e
+        n
+        ?
+        .
         Type `Age` (represented as `dict` in JSON). """
         
         self.deceasedBoolean = None
-        """ Dead? How old/when?.
+        """ 
+        D
+        e
+        a
+        d
+        ?
+        H
+        o
+        w
+        o
+        l
+        d
+        /
+        w
+        h
+        e
+        n
+        ?
+        .
         Type `bool`. """
         
         self.deceasedDate = None
-        """ Dead? How old/when?.
+        """ 
+        D
+        e
+        a
+        d
+        ?
+        H
+        o
+        w
+        o
+        l
+        d
+        /
+        w
+        h
+        e
+        n
+        ?
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.deceasedRange = None
-        """ Dead? How old/when?.
+        """ 
+        D
+        e
+        a
+        d
+        ?
+        H
+        o
+        w
+        o
+        l
+        d
+        /
+        w
+        h
+        e
+        n
+        ?
+        .
         Type `Range` (represented as `dict` in JSON). """
         
         self.deceasedString = None
-        """ Dead? How old/when?.
+        """ 
+        D
+        e
+        a
+        d
+        ?
+        H
+        o
+        w
+        o
+        l
+        d
+        /
+        w
+        h
+        e
+        n
+        ?
+        .
         Type `str`. """
-        
-        self.definition = None
-        """ Instantiates protocol or definition.
-        List of `FHIRReference` items referencing `PlanDefinition, Questionnaire` (represented as `dict` in JSON). """
         
         self.estimatedAge = None
-        """ Age is estimated?.
+        """ 
+        A
+        g
+        e
+        i
+        s
+        e
+        s
+        t
+        i
+        m
+        a
+        t
+        e
+        d
+        ?
+        .
         Type `bool`. """
-        
-        self.gender = None
-        """ male | female | other | unknown.
-        Type `str`. """
         
         self.identifier = None
-        """ External Id(s) for this record.
+        """ 
+        E
+        x
+        t
+        e
+        r
+        n
+        a
+        l
+        I
+        d
+        (
+        s
+        )
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        r
+        e
+        c
+        o
+        r
+        d
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.instantiatesCanonical = None
+        """ 
+        I
+        n
+        s
+        t
+        a
+        n
+        t
+        i
+        a
+        t
+        e
+        s
+        F
+        H
+        I
+        R
+        p
+        r
+        o
+        t
+        o
+        c
+        o
+        l
+        o
+        r
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
+        List of `str` items. """
+        
+        self.instantiatesUri = None
+        """ 
+        I
+        n
+        s
+        t
+        a
+        n
+        t
+        i
+        a
+        t
+        e
+        s
+        e
+        x
+        t
+        e
+        r
+        n
+        a
+        l
+        p
+        r
+        o
+        t
+        o
+        c
+        o
+        l
+        o
+        r
+        d
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        .
+        List of `str` items. """
+        
         self.name = None
-        """ The family member described.
+        """ 
+        T
+        h
+        e
+        f
+        a
+        m
+        i
+        l
+        y
+        m
+        e
+        m
+        b
+        e
+        r
+        d
+        e
+        s
+        c
+        r
+        i
+        b
+        e
+        d
+        .
         Type `str`. """
         
-        self.notDone = None
-        """ The taking of a family member's history did not occur.
-        Type `bool`. """
-        
-        self.notDoneReason = None
-        """ subject-unknown | withheld | unable-to-obtain | deferred.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.note = None
-        """ General note about related person.
+        """ 
+        G
+        e
+        n
+        e
+        r
+        a
+        l
+        n
+        o
+        t
+        e
+        a
+        b
+        o
+        u
+        t
+        r
+        e
+        l
+        a
+        t
+        e
+        d
+        p
+        e
+        r
+        s
+        o
+        n
+        .
         List of `Annotation` items (represented as `dict` in JSON). """
         
         self.patient = None
-        """ Patient history is about.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        """ 
+        P
+        a
+        t
+        i
+        e
+        n
+        t
+        h
+        i
+        s
+        t
+        o
+        r
+        y
+        i
+        s
+        a
+        b
+        o
+        u
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.reasonCode = None
-        """ Why was family member history performed?.
+        """ 
+        W
+        h
+        y
+        w
+        a
+        s
+        f
+        a
+        m
+        i
+        l
+        y
+        m
+        e
+        m
+        b
+        e
+        r
+        h
+        i
+        s
+        t
+        o
+        r
+        y
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        e
+        d
+        ?
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonReference = None
-        """ Why was family member history performed?.
-        List of `FHIRReference` items referencing `Condition, Observation, AllergyIntolerance, QuestionnaireResponse` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        y
+        w
+        a
+        s
+        f
+        a
+        m
+        i
+        l
+        y
+        m
+        e
+        m
+        b
+        e
+        r
+        h
+        i
+        s
+        t
+        o
+        r
+        y
+        p
+        e
+        r
+        f
+        o
+        r
+        m
+        e
+        d
+        ?
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.relationship = None
-        """ Relationship to the subject.
+        """ 
+        R
+        e
+        l
+        a
+        t
+        i
+        o
+        n
+        s
+        h
+        i
+        p
+        t
+        o
+        t
+        h
+        e
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        .
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.sex = None
+        """ 
+        m
+        a
+        l
+        e
+        |
+        f
+        e
+        m
+        a
+        l
+        e
+        |
+        o
+        t
+        h
+        e
+        r
+        |
+        u
+        n
+        k
+        n
+        o
+        w
+        n
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.status = None
-        """ partial | completed | entered-in-error | health-unknown.
+        """ 
+        p
+        a
+        r
+        t
+        i
+        a
+        l
+        |
+        c
+        o
+        m
+        p
+        l
+        e
+        t
+        e
+        d
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        |
+        h
+        e
+        a
+        l
+        t
+        h
+        -
+        u
+        n
+        k
+        n
+        o
+        w
+        n
+        .
         Type `str`. """
         
         super(FamilyMemberHistory, self).__init__(jsondict=jsondict, strict=strict)
@@ -140,24 +997,24 @@ class FamilyMemberHistory(domainresource.DomainResource):
             ("bornPeriod", "bornPeriod", period.Period, False, "born", False),
             ("bornString", "bornString", str, False, "born", False),
             ("condition", "condition", FamilyMemberHistoryCondition, True, None, False),
+            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("deceasedAge", "deceasedAge", age.Age, False, "deceased", False),
             ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
             ("deceasedDate", "deceasedDate", fhirdate.FHIRDate, False, "deceased", False),
             ("deceasedRange", "deceasedRange", range.Range, False, "deceased", False),
             ("deceasedString", "deceasedString", str, False, "deceased", False),
-            ("definition", "definition", fhirreference.FHIRReference, True, None, False),
             ("estimatedAge", "estimatedAge", bool, False, None, False),
-            ("gender", "gender", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
+            ("instantiatesUri", "instantiatesUri", str, True, None, False),
             ("name", "name", str, False, None, False),
-            ("notDone", "notDone", bool, False, None, False),
-            ("notDoneReason", "notDoneReason", codeableconcept.CodeableConcept, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, True),
+            ("sex", "sex", codeableconcept.CodeableConcept, False, None, False),
             ("status", "status", str, False, None, True),
         ])
         return js
@@ -166,12 +1023,245 @@ class FamilyMemberHistory(domainresource.DomainResource):
 from . import backboneelement
 
 class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
-    """ Condition that the related person had.
+    """ 
+    C
+    o
+    n
+    d
+    i
+    t
+    i
+    o
+    n
+    t
+    h
+    a
+    t
+    t
+    h
+    e
+    r
+    e
+    l
+    a
+    t
+    e
+    d
+    p
+    e
+    r
+    s
+    o
+    n
+    h
+    a
+    d
+    .
     
-    The significant Conditions (or condition) that the family member had. This
-    is a repeating section to allow a system to represent more than one
-    condition per resource, though there is nothing stopping multiple resources
-    - one per condition.
+    
+    T
+    h
+    e
+    s
+    i
+    g
+    n
+    i
+    f
+    i
+    c
+    a
+    n
+    t
+    C
+    o
+    n
+    d
+    i
+    t
+    i
+    o
+    n
+    s
+    (
+    o
+    r
+    c
+    o
+    n
+    d
+    i
+    t
+    i
+    o
+    n
+    )
+    t
+    h
+    a
+    t
+    t
+    h
+    e
+    f
+    a
+    m
+    i
+    l
+    y
+    m
+    e
+    m
+    b
+    e
+    r
+    h
+    a
+    d
+    .
+    T
+    h
+    i
+    s
+    i
+    s
+    a
+    r
+    e
+    p
+    e
+    a
+    t
+    i
+    n
+    g
+    s
+    e
+    c
+    t
+    i
+    o
+    n
+    t
+    o
+    a
+    l
+    l
+    o
+    w
+    a
+    s
+    y
+    s
+    t
+    e
+    m
+    t
+    o
+    r
+    e
+    p
+    r
+    e
+    s
+    e
+    n
+    t
+    m
+    o
+    r
+    e
+    t
+    h
+    a
+    n
+    o
+    n
+    e
+    c
+    o
+    n
+    d
+    i
+    t
+    i
+    o
+    n
+    p
+    e
+    r
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    ,
+    t
+    h
+    o
+    u
+    g
+    h
+    t
+    h
+    e
+    r
+    e
+    i
+    s
+    n
+    o
+    t
+    h
+    i
+    n
+    g
+    s
+    t
+    o
+    p
+    p
+    i
+    n
+    g
+    m
+    u
+    l
+    t
+    i
+    p
+    l
+    e
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    s
+    -
+    o
+    n
+    e
+    p
+    e
+    r
+    c
+    o
+    n
+    d
+    i
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "FamilyMemberHistoryCondition"
@@ -185,31 +1275,292 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Condition suffered by relation.
+        """ 
+        C
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        s
+        u
+        f
+        f
+        e
+        r
+        e
+        d
+        b
+        y
+        r
+        e
+        l
+        a
+        t
+        i
+        o
+        n
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.contributedToDeath = None
+        """ 
+        W
+        h
+        e
+        t
+        h
+        e
+        r
+        t
+        h
+        e
+        c
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        c
+        o
+        n
+        t
+        r
+        i
+        b
+        u
+        t
+        e
+        d
+        t
+        o
+        t
+        h
+        e
+        c
+        a
+        u
+        s
+        e
+        o
+        f
+        d
+        e
+        a
+        t
+        h
+        .
+        Type `bool`. """
+        
         self.note = None
-        """ Extra information about condition.
+        """ 
+        E
+        x
+        t
+        r
+        a
+        i
+        n
+        f
+        o
+        r
+        m
+        a
+        t
+        i
+        o
+        n
+        a
+        b
+        o
+        u
+        t
+        c
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        .
         List of `Annotation` items (represented as `dict` in JSON). """
         
         self.onsetAge = None
-        """ When condition first manifested.
+        """ 
+        W
+        h
+        e
+        n
+        c
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        f
+        i
+        r
+        s
+        t
+        m
+        a
+        n
+        i
+        f
+        e
+        s
+        t
+        e
+        d
+        .
         Type `Age` (represented as `dict` in JSON). """
         
         self.onsetPeriod = None
-        """ When condition first manifested.
+        """ 
+        W
+        h
+        e
+        n
+        c
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        f
+        i
+        r
+        s
+        t
+        m
+        a
+        n
+        i
+        f
+        e
+        s
+        t
+        e
+        d
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.onsetRange = None
-        """ When condition first manifested.
+        """ 
+        W
+        h
+        e
+        n
+        c
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        f
+        i
+        r
+        s
+        t
+        m
+        a
+        n
+        i
+        f
+        e
+        s
+        t
+        e
+        d
+        .
         Type `Range` (represented as `dict` in JSON). """
         
         self.onsetString = None
-        """ When condition first manifested.
+        """ 
+        W
+        h
+        e
+        n
+        c
+        o
+        n
+        d
+        i
+        t
+        i
+        o
+        n
+        f
+        i
+        r
+        s
+        t
+        m
+        a
+        n
+        i
+        f
+        e
+        s
+        t
+        e
+        d
+        .
         Type `str`. """
         
         self.outcome = None
-        """ deceased | permanent disability | etc..
+        """ 
+        d
+        e
+        c
+        e
+        a
+        s
+        e
+        d
+        |
+        p
+        e
+        r
+        m
+        a
+        n
+        e
+        n
+        t
+        d
+        i
+        s
+        a
+        b
+        i
+        l
+        i
+        t
+        y
+        |
+        e
+        t
+        c
+        .
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(FamilyMemberHistoryCondition, self).__init__(jsondict=jsondict, strict=strict)
@@ -218,6 +1569,7 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
         js = super(FamilyMemberHistoryCondition, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("contributedToDeath", "contributedToDeath", bool, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("onsetAge", "onsetAge", age.Age, False, "onset", False),
             ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),

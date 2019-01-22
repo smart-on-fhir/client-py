@@ -1,16 +1,152 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Identifier) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Identifier) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class Identifier(element.Element):
-    """ An identifier intended for computation.
+    """ 
+    A
+    n
+    i
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    r
+    i
+    n
+    t
+    e
+    n
+    d
+    e
+    d
+    f
+    o
+    r
+    c
+    o
+    m
+    p
+    u
+    t
+    a
+    t
+    i
+    o
+    n
+    .
     
-    A technical identifier - identifies some entity uniquely and unambiguously.
+    
+    A
+    n
+    i
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    r
+    -
+    i
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    s
+    s
+    o
+    m
+    e
+    e
+    n
+    t
+    i
+    t
+    y
+    u
+    n
+    i
+    q
+    u
+    e
+    l
+    y
+    a
+    n
+    d
+    u
+    n
+    a
+    m
+    b
+    i
+    g
+    u
+    o
+    u
+    s
+    l
+    y
+    .
+    T
+    y
+    p
+    i
+    c
+    a
+    l
+    l
+    y
+    t
+    h
+    i
+    s
+    i
+    s
+    u
+    s
+    e
+    d
+    f
+    o
+    r
+    b
+    u
+    s
+    i
+    n
+    e
+    s
+    s
+    i
+    d
+    e
+    n
+    t
+    i
+    f
+    i
+    e
+    r
+    s
+    .
+    
     """
     
     resource_type = "Identifier"
@@ -24,27 +160,223 @@ class Identifier(element.Element):
         """
         
         self.assigner = None
-        """ Organization that issued id (may be just text).
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ 
+        O
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        t
+        h
+        a
+        t
+        i
+        s
+        s
+        u
+        e
+        d
+        i
+        d
+        (
+        m
+        a
+        y
+        b
+        e
+        j
+        u
+        s
+        t
+        t
+        e
+        x
+        t
+        )
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.period = None
-        """ Time period when id is/was valid for use.
+        """ 
+        T
+        i
+        m
+        e
+        p
+        e
+        r
+        i
+        o
+        d
+        w
+        h
+        e
+        n
+        i
+        d
+        i
+        s
+        /
+        w
+        a
+        s
+        v
+        a
+        l
+        i
+        d
+        f
+        o
+        r
+        u
+        s
+        e
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.system = None
-        """ The namespace for the identifier value.
+        """ 
+        T
+        h
+        e
+        n
+        a
+        m
+        e
+        s
+        p
+        a
+        c
+        e
+        f
+        o
+        r
+        t
+        h
+        e
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        v
+        a
+        l
+        u
+        e
+        .
         Type `str`. """
         
         self.type = None
-        """ Description of identifier.
+        """ 
+        D
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        o
+        f
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.use = None
-        """ usual | official | temp | secondary (If known).
+        """ 
+        u
+        s
+        u
+        a
+        l
+        |
+        o
+        f
+        f
+        i
+        c
+        i
+        a
+        l
+        |
+        t
+        e
+        m
+        p
+        |
+        s
+        e
+        c
+        o
+        n
+        d
+        a
+        r
+        y
+        |
+        o
+        l
+        d
+        (
+        I
+        f
+        k
+        n
+        o
+        w
+        n
+        )
+        .
         Type `str`. """
         
         self.value = None
-        """ The value that is unique.
+        """ 
+        T
+        h
+        e
+        v
+        a
+        l
+        u
+        e
+        t
+        h
+        a
+        t
+        i
+        s
+        u
+        n
+        i
+        q
+        u
+        e
+        .
         Type `str`. """
         
         super(Identifier, self).__init__(jsondict=jsondict, strict=strict)

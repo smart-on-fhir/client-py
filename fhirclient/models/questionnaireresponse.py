@@ -1,18 +1,226 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class QuestionnaireResponse(domainresource.DomainResource):
-    """ A structured set of questions and their answers.
+    """ 
+    A
+    s
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    d
+    s
+    e
+    t
+    o
+    f
+    q
+    u
+    e
+    s
+    t
+    i
+    o
+    n
+    s
+    a
+    n
+    d
+    t
+    h
+    e
+    i
+    r
+    a
+    n
+    s
+    w
+    e
+    r
+    s
+    .
     
-    A structured set of questions and their answers. The questions are ordered
-    and grouped into coherent subsets, corresponding to the structure of the
-    grouping of the questionnaire being responded to.
+    
+    A
+    s
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    d
+    s
+    e
+    t
+    o
+    f
+    q
+    u
+    e
+    s
+    t
+    i
+    o
+    n
+    s
+    a
+    n
+    d
+    t
+    h
+    e
+    i
+    r
+    a
+    n
+    s
+    w
+    e
+    r
+    s
+    .
+    T
+    h
+    e
+    q
+    u
+    e
+    s
+    t
+    i
+    o
+    n
+    s
+    a
+    r
+    e
+    o
+    r
+    d
+    e
+    r
+    e
+    d
+    a
+    n
+    d
+    g
+    r
+    o
+    u
+    p
+    e
+    d
+    i
+    n
+    t
+    o
+    c
+    o
+    h
+    e
+    r
+    e
+    n
+    t
+    s
+    u
+    b
+    s
+    e
+    t
+    s
+    ,
+    c
+    o
+    r
+    r
+    e
+    s
+    p
+    o
+    n
+    d
+    i
+    n
+    g
+    t
+    o
+    t
+    h
+    e
+    s
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    o
+    f
+    t
+    h
+    e
+    g
+    r
+    o
+    u
+    p
+    i
+    n
+    g
+    o
+    f
+    t
+    h
+    e
+    q
+    u
+    e
+    s
+    t
+    i
+    o
+    n
+    n
+    a
+    i
+    r
+    e
+    b
+    e
+    i
+    n
+    g
+    r
+    e
+    s
+    p
+    o
+    n
+    d
+    e
+    d
+    t
+    o
+    .
+    
     """
     
     resource_type = "QuestionnaireResponse"
@@ -26,48 +234,378 @@ class QuestionnaireResponse(domainresource.DomainResource):
         """
         
         self.author = None
-        """ Person who received and recorded the answers.
-        Type `FHIRReference` referencing `Device, Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
+        """ 
+        P
+        e
+        r
+        s
+        o
+        n
+        w
+        h
+        o
+        r
+        e
+        c
+        e
+        i
+        v
+        e
+        d
+        a
+        n
+        d
+        r
+        e
+        c
+        o
+        r
+        d
+        e
+        d
+        t
+        h
+        e
+        a
+        n
+        s
+        w
+        e
+        r
+        s
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.authored = None
-        """ Date the answers were gathered.
+        """ 
+        D
+        a
+        t
+        e
+        t
+        h
+        e
+        a
+        n
+        s
+        w
+        e
+        r
+        s
+        w
+        e
+        r
+        e
+        g
+        a
+        t
+        h
+        e
+        r
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.basedOn = None
-        """ Request fulfilled by this QuestionnaireResponse.
-        List of `FHIRReference` items referencing `ReferralRequest, CarePlan, ProcedureRequest` (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        q
+        u
+        e
+        s
+        t
+        f
+        u
+        l
+        f
+        i
+        l
+        l
+        e
+        d
+        b
+        y
+        t
+        h
+        i
+        s
+        Q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        n
+        a
+        i
+        r
+        e
+        R
+        e
+        s
+        p
+        o
+        n
+        s
+        e
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.context = None
-        """ Encounter or Episode during which questionnaire was completed.
-        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        self.encounter = None
+        """ 
+        E
+        n
+        c
+        o
+        u
+        n
+        t
+        e
+        r
+        c
+        r
+        e
+        a
+        t
+        e
+        d
+        a
+        s
+        p
+        a
+        r
+        t
+        o
+        f
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Unique id for this set of answers.
+        """ 
+        U
+        n
+        i
+        q
+        u
+        e
+        i
+        d
+        f
+        o
+        r
+        t
+        h
+        i
+        s
+        s
+        e
+        t
+        o
+        f
+        a
+        n
+        s
+        w
+        e
+        r
+        s
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.item = None
-        """ Groups and questions.
+        """ 
+        G
+        r
+        o
+        u
+        p
+        s
+        a
+        n
+        d
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        s
+        .
         List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
         
-        self.parent = None
-        """ Part of this action.
-        List of `FHIRReference` items referencing `Observation, Procedure` (represented as `dict` in JSON). """
+        self.partOf = None
+        """ 
+        P
+        a
+        r
+        t
+        o
+        f
+        t
+        h
+        i
+        s
+        a
+        c
+        t
+        i
+        o
+        n
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.questionnaire = None
-        """ Form being answered.
-        Type `FHIRReference` referencing `Questionnaire` (represented as `dict` in JSON). """
+        """ 
+        F
+        o
+        r
+        m
+        b
+        e
+        i
+        n
+        g
+        a
+        n
+        s
+        w
+        e
+        r
+        e
+        d
+        .
+        Type `str`. """
         
         self.source = None
-        """ The person who answered the questions.
-        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        """ 
+        T
+        h
+        e
+        p
+        e
+        r
+        s
+        o
+        n
+        w
+        h
+        o
+        a
+        n
+        s
+        w
+        e
+        r
+        e
+        d
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        s
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
-        """ in-progress | completed | amended | entered-in-error | stopped.
+        """ 
+        i
+        n
+        -
+        p
+        r
+        o
+        g
+        r
+        e
+        s
+        s
+        |
+        c
+        o
+        m
+        p
+        l
+        e
+        t
+        e
+        d
+        |
+        a
+        m
+        e
+        n
+        d
+        e
+        d
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        |
+        s
+        t
+        o
+        p
+        p
+        e
+        d
+        .
         Type `str`. """
         
         self.subject = None
-        """ The subject of the questions.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        T
+        h
+        e
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        o
+        f
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        s
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(QuestionnaireResponse, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -77,11 +615,11 @@ class QuestionnaireResponse(domainresource.DomainResource):
             ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("authored", "authored", fhirdate.FHIRDate, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("item", "item", QuestionnaireResponseItem, True, None, False),
-            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
-            ("questionnaire", "questionnaire", fhirreference.FHIRReference, False, None, False),
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
+            ("questionnaire", "questionnaire", str, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
@@ -92,10 +630,104 @@ class QuestionnaireResponse(domainresource.DomainResource):
 from . import backboneelement
 
 class QuestionnaireResponseItem(backboneelement.BackboneElement):
-    """ Groups and questions.
+    """ 
+    G
+    r
+    o
+    u
+    p
+    s
+    a
+    n
+    d
+    q
+    u
+    e
+    s
+    t
+    i
+    o
+    n
+    s
+    .
     
-    A group or question item from the original questionnaire for which answers
-    are provided.
+    
+    A
+    g
+    r
+    o
+    u
+    p
+    o
+    r
+    q
+    u
+    e
+    s
+    t
+    i
+    o
+    n
+    i
+    t
+    e
+    m
+    f
+    r
+    o
+    m
+    t
+    h
+    e
+    o
+    r
+    i
+    g
+    i
+    n
+    a
+    l
+    q
+    u
+    e
+    s
+    t
+    i
+    o
+    n
+    n
+    a
+    i
+    r
+    e
+    f
+    o
+    r
+    w
+    h
+    i
+    c
+    h
+    a
+    n
+    s
+    w
+    e
+    r
+    s
+    a
+    r
+    e
+    p
+    r
+    o
+    v
+    i
+    d
+    e
+    d
+    .
+    
     """
     
     resource_type = "QuestionnaireResponseItem"
@@ -109,27 +741,186 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
         """
         
         self.answer = None
-        """ The response(s) to the question.
+        """ 
+        T
+        h
+        e
+        r
+        e
+        s
+        p
+        o
+        n
+        s
+        e
+        (
+        s
+        )
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         List of `QuestionnaireResponseItemAnswer` items (represented as `dict` in JSON). """
         
         self.definition = None
-        """ ElementDefinition - details for the item.
+        """ 
+        E
+        l
+        e
+        m
+        e
+        n
+        t
+        D
+        e
+        f
+        i
+        n
+        i
+        t
+        i
+        o
+        n
+        -
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        i
+        t
+        e
+        m
+        .
         Type `str`. """
         
         self.item = None
-        """ Nested questionnaire response items.
+        """ 
+        N
+        e
+        s
+        t
+        e
+        d
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        n
+        a
+        i
+        r
+        e
+        r
+        e
+        s
+        p
+        o
+        n
+        s
+        e
+        i
+        t
+        e
+        m
+        s
+        .
         List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
         
         self.linkId = None
-        """ Pointer to specific item from Questionnaire.
+        """ 
+        P
+        o
+        i
+        n
+        t
+        e
+        r
+        t
+        o
+        s
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        i
+        t
+        e
+        m
+        f
+        r
+        o
+        m
+        Q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        n
+        a
+        i
+        r
+        e
+        .
         Type `str`. """
         
-        self.subject = None
-        """ The subject this group's answers are about.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
         self.text = None
-        """ Name for group or question text.
+        """ 
+        N
+        a
+        m
+        e
+        f
+        o
+        r
+        g
+        r
+        o
+        u
+        p
+        o
+        r
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        t
+        e
+        x
+        t
+        .
         Type `str`. """
         
         super(QuestionnaireResponseItem, self).__init__(jsondict=jsondict, strict=strict)
@@ -141,16 +932,82 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
             ("definition", "definition", str, False, None, False),
             ("item", "item", QuestionnaireResponseItem, True, None, False),
             ("linkId", "linkId", str, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("text", "text", str, False, None, False),
         ])
         return js
 
 
 class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
-    """ The response(s) to the question.
+    """ 
+    T
+    h
+    e
+    r
+    e
+    s
+    p
+    o
+    n
+    s
+    e
+    (
+    s
+    )
+    t
+    o
+    t
+    h
+    e
+    q
+    u
+    e
+    s
+    t
+    i
+    o
+    n
+    .
     
-    The respondent's answer(s) to the question.
+    
+    T
+    h
+    e
+    r
+    e
+    s
+    p
+    o
+    n
+    d
+    e
+    n
+    t
+    '
+    s
+    a
+    n
+    s
+    w
+    e
+    r
+    (
+    s
+    )
+    t
+    o
+    t
+    h
+    e
+    q
+    u
+    e
+    s
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "QuestionnaireResponseItemAnswer"
@@ -164,55 +1021,476 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
         """
         
         self.item = None
-        """ Nested groups and questions.
+        """ 
+        N
+        e
+        s
+        t
+        e
+        d
+        g
+        r
+        o
+        u
+        p
+        s
+        a
+        n
+        d
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        s
+        .
         List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
         
         self.valueAttachment = None
-        """ Single-valued answer to the question.
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.valueBoolean = None
-        """ Single-valued answer to the question.
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         Type `bool`. """
         
         self.valueCoding = None
-        """ Single-valued answer to the question.
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         self.valueDate = None
-        """ Single-valued answer to the question.
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueDateTime = None
-        """ Single-valued answer to the question.
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueDecimal = None
-        """ Single-valued answer to the question.
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         Type `float`. """
         
         self.valueInteger = None
-        """ Single-valued answer to the question.
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         Type `int`. """
         
         self.valueQuantity = None
-        """ Single-valued answer to the question.
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.valueReference = None
-        """ Single-valued answer to the question.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.valueString = None
-        """ Single-valued answer to the question.
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.valueTime = None
-        """ Single-valued answer to the question.
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueUri = None
-        """ Single-valued answer to the question.
+        """ 
+        S
+        i
+        n
+        g
+        l
+        e
+        -
+        v
+        a
+        l
+        u
+        e
+        d
+        a
+        n
+        s
+        w
+        e
+        r
+        t
+        o
+        t
+        h
+        e
+        q
+        u
+        e
+        s
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         super(QuestionnaireResponseItemAnswer, self).__init__(jsondict=jsondict, strict=strict)

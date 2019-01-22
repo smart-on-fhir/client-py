@@ -1,17 +1,185 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class ContactPoint(element.Element):
-    """ Details of a Technology mediated contact point (phone, fax, email, etc.).
+    """ 
+    D
+    e
+    t
+    a
+    i
+    l
+    s
+    o
+    f
+    a
+    T
+    e
+    c
+    h
+    n
+    o
+    l
+    o
+    g
+    y
+    m
+    e
+    d
+    i
+    a
+    t
+    e
+    d
+    c
+    o
+    n
+    t
+    a
+    c
+    t
+    p
+    o
+    i
+    n
+    t
+    (
+    p
+    h
+    o
+    n
+    e
+    ,
+    f
+    a
+    x
+    ,
+    e
+    m
+    a
+    i
+    l
+    ,
+    e
+    t
+    c
+    .
+    )
+    .
     
-    Details for all kinds of technology mediated contact points for a person or
-    organization, including telephone, email, etc.
+    
+    D
+    e
+    t
+    a
+    i
+    l
+    s
+    f
+    o
+    r
+    a
+    l
+    l
+    k
+    i
+    n
+    d
+    s
+    o
+    f
+    t
+    e
+    c
+    h
+    n
+    o
+    l
+    o
+    g
+    y
+    m
+    e
+    d
+    i
+    a
+    t
+    e
+    d
+    c
+    o
+    n
+    t
+    a
+    c
+    t
+    p
+    o
+    i
+    n
+    t
+    s
+    f
+    o
+    r
+    a
+    p
+    e
+    r
+    s
+    o
+    n
+    o
+    r
+    o
+    r
+    g
+    a
+    n
+    i
+    z
+    a
+    t
+    i
+    o
+    n
+    ,
+    i
+    n
+    c
+    l
+    u
+    d
+    i
+    n
+    g
+    t
+    e
+    l
+    e
+    p
+    h
+    o
+    n
+    e
+    ,
+    e
+    m
+    a
+    i
+    l
+    ,
+    e
+    t
+    c
+    .
+    
     """
     
     resource_type = "ContactPoint"
@@ -25,23 +193,219 @@ class ContactPoint(element.Element):
         """
         
         self.period = None
-        """ Time period when the contact point was/is in use.
+        """ 
+        T
+        i
+        m
+        e
+        p
+        e
+        r
+        i
+        o
+        d
+        w
+        h
+        e
+        n
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        p
+        o
+        i
+        n
+        t
+        w
+        a
+        s
+        /
+        i
+        s
+        i
+        n
+        u
+        s
+        e
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.rank = None
-        """ Specify preferred order of use (1 = highest).
+        """ 
+        S
+        p
+        e
+        c
+        i
+        f
+        y
+        p
+        r
+        e
+        f
+        e
+        r
+        r
+        e
+        d
+        o
+        r
+        d
+        e
+        r
+        o
+        f
+        u
+        s
+        e
+        (
+        1
+        =
+        h
+        i
+        g
+        h
+        e
+        s
+        t
+        )
+        .
         Type `int`. """
         
         self.system = None
-        """ phone | fax | email | pager | url | sms | other.
+        """ 
+        p
+        h
+        o
+        n
+        e
+        |
+        f
+        a
+        x
+        |
+        e
+        m
+        a
+        i
+        l
+        |
+        p
+        a
+        g
+        e
+        r
+        |
+        u
+        r
+        l
+        |
+        s
+        m
+        s
+        |
+        o
+        t
+        h
+        e
+        r
+        .
         Type `str`. """
         
         self.use = None
-        """ home | work | temp | old | mobile - purpose of this contact point.
+        """ 
+        h
+        o
+        m
+        e
+        |
+        w
+        o
+        r
+        k
+        |
+        t
+        e
+        m
+        p
+        |
+        o
+        l
+        d
+        |
+        m
+        o
+        b
+        i
+        l
+        e
+        -
+        p
+        u
+        r
+        p
+        o
+        s
+        e
+        o
+        f
+        t
+        h
+        i
+        s
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        p
+        o
+        i
+        n
+        t
+        .
         Type `str`. """
         
         self.value = None
-        """ The actual contact point details.
+        """ 
+        T
+        h
+        e
+        a
+        c
+        t
+        u
+        a
+        l
+        c
+        o
+        n
+        t
+        a
+        c
+        t
+        p
+        o
+        i
+        n
+        t
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        .
         Type `str`. """
         
         super(ContactPoint, self).__init__(jsondict=jsondict, strict=strict)

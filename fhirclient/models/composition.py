@@ -1,23 +1,654 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Composition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Composition) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class Composition(domainresource.DomainResource):
-    """ A set of resources composed into a single coherent clinical statement with
-    clinical attestation.
+    """ 
+    A
+    s
+    e
+    t
+    o
+    f
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    s
+    c
+    o
+    m
+    p
+    o
+    s
+    e
+    d
+    i
+    n
+    t
+    o
+    a
+    s
+    i
+    n
+    g
+    l
+    e
+    c
+    o
+    h
+    e
+    r
+    e
+    n
+    t
+    c
+    l
+    i
+    n
+    i
+    c
+    a
+    l
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    w
+    i
+    t
+    h
+    c
+    l
+    i
+    n
+    i
+    c
+    a
+    l
+    a
+    t
+    t
+    e
+    s
+    t
+    a
+    t
+    i
+    o
+    n
+    .
     
-    A set of healthcare-related information that is assembled together into a
-    single logical document that provides a single coherent statement of
-    meaning, establishes its own context and that has clinical attestation with
-    regard to who is making the statement. While a Composition defines the
-    structure, it does not actually contain the content: rather the full
-    content of a document is contained in a Bundle, of which the Composition is
-    the first resource contained.
+    
+    A
+    s
+    e
+    t
+    o
+    f
+    h
+    e
+    a
+    l
+    t
+    h
+    c
+    a
+    r
+    e
+    -
+    r
+    e
+    l
+    a
+    t
+    e
+    d
+    i
+    n
+    f
+    o
+    r
+    m
+    a
+    t
+    i
+    o
+    n
+    t
+    h
+    a
+    t
+    i
+    s
+    a
+    s
+    s
+    e
+    m
+    b
+    l
+    e
+    d
+    t
+    o
+    g
+    e
+    t
+    h
+    e
+    r
+    i
+    n
+    t
+    o
+    a
+    s
+    i
+    n
+    g
+    l
+    e
+    l
+    o
+    g
+    i
+    c
+    a
+    l
+    p
+    a
+    c
+    k
+    a
+    g
+    e
+    t
+    h
+    a
+    t
+    p
+    r
+    o
+    v
+    i
+    d
+    e
+    s
+    a
+    s
+    i
+    n
+    g
+    l
+    e
+    c
+    o
+    h
+    e
+    r
+    e
+    n
+    t
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    o
+    f
+    m
+    e
+    a
+    n
+    i
+    n
+    g
+    ,
+    e
+    s
+    t
+    a
+    b
+    l
+    i
+    s
+    h
+    e
+    s
+    i
+    t
+    s
+    o
+    w
+    n
+    c
+    o
+    n
+    t
+    e
+    x
+    t
+    a
+    n
+    d
+    t
+    h
+    a
+    t
+    h
+    a
+    s
+    c
+    l
+    i
+    n
+    i
+    c
+    a
+    l
+    a
+    t
+    t
+    e
+    s
+    t
+    a
+    t
+    i
+    o
+    n
+    w
+    i
+    t
+    h
+    r
+    e
+    g
+    a
+    r
+    d
+    t
+    o
+    w
+    h
+    o
+    i
+    s
+    m
+    a
+    k
+    i
+    n
+    g
+    t
+    h
+    e
+    s
+    t
+    a
+    t
+    e
+    m
+    e
+    n
+    t
+    .
+    A
+    C
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    d
+    e
+    f
+    i
+    n
+    e
+    s
+    t
+    h
+    e
+    s
+    t
+    r
+    u
+    c
+    t
+    u
+    r
+    e
+    a
+    n
+    d
+    n
+    a
+    r
+    r
+    a
+    t
+    i
+    v
+    e
+    c
+    o
+    n
+    t
+    e
+    n
+    t
+    n
+    e
+    c
+    e
+    s
+    s
+    a
+    r
+    y
+    f
+    o
+    r
+    a
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    .
+    H
+    o
+    w
+    e
+    v
+    e
+    r
+    ,
+    a
+    C
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    a
+    l
+    o
+    n
+    e
+    d
+    o
+    e
+    s
+    n
+    o
+    t
+    c
+    o
+    n
+    s
+    t
+    i
+    t
+    u
+    t
+    e
+    a
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    .
+    R
+    a
+    t
+    h
+    e
+    r
+    ,
+    t
+    h
+    e
+    C
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    m
+    u
+    s
+    t
+    b
+    e
+    t
+    h
+    e
+    f
+    i
+    r
+    s
+    t
+    e
+    n
+    t
+    r
+    y
+    i
+    n
+    a
+    B
+    u
+    n
+    d
+    l
+    e
+    w
+    h
+    e
+    r
+    e
+    B
+    u
+    n
+    d
+    l
+    e
+    .
+    t
+    y
+    p
+    e
+    =
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    ,
+    a
+    n
+    d
+    a
+    n
+    y
+    o
+    t
+    h
+    e
+    r
+    r
+    e
+    s
+    o
+    u
+    r
+    c
+    e
+    s
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    d
+    f
+    r
+    o
+    m
+    C
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    m
+    u
+    s
+    t
+    b
+    e
+    i
+    n
+    c
+    l
+    u
+    d
+    e
+    d
+    a
+    s
+    s
+    u
+    b
+    s
+    e
+    q
+    u
+    e
+    n
+    t
+    e
+    n
+    t
+    r
+    i
+    e
+    s
+    i
+    n
+    t
+    h
+    e
+    B
+    u
+    n
+    d
+    l
+    e
+    (
+    f
+    o
+    r
+    e
+    x
+    a
+    m
+    p
+    l
+    e
+    P
+    a
+    t
+    i
+    e
+    n
+    t
+    ,
+    P
+    r
+    a
+    c
+    t
+    i
+    t
+    i
+    o
+    n
+    e
+    r
+    ,
+    E
+    n
+    c
+    o
+    u
+    n
+    t
+    e
+    r
+    ,
+    e
+    t
+    c
+    .
+    )
+    .
+    
     """
     
     resource_type = "Composition"
@@ -31,63 +662,568 @@ class Composition(domainresource.DomainResource):
         """
         
         self.attester = None
-        """ Attests to accuracy of composition.
+        """ 
+        A
+        t
+        t
+        e
+        s
+        t
+        s
+        t
+        o
+        a
+        c
+        c
+        u
+        r
+        a
+        c
+        y
+        o
+        f
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        .
         List of `CompositionAttester` items (represented as `dict` in JSON). """
         
         self.author = None
-        """ Who and/or what authored the composition.
-        List of `FHIRReference` items referencing `Practitioner, Device, Patient, RelatedPerson` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        a
+        n
+        d
+        /
+        o
+        r
+        w
+        h
+        a
+        t
+        a
+        u
+        t
+        h
+        o
+        r
+        e
+        d
+        t
+        h
+        e
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.class_fhir = None
-        """ Categorization of Composition.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.category = None
+        """ 
+        C
+        a
+        t
+        e
+        g
+        o
+        r
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        o
+        f
+        C
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        .
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.confidentiality = None
-        """ As defined by affinity domain.
+        """ 
+        A
+        s
+        d
+        e
+        f
+        i
+        n
+        e
+        d
+        b
+        y
+        a
+        f
+        f
+        i
+        n
+        i
+        t
+        y
+        d
+        o
+        m
+        a
+        i
+        n
+        .
         Type `str`. """
         
         self.custodian = None
-        """ Organization which maintains the composition.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ 
+        O
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        w
+        h
+        i
+        c
+        h
+        m
+        a
+        i
+        n
+        t
+        a
+        i
+        n
+        s
+        t
+        h
+        e
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.date = None
-        """ Composition editing time.
+        """ 
+        C
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        e
+        d
+        i
+        t
+        i
+        n
+        g
+        t
+        i
+        m
+        e
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.encounter = None
-        """ Context of the Composition.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        """ 
+        C
+        o
+        n
+        t
+        e
+        x
+        t
+        o
+        f
+        t
+        h
+        e
+        C
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.event = None
-        """ The clinical service(s) being documented.
+        """ 
+        T
+        h
+        e
+        c
+        l
+        i
+        n
+        i
+        c
+        a
+        l
+        s
+        e
+        r
+        v
+        i
+        c
+        e
+        (
+        s
+        )
+        b
+        e
+        i
+        n
+        g
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        e
+        d
+        .
         List of `CompositionEvent` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Logical identifier of composition (version-independent).
+        """ 
+        V
+        e
+        r
+        s
+        i
+        o
+        n
+        -
+        i
+        n
+        d
+        e
+        p
+        e
+        n
+        d
+        e
+        n
+        t
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        f
+        o
+        r
+        t
+        h
+        e
+        C
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.relatesTo = None
-        """ Relationships to other compositions/documents.
+        """ 
+        R
+        e
+        l
+        a
+        t
+        i
+        o
+        n
+        s
+        h
+        i
+        p
+        s
+        t
+        o
+        o
+        t
+        h
+        e
+        r
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        s
+        /
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        s
+        .
         List of `CompositionRelatesTo` items (represented as `dict` in JSON). """
         
         self.section = None
-        """ Composition is broken into sections.
+        """ 
+        C
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        i
+        s
+        b
+        r
+        o
+        k
+        e
+        n
+        i
+        n
+        t
+        o
+        s
+        e
+        c
+        t
+        i
+        o
+        n
+        s
+        .
         List of `CompositionSection` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ preliminary | final | amended | entered-in-error.
+        """ 
+        p
+        r
+        e
+        l
+        i
+        m
+        i
+        n
+        a
+        r
+        y
+        |
+        f
+        i
+        n
+        a
+        l
+        |
+        a
+        m
+        e
+        n
+        d
+        e
+        d
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        .
         Type `str`. """
         
         self.subject = None
-        """ Who and/or what the composition is about.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        a
+        n
+        d
+        /
+        o
+        r
+        w
+        h
+        a
+        t
+        t
+        h
+        e
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        i
+        s
+        a
+        b
+        o
+        u
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.title = None
-        """ Human Readable name/title.
+        """ 
+        H
+        u
+        m
+        a
+        n
+        R
+        e
+        a
+        d
+        a
+        b
+        l
+        e
+        n
+        a
+        m
+        e
+        /
+        t
+        i
+        t
+        l
+        e
+        .
         Type `str`. """
         
         self.type = None
-        """ Kind of composition (LOINC if possible).
+        """ 
+        K
+        i
+        n
+        d
+        o
+        f
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        (
+        L
+        O
+        I
+        N
+        C
+        i
+        f
+        p
+        o
+        s
+        s
+        i
+        b
+        l
+        e
+        )
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Composition, self).__init__(jsondict=jsondict, strict=strict)
@@ -97,7 +1233,7 @@ class Composition(domainresource.DomainResource):
         js.extend([
             ("attester", "attester", CompositionAttester, True, None, False),
             ("author", "author", fhirreference.FHIRReference, True, None, True),
-            ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("confidentiality", "confidentiality", str, False, None, False),
             ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, True),
@@ -107,7 +1243,7 @@ class Composition(domainresource.DomainResource):
             ("relatesTo", "relatesTo", CompositionRelatesTo, True, None, False),
             ("section", "section", CompositionSection, True, None, False),
             ("status", "status", str, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("title", "title", str, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
@@ -117,9 +1253,106 @@ class Composition(domainresource.DomainResource):
 from . import backboneelement
 
 class CompositionAttester(backboneelement.BackboneElement):
-    """ Attests to accuracy of composition.
+    """ 
+    A
+    t
+    t
+    e
+    s
+    t
+    s
+    t
+    o
+    a
+    c
+    c
+    u
+    r
+    a
+    c
+    y
+    o
+    f
+    c
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    .
     
-    A participant who has attested to the accuracy of the composition/document.
+    
+    A
+    p
+    a
+    r
+    t
+    i
+    c
+    i
+    p
+    a
+    n
+    t
+    w
+    h
+    o
+    h
+    a
+    s
+    a
+    t
+    t
+    e
+    s
+    t
+    e
+    d
+    t
+    o
+    t
+    h
+    e
+    a
+    c
+    c
+    u
+    r
+    a
+    c
+    y
+    o
+    f
+    t
+    h
+    e
+    c
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    /
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    .
+    
     """
     
     resource_type = "CompositionAttester"
@@ -133,15 +1366,108 @@ class CompositionAttester(backboneelement.BackboneElement):
         """
         
         self.mode = None
-        """ personal | professional | legal | official.
-        List of `str` items. """
+        """ 
+        p
+        e
+        r
+        s
+        o
+        n
+        a
+        l
+        |
+        p
+        r
+        o
+        f
+        e
+        s
+        s
+        i
+        o
+        n
+        a
+        l
+        |
+        l
+        e
+        g
+        a
+        l
+        |
+        o
+        f
+        f
+        i
+        c
+        i
+        a
+        l
+        .
+        Type `str`. """
         
         self.party = None
-        """ Who attested the composition.
-        Type `FHIRReference` referencing `Patient, Practitioner, Organization` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        a
+        t
+        t
+        e
+        s
+        t
+        e
+        d
+        t
+        h
+        e
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.time = None
-        """ When the composition was attested.
+        """ 
+        W
+        h
+        e
+        n
+        t
+        h
+        e
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        w
+        a
+        s
+        a
+        t
+        t
+        e
+        s
+        t
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
         super(CompositionAttester, self).__init__(jsondict=jsondict, strict=strict)
@@ -149,7 +1475,7 @@ class CompositionAttester(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionAttester, self).elementProperties()
         js.extend([
-            ("mode", "mode", str, True, None, True),
+            ("mode", "mode", str, False, None, True),
             ("party", "party", fhirreference.FHIRReference, False, None, False),
             ("time", "time", fhirdate.FHIRDate, False, None, False),
         ])
@@ -157,10 +1483,117 @@ class CompositionAttester(backboneelement.BackboneElement):
 
 
 class CompositionEvent(backboneelement.BackboneElement):
-    """ The clinical service(s) being documented.
+    """ 
+    T
+    h
+    e
+    c
+    l
+    i
+    n
+    i
+    c
+    a
+    l
+    s
+    e
+    r
+    v
+    i
+    c
+    e
+    (
+    s
+    )
+    b
+    e
+    i
+    n
+    g
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    e
+    d
+    .
     
-    The clinical service, such as a colonoscopy or an appendectomy, being
-    documented.
+    
+    T
+    h
+    e
+    c
+    l
+    i
+    n
+    i
+    c
+    a
+    l
+    s
+    e
+    r
+    v
+    i
+    c
+    e
+    ,
+    s
+    u
+    c
+    h
+    a
+    s
+    a
+    c
+    o
+    l
+    o
+    n
+    o
+    s
+    c
+    o
+    p
+    y
+    o
+    r
+    a
+    n
+    a
+    p
+    p
+    e
+    n
+    d
+    e
+    c
+    t
+    o
+    m
+    y
+    ,
+    b
+    e
+    i
+    n
+    g
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    e
+    d
+    .
+    
     """
     
     resource_type = "CompositionEvent"
@@ -174,15 +1607,119 @@ class CompositionEvent(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Code(s) that apply to the event being documented.
+        """ 
+        C
+        o
+        d
+        e
+        (
+        s
+        )
+        t
+        h
+        a
+        t
+        a
+        p
+        p
+        l
+        y
+        t
+        o
+        t
+        h
+        e
+        e
+        v
+        e
+        n
+        t
+        b
+        e
+        i
+        n
+        g
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        e
+        d
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.detail = None
-        """ The event(s) being documented.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        T
+        h
+        e
+        e
+        v
+        e
+        n
+        t
+        (
+        s
+        )
+        b
+        e
+        i
+        n
+        g
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        e
+        d
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.period = None
-        """ The period covered by the documentation.
+        """ 
+        T
+        h
+        e
+        p
+        e
+        r
+        i
+        o
+        d
+        c
+        o
+        v
+        e
+        r
+        e
+        d
+        b
+        y
+        t
+        h
+        e
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         super(CompositionEvent, self).__init__(jsondict=jsondict, strict=strict)
@@ -198,10 +1735,137 @@ class CompositionEvent(backboneelement.BackboneElement):
 
 
 class CompositionRelatesTo(backboneelement.BackboneElement):
-    """ Relationships to other compositions/documents.
+    """ 
+    R
+    e
+    l
+    a
+    t
+    i
+    o
+    n
+    s
+    h
+    i
+    p
+    s
+    t
+    o
+    o
+    t
+    h
+    e
+    r
+    c
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    s
+    /
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    s
+    .
     
-    Relationships that this composition has with other compositions or
-    documents that already exist.
+    
+    R
+    e
+    l
+    a
+    t
+    i
+    o
+    n
+    s
+    h
+    i
+    p
+    s
+    t
+    h
+    a
+    t
+    t
+    h
+    i
+    s
+    c
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    h
+    a
+    s
+    w
+    i
+    t
+    h
+    o
+    t
+    h
+    e
+    r
+    c
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    s
+    o
+    r
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    s
+    t
+    h
+    a
+    t
+    a
+    l
+    r
+    e
+    a
+    d
+    y
+    e
+    x
+    i
+    s
+    t
+    .
+    
     """
     
     resource_type = "CompositionRelatesTo"
@@ -215,16 +1879,98 @@ class CompositionRelatesTo(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ replaces | transforms | signs | appends.
+        """ 
+        r
+        e
+        p
+        l
+        a
+        c
+        e
+        s
+        |
+        t
+        r
+        a
+        n
+        s
+        f
+        o
+        r
+        m
+        s
+        |
+        s
+        i
+        g
+        n
+        s
+        |
+        a
+        p
+        p
+        e
+        n
+        d
+        s
+        .
         Type `str`. """
         
         self.targetIdentifier = None
-        """ Target of the relationship.
+        """ 
+        T
+        a
+        r
+        g
+        e
+        t
+        o
+        f
+        t
+        h
+        e
+        r
+        e
+        l
+        a
+        t
+        i
+        o
+        n
+        s
+        h
+        i
+        p
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.targetReference = None
-        """ Target of the relationship.
-        Type `FHIRReference` referencing `Composition` (represented as `dict` in JSON). """
+        """ 
+        T
+        a
+        r
+        g
+        e
+        t
+        o
+        f
+        t
+        h
+        e
+        r
+        e
+        l
+        a
+        t
+        i
+        o
+        n
+        s
+        h
+        i
+        p
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(CompositionRelatesTo, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -239,9 +1985,87 @@ class CompositionRelatesTo(backboneelement.BackboneElement):
 
 
 class CompositionSection(backboneelement.BackboneElement):
-    """ Composition is broken into sections.
+    """ 
+    C
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    i
+    s
+    b
+    r
+    o
+    k
+    e
+    n
+    i
+    n
+    t
+    o
+    s
+    e
+    c
+    t
+    i
+    o
+    n
+    s
+    .
     
-    The root of the sections that make up the composition.
+    
+    T
+    h
+    e
+    r
+    o
+    o
+    t
+    o
+    f
+    t
+    h
+    e
+    s
+    e
+    c
+    t
+    i
+    o
+    n
+    s
+    t
+    h
+    a
+    t
+    m
+    a
+    k
+    e
+    u
+    p
+    t
+    h
+    e
+    c
+    o
+    m
+    p
+    o
+    s
+    i
+    t
+    i
+    o
+    n
+    .
+    
     """
     
     resource_type = "CompositionSection"
@@ -254,36 +2078,376 @@ class CompositionSection(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.author = None
+        """ 
+        W
+        h
+        o
+        a
+        n
+        d
+        /
+        o
+        r
+        w
+        h
+        a
+        t
+        a
+        u
+        t
+        h
+        o
+        r
+        e
+        d
+        t
+        h
+        e
+        s
+        e
+        c
+        t
+        i
+        o
+        n
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
         self.code = None
-        """ Classification of section (recommended).
+        """ 
+        C
+        l
+        a
+        s
+        s
+        i
+        f
+        i
+        c
+        a
+        t
+        i
+        o
+        n
+        o
+        f
+        s
+        e
+        c
+        t
+        i
+        o
+        n
+        (
+        r
+        e
+        c
+        o
+        m
+        m
+        e
+        n
+        d
+        e
+        d
+        )
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.emptyReason = None
-        """ Why the section is empty.
+        """ 
+        W
+        h
+        y
+        t
+        h
+        e
+        s
+        e
+        c
+        t
+        i
+        o
+        n
+        i
+        s
+        e
+        m
+        p
+        t
+        y
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.entry = None
-        """ A reference to data that supports this section.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ 
+        A
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        t
+        o
+        d
+        a
+        t
+        a
+        t
+        h
+        a
+        t
+        s
+        u
+        p
+        p
+        o
+        r
+        t
+        s
+        t
+        h
+        i
+        s
+        s
+        e
+        c
+        t
+        i
+        o
+        n
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.focus = None
+        """ 
+        W
+        h
+        o
+        /
+        w
+        h
+        a
+        t
+        t
+        h
+        e
+        s
+        e
+        c
+        t
+        i
+        o
+        n
+        i
+        s
+        a
+        b
+        o
+        u
+        t
+        ,
+        w
+        h
+        e
+        n
+        i
+        t
+        i
+        s
+        n
+        o
+        t
+        a
+        b
+        o
+        u
+        t
+        t
+        h
+        e
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        o
+        f
+        c
+        o
+        m
+        p
+        o
+        s
+        i
+        t
+        i
+        o
+        n
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.mode = None
-        """ working | snapshot | changes.
+        """ 
+        w
+        o
+        r
+        k
+        i
+        n
+        g
+        |
+        s
+        n
+        a
+        p
+        s
+        h
+        o
+        t
+        |
+        c
+        h
+        a
+        n
+        g
+        e
+        s
+        .
         Type `str`. """
         
         self.orderedBy = None
-        """ Order of section entries.
+        """ 
+        O
+        r
+        d
+        e
+        r
+        o
+        f
+        s
+        e
+        c
+        t
+        i
+        o
+        n
+        e
+        n
+        t
+        r
+        i
+        e
+        s
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.section = None
-        """ Nested Section.
+        """ 
+        N
+        e
+        s
+        t
+        e
+        d
+        S
+        e
+        c
+        t
+        i
+        o
+        n
+        .
         List of `CompositionSection` items (represented as `dict` in JSON). """
         
         self.text = None
-        """ Text summary of the section, for human interpretation.
+        """ 
+        T
+        e
+        x
+        t
+        s
+        u
+        m
+        m
+        a
+        r
+        y
+        o
+        f
+        t
+        h
+        e
+        s
+        e
+        c
+        t
+        i
+        o
+        n
+        ,
+        f
+        o
+        r
+        h
+        u
+        m
+        a
+        n
+        i
+        n
+        t
+        e
+        r
+        p
+        r
+        e
+        t
+        a
+        t
+        i
+        o
+        n
+        .
         Type `Narrative` (represented as `dict` in JSON). """
         
         self.title = None
-        """ Label for section (e.g. for ToC).
+        """ 
+        L
+        a
+        b
+        e
+        l
+        f
+        o
+        r
+        s
+        e
+        c
+        t
+        i
+        o
+        n
+        (
+        e
+        .
+        g
+        .
+        f
+        o
+        r
+        T
+        o
+        C
+        )
+        .
         Type `str`. """
         
         super(CompositionSection, self).__init__(jsondict=jsondict, strict=strict)
@@ -291,9 +2455,11 @@ class CompositionSection(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionSection, self).elementProperties()
         js.extend([
+            ("author", "author", fhirreference.FHIRReference, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False, None, False),
             ("entry", "entry", fhirreference.FHIRReference, True, None, False),
+            ("focus", "focus", fhirreference.FHIRReference, False, None, False),
             ("mode", "mode", str, False, None, False),
             ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False, None, False),
             ("section", "section", CompositionSection, True, None, False),

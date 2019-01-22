@@ -1,16 +1,94 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/HumanName) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/HumanName) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class HumanName(element.Element):
-    """ Name of a human - parts and usage.
+    """ 
+    N
+    a
+    m
+    e
+    o
+    f
+    a
+    h
+    u
+    m
+    a
+    n
+    -
+    p
+    a
+    r
+    t
+    s
+    a
+    n
+    d
+    u
+    s
+    a
+    g
+    e
+    .
     
-    A human's name with the ability to identify parts and usage.
+    
+    A
+    h
+    u
+    m
+    a
+    n
+    '
+    s
+    n
+    a
+    m
+    e
+    w
+    i
+    t
+    h
+    t
+    h
+    e
+    a
+    b
+    i
+    l
+    i
+    t
+    y
+    t
+    o
+    i
+    d
+    e
+    n
+    t
+    i
+    f
+    y
+    p
+    a
+    r
+    t
+    s
+    a
+    n
+    d
+    u
+    s
+    a
+    g
+    e
+    .
+    
     """
     
     resource_type = "HumanName"
@@ -24,31 +102,278 @@ class HumanName(element.Element):
         """
         
         self.family = None
-        """ Family name (often called 'Surname').
+        """ 
+        F
+        a
+        m
+        i
+        l
+        y
+        n
+        a
+        m
+        e
+        (
+        o
+        f
+        t
+        e
+        n
+        c
+        a
+        l
+        l
+        e
+        d
+        '
+        S
+        u
+        r
+        n
+        a
+        m
+        e
+        '
+        )
+        .
         Type `str`. """
         
         self.given = None
-        """ Given names (not always 'first'). Includes middle names.
+        """ 
+        G
+        i
+        v
+        e
+        n
+        n
+        a
+        m
+        e
+        s
+        (
+        n
+        o
+        t
+        a
+        l
+        w
+        a
+        y
+        s
+        '
+        f
+        i
+        r
+        s
+        t
+        '
+        )
+        .
+        I
+        n
+        c
+        l
+        u
+        d
+        e
+        s
+        m
+        i
+        d
+        d
+        l
+        e
+        n
+        a
+        m
+        e
+        s
+        .
         List of `str` items. """
         
         self.period = None
-        """ Time period when name was/is in use.
+        """ 
+        T
+        i
+        m
+        e
+        p
+        e
+        r
+        i
+        o
+        d
+        w
+        h
+        e
+        n
+        n
+        a
+        m
+        e
+        w
+        a
+        s
+        /
+        i
+        s
+        i
+        n
+        u
+        s
+        e
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.prefix = None
-        """ Parts that come before the name.
+        """ 
+        P
+        a
+        r
+        t
+        s
+        t
+        h
+        a
+        t
+        c
+        o
+        m
+        e
+        b
+        e
+        f
+        o
+        r
+        e
+        t
+        h
+        e
+        n
+        a
+        m
+        e
+        .
         List of `str` items. """
         
         self.suffix = None
-        """ Parts that come after the name.
+        """ 
+        P
+        a
+        r
+        t
+        s
+        t
+        h
+        a
+        t
+        c
+        o
+        m
+        e
+        a
+        f
+        t
+        e
+        r
+        t
+        h
+        e
+        n
+        a
+        m
+        e
+        .
         List of `str` items. """
         
         self.text = None
-        """ Text representation of the full name.
+        """ 
+        T
+        e
+        x
+        t
+        r
+        e
+        p
+        r
+        e
+        s
+        e
+        n
+        t
+        a
+        t
+        i
+        o
+        n
+        o
+        f
+        t
+        h
+        e
+        f
+        u
+        l
+        l
+        n
+        a
+        m
+        e
+        .
         Type `str`. """
         
         self.use = None
-        """ usual | official | temp | nickname | anonymous | old | maiden.
+        """ 
+        u
+        s
+        u
+        a
+        l
+        |
+        o
+        f
+        f
+        i
+        c
+        i
+        a
+        l
+        |
+        t
+        e
+        m
+        p
+        |
+        n
+        i
+        c
+        k
+        n
+        a
+        m
+        e
+        |
+        a
+        n
+        o
+        n
+        y
+        m
+        o
+        u
+        s
+        |
+        o
+        l
+        d
+        |
+        m
+        a
+        i
+        d
+        e
+        n
+        .
         Type `str`. """
         
         super(HumanName, self).__init__(jsondict=jsondict, strict=strict)

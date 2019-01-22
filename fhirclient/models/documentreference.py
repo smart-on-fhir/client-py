@@ -1,14 +1,329 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2019-01-22.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class DocumentReference(domainresource.DomainResource):
-    """ A reference to a document.
+    """ 
+    A
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    t
+    o
+    a
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    .
+    
+    
+    A
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    t
+    o
+    a
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    o
+    f
+    a
+    n
+    y
+    k
+    i
+    n
+    d
+    f
+    o
+    r
+    a
+    n
+    y
+    p
+    u
+    r
+    p
+    o
+    s
+    e
+    .
+    P
+    r
+    o
+    v
+    i
+    d
+    e
+    s
+    m
+    e
+    t
+    a
+    d
+    a
+    t
+    a
+    a
+    b
+    o
+    u
+    t
+    t
+    h
+    e
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    s
+    o
+    t
+    h
+    a
+    t
+    t
+    h
+    e
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    c
+    a
+    n
+    b
+    e
+    d
+    i
+    s
+    c
+    o
+    v
+    e
+    r
+    e
+    d
+    a
+    n
+    d
+    m
+    a
+    n
+    a
+    g
+    e
+    d
+    .
+    T
+    h
+    e
+    s
+    c
+    o
+    p
+    e
+    o
+    f
+    a
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    i
+    s
+    a
+    n
+    y
+    s
+    e
+    r
+    a
+    l
+    i
+    z
+    e
+    d
+    o
+    b
+    j
+    e
+    c
+    t
+    w
+    i
+    t
+    h
+    a
+    m
+    i
+    m
+    e
+    -
+    t
+    y
+    p
+    e
+    ,
+    s
+    o
+    i
+    n
+    c
+    l
+    u
+    d
+    e
+    s
+    f
+    o
+    r
+    m
+    a
+    l
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    c
+    e
+    n
+    t
+    r
+    i
+    c
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    s
+    (
+    C
+    D
+    A
+    )
+    ,
+    c
+    l
+    i
+    i
+    c
+    a
+    l
+    n
+    o
+    t
+    e
+    s
+    ,
+    s
+    c
+    a
+    n
+    n
+    e
+    d
+    p
+    a
+    p
+    e
+    r
+    ,
+    a
+    n
+    d
+    n
+    o
+    n
+    -
+    p
+    a
+    t
+    i
+    e
+    n
+    t
+    s
+    p
+    e
+    c
+    i
+    f
+    i
+    c
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    s
+    l
+    i
+    k
+    e
+    p
+    o
+    l
+    i
+    c
+    y
+    t
+    e
+    x
+    t
+    .
+    
     """
     
     resource_type = "DocumentReference"
@@ -22,71 +337,572 @@ class DocumentReference(domainresource.DomainResource):
         """
         
         self.authenticator = None
-        """ Who/what authenticated the document.
-        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        /
+        w
+        h
+        a
+        t
+        a
+        u
+        t
+        h
+        e
+        n
+        t
+        i
+        c
+        a
+        t
+        e
+        d
+        t
+        h
+        e
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.author = None
-        """ Who and/or what authored the document.
-        List of `FHIRReference` items referencing `Practitioner, Organization, Device, Patient, RelatedPerson` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        a
+        n
+        d
+        /
+        o
+        r
+        w
+        h
+        a
+        t
+        a
+        u
+        t
+        h
+        o
+        r
+        e
+        d
+        t
+        h
+        e
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.class_fhir = None
-        """ Categorization of document.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.category = None
+        """ 
+        C
+        a
+        t
+        e
+        g
+        o
+        r
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        o
+        f
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        .
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.content = None
-        """ Document referenced.
+        """ 
+        D
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        d
+        .
         List of `DocumentReferenceContent` items (represented as `dict` in JSON). """
         
         self.context = None
-        """ Clinical context of document.
+        """ 
+        C
+        l
+        i
+        n
+        i
+        c
+        a
+        l
+        c
+        o
+        n
+        t
+        e
+        x
+        t
+        o
+        f
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        .
         Type `DocumentReferenceContext` (represented as `dict` in JSON). """
         
-        self.created = None
-        """ Document creation time.
+        self.custodian = None
+        """ 
+        O
+        r
+        g
+        a
+        n
+        i
+        z
+        a
+        t
+        i
+        o
+        n
+        w
+        h
+        i
+        c
+        h
+        m
+        a
+        i
+        n
+        t
+        a
+        i
+        n
+        s
+        t
+        h
+        e
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.date = None
+        """ 
+        W
+        h
+        e
+        n
+        t
+        h
+        i
+        s
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        r
+        e
+        f
+        e
+        r
+        e
+        n
+        c
+        e
+        w
+        a
+        s
+        c
+        r
+        e
+        a
+        t
+        e
+        d
+        .
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.custodian = None
-        """ Organization which maintains the document.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
         self.description = None
-        """ Human-readable description (title).
+        """ 
+        H
+        u
+        m
+        a
+        n
+        -
+        r
+        e
+        a
+        d
+        a
+        b
+        l
+        e
+        d
+        e
+        s
+        c
+        r
+        i
+        p
+        t
+        i
+        o
+        n
+        .
         Type `str`. """
         
         self.docStatus = None
-        """ preliminary | final | appended | amended | entered-in-error.
+        """ 
+        p
+        r
+        e
+        l
+        i
+        m
+        i
+        n
+        a
+        r
+        y
+        |
+        f
+        i
+        n
+        a
+        l
+        |
+        a
+        p
+        p
+        e
+        n
+        d
+        e
+        d
+        |
+        a
+        m
+        e
+        n
+        d
+        e
+        d
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        .
         Type `str`. """
         
         self.identifier = None
-        """ Other identifiers for the document.
+        """ 
+        O
+        t
+        h
+        e
+        r
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        .
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.indexed = None
-        """ When this document reference was created.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
         self.masterIdentifier = None
-        """ Master Version Specific Identifier.
+        """ 
+        M
+        a
+        s
+        t
+        e
+        r
+        V
+        e
+        r
+        s
+        i
+        o
+        n
+        S
+        p
+        e
+        c
+        i
+        f
+        i
+        c
+        I
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        .
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.relatesTo = None
-        """ Relationships to other documents.
+        """ 
+        R
+        e
+        l
+        a
+        t
+        i
+        o
+        n
+        s
+        h
+        i
+        p
+        s
+        t
+        o
+        o
+        t
+        h
+        e
+        r
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        s
+        .
         List of `DocumentReferenceRelatesTo` items (represented as `dict` in JSON). """
         
         self.securityLabel = None
-        """ Document security-tags.
+        """ 
+        D
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        s
+        e
+        c
+        u
+        r
+        i
+        t
+        y
+        -
+        t
+        a
+        g
+        s
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ current | superseded | entered-in-error.
+        """ 
+        c
+        u
+        r
+        r
+        e
+        n
+        t
+        |
+        s
+        u
+        p
+        e
+        r
+        s
+        e
+        d
+        e
+        d
+        |
+        e
+        n
+        t
+        e
+        r
+        e
+        d
+        -
+        i
+        n
+        -
+        e
+        r
+        r
+        o
+        r
+        .
         Type `str`. """
         
         self.subject = None
-        """ Who/what is the subject of the document.
-        Type `FHIRReference` referencing `Patient, Practitioner, Group, Device` (represented as `dict` in JSON). """
+        """ 
+        W
+        h
+        o
+        /
+        w
+        h
+        a
+        t
+        i
+        s
+        t
+        h
+        e
+        s
+        u
+        b
+        j
+        e
+        c
+        t
+        o
+        f
+        t
+        h
+        e
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.type = None
-        """ Kind of document (LOINC if possible).
+        """ 
+        K
+        i
+        n
+        d
+        o
+        f
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        (
+        L
+        O
+        I
+        N
+        C
+        i
+        f
+        p
+        o
+        s
+        s
+        i
+        b
+        l
+        e
+        )
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(DocumentReference, self).__init__(jsondict=jsondict, strict=strict)
@@ -96,21 +912,20 @@ class DocumentReference(domainresource.DomainResource):
         js.extend([
             ("authenticator", "authenticator", fhirreference.FHIRReference, False, None, False),
             ("author", "author", fhirreference.FHIRReference, True, None, False),
-            ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("content", "content", DocumentReferenceContent, True, None, True),
             ("context", "context", DocumentReferenceContext, False, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
             ("docStatus", "docStatus", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("indexed", "indexed", fhirdate.FHIRDate, False, None, True),
             ("masterIdentifier", "masterIdentifier", identifier.Identifier, False, None, False),
             ("relatesTo", "relatesTo", DocumentReferenceRelatesTo, True, None, False),
             ("securityLabel", "securityLabel", codeableconcept.CodeableConcept, True, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -118,10 +933,129 @@ class DocumentReference(domainresource.DomainResource):
 from . import backboneelement
 
 class DocumentReferenceContent(backboneelement.BackboneElement):
-    """ Document referenced.
+    """ 
+    D
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    d
+    .
     
-    The document and format referenced. There may be multiple content element
-    repetitions, each with a different format.
+    
+    T
+    h
+    e
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    a
+    n
+    d
+    f
+    o
+    r
+    m
+    a
+    t
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    d
+    .
+    T
+    h
+    e
+    r
+    e
+    m
+    a
+    y
+    b
+    e
+    m
+    u
+    l
+    t
+    i
+    p
+    l
+    e
+    c
+    o
+    n
+    t
+    e
+    n
+    t
+    e
+    l
+    e
+    m
+    e
+    n
+    t
+    r
+    e
+    p
+    e
+    t
+    i
+    t
+    i
+    o
+    n
+    s
+    ,
+    e
+    a
+    c
+    h
+    w
+    i
+    t
+    h
+    a
+    d
+    i
+    f
+    f
+    e
+    r
+    e
+    n
+    t
+    f
+    o
+    r
+    m
+    a
+    t
+    .
+    
     """
     
     resource_type = "DocumentReferenceContent"
@@ -135,11 +1069,70 @@ class DocumentReferenceContent(backboneelement.BackboneElement):
         """
         
         self.attachment = None
-        """ Where to access the document.
+        """ 
+        W
+        h
+        e
+        r
+        e
+        t
+        o
+        a
+        c
+        c
+        e
+        s
+        s
+        t
+        h
+        e
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        .
         Type `Attachment` (represented as `dict` in JSON). """
         
         self.format = None
-        """ Format/content rules for the document.
+        """ 
+        F
+        o
+        r
+        m
+        a
+        t
+        /
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        r
+        u
+        l
+        e
+        s
+        f
+        o
+        r
+        t
+        h
+        e
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        .
         Type `Coding` (represented as `dict` in JSON). """
         
         super(DocumentReferenceContent, self).__init__(jsondict=jsondict, strict=strict)
@@ -154,9 +1147,84 @@ class DocumentReferenceContent(backboneelement.BackboneElement):
 
 
 class DocumentReferenceContext(backboneelement.BackboneElement):
-    """ Clinical context of document.
+    """ 
+    C
+    l
+    i
+    n
+    i
+    c
+    a
+    l
+    c
+    o
+    n
+    t
+    e
+    x
+    t
+    o
+    f
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    .
     
-    The clinical context in which the document was prepared.
+    
+    T
+    h
+    e
+    c
+    l
+    i
+    n
+    i
+    c
+    a
+    l
+    c
+    o
+    n
+    t
+    e
+    x
+    t
+    i
+    n
+    w
+    h
+    i
+    c
+    h
+    t
+    h
+    e
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    w
+    a
+    s
+    p
+    r
+    e
+    p
+    a
+    r
+    e
+    d
+    .
+    
     """
     
     resource_type = "DocumentReferenceContext"
@@ -170,90 +1238,415 @@ class DocumentReferenceContext(backboneelement.BackboneElement):
         """
         
         self.encounter = None
-        """ Context of the document  content.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        """ 
+        C
+        o
+        n
+        t
+        e
+        x
+        t
+        o
+        f
+        t
+        h
+        e
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.event = None
-        """ Main clinical acts documented.
+        """ 
+        M
+        a
+        i
+        n
+        c
+        l
+        i
+        n
+        i
+        c
+        a
+        l
+        a
+        c
+        t
+        s
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        e
+        d
+        .
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.facilityType = None
-        """ Kind of facility where patient was seen.
+        """ 
+        K
+        i
+        n
+        d
+        o
+        f
+        f
+        a
+        c
+        i
+        l
+        i
+        t
+        y
+        w
+        h
+        e
+        r
+        e
+        p
+        a
+        t
+        i
+        e
+        n
+        t
+        w
+        a
+        s
+        s
+        e
+        e
+        n
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.period = None
-        """ Time of service that is being documented.
+        """ 
+        T
+        i
+        m
+        e
+        o
+        f
+        s
+        e
+        r
+        v
+        i
+        c
+        e
+        t
+        h
+        a
+        t
+        i
+        s
+        b
+        e
+        i
+        n
+        g
+        d
+        o
+        c
+        u
+        m
+        e
+        n
+        t
+        e
+        d
+        .
         Type `Period` (represented as `dict` in JSON). """
         
         self.practiceSetting = None
-        """ Additional details about where the content was created (e.g.
-        clinical specialty).
+        """ 
+        A
+        d
+        d
+        i
+        t
+        i
+        o
+        n
+        a
+        l
+        d
+        e
+        t
+        a
+        i
+        l
+        s
+        a
+        b
+        o
+        u
+        t
+        w
+        h
+        e
+        r
+        e
+        t
+        h
+        e
+        c
+        o
+        n
+        t
+        e
+        n
+        t
+        w
+        a
+        s
+        c
+        r
+        e
+        a
+        t
+        e
+        d
+        (
+        e
+        .
+        g
+        .
+        c
+        l
+        i
+        n
+        i
+        c
+        a
+        l
+        s
+        p
+        e
+        c
+        i
+        a
+        l
+        t
+        y
+        )
+        .
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.related = None
-        """ Related identifiers or resources.
-        List of `DocumentReferenceContextRelated` items (represented as `dict` in JSON). """
+        """ 
+        R
+        e
+        l
+        a
+        t
+        e
+        d
+        i
+        d
+        e
+        n
+        t
+        i
+        f
+        i
+        e
+        r
+        s
+        o
+        r
+        r
+        e
+        s
+        o
+        u
+        r
+        c
+        e
+        s
+        .
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.sourcePatientInfo = None
-        """ Patient demographics from source.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        """ 
+        P
+        a
+        t
+        i
+        e
+        n
+        t
+        d
+        e
+        m
+        o
+        g
+        r
+        a
+        p
+        h
+        i
+        c
+        s
+        f
+        r
+        o
+        m
+        s
+        o
+        u
+        r
+        c
+        e
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(DocumentReferenceContext, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DocumentReferenceContext, self).elementProperties()
         js.extend([
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, True, None, False),
             ("event", "event", codeableconcept.CodeableConcept, True, None, False),
             ("facilityType", "facilityType", codeableconcept.CodeableConcept, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("practiceSetting", "practiceSetting", codeableconcept.CodeableConcept, False, None, False),
-            ("related", "related", DocumentReferenceContextRelated, True, None, False),
+            ("related", "related", fhirreference.FHIRReference, True, None, False),
             ("sourcePatientInfo", "sourcePatientInfo", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
-class DocumentReferenceContextRelated(backboneelement.BackboneElement):
-    """ Related identifiers or resources.
-    
-    Related identifiers or resources associated with the DocumentReference.
-    """
-    
-    resource_type = "DocumentReferenceContextRelated"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.identifier = None
-        """ Identifier of related objects or events.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.ref = None
-        """ Related Resource.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        super(DocumentReferenceContextRelated, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(DocumentReferenceContextRelated, self).elementProperties()
-        js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("ref", "ref", fhirreference.FHIRReference, False, None, False),
-        ])
-        return js
-
-
 class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
-    """ Relationships to other documents.
+    """ 
+    R
+    e
+    l
+    a
+    t
+    i
+    o
+    n
+    s
+    h
+    i
+    p
+    s
+    t
+    o
+    o
+    t
+    h
+    e
+    r
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    s
+    .
     
-    Relationships that this document has with other document references that
-    already exist.
+    
+    R
+    e
+    l
+    a
+    t
+    i
+    o
+    n
+    s
+    h
+    i
+    p
+    s
+    t
+    h
+    a
+    t
+    t
+    h
+    i
+    s
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    h
+    a
+    s
+    w
+    i
+    t
+    h
+    o
+    t
+    h
+    e
+    r
+    d
+    o
+    c
+    u
+    m
+    e
+    n
+    t
+    r
+    e
+    f
+    e
+    r
+    e
+    n
+    c
+    e
+    s
+    t
+    h
+    a
+    t
+    a
+    l
+    r
+    e
+    a
+    d
+    y
+    e
+    x
+    i
+    s
+    t
+    .
+    
     """
     
     resource_type = "DocumentReferenceRelatesTo"
@@ -267,12 +1660,70 @@ class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ replaces | transforms | signs | appends.
+        """ 
+        r
+        e
+        p
+        l
+        a
+        c
+        e
+        s
+        |
+        t
+        r
+        a
+        n
+        s
+        f
+        o
+        r
+        m
+        s
+        |
+        s
+        i
+        g
+        n
+        s
+        |
+        a
+        p
+        p
+        e
+        n
+        d
+        s
+        .
         Type `str`. """
         
         self.target = None
-        """ Target of the relationship.
-        Type `FHIRReference` referencing `DocumentReference` (represented as `dict` in JSON). """
+        """ 
+        T
+        a
+        r
+        g
+        e
+        t
+        o
+        f
+        t
+        h
+        e
+        r
+        e
+        l
+        a
+        t
+        i
+        o
+        n
+        s
+        h
+        i
+        p
+        .
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(DocumentReferenceRelatesTo, self).__init__(jsondict=jsondict, strict=strict)
     
