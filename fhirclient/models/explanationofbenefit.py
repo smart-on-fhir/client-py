@@ -622,10 +622,10 @@ class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExplanationOfBenefitDiagnosis, self).elementProperties()
         js.extend([
-            ("diagnosisCodeableConcept", "diagnosisCodeableConcept", codeableconcept.CodeableConcept, False, "diagnosis", True),
-            ("diagnosisReference", "diagnosisReference", fhirreference.FHIRReference, False, "diagnosis", True),
+            ("diagnosisCodeableConcept", "diagnosisCodeableConcept", codeableconcept.CodeableConcept, False, "diagnosis", False),
+            ("diagnosisReference", "diagnosisReference", fhirreference.FHIRReference, False, "diagnosis", False),
             ("packageCode", "packageCode", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", int, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
@@ -1034,7 +1034,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", int, False, None, False),
             ("service", "service", codeableconcept.CodeableConcept, False, None, False),
             ("subDetail", "subDetail", ExplanationOfBenefitItemDetailSubDetail, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),

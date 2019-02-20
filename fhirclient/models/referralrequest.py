@@ -136,7 +136,7 @@ class ReferralRequest(domainresource.DomainResource):
             ("description", "description", str, False, None, False),
             ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("intent", "intent", str, False, None, True),
+            ("intent", "intent", str, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
