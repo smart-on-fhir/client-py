@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -26,19 +26,27 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         """
         
         self.accident = None
-        """ Details of an accident.
+        """ Details of the event.
         Type `ExplanationOfBenefitAccident` (represented as `dict` in JSON). """
         
         self.addItem = None
         """ Insurer added line items.
         List of `ExplanationOfBenefitAddItem` items (represented as `dict` in JSON). """
         
+        self.adjudication = None
+        """ Header-level adjudication.
+        List of `ExplanationOfBenefitItemAdjudication` items (represented as `dict` in JSON). """
+        
         self.benefitBalance = None
         """ Balance by Benefit Category.
         List of `ExplanationOfBenefitBenefitBalance` items (represented as `dict` in JSON). """
         
+        self.benefitPeriod = None
+        """ When the benefits are applicable.
+        Type `Period` (represented as `dict` in JSON). """
+        
         self.billablePeriod = None
-        """ Period for charge submission.
+        """ Relevant time frame for the claim.
         Type `Period` (represented as `dict` in JSON). """
         
         self.careTeam = None
@@ -47,88 +55,91 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.claim = None
         """ Claim reference.
-        Type `FHIRReference` referencing `Claim` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.claimResponse = None
         """ Claim response reference.
-        Type `FHIRReference` referencing `ClaimResponse` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.created = None
-        """ Creation date.
+        """ Response creation date.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.diagnosis = None
-        """ List of Diagnosis.
+        """ Pertinent diagnosis information.
         List of `ExplanationOfBenefitDiagnosis` items (represented as `dict` in JSON). """
         
         self.disposition = None
         """ Disposition Message.
         Type `str`. """
         
-        self.employmentImpacted = None
-        """ Period unable to work.
-        Type `Period` (represented as `dict` in JSON). """
-        
         self.enterer = None
-        """ Author.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        """ Author of the claim.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.facility = None
         """ Servicing Facility.
-        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.form = None
-        """ Printed Form Identifier.
+        """ Printed reference or actual form.
+        Type `Attachment` (represented as `dict` in JSON). """
+        
+        self.formCode = None
+        """ Printed form identifier.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.hospitalization = None
-        """ Period in hospital.
-        Type `Period` (represented as `dict` in JSON). """
+        self.fundsReserve = None
+        """ Funds reserved status.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.fundsReserveRequested = None
+        """ For whom to reserve funds.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Business Identifier.
+        """ Business Identifier for the resource.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.information = None
-        """ Exceptions, special considerations, the condition, situation, prior
-        or concurrent issues.
-        List of `ExplanationOfBenefitInformation` items (represented as `dict` in JSON). """
-        
         self.insurance = None
-        """ Insurance or medical plan.
-        Type `ExplanationOfBenefitInsurance` (represented as `dict` in JSON). """
+        """ Patient insurance information.
+        List of `ExplanationOfBenefitInsurance` items (represented as `dict` in JSON). """
         
         self.insurer = None
-        """ Insurer responsible for the EOB.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ Party responsible for reimbursement.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.item = None
-        """ Goods and Services.
+        """ Product or service provided.
         List of `ExplanationOfBenefitItem` items (represented as `dict` in JSON). """
-        
-        self.organization = None
-        """ Responsible organization for the claim.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
         
         self.originalPrescription = None
         """ Original prescription if superceded by fulfiller.
-        Type `FHIRReference` referencing `MedicationRequest` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.outcome = None
-        """ complete | error | partial.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ queued | complete | error | partial.
+        Type `str`. """
         
         self.patient = None
-        """ The subject of the Products and Services.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        """ The recipient of the products and services.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.payee = None
-        """ Party to be paid any benefits payable.
+        """ Recipient of benefits payable.
         Type `ExplanationOfBenefitPayee` (represented as `dict` in JSON). """
         
         self.payment = None
-        """ Payment (if paid).
+        """ Payment Details.
         Type `ExplanationOfBenefitPayment` (represented as `dict` in JSON). """
+        
+        self.preAuthRef = None
+        """ Preauthorization reference.
+        List of `str` items. """
+        
+        self.preAuthRefPeriod = None
+        """ Preauthorization in-effect period.
+        List of `Period` items (represented as `dict` in JSON). """
         
         self.precedence = None
         """ Precedence (primary, secondary, etc.).
@@ -136,26 +147,30 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.prescription = None
         """ Prescription authorizing services or products.
-        Type `FHIRReference` referencing `MedicationRequest, VisionPrescription` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.priority = None
+        """ Desired processing urgency.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.procedure = None
-        """ Procedures performed.
+        """ Clinical procedures performed.
         List of `ExplanationOfBenefitProcedure` items (represented as `dict` in JSON). """
         
         self.processNote = None
-        """ Processing notes.
+        """ Note concerning adjudication.
         List of `ExplanationOfBenefitProcessNote` items (represented as `dict` in JSON). """
         
         self.provider = None
-        """ Responsible provider for the claim.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        """ Party responsible for the claim.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.referral = None
         """ Treatment Referral.
-        Type `FHIRReference` referencing `ReferralRequest` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.related = None
-        """ Related Claims which may be revelant to processing this claim.
+        """ Prior or corollary claims.
         List of `ExplanationOfBenefitRelated` items (represented as `dict` in JSON). """
         
         self.status = None
@@ -163,24 +178,24 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         Type `str`. """
         
         self.subType = None
-        """ Finer grained claim type information.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.totalBenefit = None
-        """ Total benefit payable for the Claim.
-        Type `Money` (represented as `dict` in JSON). """
-        
-        self.totalCost = None
-        """ Total Cost of service from the Claim.
-        Type `Money` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ Type or discipline.
+        """ More granular claim type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.unallocDeductable = None
-        """ Unallocated deductable.
-        Type `Money` (represented as `dict` in JSON). """
+        self.supportingInfo = None
+        """ Supporting information.
+        List of `ExplanationOfBenefitSupportingInfo` items (represented as `dict` in JSON). """
+        
+        self.total = None
+        """ Adjudication totals.
+        List of `ExplanationOfBenefitTotal` items (represented as `dict` in JSON). """
+        
+        self.type = None
+        """ Category or discipline.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.use = None
+        """ claim | preauthorization | predetermination.
+        Type `str`. """
         
         super(ExplanationOfBenefit, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -189,43 +204,47 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         js.extend([
             ("accident", "accident", ExplanationOfBenefitAccident, False, None, False),
             ("addItem", "addItem", ExplanationOfBenefitAddItem, True, None, False),
+            ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
             ("benefitBalance", "benefitBalance", ExplanationOfBenefitBenefitBalance, True, None, False),
+            ("benefitPeriod", "benefitPeriod", period.Period, False, None, False),
             ("billablePeriod", "billablePeriod", period.Period, False, None, False),
             ("careTeam", "careTeam", ExplanationOfBenefitCareTeam, True, None, False),
             ("claim", "claim", fhirreference.FHIRReference, False, None, False),
             ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, True),
             ("diagnosis", "diagnosis", ExplanationOfBenefitDiagnosis, True, None, False),
             ("disposition", "disposition", str, False, None, False),
-            ("employmentImpacted", "employmentImpacted", period.Period, False, None, False),
             ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
             ("facility", "facility", fhirreference.FHIRReference, False, None, False),
-            ("form", "form", codeableconcept.CodeableConcept, False, None, False),
-            ("hospitalization", "hospitalization", period.Period, False, None, False),
+            ("form", "form", attachment.Attachment, False, None, False),
+            ("formCode", "formCode", codeableconcept.CodeableConcept, False, None, False),
+            ("fundsReserve", "fundsReserve", codeableconcept.CodeableConcept, False, None, False),
+            ("fundsReserveRequested", "fundsReserveRequested", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("information", "information", ExplanationOfBenefitInformation, True, None, False),
-            ("insurance", "insurance", ExplanationOfBenefitInsurance, False, None, False),
-            ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
+            ("insurance", "insurance", ExplanationOfBenefitInsurance, True, None, True),
+            ("insurer", "insurer", fhirreference.FHIRReference, False, None, True),
             ("item", "item", ExplanationOfBenefitItem, True, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("originalPrescription", "originalPrescription", fhirreference.FHIRReference, False, None, False),
-            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("outcome", "outcome", str, False, None, True),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("payee", "payee", ExplanationOfBenefitPayee, False, None, False),
             ("payment", "payment", ExplanationOfBenefitPayment, False, None, False),
+            ("preAuthRef", "preAuthRef", str, True, None, False),
+            ("preAuthRefPeriod", "preAuthRefPeriod", period.Period, True, None, False),
             ("precedence", "precedence", int, False, None, False),
             ("prescription", "prescription", fhirreference.FHIRReference, False, None, False),
+            ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
             ("procedure", "procedure", ExplanationOfBenefitProcedure, True, None, False),
             ("processNote", "processNote", ExplanationOfBenefitProcessNote, True, None, False),
-            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, True),
             ("referral", "referral", fhirreference.FHIRReference, False, None, False),
             ("related", "related", ExplanationOfBenefitRelated, True, None, False),
-            ("status", "status", str, False, None, False),
-            ("subType", "subType", codeableconcept.CodeableConcept, True, None, False),
-            ("totalBenefit", "totalBenefit", money.Money, False, None, False),
-            ("totalCost", "totalCost", money.Money, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("unallocDeductable", "unallocDeductable", money.Money, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
+            ("supportingInfo", "supportingInfo", ExplanationOfBenefitSupportingInfo, True, None, False),
+            ("total", "total", ExplanationOfBenefitTotal, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("use", "use", str, False, None, True),
         ])
         return js
 
@@ -233,9 +252,10 @@ class ExplanationOfBenefit(domainresource.DomainResource):
 from . import backboneelement
 
 class ExplanationOfBenefitAccident(backboneelement.BackboneElement):
-    """ Details of an accident.
+    """ Details of the event.
     
-    An accident which resulted in the need for healthcare services.
+    Details of a accident which resulted in injuries which required the
+    products and services listed in the claim.
     """
     
     resource_type = "ExplanationOfBenefitAccident"
@@ -249,16 +269,16 @@ class ExplanationOfBenefitAccident(backboneelement.BackboneElement):
         """
         
         self.date = None
-        """ When the accident occurred.
+        """ When the incident occurred.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.locationAddress = None
-        """ Accident Place.
+        """ Where the event occurred.
         Type `Address` (represented as `dict` in JSON). """
         
         self.locationReference = None
-        """ Accident Place.
-        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
+        """ Where the event occurred.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.type = None
         """ The nature of the accident.
@@ -280,7 +300,8 @@ class ExplanationOfBenefitAccident(backboneelement.BackboneElement):
 class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
     """ Insurer added line items.
     
-    The first tier service adjudications for payor added services.
+    The first-tier service adjudications for payor added product or service
+    lines.
     """
     
     resource_type = "ExplanationOfBenefitAddItem"
@@ -297,37 +318,85 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
         """ Added items adjudication.
         List of `ExplanationOfBenefitItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.category = None
-        """ Type of service or product.
+        self.bodySite = None
+        """ Anatomical location.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.detail = None
-        """ Added items details.
+        """ Insurer added line items.
         List of `ExplanationOfBenefitAddItemDetail` items (represented as `dict` in JSON). """
         
-        self.fee = None
-        """ Professional fee or Product charge.
-        Type `Money` (represented as `dict` in JSON). """
+        self.detailSequence = None
+        """ Detail sequence number.
+        List of `int` items. """
+        
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
+        
+        self.itemSequence = None
+        """ Item sequence number.
+        List of `int` items. """
+        
+        self.locationAddress = None
+        """ Place of service or where product was supplied.
+        Type `Address` (represented as `dict` in JSON). """
+        
+        self.locationCodeableConcept = None
+        """ Place of service or where product was supplied.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.locationReference = None
+        """ Place of service or where product was supplied.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.modifier = None
         """ Service/Product billing modifiers.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.net = None
+        """ Total item cost.
+        Type `Money` (represented as `dict` in JSON). """
+        
         self.noteNumber = None
-        """ List of note numbers which apply.
+        """ Applicable note numbers.
         List of `int` items. """
         
-        self.revenue = None
-        """ Revenue or cost center code.
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.sequenceLinkId = None
-        """ Service instances.
+        self.programCode = None
+        """ Program the product or service is provided under.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.provider = None
+        """ Authorized providers.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.quantity = None
+        """ Count of products or services.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.servicedDate = None
+        """ Date or dates of service or product delivery.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.servicedPeriod = None
+        """ Date or dates of service or product delivery.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.subDetailSequence = None
+        """ Subdetail sequence number.
         List of `int` items. """
         
-        self.service = None
-        """ Billing Code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.subSite = None
+        """ Anatomical sub-location.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.unitPrice = None
+        """ Fee, charge or cost per item.
+        Type `Money` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitAddItem, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -335,22 +404,34 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitAddItem, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", ExplanationOfBenefitAddItemDetail, True, None, False),
-            ("fee", "fee", money.Money, False, None, False),
+            ("detailSequence", "detailSequence", int, True, None, False),
+            ("factor", "factor", float, False, None, False),
+            ("itemSequence", "itemSequence", int, True, None, False),
+            ("locationAddress", "locationAddress", address.Address, False, "location", False),
+            ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False),
+            ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
+            ("net", "net", money.Money, False, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("sequenceLinkId", "sequenceLinkId", int, True, None, False),
-            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
+            ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, True, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
+            ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
+            ("subDetailSequence", "subDetailSequence", int, True, None, False),
+            ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False),
+            ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
 
 
 class ExplanationOfBenefitAddItemDetail(backboneelement.BackboneElement):
-    """ Added items details.
+    """ Insurer added line items.
     
-    The second tier service adjudications for payor added services.
+    The second-tier service adjudications for payor added services.
     """
     
     resource_type = "ExplanationOfBenefitAddItemDetail"
@@ -364,32 +445,40 @@ class ExplanationOfBenefitAddItemDetail(backboneelement.BackboneElement):
         """
         
         self.adjudication = None
-        """ Added items detail adjudication.
+        """ Added items adjudication.
         List of `ExplanationOfBenefitItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.category = None
-        """ Type of service or product.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.fee = None
-        """ Professional fee or Product charge.
-        Type `Money` (represented as `dict` in JSON). """
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
         
         self.modifier = None
         """ Service/Product billing modifiers.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.net = None
+        """ Total item cost.
+        Type `Money` (represented as `dict` in JSON). """
+        
         self.noteNumber = None
-        """ List of note numbers which apply.
+        """ Applicable note numbers.
         List of `int` items. """
         
-        self.revenue = None
-        """ Revenue or cost center code.
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.service = None
-        """ Billing Code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.quantity = None
+        """ Count of products or services.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.subDetail = None
+        """ Insurer added line items.
+        List of `ExplanationOfBenefitAddItemDetailSubDetail` items (represented as `dict` in JSON). """
+        
+        self.unitPrice = None
+        """ Fee, charge or cost per item.
+        Type `Money` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitAddItemDetail, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -397,12 +486,79 @@ class ExplanationOfBenefitAddItemDetail(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitAddItemDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("fee", "fee", money.Money, False, None, False),
+            ("factor", "factor", float, False, None, False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
+            ("net", "net", money.Money, False, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("subDetail", "subDetail", ExplanationOfBenefitAddItemDetailSubDetail, True, None, False),
+            ("unitPrice", "unitPrice", money.Money, False, None, False),
+        ])
+        return js
+
+
+class ExplanationOfBenefitAddItemDetailSubDetail(backboneelement.BackboneElement):
+    """ Insurer added line items.
+    
+    The third-tier service adjudications for payor added services.
+    """
+    
+    resource_type = "ExplanationOfBenefitAddItemDetailSubDetail"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.adjudication = None
+        """ Added items adjudication.
+        List of `ExplanationOfBenefitItemAdjudication` items (represented as `dict` in JSON). """
+        
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
+        
+        self.modifier = None
+        """ Service/Product billing modifiers.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.net = None
+        """ Total item cost.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.noteNumber = None
+        """ Applicable note numbers.
+        List of `int` items. """
+        
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.quantity = None
+        """ Count of products or services.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.unitPrice = None
+        """ Fee, charge or cost per item.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        super(ExplanationOfBenefitAddItemDetailSubDetail, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ExplanationOfBenefitAddItemDetailSubDetail, self).elementProperties()
+        js.extend([
+            ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
+            ("factor", "factor", float, False, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
+            ("net", "net", money.Money, False, None, False),
+            ("noteNumber", "noteNumber", int, True, None, False),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
 
@@ -422,7 +578,7 @@ class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
         """
         
         self.category = None
-        """ Type of services covered.
+        """ Benefit classification.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.description = None
@@ -445,10 +601,6 @@ class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
         """ In or out of network.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subCategory = None
-        """ Detailed services covered within the type.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.term = None
         """ Annual or lifetime.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -468,7 +620,6 @@ class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
             ("financial", "financial", ExplanationOfBenefitBenefitBalanceFinancial, True, None, False),
             ("name", "name", str, False, None, False),
             ("network", "network", codeableconcept.CodeableConcept, False, None, False),
-            ("subCategory", "subCategory", codeableconcept.CodeableConcept, False, None, False),
             ("term", "term", codeableconcept.CodeableConcept, False, None, False),
             ("unit", "unit", codeableconcept.CodeableConcept, False, None, False),
         ])
@@ -504,7 +655,7 @@ class ExplanationOfBenefitBenefitBalanceFinancial(backboneelement.BackboneElemen
         Type `int`. """
         
         self.type = None
-        """ Deductable, visits, benefit amount.
+        """ Benefit classification.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.usedMoney = None
@@ -533,8 +684,7 @@ class ExplanationOfBenefitBenefitBalanceFinancial(backboneelement.BackboneElemen
 class ExplanationOfBenefitCareTeam(backboneelement.BackboneElement):
     """ Care Team members.
     
-    The members of the team who provided the overall service as well as their
-    role and whether responsible and qualifications.
+    The members of the team who provided the products and services.
     """
     
     resource_type = "ExplanationOfBenefitCareTeam"
@@ -548,23 +698,23 @@ class ExplanationOfBenefitCareTeam(backboneelement.BackboneElement):
         """
         
         self.provider = None
-        """ Member of the Care Team.
-        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
+        """ Practitioner or organization.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.qualification = None
-        """ Type, classification or Specialization.
+        """ Practitioner credential or specialization.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.responsible = None
-        """ Billing practitioner.
+        """ Indicator of the lead practitioner.
         Type `bool`. """
         
         self.role = None
-        """ Role on the team.
+        """ Function within the team.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sequence = None
-        """ Number to covey order of careteam.
+        """ Order of care team.
         Type `int`. """
         
         super(ExplanationOfBenefitCareTeam, self).__init__(jsondict=jsondict, strict=strict)
@@ -582,9 +732,9 @@ class ExplanationOfBenefitCareTeam(backboneelement.BackboneElement):
 
 
 class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
-    """ List of Diagnosis.
+    """ Pertinent diagnosis information.
     
-    Ordered list of patient diagnosis for which care is sought.
+    Information about diagnoses relevant to the claim items.
     """
     
     resource_type = "ExplanationOfBenefitDiagnosis"
@@ -598,19 +748,23 @@ class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
         """
         
         self.diagnosisCodeableConcept = None
-        """ Patient's diagnosis.
+        """ Nature of illness or problem.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.diagnosisReference = None
-        """ Patient's diagnosis.
-        Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
+        """ Nature of illness or problem.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.onAdmission = None
+        """ Present on admission.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.packageCode = None
         """ Package billing code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sequence = None
-        """ Number to covey order of diagnosis.
+        """ Diagnosis instance identifier.
         Type `int`. """
         
         self.type = None
@@ -624,6 +778,7 @@ class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
         js.extend([
             ("diagnosisCodeableConcept", "diagnosisCodeableConcept", codeableconcept.CodeableConcept, False, "diagnosis", True),
             ("diagnosisReference", "diagnosisReference", fhirreference.FHIRReference, False, "diagnosis", True),
+            ("onAdmission", "onAdmission", codeableconcept.CodeableConcept, False, None, False),
             ("packageCode", "packageCode", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
@@ -631,88 +786,11 @@ class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
         return js
 
 
-class ExplanationOfBenefitInformation(backboneelement.BackboneElement):
-    """ Exceptions, special considerations, the condition, situation, prior or
-    concurrent issues.
-    
-    Additional information codes regarding exceptions, special considerations,
-    the condition, situation, prior or concurrent issues. Often there are
-    mutiple jurisdiction specific valuesets which are required.
-    """
-    
-    resource_type = "ExplanationOfBenefitInformation"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.category = None
-        """ General class of information.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.code = None
-        """ Type of information.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.reason = None
-        """ Reason associated with the information.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.sequence = None
-        """ Information instance identifier.
-        Type `int`. """
-        
-        self.timingDate = None
-        """ When it occurred.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.timingPeriod = None
-        """ When it occurred.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.valueAttachment = None
-        """ Additional Data or supporting information.
-        Type `Attachment` (represented as `dict` in JSON). """
-        
-        self.valueQuantity = None
-        """ Additional Data or supporting information.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
-        self.valueReference = None
-        """ Additional Data or supporting information.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        self.valueString = None
-        """ Additional Data or supporting information.
-        Type `str`. """
-        
-        super(ExplanationOfBenefitInformation, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ExplanationOfBenefitInformation, self).elementProperties()
-        js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, False, None, True),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("reason", "reason", coding.Coding, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
-            ("timingDate", "timingDate", fhirdate.FHIRDate, False, "timing", False),
-            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
-            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
-            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
-            ("valueString", "valueString", str, False, "value", False),
-        ])
-        return js
-
-
 class ExplanationOfBenefitInsurance(backboneelement.BackboneElement):
-    """ Insurance or medical plan.
+    """ Patient insurance information.
     
-    Financial instrument by which payment information for health care.
+    Financial instruments for reimbursement for the health care products and
+    services specified on the claim.
     """
     
     resource_type = "ExplanationOfBenefitInsurance"
@@ -727,10 +805,14 @@ class ExplanationOfBenefitInsurance(backboneelement.BackboneElement):
         
         self.coverage = None
         """ Insurance information.
-        Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.focal = None
+        """ Coverage to be used for adjudication.
+        Type `bool`. """
         
         self.preAuthRef = None
-        """ Pre-Authorization/Determination Reference.
+        """ Prior authorization reference number.
         List of `str` items. """
         
         super(ExplanationOfBenefitInsurance, self).__init__(jsondict=jsondict, strict=strict)
@@ -738,16 +820,18 @@ class ExplanationOfBenefitInsurance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExplanationOfBenefitInsurance, self).elementProperties()
         js.extend([
-            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
+            ("focal", "focal", bool, False, None, True),
             ("preAuthRef", "preAuthRef", str, True, None, False),
         ])
         return js
 
 
 class ExplanationOfBenefitItem(backboneelement.BackboneElement):
-    """ Goods and Services.
+    """ Product or service provided.
     
-    First tier of goods and services.
+    A claim line. Either a simple (a product or service) or a 'group' of
+    details which can also be a simple items or groups of sub-details.
     """
     
     resource_type = "ExplanationOfBenefitItem"
@@ -765,51 +849,51 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         List of `ExplanationOfBenefitItemAdjudication` items (represented as `dict` in JSON). """
         
         self.bodySite = None
-        """ Service Location.
+        """ Anatomical location.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.careTeamLinkId = None
-        """ Applicable careteam members.
+        self.careTeamSequence = None
+        """ Applicable care team members.
         List of `int` items. """
         
         self.category = None
-        """ Type of service or product.
+        """ Benefit classification.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.detail = None
         """ Additional items.
         List of `ExplanationOfBenefitItemDetail` items (represented as `dict` in JSON). """
         
-        self.diagnosisLinkId = None
+        self.diagnosisSequence = None
         """ Applicable diagnoses.
         List of `int` items. """
         
         self.encounter = None
         """ Encounters related to this billed item.
-        List of `FHIRReference` items referencing `Encounter` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.factor = None
         """ Price scaling factor.
         Type `float`. """
         
-        self.informationLinkId = None
+        self.informationSequence = None
         """ Applicable exception and supporting information.
         List of `int` items. """
         
         self.locationAddress = None
-        """ Place of service.
+        """ Place of service or where product was supplied.
         Type `Address` (represented as `dict` in JSON). """
         
         self.locationCodeableConcept = None
-        """ Place of service.
+        """ Place of service or where product was supplied.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.locationReference = None
-        """ Place of service.
-        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
+        """ Place of service or where product was supplied.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.modifier = None
-        """ Service/Product billing modifiers.
+        """ Product or service billing modifiers.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.net = None
@@ -817,19 +901,23 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         Type `Money` (represented as `dict` in JSON). """
         
         self.noteNumber = None
-        """ List of note numbers which apply.
+        """ Applicable note numbers.
         List of `int` items. """
         
-        self.procedureLinkId = None
+        self.procedureSequence = None
         """ Applicable procedures.
         List of `int` items. """
         
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.programCode = None
-        """ Program specific reason for item inclusion.
+        """ Program the product or service is provided under.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.quantity = None
-        """ Count of Products or Services.
+        """ Count of products or services.
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.revenue = None
@@ -837,31 +925,27 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sequence = None
-        """ Service instance.
+        """ Item instance identifier.
         Type `int`. """
         
-        self.service = None
-        """ Billing Code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.servicedDate = None
-        """ Date or dates of Service.
+        """ Date or dates of service or product delivery.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.servicedPeriod = None
-        """ Date or dates of Service.
+        """ Date or dates of service or product delivery.
         Type `Period` (represented as `dict` in JSON). """
         
         self.subSite = None
-        """ Service Sub-location.
+        """ Anatomical sub-location.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.udi = None
-        """ Unique Device Identifier.
-        List of `FHIRReference` items referencing `Device` (represented as `dict` in JSON). """
+        """ Unique device identifier.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.unitPrice = None
-        """ Fee, charge or cost per point.
+        """ Fee, charge or cost per item.
         Type `Money` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitItem, self).__init__(jsondict=jsondict, strict=strict)
@@ -871,25 +955,25 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         js.extend([
             ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
-            ("careTeamLinkId", "careTeamLinkId", int, True, None, False),
+            ("careTeamSequence", "careTeamSequence", int, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", ExplanationOfBenefitItemDetail, True, None, False),
-            ("diagnosisLinkId", "diagnosisLinkId", int, True, None, False),
+            ("diagnosisSequence", "diagnosisSequence", int, True, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, True, None, False),
             ("factor", "factor", float, False, None, False),
-            ("informationLinkId", "informationLinkId", int, True, None, False),
+            ("informationSequence", "informationSequence", int, True, None, False),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),
             ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False),
             ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("procedureLinkId", "procedureLinkId", int, True, None, False),
+            ("procedureSequence", "procedureSequence", int, True, None, False),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, True),
-            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
             ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
             ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False),
@@ -902,7 +986,9 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
 class ExplanationOfBenefitItemAdjudication(backboneelement.BackboneElement):
     """ Adjudication details.
     
-    The adjudications results.
+    If this item is a group then the values here are a summary of the
+    adjudication of the detail items. If this item is a simple product or
+    service then this is the result of the adjudication of this item.
     """
     
     resource_type = "ExplanationOfBenefitItemAdjudication"
@@ -920,15 +1006,15 @@ class ExplanationOfBenefitItemAdjudication(backboneelement.BackboneElement):
         Type `Money` (represented as `dict` in JSON). """
         
         self.category = None
-        """ Adjudication category such as co-pay, eligible, benefit, etc..
+        """ Type of adjudication information.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.reason = None
-        """ Explanation of Adjudication outcome.
+        """ Explanation of adjudication outcome.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.value = None
-        """ Non-monitory value.
+        """ Non-monitary value.
         Type `float`. """
         
         super(ExplanationOfBenefitItemAdjudication, self).__init__(jsondict=jsondict, strict=strict)
@@ -947,7 +1033,7 @@ class ExplanationOfBenefitItemAdjudication(backboneelement.BackboneElement):
 class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
     """ Additional items.
     
-    Second tier of goods and services.
+    Second-tier of goods and services.
     """
     
     resource_type = "ExplanationOfBenefitItemDetail"
@@ -965,7 +1051,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         List of `ExplanationOfBenefitItemAdjudication` items (represented as `dict` in JSON). """
         
         self.category = None
-        """ Type of service or product.
+        """ Benefit classification.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.factor = None
@@ -977,19 +1063,23 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.net = None
-        """ Total additional item cost.
+        """ Total item cost.
         Type `Money` (represented as `dict` in JSON). """
         
         self.noteNumber = None
-        """ List of note numbers which apply.
+        """ Applicable note numbers.
         List of `int` items. """
         
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.programCode = None
-        """ Program specific reason for item inclusion.
+        """ Program the product or service is provided under.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.quantity = None
-        """ Count of Products or Services.
+        """ Count of products or services.
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.revenue = None
@@ -997,27 +1087,19 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sequence = None
-        """ Service instance.
+        """ Product or service provided.
         Type `int`. """
-        
-        self.service = None
-        """ Billing Code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.subDetail = None
         """ Additional items.
         List of `ExplanationOfBenefitItemDetailSubDetail` items (represented as `dict` in JSON). """
         
-        self.type = None
-        """ Group or type of product or service.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.udi = None
-        """ Unique Device Identifier.
-        List of `FHIRReference` items referencing `Device` (represented as `dict` in JSON). """
+        """ Unique device identifier.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.unitPrice = None
-        """ Fee, charge or cost per point.
+        """ Fee, charge or cost per item.
         Type `Money` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitItemDetail, self).__init__(jsondict=jsondict, strict=strict)
@@ -1031,13 +1113,12 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, True),
-            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
             ("subDetail", "subDetail", ExplanationOfBenefitItemDetailSubDetail, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
@@ -1047,7 +1128,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
 class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
     """ Additional items.
     
-    Third tier of goods and services.
+    Third-tier of goods and services.
     """
     
     resource_type = "ExplanationOfBenefitItemDetailSubDetail"
@@ -1061,11 +1142,11 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         """
         
         self.adjudication = None
-        """ Language if different from the resource.
+        """ Subdetail level adjudication details.
         List of `ExplanationOfBenefitItemAdjudication` items (represented as `dict` in JSON). """
         
         self.category = None
-        """ Type of service or product.
+        """ Benefit classification.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.factor = None
@@ -1077,19 +1158,23 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.net = None
-        """ Net additional item cost.
+        """ Total item cost.
         Type `Money` (represented as `dict` in JSON). """
         
         self.noteNumber = None
-        """ List of note numbers which apply.
+        """ Applicable note numbers.
         List of `int` items. """
         
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.programCode = None
-        """ Program specific reason for item inclusion.
+        """ Program the product or service is provided under.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.quantity = None
-        """ Count of Products or Services.
+        """ Count of products or services.
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.revenue = None
@@ -1097,23 +1182,15 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sequence = None
-        """ Service instance.
+        """ Product or service provided.
         Type `int`. """
         
-        self.service = None
-        """ Billing Code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ Type of product or service.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.udi = None
-        """ Unique Device Identifier.
-        List of `FHIRReference` items referencing `Device` (represented as `dict` in JSON). """
+        """ Unique device identifier.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.unitPrice = None
-        """ Fee, charge or cost per point.
+        """ Fee, charge or cost per item.
         Type `Money` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitItemDetailSubDetail, self).__init__(jsondict=jsondict, strict=strict)
@@ -1127,12 +1204,11 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, True),
-            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
@@ -1140,9 +1216,10 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
 
 
 class ExplanationOfBenefitPayee(backboneelement.BackboneElement):
-    """ Party to be paid any benefits payable.
+    """ Recipient of benefits payable.
     
-    The party to be reimbursed for the services.
+    The party to be reimbursed for cost of the products and services according
+    to the terms of the policy.
     """
     
     resource_type = "ExplanationOfBenefitPayee"
@@ -1156,15 +1233,11 @@ class ExplanationOfBenefitPayee(backboneelement.BackboneElement):
         """
         
         self.party = None
-        """ Party to receive the payable.
-        Type `FHIRReference` referencing `Practitioner, Organization, Patient, RelatedPerson` (represented as `dict` in JSON). """
-        
-        self.resourceType = None
-        """ organization | patient | practitioner | relatedperson.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ Recipient reference.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.type = None
-        """ Type of party: Subscriber, Provider, other.
+        """ Category of recipient.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitPayee, self).__init__(jsondict=jsondict, strict=strict)
@@ -1173,16 +1246,15 @@ class ExplanationOfBenefitPayee(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitPayee, self).elementProperties()
         js.extend([
             ("party", "party", fhirreference.FHIRReference, False, None, False),
-            ("resourceType", "resourceType", codeableconcept.CodeableConcept, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
 
 class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
-    """ Payment (if paid).
+    """ Payment Details.
     
-    Payment details for the claim if the claim has been paid.
+    Payment details for the adjudication of the claim.
     """
     
     resource_type = "ExplanationOfBenefitPayment"
@@ -1196,11 +1268,11 @@ class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
         """
         
         self.adjustment = None
-        """ Payment adjustment for non-Claim issues.
+        """ Payment adjustment for non-claim issues.
         Type `Money` (represented as `dict` in JSON). """
         
         self.adjustmentReason = None
-        """ Explanation for the non-claim adjustment.
+        """ Explanation for the variance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.amount = None
@@ -1208,15 +1280,15 @@ class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
         Type `Money` (represented as `dict` in JSON). """
         
         self.date = None
-        """ Expected date of Payment.
+        """ Expected date of payment.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
-        """ Identifier of the payment instrument.
+        """ Business identifier for the payment.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.type = None
-        """ Partial or Complete.
+        """ Partial or complete payment.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitPayment, self).__init__(jsondict=jsondict, strict=strict)
@@ -1235,9 +1307,10 @@ class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
 
 
 class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
-    """ Procedures performed.
+    """ Clinical procedures performed.
     
-    Ordered list of patient procedures performed to support the adjudication.
+    Procedures performed on the patient relevant to the billing items with the
+    claim.
     """
     
     resource_type = "ExplanationOfBenefitProcedure"
@@ -1255,16 +1328,24 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.procedureCodeableConcept = None
-        """ Patient's list of procedures performed.
+        """ Specific clinical procedure.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.procedureReference = None
-        """ Patient's list of procedures performed.
-        Type `FHIRReference` referencing `Procedure` (represented as `dict` in JSON). """
+        """ Specific clinical procedure.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.sequence = None
-        """ Procedure sequence for reference.
+        """ Procedure instance identifier.
         Type `int`. """
+        
+        self.type = None
+        """ Category of Procedure.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.udi = None
+        """ Unique device identifier.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(ExplanationOfBenefitProcedure, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -1275,14 +1356,17 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
             ("procedureCodeableConcept", "procedureCodeableConcept", codeableconcept.CodeableConcept, False, "procedure", True),
             ("procedureReference", "procedureReference", fhirreference.FHIRReference, False, "procedure", True),
             ("sequence", "sequence", int, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
+            ("udi", "udi", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 
 
 class ExplanationOfBenefitProcessNote(backboneelement.BackboneElement):
-    """ Processing notes.
+    """ Note concerning adjudication.
     
-    Note text.
+    A note that describes or explains adjudication results in a human readable
+    form.
     """
     
     resource_type = "ExplanationOfBenefitProcessNote"
@@ -1296,20 +1380,20 @@ class ExplanationOfBenefitProcessNote(backboneelement.BackboneElement):
         """
         
         self.language = None
-        """ Language if different from the resource.
+        """ Language of the text.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.number = None
-        """ Sequence number for this note.
+        """ Note instance identifier.
         Type `int`. """
         
         self.text = None
-        """ Note explanitory text.
+        """ Note explanatory text.
         Type `str`. """
         
         self.type = None
         """ display | print | printoper.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        Type `str`. """
         
         super(ExplanationOfBenefitProcessNote, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -1319,16 +1403,16 @@ class ExplanationOfBenefitProcessNote(backboneelement.BackboneElement):
             ("language", "language", codeableconcept.CodeableConcept, False, None, False),
             ("number", "number", int, False, None, False),
             ("text", "text", str, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("type", "type", str, False, None, False),
         ])
         return js
 
 
 class ExplanationOfBenefitRelated(backboneelement.BackboneElement):
-    """ Related Claims which may be revelant to processing this claim.
+    """ Prior or corollary claims.
     
-    Other claims which are related to this claim such as prior claim versions
-    or for related services.
+    Other claims which are related to this claim such as prior submissions or
+    claims for related services or for the same event.
     """
     
     resource_type = "ExplanationOfBenefitRelated"
@@ -1343,10 +1427,10 @@ class ExplanationOfBenefitRelated(backboneelement.BackboneElement):
         
         self.claim = None
         """ Reference to the related claim.
-        Type `FHIRReference` referencing `Claim` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.reference = None
-        """ Related file or case reference.
+        """ File or case reference.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.relationship = None
@@ -1361,6 +1445,122 @@ class ExplanationOfBenefitRelated(backboneelement.BackboneElement):
             ("claim", "claim", fhirreference.FHIRReference, False, None, False),
             ("reference", "reference", identifier.Identifier, False, None, False),
             ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, False),
+        ])
+        return js
+
+
+class ExplanationOfBenefitSupportingInfo(backboneelement.BackboneElement):
+    """ Supporting information.
+    
+    Additional information codes regarding exceptions, special considerations,
+    the condition, situation, prior or concurrent issues.
+    """
+    
+    resource_type = "ExplanationOfBenefitSupportingInfo"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.category = None
+        """ Classification of the supplied information.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.code = None
+        """ Type of information.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.reason = None
+        """ Explanation for the information.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.sequence = None
+        """ Information instance identifier.
+        Type `int`. """
+        
+        self.timingDate = None
+        """ When it occurred.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.timingPeriod = None
+        """ When it occurred.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.valueAttachment = None
+        """ Data to be provided.
+        Type `Attachment` (represented as `dict` in JSON). """
+        
+        self.valueBoolean = None
+        """ Data to be provided.
+        Type `bool`. """
+        
+        self.valueQuantity = None
+        """ Data to be provided.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.valueReference = None
+        """ Data to be provided.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.valueString = None
+        """ Data to be provided.
+        Type `str`. """
+        
+        super(ExplanationOfBenefitSupportingInfo, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ExplanationOfBenefitSupportingInfo, self).elementProperties()
+        js.extend([
+            ("category", "category", codeableconcept.CodeableConcept, False, None, True),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("reason", "reason", coding.Coding, False, None, False),
+            ("sequence", "sequence", int, False, None, True),
+            ("timingDate", "timingDate", fhirdate.FHIRDate, False, "timing", False),
+            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
+            ("valueBoolean", "valueBoolean", bool, False, "value", False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
+            ("valueString", "valueString", str, False, "value", False),
+        ])
+        return js
+
+
+class ExplanationOfBenefitTotal(backboneelement.BackboneElement):
+    """ Adjudication totals.
+    
+    Categorized monetary totals for the adjudication.
+    """
+    
+    resource_type = "ExplanationOfBenefitTotal"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.amount = None
+        """ Financial total for the category.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.category = None
+        """ Type of adjudication information.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(ExplanationOfBenefitTotal, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ExplanationOfBenefitTotal, self).elementProperties()
+        js.extend([
+            ("amount", "amount", money.Money, False, None, True),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 

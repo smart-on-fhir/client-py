@@ -30,24 +30,24 @@ class TestResourceReference(unittest.TestCase):
         self.assertEqual('Observation.subject', group.linkId)
         question = group.item[0]
         self.assertEqual('Observation.subject._type', question.linkId)
-        self.assertIsNotNone(question.options)
+        self.assertIsNotNone(question.answerOption)
         with self.assertRaises(Exception):
-            question.options.resolved()
-        
+            question.answerOption[0].valueReference.resolved()
+        reference = question.answerOption[0].valueReference
         # 1st resolve, extracting from contained resources
-        contained = question.options.resolved(medication.Medication)
+        contained = reference.resolved(medication.Medication)
         self.assertIsNone(contained, "Must not resolve on resource type mismatch")
-        contained = question.options.resolved(valueset.ValueSet)
+        contained = reference.resolved(valueset.ValueSet)
         self.assertIsNotNone(contained, "Must resolve contained ValueSet")
         self.assertEqual('ValueSet', contained.resource_type)
         self.assertEqual('Type options for Observation.subject', contained.name)
         
         # 2nd resolve, should pull from cache
-        contained = question.options.resolved(medication.Medication)
+        contained = reference.resolved(medication.Medication)
         self.assertIsNone(contained, "Must not resolve on resource type mismatch")
-        contained = question.options.resolved(resource.Resource)
+        contained = reference.resolved(resource.Resource)
         self.assertIsNotNone(contained, "Must resolve contained ValueSet even if requesting `Resource`")
-        contained = question.options.resolved(valueset.ValueSet)
+        contained = reference.resolved(valueset.ValueSet)
         self.assertIsNotNone(contained, "Must resolve contained ValueSet")
         self.assertEqual('ValueSet', contained.resource_type)
     
@@ -63,20 +63,21 @@ class TestResourceReference(unittest.TestCase):
         self.assertEqual('Observation.subject', group.linkId)
         question = group.item[0]
         self.assertEqual('Observation.subject._type', question.linkId)
-        self.assertIsNotNone(question.options)
+        self.assertIsNotNone(question.answerOption)
         with self.assertRaises(Exception):
-            question.options.resolved()
+            question.answerOption[0].valueReference.resolved()
+        reference = question.answerOption[0].valueReference
         
         # resolve relative resource
-        relative = question.options.resolved(valueset.ValueSet)
+        relative = reference.resolved(valueset.ValueSet)
         self.assertIsNotNone(relative, "Must resolve relative ValueSet")
         self.assertEqual('ValueSet', relative.resource_type)
         self.assertEqual('Type options for Observation.subject', relative.name)
         
         # 2nd resolve, should pull from cache
-        relative = question.options.resolved(medication.Medication)
+        relative = reference.resolved(medication.Medication)
         self.assertIsNone(relative, "Must not resolve on resource type mismatch")
-        relative = question.options.resolved(resource.Resource)
+        relative = reference.resolved(resource.Resource)
         self.assertIsNotNone(relative, "Must resolve relative ValueSet even if requesting `Resource`")
     
     def testBundleReferences(self):

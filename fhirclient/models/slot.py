@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Slot) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Slot) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -47,12 +47,12 @@ class Slot(domainresource.DomainResource):
         self.schedule = None
         """ The schedule resource that this slot defines an interval of status
         information.
-        Type `FHIRReference` referencing `Schedule` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.serviceCategory = None
-        """ A broad categorisation of the service that is to be performed
+        """ A broad categorization of the service that is to be performed
         during this appointment.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.serviceType = None
         """ The type of appointments that can be booked into this slot (ideally
@@ -85,7 +85,7 @@ class Slot(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("overbooked", "overbooked", bool, False, None, False),
             ("schedule", "schedule", fhirreference.FHIRReference, False, None, True),
-            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, False, None, False),
+            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, True, None, False),
             ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
             ("start", "start", fhirdate.FHIRDate, False, None, True),

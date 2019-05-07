@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/GraphDefinition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/GraphDefinition) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class GraphDefinition(domainresource.DomainResource):
-    """ Definition of an graph of resources.
+    """ Definition of a graph of resources.
     
     A formal computable definition of a graph of resources - that is, a
     coherent set of resources that form a graph by following references. The
@@ -30,7 +30,7 @@ class GraphDefinition(domainresource.DomainResource):
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
@@ -74,11 +74,12 @@ class GraphDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this graph definition (globally unique).
+        """ Canonical identifier for this graph definition, represented as a
+        URI (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -157,9 +158,9 @@ class GraphDefinitionLink(backboneelement.BackboneElement):
             ("description", "description", str, False, None, False),
             ("max", "max", str, False, None, False),
             ("min", "min", int, False, None, False),
-            ("path", "path", str, False, None, True),
+            ("path", "path", str, False, None, False),
             ("sliceName", "sliceName", str, False, None, False),
-            ("target", "target", GraphDefinitionLinkTarget, True, None, True),
+            ("target", "target", GraphDefinitionLinkTarget, True, None, False),
         ])
         return js
 
@@ -186,6 +187,10 @@ class GraphDefinitionLinkTarget(backboneelement.BackboneElement):
         """ Additional links from target resource.
         List of `GraphDefinitionLink` items (represented as `dict` in JSON). """
         
+        self.params = None
+        """ Criteria for reverse lookup.
+        Type `str`. """
+        
         self.profile = None
         """ Profile for the target resource.
         Type `str`. """
@@ -201,6 +206,7 @@ class GraphDefinitionLinkTarget(backboneelement.BackboneElement):
         js.extend([
             ("compartment", "compartment", GraphDefinitionLinkTargetCompartment, True, None, False),
             ("link", "link", GraphDefinitionLink, True, None, False),
+            ("params", "params", str, False, None, False),
             ("profile", "profile", str, False, None, False),
             ("type", "type", str, False, None, True),
         ])
@@ -237,6 +243,10 @@ class GraphDefinitionLinkTargetCompartment(backboneelement.BackboneElement):
         """ identical | matching | different | custom.
         Type `str`. """
         
+        self.use = None
+        """ condition | requirement.
+        Type `str`. """
+        
         super(GraphDefinitionLinkTargetCompartment, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -246,6 +256,7 @@ class GraphDefinitionLinkTargetCompartment(backboneelement.BackboneElement):
             ("description", "description", str, False, None, False),
             ("expression", "expression", str, False, None, False),
             ("rule", "rule", str, False, None, True),
+            ("use", "use", str, False, None, True),
         ])
         return js
 

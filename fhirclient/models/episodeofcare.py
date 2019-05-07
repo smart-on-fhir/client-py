@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -31,11 +31,11 @@ class EpisodeOfCare(domainresource.DomainResource):
         self.account = None
         """ The set of accounts that may be used for billing for this
         EpisodeOfCare.
-        List of `FHIRReference` items referencing `Account` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.careManager = None
-        """ Care manager/care co-ordinator for the patient.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        """ Care manager/care coordinator for the patient.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.diagnosis = None
         """ The list of diagnosis relevant to this episode of care.
@@ -47,11 +47,11 @@ class EpisodeOfCare(domainresource.DomainResource):
         
         self.managingOrganization = None
         """ Organization that assumes care.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.patient = None
         """ The patient who is the focus of this episode of care.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.period = None
         """ Interval during responsibility is assumed.
@@ -59,7 +59,7 @@ class EpisodeOfCare(domainresource.DomainResource):
         
         self.referralRequest = None
         """ Originating Referral Request(s).
-        List of `FHIRReference` items referencing `ReferralRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
         """ planned | waitlist | active | onhold | finished | cancelled |
@@ -73,7 +73,7 @@ class EpisodeOfCare(domainresource.DomainResource):
         
         self.team = None
         """ Other practitioners facilitating this episode of care.
-        List of `FHIRReference` items referencing `CareTeam` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.type = None
         """ Type/class  - e.g. specialist referral, disease management.
@@ -118,7 +118,7 @@ class EpisodeOfCareDiagnosis(backboneelement.BackboneElement):
         
         self.condition = None
         """ Conditions/problems/diagnoses this episode of care is for.
-        Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.rank = None
         """ Ranking of the diagnosis (for each role type).

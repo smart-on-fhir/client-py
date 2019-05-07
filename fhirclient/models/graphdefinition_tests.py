@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -42,10 +42,12 @@ class GraphDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.link[0].path, "Composition.section.entry")
         self.assertEqual(inst.link[0].target[0].compartment[0].code, "Patient")
         self.assertEqual(inst.link[0].target[0].compartment[0].rule, "identical")
+        self.assertEqual(inst.link[0].target[0].compartment[0].use, "requirement")
         self.assertEqual(inst.link[0].target[0].link[0].description, "Include any list entries")
         self.assertEqual(inst.link[0].target[0].link[0].path, "List.entry.item")
         self.assertEqual(inst.link[0].target[0].link[0].target[0].compartment[0].code, "Patient")
         self.assertEqual(inst.link[0].target[0].link[0].target[0].compartment[0].rule, "identical")
+        self.assertEqual(inst.link[0].target[0].link[0].target[0].compartment[0].use, "requirement")
         self.assertEqual(inst.link[0].target[0].link[0].target[0].type, "Resource")
         self.assertEqual(inst.link[0].target[0].type, "List")
         self.assertEqual(inst.name, "Document Generation Template")

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -43,8 +43,12 @@ class Questionnaire(domainresource.DomainResource):
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.derivedFrom = None
+        """ Instantiates protocol or definition.
+        List of `str` items. """
         
         self.description = None
         """ Natural language description of the questionnaire.
@@ -99,11 +103,12 @@ class Questionnaire(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this questionnaire (globally unique).
+        """ Canonical identifier for this questionnaire, represented as a URI
+        (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -120,6 +125,7 @@ class Questionnaire(domainresource.DomainResource):
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("derivedFrom", "derivedFrom", str, True, None, False),
             ("description", "description", str, False, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
@@ -159,6 +165,14 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.answerOption = None
+        """ Permitted answer.
+        List of `QuestionnaireItemAnswerOption` items (represented as `dict` in JSON). """
+        
+        self.answerValueSet = None
+        """ Valueset containing permitted answers.
+        Type `str`. """
+        
         self.code = None
         """ Corresponding concept for this item in a terminology.
         List of `Coding` items (represented as `dict` in JSON). """
@@ -167,57 +181,17 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         """ ElementDefinition - details for the item.
         Type `str`. """
         
+        self.enableBehavior = None
+        """ all | any.
+        Type `str`. """
+        
         self.enableWhen = None
         """ Only allow data when.
         List of `QuestionnaireItemEnableWhen` items (represented as `dict` in JSON). """
         
-        self.initialAttachment = None
-        """ Default value when item is first rendered.
-        Type `Attachment` (represented as `dict` in JSON). """
-        
-        self.initialBoolean = None
-        """ Default value when item is first rendered.
-        Type `bool`. """
-        
-        self.initialCoding = None
-        """ Default value when item is first rendered.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.initialDate = None
-        """ Default value when item is first rendered.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.initialDateTime = None
-        """ Default value when item is first rendered.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.initialDecimal = None
-        """ Default value when item is first rendered.
-        Type `float`. """
-        
-        self.initialInteger = None
-        """ Default value when item is first rendered.
-        Type `int`. """
-        
-        self.initialQuantity = None
-        """ Default value when item is first rendered.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
-        self.initialReference = None
-        """ Default value when item is first rendered.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        self.initialString = None
-        """ Default value when item is first rendered.
-        Type `str`. """
-        
-        self.initialTime = None
-        """ Default value when item is first rendered.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.initialUri = None
-        """ Default value when item is first rendered.
-        Type `str`. """
+        self.initial = None
+        """ Initial value(s) when item is first rendered.
+        List of `QuestionnaireItemInitial` items (represented as `dict` in JSON). """
         
         self.item = None
         """ Nested questionnaire items.
@@ -230,14 +204,6 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         self.maxLength = None
         """ No more than this many characters.
         Type `int`. """
-        
-        self.option = None
-        """ Permitted answer.
-        List of `QuestionnaireItemOption` items (represented as `dict` in JSON). """
-        
-        self.options = None
-        """ Valueset containing permitted answers.
-        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
         
         self.prefix = None
         """ E.g. "1(a)", "2.5.3".
@@ -268,32 +234,82 @@ class QuestionnaireItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(QuestionnaireItem, self).elementProperties()
         js.extend([
+            ("answerOption", "answerOption", QuestionnaireItemAnswerOption, True, None, False),
+            ("answerValueSet", "answerValueSet", str, False, None, False),
             ("code", "code", coding.Coding, True, None, False),
             ("definition", "definition", str, False, None, False),
+            ("enableBehavior", "enableBehavior", str, False, None, False),
             ("enableWhen", "enableWhen", QuestionnaireItemEnableWhen, True, None, False),
-            ("initialAttachment", "initialAttachment", attachment.Attachment, False, "initial", False),
-            ("initialBoolean", "initialBoolean", bool, False, "initial", False),
-            ("initialCoding", "initialCoding", coding.Coding, False, "initial", False),
-            ("initialDate", "initialDate", fhirdate.FHIRDate, False, "initial", False),
-            ("initialDateTime", "initialDateTime", fhirdate.FHIRDate, False, "initial", False),
-            ("initialDecimal", "initialDecimal", float, False, "initial", False),
-            ("initialInteger", "initialInteger", int, False, "initial", False),
-            ("initialQuantity", "initialQuantity", quantity.Quantity, False, "initial", False),
-            ("initialReference", "initialReference", fhirreference.FHIRReference, False, "initial", False),
-            ("initialString", "initialString", str, False, "initial", False),
-            ("initialTime", "initialTime", fhirdate.FHIRDate, False, "initial", False),
-            ("initialUri", "initialUri", str, False, "initial", False),
+            ("initial", "initial", QuestionnaireItemInitial, True, None, False),
             ("item", "item", QuestionnaireItem, True, None, False),
             ("linkId", "linkId", str, False, None, True),
             ("maxLength", "maxLength", int, False, None, False),
-            ("option", "option", QuestionnaireItemOption, True, None, False),
-            ("options", "options", fhirreference.FHIRReference, False, None, False),
             ("prefix", "prefix", str, False, None, False),
             ("readOnly", "readOnly", bool, False, None, False),
             ("repeats", "repeats", bool, False, None, False),
             ("required", "required", bool, False, None, False),
             ("text", "text", str, False, None, False),
             ("type", "type", str, False, None, True),
+        ])
+        return js
+
+
+class QuestionnaireItemAnswerOption(backboneelement.BackboneElement):
+    """ Permitted answer.
+    
+    One of the permitted answers for a "choice" or "open-choice" question.
+    """
+    
+    resource_type = "QuestionnaireItemAnswerOption"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.initialSelected = None
+        """ Whether option is selected by default.
+        Type `bool`. """
+        
+        self.valueCoding = None
+        """ Answer value.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.valueDate = None
+        """ Answer value.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.valueInteger = None
+        """ Answer value.
+        Type `int`. """
+        
+        self.valueReference = None
+        """ Answer value.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.valueString = None
+        """ Answer value.
+        Type `str`. """
+        
+        self.valueTime = None
+        """ Answer value.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        super(QuestionnaireItemAnswerOption, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(QuestionnaireItemAnswerOption, self).elementProperties()
+        js.extend([
+            ("initialSelected", "initialSelected", bool, False, None, False),
+            ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
+            ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
+            ("valueInteger", "valueInteger", int, False, "value", True),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
+            ("valueString", "valueString", str, False, "value", True),
+            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", True),
         ])
         return js
 
@@ -316,57 +332,49 @@ class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.answerAttachment = None
-        """ Value question must have.
-        Type `Attachment` (represented as `dict` in JSON). """
-        
         self.answerBoolean = None
-        """ Value question must have.
+        """ Value for question comparison based on operator.
         Type `bool`. """
         
         self.answerCoding = None
-        """ Value question must have.
+        """ Value for question comparison based on operator.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.answerDate = None
-        """ Value question must have.
+        """ Value for question comparison based on operator.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.answerDateTime = None
-        """ Value question must have.
+        """ Value for question comparison based on operator.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.answerDecimal = None
-        """ Value question must have.
+        """ Value for question comparison based on operator.
         Type `float`. """
         
         self.answerInteger = None
-        """ Value question must have.
+        """ Value for question comparison based on operator.
         Type `int`. """
         
         self.answerQuantity = None
-        """ Value question must have.
+        """ Value for question comparison based on operator.
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.answerReference = None
-        """ Value question must have.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ Value for question comparison based on operator.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.answerString = None
-        """ Value question must have.
+        """ Value for question comparison based on operator.
         Type `str`. """
         
         self.answerTime = None
-        """ Value question must have.
+        """ Value for question comparison based on operator.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.answerUri = None
-        """ Value question must have.
+        self.operator = None
+        """ exists | = | != | > | < | >= | <=.
         Type `str`. """
-        
-        self.hasAnswer = None
-        """ Enable when answered or not.
-        Type `bool`. """
         
         self.question = None
         """ Question that determines whether item is enabled.
@@ -377,31 +385,30 @@ class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(QuestionnaireItemEnableWhen, self).elementProperties()
         js.extend([
-            ("answerAttachment", "answerAttachment", attachment.Attachment, False, "answer", False),
-            ("answerBoolean", "answerBoolean", bool, False, "answer", False),
-            ("answerCoding", "answerCoding", coding.Coding, False, "answer", False),
-            ("answerDate", "answerDate", fhirdate.FHIRDate, False, "answer", False),
-            ("answerDateTime", "answerDateTime", fhirdate.FHIRDate, False, "answer", False),
-            ("answerDecimal", "answerDecimal", float, False, "answer", False),
-            ("answerInteger", "answerInteger", int, False, "answer", False),
-            ("answerQuantity", "answerQuantity", quantity.Quantity, False, "answer", False),
-            ("answerReference", "answerReference", fhirreference.FHIRReference, False, "answer", False),
-            ("answerString", "answerString", str, False, "answer", False),
-            ("answerTime", "answerTime", fhirdate.FHIRDate, False, "answer", False),
-            ("answerUri", "answerUri", str, False, "answer", False),
-            ("hasAnswer", "hasAnswer", bool, False, None, False),
+            ("answerBoolean", "answerBoolean", bool, False, "answer", True),
+            ("answerCoding", "answerCoding", coding.Coding, False, "answer", True),
+            ("answerDate", "answerDate", fhirdate.FHIRDate, False, "answer", True),
+            ("answerDateTime", "answerDateTime", fhirdate.FHIRDate, False, "answer", True),
+            ("answerDecimal", "answerDecimal", float, False, "answer", True),
+            ("answerInteger", "answerInteger", int, False, "answer", True),
+            ("answerQuantity", "answerQuantity", quantity.Quantity, False, "answer", True),
+            ("answerReference", "answerReference", fhirreference.FHIRReference, False, "answer", True),
+            ("answerString", "answerString", str, False, "answer", True),
+            ("answerTime", "answerTime", fhirdate.FHIRDate, False, "answer", True),
+            ("operator", "operator", str, False, None, True),
             ("question", "question", str, False, None, True),
         ])
         return js
 
 
-class QuestionnaireItemOption(backboneelement.BackboneElement):
-    """ Permitted answer.
+class QuestionnaireItemInitial(backboneelement.BackboneElement):
+    """ Initial value(s) when item is first rendered.
     
-    One of the permitted answers for a "choice" or "open-choice" question.
+    One or more values that should be pre-populated in the answer when
+    initially rendering the questionnaire for user input.
     """
     
-    resource_type = "QuestionnaireItemOption"
+    resource_type = "QuestionnaireItemInitial"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -411,36 +418,71 @@ class QuestionnaireItemOption(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.valueAttachment = None
+        """ Actual value for initializing the question.
+        Type `Attachment` (represented as `dict` in JSON). """
+        
+        self.valueBoolean = None
+        """ Actual value for initializing the question.
+        Type `bool`. """
+        
         self.valueCoding = None
-        """ Answer value.
+        """ Actual value for initializing the question.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.valueDate = None
-        """ Answer value.
+        """ Actual value for initializing the question.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.valueDateTime = None
+        """ Actual value for initializing the question.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.valueDecimal = None
+        """ Actual value for initializing the question.
+        Type `float`. """
+        
         self.valueInteger = None
-        """ Answer value.
+        """ Actual value for initializing the question.
         Type `int`. """
         
+        self.valueQuantity = None
+        """ Actual value for initializing the question.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.valueReference = None
+        """ Actual value for initializing the question.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
         self.valueString = None
-        """ Answer value.
+        """ Actual value for initializing the question.
         Type `str`. """
         
         self.valueTime = None
-        """ Answer value.
+        """ Actual value for initializing the question.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        super(QuestionnaireItemOption, self).__init__(jsondict=jsondict, strict=strict)
+        self.valueUri = None
+        """ Actual value for initializing the question.
+        Type `str`. """
+        
+        super(QuestionnaireItemInitial, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(QuestionnaireItemOption, self).elementProperties()
+        js = super(QuestionnaireItemInitial, self).elementProperties()
         js.extend([
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", True),
+            ("valueBoolean", "valueBoolean", bool, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
             ("valueString", "valueString", str, False, "value", True),
             ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueUri", "valueUri", str, False, "value", True),
         ])
         return js
 

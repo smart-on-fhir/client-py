@@ -142,9 +142,13 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "options": {
-                "reference": "#vs2"
-              },
+              "answerOption": [
+                {
+                  "valueReference": {
+                    "reference": "#vs2"
+                  }
+                }
+              ],
               "item": [
                 {
                   "extension": [

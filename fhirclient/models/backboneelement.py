@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/BackboneElement) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/BackboneElement) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import element
@@ -25,7 +25,7 @@ class BackboneElement(element.Element):
         """
         
         self.modifierExtension = None
-        """ Extensions that cannot be ignored.
+        """ Extensions that cannot be ignored even if unrecognized.
         List of `Extension` items (represented as `dict` in JSON). """
         
         super(BackboneElement, self).__init__(jsondict=jsondict, strict=strict)

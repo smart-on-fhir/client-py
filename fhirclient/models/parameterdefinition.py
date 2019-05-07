@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import element
@@ -44,7 +44,7 @@ class ParameterDefinition(element.Element):
         
         self.profile = None
         """ What profile the value is expected to be.
-        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.type = None
         """ What type of value.
@@ -63,15 +63,10 @@ class ParameterDefinition(element.Element):
             ("max", "max", str, False, None, False),
             ("min", "min", int, False, None, False),
             ("name", "name", str, False, None, False),
-            ("profile", "profile", fhirreference.FHIRReference, False, None, False),
+            ("profile", "profile", str, False, None, False),
             ("type", "type", str, False, None, True),
             ("use", "use", str, False, None, True),
         ])
         return js
 
 
-import sys
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']

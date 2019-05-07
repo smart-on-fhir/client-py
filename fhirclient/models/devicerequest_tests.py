@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -40,7 +40,11 @@ class DeviceRequestTests(unittest.TestCase):
         self.assertEqual(inst.groupIdentifier.value, "ip_request1")
         self.assertEqual(inst.id, "insulinpump")
         self.assertEqual(inst.identifier[0].value, "ip_request1.1")
-        self.assertEqual(inst.intent.text, "instance-order")
+        self.assertEqual(inst.instantiatesCanonical[0], "http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set")
+        self.assertEqual(inst.intent, "instance-order")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.note[0].text, "this is the right device brand and model")
         self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2013-05-08T09:33:27+07:00").date)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2013-05-08T09:33:27+07:00")
@@ -63,7 +67,10 @@ class DeviceRequestTests(unittest.TestCase):
     
     def implDeviceRequest2(self, inst):
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.intent.coding[0].code, "original-order")
+        self.assertEqual(inst.intent, "original-order")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
 

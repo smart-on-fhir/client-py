@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -38,9 +38,12 @@ class AppointmentResponseTests(unittest.TestCase):
         self.assertEqual(inst.id, "exampleresp")
         self.assertEqual(inst.identifier[0].system, "http://example.org/sampleappointmentresponse-identifier")
         self.assertEqual(inst.identifier[0].value, "response123")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.participantStatus, "tentative")
         self.assertEqual(inst.participantType[0].coding[0].code, "ATND")
-        self.assertEqual(inst.participantType[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
+        self.assertEqual(inst.participantType[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
         self.assertEqual(inst.start.date, FHIRDate("2013-12-25T13:15:00Z").date)
         self.assertEqual(inst.start.as_json(), "2013-12-25T13:15:00Z")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Accept Brian MRI results discussion</div>")
@@ -58,6 +61,9 @@ class AppointmentResponseTests(unittest.TestCase):
     
     def implAppointmentResponse2(self, inst):
         self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.participantStatus, "accepted")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Accept Brian MRI results discussion</div>")
         self.assertEqual(inst.text.status, "generated")

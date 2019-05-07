@@ -1,5 +1,4 @@
 {
-    "acceptUnknown": "no",
     "date": ["2014-10-29T11:42:32.193-00:00"],
     "description": "Describes capabilities of this SMART on FHIR server",
     "fhirVersion": "0.0.82",
@@ -20,14 +19,12 @@
             "operation": [
                 {
                     "name": "transaction",
-                    "definition": {
-                        "reference": "#op-trans"
-                    }
+                    "definition": "https://fhir.org/OperationDefinition/made-up-1"
                 },
                 {
                     "name": "history-system",
                     "definition": {
-                        "reference": {"key": "#op-hist"}
+                        "key": "#op-hist"
                     }
                 }
             ],

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Library) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Library) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -30,6 +30,10 @@ class Library(domainresource.DomainResource):
         """ When the library was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.author = None
+        """ Who authored the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
         self.contact = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
@@ -37,10 +41,6 @@ class Library(domainresource.DomainResource):
         self.content = None
         """ Contents of the library, either embedded or referenced.
         List of `Attachment` items (represented as `dict` in JSON). """
-        
-        self.contributor = None
-        """ A content contributor.
-        List of `Contributor` items (represented as `dict` in JSON). """
         
         self.copyright = None
         """ Use and/or publishing restrictions.
@@ -51,16 +51,24 @@ class Library(domainresource.DomainResource):
         List of `DataRequirement` items (represented as `dict` in JSON). """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the library.
         Type `str`. """
         
+        self.editor = None
+        """ Who edited the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
         self.effectivePeriod = None
         """ When the library is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
+        
+        self.endorser = None
+        """ Who endorsed the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.experimental = None
         """ For testing purposes, not real usage.
@@ -98,8 +106,24 @@ class Library(domainresource.DomainResource):
         """ Additional documentation, citations, etc..
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
+        self.reviewer = None
+        """ Who reviewed the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
         self.status = None
         """ draft | active | retired | unknown.
+        Type `str`. """
+        
+        self.subjectCodeableConcept = None
+        """ Type of individual the library content is focused on.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.subjectReference = None
+        """ Type of individual the library content is focused on.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.subtitle = None
+        """ Subordinate title of the library.
         Type `str`. """
         
         self.title = None
@@ -107,7 +131,7 @@ class Library(domainresource.DomainResource):
         Type `str`. """
         
         self.topic = None
-        """ E.g. Education, Treatment, Assessment, etc.
+        """ E.g. Education, Treatment, Assessment, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.type = None
@@ -116,7 +140,8 @@ class Library(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.url = None
-        """ Logical URI to reference this library (globally unique).
+        """ Canonical identifier for this library, represented as a URI
+        (globally unique).
         Type `str`. """
         
         self.usage = None
@@ -124,7 +149,7 @@ class Library(domainresource.DomainResource):
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -137,14 +162,16 @@ class Library(domainresource.DomainResource):
         js = super(Library, self).elementProperties()
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("author", "author", contactdetail.ContactDetail, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("content", "content", attachment.Attachment, True, None, False),
-            ("contributor", "contributor", contributor.Contributor, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("dataRequirement", "dataRequirement", datarequirement.DataRequirement, True, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
+            ("editor", "editor", contactdetail.ContactDetail, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
+            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
@@ -154,7 +181,11 @@ class Library(domainresource.DomainResource):
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
+            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
             ("status", "status", str, False, None, True),
+            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
+            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
+            ("subtitle", "subtitle", str, False, None, False),
             ("title", "title", str, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
@@ -180,10 +211,6 @@ try:
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
 try:
-    from . import contributor
-except ImportError:
-    contributor = sys.modules[__package__ + '.contributor']
-try:
     from . import datarequirement
 except ImportError:
     datarequirement = sys.modules[__package__ + '.datarequirement']
@@ -191,6 +218,10 @@ try:
     from . import fhirdate
 except ImportError:
     fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
 try:
     from . import identifier
 except ImportError:

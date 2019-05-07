@@ -44,8 +44,7 @@
 					"reference": "Patient/23"
 				},
 				"code": {},
-				"status": "active",
-				"comment": "Observation 123, referencing subject relatively"
+				"status": "active"
 			}
 		},
 		{
@@ -57,8 +56,7 @@
 					"reference": "urn:uuid:04121321-4af5-424c-a0e1-ed3aab1c349d"
 				},
 				"code": {},
-				"status": "active",
-				"comment": "Observation 56, referencing subject via UUID"
+				"status": "active"
 			}
 		},
 		{
@@ -70,8 +68,7 @@
 					"reference": "https://fhir.smarthealthit.org/dev/Patient/99"
 				},
 				"code": {},
-				"status": "active",
-				"comment": "Observation 34 with absolute subject reference to different endpoint"
+				"status": "active"
 			}
 		}
 	]

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -10,7 +10,7 @@ from . import domainresource
 class OperationOutcome(domainresource.DomainResource):
     """ Information about the success/failure of an action.
     
-    A collection of error, warning or information messages that result from a
+    A collection of error, warning, or information messages that result from a
     system action.
     """
     
@@ -43,7 +43,8 @@ from . import backboneelement
 class OperationOutcomeIssue(backboneelement.BackboneElement):
     """ A single issue associated with the action.
     
-    An error, warning or information message that results from a system action.
+    An error, warning, or information message that results from a system
+    action.
     """
     
     resource_type = "OperationOutcomeIssue"
@@ -73,7 +74,7 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         List of `str` items. """
         
         self.location = None
-        """ Path of element(s) related to issue.
+        """ Deprecated: Path of element(s) related to issue.
         List of `str` items. """
         
         self.severity = None

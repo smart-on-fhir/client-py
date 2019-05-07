@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -33,9 +33,12 @@ class ResearchSubjectTests(unittest.TestCase):
     
     def implResearchSubject1(self, inst):
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.identifier.system, "http://example.org/studysubjectids")
-        self.assertEqual(inst.identifier.type.text, "Subject id")
-        self.assertEqual(inst.identifier.value, "123")
+        self.assertEqual(inst.identifier[0].system, "http://example.org/studysubjectids")
+        self.assertEqual(inst.identifier[0].type.text, "Subject id")
+        self.assertEqual(inst.identifier[0].value, "123")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.status, "candidate")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>")
         self.assertEqual(inst.text.status, "generated")

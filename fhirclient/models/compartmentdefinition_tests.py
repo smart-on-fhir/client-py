@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -41,9 +41,6 @@ class CompartmentDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.description, "The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only).")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.jurisdiction[0].coding[0].code, "US")
-        self.assertEqual(inst.jurisdiction[0].coding[0].display, "United States of America (the)")
-        self.assertEqual(inst.jurisdiction[0].coding[0].system, "urn:iso:std:iso:3166")
         self.assertEqual(inst.name, "EXAMPLE")
         self.assertEqual(inst.publisher, "Health Level Seven International (FHIR Infrastructure)")
         self.assertEqual(inst.purpose, "Provides an example of a FHIR compartment definition based on the Device resource type.")
@@ -58,10 +55,9 @@ class CompartmentDefinitionTests(unittest.TestCase):
         self.assertTrue(inst.search)
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.title, "Base FHIR compartment definition for Device(example)")
         self.assertEqual(inst.url, "http://hl7.org/fhir/CompartmentDefinition/example")
         self.assertEqual(inst.useContext[0].code.code, "focus")
-        self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
+        self.assertEqual(inst.useContext[0].code.system, "http://terminology.hl7.org/CodeSystem/usage-context-type")
         self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "Device")
         self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://hl7.org/fhir/resource-types")
 

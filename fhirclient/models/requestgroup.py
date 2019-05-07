@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/RequestGroup) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/RequestGroup) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -30,7 +30,7 @@ class RequestGroup(domainresource.DomainResource):
         
         self.author = None
         """ Device or practitioner that authored the request group.
-        Type `FHIRReference` referencing `Device, Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.authoredOn = None
         """ When the request group was authored.
@@ -38,15 +38,15 @@ class RequestGroup(domainresource.DomainResource):
         
         self.basedOn = None
         """ Fulfills plan, proposal, or order.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.context = None
-        """ Encounter or Episode for the request group.
-        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        self.code = None
+        """ What's being requested/ordered.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.definition = None
-        """ Instantiates protocol or definition.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        self.encounter = None
+        """ Created as part of.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.groupIdentifier = None
         """ Composite request this is part of.
@@ -55,6 +55,14 @@ class RequestGroup(domainresource.DomainResource):
         self.identifier = None
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.instantiatesCanonical = None
+        """ Instantiates FHIR protocol or definition.
+        List of `str` items. """
+        
+        self.instantiatesUri = None
+        """ Instantiates external protocol or definition.
+        List of `str` items. """
         
         self.intent = None
         """ proposal | plan | order.
@@ -68,17 +76,17 @@ class RequestGroup(domainresource.DomainResource):
         """ routine | urgent | asap | stat.
         Type `str`. """
         
-        self.reasonCodeableConcept = None
-        """ Reason for the request group.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.reasonCode = None
+        """ Why the request group is needed.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.reasonReference = None
-        """ Reason for the request group.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        """ Why the request group is needed.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.replaces = None
         """ Request(s) replaced by this request.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
         """ draft | active | suspended | cancelled | completed | entered-in-
@@ -87,7 +95,7 @@ class RequestGroup(domainresource.DomainResource):
         
         self.subject = None
         """ Who the request group is about.
-        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(RequestGroup, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -98,15 +106,17 @@ class RequestGroup(domainresource.DomainResource):
             ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("definition", "definition", fhirreference.FHIRReference, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
+            ("instantiatesUri", "instantiatesUri", str, True, None, False),
             ("intent", "intent", str, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("priority", "priority", str, False, None, False),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("replaces", "replaces", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
@@ -160,16 +170,20 @@ class RequestGroupAction(backboneelement.BackboneElement):
         """ visual-group | logical-group | sentence-group.
         Type `str`. """
         
-        self.label = None
-        """ User-visible label for the action (e.g. 1. or A.).
-        Type `str`. """
-        
         self.participant = None
         """ Who should perform the action.
-        List of `FHIRReference` items referencing `Patient, Person, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.precheckBehavior = None
         """ yes | no.
+        Type `str`. """
+        
+        self.prefix = None
+        """ User-visible prefix for the action (e.g. 1. or A.).
+        Type `str`. """
+        
+        self.priority = None
+        """ routine | urgent | asap | stat.
         Type `str`. """
         
         self.relatedAction = None
@@ -182,7 +196,7 @@ class RequestGroupAction(backboneelement.BackboneElement):
         
         self.resource = None
         """ The target of the action.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.selectionBehavior = None
         """ any | all | all-or-none | exactly-one | at-most-one | one-or-more.
@@ -192,6 +206,10 @@ class RequestGroupAction(backboneelement.BackboneElement):
         """ Static text equivalent of the action, used if the dynamic aspects
         cannot be interpreted by the receiving system.
         Type `str`. """
+        
+        self.timingAge = None
+        """ When the action should take place.
+        Type `Age` (represented as `dict` in JSON). """
         
         self.timingDateTime = None
         """ When the action should take place.
@@ -219,7 +237,7 @@ class RequestGroupAction(backboneelement.BackboneElement):
         
         self.type = None
         """ create | update | remove | fire-event.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(RequestGroupAction, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -233,21 +251,23 @@ class RequestGroupAction(backboneelement.BackboneElement):
             ("description", "description", str, False, None, False),
             ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
             ("groupingBehavior", "groupingBehavior", str, False, None, False),
-            ("label", "label", str, False, None, False),
             ("participant", "participant", fhirreference.FHIRReference, True, None, False),
             ("precheckBehavior", "precheckBehavior", str, False, None, False),
+            ("prefix", "prefix", str, False, None, False),
+            ("priority", "priority", str, False, None, False),
             ("relatedAction", "relatedAction", RequestGroupActionRelatedAction, True, None, False),
             ("requiredBehavior", "requiredBehavior", str, False, None, False),
             ("resource", "resource", fhirreference.FHIRReference, False, None, False),
             ("selectionBehavior", "selectionBehavior", str, False, None, False),
             ("textEquivalent", "textEquivalent", str, False, None, False),
+            ("timingAge", "timingAge", age.Age, False, "timing", False),
             ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
             ("timingDuration", "timingDuration", duration.Duration, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("timingRange", "timingRange", range.Range, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
             ("title", "title", str, False, None, False),
-            ("type", "type", coding.Coding, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -269,20 +289,12 @@ class RequestGroupActionCondition(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
-        """ Natural language description of the condition.
-        Type `str`. """
-        
         self.expression = None
         """ Boolean-valued expression.
-        Type `str`. """
+        Type `Expression` (represented as `dict` in JSON). """
         
         self.kind = None
         """ applicability | start | stop.
-        Type `str`. """
-        
-        self.language = None
-        """ Language of the expression.
         Type `str`. """
         
         super(RequestGroupActionCondition, self).__init__(jsondict=jsondict, strict=strict)
@@ -290,10 +302,8 @@ class RequestGroupActionCondition(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RequestGroupActionCondition, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, False),
-            ("expression", "expression", str, False, None, False),
+            ("expression", "expression", expression.Expression, False, None, False),
             ("kind", "kind", str, False, None, True),
-            ("language", "language", str, False, None, False),
         ])
         return js
 
@@ -347,6 +357,10 @@ class RequestGroupActionRelatedAction(backboneelement.BackboneElement):
 
 import sys
 try:
+    from . import age
+except ImportError:
+    age = sys.modules[__package__ + '.age']
+try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
@@ -355,13 +369,13 @@ try:
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
 try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
-try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+try:
+    from . import expression
+except ImportError:
+    expression = sys.modules[__package__ + '.expression']
 try:
     from . import fhirdate
 except ImportError:

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -45,12 +45,16 @@ class AuditEvent(domainresource.DomainResource):
         """ Description of the event outcome.
         Type `str`. """
         
+        self.period = None
+        """ When the activity occurred.
+        Type `Period` (represented as `dict` in JSON). """
+        
         self.purposeOfEvent = None
         """ The purposeOfUse of the event.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.recorded = None
-        """ Time when the event occurred on source.
+        """ Time when the event was recorded.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.source = None
@@ -75,6 +79,7 @@ class AuditEvent(domainresource.DomainResource):
             ("entity", "entity", AuditEventEntity, True, None, False),
             ("outcome", "outcome", str, False, None, False),
             ("outcomeDesc", "outcomeDesc", str, False, None, False),
+            ("period", "period", period.Period, False, None, False),
             ("purposeOfEvent", "purposeOfEvent", codeableconcept.CodeableConcept, True, None, False),
             ("recorded", "recorded", fhirdate.FHIRDate, False, None, True),
             ("source", "source", AuditEventSource, False, None, True),
@@ -103,19 +108,19 @@ class AuditEventAgent(backboneelement.BackboneElement):
         """
         
         self.altId = None
-        """ Alternative User id e.g. authentication.
+        """ Alternative User identity.
         Type `str`. """
         
         self.location = None
         """ Where.
-        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.media = None
         """ Type of media.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.name = None
-        """ Human-meaningful name for the agent.
+        """ Human friendly name for the agent.
         Type `str`. """
         
         self.network = None
@@ -130,10 +135,6 @@ class AuditEventAgent(backboneelement.BackboneElement):
         """ Reason given for this user.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reference = None
-        """ Direct reference to resource.
-        Type `FHIRReference` referencing `Practitioner, Organization, Device, Patient, RelatedPerson` (represented as `dict` in JSON). """
-        
         self.requestor = None
         """ Whether user is initiator.
         Type `bool`. """
@@ -142,9 +143,13 @@ class AuditEventAgent(backboneelement.BackboneElement):
         """ Agent role in the event.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.userId = None
-        """ Unique identifier for the user.
-        Type `Identifier` (represented as `dict` in JSON). """
+        self.type = None
+        """ How agent participated.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.who = None
+        """ Identifier of who.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(AuditEventAgent, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -158,10 +163,10 @@ class AuditEventAgent(backboneelement.BackboneElement):
             ("network", "network", AuditEventAgentNetwork, False, None, False),
             ("policy", "policy", str, True, None, False),
             ("purposeOfUse", "purposeOfUse", codeableconcept.CodeableConcept, True, None, False),
-            ("reference", "reference", fhirreference.FHIRReference, False, None, False),
             ("requestor", "requestor", bool, False, None, True),
             ("role", "role", codeableconcept.CodeableConcept, True, None, False),
-            ("userId", "userId", identifier.Identifier, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("who", "who", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -226,10 +231,6 @@ class AuditEventEntity(backboneelement.BackboneElement):
         """ Additional Information about the entity.
         List of `AuditEventEntityDetail` items (represented as `dict` in JSON). """
         
-        self.identifier = None
-        """ Specific instance of object.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
         self.lifecycle = None
         """ Life-cycle stage for the entity.
         Type `Coding` (represented as `dict` in JSON). """
@@ -241,10 +242,6 @@ class AuditEventEntity(backboneelement.BackboneElement):
         self.query = None
         """ Query parameters.
         Type `str`. """
-        
-        self.reference = None
-        """ Specific instance of resource.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
         
         self.role = None
         """ What role the entity played.
@@ -258,6 +255,10 @@ class AuditEventEntity(backboneelement.BackboneElement):
         """ Type of entity involved.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.what = None
+        """ Specific instance of resource.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
         super(AuditEventEntity, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -265,14 +266,13 @@ class AuditEventEntity(backboneelement.BackboneElement):
         js.extend([
             ("description", "description", str, False, None, False),
             ("detail", "detail", AuditEventEntityDetail, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("lifecycle", "lifecycle", coding.Coding, False, None, False),
             ("name", "name", str, False, None, False),
             ("query", "query", str, False, None, False),
-            ("reference", "reference", fhirreference.FHIRReference, False, None, False),
             ("role", "role", coding.Coding, False, None, False),
             ("securityLabel", "securityLabel", coding.Coding, True, None, False),
             ("type", "type", coding.Coding, False, None, False),
+            ("what", "what", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -297,7 +297,11 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
         """ Name of the property.
         Type `str`. """
         
-        self.value = None
+        self.valueBase64Binary = None
+        """ Property value.
+        Type `str`. """
+        
+        self.valueString = None
         """ Property value.
         Type `str`. """
         
@@ -307,7 +311,8 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
         js = super(AuditEventEntityDetail, self).elementProperties()
         js.extend([
             ("type", "type", str, False, None, True),
-            ("value", "value", str, False, None, True),
+            ("valueBase64Binary", "valueBase64Binary", str, False, "value", True),
+            ("valueString", "valueString", str, False, "value", True),
         ])
         return js
 
@@ -328,9 +333,9 @@ class AuditEventSource(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.identifier = None
+        self.observer = None
         """ The identity of source detecting the event.
-        Type `Identifier` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.site = None
         """ Logical source location within the enterprise.
@@ -345,7 +350,7 @@ class AuditEventSource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventSource, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("observer", "observer", fhirreference.FHIRReference, False, None, True),
             ("site", "site", str, False, None, False),
             ("type", "type", coding.Coding, True, None, False),
         ])
@@ -370,6 +375,6 @@ try:
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
 try:
-    from . import identifier
+    from . import period
 except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+    period = sys.modules[__package__ + '.period']

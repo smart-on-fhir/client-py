@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Substance) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Substance) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -93,7 +93,7 @@ class SubstanceIngredient(backboneelement.BackboneElement):
         
         self.substanceReference = None
         """ A component of the substance.
-        Type `FHIRReference` referencing `Substance` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(SubstanceIngredient, self).__init__(jsondict=jsondict, strict=strict)
     

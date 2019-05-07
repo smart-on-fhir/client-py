@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Provenance) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Provenance) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -34,7 +34,7 @@ class Provenance(domainresource.DomainResource):
         
         self.activity = None
         """ Activity that occurred.
-        Type `Coding` (represented as `dict` in JSON). """
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.agent = None
         """ Actor involved.
@@ -46,9 +46,13 @@ class Provenance(domainresource.DomainResource):
         
         self.location = None
         """ Where the activity occurred, if relevant.
-        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.occurredDateTime = None
+        """ When the activity occurred.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.occurredPeriod = None
         """ When the activity occurred.
         Type `Period` (represented as `dict` in JSON). """
         
@@ -58,7 +62,7 @@ class Provenance(domainresource.DomainResource):
         
         self.reason = None
         """ Reason the activity is occurring.
-        List of `Coding` items (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.recorded = None
         """ When the activity was recorded / updated.
@@ -70,20 +74,21 @@ class Provenance(domainresource.DomainResource):
         
         self.target = None
         """ Target Reference(s) (usually version specific).
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(Provenance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Provenance, self).elementProperties()
         js.extend([
-            ("activity", "activity", coding.Coding, False, None, False),
+            ("activity", "activity", codeableconcept.CodeableConcept, False, None, False),
             ("agent", "agent", ProvenanceAgent, True, None, True),
             ("entity", "entity", ProvenanceEntity, True, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("period", "period", period.Period, False, None, False),
+            ("occurredDateTime", "occurredDateTime", fhirdate.FHIRDate, False, "occurred", False),
+            ("occurredPeriod", "occurredPeriod", period.Period, False, "occurred", False),
             ("policy", "policy", str, True, None, False),
-            ("reason", "reason", coding.Coding, True, None, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("recorded", "recorded", fhirdate.FHIRDate, False, None, True),
             ("signature", "signature", signature.Signature, True, None, False),
             ("target", "target", fhirreference.FHIRReference, True, None, True),
@@ -110,41 +115,31 @@ class ProvenanceAgent(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.onBehalfOfReference = None
+        self.onBehalfOf = None
         """ Who the agent is representing.
-        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device, Organization` (represented as `dict` in JSON). """
-        
-        self.onBehalfOfUri = None
-        """ Who the agent is representing.
-        Type `str`. """
-        
-        self.relatedAgentType = None
-        """ Type of relationship between agents.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.role = None
         """ What the agents role was.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.whoReference = None
-        """ Who participated.
-        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device, Organization` (represented as `dict` in JSON). """
+        self.type = None
+        """ How the agent participated.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.whoUri = None
+        self.who = None
         """ Who participated.
-        Type `str`. """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ProvenanceAgent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ProvenanceAgent, self).elementProperties()
         js.extend([
-            ("onBehalfOfReference", "onBehalfOfReference", fhirreference.FHIRReference, False, "onBehalfOf", False),
-            ("onBehalfOfUri", "onBehalfOfUri", str, False, "onBehalfOf", False),
-            ("relatedAgentType", "relatedAgentType", codeableconcept.CodeableConcept, False, None, False),
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
             ("role", "role", codeableconcept.CodeableConcept, True, None, False),
-            ("whoReference", "whoReference", fhirreference.FHIRReference, False, "who", True),
-            ("whoUri", "whoUri", str, False, "who", True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("who", "who", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
@@ -171,17 +166,9 @@ class ProvenanceEntity(backboneelement.BackboneElement):
         """ derivation | revision | quotation | source | removal.
         Type `str`. """
         
-        self.whatIdentifier = None
+        self.what = None
         """ Identity of entity.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.whatReference = None
-        """ Identity of entity.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        self.whatUri = None
-        """ Identity of entity.
-        Type `str`. """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ProvenanceEntity, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -190,9 +177,7 @@ class ProvenanceEntity(backboneelement.BackboneElement):
         js.extend([
             ("agent", "agent", ProvenanceAgent, True, None, False),
             ("role", "role", str, False, None, True),
-            ("whatIdentifier", "whatIdentifier", identifier.Identifier, False, "what", True),
-            ("whatReference", "whatReference", fhirreference.FHIRReference, False, "what", True),
-            ("whatUri", "whatUri", str, False, "what", True),
+            ("what", "what", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
@@ -203,10 +188,6 @@ try:
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
 try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
-try:
     from . import fhirdate
 except ImportError:
     fhirdate = sys.modules[__package__ + '.fhirdate']
@@ -214,10 +195,6 @@ try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
 try:
     from . import period
 except ImportError:

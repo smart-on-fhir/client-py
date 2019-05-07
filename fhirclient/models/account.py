@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Account) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Account) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -25,14 +25,6 @@ class Account(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
-        """ Time window that transactions may be posted to this account.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.balance = None
-        """ How much is in account?.
-        Type `Money` (represented as `dict` in JSON). """
-        
         self.coverage = None
         """ The party(s) that are responsible for covering the payment of this
         account, and what order should they be applied to the account.
@@ -43,7 +35,7 @@ class Account(domainresource.DomainResource):
         Type `str`. """
         
         self.guarantor = None
-        """ Responsible for the account.
+        """ The parties ultimately responsible for balancing the Account.
         List of `AccountGuarantor` items (represented as `dict` in JSON). """
         
         self.identifier = None
@@ -55,20 +47,24 @@ class Account(domainresource.DomainResource):
         Type `str`. """
         
         self.owner = None
-        """ Who is responsible?.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ Entity managing the Account.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.partOf = None
+        """ Reference to a parent Account.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.servicePeriod = None
         """ Transaction window.
         Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
-        """ active | inactive | entered-in-error.
+        """ active | inactive | entered-in-error | on-hold | unknown.
         Type `str`. """
         
         self.subject = None
-        """ What is account tied to?.
-        Type `FHIRReference` referencing `Patient, Device, Practitioner, Location, HealthcareService, Organization` (represented as `dict` in JSON). """
+        """ The entity that caused the expenses.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.type = None
         """ E.g. patient, expense, depreciation.
@@ -79,17 +75,16 @@ class Account(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Account, self).elementProperties()
         js.extend([
-            ("active", "active", period.Period, False, None, False),
-            ("balance", "balance", money.Money, False, None, False),
             ("coverage", "coverage", AccountCoverage, True, None, False),
             ("description", "description", str, False, None, False),
             ("guarantor", "guarantor", AccountGuarantor, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("name", "name", str, False, None, False),
             ("owner", "owner", fhirreference.FHIRReference, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("status", "status", str, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
+            ("servicePeriod", "servicePeriod", period.Period, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
@@ -113,9 +108,9 @@ class AccountCoverage(backboneelement.BackboneElement):
         """
         
         self.coverage = None
-        """ The party(s) that are responsible for covering the payment of this
-        account.
-        Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
+        """ The party(s), such as insurances, that may contribute to the
+        payment of this account.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.priority = None
         """ The priority of the coverage in the context of this account.
@@ -133,9 +128,10 @@ class AccountCoverage(backboneelement.BackboneElement):
 
 
 class AccountGuarantor(backboneelement.BackboneElement):
-    """ Responsible for the account.
+    """ The parties ultimately responsible for balancing the Account.
     
-    Parties financially responsible for the account.
+    The parties responsible for balancing the account if other payment options
+    fall short.
     """
     
     resource_type = "AccountGuarantor"
@@ -154,10 +150,10 @@ class AccountGuarantor(backboneelement.BackboneElement):
         
         self.party = None
         """ Responsible entity.
-        Type `FHIRReference` referencing `Patient, RelatedPerson, Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.period = None
-        """ Guarrantee account during.
+        """ Guarantee account during.
         Type `Period` (represented as `dict` in JSON). """
         
         super(AccountGuarantor, self).__init__(jsondict=jsondict, strict=strict)
@@ -185,10 +181,6 @@ try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
 try:
     from . import period
 except ImportError:

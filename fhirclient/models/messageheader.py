@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -29,7 +29,11 @@ class MessageHeader(domainresource.DomainResource):
         
         self.author = None
         """ The source of the decision.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.definition = None
+        """ Link to the definition for this message.
+        Type `str`. """
         
         self.destination = None
         """ Message destination application(s).
@@ -37,23 +41,25 @@ class MessageHeader(domainresource.DomainResource):
         
         self.enterer = None
         """ The source of the data entry.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.event = None
-        """ Code for the event this message represents.
+        self.eventCoding = None
+        """ Code for the event this message represents or link to event
+        definition.
         Type `Coding` (represented as `dict` in JSON). """
+        
+        self.eventUri = None
+        """ Code for the event this message represents or link to event
+        definition.
+        Type `str`. """
         
         self.focus = None
         """ The actual content of the message.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.reason = None
         """ Cause of event.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.receiver = None
-        """ Intended "real-world" recipient for the data.
-        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
         
         self.response = None
         """ If this is a reply to prior message.
@@ -61,19 +67,15 @@ class MessageHeader(domainresource.DomainResource):
         
         self.responsible = None
         """ Final responsibility for event.
-        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.sender = None
         """ Real world sender of the message.
-        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.source = None
         """ Message source application.
         Type `MessageHeaderSource` (represented as `dict` in JSON). """
-        
-        self.timestamp = None
-        """ Time that the message was sent.
-        Type `FHIRDate` (represented as `str` in JSON). """
         
         super(MessageHeader, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -81,17 +83,17 @@ class MessageHeader(domainresource.DomainResource):
         js = super(MessageHeader, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("definition", "definition", str, False, None, False),
             ("destination", "destination", MessageHeaderDestination, True, None, False),
             ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
-            ("event", "event", coding.Coding, False, None, True),
+            ("eventCoding", "eventCoding", coding.Coding, False, "event", True),
+            ("eventUri", "eventUri", str, False, "event", True),
             ("focus", "focus", fhirreference.FHIRReference, True, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
-            ("receiver", "receiver", fhirreference.FHIRReference, False, None, False),
             ("response", "response", MessageHeaderResponse, False, None, False),
             ("responsible", "responsible", fhirreference.FHIRReference, False, None, False),
             ("sender", "sender", fhirreference.FHIRReference, False, None, False),
             ("source", "source", MessageHeaderSource, False, None, True),
-            ("timestamp", "timestamp", fhirdate.FHIRDate, False, None, True),
         ])
         return js
 
@@ -122,9 +124,13 @@ class MessageHeaderDestination(backboneelement.BackboneElement):
         """ Name of system.
         Type `str`. """
         
+        self.receiver = None
+        """ Intended "real-world" recipient for the data.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
         self.target = None
         """ Particular delivery destination within the destination.
-        Type `FHIRReference` referencing `Device` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(MessageHeaderDestination, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -133,6 +139,7 @@ class MessageHeaderDestination(backboneelement.BackboneElement):
         js.extend([
             ("endpoint", "endpoint", str, False, None, True),
             ("name", "name", str, False, None, False),
+            ("receiver", "receiver", fhirreference.FHIRReference, False, None, False),
             ("target", "target", fhirreference.FHIRReference, False, None, False),
         ])
         return js
@@ -161,7 +168,7 @@ class MessageHeaderResponse(backboneelement.BackboneElement):
         
         self.details = None
         """ Specific list of hints/warnings/errors.
-        Type `FHIRReference` referencing `OperationOutcome` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Id of original message.
@@ -242,10 +249,6 @@ try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
-try:
-    from . import fhirdate
-except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
 try:
     from . import fhirreference
 except ImportError:

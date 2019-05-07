@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Immunization) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -10,10 +10,8 @@ from . import domainresource
 class Immunization(domainresource.DomainResource):
     """ Immunization event information.
     
-    Describes the event of a patient being administered a vaccination or a
-    record of a vaccination as reported by a patient, a clinician or another
-    party and may include vaccine reaction information and what vaccination
-    protocol was followed.
+    Describes the event of a patient being administered a vaccine or a record
+    of an immunization as reported by a patient, a clinician or another party.
     """
     
     resource_type = "Immunization"
@@ -26,33 +24,37 @@ class Immunization(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.date = None
-        """ Vaccination administration date.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
         self.doseQuantity = None
         """ Amount of vaccine administered.
         Type `Quantity` (represented as `dict` in JSON). """
         
+        self.education = None
+        """ Educational material presented to patient.
+        List of `ImmunizationEducation` items (represented as `dict` in JSON). """
+        
         self.encounter = None
-        """ Encounter administered as part of.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        """ Encounter immunization was part of.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.expirationDate = None
         """ Vaccine expiration date.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.explanation = None
-        """ Administration/non-administration reasons.
-        Type `ImmunizationExplanation` (represented as `dict` in JSON). """
+        self.fundingSource = None
+        """ Funding source for the vaccine.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.isSubpotent = None
+        """ Dose potency.
+        Type `bool`. """
+        
         self.location = None
-        """ Where vaccination occurred.
-        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
+        """ Where immunization occurred.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.lotNumber = None
         """ Vaccine lot number.
@@ -60,31 +62,55 @@ class Immunization(domainresource.DomainResource):
         
         self.manufacturer = None
         """ Vaccine manufacturer.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
-        self.notGiven = None
-        """ Flag for whether immunization was given.
-        Type `bool`. """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.note = None
-        """ Vaccination notes.
+        """ Additional immunization notes.
         List of `Annotation` items (represented as `dict` in JSON). """
+        
+        self.occurrenceDateTime = None
+        """ Vaccine administration date.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.occurrenceString = None
+        """ Vaccine administration date.
+        Type `str`. """
         
         self.patient = None
         """ Who was immunized.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.practitioner = None
+        self.performer = None
         """ Who performed event.
-        List of `ImmunizationPractitioner` items (represented as `dict` in JSON). """
+        List of `ImmunizationPerformer` items (represented as `dict` in JSON). """
         
         self.primarySource = None
         """ Indicates context the data was recorded in.
         Type `bool`. """
         
+        self.programEligibility = None
+        """ Patient eligibility for a vaccination program.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.protocolApplied = None
+        """ Protocol followed by the provider.
+        List of `ImmunizationProtocolApplied` items (represented as `dict` in JSON). """
+        
         self.reaction = None
         """ Details of a reaction that follows immunization.
         List of `ImmunizationReaction` items (represented as `dict` in JSON). """
+        
+        self.reasonCode = None
+        """ Why immunization occurred.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.reasonReference = None
+        """ Why immunization occurred.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.recorded = None
+        """ When the immunization was first captured in the subject's record.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.reportOrigin = None
         """ Indicates the source of a secondarily reported record.
@@ -99,12 +125,16 @@ class Immunization(domainresource.DomainResource):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.status = None
-        """ completed | entered-in-error.
+        """ completed | entered-in-error | not-done.
         Type `str`. """
         
-        self.vaccinationProtocol = None
-        """ What protocol was followed.
-        List of `ImmunizationVaccinationProtocol` items (represented as `dict` in JSON). """
+        self.statusReason = None
+        """ Reason not done.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.subpotentReason = None
+        """ Reason for being subpotent.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.vaccineCode = None
         """ Vaccine product administered.
@@ -115,26 +145,34 @@ class Immunization(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Immunization, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("doseQuantity", "doseQuantity", quantity.Quantity, False, None, False),
+            ("education", "education", ImmunizationEducation, True, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("expirationDate", "expirationDate", fhirdate.FHIRDate, False, None, False),
-            ("explanation", "explanation", ImmunizationExplanation, False, None, False),
+            ("fundingSource", "fundingSource", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("isSubpotent", "isSubpotent", bool, False, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
             ("lotNumber", "lotNumber", str, False, None, False),
             ("manufacturer", "manufacturer", fhirreference.FHIRReference, False, None, False),
-            ("notGiven", "notGiven", bool, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", True),
+            ("occurrenceString", "occurrenceString", str, False, "occurrence", True),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("practitioner", "practitioner", ImmunizationPractitioner, True, None, False),
-            ("primarySource", "primarySource", bool, False, None, True),
+            ("performer", "performer", ImmunizationPerformer, True, None, False),
+            ("primarySource", "primarySource", bool, False, None, False),
+            ("programEligibility", "programEligibility", codeableconcept.CodeableConcept, True, None, False),
+            ("protocolApplied", "protocolApplied", ImmunizationProtocolApplied, True, None, False),
             ("reaction", "reaction", ImmunizationReaction, True, None, False),
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
+            ("recorded", "recorded", fhirdate.FHIRDate, False, None, False),
             ("reportOrigin", "reportOrigin", codeableconcept.CodeableConcept, False, None, False),
             ("route", "route", codeableconcept.CodeableConcept, False, None, False),
             ("site", "site", codeableconcept.CodeableConcept, False, None, False),
             ("status", "status", str, False, None, True),
-            ("vaccinationProtocol", "vaccinationProtocol", ImmunizationVaccinationProtocol, True, None, False),
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
+            ("subpotentReason", "subpotentReason", codeableconcept.CodeableConcept, True, None, False),
             ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
@@ -142,13 +180,14 @@ class Immunization(domainresource.DomainResource):
 
 from . import backboneelement
 
-class ImmunizationExplanation(backboneelement.BackboneElement):
-    """ Administration/non-administration reasons.
+class ImmunizationEducation(backboneelement.BackboneElement):
+    """ Educational material presented to patient.
     
-    Reasons why a vaccine was or was not administered.
+    Educational material presented to the patient (or guardian) at the time of
+    vaccine administration.
     """
     
-    resource_type = "ImmunizationExplanation"
+    resource_type = "ImmunizationEducation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -158,32 +197,42 @@ class ImmunizationExplanation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.reason = None
-        """ Why immunization occurred.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self.documentType = None
+        """ Educational material document identifier.
+        Type `str`. """
         
-        self.reasonNotGiven = None
-        """ Why immunization did not occur.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self.presentationDate = None
+        """ Educational material presentation date.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
-        super(ImmunizationExplanation, self).__init__(jsondict=jsondict, strict=strict)
+        self.publicationDate = None
+        """ Educational material publication date.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.reference = None
+        """ Educational material reference pointer.
+        Type `str`. """
+        
+        super(ImmunizationEducation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ImmunizationExplanation, self).elementProperties()
+        js = super(ImmunizationEducation, self).elementProperties()
         js.extend([
-            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonNotGiven", "reasonNotGiven", codeableconcept.CodeableConcept, True, None, False),
+            ("documentType", "documentType", str, False, None, False),
+            ("presentationDate", "presentationDate", fhirdate.FHIRDate, False, None, False),
+            ("publicationDate", "publicationDate", fhirdate.FHIRDate, False, None, False),
+            ("reference", "reference", str, False, None, False),
         ])
         return js
 
 
-class ImmunizationPractitioner(backboneelement.BackboneElement):
+class ImmunizationPerformer(backboneelement.BackboneElement):
     """ Who performed event.
     
-    Indicates who or what performed the event.
+    Indicates who performed the immunization event.
     """
     
-    resource_type = "ImmunizationPractitioner"
+    resource_type = "ImmunizationPerformer"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -194,20 +243,81 @@ class ImmunizationPractitioner(backboneelement.BackboneElement):
         """
         
         self.actor = None
-        """ Individual who was performing.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        """ Individual or organization who was performing.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.role = None
+        self.function = None
         """ What type of performance was done.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ImmunizationPractitioner, self).__init__(jsondict=jsondict, strict=strict)
+        super(ImmunizationPerformer, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ImmunizationPractitioner, self).elementProperties()
+        js = super(ImmunizationPerformer, self).elementProperties()
         js.extend([
             ("actor", "actor", fhirreference.FHIRReference, False, None, True),
-            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+            ("function", "function", codeableconcept.CodeableConcept, False, None, False),
+        ])
+        return js
+
+
+class ImmunizationProtocolApplied(backboneelement.BackboneElement):
+    """ Protocol followed by the provider.
+    
+    The protocol (set of recommendations) being followed by the provider who
+    administered the dose.
+    """
+    
+    resource_type = "ImmunizationProtocolApplied"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.authority = None
+        """ Who is responsible for publishing the recommendations.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.doseNumberPositiveInt = None
+        """ Dose number within series.
+        Type `int`. """
+        
+        self.doseNumberString = None
+        """ Dose number within series.
+        Type `str`. """
+        
+        self.series = None
+        """ Name of vaccine series.
+        Type `str`. """
+        
+        self.seriesDosesPositiveInt = None
+        """ Recommended number of doses for immunity.
+        Type `int`. """
+        
+        self.seriesDosesString = None
+        """ Recommended number of doses for immunity.
+        Type `str`. """
+        
+        self.targetDisease = None
+        """ Vaccine preventatable disease being targetted.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        super(ImmunizationProtocolApplied, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ImmunizationProtocolApplied, self).elementProperties()
+        js.extend([
+            ("authority", "authority", fhirreference.FHIRReference, False, None, False),
+            ("doseNumberPositiveInt", "doseNumberPositiveInt", int, False, "doseNumber", True),
+            ("doseNumberString", "doseNumberString", str, False, "doseNumber", True),
+            ("series", "series", str, False, None, False),
+            ("seriesDosesPositiveInt", "seriesDosesPositiveInt", int, False, "seriesDoses", False),
+            ("seriesDosesString", "seriesDosesString", str, False, "seriesDoses", False),
+            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -235,7 +345,7 @@ class ImmunizationReaction(backboneelement.BackboneElement):
         
         self.detail = None
         """ Additional information on reaction.
-        Type `FHIRReference` referencing `Observation` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.reported = None
         """ Indicates self-reported reaction.
@@ -249,72 +359,6 @@ class ImmunizationReaction(backboneelement.BackboneElement):
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("detail", "detail", fhirreference.FHIRReference, False, None, False),
             ("reported", "reported", bool, False, None, False),
-        ])
-        return js
-
-
-class ImmunizationVaccinationProtocol(backboneelement.BackboneElement):
-    """ What protocol was followed.
-    
-    Contains information about the protocol(s) under which the vaccine was
-    administered.
-    """
-    
-    resource_type = "ImmunizationVaccinationProtocol"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.authority = None
-        """ Who is responsible for protocol.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
-        self.description = None
-        """ Details of vaccine protocol.
-        Type `str`. """
-        
-        self.doseSequence = None
-        """ Dose number within series.
-        Type `int`. """
-        
-        self.doseStatus = None
-        """ Indicates if dose counts towards immunity.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.doseStatusReason = None
-        """ Why dose does (not) count.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.series = None
-        """ Name of vaccine series.
-        Type `str`. """
-        
-        self.seriesDoses = None
-        """ Recommended number of doses for immunity.
-        Type `int`. """
-        
-        self.targetDisease = None
-        """ Disease immunized against.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        super(ImmunizationVaccinationProtocol, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(ImmunizationVaccinationProtocol, self).elementProperties()
-        js.extend([
-            ("authority", "authority", fhirreference.FHIRReference, False, None, False),
-            ("description", "description", str, False, None, False),
-            ("doseSequence", "doseSequence", int, False, None, False),
-            ("doseStatus", "doseStatus", codeableconcept.CodeableConcept, False, None, True),
-            ("doseStatusReason", "doseStatusReason", codeableconcept.CodeableConcept, False, None, False),
-            ("series", "series", str, False, None, False),
-            ("seriesDoses", "seriesDoses", int, False, None, False),
-            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, True, None, True),
         ])
         return js
 

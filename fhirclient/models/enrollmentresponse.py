@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/EnrollmentResponse) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/EnrollmentResponse) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -11,7 +11,7 @@ class EnrollmentResponse(domainresource.DomainResource):
     """ EnrollmentResponse resource.
     
     This resource provides enrollment and plan details from the processing of
-    an Enrollment resource.
+    an EnrollmentRequest resource.
     """
     
     resource_type = "EnrollmentResponse"
@@ -38,23 +38,19 @@ class EnrollmentResponse(domainresource.DomainResource):
         
         self.organization = None
         """ Insurer.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.outcome = None
-        """ complete | error | partial.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ queued | complete | error | partial.
+        Type `str`. """
         
         self.request = None
         """ Claim reference.
-        Type `FHIRReference` referencing `EnrollmentRequest` (represented as `dict` in JSON). """
-        
-        self.requestOrganization = None
-        """ Responsible organization.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.requestProvider = None
         """ Responsible practitioner.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
@@ -69,9 +65,8 @@ class EnrollmentResponse(domainresource.DomainResource):
             ("disposition", "disposition", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
+            ("outcome", "outcome", str, False, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
-            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
             ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, False),
         ])
@@ -79,10 +74,6 @@ class EnrollmentResponse(domainresource.DomainResource):
 
 
 import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
 try:
     from . import fhirdate
 except ImportError:

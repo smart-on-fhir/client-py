@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -41,6 +41,9 @@ class DocumentManifestTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].value, "23425234234-2347")
         self.assertEqual(inst.masterIdentifier.system, "http://example.org/documents")
         self.assertEqual(inst.masterIdentifier.value, "23425234234-2346")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.related[0].identifier.system, "http://example.org/documents")
         self.assertEqual(inst.related[0].identifier.value, "23425234234-9999")
         self.assertEqual(inst.source, "urn:oid:1.3.6.1.4.1.21367.2009.1.2.1")

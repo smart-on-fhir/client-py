@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Timing) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Timing) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
-from . import element
+from . import backboneelement
 
-class Timing(element.Element):
+class Timing(backboneelement.BackboneElement):
     """ A timing schedule that specifies an event that may occur multiple times.
     
     Specifies an event that may occur multiple times. Timing schedules are used
@@ -28,7 +28,7 @@ class Timing(element.Element):
         """
         
         self.code = None
-        """ BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +.
+        """ BID | TID | QID | AM | PM | QD | QOD | +.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.event = None
@@ -50,6 +50,8 @@ class Timing(element.Element):
         ])
         return js
 
+
+from . import element
 
 class TimingRepeat(element.Element):
     """ When the event is to occur.
@@ -132,7 +134,7 @@ class TimingRepeat(element.Element):
         List of `FHIRDate` items (represented as `str` in JSON). """
         
         self.when = None
-        """ Regular life events the event is tied to.
+        """ Code for time period of occurrence.
         List of `str` items. """
         
         super(TimingRepeat, self).__init__(jsondict=jsondict, strict=strict)

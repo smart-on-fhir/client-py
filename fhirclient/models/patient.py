@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Patient) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Patient) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -29,20 +29,16 @@ class Patient(domainresource.DomainResource):
         Type `bool`. """
         
         self.address = None
-        """ Addresses for the individual.
+        """ An address for the individual.
         List of `Address` items (represented as `dict` in JSON). """
-        
-        self.animal = None
-        """ This patient is known to be an animal (non-human).
-        Type `PatientAnimal` (represented as `dict` in JSON). """
         
         self.birthDate = None
         """ The date of birth for the individual.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.communication = None
-        """ A list of Languages which may be used to communicate with the
-        patient about his or her health.
+        """ A language which may be used to communicate with the patient about
+        his or her health.
         List of `PatientCommunication` items (represented as `dict` in JSON). """
         
         self.contact = None
@@ -63,7 +59,7 @@ class Patient(domainresource.DomainResource):
         
         self.generalPractitioner = None
         """ Patient's nominated primary care provider.
-        List of `FHIRReference` items referencing `Organization, Practitioner` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.identifier = None
         """ An identifier for this patient.
@@ -76,7 +72,7 @@ class Patient(domainresource.DomainResource):
         
         self.managingOrganization = None
         """ Organization that is the custodian of the patient record.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.maritalStatus = None
         """ Marital (civil) status of a patient.
@@ -109,7 +105,6 @@ class Patient(domainresource.DomainResource):
         js.extend([
             ("active", "active", bool, False, None, False),
             ("address", "address", address.Address, True, None, False),
-            ("animal", "animal", PatientAnimal, False, None, False),
             ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
             ("communication", "communication", PatientCommunication, True, None, False),
             ("contact", "contact", PatientContact, True, None, False),
@@ -132,51 +127,8 @@ class Patient(domainresource.DomainResource):
 
 from . import backboneelement
 
-class PatientAnimal(backboneelement.BackboneElement):
-    """ This patient is known to be an animal (non-human).
-    
-    This patient is known to be an animal.
-    """
-    
-    resource_type = "PatientAnimal"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.breed = None
-        """ E.g. Poodle, Angus.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.genderStatus = None
-        """ E.g. Neutered, Intact.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.species = None
-        """ E.g. Dog, Cow.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        super(PatientAnimal, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(PatientAnimal, self).elementProperties()
-        js.extend([
-            ("breed", "breed", codeableconcept.CodeableConcept, False, None, False),
-            ("genderStatus", "genderStatus", codeableconcept.CodeableConcept, False, None, False),
-            ("species", "species", codeableconcept.CodeableConcept, False, None, True),
-        ])
-        return js
-
-
 class PatientCommunication(backboneelement.BackboneElement):
-    """ A list of Languages which may be used to communicate with the patient about
-    his or her health.
-    
-    Languages which may be used to communicate with the patient about his or
+    """ A language which may be used to communicate with the patient about his or
     her health.
     """
     
@@ -238,7 +190,7 @@ class PatientContact(backboneelement.BackboneElement):
         
         self.organization = None
         """ Organization that is associated with the contact.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.period = None
         """ The period during which this contact person or organization is
@@ -288,10 +240,10 @@ class PatientLink(backboneelement.BackboneElement):
         self.other = None
         """ The other patient or related person resource that the link refers
         to.
-        Type `FHIRReference` referencing `Patient, RelatedPerson` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.type = None
-        """ replaced-by | replaces | refer | seealso - type of link.
+        """ replaced-by | replaces | refer | seealso.
         Type `str`. """
         
         super(PatientLink, self).__init__(jsondict=jsondict, strict=strict)

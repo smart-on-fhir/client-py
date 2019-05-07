@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/TestScript) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -10,8 +10,8 @@ from . import domainresource
 class TestScript(domainresource.DomainResource):
     """ Describes a set of tests.
     
-    A structured set of tests against a FHIR server implementation to determine
-    compliance against the FHIR specification.
+    A structured set of tests against a FHIR server or client implementation to
+    determine compliance against the FHIR specification.
     """
     
     resource_type = "TestScript"
@@ -33,7 +33,7 @@ class TestScript(domainresource.DomainResource):
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
@@ -77,7 +77,7 @@ class TestScript(domainresource.DomainResource):
         
         self.profile = None
         """ Reference of the validation profile.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
@@ -86,14 +86,6 @@ class TestScript(domainresource.DomainResource):
         self.purpose = None
         """ Why this test script is defined.
         Type `str`. """
-        
-        self.rule = None
-        """ Assert rule used within the test script.
-        List of `TestScriptRule` items (represented as `dict` in JSON). """
-        
-        self.ruleset = None
-        """ Assert ruleset used within the test script.
-        List of `TestScriptRuleset` items (represented as `dict` in JSON). """
         
         self.setup = None
         """ A series of required setup operations before tests are executed.
@@ -116,11 +108,12 @@ class TestScript(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this test script (globally unique).
+        """ Canonical identifier for this test script, represented as a URI
+        (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.variable = None
@@ -151,8 +144,6 @@ class TestScript(domainresource.DomainResource):
             ("profile", "profile", fhirreference.FHIRReference, True, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
-            ("rule", "rule", TestScriptRule, True, None, False),
-            ("ruleset", "ruleset", TestScriptRuleset, True, None, False),
             ("setup", "setup", TestScriptSetup, False, None, False),
             ("status", "status", str, False, None, True),
             ("teardown", "teardown", TestScriptTeardown, False, None, False),
@@ -233,15 +224,15 @@ class TestScriptFixture(backboneelement.BackboneElement):
         
         self.resource = None
         """ Reference of the resource.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(TestScriptFixture, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptFixture, self).elementProperties()
         js.extend([
-            ("autocreate", "autocreate", bool, False, None, False),
-            ("autodelete", "autodelete", bool, False, None, False),
+            ("autocreate", "autocreate", bool, False, None, True),
+            ("autodelete", "autodelete", bool, False, None, True),
             ("resource", "resource", fhirreference.FHIRReference, False, None, False),
         ])
         return js
@@ -305,7 +296,7 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
         
         self.capabilities = None
         """ Required Capability Statement.
-        Type `FHIRReference` referencing `CapabilityStatement` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.description = None
         """ The expected capabilities of the server.
@@ -336,13 +327,13 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptMetadataCapability, self).elementProperties()
         js.extend([
-            ("capabilities", "capabilities", fhirreference.FHIRReference, False, None, True),
+            ("capabilities", "capabilities", str, False, None, True),
             ("description", "description", str, False, None, False),
             ("destination", "destination", int, False, None, False),
             ("link", "link", str, True, None, False),
             ("origin", "origin", int, True, None, False),
-            ("required", "required", bool, False, None, False),
-            ("validated", "validated", bool, False, None, False),
+            ("required", "required", bool, False, None, True),
+            ("validated", "validated", bool, False, None, True),
         ])
         return js
 
@@ -414,182 +405,6 @@ class TestScriptOrigin(backboneelement.BackboneElement):
         js.extend([
             ("index", "index", int, False, None, True),
             ("profile", "profile", coding.Coding, False, None, True),
-        ])
-        return js
-
-
-class TestScriptRule(backboneelement.BackboneElement):
-    """ Assert rule used within the test script.
-    
-    Assert rule to be used in one or more asserts within the test script.
-    """
-    
-    resource_type = "TestScriptRule"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.param = None
-        """ Rule parameter template.
-        List of `TestScriptRuleParam` items (represented as `dict` in JSON). """
-        
-        self.resource = None
-        """ Assert rule resource reference.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        super(TestScriptRule, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptRule, self).elementProperties()
-        js.extend([
-            ("param", "param", TestScriptRuleParam, True, None, False),
-            ("resource", "resource", fhirreference.FHIRReference, False, None, True),
-        ])
-        return js
-
-
-class TestScriptRuleParam(backboneelement.BackboneElement):
-    """ Rule parameter template.
-    
-    Each rule template can take one or more parameters for rule evaluation.
-    """
-    
-    resource_type = "TestScriptRuleParam"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Parameter name matching external assert rule parameter.
-        Type `str`. """
-        
-        self.value = None
-        """ Parameter value defined either explicitly or dynamically.
-        Type `str`. """
-        
-        super(TestScriptRuleParam, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptRuleParam, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, True),
-            ("value", "value", str, False, None, False),
-        ])
-        return js
-
-
-class TestScriptRuleset(backboneelement.BackboneElement):
-    """ Assert ruleset used within the test script.
-    
-    Contains one or more rules.  Offers a way to group rules so assertions
-    could reference the group of rules and have them all applied.
-    """
-    
-    resource_type = "TestScriptRuleset"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.resource = None
-        """ Assert ruleset resource reference.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        self.rule = None
-        """ The referenced rule within the ruleset.
-        List of `TestScriptRulesetRule` items (represented as `dict` in JSON). """
-        
-        super(TestScriptRuleset, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptRuleset, self).elementProperties()
-        js.extend([
-            ("resource", "resource", fhirreference.FHIRReference, False, None, True),
-            ("rule", "rule", TestScriptRulesetRule, True, None, True),
-        ])
-        return js
-
-
-class TestScriptRulesetRule(backboneelement.BackboneElement):
-    """ The referenced rule within the ruleset.
-    
-    The referenced rule within the external ruleset template.
-    """
-    
-    resource_type = "TestScriptRulesetRule"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.param = None
-        """ Ruleset rule parameter template.
-        List of `TestScriptRulesetRuleParam` items (represented as `dict` in JSON). """
-        
-        self.ruleId = None
-        """ Id of referenced rule within the ruleset.
-        Type `str`. """
-        
-        super(TestScriptRulesetRule, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptRulesetRule, self).elementProperties()
-        js.extend([
-            ("param", "param", TestScriptRulesetRuleParam, True, None, False),
-            ("ruleId", "ruleId", str, False, None, True),
-        ])
-        return js
-
-
-class TestScriptRulesetRuleParam(backboneelement.BackboneElement):
-    """ Ruleset rule parameter template.
-    
-    Each rule template can take one or more parameters for rule evaluation.
-    """
-    
-    resource_type = "TestScriptRulesetRuleParam"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Parameter name matching external assert ruleset rule parameter.
-        Type `str`. """
-        
-        self.value = None
-        """ Parameter value defined either explicitly or dynamically.
-        Type `str`. """
-        
-        super(TestScriptRulesetRuleParam, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptRulesetRuleParam, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, True),
-            ("value", "value", str, False, None, False),
         ])
         return js
 
@@ -675,7 +490,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         """
         
         self.compareToSourceExpression = None
-        """ The fluentpath expression to evaluate against the source fixture.
+        """ The FHIRPath expression to evaluate against the source fixture.
         Type `str`. """
         
         self.compareToSourceId = None
@@ -687,7 +502,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         Type `str`. """
         
         self.contentType = None
-        """ xml | json | ttl | none.
+        """ Mime type to compare against the 'Content-Type' header.
         Type `str`. """
         
         self.description = None
@@ -699,7 +514,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         Type `str`. """
         
         self.expression = None
-        """ The fluentpath expression to be evaluated.
+        """ The FHIRPath expression to be evaluated.
         Type `str`. """
         
         self.headerField = None
@@ -728,7 +543,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         Type `str`. """
         
         self.requestMethod = None
-        """ delete | get | options | patch | post | put.
+        """ delete | get | options | patch | post | put | head.
         Type `str`. """
         
         self.requestURL = None
@@ -748,14 +563,6 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         self.responseCode = None
         """ HTTP response code to test.
         Type `str`. """
-        
-        self.rule = None
-        """ The reference to a TestScript.rule.
-        Type `TestScriptSetupActionAssertRule` (represented as `dict` in JSON). """
-        
-        self.ruleset = None
-        """ The reference to a TestScript.ruleset.
-        Type `TestScriptSetupActionAssertRuleset` (represented as `dict` in JSON). """
         
         self.sourceId = None
         """ Fixture Id of source expression or headerField.
@@ -796,187 +603,10 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
             ("resource", "resource", str, False, None, False),
             ("response", "response", str, False, None, False),
             ("responseCode", "responseCode", str, False, None, False),
-            ("rule", "rule", TestScriptSetupActionAssertRule, False, None, False),
-            ("ruleset", "ruleset", TestScriptSetupActionAssertRuleset, False, None, False),
             ("sourceId", "sourceId", str, False, None, False),
             ("validateProfileId", "validateProfileId", str, False, None, False),
             ("value", "value", str, False, None, False),
-            ("warningOnly", "warningOnly", bool, False, None, False),
-        ])
-        return js
-
-
-class TestScriptSetupActionAssertRule(backboneelement.BackboneElement):
-    """ The reference to a TestScript.rule.
-    
-    The TestScript.rule this assert will evaluate.
-    """
-    
-    resource_type = "TestScriptSetupActionAssertRule"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.param = None
-        """ Rule parameter template.
-        List of `TestScriptSetupActionAssertRuleParam` items (represented as `dict` in JSON). """
-        
-        self.ruleId = None
-        """ Id of the TestScript.rule.
-        Type `str`. """
-        
-        super(TestScriptSetupActionAssertRule, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptSetupActionAssertRule, self).elementProperties()
-        js.extend([
-            ("param", "param", TestScriptSetupActionAssertRuleParam, True, None, False),
-            ("ruleId", "ruleId", str, False, None, True),
-        ])
-        return js
-
-
-class TestScriptSetupActionAssertRuleParam(backboneelement.BackboneElement):
-    """ Rule parameter template.
-    
-    Each rule template can take one or more parameters for rule evaluation.
-    """
-    
-    resource_type = "TestScriptSetupActionAssertRuleParam"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Parameter name matching external assert rule parameter.
-        Type `str`. """
-        
-        self.value = None
-        """ Parameter value defined either explicitly or dynamically.
-        Type `str`. """
-        
-        super(TestScriptSetupActionAssertRuleParam, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptSetupActionAssertRuleParam, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, True),
-            ("value", "value", str, False, None, True),
-        ])
-        return js
-
-
-class TestScriptSetupActionAssertRuleset(backboneelement.BackboneElement):
-    """ The reference to a TestScript.ruleset.
-    
-    The TestScript.ruleset this assert will evaluate.
-    """
-    
-    resource_type = "TestScriptSetupActionAssertRuleset"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.rule = None
-        """ The referenced rule within the ruleset.
-        List of `TestScriptSetupActionAssertRulesetRule` items (represented as `dict` in JSON). """
-        
-        self.rulesetId = None
-        """ Id of the TestScript.ruleset.
-        Type `str`. """
-        
-        super(TestScriptSetupActionAssertRuleset, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptSetupActionAssertRuleset, self).elementProperties()
-        js.extend([
-            ("rule", "rule", TestScriptSetupActionAssertRulesetRule, True, None, False),
-            ("rulesetId", "rulesetId", str, False, None, True),
-        ])
-        return js
-
-
-class TestScriptSetupActionAssertRulesetRule(backboneelement.BackboneElement):
-    """ The referenced rule within the ruleset.
-    
-    The referenced rule within the external ruleset template.
-    """
-    
-    resource_type = "TestScriptSetupActionAssertRulesetRule"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.param = None
-        """ Rule parameter template.
-        List of `TestScriptSetupActionAssertRulesetRuleParam` items (represented as `dict` in JSON). """
-        
-        self.ruleId = None
-        """ Id of referenced rule within the ruleset.
-        Type `str`. """
-        
-        super(TestScriptSetupActionAssertRulesetRule, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptSetupActionAssertRulesetRule, self).elementProperties()
-        js.extend([
-            ("param", "param", TestScriptSetupActionAssertRulesetRuleParam, True, None, False),
-            ("ruleId", "ruleId", str, False, None, True),
-        ])
-        return js
-
-
-class TestScriptSetupActionAssertRulesetRuleParam(backboneelement.BackboneElement):
-    """ Rule parameter template.
-    
-    Each rule template can take one or more parameters for rule evaluation.
-    """
-    
-    resource_type = "TestScriptSetupActionAssertRulesetRuleParam"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.name = None
-        """ Parameter name matching external assert ruleset rule parameter.
-        Type `str`. """
-        
-        self.value = None
-        """ Parameter value defined either explicitly or dynamically.
-        Type `str`. """
-        
-        super(TestScriptSetupActionAssertRulesetRuleParam, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(TestScriptSetupActionAssertRulesetRuleParam, self).elementProperties()
-        js.extend([
-            ("name", "name", str, False, None, True),
-            ("value", "value", str, False, None, True),
+            ("warningOnly", "warningOnly", bool, False, None, True),
         ])
         return js
 
@@ -998,11 +628,12 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         """
         
         self.accept = None
-        """ xml | json | ttl | none.
+        """ Mime type to accept in the payload of the response, with charset
+        etc..
         Type `str`. """
         
         self.contentType = None
-        """ xml | json | ttl | none.
+        """ Mime type of the request payload contents, with charset etc..
         Type `str`. """
         
         self.description = None
@@ -1019,6 +650,10 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         
         self.label = None
         """ Tracking/logging operation label.
+        Type `str`. """
+        
+        self.method = None
+        """ delete | get | options | patch | post | put | head.
         Type `str`. """
         
         self.origin = None
@@ -1071,8 +706,9 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
             ("contentType", "contentType", str, False, None, False),
             ("description", "description", str, False, None, False),
             ("destination", "destination", int, False, None, False),
-            ("encodeRequestUrl", "encodeRequestUrl", bool, False, None, False),
+            ("encodeRequestUrl", "encodeRequestUrl", bool, False, None, True),
             ("label", "label", str, False, None, False),
+            ("method", "method", str, False, None, False),
             ("origin", "origin", int, False, None, False),
             ("params", "params", str, False, None, False),
             ("requestHeader", "requestHeader", TestScriptSetupActionOperationRequestHeader, True, None, False),
@@ -1125,7 +761,7 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
 class TestScriptTeardown(backboneelement.BackboneElement):
     """ A series of required clean up steps.
     
-    A series of operations required to clean up after the all the tests are
+    A series of operations required to clean up after all the tests are
     executed (successfully or otherwise).
     """
     
@@ -1282,7 +918,7 @@ class TestScriptVariable(backboneelement.BackboneElement):
         Type `str`. """
         
         self.expression = None
-        """ The fluentpath expression against the fixture body.
+        """ The FHIRPath expression against the fixture body.
         Type `str`. """
         
         self.headerField = None

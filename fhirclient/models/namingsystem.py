@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -30,7 +30,7 @@ class NamingSystem(domainresource.DomainResource):
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
@@ -53,10 +53,6 @@ class NamingSystem(domainresource.DomainResource):
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.replacedBy = None
-        """ Use this instead.
-        Type `FHIRReference` referencing `NamingSystem` (represented as `dict` in JSON). """
-        
         self.responsible = None
         """ Who maintains system namespace?.
         Type `str`. """
@@ -78,7 +74,7 @@ class NamingSystem(domainresource.DomainResource):
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         super(NamingSystem, self).__init__(jsondict=jsondict, strict=strict)
@@ -93,7 +89,6 @@ class NamingSystem(domainresource.DomainResource):
             ("kind", "kind", str, False, None, True),
             ("name", "name", str, False, None, True),
             ("publisher", "publisher", str, False, None, False),
-            ("replacedBy", "replacedBy", fhirreference.FHIRReference, False, None, False),
             ("responsible", "responsible", str, False, None, False),
             ("status", "status", str, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
@@ -170,10 +165,6 @@ try:
     from . import fhirdate
 except ImportError:
     fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
 try:
     from . import period
 except ImportError:

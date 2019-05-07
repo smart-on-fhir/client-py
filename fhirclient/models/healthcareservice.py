@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -22,7 +22,7 @@ class HealthcareService(domainresource.DomainResource):
         """
         
         self.active = None
-        """ Whether this healthcareservice is in active use.
+        """ Whether this HealthcareService record is in active use.
         Type `bool`. """
         
         self.appointmentRequired = None
@@ -39,7 +39,7 @@ class HealthcareService(domainresource.DomainResource):
         
         self.category = None
         """ Broad category of service being performed or delivered.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.characteristic = None
         """ Collection of characteristics (attributes).
@@ -50,22 +50,22 @@ class HealthcareService(domainresource.DomainResource):
         elsewhere.
         Type `str`. """
         
+        self.communication = None
+        """ The language that this service is offered in.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.coverageArea = None
-        """ Location(s) service is inteded for/available to.
-        List of `FHIRReference` items referencing `Location` (represented as `dict` in JSON). """
+        """ Location(s) service is intended for/available to.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.eligibility = None
         """ Specific eligibility requirements required to use the service.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.eligibilityNote = None
-        """ Describes the eligibility conditions for the service.
-        Type `str`. """
+        List of `HealthcareServiceEligibility` items (represented as `dict` in JSON). """
         
         self.endpoint = None
-        """ Technical endpoints providing access to services operated for the
-        location.
-        List of `FHIRReference` items referencing `Endpoint` (represented as `dict` in JSON). """
+        """ Technical endpoints providing access to electronic services
+        operated for the healthcare service.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.extraDetails = None
         """ Extra details about the service that can't be placed in the other
@@ -78,7 +78,7 @@ class HealthcareService(domainresource.DomainResource):
         
         self.location = None
         """ Location(s) where service may be provided.
-        List of `FHIRReference` items referencing `Location` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.name = None
         """ Description of service as presented to a consumer while searching.
@@ -92,13 +92,13 @@ class HealthcareService(domainresource.DomainResource):
         """ Facilitates quick identification of the service.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.programName = None
-        """ Program Names that categorize the service.
-        List of `str` items. """
+        self.program = None
+        """ Programs that this service is applicable to.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.providedBy = None
         """ Organization that provides this service.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.referralMethod = None
         """ Ways that the service accepts referrals.
@@ -129,12 +129,12 @@ class HealthcareService(domainresource.DomainResource):
             ("appointmentRequired", "appointmentRequired", bool, False, None, False),
             ("availabilityExceptions", "availabilityExceptions", str, False, None, False),
             ("availableTime", "availableTime", HealthcareServiceAvailableTime, True, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("characteristic", "characteristic", codeableconcept.CodeableConcept, True, None, False),
             ("comment", "comment", str, False, None, False),
+            ("communication", "communication", codeableconcept.CodeableConcept, True, None, False),
             ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False),
-            ("eligibility", "eligibility", codeableconcept.CodeableConcept, False, None, False),
-            ("eligibilityNote", "eligibilityNote", str, False, None, False),
+            ("eligibility", "eligibility", HealthcareServiceEligibility, True, None, False),
             ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
             ("extraDetails", "extraDetails", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -142,7 +142,7 @@ class HealthcareService(domainresource.DomainResource):
             ("name", "name", str, False, None, False),
             ("notAvailable", "notAvailable", HealthcareServiceNotAvailable, True, None, False),
             ("photo", "photo", attachment.Attachment, False, None, False),
-            ("programName", "programName", str, True, None, False),
+            ("program", "program", codeableconcept.CodeableConcept, True, None, False),
             ("providedBy", "providedBy", fhirreference.FHIRReference, False, None, False),
             ("referralMethod", "referralMethod", codeableconcept.CodeableConcept, True, None, False),
             ("serviceProvisionCode", "serviceProvisionCode", codeableconcept.CodeableConcept, True, None, False),
@@ -200,6 +200,42 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
         return js
 
 
+class HealthcareServiceEligibility(backboneelement.BackboneElement):
+    """ Specific eligibility requirements required to use the service.
+    
+    Does this service have specific eligibility requirements that need to be
+    met in order to use the service?
+    """
+    
+    resource_type = "HealthcareServiceEligibility"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.code = None
+        """ Coded value for the eligibility.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.comment = None
+        """ Describes the eligibility conditions for the service.
+        Type `str`. """
+        
+        super(HealthcareServiceEligibility, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(HealthcareServiceEligibility, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("comment", "comment", str, False, None, False),
+        ])
+        return js
+
+
 class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
     """ Not available during this time due to provided reason.
     
@@ -222,7 +258,7 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
         Type `str`. """
         
         self.during = None
-        """ Service not availablefrom this date.
+        """ Service not available from this date.
         Type `Period` (represented as `dict` in JSON). """
         
         super(HealthcareServiceNotAvailable, self).__init__(jsondict=jsondict, strict=strict)

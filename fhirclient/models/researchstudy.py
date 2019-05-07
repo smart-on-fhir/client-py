@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ResearchStudy) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ResearchStudy) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -36,6 +36,10 @@ class ResearchStudy(domainresource.DomainResource):
         """ Classifications for the study.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.condition = None
+        """ Condition being studied.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.contact = None
         """ Contact details for the study.
         List of `ContactDetail` items (represented as `dict` in JSON). """
@@ -46,46 +50,61 @@ class ResearchStudy(domainresource.DomainResource):
         
         self.enrollment = None
         """ Inclusion & exclusion criteria.
-        List of `FHIRReference` items referencing `Group` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.focus = None
-        """ Drugs, devices, conditions, etc. under study.
+        """ Drugs, devices, etc. under study.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Business Identifier for study.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
-        """ Geographic region(s) for study.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
         self.keyword = None
         """ Used to search for the study.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.location = None
+        """ Geographic region(s) for study.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.note = None
-        """ Comments made about the event.
+        """ Comments made about the study.
         List of `Annotation` items (represented as `dict` in JSON). """
+        
+        self.objective = None
+        """ A goal for the study.
+        List of `ResearchStudyObjective` items (represented as `dict` in JSON). """
         
         self.partOf = None
         """ Part of larger study.
-        List of `FHIRReference` items referencing `ResearchStudy` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.period = None
         """ When the study began and ended.
         Type `Period` (represented as `dict` in JSON). """
         
+        self.phase = None
+        """ n-a | early-phase-1 | phase-1 | phase-1-phase-2 | phase-2 |
+        phase-2-phase-3 | phase-3 | phase-4.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.primaryPurposeType = None
+        """ treatment | prevention | diagnostic | supportive-care | screening |
+        health-services-research | basic-science | device-feasibility.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.principalInvestigator = None
-        """ The individual responsible for the study.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        """ Researcher who oversees multiple aspects of the study.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.protocol = None
         """ Steps followed in executing study.
-        List of `FHIRReference` items referencing `PlanDefinition` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.reasonStopped = None
-        """ Reason for terminating study early.
+        """ accrual-goal-met | closed-due-to-toxicity | closed-due-to-lack-of-
+        study-progress | temporarily-closed-per-study-design.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.relatedArtifact = None
@@ -93,16 +112,19 @@ class ResearchStudy(domainresource.DomainResource):
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
         self.site = None
-        """ Location involved in study execution.
-        List of `FHIRReference` items referencing `Location` (represented as `dict` in JSON). """
+        """ Facility where study activities are conducted.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.sponsor = None
-        """ Organization responsible for the study.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ Organization that initiates and is legally responsible for the
+        study.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | in-progress | suspended | stopped | completed | entered-in-
-        error.
+        """ active | administratively-completed | approved | closed-to-accrual
+        | closed-to-accrual-and-intervention | completed | disapproved |
+        in-review | temporarily-closed-to-accrual | temporarily-closed-to-
+        accrual-and-intervention | withdrawn.
         Type `str`. """
         
         self.title = None
@@ -116,16 +138,20 @@ class ResearchStudy(domainresource.DomainResource):
         js.extend([
             ("arm", "arm", ResearchStudyArm, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
+            ("condition", "condition", codeableconcept.CodeableConcept, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("description", "description", str, False, None, False),
             ("enrollment", "enrollment", fhirreference.FHIRReference, True, None, False),
             ("focus", "focus", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("keyword", "keyword", codeableconcept.CodeableConcept, True, None, False),
+            ("location", "location", codeableconcept.CodeableConcept, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
+            ("objective", "objective", ResearchStudyObjective, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("period", "period", period.Period, False, None, False),
+            ("phase", "phase", codeableconcept.CodeableConcept, False, None, False),
+            ("primaryPurposeType", "primaryPurposeType", codeableconcept.CodeableConcept, False, None, False),
             ("principalInvestigator", "principalInvestigator", fhirreference.FHIRReference, False, None, False),
             ("protocol", "protocol", fhirreference.FHIRReference, True, None, False),
             ("reasonStopped", "reasonStopped", codeableconcept.CodeableConcept, False, None, False),
@@ -158,10 +184,6 @@ class ResearchStudyArm(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
-        """ Categorization of study arm.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.description = None
         """ Short explanation of study path.
         Type `str`. """
@@ -170,14 +192,54 @@ class ResearchStudyArm(backboneelement.BackboneElement):
         """ Label for study arm.
         Type `str`. """
         
+        self.type = None
+        """ Categorization of study arm.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         super(ResearchStudyArm, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ResearchStudyArm, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("description", "description", str, False, None, False),
             ("name", "name", str, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+        ])
+        return js
+
+
+class ResearchStudyObjective(backboneelement.BackboneElement):
+    """ A goal for the study.
+    
+    A goal that the study is aiming to achieve in terms of a scientific
+    question to be answered by the analysis of data collected during the study.
+    """
+    
+    resource_type = "ResearchStudyObjective"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.name = None
+        """ Label for the objective.
+        Type `str`. """
+        
+        self.type = None
+        """ primary | secondary | exploratory.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(ResearchStudyObjective, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ResearchStudyObjective, self).elementProperties()
+        js.extend([
+            ("name", "name", str, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

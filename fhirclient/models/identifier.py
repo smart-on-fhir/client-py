@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Identifier) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Identifier) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import element
@@ -10,7 +10,8 @@ from . import element
 class Identifier(element.Element):
     """ An identifier intended for computation.
     
-    A technical identifier - identifies some entity uniquely and unambiguously.
+    An identifier - identifies some entity uniquely and unambiguously.
+    Typically this is used for business identifiers.
     """
     
     resource_type = "Identifier"
@@ -25,7 +26,7 @@ class Identifier(element.Element):
         
         self.assigner = None
         """ Organization that issued id (may be just text).
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.period = None
         """ Time period when id is/was valid for use.
@@ -40,7 +41,7 @@ class Identifier(element.Element):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.use = None
-        """ usual | official | temp | secondary (If known).
+        """ usual | official | temp | secondary | old (If known).
         Type `str`. """
         
         self.value = None

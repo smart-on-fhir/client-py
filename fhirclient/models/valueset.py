@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -10,7 +10,10 @@ from . import domainresource
 class ValueSet(domainresource.DomainResource):
     """ A set of codes drawn from one or more code systems.
     
-    A value set specifies a set of codes drawn from one or more code systems.
+    A ValueSet resource instance specifies a set of codes drawn from one or
+    more code systems, intended for use in a particular context. Value sets
+    link between [CodeSystem](codesystem.html) definitions and their use in
+    [coded elements](terminologies.html).
     """
     
     resource_type = "ValueSet"
@@ -24,7 +27,7 @@ class ValueSet(domainresource.DomainResource):
         """
         
         self.compose = None
-        """ Definition of the content of the value set (CLD).
+        """ Content logical definition of the value set (CLD).
         Type `ValueSetCompose` (represented as `dict` in JSON). """
         
         self.contact = None
@@ -36,7 +39,7 @@ class ValueSet(domainresource.DomainResource):
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
@@ -51,12 +54,8 @@ class ValueSet(domainresource.DomainResource):
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.extensible = None
-        """ Whether this is intended to be used with an extensible binding.
-        Type `bool`. """
-        
         self.identifier = None
-        """ Additional identifier for the value set.
+        """ Additional identifier for the value set (business identifier).
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.immutable = None
@@ -89,11 +88,12 @@ class ValueSet(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this value set (globally unique).
+        """ Canonical identifier for this value set, represented as a URI
+        (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -112,7 +112,6 @@ class ValueSet(domainresource.DomainResource):
             ("description", "description", str, False, None, False),
             ("expansion", "expansion", ValueSetExpansion, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
-            ("extensible", "extensible", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("immutable", "immutable", bool, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
@@ -131,11 +130,11 @@ class ValueSet(domainresource.DomainResource):
 from . import backboneelement
 
 class ValueSetCompose(backboneelement.BackboneElement):
-    """ Definition of the content of the value set (CLD).
+    """ Content logical definition of the value set (CLD).
     
-    A set of criteria that define the content logical definition of the value
-    set by including or excluding codes from outside this value set. This I
-    also known as the "Content Logical Definition" (CLD).
+    A set of criteria that define the contents of the value set by including or
+    excluding codes selected from the specified code system(s) that the value
+    set draws from. This is also known as the Content Logical Definition (CLD).
     """
     
     resource_type = "ValueSetCompose"
@@ -161,7 +160,7 @@ class ValueSetCompose(backboneelement.BackboneElement):
         List of `ValueSetComposeInclude` items (represented as `dict` in JSON). """
         
         self.lockedDate = None
-        """ Fixed date for version-less references (transitive).
+        """ Fixed date for references with no specified version (transitive).
         Type `FHIRDate` (represented as `str` in JSON). """
         
         super(ValueSetCompose, self).__init__(jsondict=jsondict, strict=strict)
@@ -204,7 +203,7 @@ class ValueSetComposeInclude(backboneelement.BackboneElement):
         Type `str`. """
         
         self.valueSet = None
-        """ Select only contents included in this value set.
+        """ Select the contents included in this value set.
         List of `str` items. """
         
         self.version = None
@@ -288,7 +287,7 @@ class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
         Type `str`. """
         
         self.use = None
-        """ Details how this designation would be used.
+        """ Types of uses of designations.
         Type `Coding` (represented as `dict` in JSON). """
         
         self.value = None
@@ -310,9 +309,9 @@ class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
 class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
     """ Select codes/concepts by their properties (including relationships).
     
-    Select concepts by specify a matching criteria based on the properties
-    (including relationships) defined by the system. If multiple filters are
-    specified, they SHALL all be true.
+    Select concepts by specify a matching criterion based on the properties
+    (including relationships) defined by the system, or on filters defined by
+    the system. If multiple filters are specified, they SHALL all be true.
     """
     
     resource_type = "ValueSetComposeIncludeFilter"
@@ -331,7 +330,7 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
         Type `str`. """
         
         self.property = None
-        """ A property defined by the code system.
+        """ A property/filter defined by the code system.
         Type `str`. """
         
         self.value = None
@@ -374,7 +373,7 @@ class ValueSetExpansion(backboneelement.BackboneElement):
         List of `ValueSetExpansionContains` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Uniquely identifies this expansion.
+        """ Identifies the value set expansion (business identifier).
         Type `str`. """
         
         self.offset = None
@@ -399,7 +398,7 @@ class ValueSetExpansion(backboneelement.BackboneElement):
         js = super(ValueSetExpansion, self).elementProperties()
         js.extend([
             ("contains", "contains", ValueSetExpansionContains, True, None, False),
-            ("identifier", "identifier", str, False, None, True),
+            ("identifier", "identifier", str, False, None, False),
             ("offset", "offset", int, False, None, False),
             ("parameter", "parameter", ValueSetExpansionParameter, True, None, False),
             ("timestamp", "timestamp", fhirdate.FHIRDate, False, None, True),
@@ -492,7 +491,7 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
         """
         
         self.name = None
-        """ Name as assigned by the server.
+        """ Name as assigned by the client or server.
         Type `str`. """
         
         self.valueBoolean = None
@@ -502,6 +501,10 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
         self.valueCode = None
         """ Value of the named parameter.
         Type `str`. """
+        
+        self.valueDateTime = None
+        """ Value of the named parameter.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ Value of the named parameter.
@@ -527,6 +530,7 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
             ("name", "name", str, False, None, True),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
             ("valueCode", "valueCode", str, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
             ("valueDecimal", "valueDecimal", float, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valueString", "valueString", str, False, "value", False),
