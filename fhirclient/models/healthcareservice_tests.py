@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -51,18 +51,21 @@ class HealthcareServiceTests(unittest.TestCase):
         self.assertEqual(inst.availableTime[2].availableStartTime.as_json(), "09:30:00")
         self.assertEqual(inst.availableTime[2].daysOfWeek[0], "sat")
         self.assertEqual(inst.availableTime[2].daysOfWeek[1], "fri")
-        self.assertEqual(inst.category.coding[0].code, "8")
-        self.assertEqual(inst.category.coding[0].display, "Counselling")
-        self.assertEqual(inst.category.coding[0].system, "http://hl7.org/fhir/service-category")
-        self.assertEqual(inst.category.text, "Counselling")
+        self.assertEqual(inst.category[0].coding[0].code, "8")
+        self.assertEqual(inst.category[0].coding[0].display, "Counselling")
+        self.assertEqual(inst.category[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/service-category")
+        self.assertEqual(inst.category[0].text, "Counselling")
         self.assertEqual(inst.characteristic[0].coding[0].display, "Wheelchair access")
         self.assertEqual(inst.comment, "Providing Specialist psychology services to the greater Den Burg area, many years of experience dealing with PTSD issues")
         self.assertEqual(inst.contained[0].id, "DenBurg")
-        self.assertEqual(inst.eligibility.coding[0].display, "DVA Required")
-        self.assertEqual(inst.eligibilityNote, "Evidence of application for DVA status may be sufficient for commencing assessment")
+        self.assertEqual(inst.eligibility[0].code.coding[0].display, "DVA Required")
+        self.assertEqual(inst.eligibility[0].comment, "Evidence of application for DVA status may be sufficient for commencing assessment")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://example.org/shared-ids")
         self.assertEqual(inst.identifier[0].value, "HS-12")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.name, "Consulting psychologists and/or psychology services")
         self.assertEqual(inst.notAvailable[0].description, "Christmas/Boxing Day")
         self.assertEqual(inst.notAvailable[0].during.end.date, FHIRDate("2015-12-26").date)
@@ -74,7 +77,7 @@ class HealthcareServiceTests(unittest.TestCase):
         self.assertEqual(inst.notAvailable[1].during.end.as_json(), "2016-01-01")
         self.assertEqual(inst.notAvailable[1].during.start.date, FHIRDate("2016-01-01").date)
         self.assertEqual(inst.notAvailable[1].during.start.as_json(), "2016-01-01")
-        self.assertEqual(inst.programName[0], "PTSD outreach")
+        self.assertEqual(inst.program[0].text, "PTSD outreach")
         self.assertEqual(inst.referralMethod[0].coding[0].code, "phone")
         self.assertEqual(inst.referralMethod[0].coding[0].display, "Phone")
         self.assertEqual(inst.referralMethod[1].coding[0].code, "fax")
@@ -85,7 +88,7 @@ class HealthcareServiceTests(unittest.TestCase):
         self.assertEqual(inst.referralMethod[3].coding[0].display, "Secure Email")
         self.assertEqual(inst.serviceProvisionCode[0].coding[0].code, "cost")
         self.assertEqual(inst.serviceProvisionCode[0].coding[0].display, "Fees apply")
-        self.assertEqual(inst.serviceProvisionCode[0].coding[0].system, "http://hl7.org/fhir/service-provision-conditions")
+        self.assertEqual(inst.serviceProvisionCode[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/service-provision-conditions")
         self.assertEqual(inst.specialty[0].coding[0].code, "47505003")
         self.assertEqual(inst.specialty[0].coding[0].display, "Posttraumatic stress disorder")
         self.assertEqual(inst.specialty[0].coding[0].system, "http://snomed.info/sct")

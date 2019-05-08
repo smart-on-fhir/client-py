@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Organization) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Organization) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -13,7 +13,7 @@ class Organization(domainresource.DomainResource):
     A formally or informally recognized grouping of people or organizations
     formed for the purpose of achieving some form of collective action.
     Includes companies, institutions, corporations, departments, community
-    groups, healthcare practice groups, etc.
+    groups, healthcare practice groups, payer/insurer, etc.
     """
     
     resource_type = "Organization"
@@ -35,7 +35,7 @@ class Organization(domainresource.DomainResource):
         List of `Address` items (represented as `dict` in JSON). """
         
         self.alias = None
-        """ A list of alternate names that the organization is known as, or was
+        """ A list of alternate names that the organization is known as, or was
         known as in the past.
         List of `str` items. """
         
@@ -46,7 +46,7 @@ class Organization(domainresource.DomainResource):
         self.endpoint = None
         """ Technical endpoints providing access to services operated for the
         organization.
-        List of `FHIRReference` items referencing `Endpoint` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Identifies this organization  across multiple systems.
@@ -58,7 +58,7 @@ class Organization(domainresource.DomainResource):
         
         self.partOf = None
         """ The organization of which this organization forms a part.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.telecom = None
         """ A contact detail for the organization.

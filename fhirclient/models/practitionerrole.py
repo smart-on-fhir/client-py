@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/PractitionerRole) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/PractitionerRole) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -25,7 +25,7 @@ class PractitionerRole(domainresource.DomainResource):
         """
         
         self.active = None
-        """ Whether this practitioner's record is in active use.
+        """ Whether this practitioner role record is in active use.
         Type `bool`. """
         
         self.availabilityExceptions = None
@@ -43,12 +43,12 @@ class PractitionerRole(domainresource.DomainResource):
         self.endpoint = None
         """ Technical endpoints providing access to services operated for the
         practitioner with this role.
-        List of `FHIRReference` items referencing `Endpoint` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.healthcareService = None
         """ The list of healthcare services that this worker provides for this
         role's Organization/Location(s).
-        List of `FHIRReference` items referencing `HealthcareService` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Business Identifiers that are specific to a role/location.
@@ -56,7 +56,7 @@ class PractitionerRole(domainresource.DomainResource):
         
         self.location = None
         """ The location(s) at which this practitioner provides care.
-        List of `FHIRReference` items referencing `Location` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.notAvailable = None
         """ Not available during this time due to provided reason.
@@ -64,7 +64,7 @@ class PractitionerRole(domainresource.DomainResource):
         
         self.organization = None
         """ Organization where the roles are available.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.period = None
         """ The period during which the practitioner is authorized to perform
@@ -73,8 +73,8 @@ class PractitionerRole(domainresource.DomainResource):
         
         self.practitioner = None
         """ Practitioner that is able to provide the defined services for the
-        organation.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        organization.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.specialty = None
         """ Specific specialty of the practitioner.
@@ -112,7 +112,8 @@ from . import backboneelement
 class PractitionerRoleAvailableTime(backboneelement.BackboneElement):
     """ Times the Service Site is available.
     
-    A collection of times that the Service Site is available.
+    A collection of times the practitioner is available or performing this role
+    at the location and/or healthcareservice.
     """
     
     resource_type = "PractitionerRoleAvailableTime"
@@ -157,8 +158,8 @@ class PractitionerRoleAvailableTime(backboneelement.BackboneElement):
 class PractitionerRoleNotAvailable(backboneelement.BackboneElement):
     """ Not available during this time due to provided reason.
     
-    The HealthcareService is not available during this period of time due to
-    the provided reason.
+    The practitioner is not available or performing this role during this
+    period of time due to the provided reason.
     """
     
     resource_type = "PractitionerRoleNotAvailable"
@@ -176,7 +177,7 @@ class PractitionerRoleNotAvailable(backboneelement.BackboneElement):
         Type `str`. """
         
         self.during = None
-        """ Service not availablefrom this date.
+        """ Service not available from this date.
         Type `Period` (represented as `dict` in JSON). """
         
         super(PractitionerRoleNotAvailable, self).__init__(jsondict=jsondict, strict=strict)

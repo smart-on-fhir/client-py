@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -32,16 +32,20 @@ class CareTeamTests(unittest.TestCase):
         self.implCareTeam1(inst2)
     
     def implCareTeam1(self, inst):
-        self.assertEqual(inst.category[0].coding[0].code, "encounter")
-        self.assertEqual(inst.category[0].coding[0].system, "http://hl7.org/fhir/care-team-category")
+        self.assertEqual(inst.category[0].coding[0].code, "LA27976-2")
+        self.assertEqual(inst.category[0].coding[0].display, "Encounter-focused care team")
+        self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
         self.assertEqual(inst.contained[0].id, "pr1")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].value, "12345")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.name, "Peter James Charlmers Care Plan for Inpatient Encounter")
-        self.assertEqual(inst.participant[0].role.text, "responsiblePerson")
+        self.assertEqual(inst.participant[0].role[0].text, "responsiblePerson")
         self.assertEqual(inst.participant[1].period.end.date, FHIRDate("2013-01-01").date)
         self.assertEqual(inst.participant[1].period.end.as_json(), "2013-01-01")
-        self.assertEqual(inst.participant[1].role.text, "adviser")
+        self.assertEqual(inst.participant[1].role[0].text, "adviser")
         self.assertEqual(inst.period.end.date, FHIRDate("2013-01-01").date)
         self.assertEqual(inst.period.end.as_json(), "2013-01-01")
         self.assertEqual(inst.status, "active")

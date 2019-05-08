@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Measure) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Measure) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -27,6 +27,10 @@ class Measure(domainresource.DomainResource):
         """ When the measure was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.author = None
+        """ Who authored the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
         self.clinicalRecommendationStatement = None
         """ Summary of clinical guidelines.
         Type `str`. """
@@ -39,16 +43,12 @@ class Measure(domainresource.DomainResource):
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.contributor = None
-        """ A content contributor.
-        List of `Contributor` items (represented as `dict` in JSON). """
-        
         self.copyright = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.definition = None
@@ -63,9 +63,17 @@ class Measure(domainresource.DomainResource):
         """ Disclaimer for use of the measure or its referenced content.
         Type `str`. """
         
+        self.editor = None
+        """ Who edited the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
         self.effectivePeriod = None
         """ When the measure is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
+        
+        self.endorser = None
+        """ Who endorsed the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.experimental = None
         """ For testing purposes, not real usage.
@@ -84,9 +92,8 @@ class Measure(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.improvementNotation = None
-        """ Improvement notation for the measure, e.g. higher score indicates
-        better quality.
-        Type `str`. """
+        """ increase | decrease.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.jurisdiction = None
         """ Intended jurisdiction for measure (if applicable).
@@ -98,7 +105,7 @@ class Measure(domainresource.DomainResource):
         
         self.library = None
         """ Logic used by the measure.
-        List of `FHIRReference` items referencing `Library` (represented as `dict` in JSON). """
+        List of `str` items. """
         
         self.name = None
         """ Name for this measure (computer friendly).
@@ -117,27 +124,41 @@ class Measure(domainresource.DomainResource):
         Type `str`. """
         
         self.rationale = None
-        """ Why does this measure exist.
+        """ Detailed description of why the measure exists.
         Type `str`. """
         
         self.relatedArtifact = None
-        """ Additional documentation, citations, etc.
+        """ Additional documentation, citations, etc..
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
+        self.reviewer = None
+        """ Who reviewed the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
         self.riskAdjustment = None
-        """ How is risk adjustment applied for this measure.
+        """ How risk adjustment is applied for this measure.
         Type `str`. """
         
         self.scoring = None
         """ proportion | ratio | continuous-variable | cohort.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.set = None
-        """ The measure set, e.g. Preventive Care and Screening.
-        Type `str`. """
-        
         self.status = None
         """ draft | active | retired | unknown.
+        Type `str`. """
+        
+        self.subjectCodeableConcept = None
+        """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
+        Device.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.subjectReference = None
+        """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
+        Device.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.subtitle = None
+        """ Subordinate title of the measure.
         Type `str`. """
         
         self.supplementalData = None
@@ -149,7 +170,8 @@ class Measure(domainresource.DomainResource):
         Type `str`. """
         
         self.topic = None
-        """ E.g. Education, Treatment, Assessment, etc.
+        """ The category of the measure, such as Education, Treatment,
+        Assessment, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.type = None
@@ -158,7 +180,8 @@ class Measure(domainresource.DomainResource):
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.url = None
-        """ Logical URI to reference this measure (globally unique).
+        """ Canonical identifier for this measure, represented as a URI
+        (globally unique).
         Type `str`. """
         
         self.usage = None
@@ -166,7 +189,7 @@ class Measure(domainresource.DomainResource):
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -179,34 +202,39 @@ class Measure(domainresource.DomainResource):
         js = super(Measure, self).elementProperties()
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("author", "author", contactdetail.ContactDetail, True, None, False),
             ("clinicalRecommendationStatement", "clinicalRecommendationStatement", str, False, None, False),
             ("compositeScoring", "compositeScoring", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("contributor", "contributor", contributor.Contributor, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("definition", "definition", str, True, None, False),
             ("description", "description", str, False, None, False),
             ("disclaimer", "disclaimer", str, False, None, False),
+            ("editor", "editor", contactdetail.ContactDetail, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
+            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("group", "group", MeasureGroup, True, None, False),
             ("guidance", "guidance", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("improvementNotation", "improvementNotation", str, False, None, False),
+            ("improvementNotation", "improvementNotation", codeableconcept.CodeableConcept, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
-            ("library", "library", fhirreference.FHIRReference, True, None, False),
+            ("library", "library", str, True, None, False),
             ("name", "name", str, False, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
             ("rateAggregation", "rateAggregation", str, False, None, False),
             ("rationale", "rationale", str, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
+            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
             ("riskAdjustment", "riskAdjustment", str, False, None, False),
             ("scoring", "scoring", codeableconcept.CodeableConcept, False, None, False),
-            ("set", "set", str, False, None, False),
             ("status", "status", str, False, None, True),
+            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
+            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
+            ("subtitle", "subtitle", str, False, None, False),
             ("supplementalData", "supplementalData", MeasureSupplementalData, True, None, False),
             ("title", "title", str, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
@@ -237,16 +265,12 @@ class MeasureGroup(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.code = None
+        """ Meaning of the group.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.description = None
         """ Summary description.
-        Type `str`. """
-        
-        self.identifier = None
-        """ Unique identifier.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.name = None
-        """ Short name.
         Type `str`. """
         
         self.population = None
@@ -262,9 +286,8 @@ class MeasureGroup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MeasureGroup, self).elementProperties()
         js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("description", "description", str, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, True),
-            ("name", "name", str, False, None, False),
             ("population", "population", MeasureGroupPopulation, True, None, False),
             ("stratifier", "stratifier", MeasureGroupStratifier, True, None, False),
         ])
@@ -294,20 +317,11 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.criteria = None
-        """ The name of a valid referenced CQL expression (may be namespaced)
-        that defines this population criteria.
-        Type `str`. """
+        """ The criteria that defines this population.
+        Type `Expression` (represented as `dict` in JSON). """
         
         self.description = None
         """ The human readable description of this population criteria.
-        Type `str`. """
-        
-        self.identifier = None
-        """ Unique identifier.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.name = None
-        """ Short name.
         Type `str`. """
         
         super(MeasureGroupPopulation, self).__init__(jsondict=jsondict, strict=strict)
@@ -316,10 +330,8 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
         js = super(MeasureGroupPopulation, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("criteria", "criteria", str, False, None, True),
+            ("criteria", "criteria", expression.Expression, False, None, True),
             ("description", "description", str, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("name", "name", str, False, None, False),
         ])
         return js
 
@@ -328,7 +340,7 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
     """ Stratifier criteria for the measure.
     
     The stratifier criteria for the measure report, specified as either the
-    name of a valid CQL expression defined within a referenced library, or a
+    name of a valid CQL expression defined within a referenced library or a
     valid FHIR Resource Path.
     """
     
@@ -342,17 +354,20 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.code = None
+        """ Meaning of the stratifier.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.component = None
+        """ Stratifier criteria component for the measure.
+        List of `MeasureGroupStratifierComponent` items (represented as `dict` in JSON). """
+        
         self.criteria = None
         """ How the measure should be stratified.
-        Type `str`. """
+        Type `Expression` (represented as `dict` in JSON). """
         
-        self.identifier = None
-        """ The identifier for the stratifier used to coordinate the reported
-        data back to this stratifier.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.path = None
-        """ Path to the stratifier.
+        self.description = None
+        """ The human readable description of this stratifier.
         Type `str`. """
         
         super(MeasureGroupStratifier, self).__init__(jsondict=jsondict, strict=strict)
@@ -360,9 +375,52 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MeasureGroupStratifier, self).elementProperties()
         js.extend([
-            ("criteria", "criteria", str, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("path", "path", str, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("component", "component", MeasureGroupStratifierComponent, True, None, False),
+            ("criteria", "criteria", expression.Expression, False, None, False),
+            ("description", "description", str, False, None, False),
+        ])
+        return js
+
+
+class MeasureGroupStratifierComponent(backboneelement.BackboneElement):
+    """ Stratifier criteria component for the measure.
+    
+    A component of the stratifier criteria for the measure report, specified as
+    either the name of a valid CQL expression defined within a referenced
+    library or a valid FHIR Resource Path.
+    """
+    
+    resource_type = "MeasureGroupStratifierComponent"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.code = None
+        """ Meaning of the stratifier component.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.criteria = None
+        """ Component of how the measure should be stratified.
+        Type `Expression` (represented as `dict` in JSON). """
+        
+        self.description = None
+        """ The human readable description of this stratifier component.
+        Type `str`. """
+        
+        super(MeasureGroupStratifierComponent, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(MeasureGroupStratifierComponent, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("criteria", "criteria", expression.Expression, False, None, True),
+            ("description", "description", str, False, None, False),
         ])
         return js
 
@@ -385,16 +443,16 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.code = None
+        """ Meaning of the supplemental data.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.criteria = None
         """ Expression describing additional data to be reported.
-        Type `str`. """
+        Type `Expression` (represented as `dict` in JSON). """
         
-        self.identifier = None
-        """ Identifier, unique within the measure.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.path = None
-        """ Path to the supplemental data element.
+        self.description = None
+        """ The human readable description of this supplemental data.
         Type `str`. """
         
         self.usage = None
@@ -406,9 +464,9 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MeasureSupplementalData, self).elementProperties()
         js.extend([
-            ("criteria", "criteria", str, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("path", "path", str, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("criteria", "criteria", expression.Expression, False, None, True),
+            ("description", "description", str, False, None, False),
             ("usage", "usage", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
@@ -424,9 +482,9 @@ try:
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
 try:
-    from . import contributor
+    from . import expression
 except ImportError:
-    contributor = sys.modules[__package__ + '.contributor']
+    expression = sys.modules[__package__ + '.expression']
 try:
     from . import fhirdate
 except ImportError:

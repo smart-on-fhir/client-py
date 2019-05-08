@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -48,10 +48,13 @@ class PractitionerRoleTests(unittest.TestCase):
         self.assertEqual(inst.availableTime[1].daysOfWeek[0], "thu")
         self.assertEqual(inst.availableTime[1].daysOfWeek[1], "fri")
         self.assertEqual(inst.code[0].coding[0].code, "RP")
-        self.assertEqual(inst.code[0].coding[0].system, "http://hl7.org/fhir/v2/0286")
+        self.assertEqual(inst.code[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v2-0286")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://www.acme.org/practitioners")
         self.assertEqual(inst.identifier[0].value, "23")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.notAvailable[0].description, "Adam will be on extended leave during May 2017")
         self.assertEqual(inst.notAvailable[0].during.end.date, FHIRDate("2017-05-20").date)
         self.assertEqual(inst.notAvailable[0].during.end.as_json(), "2017-05-20")

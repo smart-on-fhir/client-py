@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class CodeSystem(domainresource.DomainResource):
-    """ A set of codes drawn from one or more code systems.
+    """ Declares the existence of and describes a code system or code system
+    supplement.
     
-    A code system resource specifies a set of codes drawn from one or more code
-    systems.
+    The CodeSystem resource is used to declare the existence of and describe a
+    code system or code system supplement and its key properties, and
+    optionally define a part or all of its content.
     """
     
     resource_type = "CodeSystem"
@@ -29,7 +31,7 @@ class CodeSystem(domainresource.DomainResource):
         Type `bool`. """
         
         self.compositional = None
-        """ If code system defines a post-composition grammar.
+        """ If code system defines a compositional grammar.
         Type `bool`. """
         
         self.concept = None
@@ -41,7 +43,7 @@ class CodeSystem(domainresource.DomainResource):
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.content = None
-        """ not-present | example | fragment | complete.
+        """ not-present | example | fragment | complete | supplement.
         Type `str`. """
         
         self.copyright = None
@@ -53,7 +55,7 @@ class CodeSystem(domainresource.DomainResource):
         Type `int`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
@@ -73,8 +75,8 @@ class CodeSystem(domainresource.DomainResource):
         Type `str`. """
         
         self.identifier = None
-        """ Additional identifier for the code system.
-        Type `Identifier` (represented as `dict` in JSON). """
+        """ Additional identifier for the code system (business identifier).
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.jurisdiction = None
         """ Intended jurisdiction for code system (if applicable).
@@ -100,21 +102,26 @@ class CodeSystem(domainresource.DomainResource):
         """ draft | active | retired | unknown.
         Type `str`. """
         
+        self.supplements = None
+        """ Canonical URL of Code System this adds designations and properties
+        to.
+        Type `str`. """
+        
         self.title = None
         """ Name for this code system (human friendly).
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this code system (globally unique)
-        (Coding.system).
+        """ Canonical identifier for this code system, represented as a URI
+        (globally unique) (Coding.system).
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.valueSet = None
-        """ Canonical URL for value set with entire code system.
+        """ Canonical reference to the value set with entire code system.
         Type `str`. """
         
         self.version = None
@@ -142,13 +149,14 @@ class CodeSystem(domainresource.DomainResource):
             ("experimental", "experimental", bool, False, None, False),
             ("filter", "filter", CodeSystemFilter, True, None, False),
             ("hierarchyMeaning", "hierarchyMeaning", str, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, False),
             ("property", "property", CodeSystemProperty, True, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
             ("status", "status", str, False, None, True),
+            ("supplements", "supplements", str, False, None, False),
             ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
@@ -166,7 +174,7 @@ class CodeSystemConcept(backboneelement.BackboneElement):
     
     Concepts that are in the code system. The concept definitions are
     inherently hierarchical, but the definitions must be consulted to determine
-    what the meaning of the hierarchical relationships are.
+    what the meanings of the hierarchical relationships are.
     """
     
     resource_type = "CodeSystemConcept"
@@ -295,6 +303,10 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
         """ Value of the property for this concept.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.valueDecimal = None
+        """ Value of the property for this concept.
+        Type `float`. """
+        
         self.valueInteger = None
         """ Value of the property for this concept.
         Type `int`. """
@@ -313,6 +325,7 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
             ("valueCode", "valueCode", str, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
             ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueString", "valueString", str, False, "value", True),
         ])
@@ -392,7 +405,7 @@ class CodeSystemProperty(backboneelement.BackboneElement):
         Type `str`. """
         
         self.type = None
-        """ code | Coding | string | integer | boolean | dateTime.
+        """ code | Coding | string | integer | boolean | dateTime | decimal.
         Type `str`. """
         
         self.uri = None

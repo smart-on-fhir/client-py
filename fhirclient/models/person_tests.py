@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -37,6 +37,9 @@ class PersonTests(unittest.TestCase):
         self.assertEqual(inst.birthDate.as_json(), "1963")
         self.assertEqual(inst.gender, "female")
         self.assertEqual(inst.id, "f002")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.name[0].text, "Ariadne Bor-Jansma")
         self.assertEqual(inst.name[0].use, "usual")
         self.assertEqual(inst.photo.contentType, "image/jpeg")
@@ -70,9 +73,12 @@ class PersonTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].period.start.as_json(), "2001-05-06")
         self.assertEqual(inst.identifier[0].system, "urn:oid:1.2.36.146.595.217.0.1")
         self.assertEqual(inst.identifier[0].type.coding[0].code, "MR")
-        self.assertEqual(inst.identifier[0].type.coding[0].system, "http://hl7.org/fhir/v2/0203")
+        self.assertEqual(inst.identifier[0].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/v2-0203")
         self.assertEqual(inst.identifier[0].use, "usual")
         self.assertEqual(inst.identifier[0].value, "12345")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.name[0].family, "Chalmers")
         self.assertEqual(inst.name[0].given[0], "Peter")
         self.assertEqual(inst.name[0].given[1], "James")

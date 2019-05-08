@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/MessageDefinition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MessageDefinition) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -32,10 +32,10 @@ class MessageDefinition(domainresource.DomainResource):
         
         self.base = None
         """ Definition this one is based on.
-        Type `FHIRReference` referencing `MessageDefinition` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.category = None
-        """ Consequence | Currency | Notification.
+        """ consequence | currency | notification.
         Type `str`. """
         
         self.contact = None
@@ -47,16 +47,20 @@ class MessageDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the message definition.
         Type `str`. """
         
-        self.event = None
-        """ Event type.
+        self.eventCoding = None
+        """ Event code  or link to the EventDefinition.
         Type `Coding` (represented as `dict` in JSON). """
+        
+        self.eventUri = None
+        """ Event code  or link to the EventDefinition.
+        Type `str`. """
         
         self.experimental = None
         """ For testing purposes, not real usage.
@@ -66,9 +70,13 @@ class MessageDefinition(domainresource.DomainResource):
         """ Resource(s) that are the subject of the event.
         List of `MessageDefinitionFocus` items (represented as `dict` in JSON). """
         
+        self.graph = None
+        """ Canonical reference to a GraphDefinition.
+        List of `str` items. """
+        
         self.identifier = None
-        """ Additional identifier for the message definition.
-        Type `Identifier` (represented as `dict` in JSON). """
+        """ Primary key for the message definition on a given server.
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.jurisdiction = None
         """ Intended jurisdiction for message definition (if applicable).
@@ -80,7 +88,7 @@ class MessageDefinition(domainresource.DomainResource):
         
         self.parent = None
         """ Protocol/workflow this is part of.
-        List of `FHIRReference` items referencing `ActivityDefinition, PlanDefinition` (represented as `dict` in JSON). """
+        List of `str` items. """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
@@ -92,11 +100,11 @@ class MessageDefinition(domainresource.DomainResource):
         
         self.replaces = None
         """ Takes the place of.
-        List of `FHIRReference` items referencing `MessageDefinition` (represented as `dict` in JSON). """
+        List of `str` items. """
         
         self.responseRequired = None
-        """ Is a response required?.
-        Type `bool`. """
+        """ always | on-error | never | on-success.
+        Type `str`. """
         
         self.status = None
         """ draft | active | retired | unknown.
@@ -107,11 +115,11 @@ class MessageDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this message definition (globally unique).
+        """ Business Identifier for a given MessageDefinition.
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -124,23 +132,25 @@ class MessageDefinition(domainresource.DomainResource):
         js = super(MessageDefinition, self).elementProperties()
         js.extend([
             ("allowedResponse", "allowedResponse", MessageDefinitionAllowedResponse, True, None, False),
-            ("base", "base", fhirreference.FHIRReference, False, None, False),
+            ("base", "base", str, False, None, False),
             ("category", "category", str, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, True),
             ("description", "description", str, False, None, False),
-            ("event", "event", coding.Coding, False, None, True),
+            ("eventCoding", "eventCoding", coding.Coding, False, "event", True),
+            ("eventUri", "eventUri", str, False, "event", True),
             ("experimental", "experimental", bool, False, None, False),
             ("focus", "focus", MessageDefinitionFocus, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("graph", "graph", str, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, False),
-            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
+            ("parent", "parent", str, True, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
-            ("replaces", "replaces", fhirreference.FHIRReference, True, None, False),
-            ("responseRequired", "responseRequired", bool, False, None, False),
+            ("replaces", "replaces", str, True, None, False),
+            ("responseRequired", "responseRequired", str, False, None, False),
             ("status", "status", str, False, None, True),
             ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
@@ -171,7 +181,7 @@ class MessageDefinitionAllowedResponse(backboneelement.BackboneElement):
         
         self.message = None
         """ Reference to allowed message definition response.
-        Type `FHIRReference` referencing `MessageDefinition` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.situation = None
         """ When should this response be used.
@@ -182,7 +192,7 @@ class MessageDefinitionAllowedResponse(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MessageDefinitionAllowedResponse, self).elementProperties()
         js.extend([
-            ("message", "message", fhirreference.FHIRReference, False, None, True),
+            ("message", "message", str, False, None, True),
             ("situation", "situation", str, False, None, False),
         ])
         return js
@@ -220,7 +230,7 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
         
         self.profile = None
         """ Profile that must be adhered to by focus.
-        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
+        Type `str`. """
         
         super(MessageDefinitionFocus, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -229,8 +239,8 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
         js.extend([
             ("code", "code", str, False, None, True),
             ("max", "max", str, False, None, False),
-            ("min", "min", int, False, None, False),
-            ("profile", "profile", fhirreference.FHIRReference, False, None, False),
+            ("min", "min", int, False, None, True),
+            ("profile", "profile", str, False, None, False),
         ])
         return js
 
@@ -252,10 +262,6 @@ try:
     from . import fhirdate
 except ImportError:
     fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
 try:
     from . import identifier
 except ImportError:

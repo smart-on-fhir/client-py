@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/RelatedArtifact) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/RelatedArtifact) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import element
@@ -36,9 +36,13 @@ class RelatedArtifact(element.Element):
         """ What document is being referenced.
         Type `Attachment` (represented as `dict` in JSON). """
         
+        self.label = None
+        """ Short label.
+        Type `str`. """
+        
         self.resource = None
         """ What resource is being referenced.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.type = None
         """ documentation | justification | citation | predecessor | successor
@@ -57,7 +61,8 @@ class RelatedArtifact(element.Element):
             ("citation", "citation", str, False, None, False),
             ("display", "display", str, False, None, False),
             ("document", "document", attachment.Attachment, False, None, False),
-            ("resource", "resource", fhirreference.FHIRReference, False, None, False),
+            ("label", "label", str, False, None, False),
+            ("resource", "resource", str, False, None, False),
             ("type", "type", str, False, None, True),
             ("url", "url", str, False, None, False),
         ])
@@ -69,7 +74,3 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']

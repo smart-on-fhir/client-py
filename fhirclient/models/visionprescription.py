@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -10,7 +10,7 @@ from . import domainresource
 class VisionPrescription(domainresource.DomainResource):
     """ Prescription for vision correction products for a patient.
     
-    An authorization for the supply of glasses and/or contact lenses to a
+    An authorization for the provision of glasses and/or contact lenses to a
     patient.
     """
     
@@ -24,37 +24,33 @@ class VisionPrescription(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.created = None
+        """ Response creation date.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
         self.dateWritten = None
         """ When prescription was authorized.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.dispense = None
-        """ Vision supply authorization.
-        List of `VisionPrescriptionDispense` items (represented as `dict` in JSON). """
-        
         self.encounter = None
         """ Created during encounter / admission / stay.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Business identifier.
+        """ Business Identifier for vision prescription.
         List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.lensSpecification = None
+        """ Vision lens authorization.
+        List of `VisionPrescriptionLensSpecification` items (represented as `dict` in JSON). """
         
         self.patient = None
         """ Who prescription is for.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.prescriber = None
-        """ Who authorizes the vision product.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.reasonCodeableConcept = None
-        """ Reason or indication for writing the prescription.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.reasonReference = None
-        """ Reason or indication for writing the prescription.
-        Type `FHIRReference` referencing `Condition` (represented as `dict` in JSON). """
+        """ Who authorized the vision prescription.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
@@ -65,28 +61,28 @@ class VisionPrescription(domainresource.DomainResource):
     def elementProperties(self):
         js = super(VisionPrescription, self).elementProperties()
         js.extend([
-            ("dateWritten", "dateWritten", fhirdate.FHIRDate, False, None, False),
-            ("dispense", "dispense", VisionPrescriptionDispense, True, None, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, True),
+            ("dateWritten", "dateWritten", fhirdate.FHIRDate, False, None, True),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
-            ("prescriber", "prescriber", fhirreference.FHIRReference, False, None, False),
-            ("reasonCodeableConcept", "reasonCodeableConcept", codeableconcept.CodeableConcept, False, "reason", False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, False, "reason", False),
-            ("status", "status", str, False, None, False),
+            ("lensSpecification", "lensSpecification", VisionPrescriptionLensSpecification, True, None, True),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("prescriber", "prescriber", fhirreference.FHIRReference, False, None, True),
+            ("status", "status", str, False, None, True),
         ])
         return js
 
 
 from . import backboneelement
 
-class VisionPrescriptionDispense(backboneelement.BackboneElement):
-    """ Vision supply authorization.
+class VisionPrescriptionLensSpecification(backboneelement.BackboneElement):
+    """ Vision lens authorization.
     
-    Deals with details of the dispense part of the supply specification.
+    Contain the details of  the individual lens specifications and serves as
+    the authorization for the fullfillment by certified professionals.
     """
     
-    resource_type = "VisionPrescriptionDispense"
+    resource_type = "VisionPrescriptionLensSpecification"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -97,20 +93,16 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
         """
         
         self.add = None
-        """ Lens add.
+        """ Added power for multifocal levels.
         Type `float`. """
         
         self.axis = None
-        """ Lens axis.
+        """ Lens meridian which contain no power for astigmatism.
         Type `int`. """
         
         self.backCurve = None
         """ Contact lens back curvature.
         Type `float`. """
-        
-        self.base = None
-        """ up | down | in | out.
-        Type `str`. """
         
         self.brand = None
         """ Brand required.
@@ -121,7 +113,7 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
         Type `str`. """
         
         self.cylinder = None
-        """ Lens cylinder.
+        """ Lens power for astigmatism.
         Type `float`. """
         
         self.diameter = None
@@ -145,37 +137,71 @@ class VisionPrescriptionDispense(backboneelement.BackboneElement):
         Type `float`. """
         
         self.prism = None
-        """ Lens prism.
-        Type `float`. """
+        """ Eye alignment compensation.
+        List of `VisionPrescriptionLensSpecificationPrism` items (represented as `dict` in JSON). """
         
         self.product = None
         """ Product to be supplied.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.sphere = None
-        """ Lens sphere.
+        """ Power of the lens.
         Type `float`. """
         
-        super(VisionPrescriptionDispense, self).__init__(jsondict=jsondict, strict=strict)
+        super(VisionPrescriptionLensSpecification, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(VisionPrescriptionDispense, self).elementProperties()
+        js = super(VisionPrescriptionLensSpecification, self).elementProperties()
         js.extend([
             ("add", "add", float, False, None, False),
             ("axis", "axis", int, False, None, False),
             ("backCurve", "backCurve", float, False, None, False),
-            ("base", "base", str, False, None, False),
             ("brand", "brand", str, False, None, False),
             ("color", "color", str, False, None, False),
             ("cylinder", "cylinder", float, False, None, False),
             ("diameter", "diameter", float, False, None, False),
             ("duration", "duration", quantity.Quantity, False, None, False),
-            ("eye", "eye", str, False, None, False),
+            ("eye", "eye", str, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("power", "power", float, False, None, False),
-            ("prism", "prism", float, False, None, False),
-            ("product", "product", codeableconcept.CodeableConcept, False, None, False),
+            ("prism", "prism", VisionPrescriptionLensSpecificationPrism, True, None, False),
+            ("product", "product", codeableconcept.CodeableConcept, False, None, True),
             ("sphere", "sphere", float, False, None, False),
+        ])
+        return js
+
+
+class VisionPrescriptionLensSpecificationPrism(backboneelement.BackboneElement):
+    """ Eye alignment compensation.
+    
+    Allows for adjustment on two axis.
+    """
+    
+    resource_type = "VisionPrescriptionLensSpecificationPrism"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.amount = None
+        """ Amount of adjustment.
+        Type `float`. """
+        
+        self.base = None
+        """ up | down | in | out.
+        Type `str`. """
+        
+        super(VisionPrescriptionLensSpecificationPrism, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(VisionPrescriptionLensSpecificationPrism, self).elementProperties()
+        js.extend([
+            ("amount", "amount", float, False, None, True),
+            ("base", "base", str, False, None, True),
         ])
         return js
 

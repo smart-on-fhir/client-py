@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -10,8 +10,8 @@ from . import domainresource
 class FamilyMemberHistory(domainresource.DomainResource):
     """ Information about patient's relatives, relevant for patient.
     
-    Significant health events and conditions for a person related to the
-    patient relevant in the context of care for the patient.
+    Significant health conditions for a person related to the patient relevant
+    in the context of care for the patient.
     """
     
     resource_type = "FamilyMemberHistory"
@@ -52,8 +52,12 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ Condition that the related person had.
         List of `FamilyMemberHistoryCondition` items (represented as `dict` in JSON). """
         
+        self.dataAbsentReason = None
+        """ subject-unknown | withheld | unable-to-obtain | deferred.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.date = None
-        """ When history was captured/updated.
+        """ When history was recorded or last updated.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.deceasedAge = None
@@ -76,33 +80,25 @@ class FamilyMemberHistory(domainresource.DomainResource):
         """ Dead? How old/when?.
         Type `str`. """
         
-        self.definition = None
-        """ Instantiates protocol or definition.
-        List of `FHIRReference` items referencing `PlanDefinition, Questionnaire` (represented as `dict` in JSON). """
-        
         self.estimatedAge = None
         """ Age is estimated?.
         Type `bool`. """
-        
-        self.gender = None
-        """ male | female | other | unknown.
-        Type `str`. """
         
         self.identifier = None
         """ External Id(s) for this record.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.instantiatesCanonical = None
+        """ Instantiates FHIR protocol or definition.
+        List of `str` items. """
+        
+        self.instantiatesUri = None
+        """ Instantiates external protocol or definition.
+        List of `str` items. """
+        
         self.name = None
         """ The family member described.
         Type `str`. """
-        
-        self.notDone = None
-        """ The taking of a family member's history did not occur.
-        Type `bool`. """
-        
-        self.notDoneReason = None
-        """ subject-unknown | withheld | unable-to-obtain | deferred.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.note = None
         """ General note about related person.
@@ -110,7 +106,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         self.patient = None
         """ Patient history is about.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.reasonCode = None
         """ Why was family member history performed?.
@@ -118,10 +114,14 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         self.reasonReference = None
         """ Why was family member history performed?.
-        List of `FHIRReference` items referencing `Condition, Observation, AllergyIntolerance, QuestionnaireResponse` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.relationship = None
         """ Relationship to the subject.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.sex = None
+        """ male | female | other | unknown.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.status = None
@@ -140,24 +140,24 @@ class FamilyMemberHistory(domainresource.DomainResource):
             ("bornPeriod", "bornPeriod", period.Period, False, "born", False),
             ("bornString", "bornString", str, False, "born", False),
             ("condition", "condition", FamilyMemberHistoryCondition, True, None, False),
+            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("deceasedAge", "deceasedAge", age.Age, False, "deceased", False),
             ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
             ("deceasedDate", "deceasedDate", fhirdate.FHIRDate, False, "deceased", False),
             ("deceasedRange", "deceasedRange", range.Range, False, "deceased", False),
             ("deceasedString", "deceasedString", str, False, "deceased", False),
-            ("definition", "definition", fhirreference.FHIRReference, True, None, False),
             ("estimatedAge", "estimatedAge", bool, False, None, False),
-            ("gender", "gender", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
+            ("instantiatesUri", "instantiatesUri", str, True, None, False),
             ("name", "name", str, False, None, False),
-            ("notDone", "notDone", bool, False, None, False),
-            ("notDoneReason", "notDoneReason", codeableconcept.CodeableConcept, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, True),
+            ("sex", "sex", codeableconcept.CodeableConcept, False, None, False),
             ("status", "status", str, False, None, True),
         ])
         return js
@@ -187,6 +187,10 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
         self.code = None
         """ Condition suffered by relation.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.contributedToDeath = None
+        """ Whether the condition contributed to the cause of death.
+        Type `bool`. """
         
         self.note = None
         """ Extra information about condition.
@@ -218,6 +222,7 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
         js = super(FamilyMemberHistoryCondition, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("contributedToDeath", "contributedToDeath", bool, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("onsetAge", "onsetAge", age.Age, False, "onset", False),
             ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),

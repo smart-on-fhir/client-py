@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -25,21 +25,29 @@ class CommunicationRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.about = None
+        """ Resources that pertain to this communication request.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
         self.authoredOn = None
         """ When request transitioned to being actionable.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.basedOn = None
         """ Fulfills plan or proposal.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.category = None
         """ Message category.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.context = None
-        """ Encounter or episode leading to message.
-        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        self.doNotPerform = None
+        """ True if request is prohibiting action.
+        Type `bool`. """
+        
+        self.encounter = None
+        """ Encounter created as part of.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.groupIdentifier = None
         """ Composite request this is part of.
@@ -79,46 +87,48 @@ class CommunicationRequest(domainresource.DomainResource):
         
         self.reasonReference = None
         """ Why is communication needed?.
-        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.recipient = None
         """ Message recipient.
-        List of `FHIRReference` items referencing `Device, Organization, Patient, Practitioner, RelatedPerson, Group, CareTeam` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.replaces = None
         """ Request(s) replaced by this request.
-        List of `FHIRReference` items referencing `CommunicationRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.requester = None
         """ Who/what is requesting service.
-        Type `CommunicationRequestRequester` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.sender = None
         """ Message sender.
-        Type `FHIRReference` referencing `Device, Organization, Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
         """ draft | active | suspended | cancelled | completed | entered-in-
         error | unknown.
         Type `str`. """
         
+        self.statusReason = None
+        """ Reason for current status.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.subject = None
         """ Focus of message.
-        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
-        
-        self.topic = None
-        """ Focal resources.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(CommunicationRequest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CommunicationRequest, self).elementProperties()
         js.extend([
+            ("about", "about", fhirreference.FHIRReference, True, None, False),
             ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
+            ("doNotPerform", "doNotPerform", bool, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("medium", "medium", codeableconcept.CodeableConcept, True, None, False),
@@ -131,11 +141,11 @@ class CommunicationRequest(domainresource.DomainResource):
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
             ("replaces", "replaces", fhirreference.FHIRReference, True, None, False),
-            ("requester", "requester", CommunicationRequestRequester, False, None, False),
+            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
             ("sender", "sender", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("topic", "topic", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 
@@ -164,7 +174,7 @@ class CommunicationRequestPayload(backboneelement.BackboneElement):
         
         self.contentReference = None
         """ Message part content.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.contentString = None
         """ Message part content.
@@ -178,42 +188,6 @@ class CommunicationRequestPayload(backboneelement.BackboneElement):
             ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True),
             ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True),
             ("contentString", "contentString", str, False, "content", True),
-        ])
-        return js
-
-
-class CommunicationRequestRequester(backboneelement.BackboneElement):
-    """ Who/what is requesting service.
-    
-    The individual who initiated the request and has responsibility for its
-    activation.
-    """
-    
-    resource_type = "CommunicationRequestRequester"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.agent = None
-        """ Individual making the request.
-        Type `FHIRReference` referencing `Practitioner, Organization, Patient, RelatedPerson, Device` (represented as `dict` in JSON). """
-        
-        self.onBehalfOf = None
-        """ Organization agent is acting for.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
-        super(CommunicationRequestRequester, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(CommunicationRequestRequester, self).elementProperties()
-        js.extend([
-            ("agent", "agent", fhirreference.FHIRReference, False, None, True),
-            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

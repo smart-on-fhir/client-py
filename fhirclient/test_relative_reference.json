@@ -31,9 +31,13 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "options": {
-                "reference": "ValueSet/vs2r"
-              },
+              "answerOption": [
+                {
+                  "valueReference": {
+                    "reference": "ValueSet/vs2r"
+                  }
+                }
+              ],
               "item": [
                 {
                   "linkId": "Observation.subject._Patient",

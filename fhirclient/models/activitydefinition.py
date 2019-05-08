@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -30,6 +30,10 @@ class ActivityDefinition(domainresource.DomainResource):
         """ When the activity definition was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
+        self.author = None
+        """ Who authored the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
         self.bodySite = None
         """ What part of body to perform on.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
@@ -42,21 +46,21 @@ class ActivityDefinition(domainresource.DomainResource):
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.contributor = None
-        """ A content contributor.
-        List of `Contributor` items (represented as `dict` in JSON). """
-        
         self.copyright = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the activity definition.
         Type `str`. """
+        
+        self.doNotPerform = None
+        """ True if the activity should not be performed.
+        Type `bool`. """
         
         self.dosage = None
         """ Detailed dosage instructions.
@@ -66,9 +70,17 @@ class ActivityDefinition(domainresource.DomainResource):
         """ Dynamic aspects of the definition.
         List of `ActivityDefinitionDynamicValue` items (represented as `dict` in JSON). """
         
+        self.editor = None
+        """ Who edited the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
         self.effectivePeriod = None
         """ When the activity definition is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
+        
+        self.endorser = None
+        """ Who endorsed the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.experimental = None
         """ For testing purposes, not real usage.
@@ -77,6 +89,10 @@ class ActivityDefinition(domainresource.DomainResource):
         self.identifier = None
         """ Additional identifier for the activity definition.
         List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.intent = None
+        """ proposal | plan | order.
+        Type `str`. """
         
         self.jurisdiction = None
         """ Intended jurisdiction for activity definition (if applicable).
@@ -91,20 +107,32 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.library = None
-        """ Logic used by the asset.
-        List of `FHIRReference` items referencing `Library` (represented as `dict` in JSON). """
+        """ Logic used by the activity definition.
+        List of `str` items. """
         
         self.location = None
         """ Where it should happen.
-        Type `FHIRReference` referencing `Location` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.name = None
         """ Name for this activity definition (computer friendly).
         Type `str`. """
         
+        self.observationRequirement = None
+        """ What observations are required to perform this action.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.observationResultRequirement = None
+        """ What observations must be produced by this action.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
         self.participant = None
         """ Who should participate in the action.
         List of `ActivityDefinitionParticipant` items (represented as `dict` in JSON). """
+        
+        self.priority = None
+        """ routine | urgent | asap | stat.
+        Type `str`. """
         
         self.productCodeableConcept = None
         """ What's administered/supplied.
@@ -112,7 +140,11 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.productReference = None
         """ What's administered/supplied.
-        Type `FHIRReference` referencing `Medication, Substance` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.profile = None
+        """ What profile the resource needs to conform to.
+        Type `str`. """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
@@ -127,16 +159,44 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `Quantity` (represented as `dict` in JSON). """
         
         self.relatedArtifact = None
-        """ Additional documentation, citations, etc.
+        """ Additional documentation, citations, etc..
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
+        
+        self.reviewer = None
+        """ Who reviewed the content.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
+        self.specimenRequirement = None
+        """ What specimens are required to perform this action.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
+        self.subjectCodeableConcept = None
+        """ Type of individual the activity definition is intended for.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.subjectReference = None
+        """ Type of individual the activity definition is intended for.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.subtitle = None
+        """ Subordinate title of the activity definition.
+        Type `str`. """
+        
+        self.timingAge = None
+        """ When activity is to occur.
+        Type `Age` (represented as `dict` in JSON). """
+        
         self.timingDateTime = None
         """ When activity is to occur.
         Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.timingDuration = None
+        """ When activity is to occur.
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.timingPeriod = None
         """ When activity is to occur.
@@ -155,23 +215,24 @@ class ActivityDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.topic = None
-        """ E.g. Education, Treatment, Assessment, etc.
+        """ E.g. Education, Treatment, Assessment, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.transform = None
         """ Transform to apply the template.
-        Type `FHIRReference` referencing `StructureMap` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this activity definition (globally unique).
+        """ Canonical identifier for this activity definition, represented as a
+        URI (globally unique).
         Type `str`. """
         
         self.usage = None
-        """ Describes the clinical usage of the asset.
+        """ Describes the clinical usage of the activity definition.
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -184,39 +245,54 @@ class ActivityDefinition(domainresource.DomainResource):
         js = super(ActivityDefinition, self).elementProperties()
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("author", "author", contactdetail.ContactDetail, True, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("contributor", "contributor", contributor.Contributor, True, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
+            ("doNotPerform", "doNotPerform", bool, False, None, False),
             ("dosage", "dosage", dosage.Dosage, True, None, False),
             ("dynamicValue", "dynamicValue", ActivityDefinitionDynamicValue, True, None, False),
+            ("editor", "editor", contactdetail.ContactDetail, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
+            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("intent", "intent", str, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("kind", "kind", str, False, None, False),
             ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
-            ("library", "library", fhirreference.FHIRReference, True, None, False),
+            ("library", "library", str, True, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
             ("name", "name", str, False, None, False),
+            ("observationRequirement", "observationRequirement", fhirreference.FHIRReference, True, None, False),
+            ("observationResultRequirement", "observationResultRequirement", fhirreference.FHIRReference, True, None, False),
             ("participant", "participant", ActivityDefinitionParticipant, True, None, False),
+            ("priority", "priority", str, False, None, False),
             ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
             ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
+            ("profile", "profile", str, False, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
+            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
+            ("specimenRequirement", "specimenRequirement", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, True),
+            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
+            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
+            ("subtitle", "subtitle", str, False, None, False),
+            ("timingAge", "timingAge", age.Age, False, "timing", False),
             ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
+            ("timingDuration", "timingDuration", duration.Duration, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("timingRange", "timingRange", range.Range, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
             ("title", "title", str, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
-            ("transform", "transform", fhirreference.FHIRReference, False, None, False),
+            ("transform", "transform", str, False, None, False),
             ("url", "url", str, False, None, False),
             ("usage", "usage", str, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
@@ -234,7 +310,7 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
     resulting resource. For example, if the dosage of a medication must be
     computed based on the patient's weight, a dynamic value would be used to
     specify an expression that calculated the weight, and the path on the
-    intent resource that would contain the result.
+    request resource that would contain the result.
     """
     
     resource_type = "ActivityDefinitionDynamicValue"
@@ -247,17 +323,9 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
-        """ Natural language description of the dynamic value.
-        Type `str`. """
-        
         self.expression = None
         """ An expression that provides the dynamic value for the customization.
-        Type `str`. """
-        
-        self.language = None
-        """ Language of the expression.
-        Type `str`. """
+        Type `Expression` (represented as `dict` in JSON). """
         
         self.path = None
         """ The path to the element to be set dynamically.
@@ -268,10 +336,8 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ActivityDefinitionDynamicValue, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, False),
-            ("expression", "expression", str, False, None, False),
-            ("language", "language", str, False, None, False),
-            ("path", "path", str, False, None, False),
+            ("expression", "expression", expression.Expression, False, None, True),
+            ("path", "path", str, False, None, True),
         ])
         return js
 
@@ -293,11 +359,11 @@ class ActivityDefinitionParticipant(backboneelement.BackboneElement):
         """
         
         self.role = None
-        """ E.g. Nurse, Surgeon, Parent, etc.
+        """ E.g. Nurse, Surgeon, Parent, etc..
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.type = None
-        """ patient | practitioner | related-person.
+        """ patient | practitioner | related-person | device.
         Type `str`. """
         
         super(ActivityDefinitionParticipant, self).__init__(jsondict=jsondict, strict=strict)
@@ -313,6 +379,10 @@ class ActivityDefinitionParticipant(backboneelement.BackboneElement):
 
 import sys
 try:
+    from . import age
+except ImportError:
+    age = sys.modules[__package__ + '.age']
+try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
@@ -321,13 +391,17 @@ try:
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
 try:
-    from . import contributor
-except ImportError:
-    contributor = sys.modules[__package__ + '.contributor']
-try:
     from . import dosage
 except ImportError:
     dosage = sys.modules[__package__ + '.dosage']
+try:
+    from . import duration
+except ImportError:
+    duration = sys.modules[__package__ + '.duration']
+try:
+    from . import expression
+except ImportError:
+    expression = sys.modules[__package__ + '.expression']
 try:
     from . import fhirdate
 except ImportError:

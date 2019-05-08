@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Medication) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Medication) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -11,7 +11,8 @@ class Medication(domainresource.DomainResource):
     """ Definition of a Medication.
     
     This resource is primarily used for the identification and definition of a
-    medication. It covers the ingredients and the packaging for a medication.
+    medication for the purposes of prescribing, dispensing, and administering a
+    medication as well as for making statements about medication use.
     """
     
     resource_type = "Medication"
@@ -24,6 +25,14 @@ class Medication(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.amount = None
+        """ Amount of drug in package.
+        Type `Ratio` (represented as `dict` in JSON). """
+        
+        self.batch = None
+        """ Details about packaged medications.
+        Type `MedicationBatch` (represented as `dict` in JSON). """
+        
         self.code = None
         """ Codes that identify this medication.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -32,29 +41,17 @@ class Medication(domainresource.DomainResource):
         """ powder | tablets | capsule +.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.image = None
-        """ Picture of the medication.
-        List of `Attachment` items (represented as `dict` in JSON). """
+        self.identifier = None
+        """ Business identifier for this medication.
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.ingredient = None
         """ Active or inactive ingredient.
         List of `MedicationIngredient` items (represented as `dict` in JSON). """
         
-        self.isBrand = None
-        """ True if a brand.
-        Type `bool`. """
-        
-        self.isOverTheCounter = None
-        """ True if medication does not require a prescription.
-        Type `bool`. """
-        
         self.manufacturer = None
         """ Manufacturer of the item.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
-        self.package = None
-        """ Details about packaged medications.
-        Type `MedicationPackage` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
         """ active | inactive | entered-in-error.
@@ -65,14 +62,13 @@ class Medication(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Medication, self).elementProperties()
         js.extend([
+            ("amount", "amount", ratio.Ratio, False, None, False),
+            ("batch", "batch", MedicationBatch, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("form", "form", codeableconcept.CodeableConcept, False, None, False),
-            ("image", "image", attachment.Attachment, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("ingredient", "ingredient", MedicationIngredient, True, None, False),
-            ("isBrand", "isBrand", bool, False, None, False),
-            ("isOverTheCounter", "isOverTheCounter", bool, False, None, False),
             ("manufacturer", "manufacturer", fhirreference.FHIRReference, False, None, False),
-            ("package", "package", MedicationPackage, False, None, False),
             ("status", "status", str, False, None, False),
         ])
         return js
@@ -80,99 +76,13 @@ class Medication(domainresource.DomainResource):
 
 from . import backboneelement
 
-class MedicationIngredient(backboneelement.BackboneElement):
-    """ Active or inactive ingredient.
-    
-    Identifies a particular constituent of interest in the product.
-    """
-    
-    resource_type = "MedicationIngredient"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.amount = None
-        """ Quantity of ingredient present.
-        Type `Ratio` (represented as `dict` in JSON). """
-        
-        self.isActive = None
-        """ Active ingredient indicator.
-        Type `bool`. """
-        
-        self.itemCodeableConcept = None
-        """ The product contained.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.itemReference = None
-        """ The product contained.
-        Type `FHIRReference` referencing `Substance, Medication` (represented as `dict` in JSON). """
-        
-        super(MedicationIngredient, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(MedicationIngredient, self).elementProperties()
-        js.extend([
-            ("amount", "amount", ratio.Ratio, False, None, False),
-            ("isActive", "isActive", bool, False, None, False),
-            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),
-            ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True),
-        ])
-        return js
-
-
-class MedicationPackage(backboneelement.BackboneElement):
+class MedicationBatch(backboneelement.BackboneElement):
     """ Details about packaged medications.
     
     Information that only applies to packages (not products).
     """
     
-    resource_type = "MedicationPackage"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.batch = None
-        """ Identifies a single production run.
-        List of `MedicationPackageBatch` items (represented as `dict` in JSON). """
-        
-        self.container = None
-        """ E.g. box, vial, blister-pack.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.content = None
-        """ What is  in the package.
-        List of `MedicationPackageContent` items (represented as `dict` in JSON). """
-        
-        super(MedicationPackage, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(MedicationPackage, self).elementProperties()
-        js.extend([
-            ("batch", "batch", MedicationPackageBatch, True, None, False),
-            ("container", "container", codeableconcept.CodeableConcept, False, None, False),
-            ("content", "content", MedicationPackageContent, True, None, False),
-        ])
-        return js
-
-
-class MedicationPackageBatch(backboneelement.BackboneElement):
-    """ Identifies a single production run.
-    
-    Information about a group of medication produced or packaged from one
-    production run.
-    """
-    
-    resource_type = "MedicationPackageBatch"
+    resource_type = "MedicationBatch"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -190,10 +100,10 @@ class MedicationPackageBatch(backboneelement.BackboneElement):
         """ Identifier assigned to batch.
         Type `str`. """
         
-        super(MedicationPackageBatch, self).__init__(jsondict=jsondict, strict=strict)
+        super(MedicationBatch, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(MedicationPackageBatch, self).elementProperties()
+        js = super(MedicationBatch, self).elementProperties()
         js.extend([
             ("expirationDate", "expirationDate", fhirdate.FHIRDate, False, None, False),
             ("lotNumber", "lotNumber", str, False, None, False),
@@ -201,13 +111,13 @@ class MedicationPackageBatch(backboneelement.BackboneElement):
         return js
 
 
-class MedicationPackageContent(backboneelement.BackboneElement):
-    """ What is  in the package.
+class MedicationIngredient(backboneelement.BackboneElement):
+    """ Active or inactive ingredient.
     
-    A set of components that go to make up the described item.
+    Identifies a particular constituent of interest in the product.
     """
     
-    resource_type = "MedicationPackageContent"
+    resource_type = "MedicationIngredient"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -217,35 +127,36 @@ class MedicationPackageContent(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
-        """ Quantity present in the package.
-        Type `Quantity` (represented as `dict` in JSON). """
+        self.isActive = None
+        """ Active ingredient indicator.
+        Type `bool`. """
         
         self.itemCodeableConcept = None
-        """ The item in the package.
+        """ The actual ingredient or content.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.itemReference = None
-        """ The item in the package.
-        Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
+        """ The actual ingredient or content.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        super(MedicationPackageContent, self).__init__(jsondict=jsondict, strict=strict)
+        self.strength = None
+        """ Quantity of ingredient present.
+        Type `Ratio` (represented as `dict` in JSON). """
+        
+        super(MedicationIngredient, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(MedicationPackageContent, self).elementProperties()
+        js = super(MedicationIngredient, self).elementProperties()
         js.extend([
-            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("isActive", "isActive", bool, False, None, False),
             ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),
             ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True),
+            ("strength", "strength", ratio.Ratio, False, None, False),
         ])
         return js
 
 
 import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
 try:
     from . import codeableconcept
 except ImportError:
@@ -259,9 +170,9 @@ try:
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
 try:
-    from . import quantity
+    from . import identifier
 except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+    identifier = sys.modules[__package__ + '.identifier']
 try:
     from . import ratio
 except ImportError:

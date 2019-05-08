@@ -1,19 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Signature) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Signature) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import element
 
 class Signature(element.Element):
-    """ A digital Signature - XML DigSig, JWT, Graphical image of signature, etc..
+    """ A Signature - XML DigSig, JWS, Graphical image of signature, etc..
     
-    A digital signature along with supporting context. The signature may be
-    electronic/cryptographic in nature, or a graphical image representing a
-    hand-written signature, or a signature process. Different signature
-    approaches have different utilities.
+    A signature along with supporting context. The signature may be a digital
+    signature that is cryptographic in nature, or some other signature
+    acceptable to the domain. This other signature may be as simple as a
+    graphical image representing a hand-written signature, or a signature
+    ceremony Different signature approaches have different utilities.
     """
     
     resource_type = "Signature"
@@ -26,20 +27,20 @@ class Signature(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.blob = None
-        """ The actual signature content (XML DigSig. JWT, picture, etc.).
+        self.data = None
+        """ The actual signature content (XML DigSig. JWS, picture, etc.).
         Type `str`. """
         
-        self.contentType = None
+        self.onBehalfOf = None
+        """ The party represented.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.sigFormat = None
         """ The technical format of the signature.
         Type `str`. """
         
-        self.onBehalfOfReference = None
-        """ The party represented.
-        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device, Organization` (represented as `dict` in JSON). """
-        
-        self.onBehalfOfUri = None
-        """ The party represented.
+        self.targetFormat = None
+        """ The technical format of the signed resources.
         Type `str`. """
         
         self.type = None
@@ -50,27 +51,22 @@ class Signature(element.Element):
         """ When the signature was created.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.whoReference = None
+        self.who = None
         """ Who signed.
-        Type `FHIRReference` referencing `Practitioner, RelatedPerson, Patient, Device, Organization` (represented as `dict` in JSON). """
-        
-        self.whoUri = None
-        """ Who signed.
-        Type `str`. """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(Signature, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Signature, self).elementProperties()
         js.extend([
-            ("blob", "blob", str, False, None, False),
-            ("contentType", "contentType", str, False, None, False),
-            ("onBehalfOfReference", "onBehalfOfReference", fhirreference.FHIRReference, False, "onBehalfOf", False),
-            ("onBehalfOfUri", "onBehalfOfUri", str, False, "onBehalfOf", False),
+            ("data", "data", str, False, None, False),
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
+            ("sigFormat", "sigFormat", str, False, None, False),
+            ("targetFormat", "targetFormat", str, False, None, False),
             ("type", "type", coding.Coding, True, None, True),
             ("when", "when", fhirdate.FHIRDate, False, None, True),
-            ("whoReference", "whoReference", fhirreference.FHIRReference, False, "who", True),
-            ("whoUri", "whoUri", str, False, "who", True),
+            ("who", "who", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

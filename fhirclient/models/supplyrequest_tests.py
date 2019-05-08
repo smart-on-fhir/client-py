@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -37,15 +37,18 @@ class SupplyRequestTests(unittest.TestCase):
         self.assertEqual(inst.category.coding[0].code, "central")
         self.assertEqual(inst.category.coding[0].display, "Central Stock Resupply")
         self.assertEqual(inst.id, "simpleorder")
-        self.assertEqual(inst.identifier.value, "Order10284")
+        self.assertEqual(inst.identifier[0].value, "Order10284")
+        self.assertEqual(inst.itemCodeableConcept.coding[0].code, "BlueTubes")
+        self.assertEqual(inst.itemCodeableConcept.coding[0].display, "Blood collect tubes blue cap")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2016-12-31").date)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2016-12-31")
-        self.assertEqual(inst.orderedItem.itemCodeableConcept.coding[0].code, "BlueTubes")
-        self.assertEqual(inst.orderedItem.itemCodeableConcept.coding[0].display, "Blood collect tubes blue cap")
-        self.assertEqual(inst.orderedItem.quantity.value, 10)
         self.assertEqual(inst.priority, "asap")
-        self.assertEqual(inst.reasonCodeableConcept.coding[0].code, "stock_low")
-        self.assertEqual(inst.reasonCodeableConcept.coding[0].display, "Refill due to low stock")
+        self.assertEqual(inst.quantity.value, 10)
+        self.assertEqual(inst.reasonCode[0].coding[0].code, "stock_low")
+        self.assertEqual(inst.reasonCode[0].coding[0].display, "Refill due to low stock")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
 

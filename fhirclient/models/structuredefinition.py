@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -38,23 +38,19 @@ class StructureDefinition(domainresource.DomainResource):
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.context = None
-        """ Where the extension can be used in instances.
-        List of `str` items. """
+        """ If an extension, where it can be used in instances.
+        List of `StructureDefinitionContext` items (represented as `dict` in JSON). """
         
         self.contextInvariant = None
         """ FHIRPath invariants - when the extension can be used.
         List of `str` items. """
-        
-        self.contextType = None
-        """ resource | datatype | extension.
-        Type `str`. """
         
         self.copyright = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.derivation = None
@@ -126,12 +122,12 @@ class StructureDefinition(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this structure definition (globally
-        unique).
+        """ Canonical identifier for this structure definition, represented as
+        a URI (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -146,9 +142,8 @@ class StructureDefinition(domainresource.DomainResource):
             ("abstract", "abstract", bool, False, None, True),
             ("baseDefinition", "baseDefinition", str, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("context", "context", str, True, None, False),
+            ("context", "context", StructureDefinitionContext, True, None, False),
             ("contextInvariant", "contextInvariant", str, True, None, False),
-            ("contextType", "contextType", str, False, None, False),
             ("copyright", "copyright", str, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("derivation", "derivation", str, False, None, False),
@@ -176,6 +171,42 @@ class StructureDefinition(domainresource.DomainResource):
 
 
 from . import backboneelement
+
+class StructureDefinitionContext(backboneelement.BackboneElement):
+    """ If an extension, where it can be used in instances.
+    
+    Identifies the types of resource or data type elements to which the
+    extension can be applied.
+    """
+    
+    resource_type = "StructureDefinitionContext"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.expression = None
+        """ Where the extension can be used in instances.
+        Type `str`. """
+        
+        self.type = None
+        """ fhirpath | element | extension.
+        Type `str`. """
+        
+        super(StructureDefinitionContext, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(StructureDefinitionContext, self).elementProperties()
+        js.extend([
+            ("expression", "expression", str, False, None, True),
+            ("type", "type", str, False, None, True),
+        ])
+        return js
+
 
 class StructureDefinitionDifferential(backboneelement.BackboneElement):
     """ Differential view of the structure.
@@ -256,7 +287,7 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
 class StructureDefinitionSnapshot(backboneelement.BackboneElement):
     """ Snapshot view of the structure.
     
-    A snapshot view is expressed in a stand alone form that can be used and
+    A snapshot view is expressed in a standalone form that can be used and
     interpreted without considering the base StructureDefinition.
     """
     

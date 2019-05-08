@@ -36,7 +36,7 @@ class {{ class.name }}Tests(unittest.TestCase):
     def impl{{ class.name }}{{ loop.index }}(self, inst):
     {%- for onetest in tcase.tests %}
     {%- if "str" == onetest.klass.name %}
-        self.assertEqual(inst.{{ onetest.path }}, "{{ onetest.value|replace('"', '\\"') }}")
+        self.assertEqual(inst.{{ onetest.path }}, "{{ onetest.value|replace('\\n', '\\\\n')|replace('"', '\\"') }}")
     {%- else %}{% if "int" == onetest.klass.name or "float" == onetest.klass.name or "NSDecimalNumber" == onetest.klass.name %}
         self.assertEqual(inst.{{ onetest.path }}, {{ onetest.value }})
     {%- else %}{% if "bool" == onetest.klass.name %}

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -11,8 +11,8 @@ class ConceptMap(domainresource.DomainResource):
     """ A map from one set of concepts to one or more other concepts.
     
     A statement of relationships from one set of concepts to one or more other
-    concepts - either code systems or data elements, or classes in class
-    models.
+    concepts - either concepts in code systems, or data element/data element
+    concepts, or classes in class models.
     """
     
     resource_type = "ConceptMap"
@@ -34,7 +34,7 @@ class ConceptMap(domainresource.DomainResource):
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
@@ -69,24 +69,26 @@ class ConceptMap(domainresource.DomainResource):
         """ Why this concept map is defined.
         Type `str`. """
         
-        self.sourceReference = None
-        """ Identifies the source of the concepts which are being mapped.
-        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
+        self.sourceCanonical = None
+        """ The source value set that contains the concepts that are being
+        mapped.
+        Type `str`. """
         
         self.sourceUri = None
-        """ Identifies the source of the concepts which are being mapped.
+        """ The source value set that contains the concepts that are being
+        mapped.
         Type `str`. """
         
         self.status = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.targetReference = None
-        """ Provides context to the mappings.
-        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
+        self.targetCanonical = None
+        """ The target value set which provides context for the mappings.
+        Type `str`. """
         
         self.targetUri = None
-        """ Provides context to the mappings.
+        """ The target value set which provides context for the mappings.
         Type `str`. """
         
         self.title = None
@@ -94,11 +96,12 @@ class ConceptMap(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this concept map (globally unique).
+        """ Canonical identifier for this concept map, represented as a URI
+        (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -121,10 +124,10 @@ class ConceptMap(domainresource.DomainResource):
             ("name", "name", str, False, None, False),
             ("publisher", "publisher", str, False, None, False),
             ("purpose", "purpose", str, False, None, False),
-            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", False),
+            ("sourceCanonical", "sourceCanonical", str, False, "source", False),
             ("sourceUri", "sourceUri", str, False, "source", False),
             ("status", "status", str, False, None, True),
-            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", False),
+            ("targetCanonical", "targetCanonical", str, False, "target", False),
             ("targetUri", "targetUri", str, False, "target", False),
             ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
@@ -157,7 +160,7 @@ class ConceptMapGroup(backboneelement.BackboneElement):
         List of `ConceptMapGroupElement` items (represented as `dict` in JSON). """
         
         self.source = None
-        """ Code System (if value set crosses code systems).
+        """ Source system where concepts to be mapped are defined.
         Type `str`. """
         
         self.sourceVersion = None
@@ -165,7 +168,7 @@ class ConceptMapGroup(backboneelement.BackboneElement):
         Type `str`. """
         
         self.target = None
-        """ System of the target (if necessary).
+        """ Target system that the concepts are to be mapped to.
         Type `str`. """
         
         self.targetVersion = None
@@ -173,7 +176,7 @@ class ConceptMapGroup(backboneelement.BackboneElement):
         Type `str`. """
         
         self.unmapped = None
-        """ When no match in the mappings.
+        """ What to do when there is no mapping for the source concept.
         Type `ConceptMapGroupUnmapped` (represented as `dict` in JSON). """
         
         super(ConceptMapGroup, self).__init__(jsondict=jsondict, strict=strict)
@@ -282,7 +285,7 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
             ("comment", "comment", str, False, None, False),
             ("dependsOn", "dependsOn", ConceptMapGroupElementTargetDependsOn, True, None, False),
             ("display", "display", str, False, None, False),
-            ("equivalence", "equivalence", str, False, None, False),
+            ("equivalence", "equivalence", str, False, None, True),
             ("product", "product", ConceptMapGroupElementTargetDependsOn, True, None, False),
         ])
         return js
@@ -306,12 +309,8 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
-        """ Value of the referenced element.
-        Type `str`. """
-        
         self.display = None
-        """ Display for the code.
+        """ Display for the code (if value is a code).
         Type `str`. """
         
         self.property = None
@@ -322,23 +321,29 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
         """ Code System (if necessary).
         Type `str`. """
         
+        self.value = None
+        """ Value of the referenced element.
+        Type `str`. """
+        
         super(ConceptMapGroupElementTargetDependsOn, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConceptMapGroupElementTargetDependsOn, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, True),
             ("display", "display", str, False, None, False),
             ("property", "property", str, False, None, True),
             ("system", "system", str, False, None, False),
+            ("value", "value", str, False, None, True),
         ])
         return js
 
 
 class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
-    """ When no match in the mappings.
+    """ What to do when there is no mapping for the source concept.
     
-    What to do when there is no match in the mappings in the group.
+    What to do when there is no mapping for the source concept. "Unmapped" does
+    not include codes that are unmatched, and the unmapped element is ignored
+    in a code is specified to have equivalence = unmatched.
     """
     
     resource_type = "ConceptMapGroupUnmapped"
@@ -364,7 +369,8 @@ class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
         Type `str`. """
         
         self.url = None
-        """ Canonical URL for other concept map.
+        """ canonical reference to an additional ConceptMap to use for mapping
+        if the source concept is unmapped.
         Type `str`. """
         
         super(ConceptMapGroupUnmapped, self).__init__(jsondict=jsondict, strict=strict)
@@ -393,10 +399,6 @@ try:
     from . import fhirdate
 except ImportError:
     fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
 try:
     from . import identifier
 except ImportError:

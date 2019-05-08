@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -39,7 +39,7 @@ class Practitioner(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.communication = None
-        """ A language the practitioner is able to use in patient communication.
+        """ A language the practitioner can use in patient communication.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.gender = None
@@ -47,7 +47,7 @@ class Practitioner(domainresource.DomainResource):
         Type `str`. """
         
         self.identifier = None
-        """ A identifier for the person as this agent.
+        """ An identifier for the person as this agent.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.name = None
@@ -59,7 +59,8 @@ class Practitioner(domainresource.DomainResource):
         List of `Attachment` items (represented as `dict` in JSON). """
         
         self.qualification = None
-        """ Qualifications obtained by training and certification.
+        """ Certification, licenses, or training pertaining to the provision of
+        care.
         List of `PractitionerQualification` items (represented as `dict` in JSON). """
         
         self.telecom = None
@@ -88,7 +89,12 @@ class Practitioner(domainresource.DomainResource):
 from . import backboneelement
 
 class PractitionerQualification(backboneelement.BackboneElement):
-    """ Qualifications obtained by training and certification.
+    """ Certification, licenses, or training pertaining to the provision of care.
+    
+    The official certifications, training, and licenses that authorize or
+    otherwise pertain to the provision of care by the practitioner.  For
+    example, a medical license issued by a medical board authorizing the
+    practitioner to practice medicine within a certian locality.
     """
     
     resource_type = "PractitionerQualification"
@@ -111,7 +117,7 @@ class PractitionerQualification(backboneelement.BackboneElement):
         
         self.issuer = None
         """ Organization that regulates and issues the qualification.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.period = None
         """ Period during which the qualification is valid.

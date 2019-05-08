@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Composition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Composition) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -12,12 +12,14 @@ class Composition(domainresource.DomainResource):
     clinical attestation.
     
     A set of healthcare-related information that is assembled together into a
-    single logical document that provides a single coherent statement of
+    single logical package that provides a single coherent statement of
     meaning, establishes its own context and that has clinical attestation with
-    regard to who is making the statement. While a Composition defines the
-    structure, it does not actually contain the content: rather the full
-    content of a document is contained in a Bundle, of which the Composition is
-    the first resource contained.
+    regard to who is making the statement. A Composition defines the structure
+    and narrative content necessary for a document. However, a Composition
+    alone does not constitute a document. Rather, the Composition must be the
+    first entry in a Bundle where Bundle.type=document, and any other resources
+    referenced from Composition must be included as subsequent entries in the
+    Bundle (for example Patient, Practitioner, Encounter, etc.).
     """
     
     resource_type = "Composition"
@@ -36,11 +38,11 @@ class Composition(domainresource.DomainResource):
         
         self.author = None
         """ Who and/or what authored the composition.
-        List of `FHIRReference` items referencing `Practitioner, Device, Patient, RelatedPerson` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.class_fhir = None
+        self.category = None
         """ Categorization of Composition.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.confidentiality = None
         """ As defined by affinity domain.
@@ -48,7 +50,7 @@ class Composition(domainresource.DomainResource):
         
         self.custodian = None
         """ Organization which maintains the composition.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.date = None
         """ Composition editing time.
@@ -56,14 +58,14 @@ class Composition(domainresource.DomainResource):
         
         self.encounter = None
         """ Context of the Composition.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.event = None
         """ The clinical service(s) being documented.
         List of `CompositionEvent` items (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Logical identifier of composition (version-independent).
+        """ Version-independent identifier for the Composition.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.relatesTo = None
@@ -80,7 +82,7 @@ class Composition(domainresource.DomainResource):
         
         self.subject = None
         """ Who and/or what the composition is about.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.title = None
         """ Human Readable name/title.
@@ -97,7 +99,7 @@ class Composition(domainresource.DomainResource):
         js.extend([
             ("attester", "attester", CompositionAttester, True, None, False),
             ("author", "author", fhirreference.FHIRReference, True, None, True),
-            ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("confidentiality", "confidentiality", str, False, None, False),
             ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, True),
@@ -107,7 +109,7 @@ class Composition(domainresource.DomainResource):
             ("relatesTo", "relatesTo", CompositionRelatesTo, True, None, False),
             ("section", "section", CompositionSection, True, None, False),
             ("status", "status", str, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("title", "title", str, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
@@ -134,11 +136,11 @@ class CompositionAttester(backboneelement.BackboneElement):
         
         self.mode = None
         """ personal | professional | legal | official.
-        List of `str` items. """
+        Type `str`. """
         
         self.party = None
         """ Who attested the composition.
-        Type `FHIRReference` referencing `Patient, Practitioner, Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.time = None
         """ When the composition was attested.
@@ -149,7 +151,7 @@ class CompositionAttester(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionAttester, self).elementProperties()
         js.extend([
-            ("mode", "mode", str, True, None, True),
+            ("mode", "mode", str, False, None, True),
             ("party", "party", fhirreference.FHIRReference, False, None, False),
             ("time", "time", fhirdate.FHIRDate, False, None, False),
         ])
@@ -179,7 +181,7 @@ class CompositionEvent(backboneelement.BackboneElement):
         
         self.detail = None
         """ The event(s) being documented.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.period = None
         """ The period covered by the documentation.
@@ -224,7 +226,7 @@ class CompositionRelatesTo(backboneelement.BackboneElement):
         
         self.targetReference = None
         """ Target of the relationship.
-        Type `FHIRReference` referencing `Composition` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(CompositionRelatesTo, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -254,6 +256,10 @@ class CompositionSection(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.author = None
+        """ Who and/or what authored the section.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
         self.code = None
         """ Classification of section (recommended).
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -264,7 +270,12 @@ class CompositionSection(backboneelement.BackboneElement):
         
         self.entry = None
         """ A reference to data that supports this section.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.focus = None
+        """ Who/what the section is about, when it is not about the subject of
+        composition.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.mode = None
         """ working | snapshot | changes.
@@ -291,9 +302,11 @@ class CompositionSection(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionSection, self).elementProperties()
         js.extend([
+            ("author", "author", fhirreference.FHIRReference, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False, None, False),
             ("entry", "entry", fhirreference.FHIRReference, True, None, False),
+            ("focus", "focus", fhirreference.FHIRReference, False, None, False),
             ("mode", "mode", str, False, None, False),
             ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False, None, False),
             ("section", "section", CompositionSection, True, None, False),

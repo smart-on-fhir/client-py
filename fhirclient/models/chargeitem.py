@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ChargeItem) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ChargeItem) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class ChargeItem(domainresource.DomainResource):
         
         self.account = None
         """ Account to place this charge.
-        List of `FHIRReference` items referencing `Account` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.bodysite = None
         """ Anatomical location, if relevant.
@@ -43,9 +43,17 @@ class ChargeItem(domainresource.DomainResource):
         
         self.context = None
         """ Encounter / Episode associated with event.
-        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.definition = None
+        self.costCenter = None
+        """ Organization that has ownership of the (potential, future) revenue.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.definitionCanonical = None
+        """ Resource defining the code of this ChargeItem.
+        List of `str` items. """
+        
+        self.definitionUri = None
         """ Defining information about the code of this charge item.
         List of `str` items. """
         
@@ -55,7 +63,7 @@ class ChargeItem(domainresource.DomainResource):
         
         self.enterer = None
         """ Individual who was entering.
-        Type `FHIRReference` referencing `Practitioner, Organization, Patient, Device, RelatedPerson` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.factorOverride = None
         """ Factor overriding the associated rules.
@@ -63,7 +71,7 @@ class ChargeItem(domainresource.DomainResource):
         
         self.identifier = None
         """ Business Identifier for item.
-        Type `Identifier` (represented as `dict` in JSON). """
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.note = None
         """ Comments made about the ChargeItem.
@@ -87,19 +95,27 @@ class ChargeItem(domainresource.DomainResource):
         
         self.partOf = None
         """ Part of referenced ChargeItem.
-        List of `FHIRReference` items referencing `ChargeItem` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.participant = None
+        self.performer = None
         """ Who performed charged service.
-        List of `ChargeItemParticipant` items (represented as `dict` in JSON). """
+        List of `ChargeItemPerformer` items (represented as `dict` in JSON). """
         
         self.performingOrganization = None
-        """ Organization providing the charged sevice.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ Organization providing the charged service.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.priceOverride = None
         """ Price overriding the associated rules.
         Type `Money` (represented as `dict` in JSON). """
+        
+        self.productCodeableConcept = None
+        """ Product charged.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.productReference = None
+        """ Product charged.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.quantity = None
         """ Quantity of which the charge item has been serviced.
@@ -111,11 +127,11 @@ class ChargeItem(domainresource.DomainResource):
         
         self.requestingOrganization = None
         """ Organization requesting the charged service.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.service = None
         """ Which rendered service is being charged?.
-        List of `FHIRReference` items referencing `DiagnosticReport, ImagingStudy, Immunization, MedicationAdministration, MedicationDispense, Observation, Procedure, SupplyDelivery` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
         """ planned | billable | not-billable | aborted | billed | entered-in-
@@ -124,11 +140,11 @@ class ChargeItem(domainresource.DomainResource):
         
         self.subject = None
         """ Individual service was done for/to.
-        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.supportingInformation = None
-        """ Further information supporting the this charge.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        """ Further information supporting this charge.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(ChargeItem, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -139,20 +155,24 @@ class ChargeItem(domainresource.DomainResource):
             ("bodysite", "bodysite", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("definition", "definition", str, True, None, False),
+            ("costCenter", "costCenter", fhirreference.FHIRReference, False, None, False),
+            ("definitionCanonical", "definitionCanonical", str, True, None, False),
+            ("definitionUri", "definitionUri", str, True, None, False),
             ("enteredDate", "enteredDate", fhirdate.FHIRDate, False, None, False),
             ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
             ("factorOverride", "factorOverride", float, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
             ("overrideReason", "overrideReason", str, False, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("participant", "participant", ChargeItemParticipant, True, None, False),
+            ("performer", "performer", ChargeItemPerformer, True, None, False),
             ("performingOrganization", "performingOrganization", fhirreference.FHIRReference, False, None, False),
             ("priceOverride", "priceOverride", money.Money, False, None, False),
+            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
+            ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("requestingOrganization", "requestingOrganization", fhirreference.FHIRReference, False, None, False),
@@ -166,13 +186,13 @@ class ChargeItem(domainresource.DomainResource):
 
 from . import backboneelement
 
-class ChargeItemParticipant(backboneelement.BackboneElement):
+class ChargeItemPerformer(backboneelement.BackboneElement):
     """ Who performed charged service.
     
     Indicates who or what performed or participated in the charged service.
     """
     
-    resource_type = "ChargeItemParticipant"
+    resource_type = "ChargeItemPerformer"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -184,19 +204,19 @@ class ChargeItemParticipant(backboneelement.BackboneElement):
         
         self.actor = None
         """ Individual who was performing.
-        Type `FHIRReference` referencing `Practitioner, Organization, Patient, Device, RelatedPerson` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.role = None
+        self.function = None
         """ What type of performance was done.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        super(ChargeItemParticipant, self).__init__(jsondict=jsondict, strict=strict)
+        super(ChargeItemPerformer, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(ChargeItemParticipant, self).elementProperties()
+        js = super(ChargeItemPerformer, self).elementProperties()
         js.extend([
             ("actor", "actor", fhirreference.FHIRReference, False, None, True),
-            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+            ("function", "function", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 

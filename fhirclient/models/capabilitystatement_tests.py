@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -32,7 +32,6 @@ class CapabilityStatementTests(unittest.TestCase):
         self.implCapabilityStatement1(inst2)
     
     def implCapabilityStatement1(self, inst):
-        self.assertEqual(inst.acceptUnknown, "both")
         self.assertEqual(inst.contact[0].name, "System Administrator")
         self.assertEqual(inst.contact[0].telecom[0].system, "email")
         self.assertEqual(inst.contact[0].telecom[0].value, "wile@acme.org")
@@ -42,8 +41,9 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.description, "This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface")
         self.assertEqual(inst.document[0].documentation, "Basic rules for all documents in the EHR system")
         self.assertEqual(inst.document[0].mode, "consumer")
+        self.assertEqual(inst.document[0].profile, "http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796")
         self.assertTrue(inst.experimental)
-        self.assertEqual(inst.fhirVersion, "1.0.0")
+        self.assertEqual(inst.fhirVersion, "4.0.0")
         self.assertEqual(inst.format[0], "xml")
         self.assertEqual(inst.format[1], "json")
         self.assertEqual(inst.id, "example")
@@ -58,14 +58,10 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.messaging[0].documentation, "ADT A08 equivalent for external system notifications")
         self.assertEqual(inst.messaging[0].endpoint[0].address, "mllp:10.1.1.10:9234")
         self.assertEqual(inst.messaging[0].endpoint[0].protocol.code, "mllp")
-        self.assertEqual(inst.messaging[0].endpoint[0].protocol.system, "http://hl7.org/fhir/message-transport")
-        self.assertEqual(inst.messaging[0].event[0].category, "Consequence")
-        self.assertEqual(inst.messaging[0].event[0].code.code, "admin-notify")
-        self.assertEqual(inst.messaging[0].event[0].code.system, "http://hl7.org/fhir/message-events")
-        self.assertEqual(inst.messaging[0].event[0].documentation, "Notification of an update to a patient resource. changing the links is not supported")
-        self.assertEqual(inst.messaging[0].event[0].focus, "Patient")
-        self.assertEqual(inst.messaging[0].event[0].mode, "receiver")
+        self.assertEqual(inst.messaging[0].endpoint[0].protocol.system, "http://terminology.hl7.org/CodeSystem/message-transport")
         self.assertEqual(inst.messaging[0].reliableCache, 30)
+        self.assertEqual(inst.messaging[0].supportedMessage[0].definition, "MessageDefinition/example")
+        self.assertEqual(inst.messaging[0].supportedMessage[0].mode, "receiver")
         self.assertEqual(inst.name, "ACME-EHR")
         self.assertEqual(inst.patchFormat[0], "application/xml-patch+xml")
         self.assertEqual(inst.patchFormat[1], "application/json-patch+json")
@@ -88,6 +84,7 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.rest[0].resource[0].interaction[3].code, "history-instance")
         self.assertEqual(inst.rest[0].resource[0].interaction[4].code, "create")
         self.assertEqual(inst.rest[0].resource[0].interaction[5].code, "history-type")
+        self.assertEqual(inst.rest[0].resource[0].profile, "http://registry.fhir.org/r4/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416")
         self.assertTrue(inst.rest[0].resource[0].readHistory)
         self.assertEqual(inst.rest[0].resource[0].searchInclude[0], "Organization")
         self.assertEqual(inst.rest[0].resource[0].searchParam[0].definition, "http://hl7.org/fhir/SearchParameter/Patient-identifier")
@@ -98,15 +95,14 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.rest[0].resource[0].searchParam[1].name, "general-practitioner")
         self.assertEqual(inst.rest[0].resource[0].searchParam[1].type, "reference")
         self.assertEqual(inst.rest[0].resource[0].searchRevInclude[0], "Person")
+        self.assertEqual(inst.rest[0].resource[0].supportedProfile[0], "http://registry.fhir.org/r4/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347")
         self.assertEqual(inst.rest[0].resource[0].type, "Patient")
         self.assertFalse(inst.rest[0].resource[0].updateCreate)
         self.assertEqual(inst.rest[0].resource[0].versioning, "versioned-update")
-        self.assertEqual(inst.rest[0].security.certificate[0].blob, "IHRoaXMgYmxvYiBpcyBub3QgdmFsaWQ=")
-        self.assertEqual(inst.rest[0].security.certificate[0].type, "application/jwt")
         self.assertTrue(inst.rest[0].security.cors)
         self.assertEqual(inst.rest[0].security.description, "See Smart on FHIR documentation")
         self.assertEqual(inst.rest[0].security.service[0].coding[0].code, "SMART-on-FHIR")
-        self.assertEqual(inst.rest[0].security.service[0].coding[0].system, "http://hl7.org/fhir/restful-security-service")
+        self.assertEqual(inst.rest[0].security.service[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/restful-security-service")
         self.assertEqual(inst.software.name, "EHR")
         self.assertEqual(inst.software.releaseDate.date, FHIRDate("2012-01-04").date)
         self.assertEqual(inst.software.releaseDate.as_json(), "2012-01-04")
@@ -116,9 +112,9 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.title, "ACME EHR capability statement")
         self.assertEqual(inst.url, "urn:uuid:68D043B5-9ECF-4559-A57A-396E0D452311")
         self.assertEqual(inst.useContext[0].code.code, "focus")
-        self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
+        self.assertEqual(inst.useContext[0].code.system, "http://terminology.hl7.org/CodeSystem/usage-context-type")
         self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "positive")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://hl7.org/fhir/variant-state")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://terminology.hl7.org/CodeSystem/variant-state")
         self.assertEqual(inst.version, "20130510")
     
     def testCapabilityStatement2(self):
@@ -132,17 +128,19 @@ class CapabilityStatementTests(unittest.TestCase):
         self.implCapabilityStatement2(inst2)
     
     def implCapabilityStatement2(self, inst):
-        self.assertEqual(inst.acceptUnknown, "no")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.date.date, FHIRDate("2013-06-18").date)
         self.assertEqual(inst.date.as_json(), "2013-06-18")
         self.assertEqual(inst.description, "Prototype Capability Statement for September 2013 Connectathon")
-        self.assertEqual(inst.fhirVersion, "1.0.0")
+        self.assertEqual(inst.fhirVersion, "4.0.0")
         self.assertEqual(inst.format[0], "json")
         self.assertEqual(inst.format[1], "xml")
         self.assertEqual(inst.id, "phr")
         self.assertEqual(inst.kind, "capability")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.name, "PHR Template")
         self.assertEqual(inst.publisher, "FHIR Project")
         self.assertEqual(inst.rest[0].documentation, "Protoype server Capability Statement for September 2013 Connectathon")

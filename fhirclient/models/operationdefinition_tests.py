@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -32,6 +32,7 @@ class OperationDefinitionTests(unittest.TestCase):
         self.implOperationDefinition1(inst2)
     
     def implOperationDefinition1(self, inst):
+        self.assertEqual(inst.base, "OperationDefinition/Questionnaire-populate")
         self.assertEqual(inst.code, "populate")
         self.assertEqual(inst.comment, "Only implemented for Labs and Medications so far")
         self.assertEqual(inst.contact[0].name, "System Administrator")
@@ -39,7 +40,7 @@ class OperationDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].value, "beep@coyote.acme.com")
         self.assertEqual(inst.date.date, FHIRDate("2015-08-04").date)
         self.assertEqual(inst.date.as_json(), "2015-08-04")
-        self.assertEqual(inst.description, "Limited implementation of the Populate Questionnaire implemenation")
+        self.assertEqual(inst.description, "Limited implementation of the Populate Questionnaire implementation")
         self.assertEqual(inst.id, "example")
         self.assertTrue(inst.instance)
         self.assertEqual(inst.jurisdiction[0].coding[0].code, "GB")
@@ -80,6 +81,6 @@ class OperationDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.useContext[0].code.system, "http://build.fhir.org/codesystem-usage-context-type")
         self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "IMP")
         self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].display, "inpatient encounter")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://hl7.org/fhir/v3/ActCode")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
         self.assertEqual(inst.version, "B")
 

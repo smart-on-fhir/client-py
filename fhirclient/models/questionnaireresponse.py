@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -27,7 +27,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         
         self.author = None
         """ Person who received and recorded the answers.
-        Type `FHIRReference` referencing `Device, Practitioner, Patient, RelatedPerson` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.authored = None
         """ Date the answers were gathered.
@@ -35,11 +35,11 @@ class QuestionnaireResponse(domainresource.DomainResource):
         
         self.basedOn = None
         """ Request fulfilled by this QuestionnaireResponse.
-        List of `FHIRReference` items referencing `ReferralRequest, CarePlan, ProcedureRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.context = None
-        """ Encounter or Episode during which questionnaire was completed.
-        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        self.encounter = None
+        """ Encounter created as part of.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Unique id for this set of answers.
@@ -49,17 +49,17 @@ class QuestionnaireResponse(domainresource.DomainResource):
         """ Groups and questions.
         List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
         
-        self.parent = None
+        self.partOf = None
         """ Part of this action.
-        List of `FHIRReference` items referencing `Observation, Procedure` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.questionnaire = None
         """ Form being answered.
-        Type `FHIRReference` referencing `Questionnaire` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.source = None
         """ The person who answered the questions.
-        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
         """ in-progress | completed | amended | entered-in-error | stopped.
@@ -67,7 +67,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         
         self.subject = None
         """ The subject of the questions.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(QuestionnaireResponse, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -77,11 +77,11 @@ class QuestionnaireResponse(domainresource.DomainResource):
             ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("authored", "authored", fhirdate.FHIRDate, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("item", "item", QuestionnaireResponseItem, True, None, False),
-            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
-            ("questionnaire", "questionnaire", fhirreference.FHIRReference, False, None, False),
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
+            ("questionnaire", "questionnaire", str, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
@@ -124,10 +124,6 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
         """ Pointer to specific item from Questionnaire.
         Type `str`. """
         
-        self.subject = None
-        """ The subject this group's answers are about.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
         self.text = None
         """ Name for group or question text.
         Type `str`. """
@@ -141,7 +137,6 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
             ("definition", "definition", str, False, None, False),
             ("item", "item", QuestionnaireResponseItem, True, None, False),
             ("linkId", "linkId", str, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("text", "text", str, False, None, False),
         ])
         return js
@@ -201,7 +196,7 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
         
         self.valueReference = None
         """ Single-valued answer to the question.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.valueString = None
         """ Single-valued answer to the question.

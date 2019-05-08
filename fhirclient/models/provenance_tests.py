@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class ProvenanceTests(unittest.TestCase):
         return provenance.Provenance(js)
     
     def testProvenance1(self):
-        inst = self.instantiate_from("provenance-example-biocompute-object.json")
+        inst = self.instantiate_from("provenance-example-sig.json")
         self.assertIsNotNone(inst, "Must have instantiated a Provenance instance")
         self.implProvenance1(inst)
         
@@ -32,19 +32,29 @@ class ProvenanceTests(unittest.TestCase):
         self.implProvenance1(inst2)
     
     def implProvenance1(self, inst):
-        self.assertEqual(inst.agent[0].role[0].coding[0].code, "AUT")
-        self.assertEqual(inst.agent[0].role[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
-        self.assertEqual(inst.entity[0].role, "source")
-        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].code, "biocompute")
-        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].display, "obj.1001")
-        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].system, "https://hive.biochemistry.gwu.edu")
-        self.assertEqual(inst.entity[0].whatIdentifier.value, "https://hive.biochemistry.gwu.edu/cgi-bin/prd/htscsrs/servlet.cgi?pageid=bcoexample_1")
-        self.assertEqual(inst.id, "example-biocompute-object")
-        self.assertEqual(inst.period.start.date, FHIRDate("2017-06-06").date)
-        self.assertEqual(inst.period.start.as_json(), "2017-06-06")
-        self.assertEqual(inst.reason[0].display, "antiviral resistance detection")
-        self.assertEqual(inst.recorded.date, FHIRDate("2016-06-09T08:12:14+10:00").date)
-        self.assertEqual(inst.recorded.as_json(), "2016-06-09T08:12:14+10:00")
+        self.assertEqual(inst.activity.coding[0].code, "AU")
+        self.assertEqual(inst.activity.coding[0].display, "authenticated")
+        self.assertEqual(inst.activity.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion")
+        self.assertEqual(inst.agent[0].type.coding[0].code, "VERF")
+        self.assertEqual(inst.agent[0].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/contractsignertypecodes")
+        self.assertEqual(inst.id, "signature")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.reason[0].coding[0].code, "TREAT")
+        self.assertEqual(inst.reason[0].coding[0].display, "treatment")
+        self.assertEqual(inst.reason[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.recorded.date, FHIRDate("2015-08-27T08:39:24+10:00").date)
+        self.assertEqual(inst.recorded.as_json(), "2015-08-27T08:39:24+10:00")
+        self.assertEqual(inst.signature[0].data, "Li4u")
+        self.assertEqual(inst.signature[0].sigFormat, "application/signature+xml")
+        self.assertEqual(inst.signature[0].targetFormat, "application/fhir+xml")
+        self.assertEqual(inst.signature[0].type[0].code, "1.2.840.10065.1.12.1.5")
+        self.assertEqual(inst.signature[0].type[0].display, "Verification Signature")
+        self.assertEqual(inst.signature[0].type[0].system, "urn:iso-astm:E1762-95:2013")
+        self.assertEqual(inst.signature[0].when.date, FHIRDate("2015-08-27T08:39:24+10:00").date)
+        self.assertEqual(inst.signature[0].when.as_json(), "2015-08-27T08:39:24+10:00")
+        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>")
         self.assertEqual(inst.text.status, "generated")
     
     def testProvenance2(self):
@@ -58,23 +68,22 @@ class ProvenanceTests(unittest.TestCase):
         self.implProvenance2(inst2)
     
     def implProvenance2(self, inst):
-        self.assertEqual(inst.agent[0].role[0].coding[0].code, "AUT")
-        self.assertEqual(inst.agent[0].role[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
+        self.assertEqual(inst.agent[0].type.coding[0].code, "AUT")
+        self.assertEqual(inst.agent[0].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
         self.assertEqual(inst.entity[0].role, "source")
-        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].code, "CWL")
-        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].display, "lobSTR")
-        self.assertEqual(inst.entity[0].whatIdentifier.type.coding[0].system, "https://github.com/common-workflow-language/workflows")
-        self.assertEqual(inst.entity[0].whatIdentifier.value, "https://github.com/common-workflow-language/workflows/blob/master/workflows/lobSTR/lobSTR-workflow.cwl")
         self.assertEqual(inst.id, "example-cwl")
-        self.assertEqual(inst.period.start.date, FHIRDate("2016-11-30").date)
-        self.assertEqual(inst.period.start.as_json(), "2016-11-30")
-        self.assertEqual(inst.reason[0].display, "profiling Short Tandem Repeats (STRs) from high throughput sequencing data.")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.occurredPeriod.start.date, FHIRDate("2016-11-30").date)
+        self.assertEqual(inst.occurredPeriod.start.as_json(), "2016-11-30")
+        self.assertEqual(inst.reason[0].text, "profiling Short Tandem Repeats (STRs) from high throughput sequencing data.")
         self.assertEqual(inst.recorded.date, FHIRDate("2016-12-01T08:12:14+10:00").date)
         self.assertEqual(inst.recorded.as_json(), "2016-12-01T08:12:14+10:00")
         self.assertEqual(inst.text.status, "generated")
     
     def testProvenance3(self):
-        inst = self.instantiate_from("provenance-example-sig.json")
+        inst = self.instantiate_from("provenance-example-biocompute-object.json")
         self.assertIsNotNone(inst, "Must have instantiated a Provenance instance")
         self.implProvenance3(inst)
         
@@ -84,26 +93,18 @@ class ProvenanceTests(unittest.TestCase):
         self.implProvenance3(inst2)
     
     def implProvenance3(self, inst):
-        self.assertEqual(inst.activity.code, "AU")
-        self.assertEqual(inst.activity.display, "authenticated")
-        self.assertEqual(inst.activity.system, "http://hl7.org/fhir/v3/DocumentCompletion")
-        self.assertEqual(inst.agent[0].role[0].coding[0].code, "VERF")
-        self.assertEqual(inst.agent[0].role[0].coding[0].system, "http://www.hl7.org/fhir/contractsignertypecodes")
-        self.assertEqual(inst.agent[0].whoUri, "mailto://hhd@ssa.gov")
-        self.assertEqual(inst.id, "signature")
-        self.assertEqual(inst.reason[0].code, "TREAT")
-        self.assertEqual(inst.reason[0].display, "treatment")
-        self.assertEqual(inst.reason[0].system, "http://hl7.org/fhir/v3/ActReason")
-        self.assertEqual(inst.recorded.date, FHIRDate("2015-08-27T08:39:24+10:00").date)
-        self.assertEqual(inst.recorded.as_json(), "2015-08-27T08:39:24+10:00")
-        self.assertEqual(inst.signature[0].blob, "Li4u")
-        self.assertEqual(inst.signature[0].contentType, "application/signature+xml")
-        self.assertEqual(inst.signature[0].type[0].code, "1.2.840.10065.1.12.1.5")
-        self.assertEqual(inst.signature[0].type[0].display, "Verification Signature")
-        self.assertEqual(inst.signature[0].type[0].system, "urn:iso-astm:E1762-95:2013")
-        self.assertEqual(inst.signature[0].when.date, FHIRDate("2015-08-27T08:39:24+10:00").date)
-        self.assertEqual(inst.signature[0].when.as_json(), "2015-08-27T08:39:24+10:00")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>")
+        self.assertEqual(inst.agent[0].type.coding[0].code, "AUT")
+        self.assertEqual(inst.agent[0].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
+        self.assertEqual(inst.entity[0].role, "source")
+        self.assertEqual(inst.id, "example-biocompute-object")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.occurredPeriod.start.date, FHIRDate("2017-06-06").date)
+        self.assertEqual(inst.occurredPeriod.start.as_json(), "2017-06-06")
+        self.assertEqual(inst.reason[0].text, "antiviral resistance detection")
+        self.assertEqual(inst.recorded.date, FHIRDate("2016-06-09T08:12:14+10:00").date)
+        self.assertEqual(inst.recorded.as_json(), "2016-06-09T08:12:14+10:00")
         self.assertEqual(inst.text.status, "generated")
     
     def testProvenance4(self):
@@ -117,25 +118,25 @@ class ProvenanceTests(unittest.TestCase):
         self.implProvenance4(inst2)
     
     def implProvenance4(self, inst):
-        self.assertEqual(inst.agent[0].onBehalfOfUri, "#a1")
-        self.assertEqual(inst.agent[0].relatedAgentType.text, "used")
-        self.assertEqual(inst.agent[0].role[0].coding[0].code, "AUT")
-        self.assertEqual(inst.agent[0].role[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
+        self.assertEqual(inst.agent[0].type.coding[0].code, "AUT")
+        self.assertEqual(inst.agent[0].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
         self.assertEqual(inst.agent[1].id, "a1")
-        self.assertEqual(inst.agent[1].role[0].coding[0].code, "DEV")
-        self.assertEqual(inst.agent[1].role[0].coding[0].system, "http://hl7.org/fhir/v3/ParticipationType")
+        self.assertEqual(inst.agent[1].type.coding[0].code, "DEV")
+        self.assertEqual(inst.agent[1].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
         self.assertEqual(inst.entity[0].role, "source")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.period.end.date, FHIRDate("2015-06-28").date)
-        self.assertEqual(inst.period.end.as_json(), "2015-06-28")
-        self.assertEqual(inst.period.start.date, FHIRDate("2015-06-27").date)
-        self.assertEqual(inst.period.start.as_json(), "2015-06-27")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.occurredPeriod.end.date, FHIRDate("2015-06-28").date)
+        self.assertEqual(inst.occurredPeriod.end.as_json(), "2015-06-28")
+        self.assertEqual(inst.occurredPeriod.start.date, FHIRDate("2015-06-27").date)
+        self.assertEqual(inst.occurredPeriod.start.as_json(), "2015-06-27")
         self.assertEqual(inst.policy[0], "http://acme.com/fhir/Consent/25")
-        self.assertEqual(inst.reason[0].code, "3457005")
-        self.assertEqual(inst.reason[0].display, "Referral")
-        self.assertEqual(inst.reason[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.reason[0].coding[0].code, "3457005")
+        self.assertEqual(inst.reason[0].coding[0].display, "Referral")
+        self.assertEqual(inst.reason[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.recorded.date, FHIRDate("2015-06-27T08:39:24+10:00").date)
         self.assertEqual(inst.recorded.as_json(), "2015-06-27T08:39:24+10:00")
-        self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from XDS managed CDA Referral received 26-June</div>")
         self.assertEqual(inst.text.status, "generated")
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Specimen) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -31,6 +31,10 @@ class Specimen(domainresource.DomainResource):
         """ Collection details.
         Type `SpecimenCollection` (represented as `dict` in JSON). """
         
+        self.condition = None
+        """ State of the specimen.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.container = None
         """ Direct container of specimen (tube/slide, etc.).
         List of `SpecimenContainer` items (represented as `dict` in JSON). """
@@ -45,7 +49,7 @@ class Specimen(domainresource.DomainResource):
         
         self.parent = None
         """ Specimen from which this specimen originated.
-        List of `FHIRReference` items referencing `Specimen` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.processing = None
         """ Processing and processing step details.
@@ -57,16 +61,17 @@ class Specimen(domainresource.DomainResource):
         
         self.request = None
         """ Why the specimen was collected.
-        List of `FHIRReference` items referencing `ProcedureRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
         """ available | unavailable | unsatisfactory | entered-in-error.
         Type `str`. """
         
         self.subject = None
-        """ Where the specimen came from. This may be from the patient(s) or
-        from the environment or a device.
-        Type `FHIRReference` referencing `Patient, Group, Device, Substance` (represented as `dict` in JSON). """
+        """ Where the specimen came from. This may be from patient(s), from a
+        location (e.g., the source of an environmental sample), or a
+        sampling of a substance or a device.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.type = None
         """ Kind of material that forms the specimen.
@@ -79,6 +84,7 @@ class Specimen(domainresource.DomainResource):
         js.extend([
             ("accessionIdentifier", "accessionIdentifier", identifier.Identifier, False, None, False),
             ("collection", "collection", SpecimenCollection, False, None, False),
+            ("condition", "condition", codeableconcept.CodeableConcept, True, None, False),
             ("container", "container", SpecimenContainer, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
@@ -87,7 +93,7 @@ class Specimen(domainresource.DomainResource):
             ("receivedTime", "receivedTime", fhirdate.FHIRDate, False, None, False),
             ("request", "request", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
@@ -125,7 +131,19 @@ class SpecimenCollection(backboneelement.BackboneElement):
         
         self.collector = None
         """ Who collected the specimen.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.duration = None
+        """ How long it took to collect specimen.
+        Type `Duration` (represented as `dict` in JSON). """
+        
+        self.fastingStatusCodeableConcept = None
+        """ Whether or how long patient abstained from food and/or drink.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.fastingStatusDuration = None
+        """ Whether or how long patient abstained from food and/or drink.
+        Type `Duration` (represented as `dict` in JSON). """
         
         self.method = None
         """ Technique used to perform collection.
@@ -144,6 +162,9 @@ class SpecimenCollection(backboneelement.BackboneElement):
             ("collectedDateTime", "collectedDateTime", fhirdate.FHIRDate, False, "collected", False),
             ("collectedPeriod", "collectedPeriod", period.Period, False, "collected", False),
             ("collector", "collector", fhirreference.FHIRReference, False, None, False),
+            ("duration", "duration", duration.Duration, False, None, False),
+            ("fastingStatusCodeableConcept", "fastingStatusCodeableConcept", codeableconcept.CodeableConcept, False, "fastingStatus", False),
+            ("fastingStatusDuration", "fastingStatusDuration", duration.Duration, False, "fastingStatus", False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
         ])
@@ -173,7 +194,7 @@ class SpecimenContainer(backboneelement.BackboneElement):
         
         self.additiveReference = None
         """ Additive associated with container.
-        Type `FHIRReference` referencing `Substance` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.capacity = None
         """ Container volume or size.
@@ -229,7 +250,7 @@ class SpecimenProcessing(backboneelement.BackboneElement):
         
         self.additive = None
         """ Material used in the processing step.
-        List of `FHIRReference` items referencing `Substance` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.description = None
         """ Textual description of procedure.
@@ -270,6 +291,10 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import duration
+except ImportError:
+    duration = sys.modules[__package__ + '.duration']
 try:
     from . import fhirdate
 except ImportError:

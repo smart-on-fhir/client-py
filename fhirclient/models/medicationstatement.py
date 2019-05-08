@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -12,14 +12,14 @@ class MedicationStatement(domainresource.DomainResource):
     
     A record of a medication that is being consumed by a patient.   A
     MedicationStatement may indicate that the patient may be taking the
-    medication now, or has taken the medication in the past or will be taking
+    medication now or has taken the medication in the past or will be taking
     the medication in the future.  The source of this information can be the
     patient, significant other (such as a family member or spouse), or a
     clinician.  A common scenario where this information is captured is during
     the history taking process during a patient visit or stay.   The medication
     information may come from sources such as the patient's memory, from a
     prescription bottle,  or from a list of medications the patient, clinician
-    or other party maintains
+    or other party maintains.
     
     The primary difference between a medication statement and a medication
     administration is that the medication administration has complete
@@ -48,7 +48,7 @@ class MedicationStatement(domainresource.DomainResource):
         
         self.basedOn = None
         """ Fulfils plan, proposal or order.
-        List of `FHIRReference` items referencing `MedicationRequest, CarePlan, ProcedureRequest, ReferralRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.category = None
         """ Type of medication usage.
@@ -56,7 +56,7 @@ class MedicationStatement(domainresource.DomainResource):
         
         self.context = None
         """ Encounter / Episode associated with MedicationStatement.
-        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.dateAsserted = None
         """ When the statement was asserted?.
@@ -64,18 +64,18 @@ class MedicationStatement(domainresource.DomainResource):
         
         self.derivedFrom = None
         """ Additional supporting information.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.dosage = None
         """ Details of how medication is/was taken or should be taken.
         List of `Dosage` items (represented as `dict` in JSON). """
         
         self.effectiveDateTime = None
-        """ The date/time or interval when the medication was taken.
+        """ The date/time or interval when the medication is/was/will be taken.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
-        """ The date/time or interval when the medication was taken.
+        """ The date/time or interval when the medication is/was/will be taken.
         Type `Period` (represented as `dict` in JSON). """
         
         self.identifier = None
@@ -85,7 +85,7 @@ class MedicationStatement(domainresource.DomainResource):
         self.informationSource = None
         """ Person or organization that provided the information about the
         taking of this medication.
-        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson, Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.medicationCodeableConcept = None
         """ What medication was taken.
@@ -93,7 +93,7 @@ class MedicationStatement(domainresource.DomainResource):
         
         self.medicationReference = None
         """ What medication was taken.
-        Type `FHIRReference` referencing `Medication` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.note = None
         """ Further information about the statement.
@@ -101,33 +101,29 @@ class MedicationStatement(domainresource.DomainResource):
         
         self.partOf = None
         """ Part of referenced event.
-        List of `FHIRReference` items referencing `MedicationAdministration, MedicationDispense, MedicationStatement, Procedure, Observation` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.reasonCode = None
         """ Reason for why the medication is being/was taken.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonNotTaken = None
-        """ True if asserting medication was not given.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
         self.reasonReference = None
         """ Condition or observation that supports why the medication is
         being/was taken.
-        List of `FHIRReference` items referencing `Condition, Observation` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
         """ active | completed | entered-in-error | intended | stopped | on-
-        hold.
+        hold | unknown | not-taken.
         Type `str`. """
+        
+        self.statusReason = None
+        """ Reason for current status.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.subject = None
         """ Who is/was taking  the medication.
-        Type `FHIRReference` referencing `Patient, Group` (represented as `dict` in JSON). """
-        
-        self.taken = None
-        """ y | n | unk | na.
-        Type `str`. """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(MedicationStatement, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -149,11 +145,10 @@ class MedicationStatement(domainresource.DomainResource):
             ("note", "note", annotation.Annotation, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonNotTaken", "reasonNotTaken", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("status", "status", str, False, None, True),
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, True, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("taken", "taken", str, False, None, True),
         ])
         return js
 

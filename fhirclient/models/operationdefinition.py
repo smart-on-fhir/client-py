@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/OperationDefinition) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -24,9 +24,13 @@ class OperationDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.affectsState = None
+        """ Whether content is changed by the operation.
+        Type `bool`. """
+        
         self.base = None
         """ Marks this as a profile of the base.
-        Type `FHIRReference` referencing `OperationDefinition` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.code = None
         """ Name used to invoke the operation.
@@ -41,7 +45,7 @@ class OperationDefinition(domainresource.DomainResource):
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
@@ -52,9 +56,9 @@ class OperationDefinition(domainresource.DomainResource):
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.idempotent = None
-        """ Whether content is unchanged by the operation.
-        Type `bool`. """
+        self.inputProfile = None
+        """ Validation information for in parameters.
+        Type `str`. """
         
         self.instance = None
         """ Invoke on an instance?.
@@ -70,6 +74,10 @@ class OperationDefinition(domainresource.DomainResource):
         
         self.name = None
         """ Name for this operation definition (computer friendly).
+        Type `str`. """
+        
+        self.outputProfile = None
+        """ Validation information for out parameters.
         Type `str`. """
         
         self.overload = None
@@ -100,17 +108,21 @@ class OperationDefinition(domainresource.DomainResource):
         """ Invoke at the system level?.
         Type `bool`. """
         
+        self.title = None
+        """ Name for this operation definition (human friendly).
+        Type `str`. """
+        
         self.type = None
-        """ Invole at the type level?.
+        """ Invoke at the type level?.
         Type `bool`. """
         
         self.url = None
-        """ Logical URI to reference this operation definition (globally
-        unique).
+        """ Canonical identifier for this operation definition, represented as
+        a URI (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -122,18 +134,20 @@ class OperationDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(OperationDefinition, self).elementProperties()
         js.extend([
-            ("base", "base", fhirreference.FHIRReference, False, None, False),
+            ("affectsState", "affectsState", bool, False, None, False),
+            ("base", "base", str, False, None, False),
             ("code", "code", str, False, None, True),
             ("comment", "comment", str, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
-            ("idempotent", "idempotent", bool, False, None, False),
+            ("inputProfile", "inputProfile", str, False, None, False),
             ("instance", "instance", bool, False, None, True),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("kind", "kind", str, False, None, True),
             ("name", "name", str, False, None, True),
+            ("outputProfile", "outputProfile", str, False, None, False),
             ("overload", "overload", OperationDefinitionOverload, True, None, False),
             ("parameter", "parameter", OperationDefinitionParameter, True, None, False),
             ("publisher", "publisher", str, False, None, False),
@@ -141,6 +155,7 @@ class OperationDefinition(domainresource.DomainResource):
             ("resource", "resource", str, True, None, False),
             ("status", "status", str, False, None, True),
             ("system", "system", bool, False, None, True),
+            ("title", "title", str, False, None, False),
             ("type", "type", bool, False, None, True),
             ("url", "url", str, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
@@ -228,14 +243,18 @@ class OperationDefinitionParameter(backboneelement.BackboneElement):
         """ Parts of a nested Parameter.
         List of `OperationDefinitionParameter` items (represented as `dict` in JSON). """
         
-        self.profile = None
-        """ Profile on the type.
-        Type `FHIRReference` referencing `StructureDefinition` (represented as `dict` in JSON). """
+        self.referencedFrom = None
+        """ References to this parameter.
+        List of `OperationDefinitionParameterReferencedFrom` items (represented as `dict` in JSON). """
         
         self.searchType = None
         """ number | date | string | token | reference | composite | quantity |
-        uri.
+        uri | special.
         Type `str`. """
+        
+        self.targetProfile = None
+        """ If type is Reference | canonical, allowed targets.
+        List of `str` items. """
         
         self.type = None
         """ What type this parameter has.
@@ -256,8 +275,9 @@ class OperationDefinitionParameter(backboneelement.BackboneElement):
             ("min", "min", int, False, None, True),
             ("name", "name", str, False, None, True),
             ("part", "part", OperationDefinitionParameter, True, None, False),
-            ("profile", "profile", fhirreference.FHIRReference, False, None, False),
+            ("referencedFrom", "referencedFrom", OperationDefinitionParameterReferencedFrom, True, None, False),
             ("searchType", "searchType", str, False, None, False),
+            ("targetProfile", "targetProfile", str, True, None, False),
             ("type", "type", str, False, None, False),
             ("use", "use", str, False, None, True),
         ])
@@ -285,11 +305,7 @@ class OperationDefinitionParameterBinding(backboneelement.BackboneElement):
         """ required | extensible | preferred | example.
         Type `str`. """
         
-        self.valueSetReference = None
-        """ Source of value set.
-        Type `FHIRReference` referencing `ValueSet` (represented as `dict` in JSON). """
-        
-        self.valueSetUri = None
+        self.valueSet = None
         """ Source of value set.
         Type `str`. """
         
@@ -299,8 +315,43 @@ class OperationDefinitionParameterBinding(backboneelement.BackboneElement):
         js = super(OperationDefinitionParameterBinding, self).elementProperties()
         js.extend([
             ("strength", "strength", str, False, None, True),
-            ("valueSetReference", "valueSetReference", fhirreference.FHIRReference, False, "valueSet", True),
-            ("valueSetUri", "valueSetUri", str, False, "valueSet", True),
+            ("valueSet", "valueSet", str, False, None, True),
+        ])
+        return js
+
+
+class OperationDefinitionParameterReferencedFrom(backboneelement.BackboneElement):
+    """ References to this parameter.
+    
+    Identifies other resource parameters within the operation invocation that
+    are expected to resolve to this resource.
+    """
+    
+    resource_type = "OperationDefinitionParameterReferencedFrom"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.source = None
+        """ Referencing parameter.
+        Type `str`. """
+        
+        self.sourceId = None
+        """ Element id of reference.
+        Type `str`. """
+        
+        super(OperationDefinitionParameterReferencedFrom, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(OperationDefinitionParameterReferencedFrom, self).elementProperties()
+        js.extend([
+            ("source", "source", str, False, None, True),
+            ("sourceId", "sourceId", str, False, None, False),
         ])
         return js
 
@@ -318,10 +369,6 @@ try:
     from . import fhirdate
 except ImportError:
     fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
 try:
     from . import usagecontext
 except ImportError:

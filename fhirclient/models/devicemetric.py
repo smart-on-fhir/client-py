@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -38,8 +38,8 @@ class DeviceMetric(domainresource.DomainResource):
         Type `str`. """
         
         self.identifier = None
-        """ Unique identifier of this DeviceMetric.
-        Type `Identifier` (represented as `dict` in JSON). """
+        """ Instance identifier.
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.measurementPeriod = None
         """ Describes the measurement repetition time.
@@ -50,12 +50,12 @@ class DeviceMetric(domainresource.DomainResource):
         Type `str`. """
         
         self.parent = None
-        """ Describes the link to the parent DeviceComponent.
-        Type `FHIRReference` referencing `DeviceComponent` (represented as `dict` in JSON). """
+        """ Describes the link to the parent Device.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.source = None
         """ Describes the link to the source Device.
-        Type `FHIRReference` referencing `Device` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.type = None
         """ Identity of metric, for example Heart Rate or PEEP Setting.
@@ -73,7 +73,7 @@ class DeviceMetric(domainresource.DomainResource):
             ("calibration", "calibration", DeviceMetricCalibration, True, None, False),
             ("category", "category", str, False, None, True),
             ("color", "color", str, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("measurementPeriod", "measurementPeriod", timing.Timing, False, None, False),
             ("operationalStatus", "operationalStatus", str, False, None, False),
             ("parent", "parent", fhirreference.FHIRReference, False, None, False),

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -82,7 +82,7 @@ class SearchParameterTests(unittest.TestCase):
         self.assertEqual(inst.target[0], "Organization")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "reference")
-        self.assertEqual(inst.url, "http://hl7.org/fhir/SearchParameter/example")
+        self.assertEqual(inst.url, "http://hl7.org/fhir/SearchParameter/example-reference")
         self.assertEqual(inst.xpathUsage, "normal")
     
     def testSearchParameter3(self):
@@ -120,9 +120,9 @@ class SearchParameterTests(unittest.TestCase):
         self.assertEqual(inst.type, "token")
         self.assertEqual(inst.url, "http://hl7.org/fhir/SearchParameter/example")
         self.assertEqual(inst.useContext[0].code.code, "focus")
-        self.assertEqual(inst.useContext[0].code.system, "http://hl7.org/fhir/usage-context-type")
+        self.assertEqual(inst.useContext[0].code.system, "http://terminology.hl7.org/CodeSystem/usage-context-type")
         self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "positive")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://hl7.org/fhir/variant-state")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "http://terminology.hl7.org/CodeSystem/variant-state")
         self.assertEqual(inst.version, "1")
         self.assertEqual(inst.xpath, "f:*/f:id")
         self.assertEqual(inst.xpathUsage, "normal")

@@ -12,3 +12,4 @@ session_data
 # IDE files
 *.sublime-*
 
+.DS_Store

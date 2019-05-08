@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class ClaimResponse(domainresource.DomainResource):
-    """ Remittance resource.
+    """ Response to a claim predetermination or preauthorization.
     
     This resource provides the adjudication details from the processing of a
     Claim resource.
@@ -28,12 +28,16 @@ class ClaimResponse(domainresource.DomainResource):
         """ Insurer added line items.
         List of `ClaimResponseAddItem` items (represented as `dict` in JSON). """
         
+        self.adjudication = None
+        """ Header-level adjudication.
+        List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
+        
         self.communicationRequest = None
         """ Request for additional information.
-        List of `FHIRReference` items referencing `CommunicationRequest` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.created = None
-        """ Creation date.
+        """ Response creation date.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.disposition = None
@@ -45,76 +49,88 @@ class ClaimResponse(domainresource.DomainResource):
         List of `ClaimResponseError` items (represented as `dict` in JSON). """
         
         self.form = None
-        """ Printed Form Identifier.
+        """ Printed reference or actual form.
+        Type `Attachment` (represented as `dict` in JSON). """
+        
+        self.formCode = None
+        """ Printed form identifier.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.fundsReserve = None
+        """ Funds reserved status.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.identifier = None
-        """ Response  number.
+        """ Business Identifier for a claim response.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.insurance = None
-        """ Insurance or medical plan.
+        """ Patient insurance information.
         List of `ClaimResponseInsurance` items (represented as `dict` in JSON). """
         
         self.insurer = None
-        """ Insurance issuing organization.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        """ Party responsible for reimbursement.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.item = None
-        """ Line items.
+        """ Adjudication for claim line items.
         List of `ClaimResponseItem` items (represented as `dict` in JSON). """
         
         self.outcome = None
-        """ complete | error | partial.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        """ queued | complete | error | partial.
+        Type `str`. """
         
         self.patient = None
-        """ The subject of the Products and Services.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        """ The recipient of the products and services.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.payeeType = None
         """ Party to be paid any benefits payable.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.payment = None
-        """ Payment details, if paid.
+        """ Payment Details.
         Type `ClaimResponsePayment` (represented as `dict` in JSON). """
         
+        self.preAuthPeriod = None
+        """ Preauthorization reference effective period.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.preAuthRef = None
+        """ Preauthorization reference.
+        Type `str`. """
+        
         self.processNote = None
-        """ Processing notes.
+        """ Note concerning adjudication.
         List of `ClaimResponseProcessNote` items (represented as `dict` in JSON). """
         
         self.request = None
         """ Id of resource triggering adjudication.
-        Type `FHIRReference` referencing `Claim` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.requestOrganization = None
-        """ Responsible organization.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
-        
-        self.requestProvider = None
-        """ Responsible practitioner.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
-        
-        self.reserved = None
-        """ Funds reserved status.
-        Type `Coding` (represented as `dict` in JSON). """
+        self.requestor = None
+        """ Party responsible for the claim.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
         
-        self.totalBenefit = None
-        """ Total benefit payable for the Claim.
-        Type `Money` (represented as `dict` in JSON). """
+        self.subType = None
+        """ More granular claim type.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.totalCost = None
-        """ Total Cost of service from the Claim.
-        Type `Money` (represented as `dict` in JSON). """
+        self.total = None
+        """ Adjudication totals.
+        List of `ClaimResponseTotal` items (represented as `dict` in JSON). """
         
-        self.unallocDeductable = None
-        """ Unallocated deductible.
-        Type `Money` (represented as `dict` in JSON). """
+        self.type = None
+        """ More granular claim type.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.use = None
+        """ claim | preauthorization | predetermination.
+        Type `str`. """
         
         super(ClaimResponse, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -122,28 +138,32 @@ class ClaimResponse(domainresource.DomainResource):
         js = super(ClaimResponse, self).elementProperties()
         js.extend([
             ("addItem", "addItem", ClaimResponseAddItem, True, None, False),
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
             ("communicationRequest", "communicationRequest", fhirreference.FHIRReference, True, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, True),
             ("disposition", "disposition", str, False, None, False),
             ("error", "error", ClaimResponseError, True, None, False),
-            ("form", "form", codeableconcept.CodeableConcept, False, None, False),
+            ("form", "form", attachment.Attachment, False, None, False),
+            ("formCode", "formCode", codeableconcept.CodeableConcept, False, None, False),
+            ("fundsReserve", "fundsReserve", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("insurance", "insurance", ClaimResponseInsurance, True, None, False),
-            ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
+            ("insurer", "insurer", fhirreference.FHIRReference, False, None, True),
             ("item", "item", ClaimResponseItem, True, None, False),
-            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
+            ("outcome", "outcome", str, False, None, True),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("payeeType", "payeeType", codeableconcept.CodeableConcept, False, None, False),
             ("payment", "payment", ClaimResponsePayment, False, None, False),
+            ("preAuthPeriod", "preAuthPeriod", period.Period, False, None, False),
+            ("preAuthRef", "preAuthRef", str, False, None, False),
             ("processNote", "processNote", ClaimResponseProcessNote, True, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
-            ("requestOrganization", "requestOrganization", fhirreference.FHIRReference, False, None, False),
-            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
-            ("reserved", "reserved", coding.Coding, False, None, False),
-            ("status", "status", str, False, None, False),
-            ("totalBenefit", "totalBenefit", money.Money, False, None, False),
-            ("totalCost", "totalCost", money.Money, False, None, False),
-            ("unallocDeductable", "unallocDeductable", money.Money, False, None, False),
+            ("requestor", "requestor", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", str, False, None, True),
+            ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
+            ("total", "total", ClaimResponseTotal, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("use", "use", str, False, None, True),
         ])
         return js
 
@@ -153,7 +173,8 @@ from . import backboneelement
 class ClaimResponseAddItem(backboneelement.BackboneElement):
     """ Insurer added line items.
     
-    The first tier service adjudications for payor added services.
+    The first-tier service adjudications for payor added product or service
+    lines.
     """
     
     resource_type = "ClaimResponseAddItem"
@@ -170,60 +191,120 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         """ Added items adjudication.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.category = None
-        """ Type of service or product.
+        self.bodySite = None
+        """ Anatomical location.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.detail = None
-        """ Added items details.
+        """ Insurer added line details.
         List of `ClaimResponseAddItemDetail` items (represented as `dict` in JSON). """
         
-        self.fee = None
-        """ Professional fee or Product charge.
-        Type `Money` (represented as `dict` in JSON). """
+        self.detailSequence = None
+        """ Detail sequence number.
+        List of `int` items. """
+        
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
+        
+        self.itemSequence = None
+        """ Item sequence number.
+        List of `int` items. """
+        
+        self.locationAddress = None
+        """ Place of service or where product was supplied.
+        Type `Address` (represented as `dict` in JSON). """
+        
+        self.locationCodeableConcept = None
+        """ Place of service or where product was supplied.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.locationReference = None
+        """ Place of service or where product was supplied.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.modifier = None
         """ Service/Product billing modifiers.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.net = None
+        """ Total item cost.
+        Type `Money` (represented as `dict` in JSON). """
+        
         self.noteNumber = None
-        """ List of note numbers which apply.
+        """ Applicable note numbers.
         List of `int` items. """
         
-        self.revenue = None
-        """ Revenue or cost center code.
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.sequenceLinkId = None
-        """ Service instances.
+        self.programCode = None
+        """ Program the product or service is provided under.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.provider = None
+        """ Authorized providers.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.quantity = None
+        """ Count of products or services.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.servicedDate = None
+        """ Date or dates of service or product delivery.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.servicedPeriod = None
+        """ Date or dates of service or product delivery.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.subSite = None
+        """ Anatomical sub-location.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.subdetailSequence = None
+        """ Subdetail sequence number.
         List of `int` items. """
         
-        self.service = None
-        """ Group, Service or Product.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.unitPrice = None
+        """ Fee, charge or cost per item.
+        Type `Money` (represented as `dict` in JSON). """
         
         super(ClaimResponseAddItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseAddItem, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", ClaimResponseAddItemDetail, True, None, False),
-            ("fee", "fee", money.Money, False, None, False),
+            ("detailSequence", "detailSequence", int, True, None, False),
+            ("factor", "factor", float, False, None, False),
+            ("itemSequence", "itemSequence", int, True, None, False),
+            ("locationAddress", "locationAddress", address.Address, False, "location", False),
+            ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False),
+            ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
+            ("net", "net", money.Money, False, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("sequenceLinkId", "sequenceLinkId", int, True, None, False),
-            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
+            ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, True, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
+            ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
+            ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False),
+            ("subdetailSequence", "subdetailSequence", int, True, None, False),
+            ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
 
 
 class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
-    """ Added items details.
+    """ Insurer added line details.
     
-    The second tier service adjudications for payor added services.
+    The second-tier service adjudications for payor added services.
     """
     
     resource_type = "ClaimResponseAddItemDetail"
@@ -240,42 +321,117 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
         """ Added items detail adjudication.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.category = None
-        """ Type of service or product.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.fee = None
-        """ Professional fee or Product charge.
-        Type `Money` (represented as `dict` in JSON). """
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
         
         self.modifier = None
         """ Service/Product billing modifiers.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.net = None
+        """ Total item cost.
+        Type `Money` (represented as `dict` in JSON). """
+        
         self.noteNumber = None
-        """ List of note numbers which apply.
+        """ Applicable note numbers.
         List of `int` items. """
         
-        self.revenue = None
-        """ Revenue or cost center code.
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.service = None
-        """ Service or Product.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.quantity = None
+        """ Count of products or services.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.subDetail = None
+        """ Insurer added line items.
+        List of `ClaimResponseAddItemDetailSubDetail` items (represented as `dict` in JSON). """
+        
+        self.unitPrice = None
+        """ Fee, charge or cost per item.
+        Type `Money` (represented as `dict` in JSON). """
         
         super(ClaimResponseAddItemDetail, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseAddItemDetail, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("fee", "fee", money.Money, False, None, False),
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
+            ("factor", "factor", float, False, None, False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
+            ("net", "net", money.Money, False, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("service", "service", codeableconcept.CodeableConcept, False, None, False),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("subDetail", "subDetail", ClaimResponseAddItemDetailSubDetail, True, None, False),
+            ("unitPrice", "unitPrice", money.Money, False, None, False),
+        ])
+        return js
+
+
+class ClaimResponseAddItemDetailSubDetail(backboneelement.BackboneElement):
+    """ Insurer added line items.
+    
+    The third-tier service adjudications for payor added services.
+    """
+    
+    resource_type = "ClaimResponseAddItemDetailSubDetail"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.adjudication = None
+        """ Added items detail adjudication.
+        List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
+        
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
+        
+        self.modifier = None
+        """ Service/Product billing modifiers.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.net = None
+        """ Total item cost.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.noteNumber = None
+        """ Applicable note numbers.
+        List of `int` items. """
+        
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.quantity = None
+        """ Count of products or services.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.unitPrice = None
+        """ Fee, charge or cost per item.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        super(ClaimResponseAddItemDetailSubDetail, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClaimResponseAddItemDetailSubDetail, self).elementProperties()
+        js.extend([
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
+            ("factor", "factor", float, False, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
+            ("net", "net", money.Money, False, None, False),
+            ("noteNumber", "noteNumber", int, True, None, False),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
 
@@ -283,7 +439,7 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
 class ClaimResponseError(backboneelement.BackboneElement):
     """ Processing errors.
     
-    Mutually exclusive with Services Provided (Item).
+    Errors encountered during the processing of the adjudication.
     """
     
     resource_type = "ClaimResponseError"
@@ -300,15 +456,15 @@ class ClaimResponseError(backboneelement.BackboneElement):
         """ Error code detailing processing issues.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.detailSequenceLinkId = None
+        self.detailSequence = None
         """ Detail sequence number.
         Type `int`. """
         
-        self.sequenceLinkId = None
+        self.itemSequence = None
         """ Item sequence number.
         Type `int`. """
         
-        self.subdetailSequenceLinkId = None
+        self.subDetailSequence = None
         """ Subdetail sequence number.
         Type `int`. """
         
@@ -318,17 +474,18 @@ class ClaimResponseError(backboneelement.BackboneElement):
         js = super(ClaimResponseError, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("detailSequenceLinkId", "detailSequenceLinkId", int, False, None, False),
-            ("sequenceLinkId", "sequenceLinkId", int, False, None, False),
-            ("subdetailSequenceLinkId", "subdetailSequenceLinkId", int, False, None, False),
+            ("detailSequence", "detailSequence", int, False, None, False),
+            ("itemSequence", "itemSequence", int, False, None, False),
+            ("subDetailSequence", "subDetailSequence", int, False, None, False),
         ])
         return js
 
 
 class ClaimResponseInsurance(backboneelement.BackboneElement):
-    """ Insurance or medical plan.
+    """ Patient insurance information.
     
-    Financial instrument by which payment information for health care.
+    Financial instruments for reimbursement for the health care products and
+    services specified on the claim.
     """
     
     resource_type = "ClaimResponseInsurance"
@@ -342,27 +499,23 @@ class ClaimResponseInsurance(backboneelement.BackboneElement):
         """
         
         self.businessArrangement = None
-        """ Business agreement.
+        """ Additional provider contract number.
         Type `str`. """
         
         self.claimResponse = None
         """ Adjudication results.
-        Type `FHIRReference` referencing `ClaimResponse` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.coverage = None
         """ Insurance information.
-        Type `FHIRReference` referencing `Coverage` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.focal = None
-        """ Is the focal Coverage.
+        """ Coverage to be used for adjudication.
         Type `bool`. """
         
-        self.preAuthRef = None
-        """ Pre-Authorization/Determination Reference.
-        List of `str` items. """
-        
         self.sequence = None
-        """ Service instance identifier.
+        """ Insurance instance identifier.
         Type `int`. """
         
         super(ClaimResponseInsurance, self).__init__(jsondict=jsondict, strict=strict)
@@ -374,16 +527,16 @@ class ClaimResponseInsurance(backboneelement.BackboneElement):
             ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
             ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
             ("focal", "focal", bool, False, None, True),
-            ("preAuthRef", "preAuthRef", str, True, None, False),
             ("sequence", "sequence", int, False, None, True),
         ])
         return js
 
 
 class ClaimResponseItem(backboneelement.BackboneElement):
-    """ Line items.
+    """ Adjudication for claim line items.
     
-    The first tier service adjudications for submitted services.
+    A claim line. Either a simple (a product or service) or a 'group' of
+    details which can also be a simple items or groups of sub-details.
     """
     
     resource_type = "ClaimResponseItem"
@@ -401,26 +554,26 @@ class ClaimResponseItem(backboneelement.BackboneElement):
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
         self.detail = None
-        """ Detail line items.
+        """ Adjudication for claim details.
         List of `ClaimResponseItemDetail` items (represented as `dict` in JSON). """
         
-        self.noteNumber = None
-        """ List of note numbers which apply.
-        List of `int` items. """
-        
-        self.sequenceLinkId = None
-        """ Service instance.
+        self.itemSequence = None
+        """ Claim item instance identifier.
         Type `int`. """
+        
+        self.noteNumber = None
+        """ Applicable note numbers.
+        List of `int` items. """
         
         super(ClaimResponseItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseItem, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
             ("detail", "detail", ClaimResponseItemDetail, True, None, False),
+            ("itemSequence", "itemSequence", int, False, None, True),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("sequenceLinkId", "sequenceLinkId", int, False, None, True),
         ])
         return js
 
@@ -428,7 +581,9 @@ class ClaimResponseItem(backboneelement.BackboneElement):
 class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
     """ Adjudication details.
     
-    The adjudication results.
+    If this item is a group then the values here are a summary of the
+    adjudication of the detail items. If this item is a simple product or
+    service then this is the result of the adjudication of this item.
     """
     
     resource_type = "ClaimResponseItemAdjudication"
@@ -446,11 +601,11 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
         Type `Money` (represented as `dict` in JSON). """
         
         self.category = None
-        """ Adjudication category such as co-pay, eligible, benefit, etc..
+        """ Type of adjudication information.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.reason = None
-        """ Explanation of Adjudication outcome.
+        """ Explanation of adjudication outcome.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.value = None
@@ -471,9 +626,10 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
 
 
 class ClaimResponseItemDetail(backboneelement.BackboneElement):
-    """ Detail line items.
+    """ Adjudication for claim details.
     
-    The second tier service adjudications for submitted services.
+    A claim detail. Either a simple (a product or service) or a 'group' of sub-
+    details which are simple items.
     """
     
     resource_type = "ClaimResponseItemDetail"
@@ -490,16 +646,16 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
         """ Detail level adjudication details.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.noteNumber = None
-        """ List of note numbers which apply.
-        List of `int` items. """
-        
-        self.sequenceLinkId = None
-        """ Service instance.
+        self.detailSequence = None
+        """ Claim detail instance identifier.
         Type `int`. """
         
+        self.noteNumber = None
+        """ Applicable note numbers.
+        List of `int` items. """
+        
         self.subDetail = None
-        """ Subdetail line items.
+        """ Adjudication for claim sub-details.
         List of `ClaimResponseItemDetailSubDetail` items (represented as `dict` in JSON). """
         
         super(ClaimResponseItemDetail, self).__init__(jsondict=jsondict, strict=strict)
@@ -507,18 +663,18 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItemDetail, self).elementProperties()
         js.extend([
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
+            ("detailSequence", "detailSequence", int, False, None, True),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("sequenceLinkId", "sequenceLinkId", int, False, None, True),
             ("subDetail", "subDetail", ClaimResponseItemDetailSubDetail, True, None, False),
         ])
         return js
 
 
 class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
-    """ Subdetail line items.
+    """ Adjudication for claim sub-details.
     
-    The third tier service adjudications for submitted services.
+    A sub-detail adjudication of a simple product or service.
     """
     
     resource_type = "ClaimResponseItemDetailSubDetail"
@@ -536,11 +692,11 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
         self.noteNumber = None
-        """ List of note numbers which apply.
+        """ Applicable note numbers.
         List of `int` items. """
         
-        self.sequenceLinkId = None
-        """ Service instance.
+        self.subDetailSequence = None
+        """ Claim sub-detail instance identifier.
         Type `int`. """
         
         super(ClaimResponseItemDetailSubDetail, self).__init__(jsondict=jsondict, strict=strict)
@@ -550,15 +706,15 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
             ("noteNumber", "noteNumber", int, True, None, False),
-            ("sequenceLinkId", "sequenceLinkId", int, False, None, True),
+            ("subDetailSequence", "subDetailSequence", int, False, None, True),
         ])
         return js
 
 
 class ClaimResponsePayment(backboneelement.BackboneElement):
-    """ Payment details, if paid.
+    """ Payment Details.
     
-    Payment details for the claim if the claim has been paid.
+    Payment details for the adjudication of the claim.
     """
     
     resource_type = "ClaimResponsePayment"
@@ -572,11 +728,11 @@ class ClaimResponsePayment(backboneelement.BackboneElement):
         """
         
         self.adjustment = None
-        """ Payment adjustment for non-Claim issues.
+        """ Payment adjustment for non-claim issues.
         Type `Money` (represented as `dict` in JSON). """
         
         self.adjustmentReason = None
-        """ Explanation for the non-claim adjustment.
+        """ Explanation for the adjustment.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.amount = None
@@ -584,15 +740,15 @@ class ClaimResponsePayment(backboneelement.BackboneElement):
         Type `Money` (represented as `dict` in JSON). """
         
         self.date = None
-        """ Expected data of Payment.
+        """ Expected date of payment.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.identifier = None
-        """ Identifier of the payment instrument.
+        """ Business identifier for the payment.
         Type `Identifier` (represented as `dict` in JSON). """
         
         self.type = None
-        """ Partial or Complete.
+        """ Partial or complete payment.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ClaimResponsePayment, self).__init__(jsondict=jsondict, strict=strict)
@@ -602,18 +758,19 @@ class ClaimResponsePayment(backboneelement.BackboneElement):
         js.extend([
             ("adjustment", "adjustment", money.Money, False, None, False),
             ("adjustmentReason", "adjustmentReason", codeableconcept.CodeableConcept, False, None, False),
-            ("amount", "amount", money.Money, False, None, False),
+            ("amount", "amount", money.Money, False, None, True),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
 
 class ClaimResponseProcessNote(backboneelement.BackboneElement):
-    """ Processing notes.
+    """ Note concerning adjudication.
     
-    Note text.
+    A note that describes or explains adjudication results in a human readable
+    form.
     """
     
     resource_type = "ClaimResponseProcessNote"
@@ -627,11 +784,11 @@ class ClaimResponseProcessNote(backboneelement.BackboneElement):
         """
         
         self.language = None
-        """ Language if different from the resource.
+        """ Language of the text.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.number = None
-        """ Sequence Number for this note.
+        """ Note instance identifier.
         Type `int`. """
         
         self.text = None
@@ -640,7 +797,7 @@ class ClaimResponseProcessNote(backboneelement.BackboneElement):
         
         self.type = None
         """ display | print | printoper.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        Type `str`. """
         
         super(ClaimResponseProcessNote, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -649,21 +806,60 @@ class ClaimResponseProcessNote(backboneelement.BackboneElement):
         js.extend([
             ("language", "language", codeableconcept.CodeableConcept, False, None, False),
             ("number", "number", int, False, None, False),
-            ("text", "text", str, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("text", "text", str, False, None, True),
+            ("type", "type", str, False, None, False),
+        ])
+        return js
+
+
+class ClaimResponseTotal(backboneelement.BackboneElement):
+    """ Adjudication totals.
+    
+    Categorized monetary totals for the adjudication.
+    """
+    
+    resource_type = "ClaimResponseTotal"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.amount = None
+        """ Financial total for the category.
+        Type `Money` (represented as `dict` in JSON). """
+        
+        self.category = None
+        """ Type of adjudication information.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        super(ClaimResponseTotal, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(ClaimResponseTotal, self).elementProperties()
+        js.extend([
+            ("amount", "amount", money.Money, False, None, True),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
 
 import sys
 try:
+    from . import address
+except ImportError:
+    address = sys.modules[__package__ + '.address']
+try:
+    from . import attachment
+except ImportError:
+    attachment = sys.modules[__package__ + '.attachment']
+try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
 try:
     from . import fhirdate
 except ImportError:
@@ -680,3 +876,11 @@ try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class StructureMap(domainresource.DomainResource):
         Type `str`. """
         
         self.date = None
-        """ Date this was last changed.
+        """ Date last changed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
@@ -83,11 +83,12 @@ class StructureMap(domainresource.DomainResource):
         Type `str`. """
         
         self.url = None
-        """ Logical URI to reference this structure map (globally unique).
+        """ Canonical identifier for this structure map, represented as a URI
+        (globally unique).
         Type `str`. """
         
         self.useContext = None
-        """ Context the content is intended to support.
+        """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.version = None
@@ -126,7 +127,7 @@ from . import backboneelement
 class StructureMapGroup(backboneelement.BackboneElement):
     """ Named sections for reader convenience.
     
-    Organizes the mapping into managable chunks for human review/ease of
+    Organizes the mapping into manageable chunks for human review/ease of
     maintenance.
     """
     
@@ -141,7 +142,7 @@ class StructureMapGroup(backboneelement.BackboneElement):
         """
         
         self.documentation = None
-        """ Additional description/explaination for group.
+        """ Additional description/explanation for group.
         Type `str`. """
         
         self.extends = None
@@ -362,6 +363,10 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `bool`. """
         
+        self.defaultValueCanonical = None
+        """ Default value if no value exists.
+        Type `str`. """
+        
         self.defaultValueCode = None
         """ Default value if no value exists.
         Type `str`. """
@@ -374,13 +379,25 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `Coding` (represented as `dict` in JSON). """
         
+        self.defaultValueContactDetail = None
+        """ Default value if no value exists.
+        Type `ContactDetail` (represented as `dict` in JSON). """
+        
         self.defaultValueContactPoint = None
         """ Default value if no value exists.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
+        self.defaultValueContributor = None
+        """ Default value if no value exists.
+        Type `Contributor` (represented as `dict` in JSON). """
+        
         self.defaultValueCount = None
         """ Default value if no value exists.
         Type `Count` (represented as `dict` in JSON). """
+        
+        self.defaultValueDataRequirement = None
+        """ Default value if no value exists.
+        Type `DataRequirement` (represented as `dict` in JSON). """
         
         self.defaultValueDate = None
         """ Default value if no value exists.
@@ -398,9 +415,17 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `Distance` (represented as `dict` in JSON). """
         
+        self.defaultValueDosage = None
+        """ Default value if no value exists.
+        Type `Dosage` (represented as `dict` in JSON). """
+        
         self.defaultValueDuration = None
         """ Default value if no value exists.
         Type `Duration` (represented as `dict` in JSON). """
+        
+        self.defaultValueExpression = None
+        """ Default value if no value exists.
+        Type `Expression` (represented as `dict` in JSON). """
         
         self.defaultValueHumanName = None
         """ Default value if no value exists.
@@ -426,10 +451,6 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `str`. """
         
-        self.defaultValueMeta = None
-        """ Default value if no value exists.
-        Type `Meta` (represented as `dict` in JSON). """
-        
         self.defaultValueMoney = None
         """ Default value if no value exists.
         Type `Money` (represented as `dict` in JSON). """
@@ -437,6 +458,10 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         self.defaultValueOid = None
         """ Default value if no value exists.
         Type `str`. """
+        
+        self.defaultValueParameterDefinition = None
+        """ Default value if no value exists.
+        Type `ParameterDefinition` (represented as `dict` in JSON). """
         
         self.defaultValuePeriod = None
         """ Default value if no value exists.
@@ -462,6 +487,10 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.defaultValueRelatedArtifact = None
+        """ Default value if no value exists.
+        Type `RelatedArtifact` (represented as `dict` in JSON). """
+        
         self.defaultValueSampledData = None
         """ Default value if no value exists.
         Type `SampledData` (represented as `dict` in JSON). """
@@ -482,11 +511,27 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `Timing` (represented as `dict` in JSON). """
         
+        self.defaultValueTriggerDefinition = None
+        """ Default value if no value exists.
+        Type `TriggerDefinition` (represented as `dict` in JSON). """
+        
         self.defaultValueUnsignedInt = None
         """ Default value if no value exists.
         Type `int`. """
         
         self.defaultValueUri = None
+        """ Default value if no value exists.
+        Type `str`. """
+        
+        self.defaultValueUrl = None
+        """ Default value if no value exists.
+        Type `str`. """
+        
+        self.defaultValueUsageContext = None
+        """ Default value if no value exists.
+        Type `UsageContext` (represented as `dict` in JSON). """
+        
+        self.defaultValueUuid = None
         """ Default value if no value exists.
         Type `str`. """
         
@@ -496,6 +541,10 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.listMode = None
         """ first | not_first | last | not_last | only_one.
+        Type `str`. """
+        
+        self.logMessage = None
+        """ Message to put in log if source exists (FHIRPath).
         Type `str`. """
         
         self.max = None
@@ -528,40 +577,52 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
             ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
             ("defaultValueBase64Binary", "defaultValueBase64Binary", str, False, "defaultValue", False),
             ("defaultValueBoolean", "defaultValueBoolean", bool, False, "defaultValue", False),
+            ("defaultValueCanonical", "defaultValueCanonical", str, False, "defaultValue", False),
             ("defaultValueCode", "defaultValueCode", str, False, "defaultValue", False),
             ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False),
             ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False),
+            ("defaultValueContactDetail", "defaultValueContactDetail", contactdetail.ContactDetail, False, "defaultValue", False),
             ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False),
+            ("defaultValueContributor", "defaultValueContributor", contributor.Contributor, False, "defaultValue", False),
             ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
+            ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False),
             ("defaultValueDate", "defaultValueDate", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueDateTime", "defaultValueDateTime", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False),
             ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
+            ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False),
             ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False),
+            ("defaultValueExpression", "defaultValueExpression", expression.Expression, False, "defaultValue", False),
             ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
             ("defaultValueId", "defaultValueId", str, False, "defaultValue", False),
             ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
             ("defaultValueInstant", "defaultValueInstant", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
             ("defaultValueMarkdown", "defaultValueMarkdown", str, False, "defaultValue", False),
-            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
             ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
             ("defaultValueOid", "defaultValueOid", str, False, "defaultValue", False),
+            ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False),
             ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False),
             ("defaultValuePositiveInt", "defaultValuePositiveInt", int, False, "defaultValue", False),
             ("defaultValueQuantity", "defaultValueQuantity", quantity.Quantity, False, "defaultValue", False),
             ("defaultValueRange", "defaultValueRange", range.Range, False, "defaultValue", False),
             ("defaultValueRatio", "defaultValueRatio", ratio.Ratio, False, "defaultValue", False),
             ("defaultValueReference", "defaultValueReference", fhirreference.FHIRReference, False, "defaultValue", False),
+            ("defaultValueRelatedArtifact", "defaultValueRelatedArtifact", relatedartifact.RelatedArtifact, False, "defaultValue", False),
             ("defaultValueSampledData", "defaultValueSampledData", sampleddata.SampledData, False, "defaultValue", False),
             ("defaultValueSignature", "defaultValueSignature", signature.Signature, False, "defaultValue", False),
             ("defaultValueString", "defaultValueString", str, False, "defaultValue", False),
             ("defaultValueTime", "defaultValueTime", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueTiming", "defaultValueTiming", timing.Timing, False, "defaultValue", False),
+            ("defaultValueTriggerDefinition", "defaultValueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "defaultValue", False),
             ("defaultValueUnsignedInt", "defaultValueUnsignedInt", int, False, "defaultValue", False),
             ("defaultValueUri", "defaultValueUri", str, False, "defaultValue", False),
+            ("defaultValueUrl", "defaultValueUrl", str, False, "defaultValue", False),
+            ("defaultValueUsageContext", "defaultValueUsageContext", usagecontext.UsageContext, False, "defaultValue", False),
+            ("defaultValueUuid", "defaultValueUuid", str, False, "defaultValue", False),
             ("element", "element", str, False, None, False),
             ("listMode", "listMode", str, False, None, False),
+            ("logMessage", "logMessage", str, False, None, False),
             ("max", "max", str, False, None, False),
             ("min", "min", int, False, None, False),
             ("type", "type", str, False, None, False),
@@ -711,7 +772,7 @@ class StructureMapStructure(backboneelement.BackboneElement):
         Type `str`. """
         
         self.url = None
-        """ Canonical URL for structure definition.
+        """ Canonical reference to structure definition.
         Type `str`. """
         
         super(StructureMapStructure, self).__init__(jsondict=jsondict, strict=strict)
@@ -761,17 +822,33 @@ try:
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
 try:
+    from . import contributor
+except ImportError:
+    contributor = sys.modules[__package__ + '.contributor']
+try:
     from . import count
 except ImportError:
     count = sys.modules[__package__ + '.count']
+try:
+    from . import datarequirement
+except ImportError:
+    datarequirement = sys.modules[__package__ + '.datarequirement']
 try:
     from . import distance
 except ImportError:
     distance = sys.modules[__package__ + '.distance']
 try:
+    from . import dosage
+except ImportError:
+    dosage = sys.modules[__package__ + '.dosage']
+try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+try:
+    from . import expression
+except ImportError:
+    expression = sys.modules[__package__ + '.expression']
 try:
     from . import fhirdate
 except ImportError:
@@ -789,13 +866,13 @@ try:
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
 try:
-    from . import meta
-except ImportError:
-    meta = sys.modules[__package__ + '.meta']
-try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+try:
+    from . import parameterdefinition
+except ImportError:
+    parameterdefinition = sys.modules[__package__ + '.parameterdefinition']
 try:
     from . import period
 except ImportError:
@@ -813,6 +890,10 @@ try:
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
 try:
+    from . import relatedartifact
+except ImportError:
+    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+try:
     from . import sampleddata
 except ImportError:
     sampleddata = sys.modules[__package__ + '.sampleddata']
@@ -824,6 +905,10 @@ try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+try:
+    from . import triggerdefinition
+except ImportError:
+    triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
 try:
     from . import usagecontext
 except ImportError:

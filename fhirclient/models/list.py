@@ -1,16 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/List) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/List) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class List(domainresource.DomainResource):
-    """ Information summarized from a list of other resources.
-    
-    A set of information summarized from a list of other resources.
+    """ A list is a curated collection of resources.
     """
     
     resource_type = "List"
@@ -37,7 +35,7 @@ class List(domainresource.DomainResource):
         
         self.encounter = None
         """ Context in which list created.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.entry = None
         """ Entries in the list.
@@ -61,7 +59,7 @@ class List(domainresource.DomainResource):
         
         self.source = None
         """ Who and/or what defined the list contents (aka Author).
-        Type `FHIRReference` referencing `Practitioner, Patient, Device` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
         """ current | retired | entered-in-error.
@@ -69,7 +67,7 @@ class List(domainresource.DomainResource):
         
         self.subject = None
         """ If all resources have the same subject.
-        Type `FHIRReference` referencing `Patient, Group, Device, Location` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.title = None
         """ Descriptive name for the list.
@@ -129,7 +127,7 @@ class ListEntry(backboneelement.BackboneElement):
         
         self.item = None
         """ Actual entry.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ListEntry, self).__init__(jsondict=jsondict, strict=strict)
     

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class DeviceRequest(domainresource.DomainResource):
         
         self.basedOn = None
         """ What request fulfills.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.codeCodeableConcept = None
         """ Device requested.
@@ -39,15 +39,11 @@ class DeviceRequest(domainresource.DomainResource):
         
         self.codeReference = None
         """ Device requested.
-        Type `FHIRReference` referencing `Device` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.context = None
-        """ Encounter or Episode motivating request.
-        Type `FHIRReference` referencing `Encounter, EpisodeOfCare` (represented as `dict` in JSON). """
-        
-        self.definition = None
-        """ Protocol or definition.
-        List of `FHIRReference` items referencing `ActivityDefinition, PlanDefinition` (represented as `dict` in JSON). """
+        self.encounter = None
+        """ Encounter motivating request.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.groupIdentifier = None
         """ Identifier of composite request.
@@ -57,9 +53,21 @@ class DeviceRequest(domainresource.DomainResource):
         """ External Request identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.instantiatesCanonical = None
+        """ Instantiates FHIR protocol or definition.
+        List of `str` items. """
+        
+        self.instantiatesUri = None
+        """ Instantiates external protocol or definition.
+        List of `str` items. """
+        
+        self.insurance = None
+        """ Associated insurance coverage.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
         self.intent = None
         """ proposal | plan | original-order | encoded | reflex-order.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        Type `str`. """
         
         self.note = None
         """ Notes or comments.
@@ -77,17 +85,21 @@ class DeviceRequest(domainresource.DomainResource):
         """ Desired time or schedule for use.
         Type `Timing` (represented as `dict` in JSON). """
         
+        self.parameter = None
+        """ Device details.
+        List of `DeviceRequestParameter` items (represented as `dict` in JSON). """
+        
         self.performer = None
         """ Requested Filler.
-        Type `FHIRReference` referencing `Practitioner, Organization, Patient, Device, RelatedPerson, HealthcareService` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.performerType = None
-        """ Fille role.
+        """ Filler role.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.priorRequest = None
         """ What request replaces.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.priority = None
         """ Indicates how quickly the {{title}} should be addressed with
@@ -100,15 +112,15 @@ class DeviceRequest(domainresource.DomainResource):
         
         self.reasonReference = None
         """ Linked Reason for request.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.relevantHistory = None
         """ Request provenance.
-        List of `FHIRReference` items referencing `Provenance` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.requester = None
         """ Who/what is requesting diagnostics.
-        Type `DeviceRequestRequester` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
         """ draft | active | suspended | completed | entered-in-error |
@@ -117,11 +129,11 @@ class DeviceRequest(domainresource.DomainResource):
         
         self.subject = None
         """ Focus of request.
-        Type `FHIRReference` referencing `Patient, Group, Location, Device` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.supportingInfo = None
         """ Additional clinical information.
-        List of `FHIRReference` items referencing `Resource` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(DeviceRequest, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -132,15 +144,18 @@ class DeviceRequest(domainresource.DomainResource):
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("codeCodeableConcept", "codeCodeableConcept", codeableconcept.CodeableConcept, False, "code", True),
             ("codeReference", "codeReference", fhirreference.FHIRReference, False, "code", True),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("definition", "definition", fhirreference.FHIRReference, True, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("intent", "intent", codeableconcept.CodeableConcept, False, None, True),
+            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
+            ("instantiatesUri", "instantiatesUri", str, True, None, False),
+            ("insurance", "insurance", fhirreference.FHIRReference, True, None, False),
+            ("intent", "intent", str, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
+            ("parameter", "parameter", DeviceRequestParameter, True, None, False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("performerType", "performerType", codeableconcept.CodeableConcept, False, None, False),
             ("priorRequest", "priorRequest", fhirreference.FHIRReference, True, None, False),
@@ -148,7 +163,7 @@ class DeviceRequest(domainresource.DomainResource):
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False),
-            ("requester", "requester", DeviceRequestRequester, False, None, False),
+            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
@@ -158,14 +173,14 @@ class DeviceRequest(domainresource.DomainResource):
 
 from . import backboneelement
 
-class DeviceRequestRequester(backboneelement.BackboneElement):
-    """ Who/what is requesting diagnostics.
+class DeviceRequestParameter(backboneelement.BackboneElement):
+    """ Device details.
     
-    The individual who initiated the request and has responsibility for its
-    activation.
+    Specific parameters for the ordered item.  For example, the prism value for
+    lenses.
     """
     
-    resource_type = "DeviceRequestRequester"
+    resource_type = "DeviceRequestParameter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -175,21 +190,36 @@ class DeviceRequestRequester(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.agent = None
-        """ Individual making the request.
-        Type `FHIRReference` referencing `Device, Practitioner, Organization` (represented as `dict` in JSON). """
+        self.code = None
+        """ Device detail.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.onBehalfOf = None
-        """ Organization agent is acting for.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        self.valueBoolean = None
+        """ Value of detail.
+        Type `bool`. """
         
-        super(DeviceRequestRequester, self).__init__(jsondict=jsondict, strict=strict)
+        self.valueCodeableConcept = None
+        """ Value of detail.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.valueQuantity = None
+        """ Value of detail.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.valueRange = None
+        """ Value of detail.
+        Type `Range` (represented as `dict` in JSON). """
+        
+        super(DeviceRequestParameter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
-        js = super(DeviceRequestRequester, self).elementProperties()
+        js = super(DeviceRequestParameter, self).elementProperties()
         js.extend([
-            ("agent", "agent", fhirreference.FHIRReference, False, None, True),
-            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("valueBoolean", "valueBoolean", bool, False, "value", False),
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
+            ("valueRange", "valueRange", range.Range, False, "value", False),
         ])
         return js
 
@@ -219,6 +249,14 @@ try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']
+try:
+    from . import range
+except ImportError:
+    range = sys.modules[__package__ + '.range']
 try:
     from . import timing
 except ImportError:

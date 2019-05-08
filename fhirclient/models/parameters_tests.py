@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -32,9 +32,16 @@ class ParametersTests(unittest.TestCase):
         self.implParameters1(inst2)
     
     def implParameters1(self, inst):
-        self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.parameter[0].name, "start")
-        self.assertEqual(inst.parameter[0].valueDate.date, FHIRDate("2010-01-01").date)
-        self.assertEqual(inst.parameter[0].valueDate.as_json(), "2010-01-01")
-        self.assertEqual(inst.parameter[1].name, "end")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.parameter[0].name, "exact")
+        self.assertTrue(inst.parameter[0].valueBoolean)
+        self.assertEqual(inst.parameter[1].name, "property")
+        self.assertEqual(inst.parameter[1].part[0].name, "code")
+        self.assertEqual(inst.parameter[1].part[0].valueCode, "focus")
+        self.assertEqual(inst.parameter[1].part[1].name, "value")
+        self.assertEqual(inst.parameter[1].part[1].valueCode, "top")
+        self.assertEqual(inst.parameter[2].name, "patient")
+        self.assertEqual(inst.parameter[2].resource.id, "example")
 

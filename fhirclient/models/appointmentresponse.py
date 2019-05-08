@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -23,12 +23,12 @@ class AppointmentResponse(domainresource.DomainResource):
         """
         
         self.actor = None
-        """ Person, Location/HealthcareService or Device.
-        Type `FHIRReference` referencing `Patient, Practitioner, RelatedPerson, Device, HealthcareService, Location` (represented as `dict` in JSON). """
+        """ Person, Location, HealthcareService, or Device.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.appointment = None
         """ Appointment this response relates to.
-        Type `FHIRReference` referencing `Appointment` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.comment = None
         """ Additional comments.

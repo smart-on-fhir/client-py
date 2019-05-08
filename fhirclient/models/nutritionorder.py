@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
@@ -27,7 +27,7 @@ class NutritionOrder(domainresource.DomainResource):
         self.allergyIntolerance = None
         """ List of the patient's food and nutrition-related allergies and
         intolerances.
-        List of `FHIRReference` items referencing `AllergyIntolerance` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.dateTime = None
         """ Date and time the nutrition order was requested.
@@ -35,7 +35,7 @@ class NutritionOrder(domainresource.DomainResource):
         
         self.encounter = None
         """ The encounter associated with this nutrition order.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.enteralFormula = None
         """ Enteral formula components.
@@ -54,17 +54,37 @@ class NutritionOrder(domainresource.DomainResource):
         """ Identifiers assigned to this order.
         List of `Identifier` items (represented as `dict` in JSON). """
         
+        self.instantiates = None
+        """ Instantiates protocol or definition.
+        List of `str` items. """
+        
+        self.instantiatesCanonical = None
+        """ Instantiates FHIR protocol or definition.
+        List of `str` items. """
+        
+        self.instantiatesUri = None
+        """ Instantiates external protocol or definition.
+        List of `str` items. """
+        
+        self.intent = None
+        """ proposal | plan | order.
+        Type `str`. """
+        
+        self.note = None
+        """ Comments.
+        List of `Annotation` items (represented as `dict` in JSON). """
+        
         self.oralDiet = None
         """ Oral diet components.
         Type `NutritionOrderOralDiet` (represented as `dict` in JSON). """
         
         self.orderer = None
         """ Who ordered the diet, formula or nutritional supplement.
-        Type `FHIRReference` referencing `Practitioner` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.patient = None
         """ The person who requires the diet, formula or nutritional supplement.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
         """ proposed | draft | planned | requested | active | on-hold |
@@ -87,10 +107,15 @@ class NutritionOrder(domainresource.DomainResource):
             ("excludeFoodModifier", "excludeFoodModifier", codeableconcept.CodeableConcept, True, None, False),
             ("foodPreferenceModifier", "foodPreferenceModifier", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("instantiates", "instantiates", str, True, None, False),
+            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
+            ("instantiatesUri", "instantiatesUri", str, True, None, False),
+            ("intent", "intent", str, False, None, True),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("oralDiet", "oralDiet", NutritionOrderOralDiet, False, None, False),
             ("orderer", "orderer", fhirreference.FHIRReference, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("status", "status", str, False, None, False),
+            ("status", "status", str, False, None, True),
             ("supplement", "supplement", NutritionOrderSupplement, True, None, False),
         ])
         return js
@@ -399,6 +424,10 @@ class NutritionOrderSupplement(backboneelement.BackboneElement):
 
 
 import sys
+try:
+    from . import annotation
+except ImportError:
+    annotation = sys.modules[__package__ + '.annotation']
 try:
     from . import codeableconcept
 except ImportError:

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 import os
@@ -32,19 +32,18 @@ class MessageDefinitionTests(unittest.TestCase):
         self.implMessageDefinition1(inst2)
     
     def implMessageDefinition1(self, inst):
-        self.assertEqual(inst.category, "Notification")
+        self.assertEqual(inst.category, "notification")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org")
         self.assertEqual(inst.date.date, FHIRDate("2016-11-09").date)
         self.assertEqual(inst.date.as_json(), "2016-11-09")
-        self.assertEqual(inst.event.code, "communication-request")
-        self.assertEqual(inst.event.system, "http://hl7.org/fhir/message-events")
+        self.assertEqual(inst.eventCoding.code, "admin-notify")
+        self.assertEqual(inst.eventCoding.system, "http://example.org/fhir/message-events")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.name, "EXAMPLE")
         self.assertEqual(inst.publisher, "Health Level Seven, Int'l")
-        self.assertEqual(inst.purpose, "Defines a base example for other MessageDefintion instances.")
-        self.assertFalse(inst.responseRequired)
+        self.assertEqual(inst.purpose, "Defines a base example for other MessageDefinition instances.")
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Message definition base example</div>")
         self.assertEqual(inst.text.status, "generated")

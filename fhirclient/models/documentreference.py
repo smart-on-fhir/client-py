@@ -1,14 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import domainresource
 
 class DocumentReference(domainresource.DomainResource):
     """ A reference to a document.
+    
+    A reference to a document of any kind for any purpose. Provides metadata
+    about the document so that the document can be discovered and managed. The
+    scope of a document is any seralized object with a mime-type, so includes
+    formal patient centric documents (CDA), cliical notes, scanned paper, and
+    non-patient specific documents like policy text.
     """
     
     resource_type = "DocumentReference"
@@ -23,15 +29,15 @@ class DocumentReference(domainresource.DomainResource):
         
         self.authenticator = None
         """ Who/what authenticated the document.
-        Type `FHIRReference` referencing `Practitioner, Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.author = None
         """ Who and/or what authored the document.
-        List of `FHIRReference` items referencing `Practitioner, Organization, Device, Patient, RelatedPerson` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.class_fhir = None
+        self.category = None
         """ Categorization of document.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.content = None
         """ Document referenced.
@@ -41,16 +47,16 @@ class DocumentReference(domainresource.DomainResource):
         """ Clinical context of document.
         Type `DocumentReferenceContext` (represented as `dict` in JSON). """
         
-        self.created = None
-        """ Document creation time.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
         self.custodian = None
         """ Organization which maintains the document.
-        Type `FHIRReference` referencing `Organization` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.date = None
+        """ When this document reference was created.
+        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.description = None
-        """ Human-readable description (title).
+        """ Human-readable description.
         Type `str`. """
         
         self.docStatus = None
@@ -60,10 +66,6 @@ class DocumentReference(domainresource.DomainResource):
         self.identifier = None
         """ Other identifiers for the document.
         List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.indexed = None
-        """ When this document reference was created.
-        Type `FHIRDate` (represented as `str` in JSON). """
         
         self.masterIdentifier = None
         """ Master Version Specific Identifier.
@@ -83,7 +85,7 @@ class DocumentReference(domainresource.DomainResource):
         
         self.subject = None
         """ Who/what is the subject of the document.
-        Type `FHIRReference` referencing `Patient, Practitioner, Group, Device` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.type = None
         """ Kind of document (LOINC if possible).
@@ -96,21 +98,20 @@ class DocumentReference(domainresource.DomainResource):
         js.extend([
             ("authenticator", "authenticator", fhirreference.FHIRReference, False, None, False),
             ("author", "author", fhirreference.FHIRReference, True, None, False),
-            ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("content", "content", DocumentReferenceContent, True, None, True),
             ("context", "context", DocumentReferenceContext, False, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("description", "description", str, False, None, False),
             ("docStatus", "docStatus", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("indexed", "indexed", fhirdate.FHIRDate, False, None, True),
             ("masterIdentifier", "masterIdentifier", identifier.Identifier, False, None, False),
             ("relatesTo", "relatesTo", DocumentReferenceRelatesTo, True, None, False),
             ("securityLabel", "securityLabel", codeableconcept.CodeableConcept, True, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -171,7 +172,7 @@ class DocumentReferenceContext(backboneelement.BackboneElement):
         
         self.encounter = None
         """ Context of the document  content.
-        Type `FHIRReference` referencing `Encounter` (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.event = None
         """ Main clinical acts documented.
@@ -192,59 +193,24 @@ class DocumentReferenceContext(backboneelement.BackboneElement):
         
         self.related = None
         """ Related identifiers or resources.
-        List of `DocumentReferenceContextRelated` items (represented as `dict` in JSON). """
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.sourcePatientInfo = None
         """ Patient demographics from source.
-        Type `FHIRReference` referencing `Patient` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(DocumentReferenceContext, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DocumentReferenceContext, self).elementProperties()
         js.extend([
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, True, None, False),
             ("event", "event", codeableconcept.CodeableConcept, True, None, False),
             ("facilityType", "facilityType", codeableconcept.CodeableConcept, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("practiceSetting", "practiceSetting", codeableconcept.CodeableConcept, False, None, False),
-            ("related", "related", DocumentReferenceContextRelated, True, None, False),
+            ("related", "related", fhirreference.FHIRReference, True, None, False),
             ("sourcePatientInfo", "sourcePatientInfo", fhirreference.FHIRReference, False, None, False),
-        ])
-        return js
-
-
-class DocumentReferenceContextRelated(backboneelement.BackboneElement):
-    """ Related identifiers or resources.
-    
-    Related identifiers or resources associated with the DocumentReference.
-    """
-    
-    resource_type = "DocumentReferenceContextRelated"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.identifier = None
-        """ Identifier of related objects or events.
-        Type `Identifier` (represented as `dict` in JSON). """
-        
-        self.ref = None
-        """ Related Resource.
-        Type `FHIRReference` referencing `Resource` (represented as `dict` in JSON). """
-        
-        super(DocumentReferenceContextRelated, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(DocumentReferenceContextRelated, self).elementProperties()
-        js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("ref", "ref", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -272,7 +238,7 @@ class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
         
         self.target = None
         """ Target of the relationship.
-        Type `FHIRReference` referencing `DocumentReference` (represented as `dict` in JSON). """
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(DocumentReferenceRelatesTo, self).__init__(jsondict=jsondict, strict=strict)
     

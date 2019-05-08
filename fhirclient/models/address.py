@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.0.11832 (http://hl7.org/fhir/StructureDefinition/Address) on 2017-03-22.
-#  2017, SMART Health IT.
+#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Address) on 2019-05-07.
+#  2019, SMART Health IT.
 
 
 from . import element
@@ -65,7 +65,7 @@ class Address(element.Element):
         Type `str`. """
         
         self.use = None
-        """ home | work | temp | old - purpose of this address.
+        """ home | work | temp | old | billing - purpose of this address.
         Type `str`. """
         
         super(Address, self).__init__(jsondict=jsondict, strict=strict)
