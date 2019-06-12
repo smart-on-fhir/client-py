@@ -147,7 +147,7 @@ patient.name[0].given
 
 ### Flask App
 
-Take a look at [`flask_app.py`][flask_app] to see how you can use the client in a simple (Flask) app.
+Take a look at [`flask_app.py`](example-projects/flask/flask_app) to see how you can use the client in a simple (Flask) app.
 This app starts a webserver, listening on [_localhost:8000_](http://localhost:8000), and prompts you to login to our sandbox server and select a patient.
 It then goes on to retrieve the selected patient's demographics and med prescriptions and lists them in a simple HTML page.
 
