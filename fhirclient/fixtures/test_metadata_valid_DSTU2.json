@@ -1,0 +1,69 @@
+{
+    "acceptUnknown": false,
+    "date": "2014-10-29T11:42:32.193-00:00",
+    "description": "Describes capabilities of this SMART on FHIR server",
+    "fhirVersion": "0.0.82",
+    "format": [
+        "xml",
+        "json"
+    ],
+    "identifier": "https://fhir-api.smarthealthit.org/conformance",
+    "name": "SMART on FHIR Conformance Statement",
+    "publisher": "SMART on FHIR",
+    "resourceType": "Conformance",
+    "rest": [
+        {
+            "documentation": "All the functionality defined in FHIR",
+            "mode": "server",
+            "operation": [
+                {
+                    "code": "transaction"
+                },
+                {
+                    "code": "history-system"
+                }
+            ],
+            "resource": [],
+            "security": {
+                "description": "SMART on FHIR uses OAuth2 for authorization",
+                "extension": [
+                    {
+                        "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#register",
+                        "valueUri": "https://authorize.smarthealthit.org/register"
+                    },
+                    {
+                        "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#authorize",
+                        "valueUri": "https://authorize.smarthealthit.org/authorize"
+                    },
+                    {
+                        "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris#token",
+                        "valueUri": "https://authorize.smarthealthit.org/token"
+                    }
+                ],
+                "service": [
+                    {
+                        "coding": [
+                            {
+                                "code": "OAuth2",
+                                "system": "http://hl7.org/fhir/vs/restful-security-service"
+                            }
+                        ],
+                        "text": "OAuth version 2 (see oauth.net)."
+                    }
+                ]
+            }
+        }
+    ],
+    "status": "draft",
+    "telecom": [
+        {
+            "system": "url",
+            "value": "https://fhir-api.smarthealthit.org"
+        }
+    ],
+    "text": {
+        "div": "<div>Generated Conformance Statement -- see structured representation.</div>",
+        "status": "generated"
+    },
+    "version": "0.0.82.????"
+}

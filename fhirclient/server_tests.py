@@ -5,9 +5,10 @@ import os
 import io
 import json
 import shutil
-import server
 import unittest
-import models.fhirabstractbase as fabst
+from . import server
+from .models.R4 import fhirabstractbase as fabst
+from .constants import FHIRVersion
 
 
 class TestServer(unittest.TestCase):
@@ -15,31 +16,40 @@ class TestServer(unittest.TestCase):
     def tearDown(self):
         if os.path.exists('metadata'):
             os.remove('metadata')
-    
-    def testValidCapabilityStatement(self):
-        shutil.copyfile('test_metadata_valid.json', 'metadata')
-        mock = MockServer()
-        mock.get_capability()
+
+    def doValidStatement(self, metadata, version):
+        shutil.copyfile(metadata, 'metadata')
+        mock = MockServer(version=version)
+        mock.get_statement()
         
         self.assertIsNotNone(mock.auth._registration_uri)
         self.assertIsNotNone(mock.auth._authorize_uri)
         self.assertIsNotNone(mock.auth._token_uri)
-    
+
+    def testValidStatement_R4(self):
+        self.doValidStatement('fhirclient/fixtures/test_metadata_valid_R4.json', FHIRVersion.R4)
+
+    def testValidStatement_STU3(self):
+        self.doValidStatement('fhirclient/fixtures/test_metadata_valid_STU3.json', FHIRVersion.STU3)
+
+    def testValidStatement_DSTU2(self):
+        self.doValidStatement('fhirclient/fixtures/test_metadata_valid_DSTU2.json', FHIRVersion.DSTU2)
+
     def testStateConservation(self):
-        shutil.copyfile('test_metadata_valid.json', 'metadata')
+        shutil.copyfile('fhirclient/fixtures/test_metadata_valid_R4.json', 'metadata')
         mock = MockServer()
-        self.assertIsNotNone(mock.capabilityStatement)
+        self.assertIsNotNone(mock.statement)
         
         fhir = server.FHIRServer(None, state=mock.state)
         self.assertIsNotNone(fhir.auth._registration_uri)
         self.assertIsNotNone(fhir.auth._authorize_uri)
         self.assertIsNotNone(fhir.auth._token_uri)
     
-    def testInvalidCapabilityStatement(self):
-        shutil.copyfile('test_metadata_invalid.json', 'metadata')
+    def testInvalidStatement(self):
+        shutil.copyfile('fhirclient/fixtures/test_metadata_invalid_R4.json', 'metadata')
         mock = MockServer()
         try:
-            mock.get_capability()
+            mock.statement()
             self.assertTrue(False, "Must have thrown exception")
         except fabst.FHIRValidationError as e:
             self.assertEqual(4, len(e.errors))
@@ -60,8 +70,8 @@ class MockServer(server.FHIRServer):
     """ Reads local files.
     """
     
-    def __init__(self):
-        super().__init__(None, base_uri='https://fhir.smarthealthit.org')
+    def __init__(self, version=None):
+        super().__init__(None, base_uri='https://fhir.smarthealthit.org', version=version)
     
     def request_json(self, path, nosign=False):
         assert path

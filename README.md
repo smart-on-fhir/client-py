@@ -10,6 +10,7 @@ The `develop` branch should be on recent freezes, and the `feature/latest-ci` br
 
    Version |          FHIR | &nbsp;
 -----------|---------------|---------
+ **5.0.0** |               | (DSTU 2, STU-3, R4)
  **4.0.0** |       `4.0.0` | (R4)
  **3.0.0** |       `3.0.0` | (STU-3)
    **x.x** |       `1.8.0` | (STU-3 Ballot, Jan 2017)
@@ -50,7 +51,7 @@ settings = {
 }
 smart = client.FHIRClient(settings=settings)
 
-import fhirclient.models.patient as p
+import fhirclient.R4.models.patient as p
 patient = p.Patient.read('hca-pat-1', smart.server)
 patient.birthDate.isostring
 # '1963-06-12'
@@ -81,7 +82,7 @@ You can work with the `FHIRServer` class directly, without using `FHIRClient`, b
 
 ```python
 smart = server.FHIRServer(None, 'https://fhir-open-api-dstu2.smarthealthit.org')
-import fhirclient.models.patient as p
+import fhirclient.models.R4.patient as p
 patient = p.Patient.read('hca-pat-1', smart)
 patient.name[0].given
 # ['Christy']
@@ -93,7 +94,7 @@ You can also search for resources matching a particular set of criteria:
 
 ```python
 smart = client.FHIRClient(settings=settings)
-import fhirclient.models.procedure as p
+import fhirclient.models.R4.procedure as p
 search = p.Procedure.where(struct={'subject': 'hca-pat-1', 'status': 'completed'})
 procedures = search.perform_resources(smart.server)
 for procedure in procedures:
@@ -112,8 +113,8 @@ Starting with version 1.0.5, data model validity are enforced to a certain degre
 #### Initialize Data Model
 
 ```python
-import fhirclient.models.patient as p
-import fhirclient.models.humanname as hn
+import fhirclient.models.R4.patient as p
+import fhirclient.models.R4.humanname as hn
 patient = p.Patient({'id': 'patient-1'})
 patient.id
 # prints `patient-1`
@@ -138,7 +139,7 @@ patient.as_json()
 
 ```python
 import json
-import fhirclient.models.patient as p
+import fhirclient.models.R4.patient as p
 with open('path/to/patient.json', 'r') as h:
     pjs = json.load(h)
 patient = p.Patient(pjs)

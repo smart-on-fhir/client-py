@@ -2,8 +2,8 @@
 
 import logging
 from fhirclient import client
-from fhirclient.models.medication import Medication
-from fhirclient.models.medicationrequest import MedicationRequest
+from fhirclient.models.R4.medication import Medication
+from fhirclient.models.R4.medicationrequest import MedicationRequest
 
 from flask import Flask, request, redirect, session
 

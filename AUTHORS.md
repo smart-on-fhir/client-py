@@ -9,6 +9,7 @@ Contributors
 
 The following wonderful people contributed directly or indirectly to this project:
 
+- Andrew Wason <https://github.com/rectalogic>
 - Erik Wiffin <https://github.com/erikwiffin>
 - Josh Mandel <https://github.com/jmandel>
 - Nikolai Schwertner <https://github.com/nschwertner>

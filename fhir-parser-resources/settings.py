@@ -5,23 +5,23 @@
 from Default.settings import *
 
 # Base URL for where to load specification data from
-specification_url = 'http://hl7.org/fhir/R4'
+specification_url = 'http://hl7.org/fhir/{FHIR_VERSION}'
 
 # In which directory to find the templates. See below for settings that start with `tpl_`: these are the template names.
 tpl_base = '../fhir-parser-resources'
 
 # classes/resources
 write_resources = True
-tpl_resource_target = '../fhirclient/models'    # target directory to write the generated class files to
+tpl_resource_target = '../fhirclient/models/{FHIR_VERSION}'    # target directory to write the generated class files to
 tpl_codesystems_source = None                   # the template to use as source when writing enums for CodeSystems; can be `None`
 
 # factory methods
 write_factory = True
-tpl_factory_target = '../fhirclient/models/fhirelementfactory.py'    # where to write the generated factory to
+tpl_factory_target = '../fhirclient/models/{FHIR_VERSION}/fhirelementfactory.py'    # where to write the generated factory to
 
 # unit tests
 write_unittests = True
-tpl_unittest_target = '../fhirclient/models'    # target directory to write the generated unit test files to
+tpl_unittest_target = '../fhirclient/models/{FHIR_VERSION}'    # target directory to write the generated unit test files to
 
 
 # all these files should be copied to dirname(`tpl_resource_target_ptrn`): tuples of (path/to/file, module, array-of-class-names)

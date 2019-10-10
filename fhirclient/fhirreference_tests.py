@@ -5,26 +5,22 @@ import json
 import os.path
 import logging
 import unittest
-import models.questionnaire as questionnaire
-import models.medication as medication
-import models.resource as resource
-import models.valueset as valueset
-import models.patient as patient
-import models.bundle as bundle
-import server
+from . import server
 
 
 logging.basicConfig(level=logging.CRITICAL)
 
 
 class TestResourceReference(unittest.TestCase):
-    
-    def testContainedResourceDetection(self):
-        with io.open('test_contained_resource.json', 'r', encoding='utf-8') as h:
+
+    def testContainedResourceDetectionR4(self):
+        from  .models.R4 import questionnaire, medication, resource, valueset
+
+        with io.open('fhirclient/fixtures/test_contained_resource_R4.json', 'r', encoding='utf-8') as h:
             data = json.load(h)
         q = questionnaire.Questionnaire(data)
         self.assertIsNotNone(q, "Must instantiate Questionnaire")
-        self.assertEqual('Questionnaire', q.resource_type)
+        self.assertEqual('Questionnaire', q.resource_type if hasattr(q, "resource_type") else q.resource_name)
         
         group = q.item[0].item[3]
         self.assertEqual('Observation.subject', group.linkId)
@@ -50,9 +46,78 @@ class TestResourceReference(unittest.TestCase):
         contained = reference.resolved(valueset.ValueSet)
         self.assertIsNotNone(contained, "Must resolve contained ValueSet")
         self.assertEqual('ValueSet', contained.resource_type)
-    
-    def testRelativeReference(self):
-        with io.open('test_relative_reference.json', 'r', encoding='utf-8') as h:
+
+    def testContainedResourceDetectionSTU3(self):
+        from .models.STU3 import questionnaire, medication, resource, valueset
+
+        with io.open('fhirclient/fixtures/test_contained_resource_STU3.json', 'r', encoding='utf-8') as h:
+            data = json.load(h)
+        q = questionnaire.Questionnaire(data)
+        self.assertIsNotNone(q, "Must instantiate Questionnaire")
+        self.assertEqual('Questionnaire', q.resource_type)
+        
+        group = q.item[0].item[3]
+        self.assertEqual('Observation.subject', group.linkId)
+        question = group.item[0]
+        self.assertEqual('Observation.subject._type', question.linkId)
+        self.assertIsNotNone(question.options)
+        with self.assertRaises(Exception):
+            question.options.resolved()
+        
+        # 1st resolve, extracting from contained resources
+        contained = question.options.resolved(medication.Medication)
+        self.assertIsNone(contained, "Must not resolve on resource type mismatch")
+        contained = question.options.resolved(valueset.ValueSet)
+        self.assertIsNotNone(contained, "Must resolve contained ValueSet")
+        self.assertEqual('ValueSet', contained.resource_type)
+        self.assertEqual('Type options for Observation.subject', contained.name)
+        
+        # 2nd resolve, should pull from cache
+        contained = question.options.resolved(medication.Medication)
+        self.assertIsNone(contained, "Must not resolve on resource type mismatch")
+        contained = question.options.resolved(resource.Resource)
+        self.assertIsNotNone(contained, "Must resolve contained ValueSet even if requesting `Resource`")
+        contained = question.options.resolved(valueset.ValueSet)
+        self.assertIsNotNone(contained, "Must resolve contained ValueSet")
+        self.assertEqual('ValueSet', contained.resource_type)
+
+    def testContainedResourceDetectionDSTU2(self):
+        from .models.DSTU2 import questionnaire, medication, resource, valueset
+
+        with io.open('fhirclient/fixtures/test_contained_resource_DSTU2.json', 'r', encoding='utf-8') as h:
+            data = json.load(h)
+        q = questionnaire.Questionnaire(data)
+        self.assertIsNotNone(q, "Must instantiate Questionnaire")
+        self.assertEqual('Questionnaire', q.resource_name)
+
+        group = q.group.group[3]
+        self.assertEqual('Observation.subject', group.linkId)
+        question = group.question[0]
+        self.assertEqual('Observation.subject._type', question.linkId)
+        self.assertIsNotNone(question.options)
+        with self.assertRaises(Exception):
+            question.options.resolved()
+        
+        # 1st resolve, extracting from contained resources
+        contained = question.options.resolved(medication.Medication)
+        self.assertIsNone(contained, "Must not resolve on resource type mismatch")
+        contained = question.options.resolved(valueset.ValueSet)
+        self.assertIsNotNone(contained, "Must resolve contained ValueSet")
+        self.assertEqual('ValueSet', contained.resource_name)
+        
+        # 2nd resolve, should pull from cache
+        contained = question.options.resolved(medication.Medication)
+        self.assertIsNone(contained, "Must not resolve on resource type mismatch")
+        contained = question.options.resolved(resource.Resource)
+        self.assertIsNotNone(contained, "Must resolve contained ValueSet even if requesting `Resource`")
+        contained = question.options.resolved(valueset.ValueSet)
+        self.assertIsNotNone(contained, "Must resolve contained ValueSet")
+        self.assertEqual('ValueSet', contained.resource_name)
+
+    def testRelativeReferenceR4(self):
+        from .models.R4 import questionnaire, medication, resource, valueset
+
+        with io.open('fhirclient/fixtures/test_relative_reference_R4.json', 'r', encoding='utf-8') as h:
             data = json.load(h)
         q = questionnaire.Questionnaire(data)
         self.assertIsNotNone(q, "Must instantiate Questionnaire")
@@ -63,7 +128,10 @@ class TestResourceReference(unittest.TestCase):
         self.assertEqual('Observation.subject', group.linkId)
         question = group.item[0]
         self.assertEqual('Observation.subject._type', question.linkId)
-        self.assertIsNotNone(question.answerOption)
+        if hasattr(question, 'answerOption'):
+            self.assertIsNotNone(question.answerOption)
+        else:
+            self.assertIsNotNone(question.option)
         with self.assertRaises(Exception):
             question.answerOption[0].valueReference.resolved()
         reference = question.answerOption[0].valueReference
@@ -79,9 +147,39 @@ class TestResourceReference(unittest.TestCase):
         self.assertIsNone(relative, "Must not resolve on resource type mismatch")
         relative = reference.resolved(resource.Resource)
         self.assertIsNotNone(relative, "Must resolve relative ValueSet even if requesting `Resource`")
-    
-    def testBundleReferences(self):
-        with io.open('test_bundle.json', 'r', encoding='utf-8') as h:
+
+    def testRelativeReferenceSTU3(self):
+        from .models.STU3 import questionnaire, medication, resource, valueset
+
+        with io.open('fhirclient/fixtures/test_relative_reference_STU3.json', 'r', encoding='utf-8') as h:
+            data = json.load(h)
+        q = questionnaire.Questionnaire(data)
+        self.assertIsNotNone(q, "Must instantiate Questionnaire")
+        self.assertEqual('Questionnaire', q.resource_type)
+        q._server = MockServer()
+        
+        group = q.item[0].item[0]
+        self.assertEqual('Observation.subject', group.linkId)
+        question = group.item[0]
+        self.assertEqual('Observation.subject._type', question.linkId)
+        self.assertIsNotNone(question.options)
+        with self.assertRaises(Exception):
+            question.options.resolved()
+        
+        # resolve relative resource
+        relative = question.options.resolved(valueset.ValueSet)
+        self.assertIsNotNone(relative, "Must resolve relative ValueSet")
+        self.assertEqual('ValueSet', relative.resource_type)
+        self.assertEqual('Type options for Observation.subject', relative.name)
+        
+        # 2nd resolve, should pull from cache
+        relative = question.options.resolved(medication.Medication)
+        self.assertIsNone(relative, "Must not resolve on resource type mismatch")
+        relative = question.options.resolved(resource.Resource)
+        self.assertIsNotNone(relative, "Must resolve relative ValueSet even if requesting `Resource`")
+
+    def _doBundleReferences(self, bundle_fixture, medication, resource, patient, bundle):
+        with io.open(bundle_fixture, 'r', encoding='utf-8') as h:
             data = json.load(h)
         b = bundle.Bundle(data)
         self.assertIsNotNone(b, "Must instantiate Bundle")
@@ -117,6 +215,14 @@ class TestResourceReference(unittest.TestCase):
         res = obs34.subject.resolved(patient.Patient)
         self.assertIsNone(res, "Must not resolve Patient on same server but different endpoint")
 
+    def testBundleReferencesR4(self):
+        from .models.R4 import medication, resource, patient, bundle
+        self._doBundleReferences('fhirclient/fixtures/test_bundle_R4.json', medication, resource, patient, bundle)
+    
+    def testBundleReferencesSTU3(self):
+        from .models.STU3 import medication, resource, patient, bundle
+        self._doBundleReferences('fhirclient/fixtures/test_bundle_STU3.json', medication, resource, patient, bundle)
+
 
 class MockServer(server.FHIRServer):
     """ Reads local files.
@@ -129,7 +235,7 @@ class MockServer(server.FHIRServer):
         assert path
         parts = os.path.split(path)
         filename = '_'.join(parts) + '.json'
-        with io.open(filename, 'r', encoding='utf-8') as handle:
+        with io.open(os.path.join('fhirclient/fixtures', filename), 'r', encoding='utf-8') as handle:
             return json.load(handle)
         return None
 
