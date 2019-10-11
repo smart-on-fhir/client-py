@@ -4,6 +4,7 @@ import re
 
 from setuptools import setup, find_packages
 
+
 def read(*parts):
     """
     Build an absolute path from *parts* and and return the contents of the
@@ -12,6 +13,7 @@ def read(*parts):
     here = os.path.abspath(os.path.dirname(__file__))
     with codecs.open(os.path.join(here, *parts), 'rb', 'utf-8') as f:
         return f.read()
+
 
 def find_version(*file_paths):
     """
@@ -24,6 +26,7 @@ def find_version(*file_paths):
     if version_match:
         return version_match.group(1)
     raise RuntimeError("Unable to find version string.")
+
 
 setup(
     name='fhirclient',
@@ -38,6 +41,7 @@ setup(
     author_email='support@smarthealthit.org',
     packages=find_packages(exclude=['test*', '*_tests.py']),
     install_requires=['requests', 'isodate'],
+    tests_require=["flake8"],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',

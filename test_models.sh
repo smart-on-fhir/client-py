@@ -34,3 +34,10 @@ if [ $? -eq 0 ]; then
 else
 	echo "You don't have the 'requests' module installed, will skip extra tests"
 fi
+
+echo 'import flake8' | python 2>/dev/null
+if [ $? -eq 0 ]; then
+	flake8 --max-line-length=200 *.py fhirclient/*.py
+else
+	echo "You don't have the 'flake8' module installed, will skip checks"
+fi

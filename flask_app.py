@@ -16,8 +16,10 @@ smart_defaults = {
 
 app = Flask(__name__)
 
+
 def _save_state(state):
     session['state'] = state
+
 
 def _get_smart():
     state = session.get('state')
@@ -26,14 +28,17 @@ def _get_smart():
     else:
         return client.FHIRClient(settings=smart_defaults, save_func=_save_state)
 
+
 def _logout():
     if 'state' in session:
         smart = _get_smart()
         smart.reset_patient()
 
+
 def _reset():
     if 'state' in session:
         del session['state']
+
 
 def _get_prescriptions(smart):
     bundle = MedicationRequest.where({'patient': smart.patient_id}).perform(smart.server)
@@ -42,9 +47,11 @@ def _get_prescriptions(smart):
         return pres
     return None
 
+
 def _get_medication_by_ref(ref, smart):
     med_id = ref.split("/")[1]
     return Medication.read(med_id, smart.server).code
+
 
 def _med_name(med):
     if med.coding:
@@ -54,6 +61,7 @@ def _med_name(med):
     if med.text and med.text:
         return med.text
     return "Unnamed Medication(TM)"
+
 
 def _get_med_name(prescription, client=None):
     if prescription.medicationCodeableConcept is not None:
@@ -67,6 +75,7 @@ def _get_med_name(prescription, client=None):
 
 # views
 
+
 @app.route('/')
 @app.route('/index.html')
 def index():
@@ -74,15 +83,15 @@ def index():
     """
     smart = _get_smart()
     body = "<h1>Hello</h1>"
-    
+
     if smart.ready and smart.patient is not None:       # "ready" may be true but the access token may have expired, making smart.patient = None
         name = smart.human_name(smart.patient.name[0] if smart.patient.name and len(smart.patient.name) > 0 else 'Unknown')
-        
+
         # generate simple body text
         body += "<p>You are authorized and ready to make API requests for <em>{0}</em>.</p>".format(name)
         pres = _get_prescriptions(smart)
         if pres is not None:
-            body += "<p>{0} prescriptions: <ul><li>{1}</li></ul></p>".format("His" if 'male' == smart.patient.gender else "Her", '</li><li>'.join([_get_med_name(p,smart) for p in pres]))
+            body += "<p>{0} prescriptions: <ul><li>{1}</li></ul></p>".format("His" if 'male' == smart.patient.gender else "Her", '</li><li>'.join([_get_med_name(p, smart) for p in pres]))
         else:
             body += "<p>(There are no prescriptions for {0})</p>".format("him" if 'male' == smart.patient.gender else "her")
         body += """<p><a href="/logout">Change patient</a></p>"""
@@ -124,6 +133,6 @@ def reset():
 if '__main__' == __name__:
     import flaskbeaker
     flaskbeaker.FlaskBeaker.setup_app(app)
-    
+
     logging.basicConfig(level=logging.DEBUG)
     app.run(debug=True, port=8000)

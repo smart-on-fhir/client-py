@@ -19,13 +19,13 @@ class FlaskBeaker(SessionInterface):
                 'session.data_dir': './session_data',
                 'session.auto': True
             }
-        
+
         app.wsgi_app = SessionMiddleware(app.wsgi_app, session_opts)
         app.session_interface = cls()
-    
+
     def open_session(self, app, request):
         session = request.environ['beaker.session']
         return session
-    
+
     def save_session(self, app, session, response):
         session.save()
