@@ -23,8 +23,7 @@ EOF
         rm -rf ./downloads/*
         ./generate.py -f -l
     )
-    tests=(fhirclient/models/$FHIR_VERSION/*_tests.py)
-    python -m unittest ${tests[@]}
+    python -m unittest discover -s fhirclient.models.$FHIR_VERSION -p '*_tests.py'
 done
 
 # couple of custom tests
