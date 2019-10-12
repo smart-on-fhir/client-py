@@ -187,10 +187,10 @@ class FHIRClient(object):
             if n is not None:
                 parts.extend(n)
         if human_name_instance.family:
-            if isinstance(human_name_instance.family, str):
-                parts.append(human_name_instance.family)
-            else:
+            if isinstance(human_name_instance.family, list):
                 parts.extend(human_name_instance.family)
+            else:
+                parts.append(human_name_instance.family)
         if human_name_instance.suffix and len(human_name_instance.suffix) > 0:
             if len(parts) > 0:
                 parts[len(parts)-1] = parts[len(parts)-1]+','

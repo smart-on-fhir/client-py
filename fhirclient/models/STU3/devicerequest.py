@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2019-10-10.
+#  Generated from FHIR 3.0.1.11917 (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2019-10-12.
 #  2019, SMART Health IT.
 
 

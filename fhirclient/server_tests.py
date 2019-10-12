@@ -58,7 +58,7 @@ class TestServer(unittest.TestCase):
             self.assertEqual("rest.0:", str(e.errors[2])[:7])
             self.assertEqual("operation.1:", str(e.errors[2].errors[0])[:12])
             self.assertEqual("definition:", str(e.errors[2].errors[0].errors[0])[:11])
-            self.assertEqual("Wrong type <class 'dict'>", str(e.errors[2].errors[0].errors[0].errors[0])[:25])
+            self.assertIn("Wrong type <", str(e.errors[2].errors[0].errors[0].errors[0])[:25])
             self.assertEqual("security:", str(e.errors[2].errors[1])[:9])
             self.assertEqual("service.0:", str(e.errors[2].errors[1].errors[0])[:10])
             self.assertEqual("coding.0:", str(e.errors[2].errors[1].errors[0].errors[0])[:9])
@@ -71,7 +71,7 @@ class MockServer(server.FHIRServer):
     """
 
     def __init__(self, version=None):
-        super().__init__(None, base_uri='https://fhir.smarthealthit.org', version=version)
+        super(MockServer, self).__init__(None, base_uri='https://fhir.smarthealthit.org', version=version)
 
     def request_json(self, path, nosign=False):
         assert path
