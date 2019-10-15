@@ -12,7 +12,13 @@ except ImportError:                 # Python 3
 from .auth import FHIRAuth
 from .constants import FHIRVersion
 
-FHIRJSONMimeType = 'application/fhir+json'
+# DSTU2 is application/json+fhir, STU3/R4 is application/fhir+json
+# https://www.hl7.org/fhir/DSTU2/http.html#mime-type
+# https://www.hl7.org/fhir/R4/http.html#mime-type
+FHIRJSONMimeTypes = {
+    FHIRVersion.DSTU2: "application/json+fhir"
+}
+FHIRJSONMimeTypeDefault = 'application/fhir+json'
 
 logger = logging.getLogger(__name__)
 
@@ -184,7 +190,7 @@ class FHIRServer(object):
         url = urlparse.urljoin(self.base_uri, path)
 
         headers = {
-            'Accept': FHIRJSONMimeType,
+            'Accept': FHIRJSONMimeTypes.get(self.version, FHIRJSONMimeTypeDefault),
             'Accept-Charset': 'UTF-8',
         }
         if not nosign and self.auth is not None and self.auth.can_sign_headers():
@@ -207,8 +213,8 @@ class FHIRServer(object):
         """
         url = urlparse.urljoin(self.base_uri, path)
         headers = {
-            'Content-type': FHIRJSONMimeType,
-            'Accept': FHIRJSONMimeType,
+            'Content-type': FHIRJSONMimeTypes.get(self.version, FHIRJSONMimeTypeDefault),
+            'Accept': FHIRJSONMimeTypes.get(self.version, FHIRJSONMimeTypeDefault),
             'Accept-Charset': 'UTF-8',
         }
         if not nosign and self.auth is not None and self.auth.can_sign_headers():
@@ -231,8 +237,8 @@ class FHIRServer(object):
         """
         url = urlparse.urljoin(self.base_uri, path)
         headers = {
-            'Content-type': FHIRJSONMimeType,
-            'Accept': FHIRJSONMimeType,
+            'Content-type': FHIRJSONMimeTypes.get(self.version, FHIRJSONMimeTypeDefault),
+            'Accept': FHIRJSONMimeTypes.get(self.version, FHIRJSONMimeTypeDefault),
             'Accept-Charset': 'UTF-8',
         }
         if not nosign and self.auth is not None and self.auth.can_sign_headers():
@@ -265,7 +271,7 @@ class FHIRServer(object):
         """
         url = urlparse.urljoin(self.base_uri, path)
         headers = {
-            'Accept': FHIRJSONMimeType,
+            'Accept': FHIRJSONMimeTypes.get(self.version, FHIRJSONMimeTypeDefault),
             'Accept-Charset': 'UTF-8',
         }
         if not nosign and self.auth is not None and self.auth.can_sign_headers():
