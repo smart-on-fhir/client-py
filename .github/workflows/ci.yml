@@ -19,6 +19,7 @@ jobs:
         architecture: x64
     - name: Run Python ${{ matrix.python }} tests
       run: |
-        pip install requests isodate jinja2 flake8
+        pip install -r fhir-parser/requirements.txt
+        pip install requests isodate flake8
         ./test_models.sh
-  
+
