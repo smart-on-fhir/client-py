@@ -1,30 +1,38 @@
 #!/bin/bash
 
-# set this to a relative path, from inside the fhirclient/models directory, to the downloaded FHIR spec directory
-export FHIR_UNITTEST_DATADIR="../fhir-parser/downloads"
+export PYTHONPATH=.
+EXITCODE=0
 
-cd fhirclient
+# set this to the downloaded FHIR spec directory
+export FHIR_UNITTEST_DATADIR="./fhir-parser/downloads"
 
-if [ ! -e $FHIR_UNITTEST_DATADIR ]; then
-	echo Unit tests depend on the downloaded FHIR spec, which is not present at $FHIR_UNITTEST_DATADIR. Cannot run unit tests.
-	exit 1
-fi
 echo 'import isodate' | python 2>/dev/null
 if [ $? -ne 0 ]; then
 	echo You need to have the 'isodate' module installed in order to run the tests
 	exit 1
 fi
 
-#python -m unittest discover ./models '*_tests.py'		# ImportError
-tests=(models/*_tests.py)
-python -m unittest ${tests[@]}
+for FHIR_VERSION in R4; do
+
+cat > fhir-parser/settings.py  <<EOF
+from Default.mappings import *
+specification_url = 'http://hl7.org/fhir/$FHIR_VERSION/'
+EOF
+    (
+        cd fhir-parser
+        # Download only into cache for this version
+        rm -rf ./downloads/*
+        ./generate.py -f -l
+    )
+    python -m unittest discover -s fhirclient.models.$FHIR_VERSION -p '*_tests.py' || EXITCODE=1
+done
 
 # couple of custom tests
 echo 'import requests' | python 2>/dev/null
 if [ $? -eq 0 ]; then
-	python -m unittest server_tests.py fhirreference_tests.py
+	python -m unittest fhirclient.server_tests fhirclient.fhirreference_tests fhirclient.integration_tests || EXITCODE=1
 else
 	echo "You don't have the 'requests' module installed, will skip extra tests"
 fi
 
-cd ..
+exit $EXITCODE

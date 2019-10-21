@@ -10,6 +10,7 @@ The `develop` branch should be on recent freezes, and the `feature/latest-ci` br
 
    Version |          FHIR | &nbsp;
 -----------|---------------|---------
+ **5.0.0** |               | (R4)
  **4.0.0** |       `4.0.0` | (R4)
  **3.0.0** |       `3.0.0` | (STU-3)
    **x.x** |       `1.8.0` | (STU-3 Ballot, Jan 2017)

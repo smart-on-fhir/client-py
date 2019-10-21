@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import importlib
 
-from server import FHIRServer, FHIRUnauthorizedException, FHIRNotFoundException
+from .server import FHIRServer, FHIRUnauthorizedException, FHIRNotFoundException
+from .constants import FHIRVersion
 
-__version__ = '4.0.0'
+__version__ = '5.0.0'
 __author__ = 'SMART Platforms Team'
 __license__ = 'APACHE2'
 __copyright__ = "Copyright 2017 Boston Children's Hospital"
@@ -22,6 +24,7 @@ class FHIRClient(object):
     
     The settings dictionary supports:
     
+        - `version`: The FHIRVersion supported
         - `app_id`*: Your app/client-id, e.g. 'my_web_app'
         - `app_secret`*: Your app/client-secret
         - `api_base`*: The FHIR service to connect to, e.g. 'https://fhir-api-dstu2.smarthealthit.org'
@@ -30,8 +33,9 @@ class FHIRClient(object):
         - `scope`: Space-separated list of scopes to request, if other than default
         - `launch_token`: The launch token
     """
-    
-    def __init__(self, settings=None, state=None, save_func=lambda x:x):
+
+    def __init__(self, settings=None, state=None, save_func=lambda x: x):
+        self.version = FHIRVersion.DEFAULT
         self.app_id = None
         self.app_secret = None
         """ The app-id for the app this client is used in. """
@@ -68,7 +72,8 @@ class FHIRClient(object):
                 raise Exception("Must provide 'app_id' in settings dictionary")
             if not 'api_base' in settings:
                 raise Exception("Must provide 'api_base' in settings dictionary")
-            
+
+            self.version = settings.get('version', self.version)
             self.app_id = settings['app_id']
             self.app_secret = settings.get('app_secret')
             self.redirect = settings.get('redirect_uri')
@@ -157,15 +162,15 @@ class FHIRClient(object):
     @property
     def patient(self):
         if self._patient is None and self.patient_id is not None and self.ready:
-            import models.patient
+            patient = importlib.import_module("fhirclient.models.{}.patient".format(self.version))
             try:
                 logger.debug("SMART: Attempting to read Patient {0}".format(self.patient_id))
-                self._patient = models.patient.Patient.read(self.patient_id, self.server)
+                self._patient = patient.Patient.read(self.patient_id, self.server)
             except FHIRUnauthorizedException as e:
                 if self.reauthorize():
                     logger.debug("SMART: Attempting to read Patient {0} after reauthorizing"
                         .format(self.patient_id))
-                    self._patient = models.patient.Patient.read(self.patient_id, self.server)
+                    self._patient = patient.Patient.read(self.patient_id, self.server)
             except FHIRNotFoundException as e:
                 logger.warning("SMART: Patient with id {0} not found".format(self.patient_id))
                 self.patient_id = None
@@ -184,7 +189,10 @@ class FHIRClient(object):
             if n is not None:
                 parts.extend(n)
         if human_name_instance.family:
-            parts.append(human_name_instance.family)
+            if isinstance(human_name_instance.family, list):
+                parts.extend(human_name_instance.family)
+            else:
+                parts.append(human_name_instance.family)
         if human_name_instance.suffix and len(human_name_instance.suffix) > 0:
             if len(parts) > 0:
                 parts[len(parts)-1] = parts[len(parts)-1]+','
@@ -205,6 +213,7 @@ class FHIRClient(object):
     @property
     def state(self):
         return {
+            'version': self.version,
             'app_id': self.app_id,
             'app_secret': self.app_secret,
             'scope': self.scope,
@@ -217,6 +226,7 @@ class FHIRClient(object):
     
     def from_state(self, state):
         assert state
+        self.version = state.get('version') or self.version
         self.app_id = state.get('app_id') or self.app_id
         self.app_secret = state.get('app_secret') or self.app_secret
         self.scope = state.get('scope') or self.scope
@@ -228,4 +238,3 @@ class FHIRClient(object):
     
     def save_state (self):
         self._save_func(self.state)
-

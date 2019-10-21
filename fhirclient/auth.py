@@ -11,6 +11,7 @@ except Exception as e:              # Python 3
 
 logger = logging.getLogger(__name__)
 
+
 class FHIRAuth(object):
     """ Superclass to handle authorization flow and state.
     """
@@ -29,7 +30,7 @@ class FHIRAuth(object):
             raise Exception('Class {0} is already registered for authorization type "{1}"'.format(FHIRAuth.auth_classes[cls.auth_type], cls.auth_type))
     
     @classmethod
-    def from_capability_security(cls, security, state=None):
+    def from_security(cls, security, state=None):
         """ Supply a capabilitystatement.rest.security statement and this
         method will figure out which type of security should be instantiated.
         

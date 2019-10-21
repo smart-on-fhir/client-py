@@ -1,9 +1,14 @@
 #!/bin/bash
 
-if [ ! -e fhir-parser ]; then
-	git submodule update --init --recursive
-fi
-cp fhir-parser-resources/settings.py fhir-parser/settings.py
-cd fhir-parser
-./generate.py $1
-cd ..
+set -o errexit
+
+git submodule update --init --recursive
+
+for FHIR_VERSION in R4; do
+    FHIR_PARSER=fhir-parser
+    sed s/{FHIR_VERSION}/$FHIR_VERSION/g fhir-parser-resources/settings.py > $FHIR_PARSER/settings.py
+    (
+        cd $FHIR_PARSER
+        ./generate.py -f $1
+    )
+done

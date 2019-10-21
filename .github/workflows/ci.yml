@@ -1,0 +1,25 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: [ '2.7', '3.6', '3.7', 'pypy3' ]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+      with:
+        submodules: true
+    - name: Setup Python ${{ matrix.python }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python }}
+        architecture: x64
+    - name: Run Python ${{ matrix.python }} tests
+      run: |
+        pip install -r fhir-parser/requirements.txt
+        pip install requests isodate flake8
+        ./test_models.sh
+

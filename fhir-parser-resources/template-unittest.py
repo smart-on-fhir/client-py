@@ -4,7 +4,7 @@
 #  Generated from FHIR {{ info.version }} on {{ info.date }}.
 #  {{ info.year }}, SMART Health IT.
 
-
+from __future__ import unicode_literals
 import os
 import io
 import unittest
