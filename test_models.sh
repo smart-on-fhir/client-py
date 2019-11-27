@@ -13,17 +13,15 @@ if [ $? -ne 0 ]; then
 fi
 
 for FHIR_VERSION in R4; do
+    # Download into cache for this version
+    rm -rf $FHIR_UNITTEST_DATADIR/*
+    mkdir -p $FHIR_UNITTEST_DATADIR
+    # We can't download because the spec version changes, so copy from cache
+    # e.g. http://hl7.org/fhir/R4 could be 4.0.0 or 4.0.1 etc.
+    # ./generate.py -f -l
+    cp fhir-parser-resources/$FHIR_VERSION/version.info $FHIR_UNITTEST_DATADIR
+    python -m zipfile -e fhir-parser-resources/$FHIR_VERSION/examples-json.zip $FHIR_UNITTEST_DATADIR
 
-cat > fhir-parser/settings.py  <<EOF
-from Default.mappings import *
-specification_url = 'http://hl7.org/fhir/$FHIR_VERSION/'
-EOF
-    (
-        cd fhir-parser
-        # Download only into cache for this version
-        rm -rf ./downloads/*
-        ./generate.py -f -l
-    )
     python -m unittest discover -s fhirclient.models.$FHIR_VERSION -p '*_tests.py' || EXITCODE=1
 done
 
