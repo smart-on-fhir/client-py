@@ -179,10 +179,14 @@ class FHIRServer(object):
         assert self.base_uri and path
         url = urlparse.urljoin(self.base_uri, path)
         
-        headers = {
+        header_defaults = {
             'Accept': FHIRJSONMimeType,
             'Accept-Charset': 'UTF-8',
         }
+        # merge in user headers with defaults
+        header_defaults.update(headers)
+        # use the merged headers in the request
+        headers = header_defaults
         if not nosign and self.auth is not None and self.auth.can_sign_headers():
             headers = self.auth.signed_headers(headers)
         
