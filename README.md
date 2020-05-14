@@ -100,6 +100,13 @@ for procedure in procedures:
     procedure.as_json()
     # {'status': u'completed', 'code': {'text': u'Lumpectomy w/ SN', ...
 
+# to include the resources referred to by the procedure via `subject` in the results
+search = search.include('subject')
+
+# to include the MedicationAdministration resources which refer to the procedure via `partOf`
+import fhirclient.models.medicationadministration as m
+search = search.include('partOf', m.MedicationAdministration, reverse=True)
+
 # to get the raw Bundle instead of resources only, you can use:
 bundle = search.perform(smart.server)
 ```
