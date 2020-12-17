@@ -182,6 +182,7 @@ class FHIRServer(object):
         headers = {
             'Accept': FHIRJSONMimeType,
             'Accept-Charset': 'UTF-8',
+            'Cache-Control': 'no-cache'
         }
         if not nosign and self.auth is not None and self.auth.can_sign_headers():
             headers = self.auth.signed_headers(headers)
