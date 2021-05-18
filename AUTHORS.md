@@ -12,9 +12,10 @@ The following wonderful people contributed directly or indirectly to this projec
 - Andrew Bjonnes <https://github.com/abjonnes>
 - Erik Wiffin <https://github.com/erikwiffin>
 - Josh Mandel <https://github.com/jmandel>
+- Martin Burchell <https://github.com/martinburchell>
 - Nikolai Schwertner <https://github.com/nschwertner>
 - Pascal Pfiffner <https://github.com/p2>
-- Raheel Sayeed <https://github.com/raheelsayeed> 
+- Raheel Sayeed <https://github.com/raheelsayeed>
 - Trinadh Baranika <https://github.com/bktrinadh>
 
 Please add yourself here alphabetically when you submit your first pull request.
