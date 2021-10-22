@@ -11,6 +11,7 @@ The following wonderful people contributed directly or indirectly to this projec
 
 - Andrew Bjonnes <https://github.com/abjonnes>
 - Erik Wiffin <https://github.com/erikwiffin>
+- Faith Oyedemi <https://github.com/lere01>
 - Josh Mandel <https://github.com/jmandel>
 - Nikolai Schwertner <https://github.com/nschwertner>
 - Pascal Pfiffner <https://github.com/p2>
