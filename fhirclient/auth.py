@@ -283,10 +283,10 @@ class FHIROAuth2Auth(FHIRAuth):
         if 'expires_in' in ret_params:
             del ret_params['expires_in']
         
-        self.refresh_token = ret_params.get('refresh_token')
-        if self.refresh_token is not None:
+        self.refresh_token = ret_params.get('refresh_token') or params.get('refresh_token')
+        if self.refresh_token is not None and 'refresh_token' in ret_params:
             del ret_params['refresh_token']
-        
+
         logging.debug("SMART AUTH: Received access token: {0}, refresh token: {1}"
             .format(self.access_token is not None, self.refresh_token is not None))
         return ret_params
