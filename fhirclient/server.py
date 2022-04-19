@@ -120,7 +120,12 @@ class FHIRServer(object):
         if self.auth is None:
             raise Exception("Not ready to handle callback, I do not have an auth instance")
         return self.auth.handle_callback(url, self)
-    
+
+    def authorize(self):
+        if self.auth is None:
+            raise Exception("Not ready to authorize, I do not have an auth instance")
+        return self.auth.authorize(self) if self.auth is not None else None
+
     def reauthorize(self):
         if self.auth is None:
             raise Exception("Not ready to reauthorize, I do not have an auth instance")

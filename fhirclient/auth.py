@@ -283,6 +283,7 @@ class FHIROAuth2Auth(FHIRAuth):
         del ret_params['access_token']
         
         if 'expires_in' in ret_params:
+            # TODO: Handle access token expires_in
             del ret_params['expires_in']
         
         # The refresh token issued by the authorization server. If present, the
@@ -298,6 +299,29 @@ class FHIROAuth2Auth(FHIRAuth):
         return ret_params
     
     
+    # MARK: Authorization
+
+    def authorize(self, server):
+        """ Perform authorization on behalf of a system. 
+        
+        :param server: The Server instance to use
+        """
+        logger.debug("SMART AUTH: Get access token")
+        token_params = self._token_params(server)
+        return self._request_access_token(server, token_params)
+
+    def _token_params(self, server):
+        """ The URL parameters to use when requesting access token. """
+        if server is None:
+            raise Exception("Cannot get token params without server instance")
+        
+        params = {
+            'grant_type': 'client_credentials',
+            'scope': server.desired_scope,
+        }
+        return params
+
+
     # MARK: Reauthorization
     
     def reauthorize(self, server):
