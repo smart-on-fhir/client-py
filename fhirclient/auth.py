@@ -2,6 +2,7 @@
 
 import uuid
 import logging
+from datetime import datetime, timedelta
 try:                                # Python 2.x
     import urlparse
     from urllib import urlencode
@@ -143,11 +144,14 @@ class FHIROAuth2Auth(FHIRAuth):
         self.app_secret = None
         self.access_token = None
         self.refresh_token = None
+        self.expires_at = None
         
         super(FHIROAuth2Auth, self).__init__(state=state)
     
     @property
     def ready(self):
+        if self.expires_at and self.expires_at < datetime.now():
+            self.reset()
         return True if self.access_token else False
     
     def reset(self):
@@ -283,7 +287,8 @@ class FHIROAuth2Auth(FHIRAuth):
         del ret_params['access_token']
         
         if 'expires_in' in ret_params:
-            # TODO: Handle access token expires_in
+            expires_in = ret_params.get('expires_in')
+            self.expires_at = datetime.now() + timedelta(seconds=expires_in)
             del ret_params['expires_in']
         
         # The refresh token issued by the authorization server. If present, the
