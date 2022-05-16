@@ -5,9 +5,9 @@
 #  2019, SMART Health IT.
 
 
-from . import domainresource
+from . import clinicalresource
 
-class Encounter(domainresource.DomainResource):
+class Encounter(clinicalresource.ClinicalResource):
     """ An interaction during which services are provided to the patient.
     
     An interaction between a patient and healthcare provider(s) for the purpose
@@ -148,6 +148,28 @@ class Encounter(domainresource.DomainResource):
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
+    def get_date(self, return_all=False):
+        """
+        if period is None return None
+
+        Return the start date as the default for return_all=False
+        if start is None for some reason, return end
+        if end is also None return None
+        """
+        if self.period is None:
+            return None
+        start = self.period.start.date if self.period.start is not None else None
+        end = self.period.end.date if self.period.end is not None else None
+
+        if return_all:
+            all_dates = {
+                'start': start,
+                'end': end
+            }
+            return start if start is not None else end, all_dates
+        else:
+            return start if start is not None else end
 
 
 from . import backboneelement
