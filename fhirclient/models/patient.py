@@ -6,6 +6,7 @@
 
 
 from . import domainresource
+from .fhirsearch import FHIRSearch
 
 class Patient(domainresource.DomainResource):
     """ Information about an individual or animal receiving health care services.
@@ -123,6 +124,19 @@ class Patient(domainresource.DomainResource):
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
+
+    @classmethod
+    def search_everything(cls, id, struct=None):
+        search = FHIRSearch(cls)
+
+        def construct(id=id, struct=struct):
+            filters = ""
+            if struct is not None:
+                filters = '&' + '&'.join([k + '=' + v for k, v in struct.items()])
+            return f'Patient/{id}/$everything' + filters
+
+        search.construct = construct
+        return search
 
 
 from . import backboneelement

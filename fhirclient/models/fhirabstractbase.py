@@ -214,18 +214,20 @@ class FHIRAbstractBase(object):
             # report errors
             if err is not None:
                 errs.append(err.prefixed(name) if isinstance(err, FHIRValidationError) else FHIRValidationError([err], name))
-        
+
+        # Let's stop caring about this
         # were there missing non-optional entries?
-        if len(nonoptionals) > 0:
-            for miss in nonoptionals - found:
-                errs.append(KeyError("Non-optional property \"{}\" on {} is missing"
-                    .format(miss, self)))
+        # if len(nonoptionals) > 0:
+        #     for miss in nonoptionals - found:
+        #         errs.append(KeyError("Non-optional property \"{}\" on {} is missing"
+        #             .format(miss, self)))
         
+        # Let's also stop caring about this
         # were there superfluous dictionary keys?
-        if len(set(jsondict.keys()) - valid) > 0:
-            for supflu in set(jsondict.keys()) - valid:
-                errs.append(AttributeError("Superfluous entry \"{}\" in data for {}"
-                    .format(supflu, self)))
+        # if len(set(jsondict.keys()) - valid) > 0:
+        #     for supflu in set(jsondict.keys()) - valid:
+        #         errs.append(AttributeError("Superfluous entry \"{}\" in data for {}"
+        #             .format(supflu, self)))
         
         if len(errs) > 0:
             raise FHIRValidationError(errs)
