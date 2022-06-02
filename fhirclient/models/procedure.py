@@ -5,18 +5,19 @@
 #  2019, SMART Health IT.
 
 
-from . import domainresource
+from . import clinicalresource
 
-class Procedure(domainresource.DomainResource):
+
+class Procedure(clinicalresource.ClinicalResource):
     """ An action that is being or was performed on a patient.
     
     An action that is or was performed on or for a patient. This can be a
     physical intervention like an operation, or less invasive like long term
     services, counseling, or hypnotherapy.
     """
-    
+
     resource_type = "Procedure"
-    
+
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -24,138 +25,138 @@ class Procedure(domainresource.DomainResource):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
+
         self.asserter = None
         """ Person who asserts this procedure.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
+
         self.basedOn = None
         """ A request for this procedure.
         List of `FHIRReference` items (represented as `dict` in JSON). """
-        
+
         self.bodySite = None
         """ Target body sites.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
+
         self.category = None
         """ Classification of the procedure.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
+
         self.code = None
         """ Identification of the procedure.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
+
         self.complication = None
         """ Complication following the procedure.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
+
         self.complicationDetail = None
         """ A condition that is a result of the procedure.
         List of `FHIRReference` items (represented as `dict` in JSON). """
-        
+
         self.encounter = None
         """ Encounter created as part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
+
         self.focalDevice = None
         """ Manipulated, implanted, or removed device.
         List of `ProcedureFocalDevice` items (represented as `dict` in JSON). """
-        
+
         self.followUp = None
         """ Instructions for follow up.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
+
         self.identifier = None
         """ External Identifiers for this procedure.
         List of `Identifier` items (represented as `dict` in JSON). """
-        
+
         self.instantiatesCanonical = None
         """ Instantiates FHIR protocol or definition.
         List of `str` items. """
-        
+
         self.instantiatesUri = None
         """ Instantiates external protocol or definition.
         List of `str` items. """
-        
+
         self.location = None
         """ Where the procedure happened.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
+
         self.note = None
         """ Additional information about the procedure.
         List of `Annotation` items (represented as `dict` in JSON). """
-        
+
         self.outcome = None
         """ The result of procedure.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
+
         self.partOf = None
         """ Part of referenced event.
         List of `FHIRReference` items (represented as `dict` in JSON). """
-        
+
         self.performedAge = None
         """ When the procedure was performed.
         Type `Age` (represented as `dict` in JSON). """
-        
+
         self.performedDateTime = None
         """ When the procedure was performed.
         Type `FHIRDate` (represented as `str` in JSON). """
-        
+
         self.performedPeriod = None
         """ When the procedure was performed.
         Type `Period` (represented as `dict` in JSON). """
-        
+
         self.performedRange = None
         """ When the procedure was performed.
         Type `Range` (represented as `dict` in JSON). """
-        
+
         self.performedString = None
         """ When the procedure was performed.
         Type `str`. """
-        
+
         self.performer = None
         """ The people who performed the procedure.
         List of `ProcedurePerformer` items (represented as `dict` in JSON). """
-        
+
         self.reasonCode = None
         """ Coded reason procedure performed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
+
         self.reasonReference = None
         """ The justification that the procedure was performed.
         List of `FHIRReference` items (represented as `dict` in JSON). """
-        
+
         self.recorder = None
         """ Who recorded the procedure.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
+
         self.report = None
         """ Any report resulting from the procedure.
         List of `FHIRReference` items (represented as `dict` in JSON). """
-        
+
         self.status = None
         """ preparation | in-progress | not-done | suspended | aborted |
         completed | entered-in-error | unknown.
         Type `str`. """
-        
+
         self.statusReason = None
         """ Reason for current status.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
+
         self.subject = None
         """ Who the procedure was performed on.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
+
         self.usedCode = None
         """ Coded items used during the procedure.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
+
         self.usedReference = None
         """ Items used during procedure.
         List of `FHIRReference` items (represented as `dict` in JSON). """
-        
+
         super(Procedure, self).__init__(jsondict=jsondict, strict=strict)
-    
+
     def elementProperties(self):
         js = super(Procedure, self).elementProperties()
         js.extend([
@@ -194,8 +195,31 @@ class Procedure(domainresource.DomainResource):
         ])
         return js
 
+    def get_date(self, return_all=False):
+        """
+        if period is None return None
+
+        Return the start date as the default for return_all=False
+        if start is None for some reason, return end
+        if end is also None return None
+        """
+        if self.performedPeriod is None:
+            return None
+        start = self.performedPeriod.start.date if self.performedPeriod.start is not None else None
+        end = self.performedPeriod.end.date if self.performedPeriod.end is not None else None
+
+        if return_all:
+            all_dates = {
+                'start': start,
+                'end': end
+            }
+            return start if start is not None else end, all_dates
+        else:
+            return start if start is not None else end
+
 
 from . import backboneelement
+
 
 class ProcedureFocalDevice(backboneelement.BackboneElement):
     """ Manipulated, implanted, or removed device.
@@ -204,9 +228,9 @@ class ProcedureFocalDevice(backboneelement.BackboneElement):
     battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as
     a focal portion of the Procedure.
     """
-    
+
     resource_type = "ProcedureFocalDevice"
-    
+
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -214,17 +238,17 @@ class ProcedureFocalDevice(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
+
         self.action = None
         """ Kind of change to device.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
+
         self.manipulated = None
         """ Device that was changed.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
+
         super(ProcedureFocalDevice, self).__init__(jsondict=jsondict, strict=strict)
-    
+
     def elementProperties(self):
         js = super(ProcedureFocalDevice, self).elementProperties()
         js.extend([
@@ -239,9 +263,9 @@ class ProcedurePerformer(backboneelement.BackboneElement):
     
     Limited to "real" people rather than equipment.
     """
-    
+
     resource_type = "ProcedurePerformer"
-    
+
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -249,21 +273,21 @@ class ProcedurePerformer(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
+
         self.actor = None
         """ The reference to the practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
+
         self.function = None
         """ Type of performance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
-        
+
         self.onBehalfOf = None
         """ Organization the device or practitioner was acting for.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
+
         super(ProcedurePerformer, self).__init__(jsondict=jsondict, strict=strict)
-    
+
     def elementProperties(self):
         js = super(ProcedurePerformer, self).elementProperties()
         js.extend([
@@ -275,6 +299,7 @@ class ProcedurePerformer(backboneelement.BackboneElement):
 
 
 import sys
+
 try:
     from . import age
 except ImportError:
