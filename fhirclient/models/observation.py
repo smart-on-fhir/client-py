@@ -236,6 +236,7 @@ class Observation(clinicalresource.ClinicalResource):
             all_dates = {
                 'start': start
                 # 'end': end
+                # can incorporate end component later if needed
             }
             return start, all_dates
         else:
@@ -243,6 +244,7 @@ class Observation(clinicalresource.ClinicalResource):
 
 
 from . import backboneelement
+
 
 
 class ObservationComponent(backboneelement.BackboneElement):
