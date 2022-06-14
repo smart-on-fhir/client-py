@@ -213,7 +213,7 @@ class Procedure(clinicalresource.ClinicalResource):
                 'start': start,
                 'end': end
             }
-            return start if start is not None else end, all_dates
+            return start, all_dates if start is not None else end, all_dates
         else:
             return start if start is not None else end
 
