@@ -219,19 +219,23 @@ class Observation(clinicalresource.ClinicalResource):
         ])
         return js
 
-    def get_date(self):
+    def get_date(self, return_all=False):
         """
         if observation period is None return None
-        else return start if not None else return None
+
+        Return the start date as the default for return_all=False
         """
         if self.effectiveDateTime is None:
             return None
         start = self.effectiveDateTime.date if self.effectiveDateTime.date is not None else None
 
-        all_dates = {
-            'start': start
-        }
-        return start, all_dates if start and all_dates is not None else None
+        if return_all:
+            all_dates = {
+                'start': start
+            }
+            return start, all_dates if start and all_dates is not None else None
+        else:
+            return start
 
 
 from . import backboneelement
