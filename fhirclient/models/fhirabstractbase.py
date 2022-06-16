@@ -184,9 +184,14 @@ class FHIRAbstractBase(object):
                 testval = value
                 if is_list:
                     if not isinstance(value, list):
-                        err = TypeError("Wrong type {} for list property \"{}\" on {}, expecting a list of {}"
-                            .format(type(value), name, type(self), typ))
-                        testval = None
+                        # check to see if we have just 1 element of correct type and if so, create a list
+                        # with that one element
+                        if self._matches_type(testval, typ):
+                            value = [value]
+                        else:
+                            err = TypeError("Wrong type {} for list property \"{}\" on {}, expecting a list of {}"
+                                .format(type(value), name, type(self), typ))
+                            testval = None
                     else:
                         testval = value[0] if value and len(value) > 0 else None
                 
@@ -195,6 +200,7 @@ class FHIRAbstractBase(object):
                         .format(type(testval), name, type(self), typ))
                 else:
                     setattr(self, name, value)
+                    self.name = value
                 
                 found.add(jsname)
                 if of_many is not None:
@@ -215,22 +221,24 @@ class FHIRAbstractBase(object):
             if err is not None:
                 errs.append(err.prefixed(name) if isinstance(err, FHIRValidationError) else FHIRValidationError([err], name))
         
-        # were there missing non-optional entries?
-        if len(nonoptionals) > 0:
-            for miss in nonoptionals - found:
-                errs.append(KeyError("Non-optional property \"{}\" on {} is missing"
-                    .format(miss, self)))
+        # # were there missing non-optional entries?
+        # # we don't care
+        # if len(nonoptionals) > 0:
+        #     for miss in nonoptionals - found:
+        #         errs.append(KeyError("Non-optional property \"{}\" on {} is missing"
+        #             .format(miss, self)))
         
         # were there superfluous dictionary keys?
-        if len(set(jsondict.keys()) - valid) > 0:
-            for supflu in set(jsondict.keys()) - valid:
-                errs.append(AttributeError("Superfluous entry \"{}\" in data for {}"
-                    .format(supflu, self)))
+        # we don't care
+        # if len(set(jsondict.keys()) - valid) > 0:
+        #     for supflu in set(jsondict.keys()) - valid:
+        #         errs.append(AttributeError("Superfluous entry \"{}\" in data for {}"
+        #             .format(supflu, self)))
         
         if len(errs) > 0:
             raise FHIRValidationError(errs)
     
-    def as_json(self):
+    def as_json(self, stop_caring=False):
         """ Serializes to JSON by inspecting `elementProperties()` and creating
         a JSON dictionary of all registered properties. Checks:
         
