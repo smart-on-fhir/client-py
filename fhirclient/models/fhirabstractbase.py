@@ -238,12 +238,13 @@ class FHIRAbstractBase(object):
         if len(errs) > 0:
             raise FHIRValidationError(errs)
     
-    def as_json(self, stop_caring=False):
+    def as_json(self, require_non_optional=True):
         """ Serializes to JSON by inspecting `elementProperties()` and creating
         a JSON dictionary of all registered properties. Checks:
         
         - whether required properties are not None (and lists not empty)
         - whether not-None properties are of the correct type
+        - whether non-optional properties are missing, with default require_non_optional=True
         
         :raises: FHIRValidationError if properties have the wrong type or if
             required properties are empty
@@ -276,7 +277,7 @@ class FHIRAbstractBase(object):
                         lst = []
                         for v in value:
                             try:
-                                lst.append(v.as_json() if hasattr(v, 'as_json') else v)
+                                lst.append(v.as_json(require_non_optional=require_non_optional) if hasattr(v, 'as_json') else v)
                             except FHIRValidationError as e:
                                 err = e.prefixed(str(len(lst))).prefixed(name)
                         found.add(of_many or jsname)
@@ -288,19 +289,20 @@ class FHIRAbstractBase(object):
                 else:
                     try:
                         found.add(of_many or jsname)
-                        js[jsname] = value.as_json() if hasattr(value, 'as_json') else value
+                        js[jsname] = value.as_json(require_non_optional=require_non_optional) if hasattr(value, 'as_json') else value
                     except FHIRValidationError as e:
                         err = e.prefixed(name)
             
             if err is not None:
                 errs.append(err if isinstance(err, FHIRValidationError) else FHIRValidationError([err], name))
-        
-        # any missing non-optionals?
-        if len(nonoptionals - found) > 0:
-            for nonop in nonoptionals - found:
-                errs.append(KeyError("Property \"{}\" on {} is not optional, you must provide a value for it"
-                    .format(nonop, self)))
-        
+
+        if require_non_optional:
+            # any missing non-optionals?
+            if len(nonoptionals - found) > 0:
+                for nonop in nonoptionals - found:
+                    errs.append(KeyError("Property \"{}\" on {} is not optional, you must provide a value for it"
+                        .format(nonop, self)))
+
         if len(errs) > 0:
             raise FHIRValidationError(errs)
         return js
