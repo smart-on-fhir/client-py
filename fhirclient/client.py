@@ -132,6 +132,11 @@ class FHIRClient(object):
         ctx = self.server.handle_callback(url) if self.server is not None else None
         self._handle_launch_context(ctx)
     
+    def authorize(self):
+        """ Try to authorize with the server. """
+        ctx = self.server.authorize() if self.server is not None else None
+        self._handle_launch_context(ctx)
+
     def reauthorize(self):
         """ Try to reauthorize with the server.
         
