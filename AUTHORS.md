@@ -9,6 +9,7 @@ Contributors
 
 The following wonderful people contributed directly or indirectly to this project:
 
+- Alexandru Stanciu <https://github.com/ducu>
 - Andrew Bjonnes <https://github.com/abjonnes>
 - Erik Wiffin <https://github.com/erikwiffin>
 - Josh Mandel <https://github.com/jmandel>
