@@ -294,9 +294,8 @@ class FHIROAuth2Auth(FHIRAuth):
         # The refresh token issued by the authorization server. If present, the
         # app should discard any previous refresh_token associated with this
         # launch, replacing it with this new value.
-        refresh_token = ret_params.get('refresh_token')
-        if refresh_token is not None:
-            self.refresh_token = refresh_token
+        self.refresh_token = ret_params.get('refresh_token') or params.get('refresh_token')
+        if self.refresh_token is not None and 'refresh_token' in ret_params:
             del ret_params['refresh_token']
         
         logger.debug("SMART AUTH: Received access token: {0}, refresh token: {1}"
