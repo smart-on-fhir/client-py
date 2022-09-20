@@ -95,6 +95,7 @@ class FHIRServer(object):
                 'app_id': self.client.app_id if self.client is not None else None,
                 'app_secret': self.client.app_secret if self.client is not None else None,
                 'redirect_uri': self.client.redirect if self.client is not None else None,
+                'jwt_token': self.client.jwt_token if self.client is not None else None,
             }
             self.auth = FHIRAuth.from_capability_security(security, settings)
             self.should_save_state()
