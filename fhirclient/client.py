@@ -53,6 +53,11 @@ class FHIRClient(object):
         
         self.patient_id = None
         self._patient = None
+
+        self.jwt_token = None
+        """ If present, is included as part of the request to authenticate
+        with a backend system through a client_assertion parameter
+        """
         
         if save_func is None:
             raise Exception("Must supply a save_func when initializing the SMART client")
@@ -75,6 +80,7 @@ class FHIRClient(object):
             self.patient_id = settings.get('patient_id')
             self.scope = settings.get('scope', self.scope)
             self.launch_token = settings.get('launch_token')
+            self.jwt_token = settings.get('jwt_token', None)
             self.server = FHIRServer(self, base_uri=settings['api_base'])
         else:
             raise Exception("Must either supply settings or a state upon client initialization")
@@ -218,6 +224,7 @@ class FHIRClient(object):
             'server': self.server.state,
             'launch_token': self.launch_token,
             'launch_context': self.launch_context,
+            'jwt_token': self.jwt_token,
         }
     
     def from_state(self, state):
@@ -230,6 +237,7 @@ class FHIRClient(object):
         self.launch_token = state.get('launch_token') or self.launch_token
         self.launch_context = state.get('launch_context') or self.launch_context
         self.server = FHIRServer(self, state=state.get('server'))
+        self.jwt_token = state.get('jwt_token') or self.jwt_token
     
     def save_state (self):
         self._save_func(self.state)

@@ -145,6 +145,7 @@ class FHIROAuth2Auth(FHIRAuth):
         self.access_token = None
         self.refresh_token = None
         self.expires_at = None
+        self.jwt_token = None
         
         super(FHIROAuth2Auth, self).__init__(state=state)
     
@@ -324,6 +325,10 @@ class FHIROAuth2Auth(FHIRAuth):
             'grant_type': 'client_credentials',
             'scope': server.desired_scope,
         }
+
+        if self.jwt_token:
+            params['client_assertion_type'] = 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer'
+            params['client_assertion'] = self.jwt_token
         return params
 
 
@@ -391,7 +396,7 @@ class FHIROAuth2Auth(FHIRAuth):
         
         self.access_token = state.get('access_token') or self.access_token
         self.refresh_token = state.get('refresh_token') or self.refresh_token
-    
+        self.jwt_token = state.get('jwt_token') or self.jwt_token
 
     # MARK: Utilities    
     

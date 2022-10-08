@@ -11,6 +11,7 @@ The following wonderful people contributed directly or indirectly to this projec
 
 - Alexandru Stanciu <https://github.com/ducu>
 - Andrew Bjonnes <https://github.com/abjonnes>
+- Armaghan Behlum <https://github.com/armaghan-behlum>
 - Erik Wiffin <https://github.com/erikwiffin>
 - Josh Mandel <https://github.com/jmandel>
 - Nikolai Schwertner <https://github.com/nschwertner>
