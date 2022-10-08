@@ -173,7 +173,7 @@ class FHIRServer(object):
         """ Perform a data request data against the server's base with the
         given relative path.
         """
-        res = self._get(path, None, nosign)
+        res = self._get(path, headers, nosign)
         return res.content
     
     def _get(self, path, headers={}, nosign=False):
