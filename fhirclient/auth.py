@@ -328,7 +328,10 @@ class FHIROAuth2Auth(FHIRAuth):
 
         if self.jwt_token:
             params['client_assertion_type'] = 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer'
-            params['client_assertion'] = self.jwt_token
+            if isinstance(self.jwt_token, str):
+                params['client_assertion'] = self.jwt_token
+            else:
+                params['client_assertion'] = self.jwt_token(self._token_uri)
         return params
 
 
