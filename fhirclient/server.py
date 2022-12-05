@@ -155,21 +155,25 @@ class FHIRServer(object):
         if self.auth is None:
             self.get_capability()
         return self.auth.ready if self.auth is not None else False
-    
-    def request_json(self, path, nosign=False):
+
+    def request_json(self, path, headers={}, nosign=False):
         """ Perform a request for JSON data against the server's base with the
         given relative path.
-        
+
         :param str path: The path to append to `base_uri`
         :param bool nosign: If set to True, the request will not be signed
         :throws: Exception on HTTP status >= 400
         :returns: Decoded JSON response
         """
-        headers = {'Accept': 'application/json'}
+
+        header_defaults = {'Accept': 'application/json'}
+        header_defaults.update(headers)
+        headers = header_defaults
+
         res = self._get(path, headers, nosign)
-        
+
         return res.json()
-    
+
     def request_data(self, path, headers={}, nosign=False):
         """ Perform a data request data against the server's base with the
         given relative path.
