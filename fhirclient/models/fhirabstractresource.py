@@ -111,8 +111,8 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         instance.origin_server = server
         return instance
 
-    def createUrl(self):
-        """ Get the URL on the server for creating the resource.
+    def createPath(self):
+        """ Get the endpoint on the server for creating the resource.
 
         :returns: The resource endpoint or None for the root endpoint
         """
@@ -136,7 +136,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         if self.id:
             raise Exception("This resource already has an id, cannot create")
 
-        ret = srv.post_json(self.createUrl(), self.as_json())
+        ret = srv.post_json(self.createPath(), self.as_json())
         if len(ret.text) > 0:
             return ret.json()
         return None
