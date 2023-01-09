@@ -14,6 +14,7 @@ The following wonderful people contributed directly or indirectly to this projec
 - Armaghan Behlum <https://github.com/armaghan-behlum>
 - Erik Wiffin <https://github.com/erikwiffin>
 - Josh Mandel <https://github.com/jmandel>
+- Martin Burchell <https://github.com/martinburchell>
 - Nikolai Schwertner <https://github.com/nschwertner>
 - Pascal Pfiffner <https://github.com/p2>
 - Raheel Sayeed <https://github.com/raheelsayeed>

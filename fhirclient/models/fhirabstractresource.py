@@ -110,7 +110,19 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         instance = cls(jsondict=ret)
         instance.origin_server = server
         return instance
-    
+
+    def createPath(self):
+        """ Get the endpoint on the server for creating the resource.
+
+        :returns: The resource endpoint or None for the root endpoint
+        """
+        root_post_types = ("batch", "transaction")
+
+        if self.resource_type == "Bundle" and self.type in root_post_types:
+            return None
+
+        return self.relativeBase()
+
     def create(self, server):
         """ Attempt to create the receiver on the given server, using a POST
         command.
@@ -123,8 +135,8 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
             raise Exception("Cannot create a resource without a server")
         if self.id:
             raise Exception("This resource already has an id, cannot create")
-        
-        ret = srv.post_json(self.relativeBase(), self.as_json())
+
+        ret = srv.post_json(self.createPath(), self.as_json())
         if len(ret.text) > 0:
             return ret.json()
         return None
