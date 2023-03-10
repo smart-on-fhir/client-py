@@ -5,4 +5,4 @@ MarkupSafe==0.23
 Werkzeug==0.14.1
 isodate==0.5.1
 itsdangerous==0.24
-requests==2.7.0
+requests==2.20.0
