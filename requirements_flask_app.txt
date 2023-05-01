@@ -1,5 +1,5 @@
 Beaker==1.7.0
-Flask==0.10.1
+Flask==2.3.2
 Jinja2==2.11.3
 MarkupSafe==0.23
 Werkzeug==0.14.1
