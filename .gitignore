@@ -13,3 +13,4 @@ session_data
 *.sublime-*
 
 .DS_Store
+.idea

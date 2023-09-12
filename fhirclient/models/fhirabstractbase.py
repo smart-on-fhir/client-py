@@ -8,6 +8,14 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+raise_on_schema_error = True
+
+def set_raise_on_schema_error(val):
+    global raise_on_schema_error
+    old = raise_on_schema_error
+    raise_on_schema_error = val
+    return old
+
 
 class FHIRValidationError(Exception):
     """ Exception raised when one or more errors occurred during model
@@ -227,7 +235,7 @@ class FHIRAbstractBase(object):
                 errs.append(AttributeError("Superfluous entry \"{}\" in data for {}"
                     .format(supflu, self)))
         
-        if len(errs) > 0:
+        if len(errs) > 0 and raise_on_schema_error:
             raise FHIRValidationError(errs)
     
     def as_json(self):
@@ -293,7 +301,7 @@ class FHIRAbstractBase(object):
                 errs.append(KeyError("Property \"{}\" on {} is not optional, you must provide a value for it"
                     .format(nonop, self)))
         
-        if len(errs) > 0:
+        if len(errs) > 0 and raise_on_schema_error:
             raise FHIRValidationError(errs)
         return js
     

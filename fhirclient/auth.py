@@ -288,7 +288,8 @@ class FHIROAuth2Auth(FHIRAuth):
         del ret_params['access_token']
         
         if 'expires_in' in ret_params:
-            expires_in = ret_params.get('expires_in')
+            # Value may be returned as int or string
+            expires_in = int(ret_params.get('expires_in'))
             self.expires_at = datetime.now() + timedelta(seconds=expires_in)
             del ret_params['expires_in']
         
@@ -328,7 +329,10 @@ class FHIROAuth2Auth(FHIRAuth):
 
         if self.jwt_token:
             params['client_assertion_type'] = 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer'
-            params['client_assertion'] = self.jwt_token
+            if isinstance(self.jwt_token, str):
+                params['client_assertion'] = self.jwt_token
+            else:
+                params['client_assertion'] = self.jwt_token(self._token_uri)
         return params
 
 
