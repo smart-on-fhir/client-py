@@ -50,7 +50,7 @@ def _get_prescriptions(smart):
     return None
 
 def _get_medication_by_ref(ref, smart):
-    med_id = ref.split("/")[1]
+    med_id = ref.split("/")[-1]
     return Medication.read(med_id, smart.server).code
 
 def _med_name(med):
