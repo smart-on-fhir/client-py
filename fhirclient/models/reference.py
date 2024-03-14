@@ -13,7 +13,7 @@ class Reference(element.Element):
     
     resource_type = "Reference"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict=None, strict=False):
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
