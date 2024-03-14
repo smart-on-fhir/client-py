@@ -1,20 +1,27 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import os
+
 from fhirclient import client
 from fhirclient.models.medication import Medication
 from fhirclient.models.medicationrequest import MedicationRequest
 
 from flask import Flask, request, redirect, session
 
-# app setup
-smart_defaults = {
-    'app_id': 'my_web_app',
-    'api_base': 'https://sb-fhir-stu3.smarthealthit.org/smartstu3/data',
-    'redirect_uri': 'http://localhost:8000/fhir-app/',
-}
 
 app = Flask(__name__)
+app.config.from_object('default_settings')
+if os.environ.get('APP_SETTINGS'):
+    app.config.from_envvar('APP_SETTINGS')
+
+# app setup
+smart_defaults = {
+    'app_id': app.config['EPIC_APP_ID'],
+    'api_base': app.config['API_BASE'],
+    'redirect_uri': app.config['REDIRECT_URI'],
+    'patient_id': app.config['PATIENT_ID'],
+}
 
 def _save_state(state):
     session['state'] = state
