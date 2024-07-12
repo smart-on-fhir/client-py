@@ -10,7 +10,9 @@ from flask import Flask, request, redirect, session
 # app setup
 smart_defaults = {
     'app_id': 'my_web_app',
-    'api_base': 'https://sb-fhir-stu3.smarthealthit.org/smartstu3/data',
+    # TODO: CapabilityStatement.rest.resource.search.param needs to provide 
+    # a required value type - config issue on our end for now
+    'api_base': 'https://r4.smarthealthit.org/',
     'redirect_uri': 'http://localhost:8000/fhir-app/',
 }
 
