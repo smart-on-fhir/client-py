@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
 #  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ContactDetail) on 2024-07-15.
 #  2024, SMART Health IT.
 
@@ -42,8 +39,4 @@ class ContactDetail(element.Element):
         return js
 
 
-import sys
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from . import contactpoint

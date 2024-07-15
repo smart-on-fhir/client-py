@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
 #  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/HumanName) on 2024-07-15.
 #  2024, SMART Health IT.
 
@@ -67,8 +64,4 @@ class HumanName(element.Element):
         return js
 
 
-import sys
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from . import period
