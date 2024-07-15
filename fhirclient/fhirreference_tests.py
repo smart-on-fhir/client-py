@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.CRITICAL)
 class TestResourceReference(unittest.TestCase):
     
     def testContainedResourceDetection(self):
-        with io.open('test_contained_resource.json', 'r', encoding='utf-8') as h:
+        with io.open('fhirclient/test_contained_resource.json', 'r', encoding='utf-8') as h:
             data = json.load(h)
         q = questionnaire.Questionnaire(data)
         self.assertIsNotNone(q, "Must instantiate Questionnaire")
@@ -52,7 +52,7 @@ class TestResourceReference(unittest.TestCase):
         self.assertEqual('ValueSet', contained.resource_type)
     
     def testRelativeReference(self):
-        with io.open('test_relative_reference.json', 'r', encoding='utf-8') as h:
+        with io.open('fhirclient/test_relative_reference.json', 'r', encoding='utf-8') as h:
             data = json.load(h)
         q = questionnaire.Questionnaire(data)
         self.assertIsNotNone(q, "Must instantiate Questionnaire")
@@ -81,7 +81,7 @@ class TestResourceReference(unittest.TestCase):
         self.assertIsNotNone(relative, "Must resolve relative ValueSet even if requesting `Resource`")
     
     def testBundleReferences(self):
-        with io.open('test_bundle.json', 'r', encoding='utf-8') as h:
+        with io.open('fhirclient/test_bundle.json', 'r', encoding='utf-8') as h:
             data = json.load(h)
         b = bundle.Bundle(data)
         self.assertIsNotNone(b, "Must instantiate Bundle")
@@ -128,7 +128,7 @@ class MockServer(server.FHIRServer):
     def request_json(self, path, nosign=False):
         assert path
         parts = os.path.split(path)
-        filename = '_'.join(parts) + '.json'
+        filename = 'fhirclient/' + '_'.join(parts) + '.json'
         with io.open(filename, 'r', encoding='utf-8') as handle:
             return json.load(handle)
         return None

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class ConsentTests(unittest.TestCase):
         return consent.Consent(js)
     
     def testConsent1(self):
-        inst = self.instantiate_from("consent-example-notThis.json")
+        inst = self.instantiate_from("consent-example-Out.json")
         self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
         self.implConsent1(inst)
         
@@ -36,13 +36,14 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
         self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
         self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
-        self.assertEqual(inst.id, "consent-example-notThis")
+        self.assertEqual(inst.id, "consent-example-Out")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
+        self.assertEqual(inst.policyRule.coding[0].code, "OPTOUT")
         self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.provision.data[0].meaning, "related")
+        self.assertEqual(inst.provision.actor[0].role.coding[0].code, "CST")
+        self.assertEqual(inst.provision.actor[0].role.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
         self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
         self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
         self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
@@ -50,7 +51,7 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testConsent2(self):
-        inst = self.instantiate_from("consent-example-smartonfhir.json")
+        inst = self.instantiate_from("consent-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
         self.implConsent2(inst)
         
@@ -62,30 +63,26 @@ class ConsentTests(unittest.TestCase):
     def implConsent2(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "59284-0")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2016-06-23T17:02:33+10:00").date)
-        self.assertEqual(inst.dateTime.as_json(), "2016-06-23T17:02:33+10:00")
-        self.assertEqual(inst.id, "consent-example-smartonfhir")
+        self.assertEqual(inst.dateTime.date, FHIRDate("2016-05-11").date)
+        self.assertEqual(inst.dateTime.as_json(), "2016-05-11")
+        self.assertEqual(inst.id, "consent-example-basic")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
         self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.provision.period.end.date, FHIRDate("2016-06-23T17:32:33+10:00").date)
-        self.assertEqual(inst.provision.period.end.as_json(), "2016-06-23T17:32:33+10:00")
-        self.assertEqual(inst.provision.period.start.date, FHIRDate("2016-06-23T17:02:33+10:00").date)
-        self.assertEqual(inst.provision.period.start.as_json(), "2016-06-23T17:02:33+10:00")
-        self.assertEqual(inst.provision.provision[0].action[0].coding[0].code, "access")
-        self.assertEqual(inst.provision.provision[0].action[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/consentaction")
-        self.assertEqual(inst.provision.provision[0].class_fhir[0].code, "MedicationRequest")
-        self.assertEqual(inst.provision.provision[0].class_fhir[0].system, "http://hl7.org/fhir/resource-types")
-        self.assertEqual(inst.provision.provision[0].type, "permit")
+        self.assertEqual(inst.provision.period.end.date, FHIRDate("2016-01-01").date)
+        self.assertEqual(inst.provision.period.end.as_json(), "2016-01-01")
+        self.assertEqual(inst.provision.period.start.date, FHIRDate("1964-01-01").date)
+        self.assertEqual(inst.provision.period.start.as_json(), "1964-01-01")
         self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
         self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
+        self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
     def testConsent3(self):
-        inst = self.instantiate_from("consent-example-notAuthor.json")
+        inst = self.instantiate_from("consent-example-signature.json")
         self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
         self.implConsent3(inst)
         
@@ -95,66 +92,6 @@ class ConsentTests(unittest.TestCase):
         self.implConsent3(inst2)
     
     def implConsent3(self, inst):
-        self.assertEqual(inst.category[0].coding[0].code, "59284-0")
-        self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
-        self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
-        self.assertEqual(inst.id, "consent-example-notAuthor")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
-        self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.provision.actor[0].role.coding[0].code, "CST")
-        self.assertEqual(inst.provision.actor[0].role.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
-        self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
-        self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
-        self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
-        self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testConsent4(self):
-        inst = self.instantiate_from("consent-example-notTime.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
-        self.implConsent4(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Consent", js["resourceType"])
-        inst2 = consent.Consent(js)
-        self.implConsent4(inst2)
-    
-    def implConsent4(self, inst):
-        self.assertEqual(inst.category[0].coding[0].code, "59284-0")
-        self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
-        self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
-        self.assertEqual(inst.id, "consent-example-notTime")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
-        self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.provision.period.end.date, FHIRDate("2015-02-01").date)
-        self.assertEqual(inst.provision.period.end.as_json(), "2015-02-01")
-        self.assertEqual(inst.provision.period.start.date, FHIRDate("2015-01-01").date)
-        self.assertEqual(inst.provision.period.start.as_json(), "2015-01-01")
-        self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
-        self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
-        self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
-        self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testConsent5(self):
-        inst = self.instantiate_from("consent-example-signature.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
-        self.implConsent5(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Consent", js["resourceType"])
-        inst2 = consent.Consent(js)
-        self.implConsent5(inst2)
-    
-    def implConsent5(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "npp")
         self.assertEqual(inst.category[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/consentcategorycodes")
         self.assertEqual(inst.dateTime.date, FHIRDate("2016-05-26T00:41:10-04:00").date)
@@ -187,50 +124,17 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
-    def testConsent6(self):
-        inst = self.instantiate_from("consent-example-notThem.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
-        self.implConsent6(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Consent", js["resourceType"])
-        inst2 = consent.Consent(js)
-        self.implConsent6(inst2)
-    
-    def implConsent6(self, inst):
-        self.assertEqual(inst.category[0].coding[0].code, "59284-0")
-        self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
-        self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
-        self.assertEqual(inst.id, "consent-example-notThem")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
-        self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.provision.action[0].coding[0].code, "access")
-        self.assertEqual(inst.provision.action[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/consentaction")
-        self.assertEqual(inst.provision.action[1].coding[0].code, "correct")
-        self.assertEqual(inst.provision.action[1].coding[0].system, "http://terminology.hl7.org/CodeSystem/consentaction")
-        self.assertEqual(inst.provision.actor[0].role.coding[0].code, "PRCP")
-        self.assertEqual(inst.provision.actor[0].role.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
-        self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
-        self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
-        self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
-        self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testConsent7(self):
+    def testConsent4(self):
         inst = self.instantiate_from("consent-example-grantor.json")
         self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
-        self.implConsent7(inst)
+        self.implConsent4(inst)
         
         js = inst.as_json()
         self.assertEqual("Consent", js["resourceType"])
         inst2 = consent.Consent(js)
-        self.implConsent7(inst2)
+        self.implConsent4(inst2)
     
-    def implConsent7(self, inst):
+    def implConsent4(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "INFAO")
         self.assertEqual(inst.category[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
         self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
@@ -253,51 +157,52 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
-    def testConsent8(self):
-        inst = self.instantiate_from("consent-example-notOrg.json")
+    def testConsent5(self):
+        inst = self.instantiate_from("consent-example-smartonfhir.json")
         self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
-        self.implConsent8(inst)
+        self.implConsent5(inst)
         
         js = inst.as_json()
         self.assertEqual("Consent", js["resourceType"])
         inst2 = consent.Consent(js)
-        self.implConsent8(inst2)
+        self.implConsent5(inst2)
     
-    def implConsent8(self, inst):
+    def implConsent5(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "59284-0")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
-        self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
-        self.assertEqual(inst.id, "consent-example-notOrg")
+        self.assertEqual(inst.dateTime.date, FHIRDate("2016-06-23T17:02:33+10:00").date)
+        self.assertEqual(inst.dateTime.as_json(), "2016-06-23T17:02:33+10:00")
+        self.assertEqual(inst.id, "consent-example-smartonfhir")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
         self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.provision.action[0].coding[0].code, "access")
-        self.assertEqual(inst.provision.action[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/consentaction")
-        self.assertEqual(inst.provision.action[1].coding[0].code, "correct")
-        self.assertEqual(inst.provision.action[1].coding[0].system, "http://terminology.hl7.org/CodeSystem/consentaction")
-        self.assertEqual(inst.provision.actor[0].role.coding[0].code, "PRCP")
-        self.assertEqual(inst.provision.actor[0].role.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
-        self.assertEqual(inst.provision.type, "deny")
+        self.assertEqual(inst.provision.period.end.date, FHIRDate("2016-06-23T17:32:33+10:00").date)
+        self.assertEqual(inst.provision.period.end.as_json(), "2016-06-23T17:32:33+10:00")
+        self.assertEqual(inst.provision.period.start.date, FHIRDate("2016-06-23T17:02:33+10:00").date)
+        self.assertEqual(inst.provision.period.start.as_json(), "2016-06-23T17:02:33+10:00")
+        self.assertEqual(inst.provision.provision[0].action[0].coding[0].code, "access")
+        self.assertEqual(inst.provision.provision[0].action[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/consentaction")
+        self.assertEqual(inst.provision.provision[0].class_fhir[0].code, "MedicationRequest")
+        self.assertEqual(inst.provision.provision[0].class_fhir[0].system, "http://hl7.org/fhir/resource-types")
+        self.assertEqual(inst.provision.provision[0].type, "permit")
         self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
         self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
-        self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
-    def testConsent9(self):
+    def testConsent6(self):
         inst = self.instantiate_from("consent-example-pkb.json")
         self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
-        self.implConsent9(inst)
+        self.implConsent6(inst)
         
         js = inst.as_json()
         self.assertEqual("Consent", js["resourceType"])
         inst2 = consent.Consent(js)
-        self.implConsent9(inst2)
+        self.implConsent6(inst2)
     
-    def implConsent9(self, inst):
+    def implConsent6(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "59284-0")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
         self.assertEqual(inst.dateTime.date, FHIRDate("2016-06-16").date)
@@ -379,8 +284,96 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
     
+    def testConsent7(self):
+        inst = self.instantiate_from("consent-example-notTime.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
+        self.implConsent7(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Consent", js["resourceType"])
+        inst2 = consent.Consent(js)
+        self.implConsent7(inst2)
+    
+    def implConsent7(self, inst):
+        self.assertEqual(inst.category[0].coding[0].code, "59284-0")
+        self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
+        self.assertEqual(inst.id, "consent-example-notTime")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
+        self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
+        self.assertEqual(inst.provision.period.end.date, FHIRDate("2015-02-01").date)
+        self.assertEqual(inst.provision.period.end.as_json(), "2015-02-01")
+        self.assertEqual(inst.provision.period.start.date, FHIRDate("2015-01-01").date)
+        self.assertEqual(inst.provision.period.start.as_json(), "2015-01-01")
+        self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
+        self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
+        self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testConsent8(self):
+        inst = self.instantiate_from("consent-example-notAuthor.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
+        self.implConsent8(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Consent", js["resourceType"])
+        inst2 = consent.Consent(js)
+        self.implConsent8(inst2)
+    
+    def implConsent8(self, inst):
+        self.assertEqual(inst.category[0].coding[0].code, "59284-0")
+        self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
+        self.assertEqual(inst.id, "consent-example-notAuthor")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
+        self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
+        self.assertEqual(inst.provision.actor[0].role.coding[0].code, "CST")
+        self.assertEqual(inst.provision.actor[0].role.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
+        self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
+        self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
+        self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testConsent9(self):
+        inst = self.instantiate_from("consent-example-notThis.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
+        self.implConsent9(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Consent", js["resourceType"])
+        inst2 = consent.Consent(js)
+        self.implConsent9(inst2)
+    
+    def implConsent9(self, inst):
+        self.assertEqual(inst.category[0].coding[0].code, "59284-0")
+        self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
+        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
+        self.assertEqual(inst.id, "consent-example-notThis")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
+        self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
+        self.assertEqual(inst.provision.data[0].meaning, "related")
+        self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
+        self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
+        self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "generated")
+    
     def testConsent10(self):
-        inst = self.instantiate_from("consent-example.json")
+        inst = self.instantiate_from("consent-example-Emergency.json")
         self.assertIsNotNone(inst, "Must have instantiated a Consent instance")
         self.implConsent10(inst)
         
@@ -390,20 +383,23 @@ class ConsentTests(unittest.TestCase):
         self.implConsent10(inst2)
     
     def implConsent10(self, inst):
-        self.assertEqual(inst.category[0].coding[0].code, "59284-0")
-        self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2016-05-11").date)
-        self.assertEqual(inst.dateTime.as_json(), "2016-05-11")
-        self.assertEqual(inst.id, "consent-example-basic")
+        self.assertEqual(inst.category[0].coding[0].code, "EMRGONLY")
+        self.assertEqual(inst.category[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
+        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
+        self.assertEqual(inst.id, "consent-example-Emergency")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
+        self.assertEqual(inst.policyRule.coding[0].code, "OPTOUT")
         self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.provision.period.end.date, FHIRDate("2016-01-01").date)
-        self.assertEqual(inst.provision.period.end.as_json(), "2016-01-01")
-        self.assertEqual(inst.provision.period.start.date, FHIRDate("1964-01-01").date)
-        self.assertEqual(inst.provision.period.start.as_json(), "1964-01-01")
+        self.assertEqual(inst.provision.actor[0].role.coding[0].code, "CST")
+        self.assertEqual(inst.provision.actor[0].role.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
+        self.assertEqual(inst.provision.provision[0].actor[0].role.coding[0].code, "CST")
+        self.assertEqual(inst.provision.provision[0].actor[0].role.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
+        self.assertEqual(inst.provision.provision[0].type, "deny")
+        self.assertEqual(inst.provision.purpose[0].code, "ETREAT")
+        self.assertEqual(inst.provision.purpose[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
         self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
         self.assertEqual(inst.sourceAttachment.title, "The terms of the consent in lawyer speak.")

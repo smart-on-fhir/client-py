@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import domainresource
@@ -66,7 +66,8 @@ class DeviceRequest(domainresource.DomainResource):
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.intent = None
-        """ proposal | plan | original-order | encoded | reflex-order.
+        """ proposal | plan | directive | order | original-order | reflex-order
+        | filler-order | instance-order | option.
         Type `str`. """
         
         self.note = None
@@ -102,8 +103,7 @@ class DeviceRequest(domainresource.DomainResource):
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.priority = None
-        """ Indicates how quickly the {{title}} should be addressed with
-        respect to other requests.
+        """ routine | urgent | asap | stat.
         Type `str`. """
         
         self.reasonCode = None
@@ -123,8 +123,8 @@ class DeviceRequest(domainresource.DomainResource):
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | suspended | completed | entered-in-error |
-        cancelled.
+        """ draft | active | on-hold | revoked | completed | entered-in-error |
+        unknown.
         Type `str`. """
         
         self.subject = None

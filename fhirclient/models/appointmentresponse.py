@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import domainresource
@@ -43,8 +43,7 @@ class AppointmentResponse(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.participantStatus = None
-        """ accepted | declined | tentative | in-process | completed | needs-
-        action | entered-in-error.
+        """ accepted | declined | tentative | needs-action.
         Type `str`. """
         
         self.participantType = None

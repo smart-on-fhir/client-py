@@ -2,14 +2,14 @@ SMART FHIR Client
 =================
 
 This is _fhirclient_, a flexible Python client for [FHIR][] servers supporting the [SMART on FHIR][smart] protocol.
-The client is compatible with Python 2.7.10 and Python 3.
 
 Client versioning is not identical to FHIR versioning.
-The `master` branch is usually on the latest version of the client as shown below, possibly on bugfix releases thereof.
+The `main` branch is usually on the latest version of the client as shown below, possibly on bugfix releases thereof.
 The `develop` branch should be on recent freezes, and the `feature/latest-ci` branch is periodically updated to the latest FHIR continuous integration builds.
 
-   Version |          FHIR | &nbsp;
------------|---------------|---------
+   Version | FHIR         | &nbsp;
+-----------|--------------|---------
+ **4.2.0** |       `4.0.1` | (R4)
  **4.0.0** |       `4.0.0` | (R4)
  **3.0.0** |       `3.0.0` | (STU-3)
    **x.x** |       `1.8.0` | (STU-3 Ballot, Jan 2017)
@@ -224,6 +224,6 @@ Using setuptools (*Note*: Alternatively, you can use twine https://pypi.python.o
 [smart]: http://docs.smarthealthit.org
 [fhir-parser]: https://github.com/smart-on-fhir/fhir-parser
 [docs]: https://smart-on-fhir.github.io/client-py
-[flask_app]: https://github.com/smart-on-fhir/client-py/blob/master/flask_app.py
+[flask_app]: https://github.com/smart-on-fhir/client-py/blob/main/flask_app.py
 [doxygen]: http://www.stack.nl/~dimitri/doxygen
 [doxypypy]: https://github.com/Feneric/doxypypy

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 import os
@@ -62,7 +62,7 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testQuestionnaireResponse2(self):
-        inst = self.instantiate_from("questionnaireresponse-example-ussg-fht-answers.json")
+        inst = self.instantiate_from("questionnaireresponse-example-f201-lifelines.json")
         self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireResponse instance")
         self.implQuestionnaireResponse2(inst)
         
@@ -72,6 +72,53 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.implQuestionnaireResponse2(inst2)
     
     def implQuestionnaireResponse2(self, inst):
+        self.assertEqual(inst.authored.date, FHIRDate("2013-06-18T00:00:00+01:00").date)
+        self.assertEqual(inst.authored.as_json(), "2013-06-18T00:00:00+01:00")
+        self.assertEqual(inst.id, "f201")
+        self.assertEqual(inst.item[0].item[0].answer[0].valueString, "I am allergic to house dust")
+        self.assertEqual(inst.item[0].item[0].linkId, "1.1")
+        self.assertEqual(inst.item[0].item[0].text, "Do you have allergies?")
+        self.assertEqual(inst.item[0].linkId, "1")
+        self.assertEqual(inst.item[1].item[0].answer[0].valueString, "Male")
+        self.assertEqual(inst.item[1].item[0].linkId, "2.1")
+        self.assertEqual(inst.item[1].item[0].text, "What is your gender?")
+        self.assertEqual(inst.item[1].item[1].answer[0].valueDate.date, FHIRDate("1960-03-13").date)
+        self.assertEqual(inst.item[1].item[1].answer[0].valueDate.as_json(), "1960-03-13")
+        self.assertEqual(inst.item[1].item[1].linkId, "2.2")
+        self.assertEqual(inst.item[1].item[1].text, "What is your date of birth?")
+        self.assertEqual(inst.item[1].item[2].answer[0].valueString, "The Netherlands")
+        self.assertEqual(inst.item[1].item[2].linkId, "2.3")
+        self.assertEqual(inst.item[1].item[2].text, "What is your country of birth?")
+        self.assertEqual(inst.item[1].item[3].answer[0].valueString, "married")
+        self.assertEqual(inst.item[1].item[3].linkId, "2.4")
+        self.assertEqual(inst.item[1].item[3].text, "What is your marital status?")
+        self.assertEqual(inst.item[1].linkId, "2")
+        self.assertEqual(inst.item[1].text, "General questions")
+        self.assertEqual(inst.item[2].item[0].answer[0].valueString, "No")
+        self.assertEqual(inst.item[2].item[0].linkId, "3.1")
+        self.assertEqual(inst.item[2].item[0].text, "Do you smoke?")
+        self.assertEqual(inst.item[2].item[1].answer[0].valueString, "No, but I used to drink")
+        self.assertEqual(inst.item[2].item[1].linkId, "3.2")
+        self.assertEqual(inst.item[2].item[1].text, "Do you drink alchohol?")
+        self.assertEqual(inst.item[2].linkId, "3")
+        self.assertEqual(inst.item[2].text, "Intoxications")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.status, "completed")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testQuestionnaireResponse3(self):
+        inst = self.instantiate_from("questionnaireresponse-example-ussg-fht-answers.json")
+        self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireResponse instance")
+        self.implQuestionnaireResponse3(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("QuestionnaireResponse", js["resourceType"])
+        inst2 = questionnaireresponse.QuestionnaireResponse(js)
+        self.implQuestionnaireResponse3(inst2)
+    
+    def implQuestionnaireResponse3(self, inst):
         self.assertEqual(inst.authored.date, FHIRDate("2008-01-17").date)
         self.assertEqual(inst.authored.as_json(), "2008-01-17")
         self.assertEqual(inst.id, "ussg-fht-answers")
@@ -628,55 +675,8 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.assertEqual(inst.status, "in-progress")
         self.assertEqual(inst.text.status, "generated")
     
-    def testQuestionnaireResponse3(self):
-        inst = self.instantiate_from("questionnaireresponse-example-f201-lifelines.json")
-        self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireResponse instance")
-        self.implQuestionnaireResponse3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("QuestionnaireResponse", js["resourceType"])
-        inst2 = questionnaireresponse.QuestionnaireResponse(js)
-        self.implQuestionnaireResponse3(inst2)
-    
-    def implQuestionnaireResponse3(self, inst):
-        self.assertEqual(inst.authored.date, FHIRDate("2013-06-18T00:00:00+01:00").date)
-        self.assertEqual(inst.authored.as_json(), "2013-06-18T00:00:00+01:00")
-        self.assertEqual(inst.id, "f201")
-        self.assertEqual(inst.item[0].item[0].answer[0].valueString, "I am allergic to house dust")
-        self.assertEqual(inst.item[0].item[0].linkId, "1.1")
-        self.assertEqual(inst.item[0].item[0].text, "Do you have allergies?")
-        self.assertEqual(inst.item[0].linkId, "1")
-        self.assertEqual(inst.item[1].item[0].answer[0].valueString, "Male")
-        self.assertEqual(inst.item[1].item[0].linkId, "2.1")
-        self.assertEqual(inst.item[1].item[0].text, "What is your gender?")
-        self.assertEqual(inst.item[1].item[1].answer[0].valueDate.date, FHIRDate("1960-03-13").date)
-        self.assertEqual(inst.item[1].item[1].answer[0].valueDate.as_json(), "1960-03-13")
-        self.assertEqual(inst.item[1].item[1].linkId, "2.2")
-        self.assertEqual(inst.item[1].item[1].text, "What is your date of birth?")
-        self.assertEqual(inst.item[1].item[2].answer[0].valueString, "The Netherlands")
-        self.assertEqual(inst.item[1].item[2].linkId, "2.3")
-        self.assertEqual(inst.item[1].item[2].text, "What is your country of birth?")
-        self.assertEqual(inst.item[1].item[3].answer[0].valueString, "married")
-        self.assertEqual(inst.item[1].item[3].linkId, "2.4")
-        self.assertEqual(inst.item[1].item[3].text, "What is your marital status?")
-        self.assertEqual(inst.item[1].linkId, "2")
-        self.assertEqual(inst.item[1].text, "General questions")
-        self.assertEqual(inst.item[2].item[0].answer[0].valueString, "No")
-        self.assertEqual(inst.item[2].item[0].linkId, "3.1")
-        self.assertEqual(inst.item[2].item[0].text, "Do you smoke?")
-        self.assertEqual(inst.item[2].item[1].answer[0].valueString, "No, but I used to drink")
-        self.assertEqual(inst.item[2].item[1].linkId, "3.2")
-        self.assertEqual(inst.item[2].item[1].text, "Do you drink alchohol?")
-        self.assertEqual(inst.item[2].linkId, "3")
-        self.assertEqual(inst.item[2].text, "Intoxications")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.status, "generated")
-    
     def testQuestionnaireResponse4(self):
-        inst = self.instantiate_from("questionnaireresponse-example-bluebook.json")
+        inst = self.instantiate_from("questionnaireresponse-example-gcs.json")
         self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireResponse instance")
         self.implQuestionnaireResponse4(inst)
         
@@ -686,6 +686,45 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.implQuestionnaireResponse4(inst2)
     
     def implQuestionnaireResponse4(self, inst):
+        self.assertEqual(inst.authored.date, FHIRDate("2014-12-11T04:44:16Z").date)
+        self.assertEqual(inst.authored.as_json(), "2014-12-11T04:44:16Z")
+        self.assertEqual(inst.id, "gcs")
+        self.assertEqual(inst.item[0].answer[0].valueCoding.code, "LA6560-2")
+        self.assertEqual(inst.item[0].answer[0].valueCoding.display, "Confused")
+        self.assertEqual(inst.item[0].answer[0].valueCoding.extension[0].url, "http://hl7.org/fhir/StructureDefinition/ordinalValue")
+        self.assertEqual(inst.item[0].answer[0].valueCoding.extension[0].valueDecimal, 4)
+        self.assertEqual(inst.item[0].answer[0].valueCoding.system, "http://loinc.org")
+        self.assertEqual(inst.item[0].linkId, "1.1")
+        self.assertEqual(inst.item[1].answer[0].valueCoding.code, "LA6566-9")
+        self.assertEqual(inst.item[1].answer[0].valueCoding.display, "Localizing pain")
+        self.assertEqual(inst.item[1].answer[0].valueCoding.extension[0].url, "http://hl7.org/fhir/StructureDefinition/ordinalValue")
+        self.assertEqual(inst.item[1].answer[0].valueCoding.extension[0].valueDecimal, 5)
+        self.assertEqual(inst.item[1].answer[0].valueCoding.system, "http://loinc.org")
+        self.assertEqual(inst.item[1].linkId, "1.2")
+        self.assertEqual(inst.item[2].answer[0].valueCoding.code, "LA6556-0")
+        self.assertEqual(inst.item[2].answer[0].valueCoding.display, "Eyes open spontaneously")
+        self.assertEqual(inst.item[2].answer[0].valueCoding.extension[0].url, "http://hl7.org/fhir/StructureDefinition/ordinalValue")
+        self.assertEqual(inst.item[2].answer[0].valueCoding.extension[0].valueDecimal, 4)
+        self.assertEqual(inst.item[2].answer[0].valueCoding.system, "http://loinc.org")
+        self.assertEqual(inst.item[2].linkId, "1.3")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.questionnaire, "Questionnaire/gcs")
+        self.assertEqual(inst.status, "completed")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testQuestionnaireResponse5(self):
+        inst = self.instantiate_from("questionnaireresponse-example-bluebook.json")
+        self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireResponse instance")
+        self.implQuestionnaireResponse5(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("QuestionnaireResponse", js["resourceType"])
+        inst2 = questionnaireresponse.QuestionnaireResponse(js)
+        self.implQuestionnaireResponse5(inst2)
+    
+    def implQuestionnaireResponse5(self, inst):
         self.assertEqual(inst.authored.date, FHIRDate("2013-02-19T14:15:00+10:00").date)
         self.assertEqual(inst.authored.as_json(), "2013-02-19T14:15:00+10:00")
         self.assertEqual(inst.id, "bb")
@@ -731,45 +770,6 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.status, "completed")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testQuestionnaireResponse5(self):
-        inst = self.instantiate_from("questionnaireresponse-example-gcs.json")
-        self.assertIsNotNone(inst, "Must have instantiated a QuestionnaireResponse instance")
-        self.implQuestionnaireResponse5(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("QuestionnaireResponse", js["resourceType"])
-        inst2 = questionnaireresponse.QuestionnaireResponse(js)
-        self.implQuestionnaireResponse5(inst2)
-    
-    def implQuestionnaireResponse5(self, inst):
-        self.assertEqual(inst.authored.date, FHIRDate("2014-12-11T04:44:16Z").date)
-        self.assertEqual(inst.authored.as_json(), "2014-12-11T04:44:16Z")
-        self.assertEqual(inst.id, "gcs")
-        self.assertEqual(inst.item[0].answer[0].valueCoding.code, "LA6560-2")
-        self.assertEqual(inst.item[0].answer[0].valueCoding.display, "Confused")
-        self.assertEqual(inst.item[0].answer[0].valueCoding.extension[0].url, "http://hl7.org/fhir/StructureDefinition/ordinalValue")
-        self.assertEqual(inst.item[0].answer[0].valueCoding.extension[0].valueDecimal, 4)
-        self.assertEqual(inst.item[0].answer[0].valueCoding.system, "http://loinc.org")
-        self.assertEqual(inst.item[0].linkId, "1.1")
-        self.assertEqual(inst.item[1].answer[0].valueCoding.code, "LA6566-9")
-        self.assertEqual(inst.item[1].answer[0].valueCoding.display, "Localizing pain")
-        self.assertEqual(inst.item[1].answer[0].valueCoding.extension[0].url, "http://hl7.org/fhir/StructureDefinition/ordinalValue")
-        self.assertEqual(inst.item[1].answer[0].valueCoding.extension[0].valueDecimal, 5)
-        self.assertEqual(inst.item[1].answer[0].valueCoding.system, "http://loinc.org")
-        self.assertEqual(inst.item[1].linkId, "1.2")
-        self.assertEqual(inst.item[2].answer[0].valueCoding.code, "LA6556-0")
-        self.assertEqual(inst.item[2].answer[0].valueCoding.display, "Eyes open spontaneously")
-        self.assertEqual(inst.item[2].answer[0].valueCoding.extension[0].url, "http://hl7.org/fhir/StructureDefinition/ordinalValue")
-        self.assertEqual(inst.item[2].answer[0].valueCoding.extension[0].valueDecimal, 4)
-        self.assertEqual(inst.item[2].answer[0].valueCoding.system, "http://loinc.org")
-        self.assertEqual(inst.item[2].linkId, "1.3")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.questionnaire, "Questionnaire/gcs")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.status, "generated")
 
