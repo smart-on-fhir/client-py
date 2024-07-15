@@ -21,8 +21,7 @@ tpl_factory_target = '../fhirclient/models/fhirelementfactory.py'    # where to 
 
 # unit tests
 write_unittests = True
-tpl_unittest_target = '../fhirclient/models'    # target directory to write the generated unit test files to
-tpl_unittest_target_ptrn = '{}_tests.py'        # TODO: remove in future when we re-organize tests
+tpl_unittest_target = '../tests/models'         # target directory to write the generated unit test files to
 
 
 # all these files should be copied to dirname(`tpl_resource_target_ptrn`): tuples of (path/to/file, module, array-of-class-names)

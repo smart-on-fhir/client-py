@@ -1,0 +1,52 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+# The goal here is to cancel older workflows when a PR is updated (because it's pointless work)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  unittest:
+    name: unit tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+
+      - name: Test with pytest
+        run: |
+          python -m pytest --cov=fhirclient --cov-report=xml
+
+      - name: Log missing coverage
+        run: |
+          coverage report -m --skip-covered
+
+      - name: Check coverage report
+        if: github.ref != 'refs/heads/main'
+        uses: orgoro/coverage@v3.2
+        with:
+          coverageFile: coverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          thresholdAll: .35
+          thresholdNew: 1
+          thresholdModified: 0
