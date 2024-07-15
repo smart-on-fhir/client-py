@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
 #  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2024-07-15.
 #  2024, SMART Health IT.
 
@@ -152,24 +149,8 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
-try:
-    from . import fhirdate
-except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from . import codeableconcept
+from . import contactdetail
+from . import fhirdate
+from . import period
+from . import usagecontext

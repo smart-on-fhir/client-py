@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
 #  Generated from FHIR {{ info.version }} ({{ profile.url }}) on {{ info.date }}.
 #  {{ info.year }}, SMART Health IT.
 
@@ -79,13 +76,7 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
 {%- endif %}
 {%- endfor %}
 
-{% if imports|length > 0 and imported|length != imports|length %}
-import sys
-{%- endif %}
-{%- for imp in imports %}{% if imp.module not in imported %}
-try:
-    from . import {{ imp.module }}
-except ImportError:
-    {{ imp.module }} = sys.modules[__package__ + '.{{ imp.module }}']
+{% for imp in imports %}{% if imp.module not in imported %}
+from . import {{ imp.module }}
 {%- endif %}{% endfor %}
 

@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
 #  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Resource) on 2024-07-15.
 #  2024, SMART Health IT.
 
@@ -52,8 +49,4 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
         return js
 
 
-import sys
-try:
-    from . import meta
-except ImportError:
-    meta = sys.modules[__package__ + '.meta']
+from . import meta

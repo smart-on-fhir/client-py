@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
 #  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductUndesirableEffect) on 2024-07-15.
 #  2024, SMART Health IT.
 
@@ -57,16 +54,6 @@ class MedicinalProductUndesirableEffect(domainresource.DomainResource):
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import population
-except ImportError:
-    population = sys.modules[__package__ + '.population']
+from . import codeableconcept
+from . import fhirreference
+from . import population
