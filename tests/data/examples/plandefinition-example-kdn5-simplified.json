@@ -1,0 +1,322 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "KDN5",
+  "text": {
+    "status": "additional",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003ctable style\u003d\"width: 100%;\"\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n              \u003c!-- link to NCCN image --\u003e\n            \u003cdiv style\u003d\"width: 200px; height: 100px; vertical-align: top;\"\u003eNational Comprehensive Cancer Network\u003c/div\u003e\n          \u003c/td\u003e\n          \u003ctd\u003e\n            \u003ch3\u003eChemotherapy Order Template\u003c/h3\u003e\n            \u003ch1\u003eKidney Cancer\u003c/h1\u003e\n            \u003ch2\u003eGemcitabine/CARBOplatin\u003c/h2\u003e\n          \u003c/td\u003e\n          \u003ctd style\u003d\"text-align: right; vertical-align: top;\"\u003eKDN5\u003c/td\u003e\n        \u003c/tr\u003e\n      \u003c/table\u003e\n      \u003ctable style\u003d\"width: 100%; border-top: 1px solid; border-bottom: 1px solid;\"\u003e\n        \u003ctr\u003e\n          \u003ctd style\u003d\"width: 33%; border-right: 1px solid; vertical-align: top\"\u003e\n            \u003ch4\u003eINDICATION:\u003c/h4\u003e\n            \u003cp\u003eMetastatic or Relapsed – Collecting Duct/Medullary Subtypes\u003c/p\u003e\n          \u003c/td\u003e\n          \u003ctd style\u003d\"width: 34%; border-right: 1px solid; vertical-align: top\"\u003e\n            \u003ch4\u003eREFERENCES:\u003c/h4\u003e\n            \u003col\u003e\n              \u003cli\u003e\u003ca href\u003d\"http://www.example.org/professionals/physician_gls/PDF/kidney.pdf\"\u003eNCCN Guidelines® for Kidney Cancer. V.3.2015.\u003c/a\u003e\u003c/li\u003e\n              \u003cli\u003e\u003ca href\u003d\"http://www.ncbi.nlm.nih.gov/pubmed?term\u003d%22The+Journal+of+urology%22%5BJour%5D+AND+1698%5Bpage%5D+AND+2007%5Bpdat%5D+AND+Oudard+S%5Bauthor%5D\"\u003eOudard S, et al. \u003cem\u003eJ Urol\u003c/em\u003e. 2007;177(5):1698-702.\u003c/a\u003e\u003csup\u003e\n                  \u003ca href\u003d\"http://www.example.org/OrderTemplates/PDF/appendix_E.pdf\"\u003ea\u003c/a\u003e\u003c/sup\u003e\n              \u003c/li\u003e\n            \u003c/ol\u003e\n          \u003c/td\u003e\n          \u003ctd style\u003d\"width: 33%; vertical-align: top\"\u003e\n            \u003ch4\u003eNCCN SUPPORTIVE CARE:\u003c/h4\u003e\n            \u003col\u003e\n              \u003cli\u003e\n                \u003ci\u003eEmetic Risk:\u003c/i\u003e\n                \u003ctable\u003e\n                  \u003ctr\u003e\n                    \u003ctd\u003eDay 1\u003c/td\u003e\n                    \u003ctd\u003eModerate\u003c/td\u003e\n                  \u003c/tr\u003e\n                  \u003ctr\u003e\n                    \u003ctd\u003eDay 8\u003c/td\u003e\n                    \u003ctd\u003eLow\u003c/td\u003e\n                  \u003c/tr\u003e\n                \u003c/table\u003e\n              \u003c/li\u003e\n              \u003cli\u003e\n                \u003ci\u003eFever Neutropenia Risk:\u003c/i\u003e\u003cbr/\u003e\n                Refer to \u003ca href\u003d\"http://www.example.org/professionals/physician_gls/PDF/myeloid_growth.pdf\"\u003eNCCN Guidelines for Myeloid Growth Factors. V.2.2014\u003c/a\u003e\n              \u003c/li\u003e\n            \u003c/ol\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n      \u003c/table\u003e\n        \u003c!-- same as the regimen section of the Composition resource only this version is without the style guide notes --\u003e\n      \u003ch4\u003eCHEMOTHERAPY REGIMEN\u003c/h4\u003e\n      \u003cp\u003e\n        \u003ci\u003e21-day cycle for 6 cycles\u003c/i\u003e\n      \u003c/p\u003e\n      \u003cul\u003e\n        \u003cli\u003eGemcitabine 1250 mg/m\u003csup\u003e2\u003c/sup\u003e IV over 30 minutes on Days 1 and 8\u003c/li\u003e\n        \u003cli\u003eCARBOplatin AUC 5 IV over 30 minutes on Day 1\u003c/li\u003e\n      \u003c/ul\u003e\n    \u003c/div\u003e"
+  },
+  "contained": [
+    {
+      "resourceType": "ActivityDefinition",
+      "id": "1111",
+      "status": "draft",
+      "productCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "12574",
+            "display": "gemcitabine"
+          }
+        ],
+        "text": "gemcitabine"
+      },
+      "dosage": [
+        {
+          "text": "1250 mg/m² IV over 30 minutes",
+          "timing": {
+            "repeat": {
+              "duration": 30,
+              "durationUnit": "min"
+            }
+          },
+          "route": {
+            "text": "IV"
+          },
+          "doseAndRate": [
+            {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                    "code": "ordered",
+                    "display": "Ordered"
+                  }
+                ]
+              },
+              "doseQuantity": {
+                "value": 1250,
+                "unit": "mg/m²"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceType": "ActivityDefinition",
+      "id": "2222",
+      "status": "draft",
+      "productCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "40048",
+            "display": "Carboplatin"
+          }
+        ],
+        "text": "CARBOplatin"
+      },
+      "dosage": [
+        {
+          "text": "AUC 5 IV over 30 minutes",
+          "timing": {
+            "repeat": {
+              "duration": 30,
+              "durationUnit": "min"
+            }
+          },
+          "route": {
+            "text": "IV"
+          },
+          "doseAndRate": [
+            {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                    "code": "ordered",
+                    "display": "Ordered"
+                  }
+                ]
+              },
+              "doseQuantity": {
+                "extension": [
+                  {
+                    "url": "http://example.org/fhir/AUC-dose",
+                    "valueInteger": 5
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://example.org/ordertemplates",
+      "value": "KDN5"
+    }
+  ],
+  "version": "1",
+  "title": "Gemcitabine/CARBOplatin",
+  "type": {
+    "text": "Chemotherapy Order Template"
+  },
+  "status": "draft",
+  "experimental": true,
+  "publisher": "National Comprehensive Cancer Network, Inc.",
+  "useContext": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/usagecontext-group",
+          "valueString": "A"
+        }
+      ],
+      "code": {
+        "system": "http://example.org/fhir/CodeSystem/indications",
+        "code": "treamentSetting-or-diseaseStatus"
+      },
+      "valueCodeableConcept": {
+        "text": "Metastatic"
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/usagecontext-group",
+          "valueString": "A"
+        }
+      ],
+      "code": {
+        "system": "http://example.org/fhir/CodeSystem/indications",
+        "code": "disease-or-histology"
+      },
+      "valueCodeableConcept": {
+        "text": "Collecting Duct/Medullary Subtypes"
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/usagecontext-group",
+          "valueString": "A"
+        }
+      ],
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "focus"
+      },
+      "valueCodeableConcept": {
+        "text": "Kidney Cancer"
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/usagecontext-group",
+          "valueString": "B"
+        }
+      ],
+      "code": {
+        "system": "http://example.org/fhir/CodeSystem/indications",
+        "code": "treatmentSetting-or-diseaseStatus"
+      },
+      "valueCodeableConcept": {
+        "text": "Relapsed"
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/usagecontext-group",
+          "valueString": "B"
+        }
+      ],
+      "code": {
+        "system": "http://example.org/fhir/CodeSystem/indications",
+        "code": "disease-or-histology"
+      },
+      "valueCodeableConcept": {
+        "text": "Collecting Duct/Medullary Subtypes"
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/usagecontext-group",
+          "valueString": "B"
+        }
+      ],
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "focus"
+      },
+      "valueCodeableConcept": {
+        "text": "Kidney Cancer – Collecting Duct/Medullary Subtypes - Metastatic"
+      }
+    }
+  ],
+  "copyright": "All rights reserved.",
+  "approvalDate": "2016-07-27",
+  "lastReviewDate": "2016-07-27",
+  "author": [
+    {
+      "name": "Lee Surprenant"
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "type": "derived-from",
+      "display": "NCCN Guidelines for Kidney Cancer. V.2.2016",
+      "url": "http://www.example.org/professionals/physician_gls/PDF/kidney.pdf"
+    },
+    {
+      "type": "citation",
+      "_type": {
+        "extension": [
+          {
+            "url": "http://example.org/fhir/regimenReferenceType",
+            "valueCode": "a"
+          }
+        ]
+      },
+      "citation": "Oudard S, et al. J Urol. 2007;177(5):1698-702",
+      "url": "http://www.ncbi.nlm.nih.gov/pubmed/17437788"
+    }
+  ],
+  "action": [
+    {
+      "selectionBehavior": "exactly-one",
+      "action": [
+        {
+          "selectionBehavior": "all",
+          "action": [
+            {
+              "groupingBehavior": "sentence-group",
+              "selectionBehavior": "exactly-one",
+              "action": [
+                {
+                  "id": "cycle-definition-1",
+                  "textEquivalent": "21-day cycle for 6 cycles",
+                  "timingTiming": {
+                    "repeat": {
+                      "count": 6,
+                      "duration": 21,
+                      "durationUnit": "d"
+                    }
+                  },
+                  "action": [
+                    {
+                      "id": "action-1",
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
+                          "extension": [
+                            {
+                              "url": "day",
+                              "valueInteger": 1
+                            },
+                            {
+                              "url": "day",
+                              "valueInteger": 8
+                            }
+                          ]
+                        }
+                      ],
+                      "textEquivalent": "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8",
+                      "definitionCanonical": "#1111"
+                    },
+                    {
+                      "id": "action-2",
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
+                          "extension": [
+                            {
+                              "url": "day",
+                              "valueInteger": 1
+                            }
+                          ]
+                        }
+                      ],
+                      "textEquivalent": "CARBOplatin AUC 5 IV over 30 minutes on Day 1",
+                      "relatedAction": [
+                        {
+                          "actionId": "action-1",
+                          "relationship": "concurrent-with-start"
+                        }
+                      ],
+                      "definitionCanonical": "#2222"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

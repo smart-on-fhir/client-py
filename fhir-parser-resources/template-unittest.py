@@ -1,21 +1,16 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
-#  Generated from FHIR {{ info.version }} on {{ info.date }}.
-#  {{ info.year }}, SMART Health IT.
-
+#  Generated from FHIR {{ info.version }}, SMART Health IT.
 
 import os
 import io
 import unittest
 import json
-from . import {{ class.module }}
-from .fhirdate import FHIRDate
+from fhirclient.models import {{ class.module }}
+from fhirclient.models.fhirdate import FHIRDate
 
 
 class {{ class.name }}Tests(unittest.TestCase):
     def instantiate_from(self, filename):
-        datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
+        datadir = os.path.join(os.path.dirname(__file__), '..', 'data', 'examples')
         with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
             js = json.load(handle)
             self.assertEqual("{{ class.name }}", js["resourceType"])
@@ -36,7 +31,7 @@ class {{ class.name }}Tests(unittest.TestCase):
     def impl{{ class.name }}{{ loop.index }}(self, inst):
     {%- for onetest in tcase.tests %}
     {%- if "str" == onetest.klass.name %}
-        self.assertEqual(inst.{{ onetest.path }}, "{{ onetest.value|replace('\\n', '\\\\n')|replace('"', '\\"') }}")
+        self.assertEqual(inst.{{ onetest.path }}, "{{ onetest.value|replace('\\', '\\\\')|replace('"', '\\"') }}")
     {%- else %}{% if "int" == onetest.klass.name or "float" == onetest.klass.name or "NSDecimalNumber" == onetest.klass.name %}
         self.assertEqual(inst.{{ onetest.path }}, {{ onetest.value }})
     {%- else %}{% if "bool" == onetest.klass.name %}
