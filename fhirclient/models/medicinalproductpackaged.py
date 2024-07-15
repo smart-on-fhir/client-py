@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
 #  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductPackaged) on 2024-07-15.
 #  2024, SMART Health IT.
 
@@ -199,32 +196,10 @@ class MedicinalProductPackagedPackageItem(backboneelement.BackboneElement):
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
-try:
-    from . import marketingstatus
-except ImportError:
-    marketingstatus = sys.modules[__package__ + '.marketingstatus']
-try:
-    from . import prodcharacteristic
-except ImportError:
-    prodcharacteristic = sys.modules[__package__ + '.prodcharacteristic']
-try:
-    from . import productshelflife
-except ImportError:
-    productshelflife = sys.modules[__package__ + '.productshelflife']
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from . import codeableconcept
+from . import fhirreference
+from . import identifier
+from . import marketingstatus
+from . import prodcharacteristic
+from . import productshelflife
+from . import quantity

@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
 #  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2024-07-15.
 #  2024, SMART Health IT.
 
@@ -357,24 +354,8 @@ class AuditEventSource(backboneelement.BackboneElement):
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
-try:
-    from . import fhirdate
-except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from . import codeableconcept
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import period

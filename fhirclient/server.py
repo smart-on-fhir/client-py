@@ -1,13 +1,7 @@
-# -*- coding: utf-8 -*-
-
 import json
 import requests
-import urllib
 import logging
-try:                                # Python 2.x
-    import urlparse
-except ImportError as e:            # Python 3
-    import urllib.parse as urlparse
+import urllib.parse as urlparse
 
 from .auth import FHIRAuth
 

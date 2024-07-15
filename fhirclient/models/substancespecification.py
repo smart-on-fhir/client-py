@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
 #  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceSpecification) on 2024-07-15.
 #  2024, SMART Health IT.
 
@@ -711,36 +708,11 @@ class SubstanceSpecificationstr(backboneelement.BackboneElement):
         return js
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import fhirdate
-except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from . import attachment
+from . import codeableconcept
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import quantity
+from . import range
+from . import ratio

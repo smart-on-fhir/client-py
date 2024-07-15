@@ -1,14 +1,8 @@
-# -*- coding: utf-8 -*-
-
 import uuid
 import logging
 from datetime import datetime, timedelta
-try:                                # Python 2.x
-    import urlparse
-    from urllib import urlencode
-except Exception as e:              # Python 3
-    import urllib.parse as urlparse
-    from urllib.parse import urlencode
+import urllib.parse as urlparse
+from urllib.parse import urlencode
 
 logger = logging.getLogger(__name__)
 

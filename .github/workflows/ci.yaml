@@ -42,11 +42,13 @@ jobs:
           coverage report -m --skip-covered
 
       - name: Check coverage report
-        if: github.ref != 'refs/heads/main'
+        # Disable coverage checking from forks until there is a secure fix for:
+        # https://github.com/orgoro/coverage/issues/259
+        if: github.ref != 'refs/heads/main' && ${{ ! github.event.pull_request.head.repo.fork }}
         uses: orgoro/coverage@v3.2
         with:
           coverageFile: coverage.xml
           token: ${{ secrets.GITHUB_TOKEN }}
-          thresholdAll: .35
+          thresholdAll: .45
           thresholdNew: 1
-          thresholdModified: 0
+          thresholdModified: .40
