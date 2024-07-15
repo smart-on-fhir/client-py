@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from models.fhirsearch import FHIRSearch
+from fhirclient.models.fhirsearch import FHIRSearch
 
 if '__main__' == __name__:
-    from models.patient import Patient
+    from fhirclient.models.patient import Patient
     print('1 '+FHIRSearch(Patient, {'name': 'Willis'}).construct())
     print('1 '+Patient.where({'name': 'Willis'}).construct())
     # print('1 '+Patient.where().name('Willis').construct())

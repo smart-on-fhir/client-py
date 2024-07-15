@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import domainresource
@@ -102,8 +102,8 @@ class CarePlan(domainresource.DomainResource):
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | suspended | completed | entered-in-error |
-        cancelled | unknown.
+        """ draft | active | on-hold | revoked | completed | entered-in-error |
+        unknown.
         Type `str`. """
         
         self.subject = None
@@ -251,7 +251,9 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
         List of `str` items. """
         
         self.kind = None
-        """ Kind of resource.
+        """ Appointment | CommunicationRequest | DeviceRequest |
+        MedicationRequest | NutritionOrder | Task | ServiceRequest |
+        VisionPrescription.
         Type `str`. """
         
         self.location = None

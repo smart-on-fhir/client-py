@@ -33,5 +33,5 @@ If you have any question or concerns, feel free to reach out to us at
 [pep257]: http://www.python.org/dev/peps/pep-0257/
 [good commit messages]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
 [squash]: http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
-[AUTHORS.md]: https://github.com/smart-on-fhir/client-py/blob/master/AUTHORS.md
+[AUTHORS.md]: https://github.com/smart-on-fhir/client-py/blob/main/AUTHORS.md
 [procedures]: http://twistedmatrix.com/trac/wiki/CompatibilityPolicy

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import domainresource
@@ -451,6 +451,10 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `str`. """
         
+        self.defaultValueMeta = None
+        """ Default value if no value exists.
+        Type `Meta` (represented as `dict` in JSON). """
+        
         self.defaultValueMoney = None
         """ Default value if no value exists.
         Type `Money` (represented as `dict` in JSON). """
@@ -599,6 +603,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
             ("defaultValueInstant", "defaultValueInstant", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
             ("defaultValueMarkdown", "defaultValueMarkdown", str, False, "defaultValue", False),
+            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
             ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
             ("defaultValueOid", "defaultValueOid", str, False, "defaultValue", False),
             ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False),
@@ -865,6 +870,10 @@ try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import meta
+except ImportError:
+    meta = sys.modules[__package__ + '.meta']
 try:
     from . import money
 except ImportError:

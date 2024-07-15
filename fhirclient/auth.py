@@ -2,6 +2,7 @@
 
 import uuid
 import logging
+from datetime import datetime, timedelta
 try:                                # Python 2.x
     import urlparse
     from urllib import urlencode
@@ -143,11 +144,15 @@ class FHIROAuth2Auth(FHIRAuth):
         self.app_secret = None
         self.access_token = None
         self.refresh_token = None
+        self.expires_at = None
+        self.jwt_token = None
         
         super(FHIROAuth2Auth, self).__init__(state=state)
     
     @property
     def ready(self):
+        if self.expires_at and self.expires_at < datetime.now():
+            self.reset()
         return True if self.access_token else False
     
     def reset(self):
@@ -283,21 +288,50 @@ class FHIROAuth2Auth(FHIRAuth):
         del ret_params['access_token']
         
         if 'expires_in' in ret_params:
+            expires_in = ret_params.get('expires_in')
+            self.expires_at = datetime.now() + timedelta(seconds=expires_in)
             del ret_params['expires_in']
         
         # The refresh token issued by the authorization server. If present, the
         # app should discard any previous refresh_token associated with this
         # launch, replacing it with this new value.
-        refresh_token = ret_params.get('refresh_token')
+        refresh_token = ret_params.get('refresh_token') or params.get('refresh_token')
         if refresh_token is not None:
             self.refresh_token = refresh_token
-            del ret_params['refresh_token']
-        
+            if 'refresh_token' in ret_params:
+                del ret_params['refresh_token']
         logger.debug("SMART AUTH: Received access token: {0}, refresh token: {1}"
             .format(self.access_token is not None, self.refresh_token is not None))
         return ret_params
     
     
+    # MARK: Authorization
+
+    def authorize(self, server):
+        """ Perform authorization on behalf of a system. 
+        
+        :param server: The Server instance to use
+        """
+        logger.debug("SMART AUTH: Get access token")
+        token_params = self._token_params(server)
+        return self._request_access_token(server, token_params)
+
+    def _token_params(self, server):
+        """ The URL parameters to use when requesting access token. """
+        if server is None:
+            raise Exception("Cannot get token params without server instance")
+        
+        params = {
+            'grant_type': 'client_credentials',
+            'scope': server.desired_scope,
+        }
+
+        if self.jwt_token:
+            params['client_assertion_type'] = 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer'
+            params['client_assertion'] = self.jwt_token
+        return params
+
+
     # MARK: Reauthorization
     
     def reauthorize(self, server):
@@ -362,7 +396,7 @@ class FHIROAuth2Auth(FHIRAuth):
         
         self.access_token = state.get('access_token') or self.access_token
         self.refresh_token = state.get('refresh_token') or self.refresh_token
-    
+        self.jwt_token = state.get('jwt_token') or self.jwt_token
 
     # MARK: Utilities    
     

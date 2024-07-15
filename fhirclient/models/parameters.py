@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Parameters) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import resource
@@ -181,6 +181,10 @@ class ParametersParameter(backboneelement.BackboneElement):
         """ If parameter is a data type.
         Type `str`. """
         
+        self.valueMeta = None
+        """ If parameter is a data type.
+        Type `Meta` (represented as `dict` in JSON). """
+        
         self.valueMoney = None
         """ If parameter is a data type.
         Type `Money` (represented as `dict` in JSON). """
@@ -301,6 +305,7 @@ class ParametersParameter(backboneelement.BackboneElement):
             ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valueMarkdown", "valueMarkdown", str, False, "value", False),
+            ("valueMeta", "valueMeta", meta.Meta, False, "value", False),
             ("valueMoney", "valueMoney", money.Money, False, "value", False),
             ("valueOid", "valueOid", str, False, "value", False),
             ("valueParameterDefinition", "valueParameterDefinition", parameterdefinition.ParameterDefinition, False, "value", False),
@@ -403,6 +408,10 @@ try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import meta
+except ImportError:
+    meta = sys.modules[__package__ + '.meta']
 try:
     from . import money
 except ImportError:
