@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 import os
@@ -52,7 +52,7 @@ class MeasureTests(unittest.TestCase):
         self.assertEqual(inst.title, "Screening for Depression")
     
     def testMeasure2(self):
-        inst = self.instantiate_from("measure-predecessor-example.json")
+        inst = self.instantiate_from("measure-cms146-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Measure instance")
         self.implMeasure2(inst)
         
@@ -62,77 +62,6 @@ class MeasureTests(unittest.TestCase):
         self.implMeasure2(inst2)
     
     def implMeasure2(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2014-03-08").date)
-        self.assertEqual(inst.date.as_json(), "2014-03-08")
-        self.assertEqual(inst.description, "Exclusive breastfeeding measure of outcomes for exclusive breastmilk feeding of newborns.")
-        self.assertEqual(inst.group[0].id, "PopulationGroup1")
-        self.assertEqual(inst.group[0].population[0].code.coding[0].code, "initial-population")
-        self.assertEqual(inst.group[0].population[0].criteria.expression, "InitialPopulation1")
-        self.assertEqual(inst.group[0].population[0].criteria.language, "text/cql")
-        self.assertEqual(inst.group[0].population[1].code.coding[0].code, "denominator")
-        self.assertEqual(inst.group[0].population[1].criteria.expression, "Denominator1")
-        self.assertEqual(inst.group[0].population[1].criteria.language, "text/cql")
-        self.assertEqual(inst.group[0].population[2].code.coding[0].code, "denominator-exclusions")
-        self.assertEqual(inst.group[0].population[2].criteria.expression, "DenominatorExclusions1")
-        self.assertEqual(inst.group[0].population[2].criteria.language, "text/cql")
-        self.assertEqual(inst.group[0].population[3].code.coding[0].code, "numerator")
-        self.assertEqual(inst.group[0].population[3].criteria.expression, "Numerator1")
-        self.assertEqual(inst.group[0].population[3].criteria.language, "text/cql")
-        self.assertEqual(inst.group[1].id, "PopulationGroup2")
-        self.assertEqual(inst.group[1].population[0].code.coding[0].code, "initial-population")
-        self.assertEqual(inst.group[1].population[0].criteria.expression, "InitialPopulation2")
-        self.assertEqual(inst.group[1].population[0].criteria.language, "text/cql")
-        self.assertEqual(inst.group[1].population[1].code.coding[0].code, "denominator")
-        self.assertEqual(inst.group[1].population[1].criteria.expression, "Denominator2")
-        self.assertEqual(inst.group[1].population[1].criteria.language, "text/cql")
-        self.assertEqual(inst.group[1].population[2].code.coding[0].code, "denominator-exclusion")
-        self.assertEqual(inst.group[1].population[2].criteria.expression, "DenominatorExclusions2")
-        self.assertEqual(inst.group[1].population[2].criteria.language, "text/cql")
-        self.assertEqual(inst.group[1].population[3].code.coding[0].code, "numerator")
-        self.assertEqual(inst.group[1].population[3].criteria.expression, "Numerator2")
-        self.assertEqual(inst.group[1].population[3].criteria.language, "text/cql")
-        self.assertEqual(inst.id, "measure-predecessor-example")
-        self.assertEqual(inst.identifier[0].use, "official")
-        self.assertEqual(inst.identifier[0].value, "exclusive-breastfeeding-measure")
-        self.assertEqual(inst.improvementNotation.coding[0].code, "increase")
-        self.assertEqual(inst.improvementNotation.coding[0].system, "http://terminology.hl7.org/CodeSystem/measure-improvement-notation")
-        self.assertEqual(inst.library[0], "Library/library-exclusive-breastfeeding-cqm-logic")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.purpose, "Measure of newborns who were fed breast milk only since birth")
-        self.assertEqual(inst.relatedArtifact[0].citation, "American Academy of Pediatrics. (2005). Section on Breastfeeding. Policy Statement:Breastfeeding and the Use of Human Milk. Pediatrics.115:496-506.")
-        self.assertEqual(inst.relatedArtifact[0].type, "documentation")
-        self.assertEqual(inst.relatedArtifact[1].type, "documentation")
-        self.assertEqual(inst.relatedArtifact[2].type, "documentation")
-        self.assertEqual(inst.relatedArtifact[3].type, "documentation")
-        self.assertEqual(inst.relatedArtifact[4].type, "documentation")
-        self.assertEqual(inst.relatedArtifact[5].type, "documentation")
-        self.assertEqual(inst.relatedArtifact[6].citation, "Kramer, M.S. & Kakuma, R. (2002).Optimal duration of exclusive breastfeeding. [107 refs] Cochrane Database of Systematic Reviews. (1):CD003517.")
-        self.assertEqual(inst.relatedArtifact[6].type, "documentation")
-        self.assertEqual(inst.relatedArtifact[7].citation, "Petrova, A., Hegyi, T., & Mehta, R. (2007). Maternal race/ethnicity and one-month exclusive breastfeeding in association with the in-hospital feeding modality. Breastfeeding Medicine. 2(2):92-8.")
-        self.assertEqual(inst.relatedArtifact[7].type, "documentation")
-        self.assertEqual(inst.relatedArtifact[8].type, "documentation")
-        self.assertEqual(inst.relatedArtifact[9].type, "documentation")
-        self.assertEqual(inst.scoring.coding[0].code, "proportion")
-        self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.title, "Exclusive Breastfeeding Measure")
-        self.assertEqual(inst.topic[0].text, "Exclusive Breastfeeding")
-        self.assertEqual(inst.type[0].coding[0].code, "process")
-        self.assertEqual(inst.version, "4.0.0")
-    
-    def testMeasure3(self):
-        inst = self.instantiate_from("measure-cms146-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Measure instance")
-        self.implMeasure3(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Measure", js["resourceType"])
-        inst2 = measure.Measure(js)
-        self.implMeasure3(inst2)
-    
-    def implMeasure3(self, inst):
         self.assertEqual(inst.approvalDate.date, FHIRDate("2016-01-01").date)
         self.assertEqual(inst.approvalDate.as_json(), "2016-01-01")
         self.assertEqual(inst.author[0].name, "National Committee for Quality Assurance")
@@ -215,17 +144,17 @@ class MeasureTests(unittest.TestCase):
         self.assertEqual(inst.useContext[1].valueRange.low.value, 3)
         self.assertEqual(inst.version, "1.0.0")
     
-    def testMeasure4(self):
+    def testMeasure3(self):
         inst = self.instantiate_from("measure-component-a-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Measure instance")
-        self.implMeasure4(inst)
+        self.implMeasure3(inst)
         
         js = inst.as_json()
         self.assertEqual("Measure", js["resourceType"])
         inst2 = measure.Measure(js)
-        self.implMeasure4(inst2)
+        self.implMeasure3(inst2)
     
-    def implMeasure4(self, inst):
+    def implMeasure3(self, inst):
         self.assertEqual(inst.group[0].id, "Main")
         self.assertEqual(inst.group[0].population[0].code.coding[0].code, "initial-population")
         self.assertEqual(inst.group[0].population[0].criteria.expression, "Initial Population")
@@ -244,6 +173,77 @@ class MeasureTests(unittest.TestCase):
         self.assertEqual(inst.status, "draft")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.title, "Screening for Alcohol Misuse")
+    
+    def testMeasure4(self):
+        inst = self.instantiate_from("measure-predecessor-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Measure instance")
+        self.implMeasure4(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Measure", js["resourceType"])
+        inst2 = measure.Measure(js)
+        self.implMeasure4(inst2)
+    
+    def implMeasure4(self, inst):
+        self.assertEqual(inst.date.date, FHIRDate("2014-03-08").date)
+        self.assertEqual(inst.date.as_json(), "2014-03-08")
+        self.assertEqual(inst.description, "Exclusive breastfeeding measure of outcomes for exclusive breastmilk feeding of newborns.")
+        self.assertEqual(inst.group[0].id, "PopulationGroup1")
+        self.assertEqual(inst.group[0].population[0].code.coding[0].code, "initial-population")
+        self.assertEqual(inst.group[0].population[0].criteria.expression, "InitialPopulation1")
+        self.assertEqual(inst.group[0].population[0].criteria.language, "text/cql")
+        self.assertEqual(inst.group[0].population[1].code.coding[0].code, "denominator")
+        self.assertEqual(inst.group[0].population[1].criteria.expression, "Denominator1")
+        self.assertEqual(inst.group[0].population[1].criteria.language, "text/cql")
+        self.assertEqual(inst.group[0].population[2].code.coding[0].code, "denominator-exclusions")
+        self.assertEqual(inst.group[0].population[2].criteria.expression, "DenominatorExclusions1")
+        self.assertEqual(inst.group[0].population[2].criteria.language, "text/cql")
+        self.assertEqual(inst.group[0].population[3].code.coding[0].code, "numerator")
+        self.assertEqual(inst.group[0].population[3].criteria.expression, "Numerator1")
+        self.assertEqual(inst.group[0].population[3].criteria.language, "text/cql")
+        self.assertEqual(inst.group[1].id, "PopulationGroup2")
+        self.assertEqual(inst.group[1].population[0].code.coding[0].code, "initial-population")
+        self.assertEqual(inst.group[1].population[0].criteria.expression, "InitialPopulation2")
+        self.assertEqual(inst.group[1].population[0].criteria.language, "text/cql")
+        self.assertEqual(inst.group[1].population[1].code.coding[0].code, "denominator")
+        self.assertEqual(inst.group[1].population[1].criteria.expression, "Denominator2")
+        self.assertEqual(inst.group[1].population[1].criteria.language, "text/cql")
+        self.assertEqual(inst.group[1].population[2].code.coding[0].code, "denominator-exclusion")
+        self.assertEqual(inst.group[1].population[2].criteria.expression, "DenominatorExclusions2")
+        self.assertEqual(inst.group[1].population[2].criteria.language, "text/cql")
+        self.assertEqual(inst.group[1].population[3].code.coding[0].code, "numerator")
+        self.assertEqual(inst.group[1].population[3].criteria.expression, "Numerator2")
+        self.assertEqual(inst.group[1].population[3].criteria.language, "text/cql")
+        self.assertEqual(inst.id, "measure-predecessor-example")
+        self.assertEqual(inst.identifier[0].use, "official")
+        self.assertEqual(inst.identifier[0].value, "exclusive-breastfeeding-measure")
+        self.assertEqual(inst.improvementNotation.coding[0].code, "increase")
+        self.assertEqual(inst.improvementNotation.coding[0].system, "http://terminology.hl7.org/CodeSystem/measure-improvement-notation")
+        self.assertEqual(inst.library[0], "Library/library-exclusive-breastfeeding-cqm-logic")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.purpose, "Measure of newborns who were fed breast milk only since birth")
+        self.assertEqual(inst.relatedArtifact[0].citation, "American Academy of Pediatrics. (2005). Section on Breastfeeding. Policy Statement:Breastfeeding and the Use of Human Milk. Pediatrics.115:496-506.")
+        self.assertEqual(inst.relatedArtifact[0].type, "documentation")
+        self.assertEqual(inst.relatedArtifact[1].type, "documentation")
+        self.assertEqual(inst.relatedArtifact[2].type, "documentation")
+        self.assertEqual(inst.relatedArtifact[3].type, "documentation")
+        self.assertEqual(inst.relatedArtifact[4].type, "documentation")
+        self.assertEqual(inst.relatedArtifact[5].type, "documentation")
+        self.assertEqual(inst.relatedArtifact[6].citation, "Kramer, M.S. & Kakuma, R. (2002).Optimal duration of exclusive breastfeeding. [107 refs] Cochrane Database of Systematic Reviews. (1):CD003517.")
+        self.assertEqual(inst.relatedArtifact[6].type, "documentation")
+        self.assertEqual(inst.relatedArtifact[7].citation, "Petrova, A., Hegyi, T., & Mehta, R. (2007). Maternal race/ethnicity and one-month exclusive breastfeeding in association with the in-hospital feeding modality. Breastfeeding Medicine. 2(2):92-8.")
+        self.assertEqual(inst.relatedArtifact[7].type, "documentation")
+        self.assertEqual(inst.relatedArtifact[8].type, "documentation")
+        self.assertEqual(inst.relatedArtifact[9].type, "documentation")
+        self.assertEqual(inst.scoring.coding[0].code, "proportion")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.title, "Exclusive Breastfeeding Measure")
+        self.assertEqual(inst.topic[0].text, "Exclusive Breastfeeding")
+        self.assertEqual(inst.type[0].coding[0].code, "process")
+        self.assertEqual(inst.version, "4.0.1")
     
     def testMeasure5(self):
         inst = self.instantiate_from("measure-composite-example.json")

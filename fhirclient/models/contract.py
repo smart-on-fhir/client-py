@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Contract) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Contract) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import domainresource
@@ -118,8 +118,9 @@ class Contract(domainresource.DomainResource):
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | suspended | cancelled | completed | entered-in-
-        error | unknown.
+        """ amended | appended | cancelled | disputed | entered-in-error |
+        executable | executed | negotiable | offered | policy | rejected |
+        renewed | revoked | resolved | terminated.
         Type `str`. """
         
         self.subType = None
@@ -239,7 +240,9 @@ class ContractContentDefinition(backboneelement.BackboneElement):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.publicationStatus = None
-        """ draft | active | retired | unknown.
+        """ amended | appended | cancelled | disputed | entered-in-error |
+        executable | executed | negotiable | offered | policy | rejected |
+        renewed | revoked | resolved | terminated.
         Type `str`. """
         
         self.publisher = None

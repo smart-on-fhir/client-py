@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Procedure) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import domainresource
@@ -134,7 +134,7 @@ class Procedure(domainresource.DomainResource):
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ preparation | in-progress | not-done | suspended | aborted |
+        """ preparation | in-progress | not-done | on-hold | stopped |
         completed | entered-in-error | unknown.
         Type `str`. """
         

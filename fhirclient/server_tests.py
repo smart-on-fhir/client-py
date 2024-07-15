@@ -17,7 +17,7 @@ class TestServer(unittest.TestCase):
             os.remove('metadata')
     
     def testValidCapabilityStatement(self):
-        shutil.copyfile('test_metadata_valid.json', 'metadata')
+        shutil.copyfile('fhirclient/test_metadata_valid.json', 'metadata')
         mock = MockServer()
         mock.get_capability()
         
@@ -26,7 +26,7 @@ class TestServer(unittest.TestCase):
         self.assertIsNotNone(mock.auth._token_uri)
     
     def testStateConservation(self):
-        shutil.copyfile('test_metadata_valid.json', 'metadata')
+        shutil.copyfile('fhirclient/test_metadata_valid.json', 'metadata')
         mock = MockServer()
         self.assertIsNotNone(mock.capabilityStatement)
         
@@ -36,7 +36,7 @@ class TestServer(unittest.TestCase):
         self.assertIsNotNone(fhir.auth._token_uri)
     
     def testInvalidCapabilityStatement(self):
-        shutil.copyfile('test_metadata_invalid.json', 'metadata')
+        shutil.copyfile('fhirclient/test_metadata_invalid.json', 'metadata')
         mock = MockServer()
         try:
             mock.get_capability()

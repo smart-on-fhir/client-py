@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class ChargeItemDefinitionTests(unittest.TestCase):
         return chargeitemdefinition.ChargeItemDefinition(js)
     
     def testChargeItemDefinition1(self):
-        inst = self.instantiate_from("chargeitemdefinition-device-example.json")
+        inst = self.instantiate_from("chargeitemdefinition-ebm-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ChargeItemDefinition instance")
         self.implChargeItemDefinition1(inst)
         
@@ -32,48 +32,6 @@ class ChargeItemDefinitionTests(unittest.TestCase):
         self.implChargeItemDefinition1(inst2)
     
     def implChargeItemDefinition1(self, inst):
-        self.assertEqual(inst.applicability[0].description, "Verify ChargeItem pertains to Device 12345")
-        self.assertEqual(inst.applicability[0].expression, "%context.service.suppliedItem='Device/12345'")
-        self.assertEqual(inst.applicability[0].language, "text/fhirpath")
-        self.assertEqual(inst.description, "Financial details for  custom made device")
-        self.assertEqual(inst.id, "device")
-        self.assertEqual(inst.propertyGroup[0].priceComponent[0].amount.currency, "EUR")
-        self.assertEqual(inst.propertyGroup[0].priceComponent[0].amount.value, 67.44)
-        self.assertEqual(inst.propertyGroup[0].priceComponent[0].code.coding[0].code, "VK")
-        self.assertEqual(inst.propertyGroup[0].priceComponent[0].code.coding[0].display, "Verkaufspreis (netto)")
-        self.assertEqual(inst.propertyGroup[0].priceComponent[0].code.coding[0].system, "http://fhir.de/CodeSystem/billing-attributes")
-        self.assertEqual(inst.propertyGroup[0].priceComponent[0].type, "base")
-        self.assertEqual(inst.propertyGroup[1].applicability[0].description, "Gültigkeit Steuersatz")
-        self.assertEqual(inst.propertyGroup[1].applicability[0].expression, "%context.occurenceDateTime > '2018-04-01'")
-        self.assertEqual(inst.propertyGroup[1].applicability[0].language, "text/fhirpath")
-        self.assertEqual(inst.propertyGroup[1].priceComponent[0].code.coding[0].code, "MWST")
-        self.assertEqual(inst.propertyGroup[1].priceComponent[0].code.coding[0].display, "Mehrwersteuersatz")
-        self.assertEqual(inst.propertyGroup[1].priceComponent[0].code.coding[0].system, "http://fhir.de/CodeSystem/billing-attributes")
-        self.assertEqual(inst.propertyGroup[1].priceComponent[0].factor, 1.19)
-        self.assertEqual(inst.propertyGroup[1].priceComponent[0].type, "tax")
-        self.assertEqual(inst.propertyGroup[2].applicability[0].description, "Gültigkeit Steuersatz")
-        self.assertEqual(inst.propertyGroup[2].applicability[0].expression, "%context.occurenceDateTime <= '2018-04-01'")
-        self.assertEqual(inst.propertyGroup[2].applicability[0].language, "text/fhirpath")
-        self.assertEqual(inst.propertyGroup[2].priceComponent[0].code.coding[0].code, "MWST")
-        self.assertEqual(inst.propertyGroup[2].priceComponent[0].code.coding[0].display, "Mehrwersteuersatz")
-        self.assertEqual(inst.propertyGroup[2].priceComponent[0].code.coding[0].system, "http://fhir.de/CodeSystem/billing-attributes")
-        self.assertEqual(inst.propertyGroup[2].priceComponent[0].factor, 1.07)
-        self.assertEqual(inst.propertyGroup[2].priceComponent[0].type, "tax")
-        self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.url, "http://sap.org/ChargeItemDefinition/device-123")
-    
-    def testChargeItemDefinition2(self):
-        inst = self.instantiate_from("chargeitemdefinition-ebm-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a ChargeItemDefinition instance")
-        self.implChargeItemDefinition2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("ChargeItemDefinition", js["resourceType"])
-        inst2 = chargeitemdefinition.ChargeItemDefinition(js)
-        self.implChargeItemDefinition2(inst2)
-    
-    def implChargeItemDefinition2(self, inst):
         self.assertEqual(inst.applicability[0].description, "Excludes billing code 13250 for same Encounter")
         self.assertEqual(inst.applicability[0].expression, "[some CQL expression]")
         self.assertEqual(inst.applicability[0].language, "text/cql")
@@ -104,4 +62,46 @@ class ChargeItemDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.url, "http://fhir.de/ChargeItemDefinition/kbv/ebm-30110")
         self.assertEqual(inst.version, "2-2018")
+    
+    def testChargeItemDefinition2(self):
+        inst = self.instantiate_from("chargeitemdefinition-device-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a ChargeItemDefinition instance")
+        self.implChargeItemDefinition2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("ChargeItemDefinition", js["resourceType"])
+        inst2 = chargeitemdefinition.ChargeItemDefinition(js)
+        self.implChargeItemDefinition2(inst2)
+    
+    def implChargeItemDefinition2(self, inst):
+        self.assertEqual(inst.applicability[0].description, "Verify ChargeItem pertains to Device 12345")
+        self.assertEqual(inst.applicability[0].expression, "%context.service.suppliedItem='Device/12345'")
+        self.assertEqual(inst.applicability[0].language, "text/fhirpath")
+        self.assertEqual(inst.description, "Financial details for  custom made device")
+        self.assertEqual(inst.id, "device")
+        self.assertEqual(inst.propertyGroup[0].priceComponent[0].amount.currency, "EUR")
+        self.assertEqual(inst.propertyGroup[0].priceComponent[0].amount.value, 67.44)
+        self.assertEqual(inst.propertyGroup[0].priceComponent[0].code.coding[0].code, "VK")
+        self.assertEqual(inst.propertyGroup[0].priceComponent[0].code.coding[0].display, "Verkaufspreis (netto)")
+        self.assertEqual(inst.propertyGroup[0].priceComponent[0].code.coding[0].system, "http://fhir.de/CodeSystem/billing-attributes")
+        self.assertEqual(inst.propertyGroup[0].priceComponent[0].type, "base")
+        self.assertEqual(inst.propertyGroup[1].applicability[0].description, "Gültigkeit Steuersatz")
+        self.assertEqual(inst.propertyGroup[1].applicability[0].expression, "%context.occurenceDateTime > '2018-04-01'")
+        self.assertEqual(inst.propertyGroup[1].applicability[0].language, "text/fhirpath")
+        self.assertEqual(inst.propertyGroup[1].priceComponent[0].code.coding[0].code, "MWST")
+        self.assertEqual(inst.propertyGroup[1].priceComponent[0].code.coding[0].display, "Mehrwersteuersatz")
+        self.assertEqual(inst.propertyGroup[1].priceComponent[0].code.coding[0].system, "http://fhir.de/CodeSystem/billing-attributes")
+        self.assertEqual(inst.propertyGroup[1].priceComponent[0].factor, 1.19)
+        self.assertEqual(inst.propertyGroup[1].priceComponent[0].type, "tax")
+        self.assertEqual(inst.propertyGroup[2].applicability[0].description, "Gültigkeit Steuersatz")
+        self.assertEqual(inst.propertyGroup[2].applicability[0].expression, "%context.occurenceDateTime <= '2018-04-01'")
+        self.assertEqual(inst.propertyGroup[2].applicability[0].language, "text/fhirpath")
+        self.assertEqual(inst.propertyGroup[2].priceComponent[0].code.coding[0].code, "MWST")
+        self.assertEqual(inst.propertyGroup[2].priceComponent[0].code.coding[0].display, "Mehrwersteuersatz")
+        self.assertEqual(inst.propertyGroup[2].priceComponent[0].code.coding[0].system, "http://fhir.de/CodeSystem/billing-attributes")
+        self.assertEqual(inst.propertyGroup[2].priceComponent[0].factor, 1.07)
+        self.assertEqual(inst.propertyGroup[2].priceComponent[0].type, "tax")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.url, "http://sap.org/ChargeItemDefinition/device-123")
 

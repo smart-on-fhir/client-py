@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class SearchParameterTests(unittest.TestCase):
         return searchparameter.SearchParameter(js)
     
     def testSearchParameter1(self):
-        inst = self.instantiate_from("searchparameter-example-extension.json")
+        inst = self.instantiate_from("searchparameter-example-reference.json")
         self.assertIsNotNone(inst, "Must have instantiated a SearchParameter instance")
         self.implSearchParameter1(inst)
         
@@ -32,35 +32,6 @@ class SearchParameterTests(unittest.TestCase):
         self.implSearchParameter1(inst2)
     
     def implSearchParameter1(self, inst):
-        self.assertEqual(inst.base[0], "Patient")
-        self.assertEqual(inst.code, "part-agree")
-        self.assertEqual(inst.contact[0].telecom[0].system, "url")
-        self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.description, "Search by url for a participation agreement, which is stored in a DocumentReference")
-        self.assertTrue(inst.experimental)
-        self.assertEqual(inst.expression, "DocumentReference.extension('http://example.org/fhir/StructureDefinition/participation-agreement')")
-        self.assertEqual(inst.id, "example-extension")
-        self.assertEqual(inst.name, "Example Search Parameter on an extension")
-        self.assertEqual(inst.publisher, "Health Level Seven International (FHIR Infrastructure)")
-        self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.target[0], "DocumentReference")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.type, "reference")
-        self.assertEqual(inst.url, "http://hl7.org/fhir/SearchParameter/example-extension")
-        self.assertEqual(inst.xpath, "f:DocumentReference/f:extension[@url='http://example.org/fhir/StructureDefinition/participation-agreement']")
-        self.assertEqual(inst.xpathUsage, "normal")
-    
-    def testSearchParameter2(self):
-        inst = self.instantiate_from("searchparameter-example-reference.json")
-        self.assertIsNotNone(inst, "Must have instantiated a SearchParameter instance")
-        self.implSearchParameter2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("SearchParameter", js["resourceType"])
-        inst2 = searchparameter.SearchParameter(js)
-        self.implSearchParameter2(inst2)
-    
-    def implSearchParameter2(self, inst):
         self.assertEqual(inst.base[0], "Condition")
         self.assertEqual(inst.chain[0], "name")
         self.assertEqual(inst.chain[1], "identifier")
@@ -83,6 +54,35 @@ class SearchParameterTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "reference")
         self.assertEqual(inst.url, "http://hl7.org/fhir/SearchParameter/example-reference")
+        self.assertEqual(inst.xpathUsage, "normal")
+    
+    def testSearchParameter2(self):
+        inst = self.instantiate_from("searchparameter-example-extension.json")
+        self.assertIsNotNone(inst, "Must have instantiated a SearchParameter instance")
+        self.implSearchParameter2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("SearchParameter", js["resourceType"])
+        inst2 = searchparameter.SearchParameter(js)
+        self.implSearchParameter2(inst2)
+    
+    def implSearchParameter2(self, inst):
+        self.assertEqual(inst.base[0], "Patient")
+        self.assertEqual(inst.code, "part-agree")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
+        self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
+        self.assertEqual(inst.description, "Search by url for a participation agreement, which is stored in a DocumentReference")
+        self.assertTrue(inst.experimental)
+        self.assertEqual(inst.expression, "DocumentReference.extension('http://example.org/fhir/StructureDefinition/participation-agreement')")
+        self.assertEqual(inst.id, "example-extension")
+        self.assertEqual(inst.name, "Example Search Parameter on an extension")
+        self.assertEqual(inst.publisher, "Health Level Seven International (FHIR Infrastructure)")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.target[0], "DocumentReference")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.type, "reference")
+        self.assertEqual(inst.url, "http://hl7.org/fhir/SearchParameter/example-extension")
+        self.assertEqual(inst.xpath, "f:DocumentReference/f:extension[@url='http://example.org/fhir/StructureDefinition/participation-agreement']")
         self.assertEqual(inst.xpathUsage, "normal")
     
     def testSearchParameter3(self):

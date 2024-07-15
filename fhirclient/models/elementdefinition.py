@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ElementDefinition) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import backboneelement
@@ -167,6 +167,10 @@ class ElementDefinition(backboneelement.BackboneElement):
         self.defaultValueMarkdown = None
         """ Specified value if missing from instance.
         Type `str`. """
+        
+        self.defaultValueMeta = None
+        """ Specified value if missing from instance.
+        Type `Meta` (represented as `dict` in JSON). """
         
         self.defaultValueMoney = None
         """ Specified value if missing from instance.
@@ -371,6 +375,10 @@ class ElementDefinition(backboneelement.BackboneElement):
         self.fixedMarkdown = None
         """ Value must be exactly this.
         Type `str`. """
+        
+        self.fixedMeta = None
+        """ Value must be exactly this.
+        Type `Meta` (represented as `dict` in JSON). """
         
         self.fixedMoney = None
         """ Value must be exactly this.
@@ -688,6 +696,10 @@ class ElementDefinition(backboneelement.BackboneElement):
         """ Value must have at least these property values.
         Type `str`. """
         
+        self.patternMeta = None
+        """ Value must have at least these property values.
+        Type `Meta` (represented as `dict` in JSON). """
+        
         self.patternMoney = None
         """ Value must have at least these property values.
         Type `Money` (represented as `dict` in JSON). """
@@ -842,6 +854,7 @@ class ElementDefinition(backboneelement.BackboneElement):
             ("defaultValueInstant", "defaultValueInstant", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
             ("defaultValueMarkdown", "defaultValueMarkdown", str, False, "defaultValue", False),
+            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
             ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
             ("defaultValueOid", "defaultValueOid", str, False, "defaultValue", False),
             ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False),
@@ -893,6 +906,7 @@ class ElementDefinition(backboneelement.BackboneElement):
             ("fixedInstant", "fixedInstant", fhirdate.FHIRDate, False, "fixed", False),
             ("fixedInteger", "fixedInteger", int, False, "fixed", False),
             ("fixedMarkdown", "fixedMarkdown", str, False, "fixed", False),
+            ("fixedMeta", "fixedMeta", meta.Meta, False, "fixed", False),
             ("fixedMoney", "fixedMoney", money.Money, False, "fixed", False),
             ("fixedOid", "fixedOid", str, False, "fixed", False),
             ("fixedParameterDefinition", "fixedParameterDefinition", parameterdefinition.ParameterDefinition, False, "fixed", False),
@@ -972,6 +986,7 @@ class ElementDefinition(backboneelement.BackboneElement):
             ("patternInstant", "patternInstant", fhirdate.FHIRDate, False, "pattern", False),
             ("patternInteger", "patternInteger", int, False, "pattern", False),
             ("patternMarkdown", "patternMarkdown", str, False, "pattern", False),
+            ("patternMeta", "patternMeta", meta.Meta, False, "pattern", False),
             ("patternMoney", "patternMoney", money.Money, False, "pattern", False),
             ("patternOid", "patternOid", str, False, "pattern", False),
             ("patternParameterDefinition", "patternParameterDefinition", parameterdefinition.ParameterDefinition, False, "pattern", False),
@@ -1288,6 +1303,10 @@ class ElementDefinitionExample(element.Element):
         """ Value of Example (one of allowed types).
         Type `str`. """
         
+        self.valueMeta = None
+        """ Value of Example (one of allowed types).
+        Type `Meta` (represented as `dict` in JSON). """
+        
         self.valueMoney = None
         """ Value of Example (one of allowed types).
         Type `Money` (represented as `dict` in JSON). """
@@ -1406,6 +1425,7 @@ class ElementDefinitionExample(element.Element):
             ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueMarkdown", "valueMarkdown", str, False, "value", True),
+            ("valueMeta", "valueMeta", meta.Meta, False, "value", True),
             ("valueMoney", "valueMoney", money.Money, False, "value", True),
             ("valueOid", "valueOid", str, False, "value", True),
             ("valueParameterDefinition", "valueParameterDefinition", parameterdefinition.ParameterDefinition, False, "value", True),
@@ -1696,6 +1716,10 @@ try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import meta
+except ImportError:
+    meta = sys.modules[__package__ + '.meta']
 try:
     from . import money
 except ImportError:

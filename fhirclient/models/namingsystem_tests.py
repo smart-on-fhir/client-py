@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 import os
@@ -22,7 +22,7 @@ class NamingSystemTests(unittest.TestCase):
         return namingsystem.NamingSystem(js)
     
     def testNamingSystem1(self):
-        inst = self.instantiate_from("namingsystem-example-id.json")
+        inst = self.instantiate_from("namingsystem-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a NamingSystem instance")
         self.implNamingSystem1(inst)
         
@@ -32,6 +32,38 @@ class NamingSystemTests(unittest.TestCase):
         self.implNamingSystem1(inst2)
     
     def implNamingSystem1(self, inst):
+        self.assertEqual(inst.contact[0].name, "FHIR project team")
+        self.assertEqual(inst.contact[0].telecom[0].system, "url")
+        self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
+        self.assertEqual(inst.date.date, FHIRDate("2014-12-13").date)
+        self.assertEqual(inst.date.as_json(), "2014-12-13")
+        self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.kind, "codesystem")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.name, "SNOMED CT")
+        self.assertEqual(inst.publisher, "HL7 International on behalf of IHTSDO")
+        self.assertEqual(inst.responsible, "IHTSDO & affiliates")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.uniqueId[0].type, "oid")
+        self.assertEqual(inst.uniqueId[0].value, "2.16.840.1.113883.6.96")
+        self.assertTrue(inst.uniqueId[1].preferred)
+        self.assertEqual(inst.uniqueId[1].type, "uri")
+        self.assertEqual(inst.uniqueId[1].value, "http://snomed.info/sct")
+    
+    def testNamingSystem2(self):
+        inst = self.instantiate_from("namingsystem-example-id.json")
+        self.assertIsNotNone(inst, "Must have instantiated a NamingSystem instance")
+        self.implNamingSystem2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("NamingSystem", js["resourceType"])
+        inst2 = namingsystem.NamingSystem(js)
+        self.implNamingSystem2(inst2)
+    
+    def implNamingSystem2(self, inst):
         self.assertEqual(inst.contact[0].name, "HL7 Australia FHIR Team")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7-australia.wikispaces.com/FHIR+Australia")
@@ -63,36 +95,4 @@ class NamingSystemTests(unittest.TestCase):
         self.assertEqual(inst.uniqueId[1].type, "uri")
         self.assertEqual(inst.uniqueId[1].value, "http://ns.electronichealth.net.au/id/hi/ihi/1.0")
         self.assertEqual(inst.usage, "Used in Australia for identifying patients")
-    
-    def testNamingSystem2(self):
-        inst = self.instantiate_from("namingsystem-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a NamingSystem instance")
-        self.implNamingSystem2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("NamingSystem", js["resourceType"])
-        inst2 = namingsystem.NamingSystem(js)
-        self.implNamingSystem2(inst2)
-    
-    def implNamingSystem2(self, inst):
-        self.assertEqual(inst.contact[0].name, "FHIR project team")
-        self.assertEqual(inst.contact[0].telecom[0].system, "url")
-        self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2014-12-13").date)
-        self.assertEqual(inst.date.as_json(), "2014-12-13")
-        self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.kind, "codesystem")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.name, "SNOMED CT")
-        self.assertEqual(inst.publisher, "HL7 International on behalf of IHTSDO")
-        self.assertEqual(inst.responsible, "IHTSDO & affiliates")
-        self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.uniqueId[0].type, "oid")
-        self.assertEqual(inst.uniqueId[0].value, "2.16.840.1.113883.6.96")
-        self.assertTrue(inst.uniqueId[1].preferred)
-        self.assertEqual(inst.uniqueId[1].type, "uri")
-        self.assertEqual(inst.uniqueId[1].value, "http://snomed.info/sct")
 

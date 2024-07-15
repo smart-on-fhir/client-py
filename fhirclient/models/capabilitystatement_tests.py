@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 import os
@@ -43,7 +43,7 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.document[0].mode, "consumer")
         self.assertEqual(inst.document[0].profile, "http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796")
         self.assertTrue(inst.experimental)
-        self.assertEqual(inst.fhirVersion, "4.0.0")
+        self.assertEqual(inst.fhirVersion, "4.0.1")
         self.assertEqual(inst.format[0], "xml")
         self.assertEqual(inst.format[1], "json")
         self.assertEqual(inst.id, "example")
@@ -133,7 +133,7 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.date.date, FHIRDate("2013-06-18").date)
         self.assertEqual(inst.date.as_json(), "2013-06-18")
         self.assertEqual(inst.description, "Prototype Capability Statement for September 2013 Connectathon")
-        self.assertEqual(inst.fhirVersion, "4.0.0")
+        self.assertEqual(inst.fhirVersion, "4.0.1")
         self.assertEqual(inst.format[0], "json")
         self.assertEqual(inst.format[1], "xml")
         self.assertEqual(inst.id, "phr")

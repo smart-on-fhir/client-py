@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Task) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Task) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import domainresource
@@ -320,6 +320,10 @@ class TaskInput(backboneelement.BackboneElement):
         """ Content to use in performing the task.
         Type `str`. """
         
+        self.valueMeta = None
+        """ Content to use in performing the task.
+        Type `Meta` (represented as `dict` in JSON). """
+        
         self.valueMoney = None
         """ Content to use in performing the task.
         Type `Money` (represented as `dict` in JSON). """
@@ -438,6 +442,7 @@ class TaskInput(backboneelement.BackboneElement):
             ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueMarkdown", "valueMarkdown", str, False, "value", True),
+            ("valueMeta", "valueMeta", meta.Meta, False, "value", True),
             ("valueMoney", "valueMoney", money.Money, False, "value", True),
             ("valueOid", "valueOid", str, False, "value", True),
             ("valueParameterDefinition", "valueParameterDefinition", parameterdefinition.ParameterDefinition, False, "value", True),
@@ -595,6 +600,10 @@ class TaskOutput(backboneelement.BackboneElement):
         """ Result of output.
         Type `str`. """
         
+        self.valueMeta = None
+        """ Result of output.
+        Type `Meta` (represented as `dict` in JSON). """
+        
         self.valueMoney = None
         """ Result of output.
         Type `Money` (represented as `dict` in JSON). """
@@ -713,6 +722,7 @@ class TaskOutput(backboneelement.BackboneElement):
             ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueMarkdown", "valueMarkdown", str, False, "value", True),
+            ("valueMeta", "valueMeta", meta.Meta, False, "value", True),
             ("valueMoney", "valueMoney", money.Money, False, "value", True),
             ("valueOid", "valueOid", str, False, "value", True),
             ("valueParameterDefinition", "valueParameterDefinition", parameterdefinition.ParameterDefinition, False, "value", True),
@@ -857,6 +867,10 @@ try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import meta
+except ImportError:
+    meta = sys.modules[__package__ + '.meta']
 try:
     from . import money
 except ImportError:

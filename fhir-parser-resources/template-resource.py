@@ -24,6 +24,15 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
 {%- if klass.resource_type %}
     
     resource_type = "{{ klass.resource_type }}"
+{%- elif klass.name %}
+{#- backwards compatibility:
+# fhir-parser stopped providing resource_type for non-resources.
+# But we already shipped code that had this property for all classes.
+# So to avoid an API break, we keep generating this for all classes.
+# Can remove once we jump to R5. (R4-QUIRK)
+#}
+    
+    resource_type = "{{ klass.name }}"
 {%- endif %}
     
     def __init__(self, jsondict=None, strict=True):
@@ -33,7 +42,8 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-    {%- for prop in klass.properties %}
+    {#- sorted just to avoid churn during another update - can remove as its own PR at some point #}
+    {%- for prop in klass.properties|sort(attribute="name", case_sensitive=True) %}
         
         self.{{ prop.name }} = None
         """ {{ prop.short|wordwrap(67, wrapstring="\n        ") }}.
@@ -55,7 +65,8 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
         {%- endif %}{% endfor %}
         {%- endif %}
         js.extend([
-        {%- for prop in klass.properties %}
+        {#- sorted just to avoid churn during another update - can remove as its own PR at some point #}
+        {%- for prop in klass.properties|sort(attribute="name", case_sensitive=True) %}
             ("{{ prop.name }}", "{{ prop.orig_name }}",
             {%- if prop.module_name %} {{ prop.module_name }}.{% else %} {% endif %}{{ prop.class_name }}, {# #}
             {{- prop.is_array }},

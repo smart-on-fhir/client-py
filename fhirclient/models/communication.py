@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Communication) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Communication) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import domainresource
@@ -74,7 +74,7 @@ class Communication(domainresource.DomainResource):
         List of `CommunicationPayload` items (represented as `dict` in JSON). """
         
         self.priority = None
-        """ Message urgency.
+        """ routine | urgent | asap | stat.
         Type `str`. """
         
         self.reasonCode = None
@@ -102,8 +102,8 @@ class Communication(domainresource.DomainResource):
         Type `FHIRDate` (represented as `str` in JSON). """
         
         self.status = None
-        """ preparation | in-progress | not-done | suspended | aborted |
-        completed | entered-in-error.
+        """ preparation | in-progress | not-done | on-hold | stopped |
+        completed | entered-in-error | unknown.
         Type `str`. """
         
         self.statusReason = None
