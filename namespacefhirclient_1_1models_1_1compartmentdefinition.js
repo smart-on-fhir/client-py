@@ -1,5 +1,0 @@
-var namespacefhirclient_1_1models_1_1compartmentdefinition =
-[
-    [ "CompartmentDefinition", "classfhirclient_1_1models_1_1compartmentdefinition_1_1_compartment_definition.html", "classfhirclient_1_1models_1_1compartmentdefinition_1_1_compartment_definition" ],
-    [ "CompartmentDefinitionResource", "classfhirclient_1_1models_1_1compartmentdefinition_1_1_compartment_definition_resource.html", "classfhirclient_1_1models_1_1compartmentdefinition_1_1_compartment_definition_resource" ]
-];

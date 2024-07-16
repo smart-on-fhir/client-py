@@ -1,4 +1,0 @@
-var namespacefhirclient_1_1models_1_1eligibilityresponse__tests =
-[
-    [ "EligibilityResponseTests", "classfhirclient_1_1models_1_1eligibilityresponse__tests_1_1_eligibility_response_tests.html", "classfhirclient_1_1models_1_1eligibilityresponse__tests_1_1_eligibility_response_tests" ]
-];
