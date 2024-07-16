@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['how_20to_20contribute',['How To Contribute',['../md_CONTRIBUTING.html',1,'']]]
+  ['fhir_20client_0',['SMART FHIR Client',['../index.html',1,'']]]
 ];

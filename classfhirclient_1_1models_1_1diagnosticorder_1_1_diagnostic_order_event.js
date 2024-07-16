@@ -1,9 +1,0 @@
-var classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order_event =
-[
-    [ "__init__", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order_event.html#ae09da97bf556a0f4313d544243d9c64a", null ],
-    [ "elementProperties", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order_event.html#abf71b18f89d1970eb2fd2f37ef1e86c1", null ],
-    [ "actor", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order_event.html#a9f3e8832b2c3d26f0413eddb4fe4db99", null ],
-    [ "dateTime", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order_event.html#a1b3636ff40b91024f7e07157f0720274", null ],
-    [ "description", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order_event.html#a5e2777467b93342e899565daa5ed7a0c", null ],
-    [ "status", "classfhirclient_1_1models_1_1diagnosticorder_1_1_diagnostic_order_event.html#af5e0da29765cfccb06d435217fa31c00", null ]
-];
