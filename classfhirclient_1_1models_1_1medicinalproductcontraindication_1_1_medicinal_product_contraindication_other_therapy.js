@@ -1,0 +1,8 @@
+var classfhirclient_1_1models_1_1medicinalproductcontraindication_1_1_medicinal_product_contraindication_other_therapy =
+[
+    [ "__init__", "classfhirclient_1_1models_1_1medicinalproductcontraindication_1_1_medicinal_product_contraindication_other_therapy.html#abf9252b136d512008494e0e388e9dfcd", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1medicinalproductcontraindication_1_1_medicinal_product_contraindication_other_therapy.html#a06e36b54aad9926e6bffda4faed7357a", null ],
+    [ "medicationCodeableConcept", "classfhirclient_1_1models_1_1medicinalproductcontraindication_1_1_medicinal_product_contraindication_other_therapy.html#a11e1b0a69796e66c683b0f36b50d0bd9", null ],
+    [ "medicationReference", "classfhirclient_1_1models_1_1medicinalproductcontraindication_1_1_medicinal_product_contraindication_other_therapy.html#ac2a68a487fe72021a5ac75ef52b1902a", null ],
+    [ "therapyRelationshipType", "classfhirclient_1_1models_1_1medicinalproductcontraindication_1_1_medicinal_product_contraindication_other_therapy.html#aa0a36d16865bee5a9270e876c7a5d9cc", null ]
+];

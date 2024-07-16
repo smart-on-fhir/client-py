@@ -1,0 +1,4 @@
+var explanationofbenefit__tests_8py =
+[
+    [ "fhirclient.models.explanationofbenefit_tests.ExplanationOfBenefitTests", "classfhirclient_1_1models_1_1explanationofbenefit__tests_1_1_explanation_of_benefit_tests.html", "classfhirclient_1_1models_1_1explanationofbenefit__tests_1_1_explanation_of_benefit_tests" ]
+];

@@ -1,0 +1,10 @@
+var classfhirclient_1_1models_1_1medicinalproductauthorization_1_1_medicinal_product_authorization_jurisdictional_authorization =
+[
+    [ "__init__", "classfhirclient_1_1models_1_1medicinalproductauthorization_1_1_medicinal_product_authorization_jurisdictional_authorization.html#a8faa3173af1e179faa205fae82b4ec96", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1medicinalproductauthorization_1_1_medicinal_product_authorization_jurisdictional_authorization.html#a1e1efdb35f0fc95727e3b13be61793c1", null ],
+    [ "country", "classfhirclient_1_1models_1_1medicinalproductauthorization_1_1_medicinal_product_authorization_jurisdictional_authorization.html#ac657b7167dbef6b10940932a78ce159d", null ],
+    [ "identifier", "classfhirclient_1_1models_1_1medicinalproductauthorization_1_1_medicinal_product_authorization_jurisdictional_authorization.html#ac103a072792a91d75464d29c4be548be", null ],
+    [ "jurisdiction", "classfhirclient_1_1models_1_1medicinalproductauthorization_1_1_medicinal_product_authorization_jurisdictional_authorization.html#a6621233c048958b348b33eef7cf01e69", null ],
+    [ "legalStatusOfSupply", "classfhirclient_1_1models_1_1medicinalproductauthorization_1_1_medicinal_product_authorization_jurisdictional_authorization.html#a41f07881ba36e9c596053c21708229db", null ],
+    [ "validityPeriod", "classfhirclient_1_1models_1_1medicinalproductauthorization_1_1_medicinal_product_authorization_jurisdictional_authorization.html#a649ce5c27b759e434749d0d9bd2396aa", null ]
+];

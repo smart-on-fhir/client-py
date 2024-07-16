@@ -1,0 +1,26 @@
+var classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic =
+[
+    [ "__init__", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#ab6680abfecc63a280b423be41df9fc4c", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a7f97a63b1a7e8ab920f0e134a83cc1ce", null ],
+    [ "definitionCanonical", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#abc8e753c2bb223bc300f42d298024c96", null ],
+    [ "definitionCodeableConcept", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a300731b596244f3e7572400f14d813b2", null ],
+    [ "definitionDataRequirement", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a130fe98e406054bc610ce773abe9a611", null ],
+    [ "definitionExpression", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#af14c39391c6d8b3e49455c97707ec6f8", null ],
+    [ "exclude", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a0ea468c65343db238c6ef06572d3bb13", null ],
+    [ "participantEffectiveDateTime", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a42c8320d565d4c597a48d72ae209530d", null ],
+    [ "participantEffectiveDescription", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a1a3467b05e79c3957b824e7e8ae9b7fe", null ],
+    [ "participantEffectiveDuration", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a5eb63160f501f9a58a5a5f57f0ef0a54", null ],
+    [ "participantEffectiveGroupMeasure", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a0d1df95b6d0c42401bbef28ddcdf4b74", null ],
+    [ "participantEffectivePeriod", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a2e8c6a961f9377abd2fb23f4a9ac3a15", null ],
+    [ "participantEffectiveTimeFromStart", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a1ae157bb99e5da030a99dd3e31c6d28b", null ],
+    [ "participantEffectiveTiming", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#ac512b509d117a82765188daf4008b266", null ],
+    [ "studyEffectiveDateTime", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a39d7adba74a5bb10e04ffc0e9aab4a67", null ],
+    [ "studyEffectiveDescription", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a20726e1b5d4cf2d69c4c2abcbe900fe9", null ],
+    [ "studyEffectiveDuration", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a297c921cc1d59d828272d48a6a109582", null ],
+    [ "studyEffectiveGroupMeasure", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a0e4d6cfc209786974a4b3d5d74c9daab", null ],
+    [ "studyEffectivePeriod", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a0cf5706ef35a9c132b3f8ace4ad195c6", null ],
+    [ "studyEffectiveTimeFromStart", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a5b45d067a0e0daccecc028f04a7b2adb", null ],
+    [ "studyEffectiveTiming", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#ac711234274dffa47a6aa505332a2badb", null ],
+    [ "unitOfMeasure", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#a1803edf386bba4e4cbac2d2c77fd4f16", null ],
+    [ "usageContext", "classfhirclient_1_1models_1_1researchelementdefinition_1_1_research_element_definition_characteristic.html#ad28be14d9893434aa76d8d387e3c07d5", null ]
+];

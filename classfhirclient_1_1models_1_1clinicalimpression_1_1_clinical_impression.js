@@ -1,0 +1,26 @@
+var classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression =
+[
+    [ "__init__", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a97a8f17f7a59d04b75b511edb00cd8bc", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a45754b8a877cd7858d5bbe4c6f25ecf8", null ],
+    [ "assessor", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#acbc6e27f3316a306fa21b8d4dd194332", null ],
+    [ "code", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#ab0a619f8c2724045e3c31ec525897606", null ],
+    [ "date", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a11d1741b20f324421c941394adda6c91", null ],
+    [ "description", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#ab28d1561473374eeb444c7619432032b", null ],
+    [ "effectiveDateTime", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a06660833d31f0e292cefce001f717c84", null ],
+    [ "effectivePeriod", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a3147ab85e4c3aa166b5cd38d3917de0e", null ],
+    [ "encounter", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#acbe8b7c983f091ca94b80374188302f4", null ],
+    [ "finding", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a63fa9f80064de7885fb5e7f8bb500e35", null ],
+    [ "identifier", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a8b81d42367dba1b11254a75dd56cbe2c", null ],
+    [ "investigation", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a8c7e3615b6467ac7a371efbd53f8ecc7", null ],
+    [ "note", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#aa77a657dc7657992c202a6f3179de478", null ],
+    [ "previous", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#aff1ebf87c5fb93db9939458cc9b885f8", null ],
+    [ "problem", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a6e0913277b1dc3d514948259540db717", null ],
+    [ "prognosisCodeableConcept", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a21bc81e0e6c29a26e1d9aa81136fa296", null ],
+    [ "prognosisReference", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a19a4d945eab0a700dcaee28fc22565b6", null ],
+    [ "protocol", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#acad7df6a58a6d2c55cedf2a65ef9cea0", null ],
+    [ "status", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#abc3d996ab4ef4b1272701f7d803185e1", null ],
+    [ "statusReason", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a8165e93dd3f221363771c5cf8e8f5ad2", null ],
+    [ "subject", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a0967b9e91759b331d41ddbd90c5f047a", null ],
+    [ "summary", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a59e918fb52ee4f87c454e8d3fe98835b", null ],
+    [ "supportingInfo", "classfhirclient_1_1models_1_1clinicalimpression_1_1_clinical_impression.html#a6cb68534ed684327b5f32db57a3802fa", null ]
+];

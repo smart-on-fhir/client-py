@@ -1,0 +1,12 @@
+var namespacefhirclient_1_1models_1_1medicinalproductingredient =
+[
+    [ "MedicinalProductIngredient", "classfhirclient_1_1models_1_1medicinalproductingredient_1_1_medicinal_product_ingredient.html", "classfhirclient_1_1models_1_1medicinalproductingredient_1_1_medicinal_product_ingredient" ],
+    [ "MedicinalProductIngredientSpecifiedSubstance", "classfhirclient_1_1models_1_1medicinalproductingredient_1_1_medicinal_product_ingredient_specified_substance.html", "classfhirclient_1_1models_1_1medicinalproductingredient_1_1_medicinal_product_ingredient_specified_substance" ],
+    [ "MedicinalProductIngredientSpecifiedSubstanceStrength", "classfhirclient_1_1models_1_1medicinalproductingredient_1_1_medicinal_product_ingredient_specified_substance_strength.html", "classfhirclient_1_1models_1_1medicinalproductingredient_1_1_medicinal_product_ingredient_specified_substance_strength" ],
+    [ "MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength", "classfhirclient_1_1models_1_1medicinalproductingredient_1_1_medicinal_product_ingredient_specifid2f747f5869bb8b318fb4c3f4ae2cc3b.html", "classfhirclient_1_1models_1_1medicinalproductingredient_1_1_medicinal_product_ingredient_specifid2f747f5869bb8b318fb4c3f4ae2cc3b" ],
+    [ "MedicinalProductIngredientSubstance", "classfhirclient_1_1models_1_1medicinalproductingredient_1_1_medicinal_product_ingredient_substance.html", "classfhirclient_1_1models_1_1medicinalproductingredient_1_1_medicinal_product_ingredient_substance" ],
+    [ "codeableconcept", "namespacefhirclient_1_1models_1_1medicinalproductingredient.html#af35e132ed1513a0625044573c96ec97b", null ],
+    [ "fhirreference", "namespacefhirclient_1_1models_1_1medicinalproductingredient.html#a002fa00c5d06b8abc2e3c156422f100a", null ],
+    [ "identifier", "namespacefhirclient_1_1models_1_1medicinalproductingredient.html#ac1262ebee5704a110db5f4f2db6d6131", null ],
+    [ "ratio", "namespacefhirclient_1_1models_1_1medicinalproductingredient.html#a7db61230829d5aa62c36122142ddc1f0", null ]
+];

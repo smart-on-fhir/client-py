@@ -1,0 +1,8 @@
+var classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceuticalf0dadd6a3978ee72f018dbf1f33fe1a1 =
+[
+    [ "__init__", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceuticalf0dadd6a3978ee72f018dbf1f33fe1a1.html#a875684a5402ed966094138d12991b8e3", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceuticalf0dadd6a3978ee72f018dbf1f33fe1a1.html#a7d4c0519f3540d9145091e8b4eb52808", null ],
+    [ "supportingInformation", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceuticalf0dadd6a3978ee72f018dbf1f33fe1a1.html#a8c3f9563355a028c86ea04c6ae9ae35a", null ],
+    [ "tissue", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceuticalf0dadd6a3978ee72f018dbf1f33fe1a1.html#a6c794d7ad59f75c307d9f2e223ca48eb", null ],
+    [ "value", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceuticalf0dadd6a3978ee72f018dbf1f33fe1a1.html#a732a7287b79b8b357cf131a0064dce6a", null ]
+];

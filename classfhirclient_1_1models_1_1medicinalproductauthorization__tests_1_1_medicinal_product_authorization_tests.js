@@ -1,0 +1,6 @@
+var classfhirclient_1_1models_1_1medicinalproductauthorization__tests_1_1_medicinal_product_authorization_tests =
+[
+    [ "implMedicinalProductAuthorization1", "classfhirclient_1_1models_1_1medicinalproductauthorization__tests_1_1_medicinal_product_authorization_tests.html#a97fbc58c8967b0a9179a6e52736606b1", null ],
+    [ "instantiate_from", "classfhirclient_1_1models_1_1medicinalproductauthorization__tests_1_1_medicinal_product_authorization_tests.html#acaeaaf0e3891854922513c8ce7a0e128", null ],
+    [ "testMedicinalProductAuthorization1", "classfhirclient_1_1models_1_1medicinalproductauthorization__tests_1_1_medicinal_product_authorization_tests.html#add459b055718c1b00aa219010206fbcb", null ]
+];

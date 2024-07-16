@@ -1,0 +1,14 @@
+var namespacefhirclient_1_1models_1_1medicinalproductpharmaceutical =
+[
+    [ "MedicinalProductPharmaceutical", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical.html", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical" ],
+    [ "MedicinalProductPharmaceuticalCharacteristics", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_characteristics.html", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_characteristics" ],
+    [ "MedicinalProductPharmaceuticalRouteOfAdministration", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration.html", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration" ],
+    [ "MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceuticalb1bc3619019f43b49319bcd2f53671e2.html", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceuticalb1bc3619019f43b49319bcd2f53671e2" ],
+    [ "MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceuticalf0dadd6a3978ee72f018dbf1f33fe1a1.html", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceuticalf0dadd6a3978ee72f018dbf1f33fe1a1" ],
+    [ "codeableconcept", "namespacefhirclient_1_1models_1_1medicinalproductpharmaceutical.html#ac1b2f63a0a6ab141a6d23071a7f1efd3", null ],
+    [ "duration", "namespacefhirclient_1_1models_1_1medicinalproductpharmaceutical.html#a365f6c74bad0abff2085b56bce6b2c49", null ],
+    [ "fhirreference", "namespacefhirclient_1_1models_1_1medicinalproductpharmaceutical.html#a4c3a35d84de3b71a24229f7b5d283396", null ],
+    [ "identifier", "namespacefhirclient_1_1models_1_1medicinalproductpharmaceutical.html#a1f173830758bee01a38a12e28fbf956d", null ],
+    [ "quantity", "namespacefhirclient_1_1models_1_1medicinalproductpharmaceutical.html#aad7be442014d1c5dd82aeef363419873", null ],
+    [ "ratio", "namespacefhirclient_1_1models_1_1medicinalproductpharmaceutical.html#a3cf0b7950725b58f7e5e462b9c2a6968", null ]
+];

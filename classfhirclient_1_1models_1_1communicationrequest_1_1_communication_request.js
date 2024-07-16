@@ -1,0 +1,28 @@
+var classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request =
+[
+    [ "__init__", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#abc367739ec589d536f0c5abbf1cabe08", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a4800ae46f94d2c6a7413eff4f0977f28", null ],
+    [ "about", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#aae789c0012d4b844f35eec0a7a204e4c", null ],
+    [ "authoredOn", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#aaeef04be221343d7270eefcab45ede2c", null ],
+    [ "basedOn", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#aa7b16d45ac6f76dc7725ebbb7dab8011", null ],
+    [ "category", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a3067250fe608e45996e5c77917a7c0ec", null ],
+    [ "doNotPerform", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a1cc716d950852c6e0039b3ca3e6ea25c", null ],
+    [ "encounter", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a780176871a0b75aaf229bcd12d6523b2", null ],
+    [ "groupIdentifier", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#aef4f2e7541dca8ac256146244dd5af3e", null ],
+    [ "identifier", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#aa8f877a20cc512c0c41100003f14837d", null ],
+    [ "medium", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a9dac575917129b3dd15759cd9506d21e", null ],
+    [ "note", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#ad4b6c11e2384715e1a94bf1f2d01308c", null ],
+    [ "occurrenceDateTime", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#afd6ccf1b5f6b89a589035fafadd0b72f", null ],
+    [ "occurrencePeriod", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#aa487a7203d3123e5bd6abeafe3d43121", null ],
+    [ "payload", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a32f99035864ab39b2612ee45bfb77588", null ],
+    [ "priority", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#af347b1ed959c31f18858e1fa5150995c", null ],
+    [ "reasonCode", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a0c9a25660018fb32b3c5a82e873cbc22", null ],
+    [ "reasonReference", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#ab3f49592673d84fd29baa2c990376e59", null ],
+    [ "recipient", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a50f38bf1a2e5545194b28cfa6c6dc5de", null ],
+    [ "replaces", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a06f7dfb81cee9c62a63bb03deb594885", null ],
+    [ "requester", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a124a2dc4b4b074ad04d3b6539266f6b0", null ],
+    [ "sender", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a95b77511efe81605bd5933ef205933be", null ],
+    [ "status", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a68eedeb1be60bab5ee28d88534324f7c", null ],
+    [ "statusReason", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#afec90d917829f03abaca7729d3ad25c6", null ],
+    [ "subject", "classfhirclient_1_1models_1_1communicationrequest_1_1_communication_request.html#a4f96bdc3901c275840b585cbc4d7b1e4", null ]
+];
