@@ -200,7 +200,7 @@ class FHIROAuth2Auth(FHIRAuth):
         if server is None:
             raise Exception("Cannot create an authorize-uri without server instance")
         if self.auth_state is None:
-            self.auth_state = str(uuid.uuid4())[:8]
+            self.auth_state = str(uuid.uuid4())
             server.should_save_state()
         
         params = {
