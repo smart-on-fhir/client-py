@@ -44,20 +44,21 @@ To read a given patient from an open FHIR server, you can use:
 
 ```python
 from fhirclient import client
+
 settings = {
     'app_id': 'my_web_app',
-    'api_base': 'https://fhir-open-api-dstu2.smarthealthit.org'
+    'api_base': 'https://r3.smarthealthit.org'
 }
 smart = client.FHIRClient(settings=settings)
 
 import fhirclient.models.patient as p
-patient = p.Patient.read('hca-pat-1', smart.server)
-patient.birthDate.isostring
-# '1963-06-12'
-smart.human_name(patient.name[0])
-# 'Christy Ebert'
-```
 
+patient = p.Patient.read('2e27c71e-30c8-4ceb-8c1c-5641e066c0a4', smart.server)
+print(patient.birthDate.isostring)
+# '1951-03-09'
+print(smart.human_name(patient.name[0]))
+# 'Ms. Buena Abbott'
+```
 If this is a protected server, you will first have to send your user to the authorization endpoint to log in.
 Just call `smart.authorize_url` to obtain the correct URL.
 You can use `smart.prepare()`, which will return `False` if the server is protected and you need to authorize.
