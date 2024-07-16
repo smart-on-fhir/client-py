@@ -1,0 +1,12 @@
+var substancesourcematerial_8py =
+[
+    [ "fhirclient.models.substancesourcematerial.SubstanceSourceMaterial", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material" ],
+    [ "fhirclient.models.substancesourcematerial.SubstanceSourceMaterialFractionDescription", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_fraction_description.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_fraction_description" ],
+    [ "fhirclient.models.substancesourcematerial.SubstanceSourceMaterialOrganism", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism" ],
+    [ "fhirclient.models.substancesourcematerial.SubstanceSourceMaterialOrganismAuthor", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_author.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_author" ],
+    [ "fhirclient.models.substancesourcematerial.SubstanceSourceMaterialOrganismHybrid", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_hybrid.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_hybrid" ],
+    [ "fhirclient.models.substancesourcematerial.SubstanceSourceMaterialOrganismOrganismGeneral", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_organism_general.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_organism_general" ],
+    [ "fhirclient.models.substancesourcematerial.SubstanceSourceMaterialPartDescription", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_part_description.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_part_description" ],
+    [ "codeableconcept", "substancesourcematerial_8py.html#aeed9197774d6e67944127340f0323100", null ],
+    [ "identifier", "substancesourcematerial_8py.html#a499f213e766539b714d0b3e28aedbf77", null ]
+];

@@ -1,0 +1,6 @@
+var classfhirclient_1_1models_1_1medicinalproductinteraction__tests_1_1_medicinal_product_interaction_tests =
+[
+    [ "implMedicinalProductInteraction1", "classfhirclient_1_1models_1_1medicinalproductinteraction__tests_1_1_medicinal_product_interaction_tests.html#a411e37156f0c616f685895ecedb3031b", null ],
+    [ "instantiate_from", "classfhirclient_1_1models_1_1medicinalproductinteraction__tests_1_1_medicinal_product_interaction_tests.html#a0e2bdeeaeb72e9e842b64dbeb48224a3", null ],
+    [ "testMedicinalProductInteraction1", "classfhirclient_1_1models_1_1medicinalproductinteraction__tests_1_1_medicinal_product_interaction_tests.html#a21962ee5376fe0370cfad5608beb8200", null ]
+];

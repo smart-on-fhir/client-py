@@ -1,0 +1,4 @@
+var namespacefhirclient_1_1models_1_1researchelementdefinition__tests =
+[
+    [ "ResearchElementDefinitionTests", "classfhirclient_1_1models_1_1researchelementdefinition__tests_1_1_research_element_definition_tests.html", "classfhirclient_1_1models_1_1researchelementdefinition__tests_1_1_research_element_definition_tests" ]
+];

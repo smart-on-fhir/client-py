@@ -1,0 +1,4 @@
+var substancespecification__tests_8py =
+[
+    [ "fhirclient.models.substancespecification_tests.SubstanceSpecificationTests", "classfhirclient_1_1models_1_1substancespecification__tests_1_1_substance_specification_tests.html", "classfhirclient_1_1models_1_1substancespecification__tests_1_1_substance_specification_tests" ]
+];

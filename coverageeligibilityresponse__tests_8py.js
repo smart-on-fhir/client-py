@@ -1,0 +1,4 @@
+var coverageeligibilityresponse__tests_8py =
+[
+    [ "fhirclient.models.coverageeligibilityresponse_tests.CoverageEligibilityResponseTests", "classfhirclient_1_1models_1_1coverageeligibilityresponse__tests_1_1_coverage_eligibility_response_tests.html", "classfhirclient_1_1models_1_1coverageeligibilityresponse__tests_1_1_coverage_eligibility_response_tests" ]
+];

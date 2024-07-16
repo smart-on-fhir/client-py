@@ -1,0 +1,26 @@
+var classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item =
+[
+    [ "__init__", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a97cb28debf108704193067af67181c3f", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#ae5870d688837e6a403d76244120ae3ad", null ],
+    [ "adjudication", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#ab16325844c6acd783b90e6b24c2edd9f", null ],
+    [ "bodySite", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#adef827029d57d6f8459c4fe52239ce3f", null ],
+    [ "detail", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#aae74b296f333a747bf1d5000a5da508a", null ],
+    [ "detailSequence", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a2c7464cc97f4e72e3fceab75cad38d7c", null ],
+    [ "factor", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a4d0c9954c8b72b3df25b5e8af0b55a81", null ],
+    [ "itemSequence", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a36329c266e7e27f213d346a57b343f14", null ],
+    [ "locationAddress", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a6abdaa980b8bb4343c6c2c587fd69eca", null ],
+    [ "locationCodeableConcept", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#ac0ae980d64cc458b8fc608130995a962", null ],
+    [ "locationReference", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#ae1299f7578d228274018efb7a0fdf7bc", null ],
+    [ "modifier", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a3081031cee555e229e0f339d7e2c2d1e", null ],
+    [ "net", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a8efbd9da1af4fb9c17ba2e4d3c3b61f8", null ],
+    [ "noteNumber", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a892d89de31cab806e032b871b79300ae", null ],
+    [ "productOrService", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#ac91968a0cc485ac66eab137cd6d68f10", null ],
+    [ "programCode", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#ab5b41877860ac1f6d9e8313bc3d96fa2", null ],
+    [ "provider", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a2197c5ba52f24f36216effcb3586fda0", null ],
+    [ "quantity", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a4f506ebc472de60f0013929f38a53043", null ],
+    [ "servicedDate", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a64ad0a8f6ccb5468c148a9a6947332b9", null ],
+    [ "servicedPeriod", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a1b6e517d418556f9a74feb581331abe2", null ],
+    [ "subdetailSequence", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#ac814bece881f998637d6c2064a7e77c1", null ],
+    [ "subSite", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#ace50f6159e5af5d018da7518cf4a65ca", null ],
+    [ "unitPrice", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_add_item.html#a58e08e748980d87941a2c710c23c891e", null ]
+];

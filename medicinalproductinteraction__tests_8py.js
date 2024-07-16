@@ -1,0 +1,4 @@
+var medicinalproductinteraction__tests_8py =
+[
+    [ "fhirclient.models.medicinalproductinteraction_tests.MedicinalProductInteractionTests", "classfhirclient_1_1models_1_1medicinalproductinteraction__tests_1_1_medicinal_product_interaction_tests.html", "classfhirclient_1_1models_1_1medicinalproductinteraction__tests_1_1_medicinal_product_interaction_tests" ]
+];

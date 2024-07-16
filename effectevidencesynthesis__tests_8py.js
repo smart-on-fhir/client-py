@@ -1,0 +1,4 @@
+var effectevidencesynthesis__tests_8py =
+[
+    [ "fhirclient.models.effectevidencesynthesis_tests.EffectEvidenceSynthesisTests", "classfhirclient_1_1models_1_1effectevidencesynthesis__tests_1_1_effect_evidence_synthesis_tests.html", "classfhirclient_1_1models_1_1effectevidencesynthesis__tests_1_1_effect_evidence_synthesis_tests" ]
+];

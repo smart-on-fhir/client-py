@@ -1,0 +1,12 @@
+var namespacefhirclient_1_1models_1_1substancesourcematerial =
+[
+    [ "SubstanceSourceMaterial", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material" ],
+    [ "SubstanceSourceMaterialFractionDescription", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_fraction_description.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_fraction_description" ],
+    [ "SubstanceSourceMaterialOrganism", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism" ],
+    [ "SubstanceSourceMaterialOrganismAuthor", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_author.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_author" ],
+    [ "SubstanceSourceMaterialOrganismHybrid", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_hybrid.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_hybrid" ],
+    [ "SubstanceSourceMaterialOrganismOrganismGeneral", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_organism_general.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_organism_organism_general" ],
+    [ "SubstanceSourceMaterialPartDescription", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_part_description.html", "classfhirclient_1_1models_1_1substancesourcematerial_1_1_substance_source_material_part_description" ],
+    [ "codeableconcept", "namespacefhirclient_1_1models_1_1substancesourcematerial.html#aeed9197774d6e67944127340f0323100", null ],
+    [ "identifier", "namespacefhirclient_1_1models_1_1substancesourcematerial.html#a499f213e766539b714d0b3e28aedbf77", null ]
+];

@@ -1,0 +1,4 @@
+var medicinalproductauthorization__tests_8py =
+[
+    [ "fhirclient.models.medicinalproductauthorization_tests.MedicinalProductAuthorizationTests", "classfhirclient_1_1models_1_1medicinalproductauthorization__tests_1_1_medicinal_product_authorization_tests.html", "classfhirclient_1_1models_1_1medicinalproductauthorization__tests_1_1_medicinal_product_authorization_tests" ]
+];

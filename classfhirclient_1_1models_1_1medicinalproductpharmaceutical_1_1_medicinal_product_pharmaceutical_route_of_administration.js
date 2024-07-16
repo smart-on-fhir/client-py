@@ -1,0 +1,12 @@
+var classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration =
+[
+    [ "__init__", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration.html#ac1a9aeb2adfdd41f03056e00d9bc06fc", null ],
+    [ "elementProperties", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration.html#a9be80686fb7a7ce9f5551da64ec07499", null ],
+    [ "code", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration.html#a09399e882336941566670af037fb49ed", null ],
+    [ "firstDose", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration.html#a45c5d5bb73110b1d22fa29e440a67729", null ],
+    [ "maxDosePerDay", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration.html#ac878a4765b9c6ec284d3ab3ab48c85b5", null ],
+    [ "maxDosePerTreatmentPeriod", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration.html#aa1072c33eac6111f023fa1f698601e75", null ],
+    [ "maxSingleDose", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration.html#ab33e5000d429765e80f6812489c3d875", null ],
+    [ "maxTreatmentPeriod", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration.html#ad40b2bbfc22f4a1a07e595ac86fca410", null ],
+    [ "targetSpecies", "classfhirclient_1_1models_1_1medicinalproductpharmaceutical_1_1_medicinal_product_pharmaceutical_route_of_administration.html#a5cd3f85bb8c594c29cda8af6bdcc93e4", null ]
+];

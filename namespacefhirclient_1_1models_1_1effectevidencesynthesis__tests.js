@@ -1,0 +1,4 @@
+var namespacefhirclient_1_1models_1_1effectevidencesynthesis__tests =
+[
+    [ "EffectEvidenceSynthesisTests", "classfhirclient_1_1models_1_1effectevidencesynthesis__tests_1_1_effect_evidence_synthesis_tests.html", "classfhirclient_1_1models_1_1effectevidencesynthesis__tests_1_1_effect_evidence_synthesis_tests" ]
+];
