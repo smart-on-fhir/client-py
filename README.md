@@ -4,7 +4,7 @@ SMART FHIR Client
 This is _fhirclient_, a flexible Python client for [FHIR][] servers supporting the [SMART on FHIR][smart] protocol.
 
 Client versioning is not identical to FHIR versioning.
-The `main` branch is usually on the latest version of the client as shown below, possibly on bugfix releases thereof.
+The `main` branch is usually on the latest version of the client, as shown below, and possibly on their bugfix releases.
 The `develop` branch should be on recent freezes, and the `feature/latest-ci` branch is periodically updated to the latest FHIR continuous integration builds.
 
    Version | FHIR         | &nbsp;
@@ -58,10 +58,10 @@ smart.human_name(patient.name[0])
 # 'Christy Ebert'
 ```
 
-If this is a protected server, you will first have to send your user to the authorize endpoint to log in.
+If this is a protected server, you will first have to send your user to the authorization endpoint to log in.
 Just call `smart.authorize_url` to obtain the correct URL.
 You can use `smart.prepare()`, which will return `False` if the server is protected and you need to authorize.
-The `smart.ready` property has the same purpose, it will however not retrieve the server's _CapabilityStatement_ resource and hence is only useful as a quick check whether the server instance is ready.
+The `smart.ready` property has the same purpose. However, it will not retrieve the server's _CapabilityStatement_ resource and hence is only fit as a quick check whether the server instance is ready.
 
 ```python
 smart = client.FHIRClient(settings=settings)
@@ -77,7 +77,7 @@ smart.authorize_url
 # is `None`
 ```
 
-You can work with the `FHIRServer` class directly, without using `FHIRClient`, but this is not recommended:
+You can work with the `FHIRServer` class directly without using `FHIRClient`. But this is not recommended:
 
 ```python
 smart = server.FHIRServer(None, 'https://fhir-open-api-dstu2.smarthealthit.org')
@@ -113,8 +113,7 @@ bundle = search.perform(smart.server)
 
 ### Data Model Use
 
-The client contains data model classes, built using [fhir-parser][], that handle (de)serialization and allow to work with FHIR data in a Pythonic way.
-Starting with version 1.0.5, data model validity are enforced to a certain degree.
+The client contains data model classes, built using [fhir-parser][], that handle (de)serialization and allow you to work with FHIR data in a Pythonic way. From version 1.0.5, the validity of the data model is enforced to a certain extent.
 
 #### Initialize Data Model
 
@@ -156,11 +155,11 @@ patient.name[0].given
 ### Flask App
 
 Take a look at [`flask_app.py`][flask_app] to see how you can use the client in a simple (Flask) app.
-This app starts a webserver, listening on [_localhost:8000_](http://localhost:8000), and prompts you to login to our sandbox server and select a patient.
-It then goes on to retrieve the selected patient's demographics and med prescriptions and lists them in a simple HTML page.
+This app starts a web server, listening on [_localhost:8000_](http://localhost:8000), and prompts you to log in to our sandbox server and select a patient.
+It then retrieves the selected patient's demographics and med prescriptions and lists them on a simple HTML page.
 
 The Flask demo app has separate requirements.
-Clone the _client-py_ repository, then best create a virtual environment and install the needed packages like so:
+Clone the _client-py_ repository, then create a virtual environment (not compulsory but recommended) and install the needed packages as shown:
 
     git clone https://github.com/smart-on-fhir/client-py.git
     cd client-py
@@ -190,7 +189,7 @@ Docs Generation
 
 Docs are generated with [Doxygen][] and [doxypypy][].
 You can install doxypypy via pip: `pip install doxypypy`.
-Then you can just run Doxygen, configuration is stored in the `Doxyfile`.
+Then you can just run Doxygen. Configuration is stored in the `Doxyfile`.
 
 Running Doxygen will put the generated documentation into `docs`, the HTML files into `docs/html`.
 Those files make up the content of the `gh-pages` branch.
