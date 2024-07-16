@@ -1,15 +1,9 @@
-# -*- coding: utf-8 -*-
-
 import json
 import requests
-import urllib
 import logging
-try:                                # Python 2.x
-    import urlparse
-except ImportError as e:            # Python 3
-    import urllib.parse as urlparse
+import urllib.parse as urlparse
 
-from auth import FHIRAuth
+from .auth import FHIRAuth
 
 FHIRJSONMimeType = 'application/fhir+json'
 
@@ -80,7 +74,7 @@ class FHIRServer(object):
         """
         if self._capability is None or force:
             logger.info('Fetching CapabilityStatement from {0}'.format(self.base_uri))
-            from models import capabilitystatement
+            from .models import capabilitystatement
             conf = capabilitystatement.CapabilityStatement.read_from('metadata', self)
             self._capability = conf
             
@@ -95,6 +89,7 @@ class FHIRServer(object):
                 'app_id': self.client.app_id if self.client is not None else None,
                 'app_secret': self.client.app_secret if self.client is not None else None,
                 'redirect_uri': self.client.redirect if self.client is not None else None,
+                'jwt_token': self.client.jwt_token if self.client is not None else None,
             }
             self.auth = FHIRAuth.from_capability_security(security, settings)
             self.should_save_state()
@@ -120,7 +115,12 @@ class FHIRServer(object):
         if self.auth is None:
             raise Exception("Not ready to handle callback, I do not have an auth instance")
         return self.auth.handle_callback(url, self)
-    
+
+    def authorize(self):
+        if self.auth is None:
+            raise Exception("Not ready to authorize, I do not have an auth instance")
+        return self.auth.authorize(self) if self.auth is not None else None
+
     def reauthorize(self):
         if self.auth is None:
             raise Exception("Not ready to reauthorize, I do not have an auth instance")
@@ -168,7 +168,7 @@ class FHIRServer(object):
         """ Perform a data request data against the server's base with the
         given relative path.
         """
-        res = self._get(path, None, nosign)
+        res = self._get(path, headers, nosign)
         return res.content
     
     def _get(self, path, headers={}, nosign=False):

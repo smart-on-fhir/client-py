@@ -1,8 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import domainresource
@@ -60,7 +57,7 @@ class DocumentReference(domainresource.DomainResource):
         Type `str`. """
         
         self.docStatus = None
-        """ preliminary | final | appended | amended | entered-in-error.
+        """ preliminary | final | amended | entered-in-error.
         Type `str`. """
         
         self.identifier = None
@@ -251,32 +248,10 @@ class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
         return js
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
-try:
-    from . import fhirdate
-except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from . import attachment
+from . import codeableconcept
+from . import coding
+from . import fhirdate
+from . import fhirreference
+from . import identifier
+from . import period

@@ -1,8 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/GraphDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/GraphDefinition) on 2024-07-15.
+#  2024, SMART Health IT.
 
 
 from . import domainresource
@@ -228,7 +225,7 @@ class GraphDefinitionLinkTargetCompartment(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Identifies the compartment.
+        """ Patient | Encounter | RelatedPerson | Practitioner | Device.
         Type `str`. """
         
         self.description = None
@@ -261,20 +258,7 @@ class GraphDefinitionLinkTargetCompartment(backboneelement.BackboneElement):
         return js
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
-try:
-    from . import fhirdate
-except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from . import codeableconcept
+from . import contactdetail
+from . import fhirdate
+from . import usagecontext

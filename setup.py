@@ -36,7 +36,8 @@ setup(
     license="APACHE2",
     author="SMART Platforms Team",
     author_email='support@smarthealthit.org',
-    packages=find_packages(exclude=['test*', '*_tests.py']),
+    packages=find_packages(exclude=['tests*']),
+    python_requires='>= 3.8',
     install_requires=['requests', 'isodate'],
     classifiers=[
         'Development Status :: 4 - Beta',

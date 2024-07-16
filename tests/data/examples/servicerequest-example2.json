@@ -1,0 +1,185 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "physiotherapy",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative with Details\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eid\u003c/b\u003e: physiotherapy\u003c/p\u003e\u003cp\u003e\u003cb\u003econtained\u003c/b\u003e: , \u003c/p\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: Placer \u003d 20170201-0001\u003c/p\u003e\u003cp\u003e\u003cb\u003ebasedOn\u003c/b\u003e: \u003ca\u003eCarePlan/gpvisit\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: completed\u003c/p\u003e\u003cp\u003e\u003cb\u003eintent\u003c/b\u003e: order\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: Physiotherapy of chest (regime/therapy)  \u003cspan\u003e(Details : {SNOMED CT code \u002734431008\u0027 \u003d \u0027Physiotherapy of chest\u0027, given as \u0027Physiotherapy of chest (regime/therapy) \u0027})\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esubject\u003c/b\u003e: \u003ca\u003ePatient/example\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eoccurrence\u003c/b\u003e: Duration 15days, Do 1-1 per 1 days\u003c/p\u003e\u003cp\u003e\u003cb\u003easNeeded\u003c/b\u003e: as needed to clear mucus \u003cspan\u003e(Details )\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eauthoredOn\u003c/b\u003e: 01/02/2017 5:23:07 PM\u003c/p\u003e\u003cp\u003e\u003cb\u003erequester\u003c/b\u003e: \u003ca\u003eDr Adam Careful\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ereasonReference\u003c/b\u003e: id: cystic-fibrosis; Active \u003cspan\u003e(Details : {http://terminology.hl7.org/CodeSystem/condition-clinical code \u0027active\u0027 \u003d \u0027Active)\u003c/span\u003e; Confirmed \u003cspan\u003e(Details : {http://terminology.hl7.org/CodeSystem/condition-ver-status code \u0027confirmed\u0027 \u003d \u0027Confirmed)\u003c/span\u003e; Problem List Item \u003cspan\u003e(Details : {http://terminology.hl7.org/CodeSystem/condition-category code \u0027problem-list-item\u0027 \u003d \u0027Problem List Item\u0027, given as \u0027Problem List Item\u0027})\u003c/span\u003e; Mild \u003cspan\u003e(Details : {SNOMED CT code \u0027255604002\u0027 \u003d \u0027Mild\u0027, given as \u0027Mild\u0027})\u003c/span\u003e; Cystic Fibrosis \u003cspan\u003e(Details : {http://hl7.org/fhir/sid/icd-10-cm code \u0027E84.0\u0027 \u003d \u0027E84.0\u0027, given as \u0027Cystic fibrosis with pulmonary manifestations\u0027})\u003c/span\u003e; onset: 12/11/2012\u003c/p\u003e\u003cp\u003e\u003cb\u003erelevantHistory\u003c/b\u003e: Author\u0027s Signature. Generated Summary: id: signature; recorded: 01/02/2017 5:23:07 PM; \u003c/p\u003e\u003c/div\u003e"
+  },
+  "contained": [
+    {
+      "resourceType": "Provenance",
+      "id": "signature",
+      "target": [
+        {
+          "reference": "ServiceRequest/physiotherapy/_history/1"
+        }
+      ],
+      "recorded": "2017-02-01T17:23:07Z",
+      "agent": [
+        {
+          "role": [
+            {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                  "code": "AUT"
+                }
+              ]
+            }
+          ],
+          "who": {
+            "reference": "Practitioner/example",
+            "display": "Dr Adam Careful"
+          }
+        }
+      ],
+      "signature": [
+        {
+          "type": [
+            {
+              "system": "urn:iso-astm:E1762-95:2013",
+              "code": "1.2.840.10065.1.12.1.1",
+              "display": "Author\u0027s Signature"
+            }
+          ],
+          "when": "2017-02-01T17:23:07Z",
+          "who": {
+            "reference": "Practitioner/example",
+            "display": "Dr Adam Careful"
+          },
+          "targetFormat": "application/fhir+xml",
+          "sigFormat": "application/signature+xml",
+          "data": "dGhpcyBibG9iIGlzIHNuaXBwZWQ\u003d"
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "cystic-fibrosis",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            "code": "active"
+          }
+        ]
+      },
+      "verificationStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            "code": "confirmed"
+          }
+        ]
+      },
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+              "code": "problem-list-item",
+              "display": "Problem List Item"
+            }
+          ]
+        }
+      ],
+      "severity": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "255604002",
+            "display": "Mild"
+          }
+        ]
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "E84.0",
+            "display": "Cystic fibrosis with pulmonary manifestations"
+          }
+        ],
+        "text": "Cystic Fibrosis"
+      },
+      "subject": {
+        "reference": "Patient/example"
+      },
+      "onsetDateTime": "2012-11-12"
+    }
+  ],
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "PLAC",
+            "display": "Placer Identifier"
+          }
+        ],
+        "text": "Placer"
+      },
+      "system": "http://goodhealth.org/placer-ids",
+      "value": "20170201-0001"
+    }
+  ],
+  "basedOn": [
+    {
+      "reference": "CarePlan/gpvisit"
+    }
+  ],
+  "status": "completed",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "34431008",
+        "display": "Physiotherapy of chest (regime/therapy) "
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/example"
+  },
+  "occurrenceTiming": {
+    "repeat": {
+      "duration": 15,
+      "durationMax": 25,
+      "durationUnit": "min",
+      "frequency": 1,
+      "frequencyMax": 4,
+      "period": 1,
+      "periodUnit": "d"
+    }
+  },
+  "asNeededCodeableConcept": {
+    "text": "as needed to clear mucus"
+  },
+  "authoredOn": "2017-02-01T17:23:07Z",
+  "requester": {
+    "reference": "Practitioner/example",
+    "display": "Dr Adam Careful"
+  },
+  "reasonReference": [
+    {
+      "reference": "#cystic-fibrosis"
+    }
+  ],
+  "relevantHistory": [
+    {
+      "reference": "#signature",
+      "display": "Author\u0027s Signature"
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}
