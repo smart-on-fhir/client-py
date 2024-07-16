@@ -10,8 +10,12 @@ from flask import Flask, request, redirect, session
 # app setup
 smart_defaults = {
     'app_id': 'my_web_app',
-    # TODO: CapabilityStatement.rest.resource.search.param needs to provide 
-    # a required value type - config issue on our end for now
+    # The CapabilityStatement being returned from the new test server,
+    # r4.smarthealthit.org, is currently missing a required field in the
+    # description of one of the search params. So you may see a
+    # 'Non-optional property "type"' error message when running this with
+    # the default config. We'll remove this message once that has been
+    # fixed and tested.
     'api_base': 'https://r4.smarthealthit.org/',
     'redirect_uri': 'http://localhost:8000/fhir-app/',
 }
