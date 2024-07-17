@@ -1,0 +1,36 @@
+[project]
+name = "fhirclient"
+requires-python = ">= 3.8"
+dependencies = [
+    "isodate >= 0.5",
+    "requests >= 2.4",
+]
+authors = [{ name="SMART Platforms Team", email="support@smarthealthit.org" }]
+readme = "README.md"
+keywords = ["smart", "fhir", "healthcare", "medical-informatics", "clinical-informatics", "biomedical-informatics"]
+license = { file="LICENSE" }
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dynamic = ["description", "version"]
+
+[project.urls]
+Homepage = "https://github.com/smart-on-fhir/client-py"
+Documentation = "https://docs.smarthealthit.org/client-py/"
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[project.optional-dependencies]
+tests = [
+    "pytest >= 2.5",
+    "pytest-cov",
+]
