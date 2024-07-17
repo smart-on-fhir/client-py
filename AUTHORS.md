@@ -16,6 +16,8 @@ The following wonderful people contributed directly or indirectly to this projec
 - Faith Oyedemi <https://github.com/lere01>
 - Josh Mandel <https://github.com/jmandel>
 - Martin Burchell <https://github.com/martinburchell>
+- Matt Garber <https://github.com/dogversioning>
+- Michael Terry <https://github.com/mikix>
 - Nikolai Schwertner <https://github.com/nschwertner>
 - Pascal Pfiffner <https://github.com/p2>
 - Raheel Sayeed <https://github.com/raheelsayeed>

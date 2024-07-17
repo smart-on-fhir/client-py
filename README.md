@@ -1,5 +1,4 @@
-SMART FHIR Client
-=================
+# SMART FHIR Client
 
 This is _fhirclient_, a flexible Python client for [FHIR][] servers supporting the [SMART on FHIR][smart] protocol.
 
@@ -22,14 +21,12 @@ The `develop` branch should be on recent freezes, and the `feature/latest-ci` br
  **0.0.2** | `0.0.82.2943` | (DSTU 1)
 
 
-Installation
-------------
+## Installation
 
     pip install fhirclient
 
 
-Documentation
--------------
+## Documentation
 
 Technical documentation is available at [docs.smarthealthit.org/client-py/][docs].
 
@@ -170,23 +167,19 @@ Clone the _client-py_ repository, then create a virtual environment (not compuls
     python flask_app.py
 
 
-Building Distribution
----------------------
+## Building Distribution
 
-    pip install -r requirements.txt
-    python setup.py sdist
-    python setup.py bdist_wheel
+    pip install -U build
+    python3 -m build
 
 
 ### Incrementing the lib version
 
-    bumpversion patch
-    bumpversion minor
-    bumpversion major
+- Edit `fhirclient/client.py` and change the `__version__` field.
+- Edit `Doxyfile` and change the `PROJECT_NUMBER` field.
 
 
-Docs Generation
----------------
+## Docs Generation
 
 Docs are generated with [Doxygen][] and [doxypypy][].
 You can install doxypypy via pip: `pip install doxypypy`.
@@ -200,10 +193,9 @@ I usually perform a second checkout of the _gh-pages_ branch and copy the html f
     rsync -a docs/html/ ../client-py-web/
 
 
-PyPi Publishing (notes for SMART team)
---------------------------------------
+## PyPi Publishing (notes for SMART team)
 
-Using setuptools (*Note*: Alternatively, you can use twine https://pypi.python.org/pypi/twine/):
+Using flit (*Note*: Alternatively, you can use [twine](https://twine.readthedocs.io/)):
 
 ### Make sure that you have the PyPi account credentials in your account
 
@@ -211,13 +203,12 @@ Using setuptools (*Note*: Alternatively, you can use twine https://pypi.python.o
 
 ### Test the build
 
-    python setup.py sdist
-    python setup.py bdist_wheel
+    python3 -m build
 
 ### Upload the packages to PyPi
 
-    python setup.py sdist upload -r pypi
-    python setup.py bdist_wheel upload -r pypi
+    pip install -U flit
+    flit publish
 
 
 [fhir]: http://www.hl7.org/implement/standards/fhir/
