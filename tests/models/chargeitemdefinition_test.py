@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import chargeitemdefinition
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ChargeItemDefinitionTests(unittest.TestCase):
@@ -37,9 +40,9 @@ class ChargeItemDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Allergologiediagnostik I")
         self.assertEqual(inst.code.coding[0].system, "http://fhir.de/CodingSystem/kbv/ebm")
         self.assertEqual(inst.description, "Allergologisch-diagnostischer Komplex zur Diagnostik und/oder zum Ausschluss einer (Kontakt-)Allergie vom Spättyp (Typ IV), einschl. Kosten")
-        self.assertEqual(inst.effectivePeriod.end.date, FHIRDate("2018-06-30").date)
+        self.assertEqual(inst.effectivePeriod.end.datetime, FHIRDateTime("2018-06-30").datetime)
         self.assertEqual(inst.effectivePeriod.end.as_json(), "2018-06-30")
-        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2018-04-01").date)
+        self.assertEqual(inst.effectivePeriod.start.datetime, FHIRDateTime("2018-04-01").datetime)
         self.assertEqual(inst.effectivePeriod.start.as_json(), "2018-04-01")
         self.assertEqual(inst.id, "ebm")
         self.assertEqual(inst.propertyGroup[0].priceComponent[0].amount.currency, "EUR")

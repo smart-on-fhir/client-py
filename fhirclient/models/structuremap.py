@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/StructureMap).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -29,7 +29,7 @@ class StructureMap(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the structure map.
@@ -99,7 +99,7 @@ class StructureMap(domainresource.DomainResource):
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("group", "group", StructureMapGroup, True, None, True),
@@ -402,7 +402,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueDateTime = None
         """ Default value if no value exists.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.defaultValueDecimal = None
         """ Default value if no value exists.
@@ -438,7 +438,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueInstant = None
         """ Default value if no value exists.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.defaultValueInteger = None
         """ Default value if no value exists.
@@ -506,7 +506,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueTime = None
         """ Default value if no value exists.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.defaultValueTiming = None
         """ Default value if no value exists.
@@ -588,7 +588,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
             ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
             ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False),
             ("defaultValueDate", "defaultValueDate", fhirdate.FHIRDate, False, "defaultValue", False),
-            ("defaultValueDateTime", "defaultValueDateTime", fhirdate.FHIRDate, False, "defaultValue", False),
+            ("defaultValueDateTime", "defaultValueDateTime", fhirdatetime.FHIRDateTime, False, "defaultValue", False),
             ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False),
             ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
             ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False),
@@ -597,7 +597,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
             ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
             ("defaultValueId", "defaultValueId", str, False, "defaultValue", False),
             ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
-            ("defaultValueInstant", "defaultValueInstant", fhirdate.FHIRDate, False, "defaultValue", False),
+            ("defaultValueInstant", "defaultValueInstant", fhirinstant.FHIRInstant, False, "defaultValue", False),
             ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
             ("defaultValueMarkdown", "defaultValueMarkdown", str, False, "defaultValue", False),
             ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
@@ -614,7 +614,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
             ("defaultValueSampledData", "defaultValueSampledData", sampleddata.SampledData, False, "defaultValue", False),
             ("defaultValueSignature", "defaultValueSignature", signature.Signature, False, "defaultValue", False),
             ("defaultValueString", "defaultValueString", str, False, "defaultValue", False),
-            ("defaultValueTime", "defaultValueTime", fhirdate.FHIRDate, False, "defaultValue", False),
+            ("defaultValueTime", "defaultValueTime", fhirtime.FHIRTime, False, "defaultValue", False),
             ("defaultValueTiming", "defaultValueTiming", timing.Timing, False, "defaultValue", False),
             ("defaultValueTriggerDefinition", "defaultValueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "defaultValue", False),
             ("defaultValueUnsignedInt", "defaultValueUnsignedInt", int, False, "defaultValue", False),
@@ -806,7 +806,10 @@ from . import dosage
 from . import duration
 from . import expression
 from . import fhirdate
+from . import fhirdatetime
+from . import fhirinstant
 from . import fhirreference
+from . import fhirtime
 from . import humanname
 from . import identifier
 from . import meta

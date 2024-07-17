@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DeviceRequest) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DeviceRequest).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -24,7 +24,7 @@ class DeviceRequest(domainresource.DomainResource):
         
         self.authoredOn = None
         """ When recorded.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.basedOn = None
         """ What request fulfills.
@@ -73,7 +73,7 @@ class DeviceRequest(domainresource.DomainResource):
         
         self.occurrenceDateTime = None
         """ Desired time or schedule for use.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
         """ Desired time or schedule for use.
@@ -137,7 +137,7 @@ class DeviceRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DeviceRequest, self).elementProperties()
         js.extend([
-            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
+            ("authoredOn", "authoredOn", fhirdatetime.FHIRDateTime, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("codeCodeableConcept", "codeCodeableConcept", codeableconcept.CodeableConcept, False, "code", True),
             ("codeReference", "codeReference", fhirreference.FHIRReference, False, "code", True),
@@ -149,7 +149,7 @@ class DeviceRequest(domainresource.DomainResource):
             ("insurance", "insurance", fhirreference.FHIRReference, True, None, False),
             ("intent", "intent", str, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatetime.FHIRDateTime, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
             ("parameter", "parameter", DeviceRequestParameter, True, None, False),
@@ -223,7 +223,7 @@ class DeviceRequestParameter(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

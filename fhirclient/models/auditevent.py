@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AuditEvent) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AuditEvent).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -52,7 +52,7 @@ class AuditEvent(domainresource.DomainResource):
         
         self.recorded = None
         """ Time when the event was recorded.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.source = None
         """ Audit Event Reporter.
@@ -78,7 +78,7 @@ class AuditEvent(domainresource.DomainResource):
             ("outcomeDesc", "outcomeDesc", str, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("purposeOfEvent", "purposeOfEvent", codeableconcept.CodeableConcept, True, None, False),
-            ("recorded", "recorded", fhirdate.FHIRDate, False, None, True),
+            ("recorded", "recorded", fhirinstant.FHIRInstant, False, None, True),
             ("source", "source", AuditEventSource, False, None, True),
             ("subtype", "subtype", coding.Coding, True, None, False),
             ("type", "type", coding.Coding, False, None, True),
@@ -356,6 +356,6 @@ class AuditEventSource(backboneelement.BackboneElement):
 
 from . import codeableconcept
 from . import coding
-from . import fhirdate
+from . import fhirinstant
 from . import fhirreference
 from . import period

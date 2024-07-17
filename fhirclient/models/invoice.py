@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Invoice) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Invoice).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class Invoice(domainresource.DomainResource):
         
         self.date = None
         """ Invoice date / posting date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Business Identifier for item.
@@ -92,7 +92,7 @@ class Invoice(domainresource.DomainResource):
         js.extend([
             ("account", "account", fhirreference.FHIRReference, False, None, False),
             ("cancelledReason", "cancelledReason", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("issuer", "issuer", fhirreference.FHIRReference, False, None, False),
             ("lineItem", "lineItem", InvoiceLineItem, True, None, False),
@@ -248,7 +248,7 @@ class InvoiceParticipant(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import money

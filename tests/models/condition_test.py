@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import condition
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ConditionTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class ConditionTests(unittest.TestCase):
         self.implCondition1(inst2)
     
     def implCondition1(self, inst):
-        self.assertEqual(inst.abatementDateTime.date, FHIRDate("2013-03-20").date)
+        self.assertEqual(inst.abatementDateTime.datetime, FHIRDateTime("2013-03-20").datetime)
         self.assertEqual(inst.abatementDateTime.as_json(), "2013-03-20")
         self.assertEqual(inst.bodySite[0].coding[0].code, "181414000")
         self.assertEqual(inst.bodySite[0].coding[0].display, "Kidney")
@@ -47,9 +50,9 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.note[0].text, "The patient is anuric.")
-        self.assertEqual(inst.onsetDateTime.date, FHIRDate("2013-03-11").date)
+        self.assertEqual(inst.onsetDateTime.datetime, FHIRDateTime("2013-03-11").datetime)
         self.assertEqual(inst.onsetDateTime.as_json(), "2013-03-11")
-        self.assertEqual(inst.recordedDate.date, FHIRDate("2013-03-11").date)
+        self.assertEqual(inst.recordedDate.datetime, FHIRDateTime("2013-03-11").datetime)
         self.assertEqual(inst.recordedDate.as_json(), "2013-03-11")
         self.assertEqual(inst.severity.coding[0].code, "24484000")
         self.assertEqual(inst.severity.coding[0].display, "Severe")
@@ -115,7 +118,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.onsetDateTime.date, FHIRDate("2010-07-18").date)
+        self.assertEqual(inst.onsetDateTime.datetime, FHIRDateTime("2010-07-18").datetime)
         self.assertEqual(inst.onsetDateTime.as_json(), "2010-07-18")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Ischemic stroke, July 18, 2010</div>")
         self.assertEqual(inst.text.status, "generated")
@@ -151,9 +154,9 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.onsetDateTime.date, FHIRDate("2011-05-05").date)
+        self.assertEqual(inst.onsetDateTime.datetime, FHIRDateTime("2011-05-05").datetime)
         self.assertEqual(inst.onsetDateTime.as_json(), "2011-05-05")
-        self.assertEqual(inst.recordedDate.date, FHIRDate("2012-06-03").date)
+        self.assertEqual(inst.recordedDate.datetime, FHIRDateTime("2012-06-03").datetime)
         self.assertEqual(inst.recordedDate.as_json(), "2012-06-03")
         self.assertEqual(inst.severity.coding[0].code, "24484000")
         self.assertEqual(inst.severity.coding[0].display, "Severe")
@@ -196,9 +199,9 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.onsetDateTime.date, FHIRDate("2013-03-08").date)
+        self.assertEqual(inst.onsetDateTime.datetime, FHIRDateTime("2013-03-08").datetime)
         self.assertEqual(inst.onsetDateTime.as_json(), "2013-03-08")
-        self.assertEqual(inst.recordedDate.date, FHIRDate("2013-03-11").date)
+        self.assertEqual(inst.recordedDate.datetime, FHIRDateTime("2013-03-11").datetime)
         self.assertEqual(inst.recordedDate.as_json(), "2013-03-11")
         self.assertEqual(inst.severity.coding[0].code, "371924009")
         self.assertEqual(inst.severity.coding[0].display, "Moderate to severe")
@@ -238,7 +241,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.onsetDateTime.date, FHIRDate("2012-05-24").date)
+        self.assertEqual(inst.onsetDateTime.datetime, FHIRDateTime("2012-05-24").datetime)
         self.assertEqual(inst.onsetDateTime.as_json(), "2012-05-24")
         self.assertEqual(inst.severity.coding[0].code, "24484000")
         self.assertEqual(inst.severity.coding[0].display, "Severe")
@@ -303,9 +306,9 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.onsetDateTime.date, FHIRDate("2012-02-27").date)
+        self.assertEqual(inst.onsetDateTime.datetime, FHIRDateTime("2012-02-27").datetime)
         self.assertEqual(inst.onsetDateTime.as_json(), "2012-02-27")
-        self.assertEqual(inst.recordedDate.date, FHIRDate("2012-02-20").date)
+        self.assertEqual(inst.recordedDate.datetime, FHIRDateTime("2012-02-20").datetime)
         self.assertEqual(inst.recordedDate.as_json(), "2012-02-20")
         self.assertEqual(inst.severity.coding[0].code, "371923003")
         self.assertEqual(inst.severity.coding[0].display, "Mild to moderate")
@@ -334,7 +337,7 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.recordedDate.date, FHIRDate("2013-04-04").date)
+        self.assertEqual(inst.recordedDate.datetime, FHIRDateTime("2013-04-04").datetime)
         self.assertEqual(inst.recordedDate.as_json(), "2013-04-04")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.verificationStatus.coding[0].code, "differential")
@@ -370,9 +373,9 @@ class ConditionTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.onsetDateTime.date, FHIRDate("2011-08-05").date)
+        self.assertEqual(inst.onsetDateTime.datetime, FHIRDateTime("2011-08-05").datetime)
         self.assertEqual(inst.onsetDateTime.as_json(), "2011-08-05")
-        self.assertEqual(inst.recordedDate.date, FHIRDate("2011-10-05").date)
+        self.assertEqual(inst.recordedDate.datetime, FHIRDateTime("2011-10-05").datetime)
         self.assertEqual(inst.recordedDate.as_json(), "2011-10-05")
         self.assertEqual(inst.severity.coding[0].code, "6736007")
         self.assertEqual(inst.severity.coding[0].display, "Moderate")

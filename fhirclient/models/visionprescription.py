@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/VisionPrescription).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -23,11 +23,11 @@ class VisionPrescription(domainresource.DomainResource):
         
         self.created = None
         """ Response creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.dateWritten = None
         """ When prescription was authorized.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.encounter = None
         """ Created during encounter / admission / stay.
@@ -58,8 +58,8 @@ class VisionPrescription(domainresource.DomainResource):
     def elementProperties(self):
         js = super(VisionPrescription, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
-            ("dateWritten", "dateWritten", fhirdate.FHIRDate, False, None, True),
+            ("created", "created", fhirdatetime.FHIRDateTime, False, None, True),
+            ("dateWritten", "dateWritten", fhirdatetime.FHIRDateTime, False, None, True),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("lensSpecification", "lensSpecification", VisionPrescriptionLensSpecification, True, None, True),
@@ -205,7 +205,7 @@ class VisionPrescriptionLensSpecificationPrism(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import quantity

@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import appointmentresponse
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class AppointmentResponseTests(unittest.TestCase):
@@ -28,7 +31,7 @@ class AppointmentResponseTests(unittest.TestCase):
     
     def implAppointmentResponse1(self, inst):
         self.assertEqual(inst.comment, "can't we try for this time, can't do mornings")
-        self.assertEqual(inst.end.date, FHIRDate("2013-12-25T13:30:00Z").date)
+        self.assertEqual(inst.end.datetime, FHIRInstant("2013-12-25T13:30:00Z").datetime)
         self.assertEqual(inst.end.as_json(), "2013-12-25T13:30:00Z")
         self.assertEqual(inst.id, "exampleresp")
         self.assertEqual(inst.identifier[0].system, "http://example.org/sampleappointmentresponse-identifier")
@@ -39,7 +42,7 @@ class AppointmentResponseTests(unittest.TestCase):
         self.assertEqual(inst.participantStatus, "tentative")
         self.assertEqual(inst.participantType[0].coding[0].code, "ATND")
         self.assertEqual(inst.participantType[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
-        self.assertEqual(inst.start.date, FHIRDate("2013-12-25T13:15:00Z").date)
+        self.assertEqual(inst.start.datetime, FHIRInstant("2013-12-25T13:15:00Z").datetime)
         self.assertEqual(inst.start.as_json(), "2013-12-25T13:15:00Z")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Accept Brian MRI results discussion</div>")
         self.assertEqual(inst.text.status, "generated")

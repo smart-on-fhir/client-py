@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import slot
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class SlotTests(unittest.TestCase):
@@ -31,7 +34,7 @@ class SlotTests(unittest.TestCase):
         self.assertEqual(inst.appointmentType.coding[0].display, "A previously unscheduled walk-in visit")
         self.assertEqual(inst.appointmentType.coding[0].system, "http://terminology.hl7.org/CodeSystem/v2-0276")
         self.assertEqual(inst.comment, "Assessments should be performed before requesting appointments in this slot.")
-        self.assertEqual(inst.end.date, FHIRDate("2013-12-25T09:30:00Z").date)
+        self.assertEqual(inst.end.datetime, FHIRInstant("2013-12-25T09:30:00Z").datetime)
         self.assertEqual(inst.end.as_json(), "2013-12-25T09:30:00Z")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -43,7 +46,7 @@ class SlotTests(unittest.TestCase):
         self.assertEqual(inst.serviceType[0].coding[0].display, "Immunization")
         self.assertEqual(inst.specialty[0].coding[0].code, "408480009")
         self.assertEqual(inst.specialty[0].coding[0].display, "Clinical immunology")
-        self.assertEqual(inst.start.date, FHIRDate("2013-12-25T09:15:00Z").date)
+        self.assertEqual(inst.start.datetime, FHIRInstant("2013-12-25T09:15:00Z").datetime)
         self.assertEqual(inst.start.as_json(), "2013-12-25T09:15:00Z")
         self.assertEqual(inst.status, "free")
         self.assertEqual(inst.text.status, "generated")
@@ -60,7 +63,7 @@ class SlotTests(unittest.TestCase):
     
     def implSlot2(self, inst):
         self.assertEqual(inst.comment, "Assessments should be performed before requesting appointments in this slot.")
-        self.assertEqual(inst.end.date, FHIRDate("2013-12-25T09:15:00Z").date)
+        self.assertEqual(inst.end.datetime, FHIRInstant("2013-12-25T09:15:00Z").datetime)
         self.assertEqual(inst.end.as_json(), "2013-12-25T09:15:00Z")
         self.assertEqual(inst.id, "1")
         self.assertEqual(inst.identifier[0].system, "http://example.org/identifiers/slots")
@@ -71,7 +74,7 @@ class SlotTests(unittest.TestCase):
         self.assertTrue(inst.overbooked)
         self.assertEqual(inst.serviceCategory[0].coding[0].code, "17")
         self.assertEqual(inst.serviceCategory[0].coding[0].display, "General Practice")
-        self.assertEqual(inst.start.date, FHIRDate("2013-12-25T09:00:00Z").date)
+        self.assertEqual(inst.start.datetime, FHIRInstant("2013-12-25T09:00:00Z").datetime)
         self.assertEqual(inst.start.as_json(), "2013-12-25T09:00:00Z")
         self.assertEqual(inst.status, "busy")
         self.assertEqual(inst.text.status, "generated")
@@ -88,7 +91,7 @@ class SlotTests(unittest.TestCase):
     
     def implSlot3(self, inst):
         self.assertEqual(inst.comment, "Dr Careful is out of the office")
-        self.assertEqual(inst.end.date, FHIRDate("2013-12-25T09:45:00Z").date)
+        self.assertEqual(inst.end.datetime, FHIRInstant("2013-12-25T09:45:00Z").datetime)
         self.assertEqual(inst.end.as_json(), "2013-12-25T09:45:00Z")
         self.assertEqual(inst.id, "3")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -96,7 +99,7 @@ class SlotTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.serviceCategory[0].coding[0].code, "17")
         self.assertEqual(inst.serviceCategory[0].coding[0].display, "General Practice")
-        self.assertEqual(inst.start.date, FHIRDate("2013-12-25T09:30:00Z").date)
+        self.assertEqual(inst.start.datetime, FHIRInstant("2013-12-25T09:30:00Z").datetime)
         self.assertEqual(inst.start.as_json(), "2013-12-25T09:30:00Z")
         self.assertEqual(inst.status, "busy-unavailable")
         self.assertEqual(inst.text.status, "generated")
@@ -113,7 +116,7 @@ class SlotTests(unittest.TestCase):
     
     def implSlot4(self, inst):
         self.assertEqual(inst.comment, "Dr Careful is out of the office")
-        self.assertEqual(inst.end.date, FHIRDate("2013-12-25T10:00:00Z").date)
+        self.assertEqual(inst.end.datetime, FHIRInstant("2013-12-25T10:00:00Z").datetime)
         self.assertEqual(inst.end.as_json(), "2013-12-25T10:00:00Z")
         self.assertEqual(inst.id, "2")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -121,7 +124,7 @@ class SlotTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.serviceCategory[0].coding[0].code, "17")
         self.assertEqual(inst.serviceCategory[0].coding[0].display, "General Practice")
-        self.assertEqual(inst.start.date, FHIRDate("2013-12-25T09:45:00Z").date)
+        self.assertEqual(inst.start.datetime, FHIRInstant("2013-12-25T09:45:00Z").datetime)
         self.assertEqual(inst.start.as_json(), "2013-12-25T09:45:00Z")
         self.assertEqual(inst.status, "busy-tentative")
         self.assertEqual(inst.text.status, "generated")

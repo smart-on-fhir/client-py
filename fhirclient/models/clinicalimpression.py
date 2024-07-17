@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -37,7 +37,7 @@ class ClinicalImpression(domainresource.DomainResource):
         
         self.date = None
         """ When the assessment was documented.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Why/how the assessment was performed.
@@ -45,7 +45,7 @@ class ClinicalImpression(domainresource.DomainResource):
         
         self.effectiveDateTime = None
         """ Time of assessment.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
         """ Time of assessment.
@@ -118,9 +118,9 @@ class ClinicalImpression(domainresource.DomainResource):
         js.extend([
             ("assessor", "assessor", fhirreference.FHIRReference, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdatetime.FHIRDateTime, False, "effective", False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("finding", "finding", ClinicalImpressionFinding, True, None, False),
@@ -225,7 +225,7 @@ class ClinicalImpressionInvestigation(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

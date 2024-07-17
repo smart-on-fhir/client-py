@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import appointment
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class AppointmentTests(unittest.TestCase):
@@ -32,7 +35,7 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.appointmentType.coding[0].system, "http://terminology.hl7.org/CodeSystem/v2-0276")
         self.assertEqual(inst.comment, "Clarify the results of the MRI to ensure context of test was correct")
         self.assertEqual(inst.description, "Discussion about Peter Chalmers MRI results")
-        self.assertEqual(inst.end.date, FHIRDate("2013-12-09T11:00:00Z").date)
+        self.assertEqual(inst.end.datetime, FHIRInstant("2013-12-09T11:00:00Z").datetime)
         self.assertEqual(inst.end.as_json(), "2013-12-09T11:00:00Z")
         self.assertEqual(inst.id, "2docs")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -55,7 +58,7 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.specialty[0].coding[0].code, "394814009")
         self.assertEqual(inst.specialty[0].coding[0].display, "General practice")
         self.assertEqual(inst.specialty[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.start.date, FHIRDate("2013-12-09T09:00:00Z").date)
+        self.assertEqual(inst.start.datetime, FHIRInstant("2013-12-09T09:00:00Z").datetime)
         self.assertEqual(inst.start.as_json(), "2013-12-09T09:00:00Z")
         self.assertEqual(inst.status, "booked")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>")
@@ -76,10 +79,10 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.appointmentType.coding[0].display, "A follow up visit from a previous appointment")
         self.assertEqual(inst.appointmentType.coding[0].system, "http://terminology.hl7.org/CodeSystem/v2-0276")
         self.assertEqual(inst.comment, "Further expand on the results of the MRI and determine the next actions that may be appropriate.")
-        self.assertEqual(inst.created.date, FHIRDate("2013-10-10").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2013-10-10").datetime)
         self.assertEqual(inst.created.as_json(), "2013-10-10")
         self.assertEqual(inst.description, "Discussion on the results of your recent MRI")
-        self.assertEqual(inst.end.date, FHIRDate("2013-12-10T11:00:00Z").date)
+        self.assertEqual(inst.end.datetime, FHIRInstant("2013-12-10T11:00:00Z").datetime)
         self.assertEqual(inst.end.as_json(), "2013-12-10T11:00:00Z")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -102,7 +105,7 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.specialty[0].coding[0].code, "394814009")
         self.assertEqual(inst.specialty[0].coding[0].display, "General practice")
         self.assertEqual(inst.specialty[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.start.date, FHIRDate("2013-12-10T09:00:00Z").date)
+        self.assertEqual(inst.start.datetime, FHIRInstant("2013-12-10T09:00:00Z").datetime)
         self.assertEqual(inst.start.as_json(), "2013-12-10T09:00:00Z")
         self.assertEqual(inst.status, "booked")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Brian MRI results discussion</div>")
@@ -123,7 +126,7 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.appointmentType.coding[0].display, "A previously unscheduled walk-in visit")
         self.assertEqual(inst.appointmentType.coding[0].system, "http://terminology.hl7.org/CodeSystem/v2-0276")
         self.assertEqual(inst.comment, "Further expand on the results of the MRI and determine the next actions that may be appropriate.")
-        self.assertEqual(inst.created.date, FHIRDate("2015-12-02").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2015-12-02").datetime)
         self.assertEqual(inst.created.as_json(), "2015-12-02")
         self.assertEqual(inst.description, "Discussion on the results of your recent MRI")
         self.assertEqual(inst.id, "examplereq")
@@ -145,9 +148,9 @@ class AppointmentTests(unittest.TestCase):
         self.assertEqual(inst.reasonCode[0].coding[0].code, "413095006")
         self.assertEqual(inst.reasonCode[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.reasonCode[0].text, "Clinical Review")
-        self.assertEqual(inst.requestedPeriod[0].end.date, FHIRDate("2016-06-09").date)
+        self.assertEqual(inst.requestedPeriod[0].end.datetime, FHIRDateTime("2016-06-09").datetime)
         self.assertEqual(inst.requestedPeriod[0].end.as_json(), "2016-06-09")
-        self.assertEqual(inst.requestedPeriod[0].start.date, FHIRDate("2016-06-02").date)
+        self.assertEqual(inst.requestedPeriod[0].start.datetime, FHIRDateTime("2016-06-02").datetime)
         self.assertEqual(inst.requestedPeriod[0].start.as_json(), "2016-06-02")
         self.assertEqual(inst.serviceCategory[0].coding[0].code, "gp")
         self.assertEqual(inst.serviceCategory[0].coding[0].display, "General Practice")

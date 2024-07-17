@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ValueSet).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -37,7 +37,7 @@ class ValueSet(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the value set.
@@ -105,7 +105,7 @@ class ValueSet(domainresource.DomainResource):
             ("compose", "compose", ValueSetCompose, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
             ("expansion", "expansion", ValueSetExpansion, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
@@ -383,7 +383,7 @@ class ValueSetExpansion(backboneelement.BackboneElement):
         
         self.timestamp = None
         """ Time ValueSet expansion happened.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.total = None
         """ Total number of codes in the expansion.
@@ -398,7 +398,7 @@ class ValueSetExpansion(backboneelement.BackboneElement):
             ("identifier", "identifier", str, False, None, False),
             ("offset", "offset", int, False, None, False),
             ("parameter", "parameter", ValueSetExpansionParameter, True, None, False),
-            ("timestamp", "timestamp", fhirdate.FHIRDate, False, None, True),
+            ("timestamp", "timestamp", fhirdatetime.FHIRDateTime, False, None, True),
             ("total", "total", int, False, None, False),
         ])
         return js
@@ -501,7 +501,7 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ Value of the named parameter.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ Value of the named parameter.
@@ -527,7 +527,7 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
             ("name", "name", str, False, None, True),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
             ("valueCode", "valueCode", str, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdatetime.FHIRDateTime, False, "value", False),
             ("valueDecimal", "valueDecimal", float, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valueString", "valueString", str, False, "value", False),
@@ -540,5 +540,6 @@ from . import codeableconcept
 from . import coding
 from . import contactdetail
 from . import fhirdate
+from . import fhirdatetime
 from . import identifier
 from . import usagecontext

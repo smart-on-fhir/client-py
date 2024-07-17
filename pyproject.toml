@@ -2,7 +2,6 @@
 name = "fhirclient"
 requires-python = ">= 3.8"
 dependencies = [
-    "isodate >= 0.5",
     "requests >= 2.4",
 ]
 authors = [{ name="SMART Platforms Team", email="support@smarthealthit.org" }]
@@ -28,6 +27,9 @@ Documentation = "https://docs.smarthealthit.org/client-py/"
 [build-system]
 requires = ["flit_core >=3.4,<4"]
 build-backend = "flit_core.buildapi"
+
+[tool.pytest.ini_options]
+testpaths = "tests"
 
 [project.optional-dependencies]
 tests = [

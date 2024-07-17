@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -104,7 +104,7 @@ class BiologicallyDerivedProductCollection(backboneelement.BackboneElement):
         
         self.collectedDateTime = None
         """ Time of product collection.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.collectedPeriod = None
         """ Time of product collection.
@@ -123,7 +123,7 @@ class BiologicallyDerivedProductCollection(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BiologicallyDerivedProductCollection, self).elementProperties()
         js.extend([
-            ("collectedDateTime", "collectedDateTime", fhirdate.FHIRDate, False, "collected", False),
+            ("collectedDateTime", "collectedDateTime", fhirdatetime.FHIRDateTime, False, "collected", False),
             ("collectedPeriod", "collectedPeriod", period.Period, False, "collected", False),
             ("collector", "collector", fhirreference.FHIRReference, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
@@ -155,7 +155,7 @@ class BiologicallyDerivedProductManipulation(backboneelement.BackboneElement):
         
         self.timeDateTime = None
         """ Time of manipulation.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.timePeriod = None
         """ Time of manipulation.
@@ -167,7 +167,7 @@ class BiologicallyDerivedProductManipulation(backboneelement.BackboneElement):
         js = super(BiologicallyDerivedProductManipulation, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
-            ("timeDateTime", "timeDateTime", fhirdate.FHIRDate, False, "time", False),
+            ("timeDateTime", "timeDateTime", fhirdatetime.FHIRDateTime, False, "time", False),
             ("timePeriod", "timePeriod", period.Period, False, "time", False),
         ])
         return js
@@ -205,7 +205,7 @@ class BiologicallyDerivedProductProcessing(backboneelement.BackboneElement):
         
         self.timeDateTime = None
         """ Time of processing.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.timePeriod = None
         """ Time of processing.
@@ -219,7 +219,7 @@ class BiologicallyDerivedProductProcessing(backboneelement.BackboneElement):
             ("additive", "additive", fhirreference.FHIRReference, False, None, False),
             ("description", "description", str, False, None, False),
             ("procedure", "procedure", codeableconcept.CodeableConcept, False, None, False),
-            ("timeDateTime", "timeDateTime", fhirdate.FHIRDate, False, "time", False),
+            ("timeDateTime", "timeDateTime", fhirdatetime.FHIRDateTime, False, "time", False),
             ("timePeriod", "timePeriod", period.Period, False, "time", False),
         ])
         return js
@@ -269,7 +269,7 @@ class BiologicallyDerivedProductStorage(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

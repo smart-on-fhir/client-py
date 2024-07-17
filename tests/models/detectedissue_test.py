@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import detectedissue
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class DetectedIssueTests(unittest.TestCase):
@@ -70,7 +73,7 @@ class DetectedIssueTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
         self.assertEqual(inst.detail, "Similar test was performed within the past 14 days")
         self.assertEqual(inst.id, "duplicate")
-        self.assertEqual(inst.identifiedDateTime.date, FHIRDate("2013-05-08").date)
+        self.assertEqual(inst.identifiedDateTime.datetime, FHIRDateTime("2013-05-08").datetime)
         self.assertEqual(inst.identifiedDateTime.as_json(), "2013-05-08")
         self.assertEqual(inst.identifier[0].system, "http://example.org")
         self.assertEqual(inst.identifier[0].use, "official")
@@ -97,7 +100,7 @@ class DetectedIssueTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Drug Interaction Alert")
         self.assertEqual(inst.code.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
         self.assertEqual(inst.id, "ddi")
-        self.assertEqual(inst.identifiedDateTime.date, FHIRDate("2014-01-05").date)
+        self.assertEqual(inst.identifiedDateTime.datetime, FHIRDateTime("2014-01-05").datetime)
         self.assertEqual(inst.identifiedDateTime.as_json(), "2014-01-05")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
@@ -106,7 +109,7 @@ class DetectedIssueTests(unittest.TestCase):
         self.assertEqual(inst.mitigation[0].action.coding[0].display, "Stopped Concurrent Therapy")
         self.assertEqual(inst.mitigation[0].action.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
         self.assertEqual(inst.mitigation[0].action.text, "Asked patient to discontinue regular use of Tylenol and to consult with clinician if they need to resume to allow appropriate INR monitoring")
-        self.assertEqual(inst.mitigation[0].date.date, FHIRDate("2014-01-05").date)
+        self.assertEqual(inst.mitigation[0].date.datetime, FHIRDateTime("2014-01-05").datetime)
         self.assertEqual(inst.mitigation[0].date.as_json(), "2014-01-05")
         self.assertEqual(inst.severity, "high")
         self.assertEqual(inst.status, "final")

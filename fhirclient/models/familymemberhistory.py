@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -55,7 +55,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         self.date = None
         """ When history was recorded or last updated.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.deceasedAge = None
         """ Dead? How old/when?.
@@ -138,7 +138,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
             ("bornString", "bornString", str, False, "born", False),
             ("condition", "condition", FamilyMemberHistoryCondition, True, None, False),
             ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("deceasedAge", "deceasedAge", age.Age, False, "deceased", False),
             ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
             ("deceasedDate", "deceasedDate", fhirdate.FHIRDate, False, "deceased", False),
@@ -234,6 +234,7 @@ from . import age
 from . import annotation
 from . import codeableconcept
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import relatedperson
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class RelatedPersonTests(unittest.TestCase):
@@ -142,7 +145,7 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.name[0].text, "Ariadne Bor-Jansma")
         self.assertEqual(inst.name[0].use, "usual")
-        self.assertEqual(inst.period.start.date, FHIRDate("1975").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("1975").datetime)
         self.assertEqual(inst.period.start.as_json(), "1975")
         self.assertEqual(inst.photo[0].contentType, "image/jpeg")
         self.assertEqual(inst.relationship[0].coding[0].code, "SIGOTHR")
@@ -177,7 +180,7 @@ class RelatedPersonTests(unittest.TestCase):
         self.assertEqual(inst.name[0].given[0], "Peter")
         self.assertEqual(inst.name[0].given[1], "James")
         self.assertEqual(inst.name[0].use, "official")
-        self.assertEqual(inst.period.start.date, FHIRDate("2012-03-11").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("2012-03-11").datetime)
         self.assertEqual(inst.period.start.as_json(), "2012-03-11")
         self.assertEqual(inst.photo[0].contentType, "image/jpeg")
         self.assertEqual(inst.photo[0].url, "Binary/f012")

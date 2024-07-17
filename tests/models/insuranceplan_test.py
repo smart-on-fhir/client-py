@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import insuranceplan
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class InsurancePlanTests(unittest.TestCase):

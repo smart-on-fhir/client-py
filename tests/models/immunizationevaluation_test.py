@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import immunizationevaluation
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ImmunizationEvaluationTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class ImmunizationEvaluationTests(unittest.TestCase):
         self.implImmunizationEvaluation1(inst2)
     
     def implImmunizationEvaluation1(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2013-01-10").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2013-01-10").datetime)
         self.assertEqual(inst.date.as_json(), "2013-01-10")
         self.assertEqual(inst.doseNumberPositiveInt, 2)
         self.assertEqual(inst.doseStatus.coding[0].code, "notvalid")
@@ -60,7 +63,7 @@ class ImmunizationEvaluationTests(unittest.TestCase):
         self.implImmunizationEvaluation2(inst2)
     
     def implImmunizationEvaluation2(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2013-01-10").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2013-01-10").datetime)
         self.assertEqual(inst.date.as_json(), "2013-01-10")
         self.assertEqual(inst.doseNumberPositiveInt, 1)
         self.assertEqual(inst.doseStatus.coding[0].code, "valid")

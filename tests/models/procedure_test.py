@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import procedure
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ProcedureTests(unittest.TestCase):
@@ -78,7 +81,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.note[0].text, "Standard Biopsy")
-        self.assertEqual(inst.performedDateTime.date, FHIRDate("2014-02-03").date)
+        self.assertEqual(inst.performedDateTime.datetime, FHIRDateTime("2014-02-03").datetime)
         self.assertEqual(inst.performedDateTime.as_json(), "2014-02-03")
         self.assertEqual(inst.reasonCode[0].text, "Dark lesion l) forearm. getting darker last 3 months.")
         self.assertEqual(inst.status, "completed")
@@ -131,9 +134,9 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome.text, "removal of the retropharyngeal abscess")
-        self.assertEqual(inst.performedPeriod.end.date, FHIRDate("2013-03-24T10:30:10+01:00").date)
+        self.assertEqual(inst.performedPeriod.end.datetime, FHIRDateTime("2013-03-24T10:30:10+01:00").datetime)
         self.assertEqual(inst.performedPeriod.end.as_json(), "2013-03-24T10:30:10+01:00")
-        self.assertEqual(inst.performedPeriod.start.date, FHIRDate("2013-03-24T09:30:10+01:00").date)
+        self.assertEqual(inst.performedPeriod.start.datetime, FHIRDateTime("2013-03-24T09:30:10+01:00").datetime)
         self.assertEqual(inst.performedPeriod.start.as_json(), "2013-03-24T09:30:10+01:00")
         self.assertEqual(inst.performer[0].function.coding[0].code, "01.000")
         self.assertEqual(inst.performer[0].function.coding[0].display, "Arts")
@@ -166,7 +169,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.performedDateTime.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.performedDateTime.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.performedDateTime.as_json(), "2014-08-16")
         self.assertEqual(inst.reasonCode[0].text, "early detection of breast mass")
         self.assertEqual(inst.status, "completed")
@@ -221,7 +224,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome.text, "delivery of healthy male infant")
-        self.assertEqual(inst.performedDateTime.date, FHIRDate("2012-06-02").date)
+        self.assertEqual(inst.performedDateTime.datetime, FHIRDateTime("2012-06-02").datetime)
         self.assertEqual(inst.performedDateTime.as_json(), "2012-06-02")
         self.assertEqual(inst.reasonCode[0].text, "term pregnancy, active labor")
         self.assertEqual(inst.status, "completed")
@@ -251,9 +254,9 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome.text, "improved blood circulation")
-        self.assertEqual(inst.performedPeriod.end.date, FHIRDate("2011-06-27").date)
+        self.assertEqual(inst.performedPeriod.end.datetime, FHIRDateTime("2011-06-27").datetime)
         self.assertEqual(inst.performedPeriod.end.as_json(), "2011-06-27")
-        self.assertEqual(inst.performedPeriod.start.date, FHIRDate("2011-06-26").date)
+        self.assertEqual(inst.performedPeriod.start.datetime, FHIRDateTime("2011-06-26").datetime)
         self.assertEqual(inst.performedPeriod.start.as_json(), "2011-06-26")
         self.assertEqual(inst.performer[0].function.coding[0].code, "01.000")
         self.assertEqual(inst.performer[0].function.coding[0].display, "Arts")
@@ -286,9 +289,9 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome.text, "removal of the retropharyngeal abscess")
-        self.assertEqual(inst.performedPeriod.end.date, FHIRDate("2013-03-22T10:30:10+01:00").date)
+        self.assertEqual(inst.performedPeriod.end.datetime, FHIRDateTime("2013-03-22T10:30:10+01:00").datetime)
         self.assertEqual(inst.performedPeriod.end.as_json(), "2013-03-22T10:30:10+01:00")
-        self.assertEqual(inst.performedPeriod.start.date, FHIRDate("2013-03-22T09:30:10+01:00").date)
+        self.assertEqual(inst.performedPeriod.start.datetime, FHIRDateTime("2013-03-22T09:30:10+01:00").datetime)
         self.assertEqual(inst.performedPeriod.start.as_json(), "2013-03-22T09:30:10+01:00")
         self.assertEqual(inst.performer[0].function.coding[0].code, "01.000")
         self.assertEqual(inst.performer[0].function.coding[0].display, "Arts")
@@ -321,7 +324,7 @@ class ProcedureTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.note[0].text, "Routine Appendectomy. Appendix was inflamed and in retro-caecal position")
-        self.assertEqual(inst.performedDateTime.date, FHIRDate("2015-04-05").date)
+        self.assertEqual(inst.performedDateTime.datetime, FHIRDateTime("2015-04-05").datetime)
         self.assertEqual(inst.performedDateTime.as_json(), "2015-04-05")
         self.assertEqual(inst.reasonCode[0].text, "Bradycardia")
         self.assertEqual(inst.status, "completed")

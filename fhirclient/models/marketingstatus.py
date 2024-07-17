@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MarketingStatus) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MarketingStatus).
+# 2024, SMART Health IT.
 
 
 from . import backboneelement
@@ -52,7 +52,7 @@ class MarketingStatus(backboneelement.BackboneElement):
         specified using the ISO 8601 date format NOTE “Placed on the
         market” refers to the release of the Medicinal Product into the
         distribution chain.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.status = None
         """ This attribute provides information on the status of the marketing
@@ -68,12 +68,12 @@ class MarketingStatus(backboneelement.BackboneElement):
             ("country", "country", codeableconcept.CodeableConcept, False, None, True),
             ("dateRange", "dateRange", period.Period, False, None, True),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, False, None, False),
-            ("restoreDate", "restoreDate", fhirdate.FHIRDate, False, None, False),
+            ("restoreDate", "restoreDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import period

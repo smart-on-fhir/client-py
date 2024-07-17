@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Appointment).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -39,7 +39,7 @@ class Appointment(domainresource.DomainResource):
         
         self.created = None
         """ The date that this appointment was initially created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Shown on a subject line in a meeting request, or appointment list.
@@ -47,7 +47,7 @@ class Appointment(domainresource.DomainResource):
         
         self.end = None
         """ When appointment is to conclude.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.identifier = None
         """ External Ids for this item.
@@ -103,7 +103,7 @@ class Appointment(domainresource.DomainResource):
         
         self.start = None
         """ When appointment is to take place.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.status = None
         """ proposed | pending | booked | arrived | fulfilled | cancelled |
@@ -123,9 +123,9 @@ class Appointment(domainresource.DomainResource):
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("cancelationReason", "cancelationReason", codeableconcept.CodeableConcept, False, None, False),
             ("comment", "comment", str, False, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("created", "created", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
-            ("end", "end", fhirdate.FHIRDate, False, None, False),
+            ("end", "end", fhirinstant.FHIRInstant, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("minutesDuration", "minutesDuration", int, False, None, False),
             ("participant", "participant", AppointmentParticipant, True, None, True),
@@ -138,7 +138,7 @@ class Appointment(domainresource.DomainResource):
             ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
             ("slot", "slot", fhirreference.FHIRReference, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("start", "start", fhirdate.FHIRDate, False, None, False),
+            ("start", "start", fhirinstant.FHIRInstant, False, None, False),
             ("status", "status", str, False, None, True),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
         ])
@@ -198,7 +198,8 @@ class AppointmentParticipant(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
+from . import fhirinstant
 from . import fhirreference
 from . import identifier
 from . import period

@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import medicinalproductpackaged
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class MedicinalProductPackagedTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class MedicinalProductPackagedTests(unittest.TestCase):
         self.implMedicinalProductPackaged1(inst2)
     
     def implMedicinalProductPackaged1(self, inst):
-        self.assertEqual(inst.batchIdentifier[0].outerPackaging.period.end.date, FHIRDate("2016-06-06").date)
+        self.assertEqual(inst.batchIdentifier[0].outerPackaging.period.end.datetime, FHIRDateTime("2016-06-06").datetime)
         self.assertEqual(inst.batchIdentifier[0].outerPackaging.period.end.as_json(), "2016-06-06")
         self.assertEqual(inst.batchIdentifier[0].outerPackaging.system, "http://ema.europa.eu/example/baid1")
         self.assertEqual(inst.batchIdentifier[0].outerPackaging.value, "AAF5699")

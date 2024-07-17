@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -55,7 +55,7 @@ class DeviceUseStatement(domainresource.DomainResource):
         
         self.recordedOn = None
         """ When statement was recorded.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.source = None
         """ Who made the statement.
@@ -71,7 +71,7 @@ class DeviceUseStatement(domainresource.DomainResource):
         
         self.timingDateTime = None
         """ How often  the device was used.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.timingPeriod = None
         """ How often  the device was used.
@@ -94,11 +94,11 @@ class DeviceUseStatement(domainresource.DomainResource):
             ("note", "note", annotation.Annotation, True, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("recordedOn", "recordedOn", fhirdate.FHIRDate, False, None, False),
+            ("recordedOn", "recordedOn", fhirdatetime.FHIRDateTime, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
+            ("timingDateTime", "timingDateTime", fhirdatetime.FHIRDateTime, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
         ])
@@ -107,7 +107,7 @@ class DeviceUseStatement(domainresource.DomainResource):
 
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

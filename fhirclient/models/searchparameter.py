@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SearchParameter) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SearchParameter).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -47,7 +47,7 @@ class SearchParameter(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.derivedFrom = None
         """ Original definition for the search parameter.
@@ -139,7 +139,7 @@ class SearchParameter(domainresource.DomainResource):
             ("comparator", "comparator", str, True, None, False),
             ("component", "component", SearchParameterComponent, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("derivedFrom", "derivedFrom", str, False, None, False),
             ("description", "description", str, False, None, True),
             ("experimental", "experimental", bool, False, None, False),
@@ -202,5 +202,5 @@ class SearchParameterComponent(backboneelement.BackboneElement):
 
 from . import codeableconcept
 from . import contactdetail
-from . import fhirdate
+from . import fhirdatetime
 from . import usagecontext

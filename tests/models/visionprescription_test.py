@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import visionprescription
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class VisionPrescriptionTests(unittest.TestCase):
@@ -27,9 +30,9 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.implVisionPrescription1(inst2)
     
     def implVisionPrescription1(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-06-15").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-06-15").datetime)
         self.assertEqual(inst.created.as_json(), "2014-06-15")
-        self.assertEqual(inst.dateWritten.date, FHIRDate("2014-06-15").date)
+        self.assertEqual(inst.dateWritten.datetime, FHIRDateTime("2014-06-15").datetime)
         self.assertEqual(inst.dateWritten.as_json(), "2014-06-15")
         self.assertEqual(inst.id, "33123")
         self.assertEqual(inst.identifier[0].system, "http://www.happysight.com/prescription")
@@ -67,9 +70,9 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.implVisionPrescription2(inst2)
     
     def implVisionPrescription2(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-06-15").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-06-15").datetime)
         self.assertEqual(inst.created.as_json(), "2014-06-15")
-        self.assertEqual(inst.dateWritten.date, FHIRDate("2014-06-15").date)
+        self.assertEqual(inst.dateWritten.datetime, FHIRDateTime("2014-06-15").datetime)
         self.assertEqual(inst.dateWritten.as_json(), "2014-06-15")
         self.assertEqual(inst.id, "33124")
         self.assertEqual(inst.identifier[0].system, "http://www.happysight.com/prescription")

@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Bundle).
+# 2024, SMART Health IT.
 
 
 from . import resource
@@ -38,7 +38,7 @@ class Bundle(resource.Resource):
         
         self.timestamp = None
         """ When the bundle was assembled.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.total = None
         """ If search, the total number of matches.
@@ -58,7 +58,7 @@ class Bundle(resource.Resource):
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("link", "link", BundleLink, True, None, False),
             ("signature", "signature", signature.Signature, False, None, False),
-            ("timestamp", "timestamp", fhirdate.FHIRDate, False, None, False),
+            ("timestamp", "timestamp", fhirinstant.FHIRInstant, False, None, False),
             ("total", "total", int, False, None, False),
             ("type", "type", str, False, None, True),
         ])
@@ -147,7 +147,7 @@ class BundleEntryRequest(backboneelement.BackboneElement):
         
         self.ifModifiedSince = None
         """ For managing cache currency.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.ifNoneExist = None
         """ For conditional creates.
@@ -171,7 +171,7 @@ class BundleEntryRequest(backboneelement.BackboneElement):
         js = super(BundleEntryRequest, self).elementProperties()
         js.extend([
             ("ifMatch", "ifMatch", str, False, None, False),
-            ("ifModifiedSince", "ifModifiedSince", fhirdate.FHIRDate, False, None, False),
+            ("ifModifiedSince", "ifModifiedSince", fhirinstant.FHIRInstant, False, None, False),
             ("ifNoneExist", "ifNoneExist", str, False, None, False),
             ("ifNoneMatch", "ifNoneMatch", str, False, None, False),
             ("method", "method", str, False, None, True),
@@ -204,7 +204,7 @@ class BundleEntryResponse(backboneelement.BackboneElement):
         
         self.lastModified = None
         """ Server's date time modified.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.location = None
         """ The location (if the operation returns a location).
@@ -224,7 +224,7 @@ class BundleEntryResponse(backboneelement.BackboneElement):
         js = super(BundleEntryResponse, self).elementProperties()
         js.extend([
             ("etag", "etag", str, False, None, False),
-            ("lastModified", "lastModified", fhirdate.FHIRDate, False, None, False),
+            ("lastModified", "lastModified", fhirinstant.FHIRInstant, False, None, False),
             ("location", "location", str, False, None, False),
             ("outcome", "outcome", resource.Resource, False, None, False),
             ("status", "status", str, False, None, True),
@@ -304,6 +304,6 @@ class BundleLink(backboneelement.BackboneElement):
         return js
 
 
-from . import fhirdate
+from . import fhirinstant
 from . import identifier
 from . import signature

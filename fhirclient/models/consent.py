@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Consent) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Consent).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -29,7 +29,7 @@ class Consent(domainresource.DomainResource):
         
         self.dateTime = None
         """ When this Consent was created or indexed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Identifier for this record (external references).
@@ -85,7 +85,7 @@ class Consent(domainresource.DomainResource):
         js = super(Consent, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, True, None, True),
-            ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, False),
+            ("dateTime", "dateTime", fhirdatetime.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("organization", "organization", fhirreference.FHIRReference, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
@@ -312,7 +312,7 @@ class ConsentVerification(backboneelement.BackboneElement):
         
         self.verificationDate = None
         """ When consent verified.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.verified = None
         """ Has been verified.
@@ -327,7 +327,7 @@ class ConsentVerification(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConsentVerification, self).elementProperties()
         js.extend([
-            ("verificationDate", "verificationDate", fhirdate.FHIRDate, False, None, False),
+            ("verificationDate", "verificationDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("verified", "verified", bool, False, None, True),
             ("verifiedWith", "verifiedWith", fhirreference.FHIRReference, False, None, False),
         ])
@@ -337,7 +337,7 @@ class ConsentVerification(backboneelement.BackboneElement):
 from . import attachment
 from . import codeableconcept
 from . import coding
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

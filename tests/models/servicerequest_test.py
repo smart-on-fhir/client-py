@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import servicerequest
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ServiceRequestTests(unittest.TestCase):
@@ -35,7 +38,7 @@ class ServiceRequestTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2013-05-08T09:33:27+07:00").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2013-05-08T09:33:27+07:00").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2013-05-08T09:33:27+07:00")
         self.assertEqual(inst.reasonCode[0].text, "Check for metastatic disease")
         self.assertEqual(inst.status, "active")
@@ -79,7 +82,7 @@ class ServiceRequestTests(unittest.TestCase):
         self.implServiceRequest3(inst2)
     
     def implServiceRequest3(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2014-02-14").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2014-02-14").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2014-02-14")
         self.assertEqual(inst.category[0].coding[0].code, "103696004")
         self.assertEqual(inst.category[0].coding[0].display, "Patient referral to specialist")
@@ -97,9 +100,9 @@ class ServiceRequestTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.note[0].authorString, "Serena Shrink")
         self.assertEqual(inst.note[0].text, "In the past 2 years Beverly has had 6 instances of rt-sided Otitis media. She is     falling behind her peers at school, and displaying some learning difficulties.")
-        self.assertEqual(inst.note[0].time.date, FHIRDate("2014-02-14").date)
+        self.assertEqual(inst.note[0].time.datetime, FHIRDateTime("2014-02-14").datetime)
         self.assertEqual(inst.note[0].time.as_json(), "2014-02-14")
-        self.assertEqual(inst.occurrencePeriod.end.date, FHIRDate("2014-03-14").date)
+        self.assertEqual(inst.occurrencePeriod.end.datetime, FHIRDateTime("2014-03-14").datetime)
         self.assertEqual(inst.occurrencePeriod.end.as_json(), "2014-03-14")
         self.assertEqual(inst.performerType.coding[0].code, "ent")
         self.assertEqual(inst.performerType.coding[0].display, "ENT")
@@ -121,7 +124,7 @@ class ServiceRequestTests(unittest.TestCase):
         self.implServiceRequest4(inst2)
     
     def implServiceRequest4(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-03-05").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2017-03-05").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2017-03-05")
         self.assertEqual(inst.code.coding[0].code, "76164006")
         self.assertEqual(inst.code.coding[0].display, "Biopsy of colon (procedure)")
@@ -157,7 +160,7 @@ class ServiceRequestTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2015-08-27T09:33:27+07:00").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2015-08-27T09:33:27+07:00").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2015-08-27T09:33:27+07:00")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")
@@ -174,7 +177,7 @@ class ServiceRequestTests(unittest.TestCase):
     
     def implServiceRequest6(self, inst):
         self.assertEqual(inst.asNeededCodeableConcept.text, "as needed to clear mucus")
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-02-01T17:23:07Z").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2017-02-01T17:23:07Z").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2017-02-01T17:23:07Z")
         self.assertEqual(inst.code.coding[0].code, "34431008")
         self.assertEqual(inst.code.coding[0].display, "Physiotherapy of chest (regime/therapy) ")
@@ -213,7 +216,7 @@ class ServiceRequestTests(unittest.TestCase):
         self.implServiceRequest7(inst2)
     
     def implServiceRequest7(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-03-05").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2017-03-05").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2017-03-05")
         self.assertEqual(inst.code.coding[0].code, "73761001")
         self.assertEqual(inst.code.coding[0].display, "Colonoscopy (procedure)")
@@ -241,7 +244,7 @@ class ServiceRequestTests(unittest.TestCase):
         self.implServiceRequest8(inst2)
     
     def implServiceRequest8(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-03-05").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2017-03-05").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2017-03-05")
         self.assertEqual(inst.code.coding[0].code, "62013009")
         self.assertEqual(inst.code.coding[0].display, "Ambulating patient (procedure)")
@@ -287,7 +290,7 @@ class ServiceRequestTests(unittest.TestCase):
         self.implServiceRequest10(inst2)
     
     def implServiceRequest10(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2016-08-16").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2016-08-16").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2016-08-16")
         self.assertEqual(inst.category[0].coding[0].code, "311401005")
         self.assertEqual(inst.category[0].coding[0].display, "Patient education (procedure)")
@@ -302,7 +305,7 @@ class ServiceRequestTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2014-08-16")
         self.assertEqual(inst.reasonCode[0].text, "early detection of breast mass")
         self.assertEqual(inst.status, "completed")

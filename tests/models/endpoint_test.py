@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import endpoint
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class EndpointTests(unittest.TestCase):
@@ -44,7 +47,7 @@ class EndpointTests(unittest.TestCase):
         self.assertEqual(inst.payloadMimeType[0], "application/fhir+xml")
         self.assertEqual(inst.payloadType[0].coding[0].code, "CarePlan")
         self.assertEqual(inst.payloadType[0].coding[0].system, "http://hl7.org/fhir/resource-types")
-        self.assertEqual(inst.period.start.date, FHIRDate("2014-09-01").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("2014-09-01").datetime)
         self.assertEqual(inst.period.start.as_json(), "2014-09-01")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.status, "generated")

@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Task) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Task).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -20,7 +20,7 @@ class Task(domainresource.DomainResource):
         
         self.authoredOn = None
         """ Task Creation Date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.basedOn = None
         """ Request fulfilled by this task.
@@ -85,7 +85,7 @@ class Task(domainresource.DomainResource):
         
         self.lastModified = None
         """ Task Last Modified Date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.location = None
         """ Where task occurs.
@@ -148,7 +148,7 @@ class Task(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Task, self).elementProperties()
         js.extend([
-            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
+            ("authoredOn", "authoredOn", fhirdatetime.FHIRDateTime, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("businessStatus", "businessStatus", codeableconcept.CodeableConcept, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
@@ -164,7 +164,7 @@ class Task(domainresource.DomainResource):
             ("instantiatesUri", "instantiatesUri", str, False, None, False),
             ("insurance", "insurance", fhirreference.FHIRReference, True, None, False),
             ("intent", "intent", str, False, None, True),
-            ("lastModified", "lastModified", fhirdate.FHIRDate, False, None, False),
+            ("lastModified", "lastModified", fhirdatetime.FHIRDateTime, False, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("output", "output", TaskOutput, True, None, False),
@@ -271,7 +271,7 @@ class TaskInput(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ Content to use in performing the task.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ Content to use in performing the task.
@@ -307,7 +307,7 @@ class TaskInput(backboneelement.BackboneElement):
         
         self.valueInstant = None
         """ Content to use in performing the task.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.valueInteger = None
         """ Content to use in performing the task.
@@ -375,7 +375,7 @@ class TaskInput(backboneelement.BackboneElement):
         
         self.valueTime = None
         """ Content to use in performing the task.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.valueTiming = None
         """ Content to use in performing the task.
@@ -427,7 +427,7 @@ class TaskInput(backboneelement.BackboneElement):
             ("valueCount", "valueCount", count.Count, False, "value", True),
             ("valueDataRequirement", "valueDataRequirement", datarequirement.DataRequirement, False, "value", True),
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueDateTime", "valueDateTime", fhirdatetime.FHIRDateTime, False, "value", True),
             ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueDistance", "valueDistance", distance.Distance, False, "value", True),
             ("valueDosage", "valueDosage", dosage.Dosage, False, "value", True),
@@ -436,7 +436,7 @@ class TaskInput(backboneelement.BackboneElement):
             ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", True),
             ("valueId", "valueId", str, False, "value", True),
             ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", True),
-            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", True),
+            ("valueInstant", "valueInstant", fhirinstant.FHIRInstant, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueMarkdown", "valueMarkdown", str, False, "value", True),
             ("valueMeta", "valueMeta", meta.Meta, False, "value", True),
@@ -453,7 +453,7 @@ class TaskInput(backboneelement.BackboneElement):
             ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", True),
             ("valueSignature", "valueSignature", signature.Signature, False, "value", True),
             ("valueString", "valueString", str, False, "value", True),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueTime", "valueTime", fhirtime.FHIRTime, False, "value", True),
             ("valueTiming", "valueTiming", timing.Timing, False, "value", True),
             ("valueTriggerDefinition", "valueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "value", True),
             ("valueUnsignedInt", "valueUnsignedInt", int, False, "value", True),
@@ -551,7 +551,7 @@ class TaskOutput(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ Result of output.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ Result of output.
@@ -587,7 +587,7 @@ class TaskOutput(backboneelement.BackboneElement):
         
         self.valueInstant = None
         """ Result of output.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.valueInteger = None
         """ Result of output.
@@ -655,7 +655,7 @@ class TaskOutput(backboneelement.BackboneElement):
         
         self.valueTime = None
         """ Result of output.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.valueTiming = None
         """ Result of output.
@@ -707,7 +707,7 @@ class TaskOutput(backboneelement.BackboneElement):
             ("valueCount", "valueCount", count.Count, False, "value", True),
             ("valueDataRequirement", "valueDataRequirement", datarequirement.DataRequirement, False, "value", True),
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueDateTime", "valueDateTime", fhirdatetime.FHIRDateTime, False, "value", True),
             ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueDistance", "valueDistance", distance.Distance, False, "value", True),
             ("valueDosage", "valueDosage", dosage.Dosage, False, "value", True),
@@ -716,7 +716,7 @@ class TaskOutput(backboneelement.BackboneElement):
             ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", True),
             ("valueId", "valueId", str, False, "value", True),
             ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", True),
-            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", True),
+            ("valueInstant", "valueInstant", fhirinstant.FHIRInstant, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueMarkdown", "valueMarkdown", str, False, "value", True),
             ("valueMeta", "valueMeta", meta.Meta, False, "value", True),
@@ -733,7 +733,7 @@ class TaskOutput(backboneelement.BackboneElement):
             ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", True),
             ("valueSignature", "valueSignature", signature.Signature, False, "value", True),
             ("valueString", "valueString", str, False, "value", True),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueTime", "valueTime", fhirtime.FHIRTime, False, "value", True),
             ("valueTiming", "valueTiming", timing.Timing, False, "value", True),
             ("valueTriggerDefinition", "valueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "value", True),
             ("valueUnsignedInt", "valueUnsignedInt", int, False, "value", True),
@@ -803,7 +803,10 @@ from . import dosage
 from . import duration
 from . import expression
 from . import fhirdate
+from . import fhirdatetime
+from . import fhirinstant
 from . import fhirreference
+from . import fhirtime
 from . import humanname
 from . import identifier
 from . import meta

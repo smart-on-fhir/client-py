@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Procedure).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -96,7 +96,7 @@ class Procedure(domainresource.DomainResource):
         
         self.performedDateTime = None
         """ When the procedure was performed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.performedPeriod = None
         """ When the procedure was performed.
@@ -174,7 +174,7 @@ class Procedure(domainresource.DomainResource):
             ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("performedAge", "performedAge", age.Age, False, "performed", False),
-            ("performedDateTime", "performedDateTime", fhirdate.FHIRDate, False, "performed", False),
+            ("performedDateTime", "performedDateTime", fhirdatetime.FHIRDateTime, False, "performed", False),
             ("performedPeriod", "performedPeriod", period.Period, False, "performed", False),
             ("performedRange", "performedRange", range.Range, False, "performed", False),
             ("performedString", "performedString", str, False, "performed", False),
@@ -274,7 +274,7 @@ class ProcedurePerformer(backboneelement.BackboneElement):
 from . import age
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

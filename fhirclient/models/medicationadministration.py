@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -42,7 +42,7 @@ class MedicationAdministration(domainresource.DomainResource):
         
         self.effectiveDateTime = None
         """ Start and end time of administration.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
         """ Start and end time of administration.
@@ -119,7 +119,7 @@ class MedicationAdministration(domainresource.DomainResource):
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("device", "device", fhirreference.FHIRReference, True, None, False),
             ("dosage", "dosage", MedicationAdministrationDosage, False, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", True),
+            ("effectiveDateTime", "effectiveDateTime", fhirdatetime.FHIRDateTime, False, "effective", True),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", True),
             ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -241,7 +241,7 @@ class MedicationAdministrationPerformer(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductAuthorization) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductAuthorization).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -30,7 +30,7 @@ class MedicinalProductAuthorization(domainresource.DomainResource):
         self.dateOfFirstAuthorization = None
         """ The date when the first authorization was granted by a Medicines
         Regulatory Agency.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.holder = None
         """ Marketing Authorization Holder.
@@ -44,7 +44,7 @@ class MedicinalProductAuthorization(domainresource.DomainResource):
         self.internationalBirthDate = None
         """ Date of first marketing authorization for a company's new medicinal
         product in any country in the World.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.jurisdiction = None
         """ Jurisdiction within a country.
@@ -70,7 +70,7 @@ class MedicinalProductAuthorization(domainresource.DomainResource):
         self.restoreDate = None
         """ The date when a suspended the marketing or the marketing
         authorization of the product is anticipated to be restored.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.status = None
         """ The status of the marketing authorization.
@@ -78,7 +78,7 @@ class MedicinalProductAuthorization(domainresource.DomainResource):
         
         self.statusDate = None
         """ The date at which the given status has become applicable.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.subject = None
         """ The medicinal product that is being authorized.
@@ -98,18 +98,18 @@ class MedicinalProductAuthorization(domainresource.DomainResource):
         js.extend([
             ("country", "country", codeableconcept.CodeableConcept, True, None, False),
             ("dataExclusivityPeriod", "dataExclusivityPeriod", period.Period, False, None, False),
-            ("dateOfFirstAuthorization", "dateOfFirstAuthorization", fhirdate.FHIRDate, False, None, False),
+            ("dateOfFirstAuthorization", "dateOfFirstAuthorization", fhirdatetime.FHIRDateTime, False, None, False),
             ("holder", "holder", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("internationalBirthDate", "internationalBirthDate", fhirdate.FHIRDate, False, None, False),
+            ("internationalBirthDate", "internationalBirthDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("jurisdictionalAuthorization", "jurisdictionalAuthorization", MedicinalProductAuthorizationJurisdictionalAuthorization, True, None, False),
             ("legalBasis", "legalBasis", codeableconcept.CodeableConcept, False, None, False),
             ("procedure", "procedure", MedicinalProductAuthorizationProcedure, False, None, False),
             ("regulator", "regulator", fhirreference.FHIRReference, False, None, False),
-            ("restoreDate", "restoreDate", fhirdate.FHIRDate, False, None, False),
+            ("restoreDate", "restoreDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, False),
-            ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
+            ("statusDate", "statusDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("validityPeriod", "validityPeriod", period.Period, False, None, False),
         ])
@@ -186,7 +186,7 @@ class MedicinalProductAuthorizationProcedure(backboneelement.BackboneElement):
         
         self.dateDateTime = None
         """ Date of procedure.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.datePeriod = None
         """ Date of procedure.
@@ -206,7 +206,7 @@ class MedicinalProductAuthorizationProcedure(backboneelement.BackboneElement):
         js = super(MedicinalProductAuthorizationProcedure, self).elementProperties()
         js.extend([
             ("application", "application", MedicinalProductAuthorizationProcedure, True, None, False),
-            ("dateDateTime", "dateDateTime", fhirdate.FHIRDate, False, "date", False),
+            ("dateDateTime", "dateDateTime", fhirdatetime.FHIRDateTime, False, "date", False),
             ("datePeriod", "datePeriod", period.Period, False, "date", False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
@@ -215,7 +215,7 @@ class MedicinalProductAuthorizationProcedure(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

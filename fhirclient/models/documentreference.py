@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DocumentReference).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -50,7 +50,7 @@ class DocumentReference(domainresource.DomainResource):
         
         self.date = None
         """ When this document reference was created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.description = None
         """ Human-readable description.
@@ -99,7 +99,7 @@ class DocumentReference(domainresource.DomainResource):
             ("content", "content", DocumentReferenceContent, True, None, True),
             ("context", "context", DocumentReferenceContext, False, None, False),
             ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirinstant.FHIRInstant, False, None, False),
             ("description", "description", str, False, None, False),
             ("docStatus", "docStatus", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -251,7 +251,7 @@ class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
 from . import attachment
 from . import codeableconcept
 from . import coding
-from . import fhirdate
+from . import fhirinstant
 from . import fhirreference
 from . import identifier
 from . import period

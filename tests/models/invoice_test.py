@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import invoice
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class InvoiceTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class InvoiceTests(unittest.TestCase):
         self.implInvoice1(inst2)
     
     def implInvoice1(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2017-01-25T08:00:00+01:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-01-25T08:00:00+01:00").datetime)
         self.assertEqual(inst.date.as_json(), "2017-01-25T08:00:00+01:00")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://myHospital.org/Invoices")

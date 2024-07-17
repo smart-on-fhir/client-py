@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import consent
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ConsentTests(unittest.TestCase):
@@ -29,7 +32,7 @@ class ConsentTests(unittest.TestCase):
     def implConsent1(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "59284-0")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.dateTime.datetime, FHIRDateTime("2015-11-18").datetime)
         self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
         self.assertEqual(inst.id, "consent-example-Out")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -58,7 +61,7 @@ class ConsentTests(unittest.TestCase):
     def implConsent2(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "59284-0")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2016-05-11").date)
+        self.assertEqual(inst.dateTime.datetime, FHIRDateTime("2016-05-11").datetime)
         self.assertEqual(inst.dateTime.as_json(), "2016-05-11")
         self.assertEqual(inst.id, "consent-example-basic")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -66,9 +69,9 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
         self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.provision.period.end.date, FHIRDate("2016-01-01").date)
+        self.assertEqual(inst.provision.period.end.datetime, FHIRDateTime("2016-01-01").datetime)
         self.assertEqual(inst.provision.period.end.as_json(), "2016-01-01")
-        self.assertEqual(inst.provision.period.start.date, FHIRDate("1964-01-01").date)
+        self.assertEqual(inst.provision.period.start.datetime, FHIRDateTime("1964-01-01").datetime)
         self.assertEqual(inst.provision.period.start.as_json(), "1964-01-01")
         self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
         self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
@@ -89,7 +92,7 @@ class ConsentTests(unittest.TestCase):
     def implConsent3(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "npp")
         self.assertEqual(inst.category[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/consentcategorycodes")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2016-05-26T00:41:10-04:00").date)
+        self.assertEqual(inst.dateTime.datetime, FHIRDateTime("2016-05-26T00:41:10-04:00").datetime)
         self.assertEqual(inst.dateTime.as_json(), "2016-05-26T00:41:10-04:00")
         self.assertEqual(inst.id, "consent-example-signature")
         self.assertEqual(inst.identifier[0].system, "urn:oid:2.16.840.1.113883.3.72.5.9.1")
@@ -101,9 +104,9 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
         self.assertEqual(inst.provision.actor[0].role.coding[0].code, "PRCP")
         self.assertEqual(inst.provision.actor[0].role.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
-        self.assertEqual(inst.provision.period.end.date, FHIRDate("2016-10-10").date)
+        self.assertEqual(inst.provision.period.end.datetime, FHIRDateTime("2016-10-10").datetime)
         self.assertEqual(inst.provision.period.end.as_json(), "2016-10-10")
-        self.assertEqual(inst.provision.period.start.date, FHIRDate("2015-10-10").date)
+        self.assertEqual(inst.provision.period.start.datetime, FHIRDateTime("2015-10-10").datetime)
         self.assertEqual(inst.provision.period.start.as_json(), "2015-10-10")
         self.assertEqual(inst.provision.provision[0].actor[0].role.coding[0].code, "AUT")
         self.assertEqual(inst.provision.provision[0].actor[0].role.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
@@ -132,7 +135,7 @@ class ConsentTests(unittest.TestCase):
     def implConsent4(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "INFAO")
         self.assertEqual(inst.category[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.dateTime.datetime, FHIRDateTime("2015-11-18").datetime)
         self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
         self.assertEqual(inst.id, "consent-example-grantor")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -165,7 +168,7 @@ class ConsentTests(unittest.TestCase):
     def implConsent5(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "59284-0")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2016-06-23T17:02:33+10:00").date)
+        self.assertEqual(inst.dateTime.datetime, FHIRDateTime("2016-06-23T17:02:33+10:00").datetime)
         self.assertEqual(inst.dateTime.as_json(), "2016-06-23T17:02:33+10:00")
         self.assertEqual(inst.id, "consent-example-smartonfhir")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -173,9 +176,9 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
         self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.provision.period.end.date, FHIRDate("2016-06-23T17:32:33+10:00").date)
+        self.assertEqual(inst.provision.period.end.datetime, FHIRDateTime("2016-06-23T17:32:33+10:00").datetime)
         self.assertEqual(inst.provision.period.end.as_json(), "2016-06-23T17:32:33+10:00")
-        self.assertEqual(inst.provision.period.start.date, FHIRDate("2016-06-23T17:02:33+10:00").date)
+        self.assertEqual(inst.provision.period.start.datetime, FHIRDateTime("2016-06-23T17:02:33+10:00").datetime)
         self.assertEqual(inst.provision.period.start.as_json(), "2016-06-23T17:02:33+10:00")
         self.assertEqual(inst.provision.provision[0].action[0].coding[0].code, "access")
         self.assertEqual(inst.provision.provision[0].action[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/consentaction")
@@ -200,7 +203,7 @@ class ConsentTests(unittest.TestCase):
     def implConsent6(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "59284-0")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2016-06-16").date)
+        self.assertEqual(inst.dateTime.datetime, FHIRDateTime("2016-06-16").datetime)
         self.assertEqual(inst.dateTime.as_json(), "2016-06-16")
         self.assertEqual(inst.id, "consent-example-pkb")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -292,7 +295,7 @@ class ConsentTests(unittest.TestCase):
     def implConsent7(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "59284-0")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.dateTime.datetime, FHIRDateTime("2015-11-18").datetime)
         self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
         self.assertEqual(inst.id, "consent-example-notTime")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -300,9 +303,9 @@ class ConsentTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.policyRule.coding[0].code, "OPTIN")
         self.assertEqual(inst.policyRule.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.provision.period.end.date, FHIRDate("2015-02-01").date)
+        self.assertEqual(inst.provision.period.end.datetime, FHIRDateTime("2015-02-01").datetime)
         self.assertEqual(inst.provision.period.end.as_json(), "2015-02-01")
-        self.assertEqual(inst.provision.period.start.date, FHIRDate("2015-01-01").date)
+        self.assertEqual(inst.provision.period.start.datetime, FHIRDateTime("2015-01-01").datetime)
         self.assertEqual(inst.provision.period.start.as_json(), "2015-01-01")
         self.assertEqual(inst.scope.coding[0].code, "patient-privacy")
         self.assertEqual(inst.scope.coding[0].system, "http://terminology.hl7.org/CodeSystem/consentscope")
@@ -323,7 +326,7 @@ class ConsentTests(unittest.TestCase):
     def implConsent8(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "59284-0")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.dateTime.datetime, FHIRDateTime("2015-11-18").datetime)
         self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
         self.assertEqual(inst.id, "consent-example-notAuthor")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -352,7 +355,7 @@ class ConsentTests(unittest.TestCase):
     def implConsent9(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "59284-0")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.dateTime.datetime, FHIRDateTime("2015-11-18").datetime)
         self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
         self.assertEqual(inst.id, "consent-example-notThis")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -380,7 +383,7 @@ class ConsentTests(unittest.TestCase):
     def implConsent10(self, inst):
         self.assertEqual(inst.category[0].coding[0].code, "EMRGONLY")
         self.assertEqual(inst.category[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.dateTime.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.dateTime.datetime, FHIRDateTime("2015-11-18").datetime)
         self.assertEqual(inst.dateTime.as_json(), "2015-11-18")
         self.assertEqual(inst.id, "consent-example-Emergency")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")

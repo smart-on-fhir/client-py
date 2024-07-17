@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Annotation) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Annotation).
+# 2024, SMART Health IT.
 
 
 from . import element
@@ -35,7 +35,7 @@ class Annotation(element.Element):
         
         self.time = None
         """ When the annotation was made.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(Annotation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -45,10 +45,10 @@ class Annotation(element.Element):
             ("authorReference", "authorReference", fhirreference.FHIRReference, False, "author", False),
             ("authorString", "authorString", str, False, "author", False),
             ("text", "text", str, False, None, True),
-            ("time", "time", fhirdate.FHIRDate, False, None, False),
+            ("time", "time", fhirdatetime.FHIRDateTime, False, None, False),
         ])
         return js
 
 
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference

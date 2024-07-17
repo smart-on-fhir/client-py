@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import paymentreconciliation
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class PaymentReconciliationTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class PaymentReconciliationTests(unittest.TestCase):
         self.implPaymentReconciliation1(inst2)
     
     def implPaymentReconciliation1(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.detail[0].amount.currency, "USD")
         self.assertEqual(inst.detail[0].amount.value, 3500.0)
@@ -69,9 +72,9 @@ class PaymentReconciliationTests(unittest.TestCase):
         self.assertEqual(inst.paymentDate.as_json(), "2014-08-01")
         self.assertEqual(inst.paymentIdentifier.system, "http://www.BenefitsInc.com/payment/2018")
         self.assertEqual(inst.paymentIdentifier.value, "10-12345")
-        self.assertEqual(inst.period.end.date, FHIRDate("2014-08-31").date)
+        self.assertEqual(inst.period.end.datetime, FHIRDateTime("2014-08-31").datetime)
         self.assertEqual(inst.period.end.as_json(), "2014-08-31")
-        self.assertEqual(inst.period.start.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.period.start.as_json(), "2014-08-16")
         self.assertEqual(inst.processNote[0].text, "Due to the year end holiday the cutoff for submissions for December will be the 28th.")
         self.assertEqual(inst.processNote[0].type, "display")

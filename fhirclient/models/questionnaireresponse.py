@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -28,7 +28,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         
         self.authored = None
         """ Date the answers were gathered.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.basedOn = None
         """ Request fulfilled by this QuestionnaireResponse.
@@ -72,7 +72,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         js = super(QuestionnaireResponse, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("authored", "authored", fhirdate.FHIRDate, False, None, False),
+            ("authored", "authored", fhirdatetime.FHIRDateTime, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
@@ -177,7 +177,7 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ Single-valued answer to the question.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ Single-valued answer to the question.
@@ -201,7 +201,7 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
         
         self.valueTime = None
         """ Single-valued answer to the question.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.valueUri = None
         """ Single-valued answer to the question.
@@ -217,13 +217,13 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", False),
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdatetime.FHIRDateTime, False, "value", False),
             ("valueDecimal", "valueDecimal", float, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
             ("valueString", "valueString", str, False, "value", False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueTime", "valueTime", fhirtime.FHIRTime, False, "value", False),
             ("valueUri", "valueUri", str, False, "value", False),
         ])
         return js
@@ -232,6 +232,8 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
 from . import attachment
 from . import coding
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
+from . import fhirtime
 from . import identifier
 from . import quantity

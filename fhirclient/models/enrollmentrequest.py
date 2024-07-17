@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class EnrollmentRequest(domainresource.DomainResource):
         
         self.created = None
         """ Creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Business Identifier.
@@ -56,7 +56,7 @@ class EnrollmentRequest(domainresource.DomainResource):
         js.extend([
             ("candidate", "candidate", fhirreference.FHIRReference, False, None, False),
             ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("created", "created", fhirdatetime.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
@@ -65,6 +65,6 @@ class EnrollmentRequest(domainresource.DomainResource):
         return js
 
 
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier

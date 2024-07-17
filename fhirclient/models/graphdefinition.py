@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/GraphDefinition) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/GraphDefinition).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -28,7 +28,7 @@ class GraphDefinition(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the graph definition.
@@ -89,7 +89,7 @@ class GraphDefinition(domainresource.DomainResource):
         js = super(GraphDefinition, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
@@ -260,5 +260,5 @@ class GraphDefinitionLinkTargetCompartment(backboneelement.BackboneElement):
 
 from . import codeableconcept
 from . import contactdetail
-from . import fhirdate
+from . import fhirdatetime
 from . import usagecontext

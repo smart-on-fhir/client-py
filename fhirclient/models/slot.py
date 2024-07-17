@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Slot) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Slot).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -30,7 +30,7 @@ class Slot(domainresource.DomainResource):
         
         self.end = None
         """ Date/Time that the slot is to conclude.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.identifier = None
         """ External Ids for this item.
@@ -65,7 +65,7 @@ class Slot(domainresource.DomainResource):
         
         self.start = None
         """ Date/Time that the slot is to begin.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.status = None
         """ busy | free | busy-unavailable | busy-tentative | entered-in-error.
@@ -78,20 +78,20 @@ class Slot(domainresource.DomainResource):
         js.extend([
             ("appointmentType", "appointmentType", codeableconcept.CodeableConcept, False, None, False),
             ("comment", "comment", str, False, None, False),
-            ("end", "end", fhirdate.FHIRDate, False, None, True),
+            ("end", "end", fhirinstant.FHIRInstant, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("overbooked", "overbooked", bool, False, None, False),
             ("schedule", "schedule", fhirreference.FHIRReference, False, None, True),
             ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, True, None, False),
             ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("start", "start", fhirdate.FHIRDate, False, None, True),
+            ("start", "start", fhirinstant.FHIRInstant, False, None, True),
             ("status", "status", str, False, None, True),
         ])
         return js
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirinstant
 from . import fhirreference
 from . import identifier

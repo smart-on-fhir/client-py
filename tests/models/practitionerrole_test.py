@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import practitionerrole
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class PractitionerRoleTests(unittest.TestCase):
@@ -29,16 +32,16 @@ class PractitionerRoleTests(unittest.TestCase):
     def implPractitionerRole1(self, inst):
         self.assertTrue(inst.active)
         self.assertEqual(inst.availabilityExceptions, "Adam is generally unavailable on public holidays and during the Christmas/New Year break")
-        self.assertEqual(inst.availableTime[0].availableEndTime.date, FHIRDate("16:30:00").date)
+        self.assertEqual(inst.availableTime[0].availableEndTime.time, FHIRTime("16:30:00").time)
         self.assertEqual(inst.availableTime[0].availableEndTime.as_json(), "16:30:00")
-        self.assertEqual(inst.availableTime[0].availableStartTime.date, FHIRDate("09:00:00").date)
+        self.assertEqual(inst.availableTime[0].availableStartTime.time, FHIRTime("09:00:00").time)
         self.assertEqual(inst.availableTime[0].availableStartTime.as_json(), "09:00:00")
         self.assertEqual(inst.availableTime[0].daysOfWeek[0], "mon")
         self.assertEqual(inst.availableTime[0].daysOfWeek[1], "tue")
         self.assertEqual(inst.availableTime[0].daysOfWeek[2], "wed")
-        self.assertEqual(inst.availableTime[1].availableEndTime.date, FHIRDate("12:00:00").date)
+        self.assertEqual(inst.availableTime[1].availableEndTime.time, FHIRTime("12:00:00").time)
         self.assertEqual(inst.availableTime[1].availableEndTime.as_json(), "12:00:00")
-        self.assertEqual(inst.availableTime[1].availableStartTime.date, FHIRDate("09:00:00").date)
+        self.assertEqual(inst.availableTime[1].availableStartTime.time, FHIRTime("09:00:00").time)
         self.assertEqual(inst.availableTime[1].availableStartTime.as_json(), "09:00:00")
         self.assertEqual(inst.availableTime[1].daysOfWeek[0], "thu")
         self.assertEqual(inst.availableTime[1].daysOfWeek[1], "fri")
@@ -51,13 +54,13 @@ class PractitionerRoleTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.notAvailable[0].description, "Adam will be on extended leave during May 2017")
-        self.assertEqual(inst.notAvailable[0].during.end.date, FHIRDate("2017-05-20").date)
+        self.assertEqual(inst.notAvailable[0].during.end.datetime, FHIRDateTime("2017-05-20").datetime)
         self.assertEqual(inst.notAvailable[0].during.end.as_json(), "2017-05-20")
-        self.assertEqual(inst.notAvailable[0].during.start.date, FHIRDate("2017-05-01").date)
+        self.assertEqual(inst.notAvailable[0].during.start.datetime, FHIRDateTime("2017-05-01").datetime)
         self.assertEqual(inst.notAvailable[0].during.start.as_json(), "2017-05-01")
-        self.assertEqual(inst.period.end.date, FHIRDate("2012-03-31").date)
+        self.assertEqual(inst.period.end.datetime, FHIRDateTime("2012-03-31").datetime)
         self.assertEqual(inst.period.end.as_json(), "2012-03-31")
-        self.assertEqual(inst.period.start.date, FHIRDate("2012-01-01").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("2012-01-01").datetime)
         self.assertEqual(inst.period.start.as_json(), "2012-01-01")
         self.assertEqual(inst.specialty[0].coding[0].code, "408443003")
         self.assertEqual(inst.specialty[0].coding[0].display, "General medical practice")

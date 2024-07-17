@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Meta) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Meta).
+# 2024, SMART Health IT.
 
 
 from . import element
@@ -24,7 +24,7 @@ class Meta(element.Element):
         
         self.lastUpdated = None
         """ When the resource version last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.profile = None
         """ Profiles this resource claims to conform to.
@@ -51,7 +51,7 @@ class Meta(element.Element):
     def elementProperties(self):
         js = super(Meta, self).elementProperties()
         js.extend([
-            ("lastUpdated", "lastUpdated", fhirdate.FHIRDate, False, None, False),
+            ("lastUpdated", "lastUpdated", fhirinstant.FHIRInstant, False, None, False),
             ("profile", "profile", str, True, None, False),
             ("security", "security", coding.Coding, True, None, False),
             ("source", "source", str, False, None, False),
@@ -62,4 +62,4 @@ class Meta(element.Element):
 
 
 from . import coding
-from . import fhirdate
+from . import fhirinstant

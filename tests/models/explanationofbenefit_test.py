@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import explanationofbenefit
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ExplanationOfBenefitTests(unittest.TestCase):
@@ -31,11 +34,11 @@ class ExplanationOfBenefitTests(unittest.TestCase):
         self.assertEqual(inst.accident.date.as_json(), "2014-02-14")
         self.assertEqual(inst.accident.type.coding[0].code, "SPT")
         self.assertEqual(inst.accident.type.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.billablePeriod.end.date, FHIRDate("2014-03-01").date)
+        self.assertEqual(inst.billablePeriod.end.datetime, FHIRDateTime("2014-03-01").datetime)
         self.assertEqual(inst.billablePeriod.end.as_json(), "2014-03-01")
-        self.assertEqual(inst.billablePeriod.start.date, FHIRDate("2014-02-01").date)
+        self.assertEqual(inst.billablePeriod.start.datetime, FHIRDateTime("2014-02-01").datetime)
         self.assertEqual(inst.billablePeriod.start.as_json(), "2014-02-01")
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Could not process.")
         self.assertEqual(inst.formCode.coding[0].code, "2")
@@ -49,7 +52,7 @@ class ExplanationOfBenefitTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome, "error")
         self.assertEqual(inst.precedence, 2)
-        self.assertEqual(inst.procedure[0].date.date, FHIRDate("2014-02-14").date)
+        self.assertEqual(inst.procedure[0].date.datetime, FHIRDateTime("2014-02-14").datetime)
         self.assertEqual(inst.procedure[0].date.as_json(), "2014-02-14")
         self.assertEqual(inst.procedure[0].procedureCodeableConcept.coding[0].code, "123001")
         self.assertEqual(inst.procedure[0].procedureCodeableConcept.coding[0].system, "http://hl7.org/fhir/sid/ex-icd-10-procedures")
@@ -67,16 +70,16 @@ class ExplanationOfBenefitTests(unittest.TestCase):
         self.assertEqual(inst.supportingInfo[0].category.coding[0].code, "employmentimpacted")
         self.assertEqual(inst.supportingInfo[0].category.coding[0].system, "http://terminology.hl7.org/CodeSystem/claiminformationcategory")
         self.assertEqual(inst.supportingInfo[0].sequence, 1)
-        self.assertEqual(inst.supportingInfo[0].timingPeriod.end.date, FHIRDate("2014-02-28").date)
+        self.assertEqual(inst.supportingInfo[0].timingPeriod.end.datetime, FHIRDateTime("2014-02-28").datetime)
         self.assertEqual(inst.supportingInfo[0].timingPeriod.end.as_json(), "2014-02-28")
-        self.assertEqual(inst.supportingInfo[0].timingPeriod.start.date, FHIRDate("2014-02-14").date)
+        self.assertEqual(inst.supportingInfo[0].timingPeriod.start.datetime, FHIRDateTime("2014-02-14").datetime)
         self.assertEqual(inst.supportingInfo[0].timingPeriod.start.as_json(), "2014-02-14")
         self.assertEqual(inst.supportingInfo[1].category.coding[0].code, "hospitalized")
         self.assertEqual(inst.supportingInfo[1].category.coding[0].system, "http://terminology.hl7.org/CodeSystem/claiminformationcategory")
         self.assertEqual(inst.supportingInfo[1].sequence, 2)
-        self.assertEqual(inst.supportingInfo[1].timingPeriod.end.date, FHIRDate("2014-02-16").date)
+        self.assertEqual(inst.supportingInfo[1].timingPeriod.end.datetime, FHIRDateTime("2014-02-16").datetime)
         self.assertEqual(inst.supportingInfo[1].timingPeriod.end.as_json(), "2014-02-16")
-        self.assertEqual(inst.supportingInfo[1].timingPeriod.start.date, FHIRDate("2014-02-14").date)
+        self.assertEqual(inst.supportingInfo[1].timingPeriod.start.datetime, FHIRDateTime("2014-02-14").datetime)
         self.assertEqual(inst.supportingInfo[1].timingPeriod.start.as_json(), "2014-02-14")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.total[0].amount.currency, "USD")
@@ -101,7 +104,7 @@ class ExplanationOfBenefitTests(unittest.TestCase):
     
     def implExplanationOfBenefit2(self, inst):
         self.assertEqual(inst.careTeam[0].sequence, 1)
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Claim settled as per contract.")
         self.assertEqual(inst.id, "EB3500")

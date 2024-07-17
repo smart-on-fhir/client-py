@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import testscript
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class TestScriptTests(unittest.TestCase):
@@ -32,7 +35,7 @@ class TestScriptTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].use, "work")
         self.assertEqual(inst.contact[0].telecom[0].value, "support@HL7.org")
         self.assertEqual(inst.copyright, "© HL7.org 2011+")
-        self.assertEqual(inst.date.date, FHIRDate("2017-01-18").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-01-18").datetime)
         self.assertEqual(inst.date.as_json(), "2017-01-18")
         self.assertEqual(inst.description, "TestScript example resource with simple Patient search test. The read tests will utilize user defined dynamic variables that will hold the Patient search parameter values.")
         self.assertTrue(inst.experimental)
@@ -172,7 +175,7 @@ class TestScriptTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].use, "work")
         self.assertEqual(inst.contact[0].telecom[0].value, "support@HL7.org")
         self.assertEqual(inst.copyright, "© HL7.org 2011+")
-        self.assertEqual(inst.date.date, FHIRDate("2017-01-18").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-01-18").datetime)
         self.assertEqual(inst.date.as_json(), "2017-01-18")
         self.assertEqual(inst.description, "TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to read the created Patient with various asserts.")
         self.assertTrue(inst.experimental)
@@ -327,7 +330,7 @@ class TestScriptTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].use, "work")
         self.assertEqual(inst.contact[0].telecom[0].value, "support@HL7.org")
         self.assertEqual(inst.copyright, "© HL7.org 2011+")
-        self.assertEqual(inst.date.date, FHIRDate("2017-01-18").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-01-18").datetime)
         self.assertEqual(inst.date.as_json(), "2017-01-18")
         self.assertEqual(inst.description, "TestScript example resource with ported Sprinkler basic read tests R001, R002, R003, R004. The read tests will utilize user defined dynamic variables that will hold the Patient resource id values.")
         self.assertTrue(inst.experimental)
@@ -436,7 +439,7 @@ class TestScriptTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].use, "work")
         self.assertEqual(inst.contact[0].telecom[0].value, "support@HL7.org")
         self.assertEqual(inst.copyright, "© HL7.org 2011+")
-        self.assertEqual(inst.date.date, FHIRDate("2017-01-18").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-01-18").datetime)
         self.assertEqual(inst.date.as_json(), "2017-01-18")
         self.assertEqual(inst.destination[0].index, 1)
         self.assertEqual(inst.destination[0].profile.code, "FHIR-Server")
@@ -564,7 +567,7 @@ class TestScriptTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].use, "work")
         self.assertEqual(inst.contact[0].telecom[0].value, "support@HL7.org")
         self.assertEqual(inst.copyright, "© HL7.org 2011+")
-        self.assertEqual(inst.date.date, FHIRDate("2017-01-18").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-01-18").datetime)
         self.assertEqual(inst.date.as_json(), "2017-01-18")
         self.assertEqual(inst.description, "TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to update that Patient with various asserts.")
         self.assertTrue(inst.experimental)
@@ -665,7 +668,7 @@ class TestScriptTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].use, "work")
         self.assertEqual(inst.contact[0].telecom[0].value, "support@HL7.org")
         self.assertEqual(inst.copyright, "© HL7.org 2011+")
-        self.assertEqual(inst.date.date, FHIRDate("2017-01-18").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-01-18").datetime)
         self.assertEqual(inst.date.as_json(), "2017-01-18")
         self.assertTrue(inst.experimental)
         self.assertFalse(inst.fixture[0].autocreate)

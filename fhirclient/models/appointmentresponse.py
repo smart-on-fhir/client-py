@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AppointmentResponse) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AppointmentResponse).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -33,7 +33,7 @@ class AppointmentResponse(domainresource.DomainResource):
         
         self.end = None
         """ Time from appointment, or requested new end time.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.identifier = None
         """ External Ids for this item.
@@ -49,7 +49,7 @@ class AppointmentResponse(domainresource.DomainResource):
         
         self.start = None
         """ Time from appointment, or requested new start time.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         super(AppointmentResponse, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -59,16 +59,16 @@ class AppointmentResponse(domainresource.DomainResource):
             ("actor", "actor", fhirreference.FHIRReference, False, None, False),
             ("appointment", "appointment", fhirreference.FHIRReference, False, None, True),
             ("comment", "comment", str, False, None, False),
-            ("end", "end", fhirdate.FHIRDate, False, None, False),
+            ("end", "end", fhirinstant.FHIRInstant, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("participantStatus", "participantStatus", str, False, None, True),
             ("participantType", "participantType", codeableconcept.CodeableConcept, True, None, False),
-            ("start", "start", fhirdate.FHIRDate, False, None, False),
+            ("start", "start", fhirinstant.FHIRInstant, False, None, False),
         ])
         return js
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirinstant
 from . import fhirreference
 from . import identifier

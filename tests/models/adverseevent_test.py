@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import adverseevent
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class AdverseEventTests(unittest.TestCase):
@@ -31,7 +34,7 @@ class AdverseEventTests(unittest.TestCase):
         self.assertEqual(inst.category[0].coding[0].code, "product-use-error")
         self.assertEqual(inst.category[0].coding[0].display, "Product Use Error")
         self.assertEqual(inst.category[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/adverse-event-category")
-        self.assertEqual(inst.date.date, FHIRDate("2017-01-29T12:34:56+00:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-01-29T12:34:56+00:00").datetime)
         self.assertEqual(inst.date.as_json(), "2017-01-29T12:34:56+00:00")
         self.assertEqual(inst.event.coding[0].code, "304386008")
         self.assertEqual(inst.event.coding[0].display, "O/E - itchy rash")

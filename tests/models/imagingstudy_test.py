@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import imagingstudy
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ImagingStudyTests(unittest.TestCase):
@@ -48,7 +51,7 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.series[0].number, 3)
         self.assertEqual(inst.series[0].numberOfInstances, 1)
         self.assertEqual(inst.series[0].uid, "2.16.124.113543.6003.2588828330.45298.17418.2723805630")
-        self.assertEqual(inst.started.date, FHIRDate("2011-01-01T11:01:20+03:00").date)
+        self.assertEqual(inst.started.datetime, FHIRDateTime("2011-01-01T11:01:20+03:00").datetime)
         self.assertEqual(inst.started.as_json(), "2011-01-01T11:01:20+03:00")
         self.assertEqual(inst.status, "available")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>")
@@ -113,10 +116,10 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.series[0].numberOfInstances, 2)
         self.assertEqual(inst.series[0].performer[0].function.coding[0].code, "PRF")
         self.assertEqual(inst.series[0].performer[0].function.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
-        self.assertEqual(inst.series[0].started.date, FHIRDate("2011-01-01T11:01:20+03:00").date)
+        self.assertEqual(inst.series[0].started.datetime, FHIRDateTime("2011-01-01T11:01:20+03:00").datetime)
         self.assertEqual(inst.series[0].started.as_json(), "2011-01-01T11:01:20+03:00")
         self.assertEqual(inst.series[0].uid, "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1")
-        self.assertEqual(inst.started.date, FHIRDate("2017-01-01T11:01:20+03:00").date)
+        self.assertEqual(inst.started.datetime, FHIRDateTime("2017-01-01T11:01:20+03:00").datetime)
         self.assertEqual(inst.started.as_json(), "2017-01-01T11:01:20+03:00")
         self.assertEqual(inst.status, "available")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">XR Wrist 3+ Views. John Smith (MRN: 09236). Accession: W12342398. Performed: 2017-01-01. 1 series, 2 images.</div>")

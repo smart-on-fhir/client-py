@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import flag
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class FlagTests(unittest.TestCase):
@@ -40,9 +43,9 @@ class FlagTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.period.end.date, FHIRDate("2016-12-01").date)
+        self.assertEqual(inst.period.end.datetime, FHIRDateTime("2016-12-01").datetime)
         self.assertEqual(inst.period.end.as_json(), "2016-12-01")
-        self.assertEqual(inst.period.start.date, FHIRDate("2015-01-17").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("2015-01-17").datetime)
         self.assertEqual(inst.period.start.as_json(), "2015-01-17")
         self.assertEqual(inst.status, "inactive")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Large Dog warning for Peter Patient</div>")

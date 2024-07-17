@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationRequest).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -27,7 +27,7 @@ class MedicationRequest(domainresource.DomainResource):
         
         self.authoredOn = None
         """ When request was initially authored.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.basedOn = None
         """ What request fulfills.
@@ -169,7 +169,7 @@ class MedicationRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicationRequest, self).elementProperties()
         js.extend([
-            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
+            ("authoredOn", "authoredOn", fhirdatetime.FHIRDateTime, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("courseOfTherapyType", "courseOfTherapyType", codeableconcept.CodeableConcept, False, None, False),
@@ -357,7 +357,7 @@ from . import annotation
 from . import codeableconcept
 from . import dosage
 from . import duration
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import claim
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ClaimTests(unittest.TestCase):
@@ -28,7 +31,7 @@ class ClaimTests(unittest.TestCase):
     
     def implClaim1(self, inst):
         self.assertEqual(inst.careTeam[0].sequence, 1)
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.diagnosis[0].diagnosisCodeableConcept.coding[0].code, "654456")
         self.assertEqual(inst.diagnosis[0].sequence, 1)
@@ -71,7 +74,7 @@ class ClaimTests(unittest.TestCase):
     
     def implClaim2(self, inst):
         self.assertEqual(inst.careTeam[0].sequence, 1)
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.diagnosis[0].diagnosisCodeableConcept.coding[0].code, "654456")
         self.assertEqual(inst.diagnosis[0].sequence, 1)
@@ -153,7 +156,7 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.careTeam[0].sequence, 1)
         self.assertEqual(inst.contained[0].id, "device-frame")
         self.assertEqual(inst.contained[1].id, "device-lens")
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.diagnosis[0].diagnosisCodeableConcept.coding[0].code, "654321")
         self.assertEqual(inst.diagnosis[0].sequence, 1)
@@ -309,7 +312,7 @@ class ClaimTests(unittest.TestCase):
     
     def implClaim4(self, inst):
         self.assertEqual(inst.careTeam[0].sequence, 1)
-        self.assertEqual(inst.created.date, FHIRDate("2015-03-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2015-03-16").datetime)
         self.assertEqual(inst.created.as_json(), "2015-03-16")
         self.assertEqual(inst.diagnosis[0].diagnosisCodeableConcept.coding[0].code, "123457")
         self.assertEqual(inst.diagnosis[0].diagnosisCodeableConcept.coding[0].system, "http://hl7.org/fhir/sid/icd-10")
@@ -428,7 +431,7 @@ class ClaimTests(unittest.TestCase):
     
     def implClaim5(self, inst):
         self.assertEqual(inst.careTeam[0].sequence, 1)
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.diagnosis[0].diagnosisCodeableConcept.coding[0].code, "123456")
         self.assertEqual(inst.diagnosis[0].sequence, 1)
@@ -472,7 +475,7 @@ class ClaimTests(unittest.TestCase):
     
     def implClaim6(self, inst):
         self.assertEqual(inst.careTeam[0].sequence, 1)
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.diagnosis[0].diagnosisCodeableConcept.coding[0].code, "654321")
         self.assertEqual(inst.diagnosis[0].sequence, 1)
@@ -538,7 +541,7 @@ class ClaimTests(unittest.TestCase):
     
     def implClaim7(self, inst):
         self.assertEqual(inst.careTeam[0].sequence, 1)
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.diagnosis[0].diagnosisCodeableConcept.coding[0].code, "654456")
         self.assertEqual(inst.diagnosis[0].sequence, 1)
@@ -562,7 +565,7 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.payee.type.coding[0].code, "provider")
         self.assertEqual(inst.priority.coding[0].code, "normal")
-        self.assertEqual(inst.procedure[0].date.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.procedure[0].date.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.procedure[0].date.as_json(), "2014-08-16")
         self.assertEqual(inst.procedure[0].procedureCodeableConcept.coding[0].code, "SDI9901")
         self.assertEqual(inst.procedure[0].procedureCodeableConcept.text, "Subcutaneous diagnostic implant")
@@ -596,7 +599,7 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(inst.contained[2].id, "provider-1")
         self.assertEqual(inst.contained[3].id, "patient-1")
         self.assertEqual(inst.contained[4].id, "coverage-1")
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.diagnosis[0].diagnosisCodeableConcept.coding[0].code, "123456")
         self.assertEqual(inst.diagnosis[0].sequence, 1)
@@ -638,7 +641,7 @@ class ClaimTests(unittest.TestCase):
     
     def implClaim9(self, inst):
         self.assertEqual(inst.careTeam[0].sequence, 1)
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.diagnosis[0].diagnosisCodeableConcept.coding[0].code, "654321")
         self.assertEqual(inst.diagnosis[0].sequence, 1)
@@ -681,7 +684,7 @@ class ClaimTests(unittest.TestCase):
     
     def implClaim10(self, inst):
         self.assertEqual(inst.careTeam[0].sequence, 1)
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.diagnosis[0].diagnosisCodeableConcept.coding[0].code, "123456")
         self.assertEqual(inst.diagnosis[0].sequence, 1)

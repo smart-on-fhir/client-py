@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import basic
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class BasicTests(unittest.TestCase):
@@ -46,9 +49,9 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(inst.modifierExtension[0].valueCodeableConcept.coding[0].display, "Consultation")
         self.assertEqual(inst.modifierExtension[0].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.modifierExtension[1].url, "http://example.org/do-not-use/fhir-extensions/referral#targetDate")
-        self.assertEqual(inst.modifierExtension[1].valuePeriod.end.date, FHIRDate("2013-04-15").date)
+        self.assertEqual(inst.modifierExtension[1].valuePeriod.end.datetime, FHIRDateTime("2013-04-15").datetime)
         self.assertEqual(inst.modifierExtension[1].valuePeriod.end.as_json(), "2013-04-15")
-        self.assertEqual(inst.modifierExtension[1].valuePeriod.start.date, FHIRDate("2013-04-01").date)
+        self.assertEqual(inst.modifierExtension[1].valuePeriod.start.datetime, FHIRDateTime("2013-04-01").datetime)
         self.assertEqual(inst.modifierExtension[1].valuePeriod.start.as_json(), "2013-04-01")
         self.assertEqual(inst.modifierExtension[2].url, "http://example.org/do-not-use/fhir-extensions/referral#status")
         self.assertEqual(inst.modifierExtension[2].valueCode, "complete")

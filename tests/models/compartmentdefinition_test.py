@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import compartmentdefinition
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class CompartmentDefinitionTests(unittest.TestCase):
@@ -31,7 +34,7 @@ class CompartmentDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].name, "[string]")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2017-02-24").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-02-24").datetime)
         self.assertEqual(inst.date.as_json(), "2017-02-24")
         self.assertEqual(inst.description, "The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only).")
         self.assertTrue(inst.experimental)

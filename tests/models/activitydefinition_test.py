@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import activitydefinition
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ActivityDefinitionTests(unittest.TestCase):
@@ -71,12 +74,12 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[1].use, "work")
         self.assertEqual(inst.contact[0].telecom[1].value, "info@motivemi.com")
         self.assertEqual(inst.copyright, "© Copyright 2016 Motive Medical Intelligence. All rights reserved.")
-        self.assertEqual(inst.date.date, FHIRDate("2017-03-03T14:06:00Z").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-03-03T14:06:00Z").datetime)
         self.assertEqual(inst.date.as_json(), "2017-03-03T14:06:00Z")
         self.assertEqual(inst.description, "refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now")
-        self.assertEqual(inst.effectivePeriod.end.date, FHIRDate("2017-12-31").date)
+        self.assertEqual(inst.effectivePeriod.end.datetime, FHIRDateTime("2017-12-31").datetime)
         self.assertEqual(inst.effectivePeriod.end.as_json(), "2017-12-31")
-        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2016-01-01").date)
+        self.assertEqual(inst.effectivePeriod.start.datetime, FHIRDateTime("2016-01-01").datetime)
         self.assertEqual(inst.effectivePeriod.start.as_json(), "2016-01-01")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "referralPrimaryCareMentalHealth-initial")
@@ -167,7 +170,7 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.contained[0].id, "citalopramMedication")
         self.assertEqual(inst.contained[1].id, "citalopramSubstance")
         self.assertEqual(inst.copyright, "© Copyright 2016 Motive Medical Intelligence. All rights reserved.")
-        self.assertEqual(inst.date.date, FHIRDate("2015-08-15").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-08-15").datetime)
         self.assertEqual(inst.date.as_json(), "2015-08-15")
         self.assertEqual(inst.description, "Citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills")
         self.assertEqual(inst.dosage[0].doseAndRate[0].doseQuantity.unit, "{tbl}")
@@ -190,9 +193,9 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.dynamicValue[1].expression.expression, "30 '{tbl}'")
         self.assertEqual(inst.dynamicValue[1].expression.language, "text/cql")
         self.assertEqual(inst.dynamicValue[1].path, "dispenseRequest.quantity")
-        self.assertEqual(inst.effectivePeriod.end.date, FHIRDate("2017-12-31").date)
+        self.assertEqual(inst.effectivePeriod.end.datetime, FHIRDateTime("2017-12-31").datetime)
         self.assertEqual(inst.effectivePeriod.end.as_json(), "2017-12-31")
-        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2016-01-01").date)
+        self.assertEqual(inst.effectivePeriod.start.datetime, FHIRDateTime("2016-01-01").datetime)
         self.assertEqual(inst.effectivePeriod.start.as_json(), "2016-01-01")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "citalopramPrescription")
@@ -330,12 +333,12 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[1].use, "work")
         self.assertEqual(inst.contact[0].telecom[1].value, "info@motivemi.com")
         self.assertEqual(inst.copyright, "© Copyright 2016 Motive Medical Intelligence. All rights reserved.")
-        self.assertEqual(inst.date.date, FHIRDate("2017-03-03T14:06:00Z").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-03-03T14:06:00Z").datetime)
         self.assertEqual(inst.date.as_json(), "2017-03-03T14:06:00Z")
         self.assertEqual(inst.description, "refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now")
-        self.assertEqual(inst.effectivePeriod.end.date, FHIRDate("2017-12-31").date)
+        self.assertEqual(inst.effectivePeriod.end.datetime, FHIRDateTime("2017-12-31").datetime)
         self.assertEqual(inst.effectivePeriod.end.as_json(), "2017-12-31")
-        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2017-03-01").date)
+        self.assertEqual(inst.effectivePeriod.start.datetime, FHIRDateTime("2017-03-01").datetime)
         self.assertEqual(inst.effectivePeriod.start.as_json(), "2017-03-01")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "referralPrimaryCareMentalHealth")

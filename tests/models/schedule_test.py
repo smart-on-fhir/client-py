@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import schedule
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ScheduleTests(unittest.TestCase):
@@ -36,9 +39,9 @@ class ScheduleTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.planningHorizon.end.date, FHIRDate("2017-12-25T09:30:00Z").date)
+        self.assertEqual(inst.planningHorizon.end.datetime, FHIRDateTime("2017-12-25T09:30:00Z").datetime)
         self.assertEqual(inst.planningHorizon.end.as_json(), "2017-12-25T09:30:00Z")
-        self.assertEqual(inst.planningHorizon.start.date, FHIRDate("2017-12-25T09:15:00Z").date)
+        self.assertEqual(inst.planningHorizon.start.datetime, FHIRDateTime("2017-12-25T09:15:00Z").datetime)
         self.assertEqual(inst.planningHorizon.start.as_json(), "2017-12-25T09:15:00Z")
         self.assertEqual(inst.serviceCategory[0].coding[0].code, "31")
         self.assertEqual(inst.serviceCategory[0].coding[0].display, "Specialist Surgical")
@@ -68,9 +71,9 @@ class ScheduleTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.planningHorizon.end.date, FHIRDate("2013-12-25T09:30:00Z").date)
+        self.assertEqual(inst.planningHorizon.end.datetime, FHIRDateTime("2013-12-25T09:30:00Z").datetime)
         self.assertEqual(inst.planningHorizon.end.as_json(), "2013-12-25T09:30:00Z")
-        self.assertEqual(inst.planningHorizon.start.date, FHIRDate("2013-12-25T09:15:00Z").date)
+        self.assertEqual(inst.planningHorizon.start.datetime, FHIRDateTime("2013-12-25T09:15:00Z").datetime)
         self.assertEqual(inst.planningHorizon.start.as_json(), "2013-12-25T09:15:00Z")
         self.assertEqual(inst.serviceCategory[0].coding[0].code, "17")
         self.assertEqual(inst.serviceCategory[0].coding[0].display, "General Practice")
@@ -100,9 +103,9 @@ class ScheduleTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.planningHorizon.end.date, FHIRDate("2017-12-25T09:30:00Z").date)
+        self.assertEqual(inst.planningHorizon.end.datetime, FHIRDateTime("2017-12-25T09:30:00Z").datetime)
         self.assertEqual(inst.planningHorizon.end.as_json(), "2017-12-25T09:30:00Z")
-        self.assertEqual(inst.planningHorizon.start.date, FHIRDate("2017-12-25T09:15:00Z").date)
+        self.assertEqual(inst.planningHorizon.start.datetime, FHIRDateTime("2017-12-25T09:15:00Z").datetime)
         self.assertEqual(inst.planningHorizon.start.as_json(), "2017-12-25T09:15:00Z")
         self.assertEqual(inst.serviceCategory[0].coding[0].code, "17")
         self.assertEqual(inst.serviceCategory[0].coding[0].display, "General Practice")

@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Measure) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Measure).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -46,7 +46,7 @@ class Measure(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.definition = None
         """ Defined terms used in the measure documentation.
@@ -204,7 +204,7 @@ class Measure(domainresource.DomainResource):
             ("compositeScoring", "compositeScoring", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("definition", "definition", str, True, None, False),
             ("description", "description", str, False, None, False),
             ("disclaimer", "disclaimer", str, False, None, False),
@@ -473,6 +473,7 @@ from . import codeableconcept
 from . import contactdetail
 from . import expression
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

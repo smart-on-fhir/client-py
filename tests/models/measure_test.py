@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import measure
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class MeasureTests(unittest.TestCase):
@@ -62,12 +65,12 @@ class MeasureTests(unittest.TestCase):
         self.assertEqual(inst.author[0].name, "National Committee for Quality Assurance")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://www.ncqa.org/")
-        self.assertEqual(inst.date.date, FHIRDate("2017-03-10").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-03-10").datetime)
         self.assertEqual(inst.date.as_json(), "2017-03-10")
         self.assertEqual(inst.description, "Percentage of children 3-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode.")
-        self.assertEqual(inst.effectivePeriod.end.date, FHIRDate("2017-12-31").date)
+        self.assertEqual(inst.effectivePeriod.end.datetime, FHIRDateTime("2017-12-31").datetime)
         self.assertEqual(inst.effectivePeriod.end.as_json(), "2017-12-31")
-        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2017-01-01").date)
+        self.assertEqual(inst.effectivePeriod.start.datetime, FHIRDateTime("2017-01-01").datetime)
         self.assertEqual(inst.effectivePeriod.start.as_json(), "2017-01-01")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.group[0].id, "CMS146-group-1")
@@ -180,7 +183,7 @@ class MeasureTests(unittest.TestCase):
         self.implMeasure4(inst2)
     
     def implMeasure4(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2014-03-08").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2014-03-08").datetime)
         self.assertEqual(inst.date.as_json(), "2014-03-08")
         self.assertEqual(inst.description, "Exclusive breastfeeding measure of outcomes for exclusive breastmilk feeding of newborns.")
         self.assertEqual(inst.group[0].id, "PopulationGroup1")

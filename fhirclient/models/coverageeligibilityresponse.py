@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -23,7 +23,7 @@ class CoverageEligibilityResponse(domainresource.DomainResource):
         
         self.created = None
         """ Response creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.disposition = None
         """ Disposition Message.
@@ -90,7 +90,7 @@ class CoverageEligibilityResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(CoverageEligibilityResponse, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
+            ("created", "created", fhirdatetime.FHIRDateTime, False, None, True),
             ("disposition", "disposition", str, False, None, False),
             ("error", "error", CoverageEligibilityResponseError, True, None, False),
             ("form", "form", codeableconcept.CodeableConcept, False, None, False),
@@ -346,6 +346,7 @@ class CoverageEligibilityResponseInsuranceItemBenefit(backboneelement.BackboneEl
 
 from . import codeableconcept
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import money

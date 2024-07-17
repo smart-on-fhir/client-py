@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import documentmanifest
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class DocumentManifestTests(unittest.TestCase):
@@ -28,7 +31,7 @@ class DocumentManifestTests(unittest.TestCase):
     
     def implDocumentManifest1(self, inst):
         self.assertEqual(inst.contained[0].id, "a1")
-        self.assertEqual(inst.created.date, FHIRDate("2004-12-25T23:50:50-05:00").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2004-12-25T23:50:50-05:00").datetime)
         self.assertEqual(inst.created.as_json(), "2004-12-25T23:50:50-05:00")
         self.assertEqual(inst.description, "Physical")
         self.assertEqual(inst.id, "example")

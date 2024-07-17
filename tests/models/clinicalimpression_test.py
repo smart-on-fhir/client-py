@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import clinicalimpression
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ClinicalImpressionTests(unittest.TestCase):
@@ -27,12 +30,12 @@ class ClinicalImpressionTests(unittest.TestCase):
         self.implClinicalImpression1(inst2)
     
     def implClinicalImpression1(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2014-12-06T22:33:00+11:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2014-12-06T22:33:00+11:00").datetime)
         self.assertEqual(inst.date.as_json(), "2014-12-06T22:33:00+11:00")
         self.assertEqual(inst.description, "This 26 yo male patient is brought into ER by ambulance after being involved in a motor vehicle accident")
-        self.assertEqual(inst.effectivePeriod.end.date, FHIRDate("2014-12-06T22:33:00+11:00").date)
+        self.assertEqual(inst.effectivePeriod.end.datetime, FHIRDateTime("2014-12-06T22:33:00+11:00").datetime)
         self.assertEqual(inst.effectivePeriod.end.as_json(), "2014-12-06T22:33:00+11:00")
-        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2014-12-06T20:00:00+11:00").date)
+        self.assertEqual(inst.effectivePeriod.start.datetime, FHIRDateTime("2014-12-06T20:00:00+11:00").datetime)
         self.assertEqual(inst.effectivePeriod.start.as_json(), "2014-12-06T20:00:00+11:00")
         self.assertEqual(inst.finding[0].itemCodeableConcept.coding[0].code, "850.0")
         self.assertEqual(inst.finding[0].itemCodeableConcept.coding[0].system, "http://hl7.org/fhir/sid/icd-9")

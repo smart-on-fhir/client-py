@@ -1,5 +1,5 @@
-#  Generated from FHIR {{ info.version }} ({{ profile.url }}) on {{ info.date }}.
-#  {{ info.year }}, SMART Health IT.
+# Generated from FHIR {{ info.version }} ({{ profile.url }}).
+# {{ info.year }}, SMART Health IT.
 
 {%- set imported = {} %}
 {%- for klass in classes %}

@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import requestgroup
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class RequestGroupTests(unittest.TestCase):
@@ -50,7 +53,7 @@ class RequestGroupTests(unittest.TestCase):
         self.assertEqual(inst.action[0].action[0].action[0].selectionBehavior, "exactly-one")
         self.assertEqual(inst.action[0].action[0].selectionBehavior, "all")
         self.assertEqual(inst.action[0].selectionBehavior, "exactly-one")
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-03-06T17:31:00Z").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2017-03-06T17:31:00Z").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2017-03-06T17:31:00Z")
         self.assertEqual(inst.contained[0].id, "1111")
         self.assertEqual(inst.contained[1].id, "2222")
@@ -95,10 +98,10 @@ class RequestGroupTests(unittest.TestCase):
         self.assertEqual(inst.action[0].requiredBehavior, "must")
         self.assertEqual(inst.action[0].selectionBehavior, "all")
         self.assertEqual(inst.action[0].textEquivalent, "Administer medication 1, followed an hour later by medication 2")
-        self.assertEqual(inst.action[0].timingDateTime.date, FHIRDate("2017-03-06T19:00:00Z").date)
+        self.assertEqual(inst.action[0].timingDateTime.datetime, FHIRDateTime("2017-03-06T19:00:00Z").datetime)
         self.assertEqual(inst.action[0].timingDateTime.as_json(), "2017-03-06T19:00:00Z")
         self.assertEqual(inst.action[0].title, "Administer Medications")
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2017-03-06T17:31:00Z").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2017-03-06T17:31:00Z").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2017-03-06T17:31:00Z")
         self.assertEqual(inst.contained[0].id, "medicationrequest-1")
         self.assertEqual(inst.contained[1].id, "medicationrequest-2")

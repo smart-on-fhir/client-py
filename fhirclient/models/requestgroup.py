@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/RequestGroup) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/RequestGroup).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class RequestGroup(domainresource.DomainResource):
         
         self.authoredOn = None
         """ When the request group was authored.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.basedOn = None
         """ Fulfills plan, proposal, or order.
@@ -102,7 +102,7 @@ class RequestGroup(domainresource.DomainResource):
         js.extend([
             ("action", "action", RequestGroupAction, True, None, False),
             ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
+            ("authoredOn", "authoredOn", fhirdatetime.FHIRDateTime, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
@@ -211,7 +211,7 @@ class RequestGroupAction(backboneelement.BackboneElement):
         
         self.timingDateTime = None
         """ When the action should take place.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.timingDuration = None
         """ When the action should take place.
@@ -259,7 +259,7 @@ class RequestGroupAction(backboneelement.BackboneElement):
             ("selectionBehavior", "selectionBehavior", str, False, None, False),
             ("textEquivalent", "textEquivalent", str, False, None, False),
             ("timingAge", "timingAge", age.Age, False, "timing", False),
-            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
+            ("timingDateTime", "timingDateTime", fhirdatetime.FHIRDateTime, False, "timing", False),
             ("timingDuration", "timingDuration", duration.Duration, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("timingRange", "timingRange", range.Range, False, "timing", False),
@@ -358,7 +358,7 @@ from . import annotation
 from . import codeableconcept
 from . import duration
 from . import expression
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

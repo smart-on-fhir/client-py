@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Period) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Period).
+# 2024, SMART Health IT.
 
 
 from . import element
@@ -22,21 +22,21 @@ class Period(element.Element):
         
         self.end = None
         """ End time with inclusive boundary, if not ongoing.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.start = None
         """ Starting time with inclusive boundary.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(Period, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Period, self).elementProperties()
         js.extend([
-            ("end", "end", fhirdate.FHIRDate, False, None, False),
-            ("start", "start", fhirdate.FHIRDate, False, None, False),
+            ("end", "end", fhirdatetime.FHIRDateTime, False, None, False),
+            ("start", "start", fhirdatetime.FHIRDateTime, False, None, False),
         ])
         return js
 
 
-from . import fhirdate
+from . import fhirdatetime

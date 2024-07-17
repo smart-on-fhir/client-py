@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationDispense).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -124,11 +124,11 @@ class MedicationDispense(domainresource.DomainResource):
         
         self.whenHandedOver = None
         """ When product was given out.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.whenPrepared = None
         """ When product was packaged and reviewed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(MedicationDispense, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -159,8 +159,8 @@ class MedicationDispense(domainresource.DomainResource):
             ("substitution", "substitution", MedicationDispenseSubstitution, False, None, False),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("whenHandedOver", "whenHandedOver", fhirdate.FHIRDate, False, None, False),
-            ("whenPrepared", "whenPrepared", fhirdate.FHIRDate, False, None, False),
+            ("whenHandedOver", "whenHandedOver", fhirdatetime.FHIRDateTime, False, None, False),
+            ("whenPrepared", "whenPrepared", fhirdatetime.FHIRDateTime, False, None, False),
         ])
         return js
 
@@ -255,7 +255,7 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
 from . import annotation
 from . import codeableconcept
 from . import dosage
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import quantity

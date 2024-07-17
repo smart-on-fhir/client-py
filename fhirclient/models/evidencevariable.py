@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/EvidenceVariable) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/EvidenceVariable).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -43,7 +43,7 @@ class EvidenceVariable(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the evidence variable.
@@ -141,7 +141,7 @@ class EvidenceVariable(domainresource.DomainResource):
             ("characteristic", "characteristic", EvidenceVariableCharacteristic, True, None, True),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
             ("editor", "editor", contactdetail.ContactDetail, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
@@ -225,7 +225,7 @@ class EvidenceVariableCharacteristic(backboneelement.BackboneElement):
         
         self.participantEffectiveDateTime = None
         """ What time period do participants cover.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.participantEffectiveDuration = None
         """ What time period do participants cover.
@@ -261,7 +261,7 @@ class EvidenceVariableCharacteristic(backboneelement.BackboneElement):
             ("description", "description", str, False, None, False),
             ("exclude", "exclude", bool, False, None, False),
             ("groupMeasure", "groupMeasure", str, False, None, False),
-            ("participantEffectiveDateTime", "participantEffectiveDateTime", fhirdate.FHIRDate, False, "participantEffective", False),
+            ("participantEffectiveDateTime", "participantEffectiveDateTime", fhirdatetime.FHIRDateTime, False, "participantEffective", False),
             ("participantEffectiveDuration", "participantEffectiveDuration", duration.Duration, False, "participantEffective", False),
             ("participantEffectivePeriod", "participantEffectivePeriod", period.Period, False, "participantEffective", False),
             ("participantEffectiveTiming", "participantEffectiveTiming", timing.Timing, False, "participantEffective", False),
@@ -278,6 +278,7 @@ from . import datarequirement
 from . import duration
 from . import expression
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

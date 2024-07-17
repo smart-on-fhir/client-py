@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import implementationguide
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ImplementationGuideTests(unittest.TestCase):
@@ -34,7 +37,7 @@ class ImplementationGuideTests(unittest.TestCase):
         self.assertEqual(inst.contact[1].telecom[0].system, "url")
         self.assertEqual(inst.contact[1].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.copyright, "Published by ONC under the standard FHIR license (CC0)")
-        self.assertEqual(inst.date.date, FHIRDate("2015-01-01").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-01-01").datetime)
         self.assertEqual(inst.date.as_json(), "2015-01-01")
         self.assertEqual(inst.definition.grouping[0].description, "Base package (not broken up into multiple packages)")
         self.assertEqual(inst.definition.grouping[0].name, "test")

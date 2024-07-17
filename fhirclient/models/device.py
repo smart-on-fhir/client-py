@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Device) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Device).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -40,7 +40,7 @@ class Device(domainresource.DomainResource):
         
         self.expirationDate = None
         """ Date and time of expiry of this device (if applicable).
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Instance identifier.
@@ -56,7 +56,7 @@ class Device(domainresource.DomainResource):
         
         self.manufactureDate = None
         """ Date when the device was made.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.manufacturer = None
         """ Name of device manufacturer.
@@ -140,11 +140,11 @@ class Device(domainresource.DomainResource):
             ("definition", "definition", fhirreference.FHIRReference, False, None, False),
             ("deviceName", "deviceName", DeviceDeviceName, True, None, False),
             ("distinctIdentifier", "distinctIdentifier", str, False, None, False),
-            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False, None, False),
+            ("expirationDate", "expirationDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
             ("lotNumber", "lotNumber", str, False, None, False),
-            ("manufactureDate", "manufactureDate", fhirdate.FHIRDate, False, None, False),
+            ("manufactureDate", "manufactureDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("manufacturer", "manufacturer", str, False, None, False),
             ("modelNumber", "modelNumber", str, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
@@ -380,7 +380,7 @@ class DeviceVersion(backboneelement.BackboneElement):
 from . import annotation
 from . import codeableconcept
 from . import contactpoint
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import quantity

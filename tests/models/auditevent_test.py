@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import auditevent
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class AuditEventTests(unittest.TestCase):
@@ -52,7 +55,7 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome, "0")
-        self.assertEqual(inst.recorded.date, FHIRDate("2013-06-20T23:42:24Z").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2013-06-20T23:42:24Z").datetime)
         self.assertEqual(inst.recorded.as_json(), "2013-06-20T23:42:24Z")
         self.assertEqual(inst.source.site, "Cloud")
         self.assertEqual(inst.source.type[0].code, "3")
@@ -131,7 +134,7 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.purposeOfEvent[0].coding[0].code, "HMARKT")
         self.assertEqual(inst.purposeOfEvent[0].coding[0].display, "healthcare marketing")
         self.assertEqual(inst.purposeOfEvent[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.recorded.date, FHIRDate("2013-09-22T00:08:00Z").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2013-09-22T00:08:00Z").datetime)
         self.assertEqual(inst.recorded.as_json(), "2013-09-22T00:08:00Z")
         self.assertEqual(inst.source.site, "Watcher")
         self.assertEqual(inst.source.type[0].code, "4")
@@ -186,7 +189,7 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome, "8")
         self.assertEqual(inst.outcomeDesc, "Invalid request to create an Operation resource on the Patient endpoint.")
-        self.assertEqual(inst.recorded.date, FHIRDate("2017-09-07T23:42:24Z").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2017-09-07T23:42:24Z").datetime)
         self.assertEqual(inst.recorded.as_json(), "2017-09-07T23:42:24Z")
         self.assertEqual(inst.source.site, "Cloud")
         self.assertEqual(inst.source.type[0].code, "3")
@@ -250,7 +253,7 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome, "0")
-        self.assertEqual(inst.recorded.date, FHIRDate("2015-08-27T23:42:24Z").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2015-08-27T23:42:24Z").datetime)
         self.assertEqual(inst.recorded.as_json(), "2015-08-27T23:42:24Z")
         self.assertEqual(inst.subtype[0].code, "ITI-32")
         self.assertEqual(inst.subtype[0].display, "Distribute Document Set on Media")
@@ -292,7 +295,7 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome, "0")
-        self.assertEqual(inst.recorded.date, FHIRDate("2013-06-20T23:46:41Z").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2013-06-20T23:46:41Z").datetime)
         self.assertEqual(inst.recorded.as_json(), "2013-06-20T23:46:41Z")
         self.assertEqual(inst.source.site, "Cloud")
         self.assertEqual(inst.source.type[0].code, "3")
@@ -338,7 +341,7 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome, "0")
-        self.assertEqual(inst.recorded.date, FHIRDate("2013-06-20T23:41:23Z").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2013-06-20T23:41:23Z").datetime)
         self.assertEqual(inst.recorded.as_json(), "2013-06-20T23:41:23Z")
         self.assertEqual(inst.source.site, "Cloud")
         self.assertEqual(inst.source.type[0].code, "3")
@@ -393,7 +396,7 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome, "0")
-        self.assertEqual(inst.recorded.date, FHIRDate("2012-10-25T22:04:27+11:00").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2012-10-25T22:04:27+11:00").datetime)
         self.assertEqual(inst.recorded.as_json(), "2012-10-25T22:04:27+11:00")
         self.assertEqual(inst.source.site, "Development")
         self.assertEqual(inst.source.type[0].code, "110122")
@@ -452,7 +455,7 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome, "0")
-        self.assertEqual(inst.recorded.date, FHIRDate("2015-08-26T23:42:24Z").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2015-08-26T23:42:24Z").datetime)
         self.assertEqual(inst.recorded.as_json(), "2015-08-26T23:42:24Z")
         self.assertEqual(inst.subtype[0].code, "ITI-9")
         self.assertEqual(inst.subtype[0].display, "PIX Query")
@@ -499,7 +502,7 @@ class AuditEventTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.outcome, "0")
-        self.assertEqual(inst.recorded.date, FHIRDate("2015-08-22T23:42:24Z").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2015-08-22T23:42:24Z").datetime)
         self.assertEqual(inst.recorded.as_json(), "2015-08-22T23:42:24Z")
         self.assertEqual(inst.source.site, "Cloud")
         self.assertEqual(inst.source.type[0].code, "3")

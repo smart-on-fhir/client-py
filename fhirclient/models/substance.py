@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Substance) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Substance).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -123,7 +123,7 @@ class SubstanceInstance(backboneelement.BackboneElement):
         
         self.expiry = None
         """ When no longer valid to use.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Identifier of the package/container.
@@ -138,7 +138,7 @@ class SubstanceInstance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceInstance, self).elementProperties()
         js.extend([
-            ("expiry", "expiry", fhirdate.FHIRDate, False, None, False),
+            ("expiry", "expiry", fhirdatetime.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
         ])
@@ -146,7 +146,7 @@ class SubstanceInstance(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import quantity

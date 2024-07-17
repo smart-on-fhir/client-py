@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import documentreference
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class DocumentReferenceTests(unittest.TestCase):
@@ -32,7 +35,7 @@ class DocumentReferenceTests(unittest.TestCase):
         self.assertEqual(inst.category[0].coding[0].system, "http://ihe.net/xds/connectathon/classCodes")
         self.assertEqual(inst.contained[0].id, "a2")
         self.assertEqual(inst.content[0].attachment.contentType, "application/hl7-v3+xml")
-        self.assertEqual(inst.content[0].attachment.creation.date, FHIRDate("2005-12-24T09:35:00+11:00").date)
+        self.assertEqual(inst.content[0].attachment.creation.datetime, FHIRDateTime("2005-12-24T09:35:00+11:00").datetime)
         self.assertEqual(inst.content[0].attachment.creation.as_json(), "2005-12-24T09:35:00+11:00")
         self.assertEqual(inst.content[0].attachment.hash, "2jmj7l5rSw0yVb/vlWAYkK/YBwk=")
         self.assertEqual(inst.content[0].attachment.language, "en-US")
@@ -48,14 +51,14 @@ class DocumentReferenceTests(unittest.TestCase):
         self.assertEqual(inst.context.facilityType.coding[0].code, "Outpatient")
         self.assertEqual(inst.context.facilityType.coding[0].display, "Outpatient")
         self.assertEqual(inst.context.facilityType.coding[0].system, "http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes")
-        self.assertEqual(inst.context.period.end.date, FHIRDate("2004-12-23T08:01:00+11:00").date)
+        self.assertEqual(inst.context.period.end.datetime, FHIRDateTime("2004-12-23T08:01:00+11:00").datetime)
         self.assertEqual(inst.context.period.end.as_json(), "2004-12-23T08:01:00+11:00")
-        self.assertEqual(inst.context.period.start.date, FHIRDate("2004-12-23T08:00:00+11:00").date)
+        self.assertEqual(inst.context.period.start.datetime, FHIRDateTime("2004-12-23T08:00:00+11:00").datetime)
         self.assertEqual(inst.context.period.start.as_json(), "2004-12-23T08:00:00+11:00")
         self.assertEqual(inst.context.practiceSetting.coding[0].code, "General Medicine")
         self.assertEqual(inst.context.practiceSetting.coding[0].display, "General Medicine")
         self.assertEqual(inst.context.practiceSetting.coding[0].system, "http://www.ihe.net/xds/connectathon/practiceSettingCodes")
-        self.assertEqual(inst.date.date, FHIRDate("2005-12-24T09:43:41+11:00").date)
+        self.assertEqual(inst.date.datetime, FHIRInstant("2005-12-24T09:43:41+11:00").datetime)
         self.assertEqual(inst.date.as_json(), "2005-12-24T09:43:41+11:00")
         self.assertEqual(inst.description, "Physical")
         self.assertEqual(inst.docStatus, "preliminary")

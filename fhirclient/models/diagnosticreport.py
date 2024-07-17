@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -47,7 +47,7 @@ class DiagnosticReport(domainresource.DomainResource):
         
         self.effectiveDateTime = None
         """ Clinically relevant time/time-period for report.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
         """ Clinically relevant time/time-period for report.
@@ -68,7 +68,7 @@ class DiagnosticReport(domainresource.DomainResource):
         
         self.issued = None
         """ DateTime this version was made.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.media = None
         """ Key images associated with this report.
@@ -112,12 +112,12 @@ class DiagnosticReport(domainresource.DomainResource):
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("conclusion", "conclusion", str, False, None, False),
             ("conclusionCode", "conclusionCode", codeableconcept.CodeableConcept, True, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdatetime.FHIRDateTime, False, "effective", False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True, None, False),
-            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("issued", "issued", fhirinstant.FHIRInstant, False, None, False),
             ("media", "media", DiagnosticReportMedia, True, None, False),
             ("performer", "performer", fhirreference.FHIRReference, True, None, False),
             ("presentedForm", "presentedForm", attachment.Attachment, True, None, False),
@@ -171,7 +171,8 @@ class DiagnosticReportMedia(backboneelement.BackboneElement):
 
 from . import attachment
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
+from . import fhirinstant
 from . import fhirreference
 from . import identifier
 from . import period

@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import familymemberhistory
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class FamilyMemberHistoryTests(unittest.TestCase):
@@ -37,7 +40,7 @@ class FamilyMemberHistoryTests(unittest.TestCase):
         self.assertEqual(inst.condition[0].onsetAge.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.condition[0].onsetAge.unit, "yr")
         self.assertEqual(inst.condition[0].onsetAge.value, 74)
-        self.assertEqual(inst.date.date, FHIRDate("2011-03-18").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2011-03-18").datetime)
         self.assertEqual(inst.date.as_json(), "2011-03-18")
         self.assertEqual(inst.id, "father")
         self.assertEqual(inst.identifier[0].value, "12345")

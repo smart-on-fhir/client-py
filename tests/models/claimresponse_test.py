@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import claimresponse
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ClaimResponseTests(unittest.TestCase):
@@ -61,7 +64,7 @@ class ClaimResponseTests(unittest.TestCase):
         self.assertEqual(inst.addItem[1].productOrService.coding[0].code, "2101")
         self.assertEqual(inst.addItem[1].productOrService.coding[0].display, "Radiograph, series (12)")
         self.assertEqual(inst.addItem[1].productOrService.coding[0].system, "http://example.org/fhir/oralservicecodes")
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "The enclosed services are authorized for your provision within 30 days of this notice.")
         self.assertEqual(inst.id, "UR3503")
@@ -105,7 +108,7 @@ class ClaimResponseTests(unittest.TestCase):
         self.implClaimResponse2(inst2)
     
     def implClaimResponse2(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Claim settled as per contract.")
         self.assertEqual(inst.id, "R3500")
@@ -221,7 +224,7 @@ class ClaimResponseTests(unittest.TestCase):
         self.assertEqual(inst.addItem[2].noteNumber[0], 101)
         self.assertEqual(inst.addItem[2].productOrService.coding[0].code, "expense")
         self.assertEqual(inst.addItem[2].productOrService.coding[0].system, "http://example.org/fhir/oralservicecodes")
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Claim settled as per contract.")
         self.assertEqual(inst.id, "R3503")
@@ -311,7 +314,7 @@ class ClaimResponseTests(unittest.TestCase):
         self.implClaimResponse4(inst2)
     
     def implClaimResponse4(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Claim could not be processed")
         self.assertEqual(inst.error[0].code.coding[0].code, "a002")
@@ -350,7 +353,7 @@ class ClaimResponseTests(unittest.TestCase):
         self.implClaimResponse5(inst2)
     
     def implClaimResponse5(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Claim settled as per contract.")
         self.assertEqual(inst.id, "R3502")

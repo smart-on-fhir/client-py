@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Signature) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Signature).
+# 2024, SMART Health IT.
 
 
 from . import element
@@ -46,7 +46,7 @@ class Signature(element.Element):
         
         self.when = None
         """ When the signature was created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.who = None
         """ Who signed.
@@ -62,12 +62,12 @@ class Signature(element.Element):
             ("sigFormat", "sigFormat", str, False, None, False),
             ("targetFormat", "targetFormat", str, False, None, False),
             ("type", "type", coding.Coding, True, None, True),
-            ("when", "when", fhirdate.FHIRDate, False, None, True),
+            ("when", "when", fhirinstant.FHIRInstant, False, None, True),
             ("who", "who", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
 
 from . import coding
-from . import fhirdate
+from . import fhirinstant
 from . import fhirreference
