@@ -41,20 +41,19 @@ To read a given patient from an open FHIR server, you can use:
 
 ```python
 from fhirclient import client
+from fhirclient.models.patient import Patient
 
 settings = {
     'app_id': 'my_web_app',
-    'api_base': 'https://r3.smarthealthit.org'
+    'api_base': 'https://r4.smarthealthit.org'
 }
 smart = client.FHIRClient(settings=settings)
 
-import fhirclient.models.patient as p
-
-patient = p.Patient.read('2e27c71e-30c8-4ceb-8c1c-5641e066c0a4', smart.server)
+patient = Patient.read('2cda5aad-e409-4070-9a15-e1c35c46ed5a', smart.server)
 print(patient.birthDate.isostring)
-# '1951-03-09'
+# '1992-07-03'
 print(smart.human_name(patient.name[0]))
-# 'Ms. Buena Abbott'
+# 'Mr. Geoffrey Abbott'
 ```
 If this is a protected server, you will first have to send your user to the authorization endpoint to log in.
 Just call `smart.authorize_url` to obtain the correct URL.
@@ -62,7 +61,14 @@ You can use `smart.prepare()`, which will return `False` if the server is protec
 The `smart.ready` property has the same purpose. However, it will not retrieve the server's _CapabilityStatement_ resource and hence is only fit as a quick check whether the server instance is ready.
 
 ```python
+from fhirclient import client
+
+settings = {
+    'app_id': 'my_web_app',
+    'api_base': 'https://r4.smarthealthit.org'
+}
 smart = client.FHIRClient(settings=settings)
+
 smart.ready
 # prints `False`
 smart.prepare()
@@ -78,11 +84,13 @@ smart.authorize_url
 You can work with the `FHIRServer` class directly without using `FHIRClient`. But this is not recommended:
 
 ```python
-smart = server.FHIRServer(None, 'https://fhir-open-api-dstu2.smarthealthit.org')
-import fhirclient.models.patient as p
-patient = p.Patient.read('hca-pat-1', smart)
-patient.name[0].given
-# ['Christy']
+from fhirclient import server
+from fhirclient.models.patient import Patient
+
+smart = server.FHIRServer(None, 'https://r4.smarthealthit.org')
+patient = Patient.read('2cda5aad-e409-4070-9a15-e1c35c46ed5a', smart)
+print(patient.name[0].given)
+# ['Geoffrey']
 ```
 
 ##### Search Records on Server
@@ -90,23 +98,35 @@ patient.name[0].given
 You can also search for resources matching a particular set of criteria:
 
 ```python
+from fhirclient import client
+from fhirclient.models.encounter import Encounter
+from fhirclient.models.procedure import Procedure
+
+settings = {
+    'app_id': 'my_web_app',
+    'api_base': 'https://r4.smarthealthit.org'
+}
 smart = client.FHIRClient(settings=settings)
-import fhirclient.models.procedure as p
-search = p.Procedure.where(struct={'subject': 'hca-pat-1', 'status': 'completed'})
-procedures = search.perform_resources(smart.server)
-for procedure in procedures:
-    procedure.as_json()
-    # {'status': u'completed', 'code': {'text': u'Lumpectomy w/ SN', ...
 
-# to include the resources referred to by the procedure via `subject` in the results
+search = Encounter.where(struct={'subject': '2cda5aad-e409-4070-9a15-e1c35c46ed5a', 'status': 'finished'})
+encounters = search.perform_resources(smart.server)
+print({res.type[0].text for res in search.perform_resources(smart.server)})
+# {'Encounter for symptom', 'Encounter for check up (procedure)'}
+
+# to include the resources referred to by the encounter via `subject` in the results
 search = search.include('subject')
+print({res.resource_type for res in search.perform_resources(smart.server)})
+# {'Encounter', 'Patient'}
 
-# to include the MedicationAdministration resources which refer to the procedure via `partOf`
-import fhirclient.models.medicationadministration as m
-search = search.include('partOf', m.MedicationAdministration, reverse=True)
+# to include the Procedure resources which refer to the encounter via `encounter`
+search = search.include('encounter', Procedure, reverse=True)
+print({res.resource_type for res in search.perform_resources(smart.server)})
+# {'Encounter', 'Patient', 'Procedure'}
 
 # to get the raw Bundle instead of resources only, you can use:
 bundle = search.perform(smart.server)
+print({entry.resource.resource_type for entry in bundle.entry})
+# {'Encounter', 'Patient', 'Procedure'}
 ```
 
 ### Data Model Use
@@ -116,38 +136,39 @@ The client contains data model classes, built using [fhir-parser][], that handle
 #### Initialize Data Model
 
 ```python
-import fhirclient.models.patient as p
-import fhirclient.models.humanname as hn
-patient = p.Patient({'id': 'patient-1'})
-patient.id
-# prints `patient-1`
+from fhirclient.models.patient import Patient
+from fhirclient.models.humanname import HumanName
 
-name = hn.HumanName()
+patient = Patient({'id': 'patient-1'})
+print(patient.id)
+# patient-1
+
+name = HumanName()
 name.given = ['Peter']
 name.family = 'Parker'
 patient.name = [name]
-patient.as_json()
-# prints patient's JSON representation, now with id and name
+print(patient.as_json())
+# {'id': 'patient-1', 'name': [{'family': 'Parker', 'given': ['Peter']}], 'resourceType': 'Patient'}
 
 name.given = 'Peter'
-patient.as_json()
+print(patient.as_json())
 # throws FHIRValidationError:
 # {root}:
-#   name:
+#   name.0:
 #     given:
 #       Expecting property "given" on <class 'fhirclient.models.humanname.HumanName'> to be list, but is <class 'str'>
 ```
 
-#### Initialize from JSON file
+#### Initialize from JSON
 
 ```python
 import json
-import fhirclient.models.patient as p
-with open('path/to/patient.json', 'r') as h:
-    pjs = json.load(h)
-patient = p.Patient(pjs)
-patient.name[0].given
-# prints patient's given name array in the first `name` property
+from fhirclient.models.patient import Patient
+
+pjs = json.loads('{"name": [{"given": ["Peter"]}], "resourceType": "Patient"}')
+patient = Patient(pjs)
+print(patient.name[0].given)
+# ['Peter']
 ```
 
 ### Flask App
