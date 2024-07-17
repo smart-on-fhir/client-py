@@ -1,8 +1,0 @@
-Beaker>=1.13.0
-Flask>=2.3.2
-Jinja2>=3.1.2
-MarkupSafe>=2.1.1
-Werkzeug>=2.3.3
-isodate>=0.6.1
-itsdangerous>=2.1.2
-requests>=2.22.0
