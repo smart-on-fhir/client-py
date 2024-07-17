@@ -152,69 +152,29 @@ patient.name[0].given
 
 ### Flask App
 
-Take a look at [`flask_app.py`][flask_app] to see how you can use the client in a simple (Flask) app.
-This app starts a web server, listening on [_localhost:8000_](http://localhost:8000), and prompts you to log in to our sandbox server and select a patient.
-It then retrieves the selected patient's demographics and med prescriptions and lists them on a simple HTML page.
+Take a look at
+[flask_app.py](https://github.com/smart-on-fhir/client-py/blob/main/demos/flask/flask_app.py)
+to see how you can use the client in a simple (Flask) app.
+This app starts a web server,
+listening on [_localhost:8000_](http://localhost:8000),
+and prompts you to log in to our sandbox server and select a patient.
+It then retrieves the selected patient's demographics and med prescriptions
+and lists them on a simple HTML page.
 
 The Flask demo app has separate requirements.
-Clone the _client-py_ repository, then create a virtual environment (not compulsory but recommended) and install the needed packages as shown:
+Clone the _client-py_ repository,
+then create a virtual environment (not compulsory but recommended)
+and install the needed packages as shown:
 
     git clone https://github.com/smart-on-fhir/client-py.git
-    cd client-py
-    virtualenv -p python3 env
+    cd client-py/demos/flask
+    python3 -m venv env
     . env/bin/activate
-    pip install -r requirements_flask_app.txt
-    python flask_app.py
-
-
-## Building Distribution
-
-    pip install -U build
-    python3 -m build
-
-
-### Incrementing the lib version
-
-- Edit `fhirclient/client.py` and change the `__version__` field.
-- Edit `Doxyfile` and change the `PROJECT_NUMBER` field.
-
-
-## Docs Generation
-
-Docs are generated with [Doxygen][] and [doxypypy][].
-You can install doxypypy via pip: `pip install doxypypy`.
-Then you can just run Doxygen. Configuration is stored in the `Doxyfile`.
-
-Running Doxygen will put the generated documentation into `docs`, the HTML files into `docs/html`.
-Those files make up the content of the `gh-pages` branch.
-I usually perform a second checkout of the _gh-pages_ branch and copy the html files over, with:
-
-    doxygen
-    rsync -a docs/html/ ../client-py-web/
-
-
-## PyPi Publishing (notes for SMART team)
-
-Using flit (*Note*: Alternatively, you can use [twine](https://twine.readthedocs.io/)):
-
-### Make sure that you have the PyPi account credentials in your account
-
-    copy server.smarthealthit.org:/home/fhir/.pypirc to ~/.pypirc
-
-### Test the build
-
-    python3 -m build
-
-### Upload the packages to PyPi
-
-    pip install -U flit
-    flit publish
+    pip install -r requirements.txt
+    ./flask_app.py
 
 
 [fhir]: http://www.hl7.org/implement/standards/fhir/
 [smart]: http://docs.smarthealthit.org
 [fhir-parser]: https://github.com/smart-on-fhir/fhir-parser
 [docs]: https://smart-on-fhir.github.io/client-py
-[flask_app]: https://github.com/smart-on-fhir/client-py/blob/main/flask_app.py
-[doxygen]: http://www.stack.nl/~dimitri/doxygen
-[doxypypy]: https://github.com/Feneric/doxypypy

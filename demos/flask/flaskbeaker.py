@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from flask.sessions import SessionInterface
 from beaker.middleware import SessionMiddleware
 
