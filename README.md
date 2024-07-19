@@ -176,9 +176,13 @@ print(patient.name[0].given)
 Take a look at
 [flask_app.py](https://github.com/smart-on-fhir/client-py/blob/main/demos/flask/flask_app.py)
 to see how you can use the client in a simple (Flask) app.
-This app starts a web server,
-listening on [_localhost:8000_](http://localhost:8000),
-and prompts you to log in to our sandbox server and select a patient.
+
+This demo requires a server that is capable of SMART OAuth logins for patients,
+so make sure you have such a server ready first.
+
+This app will start a web server,
+listen on [_localhost:8000_](http://localhost:8000),
+and prompt you to log in to our sandbox server and select a patient.
 It then retrieves the selected patient's demographics and med prescriptions
 and lists them on a simple HTML page.
 
@@ -192,6 +196,7 @@ and install the needed packages as shown:
     python3 -m venv env
     . env/bin/activate
     pip install -r requirements.txt
+    # Edit flask_app.py and put your own server's URL as api_base.
     ./flask_app.py
 
 
