@@ -10,13 +10,7 @@ from flask import Flask, request, redirect, session
 # app setup
 smart_defaults = {
     'app_id': 'my_web_app',
-    # The CapabilityStatement being returned from the new test server,
-    # r4.smarthealthit.org, is currently missing a required field in the
-    # description of one of the search params. So you may see a
-    # 'Non-optional property "type"' error message when running this with
-    # the default config. We'll remove this message once that has been
-    # fixed and tested.
-    'api_base': 'https://r4.smarthealthit.org/',
+    'api_base': None,
     'redirect_uri': 'http://localhost:8000/fhir-app/',
 }
 
@@ -29,8 +23,10 @@ def _get_smart():
     state = session.get('state')
     if state:
         return client.FHIRClient(state=state, save_func=_save_state)
-    else:
+    elif smart_defaults['api_base']:
         return client.FHIRClient(settings=smart_defaults, save_func=_save_state)
+    else:
+        return None
 
 def _logout():
     if 'state' in session:
@@ -80,8 +76,13 @@ def index():
     """
     smart = _get_smart()
     body = "<h1>Hello</h1>"
-    
-    if smart.ready and smart.patient is not None:       # "ready" may be true but the access token may have expired, making smart.patient = None
+
+    if smart is None:
+        body += """<p>Please edit flask_app.py and set a value for 'api_base', """
+        body += """pointing at your own OAuth-capable server.</p>"""
+
+    # "ready" may be true but the access token may have expired, making smart.patient = None
+    elif smart.ready and smart.patient is not None:
         name = smart.human_name(smart.patient.name[0] if smart.patient.name and len(smart.patient.name) > 0 else 'Unknown')
         
         # generate simple body text
@@ -92,6 +93,7 @@ def index():
         else:
             body += "<p>(There are no prescriptions for {0})</p>".format("him" if 'male' == smart.patient.gender else "her")
         body += """<p><a href="/logout">Change patient</a></p>"""
+
     else:
         auth_url = smart.authorize_url
         if auth_url is not None:
