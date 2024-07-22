@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import paymentnotice
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class PaymentNoticeTests(unittest.TestCase):
@@ -29,7 +32,7 @@ class PaymentNoticeTests(unittest.TestCase):
     def implPaymentNotice1(self, inst):
         self.assertEqual(inst.amount.currency, "USD")
         self.assertEqual(inst.amount.value, 12500.0)
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.id, "77654")
         self.assertEqual(inst.identifier[0].system, "http://benefitsinc.com/paymentnotice")

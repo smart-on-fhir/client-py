@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import allergyintolerance
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class AllergyIntoleranceTests(unittest.TestCase):
@@ -38,13 +41,13 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "http://acme.com/ids/patients/risks")
         self.assertEqual(inst.identifier[0].value, "49476534")
-        self.assertEqual(inst.lastOccurrence.date, FHIRDate("2012-06").date)
+        self.assertEqual(inst.lastOccurrence.datetime, FHIRDateTime("2012-06").datetime)
         self.assertEqual(inst.lastOccurrence.as_json(), "2012-06")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.note[0].text, "The criticality is high becasue of the observed anaphylactic reaction when challenged with cashew extract.")
-        self.assertEqual(inst.onsetDateTime.date, FHIRDate("2004").date)
+        self.assertEqual(inst.onsetDateTime.datetime, FHIRDateTime("2004").datetime)
         self.assertEqual(inst.onsetDateTime.as_json(), "2004")
         self.assertEqual(inst.reaction[0].description, "Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered")
         self.assertEqual(inst.reaction[0].exposureRoute.coding[0].code, "34206005")
@@ -53,7 +56,7 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.assertEqual(inst.reaction[0].manifestation[0].coding[0].code, "39579001")
         self.assertEqual(inst.reaction[0].manifestation[0].coding[0].display, "Anaphylactic reaction")
         self.assertEqual(inst.reaction[0].manifestation[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.reaction[0].onset.date, FHIRDate("2012-06-12").date)
+        self.assertEqual(inst.reaction[0].onset.datetime, FHIRDateTime("2012-06-12").datetime)
         self.assertEqual(inst.reaction[0].onset.as_json(), "2012-06-12")
         self.assertEqual(inst.reaction[0].severity, "severe")
         self.assertEqual(inst.reaction[0].substance.coding[0].code, "1160593")
@@ -63,10 +66,10 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.assertEqual(inst.reaction[1].manifestation[0].coding[0].display, "Urticaria")
         self.assertEqual(inst.reaction[1].manifestation[0].coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.reaction[1].note[0].text, "The patient reports that the onset of urticaria was within 15 minutes of eating cashews.")
-        self.assertEqual(inst.reaction[1].onset.date, FHIRDate("2004").date)
+        self.assertEqual(inst.reaction[1].onset.datetime, FHIRDateTime("2004").datetime)
         self.assertEqual(inst.reaction[1].onset.as_json(), "2004")
         self.assertEqual(inst.reaction[1].severity, "moderate")
-        self.assertEqual(inst.recordedDate.date, FHIRDate("2014-10-09T14:58:00+11:00").date)
+        self.assertEqual(inst.recordedDate.datetime, FHIRDateTime("2014-10-09T14:58:00+11:00").datetime)
         self.assertEqual(inst.recordedDate.as_json(), "2014-10-09T14:58:00+11:00")
         self.assertEqual(inst.text.status, "generated")
         self.assertEqual(inst.type, "allergy")

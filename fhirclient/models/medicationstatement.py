@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationStatement).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -57,7 +57,7 @@ class MedicationStatement(domainresource.DomainResource):
         
         self.dateAsserted = None
         """ When the statement was asserted?.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.derivedFrom = None
         """ Additional supporting information.
@@ -69,7 +69,7 @@ class MedicationStatement(domainresource.DomainResource):
         
         self.effectiveDateTime = None
         """ The date/time or interval when the medication is/was/will be taken.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
         """ The date/time or interval when the medication is/was/will be taken.
@@ -130,10 +130,10 @@ class MedicationStatement(domainresource.DomainResource):
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("dateAsserted", "dateAsserted", fhirdate.FHIRDate, False, None, False),
+            ("dateAsserted", "dateAsserted", fhirdatetime.FHIRDateTime, False, None, False),
             ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False),
             ("dosage", "dosage", dosage.Dosage, True, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdatetime.FHIRDateTime, False, "effective", False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("informationSource", "informationSource", fhirreference.FHIRReference, False, None, False),
@@ -153,7 +153,7 @@ class MedicationStatement(domainresource.DomainResource):
 from . import annotation
 from . import codeableconcept
 from . import dosage
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceSpecification) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceSpecification).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -290,7 +290,7 @@ class SubstanceSpecificationNameOfficial(backboneelement.BackboneElement):
         
         self.date = None
         """ Date of official name change.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.status = None
         """ The status of the official name.
@@ -302,7 +302,7 @@ class SubstanceSpecificationNameOfficial(backboneelement.BackboneElement):
         js = super(SubstanceSpecificationNameOfficial, self).elementProperties()
         js.extend([
             ("authority", "authority", codeableconcept.CodeableConcept, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
@@ -692,7 +692,7 @@ class SubstanceSpecificationstr(backboneelement.BackboneElement):
         self.statusDate = None
         """ The date at which the code status is changed as part of the
         terminology maintenance.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(SubstanceSpecificationstr, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -703,14 +703,14 @@ class SubstanceSpecificationstr(backboneelement.BackboneElement):
             ("comment", "comment", str, False, None, False),
             ("source", "source", fhirreference.FHIRReference, True, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, False),
-            ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
+            ("statusDate", "statusDate", fhirdatetime.FHIRDateTime, False, None, False),
         ])
         return js
 
 
 from . import attachment
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import quantity

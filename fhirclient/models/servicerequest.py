@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ServiceRequest) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ServiceRequest).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class ServiceRequest(domainresource.DomainResource):
         
         self.authoredOn = None
         """ Date request signed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.basedOn = None
         """ What request fulfills.
@@ -92,7 +92,7 @@ class ServiceRequest(domainresource.DomainResource):
         
         self.occurrenceDateTime = None
         """ When service should occur.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
         """ When service should occur.
@@ -182,7 +182,7 @@ class ServiceRequest(domainresource.DomainResource):
         js.extend([
             ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False),
             ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False),
-            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
+            ("authoredOn", "authoredOn", fhirdatetime.FHIRDateTime, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
@@ -197,7 +197,7 @@ class ServiceRequest(domainresource.DomainResource):
             ("locationCode", "locationCode", codeableconcept.CodeableConcept, True, None, False),
             ("locationReference", "locationReference", fhirreference.FHIRReference, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatetime.FHIRDateTime, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
             ("orderDetail", "orderDetail", codeableconcept.CodeableConcept, True, None, False),
@@ -224,7 +224,7 @@ class ServiceRequest(domainresource.DomainResource):
 
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

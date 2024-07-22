@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import codesystem
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class CodeSystemTests(unittest.TestCase):
@@ -103,7 +106,7 @@ class CodeSystemTests(unittest.TestCase):
         self.assertEqual(inst.id, "list-example-codes")
         self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value, "urn:oid:2.16.840.1.113883.4.642.4.1105")
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2019-11-01T09:29:23.356+11:00").date)
+        self.assertEqual(inst.meta.lastUpdated.datetime, FHIRInstant("2019-11-01T09:29:23.356+11:00").datetime)
         self.assertEqual(inst.meta.lastUpdated.as_json(), "2019-11-01T09:29:23.356+11:00")
         self.assertEqual(inst.meta.profile[0], "http://hl7.org/fhir/StructureDefinition/shareablecodesystem")
         self.assertEqual(inst.name, "ExampleUseCodesForList")
@@ -138,7 +141,7 @@ class CodeSystemTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[1].system, "email")
         self.assertEqual(inst.contact[0].telecom[1].value, "fhir@lists.hl7.org")
         self.assertEqual(inst.content, "complete")
-        self.assertEqual(inst.date.date, FHIRDate("2019-11-01T09:29:23+11:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2019-11-01T09:29:23+11:00").datetime)
         self.assertEqual(inst.date.as_json(), "2019-11-01T09:29:23+11:00")
         self.assertEqual(inst.description, "The type of actor - system or human.")
         self.assertFalse(inst.experimental)
@@ -151,7 +154,7 @@ class CodeSystemTests(unittest.TestCase):
         self.assertEqual(inst.id, "examplescenario-actor-type")
         self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value, "urn:oid:2.16.840.1.113883.4.642.4.859")
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2019-11-01T09:29:23.356+11:00").date)
+        self.assertEqual(inst.meta.lastUpdated.datetime, FHIRInstant("2019-11-01T09:29:23.356+11:00").datetime)
         self.assertEqual(inst.meta.lastUpdated.as_json(), "2019-11-01T09:29:23.356+11:00")
         self.assertEqual(inst.name, "ExampleScenarioActorType")
         self.assertEqual(inst.publisher, "HL7 (FHIR Project)")
@@ -196,7 +199,7 @@ class CodeSystemTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.content, "complete")
-        self.assertEqual(inst.date.date, FHIRDate("2016-01-28").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2016-01-28").datetime)
         self.assertEqual(inst.date.as_json(), "2016-01-28")
         self.assertEqual(inst.description, "This is an example code system that includes all the ACME codes for serum/plasma cholesterol from v2.36.")
         self.assertTrue(inst.experimental)
@@ -240,7 +243,7 @@ class CodeSystemTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
         self.assertEqual(inst.content, "supplement")
-        self.assertEqual(inst.date.date, FHIRDate("2016-01-28").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2016-01-28").datetime)
         self.assertEqual(inst.date.as_json(), "2016-01-28")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "example-supplement")

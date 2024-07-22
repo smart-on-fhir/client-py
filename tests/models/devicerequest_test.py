@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import devicerequest
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class DeviceRequestTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class DeviceRequestTests(unittest.TestCase):
         self.implDeviceRequest1(inst2)
     
     def implDeviceRequest1(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2013-05-08T09:33:27+07:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2013-05-08T09:33:27+07:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2013-05-08T09:33:27+07:00")
         self.assertEqual(inst.codeCodeableConcept.coding[0].code, "43148-6")
         self.assertEqual(inst.codeCodeableConcept.coding[0].system, "http://loinc.org")
@@ -41,7 +44,7 @@ class DeviceRequestTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.note[0].text, "this is the right device brand and model")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2013-05-08T09:33:27+07:00").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2013-05-08T09:33:27+07:00").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2013-05-08T09:33:27+07:00")
         self.assertEqual(inst.performerType.coding[0].display, "Qualified nurse")
         self.assertEqual(inst.performerType.text, "Nurse")

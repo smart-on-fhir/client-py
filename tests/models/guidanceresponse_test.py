@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import guidanceresponse
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class GuidanceResponseTests(unittest.TestCase):
@@ -35,7 +38,7 @@ class GuidanceResponseTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.moduleUri, "http://someguidelineprovider.org/radiology-appropriateness-guidelines.html")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2017-03-10T16:02:00Z").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2017-03-10T16:02:00Z").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2017-03-10T16:02:00Z")
         self.assertEqual(inst.reasonCode[0].text, "Guideline Appropriate Ordering Assessment")
         self.assertEqual(inst.requestIdentifier.system, "http://example.org")

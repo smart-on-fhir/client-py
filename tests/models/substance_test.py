@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import substance
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class SubstanceTests(unittest.TestCase):
@@ -168,7 +171,7 @@ class SubstanceTests(unittest.TestCase):
         self.assertEqual(inst.id, "f204")
         self.assertEqual(inst.identifier[0].system, "http://acme.org/identifiers/substances")
         self.assertEqual(inst.identifier[0].value, "15970")
-        self.assertEqual(inst.instance[0].expiry.date, FHIRDate("2018-01-01").date)
+        self.assertEqual(inst.instance[0].expiry.datetime, FHIRDateTime("2018-01-01").datetime)
         self.assertEqual(inst.instance[0].expiry.as_json(), "2018-01-01")
         self.assertEqual(inst.instance[0].identifier.system, "http://acme.org/identifiers/substances/lot")
         self.assertEqual(inst.instance[0].identifier.value, "AB94687")

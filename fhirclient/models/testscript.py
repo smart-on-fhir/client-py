@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/TestScript) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/TestScript).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class TestScript(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the test script.
@@ -128,7 +128,7 @@ class TestScript(domainresource.DomainResource):
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
             ("destination", "destination", TestScriptDestination, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
@@ -958,7 +958,7 @@ class TestScriptVariable(backboneelement.BackboneElement):
 from . import codeableconcept
 from . import coding
 from . import contactdetail
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import usagecontext

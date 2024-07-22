@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Attachment).
+# 2024, SMART Health IT.
 
 
 from . import element
@@ -26,7 +26,7 @@ class Attachment(element.Element):
         
         self.creation = None
         """ Date attachment was first created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.data = None
         """ Data inline, base64ed.
@@ -58,7 +58,7 @@ class Attachment(element.Element):
         js = super(Attachment, self).elementProperties()
         js.extend([
             ("contentType", "contentType", str, False, None, False),
-            ("creation", "creation", fhirdate.FHIRDate, False, None, False),
+            ("creation", "creation", fhirdatetime.FHIRDateTime, False, None, False),
             ("data", "data", str, False, None, False),
             ("hash", "hash", str, False, None, False),
             ("language", "language", str, False, None, False),
@@ -69,4 +69,4 @@ class Attachment(element.Element):
         return js
 
 
-from . import fhirdate
+from . import fhirdatetime

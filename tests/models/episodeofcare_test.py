@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import episodeofcare
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class EpisodeOfCareTests(unittest.TestCase):
@@ -37,25 +40,25 @@ class EpisodeOfCareTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.period.start.date, FHIRDate("2014-09-01").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("2014-09-01").datetime)
         self.assertEqual(inst.period.start.as_json(), "2014-09-01")
         self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.statusHistory[0].period.end.date, FHIRDate("2014-09-14").date)
+        self.assertEqual(inst.statusHistory[0].period.end.datetime, FHIRDateTime("2014-09-14").datetime)
         self.assertEqual(inst.statusHistory[0].period.end.as_json(), "2014-09-14")
-        self.assertEqual(inst.statusHistory[0].period.start.date, FHIRDate("2014-09-01").date)
+        self.assertEqual(inst.statusHistory[0].period.start.datetime, FHIRDateTime("2014-09-01").datetime)
         self.assertEqual(inst.statusHistory[0].period.start.as_json(), "2014-09-01")
         self.assertEqual(inst.statusHistory[0].status, "planned")
-        self.assertEqual(inst.statusHistory[1].period.end.date, FHIRDate("2014-09-21").date)
+        self.assertEqual(inst.statusHistory[1].period.end.datetime, FHIRDateTime("2014-09-21").datetime)
         self.assertEqual(inst.statusHistory[1].period.end.as_json(), "2014-09-21")
-        self.assertEqual(inst.statusHistory[1].period.start.date, FHIRDate("2014-09-15").date)
+        self.assertEqual(inst.statusHistory[1].period.start.datetime, FHIRDateTime("2014-09-15").datetime)
         self.assertEqual(inst.statusHistory[1].period.start.as_json(), "2014-09-15")
         self.assertEqual(inst.statusHistory[1].status, "active")
-        self.assertEqual(inst.statusHistory[2].period.end.date, FHIRDate("2014-09-24").date)
+        self.assertEqual(inst.statusHistory[2].period.end.datetime, FHIRDateTime("2014-09-24").datetime)
         self.assertEqual(inst.statusHistory[2].period.end.as_json(), "2014-09-24")
-        self.assertEqual(inst.statusHistory[2].period.start.date, FHIRDate("2014-09-22").date)
+        self.assertEqual(inst.statusHistory[2].period.start.datetime, FHIRDateTime("2014-09-22").datetime)
         self.assertEqual(inst.statusHistory[2].period.start.as_json(), "2014-09-22")
         self.assertEqual(inst.statusHistory[2].status, "onhold")
-        self.assertEqual(inst.statusHistory[3].period.start.date, FHIRDate("2014-09-25").date)
+        self.assertEqual(inst.statusHistory[3].period.start.datetime, FHIRDateTime("2014-09-25").datetime)
         self.assertEqual(inst.statusHistory[3].period.start.as_json(), "2014-09-25")
         self.assertEqual(inst.statusHistory[3].status, "active")
         self.assertEqual(inst.text.status, "generated")

@@ -40,3 +40,7 @@ Using flit (*Note*: Alternatively, you can use [twine](https://twine.readthedocs
 
     pip install -U flit
     flit publish
+
+### Announce the release
+
+Make a post in the [Zulip channel](https://chat.fhir.org/#narrow/stream/179218-python) for python.

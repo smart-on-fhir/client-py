@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import group
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class GroupTests(unittest.TestCase):
@@ -94,14 +97,14 @@ class GroupTests(unittest.TestCase):
     def implGroup3(self, inst):
         self.assertTrue(inst.actual)
         self.assertEqual(inst.id, "102")
-        self.assertEqual(inst.member[0].period.start.date, FHIRDate("2014-10-08").date)
+        self.assertEqual(inst.member[0].period.start.datetime, FHIRDateTime("2014-10-08").datetime)
         self.assertEqual(inst.member[0].period.start.as_json(), "2014-10-08")
         self.assertTrue(inst.member[1].inactive)
-        self.assertEqual(inst.member[1].period.start.date, FHIRDate("2015-04-02").date)
+        self.assertEqual(inst.member[1].period.start.datetime, FHIRDateTime("2015-04-02").datetime)
         self.assertEqual(inst.member[1].period.start.as_json(), "2015-04-02")
-        self.assertEqual(inst.member[2].period.start.date, FHIRDate("2015-08-06").date)
+        self.assertEqual(inst.member[2].period.start.datetime, FHIRDateTime("2015-08-06").datetime)
         self.assertEqual(inst.member[2].period.start.as_json(), "2015-08-06")
-        self.assertEqual(inst.member[3].period.start.date, FHIRDate("2015-08-06").date)
+        self.assertEqual(inst.member[3].period.start.datetime, FHIRDateTime("2015-08-06").datetime)
         self.assertEqual(inst.member[3].period.start.as_json(), "2015-08-06")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")

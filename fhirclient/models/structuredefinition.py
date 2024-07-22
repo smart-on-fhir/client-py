@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/StructureDefinition).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -48,7 +48,7 @@ class StructureDefinition(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.derivation = None
         """ specialization | constraint - How relates to base definition.
@@ -142,7 +142,7 @@ class StructureDefinition(domainresource.DomainResource):
             ("context", "context", StructureDefinitionContext, True, None, False),
             ("contextInvariant", "contextInvariant", str, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("derivation", "derivation", str, False, None, False),
             ("description", "description", str, False, None, False),
             ("differential", "differential", StructureDefinitionDifferential, False, None, False),
@@ -316,6 +316,6 @@ from . import codeableconcept
 from . import coding
 from . import contactdetail
 from . import elementdefinition
-from . import fhirdate
+from . import fhirdatetime
 from . import identifier
 from . import usagecontext

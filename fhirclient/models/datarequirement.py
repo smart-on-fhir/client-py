@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DataRequirement).
+# 2024, SMART Health IT.
 
 
 from . import element
@@ -154,7 +154,7 @@ class DataRequirementDateFilter(element.Element):
         
         self.valueDateTime = None
         """ The value of the filter, as a Period, DateTime, or Duration value.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDuration = None
         """ The value of the filter, as a Period, DateTime, or Duration value.
@@ -171,7 +171,7 @@ class DataRequirementDateFilter(element.Element):
         js.extend([
             ("path", "path", str, False, None, False),
             ("searchParam", "searchParam", str, False, None, False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdatetime.FHIRDateTime, False, "value", False),
             ("valueDuration", "valueDuration", duration.Duration, False, "value", False),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
         ])
@@ -216,6 +216,6 @@ class DataRequirementSort(element.Element):
 from . import codeableconcept
 from . import coding
 from . import duration
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import period

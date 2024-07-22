@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import subscription
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class SubscriptionTests(unittest.TestCase):
@@ -34,7 +37,7 @@ class SubscriptionTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].system, "phone")
         self.assertEqual(inst.contact[0].value, "ext 4123")
         self.assertEqual(inst.criteria, "Observation?code=http://loinc.org|1975-2")
-        self.assertEqual(inst.end.date, FHIRDate("2021-01-01T00:00:00Z").date)
+        self.assertEqual(inst.end.datetime, FHIRInstant("2021-01-01T00:00:00Z").datetime)
         self.assertEqual(inst.end.as_json(), "2021-01-01T00:00:00Z")
         self.assertEqual(inst.error, "Socket Error 10060 - can't connect to host")
         self.assertEqual(inst.id, "example-error")
@@ -64,7 +67,7 @@ class SubscriptionTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].system, "phone")
         self.assertEqual(inst.contact[0].value, "ext 4123")
         self.assertEqual(inst.criteria, "Observation?code=http://loinc.org|1975-2")
-        self.assertEqual(inst.end.date, FHIRDate("2021-01-01T00:00:00Z").date)
+        self.assertEqual(inst.end.datetime, FHIRInstant("2021-01-01T00:00:00Z").datetime)
         self.assertEqual(inst.end.as_json(), "2021-01-01T00:00:00Z")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")

@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ResearchElementDefinition) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ResearchElementDefinition).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -47,7 +47,7 @@ class ResearchElementDefinition(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the research element definition.
@@ -173,7 +173,7 @@ class ResearchElementDefinition(domainresource.DomainResource):
             ("comment", "comment", str, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
             ("editor", "editor", contactdetail.ContactDetail, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
@@ -246,7 +246,7 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
         
         self.participantEffectiveDateTime = None
         """ What time period do participants cover.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.participantEffectiveDescription = None
         """ What time period do participants cover.
@@ -275,7 +275,7 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
         
         self.studyEffectiveDateTime = None
         """ What time period does the study cover.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.studyEffectiveDescription = None
         """ What time period does the study cover.
@@ -320,14 +320,14 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
             ("definitionDataRequirement", "definitionDataRequirement", datarequirement.DataRequirement, False, "definition", True),
             ("definitionExpression", "definitionExpression", expression.Expression, False, "definition", True),
             ("exclude", "exclude", bool, False, None, False),
-            ("participantEffectiveDateTime", "participantEffectiveDateTime", fhirdate.FHIRDate, False, "participantEffective", False),
+            ("participantEffectiveDateTime", "participantEffectiveDateTime", fhirdatetime.FHIRDateTime, False, "participantEffective", False),
             ("participantEffectiveDescription", "participantEffectiveDescription", str, False, None, False),
             ("participantEffectiveDuration", "participantEffectiveDuration", duration.Duration, False, "participantEffective", False),
             ("participantEffectiveGroupMeasure", "participantEffectiveGroupMeasure", str, False, None, False),
             ("participantEffectivePeriod", "participantEffectivePeriod", period.Period, False, "participantEffective", False),
             ("participantEffectiveTimeFromStart", "participantEffectiveTimeFromStart", duration.Duration, False, None, False),
             ("participantEffectiveTiming", "participantEffectiveTiming", timing.Timing, False, "participantEffective", False),
-            ("studyEffectiveDateTime", "studyEffectiveDateTime", fhirdate.FHIRDate, False, "studyEffective", False),
+            ("studyEffectiveDateTime", "studyEffectiveDateTime", fhirdatetime.FHIRDateTime, False, "studyEffective", False),
             ("studyEffectiveDescription", "studyEffectiveDescription", str, False, None, False),
             ("studyEffectiveDuration", "studyEffectiveDuration", duration.Duration, False, "studyEffective", False),
             ("studyEffectiveGroupMeasure", "studyEffectiveGroupMeasure", str, False, None, False),
@@ -346,6 +346,7 @@ from . import datarequirement
 from . import duration
 from . import expression
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MeasureReport) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MeasureReport).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -24,7 +24,7 @@ class MeasureReport(domainresource.DomainResource):
         
         self.date = None
         """ When the report was generated.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.evaluatedResource = None
         """ What data was used to calculate the measure score.
@@ -71,7 +71,7 @@ class MeasureReport(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MeasureReport, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("evaluatedResource", "evaluatedResource", fhirreference.FHIRReference, True, None, False),
             ("group", "group", MeasureReportGroup, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -341,7 +341,7 @@ class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElem
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

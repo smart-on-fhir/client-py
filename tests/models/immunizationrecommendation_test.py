@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import immunizationrecommendation
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ImmunizationRecommendationTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class ImmunizationRecommendationTests(unittest.TestCase):
         self.implImmunizationRecommendation1(inst2)
     
     def implImmunizationRecommendation1(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2015-02-09T11:04:15.817-05:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-02-09T11:04:15.817-05:00").datetime)
         self.assertEqual(inst.date.as_json(), "2015-02-09T11:04:15.817-05:00")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
@@ -38,17 +41,17 @@ class ImmunizationRecommendationTests(unittest.TestCase):
         self.assertEqual(inst.recommendation[0].dateCriterion[0].code.coding[0].code, "earliest")
         self.assertEqual(inst.recommendation[0].dateCriterion[0].code.coding[0].display, "Earliest Date")
         self.assertEqual(inst.recommendation[0].dateCriterion[0].code.coding[0].system, "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion")
-        self.assertEqual(inst.recommendation[0].dateCriterion[0].value.date, FHIRDate("2015-12-01T00:00:00-05:00").date)
+        self.assertEqual(inst.recommendation[0].dateCriterion[0].value.datetime, FHIRDateTime("2015-12-01T00:00:00-05:00").datetime)
         self.assertEqual(inst.recommendation[0].dateCriterion[0].value.as_json(), "2015-12-01T00:00:00-05:00")
         self.assertEqual(inst.recommendation[0].dateCriterion[1].code.coding[0].code, "recommended")
         self.assertEqual(inst.recommendation[0].dateCriterion[1].code.coding[0].display, "Recommended")
         self.assertEqual(inst.recommendation[0].dateCriterion[1].code.coding[0].system, "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion")
-        self.assertEqual(inst.recommendation[0].dateCriterion[1].value.date, FHIRDate("2015-12-01T00:00:00-05:00").date)
+        self.assertEqual(inst.recommendation[0].dateCriterion[1].value.datetime, FHIRDateTime("2015-12-01T00:00:00-05:00").datetime)
         self.assertEqual(inst.recommendation[0].dateCriterion[1].value.as_json(), "2015-12-01T00:00:00-05:00")
         self.assertEqual(inst.recommendation[0].dateCriterion[2].code.coding[0].code, "overdue")
         self.assertEqual(inst.recommendation[0].dateCriterion[2].code.coding[0].display, "Past Due Date")
         self.assertEqual(inst.recommendation[0].dateCriterion[2].code.coding[0].system, "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion")
-        self.assertEqual(inst.recommendation[0].dateCriterion[2].value.date, FHIRDate("2016-12-28T00:00:00-05:00").date)
+        self.assertEqual(inst.recommendation[0].dateCriterion[2].value.datetime, FHIRDateTime("2016-12-28T00:00:00-05:00").datetime)
         self.assertEqual(inst.recommendation[0].dateCriterion[2].value.as_json(), "2016-12-28T00:00:00-05:00")
         self.assertEqual(inst.recommendation[0].description, "First sequence in protocol")
         self.assertEqual(inst.recommendation[0].doseNumberPositiveInt, 1)
@@ -72,7 +75,7 @@ class ImmunizationRecommendationTests(unittest.TestCase):
         self.implImmunizationRecommendation2(inst2)
     
     def implImmunizationRecommendation2(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2015-02-09T11:04:15.817-05:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-02-09T11:04:15.817-05:00").datetime)
         self.assertEqual(inst.date.as_json(), "2015-02-09T11:04:15.817-05:00")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier[0].system, "urn:ietf:rfc:3986")
@@ -83,17 +86,17 @@ class ImmunizationRecommendationTests(unittest.TestCase):
         self.assertEqual(inst.recommendation[0].dateCriterion[0].code.coding[0].code, "30981-5")
         self.assertEqual(inst.recommendation[0].dateCriterion[0].code.coding[0].display, "Earliest date to give")
         self.assertEqual(inst.recommendation[0].dateCriterion[0].code.coding[0].system, "http://loinc.org")
-        self.assertEqual(inst.recommendation[0].dateCriterion[0].value.date, FHIRDate("2015-12-01T00:00:00-05:00").date)
+        self.assertEqual(inst.recommendation[0].dateCriterion[0].value.datetime, FHIRDateTime("2015-12-01T00:00:00-05:00").datetime)
         self.assertEqual(inst.recommendation[0].dateCriterion[0].value.as_json(), "2015-12-01T00:00:00-05:00")
         self.assertEqual(inst.recommendation[0].dateCriterion[1].code.coding[0].code, "recommended")
         self.assertEqual(inst.recommendation[0].dateCriterion[1].code.coding[0].display, "Recommended")
         self.assertEqual(inst.recommendation[0].dateCriterion[1].code.coding[0].system, "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion")
-        self.assertEqual(inst.recommendation[0].dateCriterion[1].value.date, FHIRDate("2015-12-01T00:00:00-05:00").date)
+        self.assertEqual(inst.recommendation[0].dateCriterion[1].value.datetime, FHIRDateTime("2015-12-01T00:00:00-05:00").datetime)
         self.assertEqual(inst.recommendation[0].dateCriterion[1].value.as_json(), "2015-12-01T00:00:00-05:00")
         self.assertEqual(inst.recommendation[0].dateCriterion[2].code.coding[0].code, "overdue")
         self.assertEqual(inst.recommendation[0].dateCriterion[2].code.coding[0].display, "Past Due Date")
         self.assertEqual(inst.recommendation[0].dateCriterion[2].code.coding[0].system, "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion")
-        self.assertEqual(inst.recommendation[0].dateCriterion[2].value.date, FHIRDate("2016-12-28T00:00:00-05:00").date)
+        self.assertEqual(inst.recommendation[0].dateCriterion[2].value.datetime, FHIRDateTime("2016-12-28T00:00:00-05:00").datetime)
         self.assertEqual(inst.recommendation[0].dateCriterion[2].value.as_json(), "2016-12-28T00:00:00-05:00")
         self.assertEqual(inst.recommendation[0].description, "First sequence in protocol")
         self.assertEqual(inst.recommendation[0].doseNumberPositiveInt, 1)

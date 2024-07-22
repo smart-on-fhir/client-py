@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CodeSystem) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CodeSystem).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -53,7 +53,7 @@ class CodeSystem(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the code system.
@@ -141,7 +141,7 @@ class CodeSystem(domainresource.DomainResource):
             ("content", "content", str, False, None, True),
             ("copyright", "copyright", str, False, None, False),
             ("count", "count", int, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("filter", "filter", CodeSystemFilter, True, None, False),
@@ -298,7 +298,7 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ Value of the property for this concept.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ Value of the property for this concept.
@@ -321,7 +321,7 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
             ("valueBoolean", "valueBoolean", bool, False, "value", True),
             ("valueCode", "valueCode", str, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueDateTime", "valueDateTime", fhirdatetime.FHIRDateTime, False, "value", True),
             ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueString", "valueString", str, False, "value", True),
@@ -426,6 +426,6 @@ class CodeSystemProperty(backboneelement.BackboneElement):
 from . import codeableconcept
 from . import coding
 from . import contactdetail
-from . import fhirdate
+from . import fhirdatetime
 from . import identifier
 from . import usagecontext

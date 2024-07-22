@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CommunicationRequest).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -28,7 +28,7 @@ class CommunicationRequest(domainresource.DomainResource):
         
         self.authoredOn = None
         """ When request transitioned to being actionable.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.basedOn = None
         """ Fulfills plan or proposal.
@@ -64,7 +64,7 @@ class CommunicationRequest(domainresource.DomainResource):
         
         self.occurrenceDateTime = None
         """ When scheduled.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
         """ When scheduled.
@@ -121,7 +121,7 @@ class CommunicationRequest(domainresource.DomainResource):
         js = super(CommunicationRequest, self).elementProperties()
         js.extend([
             ("about", "about", fhirreference.FHIRReference, True, None, False),
-            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
+            ("authoredOn", "authoredOn", fhirdatetime.FHIRDateTime, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("doNotPerform", "doNotPerform", bool, False, None, False),
@@ -130,7 +130,7 @@ class CommunicationRequest(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("medium", "medium", codeableconcept.CodeableConcept, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatetime.FHIRDateTime, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("payload", "payload", CommunicationRequestPayload, True, None, False),
             ("priority", "priority", str, False, None, False),
@@ -192,7 +192,7 @@ class CommunicationRequestPayload(backboneelement.BackboneElement):
 from . import annotation
 from . import attachment
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

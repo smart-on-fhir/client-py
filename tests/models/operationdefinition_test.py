@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import operationdefinition
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class OperationDefinitionTests(unittest.TestCase):
@@ -33,7 +36,7 @@ class OperationDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].name, "System Administrator")
         self.assertEqual(inst.contact[0].telecom[0].system, "email")
         self.assertEqual(inst.contact[0].telecom[0].value, "beep@coyote.acme.com")
-        self.assertEqual(inst.date.date, FHIRDate("2015-08-04").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-08-04").datetime)
         self.assertEqual(inst.date.as_json(), "2015-08-04")
         self.assertEqual(inst.description, "Limited implementation of the Populate Questionnaire implementation")
         self.assertEqual(inst.id, "example")

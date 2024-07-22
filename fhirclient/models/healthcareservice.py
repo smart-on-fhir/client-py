@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/HealthcareService).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -174,11 +174,11 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
         
         self.availableEndTime = None
         """ Closing time of day (ignored if allDay = true).
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.availableStartTime = None
         """ Opening time of day (ignored if allDay = true).
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.daysOfWeek = None
         """ mon | tue | wed | thu | fri | sat | sun.
@@ -190,8 +190,8 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
         js = super(HealthcareServiceAvailableTime, self).elementProperties()
         js.extend([
             ("allDay", "allDay", bool, False, None, False),
-            ("availableEndTime", "availableEndTime", fhirdate.FHIRDate, False, None, False),
-            ("availableStartTime", "availableStartTime", fhirdate.FHIRDate, False, None, False),
+            ("availableEndTime", "availableEndTime", fhirtime.FHIRTime, False, None, False),
+            ("availableStartTime", "availableStartTime", fhirtime.FHIRTime, False, None, False),
             ("daysOfWeek", "daysOfWeek", str, True, None, False),
         ])
         return js
@@ -272,7 +272,7 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
 from . import attachment
 from . import codeableconcept
 from . import contactpoint
-from . import fhirdate
 from . import fhirreference
+from . import fhirtime
 from . import identifier
 from . import period

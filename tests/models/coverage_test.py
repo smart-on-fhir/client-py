@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import coverage
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class CoverageTests(unittest.TestCase):
@@ -70,9 +73,9 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.period.end.date, FHIRDate("2012-05-23").date)
+        self.assertEqual(inst.period.end.datetime, FHIRDateTime("2012-05-23").datetime)
         self.assertEqual(inst.period.end.as_json(), "2012-05-23")
-        self.assertEqual(inst.period.start.date, FHIRDate("2011-05-23").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("2011-05-23").datetime)
         self.assertEqual(inst.period.start.as_json(), "2011-05-23")
         self.assertEqual(inst.relationship.coding[0].code, "self")
         self.assertEqual(inst.status, "active")
@@ -99,7 +102,7 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.period.end.date, FHIRDate("2012-03-17").date)
+        self.assertEqual(inst.period.end.datetime, FHIRDateTime("2012-03-17").datetime)
         self.assertEqual(inst.period.end.as_json(), "2012-03-17")
         self.assertEqual(inst.relationship.coding[0].code, "self")
         self.assertEqual(inst.status, "active")
@@ -126,7 +129,7 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.period.end.date, FHIRDate("2012-03-17").date)
+        self.assertEqual(inst.period.end.datetime, FHIRDateTime("2012-03-17").datetime)
         self.assertEqual(inst.period.end.as_json(), "2012-03-17")
         self.assertEqual(inst.relationship.coding[0].code, "self")
         self.assertEqual(inst.status, "active")
@@ -159,9 +162,9 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(inst.class_fhir[2].type.coding[0].code, "subplan")
         self.assertEqual(inst.class_fhir[2].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/coverage-class")
         self.assertEqual(inst.class_fhir[2].value, "D15C9")
-        self.assertEqual(inst.costToBeneficiary[0].exception[0].period.end.date, FHIRDate("2018-12-31").date)
+        self.assertEqual(inst.costToBeneficiary[0].exception[0].period.end.datetime, FHIRDateTime("2018-12-31").datetime)
         self.assertEqual(inst.costToBeneficiary[0].exception[0].period.end.as_json(), "2018-12-31")
-        self.assertEqual(inst.costToBeneficiary[0].exception[0].period.start.date, FHIRDate("2018-01-01").date)
+        self.assertEqual(inst.costToBeneficiary[0].exception[0].period.start.datetime, FHIRDateTime("2018-01-01").datetime)
         self.assertEqual(inst.costToBeneficiary[0].exception[0].period.start.as_json(), "2018-01-01")
         self.assertEqual(inst.costToBeneficiary[0].exception[0].type.coding[0].code, "retired")
         self.assertEqual(inst.costToBeneficiary[0].exception[0].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/ex-coverage-financial-exception")
@@ -178,9 +181,9 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.network, "5")
         self.assertEqual(inst.order, 2)
-        self.assertEqual(inst.period.end.date, FHIRDate("2012-03-17").date)
+        self.assertEqual(inst.period.end.datetime, FHIRDateTime("2012-03-17").datetime)
         self.assertEqual(inst.period.end.as_json(), "2012-03-17")
-        self.assertEqual(inst.period.start.date, FHIRDate("2011-03-17").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("2011-03-17").datetime)
         self.assertEqual(inst.period.start.as_json(), "2011-03-17")
         self.assertEqual(inst.relationship.coding[0].code, "self")
         self.assertEqual(inst.status, "active")

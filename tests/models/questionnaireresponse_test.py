@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import questionnaireresponse
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class QuestionnaireResponseTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.implQuestionnaireResponse1(inst2)
     
     def implQuestionnaireResponse1(self, inst):
-        self.assertEqual(inst.authored.date, FHIRDate("2013-02-19T14:15:00-05:00").date)
+        self.assertEqual(inst.authored.datetime, FHIRDateTime("2013-02-19T14:15:00-05:00").datetime)
         self.assertEqual(inst.authored.as_json(), "2013-02-19T14:15:00-05:00")
         self.assertEqual(inst.contained[0].id, "patsub")
         self.assertEqual(inst.contained[1].id, "order")
@@ -67,7 +70,7 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.implQuestionnaireResponse2(inst2)
     
     def implQuestionnaireResponse2(self, inst):
-        self.assertEqual(inst.authored.date, FHIRDate("2013-06-18T00:00:00+01:00").date)
+        self.assertEqual(inst.authored.datetime, FHIRDateTime("2013-06-18T00:00:00+01:00").datetime)
         self.assertEqual(inst.authored.as_json(), "2013-06-18T00:00:00+01:00")
         self.assertEqual(inst.id, "f201")
         self.assertEqual(inst.item[0].item[0].answer[0].valueString, "I am allergic to house dust")
@@ -114,7 +117,7 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.implQuestionnaireResponse3(inst2)
     
     def implQuestionnaireResponse3(self, inst):
-        self.assertEqual(inst.authored.date, FHIRDate("2008-01-17").date)
+        self.assertEqual(inst.authored.datetime, FHIRDateTime("2008-01-17").datetime)
         self.assertEqual(inst.authored.as_json(), "2008-01-17")
         self.assertEqual(inst.id, "ussg-fht-answers")
         self.assertEqual(inst.item[0].item[0].answer[0].valueDate.date, FHIRDate("2008-01-17").date)
@@ -681,7 +684,7 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.implQuestionnaireResponse4(inst2)
     
     def implQuestionnaireResponse4(self, inst):
-        self.assertEqual(inst.authored.date, FHIRDate("2014-12-11T04:44:16Z").date)
+        self.assertEqual(inst.authored.datetime, FHIRDateTime("2014-12-11T04:44:16Z").datetime)
         self.assertEqual(inst.authored.as_json(), "2014-12-11T04:44:16Z")
         self.assertEqual(inst.id, "gcs")
         self.assertEqual(inst.item[0].answer[0].valueCoding.code, "LA6560-2")
@@ -720,7 +723,7 @@ class QuestionnaireResponseTests(unittest.TestCase):
         self.implQuestionnaireResponse5(inst2)
     
     def implQuestionnaireResponse5(self, inst):
-        self.assertEqual(inst.authored.date, FHIRDate("2013-02-19T14:15:00+10:00").date)
+        self.assertEqual(inst.authored.datetime, FHIRDateTime("2013-02-19T14:15:00+10:00").datetime)
         self.assertEqual(inst.authored.as_json(), "2013-02-19T14:15:00+10:00")
         self.assertEqual(inst.id, "bb")
         self.assertEqual(inst.item[0].item[0].item[0].answer[0].valueString, "Cathy Jones")

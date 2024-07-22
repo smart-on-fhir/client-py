@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DetectedIssue) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DetectedIssue).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -41,7 +41,7 @@ class DetectedIssue(domainresource.DomainResource):
         
         self.identifiedDateTime = None
         """ When identified.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifiedPeriod = None
         """ When identified.
@@ -84,7 +84,7 @@ class DetectedIssue(domainresource.DomainResource):
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", str, False, None, False),
             ("evidence", "evidence", DetectedIssueEvidence, True, None, False),
-            ("identifiedDateTime", "identifiedDateTime", fhirdate.FHIRDate, False, "identified", False),
+            ("identifiedDateTime", "identifiedDateTime", fhirdatetime.FHIRDateTime, False, "identified", False),
             ("identifiedPeriod", "identifiedPeriod", period.Period, False, "identified", False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("implicated", "implicated", fhirreference.FHIRReference, True, None, False),
@@ -164,7 +164,7 @@ class DetectedIssueMitigation(backboneelement.BackboneElement):
         
         self.date = None
         """ Date committed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(DetectedIssueMitigation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -173,13 +173,13 @@ class DetectedIssueMitigation(backboneelement.BackboneElement):
         js.extend([
             ("action", "action", codeableconcept.CodeableConcept, False, None, True),
             ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
         ])
         return js
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

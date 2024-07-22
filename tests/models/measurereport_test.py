@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import measurereport
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class MeasureReportTests(unittest.TestCase):
@@ -28,7 +31,7 @@ class MeasureReportTests(unittest.TestCase):
     
     def implMeasureReport1(self, inst):
         self.assertEqual(inst.contained[0].id, "reporter")
-        self.assertEqual(inst.date.date, FHIRDate("2014-04-01").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2014-04-01").datetime)
         self.assertEqual(inst.date.as_json(), "2014-04-01")
         self.assertEqual(inst.group[0].id, "CMS146-group-1")
         self.assertEqual(inst.group[0].population[0].code.coding[0].code, "initial-population")
@@ -120,9 +123,9 @@ class MeasureReportTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.period.end.date, FHIRDate("2014-03-31").date)
+        self.assertEqual(inst.period.end.datetime, FHIRDateTime("2014-03-31").datetime)
         self.assertEqual(inst.period.end.as_json(), "2014-03-31")
-        self.assertEqual(inst.period.start.date, FHIRDate("2014-01-01").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("2014-01-01").datetime)
         self.assertEqual(inst.period.start.as_json(), "2014-01-01")
         self.assertEqual(inst.status, "complete")
         self.assertEqual(inst.text.status, "generated")
@@ -140,7 +143,7 @@ class MeasureReportTests(unittest.TestCase):
     
     def implMeasureReport2(self, inst):
         self.assertEqual(inst.contained[0].id, "reporter")
-        self.assertEqual(inst.date.date, FHIRDate("2014-04-01").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2014-04-01").datetime)
         self.assertEqual(inst.date.as_json(), "2014-04-01")
         self.assertEqual(inst.group[0].id, "CMS146-group-1")
         self.assertEqual(inst.group[0].population[0].code.coding[0].code, "initial-population")
@@ -232,9 +235,9 @@ class MeasureReportTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.period.end.date, FHIRDate("2014-03-31").date)
+        self.assertEqual(inst.period.end.datetime, FHIRDateTime("2014-03-31").datetime)
         self.assertEqual(inst.period.end.as_json(), "2014-03-31")
-        self.assertEqual(inst.period.start.date, FHIRDate("2014-01-01").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("2014-01-01").datetime)
         self.assertEqual(inst.period.start.as_json(), "2014-01-01")
         self.assertEqual(inst.status, "complete")
         self.assertEqual(inst.text.status, "generated")
@@ -252,7 +255,7 @@ class MeasureReportTests(unittest.TestCase):
     
     def implMeasureReport3(self, inst):
         self.assertEqual(inst.contained[0].id, "reporter")
-        self.assertEqual(inst.date.date, FHIRDate("2014-04-01").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2014-04-01").datetime)
         self.assertEqual(inst.date.as_json(), "2014-04-01")
         self.assertEqual(inst.group[0].id, "CMS146-group-1")
         self.assertEqual(inst.group[0].population[0].code.coding[0].code, "initial-population")
@@ -344,9 +347,9 @@ class MeasureReportTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.period.end.date, FHIRDate("2014-03-31").date)
+        self.assertEqual(inst.period.end.datetime, FHIRDateTime("2014-03-31").datetime)
         self.assertEqual(inst.period.end.as_json(), "2014-03-31")
-        self.assertEqual(inst.period.start.date, FHIRDate("2014-01-01").date)
+        self.assertEqual(inst.period.start.datetime, FHIRDateTime("2014-01-01").datetime)
         self.assertEqual(inst.period.start.as_json(), "2014-01-01")
         self.assertEqual(inst.status, "complete")
         self.assertEqual(inst.text.status, "generated")

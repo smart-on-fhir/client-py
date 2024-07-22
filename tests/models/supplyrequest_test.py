@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import supplyrequest
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class SupplyRequestTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class SupplyRequestTests(unittest.TestCase):
         self.implSupplyRequest1(inst2)
     
     def implSupplyRequest1(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2016-12-31").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2016-12-31").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2016-12-31")
         self.assertEqual(inst.category.coding[0].code, "central")
         self.assertEqual(inst.category.coding[0].display, "Central Stock Resupply")
@@ -38,7 +41,7 @@ class SupplyRequestTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2016-12-31").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2016-12-31").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2016-12-31")
         self.assertEqual(inst.priority, "asap")
         self.assertEqual(inst.quantity.value, 10)

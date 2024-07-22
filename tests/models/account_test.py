@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import account
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class AccountTests(unittest.TestCase):
@@ -31,7 +34,7 @@ class AccountTests(unittest.TestCase):
         self.assertEqual(inst.coverage[1].priority, 2)
         self.assertEqual(inst.description, "Hospital charges")
         self.assertFalse(inst.guarantor[0].onHold)
-        self.assertEqual(inst.guarantor[0].period.start.date, FHIRDate("2016-01-01").date)
+        self.assertEqual(inst.guarantor[0].period.start.datetime, FHIRDateTime("2016-01-01").datetime)
         self.assertEqual(inst.guarantor[0].period.start.as_json(), "2016-01-01")
         self.assertEqual(inst.id, "ewg")
         self.assertEqual(inst.identifier[0].system, "urn:oid:0.1.2.3.4.5.6.7")
@@ -40,9 +43,9 @@ class AccountTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.name, "Inpatient: Peter James Chalmers")
-        self.assertEqual(inst.servicePeriod.end.date, FHIRDate("2016-06-30").date)
+        self.assertEqual(inst.servicePeriod.end.datetime, FHIRDateTime("2016-06-30").datetime)
         self.assertEqual(inst.servicePeriod.end.as_json(), "2016-06-30")
-        self.assertEqual(inst.servicePeriod.start.date, FHIRDate("2016-01-01").date)
+        self.assertEqual(inst.servicePeriod.start.datetime, FHIRDateTime("2016-01-01").datetime)
         self.assertEqual(inst.servicePeriod.start.as_json(), "2016-01-01")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Inpatient Admission for Peter James Chalmers Account</div>")
@@ -72,9 +75,9 @@ class AccountTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.name, "HACC Funded Billing for Peter James Chalmers")
-        self.assertEqual(inst.servicePeriod.end.date, FHIRDate("2016-06-30").date)
+        self.assertEqual(inst.servicePeriod.end.datetime, FHIRDateTime("2016-06-30").datetime)
         self.assertEqual(inst.servicePeriod.end.as_json(), "2016-06-30")
-        self.assertEqual(inst.servicePeriod.start.date, FHIRDate("2016-01-01").date)
+        self.assertEqual(inst.servicePeriod.start.datetime, FHIRDateTime("2016-01-01").datetime)
         self.assertEqual(inst.servicePeriod.start.as_json(), "2016-01-01")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">HACC Funded Billing for Peter James Chalmers</div>")

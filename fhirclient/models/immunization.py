@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Immunization) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Immunization).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -67,7 +67,7 @@ class Immunization(domainresource.DomainResource):
         
         self.occurrenceDateTime = None
         """ Vaccine administration date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.occurrenceString = None
         """ Vaccine administration date.
@@ -107,7 +107,7 @@ class Immunization(domainresource.DomainResource):
         
         self.recorded = None
         """ When the immunization was first captured in the subject's record.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.reportOrigin = None
         """ Indicates the source of a secondarily reported record.
@@ -153,7 +153,7 @@ class Immunization(domainresource.DomainResource):
             ("lotNumber", "lotNumber", str, False, None, False),
             ("manufacturer", "manufacturer", fhirreference.FHIRReference, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", True),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatetime.FHIRDateTime, False, "occurrence", True),
             ("occurrenceString", "occurrenceString", str, False, "occurrence", True),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("performer", "performer", ImmunizationPerformer, True, None, False),
@@ -163,7 +163,7 @@ class Immunization(domainresource.DomainResource):
             ("reaction", "reaction", ImmunizationReaction, True, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("recorded", "recorded", fhirdate.FHIRDate, False, None, False),
+            ("recorded", "recorded", fhirdatetime.FHIRDateTime, False, None, False),
             ("reportOrigin", "reportOrigin", codeableconcept.CodeableConcept, False, None, False),
             ("route", "route", codeableconcept.CodeableConcept, False, None, False),
             ("site", "site", codeableconcept.CodeableConcept, False, None, False),
@@ -200,11 +200,11 @@ class ImmunizationEducation(backboneelement.BackboneElement):
         
         self.presentationDate = None
         """ Educational material presentation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.publicationDate = None
         """ Educational material publication date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.reference = None
         """ Educational material reference pointer.
@@ -216,8 +216,8 @@ class ImmunizationEducation(backboneelement.BackboneElement):
         js = super(ImmunizationEducation, self).elementProperties()
         js.extend([
             ("documentType", "documentType", str, False, None, False),
-            ("presentationDate", "presentationDate", fhirdate.FHIRDate, False, None, False),
-            ("publicationDate", "publicationDate", fhirdate.FHIRDate, False, None, False),
+            ("presentationDate", "presentationDate", fhirdatetime.FHIRDateTime, False, None, False),
+            ("publicationDate", "publicationDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("reference", "reference", str, False, None, False),
         ])
         return js
@@ -338,7 +338,7 @@ class ImmunizationReaction(backboneelement.BackboneElement):
         
         self.date = None
         """ When reaction started.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.detail = None
         """ Additional information on reaction.
@@ -353,7 +353,7 @@ class ImmunizationReaction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImmunizationReaction, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("detail", "detail", fhirreference.FHIRReference, False, None, False),
             ("reported", "reported", bool, False, None, False),
         ])
@@ -363,6 +363,7 @@ class ImmunizationReaction(backboneelement.BackboneElement):
 from . import annotation
 from . import codeableconcept
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import quantity

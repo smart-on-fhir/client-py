@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Parameters).
+# 2024, SMART Health IT.
 
 
 from . import resource
@@ -132,7 +132,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ If parameter is a data type.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ If parameter is a data type.
@@ -168,7 +168,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueInstant = None
         """ If parameter is a data type.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.valueInteger = None
         """ If parameter is a data type.
@@ -236,7 +236,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueTime = None
         """ If parameter is a data type.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.valueTiming = None
         """ If parameter is a data type.
@@ -290,7 +290,7 @@ class ParametersParameter(backboneelement.BackboneElement):
             ("valueCount", "valueCount", count.Count, False, "value", False),
             ("valueDataRequirement", "valueDataRequirement", datarequirement.DataRequirement, False, "value", False),
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdatetime.FHIRDateTime, False, "value", False),
             ("valueDecimal", "valueDecimal", float, False, "value", False),
             ("valueDistance", "valueDistance", distance.Distance, False, "value", False),
             ("valueDosage", "valueDosage", dosage.Dosage, False, "value", False),
@@ -299,7 +299,7 @@ class ParametersParameter(backboneelement.BackboneElement):
             ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", False),
             ("valueId", "valueId", str, False, "value", False),
             ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", False),
-            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", False),
+            ("valueInstant", "valueInstant", fhirinstant.FHIRInstant, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valueMarkdown", "valueMarkdown", str, False, "value", False),
             ("valueMeta", "valueMeta", meta.Meta, False, "value", False),
@@ -316,7 +316,7 @@ class ParametersParameter(backboneelement.BackboneElement):
             ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
             ("valueSignature", "valueSignature", signature.Signature, False, "value", False),
             ("valueString", "valueString", str, False, "value", False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueTime", "valueTime", fhirtime.FHIRTime, False, "value", False),
             ("valueTiming", "valueTiming", timing.Timing, False, "value", False),
             ("valueTriggerDefinition", "valueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "value", False),
             ("valueUnsignedInt", "valueUnsignedInt", int, False, "value", False),
@@ -344,7 +344,10 @@ from . import dosage
 from . import duration
 from . import expression
 from . import fhirdate
+from . import fhirdatetime
+from . import fhirinstant
 from . import fhirreference
+from . import fhirtime
 from . import humanname
 from . import identifier
 from . import meta

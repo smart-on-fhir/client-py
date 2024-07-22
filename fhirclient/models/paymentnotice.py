@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/PaymentNotice).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -27,7 +27,7 @@ class PaymentNotice(domainresource.DomainResource):
         
         self.created = None
         """ Creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Business Identifier for the payment noctice.
@@ -75,7 +75,7 @@ class PaymentNotice(domainresource.DomainResource):
         js = super(PaymentNotice, self).elementProperties()
         js.extend([
             ("amount", "amount", money.Money, False, None, True),
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
+            ("created", "created", fhirdatetime.FHIRDateTime, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("payee", "payee", fhirreference.FHIRReference, False, None, False),
             ("payment", "payment", fhirreference.FHIRReference, False, None, True),
@@ -92,6 +92,7 @@ class PaymentNotice(domainresource.DomainResource):
 
 from . import codeableconcept
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import money

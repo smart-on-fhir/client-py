@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import library
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class LibraryTests(unittest.TestCase):
@@ -67,7 +70,7 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.dataRequirement[7].codeFilter[1].path, "medication.code")
         self.assertEqual(inst.dataRequirement[7].codeFilter[1].valueSet, "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001")
         self.assertEqual(inst.dataRequirement[7].type, "MedicationStatement")
-        self.assertEqual(inst.date.date, FHIRDate("2015-07-22").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-07-22").datetime)
         self.assertEqual(inst.date.as_json(), "2015-07-22")
         self.assertEqual(inst.description, "Logic for CMS 146: Appropriate Testing for Children with Pharyngitis")
         self.assertEqual(inst.id, "library-cms146-example")
@@ -98,7 +101,7 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.content[0].contentType, "text/cql")
         self.assertEqual(inst.content[0].title, "FHIR Helpers")
         self.assertEqual(inst.content[0].url, "library-fhir-helpers-content.cql")
-        self.assertEqual(inst.date.date, FHIRDate("2016-11-14").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2016-11-14").datetime)
         self.assertEqual(inst.date.as_json(), "2016-11-14")
         self.assertEqual(inst.description, "FHIR Helpers")
         self.assertTrue(inst.experimental)
@@ -130,7 +133,7 @@ class LibraryTests(unittest.TestCase):
         self.implLibrary3(inst2)
     
     def implLibrary3(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2017-03-10").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-03-10").datetime)
         self.assertEqual(inst.date.as_json(), "2017-03-10")
         self.assertEqual(inst.description, "Artifacts required for implementation of Zika Virus Management")
         self.assertEqual(inst.id, "composition-example")
@@ -177,7 +180,7 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].path, "code")
         self.assertEqual(inst.dataRequirement[0].codeFilter[0].valueSet, "urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006")
         self.assertEqual(inst.dataRequirement[0].type, "Condition")
-        self.assertEqual(inst.date.date, FHIRDate("2015-07-22").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-07-22").datetime)
         self.assertEqual(inst.date.as_json(), "2015-07-22")
         self.assertEqual(inst.description, "Common Logic for adherence to Chlamydia Screening guidelines")
         self.assertEqual(inst.id, "example")

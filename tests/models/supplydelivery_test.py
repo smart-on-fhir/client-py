@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import supplydelivery
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class SupplyDeliveryTests(unittest.TestCase):
@@ -32,7 +35,7 @@ class SupplyDeliveryTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2016-12-31").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2016-12-31").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2016-12-31")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.suppliedItem.itemCodeableConcept.coding[0].code, "BlueTubes")

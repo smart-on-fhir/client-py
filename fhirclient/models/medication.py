@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Medication) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Medication).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -91,7 +91,7 @@ class MedicationBatch(backboneelement.BackboneElement):
         
         self.expirationDate = None
         """ When batch will expire.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.lotNumber = None
         """ Identifier assigned to batch.
@@ -102,7 +102,7 @@ class MedicationBatch(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationBatch, self).elementProperties()
         js.extend([
-            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False, None, False),
+            ("expirationDate", "expirationDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("lotNumber", "lotNumber", str, False, None, False),
         ])
         return js
@@ -154,7 +154,7 @@ class MedicationIngredient(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import ratio

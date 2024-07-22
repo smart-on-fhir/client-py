@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import provenance
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ProvenanceTests(unittest.TestCase):
@@ -34,10 +37,10 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurredPeriod.start.date, FHIRDate("2016-11-30").date)
+        self.assertEqual(inst.occurredPeriod.start.datetime, FHIRDateTime("2016-11-30").datetime)
         self.assertEqual(inst.occurredPeriod.start.as_json(), "2016-11-30")
         self.assertEqual(inst.reason[0].text, "profiling Short Tandem Repeats (STRs) from high throughput sequencing data.")
-        self.assertEqual(inst.recorded.date, FHIRDate("2016-12-01T08:12:14+10:00").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2016-12-01T08:12:14+10:00").datetime)
         self.assertEqual(inst.recorded.as_json(), "2016-12-01T08:12:14+10:00")
         self.assertEqual(inst.text.status, "generated")
     
@@ -64,7 +67,7 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.reason[0].coding[0].code, "TREAT")
         self.assertEqual(inst.reason[0].coding[0].display, "treatment")
         self.assertEqual(inst.reason[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.recorded.date, FHIRDate("2015-08-27T08:39:24+10:00").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2015-08-27T08:39:24+10:00").datetime)
         self.assertEqual(inst.recorded.as_json(), "2015-08-27T08:39:24+10:00")
         self.assertEqual(inst.signature[0].data, "Li4u")
         self.assertEqual(inst.signature[0].sigFormat, "application/signature+xml")
@@ -72,7 +75,7 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.signature[0].type[0].code, "1.2.840.10065.1.12.1.5")
         self.assertEqual(inst.signature[0].type[0].display, "Verification Signature")
         self.assertEqual(inst.signature[0].type[0].system, "urn:iso-astm:E1762-95:2013")
-        self.assertEqual(inst.signature[0].when.date, FHIRDate("2015-08-27T08:39:24+10:00").date)
+        self.assertEqual(inst.signature[0].when.datetime, FHIRInstant("2015-08-27T08:39:24+10:00").datetime)
         self.assertEqual(inst.signature[0].when.as_json(), "2015-08-27T08:39:24+10:00")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>")
         self.assertEqual(inst.text.status, "generated")
@@ -95,10 +98,10 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurredPeriod.start.date, FHIRDate("2017-06-06").date)
+        self.assertEqual(inst.occurredPeriod.start.datetime, FHIRDateTime("2017-06-06").datetime)
         self.assertEqual(inst.occurredPeriod.start.as_json(), "2017-06-06")
         self.assertEqual(inst.reason[0].text, "antiviral resistance detection")
-        self.assertEqual(inst.recorded.date, FHIRDate("2016-06-09T08:12:14+10:00").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2016-06-09T08:12:14+10:00").datetime)
         self.assertEqual(inst.recorded.as_json(), "2016-06-09T08:12:14+10:00")
         self.assertEqual(inst.text.status, "generated")
     
@@ -123,15 +126,15 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurredPeriod.end.date, FHIRDate("2015-06-28").date)
+        self.assertEqual(inst.occurredPeriod.end.datetime, FHIRDateTime("2015-06-28").datetime)
         self.assertEqual(inst.occurredPeriod.end.as_json(), "2015-06-28")
-        self.assertEqual(inst.occurredPeriod.start.date, FHIRDate("2015-06-27").date)
+        self.assertEqual(inst.occurredPeriod.start.datetime, FHIRDateTime("2015-06-27").datetime)
         self.assertEqual(inst.occurredPeriod.start.as_json(), "2015-06-27")
         self.assertEqual(inst.policy[0], "http://acme.com/fhir/Consent/25")
         self.assertEqual(inst.reason[0].coding[0].code, "3457005")
         self.assertEqual(inst.reason[0].coding[0].display, "Referral")
         self.assertEqual(inst.reason[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.recorded.date, FHIRDate("2015-06-27T08:39:24+10:00").date)
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2015-06-27T08:39:24+10:00").datetime)
         self.assertEqual(inst.recorded.as_json(), "2015-06-27T08:39:24+10:00")
         self.assertEqual(inst.text.status, "generated")
 

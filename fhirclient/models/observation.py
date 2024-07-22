@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Observation) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Observation).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -55,11 +55,11 @@ class Observation(domainresource.DomainResource):
         
         self.effectiveDateTime = None
         """ Clinically relevant time/time-period for observation.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.effectiveInstant = None
         """ Clinically relevant time/time-period for observation.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
         """ Clinically relevant time/time-period for observation.
@@ -92,7 +92,7 @@ class Observation(domainresource.DomainResource):
         
         self.issued = None
         """ Date/Time this version was made available.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.method = None
         """ How it was done.
@@ -136,7 +136,7 @@ class Observation(domainresource.DomainResource):
         
         self.valueDateTime = None
         """ Actual result.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueInteger = None
         """ Actual result.
@@ -168,7 +168,7 @@ class Observation(domainresource.DomainResource):
         
         self.valueTime = None
         """ Actual result.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         super(Observation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -183,8 +183,8 @@ class Observation(domainresource.DomainResource):
             ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
             ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False),
             ("device", "device", fhirreference.FHIRReference, False, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
-            ("effectiveInstant", "effectiveInstant", fhirdate.FHIRDate, False, "effective", False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdatetime.FHIRDateTime, False, "effective", False),
+            ("effectiveInstant", "effectiveInstant", fhirinstant.FHIRInstant, False, "effective", False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
             ("effectiveTiming", "effectiveTiming", timing.Timing, False, "effective", False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
@@ -192,7 +192,7 @@ class Observation(domainresource.DomainResource):
             ("hasMember", "hasMember", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("interpretation", "interpretation", codeableconcept.CodeableConcept, True, None, False),
-            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("issued", "issued", fhirinstant.FHIRInstant, False, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
@@ -203,7 +203,7 @@ class Observation(domainresource.DomainResource):
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdatetime.FHIRDateTime, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
@@ -211,7 +211,7 @@ class Observation(domainresource.DomainResource):
             ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
             ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
             ("valueString", "valueString", str, False, "value", False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueTime", "valueTime", fhirtime.FHIRTime, False, "value", False),
         ])
         return js
 
@@ -264,7 +264,7 @@ class ObservationComponent(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ Actual component result.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueInteger = None
         """ Actual component result.
@@ -296,7 +296,7 @@ class ObservationComponent(backboneelement.BackboneElement):
         
         self.valueTime = None
         """ Actual component result.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         super(ObservationComponent, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -309,7 +309,7 @@ class ObservationComponent(backboneelement.BackboneElement):
             ("referenceRange", "referenceRange", ObservationReferenceRange, True, None, False),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdatetime.FHIRDateTime, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
@@ -317,7 +317,7 @@ class ObservationComponent(backboneelement.BackboneElement):
             ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
             ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
             ("valueString", "valueString", str, False, "value", False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueTime", "valueTime", fhirtime.FHIRTime, False, "value", False),
         ])
         return js
 
@@ -382,8 +382,10 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
+from . import fhirinstant
 from . import fhirreference
+from . import fhirtime
 from . import identifier
 from . import period
 from . import quantity

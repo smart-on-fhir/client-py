@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CompartmentDefinition) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CompartmentDefinition).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class CompartmentDefinition(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the compartment definition.
@@ -85,7 +85,7 @@ class CompartmentDefinition(domainresource.DomainResource):
         js.extend([
             ("code", "code", str, False, None, True),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("name", "name", str, False, None, True),
@@ -144,5 +144,5 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
 
 
 from . import contactdetail
-from . import fhirdate
+from . import fhirdatetime
 from . import usagecontext

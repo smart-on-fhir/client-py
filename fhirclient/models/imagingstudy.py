@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ImagingStudy).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -95,7 +95,7 @@ class ImagingStudy(domainresource.DomainResource):
         
         self.started = None
         """ When the study was started.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.status = None
         """ registered | available | cancelled | entered-in-error | unknown.
@@ -127,7 +127,7 @@ class ImagingStudy(domainresource.DomainResource):
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("referrer", "referrer", fhirreference.FHIRReference, False, None, False),
             ("series", "series", ImagingStudySeries, True, None, False),
-            ("started", "started", fhirdate.FHIRDate, False, None, False),
+            ("started", "started", fhirdatetime.FHIRDateTime, False, None, False),
             ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
         ])
@@ -194,7 +194,7 @@ class ImagingStudySeries(backboneelement.BackboneElement):
         
         self.started = None
         """ When the series started.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.uid = None
         """ DICOM Series Instance UID for the series.
@@ -215,7 +215,7 @@ class ImagingStudySeries(backboneelement.BackboneElement):
             ("numberOfInstances", "numberOfInstances", int, False, None, False),
             ("performer", "performer", ImagingStudySeriesPerformer, True, None, False),
             ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
-            ("started", "started", fhirdate.FHIRDate, False, None, False),
+            ("started", "started", fhirdatetime.FHIRDateTime, False, None, False),
             ("uid", "uid", str, False, None, True),
         ])
         return js
@@ -305,6 +305,6 @@ class ImagingStudySeriesPerformer(backboneelement.BackboneElement):
 from . import annotation
 from . import codeableconcept
 from . import coding
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier

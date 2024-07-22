@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import testreport
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class TestReportTests(unittest.TestCase):
@@ -30,7 +33,7 @@ class TestReportTests(unittest.TestCase):
         self.assertEqual(inst.id, "testreport-example")
         self.assertEqual(inst.identifier.system, "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier.value, "urn:oid:1.3.6.1.4.1.21367.2005.3.7.9878")
-        self.assertEqual(inst.issued.date, FHIRDate("2016-10-07T08:25:34-05:00").date)
+        self.assertEqual(inst.issued.datetime, FHIRDateTime("2016-10-07T08:25:34-05:00").datetime)
         self.assertEqual(inst.issued.as_json(), "2016-10-07T08:25:34-05:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")

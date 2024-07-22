@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AdverseEvent) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AdverseEvent).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -43,11 +43,11 @@ class AdverseEvent(domainresource.DomainResource):
         
         self.date = None
         """ When the event occurred.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.detected = None
         """ When the event was detected.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.encounter = None
         """ Encounter created as part of.
@@ -72,7 +72,7 @@ class AdverseEvent(domainresource.DomainResource):
         
         self.recordedDate = None
         """ When the event was recorded.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.recorder = None
         """ Who recorded the adverse event.
@@ -118,14 +118,14 @@ class AdverseEvent(domainresource.DomainResource):
             ("actuality", "actuality", str, False, None, True),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("contributor", "contributor", fhirreference.FHIRReference, True, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("detected", "detected", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
+            ("detected", "detected", fhirdatetime.FHIRDateTime, False, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("event", "event", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
             ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
-            ("recordedDate", "recordedDate", fhirdate.FHIRDate, False, None, False),
+            ("recordedDate", "recordedDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
             ("referenceDocument", "referenceDocument", fhirreference.FHIRReference, True, None, False),
             ("resultingCondition", "resultingCondition", fhirreference.FHIRReference, True, None, False),
@@ -220,6 +220,6 @@ class AdverseEventSuspectEntityCausality(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier

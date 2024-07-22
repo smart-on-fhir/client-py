@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -33,7 +33,7 @@ class CapabilityStatement(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the capability statement.
@@ -135,7 +135,7 @@ class CapabilityStatement(domainresource.DomainResource):
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, True),
             ("description", "description", str, False, None, False),
             ("document", "document", CapabilityStatementDocument, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
@@ -767,7 +767,7 @@ class CapabilityStatementSoftware(backboneelement.BackboneElement):
         
         self.releaseDate = None
         """ Date this version was released.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.version = None
         """ Version covered by this statement.
@@ -779,7 +779,7 @@ class CapabilityStatementSoftware(backboneelement.BackboneElement):
         js = super(CapabilityStatementSoftware, self).elementProperties()
         js.extend([
             ("name", "name", str, False, None, True),
-            ("releaseDate", "releaseDate", fhirdate.FHIRDate, False, None, False),
+            ("releaseDate", "releaseDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("version", "version", str, False, None, False),
         ])
         return js
@@ -788,6 +788,6 @@ class CapabilityStatementSoftware(backboneelement.BackboneElement):
 from . import codeableconcept
 from . import coding
 from . import contactdetail
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import usagecontext

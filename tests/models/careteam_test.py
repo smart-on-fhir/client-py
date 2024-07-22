@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import careteam
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class CareTeamTests(unittest.TestCase):
@@ -38,10 +41,10 @@ class CareTeamTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.name, "Peter James Charlmers Care Plan for Inpatient Encounter")
         self.assertEqual(inst.participant[0].role[0].text, "responsiblePerson")
-        self.assertEqual(inst.participant[1].period.end.date, FHIRDate("2013-01-01").date)
+        self.assertEqual(inst.participant[1].period.end.datetime, FHIRDateTime("2013-01-01").datetime)
         self.assertEqual(inst.participant[1].period.end.as_json(), "2013-01-01")
         self.assertEqual(inst.participant[1].role[0].text, "adviser")
-        self.assertEqual(inst.period.end.date, FHIRDate("2013-01-01").date)
+        self.assertEqual(inst.period.end.datetime, FHIRDateTime("2013-01-01").datetime)
         self.assertEqual(inst.period.end.as_json(), "2013-01-01")
         self.assertEqual(inst.status, "active")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Care Team</div>")

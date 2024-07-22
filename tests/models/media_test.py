@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import media
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class MediaTests(unittest.TestCase):
@@ -31,11 +34,11 @@ class MediaTests(unittest.TestCase):
         self.assertEqual(inst.bodySite.coding[0].display, "Structure of left hand (body structure)")
         self.assertEqual(inst.bodySite.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.content.contentType, "image/jpeg")
-        self.assertEqual(inst.content.creation.date, FHIRDate("2016-03-15").date)
+        self.assertEqual(inst.content.creation.datetime, FHIRDateTime("2016-03-15").datetime)
         self.assertEqual(inst.content.creation.as_json(), "2016-03-15")
         self.assertEqual(inst.content.id, "a1")
         self.assertEqual(inst.content.url, "http://someimagingcenter.org/fhir/Binary/A12345")
-        self.assertEqual(inst.createdDateTime.date, FHIRDate("2016-03-15").date)
+        self.assertEqual(inst.createdDateTime.datetime, FHIRDateTime("2016-03-15").datetime)
         self.assertEqual(inst.createdDateTime.as_json(), "2016-03-15")
         self.assertEqual(inst.height, 432)
         self.assertEqual(inst.id, "xray")
@@ -103,15 +106,15 @@ class MediaTests(unittest.TestCase):
     
     def implMedia3(self, inst):
         self.assertEqual(inst.content.contentType, "image/gif")
-        self.assertEqual(inst.content.creation.date, FHIRDate("2009-09-03").date)
+        self.assertEqual(inst.content.creation.datetime, FHIRDateTime("2009-09-03").datetime)
         self.assertEqual(inst.content.creation.as_json(), "2009-09-03")
         self.assertEqual(inst.content.id, "a1")
-        self.assertEqual(inst.createdDateTime.date, FHIRDate("2017-12-17").date)
+        self.assertEqual(inst.createdDateTime.datetime, FHIRDateTime("2017-12-17").datetime)
         self.assertEqual(inst.createdDateTime.as_json(), "2017-12-17")
         self.assertEqual(inst.frames, 1)
         self.assertEqual(inst.height, 145)
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.issued.date, FHIRDate("2017-12-17T14:56:18Z").date)
+        self.assertEqual(inst.issued.datetime, FHIRInstant("2017-12-17T14:56:18Z").datetime)
         self.assertEqual(inst.issued.as_json(), "2017-12-17T14:56:18Z")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")

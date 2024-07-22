@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import contract
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ContractTests(unittest.TestCase):
@@ -29,7 +32,7 @@ class ContractTests(unittest.TestCase):
     def implContract1(self, inst):
         self.assertEqual(inst.friendly[0].contentAttachment.title, "The terms of the consent in friendly consumer speak.")
         self.assertEqual(inst.id, "pcd-example-notThis")
-        self.assertEqual(inst.issued.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.issued.datetime, FHIRDateTime("2015-11-18").datetime)
         self.assertEqual(inst.issued.as_json(), "2015-11-18")
         self.assertEqual(inst.legal[0].contentAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -38,11 +41,11 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.subType[0].coding[0].code, "Opt-In")
         self.assertEqual(inst.subType[0].coding[0].display, "Default Authorization with exceptions.")
         self.assertEqual(inst.subType[0].coding[0].system, "http://www.infoway-inforoute.ca.org/Consent-subtype-codes")
-        self.assertEqual(inst.term[0].applies.start.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.term[0].applies.start.datetime, FHIRDateTime("2015-11-18").datetime)
         self.assertEqual(inst.term[0].applies.start.as_json(), "2015-11-18")
         self.assertEqual(inst.term[0].identifier.system, "http://example.org/fhir/term-items")
         self.assertEqual(inst.term[0].identifier.value, "3347689")
-        self.assertEqual(inst.term[0].issued.date, FHIRDate("2015-11-01").date)
+        self.assertEqual(inst.term[0].issued.datetime, FHIRDateTime("2015-11-01").datetime)
         self.assertEqual(inst.term[0].issued.as_json(), "2015-11-01")
         self.assertEqual(inst.term[0].offer.text, "Withhold this order and any results or related objects from any provider.")
         self.assertEqual(inst.term[0].type.coding[0].code, "withhold-identified-object-and-related")
@@ -65,7 +68,7 @@ class ContractTests(unittest.TestCase):
     def implContract2(self, inst):
         self.assertEqual(inst.friendly[0].contentAttachment.title, "The terms of the consent in friendly consumer speak.")
         self.assertEqual(inst.id, "pcd-example-notLabs")
-        self.assertEqual(inst.issued.date, FHIRDate("2014-08-17").date)
+        self.assertEqual(inst.issued.datetime, FHIRDateTime("2014-08-17").datetime)
         self.assertEqual(inst.issued.as_json(), "2014-08-17")
         self.assertEqual(inst.legal[0].contentAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -102,7 +105,7 @@ class ContractTests(unittest.TestCase):
     def implContract3(self, inst):
         self.assertEqual(inst.friendly[0].contentAttachment.title, "The terms of the consent in friendly consumer speak.")
         self.assertEqual(inst.id, "pcd-example-notOrg")
-        self.assertEqual(inst.issued.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.issued.datetime, FHIRDateTime("2015-11-18").datetime)
         self.assertEqual(inst.issued.as_json(), "2015-11-18")
         self.assertEqual(inst.legal[0].contentAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -132,7 +135,7 @@ class ContractTests(unittest.TestCase):
     def implContract4(self, inst):
         self.assertEqual(inst.friendly[0].contentAttachment.title, "The terms of the consent in friendly consumer speak.")
         self.assertEqual(inst.id, "pcd-example-notAuthor")
-        self.assertEqual(inst.issued.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.issued.datetime, FHIRDateTime("2015-11-18").datetime)
         self.assertEqual(inst.issued.as_json(), "2015-11-18")
         self.assertEqual(inst.legal[0].contentAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -160,18 +163,18 @@ class ContractTests(unittest.TestCase):
         self.implContract5(inst2)
     
     def implContract5(self, inst):
-        self.assertEqual(inst.applies.start.date, FHIRDate("2013-11-01T21:18:27-04:00").date)
+        self.assertEqual(inst.applies.start.datetime, FHIRDateTime("2013-11-01T21:18:27-04:00").datetime)
         self.assertEqual(inst.applies.start.as_json(), "2013-11-01T21:18:27-04:00")
         self.assertEqual(inst.contentDerivative.coding[0].code, "registration")
         self.assertEqual(inst.contentDerivative.coding[0].system, "http://terminology.hl7.org/CodeSystem/contract-content-derivative")
         self.assertEqual(inst.id, "C-2121")
-        self.assertEqual(inst.issued.date, FHIRDate("2013-11-01T21:18:27-04:00").date)
+        self.assertEqual(inst.issued.datetime, FHIRDateTime("2013-11-01T21:18:27-04:00").datetime)
         self.assertEqual(inst.issued.as_json(), "2013-11-01T21:18:27-04:00")
         self.assertEqual(inst.legal[0].contentAttachment.contentType, "application/pdf")
         self.assertEqual(inst.legal[0].contentAttachment.language, "en-US")
         self.assertEqual(inst.legal[0].contentAttachment.title, "MDHHS-5515 Consent To Share Your Health Information")
         self.assertEqual(inst.legal[0].contentAttachment.url, "http://org.mihin.ecms/ConsentDirective-2121")
-        self.assertEqual(inst.meta.lastUpdated.date, FHIRDate("2016-07-19T18:18:42.108-04:00").date)
+        self.assertEqual(inst.meta.lastUpdated.datetime, FHIRInstant("2016-07-19T18:18:42.108-04:00").datetime)
         self.assertEqual(inst.meta.lastUpdated.as_json(), "2016-07-19T18:18:42.108-04:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
@@ -179,7 +182,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.meta.versionId, "1")
         self.assertEqual(inst.signer[0].signature[0].type[0].code, "1.2.840.10065.1.12.1.1")
         self.assertEqual(inst.signer[0].signature[0].type[0].system, "urn:iso-astm:E1762-95:2013")
-        self.assertEqual(inst.signer[0].signature[0].when.date, FHIRDate("2017-02-08T10:57:34+01:00").date)
+        self.assertEqual(inst.signer[0].signature[0].when.datetime, FHIRInstant("2017-02-08T10:57:34+01:00").datetime)
         self.assertEqual(inst.signer[0].signature[0].when.as_json(), "2017-02-08T10:57:34+01:00")
         self.assertEqual(inst.signer[0].type.code, "SELF")
         self.assertEqual(inst.signer[0].type.system, "http://mdhhs.org/fhir/consent-signer-type")
@@ -199,9 +202,9 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.term[0].action[0].subject[1].role.text, "Sender of restricted health information")
         self.assertEqual(inst.term[0].action[0].type.coding[0].code, "action-a")
         self.assertEqual(inst.term[0].action[0].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/contractaction")
-        self.assertEqual(inst.term[0].asset[0].period[0].end.date, FHIRDate("2019-11-01T21:18:27-04:00").date)
+        self.assertEqual(inst.term[0].asset[0].period[0].end.datetime, FHIRDateTime("2019-11-01T21:18:27-04:00").datetime)
         self.assertEqual(inst.term[0].asset[0].period[0].end.as_json(), "2019-11-01T21:18:27-04:00")
-        self.assertEqual(inst.term[0].asset[0].period[0].start.date, FHIRDate("2013-11-01T21:18:27-04:00").date)
+        self.assertEqual(inst.term[0].asset[0].period[0].start.datetime, FHIRDateTime("2013-11-01T21:18:27-04:00").datetime)
         self.assertEqual(inst.term[0].asset[0].period[0].start.as_json(), "2013-11-01T21:18:27-04:00")
         self.assertEqual(inst.term[0].offer.decision.coding[0].code, "OPTIN")
         self.assertEqual(inst.term[0].offer.decision.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
@@ -224,7 +227,7 @@ class ContractTests(unittest.TestCase):
         self.implContract6(inst2)
     
     def implContract6(self, inst):
-        self.assertEqual(inst.applies.start.date, FHIRDate("2017-01-01").date)
+        self.assertEqual(inst.applies.start.datetime, FHIRDateTime("2017-01-01").datetime)
         self.assertEqual(inst.applies.start.as_json(), "2017-01-01")
         self.assertEqual(inst.id, "INS-101")
         self.assertEqual(inst.identifier[0].system, "http://xyz-insurance.com/forms")
@@ -232,12 +235,12 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.term[0].asset[0].period[0].start.date, FHIRDate("2017-06-01").date)
+        self.assertEqual(inst.term[0].asset[0].period[0].start.datetime, FHIRDateTime("2017-06-01").datetime)
         self.assertEqual(inst.term[0].asset[0].period[0].start.as_json(), "2017-06-01")
         self.assertEqual(inst.term[0].asset[0].subtype[0].text, "sample")
         self.assertEqual(inst.term[0].asset[0].type[0].coding[0].code, "RicardianContract")
         self.assertEqual(inst.term[0].asset[0].type[0].coding[0].system, "urn:ietf:rfc:3986")
-        self.assertEqual(inst.term[0].asset[0].valuedItem[0].effectiveTime.date, FHIRDate("1995").date)
+        self.assertEqual(inst.term[0].asset[0].valuedItem[0].effectiveTime.datetime, FHIRDateTime("1995").datetime)
         self.assertEqual(inst.term[0].asset[0].valuedItem[0].effectiveTime.as_json(), "1995")
         self.assertEqual(inst.term[0].asset[0].valuedItem[0].entityCodeableConcept.text, "Ford Bobcat")
         self.assertEqual(inst.term[0].asset[0].valuedItem[0].factor, 1.0)
@@ -289,12 +292,12 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.rule[0].contentAttachment.contentType, "application/txt")
         self.assertEqual(inst.rule[0].contentAttachment.url, "http://www.rfc-editor.org/bcp/bcp13.txt")
-        self.assertEqual(inst.term[0].asset[0].period[0].start.date, FHIRDate("2017-06-01").date)
+        self.assertEqual(inst.term[0].asset[0].period[0].start.datetime, FHIRDateTime("2017-06-01").datetime)
         self.assertEqual(inst.term[0].asset[0].period[0].start.as_json(), "2017-06-01")
         self.assertEqual(inst.term[0].asset[0].subtype[0].text, "sample")
         self.assertEqual(inst.term[0].asset[0].type[0].coding[0].code, "RicardianContract")
         self.assertEqual(inst.term[0].asset[0].type[0].coding[0].system, "urn:ietf:rfc:3986")
-        self.assertEqual(inst.term[0].asset[0].valuedItem[0].effectiveTime.date, FHIRDate("1995").date)
+        self.assertEqual(inst.term[0].asset[0].valuedItem[0].effectiveTime.datetime, FHIRDateTime("1995").datetime)
         self.assertEqual(inst.term[0].asset[0].valuedItem[0].effectiveTime.as_json(), "1995")
         self.assertEqual(inst.term[0].asset[0].valuedItem[0].entityCodeableConcept.text, "Ford Bobcat")
         self.assertEqual(inst.term[0].asset[0].valuedItem[0].factor, 1.0)
@@ -323,7 +326,7 @@ class ContractTests(unittest.TestCase):
     def implContract8(self, inst):
         self.assertEqual(inst.friendly[0].contentAttachment.title, "The terms of the consent in friendly consumer speak.")
         self.assertEqual(inst.id, "pcd-example-notThem")
-        self.assertEqual(inst.issued.date, FHIRDate("2015-11-18").date)
+        self.assertEqual(inst.issued.datetime, FHIRDateTime("2015-11-18").datetime)
         self.assertEqual(inst.issued.as_json(), "2015-11-18")
         self.assertEqual(inst.legal[0].contentAttachment.title, "The terms of the consent in lawyer speak.")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -331,7 +334,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.signer[0].signature[0].type[0].code, "1.2.840.10065.1.12.1.1")
         self.assertEqual(inst.signer[0].signature[0].type[0].system, "urn:iso-astm:E1762-95:2013")
-        self.assertEqual(inst.signer[0].signature[0].when.date, FHIRDate("2013-06-08T10:57:34-07:00").date)
+        self.assertEqual(inst.signer[0].signature[0].when.datetime, FHIRInstant("2013-06-08T10:57:34-07:00").datetime)
         self.assertEqual(inst.signer[0].signature[0].when.as_json(), "2013-06-08T10:57:34-07:00")
         self.assertEqual(inst.signer[0].type.code, "COVPTY")
         self.assertEqual(inst.signer[0].type.system, "http://terminology.hl7.org/CodeSystem/contractsignertypecodes")

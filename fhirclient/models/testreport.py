@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/TestReport) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/TestReport).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -26,7 +26,7 @@ class TestReport(domainresource.DomainResource):
         
         self.issued = None
         """ When the TestScript was executed and this TestReport was generated.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.name = None
         """ Informal name of the executed TestScript.
@@ -79,7 +79,7 @@ class TestReport(domainresource.DomainResource):
         js = super(TestReport, self).elementProperties()
         js.extend([
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("issued", "issued", fhirdatetime.FHIRDateTime, False, None, False),
             ("name", "name", str, False, None, False),
             ("participant", "participant", TestReportParticipant, True, None, False),
             ("result", "result", str, False, None, True),
@@ -413,6 +413,6 @@ class TestReportTestAction(backboneelement.BackboneElement):
         return js
 
 
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier

@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ClaimResponse).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -35,7 +35,7 @@ class ClaimResponse(domainresource.DomainResource):
         
         self.created = None
         """ Response creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.disposition = None
         """ Disposition Message.
@@ -137,7 +137,7 @@ class ClaimResponse(domainresource.DomainResource):
             ("addItem", "addItem", ClaimResponseAddItem, True, None, False),
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
             ("communicationRequest", "communicationRequest", fhirreference.FHIRReference, True, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
+            ("created", "created", fhirdatetime.FHIRDateTime, False, None, True),
             ("disposition", "disposition", str, False, None, False),
             ("error", "error", ClaimResponseError, True, None, False),
             ("form", "form", attachment.Attachment, False, None, False),
@@ -848,6 +848,7 @@ from . import address
 from . import attachment
 from . import codeableconcept
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import money

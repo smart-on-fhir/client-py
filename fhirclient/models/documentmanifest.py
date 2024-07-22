@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DocumentManifest).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class DocumentManifest(domainresource.DomainResource):
         
         self.created = None
         """ When this document manifest created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Human-readable description (title).
@@ -76,7 +76,7 @@ class DocumentManifest(domainresource.DomainResource):
         js.extend([
             ("author", "author", fhirreference.FHIRReference, True, None, False),
             ("content", "content", fhirreference.FHIRReference, True, None, True),
-            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("created", "created", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("masterIdentifier", "masterIdentifier", identifier.Identifier, False, None, False),
@@ -128,6 +128,6 @@ class DocumentManifestRelated(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier

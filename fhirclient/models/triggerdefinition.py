@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/TriggerDefinition) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/TriggerDefinition).
+# 2024, SMART Health IT.
 
 
 from . import element
@@ -39,7 +39,7 @@ class TriggerDefinition(element.Element):
         
         self.timingDateTime = None
         """ Timing of the event.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.timingReference = None
         """ Timing of the event.
@@ -63,7 +63,7 @@ class TriggerDefinition(element.Element):
             ("data", "data", datarequirement.DataRequirement, True, None, False),
             ("name", "name", str, False, None, False),
             ("timingDate", "timingDate", fhirdate.FHIRDate, False, "timing", False),
-            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
+            ("timingDateTime", "timingDateTime", fhirdatetime.FHIRDateTime, False, "timing", False),
             ("timingReference", "timingReference", fhirreference.FHIRReference, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
             ("type", "type", str, False, None, True),
@@ -74,5 +74,6 @@ class TriggerDefinition(element.Element):
 from . import datarequirement
 from . import expression
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import timing

@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import {{ class.module }}
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class {{ class.name }}Tests(unittest.TestCase):
@@ -40,12 +43,18 @@ class {{ class.name }}Tests(unittest.TestCase):
         {%- else %}
         self.assertFalse(inst.{{ onetest.path }})
         {%- endif %}
-    {%- else %}{% if "FHIRDate" == onetest.klass.name %}
-        self.assertEqual(inst.{{ onetest.path }}.date, FHIRDate("{{ onetest.value }}").date)
+    {%- else %}{% if onetest.klass.name == "FHIRDate" %}
+        self.assertEqual(inst.{{ onetest.path }}.date, {{ onetest.klass.name }}("{{ onetest.value }}").date)
+        self.assertEqual(inst.{{ onetest.path }}.as_json(), "{{ onetest.value }}")
+    {%- else %}{% if onetest.klass.name in ["FHIRDateTime", "FHIRInstant"] %}
+        self.assertEqual(inst.{{ onetest.path }}.datetime, {{ onetest.klass.name }}("{{ onetest.value }}").datetime)
+        self.assertEqual(inst.{{ onetest.path }}.as_json(), "{{ onetest.value }}")
+    {%- else %}{% if onetest.klass.name == "FHIRTime" %}
+        self.assertEqual(inst.{{ onetest.path }}.time, {{ onetest.klass.name }}("{{ onetest.value }}").time)
         self.assertEqual(inst.{{ onetest.path }}.as_json(), "{{ onetest.value }}")
     {%- else %}
         # Don't know how to create unit test for "{{ onetest.path }}", which is a {{ onetest.klass.name }}
-    {%- endif %}{% endif %}{% endif %}{% endif %}
+    {%- endif %}{% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
     {%- endfor %}
 {%- endfor %}
 

@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -27,7 +27,7 @@ class ImmunizationRecommendation(domainresource.DomainResource):
         
         self.date = None
         """ Date recommendation(s) created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Business identifier.
@@ -47,7 +47,7 @@ class ImmunizationRecommendation(domainresource.DomainResource):
         js = super(ImmunizationRecommendation, self).elementProperties()
         js.extend([
             ("authority", "authority", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("recommendation", "recommendation", ImmunizationRecommendationRecommendation, True, None, True),
@@ -173,7 +173,7 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
         
         self.value = None
         """ Recommended date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(ImmunizationRecommendationRecommendationDateCriterion, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -181,12 +181,12 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
         js = super(ImmunizationRecommendationRecommendationDateCriterion, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("value", "value", fhirdate.FHIRDate, False, None, True),
+            ("value", "value", fhirdatetime.FHIRDateTime, False, None, True),
         ])
         return js
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier

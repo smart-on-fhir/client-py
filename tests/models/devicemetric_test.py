@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import devicemetric
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class DeviceMetricTests(unittest.TestCase):
@@ -28,7 +31,7 @@ class DeviceMetricTests(unittest.TestCase):
     
     def implDeviceMetric1(self, inst):
         self.assertEqual(inst.calibration[0].state, "calibrated")
-        self.assertEqual(inst.calibration[0].time.date, FHIRDate("2016-12-28T09:03:04-05:00").date)
+        self.assertEqual(inst.calibration[0].time.datetime, FHIRInstant("2016-12-28T09:03:04-05:00").datetime)
         self.assertEqual(inst.calibration[0].time.as_json(), "2016-12-28T09:03:04-05:00")
         self.assertEqual(inst.calibration[0].type, "two-point")
         self.assertEqual(inst.category, "measurement")

@@ -35,6 +35,9 @@ manual_profiles = [
     ]),
     ('../fhir-parser-resources/fhirabstractresource.py', 'fhirabstractresource', ['FHIRAbstractResource']),
     ('../fhir-parser-resources/fhirreference.py', 'fhirreference', ['FHIRReference']),
-    ('../fhir-parser-resources/fhirdate.py', 'fhirdate', ['date', 'dateTime', 'instant', 'time']),
+    ('../fhir-parser-resources/fhirdate.py', 'fhirdate', ['date']),
+    ('../fhir-parser-resources/fhirdatetime.py', 'fhirdatetime', ['dateTime']),
+    ('../fhir-parser-resources/fhirinstant.py', 'fhirinstant', ['instant']),
+    ('../fhir-parser-resources/fhirtime.py', 'fhirtime', ['time']),
     ('../fhir-parser-resources/fhirsearch.py', 'fhirsearch', ['FHIRSearch']),
 ]

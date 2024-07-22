@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import person
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class PersonTests(unittest.TestCase):
@@ -64,7 +67,7 @@ class PersonTests(unittest.TestCase):
         self.assertEqual(inst.birthDate.as_json(), "1974-12-25")
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.identifier[0].period.start.date, FHIRDate("2001-05-06").date)
+        self.assertEqual(inst.identifier[0].period.start.datetime, FHIRDateTime("2001-05-06").datetime)
         self.assertEqual(inst.identifier[0].period.start.as_json(), "2001-05-06")
         self.assertEqual(inst.identifier[0].system, "urn:oid:1.2.36.146.595.217.0.1")
         self.assertEqual(inst.identifier[0].type.coding[0].code, "MR")

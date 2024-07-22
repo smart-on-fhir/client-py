@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import searchparameter
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class SearchParameterTests(unittest.TestCase):
@@ -34,7 +37,7 @@ class SearchParameterTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].name, "[string]")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2013-10-23").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2013-10-23").datetime)
         self.assertEqual(inst.date.as_json(), "2013-10-23")
         self.assertEqual(inst.description, "Search by condition subject")
         self.assertTrue(inst.experimental)
@@ -97,7 +100,7 @@ class SearchParameterTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].name, "[string]")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2013-10-23").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2013-10-23").datetime)
         self.assertEqual(inst.date.as_json(), "2013-10-23")
         self.assertEqual(inst.derivedFrom, "http://hl7.org/fhir/SearchParameter/Resource-id")
         self.assertEqual(inst.description, "Search by resource identifier - e.g. same as the read interaction, but can return included resources")

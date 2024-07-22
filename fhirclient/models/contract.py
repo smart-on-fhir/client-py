@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Contract) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Contract).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -72,7 +72,7 @@ class Contract(domainresource.DomainResource):
         
         self.issued = None
         """ When this Contract was issued.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.legal = None
         """ Contract Legal Language.
@@ -181,7 +181,7 @@ class Contract(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("instantiatesCanonical", "instantiatesCanonical", fhirreference.FHIRReference, False, None, False),
             ("instantiatesUri", "instantiatesUri", str, False, None, False),
-            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("issued", "issued", fhirdatetime.FHIRDateTime, False, None, False),
             ("legal", "legal", ContractLegal, True, None, False),
             ("legalState", "legalState", codeableconcept.CodeableConcept, False, None, False),
             ("legallyBindingAttachment", "legallyBindingAttachment", attachment.Attachment, False, "legallyBinding", False),
@@ -234,7 +234,7 @@ class ContractContentDefinition(backboneelement.BackboneElement):
         
         self.publicationDate = None
         """ When published.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.publicationStatus = None
         """ amended | appended | cancelled | disputed | entered-in-error |
@@ -260,7 +260,7 @@ class ContractContentDefinition(backboneelement.BackboneElement):
         js = super(ContractContentDefinition, self).elementProperties()
         js.extend([
             ("copyright", "copyright", str, False, None, False),
-            ("publicationDate", "publicationDate", fhirdate.FHIRDate, False, None, False),
+            ("publicationDate", "publicationDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("publicationStatus", "publicationStatus", str, False, None, True),
             ("publisher", "publisher", fhirreference.FHIRReference, False, None, False),
             ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
@@ -462,7 +462,7 @@ class ContractTerm(backboneelement.BackboneElement):
         
         self.issued = None
         """ Contract Term Issue Date Time.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.offer = None
         """ Context of the Contract term.
@@ -502,7 +502,7 @@ class ContractTerm(backboneelement.BackboneElement):
             ("asset", "asset", ContractTermAsset, True, None, False),
             ("group", "group", ContractTerm, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("issued", "issued", fhirdatetime.FHIRDateTime, False, None, False),
             ("offer", "offer", ContractTermOffer, False, None, True),
             ("securityLabel", "securityLabel", ContractTermSecurityLabel, True, None, False),
             ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
@@ -557,7 +557,7 @@ class ContractTermAction(backboneelement.BackboneElement):
         
         self.occurrenceDateTime = None
         """ When action happens.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
         """ When action happens.
@@ -634,7 +634,7 @@ class ContractTermAction(backboneelement.BackboneElement):
             ("intent", "intent", codeableconcept.CodeableConcept, False, None, True),
             ("linkId", "linkId", str, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatetime.FHIRDateTime, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
@@ -840,7 +840,7 @@ class ContractTermAssetValuedItem(backboneelement.BackboneElement):
         
         self.effectiveTime = None
         """ Contract Valued Item Effective Tiem.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.entityCodeableConcept = None
         """ Contract Valued Item Type.
@@ -872,7 +872,7 @@ class ContractTermAssetValuedItem(backboneelement.BackboneElement):
         
         self.paymentDate = None
         """ When payment is due.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.points = None
         """ Contract Valued Item Difficulty Scaling Factor.
@@ -903,7 +903,7 @@ class ContractTermAssetValuedItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermAssetValuedItem, self).elementProperties()
         js.extend([
-            ("effectiveTime", "effectiveTime", fhirdate.FHIRDate, False, None, False),
+            ("effectiveTime", "effectiveTime", fhirdatetime.FHIRDateTime, False, None, False),
             ("entityCodeableConcept", "entityCodeableConcept", codeableconcept.CodeableConcept, False, "entity", False),
             ("entityReference", "entityReference", fhirreference.FHIRReference, False, "entity", False),
             ("factor", "factor", float, False, None, False),
@@ -911,7 +911,7 @@ class ContractTermAssetValuedItem(backboneelement.BackboneElement):
             ("linkId", "linkId", str, True, None, False),
             ("net", "net", money.Money, False, None, False),
             ("payment", "payment", str, False, None, False),
-            ("paymentDate", "paymentDate", fhirdate.FHIRDate, False, None, False),
+            ("paymentDate", "paymentDate", fhirdatetime.FHIRDateTime, False, None, False),
             ("points", "points", float, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("recipient", "recipient", fhirreference.FHIRReference, False, None, False),
@@ -1029,7 +1029,7 @@ class ContractTermOfferAnswer(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ The actual answer response.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ The actual answer response.
@@ -1053,7 +1053,7 @@ class ContractTermOfferAnswer(backboneelement.BackboneElement):
         
         self.valueTime = None
         """ The actual answer response.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.valueUri = None
         """ The actual answer response.
@@ -1068,13 +1068,13 @@ class ContractTermOfferAnswer(backboneelement.BackboneElement):
             ("valueBoolean", "valueBoolean", bool, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
             ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueDateTime", "valueDateTime", fhirdatetime.FHIRDateTime, False, "value", True),
             ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
             ("valueString", "valueString", str, False, "value", True),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueTime", "valueTime", fhirtime.FHIRTime, False, "value", True),
             ("valueUri", "valueUri", str, False, "value", True),
         ])
         return js
@@ -1164,7 +1164,9 @@ from . import attachment
 from . import codeableconcept
 from . import coding
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
+from . import fhirtime
 from . import identifier
 from . import money
 from . import period

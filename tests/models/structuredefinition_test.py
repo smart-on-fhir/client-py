@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import structuredefinition
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class StructureDefinitionTests(unittest.TestCase):
@@ -29,7 +32,7 @@ class StructureDefinitionTests(unittest.TestCase):
     def implStructureDefinition1(self, inst):
         self.assertTrue(inst.abstract)
         self.assertEqual(inst.baseDefinition, "http://hl7.org/fhir/StructureDefinition/Composition")
-        self.assertEqual(inst.date.date, FHIRDate("2018-11-05T17:57:00+11:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2018-11-05T17:57:00+11:00").datetime)
         self.assertEqual(inst.date.as_json(), "2018-11-05T17:57:00+11:00")
         self.assertEqual(inst.derivation, "constraint")
         self.assertEqual(inst.differential.element[0].id, "Composition")
@@ -97,7 +100,7 @@ class StructureDefinitionTests(unittest.TestCase):
     def implStructureDefinition2(self, inst):
         self.assertFalse(inst.abstract)
         self.assertEqual(inst.baseDefinition, "http://hl7.org/fhir/StructureDefinition/Composition")
-        self.assertEqual(inst.date.date, FHIRDate("2018-11-05T17:47:00+11:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2018-11-05T17:47:00+11:00").datetime)
         self.assertEqual(inst.date.as_json(), "2018-11-05T17:47:00+11:00")
         self.assertEqual(inst.derivation, "constraint")
         self.assertEqual(inst.differential.element[0].id, "Composition")

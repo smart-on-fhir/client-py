@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import communication
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class CommunicationTests(unittest.TestCase):
@@ -43,9 +46,9 @@ class CommunicationTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.payload[0].contentString, "Patient 1 has a very high serum potassium value (7.2 mmol/L on 2014-Dec-12 at 5:55 pm)")
-        self.assertEqual(inst.received.date, FHIRDate("2014-12-12T18:01:11-08:00").date)
+        self.assertEqual(inst.received.datetime, FHIRDateTime("2014-12-12T18:01:11-08:00").datetime)
         self.assertEqual(inst.received.as_json(), "2014-12-12T18:01:11-08:00")
-        self.assertEqual(inst.sent.date, FHIRDate("2014-12-12T18:01:10-08:00").date)
+        self.assertEqual(inst.sent.datetime, FHIRDateTime("2014-12-12T18:01:10-08:00").datetime)
         self.assertEqual(inst.sent.as_json(), "2014-12-12T18:01:10-08:00")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient has very high serum potassium</div>")
@@ -71,17 +74,17 @@ class CommunicationTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.payload[0].contentAttachment.contentType, "application/pdf")
-        self.assertEqual(inst.payload[0].contentAttachment.creation.date, FHIRDate("2010-02-01T11:50:23-05:00").date)
+        self.assertEqual(inst.payload[0].contentAttachment.creation.datetime, FHIRDateTime("2010-02-01T11:50:23-05:00").datetime)
         self.assertEqual(inst.payload[0].contentAttachment.creation.as_json(), "2010-02-01T11:50:23-05:00")
         self.assertEqual(inst.payload[0].contentAttachment.data, "SGVsbG8=")
         self.assertEqual(inst.payload[0].contentAttachment.title, "accident notes 20100201.pdf")
         self.assertEqual(inst.payload[1].contentAttachment.contentType, "application/pdf")
-        self.assertEqual(inst.payload[1].contentAttachment.creation.date, FHIRDate("2010-02-01T10:57:34+01:00").date)
+        self.assertEqual(inst.payload[1].contentAttachment.creation.datetime, FHIRDateTime("2010-02-01T10:57:34+01:00").datetime)
         self.assertEqual(inst.payload[1].contentAttachment.creation.as_json(), "2010-02-01T10:57:34+01:00")
         self.assertEqual(inst.payload[1].contentAttachment.hash, "SGVsbG8gdGhlcmU=")
         self.assertEqual(inst.payload[1].contentAttachment.size, 104274)
         self.assertEqual(inst.payload[1].contentAttachment.url, "http://example.org/docs/AB12345")
-        self.assertEqual(inst.sent.date, FHIRDate("2016-06-12T18:01:10-08:00").date)
+        self.assertEqual(inst.sent.datetime, FHIRDateTime("2016-06-12T18:01:10-08:00").datetime)
         self.assertEqual(inst.sent.as_json(), "2016-06-12T18:01:10-08:00")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Attachment which is unsolicited</div>")
@@ -110,17 +113,17 @@ class CommunicationTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.payload[0].contentAttachment.contentType, "application/pdf")
-        self.assertEqual(inst.payload[0].contentAttachment.creation.date, FHIRDate("2010-02-01T11:50:23-05:00").date)
+        self.assertEqual(inst.payload[0].contentAttachment.creation.datetime, FHIRDateTime("2010-02-01T11:50:23-05:00").datetime)
         self.assertEqual(inst.payload[0].contentAttachment.creation.as_json(), "2010-02-01T11:50:23-05:00")
         self.assertEqual(inst.payload[0].contentAttachment.data, "SGVsbG8=")
         self.assertEqual(inst.payload[0].contentAttachment.title, "accident notes 20100201.pdf")
         self.assertEqual(inst.payload[1].contentAttachment.contentType, "application/pdf")
-        self.assertEqual(inst.payload[1].contentAttachment.creation.date, FHIRDate("2010-02-01T10:57:34+01:00").date)
+        self.assertEqual(inst.payload[1].contentAttachment.creation.datetime, FHIRDateTime("2010-02-01T10:57:34+01:00").datetime)
         self.assertEqual(inst.payload[1].contentAttachment.creation.as_json(), "2010-02-01T10:57:34+01:00")
         self.assertEqual(inst.payload[1].contentAttachment.hash, "SGVsbG8gdGhlcmU=")
         self.assertEqual(inst.payload[1].contentAttachment.size, 104274)
         self.assertEqual(inst.payload[1].contentAttachment.url, "http://happyvalley.com/docs/AB12345")
-        self.assertEqual(inst.sent.date, FHIRDate("2016-06-12T18:01:10-08:00").date)
+        self.assertEqual(inst.sent.datetime, FHIRDateTime("2016-06-12T18:01:10-08:00").datetime)
         self.assertEqual(inst.sent.as_json(), "2016-06-12T18:01:10-08:00")
         self.assertEqual(inst.status, "completed")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">Attachment in response to a Request</div>")

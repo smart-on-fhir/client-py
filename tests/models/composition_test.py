@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import composition
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class CompositionTests(unittest.TestCase):
@@ -28,13 +31,13 @@ class CompositionTests(unittest.TestCase):
     
     def implComposition1(self, inst):
         self.assertEqual(inst.attester[0].mode, "legal")
-        self.assertEqual(inst.attester[0].time.date, FHIRDate("2012-01-04T09:10:14Z").date)
+        self.assertEqual(inst.attester[0].time.datetime, FHIRDateTime("2012-01-04T09:10:14Z").datetime)
         self.assertEqual(inst.attester[0].time.as_json(), "2012-01-04T09:10:14Z")
         self.assertEqual(inst.category[0].coding[0].code, "LP173421-1")
         self.assertEqual(inst.category[0].coding[0].display, "Report")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
         self.assertEqual(inst.confidentiality, "N")
-        self.assertEqual(inst.date.date, FHIRDate("2018-10-30T16:56:04+11:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2018-10-30T16:56:04+11:00").datetime)
         self.assertEqual(inst.date.as_json(), "2018-10-30T16:56:04+11:00")
         self.assertEqual(inst.id, "example-mixed")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -69,20 +72,20 @@ class CompositionTests(unittest.TestCase):
     
     def implComposition2(self, inst):
         self.assertEqual(inst.attester[0].mode, "legal")
-        self.assertEqual(inst.attester[0].time.date, FHIRDate("2012-01-04T09:10:14Z").date)
+        self.assertEqual(inst.attester[0].time.datetime, FHIRDateTime("2012-01-04T09:10:14Z").datetime)
         self.assertEqual(inst.attester[0].time.as_json(), "2012-01-04T09:10:14Z")
         self.assertEqual(inst.category[0].coding[0].code, "LP173421-1")
         self.assertEqual(inst.category[0].coding[0].display, "Report")
         self.assertEqual(inst.category[0].coding[0].system, "http://loinc.org")
         self.assertEqual(inst.confidentiality, "N")
-        self.assertEqual(inst.date.date, FHIRDate("2012-01-04T09:10:14Z").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2012-01-04T09:10:14Z").datetime)
         self.assertEqual(inst.date.as_json(), "2012-01-04T09:10:14Z")
         self.assertEqual(inst.event[0].code[0].coding[0].code, "HEALTHREC")
         self.assertEqual(inst.event[0].code[0].coding[0].display, "health record")
         self.assertEqual(inst.event[0].code[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActCode")
-        self.assertEqual(inst.event[0].period.end.date, FHIRDate("2012-11-12").date)
+        self.assertEqual(inst.event[0].period.end.datetime, FHIRDateTime("2012-11-12").datetime)
         self.assertEqual(inst.event[0].period.end.as_json(), "2012-11-12")
-        self.assertEqual(inst.event[0].period.start.date, FHIRDate("2010-07-18").date)
+        self.assertEqual(inst.event[0].period.start.datetime, FHIRDateTime("2010-07-18").datetime)
         self.assertEqual(inst.event[0].period.start.as_json(), "2010-07-18")
         self.assertEqual(inst.id, "example")
         self.assertEqual(inst.identifier.system, "http://healthintersections.com.au/test")

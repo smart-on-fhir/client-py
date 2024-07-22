@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Location) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Location).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -142,7 +142,7 @@ class LocationHoursOfOperation(backboneelement.BackboneElement):
         
         self.closingTime = None
         """ Time that the Location closes.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.daysOfWeek = None
         """ mon | tue | wed | thu | fri | sat | sun.
@@ -150,7 +150,7 @@ class LocationHoursOfOperation(backboneelement.BackboneElement):
         
         self.openingTime = None
         """ Time that the Location opens.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         super(LocationHoursOfOperation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -158,9 +158,9 @@ class LocationHoursOfOperation(backboneelement.BackboneElement):
         js = super(LocationHoursOfOperation, self).elementProperties()
         js.extend([
             ("allDay", "allDay", bool, False, None, False),
-            ("closingTime", "closingTime", fhirdate.FHIRDate, False, None, False),
+            ("closingTime", "closingTime", fhirtime.FHIRTime, False, None, False),
             ("daysOfWeek", "daysOfWeek", str, True, None, False),
-            ("openingTime", "openingTime", fhirdate.FHIRDate, False, None, False),
+            ("openingTime", "openingTime", fhirtime.FHIRTime, False, None, False),
         ])
         return js
 
@@ -210,6 +210,6 @@ from . import address
 from . import codeableconcept
 from . import coding
 from . import contactpoint
-from . import fhirdate
 from . import fhirreference
+from . import fhirtime
 from . import identifier

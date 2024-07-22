@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import patient
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class PatientTests(unittest.TestCase):
@@ -197,7 +200,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.extension[0].url, "http://hl7.org/fhir/StructureDefinition/patient-animal")
         self.assertEqual(inst.gender, "female")
         self.assertEqual(inst.id, "animal")
-        self.assertEqual(inst.identifier[0].period.start.date, FHIRDate("2010-05-31").date)
+        self.assertEqual(inst.identifier[0].period.start.datetime, FHIRDateTime("2010-05-31").datetime)
         self.assertEqual(inst.identifier[0].period.start.as_json(), "2010-05-31")
         self.assertEqual(inst.identifier[0].system, "http://www.maroondah.vic.gov.au/AnimalRegFees.aspx")
         self.assertEqual(inst.identifier[0].type.text, "Dog Tag")
@@ -253,7 +256,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.address[0].city, "PleasantVille")
         self.assertEqual(inst.address[0].district, "Rainbow")
         self.assertEqual(inst.address[0].line[0], "534 Erewhon St")
-        self.assertEqual(inst.address[0].period.start.date, FHIRDate("1974-12-25").date)
+        self.assertEqual(inst.address[0].period.start.datetime, FHIRDateTime("1974-12-25").datetime)
         self.assertEqual(inst.address[0].period.start.as_json(), "1974-12-25")
         self.assertEqual(inst.address[0].postalCode, "3999")
         self.assertEqual(inst.address[0].state, "Vic")
@@ -265,7 +268,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].address.city, "PleasantVille")
         self.assertEqual(inst.contact[0].address.district, "Rainbow")
         self.assertEqual(inst.contact[0].address.line[0], "534 Erewhon St")
-        self.assertEqual(inst.contact[0].address.period.start.date, FHIRDate("1974-12-25").date)
+        self.assertEqual(inst.contact[0].address.period.start.datetime, FHIRDateTime("1974-12-25").datetime)
         self.assertEqual(inst.contact[0].address.period.start.as_json(), "1974-12-25")
         self.assertEqual(inst.contact[0].address.postalCode, "3999")
         self.assertEqual(inst.contact[0].address.state, "Vic")
@@ -274,7 +277,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].gender, "female")
         self.assertEqual(inst.contact[0].name.family, "du Marché")
         self.assertEqual(inst.contact[0].name.given[0], "Bénédicte")
-        self.assertEqual(inst.contact[0].period.start.date, FHIRDate("2012").date)
+        self.assertEqual(inst.contact[0].period.start.datetime, FHIRDateTime("2012").datetime)
         self.assertEqual(inst.contact[0].period.start.as_json(), "2012")
         self.assertEqual(inst.contact[0].relationship[0].coding[0].code, "N")
         self.assertEqual(inst.contact[0].relationship[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/v2-0131")
@@ -283,7 +286,7 @@ class PatientTests(unittest.TestCase):
         self.assertFalse(inst.deceasedBoolean)
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.identifier[0].period.start.date, FHIRDate("2001-05-06").date)
+        self.assertEqual(inst.identifier[0].period.start.datetime, FHIRDateTime("2001-05-06").datetime)
         self.assertEqual(inst.identifier[0].period.start.as_json(), "2001-05-06")
         self.assertEqual(inst.identifier[0].system, "urn:oid:1.2.36.146.595.217.0.1")
         self.assertEqual(inst.identifier[0].type.coding[0].code, "MR")
@@ -302,7 +305,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.name[2].family, "Windsor")
         self.assertEqual(inst.name[2].given[0], "Peter")
         self.assertEqual(inst.name[2].given[1], "James")
-        self.assertEqual(inst.name[2].period.end.date, FHIRDate("2002").date)
+        self.assertEqual(inst.name[2].period.end.datetime, FHIRDateTime("2002").datetime)
         self.assertEqual(inst.name[2].period.end.as_json(), "2002")
         self.assertEqual(inst.name[2].use, "maiden")
         self.assertEqual(inst.telecom[0].use, "home")
@@ -314,7 +317,7 @@ class PatientTests(unittest.TestCase):
         self.assertEqual(inst.telecom[2].system, "phone")
         self.assertEqual(inst.telecom[2].use, "mobile")
         self.assertEqual(inst.telecom[2].value, "(03) 3410 5613")
-        self.assertEqual(inst.telecom[3].period.end.date, FHIRDate("2014").date)
+        self.assertEqual(inst.telecom[3].period.end.datetime, FHIRDateTime("2014").datetime)
         self.assertEqual(inst.telecom[3].period.end.as_json(), "2014")
         self.assertEqual(inst.telecom[3].system, "phone")
         self.assertEqual(inst.telecom[3].use, "old")
@@ -411,7 +414,7 @@ class PatientTests(unittest.TestCase):
         self.assertTrue(inst.active)
         self.assertEqual(inst.birthDate.date, FHIRDate("1982-01-23").date)
         self.assertEqual(inst.birthDate.as_json(), "1982-01-23")
-        self.assertEqual(inst.deceasedDateTime.date, FHIRDate("2015-02-14T13:42:00+10:00").date)
+        self.assertEqual(inst.deceasedDateTime.datetime, FHIRDateTime("2015-02-14T13:42:00+10:00").datetime)
         self.assertEqual(inst.deceasedDateTime.as_json(), "2015-02-14T13:42:00+10:00")
         self.assertEqual(inst.gender, "male")
         self.assertEqual(inst.id, "pat3")

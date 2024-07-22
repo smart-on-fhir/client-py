@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import task
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class TaskTests(unittest.TestCase):
@@ -27,11 +30,11 @@ class TaskTests(unittest.TestCase):
         self.implTask1(inst2)
     
     def implTask1(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2016-10-31T08:45:05+10:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2016-10-31T08:45:05+10:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2016-10-31T08:45:05+10:00")
         self.assertEqual(inst.businessStatus.text, "waiting for patient")
         self.assertEqual(inst.code.text, "Specimen Collection")
-        self.assertEqual(inst.executionPeriod.start.date, FHIRDate("2016-10-31T08:45:05+10:00").date)
+        self.assertEqual(inst.executionPeriod.start.datetime, FHIRDateTime("2016-10-31T08:45:05+10:00").datetime)
         self.assertEqual(inst.executionPeriod.start.as_json(), "2016-10-31T08:45:05+10:00")
         self.assertEqual(inst.groupIdentifier.system, "http:/goodhealth.org/accession/identifiers")
         self.assertEqual(inst.groupIdentifier.use, "official")
@@ -41,7 +44,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "20170201-002")
         self.assertEqual(inst.intent, "filler-order")
-        self.assertEqual(inst.lastModified.date, FHIRDate("2016-10-31T09:45:05+10:00").date)
+        self.assertEqual(inst.lastModified.datetime, FHIRDateTime("2016-10-31T09:45:05+10:00").datetime)
         self.assertEqual(inst.lastModified.as_json(), "2016-10-31T09:45:05+10:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
@@ -51,7 +54,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.performerType[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/task-performer-type")
         self.assertEqual(inst.performerType[0].text, "Performer")
         self.assertEqual(inst.priority, "routine")
-        self.assertEqual(inst.restriction.period.end.date, FHIRDate("2016-11-01T09:45:05+10:00").date)
+        self.assertEqual(inst.restriction.period.end.datetime, FHIRDateTime("2016-11-01T09:45:05+10:00").datetime)
         self.assertEqual(inst.restriction.period.end.as_json(), "2016-11-01T09:45:05+10:00")
         self.assertEqual(inst.restriction.repetitions, 1)
         self.assertEqual(inst.status, "accepted")
@@ -68,12 +71,12 @@ class TaskTests(unittest.TestCase):
         self.implTask2(inst2)
     
     def implTask2(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2016-10-31T08:45:05+10:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2016-10-31T08:45:05+10:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2016-10-31T08:45:05+10:00")
         self.assertEqual(inst.code.text, "Specimen Collection")
-        self.assertEqual(inst.executionPeriod.end.date, FHIRDate("2016-10-31T14:45:05+10:00").date)
+        self.assertEqual(inst.executionPeriod.end.datetime, FHIRDateTime("2016-10-31T14:45:05+10:00").datetime)
         self.assertEqual(inst.executionPeriod.end.as_json(), "2016-10-31T14:45:05+10:00")
-        self.assertEqual(inst.executionPeriod.start.date, FHIRDate("2016-10-31T08:45:05+10:00").date)
+        self.assertEqual(inst.executionPeriod.start.datetime, FHIRDateTime("2016-10-31T08:45:05+10:00").datetime)
         self.assertEqual(inst.executionPeriod.start.as_json(), "2016-10-31T08:45:05+10:00")
         self.assertEqual(inst.groupIdentifier.system, "http:/goodhealth.org/accession/identifiers")
         self.assertEqual(inst.groupIdentifier.use, "official")
@@ -83,7 +86,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "20170201-002")
         self.assertEqual(inst.intent, "filler-order")
-        self.assertEqual(inst.lastModified.date, FHIRDate("2016-10-31T09:45:05+10:00").date)
+        self.assertEqual(inst.lastModified.datetime, FHIRDateTime("2016-10-31T09:45:05+10:00").datetime)
         self.assertEqual(inst.lastModified.as_json(), "2016-10-31T09:45:05+10:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
@@ -94,7 +97,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.performerType[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/task-performer-type")
         self.assertEqual(inst.performerType[0].text, "Performer")
         self.assertEqual(inst.priority, "routine")
-        self.assertEqual(inst.restriction.period.end.date, FHIRDate("2016-11-01T09:45:05+10:00").date)
+        self.assertEqual(inst.restriction.period.end.datetime, FHIRDateTime("2016-11-01T09:45:05+10:00").datetime)
         self.assertEqual(inst.restriction.period.end.as_json(), "2016-11-01T09:45:05+10:00")
         self.assertEqual(inst.restriction.repetitions, 1)
         self.assertEqual(inst.status, "completed")
@@ -111,12 +114,12 @@ class TaskTests(unittest.TestCase):
         self.implTask3(inst2)
     
     def implTask3(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2016-03-10T22:39:32-04:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2016-03-10T22:39:32-04:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2016-03-10T22:39:32-04:00")
         self.assertEqual(inst.code.text, "Refill Request")
         self.assertEqual(inst.id, "example3")
         self.assertEqual(inst.intent, "order")
-        self.assertEqual(inst.lastModified.date, FHIRDate("2016-03-10T22:39:32-04:00").date)
+        self.assertEqual(inst.lastModified.datetime, FHIRDateTime("2016-03-10T22:39:32-04:00").datetime)
         self.assertEqual(inst.lastModified.as_json(), "2016-03-10T22:39:32-04:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
@@ -135,7 +138,7 @@ class TaskTests(unittest.TestCase):
         self.implTask4(inst2)
     
     def implTask4(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2018-10-04T08:25:05+10:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2018-10-04T08:25:05+10:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2018-10-04T08:25:05+10:00")
         self.assertEqual(inst.code.coding[0].code, "status")
         self.assertEqual(inst.code.coding[0].system, "http://terminology.hl7.org/CodeSystem/financialtaskcode")
@@ -147,7 +150,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.identifier[1].use, "official")
         self.assertEqual(inst.identifier[1].value, "123GB5674")
         self.assertEqual(inst.intent, "order")
-        self.assertEqual(inst.lastModified.date, FHIRDate("2018-10-04T08:25:05+10:00").date)
+        self.assertEqual(inst.lastModified.datetime, FHIRDateTime("2018-10-04T08:25:05+10:00").datetime)
         self.assertEqual(inst.lastModified.as_json(), "2018-10-04T08:25:05+10:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
@@ -170,7 +173,7 @@ class TaskTests(unittest.TestCase):
         self.implTask5(inst2)
     
     def implTask5(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2018-10-04T08:25:05+10:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2018-10-04T08:25:05+10:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2018-10-04T08:25:05+10:00")
         self.assertEqual(inst.code.coding[0].code, "cancel")
         self.assertEqual(inst.code.coding[0].system, "http://terminology.hl7.org/CodeSystem/financialtaskcode")
@@ -179,7 +182,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "20181012-001")
         self.assertEqual(inst.intent, "order")
-        self.assertEqual(inst.lastModified.date, FHIRDate("2018-10-04T08:25:05+10:00").date)
+        self.assertEqual(inst.lastModified.datetime, FHIRDateTime("2018-10-04T08:25:05+10:00").datetime)
         self.assertEqual(inst.lastModified.as_json(), "2018-10-04T08:25:05+10:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
@@ -199,7 +202,7 @@ class TaskTests(unittest.TestCase):
         self.implTask6(inst2)
     
     def implTask6(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2018-10-12T08:25:05+10:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2018-10-12T08:25:05+10:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2018-10-12T08:25:05+10:00")
         self.assertEqual(inst.code.coding[0].code, "poll")
         self.assertEqual(inst.code.coding[0].system, "http://terminology.hl7.org/CodeSystem/financialtaskcode")
@@ -212,12 +215,12 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.input[0].valueCode, "ClaimResponse")
         self.assertEqual(inst.input[1].type.coding[0].code, "period")
         self.assertEqual(inst.input[1].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/financialtaskinputtype")
-        self.assertEqual(inst.input[1].valuePeriod.end.date, FHIRDate("2018-10-12").date)
+        self.assertEqual(inst.input[1].valuePeriod.end.datetime, FHIRDateTime("2018-10-12").datetime)
         self.assertEqual(inst.input[1].valuePeriod.end.as_json(), "2018-10-12")
-        self.assertEqual(inst.input[1].valuePeriod.start.date, FHIRDate("2018-10-01").date)
+        self.assertEqual(inst.input[1].valuePeriod.start.datetime, FHIRDateTime("2018-10-01").datetime)
         self.assertEqual(inst.input[1].valuePeriod.start.as_json(), "2018-10-01")
         self.assertEqual(inst.intent, "order")
-        self.assertEqual(inst.lastModified.date, FHIRDate("2018-10-12T08:25:05+10:00").date)
+        self.assertEqual(inst.lastModified.datetime, FHIRDateTime("2018-10-12T08:25:05+10:00").datetime)
         self.assertEqual(inst.lastModified.as_json(), "2018-10-12T08:25:05+10:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
@@ -237,14 +240,14 @@ class TaskTests(unittest.TestCase):
         self.implTask7(inst2)
     
     def implTask7(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2016-10-31T08:25:05+10:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2016-10-31T08:25:05+10:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2016-10-31T08:25:05+10:00")
         self.assertEqual(inst.businessStatus.text, "test completed and posted")
         self.assertEqual(inst.code.text, "Lipid Panel")
         self.assertEqual(inst.description, "Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen")
-        self.assertEqual(inst.executionPeriod.end.date, FHIRDate("2016-10-31T18:45:05+10:00").date)
+        self.assertEqual(inst.executionPeriod.end.datetime, FHIRDateTime("2016-10-31T18:45:05+10:00").datetime)
         self.assertEqual(inst.executionPeriod.end.as_json(), "2016-10-31T18:45:05+10:00")
-        self.assertEqual(inst.executionPeriod.start.date, FHIRDate("2016-10-31T08:25:05+10:00").date)
+        self.assertEqual(inst.executionPeriod.start.datetime, FHIRDateTime("2016-10-31T08:25:05+10:00").datetime)
         self.assertEqual(inst.executionPeriod.start.as_json(), "2016-10-31T08:25:05+10:00")
         self.assertEqual(inst.groupIdentifier.system, "http:/goodhealth.org/accession/identifiers")
         self.assertEqual(inst.groupIdentifier.use, "official")
@@ -254,7 +257,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "20170201-001")
         self.assertEqual(inst.intent, "order")
-        self.assertEqual(inst.lastModified.date, FHIRDate("2016-10-31T18:45:05+10:00").date)
+        self.assertEqual(inst.lastModified.datetime, FHIRDateTime("2016-10-31T18:45:05+10:00").datetime)
         self.assertEqual(inst.lastModified.as_json(), "2016-10-31T18:45:05+10:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
@@ -267,7 +270,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.performerType[0].text, "Performer")
         self.assertEqual(inst.priority, "routine")
         self.assertEqual(inst.reasonCode.text, "The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus")
-        self.assertEqual(inst.restriction.period.end.date, FHIRDate("2016-11-02T09:45:05+10:00").date)
+        self.assertEqual(inst.restriction.period.end.datetime, FHIRDateTime("2016-11-02T09:45:05+10:00").datetime)
         self.assertEqual(inst.restriction.period.end.as_json(), "2016-11-02T09:45:05+10:00")
         self.assertEqual(inst.restriction.repetitions, 1)
         self.assertEqual(inst.status, "completed")
@@ -284,12 +287,12 @@ class TaskTests(unittest.TestCase):
         self.implTask8(inst2)
     
     def implTask8(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2016-10-31T08:25:05+10:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2016-10-31T08:25:05+10:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2016-10-31T08:25:05+10:00")
         self.assertEqual(inst.businessStatus.text, "specimen received, test in progress")
         self.assertEqual(inst.code.text, "Lipid Panel")
         self.assertEqual(inst.description, "Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen")
-        self.assertEqual(inst.executionPeriod.start.date, FHIRDate("2016-10-31T08:25:05+10:00").date)
+        self.assertEqual(inst.executionPeriod.start.datetime, FHIRDateTime("2016-10-31T08:25:05+10:00").datetime)
         self.assertEqual(inst.executionPeriod.start.as_json(), "2016-10-31T08:25:05+10:00")
         self.assertEqual(inst.groupIdentifier.system, "http:/goodhealth.org/accession/identifiers")
         self.assertEqual(inst.groupIdentifier.use, "official")
@@ -299,7 +302,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "20170201-001")
         self.assertEqual(inst.intent, "order")
-        self.assertEqual(inst.lastModified.date, FHIRDate("2016-10-31T16:45:05+10:00").date)
+        self.assertEqual(inst.lastModified.datetime, FHIRDateTime("2016-10-31T16:45:05+10:00").datetime)
         self.assertEqual(inst.lastModified.as_json(), "2016-10-31T16:45:05+10:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
@@ -311,7 +314,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.performerType[0].text, "Performer")
         self.assertEqual(inst.priority, "routine")
         self.assertEqual(inst.reasonCode.text, "The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus")
-        self.assertEqual(inst.restriction.period.end.date, FHIRDate("2016-11-02T09:45:05+10:00").date)
+        self.assertEqual(inst.restriction.period.end.datetime, FHIRDateTime("2016-11-02T09:45:05+10:00").datetime)
         self.assertEqual(inst.restriction.period.end.as_json(), "2016-11-02T09:45:05+10:00")
         self.assertEqual(inst.restriction.repetitions, 1)
         self.assertEqual(inst.status, "in-progress")
@@ -328,7 +331,7 @@ class TaskTests(unittest.TestCase):
         self.implTask9(inst2)
     
     def implTask9(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2018-10-04T08:25:05+10:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2018-10-04T08:25:05+10:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2018-10-04T08:25:05+10:00")
         self.assertEqual(inst.code.coding[0].code, "release")
         self.assertEqual(inst.code.coding[0].system, "http://terminology.hl7.org/CodeSystem/financialtaskcode")
@@ -339,7 +342,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.input[0].type.coding[0].code, "origresponse")
         self.assertEqual(inst.input[0].type.coding[0].system, "http://hl7.org/financial-taskinputtype")
         self.assertEqual(inst.intent, "order")
-        self.assertEqual(inst.lastModified.date, FHIRDate("2018-10-04T08:25:05+10:00").date)
+        self.assertEqual(inst.lastModified.datetime, FHIRDateTime("2018-10-04T08:25:05+10:00").datetime)
         self.assertEqual(inst.lastModified.as_json(), "2018-10-04T08:25:05+10:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
@@ -359,7 +362,7 @@ class TaskTests(unittest.TestCase):
         self.implTask10(inst2)
     
     def implTask10(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2018-10-04T08:25:05+10:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2018-10-04T08:25:05+10:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2018-10-04T08:25:05+10:00")
         self.assertEqual(inst.code.coding[0].code, "status")
         self.assertEqual(inst.code.coding[0].system, "http://terminology.hl7.org/CodeSystem/financialtaskcode")
@@ -368,7 +371,7 @@ class TaskTests(unittest.TestCase):
         self.assertEqual(inst.identifier[0].use, "official")
         self.assertEqual(inst.identifier[0].value, "20181012-001")
         self.assertEqual(inst.intent, "order")
-        self.assertEqual(inst.lastModified.date, FHIRDate("2018-10-04T08:25:05+10:00").date)
+        self.assertEqual(inst.lastModified.datetime, FHIRDateTime("2018-10-04T08:25:05+10:00").datetime)
         self.assertEqual(inst.lastModified.as_json(), "2018-10-04T08:25:05+10:00")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")

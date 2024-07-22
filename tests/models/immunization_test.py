@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import immunization
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ImmunizationTests(unittest.TestCase):
@@ -42,7 +45,7 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2018-06-18").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2018-06-18").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2018-06-18")
         self.assertEqual(inst.performer[0].function.coding[0].code, "OP")
         self.assertEqual(inst.performer[0].function.coding[0].system, "http://terminology.hl7.org/CodeSystem/v2-0443")
@@ -86,9 +89,9 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.doseQuantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.doseQuantity.value, 0.5)
         self.assertEqual(inst.education[0].documentType, "253088698300010311120702")
-        self.assertEqual(inst.education[0].presentationDate.date, FHIRDate("2013-01-10").date)
+        self.assertEqual(inst.education[0].presentationDate.datetime, FHIRDateTime("2013-01-10").datetime)
         self.assertEqual(inst.education[0].presentationDate.as_json(), "2013-01-10")
-        self.assertEqual(inst.education[0].publicationDate.date, FHIRDate("2012-07-02").date)
+        self.assertEqual(inst.education[0].publicationDate.datetime, FHIRDateTime("2012-07-02").datetime)
         self.assertEqual(inst.education[0].publicationDate.as_json(), "2012-07-02")
         self.assertEqual(inst.expirationDate.date, FHIRDate("2015-02-28").date)
         self.assertEqual(inst.expirationDate.as_json(), "2015-02-28")
@@ -103,7 +106,7 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.note[0].text, "Notes on adminstration of vaccine")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2015-01-15").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2015-01-15").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2015-01-15")
         self.assertEqual(inst.performer[0].function.coding[0].code, "OP")
         self.assertEqual(inst.performer[0].function.coding[0].system, "http://terminology.hl7.org/CodeSystem/v2-0443")
@@ -141,7 +144,7 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2013-01-10").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2013-01-10").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2013-01-10")
         self.assertTrue(inst.primarySource)
         self.assertEqual(inst.status, "not-done")
@@ -197,9 +200,9 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.doseQuantity.system, "http://unitsofmeasure.org")
         self.assertEqual(inst.doseQuantity.value, 5)
         self.assertEqual(inst.education[0].documentType, "253088698300010311120702")
-        self.assertEqual(inst.education[0].presentationDate.date, FHIRDate("2013-01-10").date)
+        self.assertEqual(inst.education[0].presentationDate.datetime, FHIRDateTime("2013-01-10").datetime)
         self.assertEqual(inst.education[0].presentationDate.as_json(), "2013-01-10")
-        self.assertEqual(inst.education[0].publicationDate.date, FHIRDate("2012-07-02").date)
+        self.assertEqual(inst.education[0].publicationDate.datetime, FHIRDateTime("2012-07-02").datetime)
         self.assertEqual(inst.education[0].publicationDate.as_json(), "2012-07-02")
         self.assertEqual(inst.expirationDate.date, FHIRDate("2015-02-15").date)
         self.assertEqual(inst.expirationDate.as_json(), "2015-02-15")
@@ -214,7 +217,7 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.note[0].text, "Notes on adminstration of vaccine")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2013-01-10").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2013-01-10").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2013-01-10")
         self.assertEqual(inst.performer[0].function.coding[0].code, "OP")
         self.assertEqual(inst.performer[0].function.coding[0].system, "http://terminology.hl7.org/CodeSystem/v2-0443")

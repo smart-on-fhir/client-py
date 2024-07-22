@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import questionnaire
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class QuestionnaireTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class QuestionnaireTests(unittest.TestCase):
         self.implQuestionnaire1(inst2)
     
     def implQuestionnaire1(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2013-02-19").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2013-02-19").datetime)
         self.assertEqual(inst.date.as_json(), "2013-02-19")
         self.assertEqual(inst.id, "bb")
         self.assertEqual(inst.item[0].item[0].item[0].linkId, "nameOfChild")
@@ -101,7 +104,7 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.code[0].code, "VL 1-1, 18-65_1.2.2")
         self.assertEqual(inst.code[0].display, "Lifelines Questionnaire 1 part 1")
         self.assertEqual(inst.code[0].system, "http://example.org/system/code/lifelines/nl")
-        self.assertEqual(inst.date.date, FHIRDate("2010").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2010").datetime)
         self.assertEqual(inst.date.as_json(), "2010")
         self.assertEqual(inst.id, "f201")
         self.assertEqual(inst.item[0].linkId, "1")
@@ -152,7 +155,7 @@ class QuestionnaireTests(unittest.TestCase):
         self.assertEqual(inst.contained[0].id, "motor")
         self.assertEqual(inst.contained[1].id, "verbal")
         self.assertEqual(inst.contained[2].id, "eye")
-        self.assertEqual(inst.date.date, FHIRDate("2015-08-03").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-08-03").datetime)
         self.assertEqual(inst.date.as_json(), "2015-08-03")
         self.assertEqual(inst.id, "gcs")
         self.assertEqual(inst.item[0].answerValueSet, "#verbal")
@@ -188,7 +191,7 @@ class QuestionnaireTests(unittest.TestCase):
         self.implQuestionnaire4(inst2)
     
     def implQuestionnaire4(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2012-01").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2012-01").datetime)
         self.assertEqual(inst.date.as_json(), "2012-01")
         self.assertEqual(inst.id, "3141")
         self.assertEqual(inst.item[0].code[0].code, "COMORBIDITY")

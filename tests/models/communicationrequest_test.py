@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import communicationrequest
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class CommunicationRequestTests(unittest.TestCase):
@@ -46,7 +49,7 @@ class CommunicationRequestTests(unittest.TestCase):
         self.implCommunicationRequest2(inst2)
     
     def implCommunicationRequest2(self, inst):
-        self.assertEqual(inst.authoredOn.date, FHIRDate("2016-06-10T11:01:10-08:00").date)
+        self.assertEqual(inst.authoredOn.datetime, FHIRDateTime("2016-06-10T11:01:10-08:00").datetime)
         self.assertEqual(inst.authoredOn.as_json(), "2016-06-10T11:01:10-08:00")
         self.assertEqual(inst.category[0].coding[0].code, "SolicitedAttachmentRequest")
         self.assertEqual(inst.category[0].coding[0].system, "http://acme.org/messagetypes")
@@ -64,7 +67,7 @@ class CommunicationRequestTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2016-06-10T11:01:10-08:00").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2016-06-10T11:01:10-08:00").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2016-06-10T11:01:10-08:00")
         self.assertEqual(inst.payload[0].contentString, "Please provide the accident report and any associated pictures to support your Claim# DEF5647.")
         self.assertEqual(inst.priority, "routine")

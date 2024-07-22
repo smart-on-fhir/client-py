@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import messagedefinition
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class MessageDefinitionTests(unittest.TestCase):
@@ -30,7 +33,7 @@ class MessageDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.category, "notification")
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org")
-        self.assertEqual(inst.date.date, FHIRDate("2016-11-09").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2016-11-09").datetime)
         self.assertEqual(inst.date.as_json(), "2016-11-09")
         self.assertEqual(inst.eventCoding.code, "admin-notify")
         self.assertEqual(inst.eventCoding.system, "http://example.org/fhir/message-events")

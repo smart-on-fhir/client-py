@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -23,7 +23,7 @@ class PaymentReconciliation(domainresource.DomainResource):
         
         self.created = None
         """ Creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.detail = None
         """ Settlement particulars.
@@ -86,7 +86,7 @@ class PaymentReconciliation(domainresource.DomainResource):
     def elementProperties(self):
         js = super(PaymentReconciliation, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
+            ("created", "created", fhirdatetime.FHIRDateTime, False, None, True),
             ("detail", "detail", PaymentReconciliationDetail, True, None, False),
             ("disposition", "disposition", str, False, None, False),
             ("formCode", "formCode", codeableconcept.CodeableConcept, False, None, False),
@@ -219,6 +219,7 @@ class PaymentReconciliationProcessNote(backboneelement.BackboneElement):
 
 from . import codeableconcept
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import money

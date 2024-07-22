@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/NutritionOrder).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -28,7 +28,7 @@ class NutritionOrder(domainresource.DomainResource):
         
         self.dateTime = None
         """ Date and time the nutrition order was requested.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.encounter = None
         """ The encounter associated with this nutrition order.
@@ -99,7 +99,7 @@ class NutritionOrder(domainresource.DomainResource):
         js = super(NutritionOrder, self).elementProperties()
         js.extend([
             ("allergyIntolerance", "allergyIntolerance", fhirreference.FHIRReference, True, None, False),
-            ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, True),
+            ("dateTime", "dateTime", fhirdatetime.FHIRDateTime, False, None, True),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("enteralFormula", "enteralFormula", NutritionOrderEnteralFormula, False, None, False),
             ("excludeFoodModifier", "excludeFoodModifier", codeableconcept.CodeableConcept, True, None, False),
@@ -423,7 +423,7 @@ class NutritionOrderSupplement(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import quantity

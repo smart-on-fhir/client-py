@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import plandefinition
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class PlanDefinitionTests(unittest.TestCase):
@@ -148,7 +151,7 @@ class PlanDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.action[0].title, "Zika Virus Assessment")
         self.assertEqual(inst.action[0].trigger[0].name, "patient-view")
         self.assertEqual(inst.action[0].trigger[0].type, "named-event")
-        self.assertEqual(inst.date.date, FHIRDate("2016-11-14").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2016-11-14").datetime)
         self.assertEqual(inst.date.as_json(), "2016-11-14")
         self.assertEqual(inst.description, "Zika Virus Management intervention describing the CDC Guidelines for Zika Virus Reporting and Management.")
         self.assertEqual(inst.id, "zika-virus-intervention-initial")
@@ -269,12 +272,12 @@ class PlanDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.contained[2].id, "citalopramMedication")
         self.assertEqual(inst.contained[3].id, "citalopramSubstance")
         self.assertEqual(inst.copyright, "© Copyright 2016 Motive Medical Intelligence. All rights reserved.")
-        self.assertEqual(inst.date.date, FHIRDate("2015-08-15").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-08-15").datetime)
         self.assertEqual(inst.date.as_json(), "2015-08-15")
         self.assertEqual(inst.description, "Orders to be applied to a patient characterized as low suicide risk.")
-        self.assertEqual(inst.effectivePeriod.end.date, FHIRDate("2017-12-31").date)
+        self.assertEqual(inst.effectivePeriod.end.datetime, FHIRDateTime("2017-12-31").datetime)
         self.assertEqual(inst.effectivePeriod.end.as_json(), "2017-12-31")
-        self.assertEqual(inst.effectivePeriod.start.date, FHIRDate("2016-01-01").date)
+        self.assertEqual(inst.effectivePeriod.start.datetime, FHIRDateTime("2016-01-01").datetime)
         self.assertEqual(inst.effectivePeriod.start.as_json(), "2016-01-01")
         self.assertTrue(inst.experimental)
         self.assertEqual(inst.id, "low-suicide-risk-order-set")
@@ -482,7 +485,7 @@ class PlanDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.contained[8].id, "nitroglycerinPrescription")
         self.assertEqual(inst.contained[9].id, "nitroglycerinMedication")
         self.assertEqual(inst.copyright, "© Copyright Cognitive Medical Systems, Inc. 9444 Waples Street Suite 300 San Diego, CA 92121")
-        self.assertEqual(inst.date.date, FHIRDate("2017-08-29").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-08-29").datetime)
         self.assertEqual(inst.date.as_json(), "2017-08-29")
         self.assertEqual(inst.id, "example-cardiology-os")
         self.assertEqual(inst.identifier[0].system, "urn:va.gov:kbs:knart:artifact:r1")

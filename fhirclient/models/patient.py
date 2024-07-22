@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Patient) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Patient).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -48,7 +48,7 @@ class Patient(domainresource.DomainResource):
         
         self.deceasedDateTime = None
         """ Indicates if the individual is deceased or not.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.gender = None
         """ male | female | other | unknown.
@@ -106,7 +106,7 @@ class Patient(domainresource.DomainResource):
             ("communication", "communication", PatientCommunication, True, None, False),
             ("contact", "contact", PatientContact, True, None, False),
             ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
-            ("deceasedDateTime", "deceasedDateTime", fhirdate.FHIRDate, False, "deceased", False),
+            ("deceasedDateTime", "deceasedDateTime", fhirdatetime.FHIRDateTime, False, "deceased", False),
             ("gender", "gender", str, False, None, False),
             ("generalPractitioner", "generalPractitioner", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -259,6 +259,7 @@ from . import attachment
 from . import codeableconcept
 from . import contactpoint
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import humanname
 from . import identifier

@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import list
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class ListTests(unittest.TestCase):
@@ -114,7 +117,7 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].code, "346638")
         self.assertEqual(inst.code.coding[0].display, "Patient Admission List")
         self.assertEqual(inst.code.coding[0].system, "http://acme.com/list-codes")
-        self.assertEqual(inst.date.date, FHIRDate("2016-07-14T11:54:05+10:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2016-07-14T11:54:05+10:00").datetime)
         self.assertEqual(inst.date.as_json(), "2016-07-14T11:54:05+10:00")
         self.assertEqual(inst.id, "example-simple-empty")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -135,7 +138,7 @@ class ListTests(unittest.TestCase):
         self.implList5(inst2)
     
     def implList5(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2018-02-21T12:17:00+11:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2018-02-21T12:17:00+11:00").datetime)
         self.assertEqual(inst.date.as_json(), "2018-02-21T12:17:00+11:00")
         self.assertEqual(inst.id, "long")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
@@ -156,7 +159,7 @@ class ListTests(unittest.TestCase):
         self.implList6(inst2)
     
     def implList6(self, inst):
-        self.assertEqual(inst.date.date, FHIRDate("2012-11-25T22:17:00+11:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2012-11-25T22:17:00+11:00").datetime)
         self.assertEqual(inst.date.as_json(), "2012-11-25T22:17:00+11:00")
         self.assertTrue(inst.entry[0].deleted)
         self.assertEqual(inst.entry[0].flag.text, "Deleted due to error")
@@ -186,7 +189,7 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Review of medication")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.code.text, "Medication Review")
-        self.assertEqual(inst.date.date, FHIRDate("2012-11-26T07:30:23+11:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2012-11-26T07:30:23+11:00").datetime)
         self.assertEqual(inst.date.as_json(), "2012-11-26T07:30:23+11:00")
         self.assertEqual(inst.emptyReason.coding[0].code, "nilknown")
         self.assertEqual(inst.emptyReason.coding[0].display, "Nil Known")
@@ -215,7 +218,7 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Review of medication")
         self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.code.text, "Medication Review")
-        self.assertEqual(inst.date.date, FHIRDate("2013-11-20T23:10:23+11:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2013-11-20T23:10:23+11:00").datetime)
         self.assertEqual(inst.date.as_json(), "2013-11-20T23:10:23+11:00")
         self.assertEqual(inst.entry[0].flag.coding[0].code, "01")
         self.assertEqual(inst.entry[0].flag.coding[0].display, "Prescribed")
@@ -279,7 +282,7 @@ class ListTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display, "Allergies and Adverse Drug Reactions")
         self.assertEqual(inst.code.coding[0].system, "http://loinc.org")
         self.assertEqual(inst.code.text, "Current Allergy List")
-        self.assertEqual(inst.date.date, FHIRDate("2015-07-14T23:10:23+11:00").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-07-14T23:10:23+11:00").datetime)
         self.assertEqual(inst.date.as_json(), "2015-07-14T23:10:23+11:00")
         self.assertEqual(inst.id, "current-allergies")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")

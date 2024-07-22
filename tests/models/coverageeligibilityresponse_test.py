@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import coverageeligibilityresponse
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class CoverageEligibilityResponseTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class CoverageEligibilityResponseTests(unittest.TestCase):
         self.implCoverageEligibilityResponse1(inst2)
     
     def implCoverageEligibilityResponse1(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Policy is currently in-force.")
         self.assertEqual(inst.id, "E2500")
@@ -54,7 +57,7 @@ class CoverageEligibilityResponseTests(unittest.TestCase):
         self.implCoverageEligibilityResponse2(inst2)
     
     def implCoverageEligibilityResponse2(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Policy is currently in-force.")
         self.assertEqual(inst.id, "E2501")
@@ -152,7 +155,7 @@ class CoverageEligibilityResponseTests(unittest.TestCase):
     
     def implCoverageEligibilityResponse3(self, inst):
         self.assertEqual(inst.contained[0].id, "coverage-1")
-        self.assertEqual(inst.created.date, FHIRDate("2014-09-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-09-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-09-16")
         self.assertEqual(inst.disposition, "Policy is currently in-force.")
         self.assertEqual(inst.form.coding[0].code, "ELRSP/2017/01")
@@ -231,7 +234,7 @@ class CoverageEligibilityResponseTests(unittest.TestCase):
         self.implCoverageEligibilityResponse4(inst2)
     
     def implCoverageEligibilityResponse4(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-09-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-09-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-09-16")
         self.assertEqual(inst.disposition, "Eligibiliy request could not be processed, please address errors before submitting.")
         self.assertEqual(inst.error[0].code.coding[0].code, "a001")

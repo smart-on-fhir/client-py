@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CarePlan) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CarePlan).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -52,7 +52,7 @@ class CarePlan(domainresource.DomainResource):
         
         self.created = None
         """ Date record was first recorded.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Summary of nature of plan.
@@ -127,7 +127,7 @@ class CarePlan(domainresource.DomainResource):
             ("careTeam", "careTeam", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("contributor", "contributor", fhirreference.FHIRReference, True, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("created", "created", fhirdatetime.FHIRDateTime, False, None, False),
             ("description", "description", str, False, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("goal", "goal", fhirreference.FHIRReference, True, None, False),
@@ -333,7 +333,7 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

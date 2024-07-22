@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import enrollmentresponse
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class EnrollmentResponseTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class EnrollmentResponseTests(unittest.TestCase):
         self.implEnrollmentResponse1(inst2)
     
     def implEnrollmentResponse1(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition, "Dependant added to policy.")
         self.assertEqual(inst.id, "ER2500")

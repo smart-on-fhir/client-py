@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/List) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/List).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -24,7 +24,7 @@ class List(domainresource.DomainResource):
         
         self.date = None
         """ When the list was prepared.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.emptyReason = None
         """ Why list is empty.
@@ -76,7 +76,7 @@ class List(domainresource.DomainResource):
         js = super(List, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("entry", "entry", ListEntry, True, None, False),
@@ -112,7 +112,7 @@ class ListEntry(backboneelement.BackboneElement):
         
         self.date = None
         """ When item added to list.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.deleted = None
         """ If this item is actually marked as deleted.
@@ -131,7 +131,7 @@ class ListEntry(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ListEntry, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("deleted", "deleted", bool, False, None, False),
             ("flag", "flag", codeableconcept.CodeableConcept, False, None, False),
             ("item", "item", fhirreference.FHIRReference, False, None, True),
@@ -141,6 +141,6 @@ class ListEntry(backboneelement.BackboneElement):
 
 from . import annotation
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier

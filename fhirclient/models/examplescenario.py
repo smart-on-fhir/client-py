@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ExampleScenario) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ExampleScenario).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -32,7 +32,7 @@ class ExampleScenario(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.experimental = None
         """ For testing purposes, not real usage.
@@ -95,7 +95,7 @@ class ExampleScenario(domainresource.DomainResource):
             ("actor", "actor", ExampleScenarioActor, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("instance", "instance", ExampleScenarioInstance, True, None, False),
@@ -487,6 +487,6 @@ class ExampleScenarioProcessStepOperation(backboneelement.BackboneElement):
 
 from . import codeableconcept
 from . import contactdetail
-from . import fhirdate
+from . import fhirdatetime
 from . import identifier
 from . import usagecontext

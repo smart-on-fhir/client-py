@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -60,7 +60,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.created = None
         """ Response creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.diagnosis = None
         """ Pertinent diagnosis information.
@@ -208,7 +208,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
             ("careTeam", "careTeam", ExplanationOfBenefitCareTeam, True, None, False),
             ("claim", "claim", fhirreference.FHIRReference, False, None, False),
             ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
+            ("created", "created", fhirdatetime.FHIRDateTime, False, None, True),
             ("diagnosis", "diagnosis", ExplanationOfBenefitDiagnosis, True, None, False),
             ("disposition", "disposition", str, False, None, False),
             ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
@@ -1322,7 +1322,7 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
         
         self.date = None
         """ When the procedure was performed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.procedureCodeableConcept = None
         """ Specific clinical procedure.
@@ -1349,7 +1349,7 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExplanationOfBenefitProcedure, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),
             ("procedureCodeableConcept", "procedureCodeableConcept", codeableconcept.CodeableConcept, False, "procedure", True),
             ("procedureReference", "procedureReference", fhirreference.FHIRReference, False, "procedure", True),
             ("sequence", "sequence", int, False, None, True),
@@ -1567,6 +1567,7 @@ from . import attachment
 from . import codeableconcept
 from . import coding
 from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import money

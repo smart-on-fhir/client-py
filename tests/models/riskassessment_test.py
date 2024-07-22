@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import riskassessment
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class RiskAssessmentTests(unittest.TestCase):
@@ -59,7 +62,7 @@ class RiskAssessmentTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.method.coding[0].code, "BRCAPRO")
         self.assertEqual(inst.note[0].text, "High degree of certainty")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2006-01-13T23:01:00Z").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2006-01-13T23:01:00Z").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2006-01-13T23:01:00Z")
         self.assertEqual(inst.prediction[0].outcome.text, "Breast Cancer")
         self.assertEqual(inst.prediction[0].probabilityDecimal, 0.000168)
@@ -177,7 +180,7 @@ class RiskAssessmentTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2014-07-19T16:04:00Z").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2014-07-19T16:04:00Z").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2014-07-19T16:04:00Z")
         self.assertEqual(inst.prediction[0].outcome.text, "Heart Attack")
         self.assertEqual(inst.prediction[0].probabilityDecimal, 0.02)
@@ -207,7 +210,7 @@ class RiskAssessmentTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurrenceDateTime.date, FHIRDate("2010-11-22").date)
+        self.assertEqual(inst.occurrenceDateTime.datetime, FHIRDateTime("2010-11-22").datetime)
         self.assertEqual(inst.occurrenceDateTime.as_json(), "2010-11-22")
         self.assertEqual(inst.prediction[0].outcome.coding[0].code, "249943000:363698007=72098002,260868000=6934004")
         self.assertEqual(inst.prediction[0].outcome.coding[0].system, "http://snomed.info/sct")

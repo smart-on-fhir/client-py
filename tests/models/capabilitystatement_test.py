@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import capabilitystatement
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class CapabilityStatementTests(unittest.TestCase):
@@ -31,7 +34,7 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].telecom[0].system, "email")
         self.assertEqual(inst.contact[0].telecom[0].value, "wile@acme.org")
         self.assertEqual(inst.copyright, "Copyright © Acme Healthcare and GoodCorp EHR Systems")
-        self.assertEqual(inst.date.date, FHIRDate("2012-01-04").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2012-01-04").datetime)
         self.assertEqual(inst.date.as_json(), "2012-01-04")
         self.assertEqual(inst.description, "This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface")
         self.assertEqual(inst.document[0].documentation, "Basic rules for all documents in the EHR system")
@@ -99,7 +102,7 @@ class CapabilityStatementTests(unittest.TestCase):
         self.assertEqual(inst.rest[0].security.service[0].coding[0].code, "SMART-on-FHIR")
         self.assertEqual(inst.rest[0].security.service[0].coding[0].system, "http://terminology.hl7.org/CodeSystem/restful-security-service")
         self.assertEqual(inst.software.name, "EHR")
-        self.assertEqual(inst.software.releaseDate.date, FHIRDate("2012-01-04").date)
+        self.assertEqual(inst.software.releaseDate.datetime, FHIRDateTime("2012-01-04").datetime)
         self.assertEqual(inst.software.releaseDate.as_json(), "2012-01-04")
         self.assertEqual(inst.software.version, "0.00.020.2134")
         self.assertEqual(inst.status, "draft")
@@ -125,7 +128,7 @@ class CapabilityStatementTests(unittest.TestCase):
     def implCapabilityStatement2(self, inst):
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2013-06-18").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2013-06-18").datetime)
         self.assertEqual(inst.date.as_json(), "2013-06-18")
         self.assertEqual(inst.description, "Prototype Capability Statement for September 2013 Connectathon")
         self.assertEqual(inst.fhirVersion, "4.0.1")

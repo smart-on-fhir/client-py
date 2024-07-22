@@ -1,5 +1,5 @@
-#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SupplyRequest) on 2024-07-15.
-#  2024, SMART Health IT.
+# Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SupplyRequest).
+# 2024, SMART Health IT.
 
 
 from . import domainresource
@@ -23,7 +23,7 @@ class SupplyRequest(domainresource.DomainResource):
         
         self.authoredOn = None
         """ When the request was made.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.category = None
         """ The kind of supply (central, non-stock, etc.).
@@ -51,7 +51,7 @@ class SupplyRequest(domainresource.DomainResource):
         
         self.occurrenceDateTime = None
         """ When the request should be fulfilled.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
         """ When the request should be fulfilled.
@@ -98,14 +98,14 @@ class SupplyRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SupplyRequest, self).elementProperties()
         js.extend([
-            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
+            ("authoredOn", "authoredOn", fhirdatetime.FHIRDateTime, False, None, False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("deliverFrom", "deliverFrom", fhirreference.FHIRReference, False, None, False),
             ("deliverTo", "deliverTo", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),
             ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatetime.FHIRDateTime, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
             ("parameter", "parameter", SupplyRequestParameter, True, None, False),
@@ -174,7 +174,7 @@ class SupplyRequestParameter(backboneelement.BackboneElement):
 
 
 from . import codeableconcept
-from . import fhirdate
+from . import fhirdatetime
 from . import fhirreference
 from . import identifier
 from . import period

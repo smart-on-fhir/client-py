@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import structuremap
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class StructureMapTests(unittest.TestCase):
@@ -29,7 +32,7 @@ class StructureMapTests(unittest.TestCase):
     def implStructureMap1(self, inst):
         self.assertEqual(inst.contact[0].telecom[0].system, "url")
         self.assertEqual(inst.contact[0].telecom[0].value, "http://hl7.org/fhir")
-        self.assertEqual(inst.date.date, FHIRDate("2017-03-09").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2017-03-09").datetime)
         self.assertEqual(inst.date.as_json(), "2017-03-09")
         self.assertEqual(inst.description, "Example Structure Map")
         self.assertEqual(inst.group[0].documentation, "test -> testValue")

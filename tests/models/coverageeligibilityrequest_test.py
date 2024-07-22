@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import coverageeligibilityrequest
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class CoverageEligibilityRequestTests(unittest.TestCase):
@@ -27,7 +30,7 @@ class CoverageEligibilityRequestTests(unittest.TestCase):
         self.implCoverageEligibilityRequest1(inst2)
     
     def implCoverageEligibilityRequest1(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.id, "52345")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/coverageelegibilityrequest")
@@ -53,7 +56,7 @@ class CoverageEligibilityRequestTests(unittest.TestCase):
         self.implCoverageEligibilityRequest2(inst2)
     
     def implCoverageEligibilityRequest2(self, inst):
-        self.assertEqual(inst.created.date, FHIRDate("2014-08-16").date)
+        self.assertEqual(inst.created.datetime, FHIRDateTime("2014-08-16").datetime)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.id, "52346")
         self.assertEqual(inst.identifier[0].system, "http://happyvalley.com/coverageelegibilityrequest")

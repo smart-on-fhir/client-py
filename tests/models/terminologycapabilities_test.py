@@ -6,6 +6,9 @@ import unittest
 import json
 from fhirclient.models import terminologycapabilities
 from fhirclient.models.fhirdate import FHIRDate
+from fhirclient.models.fhirdatetime import FHIRDateTime
+from fhirclient.models.fhirinstant import FHIRInstant
+from fhirclient.models.fhirtime import FHIRTime
 
 
 class TerminologyCapabilitiesTests(unittest.TestCase):
@@ -31,7 +34,7 @@ class TerminologyCapabilitiesTests(unittest.TestCase):
         self.assertEqual(inst.contact[0].name, "System Administrator")
         self.assertEqual(inst.contact[0].telecom[0].system, "email")
         self.assertEqual(inst.contact[0].telecom[0].value, "wile@acme.org")
-        self.assertEqual(inst.date.date, FHIRDate("2012-01-04").date)
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2012-01-04").datetime)
         self.assertEqual(inst.date.as_json(), "2012-01-04")
         self.assertEqual(inst.description, "This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface")
         self.assertTrue(inst.experimental)
