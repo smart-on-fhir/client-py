@@ -5,12 +5,19 @@
     pip install -U build
     python3 -m build
 
-### Incrementing the lib version
+## Incrementing the lib version
 
 - Edit `fhirclient/client.py` and change the `__version__` field.
 - Edit `docs/Doxyfile` and change the `PROJECT_NUMBER` field.
 
-## Docs Generation
+## Cutting a new release
+
+1. Make sure that the version is correct in the source (see above for update instructions).
+2. Update the docs
+3. Release on GitHub
+4. Announce on Zulip
+
+### Docs Generation
 
 Docs are generated with [Doxygen](https://www.doxygen.nl/)
 and [doxypypy](https://github.com/Feneric/doxypypy).
@@ -24,22 +31,11 @@ I usually perform a second checkout of the _gh-pages_ branch and copy the HTML f
     doxygen docs/Doxyfile
     rsync -a docs/html/ ../client-py-web/
 
-## PyPi Publishing (notes for SMART team)
+### Release on GitHub
 
-Using flit (*Note*: Alternatively, you can use [twine](https://twine.readthedocs.io/)):
+Just create a new release in GitHub and create a corresponding tag.
 
-### Make sure that you have the PyPi account credentials in your account
-
-    copy server.smarthealthit.org:/home/fhir/.pypirc to ~/.pypirc
-
-### Test the build
-
-    python3 -m build
-
-### Upload the packages to PyPi
-
-    pip install -U flit
-    flit publish
+This will also cause the `pypi.yaml` GitHub Action to fire, uploading to PyPI.
 
 ### Announce the release
 
