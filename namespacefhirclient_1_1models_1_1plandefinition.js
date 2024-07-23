@@ -7,21 +7,5 @@ var namespacefhirclient_1_1models_1_1plandefinition =
     [ "PlanDefinitionActionParticipant", "classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_action_participant.html", "classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_action_participant" ],
     [ "PlanDefinitionActionRelatedAction", "classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_action_related_action.html", "classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_action_related_action" ],
     [ "PlanDefinitionGoal", "classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_goal.html", "classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_goal" ],
-    [ "PlanDefinitionGoalTarget", "classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_goal_target.html", "classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_goal_target" ],
-    [ "age", "namespacefhirclient_1_1models_1_1plandefinition.html#a04dd8c955cc81001cb828cf5aac1c4f5", null ],
-    [ "codeableconcept", "namespacefhirclient_1_1models_1_1plandefinition.html#a0bfb4449298d3f7bcd8f8c7d54acab49", null ],
-    [ "contactdetail", "namespacefhirclient_1_1models_1_1plandefinition.html#aea440a073a04627b6b7586fc012697f3", null ],
-    [ "datarequirement", "namespacefhirclient_1_1models_1_1plandefinition.html#ac316b5058c5fe35af3366fe90a4d8d6b", null ],
-    [ "duration", "namespacefhirclient_1_1models_1_1plandefinition.html#a60397929adab76d8dfffb97d20dd9b2c", null ],
-    [ "expression", "namespacefhirclient_1_1models_1_1plandefinition.html#a109525dc8b771c3aecd07bba20567918", null ],
-    [ "fhirdate", "namespacefhirclient_1_1models_1_1plandefinition.html#ab1afbcfed8faba240ec014500b4f4480", null ],
-    [ "fhirreference", "namespacefhirclient_1_1models_1_1plandefinition.html#a1fef155267a6aabda2ef9db1c686a4df", null ],
-    [ "identifier", "namespacefhirclient_1_1models_1_1plandefinition.html#aa7435d87b326b5ae7d5c421917d457b4", null ],
-    [ "period", "namespacefhirclient_1_1models_1_1plandefinition.html#a28dad976d66dd62837451a44b0332655", null ],
-    [ "quantity", "namespacefhirclient_1_1models_1_1plandefinition.html#ad7e7bb5e84cfc30c030f3675c7ba6b16", null ],
-    [ "range", "namespacefhirclient_1_1models_1_1plandefinition.html#a671d7b7281c61b8e6b8612efb621aa2d", null ],
-    [ "relatedartifact", "namespacefhirclient_1_1models_1_1plandefinition.html#a896da0712d25e05d23823d346c47df86", null ],
-    [ "timing", "namespacefhirclient_1_1models_1_1plandefinition.html#a8f9b773700fef1ebd71af85d5d9f4349", null ],
-    [ "triggerdefinition", "namespacefhirclient_1_1models_1_1plandefinition.html#abecaa37053a5eb48bd4af9ac93766b3f", null ],
-    [ "usagecontext", "namespacefhirclient_1_1models_1_1plandefinition.html#a87296e61fc037dcd25297eed96ab621d", null ]
+    [ "PlanDefinitionGoalTarget", "classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_goal_target.html", "classfhirclient_1_1models_1_1plandefinition_1_1_plan_definition_goal_target" ]
 ];

@@ -31,6 +31,7 @@ var classfhirclient_1_1models_1_1task_1_1_task_output =
     [ "valueInstant", "classfhirclient_1_1models_1_1task_1_1_task_output.html#a46f238cc3e95bc9a8a69584856f9abea", null ],
     [ "valueInteger", "classfhirclient_1_1models_1_1task_1_1_task_output.html#a1fdd6e13377de463cf01e436e2bc6ae0", null ],
     [ "valueMarkdown", "classfhirclient_1_1models_1_1task_1_1_task_output.html#a50719074d18ef5ea0763caaa7682026b", null ],
+    [ "valueMeta", "classfhirclient_1_1models_1_1task_1_1_task_output.html#ad03bd668b1b5d8c56b8c954dd934cdf9", null ],
     [ "valueMoney", "classfhirclient_1_1models_1_1task_1_1_task_output.html#a507f54d678935f9509d67a0c4dc11c1f", null ],
     [ "valueOid", "classfhirclient_1_1models_1_1task_1_1_task_output.html#ab3d76abcacd229e382f5fb18f135cbb2", null ],
     [ "valueParameterDefinition", "classfhirclient_1_1models_1_1task_1_1_task_output.html#a6a999d23587d16c124966b768a49a6b6", null ],

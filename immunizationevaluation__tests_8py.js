@@ -1,4 +1,0 @@
-var immunizationevaluation__tests_8py =
-[
-    [ "fhirclient.models.immunizationevaluation_tests.ImmunizationEvaluationTests", "classfhirclient_1_1models_1_1immunizationevaluation__tests_1_1_immunization_evaluation_tests.html", "classfhirclient_1_1models_1_1immunizationevaluation__tests_1_1_immunization_evaluation_tests" ]
-];

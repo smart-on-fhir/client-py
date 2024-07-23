@@ -20,15 +20,5 @@ var namespacefhirclient_1_1models_1_1explanationofbenefit =
     [ "ExplanationOfBenefitProcessNote", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_process_note.html", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_process_note" ],
     [ "ExplanationOfBenefitRelated", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_related.html", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_related" ],
     [ "ExplanationOfBenefitSupportingInfo", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_supporting_info.html", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_supporting_info" ],
-    [ "ExplanationOfBenefitTotal", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_total.html", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_total" ],
-    [ "address", "namespacefhirclient_1_1models_1_1explanationofbenefit.html#a6a9af4d0bccb9a3c834e26002c5468bc", null ],
-    [ "attachment", "namespacefhirclient_1_1models_1_1explanationofbenefit.html#a6fadd2246b8eb018d3079cfa11ce4971", null ],
-    [ "codeableconcept", "namespacefhirclient_1_1models_1_1explanationofbenefit.html#a63cf19999cf76d402e155a79f98c8e8f", null ],
-    [ "coding", "namespacefhirclient_1_1models_1_1explanationofbenefit.html#ac47a34a219aa2c60c09f7e783cd40646", null ],
-    [ "fhirdate", "namespacefhirclient_1_1models_1_1explanationofbenefit.html#a4f7c78b64f085571f80925370b1a93e4", null ],
-    [ "fhirreference", "namespacefhirclient_1_1models_1_1explanationofbenefit.html#af1b1a7ce2c8c914c338c113f25f8e07b", null ],
-    [ "identifier", "namespacefhirclient_1_1models_1_1explanationofbenefit.html#af195f82dc7a274ba627b8f000cda7b3b", null ],
-    [ "money", "namespacefhirclient_1_1models_1_1explanationofbenefit.html#a9b0c223cc4d9e7117b8577ebbe1c1032", null ],
-    [ "period", "namespacefhirclient_1_1models_1_1explanationofbenefit.html#a6014a5264b0c286a89ceec80622e3073", null ],
-    [ "quantity", "namespacefhirclient_1_1models_1_1explanationofbenefit.html#a63f39ca9eb507c5938c79f504be9df55", null ]
+    [ "ExplanationOfBenefitTotal", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_total.html", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_total" ]
 ];

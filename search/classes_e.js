@@ -8,7 +8,5 @@ var searchData=
   ['questionnaireiteminitial_5',['QuestionnaireItemInitial',['../classfhirclient_1_1models_1_1questionnaire_1_1_questionnaire_item_initial.html',1,'fhirclient::models::questionnaire']]],
   ['questionnaireresponse_6',['QuestionnaireResponse',['../classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response.html',1,'fhirclient::models::questionnaireresponse']]],
   ['questionnaireresponseitem_7',['QuestionnaireResponseItem',['../classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_item.html',1,'fhirclient::models::questionnaireresponse']]],
-  ['questionnaireresponseitemanswer_8',['QuestionnaireResponseItemAnswer',['../classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_item_answer.html',1,'fhirclient::models::questionnaireresponse']]],
-  ['questionnaireresponsetests_9',['QuestionnaireResponseTests',['../classfhirclient_1_1models_1_1questionnaireresponse__tests_1_1_questionnaire_response_tests.html',1,'fhirclient::models::questionnaireresponse_tests']]],
-  ['questionnairetests_10',['QuestionnaireTests',['../classfhirclient_1_1models_1_1questionnaire__tests_1_1_questionnaire_tests.html',1,'fhirclient::models::questionnaire_tests']]]
+  ['questionnaireresponseitemanswer_8',['QuestionnaireResponseItemAnswer',['../classfhirclient_1_1models_1_1questionnaireresponse_1_1_questionnaire_response_item_answer.html',1,'fhirclient::models::questionnaireresponse']]]
 ];

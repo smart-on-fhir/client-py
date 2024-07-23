@@ -1,6 +1,0 @@
-var classfhirclient_1_1models_1_1medicinalproductmanufactured__tests_1_1_medicinal_product_manufactured_tests =
-[
-    [ "implMedicinalProductManufactured1", "classfhirclient_1_1models_1_1medicinalproductmanufactured__tests_1_1_medicinal_product_manufactured_tests.html#a56ebbac2a5855d26df019d999acfdd63", null ],
-    [ "instantiate_from", "classfhirclient_1_1models_1_1medicinalproductmanufactured__tests_1_1_medicinal_product_manufactured_tests.html#a7d2720983b705342258b8f9ff40ef491", null ],
-    [ "testMedicinalProductManufactured1", "classfhirclient_1_1models_1_1medicinalproductmanufactured__tests_1_1_medicinal_product_manufactured_tests.html#a5302aaa54ca2bb7ad425b53d166249a9", null ]
-];

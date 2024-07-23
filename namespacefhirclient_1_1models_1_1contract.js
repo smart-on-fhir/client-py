@@ -15,17 +15,5 @@ var namespacefhirclient_1_1models_1_1contract =
     [ "ContractTermOffer", "classfhirclient_1_1models_1_1contract_1_1_contract_term_offer.html", "classfhirclient_1_1models_1_1contract_1_1_contract_term_offer" ],
     [ "ContractTermOfferAnswer", "classfhirclient_1_1models_1_1contract_1_1_contract_term_offer_answer.html", "classfhirclient_1_1models_1_1contract_1_1_contract_term_offer_answer" ],
     [ "ContractTermOfferParty", "classfhirclient_1_1models_1_1contract_1_1_contract_term_offer_party.html", "classfhirclient_1_1models_1_1contract_1_1_contract_term_offer_party" ],
-    [ "ContractTermSecurityLabel", "classfhirclient_1_1models_1_1contract_1_1_contract_term_security_label.html", "classfhirclient_1_1models_1_1contract_1_1_contract_term_security_label" ],
-    [ "annotation", "namespacefhirclient_1_1models_1_1contract.html#ab5e26221c18b395191af61885a974671", null ],
-    [ "attachment", "namespacefhirclient_1_1models_1_1contract.html#acabd285711df993eed1a5f35666a87bc", null ],
-    [ "codeableconcept", "namespacefhirclient_1_1models_1_1contract.html#af3a9417f8854492ce7a989a36e4904c2", null ],
-    [ "coding", "namespacefhirclient_1_1models_1_1contract.html#a70f2552f64acec889006b46900e1e381", null ],
-    [ "fhirdate", "namespacefhirclient_1_1models_1_1contract.html#ae4154719e902fce7b3e0c31441d6fb25", null ],
-    [ "fhirreference", "namespacefhirclient_1_1models_1_1contract.html#a593624be6b5b3f30e255639940cc1ae1", null ],
-    [ "identifier", "namespacefhirclient_1_1models_1_1contract.html#ab1fd01f6f0f48f69ca6ec16eb22e05b8", null ],
-    [ "money", "namespacefhirclient_1_1models_1_1contract.html#ab533ca36cca76c318477a78f216313de", null ],
-    [ "period", "namespacefhirclient_1_1models_1_1contract.html#a86c82070ec1ab06f0b6631eb794aa998", null ],
-    [ "quantity", "namespacefhirclient_1_1models_1_1contract.html#af58f0c2d4d945a9d75dbb11a828b83fa", null ],
-    [ "signature", "namespacefhirclient_1_1models_1_1contract.html#a5de35e0180f9de1865c3570058ab94cc", null ],
-    [ "timing", "namespacefhirclient_1_1models_1_1contract.html#aa9eb25f9d339a682bf0e8b6575a26af4", null ]
+    [ "ContractTermSecurityLabel", "classfhirclient_1_1models_1_1contract_1_1_contract_term_security_label.html", "classfhirclient_1_1models_1_1contract_1_1_contract_term_security_label" ]
 ];

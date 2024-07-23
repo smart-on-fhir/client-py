@@ -12,14 +12,5 @@ var claimresponse_8py =
     [ "fhirclient.models.claimresponse.ClaimResponseItemDetailSubDetail", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail_sub_detail.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail_sub_detail" ],
     [ "fhirclient.models.claimresponse.ClaimResponsePayment", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_payment.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_payment" ],
     [ "fhirclient.models.claimresponse.ClaimResponseProcessNote", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_process_note.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_process_note" ],
-    [ "fhirclient.models.claimresponse.ClaimResponseTotal", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_total.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_total" ],
-    [ "address", "claimresponse_8py.html#a99800488c19b294a9f89c4128f26af06", null ],
-    [ "attachment", "claimresponse_8py.html#a8edd26ce07dd43c503753752bd71efd3", null ],
-    [ "codeableconcept", "claimresponse_8py.html#a2909feb0790c8136359ee88d564729f9", null ],
-    [ "fhirdate", "claimresponse_8py.html#af04bfc78f4505a81c6030725c9915a98", null ],
-    [ "fhirreference", "claimresponse_8py.html#a85984f601f1cdbb872b8430c12ec736e", null ],
-    [ "identifier", "claimresponse_8py.html#adf88e0d88b44bdba3e8b8a1873feee15", null ],
-    [ "money", "claimresponse_8py.html#af9f12cd9a6fe539e9e1453f78a97256c", null ],
-    [ "period", "claimresponse_8py.html#aa4f796c4c80e91338a75d699b09f6345", null ],
-    [ "quantity", "claimresponse_8py.html#a42e533d58b097384fdd473acde36e9d8", null ]
+    [ "fhirclient.models.claimresponse.ClaimResponseTotal", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_total.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_total" ]
 ];

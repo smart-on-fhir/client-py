@@ -1,6 +1,0 @@
-var classfhirclient_1_1models_1_1medicinalproductcontraindication__tests_1_1_medicinal_product_contraindication_tests =
-[
-    [ "implMedicinalProductContraindication1", "classfhirclient_1_1models_1_1medicinalproductcontraindication__tests_1_1_medicinal_product_contraindication_tests.html#a1c6a1ef722ceefd199de78d69f58629a", null ],
-    [ "instantiate_from", "classfhirclient_1_1models_1_1medicinalproductcontraindication__tests_1_1_medicinal_product_contraindication_tests.html#a5c9ea8d6354f7329637d928efce8f3c5", null ],
-    [ "testMedicinalProductContraindication1", "classfhirclient_1_1models_1_1medicinalproductcontraindication__tests_1_1_medicinal_product_contraindication_tests.html#af04996ec880c5bd26c3b132ee4c4daab", null ]
-];

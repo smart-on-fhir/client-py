@@ -2,12 +2,5 @@ var namespacefhirclient_1_1models_1_1location =
 [
     [ "Location", "classfhirclient_1_1models_1_1location_1_1_location.html", "classfhirclient_1_1models_1_1location_1_1_location" ],
     [ "LocationHoursOfOperation", "classfhirclient_1_1models_1_1location_1_1_location_hours_of_operation.html", "classfhirclient_1_1models_1_1location_1_1_location_hours_of_operation" ],
-    [ "LocationPosition", "classfhirclient_1_1models_1_1location_1_1_location_position.html", "classfhirclient_1_1models_1_1location_1_1_location_position" ],
-    [ "address", "namespacefhirclient_1_1models_1_1location.html#ae5cad1b67eca5f837e949d9d71b69486", null ],
-    [ "codeableconcept", "namespacefhirclient_1_1models_1_1location.html#a22ae9309a0be1e12e37c70d123c230d7", null ],
-    [ "coding", "namespacefhirclient_1_1models_1_1location.html#a7425dd66d68b6dfbcc6398f83d35b005", null ],
-    [ "contactpoint", "namespacefhirclient_1_1models_1_1location.html#a610e5f1eab27b1a1742b48336212b337", null ],
-    [ "fhirdate", "namespacefhirclient_1_1models_1_1location.html#a392c71995d9e250a1fad60815c2597af", null ],
-    [ "fhirreference", "namespacefhirclient_1_1models_1_1location.html#aa37f76fff5b5922ae0bc7219b1c23cba", null ],
-    [ "identifier", "namespacefhirclient_1_1models_1_1location.html#a02acb96842cc1323c268f5a5ae729990", null ]
+    [ "LocationPosition", "classfhirclient_1_1models_1_1location_1_1_location_position.html", "classfhirclient_1_1models_1_1location_1_1_location_position" ]
 ];

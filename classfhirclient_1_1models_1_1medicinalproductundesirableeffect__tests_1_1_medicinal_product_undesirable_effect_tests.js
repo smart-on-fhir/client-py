@@ -1,6 +1,0 @@
-var classfhirclient_1_1models_1_1medicinalproductundesirableeffect__tests_1_1_medicinal_product_undesirable_effect_tests =
-[
-    [ "implMedicinalProductUndesirableEffect1", "classfhirclient_1_1models_1_1medicinalproductundesirableeffect__tests_1_1_medicinal_product_undesirable_effect_tests.html#abcd25d1e064a3db1226803e8edeee1e4", null ],
-    [ "instantiate_from", "classfhirclient_1_1models_1_1medicinalproductundesirableeffect__tests_1_1_medicinal_product_undesirable_effect_tests.html#ae5076f8398393f11fc53947d27cbd8e9", null ],
-    [ "testMedicinalProductUndesirableEffect1", "classfhirclient_1_1models_1_1medicinalproductundesirableeffect__tests_1_1_medicinal_product_undesirable_effect_tests.html#ad3849c52ecc7aaf8caed71ac8dcb4bf3", null ]
-];
