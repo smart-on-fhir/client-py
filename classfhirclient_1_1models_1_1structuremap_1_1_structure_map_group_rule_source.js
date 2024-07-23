@@ -33,6 +33,7 @@ var classfhirclient_1_1models_1_1structuremap_1_1_structure_map_group_rule_sourc
     [ "defaultValueInstant", "classfhirclient_1_1models_1_1structuremap_1_1_structure_map_group_rule_source.html#a5bd636315ee7d8bb7619829119529170", null ],
     [ "defaultValueInteger", "classfhirclient_1_1models_1_1structuremap_1_1_structure_map_group_rule_source.html#ac350f1aa674ab90f08f5702286e572ee", null ],
     [ "defaultValueMarkdown", "classfhirclient_1_1models_1_1structuremap_1_1_structure_map_group_rule_source.html#a6d2b038042905e7a07f5de8c53c46e21", null ],
+    [ "defaultValueMeta", "classfhirclient_1_1models_1_1structuremap_1_1_structure_map_group_rule_source.html#af908f839a23f5324b3c4289e400f574c", null ],
     [ "defaultValueMoney", "classfhirclient_1_1models_1_1structuremap_1_1_structure_map_group_rule_source.html#a57ae002748930bdc80f30fc1c65344c7", null ],
     [ "defaultValueOid", "classfhirclient_1_1models_1_1structuremap_1_1_structure_map_group_rule_source.html#ac7ea475ba8291f2caf907ac6b04a880c", null ],
     [ "defaultValueParameterDefinition", "classfhirclient_1_1models_1_1structuremap_1_1_structure_map_group_rule_source.html#a67a36407265f71f6a50905b2e511bdab", null ],

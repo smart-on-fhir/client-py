@@ -1,4 +1,0 @@
-var coverageeligibilityrequest__tests_8py =
-[
-    [ "fhirclient.models.coverageeligibilityrequest_tests.CoverageEligibilityRequestTests", "classfhirclient_1_1models_1_1coverageeligibilityrequest__tests_1_1_coverage_eligibility_request_tests.html", "classfhirclient_1_1models_1_1coverageeligibilityrequest__tests_1_1_coverage_eligibility_request_tests" ]
-];

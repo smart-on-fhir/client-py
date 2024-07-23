@@ -31,7 +31,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">SMART on FHIR Python Client<span id="projectnumber">&#160;4.1.0</span>
+   <div id="projectname">SMART on FHIR Python Client<span id="projectnumber">&#160;4.2.0</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -99,61 +99,70 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">SMART FHIR Client </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
-<p>This is <em>fhirclient</em>, a flexible Python client for <a href="http://www.hl7.org/implement/standards/fhir/">FHIR</a> servers supporting the <a href="http://docs.smarthealthit.org">SMART on FHIR</a> protocol. The client is compatible with Python 2.7.10 and Python 3.</p>
-<p>Client versioning is not identical to FHIR versioning. The <code>master</code> branch is usually on the latest version of the client as shown below, possibly on bugfix releases thereof. The <code>develop</code> branch should be on recent freezes, and the <code>feature/latest-ci</code> branch is periodically updated to the latest FHIR continuous integration builds.</p>
+<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> This is <em>fhirclient</em>, a flexible Python client for <a href="http://www.hl7.org/implement/standards/fhir/">FHIR</a> servers supporting the <a href="http://docs.smarthealthit.org">SMART on FHIR</a> protocol.</p>
+<p>Client versioning is not identical to FHIR versioning. The <code>main</code> branch is usually on the latest version of the client, as shown below, and possibly on their bugfix releases. The <code>develop</code> branch should be on recent freezes, and the <code>feature/latest-ci</code> branch is periodically updated to the latest FHIR continuous integration builds.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Version   </th><th class="markdownTableHeadNone">FHIR   </th><th class="markdownTableHeadNone">&#160;    </th></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>4.2.0</b>   </td><td class="markdownTableBodyNone"><code>4.0.1</code>   </td><td class="markdownTableBodyNone">(R4)    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>4.0.0</b>   </td><td class="markdownTableBodyNone"><code>4.0.0</code>   </td><td class="markdownTableBodyNone">(R4)    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><b>3.0.0</b>   </td><td class="markdownTableBodyNone"><code>3.0.0</code>   </td><td class="markdownTableBodyNone">(STU-3)    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>x.x</b>   </td><td class="markdownTableBodyNone"><code>1.8.0</code>   </td><td class="markdownTableBodyNone">(STU-3 Ballot, Jan 2017)    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><b>x.x</b>   </td><td class="markdownTableBodyNone"><code>1.6.0</code>   </td><td class="markdownTableBodyNone">(STU-3 Ballot, Sep 2016)    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>1.0.3</b>   </td><td class="markdownTableBodyNone"><code>1.0.2</code>   </td><td class="markdownTableBodyNone">(DSTU 2)    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><b>1.0</b>   </td><td class="markdownTableBodyNone"><code>1.0.1</code>   </td><td class="markdownTableBodyNone">(DSTU 2)    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>0.5</b>   </td><td class="markdownTableBodyNone"><code>0.5.0.5149</code>   </td><td class="markdownTableBodyNone">(DSTU 2 Ballot, May 2015)    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>0.0.4</b>   </td><td class="markdownTableBodyNone"><code>0.0.82.2943</code>   </td><td class="markdownTableBodyNone">(DSTU 1)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>0.0.3</b>   </td><td class="markdownTableBodyNone"><code>0.0.82.2943</code>   </td><td class="markdownTableBodyNone">(DSTU 1)    </td></tr>
+<td class="markdownTableBodyNone"><b>0.0.4</b>   </td><td class="markdownTableBodyNone"><code>0.0.82.2943</code>   </td><td class="markdownTableBodyNone">(DSTU 1)    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>0.0.3</b>   </td><td class="markdownTableBodyNone"><code>0.0.82.2943</code>   </td><td class="markdownTableBodyNone">(DSTU 1)    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><b>0.0.2</b>   </td><td class="markdownTableBodyNone"><code>0.0.82.2943</code>   </td><td class="markdownTableBodyNone">(DSTU 1)   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md0"></a>
+<h1><a class="anchor" id="autotoc_md1"></a>
 Installation</h1>
 <pre class="fragment">pip install fhirclient
-</pre><h1><a class="anchor" id="autotoc_md1"></a>
+</pre><h1><a class="anchor" id="autotoc_md2"></a>
 Documentation</h1>
 <p>Technical documentation is available at <a href="https://smart-on-fhir.github.io/client-py">docs.smarthealthit.org/client-py/</a>.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Client Use</h2>
 <p>To connect to a SMART on FHIR server (or any open FHIR server), you can use the <code>FHIRClient</code> class. It will initialize and handle a <code>FHIRServer</code> instance, your actual handle to the FHIR server you'd like to access.</p>
-<h4><a class="anchor" id="autotoc_md3"></a>
+<h4><a class="anchor" id="autotoc_md4"></a>
 Read Data from Server</h4>
 <p>To read a given patient from an open FHIR server, you can use:</p>
 <div class="fragment"><div class="line"><span class="keyword">from</span> fhirclient <span class="keyword">import</span> client</div>
+<div class="line"><span class="keyword">from</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1patient.html">fhirclient.models.patient</a> <span class="keyword">import</span> Patient</div>
+<div class="line"> </div>
 <div class="line">settings = {</div>
 <div class="line">    <span class="stringliteral">&#39;app_id&#39;</span>: <span class="stringliteral">&#39;my_web_app&#39;</span>,</div>
-<div class="line">    <span class="stringliteral">&#39;api_base&#39;</span>: <span class="stringliteral">&#39;https://fhir-open-api-dstu2.smarthealthit.org&#39;</span></div>
+<div class="line">    <span class="stringliteral">&#39;api_base&#39;</span>: <span class="stringliteral">&#39;https://r4.smarthealthit.org&#39;</span></div>
 <div class="line">}</div>
 <div class="line">smart = client.FHIRClient(settings=settings)</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">import</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1patient.html">fhirclient.models.patient</a> <span class="keyword">as</span> p</div>
-<div class="line">patient = p.Patient.read(<span class="stringliteral">&#39;hca-pat-1&#39;</span>, smart.server)</div>
-<div class="line">patient.birthDate.isostring</div>
-<div class="line"><span class="comment"># &#39;1963-06-12&#39;</span></div>
-<div class="line">smart.human_name(patient.name[0])</div>
-<div class="line"><span class="comment"># &#39;Christy Ebert&#39;</span></div>
+<div class="line">patient = Patient.read(<span class="stringliteral">&#39;2cda5aad-e409-4070-9a15-e1c35c46ed5a&#39;</span>, smart.server)</div>
+<div class="line">print(patient.birthDate.isostring)</div>
+<div class="line"><span class="comment"># &#39;1992-07-03&#39;</span></div>
+<div class="line">print(smart.human_name(patient.name[0]))</div>
+<div class="line"><span class="comment"># &#39;Mr. Geoffrey Abbott&#39;</span></div>
 <div class="ttc" id="anamespacefhirclient_1_1models_1_1patient_html"><div class="ttname"><a href="namespacefhirclient_1_1models_1_1patient.html">fhirclient.models.patient</a></div><div class="ttdef"><b>Definition</b> patient.py:1</div></div>
-</div><!-- fragment --><p>If this is a protected server, you will first have to send your user to the authorize endpoint to log in. Just call <code>smart.authorize_url</code> to obtain the correct URL. You can use <code>smart.prepare()</code>, which will return <code>False</code> if the server is protected and you need to authorize. The <code>smart.ready</code> property has the same purpose, it will however not retrieve the server's <em>CapabilityStatement</em> resource and hence is only useful as a quick check whether the server instance is ready.</p>
-<div class="fragment"><div class="line">smart = client.FHIRClient(settings=settings)</div>
+</div><!-- fragment --><p> If this is a protected server, you will first have to send your user to the authorization endpoint to log in. Just call <code>smart.authorize_url</code> to obtain the correct URL. You can use <code>smart.prepare()</code>, which will return <code>False</code> if the server is protected and you need to authorize. The <code>smart.ready</code> property has the same purpose. However, it will not retrieve the server's <em>CapabilityStatement</em> resource and hence is only fit as a quick check whether the server instance is ready.</p>
+<div class="fragment"><div class="line"><span class="keyword">from</span> fhirclient <span class="keyword">import</span> client</div>
+<div class="line"> </div>
+<div class="line">settings = {</div>
+<div class="line">    <span class="stringliteral">&#39;app_id&#39;</span>: <span class="stringliteral">&#39;my_web_app&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;api_base&#39;</span>: <span class="stringliteral">&#39;https://r4.smarthealthit.org&#39;</span></div>
+<div class="line">}</div>
+<div class="line">smart = client.FHIRClient(settings=settings)</div>
+<div class="line"> </div>
 <div class="line">smart.ready</div>
 <div class="line"><span class="comment"># prints `False`</span></div>
 <div class="line">smart.prepare()</div>
@@ -164,114 +173,103 @@ Read Data from Server</h4>
 <div class="line"><span class="comment"># prints `True` immediately</span></div>
 <div class="line">smart.authorize_url</div>
 <div class="line"><span class="comment"># is `None`</span></div>
-</div><!-- fragment --><p>You can work with the <code>FHIRServer</code> class directly, without using <code>FHIRClient</code>, but this is not recommended:</p>
-<div class="fragment"><div class="line">smart = server.FHIRServer(<span class="keywordtype">None</span>, <span class="stringliteral">&#39;https://fhir-open-api-dstu2.smarthealthit.org&#39;</span>)</div>
-<div class="line"><span class="keyword">import</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1patient.html">fhirclient.models.patient</a> <span class="keyword">as</span> p</div>
-<div class="line">patient = p.Patient.read(<span class="stringliteral">&#39;hca-pat-1&#39;</span>, smart)</div>
-<div class="line">patient.name[0].given</div>
-<div class="line"><span class="comment"># [&#39;Christy&#39;]</span></div>
-</div><!-- fragment --><h4><a class="anchor" id="autotoc_md4"></a>
+</div><!-- fragment --><p>You can work with the <code>FHIRServer</code> class directly without using <code>FHIRClient</code>. But this is not recommended:</p>
+<div class="fragment"><div class="line"><span class="keyword">from</span> fhirclient <span class="keyword">import</span> server</div>
+<div class="line"><span class="keyword">from</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1patient.html">fhirclient.models.patient</a> <span class="keyword">import</span> Patient</div>
+<div class="line"> </div>
+<div class="line">smart = server.FHIRServer(<span class="keywordtype">None</span>, <span class="stringliteral">&#39;https://r4.smarthealthit.org&#39;</span>)</div>
+<div class="line">patient = Patient.read(<span class="stringliteral">&#39;2cda5aad-e409-4070-9a15-e1c35c46ed5a&#39;</span>, smart)</div>
+<div class="line">print(patient.name[0].given)</div>
+<div class="line"><span class="comment"># [&#39;Geoffrey&#39;]</span></div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md5"></a>
 Search Records on Server</h4>
 <p>You can also search for resources matching a particular set of criteria:</p>
-<div class="fragment"><div class="line">smart = client.FHIRClient(settings=settings)</div>
-<div class="line"><span class="keyword">import</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1procedure.html">fhirclient.models.procedure</a> <span class="keyword">as</span> p</div>
-<div class="line">search = p.Procedure.where(struct={<span class="stringliteral">&#39;subject&#39;</span>: <span class="stringliteral">&#39;hca-pat-1&#39;</span>, <span class="stringliteral">&#39;status&#39;</span>: <span class="stringliteral">&#39;completed&#39;</span>})</div>
-<div class="line">procedures = search.perform_resources(smart.server)</div>
-<div class="line"><span class="keywordflow">for</span> procedure <span class="keywordflow">in</span> procedures:</div>
-<div class="line">    procedure.as_json()</div>
-<div class="line">    <span class="comment"># {&#39;status&#39;: u&#39;completed&#39;, &#39;code&#39;: {&#39;text&#39;: u&#39;Lumpectomy w/ SN&#39;, ...</span></div>
+<div class="fragment"><div class="line"><span class="keyword">from</span> fhirclient <span class="keyword">import</span> client</div>
+<div class="line"><span class="keyword">from</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1encounter.html">fhirclient.models.encounter</a> <span class="keyword">import</span> Encounter</div>
+<div class="line"><span class="keyword">from</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1procedure.html">fhirclient.models.procedure</a> <span class="keyword">import</span> Procedure</div>
 <div class="line"> </div>
-<div class="line"><span class="comment"># to include the resources referred to by the procedure via `subject` in the results</span></div>
+<div class="line">settings = {</div>
+<div class="line">    <span class="stringliteral">&#39;app_id&#39;</span>: <span class="stringliteral">&#39;my_web_app&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;api_base&#39;</span>: <span class="stringliteral">&#39;https://r4.smarthealthit.org&#39;</span></div>
+<div class="line">}</div>
+<div class="line">smart = client.FHIRClient(settings=settings)</div>
+<div class="line"> </div>
+<div class="line">search = Encounter.where(struct={<span class="stringliteral">&#39;subject&#39;</span>: <span class="stringliteral">&#39;2cda5aad-e409-4070-9a15-e1c35c46ed5a&#39;</span>, <span class="stringliteral">&#39;status&#39;</span>: <span class="stringliteral">&#39;finished&#39;</span>})</div>
+<div class="line">encounters = search.perform_resources(smart.server)</div>
+<div class="line">print({res.type[0].text <span class="keywordflow">for</span> res <span class="keywordflow">in</span> search.perform_resources(smart.server)})</div>
+<div class="line"><span class="comment"># {&#39;Encounter for symptom&#39;, &#39;Encounter for check up (procedure)&#39;}</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment"># to include the resources referred to by the encounter via `subject` in the results</span></div>
 <div class="line">search = search.include(<span class="stringliteral">&#39;subject&#39;</span>)</div>
+<div class="line">print({res.resource_type <span class="keywordflow">for</span> res <span class="keywordflow">in</span> search.perform_resources(smart.server)})</div>
+<div class="line"><span class="comment"># {&#39;Encounter&#39;, &#39;Patient&#39;}</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment"># to include the MedicationAdministration resources which refer to the procedure via `partOf`</span></div>
-<div class="line"><span class="keyword">import</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1medicationadministration.html">fhirclient.models.medicationadministration</a> <span class="keyword">as</span> m</div>
-<div class="line">search = search.include(<span class="stringliteral">&#39;partOf&#39;</span>, m.MedicationAdministration, reverse=<span class="keyword">True</span>)</div>
+<div class="line"><span class="comment"># to include the Procedure resources which refer to the encounter via `encounter`</span></div>
+<div class="line">search = search.include(<span class="stringliteral">&#39;encounter&#39;</span>, Procedure, reverse=<span class="keyword">True</span>)</div>
+<div class="line">print({res.resource_type <span class="keywordflow">for</span> res <span class="keywordflow">in</span> search.perform_resources(smart.server)})</div>
+<div class="line"><span class="comment"># {&#39;Encounter&#39;, &#39;Patient&#39;, &#39;Procedure&#39;}</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment"># to get the raw Bundle instead of resources only, you can use:</span></div>
 <div class="line">bundle = search.perform(smart.server)</div>
-<div class="ttc" id="anamespacefhirclient_1_1models_1_1medicationadministration_html"><div class="ttname"><a href="namespacefhirclient_1_1models_1_1medicationadministration.html">fhirclient.models.medicationadministration</a></div><div class="ttdef"><b>Definition</b> medicationadministration.py:1</div></div>
+<div class="line">print({entry.resource.resource_type <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> bundle.entry})</div>
+<div class="line"><span class="comment"># {&#39;Encounter&#39;, &#39;Patient&#39;, &#39;Procedure&#39;}</span></div>
+<div class="ttc" id="anamespacefhirclient_1_1models_1_1encounter_html"><div class="ttname"><a href="namespacefhirclient_1_1models_1_1encounter.html">fhirclient.models.encounter</a></div><div class="ttdef"><b>Definition</b> encounter.py:1</div></div>
 <div class="ttc" id="anamespacefhirclient_1_1models_1_1procedure_html"><div class="ttname"><a href="namespacefhirclient_1_1models_1_1procedure.html">fhirclient.models.procedure</a></div><div class="ttdef"><b>Definition</b> procedure.py:1</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
 Data Model Use</h2>
-<p>The client contains data model classes, built using <a href="https://github.com/smart-on-fhir/fhir-parser">fhir-parser</a>, that handle (de)serialization and allow to work with FHIR data in a Pythonic way. Starting with version 1.0.5, data model validity are enforced to a certain degree.</p>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<p>The client contains data model classes, built using <a href="https://github.com/smart-on-fhir/fhir-parser">fhir-parser</a>, that handle (de)serialization and allow you to work with FHIR data in a Pythonic way. From version 1.0.5, the validity of the data model is enforced to a certain extent.</p>
+<h3><a class="anchor" id="autotoc_md7"></a>
 Initialize Data Model</h3>
-<div class="fragment"><div class="line"><span class="keyword">import</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1patient.html">fhirclient.models.patient</a> <span class="keyword">as</span> p</div>
-<div class="line"><span class="keyword">import</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1humanname.html">fhirclient.models.humanname</a> <span class="keyword">as</span> hn</div>
-<div class="line">patient = p.Patient({<span class="stringliteral">&#39;id&#39;</span>: <span class="stringliteral">&#39;patient-1&#39;</span>})</div>
-<div class="line">patient.id</div>
-<div class="line"><span class="comment"># prints `patient-1`</span></div>
+<div class="fragment"><div class="line"><span class="keyword">from</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1patient.html">fhirclient.models.patient</a> <span class="keyword">import</span> Patient</div>
+<div class="line"><span class="keyword">from</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1humanname.html">fhirclient.models.humanname</a> <span class="keyword">import</span> HumanName</div>
 <div class="line"> </div>
-<div class="line">name = hn.HumanName()</div>
+<div class="line">patient = Patient({<span class="stringliteral">&#39;id&#39;</span>: <span class="stringliteral">&#39;patient-1&#39;</span>})</div>
+<div class="line">print(patient.id)</div>
+<div class="line"><span class="comment"># patient-1</span></div>
+<div class="line"> </div>
+<div class="line">name = HumanName()</div>
 <div class="line">name.given = [<span class="stringliteral">&#39;Peter&#39;</span>]</div>
 <div class="line">name.family = <span class="stringliteral">&#39;Parker&#39;</span></div>
 <div class="line">patient.name = [name]</div>
-<div class="line">patient.as_json()</div>
-<div class="line"><span class="comment"># prints patient&#39;s JSON representation, now with id and name</span></div>
+<div class="line">print(patient.as_json())</div>
+<div class="line"><span class="comment"># {&#39;id&#39;: &#39;patient-1&#39;, &#39;name&#39;: [{&#39;family&#39;: &#39;Parker&#39;, &#39;given&#39;: [&#39;Peter&#39;]}], &#39;resourceType&#39;: &#39;Patient&#39;}</span></div>
 <div class="line"> </div>
 <div class="line">name.given = <span class="stringliteral">&#39;Peter&#39;</span></div>
-<div class="line">patient.as_json()</div>
+<div class="line">print(patient.as_json())</div>
 <div class="line"><span class="comment"># throws FHIRValidationError:</span></div>
 <div class="line"><span class="comment"># {root}:</span></div>
-<div class="line"><span class="comment">#   name:</span></div>
+<div class="line"><span class="comment">#   name.0:</span></div>
 <div class="line"><span class="comment">#     given:</span></div>
 <div class="line"><span class="comment">#       Expecting property &quot;given&quot; on &lt;class &#39;fhirclient.models.humanname.HumanName&#39;&gt; to be list, but is &lt;class &#39;str&#39;&gt;</span></div>
 <div class="ttc" id="anamespacefhirclient_1_1models_1_1humanname_html"><div class="ttname"><a href="namespacefhirclient_1_1models_1_1humanname.html">fhirclient.models.humanname</a></div><div class="ttdef"><b>Definition</b> humanname.py:1</div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md7"></a>
-Initialize from JSON file</h3>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md8"></a>
+Initialize from JSON</h3>
 <div class="fragment"><div class="line"><span class="keyword">import</span> json</div>
-<div class="line"><span class="keyword">import</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1patient.html">fhirclient.models.patient</a> <span class="keyword">as</span> p</div>
-<div class="line"><span class="keyword">with</span> open(<span class="stringliteral">&#39;path/to/patient.json&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> h:</div>
-<div class="line">    pjs = json.load(h)</div>
-<div class="line">patient = p.Patient(pjs)</div>
-<div class="line">patient.name[0].given</div>
-<div class="line"><span class="comment"># prints patient&#39;s given name array in the first `name` property</span></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
+<div class="line"><span class="keyword">from</span> <a class="code hl_namespace" href="namespacefhirclient_1_1models_1_1patient.html">fhirclient.models.patient</a> <span class="keyword">import</span> Patient</div>
+<div class="line"> </div>
+<div class="line">pjs = json.loads(<span class="stringliteral">&#39;{&quot;name&quot;: [{&quot;given&quot;: [&quot;Peter&quot;]}], &quot;resourceType&quot;: &quot;Patient&quot;}&#39;</span>)</div>
+<div class="line">patient = Patient(pjs)</div>
+<div class="line">print(patient.name[0].given)</div>
+<div class="line"><span class="comment"># [&#39;Peter&#39;]</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
 Flask App</h2>
-<p>Take a look at <a href="https://github.com/smart-on-fhir/client-py/blob/master/flask_app.py"><code>flask_app.py</code></a> to see how you can use the client in a simple (Flask) app. This app starts a webserver, listening on <a href="http://localhost:8000"><em>localhost:8000</em></a>, and prompts you to login to our sandbox server and select a patient. It then goes on to retrieve the selected patient's demographics and med prescriptions and lists them in a simple HTML page.</p>
-<p>The Flask demo app has separate requirements. Clone the <em>client-py</em> repository, then best create a virtual environment and install the needed packages like so: </p><pre class="fragment">git clone https://github.com/smart-on-fhir/client-py.git
-cd client-py
-virtualenv -p python3 env
+<p>Take a look at <a href="https://github.com/smart-on-fhir/client-py/blob/main/demos/flask/flask_app.py">flask_app.py</a> to see how you can use the client in a simple (Flask) app.</p>
+<p>This demo requires a server that is capable of SMART OAuth logins for patients, so make sure you have such a server ready first.</p>
+<p>This app will start a web server, listen on <a href="http://localhost:8000"><em>localhost:8000</em></a>, and prompt you to log in to our sandbox server and select a patient. It then retrieves the selected patient's demographics and med prescriptions and lists them on a simple HTML page.</p>
+<p>The Flask demo app has separate requirements. Clone the <em>client-py</em> repository, then create a virtual environment (not compulsory but recommended) and install the needed packages as shown: </p><pre class="fragment">git clone https://github.com/smart-on-fhir/client-py.git
+cd client-py/demos/flask
+python3 -m venv env
 . env/bin/activate
-pip install -r requirements_flask_app.txt
-python flask_app.py
-</pre><h1><a class="anchor" id="autotoc_md9"></a>
-Building Distribution</h1>
-<pre class="fragment">pip install -r requirements.txt
-python setup.py sdist
-python setup.py bdist_wheel
-</pre><h2><a class="anchor" id="autotoc_md10"></a>
-Incrementing the lib version</h2>
-<pre class="fragment">bumpversion patch
-bumpversion minor
-bumpversion major
-</pre><h1><a class="anchor" id="autotoc_md11"></a>
-Docs Generation</h1>
-<p>Docs are generated with <a href="http://www.stack.nl/~dimitri/doxygen">Doxygen</a> and <a href="https://github.com/Feneric/doxypypy">doxypypy</a>. You can install doxypypy via pip: <code>pip install doxypypy</code>. Then you can just run Doxygen, configuration is stored in the <code>Doxyfile</code>.</p>
-<p>Running Doxygen will put the generated documentation into <code>docs</code>, the HTML files into <code>docs/html</code>. Those files make up the content of the <code>gh-pages</code> branch. I usually perform a second checkout of the <em>gh-pages</em> branch and copy the html files over, with: </p><pre class="fragment">doxygen
-rsync -a docs/html/ ../client-py-web/
-</pre><h1><a class="anchor" id="autotoc_md12"></a>
-PyPi Publishing (notes for SMART team)</h1>
-<p>Using setuptools (<em>Note</em>: Alternatively, you can use twine <a href="https://pypi.python.org/pypi/twine/">https://pypi.python.org/pypi/twine/</a>):</p>
-<h2><a class="anchor" id="autotoc_md13"></a>
-Make sure that you have the PyPi account credentials in your account</h2>
-<pre class="fragment">copy server.smarthealthit.org:/home/fhir/.pypirc to ~/.pypirc
-</pre> <h2><a class="anchor" id="autotoc_md14"></a>
-Test the build</h2>
-<pre class="fragment">python setup.py sdist
-python setup.py bdist_wheel
-</pre> <h2><a class="anchor" id="autotoc_md15"></a>
-Upload the packages to PyPi</h2>
-<pre class="fragment">python setup.py sdist upload -r pypi
-python setup.py bdist_wheel upload -r pypi
+pip install -r requirements.txt
+# Edit flask_app.py and put your own server's URL as api_base.
+./flask_app.py
 </pre> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jul 16 2024 14:55:47 for SMART on FHIR Python Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Jul 23 2024 09:15:57 for SMART on FHIR Python Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -20,15 +20,5 @@ var explanationofbenefit_8py =
     [ "fhirclient.models.explanationofbenefit.ExplanationOfBenefitProcessNote", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_process_note.html", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_process_note" ],
     [ "fhirclient.models.explanationofbenefit.ExplanationOfBenefitRelated", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_related.html", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_related" ],
     [ "fhirclient.models.explanationofbenefit.ExplanationOfBenefitSupportingInfo", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_supporting_info.html", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_supporting_info" ],
-    [ "fhirclient.models.explanationofbenefit.ExplanationOfBenefitTotal", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_total.html", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_total" ],
-    [ "address", "explanationofbenefit_8py.html#a6a9af4d0bccb9a3c834e26002c5468bc", null ],
-    [ "attachment", "explanationofbenefit_8py.html#a6fadd2246b8eb018d3079cfa11ce4971", null ],
-    [ "codeableconcept", "explanationofbenefit_8py.html#a63cf19999cf76d402e155a79f98c8e8f", null ],
-    [ "coding", "explanationofbenefit_8py.html#ac47a34a219aa2c60c09f7e783cd40646", null ],
-    [ "fhirdate", "explanationofbenefit_8py.html#a4f7c78b64f085571f80925370b1a93e4", null ],
-    [ "fhirreference", "explanationofbenefit_8py.html#af1b1a7ce2c8c914c338c113f25f8e07b", null ],
-    [ "identifier", "explanationofbenefit_8py.html#af195f82dc7a274ba627b8f000cda7b3b", null ],
-    [ "money", "explanationofbenefit_8py.html#a9b0c223cc4d9e7117b8577ebbe1c1032", null ],
-    [ "period", "explanationofbenefit_8py.html#a6014a5264b0c286a89ceec80622e3073", null ],
-    [ "quantity", "explanationofbenefit_8py.html#a63f39ca9eb507c5938c79f504be9df55", null ]
+    [ "fhirclient.models.explanationofbenefit.ExplanationOfBenefitTotal", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_total.html", "classfhirclient_1_1models_1_1explanationofbenefit_1_1_explanation_of_benefit_total" ]
 ];

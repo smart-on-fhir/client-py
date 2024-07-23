@@ -13,11 +13,5 @@ var capabilitystatement_8py =
     [ "fhirclient.models.capabilitystatement.CapabilityStatementRestResourceOperation", "classfhirclient_1_1models_1_1capabilitystatement_1_1_capability_statement_rest_resource_operation.html", "classfhirclient_1_1models_1_1capabilitystatement_1_1_capability_statement_rest_resource_operation" ],
     [ "fhirclient.models.capabilitystatement.CapabilityStatementRestResourceSearchParam", "classfhirclient_1_1models_1_1capabilitystatement_1_1_capability_statement_rest_resource_search_param.html", "classfhirclient_1_1models_1_1capabilitystatement_1_1_capability_statement_rest_resource_search_param" ],
     [ "fhirclient.models.capabilitystatement.CapabilityStatementRestSecurity", "classfhirclient_1_1models_1_1capabilitystatement_1_1_capability_statement_rest_security.html", "classfhirclient_1_1models_1_1capabilitystatement_1_1_capability_statement_rest_security" ],
-    [ "fhirclient.models.capabilitystatement.CapabilityStatementSoftware", "classfhirclient_1_1models_1_1capabilitystatement_1_1_capability_statement_software.html", "classfhirclient_1_1models_1_1capabilitystatement_1_1_capability_statement_software" ],
-    [ "codeableconcept", "capabilitystatement_8py.html#ad3e76d14f541bc3afc2116c970da860b", null ],
-    [ "coding", "capabilitystatement_8py.html#aab7250ca0950737e15077d09252fe7fe", null ],
-    [ "contactdetail", "capabilitystatement_8py.html#a2e2df5c0a0099ffdc73a381a67282ea2", null ],
-    [ "fhirdate", "capabilitystatement_8py.html#a1bbade4276216d0d150f50b92d6563b8", null ],
-    [ "fhirreference", "capabilitystatement_8py.html#a2a2c97d2d887ae2bf38a7e875a592b7c", null ],
-    [ "usagecontext", "capabilitystatement_8py.html#a5aec12a9fffa89aacceaa67e9b31771a", null ]
+    [ "fhirclient.models.capabilitystatement.CapabilityStatementSoftware", "classfhirclient_1_1models_1_1capabilitystatement_1_1_capability_statement_software.html", "classfhirclient_1_1models_1_1capabilitystatement_1_1_capability_statement_software" ]
 ];

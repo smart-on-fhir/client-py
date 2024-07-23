@@ -16,12 +16,5 @@ var namespacefhirclient_1_1models_1_1medicationknowledge =
     [ "MedicationKnowledgeRegulatoryMaxDispense", "classfhirclient_1_1models_1_1medicationknowledge_1_1_medication_knowledge_regulatory_max_dispense.html", "classfhirclient_1_1models_1_1medicationknowledge_1_1_medication_knowledge_regulatory_max_dispense" ],
     [ "MedicationKnowledgeRegulatorySchedule", "classfhirclient_1_1models_1_1medicationknowledge_1_1_medication_knowledge_regulatory_schedule.html", "classfhirclient_1_1models_1_1medicationknowledge_1_1_medication_knowledge_regulatory_schedule" ],
     [ "MedicationKnowledgeRegulatorySubstitution", "classfhirclient_1_1models_1_1medicationknowledge_1_1_medication_knowledge_regulatory_substitution.html", "classfhirclient_1_1models_1_1medicationknowledge_1_1_medication_knowledge_regulatory_substitution" ],
-    [ "MedicationKnowledgeRelatedMedicationKnowledge", "classfhirclient_1_1models_1_1medicationknowledge_1_1_medication_knowledge_related_medication_knowledge.html", "classfhirclient_1_1models_1_1medicationknowledge_1_1_medication_knowledge_related_medication_knowledge" ],
-    [ "codeableconcept", "namespacefhirclient_1_1models_1_1medicationknowledge.html#a9d96911e29c8ee949774639ec212d0bf", null ],
-    [ "dosage", "namespacefhirclient_1_1models_1_1medicationknowledge.html#a8f663a202538a11bfa329eb8feb12d96", null ],
-    [ "duration", "namespacefhirclient_1_1models_1_1medicationknowledge.html#a395ec31e99c82fa524aea5a79b2bd29d", null ],
-    [ "fhirreference", "namespacefhirclient_1_1models_1_1medicationknowledge.html#a97bdd92dd971ca01813ed443beea3202", null ],
-    [ "money", "namespacefhirclient_1_1models_1_1medicationknowledge.html#a40e7b42fd506c26479c2e34bd313d566", null ],
-    [ "quantity", "namespacefhirclient_1_1models_1_1medicationknowledge.html#a7a19e8b164733534d3fb6c27f7fea00d", null ],
-    [ "ratio", "namespacefhirclient_1_1models_1_1medicationknowledge.html#a6eeec34efdfc05f47631c12e422dc7d0", null ]
+    [ "MedicationKnowledgeRelatedMedicationKnowledge", "classfhirclient_1_1models_1_1medicationknowledge_1_1_medication_knowledge_related_medication_knowledge.html", "classfhirclient_1_1models_1_1medicationknowledge_1_1_medication_knowledge_related_medication_knowledge" ]
 ];

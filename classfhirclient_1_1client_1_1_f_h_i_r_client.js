@@ -14,6 +14,7 @@ var classfhirclient_1_1client_1_1_f_h_i_r_client =
     [ "_save_func", "classfhirclient_1_1client_1_1_f_h_i_r_client.html#a8496791d0791672c456db0bbb92a697b", null ],
     [ "app_id", "classfhirclient_1_1client_1_1_f_h_i_r_client.html#ac84cd384ebb22079997099a39787e743", null ],
     [ "app_secret", "classfhirclient_1_1client_1_1_f_h_i_r_client.html#aa0fb36ee19f7276d7cf506f9898aaa5c", null ],
+    [ "jwt_token", "classfhirclient_1_1client_1_1_f_h_i_r_client.html#af3a4748e2aa0d3d07e60c6cc52e79875", null ],
     [ "launch_context", "classfhirclient_1_1client_1_1_f_h_i_r_client.html#a85673b54ffe493a6bc4acf531fee3656", null ],
     [ "launch_token", "classfhirclient_1_1client_1_1_f_h_i_r_client.html#a4576c6615943131d94ba66ab65f4ae5c", null ],
     [ "patient_id", "classfhirclient_1_1client_1_1_f_h_i_r_client.html#ac4fd6da355af84e04ea7a72bbb7e862c", null ],

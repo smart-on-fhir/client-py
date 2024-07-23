@@ -1,6 +1,0 @@
-var classfhirclient_1_1models_1_1biologicallyderivedproduct__tests_1_1_biologically_derived_product_tests =
-[
-    [ "implBiologicallyDerivedProduct1", "classfhirclient_1_1models_1_1biologicallyderivedproduct__tests_1_1_biologically_derived_product_tests.html#a7262fdf064a5cb5791f88f8619d4acbc", null ],
-    [ "instantiate_from", "classfhirclient_1_1models_1_1biologicallyderivedproduct__tests_1_1_biologically_derived_product_tests.html#a2f37b059dfc5d8c8869a6f43229e4239", null ],
-    [ "testBiologicallyDerivedProduct1", "classfhirclient_1_1models_1_1biologicallyderivedproduct__tests_1_1_biologically_derived_product_tests.html#a509af583ed0102a04ef787e96b2805cb", null ]
-];

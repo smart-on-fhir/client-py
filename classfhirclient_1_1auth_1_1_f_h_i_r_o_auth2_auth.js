@@ -25,5 +25,6 @@ var classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth =
     [ "aud", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a4dab8768c5869c81049d6fa2c9ba5d52", null ],
     [ "auth_state", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#abde64f21b85ac7d5f8aa94eec917c9dd", null ],
     [ "expires_at", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#aa821fd1d7afb9d2925584b7762a079b0", null ],
+    [ "jwt_token", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#af4a77c97a7f0e18c35a8c5d15e215d7c", null ],
     [ "refresh_token", "classfhirclient_1_1auth_1_1_f_h_i_r_o_auth2_auth.html#a50c738ee947c1a6168ab880f69f05e3f", null ]
 ];

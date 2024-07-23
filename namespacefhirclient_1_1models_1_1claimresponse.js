@@ -12,14 +12,5 @@ var namespacefhirclient_1_1models_1_1claimresponse =
     [ "ClaimResponseItemDetailSubDetail", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail_sub_detail.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_item_detail_sub_detail" ],
     [ "ClaimResponsePayment", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_payment.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_payment" ],
     [ "ClaimResponseProcessNote", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_process_note.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_process_note" ],
-    [ "ClaimResponseTotal", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_total.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_total" ],
-    [ "address", "namespacefhirclient_1_1models_1_1claimresponse.html#a99800488c19b294a9f89c4128f26af06", null ],
-    [ "attachment", "namespacefhirclient_1_1models_1_1claimresponse.html#a8edd26ce07dd43c503753752bd71efd3", null ],
-    [ "codeableconcept", "namespacefhirclient_1_1models_1_1claimresponse.html#a2909feb0790c8136359ee88d564729f9", null ],
-    [ "fhirdate", "namespacefhirclient_1_1models_1_1claimresponse.html#af04bfc78f4505a81c6030725c9915a98", null ],
-    [ "fhirreference", "namespacefhirclient_1_1models_1_1claimresponse.html#a85984f601f1cdbb872b8430c12ec736e", null ],
-    [ "identifier", "namespacefhirclient_1_1models_1_1claimresponse.html#adf88e0d88b44bdba3e8b8a1873feee15", null ],
-    [ "money", "namespacefhirclient_1_1models_1_1claimresponse.html#af9f12cd9a6fe539e9e1453f78a97256c", null ],
-    [ "period", "namespacefhirclient_1_1models_1_1claimresponse.html#aa4f796c4c80e91338a75d699b09f6345", null ],
-    [ "quantity", "namespacefhirclient_1_1models_1_1claimresponse.html#a42e533d58b097384fdd473acde36e9d8", null ]
+    [ "ClaimResponseTotal", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_total.html", "classfhirclient_1_1models_1_1claimresponse_1_1_claim_response_total" ]
 ];

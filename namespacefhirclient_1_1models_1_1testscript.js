@@ -16,12 +16,5 @@ var namespacefhirclient_1_1models_1_1testscript =
     [ "TestScriptTeardownAction", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown_action.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown_action" ],
     [ "TestScriptTest", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test" ],
     [ "TestScriptTestAction", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test_action.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test_action" ],
-    [ "TestScriptVariable", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable" ],
-    [ "codeableconcept", "namespacefhirclient_1_1models_1_1testscript.html#a29b13316542cfd343fdd3fd25dc7884b", null ],
-    [ "coding", "namespacefhirclient_1_1models_1_1testscript.html#acace9813f7b8ff7e9c54a7ea0cbf7d79", null ],
-    [ "contactdetail", "namespacefhirclient_1_1models_1_1testscript.html#a5510958eeb2994a70f56fcdafbe995d8", null ],
-    [ "fhirdate", "namespacefhirclient_1_1models_1_1testscript.html#ac3435e3ab6daf6caba72e206d91f2aaa", null ],
-    [ "fhirreference", "namespacefhirclient_1_1models_1_1testscript.html#a7d5f565d34f2c00064a462e72132b016", null ],
-    [ "identifier", "namespacefhirclient_1_1models_1_1testscript.html#a144b377aa6b91c90d56c64c9937b8e5d", null ],
-    [ "usagecontext", "namespacefhirclient_1_1models_1_1testscript.html#afcfff9f21abfb25851f7eb017005265c", null ]
+    [ "TestScriptVariable", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable" ]
 ];

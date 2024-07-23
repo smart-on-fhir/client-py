@@ -1,4 +1,0 @@
-var paymentreconciliation__tests_8py =
-[
-    [ "fhirclient.models.paymentreconciliation_tests.PaymentReconciliationTests", "classfhirclient_1_1models_1_1paymentreconciliation__tests_1_1_payment_reconciliation_tests.html", "classfhirclient_1_1models_1_1paymentreconciliation__tests_1_1_payment_reconciliation_tests" ]
-];

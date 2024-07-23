@@ -16,12 +16,5 @@ var testscript_8py =
     [ "fhirclient.models.testscript.TestScriptTeardownAction", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown_action.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_teardown_action" ],
     [ "fhirclient.models.testscript.TestScriptTest", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test" ],
     [ "fhirclient.models.testscript.TestScriptTestAction", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test_action.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_test_action" ],
-    [ "fhirclient.models.testscript.TestScriptVariable", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable" ],
-    [ "codeableconcept", "testscript_8py.html#a29b13316542cfd343fdd3fd25dc7884b", null ],
-    [ "coding", "testscript_8py.html#acace9813f7b8ff7e9c54a7ea0cbf7d79", null ],
-    [ "contactdetail", "testscript_8py.html#a5510958eeb2994a70f56fcdafbe995d8", null ],
-    [ "fhirdate", "testscript_8py.html#ac3435e3ab6daf6caba72e206d91f2aaa", null ],
-    [ "fhirreference", "testscript_8py.html#a7d5f565d34f2c00064a462e72132b016", null ],
-    [ "identifier", "testscript_8py.html#a144b377aa6b91c90d56c64c9937b8e5d", null ],
-    [ "usagecontext", "testscript_8py.html#afcfff9f21abfb25851f7eb017005265c", null ]
+    [ "fhirclient.models.testscript.TestScriptVariable", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable.html", "classfhirclient_1_1models_1_1testscript_1_1_test_script_variable" ]
 ];
