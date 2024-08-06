@@ -21,6 +21,7 @@ The following wonderful people contributed directly or indirectly to this projec
 - Nikolai Schwertner <https://github.com/nschwertner>
 - Pascal Pfiffner <https://github.com/p2>
 - Raheel Sayeed <https://github.com/raheelsayeed>
+- Svetlana Grebennikova <https://github.com/LanaNYC>
 - Tim Harsch <https://github.com/timharsch>
 - Trinadh Baranika <https://github.com/bktrinadh>
 
