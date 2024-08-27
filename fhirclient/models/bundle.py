@@ -50,7 +50,7 @@ class Bundle(resource.Resource):
         Type `str`. """
         
         super(Bundle, self).__init__(jsondict=jsondict, strict=strict)
-    
+
     def elementProperties(self):
         js = super(Bundle, self).elementProperties()
         js.extend([
