@@ -50,19 +50,35 @@ class Bundle(resource.Resource):
         Type `str`. """
         
         super(Bundle, self).__init__(jsondict=jsondict, strict=strict)
-    
+
+    def __iter__(self):
+        """ Makes the Bundle itself an iterator by returning an iterator over its entries. """
+        if self.entry is None:
+            self._entry_iter = iter([])
+        else:
+            self._entry_iter = iter(self.entry)
+        return self
+
+    def __next__(self):
+        """ Returns the next BundleEntry in the Bundle's entry list using the internal iterator. """
+        # return next(self._entry_iter)
+
+        if not hasattr(self, '_entry_iter'):
+            self.__iter__()
+        return next(self._entry_iter)
+
     def elementProperties(self):
-        js = super(Bundle, self).elementProperties()
-        js.extend([
-            ("entry", "entry", BundleEntry, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("link", "link", BundleLink, True, None, False),
-            ("signature", "signature", signature.Signature, False, None, False),
-            ("timestamp", "timestamp", fhirinstant.FHIRInstant, False, None, False),
-            ("total", "total", int, False, None, False),
-            ("type", "type", str, False, None, True),
-        ])
-        return js
+            js = super(Bundle, self).elementProperties()
+            js.extend([
+                ("entry", "entry", BundleEntry, True, None, False),
+                ("identifier", "identifier", identifier.Identifier, False, None, False),
+                ("link", "link", BundleLink, True, None, False),
+                ("signature", "signature", signature.Signature, False, None, False),
+                ("timestamp", "timestamp", fhirinstant.FHIRInstant, False, None, False),
+                ("total", "total", int, False, None, False),
+                ("type", "type", str, False, None, True),
+            ])
+            return js
 
 
 from . import backboneelement

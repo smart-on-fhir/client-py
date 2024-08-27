@@ -5,8 +5,12 @@
 #  2014, SMART Health IT.
 
 import logging
+import warnings
+from typing import Iterator
+
 
 from . import fhirreference
+from .._utils import iter_pages
 
 try:
     from urllib import quote_plus
@@ -124,7 +128,21 @@ class FHIRSearch(object):
         bundle = bundle.Bundle(res)
         bundle.origin_server = server
         return bundle
-    
+
+    # Use forward references to avoid circular imports
+    def perform_iter(self, server) -> Iterator['Resource']:
+        """ Perform the search by calling `perform` and return an iterator that yields
+        Bundle instances.
+
+        :param server: The server against which to perform the search
+        :returns: An iterator of Bundle instances
+        """
+
+        first_bundle = self.perform(server)
+        if not first_bundle:
+            return iter([])
+        yield first_bundle
+
     def perform_resources(self, server):
         """ Performs the search by calling `perform`, then extracts all Bundle
         entries and returns a list of Resource instances.
@@ -132,6 +150,13 @@ class FHIRSearch(object):
         :param server: The server against which to perform the search
         :returns: A list of Resource instances
         """
+        # Old method with deprecation warning
+        warnings.warn(
+            "perform_resources() is deprecated and will be removed in a future release. "
+            "Please use perform_resources_iter() instead.",
+            DeprecationWarning,
+        )
+
         bundle = self.perform(server)
         resources = []
         if bundle is not None and bundle.entry is not None:
@@ -139,6 +164,23 @@ class FHIRSearch(object):
                 resources.append(entry.resource)
             
         return resources
+
+    # Use forward references to avoid circular imports
+    def perform_resources_iter(self, server) -> Iterator['Resource']:
+        """ Performs the search by calling `perform`, then extracts all Bundle
+        entries and returns an iterator of Resource instances.
+
+        :param server: The server against which to perform the search
+        :returns: An iterator of Resource instances
+        """
+        first_bundle = self.perform(server)
+
+        if not first_bundle or not first_bundle.entry:
+            return iter([])
+
+        for bundle in iter_pages(first_bundle):
+            if bundle.entry:
+                yield from (entry.resource for entry in bundle.entry)
 
 
 class FHIRSearchParam(object):
