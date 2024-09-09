@@ -2,7 +2,7 @@ import logging
 
 from .server import FHIRServer, FHIRUnauthorizedException, FHIRNotFoundException
 
-__version__ = '4.2.0'
+__version__ = '4.2.1'
 __author__ = 'SMART Platforms Team'
 __license__ = 'APACHE2'
 __copyright__ = "Copyright 2017 Boston Children's Hospital"
@@ -166,16 +166,16 @@ class FHIRClient(object):
     @property
     def patient(self):
         if self._patient is None and self.patient_id is not None and self.ready:
-            import models.patient
+            from fhirclient.models.patient import Patient
             try:
                 logger.debug("SMART: Attempting to read Patient {0}".format(self.patient_id))
-                self._patient = models.patient.Patient.read(self.patient_id, self.server)
-            except FHIRUnauthorizedException as e:
+                self._patient = Patient.read(self.patient_id, self.server)
+            except FHIRUnauthorizedException:
                 if self.reauthorize():
                     logger.debug("SMART: Attempting to read Patient {0} after reauthorizing"
                         .format(self.patient_id))
-                    self._patient = models.patient.Patient.read(self.patient_id, self.server)
-            except FHIRNotFoundException as e:
+                    self._patient = Patient.read(self.patient_id, self.server)
+            except FHIRNotFoundException:
                 logger.warning("SMART: Patient with id {0} not found".format(self.patient_id))
                 self.patient_id = None
             self.save_state()
