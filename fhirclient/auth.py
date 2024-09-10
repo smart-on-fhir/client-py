@@ -283,7 +283,7 @@ class FHIROAuth2Auth(FHIRAuth):
         del ret_params['access_token']
         
         if 'expires_in' in ret_params:
-            expires_in = ret_params.get('expires_in')
+            expires_in = int(ret_params['expires_in'])
             self.expires_at = datetime.now() + timedelta(seconds=expires_in)
             del ret_params['expires_in']
         
