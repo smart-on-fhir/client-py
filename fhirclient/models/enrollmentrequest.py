@@ -24,30 +24,44 @@ class EnrollmentRequest(domainresource.DomainResource):
         self.candidate = None
         """ The subject to be enrolled.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._candidate = None
+        """ Primitive extension for candidate. Type `FHIRPrimitiveExtension` """
         
         self.coverage = None
         """ Insurance information.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._coverage = None
+        """ Primitive extension for coverage. Type `FHIRPrimitiveExtension` """
         
         self.created = None
         """ Creation date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
+        self._created = None
+        """ Primitive extension for created. Type `FHIRPrimitiveExtension` """
         
         self.identifier = None
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
+        self._identifier = None
+        """ Primitive extension for identifier. Type `FHIRPrimitiveExtension` """
         
         self.insurer = None
         """ Target.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._insurer = None
+        """ Primitive extension for insurer. Type `FHIRPrimitiveExtension` """
         
         self.provider = None
         """ Responsible practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._provider = None
+        """ Primitive extension for provider. Type `FHIRPrimitiveExtension` """
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
+        self._status = None
+        """ Primitive extension for status. Type `FHIRPrimitiveExtension` """
         
         super(EnrollmentRequest, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -55,15 +69,23 @@ class EnrollmentRequest(domainresource.DomainResource):
         js = super(EnrollmentRequest, self).elementProperties()
         js.extend([
             ("candidate", "candidate", fhirreference.FHIRReference, False, None, False),
+            ("_candidate", "_candidate", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
+            ("_coverage", "_coverage", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("created", "created", fhirdatetime.FHIRDateTime, False, None, False),
+            ("_created", "_created", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("_identifier", "_identifier", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
+            ("_insurer", "_insurer", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
+            ("_provider", "_provider", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("status", "status", str, False, None, False),
+            ("_status", "_status", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import fhirdatetime
 from . import fhirreference

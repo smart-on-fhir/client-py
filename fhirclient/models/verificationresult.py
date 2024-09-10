@@ -22,62 +22,90 @@ class VerificationResult(domainresource.DomainResource):
         self.attestation = None
         """ Information about the entity attesting to information.
         Type `VerificationResultAttestation` (represented as `dict` in JSON). """
+        self._attestation = None
+        """ Primitive extension for attestation. Type `FHIRPrimitiveExtension` """
         
         self.failureAction = None
         """ fatal | warn | rec-only | none.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._failureAction = None
+        """ Primitive extension for failureAction. Type `FHIRPrimitiveExtension` """
         
         self.frequency = None
         """ Frequency of revalidation.
         Type `Timing` (represented as `dict` in JSON). """
+        self._frequency = None
+        """ Primitive extension for frequency. Type `FHIRPrimitiveExtension` """
         
         self.lastPerformed = None
         """ The date/time validation was last completed (including failed
         validations).
         Type `FHIRDateTime` (represented as `str` in JSON). """
+        self._lastPerformed = None
+        """ Primitive extension for lastPerformed. Type `FHIRPrimitiveExtension` """
         
         self.need = None
         """ none | initial | periodic.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._need = None
+        """ Primitive extension for need. Type `FHIRPrimitiveExtension` """
         
         self.nextScheduled = None
         """ The date when target is next validated, if appropriate.
         Type `FHIRDate` (represented as `str` in JSON). """
+        self._nextScheduled = None
+        """ Primitive extension for nextScheduled. Type `FHIRPrimitiveExtension` """
         
         self.primarySource = None
         """ Information about the primary source(s) involved in validation.
         List of `VerificationResultPrimarySource` items (represented as `dict` in JSON). """
+        self._primarySource = None
+        """ Primitive extension for primarySource. Type `FHIRPrimitiveExtension` """
         
         self.status = None
         """ attested | validated | in-process | req-revalid | val-fail | reval-
         fail.
         Type `str`. """
+        self._status = None
+        """ Primitive extension for status. Type `FHIRPrimitiveExtension` """
         
         self.statusDate = None
         """ When the validation status was updated.
         Type `FHIRDateTime` (represented as `str` in JSON). """
+        self._statusDate = None
+        """ Primitive extension for statusDate. Type `FHIRPrimitiveExtension` """
         
         self.target = None
         """ A resource that was validated.
         List of `FHIRReference` items (represented as `dict` in JSON). """
+        self._target = None
+        """ Primitive extension for target. Type `FHIRPrimitiveExtension` """
         
         self.targetLocation = None
         """ The fhirpath location(s) within the resource that was validated.
         List of `str` items. """
+        self._targetLocation = None
+        """ Primitive extension for targetLocation. Type `FHIRPrimitiveExtension` """
         
         self.validationProcess = None
         """ The primary process by which the target is validated (edit check;
         value set; primary source; multiple sources; standalone; in
         context).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self._validationProcess = None
+        """ Primitive extension for validationProcess. Type `FHIRPrimitiveExtension` """
         
         self.validationType = None
         """ nothing | primary | multiple.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._validationType = None
+        """ Primitive extension for validationType. Type `FHIRPrimitiveExtension` """
         
         self.validator = None
         """ Information about the entity validating information.
         List of `VerificationResultValidator` items (represented as `dict` in JSON). """
+        self._validator = None
+        """ Primitive extension for validator. Type `FHIRPrimitiveExtension` """
         
         super(VerificationResult, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -85,19 +113,33 @@ class VerificationResult(domainresource.DomainResource):
         js = super(VerificationResult, self).elementProperties()
         js.extend([
             ("attestation", "attestation", VerificationResultAttestation, False, None, False),
+            ("_attestation", "_attestation", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("failureAction", "failureAction", codeableconcept.CodeableConcept, False, None, False),
+            ("_failureAction", "_failureAction", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("frequency", "frequency", timing.Timing, False, None, False),
+            ("_frequency", "_frequency", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("lastPerformed", "lastPerformed", fhirdatetime.FHIRDateTime, False, None, False),
+            ("_lastPerformed", "_lastPerformed", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("need", "need", codeableconcept.CodeableConcept, False, None, False),
+            ("_need", "_need", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("nextScheduled", "nextScheduled", fhirdate.FHIRDate, False, None, False),
+            ("_nextScheduled", "_nextScheduled", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("primarySource", "primarySource", VerificationResultPrimarySource, True, None, False),
+            ("_primarySource", "_primarySource", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("status", "status", str, False, None, True),
+            ("_status", "_status", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("statusDate", "statusDate", fhirdatetime.FHIRDateTime, False, None, False),
+            ("_statusDate", "_statusDate", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("target", "target", fhirreference.FHIRReference, True, None, False),
+            ("_target", "_target", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("targetLocation", "targetLocation", str, True, None, False),
+            ("_targetLocation", "_targetLocation", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("validationProcess", "validationProcess", codeableconcept.CodeableConcept, True, None, False),
+            ("_validationProcess", "_validationProcess", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("validationType", "validationType", codeableconcept.CodeableConcept, False, None, False),
+            ("_validationType", "_validationType", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("validator", "validator", VerificationResultValidator, True, None, False),
+            ("_validator", "_validator", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
@@ -121,37 +163,53 @@ class VerificationResultAttestation(backboneelement.BackboneElement):
         self.communicationMethod = None
         """ The method by which attested information was submitted/retrieved.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._communicationMethod = None
+        """ Primitive extension for communicationMethod. Type `FHIRPrimitiveExtension` """
         
         self.date = None
         """ The date the information was attested to.
         Type `FHIRDate` (represented as `str` in JSON). """
+        self._date = None
+        """ Primitive extension for date. Type `FHIRPrimitiveExtension` """
         
         self.onBehalfOf = None
         """ When the who is asserting on behalf of another (organization or
         individual).
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._onBehalfOf = None
+        """ Primitive extension for onBehalfOf. Type `FHIRPrimitiveExtension` """
         
         self.proxyIdentityCertificate = None
         """ A digital identity certificate associated with the proxy entity
         submitting attested information on behalf of the attestation source.
         Type `str`. """
+        self._proxyIdentityCertificate = None
+        """ Primitive extension for proxyIdentityCertificate. Type `FHIRPrimitiveExtension` """
         
         self.proxySignature = None
         """ Proxy signature.
         Type `Signature` (represented as `dict` in JSON). """
+        self._proxySignature = None
+        """ Primitive extension for proxySignature. Type `FHIRPrimitiveExtension` """
         
         self.sourceIdentityCertificate = None
         """ A digital identity certificate associated with the attestation
         source.
         Type `str`. """
+        self._sourceIdentityCertificate = None
+        """ Primitive extension for sourceIdentityCertificate. Type `FHIRPrimitiveExtension` """
         
         self.sourceSignature = None
         """ Attester signature.
         Type `Signature` (represented as `dict` in JSON). """
+        self._sourceSignature = None
+        """ Primitive extension for sourceSignature. Type `FHIRPrimitiveExtension` """
         
         self.who = None
         """ The individual or organization attesting to information.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._who = None
+        """ Primitive extension for who. Type `FHIRPrimitiveExtension` """
         
         super(VerificationResultAttestation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -159,13 +217,21 @@ class VerificationResultAttestation(backboneelement.BackboneElement):
         js = super(VerificationResultAttestation, self).elementProperties()
         js.extend([
             ("communicationMethod", "communicationMethod", codeableconcept.CodeableConcept, False, None, False),
+            ("_communicationMethod", "_communicationMethod", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("_date", "_date", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
+            ("_onBehalfOf", "_onBehalfOf", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("proxyIdentityCertificate", "proxyIdentityCertificate", str, False, None, False),
+            ("_proxyIdentityCertificate", "_proxyIdentityCertificate", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("proxySignature", "proxySignature", signature.Signature, False, None, False),
+            ("_proxySignature", "_proxySignature", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("sourceIdentityCertificate", "sourceIdentityCertificate", str, False, None, False),
+            ("_sourceIdentityCertificate", "_sourceIdentityCertificate", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("sourceSignature", "sourceSignature", signature.Signature, False, None, False),
+            ("_sourceSignature", "_sourceSignature", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("who", "who", fhirreference.FHIRReference, False, None, False),
+            ("_who", "_who", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
@@ -187,14 +253,20 @@ class VerificationResultPrimarySource(backboneelement.BackboneElement):
         self.canPushUpdates = None
         """ yes | no | undetermined.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._canPushUpdates = None
+        """ Primitive extension for canPushUpdates. Type `FHIRPrimitiveExtension` """
         
         self.communicationMethod = None
         """ Method for exchanging information with the primary source.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self._communicationMethod = None
+        """ Primitive extension for communicationMethod. Type `FHIRPrimitiveExtension` """
         
         self.pushTypeAvailable = None
         """ specific | any | source.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self._pushTypeAvailable = None
+        """ Primitive extension for pushTypeAvailable. Type `FHIRPrimitiveExtension` """
         
         self.type = None
         """ Type of primary source (License Board; Primary Education;
@@ -202,18 +274,26 @@ class VerificationResultPrimarySource(backboneelement.BackboneElement):
         Registration Authority; legal source; issuing source; authoritative
         source).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self._type = None
+        """ Primitive extension for type. Type `FHIRPrimitiveExtension` """
         
         self.validationDate = None
         """ When the target was validated against the primary source.
         Type `FHIRDateTime` (represented as `str` in JSON). """
+        self._validationDate = None
+        """ Primitive extension for validationDate. Type `FHIRPrimitiveExtension` """
         
         self.validationStatus = None
         """ successful | failed | unknown.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._validationStatus = None
+        """ Primitive extension for validationStatus. Type `FHIRPrimitiveExtension` """
         
         self.who = None
         """ Reference to the primary source.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._who = None
+        """ Primitive extension for who. Type `FHIRPrimitiveExtension` """
         
         super(VerificationResultPrimarySource, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -221,12 +301,19 @@ class VerificationResultPrimarySource(backboneelement.BackboneElement):
         js = super(VerificationResultPrimarySource, self).elementProperties()
         js.extend([
             ("canPushUpdates", "canPushUpdates", codeableconcept.CodeableConcept, False, None, False),
+            ("_canPushUpdates", "_canPushUpdates", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("communicationMethod", "communicationMethod", codeableconcept.CodeableConcept, True, None, False),
+            ("_communicationMethod", "_communicationMethod", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("pushTypeAvailable", "pushTypeAvailable", codeableconcept.CodeableConcept, True, None, False),
+            ("_pushTypeAvailable", "_pushTypeAvailable", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
+            ("_type", "_type", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("validationDate", "validationDate", fhirdatetime.FHIRDateTime, False, None, False),
+            ("_validationDate", "_validationDate", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("validationStatus", "validationStatus", codeableconcept.CodeableConcept, False, None, False),
+            ("_validationStatus", "_validationStatus", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("who", "who", fhirreference.FHIRReference, False, None, False),
+            ("_who", "_who", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
@@ -248,14 +335,20 @@ class VerificationResultValidator(backboneelement.BackboneElement):
         self.attestationSignature = None
         """ Validator signature.
         Type `Signature` (represented as `dict` in JSON). """
+        self._attestationSignature = None
+        """ Primitive extension for attestationSignature. Type `FHIRPrimitiveExtension` """
         
         self.identityCertificate = None
         """ A digital identity certificate associated with the validator.
         Type `str`. """
+        self._identityCertificate = None
+        """ Primitive extension for identityCertificate. Type `FHIRPrimitiveExtension` """
         
         self.organization = None
         """ Reference to the organization validating information.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._organization = None
+        """ Primitive extension for organization. Type `FHIRPrimitiveExtension` """
         
         super(VerificationResultValidator, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -263,11 +356,15 @@ class VerificationResultValidator(backboneelement.BackboneElement):
         js = super(VerificationResultValidator, self).elementProperties()
         js.extend([
             ("attestationSignature", "attestationSignature", signature.Signature, False, None, False),
+            ("_attestationSignature", "_attestationSignature", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("identityCertificate", "identityCertificate", str, False, None, False),
+            ("_identityCertificate", "_identityCertificate", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, True),
+            ("_organization", "_organization", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import codeableconcept
 from . import fhirdate

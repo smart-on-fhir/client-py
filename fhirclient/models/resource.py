@@ -23,18 +23,26 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
         self.id = None
         """ Logical id of this artifact.
         Type `str`. """
+        self._id = None
+        """ Primitive extension for id. Type `FHIRPrimitiveExtension` """
         
         self.implicitRules = None
         """ A set of rules under which this content was created.
         Type `str`. """
+        self._implicitRules = None
+        """ Primitive extension for implicitRules. Type `FHIRPrimitiveExtension` """
         
         self.language = None
         """ Language of the resource content.
         Type `str`. """
+        self._language = None
+        """ Primitive extension for language. Type `FHIRPrimitiveExtension` """
         
         self.meta = None
         """ Metadata about the resource.
         Type `Meta` (represented as `dict` in JSON). """
+        self._meta = None
+        """ Primitive extension for meta. Type `FHIRPrimitiveExtension` """
         
         super(Resource, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -42,11 +50,16 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
         js = super(Resource, self).elementProperties()
         js.extend([
             ("id", "id", str, False, None, False),
+            ("_id", "_id", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("implicitRules", "implicitRules", str, False, None, False),
+            ("_implicitRules", "_implicitRules", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("language", "language", str, False, None, False),
+            ("_language", "_language", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("meta", "meta", meta.Meta, False, None, False),
+            ("_meta", "_meta", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import meta

@@ -24,6 +24,8 @@ class OperationOutcome(domainresource.DomainResource):
         self.issue = None
         """ A single issue associated with the action.
         List of `OperationOutcomeIssue` items (represented as `dict` in JSON). """
+        self._issue = None
+        """ Primitive extension for issue. Type `FHIRPrimitiveExtension` """
         
         super(OperationOutcome, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -31,6 +33,7 @@ class OperationOutcome(domainresource.DomainResource):
         js = super(OperationOutcome, self).elementProperties()
         js.extend([
             ("issue", "issue", OperationOutcomeIssue, True, None, True),
+            ("_issue", "_issue", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
@@ -57,26 +60,38 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         self.code = None
         """ Error or warning code.
         Type `str`. """
+        self._code = None
+        """ Primitive extension for code. Type `FHIRPrimitiveExtension` """
         
         self.details = None
         """ Additional details about the error.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._details = None
+        """ Primitive extension for details. Type `FHIRPrimitiveExtension` """
         
         self.diagnostics = None
         """ Additional diagnostic information about the issue.
         Type `str`. """
+        self._diagnostics = None
+        """ Primitive extension for diagnostics. Type `FHIRPrimitiveExtension` """
         
         self.expression = None
         """ FHIRPath of element(s) related to issue.
         List of `str` items. """
+        self._expression = None
+        """ Primitive extension for expression. Type `FHIRPrimitiveExtension` """
         
         self.location = None
         """ Deprecated: Path of element(s) related to issue.
         List of `str` items. """
+        self._location = None
+        """ Primitive extension for location. Type `FHIRPrimitiveExtension` """
         
         self.severity = None
         """ fatal | error | warning | information.
         Type `str`. """
+        self._severity = None
+        """ Primitive extension for severity. Type `FHIRPrimitiveExtension` """
         
         super(OperationOutcomeIssue, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -84,13 +99,20 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         js = super(OperationOutcomeIssue, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
+            ("_code", "_code", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("details", "details", codeableconcept.CodeableConcept, False, None, False),
+            ("_details", "_details", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("diagnostics", "diagnostics", str, False, None, False),
+            ("_diagnostics", "_diagnostics", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("expression", "expression", str, True, None, False),
+            ("_expression", "_expression", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("location", "location", str, True, None, False),
+            ("_location", "_location", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("severity", "severity", str, False, None, True),
+            ("_severity", "_severity", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import codeableconcept

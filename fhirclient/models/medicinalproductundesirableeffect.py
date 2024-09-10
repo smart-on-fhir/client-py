@@ -23,22 +23,32 @@ class MedicinalProductUndesirableEffect(domainresource.DomainResource):
         self.classification = None
         """ Classification of the effect.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._classification = None
+        """ Primitive extension for classification. Type `FHIRPrimitiveExtension` """
         
         self.frequencyOfOccurrence = None
         """ The frequency of occurrence of the effect.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._frequencyOfOccurrence = None
+        """ Primitive extension for frequencyOfOccurrence. Type `FHIRPrimitiveExtension` """
         
         self.population = None
         """ The population group to which this applies.
         List of `Population` items (represented as `dict` in JSON). """
+        self._population = None
+        """ Primitive extension for population. Type `FHIRPrimitiveExtension` """
         
         self.subject = None
         """ The medication for which this is an indication.
         List of `FHIRReference` items (represented as `dict` in JSON). """
+        self._subject = None
+        """ Primitive extension for subject. Type `FHIRPrimitiveExtension` """
         
         self.symptomConditionEffect = None
         """ The symptom, condition or undesirable effect.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._symptomConditionEffect = None
+        """ Primitive extension for symptomConditionEffect. Type `FHIRPrimitiveExtension` """
         
         super(MedicinalProductUndesirableEffect, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -46,13 +56,19 @@ class MedicinalProductUndesirableEffect(domainresource.DomainResource):
         js = super(MedicinalProductUndesirableEffect, self).elementProperties()
         js.extend([
             ("classification", "classification", codeableconcept.CodeableConcept, False, None, False),
+            ("_classification", "_classification", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("frequencyOfOccurrence", "frequencyOfOccurrence", codeableconcept.CodeableConcept, False, None, False),
+            ("_frequencyOfOccurrence", "_frequencyOfOccurrence", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("population", "population", population.Population, True, None, False),
+            ("_population", "_population", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, True, None, False),
+            ("_subject", "_subject", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("symptomConditionEffect", "symptomConditionEffect", codeableconcept.CodeableConcept, False, None, False),
+            ("_symptomConditionEffect", "_symptomConditionEffect", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import codeableconcept
 from . import fhirreference

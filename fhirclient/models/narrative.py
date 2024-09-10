@@ -25,10 +25,14 @@ class Narrative(element.Element):
         self.div = None
         """ Limited xhtml content.
         Type `str`. """
+        self._div = None
+        """ Primitive extension for div. Type `FHIRPrimitiveExtension` """
         
         self.status = None
         """ generated | extensions | additional | empty.
         Type `str`. """
+        self._status = None
+        """ Primitive extension for status. Type `FHIRPrimitiveExtension` """
         
         super(Narrative, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -36,8 +40,10 @@ class Narrative(element.Element):
         js = super(Narrative, self).elementProperties()
         js.extend([
             ("div", "div", str, False, None, True),
+            ("_div", "_div", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("status", "status", str, False, None, True),
+            ("_status", "_status", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
-
+from . import fhirprimitiveextension

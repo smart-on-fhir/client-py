@@ -24,4 +24,4 @@ class Count(quantity.Quantity):
         
         super(Count, self).__init__(jsondict=jsondict, strict=strict)
 
-
+from . import fhirprimitiveextension

@@ -20,7 +20,7 @@ class ProvenanceTests(unittest.TestCase):
         return provenance.Provenance(js)
     
     def testProvenance1(self):
-        inst = self.instantiate_from("provenance-example-cwl.json")
+        inst = self.instantiate_from("provenance-example-sig.json")
         self.assertIsNotNone(inst, "Must have instantiated a Provenance instance")
         self.implProvenance1(inst)
         
@@ -30,31 +30,6 @@ class ProvenanceTests(unittest.TestCase):
         self.implProvenance1(inst2)
     
     def implProvenance1(self, inst):
-        self.assertEqual(inst.agent[0].type.coding[0].code, "AUT")
-        self.assertEqual(inst.agent[0].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
-        self.assertEqual(inst.entity[0].role, "source")
-        self.assertEqual(inst.id, "example-cwl")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.occurredPeriod.start.datetime, FHIRDateTime("2016-11-30").datetime)
-        self.assertEqual(inst.occurredPeriod.start.as_json(), "2016-11-30")
-        self.assertEqual(inst.reason[0].text, "profiling Short Tandem Repeats (STRs) from high throughput sequencing data.")
-        self.assertEqual(inst.recorded.datetime, FHIRInstant("2016-12-01T08:12:14+10:00").datetime)
-        self.assertEqual(inst.recorded.as_json(), "2016-12-01T08:12:14+10:00")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testProvenance2(self):
-        inst = self.instantiate_from("provenance-example-sig.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Provenance instance")
-        self.implProvenance2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Provenance", js["resourceType"])
-        inst2 = provenance.Provenance(js)
-        self.implProvenance2(inst2)
-    
-    def implProvenance2(self, inst):
         self.assertEqual(inst.activity.coding[0].code, "AU")
         self.assertEqual(inst.activity.coding[0].display, "authenticated")
         self.assertEqual(inst.activity.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion")
@@ -78,6 +53,31 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(inst.signature[0].when.datetime, FHIRInstant("2015-08-27T08:39:24+10:00").datetime)
         self.assertEqual(inst.signature[0].when.as_json(), "2015-08-27T08:39:24+10:00")
         self.assertEqual(inst.text.div, "<div xmlns=\"http://www.w3.org/1999/xhtml\">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>")
+        self.assertEqual(inst.text.status, "generated")
+    
+    def testProvenance2(self):
+        inst = self.instantiate_from("provenance-example-cwl.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Provenance instance")
+        self.implProvenance2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Provenance", js["resourceType"])
+        inst2 = provenance.Provenance(js)
+        self.implProvenance2(inst2)
+    
+    def implProvenance2(self, inst):
+        self.assertEqual(inst.agent[0].type.coding[0].code, "AUT")
+        self.assertEqual(inst.agent[0].type.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ParticipationType")
+        self.assertEqual(inst.entity[0].role, "source")
+        self.assertEqual(inst.id, "example-cwl")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.occurredPeriod.start.datetime, FHIRDateTime("2016-11-30").datetime)
+        self.assertEqual(inst.occurredPeriod.start.as_json(), "2016-11-30")
+        self.assertEqual(inst.reason[0].text, "profiling Short Tandem Repeats (STRs) from high throughput sequencing data.")
+        self.assertEqual(inst.recorded.datetime, FHIRInstant("2016-12-01T08:12:14+10:00").datetime)
+        self.assertEqual(inst.recorded.as_json(), "2016-12-01T08:12:14+10:00")
         self.assertEqual(inst.text.status, "generated")
     
     def testProvenance3(self):

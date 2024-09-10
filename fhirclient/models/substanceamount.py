@@ -30,6 +30,8 @@ class SubstanceAmount(backboneelement.BackboneElement):
         only a single definite value for a given element is given, it would
         be captured in this field.
         Type `Quantity` (represented as `dict` in JSON). """
+        self._amountQuantity = None
+        """ Primitive extension for amountQuantity. Type `FHIRPrimitiveExtension` """
         
         self.amountRange = None
         """ Used to capture quantitative values for a variety of elements. If
@@ -37,6 +39,8 @@ class SubstanceAmount(backboneelement.BackboneElement):
         only a single definite value for a given element is given, it would
         be captured in this field.
         Type `Range` (represented as `dict` in JSON). """
+        self._amountRange = None
+        """ Primitive extension for amountRange. Type `FHIRPrimitiveExtension` """
         
         self.amountString = None
         """ Used to capture quantitative values for a variety of elements. If
@@ -44,10 +48,14 @@ class SubstanceAmount(backboneelement.BackboneElement):
         only a single definite value for a given element is given, it would
         be captured in this field.
         Type `str`. """
+        self._amountString = None
+        """ Primitive extension for amountString. Type `FHIRPrimitiveExtension` """
         
         self.amountText = None
         """ A textual comment on a numeric value.
         Type `str`. """
+        self._amountText = None
+        """ Primitive extension for amountText. Type `FHIRPrimitiveExtension` """
         
         self.amountType = None
         """ Most elements that require a quantitative value will also have a
@@ -59,10 +67,14 @@ class SubstanceAmount(backboneelement.BackboneElement):
         effort should be made to use same the amount type for all related
         definitional elements.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._amountType = None
+        """ Primitive extension for amountType. Type `FHIRPrimitiveExtension` """
         
         self.referenceRange = None
         """ Reference range of possible or expected values.
         Type `SubstanceAmountReferenceRange` (represented as `dict` in JSON). """
+        self._referenceRange = None
+        """ Primitive extension for referenceRange. Type `FHIRPrimitiveExtension` """
         
         super(SubstanceAmount, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -70,11 +82,17 @@ class SubstanceAmount(backboneelement.BackboneElement):
         js = super(SubstanceAmount, self).elementProperties()
         js.extend([
             ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
+            ("_amountQuantity", "_amountQuantity", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("amountRange", "amountRange", range.Range, False, "amount", False),
+            ("_amountRange", "_amountRange", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("amountString", "amountString", str, False, "amount", False),
+            ("_amountString", "_amountString", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("amountText", "amountText", str, False, None, False),
+            ("_amountText", "_amountText", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("amountType", "amountType", codeableconcept.CodeableConcept, False, None, False),
+            ("_amountType", "_amountType", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("referenceRange", "referenceRange", SubstanceAmountReferenceRange, False, None, False),
+            ("_referenceRange", "_referenceRange", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
@@ -98,10 +116,14 @@ class SubstanceAmountReferenceRange(element.Element):
         self.highLimit = None
         """ Upper limit possible or expected.
         Type `Quantity` (represented as `dict` in JSON). """
+        self._highLimit = None
+        """ Primitive extension for highLimit. Type `FHIRPrimitiveExtension` """
         
         self.lowLimit = None
         """ Lower limit possible or expected.
         Type `Quantity` (represented as `dict` in JSON). """
+        self._lowLimit = None
+        """ Primitive extension for lowLimit. Type `FHIRPrimitiveExtension` """
         
         super(SubstanceAmountReferenceRange, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -109,10 +131,13 @@ class SubstanceAmountReferenceRange(element.Element):
         js = super(SubstanceAmountReferenceRange, self).elementProperties()
         js.extend([
             ("highLimit", "highLimit", quantity.Quantity, False, None, False),
+            ("_highLimit", "_highLimit", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("lowLimit", "lowLimit", quantity.Quantity, False, None, False),
+            ("_lowLimit", "_lowLimit", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import codeableconcept
 from . import quantity

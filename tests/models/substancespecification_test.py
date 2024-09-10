@@ -20,7 +20,7 @@ class SubstanceSpecificationTests(unittest.TestCase):
         return substancespecification.SubstanceSpecification(js)
     
     def testSubstanceSpecification1(self):
-        inst = self.instantiate_from("substancepolymer-example.json")
+        inst = self.instantiate_from("substancesourcematerial-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a SubstanceSpecification instance")
         self.implSubstanceSpecification1(inst)
         
@@ -38,7 +38,7 @@ class SubstanceSpecificationTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testSubstanceSpecification2(self):
-        inst = self.instantiate_from("substancereferenceinformation-example.json")
+        inst = self.instantiate_from("substanceprotein-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a SubstanceSpecification instance")
         self.implSubstanceSpecification2(inst)
         
@@ -56,7 +56,7 @@ class SubstanceSpecificationTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testSubstanceSpecification3(self):
-        inst = self.instantiate_from("substancenucleicacid-example.json")
+        inst = self.instantiate_from("substancepolymer-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a SubstanceSpecification instance")
         self.implSubstanceSpecification3(inst)
         
@@ -74,7 +74,7 @@ class SubstanceSpecificationTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testSubstanceSpecification4(self):
-        inst = self.instantiate_from("substanceprotein-example.json")
+        inst = self.instantiate_from("substancespecification-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a SubstanceSpecification instance")
         self.implSubstanceSpecification4(inst)
         
@@ -92,7 +92,7 @@ class SubstanceSpecificationTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testSubstanceSpecification5(self):
-        inst = self.instantiate_from("substancespecification-example.json")
+        inst = self.instantiate_from("substancereferenceinformation-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a SubstanceSpecification instance")
         self.implSubstanceSpecification5(inst)
         
@@ -110,7 +110,7 @@ class SubstanceSpecificationTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testSubstanceSpecification6(self):
-        inst = self.instantiate_from("substancesourcematerial-example.json")
+        inst = self.instantiate_from("substancenucleicacid-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a SubstanceSpecification instance")
         self.implSubstanceSpecification6(inst)
         

@@ -204,3 +204,14 @@ and install the needed packages as shown:
 [smart]: http://docs.smarthealthit.org
 [fhir-parser]: https://github.com/smart-on-fhir/fhir-parser
 [docs]: https://smart-on-fhir.github.io/client-py
+
+### Generating Fresh Models
+
+To generate fresh models after making changes to `fhir-parser` or to
+`fhir-parser-resources`, do the following:
+
+```
+git submodule init --update --recursive
+pip install -r fhir-parser/requirements.txt
+./generate_models.sh
+```

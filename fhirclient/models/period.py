@@ -23,10 +23,14 @@ class Period(element.Element):
         self.end = None
         """ End time with inclusive boundary, if not ongoing.
         Type `FHIRDateTime` (represented as `str` in JSON). """
+        self._end = None
+        """ Primitive extension for end. Type `FHIRPrimitiveExtension` """
         
         self.start = None
         """ Starting time with inclusive boundary.
         Type `FHIRDateTime` (represented as `str` in JSON). """
+        self._start = None
+        """ Primitive extension for start. Type `FHIRPrimitiveExtension` """
         
         super(Period, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -34,9 +38,12 @@ class Period(element.Element):
         js = super(Period, self).elementProperties()
         js.extend([
             ("end", "end", fhirdatetime.FHIRDateTime, False, None, False),
+            ("_end", "_end", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("start", "start", fhirdatetime.FHIRDateTime, False, None, False),
+            ("_start", "_start", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import fhirdatetime

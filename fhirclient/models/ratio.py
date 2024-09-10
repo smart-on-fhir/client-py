@@ -24,10 +24,14 @@ class Ratio(element.Element):
         self.denominator = None
         """ Denominator value.
         Type `Quantity` (represented as `dict` in JSON). """
+        self._denominator = None
+        """ Primitive extension for denominator. Type `FHIRPrimitiveExtension` """
         
         self.numerator = None
         """ Numerator value.
         Type `Quantity` (represented as `dict` in JSON). """
+        self._numerator = None
+        """ Primitive extension for numerator. Type `FHIRPrimitiveExtension` """
         
         super(Ratio, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -35,9 +39,12 @@ class Ratio(element.Element):
         js = super(Ratio, self).elementProperties()
         js.extend([
             ("denominator", "denominator", quantity.Quantity, False, None, False),
+            ("_denominator", "_denominator", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("numerator", "numerator", quantity.Quantity, False, None, False),
+            ("_numerator", "_numerator", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import quantity

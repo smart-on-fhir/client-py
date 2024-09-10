@@ -20,7 +20,7 @@ class LibraryTests(unittest.TestCase):
         return library.Library(js)
     
     def testLibrary1(self):
-        inst = self.instantiate_from("library-cms146-example.json")
+        inst = self.instantiate_from("library-predecessor-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Library instance")
         self.implLibrary1(inst)
         
@@ -30,6 +30,41 @@ class LibraryTests(unittest.TestCase):
         self.implLibrary1(inst2)
     
     def implLibrary1(self, inst):
+        self.assertEqual(inst.content[0].contentType, "text/cql")
+        self.assertEqual(inst.content[0].title, "FHIR Helpers")
+        self.assertEqual(inst.content[0].url, "library-fhir-helpers-content.cql")
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2016-11-14").datetime)
+        self.assertEqual(inst.date.as_json(), "2016-11-14")
+        self.assertEqual(inst.description, "FHIR Helpers")
+        self.assertTrue(inst.experimental)
+        self.assertEqual(inst.id, "library-fhir-helpers-predecessor")
+        self.assertEqual(inst.identifier[0].use, "official")
+        self.assertEqual(inst.identifier[0].value, "FHIRHelpers")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.relatedArtifact[0].resource, "Library/fhir-model-definition")
+        self.assertEqual(inst.relatedArtifact[0].type, "depends-on")
+        self.assertEqual(inst.relatedArtifact[1].resource, "Library/library-fhir-helpers")
+        self.assertEqual(inst.relatedArtifact[1].type, "successor")
+        self.assertEqual(inst.status, "active")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.title, "FHIR Helpers")
+        self.assertEqual(inst.topic[0].text, "FHIR Helpers")
+        self.assertEqual(inst.type.coding[0].code, "logic-library")
+        self.assertEqual(inst.version, "1.6")
+    
+    def testLibrary2(self):
+        inst = self.instantiate_from("library-cms146-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Library instance")
+        self.implLibrary2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Library", js["resourceType"])
+        inst2 = library.Library(js)
+        self.implLibrary2(inst2)
+    
+    def implLibrary2(self, inst):
         self.assertEqual(inst.content[0].contentType, "text/cql")
         self.assertEqual(inst.content[0].url, "library-cms146-example-content.cql")
         self.assertEqual(inst.dataRequirement[0].type, "Patient")
@@ -87,43 +122,8 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].code, "logic-library")
         self.assertEqual(inst.version, "2.0.0")
     
-    def testLibrary2(self):
-        inst = self.instantiate_from("library-predecessor-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Library instance")
-        self.implLibrary2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Library", js["resourceType"])
-        inst2 = library.Library(js)
-        self.implLibrary2(inst2)
-    
-    def implLibrary2(self, inst):
-        self.assertEqual(inst.content[0].contentType, "text/cql")
-        self.assertEqual(inst.content[0].title, "FHIR Helpers")
-        self.assertEqual(inst.content[0].url, "library-fhir-helpers-content.cql")
-        self.assertEqual(inst.date.datetime, FHIRDateTime("2016-11-14").datetime)
-        self.assertEqual(inst.date.as_json(), "2016-11-14")
-        self.assertEqual(inst.description, "FHIR Helpers")
-        self.assertTrue(inst.experimental)
-        self.assertEqual(inst.id, "library-fhir-helpers-predecessor")
-        self.assertEqual(inst.identifier[0].use, "official")
-        self.assertEqual(inst.identifier[0].value, "FHIRHelpers")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.relatedArtifact[0].resource, "Library/fhir-model-definition")
-        self.assertEqual(inst.relatedArtifact[0].type, "depends-on")
-        self.assertEqual(inst.relatedArtifact[1].resource, "Library/library-fhir-helpers")
-        self.assertEqual(inst.relatedArtifact[1].type, "successor")
-        self.assertEqual(inst.status, "active")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.title, "FHIR Helpers")
-        self.assertEqual(inst.topic[0].text, "FHIR Helpers")
-        self.assertEqual(inst.type.coding[0].code, "logic-library")
-        self.assertEqual(inst.version, "1.6")
-    
     def testLibrary3(self):
-        inst = self.instantiate_from("library-composition-example.json")
+        inst = self.instantiate_from("library-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a Library instance")
         self.implLibrary3(inst)
         
@@ -133,6 +133,40 @@ class LibraryTests(unittest.TestCase):
         self.implLibrary3(inst2)
     
     def implLibrary3(self, inst):
+        self.assertEqual(inst.content[0].contentType, "text/cql")
+        self.assertEqual(inst.content[0].url, "library-example-content.cql")
+        self.assertEqual(inst.dataRequirement[0].codeFilter[0].path, "code")
+        self.assertEqual(inst.dataRequirement[0].codeFilter[0].valueSet, "urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006")
+        self.assertEqual(inst.dataRequirement[0].type, "Condition")
+        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-07-22").datetime)
+        self.assertEqual(inst.date.as_json(), "2015-07-22")
+        self.assertEqual(inst.description, "Common Logic for adherence to Chlamydia Screening guidelines")
+        self.assertEqual(inst.id, "example")
+        self.assertEqual(inst.identifier[0].use, "official")
+        self.assertEqual(inst.identifier[0].value, "ChalmydiaScreening_Common")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.relatedArtifact[0].resource, "Library/library-quick-model-definition")
+        self.assertEqual(inst.relatedArtifact[0].type, "depends-on")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.title, "Chlamydia Screening Common Library")
+        self.assertEqual(inst.topic[0].text, "Chlamydia Screening")
+        self.assertEqual(inst.type.coding[0].code, "logic-library")
+        self.assertEqual(inst.version, "2.0.0")
+    
+    def testLibrary4(self):
+        inst = self.instantiate_from("library-composition-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a Library instance")
+        self.implLibrary4(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("Library", js["resourceType"])
+        inst2 = library.Library(js)
+        self.implLibrary4(inst2)
+    
+    def implLibrary4(self, inst):
         self.assertEqual(inst.date.datetime, FHIRDateTime("2017-03-10").datetime)
         self.assertEqual(inst.date.as_json(), "2017-03-10")
         self.assertEqual(inst.description, "Artifacts required for implementation of Zika Virus Management")
@@ -163,38 +197,4 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.topic[0].text, "Zika Virus Management")
         self.assertEqual(inst.type.coding[0].code, "asset-collection")
         self.assertEqual(inst.version, "1.0.0")
-    
-    def testLibrary4(self):
-        inst = self.instantiate_from("library-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a Library instance")
-        self.implLibrary4(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("Library", js["resourceType"])
-        inst2 = library.Library(js)
-        self.implLibrary4(inst2)
-    
-    def implLibrary4(self, inst):
-        self.assertEqual(inst.content[0].contentType, "text/cql")
-        self.assertEqual(inst.content[0].url, "library-example-content.cql")
-        self.assertEqual(inst.dataRequirement[0].codeFilter[0].path, "code")
-        self.assertEqual(inst.dataRequirement[0].codeFilter[0].valueSet, "urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006")
-        self.assertEqual(inst.dataRequirement[0].type, "Condition")
-        self.assertEqual(inst.date.datetime, FHIRDateTime("2015-07-22").datetime)
-        self.assertEqual(inst.date.as_json(), "2015-07-22")
-        self.assertEqual(inst.description, "Common Logic for adherence to Chlamydia Screening guidelines")
-        self.assertEqual(inst.id, "example")
-        self.assertEqual(inst.identifier[0].use, "official")
-        self.assertEqual(inst.identifier[0].value, "ChalmydiaScreening_Common")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.relatedArtifact[0].resource, "Library/library-quick-model-definition")
-        self.assertEqual(inst.relatedArtifact[0].type, "depends-on")
-        self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.title, "Chlamydia Screening Common Library")
-        self.assertEqual(inst.topic[0].text, "Chlamydia Screening")
-        self.assertEqual(inst.type.coding[0].code, "logic-library")
-        self.assertEqual(inst.version, "2.0.0")
 

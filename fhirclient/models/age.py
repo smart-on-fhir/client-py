@@ -20,4 +20,4 @@ class Age(quantity.Quantity):
         
         super(Age, self).__init__(jsondict=jsondict, strict=strict)
 
-
+from . import fhirprimitiveextension

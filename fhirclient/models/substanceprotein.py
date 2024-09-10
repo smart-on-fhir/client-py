@@ -34,6 +34,8 @@ class SubstanceProtein(domainresource.DomainResource):
         The disulfide linkage positions shall actually contain the amino
         acid Cysteine at the respective positions.
         List of `str` items. """
+        self._disulfideLinkage = None
+        """ Primitive extension for disulfideLinkage. Type `FHIRPrimitiveExtension` """
         
         self.numberOfSubunits = None
         """ Number of linear sequences of amino acids linked through peptide
@@ -41,12 +43,16 @@ class SubstanceProtein(domainresource.DomainResource):
         shall be described. It is possible that the number of subunits can
         be variable.
         Type `int`. """
+        self._numberOfSubunits = None
+        """ Primitive extension for numberOfSubunits. Type `FHIRPrimitiveExtension` """
         
         self.sequenceType = None
         """ The SubstanceProtein descriptive elements will only be used when a
         complete or partial amino acid sequence is available or derivable
         from a nucleic acid sequence.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._sequenceType = None
+        """ Primitive extension for sequenceType. Type `FHIRPrimitiveExtension` """
         
         self.subunit = None
         """ This subclause refers to the description of each subunit
@@ -59,6 +65,8 @@ class SubstanceProtein(domainresource.DomainResource):
         decreasing molecular weight; subunits that have identical sequences
         will be repeated multiple times.
         List of `SubstanceProteinSubunit` items (represented as `dict` in JSON). """
+        self._subunit = None
+        """ Primitive extension for subunit. Type `FHIRPrimitiveExtension` """
         
         super(SubstanceProtein, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -66,9 +74,13 @@ class SubstanceProtein(domainresource.DomainResource):
         js = super(SubstanceProtein, self).elementProperties()
         js.extend([
             ("disulfideLinkage", "disulfideLinkage", str, True, None, False),
+            ("_disulfideLinkage", "_disulfideLinkage", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("numberOfSubunits", "numberOfSubunits", int, False, None, False),
+            ("_numberOfSubunits", "_numberOfSubunits", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("sequenceType", "sequenceType", codeableconcept.CodeableConcept, False, None, False),
+            ("_sequenceType", "_sequenceType", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("subunit", "subunit", SubstanceProteinSubunit, True, None, False),
+            ("_subunit", "_subunit", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
@@ -99,25 +111,35 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         self.cTerminalModification = None
         """ The modification at the C-terminal shall be specified.
         Type `str`. """
+        self._cTerminalModification = None
+        """ Primitive extension for cTerminalModification. Type `FHIRPrimitiveExtension` """
         
         self.cTerminalModificationId = None
         """ Unique identifier for molecular fragment modification based on the
         ISO 11238 Substance ID.
         Type `Identifier` (represented as `dict` in JSON). """
+        self._cTerminalModificationId = None
+        """ Primitive extension for cTerminalModificationId. Type `FHIRPrimitiveExtension` """
         
         self.length = None
         """ Length of linear sequences of amino acids contained in the subunit.
         Type `int`. """
+        self._length = None
+        """ Primitive extension for length. Type `FHIRPrimitiveExtension` """
         
         self.nTerminalModification = None
         """ The name of the fragment modified at the N-terminal of the
         SubstanceProtein shall be specified.
         Type `str`. """
+        self._nTerminalModification = None
+        """ Primitive extension for nTerminalModification. Type `FHIRPrimitiveExtension` """
         
         self.nTerminalModificationId = None
         """ Unique identifier for molecular fragment modification based on the
         ISO 11238 Substance ID.
         Type `Identifier` (represented as `dict` in JSON). """
+        self._nTerminalModificationId = None
+        """ Primitive extension for nTerminalModificationId. Type `FHIRPrimitiveExtension` """
         
         self.sequence = None
         """ The sequence information shall be provided enumerating the amino
@@ -129,6 +151,8 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         letter code an X should be used within the sequence. The modified
         amino acids will be distinguished by their position in the sequence.
         Type `str`. """
+        self._sequence = None
+        """ Primitive extension for sequence. Type `FHIRPrimitiveExtension` """
         
         self.sequenceAttachment = None
         """ The sequence information shall be provided enumerating the amino
@@ -140,6 +164,8 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         letter code an X should be used within the sequence. The modified
         amino acids will be distinguished by their position in the sequence.
         Type `Attachment` (represented as `dict` in JSON). """
+        self._sequenceAttachment = None
+        """ Primitive extension for sequenceAttachment. Type `FHIRPrimitiveExtension` """
         
         self.subunit = None
         """ Index of primary sequences of amino acids linked through peptide
@@ -147,6 +173,8 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         will be ordered by molecular weight. Subunits that have identical
         sequences will be repeated and have sequential subscripts.
         Type `int`. """
+        self._subunit = None
+        """ Primitive extension for subunit. Type `FHIRPrimitiveExtension` """
         
         super(SubstanceProteinSubunit, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -154,16 +182,25 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         js = super(SubstanceProteinSubunit, self).elementProperties()
         js.extend([
             ("cTerminalModification", "cTerminalModification", str, False, None, False),
+            ("_cTerminalModification", "_cTerminalModification", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("cTerminalModificationId", "cTerminalModificationId", identifier.Identifier, False, None, False),
+            ("_cTerminalModificationId", "_cTerminalModificationId", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("length", "length", int, False, None, False),
+            ("_length", "_length", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("nTerminalModification", "nTerminalModification", str, False, None, False),
+            ("_nTerminalModification", "_nTerminalModification", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("nTerminalModificationId", "nTerminalModificationId", identifier.Identifier, False, None, False),
+            ("_nTerminalModificationId", "_nTerminalModificationId", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("sequence", "sequence", str, False, None, False),
+            ("_sequence", "_sequence", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("sequenceAttachment", "sequenceAttachment", attachment.Attachment, False, None, False),
+            ("_sequenceAttachment", "_sequenceAttachment", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("subunit", "subunit", int, False, None, False),
+            ("_subunit", "_subunit", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import attachment
 from . import codeableconcept

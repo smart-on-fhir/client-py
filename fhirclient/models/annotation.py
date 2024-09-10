@@ -24,18 +24,26 @@ class Annotation(element.Element):
         self.authorReference = None
         """ Individual responsible for the annotation.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._authorReference = None
+        """ Primitive extension for authorReference. Type `FHIRPrimitiveExtension` """
         
         self.authorString = None
         """ Individual responsible for the annotation.
         Type `str`. """
+        self._authorString = None
+        """ Primitive extension for authorString. Type `FHIRPrimitiveExtension` """
         
         self.text = None
         """ The annotation  - text content (as markdown).
         Type `str`. """
+        self._text = None
+        """ Primitive extension for text. Type `FHIRPrimitiveExtension` """
         
         self.time = None
         """ When the annotation was made.
         Type `FHIRDateTime` (represented as `str` in JSON). """
+        self._time = None
+        """ Primitive extension for time. Type `FHIRPrimitiveExtension` """
         
         super(Annotation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -43,12 +51,17 @@ class Annotation(element.Element):
         js = super(Annotation, self).elementProperties()
         js.extend([
             ("authorReference", "authorReference", fhirreference.FHIRReference, False, "author", False),
+            ("_authorReference", "_authorReference", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("authorString", "authorString", str, False, "author", False),
+            ("_authorString", "_authorString", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("text", "text", str, False, None, True),
+            ("_text", "_text", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("time", "time", fhirdatetime.FHIRDateTime, False, None, False),
+            ("_time", "_time", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import fhirdatetime
 from . import fhirreference

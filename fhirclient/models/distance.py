@@ -20,4 +20,4 @@ class Distance(quantity.Quantity):
         
         super(Distance, self).__init__(jsondict=jsondict, strict=strict)
 
-
+from . import fhirprimitiveextension

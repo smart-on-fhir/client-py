@@ -23,10 +23,14 @@ class Range(element.Element):
         self.high = None
         """ High limit.
         Type `Quantity` (represented as `dict` in JSON). """
+        self._high = None
+        """ Primitive extension for high. Type `FHIRPrimitiveExtension` """
         
         self.low = None
         """ Low limit.
         Type `Quantity` (represented as `dict` in JSON). """
+        self._low = None
+        """ Primitive extension for low. Type `FHIRPrimitiveExtension` """
         
         super(Range, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -34,9 +38,12 @@ class Range(element.Element):
         js = super(Range, self).elementProperties()
         js.extend([
             ("high", "high", quantity.Quantity, False, None, False),
+            ("_high", "_high", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("low", "low", quantity.Quantity, False, None, False),
+            ("_low", "_low", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import quantity

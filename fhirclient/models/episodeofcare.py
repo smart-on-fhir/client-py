@@ -29,52 +29,76 @@ class EpisodeOfCare(domainresource.DomainResource):
         """ The set of accounts that may be used for billing for this
         EpisodeOfCare.
         List of `FHIRReference` items (represented as `dict` in JSON). """
+        self._account = None
+        """ Primitive extension for account. Type `FHIRPrimitiveExtension` """
         
         self.careManager = None
         """ Care manager/care coordinator for the patient.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._careManager = None
+        """ Primitive extension for careManager. Type `FHIRPrimitiveExtension` """
         
         self.diagnosis = None
         """ The list of diagnosis relevant to this episode of care.
         List of `EpisodeOfCareDiagnosis` items (represented as `dict` in JSON). """
+        self._diagnosis = None
+        """ Primitive extension for diagnosis. Type `FHIRPrimitiveExtension` """
         
         self.identifier = None
         """ Business Identifier(s) relevant for this EpisodeOfCare.
         List of `Identifier` items (represented as `dict` in JSON). """
+        self._identifier = None
+        """ Primitive extension for identifier. Type `FHIRPrimitiveExtension` """
         
         self.managingOrganization = None
         """ Organization that assumes care.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._managingOrganization = None
+        """ Primitive extension for managingOrganization. Type `FHIRPrimitiveExtension` """
         
         self.patient = None
         """ The patient who is the focus of this episode of care.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._patient = None
+        """ Primitive extension for patient. Type `FHIRPrimitiveExtension` """
         
         self.period = None
         """ Interval during responsibility is assumed.
         Type `Period` (represented as `dict` in JSON). """
+        self._period = None
+        """ Primitive extension for period. Type `FHIRPrimitiveExtension` """
         
         self.referralRequest = None
         """ Originating Referral Request(s).
         List of `FHIRReference` items (represented as `dict` in JSON). """
+        self._referralRequest = None
+        """ Primitive extension for referralRequest. Type `FHIRPrimitiveExtension` """
         
         self.status = None
         """ planned | waitlist | active | onhold | finished | cancelled |
         entered-in-error.
         Type `str`. """
+        self._status = None
+        """ Primitive extension for status. Type `FHIRPrimitiveExtension` """
         
         self.statusHistory = None
         """ Past list of status codes (the current status may be included to
         cover the start date of the status).
         List of `EpisodeOfCareStatusHistory` items (represented as `dict` in JSON). """
+        self._statusHistory = None
+        """ Primitive extension for statusHistory. Type `FHIRPrimitiveExtension` """
         
         self.team = None
         """ Other practitioners facilitating this episode of care.
         List of `FHIRReference` items (represented as `dict` in JSON). """
+        self._team = None
+        """ Primitive extension for team. Type `FHIRPrimitiveExtension` """
         
         self.type = None
         """ Type/class  - e.g. specialist referral, disease management.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self._type = None
+        """ Primitive extension for type. Type `FHIRPrimitiveExtension` """
         
         super(EpisodeOfCare, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -82,17 +106,29 @@ class EpisodeOfCare(domainresource.DomainResource):
         js = super(EpisodeOfCare, self).elementProperties()
         js.extend([
             ("account", "account", fhirreference.FHIRReference, True, None, False),
+            ("_account", "_account", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("careManager", "careManager", fhirreference.FHIRReference, False, None, False),
+            ("_careManager", "_careManager", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("diagnosis", "diagnosis", EpisodeOfCareDiagnosis, True, None, False),
+            ("_diagnosis", "_diagnosis", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("_identifier", "_identifier", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
+            ("_managingOrganization", "_managingOrganization", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("_patient", "_patient", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("period", "period", period.Period, False, None, False),
+            ("_period", "_period", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("referralRequest", "referralRequest", fhirreference.FHIRReference, True, None, False),
+            ("_referralRequest", "_referralRequest", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("status", "status", str, False, None, True),
+            ("_status", "_status", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("statusHistory", "statusHistory", EpisodeOfCareStatusHistory, True, None, False),
+            ("_statusHistory", "_statusHistory", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("team", "team", fhirreference.FHIRReference, True, None, False),
+            ("_team", "_team", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
+            ("_type", "_type", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
@@ -116,15 +152,21 @@ class EpisodeOfCareDiagnosis(backboneelement.BackboneElement):
         self.condition = None
         """ Conditions/problems/diagnoses this episode of care is for.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._condition = None
+        """ Primitive extension for condition. Type `FHIRPrimitiveExtension` """
         
         self.rank = None
         """ Ranking of the diagnosis (for each role type).
         Type `int`. """
+        self._rank = None
+        """ Primitive extension for rank. Type `FHIRPrimitiveExtension` """
         
         self.role = None
         """ Role that this diagnosis has within the episode of care (e.g.
         admission, billing, discharge …).
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._role = None
+        """ Primitive extension for role. Type `FHIRPrimitiveExtension` """
         
         super(EpisodeOfCareDiagnosis, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -132,8 +174,11 @@ class EpisodeOfCareDiagnosis(backboneelement.BackboneElement):
         js = super(EpisodeOfCareDiagnosis, self).elementProperties()
         js.extend([
             ("condition", "condition", fhirreference.FHIRReference, False, None, True),
+            ("_condition", "_condition", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("rank", "rank", int, False, None, False),
+            ("_rank", "_rank", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+            ("_role", "_role", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
@@ -159,11 +204,15 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
         self.period = None
         """ Duration the EpisodeOfCare was in the specified status.
         Type `Period` (represented as `dict` in JSON). """
+        self._period = None
+        """ Primitive extension for period. Type `FHIRPrimitiveExtension` """
         
         self.status = None
         """ planned | waitlist | active | onhold | finished | cancelled |
         entered-in-error.
         Type `str`. """
+        self._status = None
+        """ Primitive extension for status. Type `FHIRPrimitiveExtension` """
         
         super(EpisodeOfCareStatusHistory, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -171,10 +220,13 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
         js = super(EpisodeOfCareStatusHistory, self).elementProperties()
         js.extend([
             ("period", "period", period.Period, False, None, True),
+            ("_period", "_period", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("status", "status", str, False, None, True),
+            ("_status", "_status", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import codeableconcept
 from . import fhirreference

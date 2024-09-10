@@ -38,6 +38,7 @@ manual_profiles = [
     ('../fhir-parser-resources/fhirdate.py', 'fhirdate', ['date']),
     ('../fhir-parser-resources/fhirdatetime.py', 'fhirdatetime', ['dateTime']),
     ('../fhir-parser-resources/fhirinstant.py', 'fhirinstant', ['instant']),
+    ('../fhir-parser-resources/fhirprimitiveextension.py', 'fhirprimitiveextension', ['FHIRPrimitiveExtension']),
     ('../fhir-parser-resources/fhirtime.py', 'fhirtime', ['time']),
     ('../fhir-parser-resources/fhirsearch.py', 'fhirsearch', ['FHIRSearch']),
 ]

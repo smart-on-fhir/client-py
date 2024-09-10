@@ -25,15 +25,21 @@ class Binary(resource.Resource):
         self.contentType = None
         """ MimeType of the binary content.
         Type `str`. """
+        self._contentType = None
+        """ Primitive extension for contentType. Type `FHIRPrimitiveExtension` """
         
         self.data = None
         """ The actual content.
         Type `str`. """
+        self._data = None
+        """ Primitive extension for data. Type `FHIRPrimitiveExtension` """
         
         self.securityContext = None
         """ Identifies another resource to use as proxy when enforcing access
         control.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._securityContext = None
+        """ Primitive extension for securityContext. Type `FHIRPrimitiveExtension` """
         
         super(Binary, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -41,10 +47,14 @@ class Binary(resource.Resource):
         js = super(Binary, self).elementProperties()
         js.extend([
             ("contentType", "contentType", str, False, None, True),
+            ("_contentType", "_contentType", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("data", "data", str, False, None, False),
+            ("_data", "_data", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("securityContext", "securityContext", fhirreference.FHIRReference, False, None, False),
+            ("_securityContext", "_securityContext", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import fhirreference

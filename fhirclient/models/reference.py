@@ -21,18 +21,26 @@ class Reference(element.Element):
         self.display = None
         """ Text alternative for the resource.
         Type `str`. """
+        self._display = None
+        """ Primitive extension for display. Type `FHIRPrimitiveExtension` """
         
         self.identifier = None
         """ Logical reference, when literal reference is not known.
         Type `Identifier` (represented as `dict` in JSON). """
+        self._identifier = None
+        """ Primitive extension for identifier. Type `FHIRPrimitiveExtension` """
         
         self.reference = None
         """ Literal reference, Relative, internal or absolute URL.
         Type `str`. """
+        self._reference = None
+        """ Primitive extension for reference. Type `FHIRPrimitiveExtension` """
         
         self.type = None
         """ Type the reference refers to (e.g. "Patient").
         Type `str`. """
+        self._type = None
+        """ Primitive extension for type. Type `FHIRPrimitiveExtension` """
         
         super(Reference, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -40,11 +48,16 @@ class Reference(element.Element):
         js = super(Reference, self).elementProperties()
         js.extend([
             ("display", "display", str, False, None, False),
+            ("_display", "_display", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("_identifier", "_identifier", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("reference", "reference", str, False, None, False),
+            ("_reference", "_reference", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("type", "type", str, False, None, False),
+            ("_type", "_type", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import identifier

@@ -25,6 +25,8 @@ class MarketingStatus(backboneelement.BackboneElement):
         shall be specified It should be specified using the ISO 3166 ‑ 1
         alpha-2 code elements.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._country = None
+        """ Primitive extension for country. Type `FHIRPrimitiveExtension` """
         
         self.dateRange = None
         """ The date when the Medicinal Product is placed on the market by the
@@ -35,6 +37,8 @@ class MarketingStatus(backboneelement.BackboneElement):
         market” refers to the release of the Medicinal Product into the
         distribution chain.
         Type `Period` (represented as `dict` in JSON). """
+        self._dateRange = None
+        """ Primitive extension for dateRange. Type `FHIRPrimitiveExtension` """
         
         self.jurisdiction = None
         """ Where a Medicines Regulatory Agency has granted a marketing
@@ -43,6 +47,8 @@ class MarketingStatus(backboneelement.BackboneElement):
         controlled terminology The controlled term and the controlled term
         identifier shall be specified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._jurisdiction = None
+        """ Primitive extension for jurisdiction. Type `FHIRPrimitiveExtension` """
         
         self.restoreDate = None
         """ The date when the Medicinal Product is placed on the market by the
@@ -53,12 +59,16 @@ class MarketingStatus(backboneelement.BackboneElement):
         market” refers to the release of the Medicinal Product into the
         distribution chain.
         Type `FHIRDateTime` (represented as `str` in JSON). """
+        self._restoreDate = None
+        """ Primitive extension for restoreDate. Type `FHIRPrimitiveExtension` """
         
         self.status = None
         """ This attribute provides information on the status of the marketing
         of the medicinal product See ISO/TS 20443 for more information and
         examples.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._status = None
+        """ Primitive extension for status. Type `FHIRPrimitiveExtension` """
         
         super(MarketingStatus, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -66,13 +76,19 @@ class MarketingStatus(backboneelement.BackboneElement):
         js = super(MarketingStatus, self).elementProperties()
         js.extend([
             ("country", "country", codeableconcept.CodeableConcept, False, None, True),
+            ("_country", "_country", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("dateRange", "dateRange", period.Period, False, None, True),
+            ("_dateRange", "_dateRange", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, False, None, False),
+            ("_jurisdiction", "_jurisdiction", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("restoreDate", "restoreDate", fhirdatetime.FHIRDateTime, False, None, False),
+            ("_restoreDate", "_restoreDate", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, True),
+            ("_status", "_status", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import codeableconcept
 from . import fhirdatetime

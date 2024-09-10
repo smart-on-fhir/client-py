@@ -47,6 +47,8 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
         {% if prop.is_array %}List of{% else %}Type{% endif %} `{{ prop.class_name }}`{% if prop.is_array %} items{% endif %}
         {%- if prop.reference_to_names|length > 0 %} referencing `{{ prop.reference_to_names|join(', ') }}`{% endif %}
         {%- if prop.json_class != prop.class_name %} (represented as `{{ prop.json_class }}` in JSON){% endif %}. """
+        self._{{ prop.name }} = None
+        """ Primitive extension for {{ prop.name }}. Type `FHIRPrimitiveExtension` """
     {%- endfor %}
         
         super({{ klass.name }}, self).__init__(jsondict=jsondict, strict=strict)
@@ -69,6 +71,7 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
             {{- prop.is_array }},
             {%- if prop.one_of_many %} "{{ prop.one_of_many }}"{% else %} None{% endif %}, {# #}
             {{- prop.nonoptional }}),
+            ("_{{ prop.name }}", "_{{ prop.name }}", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         {%- endfor %}
         ])
         return js
@@ -76,7 +79,7 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
 {%- endif %}
 {%- endfor %}
 
+from . import fhirprimitiveextension
 {% for imp in imports %}{% if imp.module not in imported %}
 from . import {{ imp.module }}
 {%- endif %}{% endfor %}
-

@@ -20,7 +20,7 @@ class OperationOutcomeTests(unittest.TestCase):
         return operationoutcome.OperationOutcome(js)
     
     def testOperationOutcome1(self):
-        inst = self.instantiate_from("operationoutcome-example-searchfail.json")
+        inst = self.instantiate_from("operationoutcome-example-validationfail.json")
         self.assertIsNotNone(inst, "Must have instantiated a OperationOutcome instance")
         self.implOperationOutcome1(inst)
         
@@ -30,27 +30,6 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome1(inst2)
     
     def implOperationOutcome1(self, inst):
-        self.assertEqual(inst.id, "searchfail")
-        self.assertEqual(inst.issue[0].code, "code-invalid")
-        self.assertEqual(inst.issue[0].details.text, "The \"name\" parameter has the modifier \"exact\" which is not supported by this server")
-        self.assertEqual(inst.issue[0].location[0], "http.name:exact")
-        self.assertEqual(inst.issue[0].severity, "fatal")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.text.status, "generated")
-    
-    def testOperationOutcome2(self):
-        inst = self.instantiate_from("operationoutcome-example-validationfail.json")
-        self.assertIsNotNone(inst, "Must have instantiated a OperationOutcome instance")
-        self.implOperationOutcome2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("OperationOutcome", js["resourceType"])
-        inst2 = operationoutcome.OperationOutcome(js)
-        self.implOperationOutcome2(inst2)
-    
-    def implOperationOutcome2(self, inst):
         self.assertEqual(inst.id, "validationfail")
         self.assertEqual(inst.issue[0].code, "structure")
         self.assertEqual(inst.issue[0].details.text, "Error parsing resource XML (Unknown Content \"label\"")
@@ -62,8 +41,31 @@ class OperationOutcomeTests(unittest.TestCase):
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
         self.assertEqual(inst.text.status, "generated")
     
+    def testOperationOutcome2(self):
+        inst = self.instantiate_from("operationoutcome-example-break-the-glass.json")
+        self.assertIsNotNone(inst, "Must have instantiated a OperationOutcome instance")
+        self.implOperationOutcome2(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("OperationOutcome", js["resourceType"])
+        inst2 = operationoutcome.OperationOutcome(js)
+        self.implOperationOutcome2(inst2)
+    
+    def implOperationOutcome2(self, inst):
+        self.assertEqual(inst.id, "break-the-glass")
+        self.assertEqual(inst.issue[0].code, "suppressed")
+        self.assertEqual(inst.issue[0].details.coding[0].code, "ETREAT")
+        self.assertEqual(inst.issue[0].details.coding[0].display, "Emergency Treatment")
+        self.assertEqual(inst.issue[0].details.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.issue[0].details.text, "Additional information may be available using the Break-The-Glass Protocol")
+        self.assertEqual(inst.issue[0].severity, "information")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.text.status, "generated")
+    
     def testOperationOutcome3(self):
-        inst = self.instantiate_from("operationoutcome-example-allok.json")
+        inst = self.instantiate_from("operationoutcome-example-searchfail.json")
         self.assertIsNotNone(inst, "Must have instantiated a OperationOutcome instance")
         self.implOperationOutcome3(inst)
         
@@ -73,10 +75,11 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome3(inst2)
     
     def implOperationOutcome3(self, inst):
-        self.assertEqual(inst.id, "allok")
-        self.assertEqual(inst.issue[0].code, "informational")
-        self.assertEqual(inst.issue[0].details.text, "All OK")
-        self.assertEqual(inst.issue[0].severity, "information")
+        self.assertEqual(inst.id, "searchfail")
+        self.assertEqual(inst.issue[0].code, "code-invalid")
+        self.assertEqual(inst.issue[0].details.text, "The \"name\" parameter has the modifier \"exact\" which is not supported by this server")
+        self.assertEqual(inst.issue[0].location[0], "http.name:exact")
+        self.assertEqual(inst.issue[0].severity, "fatal")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")
         self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
@@ -126,7 +129,7 @@ class OperationOutcomeTests(unittest.TestCase):
         self.assertEqual(inst.text.status, "generated")
     
     def testOperationOutcome6(self):
-        inst = self.instantiate_from("operationoutcome-example-break-the-glass.json")
+        inst = self.instantiate_from("operationoutcome-example-allok.json")
         self.assertIsNotNone(inst, "Must have instantiated a OperationOutcome instance")
         self.implOperationOutcome6(inst)
         
@@ -136,12 +139,9 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome6(inst2)
     
     def implOperationOutcome6(self, inst):
-        self.assertEqual(inst.id, "break-the-glass")
-        self.assertEqual(inst.issue[0].code, "suppressed")
-        self.assertEqual(inst.issue[0].details.coding[0].code, "ETREAT")
-        self.assertEqual(inst.issue[0].details.coding[0].display, "Emergency Treatment")
-        self.assertEqual(inst.issue[0].details.coding[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.issue[0].details.text, "Additional information may be available using the Break-The-Glass Protocol")
+        self.assertEqual(inst.id, "allok")
+        self.assertEqual(inst.issue[0].code, "informational")
+        self.assertEqual(inst.issue[0].details.text, "All OK")
         self.assertEqual(inst.issue[0].severity, "information")
         self.assertEqual(inst.meta.tag[0].code, "HTEST")
         self.assertEqual(inst.meta.tag[0].display, "test health data")

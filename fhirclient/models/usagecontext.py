@@ -26,22 +26,32 @@ class UsageContext(element.Element):
         self.code = None
         """ Type of context being specified.
         Type `Coding` (represented as `dict` in JSON). """
+        self._code = None
+        """ Primitive extension for code. Type `FHIRPrimitiveExtension` """
         
         self.valueCodeableConcept = None
         """ Value that defines the context.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        self._valueCodeableConcept = None
+        """ Primitive extension for valueCodeableConcept. Type `FHIRPrimitiveExtension` """
         
         self.valueQuantity = None
         """ Value that defines the context.
         Type `Quantity` (represented as `dict` in JSON). """
+        self._valueQuantity = None
+        """ Primitive extension for valueQuantity. Type `FHIRPrimitiveExtension` """
         
         self.valueRange = None
         """ Value that defines the context.
         Type `Range` (represented as `dict` in JSON). """
+        self._valueRange = None
+        """ Primitive extension for valueRange. Type `FHIRPrimitiveExtension` """
         
         self.valueReference = None
         """ Value that defines the context.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._valueReference = None
+        """ Primitive extension for valueReference. Type `FHIRPrimitiveExtension` """
         
         super(UsageContext, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -49,13 +59,19 @@ class UsageContext(element.Element):
         js = super(UsageContext, self).elementProperties()
         js.extend([
             ("code", "code", coding.Coding, False, None, True),
+            ("_code", "_code", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
+            ("_valueCodeableConcept", "_valueCodeableConcept", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
+            ("_valueQuantity", "_valueQuantity", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("valueRange", "valueRange", range.Range, False, "value", True),
+            ("_valueRange", "_valueRange", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
+            ("_valueReference", "_valueReference", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import codeableconcept
 from . import coding

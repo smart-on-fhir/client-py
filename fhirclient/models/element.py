@@ -23,10 +23,14 @@ class Element(fhirabstractbase.FHIRAbstractBase):
         self.extension = None
         """ Additional content defined by implementations.
         List of `Extension` items (represented as `dict` in JSON). """
+        self._extension = None
+        """ Primitive extension for extension. Type `FHIRPrimitiveExtension` """
         
         self.id = None
         """ Unique id for inter-element referencing.
         Type `str`. """
+        self._id = None
+        """ Primitive extension for id. Type `FHIRPrimitiveExtension` """
         
         super(Element, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -35,8 +39,10 @@ class Element(fhirabstractbase.FHIRAbstractBase):
         from . import extension
         js.extend([
             ("extension", "extension", extension.Extension, True, None, False),
+            ("_extension", "_extension", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("id", "id", str, False, None, False),
+            ("_id", "_id", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
-
+from . import fhirprimitiveextension

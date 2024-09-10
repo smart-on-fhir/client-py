@@ -24,14 +24,20 @@ class Linkage(domainresource.DomainResource):
         self.active = None
         """ Whether this linkage assertion is active or not.
         Type `bool`. """
+        self._active = None
+        """ Primitive extension for active. Type `FHIRPrimitiveExtension` """
         
         self.author = None
         """ Who is responsible for linkages.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._author = None
+        """ Primitive extension for author. Type `FHIRPrimitiveExtension` """
         
         self.item = None
         """ Item to be linked.
         List of `LinkageItem` items (represented as `dict` in JSON). """
+        self._item = None
+        """ Primitive extension for item. Type `FHIRPrimitiveExtension` """
         
         super(Linkage, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -39,8 +45,11 @@ class Linkage(domainresource.DomainResource):
         js = super(Linkage, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
+            ("_active", "_active", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("_author", "_author", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("item", "item", LinkageItem, True, None, True),
+            ("_item", "_item", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
@@ -68,10 +77,14 @@ class LinkageItem(backboneelement.BackboneElement):
         self.resource = None
         """ Resource being linked.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._resource = None
+        """ Primitive extension for resource. Type `FHIRPrimitiveExtension` """
         
         self.type = None
         """ source | alternate | historical.
         Type `str`. """
+        self._type = None
+        """ Primitive extension for type. Type `FHIRPrimitiveExtension` """
         
         super(LinkageItem, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -79,9 +92,12 @@ class LinkageItem(backboneelement.BackboneElement):
         js = super(LinkageItem, self).elementProperties()
         js.extend([
             ("resource", "resource", fhirreference.FHIRReference, False, None, True),
+            ("_resource", "_resource", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("type", "type", str, False, None, True),
+            ("_type", "_type", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import fhirreference

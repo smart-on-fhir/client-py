@@ -23,10 +23,14 @@ class ContactDetail(element.Element):
         self.name = None
         """ Name of an individual to contact.
         Type `str`. """
+        self._name = None
+        """ Primitive extension for name. Type `FHIRPrimitiveExtension` """
         
         self.telecom = None
         """ Contact details for individual or organization.
         List of `ContactPoint` items (represented as `dict` in JSON). """
+        self._telecom = None
+        """ Primitive extension for telecom. Type `FHIRPrimitiveExtension` """
         
         super(ContactDetail, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -34,9 +38,12 @@ class ContactDetail(element.Element):
         js = super(ContactDetail, self).elementProperties()
         js.extend([
             ("name", "name", str, False, None, False),
+            ("_name", "_name", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("_telecom", "_telecom", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import contactpoint

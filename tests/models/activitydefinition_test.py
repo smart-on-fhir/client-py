@@ -20,7 +20,7 @@ class ActivityDefinitionTests(unittest.TestCase):
         return activitydefinition.ActivityDefinition(js)
     
     def testActivityDefinition1(self):
-        inst = self.instantiate_from("activitydefinition-supplyrequest-example.json")
+        inst = self.instantiate_from("activitydefinition-predecessor-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
         self.implActivityDefinition1(inst)
         
@@ -30,31 +30,6 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.implActivityDefinition1(inst2)
     
     def implActivityDefinition1(self, inst):
-        self.assertEqual(inst.code.coding[0].code, "BlueTubes")
-        self.assertEqual(inst.code.coding[0].display, "Blood collect tubes blue cap")
-        self.assertEqual(inst.description, "10 Blood collect tubes blue cap")
-        self.assertEqual(inst.id, "blood-tubes-supply")
-        self.assertEqual(inst.kind, "SupplyRequest")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.purpose, "Describes a request for 10 Blood collection tubes with blue caps.")
-        self.assertEqual(inst.quantity.value, 10)
-        self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.transform, "StructureMap/supplyrequest-transform")
-    
-    def testActivityDefinition2(self):
-        inst = self.instantiate_from("activitydefinition-predecessor-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
-        self.implActivityDefinition2(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("ActivityDefinition", js["resourceType"])
-        inst2 = activitydefinition.ActivityDefinition(js)
-        self.implActivityDefinition2(inst2)
-    
-    def implActivityDefinition2(self, inst):
         self.assertEqual(inst.approvalDate.date, FHIRDate("2016-03-12").date)
         self.assertEqual(inst.approvalDate.as_json(), "2016-03-12")
         self.assertEqual(inst.author[0].name, "Motive Medical Intelligence")
@@ -141,17 +116,17 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.version, "1.0.0")
     
-    def testActivityDefinition3(self):
+    def testActivityDefinition2(self):
         inst = self.instantiate_from("activitydefinition-medicationorder-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
-        self.implActivityDefinition3(inst)
+        self.implActivityDefinition2(inst)
         
         js = inst.as_json()
         self.assertEqual("ActivityDefinition", js["resourceType"])
         inst2 = activitydefinition.ActivityDefinition(js)
-        self.implActivityDefinition3(inst2)
+        self.implActivityDefinition2(inst2)
     
-    def implActivityDefinition3(self, inst):
+    def implActivityDefinition2(self, inst):
         self.assertEqual(inst.approvalDate.date, FHIRDate("2016-03-12").date)
         self.assertEqual(inst.approvalDate.as_json(), "2016-03-12")
         self.assertEqual(inst.author[0].name, "Motive Medical Intelligence")
@@ -258,62 +233,17 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.version, "1.0.0")
     
-    def testActivityDefinition4(self):
-        inst = self.instantiate_from("activitydefinition-servicerequest-example.json")
-        self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
-        self.implActivityDefinition4(inst)
-        
-        js = inst.as_json()
-        self.assertEqual("ActivityDefinition", js["resourceType"])
-        inst2 = activitydefinition.ActivityDefinition(js)
-        self.implActivityDefinition4(inst2)
-    
-    def implActivityDefinition4(self, inst):
-        self.assertEqual(inst.bodySite[0].coding[0].code, "17401000")
-        self.assertEqual(inst.bodySite[0].coding[0].display, "Heart valve structure")
-        self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.code.coding[0].code, "34068001")
-        self.assertEqual(inst.code.coding[0].display, "Heart valve replacement")
-        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.description, "Heart valve replacement")
-        self.assertEqual(inst.id, "heart-valve-replacement")
-        self.assertEqual(inst.kind, "ServiceRequest")
-        self.assertEqual(inst.meta.tag[0].code, "HTEST")
-        self.assertEqual(inst.meta.tag[0].display, "test health data")
-        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
-        self.assertEqual(inst.participant[0].role.coding[0].code, "207RI0011X")
-        self.assertEqual(inst.participant[0].role.coding[0].display, "Interventional Cardiology")
-        self.assertEqual(inst.participant[0].role.coding[0].system, "http://nucc.org/provider-taxonomy")
-        self.assertEqual(inst.participant[0].role.text, "Interventional Cardiology")
-        self.assertEqual(inst.participant[0].type, "practitioner")
-        self.assertEqual(inst.purpose, "Describes the proposal to perform a Heart Valve replacement.")
-        self.assertEqual(inst.status, "draft")
-        self.assertEqual(inst.text.status, "generated")
-        self.assertEqual(inst.topic[0].coding[0].code, "34068001")
-        self.assertEqual(inst.topic[0].coding[0].display, "Heart valve replacement")
-        self.assertEqual(inst.topic[0].coding[0].system, "http://snomed.info/sct")
-        self.assertEqual(inst.useContext[0].code.code, "age")
-        self.assertEqual(inst.useContext[0].code.system, "http://terminology.hl7.org/CodeSystem/usage-context-type")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "D000328")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].display, "Adult")
-        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "https://meshb.nlm.nih.gov")
-        self.assertEqual(inst.useContext[1].code.code, "user")
-        self.assertEqual(inst.useContext[1].code.system, "http://terminology.hl7.org/CodeSystem/usage-context-type")
-        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].code, "309343006")
-        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].display, "Physician")
-        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
-    
-    def testActivityDefinition5(self):
+    def testActivityDefinition3(self):
         inst = self.instantiate_from("activitydefinition-example.json")
         self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
-        self.implActivityDefinition5(inst)
+        self.implActivityDefinition3(inst)
         
         js = inst.as_json()
         self.assertEqual("ActivityDefinition", js["resourceType"])
         inst2 = activitydefinition.ActivityDefinition(js)
-        self.implActivityDefinition5(inst2)
+        self.implActivityDefinition3(inst2)
     
-    def implActivityDefinition5(self, inst):
+    def implActivityDefinition3(self, inst):
         self.assertEqual(inst.approvalDate.date, FHIRDate("2017-03-01").date)
         self.assertEqual(inst.approvalDate.as_json(), "2017-03-01")
         self.assertEqual(inst.author[0].name, "Motive Medical Intelligence")
@@ -399,4 +329,74 @@ class ActivityDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].display, "Outpatient environment")
         self.assertEqual(inst.useContext[6].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
         self.assertEqual(inst.version, "1.1.0")
+    
+    def testActivityDefinition4(self):
+        inst = self.instantiate_from("activitydefinition-servicerequest-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
+        self.implActivityDefinition4(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("ActivityDefinition", js["resourceType"])
+        inst2 = activitydefinition.ActivityDefinition(js)
+        self.implActivityDefinition4(inst2)
+    
+    def implActivityDefinition4(self, inst):
+        self.assertEqual(inst.bodySite[0].coding[0].code, "17401000")
+        self.assertEqual(inst.bodySite[0].coding[0].display, "Heart valve structure")
+        self.assertEqual(inst.bodySite[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.code.coding[0].code, "34068001")
+        self.assertEqual(inst.code.coding[0].display, "Heart valve replacement")
+        self.assertEqual(inst.code.coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.description, "Heart valve replacement")
+        self.assertEqual(inst.id, "heart-valve-replacement")
+        self.assertEqual(inst.kind, "ServiceRequest")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.participant[0].role.coding[0].code, "207RI0011X")
+        self.assertEqual(inst.participant[0].role.coding[0].display, "Interventional Cardiology")
+        self.assertEqual(inst.participant[0].role.coding[0].system, "http://nucc.org/provider-taxonomy")
+        self.assertEqual(inst.participant[0].role.text, "Interventional Cardiology")
+        self.assertEqual(inst.participant[0].type, "practitioner")
+        self.assertEqual(inst.purpose, "Describes the proposal to perform a Heart Valve replacement.")
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.topic[0].coding[0].code, "34068001")
+        self.assertEqual(inst.topic[0].coding[0].display, "Heart valve replacement")
+        self.assertEqual(inst.topic[0].coding[0].system, "http://snomed.info/sct")
+        self.assertEqual(inst.useContext[0].code.code, "age")
+        self.assertEqual(inst.useContext[0].code.system, "http://terminology.hl7.org/CodeSystem/usage-context-type")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].code, "D000328")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].display, "Adult")
+        self.assertEqual(inst.useContext[0].valueCodeableConcept.coding[0].system, "https://meshb.nlm.nih.gov")
+        self.assertEqual(inst.useContext[1].code.code, "user")
+        self.assertEqual(inst.useContext[1].code.system, "http://terminology.hl7.org/CodeSystem/usage-context-type")
+        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].code, "309343006")
+        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].display, "Physician")
+        self.assertEqual(inst.useContext[1].valueCodeableConcept.coding[0].system, "http://snomed.info/sct")
+    
+    def testActivityDefinition5(self):
+        inst = self.instantiate_from("activitydefinition-supplyrequest-example.json")
+        self.assertIsNotNone(inst, "Must have instantiated a ActivityDefinition instance")
+        self.implActivityDefinition5(inst)
+        
+        js = inst.as_json()
+        self.assertEqual("ActivityDefinition", js["resourceType"])
+        inst2 = activitydefinition.ActivityDefinition(js)
+        self.implActivityDefinition5(inst2)
+    
+    def implActivityDefinition5(self, inst):
+        self.assertEqual(inst.code.coding[0].code, "BlueTubes")
+        self.assertEqual(inst.code.coding[0].display, "Blood collect tubes blue cap")
+        self.assertEqual(inst.description, "10 Blood collect tubes blue cap")
+        self.assertEqual(inst.id, "blood-tubes-supply")
+        self.assertEqual(inst.kind, "SupplyRequest")
+        self.assertEqual(inst.meta.tag[0].code, "HTEST")
+        self.assertEqual(inst.meta.tag[0].display, "test health data")
+        self.assertEqual(inst.meta.tag[0].system, "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.purpose, "Describes a request for 10 Blood collection tubes with blue caps.")
+        self.assertEqual(inst.quantity.value, 10)
+        self.assertEqual(inst.status, "draft")
+        self.assertEqual(inst.text.status, "generated")
+        self.assertEqual(inst.transform, "StructureMap/supplyrequest-transform")
 

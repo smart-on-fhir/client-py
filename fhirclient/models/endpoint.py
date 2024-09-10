@@ -26,49 +26,71 @@ class Endpoint(domainresource.DomainResource):
         self.address = None
         """ The technical base address for connecting to this endpoint.
         Type `str`. """
+        self._address = None
+        """ Primitive extension for address. Type `FHIRPrimitiveExtension` """
         
         self.connectionType = None
         """ Protocol/Profile/Standard to be used with this endpoint connection.
         Type `Coding` (represented as `dict` in JSON). """
+        self._connectionType = None
+        """ Primitive extension for connectionType. Type `FHIRPrimitiveExtension` """
         
         self.contact = None
         """ Contact details for source (e.g. troubleshooting).
         List of `ContactPoint` items (represented as `dict` in JSON). """
+        self._contact = None
+        """ Primitive extension for contact. Type `FHIRPrimitiveExtension` """
         
         self.header = None
         """ Usage depends on the channel type.
         List of `str` items. """
+        self._header = None
+        """ Primitive extension for header. Type `FHIRPrimitiveExtension` """
         
         self.identifier = None
         """ Identifies this endpoint across multiple systems.
         List of `Identifier` items (represented as `dict` in JSON). """
+        self._identifier = None
+        """ Primitive extension for identifier. Type `FHIRPrimitiveExtension` """
         
         self.managingOrganization = None
         """ Organization that manages this endpoint (might not be the
         organization that exposes the endpoint).
         Type `FHIRReference` (represented as `dict` in JSON). """
+        self._managingOrganization = None
+        """ Primitive extension for managingOrganization. Type `FHIRPrimitiveExtension` """
         
         self.name = None
         """ A name that this endpoint can be identified by.
         Type `str`. """
+        self._name = None
+        """ Primitive extension for name. Type `FHIRPrimitiveExtension` """
         
         self.payloadMimeType = None
         """ Mimetype to send. If not specified, the content could be anything
         (including no payload, if the connectionType defined this).
         List of `str` items. """
+        self._payloadMimeType = None
+        """ Primitive extension for payloadMimeType. Type `FHIRPrimitiveExtension` """
         
         self.payloadType = None
         """ The type of content that may be used at this endpoint (e.g. XDS
         Discharge summaries).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self._payloadType = None
+        """ Primitive extension for payloadType. Type `FHIRPrimitiveExtension` """
         
         self.period = None
         """ Interval the endpoint is expected to be operational.
         Type `Period` (represented as `dict` in JSON). """
+        self._period = None
+        """ Primitive extension for period. Type `FHIRPrimitiveExtension` """
         
         self.status = None
         """ active | suspended | error | off | entered-in-error | test.
         Type `str`. """
+        self._status = None
+        """ Primitive extension for status. Type `FHIRPrimitiveExtension` """
         
         super(Endpoint, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -76,19 +98,31 @@ class Endpoint(domainresource.DomainResource):
         js = super(Endpoint, self).elementProperties()
         js.extend([
             ("address", "address", str, False, None, True),
+            ("_address", "_address", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("connectionType", "connectionType", coding.Coding, False, None, True),
+            ("_connectionType", "_connectionType", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("contact", "contact", contactpoint.ContactPoint, True, None, False),
+            ("_contact", "_contact", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("header", "header", str, True, None, False),
+            ("_header", "_header", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("_identifier", "_identifier", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
+            ("_managingOrganization", "_managingOrganization", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("name", "name", str, False, None, False),
+            ("_name", "_name", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("payloadMimeType", "payloadMimeType", str, True, None, False),
+            ("_payloadMimeType", "_payloadMimeType", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("payloadType", "payloadType", codeableconcept.CodeableConcept, True, None, True),
+            ("_payloadType", "_payloadType", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("period", "period", period.Period, False, None, False),
+            ("_period", "_period", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("status", "status", str, False, None, True),
+            ("_status", "_status", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import codeableconcept
 from . import coding

@@ -28,42 +28,62 @@ class Address(element.Element):
         self.city = None
         """ Name of city, town etc..
         Type `str`. """
+        self._city = None
+        """ Primitive extension for city. Type `FHIRPrimitiveExtension` """
         
         self.country = None
         """ Country (e.g. can be ISO 3166 2 or 3 letter code).
         Type `str`. """
+        self._country = None
+        """ Primitive extension for country. Type `FHIRPrimitiveExtension` """
         
         self.district = None
         """ District name (aka county).
         Type `str`. """
+        self._district = None
+        """ Primitive extension for district. Type `FHIRPrimitiveExtension` """
         
         self.line = None
         """ Street name, number, direction & P.O. Box etc..
         List of `str` items. """
+        self._line = None
+        """ Primitive extension for line. Type `FHIRPrimitiveExtension` """
         
         self.period = None
         """ Time period when address was/is in use.
         Type `Period` (represented as `dict` in JSON). """
+        self._period = None
+        """ Primitive extension for period. Type `FHIRPrimitiveExtension` """
         
         self.postalCode = None
         """ Postal code for area.
         Type `str`. """
+        self._postalCode = None
+        """ Primitive extension for postalCode. Type `FHIRPrimitiveExtension` """
         
         self.state = None
         """ Sub-unit of country (abbreviations ok).
         Type `str`. """
+        self._state = None
+        """ Primitive extension for state. Type `FHIRPrimitiveExtension` """
         
         self.text = None
         """ Text representation of the address.
         Type `str`. """
+        self._text = None
+        """ Primitive extension for text. Type `FHIRPrimitiveExtension` """
         
         self.type = None
         """ postal | physical | both.
         Type `str`. """
+        self._type = None
+        """ Primitive extension for type. Type `FHIRPrimitiveExtension` """
         
         self.use = None
         """ home | work | temp | old | billing - purpose of this address.
         Type `str`. """
+        self._use = None
+        """ Primitive extension for use. Type `FHIRPrimitiveExtension` """
         
         super(Address, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -71,17 +91,28 @@ class Address(element.Element):
         js = super(Address, self).elementProperties()
         js.extend([
             ("city", "city", str, False, None, False),
+            ("_city", "_city", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("country", "country", str, False, None, False),
+            ("_country", "_country", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("district", "district", str, False, None, False),
+            ("_district", "_district", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("line", "line", str, True, None, False),
+            ("_line", "_line", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("period", "period", period.Period, False, None, False),
+            ("_period", "_period", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("postalCode", "postalCode", str, False, None, False),
+            ("_postalCode", "_postalCode", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("state", "state", str, False, None, False),
+            ("_state", "_state", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("text", "text", str, False, None, False),
+            ("_text", "_text", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("type", "type", str, False, None, False),
+            ("_type", "_type", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("use", "use", str, False, None, False),
+            ("_use", "_use", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import period

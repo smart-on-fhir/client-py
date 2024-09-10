@@ -23,18 +23,26 @@ class DomainResource(resource.Resource):
         self.contained = None
         """ Contained, inline Resources.
         List of `Resource` items (represented as `dict` in JSON). """
+        self._contained = None
+        """ Primitive extension for contained. Type `FHIRPrimitiveExtension` """
         
         self.extension = None
         """ Additional content defined by implementations.
         List of `Extension` items (represented as `dict` in JSON). """
+        self._extension = None
+        """ Primitive extension for extension. Type `FHIRPrimitiveExtension` """
         
         self.modifierExtension = None
         """ Extensions that cannot be ignored.
         List of `Extension` items (represented as `dict` in JSON). """
+        self._modifierExtension = None
+        """ Primitive extension for modifierExtension. Type `FHIRPrimitiveExtension` """
         
         self.text = None
         """ Text summary of the resource, for human interpretation.
         Type `Narrative` (represented as `dict` in JSON). """
+        self._text = None
+        """ Primitive extension for text. Type `FHIRPrimitiveExtension` """
         
         super(DomainResource, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -42,12 +50,17 @@ class DomainResource(resource.Resource):
         js = super(DomainResource, self).elementProperties()
         js.extend([
             ("contained", "contained", resource.Resource, True, None, False),
+            ("_contained", "_contained", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("extension", "extension", extension.Extension, True, None, False),
+            ("_extension", "_extension", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("modifierExtension", "modifierExtension", extension.Extension, True, None, False),
+            ("_modifierExtension", "_modifierExtension", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
             ("text", "text", narrative.Narrative, False, None, False),
+            ("_text", "_text", fhirprimitiveextension.FHIRPrimitiveExtension, False, None, False),
         ])
         return js
 
+from . import fhirprimitiveextension
 
 from . import extension
 from . import narrative
