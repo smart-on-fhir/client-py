@@ -19,6 +19,7 @@ except Exception as e:
 
 if TYPE_CHECKING:
     from fhirclient.models.resource import Resource
+    from fhirclient.models.bundle import Bundle
 
 logger = logging.getLogger(__name__)
 
@@ -117,7 +118,7 @@ class FHIRSearch(object):
         self.includes.append((reference_model, reference_field, reverse))
         return self
     
-    def perform(self, server):
+    def perform(self, server) -> 'Bundle':
         """ Construct the search URL and execute it against the given server.
         
         :param server: The server against which to perform the search
@@ -126,14 +127,14 @@ class FHIRSearch(object):
         if server is None:
             raise Exception("Need a server to perform search")
         
-        from . import bundle
+        from . import bundle as bundle_module
         res = server.request_json(self.construct())
-        bundle = bundle.Bundle(res)
+        bundle = bundle_module.Bundle(res)
         bundle.origin_server = server
         return bundle
 
     # Use forward references to avoid circular imports
-    def perform_iter(self, server) -> Iterator['Resource']:
+    def perform_iter(self, server) -> Iterator['Bundle']:
         """ Perform the search by calling `perform` and return an iterator that yields
         Bundle instances.
 
@@ -146,7 +147,7 @@ class FHIRSearch(object):
             return iter([])
         yield first_bundle
 
-    def perform_resources(self, server):
+    def perform_resources(self, server) -> list['Resource']:
         """ Performs the search by calling `perform`, then extracts all Bundle
         entries and returns a list of Resource instances.
         
