@@ -3,6 +3,11 @@ from typing import Optional, Iterable
 
 import requests
 
+from typing import TYPE_CHECKING, Iterable
+
+if TYPE_CHECKING:
+    from fhirclient.models.bundle import Bundle
+
 
 # Use forward references to avoid circular imports
 def _fetch_next_page(bundle: 'Bundle') -> Optional['Bundle']:
@@ -115,12 +120,13 @@ def iter_pages(first_bundle: 'Bundle') -> Iterable['Bundle']:
     Iterator that yields each page of results as a FHIR Bundle.
 
     Args:
-        first_bundle (Bundle): The first Bundle to start pagination.
+        first_bundle (Optional[Bundle]): The first Bundle to start pagination.
 
     Yields:
         Bundle: Each page of results as a FHIR Bundle.
     """
-    bundle = first_bundle
+    # Since _fetch_next_page can return None
+    bundle: Optional[Bundle] = first_bundle
     while bundle:
         yield bundle
         bundle = _fetch_next_page(bundle)

@@ -68,17 +68,17 @@ class Bundle(resource.Resource):
         return next(self._entry_iter)
 
     def elementProperties(self):
-            js = super(Bundle, self).elementProperties()
-            js.extend([
-                ("entry", "entry", BundleEntry, True, None, False),
-                ("identifier", "identifier", identifier.Identifier, False, None, False),
-                ("link", "link", BundleLink, True, None, False),
-                ("signature", "signature", signature.Signature, False, None, False),
-                ("timestamp", "timestamp", fhirinstant.FHIRInstant, False, None, False),
-                ("total", "total", int, False, None, False),
-                ("type", "type", str, False, None, True),
-            ])
-            return js
+        js = super(Bundle, self).elementProperties()
+        js.extend([
+            ("entry", "entry", BundleEntry, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("link", "link", BundleLink, True, None, False),
+            ("signature", "signature", signature.Signature, False, None, False),
+            ("timestamp", "timestamp", fhirinstant.FHIRInstant, False, None, False),
+            ("total", "total", int, False, None, False),
+            ("type", "type", str, False, None, True),
+        ])
+        return js
 
 
 from . import backboneelement

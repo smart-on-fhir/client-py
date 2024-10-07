@@ -6,7 +6,7 @@
 
 import logging
 import warnings
-from typing import Iterator
+from typing import Iterator, TYPE_CHECKING
 
 
 from . import fhirreference
@@ -16,6 +16,9 @@ try:
     from urllib import quote_plus
 except Exception as e:
     from urllib.parse import quote_plus
+
+if TYPE_CHECKING:
+    from fhirclient.models.resource import Resource
 
 logger = logging.getLogger(__name__)
 
