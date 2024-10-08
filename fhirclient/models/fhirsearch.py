@@ -124,6 +124,13 @@ class FHIRSearch(object):
         :param server: The server against which to perform the search
         :returns: A Bundle resource
         """
+        # Old method with deprecation warning
+        warnings.warn(
+            "perform() is deprecated and will be removed in a future release. "
+            "Please use perform_iter() instead.",
+            DeprecationWarning,
+        )
+
         if server is None:
             raise Exception("Need a server to perform search")
         
@@ -141,11 +148,7 @@ class FHIRSearch(object):
         :param server: The server against which to perform the search
         :returns: An iterator of Bundle instances
         """
-
-        first_bundle = self.perform(server)
-        if not first_bundle:
-            return iter([])
-        yield first_bundle
+        return iter_pages(self.perform(server))
 
     def perform_resources(self, server) -> list['Resource']:
         """ Performs the search by calling `perform`, then extracts all Bundle
