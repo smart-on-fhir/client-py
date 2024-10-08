@@ -52,20 +52,7 @@ class Bundle(resource.Resource):
         super(Bundle, self).__init__(jsondict=jsondict, strict=strict)
 
     def __iter__(self):
-        """ Makes the Bundle itself an iterator by returning an iterator over its entries. """
-        if self.entry is None:
-            self._entry_iter = iter([])
-        else:
-            self._entry_iter = iter(self.entry)
-        return self
-
-    def __next__(self):
-        """ Returns the next BundleEntry in the Bundle's entry list using the internal iterator. """
-        # return next(self._entry_iter)
-
-        if not hasattr(self, '_entry_iter'):
-            self.__iter__()
-        return next(self._entry_iter)
+        return iter(self.entry or [])
 
     def elementProperties(self):
         js = super(Bundle, self).elementProperties()

@@ -151,8 +151,7 @@ class FHIRSearch(object):
         return iter_pages(self.perform(server))
 
     def perform_resources(self, server) -> list['Resource']:
-        """ Performs the search by calling `perform`, then extracts all Bundle
-        entries and returns a list of Resource instances.
+        """ Performs the search by calling `perform_resources_iter` and returns a list of Resource instances.
         
         :param server: The server against which to perform the search
         :returns: A list of Resource instances
@@ -164,30 +163,19 @@ class FHIRSearch(object):
             DeprecationWarning,
         )
 
-        bundle = self.perform(server)
-        resources = []
-        if bundle is not None and bundle.entry is not None:
-            for entry in bundle.entry:
-                resources.append(entry.resource)
-            
-        return resources
+        return list(self.perform_resources_iter(server))
 
     # Use forward references to avoid circular imports
     def perform_resources_iter(self, server) -> Iterator['Resource']:
-        """ Performs the search by calling `perform`, then extracts all Bundle
-        entries and returns an iterator of Resource instances.
+        """ Performs the search by calling `perform_iter` and yields Resource instances
+        from each Bundle returned by the search.
 
         :param server: The server against which to perform the search
         :returns: An iterator of Resource instances
         """
-        first_bundle = self.perform(server)
-
-        if not first_bundle or not first_bundle.entry:
-            return iter([])
-
-        for bundle in iter_pages(first_bundle):
-            if bundle.entry:
-                yield from (entry.resource for entry in bundle.entry)
+        for bundle in self.perform_iter(server):
+            for entry in bundle:
+                yield entry.resource
 
 
 class FHIRSearchParam(object):
