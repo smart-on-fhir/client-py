@@ -50,7 +50,10 @@ class Bundle(resource.Resource):
         Type `str`. """
         
         super(Bundle, self).__init__(jsondict=jsondict, strict=strict)
-    
+
+    def __iter__(self):
+        return iter(self.entry or [])
+
     def elementProperties(self):
         js = super(Bundle, self).elementProperties()
         js.extend([
