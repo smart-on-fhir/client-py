@@ -5,13 +5,21 @@
 #  2014, SMART Health IT.
 
 import logging
+import warnings
+from typing import Iterator, TYPE_CHECKING
+
 
 from . import fhirreference
+from .._utils import iter_pages
 
 try:
     from urllib import quote_plus
 except Exception as e:
     from urllib.parse import quote_plus
+
+if TYPE_CHECKING:
+    from fhirclient.models.resource import Resource
+    from fhirclient.models.bundle import Bundle
 
 logger = logging.getLogger(__name__)
 
@@ -110,35 +118,61 @@ class FHIRSearch(object):
         self.includes.append((reference_model, reference_field, reverse))
         return self
     
-    def perform(self, server):
+    def perform(self, server) -> 'Bundle':
         """ Construct the search URL and execute it against the given server.
         
         :param server: The server against which to perform the search
         :returns: A Bundle resource
         """
+        # Old method with deprecation warning
+        warnings.warn(
+            "perform() is deprecated and will be removed in a future release. "
+            "Please use perform_iter() instead.",
+            DeprecationWarning,
+        )
+
         if server is None:
             raise Exception("Need a server to perform search")
-        
-        from . import bundle
-        res = server.request_json(self.construct())
-        bundle = bundle.Bundle(res)
-        bundle.origin_server = server
-        return bundle
-    
-    def perform_resources(self, server):
-        """ Performs the search by calling `perform`, then extracts all Bundle
-        entries and returns a list of Resource instances.
+
+        from .bundle import Bundle
+        return Bundle.read_from(self.construct(), server)
+
+    # Use forward references to avoid circular imports
+    def perform_iter(self, server) -> Iterator['Bundle']:
+        """ Perform the search by calling `perform` and return an iterator that yields
+        Bundle instances.
+
+        :param server: The server against which to perform the search
+        :returns: An iterator of Bundle instances
+        """
+        return iter_pages(self.perform(server), server)
+
+    def perform_resources(self, server) -> 'list[Resource]':
+        """ Performs the search by calling `perform_resources_iter` and returns a list of Resource instances.
         
         :param server: The server against which to perform the search
         :returns: A list of Resource instances
         """
-        bundle = self.perform(server)
-        resources = []
-        if bundle is not None and bundle.entry is not None:
+        # Old method with deprecation warning
+        warnings.warn(
+            "perform_resources() is deprecated and will be removed in a future release. "
+            "Please use perform_resources_iter() instead.",
+            DeprecationWarning,
+        )
+
+        return list(self.perform_resources_iter(server))
+
+    # Use forward references to avoid circular imports
+    def perform_resources_iter(self, server) -> Iterator['Resource']:
+        """ Performs the search by calling `perform_iter` and yields Resource instances
+        from each Bundle returned by the search.
+
+        :param server: The server against which to perform the search
+        :returns: An iterator of Resource instances
+        """
+        for bundle in self.perform_iter(server):
             for entry in bundle.entry:
-                resources.append(entry.resource)
-            
-        return resources
+                yield entry.resource
 
 
 class FHIRSearchParam(object):
