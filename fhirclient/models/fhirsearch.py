@@ -14,7 +14,7 @@ from .._utils import iter_pages
 
 try:
     from urllib import quote_plus
-except Exception as e:
+except ImportError:
     from urllib.parse import quote_plus
 
 if TYPE_CHECKING:
@@ -117,7 +117,19 @@ class FHIRSearch(object):
 
         self.includes.append((reference_model, reference_field, reverse))
         return self
-    
+
+    def _read_bundle(self, server) -> 'Bundle':
+        """ Construct the search URL and execute it against the given server.
+
+        :param server: The server against which to perform the search
+        :returns: A Bundle resource
+        """
+        if server is None:
+            raise Exception("Need a server to perform search")
+
+        from .bundle import Bundle
+        return Bundle.read_from(self.construct(), server)
+
     def perform(self, server) -> 'Bundle':
         """ Construct the search URL and execute it against the given server.
         
@@ -131,11 +143,7 @@ class FHIRSearch(object):
             DeprecationWarning,
         )
 
-        if server is None:
-            raise Exception("Need a server to perform search")
-
-        from .bundle import Bundle
-        return Bundle.read_from(self.construct(), server)
+        return self._read_bundle(server)
 
     # Use forward references to avoid circular imports
     def perform_iter(self, server) -> Iterator['Bundle']:
@@ -145,7 +153,7 @@ class FHIRSearch(object):
         :param server: The server against which to perform the search
         :returns: An iterator of Bundle instances
         """
-        return iter_pages(self.perform(server), server)
+        return iter_pages(self._read_bundle(server), server)
 
     def perform_resources(self, server) -> 'list[Resource]':
         """ Performs the search by calling `perform_resources_iter` and returns a list of Resource instances.
@@ -171,8 +179,10 @@ class FHIRSearch(object):
         :returns: An iterator of Resource instances
         """
         for bundle in self.perform_iter(server):
-            for entry in bundle.entry:
-                yield entry.resource
+            entries = bundle.entry or []
+            for entry in entries:
+                if entry.resource:
+                    yield entry.resource
 
 
 class FHIRSearchParam(object):
@@ -205,7 +215,7 @@ class FHIRSearchParam(object):
         return handler.handle(self.copy())
     
     def as_parameter(self):
-        """ Return a string that represents the reciever as "key=value".
+        """ Return a string that represents the receiver as "key=value".
         """
         return '{}={}'.format(self.name, quote_plus(self.value, safe=',<=>'))
 

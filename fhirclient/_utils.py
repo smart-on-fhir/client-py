@@ -1,9 +1,7 @@
 import urllib
 from typing import Optional
 
-import requests
-
-from typing import TYPE_CHECKING, Iterable
+from typing import TYPE_CHECKING, Iterator
 
 if TYPE_CHECKING:
     from fhirclient.server import FHIRServer
@@ -92,7 +90,7 @@ def _execute_pagination_request(sanitized_url: str, server: 'FHIRServer') -> 'Bu
     return Bundle.read_from(sanitized_url, server)
 
 
-def iter_pages(first_bundle: 'Bundle', server: 'FHIRServer') -> Iterable['Bundle']:
+def iter_pages(first_bundle: 'Bundle', server: 'FHIRServer') -> Iterator['Bundle']:
     """
     Iterator that yields each page of results as a FHIR Bundle.
 

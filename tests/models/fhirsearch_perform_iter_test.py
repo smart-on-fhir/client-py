@@ -240,6 +240,40 @@ class TestFHIRSearchIter(unittest.TestCase):
         self.assertEqual(result[1].id, "3124")
         self.assertEqual(result[2].id, "3125")
 
+    @responses.activate
+    def test_perform_resources_iter_null_bundle(self):
+        """This happens when no results are found for a search."""
+        # Mock the network response for the initial search request
+        bundle_content = {
+            "resourceType": "Bundle",
+            "type": "searchset",
+            "entry": None,
+        }
+
+        # Mock the single page response
+        self.add_mock_response("https://example.com/Bundle?patient=347&_count=1", bundle_content)
+
+        # Call perform_resources_iter with the server URL
+        result = list(self.search.perform_resources_iter(self.mock_server))
+        self.assertEqual(result, [])
+
+    @responses.activate
+    def test_perform_resources_iter_null_resource(self):
+        """This shouldn't happen for search results, but the spec allows .resource to be empty"""
+        # Mock the network response for the initial search request
+        bundle_content = {
+            "resourceType": "Bundle",
+            "type": "searchset",
+            "entry": [{}],
+        }
+
+        # Mock the single page response
+        self.add_mock_response("https://example.com/Bundle?patient=347&_count=1", bundle_content)
+
+        # Call perform_resources_iter with the server URL
+        result = list(self.search.perform_resources_iter(self.mock_server))
+        self.assertEqual(result, [])
+
 
 # Network-level Mocking
 class MockServer(server.FHIRServer):
