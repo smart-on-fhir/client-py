@@ -29,7 +29,7 @@ Those files make up the content of the `gh-pages` branch.
 I usually perform a second checkout of the _gh-pages_ branch and copy the HTML files over, with:
 
     doxygen docs/Doxyfile
-    rsync -a docs/html/ ../client-py-web/
+    rsync -aC --delete docs/html/ ../client-py-web/
 
 ### Release on GitHub
 
