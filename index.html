@@ -31,7 +31,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">SMART on FHIR Python Client<span id="projectnumber">&#160;4.2.0</span>
+   <div id="projectname">SMART on FHIR Python Client<span id="projectnumber">&#160;4.3.1</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -195,23 +195,22 @@ Search Records on Server</h4>
 <div class="line">smart = client.FHIRClient(settings=settings)</div>
 <div class="line"> </div>
 <div class="line">search = Encounter.where(struct={<span class="stringliteral">&#39;subject&#39;</span>: <span class="stringliteral">&#39;2cda5aad-e409-4070-9a15-e1c35c46ed5a&#39;</span>, <span class="stringliteral">&#39;status&#39;</span>: <span class="stringliteral">&#39;finished&#39;</span>})</div>
-<div class="line">encounters = search.perform_resources(smart.server)</div>
-<div class="line">print({res.type[0].text <span class="keywordflow">for</span> res <span class="keywordflow">in</span> search.perform_resources(smart.server)})</div>
+<div class="line">print({res.type[0].text <span class="keywordflow">for</span> res <span class="keywordflow">in</span> search.perform_resources_iter(smart.server)})</div>
 <div class="line"><span class="comment"># {&#39;Encounter for symptom&#39;, &#39;Encounter for check up (procedure)&#39;}</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment"># to include the resources referred to by the encounter via `subject` in the results</span></div>
 <div class="line">search = search.include(<span class="stringliteral">&#39;subject&#39;</span>)</div>
-<div class="line">print({res.resource_type <span class="keywordflow">for</span> res <span class="keywordflow">in</span> search.perform_resources(smart.server)})</div>
+<div class="line">print({res.resource_type <span class="keywordflow">for</span> res <span class="keywordflow">in</span> search.perform_resources_iter(smart.server)})</div>
 <div class="line"><span class="comment"># {&#39;Encounter&#39;, &#39;Patient&#39;}</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment"># to include the Procedure resources which refer to the encounter via `encounter`</span></div>
 <div class="line">search = search.include(<span class="stringliteral">&#39;encounter&#39;</span>, Procedure, reverse=<span class="keyword">True</span>)</div>
-<div class="line">print({res.resource_type <span class="keywordflow">for</span> res <span class="keywordflow">in</span> search.perform_resources(smart.server)})</div>
+<div class="line">print({res.resource_type <span class="keywordflow">for</span> res <span class="keywordflow">in</span> search.perform_resources_iter(smart.server)})</div>
 <div class="line"><span class="comment"># {&#39;Encounter&#39;, &#39;Patient&#39;, &#39;Procedure&#39;}</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment"># to get the raw Bundle instead of resources only, you can use:</span></div>
-<div class="line">bundle = search.perform(smart.server)</div>
-<div class="line">print({entry.resource.resource_type <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> bundle.entry})</div>
+<div class="line"><span class="comment"># to get the raw Bundles instead of resources only, you can use:</span></div>
+<div class="line">bundles = search.perform_iter(smart.server)</div>
+<div class="line">print({entry.resource.resource_type <span class="keywordflow">for</span> bundle <span class="keywordflow">in</span> bundles <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> bundle.entry})</div>
 <div class="line"><span class="comment"># {&#39;Encounter&#39;, &#39;Patient&#39;, &#39;Procedure&#39;}</span></div>
 <div class="ttc" id="anamespacefhirclient_1_1models_1_1encounter_html"><div class="ttname"><a href="namespacefhirclient_1_1models_1_1encounter.html">fhirclient.models.encounter</a></div><div class="ttdef"><b>Definition</b> encounter.py:1</div></div>
 <div class="ttc" id="anamespacefhirclient_1_1models_1_1procedure_html"><div class="ttname"><a href="namespacefhirclient_1_1models_1_1procedure.html">fhirclient.models.procedure</a></div><div class="ttdef"><b>Definition</b> procedure.py:1</div></div>
@@ -269,7 +268,7 @@ pip install -r requirements.txt
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jul 23 2024 09:15:57 for SMART on FHIR Python Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Apr 3 2025 14:25:57 for SMART on FHIR Python Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
