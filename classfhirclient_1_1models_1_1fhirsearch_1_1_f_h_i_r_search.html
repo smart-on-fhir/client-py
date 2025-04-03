@@ -31,7 +31,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">SMART on FHIR Python Client<span id="projectnumber">&#160;4.2.0</span>
+   <div id="projectname">SMART on FHIR Python Client<span id="projectnumber">&#160;4.3.1</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -99,6 +99,7 @@ $(document).ready(function(){initNavTree('classfhirclient_1_1models_1_1fhirsearc
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">fhirclient.models.fhirsearch.FHIRSearch Class Reference</div></div>
 </div><!--header-->
@@ -117,12 +118,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a21cdff6d301da0d1cae7c599bd06055b" id="r_a21cdff6d301da0d1cae7c599bd06055b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html#a21cdff6d301da0d1cae7c599bd06055b">include</a> (self, reference_field, reference_model=None, reverse=False)</td></tr>
 <tr class="memdesc:a21cdff6d301da0d1cae7c599bd06055b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a resource to be included in the search results.  <br /></td></tr>
 <tr class="separator:a21cdff6d301da0d1cae7c599bd06055b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ee14f6e8bd36115988a60c5376faf18" id="r_a6ee14f6e8bd36115988a60c5376faf18"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html#a6ee14f6e8bd36115988a60c5376faf18">perform</a> (self, server)</td></tr>
-<tr class="memdesc:a6ee14f6e8bd36115988a60c5376faf18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the search URL and execute it against the given server.  <br /></td></tr>
-<tr class="separator:a6ee14f6e8bd36115988a60c5376faf18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac4a0561c98a4768a4b79f7e6660baf8" id="r_aac4a0561c98a4768a4b79f7e6660baf8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html#aac4a0561c98a4768a4b79f7e6660baf8">perform_resources</a> (self, server)</td></tr>
-<tr class="memdesc:aac4a0561c98a4768a4b79f7e6660baf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the search by calling <code>perform</code>, then extracts all Bundle entries and returns a list of Resource instances.  <br /></td></tr>
-<tr class="separator:aac4a0561c98a4768a4b79f7e6660baf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab32bb0f77b0929f62d70f578e25a6dd6" id="r_ab32bb0f77b0929f62d70f578e25a6dd6"><td class="memItemLeft" align="right" valign="top"> '<a class="el" href="classfhirclient_1_1models_1_1bundle_1_1_bundle.html">Bundle</a>'&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html#ab32bb0f77b0929f62d70f578e25a6dd6">perform</a> (self, server)</td></tr>
+<tr class="memdesc:ab32bb0f77b0929f62d70f578e25a6dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the search URL and execute it against the given server.  <br /></td></tr>
+<tr class="separator:ab32bb0f77b0929f62d70f578e25a6dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ff43b3dd2130a6448332150fcbc371" id="r_aa2ff43b3dd2130a6448332150fcbc371"><td class="memItemLeft" align="right" valign="top">Iterator[ '<a class="el" href="classfhirclient_1_1models_1_1bundle_1_1_bundle.html">Bundle</a>']&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html#aa2ff43b3dd2130a6448332150fcbc371">perform_iter</a> (self, server)</td></tr>
+<tr class="memdesc:aa2ff43b3dd2130a6448332150fcbc371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the search by calling <code>perform</code> and return an iterator that yields Bundle instances.  <br /></td></tr>
+<tr class="separator:aa2ff43b3dd2130a6448332150fcbc371"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ed800f551bf27a50df1a2e106a0568" id="r_a12ed800f551bf27a50df1a2e106a0568"><td class="memItemLeft" align="right" valign="top"> 'list[<a class="el" href="classfhirclient_1_1models_1_1resource_1_1_resource.html">Resource</a>]'&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html#a12ed800f551bf27a50df1a2e106a0568">perform_resources</a> (self, server)</td></tr>
+<tr class="memdesc:a12ed800f551bf27a50df1a2e106a0568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the search by calling <code>perform_resources_iter</code> and returns a list of Resource instances.  <br /></td></tr>
+<tr class="separator:a12ed800f551bf27a50df1a2e106a0568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be68c6e1d52c1cff4696809ee78480d" id="r_a9be68c6e1d52c1cff4696809ee78480d"><td class="memItemLeft" align="right" valign="top">Iterator[ '<a class="el" href="classfhirclient_1_1models_1_1resource_1_1_resource.html">Resource</a>']&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html#a9be68c6e1d52c1cff4696809ee78480d">perform_resources_iter</a> (self, server)</td></tr>
+<tr class="memdesc:a9be68c6e1d52c1cff4696809ee78480d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the search by calling <code>perform_iter</code> and yields Resource instances from each Bundle returned by the search.  <br /></td></tr>
+<tr class="separator:a9be68c6e1d52c1cff4696809ee78480d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -134,6 +141,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a06f0a0d6a6ee5bdb6dc85068cc4dc285"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad77bb8c812bcc2b12ec3f20ab73059fc" id="r_ad77bb8c812bcc2b12ec3f20ab73059fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html#ad77bb8c812bcc2b12ec3f20ab73059fc">includes</a></td></tr>
 <tr class="separator:ad77bb8c812bcc2b12ec3f20ab73059fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a3a0f78542d4d0fe9edaba9ae2d42f3fa" id="r_a3a0f78542d4d0fe9edaba9ae2d42f3fa"><td class="memItemLeft" align="right" valign="top"> '<a class="el" href="classfhirclient_1_1models_1_1bundle_1_1_bundle.html">Bundle</a>'&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html#a3a0f78542d4d0fe9edaba9ae2d42f3fa">_read_bundle</a> (self, server)</td></tr>
+<tr class="memdesc:a3a0f78542d4d0fe9edaba9ae2d42f3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the search URL and execute it against the given server.  <br /></td></tr>
+<tr class="separator:a3a0f78542d4d0fe9edaba9ae2d42f3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Create a FHIR search from NoSQL-like query structures. </p>
@@ -173,6 +186,51 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3a0f78542d4d0fe9edaba9ae2d42f3fa" name="a3a0f78542d4d0fe9edaba9ae2d42f3fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a0f78542d4d0fe9edaba9ae2d42f3fa">&#9670;&#160;</a></span>_read_bundle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> '<a class="el" href="classfhirclient_1_1models_1_1bundle_1_1_bundle.html">Bundle</a>' fhirclient.models.fhirsearch.FHIRSearch._read_bundle </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>server</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct the search URL and execute it against the given server. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server against which to perform the search </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>s A Bundle resource </dd></dl>
+
+</div>
+</div>
 <a id="a34ed127b424af19cdc9027c1d1e13f14" name="a34ed127b424af19cdc9027c1d1e13f14"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34ed127b424af19cdc9027c1d1e13f14">&#9670;&#160;</a></span>construct()</h2>
 
@@ -246,14 +304,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a6ee14f6e8bd36115988a60c5376faf18" name="a6ee14f6e8bd36115988a60c5376faf18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ee14f6e8bd36115988a60c5376faf18">&#9670;&#160;</a></span>perform()</h2>
+<a id="ab32bb0f77b0929f62d70f578e25a6dd6" name="ab32bb0f77b0929f62d70f578e25a6dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab32bb0f77b0929f62d70f578e25a6dd6">&#9670;&#160;</a></span>perform()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">fhirclient.models.fhirsearch.FHIRSearch.perform </td>
+          <td class="memname"> '<a class="el" href="classfhirclient_1_1models_1_1bundle_1_1_bundle.html">Bundle</a>' fhirclient.models.fhirsearch.FHIRSearch.perform </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em>, </td>
@@ -283,14 +341,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aac4a0561c98a4768a4b79f7e6660baf8" name="aac4a0561c98a4768a4b79f7e6660baf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac4a0561c98a4768a4b79f7e6660baf8">&#9670;&#160;</a></span>perform_resources()</h2>
+<a id="aa2ff43b3dd2130a6448332150fcbc371" name="aa2ff43b3dd2130a6448332150fcbc371"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2ff43b3dd2130a6448332150fcbc371">&#9670;&#160;</a></span>perform_iter()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">fhirclient.models.fhirsearch.FHIRSearch.perform_resources </td>
+          <td class="memname"> Iterator['<a class="el" href="classfhirclient_1_1models_1_1bundle_1_1_bundle.html">Bundle</a>'] fhirclient.models.fhirsearch.FHIRSearch.perform_iter </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em>, </td>
@@ -309,7 +367,44 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Performs the search by calling <code>perform</code>, then extracts all Bundle entries and returns a list of Resource instances. </p>
+<p>Perform the search by calling <code>perform</code> and return an iterator that yields Bundle instances. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server against which to perform the search </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>s An iterator of Bundle instances </dd></dl>
+
+</div>
+</div>
+<a id="a12ed800f551bf27a50df1a2e106a0568" name="a12ed800f551bf27a50df1a2e106a0568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12ed800f551bf27a50df1a2e106a0568">&#9670;&#160;</a></span>perform_resources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> 'list[<a class="el" href="classfhirclient_1_1models_1_1resource_1_1_resource.html">Resource</a>]' fhirclient.models.fhirsearch.FHIRSearch.perform_resources </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>server</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs the search by calling <code>perform_resources_iter</code> and returns a list of Resource instances. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>The server against which to perform the search </td></tr>
@@ -317,6 +412,43 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>s A list of Resource instances </dd></dl>
+
+</div>
+</div>
+<a id="a9be68c6e1d52c1cff4696809ee78480d" name="a9be68c6e1d52c1cff4696809ee78480d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9be68c6e1d52c1cff4696809ee78480d">&#9670;&#160;</a></span>perform_resources_iter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Iterator['<a class="el" href="classfhirclient_1_1models_1_1resource_1_1_resource.html">Resource</a>'] fhirclient.models.fhirsearch.FHIRSearch.perform_resources_iter </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>server</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs the search by calling <code>perform_iter</code> and yields Resource instances from each Bundle returned by the search. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>The server against which to perform the search </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>s An iterator of Resource instances </dd></dl>
 
 </div>
 </div>
@@ -386,7 +518,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefhirclient.html">fhirclient</a></li><li class="navelem"><a class="el" href="namespacefhirclient_1_1models.html">models</a></li><li class="navelem"><a class="el" href="namespacefhirclient_1_1models_1_1fhirsearch.html">fhirsearch</a></li><li class="navelem"><a class="el" href="classfhirclient_1_1models_1_1fhirsearch_1_1_f_h_i_r_search.html">FHIRSearch</a></li>
-    <li class="footer">Generated on Tue Jul 23 2024 09:15:55 for SMART on FHIR Python Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Apr 3 2025 14:25:55 for SMART on FHIR Python Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
