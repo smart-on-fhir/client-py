@@ -5,8 +5,10 @@ session_data
 /dist/
 /*.egg-info/
 
-# docs
-/docs
+# docs (generated output)
+/docs/*
+# ... but whitelist design documents
+!/docs/designs/
 
 # virtualenv
 /env
