@@ -26,6 +26,7 @@ class FHIRClient:
         - `patient_id`: The patient id against which to operate, if already known
         - `scope`: Space-separated list of scopes to request, if other than default
         - `launch_token`: The launch token
+        - `fhir_version`: FHIR version to use ('R4', 'STU3', or 'auto' for server detection)
     """
 
     def __init__(self, settings=None, state=None, save_func=lambda x: x):
@@ -80,7 +81,10 @@ class FHIRClient:
             self.scope = settings.get("scope", self.scope)
             self.launch_token = settings.get("launch_token")
             self.jwt_token = settings.get("jwt_token", None)
-            self.server = FHIRServer(self, base_uri=settings["api_base"])
+            fhir_version = settings.get("fhir_version")
+            self.server = FHIRServer(
+                self, base_uri=settings["api_base"], fhir_version=fhir_version
+            )
         else:
             raise Exception(
                 "Must either supply settings or a state upon client initialization"
@@ -166,7 +170,10 @@ class FHIRClient:
     @property
     def patient(self):
         if self._patient is None and self.patient_id is not None and self.ready:
-            from fhirclient.models.patient import Patient
+            import importlib
+            version = self.server.fhir_version
+            patient_mod = importlib.import_module(f"fhirclient.models.{version}.patient")
+            Patient = patient_mod.Patient
 
             try:
                 logger.debug(f"SMART: Attempting to read Patient {self.patient_id}")

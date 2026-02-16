@@ -2,11 +2,17 @@
 # {{ info.year }}, SMART Health IT.
 
 {%- set imported = {} %}
+{#- NOTE: shared_modules must be kept in sync with _SHARED_MODULES in fhirclient/models/__init__.py -#}
+{%- set shared_modules = ['fhirabstractbase', 'fhirabstractresource', 'fhirreference', 'fhirsearch', 'fhirdate', 'fhirdatetime', 'fhirinstant', 'fhirtime'] %}
 {%- for klass in classes %}
 
 
 {% if klass.superclass in imports and klass.superclass.module not in imported -%}
+{% if klass.superclass.module in shared_modules -%}
+from .. import {{ klass.superclass.module }}
+{% else -%}
 from . import {{ klass.superclass.module }}
+{% endif -%}
 {% set _ = imported.update({klass.superclass.module: True}) %}
 {% endif -%}
 
@@ -57,7 +63,11 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
         js = super({{ klass.name }}, self).elementProperties()
         {%- if 'element' == klass.module and 'Element' == klass.name %}
         {%- for imp in imports %}{% if imp.module not in imported %}
+        {% if imp.module in shared_modules -%}
+        from .. import {{ imp.module }}
+        {%- else -%}
         from . import {{ imp.module }}
+        {%- endif %}
         {%- set _ = imported.update({imp.module: True}) %}
         {%- endif %}{% endfor %}
         {%- endif %}
@@ -77,6 +87,10 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
 {%- endfor %}
 
 {% for imp in imports %}{% if imp.module not in imported %}
+{% if imp.module in shared_modules -%}
+from .. import {{ imp.module }}
+{%- else -%}
 from . import {{ imp.module }}
+{%- endif %}
 {%- endif %}{% endfor %}
 

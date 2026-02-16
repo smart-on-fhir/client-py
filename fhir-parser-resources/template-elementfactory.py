@@ -8,11 +8,11 @@
 class FHIRElementFactory(object):
     """ Factory class to instantiate resources by resource name.
     """
-    
+
     @classmethod
     def instantiate(cls, resource_type, jsondict):
         """ Instantiate a resource of the type correlating to "resource_type".
-        
+
         :param str resource_type: The name/type of the resource to instantiate
         :param dict jsondict: The JSON dictionary to use for data
         :returns: A resource of the respective type or `Element`
@@ -35,4 +35,24 @@ class FHIRElementFactory(object):
         {%- endif %}{% endfor %}
         from . import element
         return element.Element(jsondict)
+
+    @classmethod
+    def get_class(cls, resource_type):
+        """ Get the class for the given resource type without instantiating.
+
+        :param str resource_type: The name/type of the resource class to look up
+        :returns: The class for the resource type, or Element if not found
+        """
+        {%- for klass in classes %}
+        {%- if klass.resource_type %}
+        if "{{ klass.resource_type }}" == resource_type:
+            from . import {{ klass.module }}
+            return {{ klass.module }}.{{ klass.name }}
+        {%- elif klass.name %}
+        if "{{ klass.name }}" == resource_type:
+            from . import {{ klass.module }}
+            return {{ klass.module }}.{{ klass.name }}
+        {%- endif %}{% endfor %}
+        from . import element
+        return element.Element
 

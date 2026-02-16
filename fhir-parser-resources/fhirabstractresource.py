@@ -35,7 +35,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         
         res_type = jsondict.get('resourceType')
         if res_type and res_type != cls.resource_type:
-            return fhirelementfactory.FHIRElementFactory.instantiate(res_type, jsondict)
+            return _get_element_factory().instantiate(res_type, jsondict)
         return super(FHIRAbstractResource, cls)._with_json_dict(jsondict)
     
     def as_json(self):
@@ -212,4 +212,21 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
 
 
 from . import fhirsearch
-from . import fhirelementfactory
+
+
+_factory_cache: dict[str, type] = {}
+
+def _get_element_factory():
+    """Resolve the FHIRElementFactory for the active FHIR version.
+
+    Uses the version registry to dynamically import the correct factory module,
+    enabling multi-version support without hardcoding a single version's factory.
+    Results are cached per-version to avoid repeated import lookups.
+    """
+    from fhirclient._version_registry import get_active_version
+    version = get_active_version()
+    if version not in _factory_cache:
+        import importlib
+        factory_mod = importlib.import_module(f"fhirclient.models.{version}.fhirelementfactory")
+        _factory_cache[version] = factory_mod.FHIRElementFactory
+    return _factory_cache[version]

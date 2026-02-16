@@ -87,9 +87,12 @@ def _execute_pagination_request(sanitized_url: str, server: "FHIRServer") -> "Bu
     Raises:
         HTTPError: If the request fails due to network issues or server errors.
     """
-    from fhirclient.models.bundle import Bundle
+    import importlib
 
-    return Bundle.read_from(sanitized_url, server)
+    version = server.fhir_version
+    bundle_mod = importlib.import_module(f"fhirclient.models.{version}.bundle")
+
+    return bundle_mod.Bundle.read_from(sanitized_url, server)
 
 
 def iter_pages(first_bundle: "Bundle", server: "FHIRServer") -> Iterator["Bundle"]:

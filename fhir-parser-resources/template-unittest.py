@@ -4,7 +4,7 @@ import os
 import io
 import unittest
 import json
-from fhirclient.models import {{ class.module }}
+from fhirclient.models.{{ fhir_version }} import {{ class.module }}
 from fhirclient.models.fhirdate import FHIRDate
 from fhirclient.models.fhirdatetime import FHIRDateTime
 from fhirclient.models.fhirinstant import FHIRInstant
@@ -18,19 +18,19 @@ class {{ class.name }}Tests(unittest.TestCase):
             js = json.load(handle)
             self.assertEqual("{{ class.name }}", js["resourceType"])
         return {{ class.module }}.{{ class.name }}(js)
-    
+
 {%- for tcase in tests %}
-    
+
     def test{{ class.name }}{{ loop.index }}(self):
         inst = self.instantiate_from("{{ tcase.filename }}")
         self.assertIsNotNone(inst, "Must have instantiated a {{ class.name }} instance")
         self.impl{{ class.name }}{{ loop.index }}(inst)
-        
+
         js = inst.as_json()
         self.assertEqual("{{ class.name }}", js["resourceType"])
         inst2 = {{ class.module }}.{{ class.name }}(js)
         self.impl{{ class.name }}{{ loop.index }}(inst2)
-    
+
     def impl{{ class.name }}{{ loop.index }}(self, inst):
     {%- for onetest in tcase.tests %}
     {%- if "str" == onetest.klass.name %}

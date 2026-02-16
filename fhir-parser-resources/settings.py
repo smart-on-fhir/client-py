@@ -23,6 +23,8 @@ tpl_factory_target = '../fhirclient/models/fhirelementfactory.py'    # where to 
 write_unittests = True
 tpl_unittest_target = '../tests/models'         # target directory to write the generated unit test files to
 
+# Version identifier used in generated test imports
+fhir_version = 'R4'
 
 # all these files should be copied to dirname(`tpl_resource_target_ptrn`): tuples of (path/to/file, module, array-of-class-names)
 manual_profiles = [

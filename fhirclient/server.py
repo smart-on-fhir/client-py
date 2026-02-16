@@ -34,11 +34,27 @@ class FHIRNotFoundException(Exception):
 class FHIRServer:
     """Handles talking to a FHIR server."""
 
-    def __init__(self, client, base_uri=None, state=None):
+    def __init__(self, client, base_uri=None, state=None, fhir_version=None):
         self.client = client
         self.auth = None
         self.base_uri = None
         self.aud = None
+
+        if fhir_version and fhir_version != "auto":
+            from ._version_registry import KNOWN_VERSIONS
+            if fhir_version not in KNOWN_VERSIONS:
+                raise ValueError(
+                    f"Unknown fhir_version: '{fhir_version}'. "
+                    f"Must be one of: {sorted(KNOWN_VERSIONS)}"
+                )
+            # Verify the version package is actually installed
+            import importlib.util
+            if importlib.util.find_spec(f"fhirclient.models.{fhir_version}") is None:
+                raise ValueError(
+                    f"FHIR version '{fhir_version}' is recognized but its model "
+                    f"package is not installed. Run: ./generate_models.sh {fhir_version}"
+                )
+        self._fhir_version = fhir_version
 
         # Use a single requests Session for all "requests"
         self.session = requests.Session()
@@ -61,6 +77,20 @@ class FHIRServer:
         if self.client is not None:
             self.client.save_state()
 
+    # MARK: FHIR Version
+
+    @property
+    def fhir_version(self) -> str:
+        """The FHIR version this server uses.
+
+        Returns the explicitly configured version, or auto-detects from the
+        server's CapabilityStatement if set to 'auto'. Defaults to 'R4'.
+        """
+        from fhirclient._version_registry import get_active_version
+        if self._fhir_version and self._fhir_version != "auto":
+            return self._fhir_version
+        return get_active_version()
+
     # MARK: Server CapabilityStatement
 
     @property
@@ -74,10 +104,22 @@ class FHIRServer:
         """
         if self._capability is None or force:
             logger.info(f"Fetching CapabilityStatement from {self.base_uri}")
-            from .models import capabilitystatement
+            import importlib
+            version = self.fhir_version
+            capabilitystatement = importlib.import_module(
+                f"fhirclient.models.{version}.capabilitystatement"
+            )
 
             conf = capabilitystatement.CapabilityStatement.read_from("metadata", self)
             self._capability = conf
+
+            # Auto-detect version from CapabilityStatement if configured as 'auto'
+            if self._fhir_version == "auto" and hasattr(conf, "fhirVersion"):
+                from fhirclient._version_registry import FHIR_VERSION_MAP
+                detected = FHIR_VERSION_MAP.get(conf.fhirVersion)
+                if detected:
+                    logger.info(f"Auto-detected FHIR version: {detected} (from {conf.fhirVersion})")
+                    self._fhir_version = detected
 
             security = None
             try:
@@ -301,14 +343,18 @@ class FHIRServer:
     @property
     def state(self):
         """Return current state."""
-        return {
+        s = {
             "base_uri": self.base_uri,
             "auth_type": self.auth.auth_type if self.auth is not None else "none",
             "auth": self.auth.state if self.auth is not None else None,
         }
+        if self._fhir_version is not None:
+            s["fhir_version"] = self._fhir_version
+        return s
 
     def from_state(self, state):
         """Update ivars from given state information."""
         assert state
         self.base_uri = state.get("base_uri") or self.base_uri
         self.auth = FHIRAuth.create(state.get("auth_type"), state=state.get("auth"))
+        self._fhir_version = state.get("fhir_version") or self._fhir_version
