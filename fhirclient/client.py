@@ -226,7 +226,9 @@ class FHIRClient:
         }
 
     def from_state(self, state):
-        assert state
+        if not state:
+            raise ValueError(f"Parameter `state` must not be None or empty, got: {state}")
+
         self.app_id = state.get("app_id") or self.app_id
         self.app_secret = state.get("app_secret") or self.app_secret
         self.scope = state.get("scope") or self.scope
@@ -234,7 +236,12 @@ class FHIRClient:
         self.patient_id = state.get("patient_id") or self.patient_id
         self.launch_token = state.get("launch_token") or self.launch_token
         self.launch_context = state.get("launch_context") or self.launch_context
-        self.server = FHIRServer(self, state=state.get("server"))
+        base_uri = self.server.base_uri if self.server is not None else None
+        self.server = FHIRServer(
+            client=self,
+            base_uri=state.get('server', {}).get('base_uri') or base_uri,
+            state=state.get("server")
+        )
         self.jwt_token = state.get("jwt_token") or self.jwt_token
 
     def save_state(self):

@@ -138,7 +138,9 @@ class FHIRAuth:
 
     def from_state(self, state):
         """Update ivars from given state information."""
-        assert state
+        if not state:
+            raise ValueError(f"Parameter `state` must not be None or empty, got: {state}")
+
         self.app_id = state.get("app_id") or self.app_id
 
 
