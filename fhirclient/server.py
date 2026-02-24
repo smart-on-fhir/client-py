@@ -180,9 +180,12 @@ class FHIRServer:
     def _get(self, path, headers=None, nosign=False):
         """Issues a GET request.
 
+        :raises ValueError: if `path` is empty or None
         :returns: The response object
         """
-        assert self.base_uri and path
+        if not path:
+            raise ValueError(f"Parameter `path` must not be None or empty, got: {path}")
+
         url = urlparse.urljoin(self.base_uri, path)
 
         header_defaults = {
@@ -309,6 +312,7 @@ class FHIRServer:
 
     def from_state(self, state):
         """Update ivars from given state information."""
-        assert state
+        if not state:
+            raise ValueError(f"Parameter `state` must not be None or empty, got: {state}")
         self.base_uri = state.get("base_uri") or self.base_uri
         self.auth = FHIRAuth.create(state.get("auth_type"), state=state.get("auth"))

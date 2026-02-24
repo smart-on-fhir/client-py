@@ -10,6 +10,7 @@ Contributors
 The following wonderful people contributed directly or indirectly to this project:
 
 - Alexandru Stanciu <https://github.com/ducu>
+- Alexander Gorokhov <https://github.com/sashgorokhov>
 - Andrew Bjonnes <https://github.com/abjonnes>
 - Armaghan Behlum <https://github.com/armaghan-behlum>
 - Erik Wiffin <https://github.com/erikwiffin>
