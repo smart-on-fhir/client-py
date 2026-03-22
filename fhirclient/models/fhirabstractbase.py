@@ -159,6 +159,17 @@ class FHIRAbstractBase(object):
             raise FHIRValidationError("Non-dict type {} fed to `update_with_json` on {}"
                 .format(type(jsondict), type(self)))
         
+        # Fix incorrect field names and structure (ONLY for Contract)
+        if isinstance(jsondict, dict) and "subtype" in jsondict:
+            if jsondict.get("resourceType") == "Contract":
+                value = jsondict.pop("subtype")
+
+                if value is not None:
+                    if isinstance(value, str):
+                        jsondict["subType"] = [{"text": value}]
+                    else:
+                        jsondict["subType"] = value
+
         # loop all registered properties and instantiate
         errs = []
         valid = set(['resourceType'])   # used to also contain `fhir_comments` until STU-3
