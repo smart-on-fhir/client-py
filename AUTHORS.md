@@ -25,5 +25,5 @@ The following wonderful people contributed directly or indirectly to this projec
 - Svetlana Grebennikova <https://github.com/LanaNYC>
 - Tim Harsch <https://github.com/timharsch>
 - Trinadh Baranika <https://github.com/bktrinadh>
-
+- Deep Patel <https://github.com/pateldeep04>
 Please add yourself here alphabetically when you submit your first pull request.
