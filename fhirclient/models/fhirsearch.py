@@ -6,11 +6,11 @@
 
 import logging
 import warnings
-from typing import Iterator, TYPE_CHECKING
+from typing import AsyncIterator, Iterator, TYPE_CHECKING
 
 
 from . import fhirreference
-from .._utils import iter_pages
+from .._utils import iter_pages, iter_pages_async
 
 try:
     from urllib import quote_plus
@@ -130,6 +130,15 @@ class FHIRSearch(object):
         from .bundle import Bundle
         return Bundle.read_from(self.construct(), server)
 
+    async def _read_bundle_async(self, server) -> 'Bundle':
+        """Async variant of _read_bundle()."""
+        if server is None:
+            raise Exception("Need a server to perform search")
+
+        from .bundle import Bundle
+
+        return await Bundle.read_from_async(self.construct(), server)
+
     def perform(self, server) -> 'Bundle':
         """ Construct the search URL and execute it against the given server.
         
@@ -145,6 +154,15 @@ class FHIRSearch(object):
 
         return self._read_bundle(server)
 
+    async def perform_async(self, server) -> 'Bundle':
+        """Async variant of perform()."""
+        warnings.warn(
+            "perform_async() is deprecated and will be removed in a future release. "
+            "Please use perform_iter_async() instead.",
+            DeprecationWarning,
+        )
+        return await self._read_bundle_async(server)
+
     # Use forward references to avoid circular imports
     def perform_iter(self, server) -> Iterator['Bundle']:
         """ Perform the search by calling `perform` and return an iterator that yields
@@ -154,6 +172,11 @@ class FHIRSearch(object):
         :returns: An iterator of Bundle instances
         """
         return iter_pages(self._read_bundle(server), server)
+
+    async def perform_iter_async(self, server) -> AsyncIterator['Bundle']:
+        """Async variant of perform_iter()."""
+        async for bundle in iter_pages_async(await self._read_bundle_async(server), server):
+            yield bundle
 
     def perform_resources(self, server) -> 'list[Resource]':
         """ Performs the search by calling `perform_resources_iter` and returns a list of Resource instances.
@@ -170,6 +193,18 @@ class FHIRSearch(object):
 
         return list(self.perform_resources_iter(server))
 
+    async def perform_resources_async(self, server) -> 'list[Resource]':
+        """Async variant of perform_resources()."""
+        warnings.warn(
+            "perform_resources_async() is deprecated and will be removed in a future release. "
+            "Please use perform_resources_iter_async() instead.",
+            DeprecationWarning,
+        )
+        resources = []
+        async for resource in self.perform_resources_iter_async(server):
+            resources.append(resource)
+        return resources
+
     # Use forward references to avoid circular imports
     def perform_resources_iter(self, server) -> Iterator['Resource']:
         """ Performs the search by calling `perform_iter` and yields Resource instances
@@ -179,6 +214,14 @@ class FHIRSearch(object):
         :returns: An iterator of Resource instances
         """
         for bundle in self.perform_iter(server):
+            entries = bundle.entry or []
+            for entry in entries:
+                if entry.resource:
+                    yield entry.resource
+
+    async def perform_resources_iter_async(self, server) -> AsyncIterator['Resource']:
+        """Async variant of perform_resources_iter()."""
+        async for bundle in self.perform_iter_async(server):
             entries = bundle.entry or []
             for entry in entries:
                 if entry.resource:

@@ -121,12 +121,28 @@ class FHIRAuth:
         """Return the launch context."""
         raise Exception(f"{self} cannot handle callback URL")
 
+    def authorize(self, server):
+        """Perform authorization if supported."""
+        return None
+
+    async def handle_callback_async(self, url, server):
+        """Async variant of handle_callback()."""
+        return self.handle_callback(url, server)
+
     def reauthorize(self):
         """Perform a re-authorization of some form.
 
         :returns: The launch context dictionary or None on failure
         """
         return None
+
+    async def authorize_async(self, server):
+        """Async variant of authorize()."""
+        return self.authorize(server)
+
+    async def reauthorize_async(self, server):
+        """Async variant of reauthorize()."""
+        return self.reauthorize(server)
 
     # MARK: State
 
@@ -286,6 +302,35 @@ class FHIROAuth2Auth(FHIRAuth):
         exchange = self._code_exchange_params(code)
         return self._request_access_token(server, exchange)
 
+    async def handle_callback_async(self, url, server):
+        """Async version of handle_callback()."""
+        logger.debug("SMART AUTH: Handling callback URL")
+        if url is None:
+            raise Exception("No callback URL received")
+        try:
+            args = dict(urlparse.parse_qsl(urlparse.urlsplit(url)[3]))
+        except Exception as e:
+            raise Exception(f"Invalid callback URL: {e}")
+
+        err = self.extract_oauth_error(args)
+        if err is not None:
+            raise Exception(err)
+
+        stt = args.get("state")
+        if stt is None or self.auth_state != stt:
+            raise Exception(
+                f"Invalid state, will not use this code. Have: {stt}, want: {self.auth_state}"
+            )
+
+        code = args.get("code")
+        if code is None:
+            raise Exception(
+                "Did not receive a code, only have: {0}".format(", ".join(args.keys()))
+            )
+
+        exchange = self._code_exchange_params(code)
+        return await self._request_access_token_async(server, exchange)
+
     def _code_exchange_params(self, code):
         """These parameters are used by to exchange the given code for an
         access token.
@@ -311,7 +356,7 @@ class FHIROAuth2Auth(FHIRAuth):
 
         logger.debug(f"SMART AUTH: Requesting access token from {self._token_uri}")
         auth = None
-        if self.app_secret:
+        if self.app_id and self.app_secret:
             auth = (self.app_id, self.app_secret)
         ret_params = server.post_as_form(self._token_uri, params, auth).json()
 
@@ -338,6 +383,37 @@ class FHIROAuth2Auth(FHIRAuth):
         )
         return ret_params
 
+    async def _request_access_token_async(self, server, params):
+        """Async version of _request_access_token()."""
+        if server is None:
+            raise Exception("I need a server to request an access token")
+
+        logger.debug(f"SMART AUTH: Requesting access token from {self._token_uri}")
+        auth = None
+        if self.app_id and self.app_secret:
+            auth = (self.app_id, self.app_secret)
+        ret_params = (await server.post_as_form_async(self._token_uri, params, auth)).json()
+
+        self.access_token = ret_params.get("access_token")
+        if self.access_token is None:
+            raise Exception("No access token received")
+        del ret_params["access_token"]
+
+        if "expires_in" in ret_params:
+            expires_in = int(ret_params["expires_in"])
+            self.expires_at = datetime.now() + timedelta(seconds=expires_in)
+            del ret_params["expires_in"]
+
+        refresh_token = ret_params.get("refresh_token") or params.get("refresh_token")
+        if refresh_token is not None:
+            self.refresh_token = refresh_token
+            if "refresh_token" in ret_params:
+                del ret_params["refresh_token"]
+        logger.debug(
+            f"SMART AUTH: Received access token: {self.access_token is not None}, refresh token: {self.refresh_token is not None}"
+        )
+        return ret_params
+
     # MARK: Authorization
 
     def authorize(self, server):
@@ -348,6 +424,12 @@ class FHIROAuth2Auth(FHIRAuth):
         logger.debug("SMART AUTH: Get access token")
         token_params = self._token_params(server)
         return self._request_access_token(server, token_params)
+
+    async def authorize_async(self, server):
+        """Async version of authorize()."""
+        logger.debug("SMART AUTH: Get access token")
+        token_params = self._token_params(server)
+        return await self._request_access_token_async(server, token_params)
 
     def _token_params(self, server):
         """The URL parameters to use when requesting access token."""
@@ -381,6 +463,16 @@ class FHIROAuth2Auth(FHIRAuth):
         logger.debug("SMART AUTH: Refreshing token")
         reauth = self._reauthorize_params()
         return self._request_access_token(server, reauth)
+
+    async def reauthorize_async(self, server):
+        """Async version of reauthorize()."""
+        if self.refresh_token is None:
+            logger.debug("SMART AUTH: Cannot reauthorize without refresh token")
+            return None
+
+        logger.debug("SMART AUTH: Refreshing token")
+        reauth = self._reauthorize_params()
+        return await self._request_access_token_async(server, reauth)
 
     def _reauthorize_params(self):
         """Parameters to be used in a reauthorize request."""

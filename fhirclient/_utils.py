@@ -2,7 +2,7 @@ import urllib
 from typing import Optional
 
 from typing import TYPE_CHECKING
-from collections.abc import Iterator
+from collections.abc import AsyncIterator, Iterator
 
 if TYPE_CHECKING:
     from fhirclient.server import FHIRServer
@@ -108,3 +108,31 @@ def iter_pages(first_bundle: "Bundle", server: "FHIRServer") -> Iterator["Bundle
     while bundle:
         yield bundle
         bundle = _fetch_next_page(bundle, server)
+
+
+async def _fetch_next_page_async(
+    bundle: "Bundle", server: "FHIRServer"
+) -> Optional["Bundle"]:
+    """Async version of _fetch_next_page()."""
+    if next_link := _get_next_link(bundle):
+        return await _execute_pagination_request_async(next_link, server)
+    return None
+
+
+async def _execute_pagination_request_async(
+    sanitized_url: str, server: "FHIRServer"
+) -> "Bundle":
+    """Async version of _execute_pagination_request()."""
+    from fhirclient.models.bundle import Bundle
+
+    return await Bundle.read_from_async(sanitized_url, server)
+
+
+async def iter_pages_async(
+    first_bundle: "Bundle", server: "FHIRServer"
+) -> AsyncIterator["Bundle"]:
+    """Async iterator variant of iter_pages()."""
+    bundle: Bundle | None = first_bundle
+    while bundle:
+        yield bundle
+        bundle = await _fetch_next_page_async(bundle, server)

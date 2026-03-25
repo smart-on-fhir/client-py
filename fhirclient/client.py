@@ -1,5 +1,10 @@
 import logging
-from .server import FHIRServer, FHIRUnauthorizedException, FHIRNotFoundException
+from .server import (
+    AsyncFHIRServer,
+    FHIRNotFoundException,
+    FHIRServer,
+    FHIRUnauthorizedException,
+)
 
 __version__ = "4.4.0"  # Update docs/Doxyfile too when you bump this
 __author__ = "SMART Platforms Team"
@@ -239,3 +244,59 @@ class FHIRClient:
 
     def save_state(self):
         self._save_func(self.state)
+
+
+class AsyncFHIRClient(FHIRClient):
+    """Async counterpart of FHIRClient."""
+
+    def __init__(self, settings=None, state=None, save_func=lambda x: x):
+        super().__init__(settings=settings, state=state, save_func=save_func)
+        if settings is not None:
+            self.server = AsyncFHIRServer(self, base_uri=settings["api_base"])
+        elif state is not None:
+            self.server = AsyncFHIRServer(self, state=state.get("server"))
+
+    async def prepare_async(self):
+        if self.server:
+            if self.server.ready:
+                return True
+            return await self.server.prepare_async()
+        return False
+
+    async def handle_callback_async(self, url):
+        ctx = (
+            await self.server.handle_callback_async(url)
+            if self.server is not None
+            else None
+        )
+        self._handle_launch_context(ctx)
+
+    async def authorize_async(self):
+        ctx = await self.server.authorize_async() if self.server is not None else None
+        self._handle_launch_context(ctx)
+
+    async def reauthorize_async(self):
+        ctx = await self.server.reauthorize_async() if self.server is not None else None
+        self._handle_launch_context(ctx)
+        return self.launch_context is not None
+
+    async def get_patient_async(self):
+        """Async replacement for patient property lookup."""
+        if self._patient is None and self.patient_id is not None and self.ready:
+            from fhirclient.models.patient import Patient
+
+            try:
+                logger.debug(f"SMART: Attempting to read Patient {self.patient_id}")
+                self._patient = await Patient.read_async(self.patient_id, self.server)
+            except FHIRUnauthorizedException:
+                if await self.reauthorize_async():
+                    logger.debug(
+                        f"SMART: Attempting to read Patient {self.patient_id} after reauthorizing"
+                    )
+                    self._patient = await Patient.read_async(self.patient_id, self.server)
+            except FHIRNotFoundException:
+                logger.warning(f"SMART: Patient with id {self.patient_id} not found")
+                self.patient_id = None
+            self.save_state()
+
+        return self._patient

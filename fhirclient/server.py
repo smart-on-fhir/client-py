@@ -1,7 +1,9 @@
 import json
-import requests
 import logging
 import urllib.parse as urlparse
+
+import aiohttp
+import requests
 
 from .auth import FHIRAuth
 
@@ -31,6 +33,21 @@ class FHIRNotFoundException(Exception):
         self.response = response
 
 
+class AsyncFHIRResponse:
+    """Small response wrapper that mirrors sync response access patterns."""
+
+    def __init__(self, status_code, headers, content):
+        self.status_code = status_code
+        self.headers = headers
+        self.content = content
+        self.text = content.decode("utf-8", errors="replace")
+
+    def json(self):
+        if len(self.text) == 0:
+            return None
+        return json.loads(self.text)
+
+
 class FHIRServer:
     """Handles talking to a FHIR server."""
 
@@ -40,7 +57,7 @@ class FHIRServer:
         self.base_uri = None
         self.aud = None
 
-        # Use a single requests Session for all "requests"
+        # Use a single requests Session for all requests.
         self.session = requests.Session()
 
         # A URI can't possibly be less than 11 chars
@@ -294,7 +311,9 @@ class FHIRServer:
         elif 404 == response.status_code:
             raise FHIRNotFoundException(response)
         else:
-            response.raise_for_status()
+            if hasattr(response, "raise_for_status"):
+                response.raise_for_status()
+            raise Exception(f"HTTP request failed with status {response.status_code}")
 
     # MARK: State Handling
 
@@ -312,3 +331,169 @@ class FHIRServer:
         assert state
         self.base_uri = state.get("base_uri") or self.base_uri
         self.auth = FHIRAuth.create(state.get("auth_type"), state=state.get("auth"))
+
+
+class AsyncFHIRServer(FHIRServer):
+    """Async counterpart of FHIRServer based on aiohttp.ClientSession."""
+
+    def __init__(self, client, base_uri=None, state=None):
+        super().__init__(client, base_uri=base_uri, state=state)
+        self.async_session = None
+
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, exc_type, exc, tb):
+        await self.aclose()
+
+    async def aclose(self):
+        if self.async_session is not None:
+            await self.async_session.close()
+            self.async_session = None
+
+    async def _get_async_session(self):
+        if self.async_session is None:
+            self.async_session = aiohttp.ClientSession()
+        return self.async_session
+
+    async def get_capability_async(self, force=False):
+        """Async version of get_capability()."""
+        if self._capability is None or force:
+            logger.info(f"Fetching CapabilityStatement from {self.base_uri}")
+            from .models import capabilitystatement
+
+            conf = await capabilitystatement.CapabilityStatement.read_from_async(
+                "metadata", self
+            )
+            self._capability = conf
+
+            security = None
+            try:
+                security = conf.rest[0].security
+            except Exception:
+                logger.info(
+                    "No REST security statement found in server capability statement"
+                )
+
+            settings = {
+                "aud": self.aud,
+                "app_id": self.client.app_id if self.client is not None else None,
+                "app_secret": self.client.app_secret
+                if self.client is not None
+                else None,
+                "redirect_uri": self.client.redirect
+                if self.client is not None
+                else None,
+                "jwt_token": self.client.jwt_token if self.client is not None else None,
+            }
+            self.auth = FHIRAuth.from_capability_security(security, settings)
+            self.should_save_state()
+        return self._capability
+
+    async def prepare_async(self):
+        if self.auth is None:
+            await self.get_capability_async()
+        return self.auth.ready if self.auth is not None else False
+
+    async def handle_callback_async(self, url):
+        if self.auth is None:
+            raise Exception(
+                "Not ready to handle callback, I do not have an auth instance"
+            )
+        return await self.auth.handle_callback_async(url, self)
+
+    async def authorize_async(self):
+        if self.auth is None:
+            raise Exception("Not ready to authorize, I do not have an auth instance")
+        return await self.auth.authorize_async(self) if self.auth is not None else None
+
+    async def reauthorize_async(self):
+        if self.auth is None:
+            raise Exception("Not ready to reauthorize, I do not have an auth instance")
+        return (
+            await self.auth.reauthorize_async(self) if self.auth is not None else None
+        )
+
+    async def request_json_async(self, path, nosign=False):
+        res = await self._get_async(path, nosign=nosign)
+        return res.json()
+
+    async def request_data_async(self, path, headers=None, nosign=False):
+        res = await self._get_async(path, headers=headers, nosign=nosign)
+        return res.content
+
+    async def _get_async(self, path, headers=None, nosign=False):
+        assert self.base_uri and path
+        url = urlparse.urljoin(self.base_uri, path)
+
+        header_defaults = {
+            "Accept": FHIRJSONMimeType,
+            "Accept-Charset": "UTF-8",
+        }
+        if headers:
+            header_defaults.update(headers)
+        headers = header_defaults
+        if not nosign and self.auth is not None and self.auth.can_sign_headers():
+            headers = self.auth.signed_headers(headers)
+
+        return await self._request_async("GET", url, headers=headers)
+
+    async def put_json_async(self, path, resource_json, nosign=False):
+        url = urlparse.urljoin(self.base_uri, path)
+        headers = {
+            "Content-type": FHIRJSONMimeType,
+            "Accept": FHIRJSONMimeType,
+            "Accept-Charset": "UTF-8",
+        }
+        if not nosign and self.auth is not None and self.auth.can_sign_headers():
+            headers = self.auth.signed_headers(headers)
+
+        return await self._request_async(
+            "PUT", url, headers=headers, data=json.dumps(resource_json)
+        )
+
+    async def post_json_async(self, path, resource_json, nosign=False):
+        url = urlparse.urljoin(self.base_uri, path)
+        headers = {
+            "Content-type": FHIRJSONMimeType,
+            "Accept": FHIRJSONMimeType,
+            "Accept-Charset": "UTF-8",
+        }
+        if not nosign and self.auth is not None and self.auth.can_sign_headers():
+            headers = self.auth.signed_headers(headers)
+
+        return await self._request_async(
+            "POST", url, headers=headers, data=json.dumps(resource_json)
+        )
+
+    async def post_as_form_async(self, url, formdata, auth=None):
+        basic_auth = None
+        if auth is not None:
+            basic_auth = aiohttp.BasicAuth(auth[0], auth[1])
+        return await self._request_async("POST", url, data=formdata, auth=basic_auth)
+
+    async def delete_json_async(self, path, nosign=False):
+        url = urlparse.urljoin(self.base_uri, path)
+        headers = {
+            "Accept": FHIRJSONMimeType,
+            "Accept-Charset": "UTF-8",
+        }
+        if not nosign and self.auth is not None and self.auth.can_sign_headers():
+            headers = self.auth.signed_headers(headers)
+
+        return await self._request_async("DELETE", url, headers=headers)
+
+    async def _request_async(self, method, url, headers=None, data=None, auth=None):
+        session = await self._get_async_session()
+        async with session.request(
+            method, url, headers=headers, data=data, auth=auth
+        ) as response:
+            content = await response.read()
+            wrapped = AsyncFHIRResponse(
+                status_code=response.status,
+                headers=dict(response.headers),
+                content=content,
+            )
+
+        self.raise_for_status(wrapped)
+        return wrapped

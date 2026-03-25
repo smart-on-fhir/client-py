@@ -84,6 +84,83 @@ class FHIRReference(reference.Reference):
         relative = klass.read_from(self.reference, server)
         owning_resource.didResolveReference(refid, relative)
         return relative
+
+    async def resolved_async(self, klass):
+        """Async variant of resolved()."""
+        owning_resource = self.owningResource()
+        if owning_resource is None:
+            raise Exception(
+                "Cannot resolve reference without having an owner (which must be a `DomainResource`)"
+            )
+        if klass is None:
+            raise Exception("Cannot resolve reference without knowing the class")
+
+        refid = self.processedReferenceIdentifier()
+        if not refid:
+            logger.warning("No `reference` set, cannot resolve")
+            return None
+
+        resolved = owning_resource.resolvedReference(refid)
+        if resolved is not None:
+            if isinstance(resolved, klass):
+                return resolved
+            logger.warning(
+                "Referenced resource {} is not a {} but a {}".format(
+                    refid, klass, resolved.__class__
+                )
+            )
+            return None
+
+        if owning_resource.contained is not None:
+            for contained in owning_resource.contained:
+                if contained.id == refid:
+                    owning_resource.didResolveReference(refid, contained)
+                    if isinstance(contained, klass):
+                        return contained
+                    logger.warning(
+                        "Contained resource {} is not a {} but a {}".format(
+                            refid, klass, contained.__class__
+                        )
+                    )
+                    return None
+
+        ref_is_relative = "://" not in self.reference and "urn:" != self.reference[:4]
+        bundle = self.owningBundle()
+        while bundle is not None:
+            if bundle.entry is not None:
+                fullUrl = self.reference
+                if ref_is_relative:
+                    base = bundle.origin_server.base_uri if bundle.origin_server else ""
+                    fullUrl = base + self.reference
+
+                for entry in bundle.entry:
+                    if entry.fullUrl == fullUrl:
+                        found = entry.resource
+                        if isinstance(found, klass):
+                            return found
+                        logger.warning(
+                            "Bundled resource {} is not a {} but a {}".format(
+                                refid, klass, found.__class__
+                            )
+                        )
+                        return None
+            bundle = bundle.owningBundle()
+
+        server = None
+        if ref_is_relative:
+            server = owning_resource.origin_server if owning_resource else None
+
+        if server is None:
+            logger.warning(
+                "Not implemented: resolving absolute reference to resource {}".format(
+                    self.reference
+                )
+            )
+            return None
+
+        relative = await klass.read_from_async(self.reference, server)
+        owning_resource.didResolveReference(refid, relative)
+        return relative
     
     def processedReferenceIdentifier(self):
         """ Normalizes the reference-id.

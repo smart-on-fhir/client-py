@@ -111,6 +111,30 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         instance.origin_server = server
         return instance
 
+    @classmethod
+    async def read_async(cls, rem_id, server):
+        """Async version of read()."""
+        if not rem_id:
+            raise Exception("Cannot read resource without remote id")
+
+        path = "{}/{}".format(cls.resource_type, rem_id)
+        instance = await cls.read_from_async(path, server)
+        instance._local_id = rem_id
+        return instance
+
+    @classmethod
+    async def read_from_async(cls, path, server):
+        """Async version of read_from()."""
+        if not path:
+            raise Exception("Cannot read resource without REST path")
+        if server is None:
+            raise Exception("Cannot read resource without server instance")
+
+        ret = await server.request_json_async(path)
+        instance = cls(jsondict=ret)
+        instance.origin_server = server
+        return instance
+
     def createPath(self):
         """ Get the endpoint on the server for creating the resource.
 
@@ -140,6 +164,19 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         if len(ret.text) > 0:
             return ret.json()
         return None
+
+    async def create_async(self, server):
+        """Async version of create()."""
+        srv = server or self.origin_server
+        if srv is None:
+            raise Exception("Cannot create a resource without a server")
+        if self.id:
+            raise Exception("This resource already has an id, cannot create")
+
+        ret = await srv.post_json_async(self.createPath(), self.as_json())
+        if len(ret.text) > 0:
+            return ret.json()
+        return None
     
     def update(self, server=None):
         """ Update the receiver's representation on the given server, issuing
@@ -159,6 +196,19 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         if len(ret.text) > 0:
             return ret.json()
         return None
+
+    async def update_async(self, server=None):
+        """Async version of update()."""
+        srv = server or self.origin_server
+        if srv is None:
+            raise Exception("Cannot update a resource that does not have a server")
+        if not self.id:
+            raise Exception("Cannot update a resource that does not have an id")
+
+        ret = await srv.put_json_async(self.relativePath(), self.as_json())
+        if len(ret.text) > 0:
+            return ret.json()
+        return None
     
     def delete(self, server=None):
         """ Delete the receiver from the given server with a DELETE command.
@@ -174,6 +224,19 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
             raise Exception("Cannot delete a resource that does not have an id")
         
         ret = srv.delete_json(self.relativePath())
+        if len(ret.text) > 0:
+            return ret.json()
+        return None
+
+    async def delete_async(self, server=None):
+        """Async version of delete()."""
+        srv = server or self.origin_server
+        if srv is None:
+            raise Exception("Cannot delete a resource that does not have a server")
+        if not self.id:
+            raise Exception("Cannot delete a resource that does not have an id")
+
+        ret = await srv.delete_json_async(self.relativePath())
         if len(ret.text) > 0:
             return ret.json()
         return None

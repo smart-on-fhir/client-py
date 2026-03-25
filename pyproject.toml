@@ -3,6 +3,7 @@ name = "fhirclient"
 requires-python = ">= 3.10"
 dependencies = [
     "requests >= 2.4",
+    "aiohttp >= 3.9",
 ]
 authors = [{ name="SMART Platforms Team", email="support@smarthealthit.org" }]
 readme = "README.md"
@@ -36,4 +37,5 @@ tests = [
     "pytest >= 2.5",
     "pytest-cov",
     "responses",
+    "aioresponses >= 0.7",
 ]
