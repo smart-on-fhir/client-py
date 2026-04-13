@@ -2,7 +2,7 @@
 name = "fhirclient"
 requires-python = ">= 3.10"
 dependencies = [
-    "requests >= 2.4",
+    "requests >= 2.33.1",
 ]
 authors = [{ name="SMART Platforms Team", email="support@smarthealthit.org" }]
 readme = "README.md"
