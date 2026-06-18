@@ -96,7 +96,8 @@ class FHIRSearch(object):
             in reference_model().elementProperties()
         }
 
-        if model_fields.get(reference_field) is not fhirreference.FHIRReference:
+        field_type = model_fields.get(reference_field)
+        if field_type is not None and field_type is not fhirreference.FHIRReference:
             logging.warning(
                 '%s does not have a reference type element named %s',
                 reference_model.resource_type, reference_field
