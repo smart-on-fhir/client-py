@@ -42,11 +42,17 @@ class FHIRSearch(object):
         """ Used internally; stores list of included resources for the search. """
         
         if struct is not None:
-            if dict != type(struct):
-                raise Exception("Must pass a Python dictionary, but got a {}".format(type(struct)))
             self.wants_expand = True
-            for key, val in struct.items():
-                self.params.append(FHIRSearchParam(key, val))
+            if isinstance(struct, list):
+                for item in struct:
+                    if not (isinstance(item, (list, tuple)) and len(item) == 2):
+                        raise Exception("List items must be (key, value) pairs, but got {}".format(type(item)))
+                    self.params.append(FHIRSearchParam(item[0], item[1]))
+            elif dict == type(struct):
+                for key, val in struct.items():
+                    self.params.append(FHIRSearchParam(key, val))
+            else:
+                raise Exception("Must pass a Python dictionary or list of (key, value) pairs, but got a {}".format(type(struct)))
     
     
     # MARK: Execution
