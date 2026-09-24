@@ -18,8 +18,8 @@ except ImportError:
     from urllib.parse import quote_plus
 
 if TYPE_CHECKING:
-    from fhirclient.models.resource import Resource
-    from fhirclient.models.bundle import Bundle
+    from .resource import Resource
+    from .bundle import Bundle
 
 logger = logging.getLogger(__name__)
 
