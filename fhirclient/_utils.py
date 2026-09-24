@@ -5,8 +5,8 @@ from typing import TYPE_CHECKING
 from collections.abc import Iterator
 
 if TYPE_CHECKING:
-    from fhirclient.server import FHIRServer
-    from fhirclient.models.bundle import Bundle
+    from .server import FHIRServer
+    from .models.bundle import Bundle
 
 
 # Use forward references to avoid circular imports
@@ -87,7 +87,7 @@ def _execute_pagination_request(sanitized_url: str, server: "FHIRServer") -> "Bu
     Raises:
         HTTPError: If the request fails due to network issues or server errors.
     """
-    from fhirclient.models.bundle import Bundle
+    from .models.bundle import Bundle
 
     return Bundle.read_from(sanitized_url, server)
 

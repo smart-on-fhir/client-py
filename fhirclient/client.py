@@ -166,7 +166,7 @@ class FHIRClient:
     @property
     def patient(self):
         if self._patient is None and self.patient_id is not None and self.ready:
-            from fhirclient.models.patient import Patient
+            from .models.patient import Patient
 
             try:
                 logger.debug(f"SMART: Attempting to read Patient {self.patient_id}")
