@@ -204,12 +204,23 @@ class FHIRAbstractBase(object):
             elif not_optional:
                 nonoptionals.add(of_many or jsname)
             
-            # TODO: look at `_name` only if this is a primitive!
+            # `_name` carries a primitive's extensions (and id). For
+            # primitive-typed properties, parse it into an `Element` and keep it
+            # in the `_{name}` shadow attribute, so extensions on primitives
+            # survive a parse -> `as_json()` round-trip instead of being
+            # silently dropped. Fixes smart-on-fhir/client-py#30.
+            # Note: `owner`/`resolved` are reserved: `_owner` and `_resolved`
+            # are used internally, but no primitive property uses those names.
             _jsname = '_'+jsname
             _value = jsondict.get(_jsname)
             if _value is not None:
                 valid.add(_jsname)
                 found.add(_jsname)
+                if self._is_primitive_type(typ):
+                    try:
+                        setattr(self, '_'+name, self._primitive_extension(_value, is_list))
+                    except Exception as e:
+                        errs.append(FHIRValidationError([e], '_'+name))
             
             # report errors
             if err is not None:
@@ -229,6 +240,28 @@ class FHIRAbstractBase(object):
         
         if len(errs) > 0:
             raise FHIRValidationError(errs)
+    
+    def _primitive_extension(self, jsonobj, is_list):
+        """ Instantiates a `_name` primitive-extension payload as `Element`
+        instance(s), owned by the receiver. `Element` carries the extension's
+        `id` and `extension` entries.
+        
+        The import is lazy because `element` imports this module.
+        
+        :raises: TypeError on wrongly shaped payloads
+        :param jsonobj: The decoded `_name` JSON payload
+        :param bool is_list: Whether the primitive property is a list
+        :returns: An `Element` instance, or a list of them
+        """
+        from . import element
+        if is_list:
+            if not isinstance(jsonobj, list):
+                raise TypeError("Expecting a list for primitive extension, got {}"
+                    .format(type(jsonobj)))
+            return [element.Element.with_json_and_owner(item, self) if item is not None else None
+                for item in jsonobj]
+        return element.Element.with_json_and_owner(jsonobj, self)
+    
     
     def as_json(self):
         """ Serializes to JSON by inspecting `elementProperties()` and creating
@@ -250,6 +283,19 @@ class FHIRAbstractBase(object):
         for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
             if not_optional:
                 nonoptionals.add(of_many or jsname)
+            
+            # serialize the primitive's extension shadow (`_name`), if one was
+            # parsed; this keeps extensions on primitives across round-trips
+            if self._is_primitive_type(typ):
+                shadow = getattr(self, '_'+name, None)
+                if shadow is not None:
+                    try:
+                        if is_list:
+                            js['_'+jsname] = [s.as_json() if hasattr(s, 'as_json') else s for s in shadow]
+                        else:
+                            js['_'+jsname] = shadow.as_json() if hasattr(shadow, 'as_json') else shadow
+                    except FHIRValidationError as e:
+                        errs.append(e.prefixed('_'+name))
             
             err = None
             value = getattr(self, name)
@@ -296,6 +342,14 @@ class FHIRAbstractBase(object):
         if len(errs) > 0:
             raise FHIRValidationError(errs)
         return js
+    
+    @staticmethod
+    def _is_primitive_type(typ):
+        """ Returns True if the given `elementProperties` type denotes a FHIR
+        primitive (`str`, `bool`, `int`, `float` or one of the `FHIRDate`
+        types), as opposed to a FHIR element class.
+        """
+        return not (isinstance(typ, type) and issubclass(typ, FHIRAbstractBase))
     
     def _matches_type(self, value, typ):
         if value is None:
