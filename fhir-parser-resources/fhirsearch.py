@@ -90,19 +90,6 @@ class FHIRSearch(object):
         if reference_model is None:
             reference_model = self.resource_type
 
-        model_fields = {
-            name: typ
-            for name, _, typ, _, _, _
-            in reference_model().elementProperties()
-        }
-
-        if model_fields.get(reference_field) is not fhirreference.FHIRReference:
-            logging.warning(
-                '%s does not have a reference type element named %s',
-                reference_model.resource_type, reference_field
-            )
-            return self
-
         if reference_model is not self.resource_type and not reverse:
             logging.warning('Only reverse includes can have a different reference model')
             reverse = True
